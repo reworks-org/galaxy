@@ -11,6 +11,7 @@
 #include <glm/vec2.hpp>
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
@@ -21,7 +22,7 @@ namespace galaxy
 		///
 		/// Circle definition for renderer.
 		///
-		class Circle final : public graphics::VertexData
+		class Circle final : public graphics::VertexData, public fs::Serializable
 		{
 		public:
 			///
@@ -86,11 +87,19 @@ namespace galaxy
 			///
 			[[nodiscard]] const float radius() const noexcept;
 
-		private:
 			///
-			/// Radius of circle.
+			/// Serializes object.
 			///
-			float m_radius;
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
@@ -102,6 +111,22 @@ namespace galaxy
 			/// Copy constructor.
 			///
 			Circle(const Circle&) = delete;
+
+		private:
+			///
+			/// Radius of circle.
+			///
+			float m_radius;
+
+			///
+			/// Fragments (aka points in the circle).
+			///
+			float m_fragments;
+
+			///
+			/// Colour.
+			///
+			graphics::Colour m_colour;
 		};
 	} // namespace components
 } // namespace galaxy

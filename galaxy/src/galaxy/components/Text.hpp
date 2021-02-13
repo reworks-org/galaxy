@@ -8,6 +8,7 @@
 #ifndef GALAXY_COMPONENTS_TEXT_HPP_
 #define GALAXY_COMPONENTS_TEXT_HPP_
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
@@ -23,7 +24,7 @@ namespace galaxy
 		///
 		/// Creates text for use with OpenGL.
 		///
-		class Text final
+		class Text final : public fs::Serializable
 		{
 			friend class graphics::Renderer;
 
@@ -133,6 +134,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const unsigned int index_count() const noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -183,6 +198,16 @@ namespace galaxy
 			/// Character <-> batched sprite hashmap.
 			///
 			robin_hood::unordered_map<unsigned int, CharacterBatch> m_batch_data;
+
+			///
+			/// Font ID.
+			///
+			std::string m_font_str;
+
+			///
+			/// Text ID.
+			///
+			std::string m_text_str;
 		};
 	} // namespace components
 } // namespace galaxy

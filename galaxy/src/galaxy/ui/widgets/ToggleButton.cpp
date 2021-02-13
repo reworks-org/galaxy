@@ -25,10 +25,10 @@ namespace galaxy
 		void ToggleButton::create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover)
 		{
 			m_batched.create(on);
-			m_regions[0] = SL_HANDLE.atlas()->get_region(on);
-			m_regions[1] = SL_HANDLE.atlas()->get_region(off);
-			m_regions[2] = SL_HANDLE.atlas()->get_region(on_hover);
-			m_regions[3] = SL_HANDLE.atlas()->get_region(off_hover);
+			m_regions[0] = on;
+			m_regions[1] = off;
+			m_regions[2] = on_hover;
+			m_regions[3] = off_hover;
 
 			m_bounds.m_width  = m_batched.get_width();
 			m_bounds.m_height = m_batched.get_height();
@@ -115,19 +115,19 @@ namespace galaxy
 			switch (m_state)
 			{
 				case ToggleButton::State::ON:
-					m_batched.update_region(m_regions[0]);
+					m_batched.set_region(m_regions[0]);
 					break;
 
 				case ToggleButton::State::OFF:
-					m_batched.update_region(m_regions[1]);
+					m_batched.set_region(m_regions[1]);
 					break;
 
 				case ToggleButton::State::ON_HOVER:
-					m_batched.update_region(m_regions[2]);
+					m_batched.set_region(m_regions[2]);
 					break;
 
 				case ToggleButton::State::OFF_HOVER:
-					m_batched.update_region(m_regions[3]);
+					m_batched.set_region(m_regions[3]);
 					break;
 			}
 		}

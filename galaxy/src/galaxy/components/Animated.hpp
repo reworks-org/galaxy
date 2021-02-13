@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		/// Allows for an entity to be animated.
 		///
-		class Animated final
+		class Animated final : public fs::Serializable
 		{
 			friend class systems::AnimationSystem;
 
@@ -114,6 +114,20 @@ namespace galaxy
 			/// \return Const bool. True if paused.
 			///
 			[[nodiscard]] const bool is_paused() const noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///

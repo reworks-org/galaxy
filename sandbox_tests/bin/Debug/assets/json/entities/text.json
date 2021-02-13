@@ -1,7 +1,6 @@
 {
     "name": "TextEntity",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "Text": {
             "colour": {

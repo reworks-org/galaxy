@@ -16,21 +16,18 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-		    : VertexData {}, Texture {}
+		    : Serializable {this}, VertexData {}, Texture {}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-		    : VertexData {}, Texture {}
+		    : Serializable {this}, VertexData {}, Texture {}
 		{
-			load(json.at("texture"));
-			create();
-
-			set_opacity(json.at("opacity"));
+			deserialize(json);
 		}
 
 		Sprite::Sprite(Sprite&& s) noexcept
-		    : VertexData {std::move(s)}, Texture {std::move(s)}
+		    : Serializable {this}, VertexData {std::move(s)}, Texture {std::move(s)}
 		{
 		}
 
@@ -81,6 +78,24 @@ namespace galaxy
 		{
 			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		nlohmann::json Sprite::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["texture"]     = m_texture_str;
+			json["opacity"]     = m_opacity;
+
+			return json;
+		}
+
+		void Sprite::deserialize(const nlohmann::json& json)
+		{
+			m_texture_str = json.at("texture");
+			load(m_texture_str);
+			create();
+
+			set_opacity(json.at("opacity"));
 		}
 	} // namespace components
 } // namespace galaxy

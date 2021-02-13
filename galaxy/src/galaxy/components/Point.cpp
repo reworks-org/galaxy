@@ -14,24 +14,24 @@ namespace galaxy
 	namespace components
 	{
 		Point::Point() noexcept
-		    : m_size {0}
+		    : Serializable {this}, m_size {0}, m_colour {0, 0, 0, 255}
 		{
 		}
 
 		Point::Point(const unsigned int size, const graphics::Colour& colour) noexcept
-		    : m_size {0}
+		    : Serializable {this}, m_size {0}, m_colour {0, 0, 0, 255}
 		{
 			create(size, colour);
 		}
 
 		Point::Point(const nlohmann::json& json)
+		    : Serializable {this}
 		{
-			const auto colour = json.at("colour");
-			create(json.at("size"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
+			deserialize(json);
 		}
 
 		Point::Point(Point&& p) noexcept
-		    : VertexData {std::move(p)}
+		    : VertexData {std::move(p)}, Serializable {this}
 		{
 			this->m_size = p.m_size;
 		}
@@ -50,7 +50,8 @@ namespace galaxy
 
 		void Point::create(const unsigned int size, const graphics::Colour& colour)
 		{
-			m_size = size;
+			m_size   = size;
+			m_colour = colour;
 
 			std::vector<graphics::PrimitiveVertex> vertexs;
 			vertexs.emplace_back(0.0f, 0.0f, colour);
@@ -84,6 +85,26 @@ namespace galaxy
 		const int Point::get_size() const noexcept
 		{
 			return m_size;
+		}
+
+		nlohmann::json Point::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["size"]        = m_size;
+
+			json["colour"]      = nlohmann::json::object();
+			json["colour"]["r"] = m_colour.m_red;
+			json["colour"]["g"] = m_colour.m_green;
+			json["colour"]["b"] = m_colour.m_blue;
+			json["colour"]["a"] = m_colour.m_alpha;
+
+			return json;
+		}
+
+		void Point::deserialize(const nlohmann::json& json)
+		{
+			const auto colour = json.at("colour");
+			create(json.at("size"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
 		}
 	} // namespace components
 } // namespace galaxy

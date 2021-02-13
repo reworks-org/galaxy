@@ -11,6 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -20,7 +21,7 @@ namespace galaxy
 		///
 		/// Defines the transformation of an entity.
 		///
-		class Transform final
+		class Transform final : public fs::Serializable
 		{
 		public:
 			///
@@ -116,6 +117,20 @@ namespace galaxy
 			/// \return Const glm::vec2.
 			///
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///

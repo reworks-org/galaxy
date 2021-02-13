@@ -14,27 +14,19 @@ namespace galaxy
 	namespace graphics
 	{
 		Animation::Animation() noexcept
-		    : m_active_frame {nullptr}, m_name {"null"}, m_looping {false}, m_speed {0.0}, m_total_frames {0}, m_current_frame_index {0}
+		    : Serializable {this}, m_active_frame {nullptr}, m_name {"null"}, m_looping {false}, m_speed {0.0}, m_total_frames {0}, m_current_frame_index {0}
 		{
 		}
 
 		Animation::Animation(std::string_view name, bool looping, const double speed, std::span<Frame> frames) noexcept
-		    : m_active_frame {nullptr}, m_name {name}, m_looping {looping}, m_speed {speed}, m_total_frames {frames.size()}, m_current_frame_index {0}, m_frames {frames.begin(), frames.end()}
+		    : Serializable {this}, m_active_frame {nullptr}, m_name {name}, m_looping {looping}, m_speed {speed}, m_total_frames {frames.size()}, m_current_frame_index {0}, m_frames {frames.begin(), frames.end()}
 		{
 		}
 
 		Animation::Animation(std::string_view name, const nlohmann::json& json)
-		    : m_name {name}
+		    : Serializable {this}, m_name {name}
 		{
-			m_looping      = json.at("loop");
-			m_speed        = json.at("speed");
-			m_total_frames = json.at("total-frames");
-
-			const auto frames = json.at("frames");
-			for (const auto& [id, obj] : frames.items())
-			{
-				m_frames.emplace_back(Frame {obj});
-			}
+			deserialize(json);
 		}
 
 		Animation::~Animation() noexcept
@@ -102,6 +94,35 @@ namespace galaxy
 		const std::vector<Frame>& Animation::get_frames() const noexcept
 		{
 			return m_frames;
+		}
+
+		nlohmann::json Animation::serialize()
+		{
+			nlohmann::json json  = "{}"_json;
+			json["loop"]         = m_looping;
+			json["speed"]        = m_speed;
+			json["total-frames"] = m_total_frames;
+
+			json["frames"] = nlohmann::json::object();
+			for (std::size_t i = 0; i < m_frames.size(); i++)
+			{
+				json["frames"][std::to_string(i)] = m_frames[i].serialize();
+			}
+
+			return json;
+		}
+
+		void Animation::deserialize(const nlohmann::json& json)
+		{
+			m_looping      = json.at("loop");
+			m_speed        = json.at("speed");
+			m_total_frames = json.at("total-frames");
+
+			const auto frames = json.at("frames");
+			for (const auto& [id, obj] : frames.items())
+			{
+				m_frames.emplace_back(Frame {obj});
+			}
 		}
 	} // namespace graphics
 } // namespace galaxy

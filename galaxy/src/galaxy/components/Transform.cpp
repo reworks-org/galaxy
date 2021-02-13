@@ -17,25 +17,18 @@ namespace galaxy
 	namespace components
 	{
 		Transform::Transform() noexcept
-		    : m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
+		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
 		{
 		}
 
 		Transform::Transform(const nlohmann::json& json)
-		    : m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
+		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
 		{
-			if ((json.count("x") > 0) && json.count("y") > 0)
-			{
-				set_pos(json.at("x"), json.at("y"));
-			}
-
-			if (json.count("rotation") > 0)
-			{
-				rotate(json.at("rotation"));
-			}
+			deserialize(json);
 		}
 
 		Transform::Transform(Transform&& t) noexcept
+		    : Serializable {this}
 		{
 			this->m_dirty       = t.m_dirty;
 			this->m_model       = std::move(t.m_model);
@@ -129,6 +122,29 @@ namespace galaxy
 		const glm::vec2& Transform::get_pos() const noexcept
 		{
 			return m_pos;
+		}
+
+		nlohmann::json Transform::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["x"]           = m_pos.x;
+			json["y"]           = m_pos.y;
+			json["rotation"]    = m_rotate;
+
+			return json;
+		}
+
+		void Transform::deserialize(const nlohmann::json& json)
+		{
+			if ((json.count("x") > 0) && json.count("y") > 0)
+			{
+				set_pos(json.at("x"), json.at("y"));
+			}
+
+			if (json.count("rotation") > 0)
+			{
+				rotate(json.at("rotation"));
+			}
 		}
 	} // namespace components
 } // namespace galaxy

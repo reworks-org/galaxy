@@ -1,7 +1,6 @@
 {
     "name": "SpriteEntity",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "Sprite": {
         	"texture": "wall_2.png",

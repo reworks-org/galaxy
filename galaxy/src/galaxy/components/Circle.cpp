@@ -18,25 +18,28 @@ namespace galaxy
 	namespace components
 	{
 		Circle::Circle() noexcept
-		    : m_radius {10.0f}
+		    : Serializable {this}, m_radius {10.0f}, m_fragments {20}, m_colour {0, 0, 0, 255}
 		{
 		}
 
 		Circle::Circle(const float radius, const unsigned int fragments, const graphics::Colour& colour)
-		    : m_radius {10.0f}
+		    : Serializable {this}, m_radius {10.0f}, m_fragments {20}, m_colour {0, 0, 0, 255}
 		{
 			create(radius, fragments, colour);
 		}
 
 		Circle::Circle(const nlohmann::json& json)
+		    : Serializable {this}, m_radius {10.0f}, m_fragments {20}, m_colour {0, 0, 0, 255}
 		{
-			const auto colour = json.at("colour");
-			create(json.at("radius"), json.at("fragments"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
+			deserialize(json);
 		}
 
 		Circle::Circle(Circle&& c) noexcept
-		    : VertexData {std::move(c)}
+		    : VertexData {std::move(c)}, Serializable {this}
 		{
+			this->m_radius    = c.m_radius;
+			this->m_fragments = c.m_fragments;
+			this->m_colour    = std::move(c.m_colour);
 		}
 
 		Circle& Circle::operator=(Circle&& c) noexcept
@@ -44,6 +47,10 @@ namespace galaxy
 			if (this != &c)
 			{
 				graphics::VertexData::operator=(std::move(c));
+
+				this->m_radius    = c.m_radius;
+				this->m_fragments = c.m_fragments;
+				this->m_colour    = std::move(c.m_colour);
 			}
 
 			return *this;
@@ -51,6 +58,10 @@ namespace galaxy
 
 		void Circle::create(const float radius, const unsigned int fragments, const graphics::Colour& colour)
 		{
+			m_radius    = radius;
+			m_fragments = fragments;
+			m_colour    = colour;
+
 			// Thanks to https://stackoverflow.com/a/33859443.
 			// For help with maths.
 
@@ -90,6 +101,27 @@ namespace galaxy
 		const float Circle::radius() const noexcept
 		{
 			return m_radius;
+		}
+
+		nlohmann::json Circle::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["radius"]      = m_radius;
+			json["fragments"]   = m_fragments;
+
+			json["colour"]      = nlohmann::json::object();
+			json["colour"]["r"] = m_colour.m_red;
+			json["colour"]["g"] = m_colour.m_green;
+			json["colour"]["b"] = m_colour.m_blue;
+			json["colour"]["a"] = m_colour.m_alpha;
+
+			return json;
+		}
+
+		void Circle::deserialize(const nlohmann::json& json)
+		{
+			const auto colour = json.at("colour");
+			create(json.at("radius"), json.at("fragments"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
 		}
 	} // namespace components
 } // namespace galaxy

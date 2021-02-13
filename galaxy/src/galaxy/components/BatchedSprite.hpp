@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
@@ -18,14 +19,14 @@ namespace galaxy
 	namespace graphics
 	{
 		class SpriteBatch;
-	}
+	} // namespace graphics
 
 	namespace components
 	{
 		///
 		/// A sprite that does not contain a texture. Useful for when working with batches and texture atlas'.
 		///
-		class BatchedSprite final
+		class BatchedSprite final : public fs::Serializable
 		{
 			friend class graphics::SpriteBatch;
 
@@ -74,49 +75,11 @@ namespace galaxy
 			void create(std::string_view texture_atlas_id, float opacity = 1.0f);
 
 			///
-			/// Update texquad region.
+			/// Set region.
 			///
-			/// \param x New x position.
+			/// \param region Name of region in texture atlas.
 			///
-			void update_x_region(const float x) noexcept;
-
-			///
-			/// Update texquad region.
-			///
-			/// \param y New y position.
-			///
-			void update_y_region(const float y) noexcept;
-
-			///
-			/// Update texquad region.
-			///
-			/// \param w Width.
-			///
-			void update_w_region(const float w) noexcept;
-
-			///
-			/// Update texquad region.
-			///
-			/// \param h Height.
-			///
-			void update_h_region(const float h) noexcept;
-
-			///
-			/// Update texquad region.
-			///
-			/// \param x New x position.
-			/// \param y New y position.
-			/// \param w Width.
-			/// \param h Height.
-			///
-			void update_region(const float x, const float y, const float w, const float h) noexcept;
-
-			///
-			/// Update texquad region.
-			///
-			/// \param quad New quad region.
-			///
-			void update_region(const graphics::fRect& quad) noexcept;
+			void set_region(std::string_view region);
 
 			///
 			/// Set opacity.
@@ -126,6 +89,20 @@ namespace galaxy
 			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 			///
 			void set_opacity(const float opacity) noexcept;
+
+			///
+			/// Set a custom width.
+			///
+			/// \param width New width to apply to texture.
+			///
+			void set_custom_width(const float width) noexcept;
+
+			///
+			/// Set a custom height.
+			///
+			/// \param height New height to apply to texture.
+			///
+			void set_custom_height(const float height) noexcept;
 
 			///
 			/// Get opacity.
@@ -159,6 +136,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const graphics::fRect& get_region() const noexcept;
 
+			///
+			/// Get region this frame occupies.
+			///
+			/// \return Const float rectangle.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -171,6 +162,11 @@ namespace galaxy
 			BatchedSprite& operator=(const BatchedSprite&) = delete;
 
 		private:
+			///
+			/// Texture region ID.
+			///
+			std::string m_id;
+
 			///
 			/// Opacity of BatchedSprite.
 			///
@@ -190,6 +186,11 @@ namespace galaxy
 			/// Set by spritebatch.
 			///
 			int m_z_level;
+
+			///
+			/// Custom width/height.
+			///
+			glm::vec2 m_custom_wh;
 		};
 	} // namespace components
 } // namespace galaxy

@@ -153,7 +153,7 @@ namespace galaxy
 			///
 			/// Contains each region on the texture atlas.
 			///
-			std::array<graphics::fRect, 4> m_regions;
+			std::array<std::string, 4> m_regions;
 
 			///
 			/// Batched sprite.

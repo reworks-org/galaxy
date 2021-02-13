@@ -1,7 +1,6 @@
 {
     "name": "Floor",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "Sprite": {
         	"texture": "floor.png",
@@ -29,7 +28,6 @@
 			"density" : 1,
 			"friction" : 1,
 			"bounce" : 0
-        },
-        "OnCollision": {}
+        }
     }
 }

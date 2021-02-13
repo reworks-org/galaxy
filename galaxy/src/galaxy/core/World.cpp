@@ -55,17 +55,6 @@ namespace galaxy
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
 
-			register_component<components::OnEvent<events::KeyChar>>("OnKeyChar");
-			register_component<components::OnEvent<events::KeyDown>>("OnKeyDown");
-			register_component<components::OnEvent<events::KeyUp>>("OnKeyUp");
-			register_component<components::OnEvent<events::MouseMoved>>("OnMouseMoved");
-			register_component<components::OnEvent<events::MousePressed>>("OnMousePressed");
-			register_component<components::OnEvent<events::MouseReleased>>("OnMouseReleased");
-			register_component<components::OnEvent<events::MouseWheel>>("OnMouseWheel");
-			register_component<components::OnEvent<events::WindowResized>>("OnWindowResized");
-			register_component<components::OnEvent<events::Collision>>("OnCollision");
-			register_component<components::OnEvent<events::FinishCollision>>("OnFinishCollision");
-
 			m_b2_world.SetAllowSleeping(true);
 		}
 
@@ -148,10 +137,10 @@ namespace galaxy
 				disable(entity);
 			}
 
-			const bool center_rotation = json.at("center-rotation-origin");
-			if (center_rotation)
+			auto* renderable = get<components::Renderable>(entity);
+			if (renderable)
 			{
-				set_rotation_origin(entity, get<components::Renderable>(entity)->m_type);
+				set_rotation_origin(entity, renderable->m_type);
 			}
 
 			return entity;
@@ -323,23 +312,94 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 
+			const auto grav   = m_b2_world.GetGravity();
+			json["gravity-x"] = grav.x;
+			json["gravity-y"] = grav.y;
+
 			json["entities"] = nlohmann::json::array();
 			for (const auto& entity : m_entities)
 			{
 				nlohmann::json entity_json = nlohmann::json::object();
-				const auto& bitset         = m_flags[entity];
-				entity_json["flags"]       = nlohmann::json::object();
-				for (std::size_t i = 0; i < 8; i++)
+
+				// Data
+				// clang-format off
+				const auto name = std::find_if(m_debug_names.begin(), m_debug_names.end(), [&](const auto& pair) {
+					return entity == pair.second;
+				});
+				entity_json["name"]       = name->first;
+				entity_json["enabled"]    = is_enabled(entity);
+				entity_json["components"] = nlohmann::json::object();
+
+				auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, text, transform] = get_multi<
+					components::Animated,
+				    components::BatchedSprite,
+				    components::Circle,
+				    components::Line,
+					components::Physics,
+				    components::Point,
+				    components::Renderable,
+				    components::ShaderID,
+				    components::Sprite,
+				    components::Text,
+				    components::Transform>(entity);
+				// clang-format on
+				if (animated)
 				{
-					entity_json["flags"][std::to_string(i)] = bitset[i];
+					entity_json["components"]["Animated"] = animated->serialize();
+				}
+
+				if (batchedsprite)
+				{
+					entity_json["components"]["BatchedSprite"] = batchedsprite->serialize();
+				}
+
+				if (circle)
+				{
+					entity_json["components"]["Circle"] = circle->serialize();
+				}
+
+				if (line)
+				{
+					entity_json["components"]["Line"] = line->serialize();
+				}
+
+				if (physics)
+				{
+					entity_json["components"]["Physics"] = physics->serialize();
+				}
+
+				if (point)
+				{
+					entity_json["components"]["Point"] = point->serialize();
+				}
+
+				if (renderable)
+				{
+					entity_json["components"]["Renderable"] = renderable->serialize();
+				}
+
+				if (shaderid)
+				{
+					entity_json["components"]["ShaderID"] = shaderid->serialize();
+				}
+
+				if (sprite)
+				{
+					entity_json["components"]["Sprite"] = sprite->serialize();
+				}
+
+				if (text)
+				{
+					entity_json["components"]["Text"] = text->serialize();
+				}
+
+				if (transform)
+				{
+					entity_json["components"]["Transform"] = transform->serialize();
 				}
 
 				json["entities"].push_back(entity_json);
 			}
-
-			const auto grav   = m_b2_world.GetGravity();
-			json["gravity-x"] = grav.x;
-			json["gravity-y"] = grav.y;
 
 			return json;
 		}
@@ -347,6 +407,14 @@ namespace galaxy
 		void World::deserialize(const nlohmann::json& json)
 		{
 			clear();
+
+			m_b2_world.SetGravity({json.at("gravity-x"), json.at("gravity-y")});
+
+			const auto entity_json = json.at("entities");
+			for (const auto& obj : entity_json)
+			{
+				create_from_json_obj(obj);
+			}
 		}
 	} // namespace core
 } // namespace galaxy

@@ -530,19 +530,17 @@ namespace galaxy
 			circle_type["opacity"]     = &components::Circle::opacity;
 			circle_type["set_opacity"] = &components::Circle::set_opacity;
 
-			auto bs_type               = lua->new_usertype<components::BatchedSprite>("gBatchedSprite", sol::constructors<components::BatchedSprite()>());
-			bs_type["create_region"]   = sol::resolve<void(const graphics::fRect&, float)>(&components::BatchedSprite::create);
-			bs_type["create_atlas"]    = sol::resolve<void(std::string_view, float)>(&components::BatchedSprite::create);
-			bs_type["get_height"]      = &components::BatchedSprite::get_height;
-			bs_type["get_region"]      = &components::BatchedSprite::get_region;
-			bs_type["get_width"]       = &components::BatchedSprite::get_width;
-			bs_type["opacity"]         = &components::BatchedSprite::opacity;
-			bs_type["set_opacity"]     = &components::BatchedSprite::set_opacity;
-			bs_type["update_h_region"] = &components::BatchedSprite::update_h_region;
-			bs_type["update_region"]   = sol::resolve<void(const float, const float, const float, const float)>(&components::BatchedSprite::update_region);
-			bs_type["update_w_region"] = &components::BatchedSprite::update_w_region;
-			bs_type["update_x_region"] = &components::BatchedSprite::update_x_region;
-			bs_type["update_y_region"] = &components::BatchedSprite::update_y_region;
+			auto bs_type                 = lua->new_usertype<components::BatchedSprite>("gBatchedSprite", sol::constructors<components::BatchedSprite()>());
+			bs_type["create_region"]     = sol::resolve<void(const graphics::fRect&, float)>(&components::BatchedSprite::create);
+			bs_type["create_atlas"]      = sol::resolve<void(std::string_view, float)>(&components::BatchedSprite::create);
+			bs_type["get_height"]        = &components::BatchedSprite::get_height;
+			bs_type["get_region"]        = &components::BatchedSprite::get_region;
+			bs_type["get_width"]         = &components::BatchedSprite::get_width;
+			bs_type["opacity"]           = &components::BatchedSprite::opacity;
+			bs_type["set_opacity"]       = &components::BatchedSprite::set_opacity;
+			bs_type["set_region"]        = &components::BatchedSprite::set_region;
+			bs_type["set_custom_height"] = &components::BatchedSprite::set_custom_height;
+			bs_type["set_custom_width"]  = &components::BatchedSprite::set_custom_width;
 
 			auto sprite_type               = lua->new_usertype<components::Sprite>("gSprite", sol::constructors<components::Sprite()>());
 			sprite_type["bind"]            = &components::Sprite::bind;
@@ -923,8 +921,10 @@ namespace galaxy
 			particle_generator_type["update_emitter"] = &graphics::ParticleGenerator::update_emitter;
 
 			auto frame_type              = lua->new_usertype<graphics::Frame>("gFrame", sol::constructors<graphics::Frame(), graphics::Frame(const graphics::fRect&, const double)>());
-			frame_type["region"]         = &graphics::Frame::m_region;
-			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
+			frame_type["set_region"]     = &graphics::Frame::set_region;
+			frame_type["get_region"]     = &graphics::Frame::get_region;
+			frame_type["get_region_id"]  = &graphics::Frame::get_region_id;
+			frame_type["time_per_frame"] = &graphics::Frame::time_per_frame;
 
 			auto animation_type                 = lua->new_usertype<graphics::Animation>("gAnimation", sol::no_constructor);
 			animation_type["get_current_frame"] = &graphics::Animation::get_current_frame;

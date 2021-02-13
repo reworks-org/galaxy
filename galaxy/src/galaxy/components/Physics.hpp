@@ -8,8 +8,10 @@
 #ifndef GALAXY_COMPONENTS_PHYSICS_HPP_
 #define GALAXY_COMPONENTS_PHYSICS_HPP_
 
+#include <glm/vec2.hpp>
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/physics/Box2DIntegration.hpp"
 
 namespace galaxy
@@ -24,7 +26,7 @@ namespace galaxy
 		///
 		/// Physics component.
 		///
-		class Physics final
+		class Physics final : public fs::Serializable
 		{
 			friend class core::World;
 
@@ -70,6 +72,20 @@ namespace galaxy
 			///
 			[[nodiscard]] b2Body* const body();
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -98,6 +114,21 @@ namespace galaxy
 			/// Box2D body.
 			///
 			b2Body* m_body;
+
+			///
+			/// Body Shape.
+			///
+			std::string m_bodyshape;
+
+			///
+			/// Vertexs.
+			///
+			std::vector<b2Vec2> m_vertexs;
+
+			///
+			/// Half width/height.
+			///
+			glm::vec2 m_hwhh;
 		};
 	} // namespace components
 } // namespace galaxy

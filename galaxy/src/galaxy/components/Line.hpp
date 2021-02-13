@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
@@ -20,13 +21,13 @@ namespace galaxy
 		///
 		/// Line definition for renderer.
 		///
-		class Line final : public graphics::VertexData
+		class Line final : public graphics::VertexData, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Line() noexcept = default;
+			Line() noexcept;
 
 			///
 			/// Constructor.
@@ -83,6 +84,20 @@ namespace galaxy
 			///
 			void unbind() noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy assignment operator.
@@ -93,6 +108,22 @@ namespace galaxy
 			/// Copy constructor.
 			///
 			Line(const Line&) = delete;
+
+		private:
+			///
+			/// First point.
+			///
+			glm::vec2 m_point_a;
+
+			///
+			/// Second point.
+			///
+			glm::vec2 m_point_b;
+
+			///
+			/// Colour.
+			///
+			graphics::Colour m_colour;
 		};
 	} // namespace components
 } // namespace galaxy

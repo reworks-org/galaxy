@@ -14,23 +14,23 @@ namespace galaxy
 	namespace components
 	{
 		Renderable::Renderable() noexcept
-		    : m_type {graphics::Renderables::SPRITE}, m_z_level {0}
+		    : Serializable {this}, m_type {graphics::Renderables::SPRITE}, m_z_level {0}
 		{
 		}
 
 		Renderable::Renderable(const graphics::Renderables type, const int z_level) noexcept
-		    : m_type {type}, m_z_level {z_level}
+		    : Serializable {this}, m_type {type}, m_z_level {z_level}
 		{
 		}
 
 		Renderable::Renderable(const nlohmann::json& json)
+		    : Serializable {this}
 		{
-			int renderable = json.at("type");
-			m_type         = static_cast<graphics::Renderables>(renderable);
-			m_z_level      = json.at("z-level");
+			deserialize(json);
 		}
 
 		Renderable::Renderable(Renderable&& r) noexcept
+		    : Serializable {this}
 		{
 			this->m_type    = r.m_type;
 			this->m_z_level = r.m_z_level;
@@ -45,6 +45,24 @@ namespace galaxy
 			}
 
 			return *this;
+		}
+
+		nlohmann::json Renderable::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["type"]        = static_cast<int>(m_type);
+			json["z-level"]     = m_z_level;
+
+			return json;
+		}
+
+		void Renderable::deserialize(const nlohmann::json& json)
+		{
+			// clang-format off
+			const int renderable = json.at("type");
+			m_type    = static_cast<graphics::Renderables>(renderable);
+			m_z_level = json.at("z-level");
+			// clang-format on
 		}
 	} // namespace components
 } // namespace galaxy

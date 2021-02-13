@@ -1,7 +1,6 @@
 {
     "name": "BatchEntityA",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "BatchedSprite": {
         	"texture-atlas-id": "wall",

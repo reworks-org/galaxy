@@ -388,7 +388,7 @@ namespace galaxy
 			///
 			/// Debug entity names.
 			///
-			robin_hood::unordered_map<std::string, ecs::Entity> m_debug_names;
+			robin_hood::unordered_flat_map<std::string, ecs::Entity> m_debug_names;
 
 			///
 			/// Stores polymorphic ComponentSets.

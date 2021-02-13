@@ -37,8 +37,8 @@ namespace sb
 		auto floor = m_world.create_from_json("floor.json");
 		auto cube  = m_world.create_from_json("cube.json");
 
-		auto* floor_event = m_world.get<components::OnEvent<events::Collision>>(floor);
-		auto* cube_event  = m_world.get<components::OnEvent<events::FinishCollision>>(cube);
+		auto* floor_event = m_world.create_component<components::OnEvent<events::Collision>>(floor);
+		auto* cube_event  = m_world.create_component<components::OnEvent<events::FinishCollision>>(cube);
 
 		floor_event->m_on_event = [&](const events::Collision& collision) -> void {
 			GALAXY_LOG(GALAXY_INFO, "Touched floor.");

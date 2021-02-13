@@ -1,7 +1,6 @@
 {
     "name": "LineEntity",
     "enabled": true,
-    "center-rotation-origin": false,
     "components": {
         "Line": {
             "x1": 0,

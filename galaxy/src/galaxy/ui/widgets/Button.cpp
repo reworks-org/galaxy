@@ -25,9 +25,9 @@ namespace galaxy
 		void Button::create(std::string_view def, std::string_view pressed, std::string_view hover)
 		{
 			m_batched.create(def);
-			m_regions[0] = SL_HANDLE.atlas()->get_region(def);
-			m_regions[1] = SL_HANDLE.atlas()->get_region(pressed);
-			m_regions[2] = SL_HANDLE.atlas()->get_region(hover);
+			m_regions[0] = def;
+			m_regions[1] = pressed;
+			m_regions[2] = hover;
 
 			m_bounds.m_width  = m_batched.get_width();
 			m_bounds.m_height = m_batched.get_height();
@@ -113,15 +113,15 @@ namespace galaxy
 			switch (m_state)
 			{
 				case Button::State::DEFAULT:
-					m_batched.update_region(m_regions[0]);
+					m_batched.set_region(m_regions[0]);
 					break;
 
 				case Button::State::PRESSED:
-					m_batched.update_region(m_regions[1]);
+					m_batched.set_region(m_regions[1]);
 					break;
 
 				case Button::State::HOVER:
-					m_batched.update_region(m_regions[2]);
+					m_batched.set_region(m_regions[2]);
 					break;
 			}
 		}

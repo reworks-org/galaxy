@@ -12,6 +12,8 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
+
 namespace galaxy
 {
 	namespace components
@@ -19,7 +21,7 @@ namespace galaxy
 		///
 		/// Shader id component.
 		///
-		class ShaderID final
+		class ShaderID final : public fs::Serializable
 		{
 		public:
 			///
@@ -55,6 +57,20 @@ namespace galaxy
 			/// Destructor.
 			///
 			~ShaderID() noexcept = default;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		public:
 			///

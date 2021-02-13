@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy
@@ -19,7 +20,7 @@ namespace galaxy
 		///
 		/// How to render this entity.
 		///
-		class Renderable final
+		class Renderable final : public fs::Serializable
 		{
 		public:
 			///
@@ -56,6 +57,20 @@ namespace galaxy
 			/// Destructor.
 			///
 			~Renderable() noexcept = default;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		public:
 			///

@@ -17,11 +17,12 @@ namespace galaxy
 	namespace components
 	{
 		Physics::Physics() noexcept
-		    : m_world_pointer {nullptr}, m_body {nullptr}
+		    : Serializable {this}, m_world_pointer {nullptr}, m_body {nullptr}
 		{
 		}
 
 		Physics::Physics(Physics&& p) noexcept
+		    : Serializable {this}
 		{
 			this->m_world_pointer = p.m_world_pointer;
 			this->m_body          = p.m_body;
@@ -80,8 +81,72 @@ namespace galaxy
 			return m_body;
 		}
 
+		nlohmann::json Physics::serialize()
+		{
+			nlohmann::json json    = "{}"_json;
+			json["enabled"]        = m_body->IsEnabled();
+			json["x"]              = m_body->GetPosition().x * physics::FROM_METERS_TO_PIXELS;
+			json["y"]              = m_body->GetPosition().y * physics::FROM_METERS_TO_PIXELS;
+			json["angle"]          = glm::degrees(m_body->GetAngle());
+			json["fixed-rotation"] = m_body->IsFixedRotation();
+
+			const auto body_type = m_body->GetType();
+			if (body_type == b2_staticBody)
+			{
+				json["body"] = "static";
+			}
+			else if (body_type == b2_dynamicBody)
+			{
+				json["body"] = "dynamic";
+			}
+			else if (body_type == b2_kinematicBody)
+			{
+				json["body"] = "kinematic";
+			}
+
+			json["shape"] = m_bodyshape;
+			if (m_bodyshape == "polygon")
+			{
+				json["vertexs"] = nlohmann::json::array();
+				for (const auto& vec2 : m_vertexs)
+				{
+					const float x = vec2.x * physics::FROM_METERS_TO_PIXELS;
+					const float y = vec2.y * physics::FROM_METERS_TO_PIXELS;
+
+					json["vertexs"].push_back(nlohmann::json::array({x, y}));
+				}
+			}
+			else if (m_bodyshape == "rect")
+			{
+				json["half-width"]  = m_hwhh.x * physics::FROM_METERS_TO_PIXELS;
+				json["half-height"] = m_hwhh.y * physics::FROM_METERS_TO_PIXELS;
+			}
+			else if (m_bodyshape == "circle")
+			{
+				auto* as_circle = static_cast<b2CircleShape*>(m_body->GetFixtureList()->GetShape());
+				json["radius"]  = as_circle->m_radius * physics::FROM_METERS_TO_PIXELS;
+			}
+
+			json["density"]  = m_body->GetFixtureList()->GetDensity();
+			json["friction"] = m_body->GetFixtureList()->GetFriction();
+			json["bounce"]   = m_body->GetFixtureList()->GetRestitution();
+
+			return json;
+		}
+
+		void Physics::deserialize(const nlohmann::json& json)
+		{
+			parse_json(json);
+		}
+
 		void Physics::parse_json(const nlohmann::json& json)
 		{
+			if (m_body != nullptr)
+			{
+				m_world_pointer->DestroyBody(m_body);
+				m_body = nullptr;
+			}
+
 			physics::BodyConfig config;
 			config.m_def.enabled = json.at("enabled");
 
@@ -105,33 +170,33 @@ namespace galaxy
 				config.m_def.type = b2_kinematicBody;
 			}
 
-			const std::string body_shape = json.at("shape");
-			if (body_shape == "polygon")
+			m_bodyshape = json.at("shape");
+			if (m_bodyshape == "polygon")
 			{
 				config.m_shape   = std::make_shared<b2PolygonShape>();
 				auto* as_polygon = static_cast<b2PolygonShape*>(config.m_shape.get());
 
-				std::vector<b2Vec2> vertexs;
+				m_vertexs.clear();
 				for (const auto& arr : json.at("vertexs"))
 				{
 					const float x = arr[0].get<float>() * physics::FROM_PIXELS_TO_METERS;
 					const float y = arr[1].get<float>() * physics::FROM_PIXELS_TO_METERS;
-					vertexs.emplace_back(x, y);
+					m_vertexs.emplace_back(x, y);
 				}
 
-				as_polygon->Set(vertexs.data(), vertexs.size());
+				as_polygon->Set(m_vertexs.data(), m_vertexs.size());
 			}
-			else if (body_shape == "rect")
+			else if (m_bodyshape == "rect")
 			{
 				config.m_shape = std::make_shared<b2PolygonShape>();
 				auto* as_rect  = static_cast<b2PolygonShape*>(config.m_shape.get());
 
-				const float hw = json.at("half-width").get<float>() * physics::FROM_PIXELS_TO_METERS;
-				const float hh = json.at("half-height").get<float>() * physics::FROM_PIXELS_TO_METERS;
+				m_hwhh.x = json.at("half-width").get<float>() * physics::FROM_PIXELS_TO_METERS;
+				m_hwhh.y = json.at("half-height").get<float>() * physics::FROM_PIXELS_TO_METERS;
 
-				as_rect->SetAsBox(hw, hh);
+				as_rect->SetAsBox(m_hwhh.x, m_hwhh.y);
 			}
-			else if (body_shape == "circle")
+			else if (m_bodyshape == "circle")
 			{
 				config.m_shape  = std::make_shared<b2CircleShape>();
 				auto* as_circle = static_cast<b2CircleShape*>(config.m_shape.get());

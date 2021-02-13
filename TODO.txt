@@ -52,6 +52,166 @@ https://gernotklingler.com/blog/open-source-tools-examine-and-adjust-include-dep
 https://www.fluentcpp.com/2021/01/01/include-what-you-use/
 
 		/*
+		if (batchedsprite != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Batched Sprite Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			auto region       = batchedsprite->get_region();
+			m_batch_region[0] = region.m_x;
+			m_batch_region[1] = region.m_y;
+			m_batch_region[2] = region.m_width;
+			m_batch_region[3] = region.m_height;
+			if (ImGui::InputScalarN("Region", ImGuiDataType_Float, &m_batch_region, 4))
+			{
+				batchedsprite->update_region(m_batch_region[0], m_batch_region[1], m_batch_region[2], m_batch_region[3]);
+			}
+
+			float opacity = batchedsprite->opacity();
+			if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
+			{
+				batchedsprite->set_opacity(opacity);
+			}
+		}
+
+		if (circle != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Circle Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+
+		if (line != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Line Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+
+		if (point != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Point Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			int size = point->get_size();
+			if (ImGui::SliderInt("Size", &size, 0, 100, "%d", ImGuiSliderFlags_AlwaysClamp))
+			{
+				point->set_size(size);
+			}
+		}
+
+		if (renderable != nullptr)
+		{
+			if (ImGui::InputInt("Z-Level", &renderable->m_z_level, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+			{
+			}
+		}
+
+		if (shaderid != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("ShaderID Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			static std::string s_sid_buff = "";
+			if (ImGui::InputText("Shader ID", &s_sid_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+			{
+				shaderid->m_shader_id = s_sid_buff;
+				s_sid_buff            = "";
+			}
+		}
+
+		if (sprite != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Sprite Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Load Texture"))
+			{
+				m_sprites_to_create.emplace(sprite, SL_HANDLE.vfs()->open_with_dialog("*.png"));
+			}
+
+			if (ImGui::Button("Clamp to Border"))
+			{
+				sprite->clamp_to_border();
+			}
+
+			if (ImGui::Button("Clamp to Edge"))
+			{
+				sprite->clamp_to_edge();
+			}
+
+			if (ImGui::Button("Set Repeated"))
+			{
+				sprite->set_repeated();
+			}
+
+			if (ImGui::Button("Set Mirrored"))
+			{
+				sprite->set_mirrored();
+			}
+
+			float opacity = sprite->opacity();
+			if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
+			{
+				sprite->set_opacity(opacity);
+			}
+
+			int ansio = sprite->get_aniso_level();
+			if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 0, 16))
+			{
+				sprite->set_anisotropy(ansio);
+			}
+		}
+
+		if (text != nullptr)
+		{
+		}
+
+		if (transform != nullptr)
+		{
+			/*
+			glm::vec2 pos = batchedsprite->get_pos();
+			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			{
+				batchedsprite->set_pos(pos.x, pos.y);
+			}
+
+			float rotation = batchedsprite->get_rotation();
+			if (ImGui::SliderAngle("Rotate", &rotation))
+			{
+				batchedsprite->rotate(rotation);
+			}
+
+			float scale = batchedsprite->get_scale();
+			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+			{
+				batchedsprite->scale(scale);
+			}
+			*/
+		}
+
 		if (animation != nullptr)
 		{
 			ImGui::Spacing();

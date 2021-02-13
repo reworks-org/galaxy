@@ -16,30 +16,18 @@ namespace galaxy
 	namespace components
 	{
 		Animated::Animated() noexcept
-		    : m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
+		    : Serializable {this}, m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
 		{
 		}
 
 		Animated::Animated(const nlohmann::json& json)
-		    : m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
+		    : Serializable {this}, m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
 		{
-			const bool _play                = json.at("play");
-			const std::string starting_anim = json.at("starting-animation");
-
-			const auto anim_objs = json.at("animations");
-			for (const auto& [name, obj] : anim_objs.items())
-			{
-				m_animations.emplace(name, graphics::Animation {name, obj});
-			}
-
-			set_animation(starting_anim);
-			if (_play)
-			{
-				play();
-			}
+			deserialize(json);
 		}
 
 		Animated::Animated(Animated&& a) noexcept
+		    : Serializable {this}
 		{
 			this->m_active_anim         = a.m_active_anim;
 			this->m_animations          = std::move(a.m_animations);
@@ -121,9 +109,43 @@ namespace galaxy
 		{
 			return m_animations;
 		}
+
 		const bool Animated::is_paused() const noexcept
 		{
-			return false;
+			return m_paused;
+		}
+
+		nlohmann::json Animated::serialize()
+		{
+			nlohmann::json json        = "{}"_json;
+			json["play"]               = m_paused;
+			json["starting-animation"] = m_active_anim->get_name();
+			json["animations"]         = nlohmann::json::object();
+
+			for (auto& [name, obj] : m_animations)
+			{
+				json["animations"][name] = obj.serialize();
+			}
+
+			return json;
+		}
+
+		void Animated::deserialize(const nlohmann::json& json)
+		{
+			const bool _play                = json.at("play");
+			const std::string starting_anim = json.at("starting-animation");
+
+			const auto anim_objs = json.at("animations");
+			for (const auto& [name, obj] : anim_objs.items())
+			{
+				m_animations.emplace(name, graphics::Animation {name, obj});
+			}
+
+			set_animation(starting_anim);
+			if (_play)
+			{
+				play();
+			}
 		}
 	} // namespace components
 } // namespace galaxy

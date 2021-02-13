@@ -1,7 +1,6 @@
 {
     "name": "PointEntity",
     "enabled": true,
-    "center-rotation-origin": false,
     "components": {
         "Point": {
             "size": 20,

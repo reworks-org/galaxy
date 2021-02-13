@@ -47,7 +47,7 @@ namespace galaxy
 		{
 			if (m_progress != m_prev_progress)
 			{
-				m_bar.update_w_region(m_bounds.m_width * m_progress);
+				m_bar.set_custom_width(m_bounds.m_width * m_progress);
 				m_prev_progress = m_progress;
 			}
 		}

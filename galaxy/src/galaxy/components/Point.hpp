@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
@@ -20,7 +21,7 @@ namespace galaxy
 		///
 		/// Point graphic definition.
 		///
-		class Point final : public graphics::VertexData
+		class Point final : public graphics::VertexData, public fs::Serializable
 		{
 		public:
 			///
@@ -90,6 +91,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const int get_size() const noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy assignment operator.
@@ -106,6 +121,11 @@ namespace galaxy
 			/// Size of point.
 			///
 			int m_size;
+
+			///
+			/// Colour.
+			///
+			graphics::Colour m_colour;
 		};
 	} // namespace components
 } // namespace galaxy

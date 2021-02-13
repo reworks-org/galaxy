@@ -1,7 +1,6 @@
 {
     "name": "Cube",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "Sprite": {
         	"texture": "cube.png",
@@ -29,7 +28,6 @@
 			"density" : 0.1,
 			"friction" : 0,
 			"bounce" : 0.2
-        },
-        "OnFinishCollision": {}
+        }
     }
 }
