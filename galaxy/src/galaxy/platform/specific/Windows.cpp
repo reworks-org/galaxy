@@ -29,27 +29,27 @@ namespace
 
 	BOOL CALLBACK EnumProc(HWND hWnd, LPARAM lParam)
 	{
-		// Retrieve storage location for communication data
+		// Retrieve storage location for communication data.
 		EnumData& ed      = *(EnumData*)lParam;
 		DWORD dwProcessId = 0x0;
-		// Query process ID for hWnd
+		// Query process ID for hWnd.
 		GetWindowThreadProcessId(hWnd, &dwProcessId);
 		// Apply filter - if you want to implement additional restrictions,
 		// this is the place to do so.
 		if (ed.dwProcessId == dwProcessId)
 		{
-			// Found a window matching the process ID
+			// Found a window matching the process ID.
 			ed.hWnd = hWnd;
-			// Report success
+			// Report success.
 			SetLastError(ERROR_SUCCESS);
-			// Stop enumeration
+			// Stop enumeration.
 			return FALSE;
 		}
-		// Continue enumeration
+		// Continue enumeration.
 		return TRUE;
 	}
 
-	// Main entry
+	// Main entry.
 	HWND FindWindowFromProcessId(DWORD dwProcessId)
 	{
 		EnumData ed = {dwProcessId};
@@ -92,8 +92,8 @@ namespace galaxy
 			{
 				WaitForSingleObject(process_info.hProcess, INFINITE);
 
-				//CloseHandle(process_info.hProcess);
-				//CloseHandle(process_info.hThread);
+				CloseHandle(process_info.hProcess);
+				CloseHandle(process_info.hThread);
 			}
 			else
 			{
