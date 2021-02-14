@@ -26,9 +26,16 @@ namespace galaxy
 		///
 		/// Pauses current application.
 		///
-		/// \path Path to the application.
+		/// \param path Path to the application.
 		///
 		void run_process(std::string_view path);
+
+		///
+		/// Run an application process within this window.
+		///
+		/// \param path Path to the application.
+		///
+		void run_process_within_window(std::string_view path);
 	} // namespace platform
 } // namespace galaxy
 
