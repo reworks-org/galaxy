@@ -39,6 +39,8 @@ TODO:
 - Dependencies should only abstract away system specific implementations.
 - Docs error fix after this.
 - Loading state support?
+- AI
+- Map
 
 
 CMAKE:
