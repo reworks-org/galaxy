@@ -174,7 +174,6 @@ namespace galaxy
 			///
 			/// \param width Width of the window.
 			/// \param height Height of the window.
-			/// \param window Pointer to window to resize. Defaults to *this.
 			///
 			void resize(const int width, const int height);
 

@@ -110,8 +110,8 @@ namespace galaxy
 			///
 			/// Log a message.
 			///
-			/// \param level Log error level.
 			/// \param message Message to log.
+			/// \param args std::format supported arguments to be formatted into a string.
 			///
 			template<loglevel_type LogLevel, typename... MsgInputs>
 			void log(std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);

@@ -70,7 +70,6 @@ namespace galaxy
 			/// \param y1 Y1 position.
 			/// \param x2 X2 position.
 			/// \param y2 Y2 position.
-			/// \param thickness Sets the line thickness, defaulting to 1.
 			///
 			void create(const graphics::Colour& col, const float x1, const float y1, const float x2, const float y2);
 

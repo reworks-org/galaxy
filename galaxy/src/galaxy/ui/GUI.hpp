@@ -57,8 +57,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			GUI()
-			noexcept;
+			GUI() noexcept;
 
 			///
 			/// Destructor.
@@ -99,7 +98,6 @@ namespace galaxy
 			///
 			/// Registers a function to be called on the triggering of an event.
 			///
-			/// \param func void function that takes a const Event&.
 			/// \param widget Widget to add function to.
 			///
 			template<meta::is_class Event, is_widget WidgetDerived>

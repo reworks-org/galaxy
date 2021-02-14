@@ -43,6 +43,7 @@ namespace galaxy
 			///
 			/// \param pos Vec2 position.
 			/// \param texels Vec2 texture coords.
+			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
 			BatchedVertex(const glm::vec2& pos, const glm::vec2& texels, const float opacity) noexcept;
 

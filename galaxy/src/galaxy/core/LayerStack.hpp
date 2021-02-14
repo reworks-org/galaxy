@@ -45,6 +45,7 @@ namespace galaxy
 			///
 			/// Constructs a Layer from provided arguments.
 			///
+			/// \param name Name of the layer.
 			/// \param args Arguments to construct Layer with.
 			///
 			template<is_layer DerivedLayer, typename... Args>

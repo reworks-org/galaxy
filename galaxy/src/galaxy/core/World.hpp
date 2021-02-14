@@ -229,7 +229,7 @@ namespace galaxy
 			///
 			/// Get entity fropm debug name.
 			///
-			/// \param debugName Name of entity to retrieve.
+			/// \param debug_name Name of entity to retrieve.
 			///
 			/// \return The entity.
 			///
@@ -251,7 +251,7 @@ namespace galaxy
 			///
 			/// The components to manipulate are specified in the template parameter.
 			///
-			/// \param lambda A lambda function that manipulates the components.
+			/// \param func A lambda function that manipulates the components.
 			///		          For example:
 			/*
 								manager.operate<a, b>([](const ecs::Entity entity, a* ca, b* cb)

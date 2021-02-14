@@ -80,9 +80,9 @@ namespace galaxy
 			///
 			/// \brief Configure audio cone.
 			///
-			/// \param outerGain The gain when outside the oriented cone.
-			/// \param innerAngle The gain when inside the oriented cone.
-			/// \param outerAngle Outer angle of the sound cone, in degrees. Default is 360.
+			/// \param outer_gain The gain when outside the oriented cone.
+			/// \param inner_angle The gain when inside the oriented cone.
+			/// \param outer_angle Outer angle of the sound cone, in degrees. Defaults to 360.
 			///
 			void set_cone(const float outer_gain, const float inner_angle, const float outer_angle = 360.0f);
 
@@ -110,7 +110,7 @@ namespace galaxy
 			///
 			/// \brief Should the source repeat upon reaching the end.
 			///
-			/// \param True to repeat.
+			/// \param looping True to repeat.
 			///
 			virtual void set_looping(const bool looping) = 0;
 

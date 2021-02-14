@@ -35,6 +35,7 @@ namespace galaxy
 			/// \param r Red.
 			/// \param g Green.
 			/// \param b Blue.
+			/// \param a Alpha level. Defaults to Opaque (255).
 			///
 			Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a = 255) noexcept;
 

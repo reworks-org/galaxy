@@ -79,7 +79,7 @@ namespace galaxy
 			///
 			/// \brief Should the music repeat upon reaching the end.
 			///
-			/// \param True to repeat.
+			/// \param looping True to repeat.
 			///
 			void set_looping(const bool looping) override;
 

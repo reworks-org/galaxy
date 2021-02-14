@@ -49,7 +49,7 @@ namespace galaxy
 		///
 		/// Thanks to: https://stackoverflow.com/a/34571089.
 		///
-		/// \param base64In Takes in a base64 encoded string.
+		/// \param base64 Takes in a base64 encoded string.
 		///
 		/// \return Returns a decoded std::string.
 		///
@@ -62,7 +62,7 @@ namespace galaxy
 		/// Note: Can throw exception.
 		/// Thanks to: https://stackoverflow.com/a/50082615
 		///
-		/// \param zlibIn zlib compressed string.
+		/// \param zlib zlib compressed string.
 		///
 		/// \return Decompressed zlib string.
 		///
@@ -75,7 +75,7 @@ namespace galaxy
 		/// Note: Can throw exception.
 		/// Thanks to: https://stackoverflow.com/a/50082615
 		///
-		/// \param gzipIn gzip compressed string.
+		/// \param gzip gzip compressed string.
 		///
 		/// \return Decompressed gzip string.
 		///

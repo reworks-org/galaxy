@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			/// Uses galaxy::filesystem for parsed texture names.
 			///
-			/// \param file JSON filepath. Uses galaxy::filesystem to look in json folder.
+			/// \param json JSON filepath. Uses galaxy::filesystem to look in json folder.
 			///
 			void add_from_json(std::string_view json);
 
@@ -84,7 +84,6 @@ namespace galaxy
 			///
 			/// Does nothing if no files were added.
 			///
-			/// \param renderer Renderer to use to draw textures.
 			/// \param shader Shader to use when creating atlas.
 			///
 			void create(std::string_view shader);
@@ -92,7 +91,6 @@ namespace galaxy
 			///
 			/// Update atlas, including additional and previous calls to add().
 			///
-			/// \param renderer Renderer to use to draw textures.
 			/// \param shader Shader to use when creating atlas.
 			///
 			void update(std::string_view shader);

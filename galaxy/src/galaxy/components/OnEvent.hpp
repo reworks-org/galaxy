@@ -55,7 +55,7 @@ namespace galaxy
 			///
 			/// Function called on an event.
 			///
-			/// \param Reference to the event data of the event that is happening.
+			/// \param event Reference to the event data of the event that is happening.
 			///
 			void on_event(const Event& event);
 

@@ -58,7 +58,7 @@ namespace galaxy
 			///
 			/// Can throw exceptions.
 			///
-			/// \param mem Memory buffer to load from. Not freed, you must free after.
+			/// \param buffer Memory buffer to load from. Not freed, you must free after.
 			///
 			void load_mem(std::span<unsigned char> buffer);
 

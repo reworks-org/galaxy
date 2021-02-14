@@ -204,7 +204,7 @@ namespace galaxy
 			///
 			/// Deserializes from object.
 			///
-			/// \param j Json object to retrieve data from.
+			/// \param json Json object to retrieve data from.
 			///
 			void deserialize(const nlohmann::json& json) override;
 
