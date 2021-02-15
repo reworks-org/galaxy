@@ -151,8 +151,12 @@ namespace galaxy
 
 		void Camera::zoom(const float scale) noexcept
 		{
-			m_scaling = glm::scale(m_identity_matrix, {scale, scale, 1.0f});
-			m_scale   = scale;
+			m_scale = scale;
+
+			m_scaling = m_identity_matrix;
+			m_scaling = glm::translate(m_scaling, {m_width / 2.0f, m_height / 2.0f, 0.0f});
+			m_scaling = glm::scale(m_scaling, {scale, scale, 1.0f});
+			m_scaling = glm::translate(m_scaling, {-(m_width / 2.0f), -(m_height / 2.0f), 0.0f});
 
 			m_dirty = true;
 		}
