@@ -58,6 +58,7 @@ namespace galaxy
 			{
 				TerminateProcess(process, 0);
 				CloseHandle(process);
+				process = nullptr;
 			}
 		}
 	} // namespace platform

@@ -1,12 +1,12 @@
 ///
-/// JSON.hpp
+/// JSONEditor.hpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_EDITOR_JSON_HPP_
-#define SUPERCLUSTER_EDITOR_JSON_HPP_
+#ifndef SUPERCLUSTER_EDITOR_PANELS_JSONEDITOR_HPP_
+#define SUPERCLUSTER_EDITOR_PANELS_JSONEDITOR_HPP_
 
 #include <span>
 
@@ -15,23 +15,23 @@
 
 namespace sc
 {
-	namespace editor
+	namespace panel
 	{
 		///
 		/// Parses json and provides imgui widgets to manipulate it.
 		///
-		class JSON final
+		class JSONEditor final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			JSON();
+			JSONEditor();
 
 			///
 			/// Destructor.
 			///
-			~JSON() = default;
+			~JSONEditor() = default;
 
 			///
 			/// Create a blank json object.
@@ -60,7 +60,7 @@ namespace sc
 			void load_json(nlohmann::json* json);
 
 			///
-			/// Save JSON to disk.
+			/// Save JSONEditor to disk.
 			///
 			/// \param file File to save file at.
 			///
@@ -127,7 +127,7 @@ namespace sc
 			///
 			nlohmann::json* m_external;
 		};
-	} // namespace editor
+	} // namespace panel
 } // namespace sc
 
 #endif

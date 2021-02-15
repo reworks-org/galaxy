@@ -1,30 +1,54 @@
 ///
 /// LuaConsole.cpp
-/// galaxy
+/// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-#include <fstream>
-
 #include <imgui/imgui_stdlib.h>
 #include <sol/sol.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/error/Log.hpp>
+#include <galaxy/fs/FileSystem.hpp>
 
 #include "LuaConsole.hpp"
 
-namespace galaxy
+// Thanks to: https://gist.github.com/5at/3671566
+namespace
 {
-	namespace lua
+	std::vector<std::string> strs;
+
+	int l_my_print(lua_State* L)
 	{
-		void Console::draw(bool* show)
+		int nargs = lua_gettop(L);
+		for (int i = 1; i <= nargs; ++i)
 		{
-			ImGui::Begin("Lua Console", show, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
-			ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
+			strs.emplace_back(lua_tostring(L, i));
+		}
+
+		return 0;
+	}
+
+	const struct luaL_Reg printlib[] = {
+	    {"print", l_my_print},
+	    {NULL, NULL}};
+} // namespace
+
+namespace sc
+{
+	namespace panel
+	{
+		LuaConsole::LuaConsole()
+		{
+			lua_getglobal(SL_HANDLE.lua()->lua_state(), "_G");
+			luaL_setfuncs(SL_HANDLE.lua()->lua_state(), printlib, 0);
+			lua_pop(SL_HANDLE.lua()->lua_state(), 1);
+		}
+
+		void LuaConsole::render()
+		{
+			ImGui::Begin("Lua Console", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 
 			if (ImGui::BeginMenuBar())
 			{
@@ -67,6 +91,16 @@ namespace galaxy
 						m_history.push_back(fmt::format("[RESULT]: {0}.", out));
 					}
 
+					if (!strs.empty())
+					{
+						for (const auto& str : strs)
+						{
+							m_history.push_back(str);
+						}
+
+						strs.clear();
+					}
+
 					m_buff.clear();
 					ImGui::SetKeyboardFocusHere(-1);
 				}
@@ -89,9 +123,9 @@ namespace galaxy
 				{
 					m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
 
-					auto res        = SL_HANDLE.lua()->script(m_buff);
-					auto type       = res.get_type();
-					std::string out = "";
+					auto res  = SL_HANDLE.lua()->script(m_buff);
+					auto type = res.get_type();
+					std::string out;
 					if (type == sol::type::string)
 					{
 						out = res.get<std::string>();
@@ -135,5 +169,5 @@ namespace galaxy
 
 			ImGui::End();
 		}
-	} // namespace lua
-} // namespace galaxy
+	} // namespace panel
+} // namespace sc

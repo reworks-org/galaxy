@@ -1,35 +1,34 @@
 ///
-/// JSON.cpp
+/// JSONEditor.cpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-#include <fstream>
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/error/Log.hpp>
+#include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/scripting/JSONUtils.hpp>
 
 #include <imgui/addons/ToggleButton.h>
 #include <imgui/imgui_stdlib.h>
 
-#include <galaxy/error/Log.hpp>
-#include <galaxy/scripting/JSONUtils.hpp>
-
-#include "JSON.hpp"
+#include "JSONEditor.hpp"
 
 #define INDENT_PIXELS 16.0f
 
 namespace sc
 {
-	namespace editor
+	namespace panel
 	{
-		JSON::JSON()
+		JSONEditor::JSONEditor()
 		    : m_counter {0}, m_loaded {false}, m_external {nullptr}
 		{
 		}
 
-		void JSON::create_new()
+		void JSONEditor::create_new()
 		{
-			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				ImGui::Text("Select root object type:");
 				ImGui::Separator();
@@ -56,7 +55,7 @@ namespace sc
 			}
 		}
 
-		void JSON::load_file(std::string_view file)
+		void JSONEditor::load_file(std::string_view file)
 		{
 			if (!m_loaded)
 			{
@@ -65,7 +64,7 @@ namespace sc
 			}
 		}
 
-		void JSON::load_mem(std::span<char> memory)
+		void JSONEditor::load_mem(std::span<char> memory)
 		{
 			if (!m_loaded)
 			{
@@ -74,7 +73,7 @@ namespace sc
 			}
 		}
 
-		void JSON::load_json(nlohmann::json* json)
+		void JSONEditor::load_json(nlohmann::json* json)
 		{
 			if (!m_loaded)
 			{
@@ -83,7 +82,7 @@ namespace sc
 			}
 		}
 
-		void JSON::save(std::string_view path)
+		void JSONEditor::save(std::string_view path)
 		{
 			if (m_loaded)
 			{
@@ -102,8 +101,41 @@ namespace sc
 			}
 		}
 
-		void JSON::parse_and_display()
+		void JSONEditor::parse_and_display()
 		{
+			ImGui::Begin("JSON Editor");
+
+			ImGui::Text("Visual JSON editor.");
+			ImGui::Spacing();
+
+			if (ImGui::Button("New"))
+			{
+				ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
+			}
+
+			create_new();
+			ImGui::SameLine();
+
+			if (ImGui::Button("Open"))
+			{
+				const auto path = SL_HANDLE.vfs()->show_open_dialog("*.json");
+				load_file(path);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Save"))
+			{
+				if (is_loaded())
+				{
+					const auto path = SL_HANDLE.vfs()->show_save_dialog();
+					save(path);
+				}
+			}
+
+			ImGui::Separator();
+			ImGui::Spacing();
+
 			if (m_loaded)
 			{
 				m_counter = 0;
@@ -120,7 +152,7 @@ namespace sc
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_FATAL, "JSON was not object or array.");
+						GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
 					}
 				}
 				else
@@ -135,18 +167,20 @@ namespace sc
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_FATAL, "JSON was not object or array.");
+						GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
 					}
 				}
 			}
+
+			ImGui::End();
 		}
 
-		const bool JSON::is_loaded() const
+		const bool JSONEditor::is_loaded() const
 		{
 			return m_loaded;
 		}
 
-		void JSON::do_object(nlohmann::json& json)
+		void JSONEditor::do_object(nlohmann::json& json)
 		{
 			ImGui::Text("{");
 			ImGui::Indent(INDENT_PIXELS);
@@ -210,7 +244,7 @@ namespace sc
 			ImGui::Text("}");
 		}
 
-		void JSON::do_array(nlohmann::json& json)
+		void JSONEditor::do_array(nlohmann::json& json)
 		{
 			ImGui::Text("[");
 			ImGui::Indent(INDENT_PIXELS);
@@ -273,9 +307,9 @@ namespace sc
 			ImGui::Text("]");
 		}
 
-		void JSON::new_object(nlohmann::json& json)
+		void JSONEditor::new_object(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				static std::string s_key_str = "";
 				static std::string s_val_str = "";
@@ -387,9 +421,9 @@ namespace sc
 			}
 		}
 
-		void JSON::add_to_array(nlohmann::json& json)
+		void JSONEditor::add_to_array(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				static std::string s_val_str = "";
 				static std::string s_err_str = "";
@@ -496,5 +530,5 @@ namespace sc
 				ImGui::EndPopup();
 			}
 		}
-	} // namespace editor
+	} // namespace panel
 } // namespace sc
