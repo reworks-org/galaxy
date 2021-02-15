@@ -35,10 +35,6 @@ namespace sc
 	void EditorLayer::events()
 	{
 		m_active_scene->events();
-		if (m_window->key_pressed(galaxy::input::Keys::ESC))
-		{
-			m_window->close();
-		}
 	}
 
 	void EditorLayer::update(const double dt)

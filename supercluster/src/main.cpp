@@ -34,6 +34,9 @@ int main(int argsc, char* argsv[])
 		try
 		{
 			Editor editor {"assets/", "assets/config.json"};
+			glfwSetWindowCloseCallback(SL_HANDLE.window()->gl_window(), [](GLFWwindow* window) {
+				glfwSetWindowShouldClose(window, GLFW_FALSE);
+			});
 
 			auto* stack = SL_HANDLE.layerstack();
 			stack->create<sc::EditorLayer>("Editor");
