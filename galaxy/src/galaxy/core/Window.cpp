@@ -596,6 +596,13 @@ namespace galaxy
 			glfwRequestWindowAttention(m_window);
 		}
 
+		void Window::prevent_native_closing() noexcept
+		{
+			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
+				glfwSetWindowShouldClose(window, GLFW_FALSE);
+			});
+		}
+
 		void Window::begin()
 		{
 			m_framebuffer->bind();

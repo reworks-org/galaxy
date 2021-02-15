@@ -186,6 +186,13 @@ namespace galaxy
 			void request_attention() noexcept;
 
 			///
+			/// \brief Prevent the window from being closed by the OS.
+			///
+			/// I.E from ALT+F4 or the close button in the window frame.
+			///
+			void prevent_native_closing() noexcept;
+
+			///
 			/// Clears the Rendering buffer.
 			///
 			void begin();
