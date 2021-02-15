@@ -132,10 +132,16 @@ namespace galaxy
 						glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
 
 						// Set resize callback.
-						m_framebuffer_callback = [this](GLFWwindow* window, int w, int h) {
-							this->resize(w, h);
-						};
-						glfwSetFramebufferSizeCallback(m_window, m_framebuffer_callback.target<void(GLFWwindow*, int, int)>());
+						glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
+							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+							this_win->resize(width, height);
+						});
+
+						// Set scroll callback.
+						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x, double y) {
+							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+							this_win->trigger_on_scroll(window, x, y);
+						});
 
 						// Set vsync.
 						glfwSwapInterval(settings.m_vsync);
@@ -147,10 +153,10 @@ namespace galaxy
 						}
 
 						glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
-							Window* qs_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-							if (qs_win->m_inputting_text)
+							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+							if (this_win->m_inputting_text)
 							{
-								qs_win->m_text_input += static_cast<char>(codepoint);
+								this_win->m_text_input += static_cast<char>(codepoint);
 							}
 						});
 
@@ -580,7 +586,7 @@ namespace galaxy
 			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 			m_fb_sprite->create();
 
-			m_window_resized_dispatcher.trigger<events::WindowResized>(width, height);
+			m_window_dispatcher.trigger<events::WindowResized>(width, height);
 
 			glfwSetWindowSize(m_window, width, height);
 		}
@@ -649,6 +655,11 @@ namespace galaxy
 			}
 
 			return false;
+		}
+
+		void Window::trigger_on_scroll(GLFWwindow* window, double x, double y)
+		{
+			m_window_dispatcher.trigger<events::MouseWheel>(x, y);
 		}
 
 		const bool Window::key_down(input::Keys key) noexcept

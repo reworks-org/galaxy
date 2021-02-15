@@ -19,6 +19,7 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
@@ -218,12 +219,21 @@ namespace galaxy
 			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
 
 			///
-			/// Set the callback function for scrolling.
+			/// Trigger scroll event.
 			///
-			/// \param func Function callback. Must take in a GLFWwindow*, double, double and return void.
+			/// \param window GLFW window.
+			/// \param x X offset from scrollwheel.
+			/// \param y Y offset from scrollwheel.
 			///
-			template<typename Lambda>
-			void set_on_scroll(Lambda&& func) noexcept;
+			void trigger_on_scroll(GLFWwindow* window, double x, double y);
+
+			///
+			/// Register an object with the window dispatch scroller.
+			///
+			/// \param obj An object with an on_event(const WindowScroll& event) function.
+			///
+			template<meta::is_class Type>
+			void register_on_scroll(Type& obj) noexcept;
 
 			///
 			/// Register an object with the window dispatch resizer.
@@ -231,7 +241,7 @@ namespace galaxy
 			/// \param obj An object with an on_event(const WindowResized& event) function.
 			///
 			template<meta::is_class Type>
-			void register_on_window_resize(Type& obj);
+			void register_on_window_resize(Type& obj) noexcept;
 
 			///
 			/// \brief See if a key is being held down.
@@ -393,19 +403,9 @@ namespace galaxy
 			components::Transform m_fb_transform;
 
 			///
-			/// Scroll callback function.
-			///
-			std::function<void(GLFWwindow*, double, double)> m_scrollback;
-
-			///
-			/// Framebuffer resize callback.
-			///
-			std::function<void(GLFWwindow*, int, int)> m_framebuffer_callback;
-
-			///
 			/// Triggers window resized event.
 			///
-			events::Dispatcher m_window_resized_dispatcher;
+			events::Dispatcher m_window_dispatcher;
 
 			///
 			/// Cursor size.
@@ -413,17 +413,16 @@ namespace galaxy
 			glm::vec2 m_cursor_size;
 		};
 
-		template<typename Lambda>
-		inline void Window::set_on_scroll(Lambda&& func) noexcept
+		template<meta::is_class Type>
+		inline void Window::register_on_scroll(Type& obj) noexcept
 		{
-			m_scrollback = func;
-			glfwSetScrollCallback(m_window, m_scrollback.target<void(GLFWwindow*, double, double)>());
+			m_window_dispatcher.subscribe<events::MouseWheel, Type>(obj);
 		}
 
 		template<meta::is_class Type>
-		inline void galaxy::core::Window::register_on_window_resize(Type& obj)
+		inline void galaxy::core::Window::register_on_window_resize(Type& obj) noexcept
 		{
-			m_window_resized_dispatcher.subscribe<events::WindowResized, Type>(obj);
+			m_window_dispatcher.subscribe<events::WindowResized, Type>(obj);
 		}
 	} // namespace core
 } // namespace galaxy
