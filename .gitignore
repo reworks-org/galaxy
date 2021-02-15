@@ -18,6 +18,7 @@ supercluster/bin/Debug/*.idb
 supercluster/bin/Debug/*.dll
 supercluster/bin/Debug/logs/
 supercluster/bin/Debug/assets/saves/
+supercluster/bin/Debug/tools
 supercluster/bin/Release/*.exe
 supercluster/bin/Release/*.ilk
 supercluster/bin/Release/*.pdb
@@ -26,6 +27,7 @@ supercluster/bin/Release/*.obj
 supercluster/bin/Release/*.idb
 supercluster/bin/Release/logs/
 supercluster/bin/Release/assets/saves/
+supercluster/bin/Release/tools
 
 sandbox_tests/bin/Debug/*.exe
 sandbox_tests/bin/Debug/*.ilk

@@ -17,3 +17,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 # Postbuild OpenAL DLL copy.
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/${CMAKE_BUILD_TYPE}/OpenAL32.dll" "${CMAKE_SOURCE_DIR}/supercluster/bin/${CMAKE_BUILD_TYPE}/OpenAL32.dll")
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/tools/tiled" "${CMAKE_SOURCE_DIR}/supercluster/bin/${CMAKE_BUILD_TYPE}/tools/tiled")
