@@ -1,7 +1,6 @@
 {
     "name": "BatchEntityB",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "BatchedSprite": {
             "texture-atlas-id": "wall_3",
@@ -10,8 +9,7 @@
         "Transform": {
             "x": 512,
             "y": 0,
-            "rotation": 45,
-            "scale": 0.5
+            "rotation": 45
         },
         "Renderable": {
             "type": 5,

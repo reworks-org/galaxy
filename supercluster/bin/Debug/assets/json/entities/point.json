@@ -1,7 +1,6 @@
 {
     "name": "PointEntity",
     "enabled": true,
-    "center-rotation-origin": false,
     "components": {
         "Point": {
             "size": 20,
@@ -15,8 +14,7 @@
         "Transform": {
             "x": 10,
             "y": 10,
-            "rotation": 0.0,
-            "scale": 1.0
+            "rotation": 0.0
         },
         "Renderable": {
             "type": 0,

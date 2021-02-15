@@ -1,7 +1,6 @@
 {
     "name": "TextEntity",
     "enabled": true,
-    "center-rotation-origin": true,
     "components": {
         "Text": {
             "colour": {
@@ -16,8 +15,7 @@
         "Transform": {
             "x": 512,
             "y": 512,
-            "rotation": 45,
-            "scale": 2
+            "rotation": 45
         },
         "Renderable": {
             "type": 4,
