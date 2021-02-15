@@ -40,6 +40,7 @@ namespace sc
 		void gui_builder_ui();
 
 		core::Window* m_window;
+		void* m_process;
 
 		bool m_draw_main;
 		bool m_draw_demo;

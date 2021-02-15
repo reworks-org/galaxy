@@ -19,6 +19,7 @@
 #include <galaxy/core/World.hpp>
 
 #include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/platform/Platform.hpp>
 #include <galaxy/res/TextureAtlas.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
@@ -36,7 +37,7 @@ using namespace galaxy;
 namespace sc
 {
 	EditorScene::EditorScene()
-	    : m_window {SL_HANDLE.window()}, m_draw_main {true}, m_draw_demo {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_draw_gui_builder_ui {false}, m_visible_tools {true}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_window {SL_HANDLE.window()}, m_process {nullptr}, m_draw_main {true}, m_draw_demo {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_draw_gui_builder_ui {false}, m_visible_tools {true}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
@@ -62,7 +63,8 @@ namespace sc
 
 	EditorScene::~EditorScene()
 	{
-		m_window = nullptr;
+		m_window  = nullptr;
+		m_process = nullptr;
 
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
@@ -186,6 +188,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Exit"))
 				{
+					platform::close_process(m_process);
 					m_window->close();
 				}
 
@@ -215,6 +218,11 @@ namespace sc
 			if (ImGui::MenuItem("Lua Console"))
 			{
 				m_draw_lua_console = !m_draw_lua_console;
+			}
+
+			if (ImGui::MenuItem("Open Tiled"))
+			{
+				m_process = platform::run_process("tools/tiled/tiled.exe");
 			}
 
 			ImGui::EndMenuBar();

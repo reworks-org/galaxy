@@ -24,18 +24,20 @@ namespace galaxy
 		///
 		/// \brief Run an application process.
 		///
-		/// Pauses current application.
+		/// You must call close_process() on returned void pointer to terminate.
 		///
 		/// \param path Path to the application.
 		///
-		void run_process(std::string_view path);
+		/// \return Process handle cast as void pointer.
+		///
+		void* run_process(std::string_view path);
 
 		///
-		/// Run an application process within this window.
+		/// Close an open process.
 		///
-		/// \param path Path to the application.
+		/// \param process Process handle cast to a void pointer.
 		///
-		void run_process_within_window(std::string_view path);
+		void close_process(void* process);
 	} // namespace platform
 } // namespace galaxy
 
