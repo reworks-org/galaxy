@@ -1,4 +1,3 @@
-/*
 ///
 /// EntityEditor.hpp
 /// supercluster
@@ -8,6 +7,15 @@
 
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
+
+#include <optional>
+
+#include <robin_hood.h>
+
+#include <galaxy/components/Sprite.hpp>
+#include <galaxy/core/Scene.hpp>
+
+using namespace galaxy;
 
 namespace sc
 {
@@ -19,23 +27,22 @@ namespace sc
 		class EntityEditor final
 		{
 		public:
+			EntityEditor();
+			~EntityEditor();
+
 			void pre_render();
 			void render();
 
-		private:
-			robin_hood::unordered_map<components::Sprite*, std::string> m_sprites_to_create;
-			bool m_show_entity_create;
-			std::string m_edn_buffer;
-			std::string m_entity_debug_name;
-			std::uint64_t m_active_entity;
+			void set_scene(core::Scene* scene);
 
-			float m_batch_region[4]   = {0.0f, 0.0f, 0.0f, 0.0f};
-			bool m_sfx_loop           = false;
-			std::string m_active_anim = "";
-			bool m_add_anim_popup     = false;
+		private:
+			void render_components(const ecs::Entity entity);
+
+		private:
+			core::Scene* m_cur_scene;
+			std::optional<ecs::Entity> m_selected;
 		};
 	} // namespace panel
 } // namespace sc
 
 #endif
-*/

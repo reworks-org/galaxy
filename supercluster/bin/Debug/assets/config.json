@@ -21,6 +21,6 @@
     "textureatlas-json": "textureatlas.json",
     "vsync": true,
     "window-height": 720,
-    "window-name": "Sandbox Tests",
+    "window-name": "Supercluster Editor",
     "window-width": 1280
 }
