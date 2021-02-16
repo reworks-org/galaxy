@@ -22,6 +22,7 @@
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
@@ -189,6 +190,11 @@ galaxy::components::Physics* add_physics(galaxy::core::World& world, const galax
 	return world.create_component<galaxy::components::Physics>(entity);
 }
 
+galaxy::components::Tag* add_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Tag>(entity);
+}
+
 // BEGIN GET COMPONENTS
 
 galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
@@ -244,6 +250,11 @@ galaxy::components::Animated* get_animated(galaxy::core::World& world, const gal
 galaxy::components::Physics* get_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::Physics>(entity);
+}
+
+galaxy::components::Tag* get_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Tag>(entity);
 }
 
 // BEGIN EVENT ADD/GET
@@ -419,15 +430,13 @@ namespace galaxy
 
 			auto world_type                = lua->new_usertype<core::World>("gWorld", sol::no_constructor);
 			world_type["create"]           = sol::resolve<const ecs::Entity(void)>(&core::World::create);
-			world_type["create_with_name"] = sol::resolve<const ecs::Entity(std::string_view)>(&core::World::create);
+			world_type["create_with_name"] = &core::World::create;
 			world_type["create_from_json"] = &core::World::create_from_json;
 			world_type["destroy"]          = &core::World::destroy;
 			world_type["has"]              = &core::World::has;
 			world_type["is_enabled"]       = &core::World::is_enabled;
 			world_type["enable"]           = &core::World::enable;
 			world_type["disable"]          = &core::World::disable;
-			world_type["assign_name"]      = &core::World::assign_name;
-			world_type["find_from_name"]   = &core::World::find_from_name;
 			world_type["clear"]            = &core::World::clear;
 			world_type["set_gravity"]      = sol::resolve<void(const float, const float)>(&core::World::set_gravity);
 
@@ -442,6 +451,7 @@ namespace galaxy
 			lua->set_function("add_text_to_entity", &add_text);
 			lua->set_function("add_animated_to_entity", &add_animated);
 			lua->set_function("add_physics_to_entity", &add_physics);
+			lua->set_function("add_tag_to_entity", &add_tag);
 
 			lua->set_function("get_shaderid_from_entity", &get_shaderid);
 			lua->set_function("get_transform_from_entity", &get_transform);
@@ -454,6 +464,7 @@ namespace galaxy
 			lua->set_function("get_text_from_entity", &get_text);
 			lua->set_function("get_animated_from_entity", &get_animated);
 			lua->set_function("get_physics_from_entity", &get_physics);
+			lua->set_function("get_tag_from_entity", &get_tag);
 
 			lua->set_function("add_keychar_to_entity", &add_keychar);
 			lua->set_function("add_keydown_to_entity", &add_keydown);
@@ -612,6 +623,9 @@ namespace galaxy
 
 			auto finish_collision_type        = lua->new_usertype<components::OnEvent<events::FinishCollision>>("gFinishCollision", sol::constructors<components::OnEvent<events::FinishCollision>()>());
 			finish_collision_type["on_event"] = &components::OnEvent<events::FinishCollision>::m_on_event;
+
+			auto tag_type   = lua->new_usertype<components::Tag>("gTag", sol::constructors<components::Tag(), components::Tag(std::string_view)>());
+			tag_type["tag"] = &components::Tag::m_tag;
 		}
 
 		void register_events()

@@ -17,6 +17,7 @@
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
@@ -52,6 +53,7 @@ namespace galaxy
 			register_component<components::Renderable>("Renderable");
 			register_component<components::ShaderID>("ShaderID");
 			register_component<components::Sprite>("Sprite");
+			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
 
@@ -96,14 +98,6 @@ namespace galaxy
 			return entity;
 		}
 
-		const ecs::Entity World::create(std::string_view debug_name)
-		{
-			const auto entity = create();
-			assign_name(entity, debug_name);
-
-			return entity;
-		}
-
 		const ecs::Entity World::create_from_json(std::string_view file)
 		{
 			nlohmann::json root = json::parse_from_disk(file);
@@ -114,7 +108,6 @@ namespace galaxy
 		{
 			const auto entity = create();
 
-			assign_name(entity, json.at("name"));
 			nlohmann::json components = json.at("components");
 
 			// Loop over components
@@ -235,43 +228,6 @@ namespace galaxy
 			}
 		}
 
-		const bool World::assign_name(const ecs::Entity entity, std::string_view debug_name) noexcept
-		{
-			if (has(entity))
-			{
-				const auto str = static_cast<std::string>(debug_name);
-				if (!m_debug_names.contains(str))
-				{
-					m_debug_names.emplace(str, entity);
-					return true;
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Attempted to add duplicate name: {0}.", str);
-					return false;
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to use invalid entity to assign name: {0}.", debug_name);
-				return false;
-			}
-		}
-
-		ecs::Entity World::find_from_name(std::string_view debug_name) noexcept
-		{
-			const auto str = static_cast<std::string>(debug_name);
-			if (m_debug_names.contains(str))
-			{
-				return m_debug_names[str];
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Cannot find entity to get with a name of: {0}.", str);
-				return 0;
-			}
-		}
-
 		void World::set_gravity(const b2Vec2& vec2) noexcept
 		{
 			m_b2_world.SetGravity(vec2);
@@ -303,11 +259,6 @@ namespace galaxy
 			return &m_b2_world;
 		}
 
-		const robin_hood::unordered_map<std::string, ecs::Entity>& World::get_debug_name_map() noexcept
-		{
-			return m_debug_names;
-		}
-
 		nlohmann::json World::serialize()
 		{
 			nlohmann::json json = "{}"_json;
@@ -323,14 +274,11 @@ namespace galaxy
 
 				// Data
 				// clang-format off
-				const auto name = std::find_if(m_debug_names.begin(), m_debug_names.end(), [&](const auto& pair) {
-					return entity == pair.second;
-				});
-				entity_json["name"]       = name->first;
+				
 				entity_json["enabled"]    = is_enabled(entity);
 				entity_json["components"] = nlohmann::json::object();
 
-				auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, text, transform] = get_multi<
+				auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, tag, text, transform] = get_multi<
 					components::Animated,
 				    components::BatchedSprite,
 				    components::Circle,
@@ -340,6 +288,7 @@ namespace galaxy
 				    components::Renderable,
 				    components::ShaderID,
 				    components::Sprite,
+					components::Tag,
 				    components::Text,
 				    components::Transform>(entity);
 				// clang-format on
@@ -386,6 +335,11 @@ namespace galaxy
 				if (sprite)
 				{
 					entity_json["components"]["Sprite"] = sprite->serialize();
+				}
+
+				if (tag)
+				{
+					entity_json["components"]["Tag"] = tag->serialize();
 				}
 
 				if (text)

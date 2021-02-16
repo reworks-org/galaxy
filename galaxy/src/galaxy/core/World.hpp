@@ -81,15 +81,6 @@ namespace galaxy
 			[[maybe_unused]] const ecs::Entity create();
 
 			///
-			/// Create an entity with a name.
-			///
-			/// \param debug_name Debug name for identification purposes.
-			///
-			/// \return An entity with a creation bit flag.
-			///
-			[[maybe_unused]] const ecs::Entity create(std::string_view debug_name);
-
-			///
 			/// \brief Create an entity from a JSON file.
 			///
 			/// If your using this make sure you have called register_component().
@@ -217,25 +208,6 @@ namespace galaxy
 			void set_rotation_origin(const ecs::Entity entity, const graphics::Renderables render_type);
 
 			///
-			/// Assign a name to an entity.
-			///
-			/// \param entity Entity to assign name to.
-			/// \param debug_name Name to assign to entity.
-			///
-			/// \return True if successful.
-			///
-			[[maybe_unused]] const bool assign_name(const ecs::Entity entity, std::string_view debug_name) noexcept;
-
-			///
-			/// Get entity fropm debug name.
-			///
-			/// \param debug_name Name of entity to retrieve.
-			///
-			/// \return The entity.
-			///
-			[[nodiscard]] ecs::Entity find_from_name(std::string_view debug_name) noexcept;
-
-			///
 			/// Retrieve multiple components assosiated with an entity.
 			/// Template type is type of components to get.
 			///
@@ -315,13 +287,6 @@ namespace galaxy
 			///
 			/// \return Constant pointer to b2World.
 			[[nodiscard]] b2World* const b2_world() noexcept;
-
-			///
-			/// Get all debug names in unordered_map.
-			///
-			/// \return Const unordered_map reference.
-			///
-			[[nodiscard]] const robin_hood::unordered_map<std::string, ecs::Entity>& get_debug_name_map() noexcept;
 
 			///
 			/// Serializes object.
