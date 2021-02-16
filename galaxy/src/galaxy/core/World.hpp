@@ -524,8 +524,7 @@ namespace galaxy
 
 				if (type >= m_data.size() || m_data.size() == 0)
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Attempted to access a component type that doesnt exist.");
-					GALAXY_LOG(GALAXY_ERROR, "Possible zero size component data detected.");
+					GALAXY_LOG(GALAXY_ERROR, "Attempted to remove a component that doesnt exist.");
 				}
 				else
 				{
@@ -547,23 +546,33 @@ namespace galaxy
 		template<meta::is_class... Components, typename Lambda>
 		inline void World::operate(Lambda&& func)
 		{
-			// Ensure data is not empty.
-			if (!m_data.empty())
+			if (m_data.empty())
 			{
-				constexpr auto length = sizeof...(Components);
-				EntitysWithCounters entities;
+				return;
+			}
 
-				(internal_operate<Components>(entities), ...);
-
-				for (const auto& [entity, count] : entities)
+			std::vector<std::size_t> ids = {(CUniqueID::get<Components>(), ...)};
+			for (const auto& id : ids)
+			{
+				if (id >= m_data.size())
 				{
-					// Ensures that only entities that have all components are used.
-					if (!(count < length))
+					return;
+				}
+			}
+
+			constexpr auto length = sizeof...(Components);
+			EntitysWithCounters entities;
+
+			(internal_operate<Components>(entities), ...);
+
+			for (const auto& [entity, count] : entities)
+			{
+				// Ensures that only entities that have all components are used.
+				if (!(count < length))
+				{
+					if (is_enabled(entity))
 					{
-						if (is_enabled(entity))
-						{
-							func(entity, get<Components>(entity)...);
-						}
+						func(entity, get<Components>(entity)...);
 					}
 				}
 			}
@@ -608,21 +617,12 @@ namespace galaxy
 		template<meta::is_class Component>
 		inline void World::internal_operate(EntitysWithCounters& entities)
 		{
-			const auto type = CUniqueID::get<Component>();
-
-			if (type >= m_data.size())
+			auto ptr = m_data[CUniqueID::get<Component>()].get();
+			if (ptr != nullptr)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to access a component type that doesnt exist!");
-			}
-			else
-			{
-				auto ptr = m_data[type].get();
-				if (ptr != nullptr)
+				for (const auto& entity : ptr->m_entities)
 				{
-					for (const auto& entity : ptr->m_entities)
-					{
-						entities[entity]++;
-					}
+					entities[entity]++;
 				}
 			}
 		}
