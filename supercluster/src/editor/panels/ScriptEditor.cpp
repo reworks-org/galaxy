@@ -19,107 +19,117 @@ namespace sc
 			m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 		}
 
-		void ScriptEditor::render()
+		void ScriptEditor::render(bool* show)
 		{
-			ImGui::Begin("Lua Editor", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
-			ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
-
-			if (ImGui::BeginMenuBar())
+			if (*show)
 			{
-				if (ImGui::BeginMenu("File"))
+				if (ImGui::Begin("Script Editor", show, ImGuiWindowFlags_MenuBar))
 				{
-					if (ImGui::MenuItem("Open"))
+					ImGui::SetWindowSize({800, 600}, ImGuiCond_FirstUseEver);
+
+					if (ImGui::BeginMenuBar())
 					{
-						const auto code = SL_HANDLE.vfs()->open_with_dialog("*.lua");
-						m_editor.SetText(code);
+						if (ImGui::BeginMenu("File"))
+						{
+							if (ImGui::MenuItem("Open"))
+							{
+								const auto code = SL_HANDLE.vfs()->open_with_dialog("*.lua");
+								m_editor.SetText(code);
+							}
+
+							if (ImGui::MenuItem("Save"))
+							{
+								SL_HANDLE.vfs()->save_with_dialog(m_editor.GetText());
+							}
+
+							if (ImGui::MenuItem("Close"))
+							{
+								*show = false;
+							}
+
+							ImGui::EndMenu();
+						}
+
+						if (ImGui::BeginMenu("Edit"))
+						{
+							bool ro = m_editor.IsReadOnly();
+							if (ImGui::MenuItem("Read-only mode", nullptr, &ro))
+							{
+								m_editor.SetReadOnly(ro);
+							}
+
+							ImGui::Separator();
+
+							if (ImGui::MenuItem("Undo", "", nullptr, !ro && m_editor.CanUndo()))
+							{
+								m_editor.Undo();
+							}
+
+							if (ImGui::MenuItem("Redo", "", nullptr, !ro && m_editor.CanRedo()))
+							{
+								m_editor.Redo();
+							}
+
+							ImGui::Separator();
+
+							if (ImGui::MenuItem("Copy", "", nullptr, m_editor.HasSelection()))
+							{
+								m_editor.Copy();
+							}
+
+							if (ImGui::MenuItem("Cut", "", nullptr, !ro && m_editor.HasSelection()))
+							{
+								m_editor.Cut();
+							}
+
+							if (ImGui::MenuItem("Delete", "", nullptr, !ro && m_editor.HasSelection()))
+							{
+								m_editor.Delete();
+							}
+
+							if (ImGui::MenuItem("Paste", "", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
+							{
+								m_editor.Paste();
+							}
+
+							ImGui::Separator();
+
+							if (ImGui::MenuItem("Select all", nullptr, nullptr))
+							{
+								m_editor.SetSelection(ImGui::TextEditor::Coordinates(), ImGui::TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
+							}
+
+							ImGui::EndMenu();
+						}
+
+						if (ImGui::BeginMenu("Theme"))
+						{
+							if (ImGui::MenuItem("Dark palette"))
+							{
+								m_editor.SetPalette(ImGui::TextEditor::GetDarkPalette());
+							}
+
+							if (ImGui::MenuItem("Light palette"))
+							{
+								m_editor.SetPalette(ImGui::TextEditor::GetLightPalette());
+							}
+
+							if (ImGui::MenuItem("Retro blue palette"))
+							{
+								m_editor.SetPalette(ImGui::TextEditor::GetRetroBluePalette());
+							}
+
+							ImGui::EndMenu();
+						}
+
+						ImGui::EndMenuBar();
 					}
 
-					if (ImGui::MenuItem("Save"))
-					{
-						SL_HANDLE.vfs()->save_with_dialog(m_editor.GetText());
-					}
-
-					ImGui::EndMenu();
+					m_editor.Render("Script Editor");
 				}
 
-				if (ImGui::BeginMenu("Edit"))
-				{
-					bool ro = m_editor.IsReadOnly();
-					if (ImGui::MenuItem("Read-only mode", nullptr, &ro))
-					{
-						m_editor.SetReadOnly(ro);
-					}
-
-					ImGui::Separator();
-
-					if (ImGui::MenuItem("Undo", "", nullptr, !ro && m_editor.CanUndo()))
-					{
-						m_editor.Undo();
-					}
-
-					if (ImGui::MenuItem("Redo", "", nullptr, !ro && m_editor.CanRedo()))
-					{
-						m_editor.Redo();
-					}
-
-					ImGui::Separator();
-
-					if (ImGui::MenuItem("Copy", "", nullptr, m_editor.HasSelection()))
-					{
-						m_editor.Copy();
-					}
-
-					if (ImGui::MenuItem("Cut", "", nullptr, !ro && m_editor.HasSelection()))
-					{
-						m_editor.Cut();
-					}
-
-					if (ImGui::MenuItem("Delete", "", nullptr, !ro && m_editor.HasSelection()))
-					{
-						m_editor.Delete();
-					}
-
-					if (ImGui::MenuItem("Paste", "", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
-					{
-						m_editor.Paste();
-					}
-
-					ImGui::Separator();
-
-					if (ImGui::MenuItem("Select all", nullptr, nullptr))
-					{
-						m_editor.SetSelection(ImGui::TextEditor::Coordinates(), ImGui::TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
-					}
-
-					ImGui::EndMenu();
-				}
-
-				if (ImGui::BeginMenu("View"))
-				{
-					if (ImGui::MenuItem("Dark palette"))
-					{
-						m_editor.SetPalette(ImGui::TextEditor::GetDarkPalette());
-					}
-
-					if (ImGui::MenuItem("Light palette"))
-					{
-						m_editor.SetPalette(ImGui::TextEditor::GetLightPalette());
-					}
-
-					if (ImGui::MenuItem("Retro blue palette"))
-					{
-						m_editor.SetPalette(ImGui::TextEditor::GetRetroBluePalette());
-					}
-
-					ImGui::EndMenu();
-				}
-
-				ImGui::EndMenuBar();
+				ImGui::End();
 			}
-
-			m_editor.Render("Lua Editor");
-
-			ImGui::End();
 		}
 	} // namespace panel
 } // namespace sc

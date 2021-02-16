@@ -48,123 +48,121 @@ namespace sc
 
 		void LuaConsole::render()
 		{
-			ImGui::Begin("Lua Console", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
-
-			if (ImGui::BeginMenuBar())
+			if (ImGui::Begin("Lua Console", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
-				if (ImGui::MenuItem("Run Script"))
+				if (ImGui::BeginMenuBar())
 				{
-					auto file = SL_HANDLE.vfs()->show_open_dialog("*.lua");
-					std::ifstream ifs;
-					ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
-					m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
-							     std::istreambuf_iterator<char>());
+					if (ImGui::MenuItem("Open & Run Script"))
+					{
+						auto file = SL_HANDLE.vfs()->show_open_dialog("*.lua");
+						std::ifstream ifs;
+						ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
+						m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
+								     std::istreambuf_iterator<char>());
 
-					m_history.push_back("[SCRIPT]: ");
-					m_history.push_back(m_buff);
+						m_history.push_back("[SCRIPT]: ");
+						m_history.push_back(m_buff);
 
-					auto res        = SL_HANDLE.lua()->script(m_buff);
-					auto type       = res.get_type();
-					std::string out = "";
-					if (type == sol::type::string)
-					{
-						out = res.get<std::string>();
-					}
-					else if (type == sol::type::number)
-					{
-						out = std::to_string(res.get<float>());
-					}
-					else if (type == sol::type::boolean)
-					{
-						if (res.get<bool>())
+						auto res        = SL_HANDLE.lua()->script(m_buff);
+						auto type       = res.get_type();
+						std::string out = "";
+						if (type == sol::type::string)
 						{
-							out = "true";
+							out = res.get<std::string>();
 						}
-						else
+						else if (type == sol::type::number)
 						{
-							out = "false";
+							out = std::to_string(res.get<float>());
 						}
-					}
-
-					if (!out.empty())
-					{
-						m_history.push_back(fmt::format("[RESULT]: {0}.", out));
-					}
-
-					if (!strs.empty())
-					{
-						for (const auto& str : strs)
+						else if (type == sol::type::boolean)
 						{
-							m_history.push_back(str);
+							if (res.get<bool>())
+							{
+								out = "true";
+							}
+							else
+							{
+								out = "false";
+							}
 						}
 
-						strs.clear();
+						if (!out.empty())
+						{
+							m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+						}
+
+						if (!strs.empty())
+						{
+							for (const auto& str : strs)
+							{
+								m_history.push_back(str);
+							}
+
+							strs.clear();
+						}
+
+						m_buff.clear();
+						ImGui::SetKeyboardFocusHere(-1);
 					}
 
-					m_buff.clear();
-					ImGui::SetKeyboardFocusHere(-1);
+					if (ImGui::MenuItem("Run GC"))
+					{
+						SL_HANDLE.lua()->collect_garbage();
+					}
+
+					if (ImGui::MenuItem("Clear"))
+					{
+						m_history.clear();
+					}
+
+					ImGui::SameLine();
+					ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+					ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
+
+					if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
+					{
+						m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
+
+						auto res  = SL_HANDLE.lua()->script(m_buff);
+						auto type = res.get_type();
+						std::string out;
+						if (type == sol::type::string)
+						{
+							out = res.get<std::string>();
+						}
+						else if (type == sol::type::number)
+						{
+							out = std::to_string(res.get<float>());
+						}
+						else if (type == sol::type::boolean)
+						{
+							if (res.get<bool>())
+							{
+								out = "true";
+							}
+							else
+							{
+								out = "false";
+							}
+						}
+
+						if (!out.empty())
+						{
+							m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+						}
+
+						m_buff.clear();
+						ImGui::SetKeyboardFocusHere(-1);
+					}
+
+					ImGui::PopStyleColor(2);
+					ImGui::EndMenuBar();
 				}
 
-				if (ImGui::MenuItem("Run GC"))
+				for (const auto& str : m_history)
 				{
-					SL_HANDLE.lua()->collect_garbage();
+					ImGui::TextWrapped(str.c_str());
 				}
-
-				if (ImGui::MenuItem("Clear"))
-				{
-					m_history.clear();
-				}
-
-				ImGui::SameLine();
-				ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
-				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
-
-				if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
-				{
-					m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
-
-					auto res  = SL_HANDLE.lua()->script(m_buff);
-					auto type = res.get_type();
-					std::string out;
-					if (type == sol::type::string)
-					{
-						out = res.get<std::string>();
-					}
-					else if (type == sol::type::number)
-					{
-						out = std::to_string(res.get<float>());
-					}
-					else if (type == sol::type::boolean)
-					{
-						if (res.get<bool>())
-						{
-							out = "true";
-						}
-						else
-						{
-							out = "false";
-						}
-					}
-
-					if (!out.empty())
-					{
-						m_history.push_back(fmt::format("[RESULT]: {0}.", out));
-					}
-
-					m_buff.clear();
-					ImGui::SetKeyboardFocusHere(-1);
-				}
-
-				ImGui::PopStyleColor(2);
-				ImGui::EndMenuBar();
-			}
-
-			ImGui::Separator();
-			ImGui::Spacing();
-
-			for (const auto& str : m_history)
-			{
-				ImGui::TextWrapped(str.c_str());
 			}
 
 			ImGui::End();

@@ -28,7 +28,7 @@ namespace sc
 
 		void JSONEditor::create_new()
 		{
-			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
+			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				ImGui::Text("Select root object type:");
 				ImGui::Separator();
@@ -103,71 +103,68 @@ namespace sc
 
 		void JSONEditor::parse_and_display()
 		{
-			ImGui::Begin("JSON Editor", (bool*)true, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
-
-			ImGui::Text("Visual JSON editor.");
-			ImGui::Spacing();
-
-			if (ImGui::Button("New"))
+			if (ImGui::Begin("JSON Editor", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar))
 			{
-				ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
-			}
-
-			create_new();
-			ImGui::SameLine();
-
-			if (ImGui::Button("Open"))
-			{
-				const auto path = SL_HANDLE.vfs()->show_open_dialog("*.json");
-				load_file(path);
-			}
-
-			ImGui::SameLine();
-
-			if (ImGui::Button("Save"))
-			{
-				if (is_loaded())
+				if (ImGui::BeginMenuBar())
 				{
-					const auto path = SL_HANDLE.vfs()->show_save_dialog();
-					save(path);
-				}
-			}
-
-			ImGui::Separator();
-			ImGui::Spacing();
-
-			if (m_loaded)
-			{
-				m_counter = 0;
-
-				if (m_external)
-				{
-					if (m_external->is_object())
+					if (ImGui::MenuItem("New"))
 					{
-						do_object(*m_external);
+						ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
 					}
-					else if (m_external->is_array())
+
+					if (ImGui::MenuItem("Open"))
 					{
-						do_array(*m_external);
+						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.json");
+						load_file(path);
+					}
+
+					if (ImGui::MenuItem("Save"))
+					{
+						if (is_loaded())
+						{
+							const auto path = SL_HANDLE.vfs()->show_save_dialog();
+							save(path);
+						}
+					}
+
+					ImGui::EndMenuBar();
+				}
+
+				create_new();
+
+				if (m_loaded)
+				{
+					m_counter = 0;
+
+					if (m_external)
+					{
+						if (m_external->is_object())
+						{
+							do_object(*m_external);
+						}
+						else if (m_external->is_array())
+						{
+							do_array(*m_external);
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
+						}
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
-					}
-				}
-				else
-				{
-					if (m_root.is_object())
-					{
-						do_object(m_root);
-					}
-					else if (m_root.is_array())
-					{
-						do_array(m_root);
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
+						if (m_root.is_object())
+						{
+							do_object(m_root);
+						}
+						else if (m_root.is_array())
+						{
+							do_array(m_root);
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_FATAL, "JSONEditor was not object or array.");
+						}
 					}
 				}
 			}

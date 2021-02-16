@@ -22,7 +22,7 @@ namespace sc
 		public:
 			ScriptEditor();
 
-			void render();
+			void render(bool* show);
 
 		private:
 			ImGui::TextEditor m_editor;
