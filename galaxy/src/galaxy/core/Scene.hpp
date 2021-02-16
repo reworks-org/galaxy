@@ -60,11 +60,25 @@ namespace galaxy
 			///
 			virtual void render() = 0;
 
+			///
+			/// Get scene world.
+			///
+			/// \return Reference to internal scene world.
+			///
+			[[nodiscard]] World& world() noexcept;
+
+			///
+			/// Get scene camera.
+			///
+			/// \return Reference to internal scene camera.
+			///
+			[[nodiscard]] graphics::Camera& camera() noexcept;
+
 		protected:
 			///
 			/// Entity/System manager.
 			///
-			core::World m_world;
+			World m_world;
 
 			///
 			/// Camera.
