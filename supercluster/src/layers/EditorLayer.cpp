@@ -21,7 +21,6 @@ using namespace galaxy;
 namespace sc
 {
 	EditorLayer::EditorLayer()
-	    : m_process {nullptr}, m_draw_demo {false}
 	{
 		m_window       = SL_HANDLE.window();
 		m_editor_scene = std::make_unique<EditorScene>();
@@ -57,6 +56,7 @@ namespace sc
 
 	void EditorLayer::on_push()
 	{
+		m_entity_panel.set_scene(m_active_scene);
 	}
 
 	void EditorLayer::on_pop()
@@ -76,6 +76,7 @@ namespace sc
 	void EditorLayer::pre_render()
 	{
 		m_active_scene->pre_render();
+		m_entity_panel.pre_render();
 
 		start();
 
@@ -93,7 +94,8 @@ namespace sc
 		window_flags |= ImGuiWindowFlags_NoBackground;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Dev Tools", (bool*)true, window_flags);
+		static bool s_editor_open = true;
+		ImGui::Begin("Dev Tools", &s_editor_open, window_flags);
 		ImGui::PopStyleVar(3);
 
 		ImGui::DockSpace(ImGui::GetID("EditorScene_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
@@ -116,7 +118,7 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Show ImGui::Demo"))
 				{
-					m_draw_demo = !m_draw_demo;
+					m_render_demo = !m_render_demo;
 				}
 
 				if (ImGui::BeginMenu("Theme"))
@@ -174,6 +176,11 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::MenuItem("Script Editor"))
+			{
+				m_render_script_editor = !m_render_script_editor;
+			}
+
 			if (ImGui::MenuItem("Open Tiled"))
 			{
 				m_process = platform::run_process("tools/tiled/tiled.exe");
@@ -182,15 +189,34 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
-		if (m_draw_demo)
+		if (m_render_demo)
 		{
-			ImGui::ShowDemoWindow(&m_draw_demo);
+			ImGui::ShowDemoWindow(&m_render_demo);
 		}
 
-		//m_entity_panel.render();
+		if (ImGui::Begin("Scene Player", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoDecoration))
+		{
+			if (ImGui::ArrowButton("PlayArrowButton", ImGuiDir_Right))
+			{
+			}
+
+			ImGui::SameLine();
+			ImGui::Text("Play Scene");
+
+			if (ImGui::Button("||"))
+			{
+			}
+
+			ImGui::SameLine();
+			ImGui::Text("Pause Scene");
+		}
+
+		ImGui::End();
+
+		m_entity_panel.render();
 		m_json_panel.parse_and_display();
 		m_console.render();
-		m_script_panel.render();
+		m_script_panel.render(&m_render_script_editor);
 
 		ImGui::End();
 		end();

@@ -12,7 +12,8 @@ SUPERCLUSTER:
 - Integrate openal context with dev tools.
 - serialization
 - audio support
-- gui builder
+- If scene in focus, allow input from that one scene, otherwise restrict input to ImGui.
+
 
 RESTRUCTURE:
 Composition > Inheritance
@@ -41,6 +42,7 @@ TODO:
 - Loading state support?
 - AI
 - Map
+- Set lua function as onevent. that way function is "serialized".
 
 
 CMAKE:

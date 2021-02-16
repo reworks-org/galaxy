@@ -41,14 +41,15 @@ namespace sc
 		void end();
 
 	private:
-		galaxy::core::Window* m_window;
-		std::unique_ptr<EditorScene> m_editor_scene;
+		galaxy::core::Window* m_window              = nullptr;
+		std::unique_ptr<EditorScene> m_editor_scene = nullptr;
 
-		void* m_process;
+		void* m_process = nullptr;
 
-		bool m_draw_demo;
+		bool m_render_demo          = false;
+		bool m_render_script_editor = false;
 
-		//panel::EntityEditor m_entity_panel;
+		panel::EntityEditor m_entity_panel;
 		panel::JSONEditor m_json_panel;
 		panel::LuaConsole m_console;
 		panel::ScriptEditor m_script_panel;
