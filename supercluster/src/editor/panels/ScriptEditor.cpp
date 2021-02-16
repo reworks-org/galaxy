@@ -21,7 +21,7 @@ namespace sc
 
 		void ScriptEditor::render()
 		{
-			ImGui::Begin("Lua Editor", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
+			ImGui::Begin("Lua Editor", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
 			ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
 
 			if (ImGui::BeginMenuBar())

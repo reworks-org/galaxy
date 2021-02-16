@@ -48,7 +48,7 @@ namespace sc
 
 		void LuaConsole::render()
 		{
-			ImGui::Begin("Lua Console", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
+			ImGui::Begin("Lua Console", (bool*)true, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
 
 			if (ImGui::BeginMenuBar())
 			{

@@ -28,7 +28,7 @@ namespace sc
 
 		void JSONEditor::create_new()
 		{
-			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize))
+			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
 				ImGui::Text("Select root object type:");
 				ImGui::Separator();
@@ -103,7 +103,7 @@ namespace sc
 
 		void JSONEditor::parse_and_display()
 		{
-			ImGui::Begin("JSON Editor");
+			ImGui::Begin("JSON Editor", (bool*)true, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
 
 			ImGui::Text("Visual JSON editor.");
 			ImGui::Spacing();
@@ -309,7 +309,7 @@ namespace sc
 
 		void JSONEditor::new_object(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize))
+			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
 				static std::string s_key_str = "";
 				static std::string s_val_str = "";
@@ -423,7 +423,7 @@ namespace sc
 
 		void JSONEditor::add_to_array(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize))
+			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
 				static std::string s_val_str = "";
 				static std::string s_err_str = "";
