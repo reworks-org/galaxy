@@ -251,7 +251,7 @@ namespace sc
 				colors[ImGuiCol_SliderGrabActive] = panelActiveColor;
 				colors[ImGuiCol_Button] = panelColor;
 				colors[ImGuiCol_ButtonHovered] = panelHoverColor;
-				colors[ImGuiCol_ButtonActive] = panelHoverColor;
+				colors[ImGuiCol_ButtonActive] = panelActiveColor;
 				colors[ImGuiCol_Header] = panelColor;
 				colors[ImGuiCol_HeaderHovered] = panelHoverColor;
 				colors[ImGuiCol_HeaderActive] = panelActiveColor;
