@@ -14,7 +14,7 @@ namespace galaxy
 	namespace components
 	{
 		Tag::Tag() noexcept
-		    : Serializable {this}, m_tag {""}
+		    : Serializable {this}, m_tag {"Default Tag"}
 		{
 		}
 
@@ -30,7 +30,7 @@ namespace galaxy
 		}
 
 		Tag::Tag(Tag&& t) noexcept
-		    : Serializable {this}, m_tag {""}
+		    : Serializable {this}, m_tag {"Default Tag"}
 		{
 			this->m_tag = std::move(t.m_tag);
 		}
