@@ -125,10 +125,18 @@ namespace galaxy
 				m_window->set_cursor_visibility(cursor);
 				if (cursor)
 				{
-					m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
+					const auto cursor_image = m_config->get<std::string>("cursor-image");
+					if (cursor_image != "")
+					{
+						m_window->set_cursor_icon(cursor_image);
+					}
 				}
 
-				m_window->set_icon(m_config->get<std::string>("icon-file"));
+				const auto icon_file = m_config->get<std::string>("icon-file");
+				if (icon_file != "")
+				{
+					m_window->set_icon(icon_file);
+				}
 
 				// Configure audio context.
 				m_openal.set_listener_gain(m_config->get<float>("audio-volume"));
