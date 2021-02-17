@@ -14,9 +14,6 @@ namespace sc
 {
 	namespace panel
 	{
-		///
-		/// Script editor panel.
-		///
 		class ScriptEditor final
 		{
 		public:

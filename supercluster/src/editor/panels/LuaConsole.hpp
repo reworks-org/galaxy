@@ -15,9 +15,6 @@ namespace sc
 {
 	namespace panel
 	{
-		///
-		/// Imgui LuaConsole for running lua code.
-		///
 		class LuaConsole final
 		{
 		public:
