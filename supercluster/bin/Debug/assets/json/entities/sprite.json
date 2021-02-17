@@ -1,19 +1,21 @@
 {
-    "name": "SpriteEntity",
     "enabled": true,
     "components": {
+        "Tag": {
+        	"tag": "Sprite Test"
+        },
         "Sprite": {
-        	"texture": "wall_2.png",
+        	"texture": "wall.png",
         	"opacity": 1.0
         },
         "Transform": {
             "x": 0,
-            "y": 512,
-            "rotation": 45
+            "y": 0,
+            "rotation": 0
         },
         "Renderable": {
             "type": 3,
-            "z-level": 4
+            "z-level": 1
         },
         "ShaderID": {
             "shader-id": "sprite"
