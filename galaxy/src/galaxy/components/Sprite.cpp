@@ -68,6 +68,25 @@ namespace galaxy
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
+		void Sprite::create_clipped(const float width, const float height)
+		{
+			std::vector<graphics::SpriteVertex> vb_arr;
+			vb_arr.push_back({0.0f, 0.0f, 0.0f, 0.0f});
+			vb_arr.push_back({0.0f + m_width, 0.0f, 0.0f + width, 0.0f});
+			vb_arr.push_back({0.0f + m_width, 0.0f + m_height, 0.0f + width, 0.0f + height});
+			vb_arr.push_back({0.0f, 0.0f + m_height, 0.0f, 0.0f + height});
+
+			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
+
+			m_vb.create<graphics::SpriteVertex>(vb_arr);
+			m_ib.create(ib_arr);
+
+			m_layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
+			m_layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+
+			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
+		}
+
 		void Sprite::bind() noexcept
 		{
 			m_va.bind();

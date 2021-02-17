@@ -560,6 +560,7 @@ namespace galaxy
 			sprite_type["clamp_to_edge"]   = &components::Sprite::clamp_to_edge;
 			sprite_type["stretch"]         = &components::Sprite::stretch;
 			sprite_type["create"]          = &components::Sprite::create;
+			sprite_type["create_clipped"]  = &components::Sprite::create_clipped;
 			sprite_type["get_aniso_level"] = &components::Sprite::get_aniso_level;
 			sprite_type["get_height"]      = &components::Sprite::get_height;
 			sprite_type["get_width"]       = &components::Sprite::get_width;
@@ -804,7 +805,7 @@ namespace galaxy
 			dispatcher_type["trigger_mouse_moved"]    = &events::Dispatcher::trigger<events::MouseMoved, const double, const double>;
 			dispatcher_type["trigger_mouse_pressed"]  = &events::Dispatcher::trigger<events::MousePressed, const float, const float, const input::MouseButton>;
 			dispatcher_type["trigger_mouse_released"] = &events::Dispatcher::trigger<events::MouseReleased, const float, const float, const input::MouseButton>;
-			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const double, const double>;
+			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const int, const int>;
 		}
 
 		void register_fs()

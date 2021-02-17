@@ -60,14 +60,20 @@ namespace galaxy
 			void stretch(const float width, const float height) noexcept;
 
 			///
-			/// \brief Creates the internal vertex array.
-			///
-			/// BufferType Fixed or dynamic buffer.
+			/// Creates the internal vertex array.
 			///
 			/// \param tex_x Optional texture x pos.
 			/// \param tex_y Optional texture y pos.
 			///
 			void create(const float tex_x = 0.0f, const float tex_y = 0.0f);
+
+			///
+			/// Creates the internal vertex array, with a clipped texture.
+			///
+			/// \param width Clipped texture width.
+			/// \param height Clipped texture height.
+			///
+			void create_clipped(const float width, const float height);
 
 			///
 			/// Activate sprite context.
