@@ -21,9 +21,6 @@ namespace sc
 {
 	namespace panel
 	{
-		///
-		/// Parses EntityEditor and provides imgui widgets to manipulate it.
-		///
 		class EntityEditor final
 		{
 		public:
@@ -39,8 +36,10 @@ namespace sc
 			void render_components(const ecs::Entity entity);
 
 		private:
-			core::Scene* m_cur_scene;
-			std::optional<ecs::Entity> m_selected;
+			core::Scene* m_cur_scene              = nullptr;
+			std::optional<ecs::Entity> m_selected = std::nullopt;
+
+			bool m_add_anim_popup = false;
 		};
 	} // namespace panel
 } // namespace sc
