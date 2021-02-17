@@ -6,6 +6,7 @@
 ///
 
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
 
 #include <imgui/imgui_impl_glfw.h>
@@ -32,13 +33,16 @@ namespace sc
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigDockingAlwaysTabBar = true;
-		io.ConfigDockingWithShift = true;
+		io.ConfigDockingWithShift    = true;
+
+		const auto default_font_path = SL_HANDLE.vfs()->absolute("Roboto-Regular.ttf");
+		io.FontDefault = io.Fonts->AddFontFromFileTTF(default_font_path.c_str(), 16.0f);
 		// clang-format on
 
 		editor::theme::visual_dark();
 		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
 
-		const constexpr char* gl_version = "#version 450 core";
+		static const constexpr char* gl_version = "#version 450 core";
 		ImGui_ImplOpenGL3_Init(gl_version);
 	}
 
@@ -65,6 +69,11 @@ namespace sc
 
 	void EditorLayer::events()
 	{
+		if (m_window->key_pressed(input::Keys::ESC))
+		{
+			exit();
+		}
+
 		m_active_scene->events();
 	}
 
@@ -161,16 +170,15 @@ namespace sc
 					ImGui::EndMenu();
 				}
 
-				if (ImGui::MenuItem("Restart"))
+				if (ImGui::MenuItem("Reload"))
 				{
 					SL_HANDLE.m_restart = true;
-					m_window->close();
+					exit();
 				}
 
 				if (ImGui::MenuItem("Exit"))
 				{
-					platform::close_process(m_process);
-					m_window->close();
+					exit();
 				}
 
 				ImGui::EndMenu();
@@ -186,6 +194,12 @@ namespace sc
 				m_process = platform::run_process("tools/tiled/tiled.exe");
 			}
 
+			if (ImGui::MenuItem("Reload"))
+			{
+				SL_HANDLE.m_restart = true;
+				exit();
+			}
+
 			ImGui::EndMenuBar();
 		}
 
@@ -194,8 +208,13 @@ namespace sc
 			ImGui::ShowDemoWindow(&m_render_demo);
 		}
 
-		if (ImGui::Begin("Scene Player", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoDecoration))
+		if (ImGui::Begin("Viewport"))
 		{
+			if (ImGui::BeginMenuBar())
+			{
+				ImGui::EndMenuBar();
+			}
+
 			if (ImGui::ArrowButton("PlayArrowButton", ImGuiDir_Right))
 			{
 			}
@@ -216,6 +235,7 @@ namespace sc
 		m_entity_panel.render();
 		m_json_panel.parse_and_display();
 		m_console.render();
+		m_scene_panel.render();
 		m_script_panel.render(&m_render_script_editor);
 
 		ImGui::End();
@@ -238,5 +258,11 @@ namespace sc
 	void EditorLayer::end()
 	{
 		ImGui::Render();
+	}
+
+	void EditorLayer::exit()
+	{
+		platform::close_process(m_process);
+		m_window->close();
 	}
 } // namespace sc

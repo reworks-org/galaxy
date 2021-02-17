@@ -14,6 +14,7 @@
 #include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
+#include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/ScriptEditor.hpp"
 
 #include "scenes/EditorScene.hpp"
@@ -39,6 +40,7 @@ namespace sc
 	private:
 		void start();
 		void end();
+		void exit();
 
 	private:
 		galaxy::core::Window* m_window              = nullptr;
@@ -52,6 +54,7 @@ namespace sc
 		panel::EntityEditor m_entity_panel;
 		panel::JSONEditor m_json_panel;
 		panel::LuaConsole m_console;
+		panel::ScenePanel m_scene_panel;
 		panel::ScriptEditor m_script_panel;
 	};
 } // namespace sc
