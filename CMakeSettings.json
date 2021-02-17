@@ -22,7 +22,7 @@
       "enableMicrosoftCodeAnalysis": true,
       "enableClangTidyCodeAnalysis": true,
       "codeAnalysisRuleset": "CodeAnalysis.ruleset",
-      "clangTidyChecks": ""
+      "clangTidyChecks": "-clang-diagnostic-*"
     },
     {
       "name": "MSVC-Release",
