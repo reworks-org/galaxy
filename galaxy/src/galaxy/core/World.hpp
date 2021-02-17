@@ -327,7 +327,7 @@ namespace galaxy
 			/// Called by operate().
 			///
 			template<meta::is_class Component>
-			void internal_operate(EntitysWithCounters& entities);
+			void internal_operate(EntitysWithCounters& entities, bool& terminate);
 
 		private:
 			///
@@ -546,33 +546,26 @@ namespace galaxy
 		template<meta::is_class... Components, typename Lambda>
 		inline void World::operate(Lambda&& func)
 		{
-			if (m_data.empty())
+			if (!m_data.empty())
 			{
-				return;
-			}
+				const constexpr auto length = sizeof...(Components);
+				EntitysWithCounters entities;
 
-			std::vector<std::size_t> ids = {(CUniqueID::get<Components>(), ...)};
-			for (const auto& id : ids)
-			{
-				if (id >= m_data.size())
+				bool error = false;
+				(internal_operate<Components>(entities, error), ...);
+
+				if (!error)
 				{
-					return;
-				}
-			}
-
-			constexpr auto length = sizeof...(Components);
-			EntitysWithCounters entities;
-
-			(internal_operate<Components>(entities), ...);
-
-			for (const auto& [entity, count] : entities)
-			{
-				// Ensures that only entities that have all components are used.
-				if (!(count < length))
-				{
-					if (is_enabled(entity))
+					for (const auto& [entity, count] : entities)
 					{
-						func(entity, get<Components>(entity)...);
+						// Ensures that only entities that have all components are used.
+						if (!(count < length))
+						{
+							if (is_enabled(entity))
+							{
+								func(entity, get<Components>(entity)...);
+							}
+						}
 					}
 				}
 			}
@@ -615,14 +608,25 @@ namespace galaxy
 		}
 
 		template<meta::is_class Component>
-		inline void World::internal_operate(EntitysWithCounters& entities)
+		inline void World::internal_operate(EntitysWithCounters& entities, bool& terminate)
 		{
-			auto ptr = m_data[CUniqueID::get<Component>()].get();
-			if (ptr != nullptr)
+			if (!terminate)
 			{
-				for (const auto& entity : ptr->m_entities)
+				const auto type = CUniqueID::get<Component>();
+				if (type >= m_data.size())
 				{
-					entities[entity]++;
+					terminate = true;
+				}
+				else
+				{
+					auto ptr = m_data[type].get();
+					if (ptr != nullptr)
+					{
+						for (const auto& entity : ptr->m_entities)
+						{
+							entities[entity]++;
+						}
+					}
 				}
 			}
 		}
