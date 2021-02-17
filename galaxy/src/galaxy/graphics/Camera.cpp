@@ -102,11 +102,11 @@ namespace galaxy
 		{
 			if (e.m_y_offset < 0)
 			{
-				m_scale -= 0.1;
+				m_scale -= 0.1f;
 			}
 			else
 			{
-				m_scale += 0.1;
+				m_scale += 0.1f;
 			}
 
 			zoom(m_scale);
@@ -149,13 +149,17 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Camera::zoom(const float scale) noexcept
+		void Camera::zoom(float scale) noexcept
 		{
-			m_scale = scale;
+			if (scale < 0.2f)
+			{
+				scale = 0.2f;
+			}
 
+			m_scale   = scale;
 			m_scaling = m_identity_matrix;
 			m_scaling = glm::translate(m_scaling, {m_width / 2.0f, m_height / 2.0f, 0.0f});
-			m_scaling = glm::scale(m_scaling, {scale, scale, 1.0f});
+			m_scaling = glm::scale(m_scaling, {m_scale, m_scale, 1.0f});
 			m_scaling = glm::translate(m_scaling, {-(m_width / 2.0f), -(m_height / 2.0f), 0.0f});
 
 			m_dirty = true;

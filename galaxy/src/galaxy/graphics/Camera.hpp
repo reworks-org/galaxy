@@ -114,9 +114,9 @@ namespace galaxy
 			///
 			/// Zoom camera.
 			///
-			/// \param scale Scale. Multiplier.
+			/// \param scale Scale. Multiplier. Min 0.2.
 			///
-			void zoom(const float scale) noexcept;
+			void zoom(float scale) noexcept;
 
 			///
 			/// Recalculates the model view matrix.
