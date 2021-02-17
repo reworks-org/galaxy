@@ -228,11 +228,10 @@ namespace galaxy
 			///
 			/// Trigger scroll event.
 			///
-			/// \param window GLFW window.
-			/// \param x X offset from scrollwheel.
-			/// \param y Y offset from scrollwheel.
+			/// \param x -1 or 1.
+			/// \param y -1 or 1.
 			///
-			void trigger_on_scroll(GLFWwindow* window, double x, double y);
+			void trigger_on_scroll(const int x, const int y);
 
 			///
 			/// Register an object with the window dispatch scroller.

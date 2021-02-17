@@ -140,7 +140,7 @@ namespace galaxy
 						// Set scroll callback.
 						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x, double y) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-							this_win->trigger_on_scroll(window, x, y);
+							this_win->trigger_on_scroll(static_cast<int>(x), static_cast<int>(y));
 						});
 
 						// Set vsync.
@@ -664,7 +664,7 @@ namespace galaxy
 			return false;
 		}
 
-		void Window::trigger_on_scroll(GLFWwindow* window, double x, double y)
+		void Window::trigger_on_scroll(const int x, const int y)
 		{
 			m_window_dispatcher.trigger<events::MouseWheel>(x, y);
 		}
