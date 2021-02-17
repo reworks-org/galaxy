@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <iostream>
+
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
@@ -23,6 +25,8 @@ namespace sc
 {
 	EditorLayer::EditorLayer()
 	{
+		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+
 		m_window       = SL_HANDLE.window();
 		m_editor_scene = std::make_unique<EditorScene>();
 		m_active_scene = m_editor_scene.get();
@@ -56,6 +60,8 @@ namespace sc
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
+
+		GALAXY_LOG_CAPTURE_CUSTOM(std::cout);
 	}
 
 	void EditorLayer::on_push()
@@ -237,6 +243,7 @@ namespace sc
 		m_console.render();
 		m_scene_panel.render();
 		m_script_panel.render(&m_render_script_editor);
+		m_std_console.render();
 
 		ImGui::End();
 		end();

@@ -16,6 +16,7 @@
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/ScriptEditor.hpp"
+#include "editor/panels/StdConsole.hpp"
 
 #include "scenes/EditorScene.hpp"
 
@@ -56,6 +57,7 @@ namespace sc
 		panel::LuaConsole m_console;
 		panel::ScenePanel m_scene_panel;
 		panel::ScriptEditor m_script_panel;
+		panel::StdConsole m_std_console;
 	};
 } // namespace sc
 
