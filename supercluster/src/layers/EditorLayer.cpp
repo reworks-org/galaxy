@@ -26,8 +26,9 @@ namespace sc
 	EditorLayer::EditorLayer()
 	{
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		m_window = SL_HANDLE.window();
 
-		m_window       = SL_HANDLE.window();
+		m_framebuffer.create(1, 1);
 		m_editor_scene = std::make_unique<EditorScene>();
 		m_active_scene = m_editor_scene.get();
 
@@ -38,6 +39,7 @@ namespace sc
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigDockingAlwaysTabBar = true;
 		io.ConfigDockingWithShift    = true;
+		io.IniFilename = "sclayout.ini";
 
 		const auto default_font_path = SL_HANDLE.vfs()->absolute("Roboto-Regular.ttf");
 		io.FontDefault = io.Fonts->AddFontFromFileTTF(default_font_path.c_str(), 16.0f);
@@ -52,6 +54,9 @@ namespace sc
 
 	EditorLayer::~EditorLayer()
 	{
+		m_editor_scene.reset();
+		m_active_scene = nullptr;
+
 		platform::close_process(m_process);
 
 		m_window  = nullptr;
@@ -75,12 +80,20 @@ namespace sc
 
 	void EditorLayer::events()
 	{
+		if (m_viewport_focused && m_viewport_hovered)
+		{
+			ImGui_ImplGlfw::g_BlockInput = true;
+			m_active_scene->events();
+		}
+		else
+		{
+			ImGui_ImplGlfw::g_BlockInput = false;
+		}
+
 		if (m_window->key_pressed(input::Keys::ESC))
 		{
 			exit();
 		}
-
-		m_active_scene->events();
 	}
 
 	void EditorLayer::update(const double dt)
@@ -109,8 +122,7 @@ namespace sc
 		window_flags |= ImGuiWindowFlags_NoBackground;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		static bool s_editor_open = true;
-		ImGui::Begin("Dev Tools", &s_editor_open, window_flags);
+		ImGui::Begin("Dev Tools", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
 		ImGui::DockSpace(ImGui::GetID("EditorScene_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
@@ -190,11 +202,6 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::MenuItem("Script Editor"))
-			{
-				m_render_script_editor = !m_render_script_editor;
-			}
-
 			if (ImGui::MenuItem("Open Tiled"))
 			{
 				m_process = platform::run_process("tools/tiled/tiled.exe");
@@ -209,50 +216,53 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
+		m_camera_panel.render();
+		m_entity_panel.render();
+		m_json_panel.parse_and_display();
+		m_console.render();
+		m_scene_panel.render();
+		m_script_panel.render();
+		m_std_console.render();
+
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		if (ImGui::Begin("Viewport"))
+		{
+			m_viewport_focused    = ImGui::IsWindowFocused();
+			m_viewport_hovered    = ImGui::IsWindowHovered();
+			const auto size_avail = ImGui::GetContentRegionAvail();
+			if (size_avail != m_viewport_size)
+			{
+				m_viewport_size = size_avail;
+				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
+			}
+
+			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+		}
+
+		ImGui::End();
+		ImGui::PopStyleVar(1);
+
 		if (m_render_demo)
 		{
 			ImGui::ShowDemoWindow(&m_render_demo);
 		}
 
-		if (ImGui::Begin("Viewport"))
-		{
-			if (ImGui::BeginMenuBar())
-			{
-				ImGui::EndMenuBar();
-			}
-
-			if (ImGui::ArrowButton("PlayArrowButton", ImGuiDir_Right))
-			{
-			}
-
-			ImGui::SameLine();
-			ImGui::Text("Play Scene");
-
-			if (ImGui::Button("||"))
-			{
-			}
-
-			ImGui::SameLine();
-			ImGui::Text("Pause Scene");
-		}
-
-		ImGui::End();
-
-		m_entity_panel.render();
-		m_json_panel.parse_and_display();
-		m_console.render();
-		m_scene_panel.render();
-		m_script_panel.render(&m_render_script_editor);
-		m_std_console.render();
-
 		ImGui::End();
 		end();
+
+		m_framebuffer.bind();
+		m_active_scene->render();
+		m_framebuffer.unbind();
 	}
 
 	void EditorLayer::render()
 	{
-		m_active_scene->render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
+	void EditorLayer::on_event(const events::WindowResized& event)
+	{
+		m_framebuffer.change_size(event.m_width, event.m_height);
 	}
 
 	void EditorLayer::start()

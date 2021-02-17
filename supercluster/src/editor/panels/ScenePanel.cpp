@@ -17,6 +17,15 @@ namespace sc
 		{
 			if (ImGui::Begin("Scenes"))
 			{
+				if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+				{
+				}
+
+				ImGui::SameLine();
+
+				if (ImGui::Button(" || ##PauseSceneButton"))
+				{
+				}
 			}
 
 			ImGui::End();
