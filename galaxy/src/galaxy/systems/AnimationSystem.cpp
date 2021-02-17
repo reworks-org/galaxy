@@ -29,7 +29,7 @@ namespace galaxy
 				if (!animated->m_paused)
 				{
 					animated->m_time_spent_on_frame += (dt * animated->m_active_anim->get_speed());
-					if (animated->m_time_spent_on_frame >= animated->m_active_anim->get_current_frame()->time_per_frame())
+					if (animated->m_time_spent_on_frame >= animated->m_active_anim->get_current_frame()->m_time_per_frame)
 					{
 						animated->m_time_spent_on_frame = 0;
 

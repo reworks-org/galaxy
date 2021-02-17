@@ -106,7 +106,7 @@ namespace galaxy
 			///
 			/// \return Map of all animations.
 			///
-			[[nodiscard]] auto get_all_anims() const noexcept -> const robin_hood::unordered_map<std::string, graphics::Animation>&;
+			[[nodiscard]] auto get_all() const noexcept -> const robin_hood::unordered_map<std::string, graphics::Animation>&;
 
 			///
 			/// Is the animation paused?

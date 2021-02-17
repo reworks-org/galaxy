@@ -938,7 +938,7 @@ namespace galaxy
 			frame_type["set_region"]     = &graphics::Frame::set_region;
 			frame_type["get_region"]     = &graphics::Frame::get_region;
 			frame_type["get_region_id"]  = &graphics::Frame::get_region_id;
-			frame_type["time_per_frame"] = &graphics::Frame::time_per_frame;
+			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
 
 			auto animation_type                 = lua->new_usertype<graphics::Animation>("gAnimation", sol::no_constructor);
 			animation_type["get_current_frame"] = &graphics::Animation::get_current_frame;

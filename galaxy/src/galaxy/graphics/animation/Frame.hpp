@@ -71,13 +71,6 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_region_id() const noexcept;
 
 			///
-			/// Get time per frame.
-			///
-			/// \return Const double.
-			///
-			[[nodiscard]] const double time_per_frame() const noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -91,6 +84,12 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
+		public:
+			///
+			/// Time to spend on this frame in milliseconds.
+			///
+			double m_time_per_frame;
+
 		private:
 			///
 			/// Texture region ID.
@@ -101,11 +100,6 @@ namespace galaxy
 			/// Region on the texture atlas.
 			///
 			graphics::fRect m_region;
-
-			///
-			/// Time to spend on this frame in milliseconds.
-			///
-			double m_time_per_frame;
 		};
 	} // namespace graphics
 } // namespace galaxy

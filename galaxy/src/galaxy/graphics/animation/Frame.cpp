@@ -48,11 +48,6 @@ namespace galaxy
 			return m_id;
 		}
 
-		const double Frame::time_per_frame() const noexcept
-		{
-			return m_time_per_frame;
-		}
-
 		nlohmann::json Frame::serialize()
 		{
 			nlohmann::json json    = "{}"_json;
