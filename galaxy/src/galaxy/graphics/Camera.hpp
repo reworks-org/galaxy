@@ -84,7 +84,7 @@ namespace galaxy
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
-			void on_event(const events::MouseWheel& e) noexcept;
+			void on_scroll(const events::MouseWheel& e) noexcept;
 
 			///
 			/// Event window resizing.

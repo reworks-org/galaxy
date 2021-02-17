@@ -25,7 +25,6 @@ namespace sb
 		m_camera.set_speed(100.0f);
 
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
-		SL_HANDLE.window()->register_on_scroll(m_camera);
 
 		m_world.create_system<systems::PhysicsSystem>();
 		m_world.create_system<systems::RenderSystem>();

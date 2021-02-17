@@ -31,6 +31,11 @@ namespace galaxy
 		{
 		}
 
+		Window::ScrollData::ScrollData() noexcept
+		    : m_active {false}, m_data {0, 0}
+		{
+		}
+
 		Window::Window() noexcept
 		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_cursor_size {0.0, 0.0}
 		{
@@ -140,7 +145,7 @@ namespace galaxy
 						// Set scroll callback.
 						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x, double y) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-							this_win->trigger_on_scroll(static_cast<int>(x), static_cast<int>(y));
+							this_win->set_scroll_data(true, x, y);
 						});
 
 						// Set vsync.
@@ -596,6 +601,11 @@ namespace galaxy
 			glfwRequestWindowAttention(m_window);
 		}
 
+		void Window::allow_native_closing() noexcept
+		{
+			glfwSetWindowCloseCallback(m_window, nullptr);
+		}
+
 		void Window::prevent_native_closing() noexcept
 		{
 			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
@@ -664,9 +674,22 @@ namespace galaxy
 			return false;
 		}
 
-		void Window::trigger_on_scroll(const int x, const int y)
+		void Window::set_scroll_data(const bool active, const int x, const int y)
 		{
-			m_window_dispatcher.trigger<events::MouseWheel>(x, y);
+			m_scroll_data.m_active          = active;
+			m_scroll_data.m_data.m_x_offset = x;
+			m_scroll_data.m_data.m_y_offset = y;
+		}
+
+		const bool Window::is_scrolling() const noexcept
+		{
+			return m_scroll_data.m_active;
+		}
+
+		const events::MouseWheel& Window::get_scroll_data()
+		{
+			m_scroll_data.m_active = false;
+			return m_scroll_data.m_data;
 		}
 
 		const bool Window::key_down(input::Keys key) noexcept
@@ -676,8 +699,7 @@ namespace galaxy
 
 		const bool Window::key_pressed(input::Keys key) noexcept
 		{
-			bool res = false;
-
+			bool res  = false;
 			int state = glfwGetKey(m_window, m_keymap[key]);
 			if (m_prev_key_states[key] == GLFW_RELEASE && state == GLFW_PRESS)
 			{

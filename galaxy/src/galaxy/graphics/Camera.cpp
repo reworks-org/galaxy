@@ -98,7 +98,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_event(const events::MouseWheel& e) noexcept
+		void Camera::on_scroll(const events::MouseWheel& e) noexcept
 		{
 			if (e.m_y_offset < 0)
 			{

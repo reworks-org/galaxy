@@ -73,6 +73,27 @@ namespace galaxy
 			};
 
 			///
+			/// Scroll event data.
+			///
+			struct ScrollData final
+			{
+				///
+				/// Constructor.
+				///
+				ScrollData() noexcept;
+
+				///
+				/// Is the user currently scrolling.
+				///
+				bool m_active;
+
+				///
+				/// Mouse wheel offsets.
+				///
+				events::MouseWheel m_data;
+			};
+
+			///
 			/// Constructor.
 			///
 			Window() noexcept;
@@ -186,6 +207,13 @@ namespace galaxy
 			void request_attention() noexcept;
 
 			///
+			/// \brief Allow the window to be closed by the OS.
+			///
+			/// I.E from ALT+F4 or the close button in the window frame.
+			///
+			void allow_native_closing() noexcept;
+
+			///
 			/// \brief Prevent the window from being closed by the OS.
 			///
 			/// I.E from ALT+F4 or the close button in the window frame.
@@ -226,20 +254,31 @@ namespace galaxy
 			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
 
 			///
-			/// Trigger scroll event.
+			/// \brief Set scroll data.
 			///
+			/// Called internally for you.
+			///
+			/// \param active Is the user currently scrolling?
 			/// \param x -1 or 1.
 			/// \param y -1 or 1.
 			///
-			void trigger_on_scroll(const int x, const int y);
+			void set_scroll_data(const bool active, const int x, const int y);
 
 			///
-			/// Register an object with the window dispatch scroller.
+			/// Check if user is currently scrolling.
 			///
-			/// \param obj An object with an on_event(const WindowScroll& event) function.
+			/// \return True if user if scroll callback is being called.
 			///
-			template<meta::is_class Type>
-			void register_on_scroll(Type& obj) noexcept;
+			[[nodiscard]] const bool is_scrolling() const noexcept;
+
+			///
+			/// \brief Get scroll data.
+			///
+			/// This sets is_scrolling to false, so you need to check is_scrolling first!
+			///
+			/// \return Const reference to event data.
+			///
+			[[nodiscard]] const events::MouseWheel& get_scroll_data();
 
 			///
 			/// Register an object with the window dispatch resizer.
@@ -417,13 +456,12 @@ namespace galaxy
 			/// Cursor size.
 			///
 			glm::vec2 m_cursor_size;
-		};
 
-		template<meta::is_class Type>
-		inline void Window::register_on_scroll(Type& obj) noexcept
-		{
-			m_window_dispatcher.subscribe<events::MouseWheel, Type>(obj);
-		}
+			///
+			/// Scroll data.
+			///
+			ScrollData m_scroll_data;
+		};
 
 		template<meta::is_class Type>
 		inline void galaxy::core::Window::register_on_window_resize(Type& obj) noexcept
