@@ -70,6 +70,13 @@
 ///
 #define GALAXY_LOG(level, ...) galaxy::error::Log::handle().log<level>(__VA_ARGS__)
 
+///
+/// Capture log output into a custom stream.
+///
+/// \param stream Custom stream to output to.
+///
+#define GALAXY_LOG_CAPTURE_CUSTOM(ostream) galaxy::error::Log::handle().change_stream(ostream)
+
 // clang-format on
 
 namespace galaxy
@@ -106,6 +113,13 @@ namespace galaxy
 			/// Manual control over closing streams.
 			///
 			void finish();
+
+			///
+			/// Capture log output into a custom stream.
+			///
+			/// \param stream Custom stream to output to.
+			///
+			void change_stream(std::ostream& stream);
 
 			///
 			/// Log a message.
@@ -151,6 +165,11 @@ namespace galaxy
 			Log& operator=(Log&&) = delete;
 
 		private:
+			///
+			/// Output stream to write to.
+			///
+			std::ostream* m_stream;
+
 			///
 			/// File stream to write to.
 			///

@@ -22,7 +22,7 @@ namespace galaxy
 		Log::Log() noexcept
 		    : m_min_level {0}
 		{
-			std::ios::sync_with_stdio(false);
+			m_stream = &std::cout;
 			platform::configure_terminal();
 		}
 
@@ -44,7 +44,7 @@ namespace galaxy
 					std::this_thread::sleep_for(1s);
 					
 					std::lock_guard<std::mutex> lock {m_msg_mutex};
-					std::cout << m_message;
+					*m_stream << m_message;
 					m_file_stream << m_message;
 					m_message.clear();
 				}
@@ -57,6 +57,12 @@ namespace galaxy
 			m_file_stream.close();
 			m_thread.request_stop();
 			m_thread.join();
+		}
+
+		void Log::change_stream(std::ostream& stream)
+		{
+			std::lock_guard<std::mutex> lock {m_msg_mutex};
+			m_stream = &stream;
 		}
 	} // namespace error
 } // namespace galaxy
