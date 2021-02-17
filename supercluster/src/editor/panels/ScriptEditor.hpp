@@ -19,7 +19,7 @@ namespace sc
 		public:
 			ScriptEditor();
 
-			void render(bool* show);
+			void render();
 
 		private:
 			ImGui::TextEditor m_editor;
