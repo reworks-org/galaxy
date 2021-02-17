@@ -20,7 +20,9 @@
       "cmakeExecutable": "cmake",
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": true,
-      "codeAnalysisRuleset": "CodeAnalysis.ruleset"
+      "enableClangTidyCodeAnalysis": true,
+      "codeAnalysisRuleset": "CodeAnalysis.ruleset",
+      "clangTidyChecks": ""
     },
     {
       "name": "MSVC-Release",
@@ -29,7 +31,6 @@
       "buildRoot": "${projectDir}\\build\\${name}",
       "installRoot": "${projectDir}\\output\\${name}",
       "cmakeCommandArgs": "",
-      "buildCommandArgs": "-p:CAExcludePath=${projectDir}\\dependencies",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [
@@ -41,8 +42,8 @@
       ],
       "cmakeExecutable": "cmake",
       "intelliSenseMode": "windows-msvc-x64",
-      "enableMicrosoftCodeAnalysis": true,
-      "codeAnalysisRuleset": "CodeAnalysis.ruleset"
+      "enableMicrosoftCodeAnalysis": false,
+      "enableClangTidyCodeAnalysis": false
     }
   ]
 }
