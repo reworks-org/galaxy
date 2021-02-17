@@ -33,3 +33,6 @@
 	path = dependencies/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git
 	branch = develop
+[submodule "dependencies/magic_enum"]
+	path = dependencies/magic_enum
+	url = https://github.com/Neargye/magic_enum.git

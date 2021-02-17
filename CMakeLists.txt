@@ -156,6 +156,7 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
+		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
