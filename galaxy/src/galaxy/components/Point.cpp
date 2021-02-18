@@ -33,7 +33,8 @@ namespace galaxy
 		Point::Point(Point&& p) noexcept
 		    : VertexData {std::move(p)}, Serializable {this}
 		{
-			this->m_size = p.m_size;
+			this->m_size   = p.m_size;
+			this->m_colour = p.m_colour;
 		}
 
 		Point& Point::operator=(Point&& p) noexcept
@@ -42,7 +43,8 @@ namespace galaxy
 			{
 				graphics::VertexData::operator=(std::move(p));
 
-				this->m_size = p.m_size;
+				this->m_size   = p.m_size;
+				this->m_colour = p.m_colour;
 			}
 
 			return *this;
