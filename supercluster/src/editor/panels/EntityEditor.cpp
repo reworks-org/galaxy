@@ -355,78 +355,6 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Animated"))
 					{
-						static bool s_add = false;
-						if (ImGui::Button("Add"))
-						{
-							s_add = !s_add;
-						}
-
-						if (s_add)
-						{
-							static std::string s_id                      = "";
-							static bool s_loop                           = false;
-							static float s_speed                         = 1.0f;
-							static std::vector<graphics::Frame> s_frames = {};
-
-							if (ImGui::BeginPopup("Add Animation", ImGuiWindowFlags_AlwaysAutoResize))
-							{
-								ImGui::InputText("ID", &s_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
-								ImGui::Checkbox("Is Looping?", &s_loop);
-								ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput);
-
-								static bool s_add_frame = false;
-								if (ImGui::Button("Add Frame"))
-								{
-									s_add_frame = !s_add_frame;
-								}
-
-								if (s_add_frame)
-								{
-									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
-									{
-										static graphics::Frame s_frame;
-										static std::string s_tex_id = "";
-										static double s_tpf         = 0.1;
-
-										ImGui::InputText("Texture Atlas ID", &s_tex_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
-
-										const static double s_min = 0.1;
-										const static double s_max = 10.0;
-										ImGui::SliderScalar("Time Per Frame", ImGuiDataType_Double, &s_tpf, &s_min, &s_max, "%.1f");
-
-										if (ImGui::Button("Add##frameaddbutton01"))
-										{
-											s_frame.set_region(s_tex_id);
-											s_frame.m_time_per_frame = s_tpf;
-											s_frames.push_back(s_frame);
-
-											s_frame  = {};
-											s_tex_id = "";
-											s_tpf    = 0.1;
-
-											ImGui::CloseCurrentPopup();
-										}
-
-										ImGui::EndPopup();
-									}
-								}
-
-								if (ImGui::Button("Add"))
-								{
-									animated->add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
-
-									s_id    = "";
-									s_loop  = false;
-									s_speed = 1.0f;
-									s_frames.clear();
-
-									ImGui::CloseCurrentPopup();
-								}
-
-								ImGui::EndPopup();
-							}
-						}
-
 						static std::string s_selected = "None";
 						if (animated->get_cur_animation())
 						{
@@ -514,9 +442,24 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Circle"))
 					{
-						/*
-						* todo
-						*/
+						float opacity = circle->opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						{
+							circle->set_opacity(opacity);
+						}
+
+						float radius = circle->radius();
+						if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						{
+							circle->update(radius);
+						}
+
+						float colour[4] = {circle->get_colour().m_red, circle->get_colour().m_green, circle->get_colour().m_blue, circle->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							circle->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
 						ImGui::EndTabItem();
 					}
 				}
@@ -525,9 +468,18 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Line"))
 					{
-						/*
-						* todo
-						*/
+						float opacity = line->opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						{
+							line->set_opacity(opacity);
+						}
+
+						float colour[4] = {line->get_colour().m_red, line->get_colour().m_green, line->get_colour().m_blue, line->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							line->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
 						ImGui::EndTabItem();
 					}
 				}
@@ -600,7 +552,7 @@ namespace sc
 					if (ImGui::BeginTabItem("Point"))
 					{
 						int size = point->get_size();
-						if (ImGui::SliderInt("Size", &size, 0, 100, "%d", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::InputInt("Size", &size, 1, 2, ImGuiInputTextFlags_CharsNoBlank))
 						{
 							point->set_size(size);
 						}
@@ -621,7 +573,7 @@ namespace sc
 					{
 						static const constexpr auto s_types = magic_enum::enum_names<graphics::Renderables>();
 
-						static std::string s_selected = "";
+						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(renderable->m_type));
 						if (ImGui::BeginCombo("Type", s_selected.c_str()))
 						{
 							for (const auto& name : s_types)
@@ -714,7 +666,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Tag"))
 					{
-						ImGui::InputText("##TagInput01", &tag->m_tag);
+						ImGui::InputText("Tag##TagInput01", &tag->m_tag);
 						ImGui::EndTabItem();
 					}
 				}
@@ -747,7 +699,7 @@ namespace sc
 						}
 
 						static float origin[2] = {0.0f, 0.0f};
-						if (ImGui::InputFloat2("Rotation Origin", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						if (ImGui::InputFloat2("Rotation Origin", origin, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							transform->set_rotation_origin(origin[0], origin[1]);
 						}

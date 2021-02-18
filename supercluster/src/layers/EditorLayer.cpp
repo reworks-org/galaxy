@@ -50,10 +50,9 @@ namespace sc
 		// clang-format on
 
 		editor::theme::visual_dark();
-		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
 
-		static const constexpr char* gl_version = "#version 450 core";
-		ImGui_ImplOpenGL3_Init(gl_version);
+		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
+		ImGui_ImplOpenGL3_Init("#version 450 core");
 	}
 
 	EditorLayer::~EditorLayer()
