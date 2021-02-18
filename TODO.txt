@@ -3,7 +3,6 @@ SUPERCLUSTER:
 - export to json / save as json
 - documentation
 - VFS mount/unmount
-- Use EACH() in supercluster for entity_ui.
 - two states ("game") and ("editor")
 - play button switches between them.
 - serialzie data when swtiching, then load and run game state.
@@ -12,8 +11,8 @@ SUPERCLUSTER:
 - Integrate openal context with dev tools.
 - serialization
 - audio support
-- If scene in focus, allow input from that one scene, otherwise restrict input to ImGui.
-- https://docs.microsoft.com/en-us/windows/console/setstdhandle?redirectedfrom=MSDN
+- click and drag
+- fix crash when closing with tiled open.
 
 TODO:
 - fix camera scrolling. lock at 0.1.
@@ -29,5 +28,4 @@ TODO:
 
 
 Run Include-What-You-Use, https://www.fluentcpp.com/2021/01/01/include-what-you-use/
-Code Profiling, https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 Fix CA and Compilation Warnings.
