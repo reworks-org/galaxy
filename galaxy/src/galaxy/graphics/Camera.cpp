@@ -149,6 +149,22 @@ namespace galaxy
 			m_dirty = true;
 		}
 
+		void Camera::move_x(const float x) noexcept
+		{
+			m_translation = glm::translate(m_translation, {x, 0.0f, 0.0f});
+			m_pos.x += x;
+
+			m_dirty = true;
+		}
+
+		void Camera::move_y(const float y) noexcept
+		{
+			m_translation = glm::translate(m_translation, {0.0f, y, 0.0f});
+			m_pos.y += y;
+
+			m_dirty = true;
+		}
+
 		void Camera::zoom(float scale) noexcept
 		{
 			if (scale < 0.2f)
@@ -187,6 +203,16 @@ namespace galaxy
 		void Camera::set_speed(const float speed) noexcept
 		{
 			m_speed = speed;
+		}
+
+		void Camera::set_width(const float width) noexcept
+		{
+			create(0.0f, width, m_height, 0.0f);
+		}
+
+		void Camera::set_height(const float height) noexcept
+		{
+			create(0.0f, m_width, height, 0.0f);
 		}
 
 		const float Camera::get_speed() const noexcept

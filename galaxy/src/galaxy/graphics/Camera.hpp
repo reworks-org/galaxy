@@ -112,6 +112,26 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
+			/// \brief Translate (move) x pos.
+			///
+			/// Does not set the position but moves it.
+			/// By adding the parameters to the existing transformation matrix.
+			///
+			/// \param x How far to translate on x axis.
+			///
+			void move_x(const float x) noexcept;
+
+			///
+			/// \brief Translate (move) y pos.
+			///
+			/// Does not set the position but moves it.
+			/// By adding the parameters to the existing transformation matrix.
+			///
+			/// \param y How far to translate on y axis.
+			///
+			void move_y(const float y) noexcept;
+
+			///
 			/// Zoom camera.
 			///
 			/// \param scale Scale. Multiplier. Min 0.2.
@@ -137,6 +157,20 @@ namespace galaxy
 			/// \param speed Speed of the camera. Multiplicative float.
 			///
 			void set_speed(const float speed) noexcept;
+
+			///
+			/// Set width of projection.
+			///
+			/// \param width New width.
+			///
+			void set_width(const float width) noexcept;
+
+			///
+			/// Set height of projection.
+			///
+			/// \param height New height.
+			///
+			void set_height(const float height) noexcept;
 
 			///
 			/// Get camera speed.
