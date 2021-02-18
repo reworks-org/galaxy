@@ -56,15 +56,14 @@ namespace galaxy
 					// Gen texture into OpenGL.
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
-					// Ansiotropic filtering.
+					// Mipmapping.
+					glGenerateMipmap(GL_TEXTURE_2D);
+
+					// Default filtering.
 					set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-
-					// Linear filtering for non-pixel as default.
-					set_minify_filter<LinearTexFilter>();
-					set_magnify_filter<LinearTexFilter>();
-
-					// Default clamp to edge.
-					clamp_to_edge();
+					set_minify_filter<NearestTexFilter>();
+					set_magnify_filter<NearestTexFilter>();
+					clamp_to_border();
 				}
 				else
 				{
@@ -92,15 +91,14 @@ namespace galaxy
 				// Gen texture into OpenGL.
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
-				// Ansiotropic filtering.
+				// Mipmapping.
+				glGenerateMipmap(GL_TEXTURE_2D);
+
+				// Default filtering.
 				set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-
-				// Linear filtering for non-pixel as default.
-				set_minify_filter<LinearTexFilter>();
-				set_magnify_filter<LinearTexFilter>();
-
-				// Default clamp to edge.
-				clamp_to_edge();
+				set_minify_filter<NearestTexFilter>();
+				set_magnify_filter<NearestTexFilter>();
+				clamp_to_border();
 			}
 			else
 			{
@@ -131,15 +129,14 @@ namespace galaxy
 			// Gen texture into OpenGL.
 			glTexImage2D(GL_TEXTURE_2D, level, internalformat, width, height, border, format, type, pixels);
 
-			// Ansiotropic filtering.
+			// Mipmapping.
+			glGenerateMipmap(GL_TEXTURE_2D);
+
+			// Default filtering.
 			set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-
-			// Linear filtering for non-pixel as default.
-			set_minify_filter<LinearTexFilter>();
-			set_magnify_filter<LinearTexFilter>();
-
-			// Default clamp to edge.
-			clamp_to_edge();
+			set_minify_filter<NearestTexFilter>();
+			set_magnify_filter<NearestTexFilter>();
+			clamp_to_border();
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}

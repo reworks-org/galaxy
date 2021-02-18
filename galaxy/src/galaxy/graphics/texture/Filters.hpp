@@ -10,6 +10,8 @@
 
 #include <type_traits>
 
+#include <glad/glad.h>
+
 namespace galaxy
 {
 	namespace graphics
@@ -22,7 +24,7 @@ namespace galaxy
 		{
 			NearestTexFilter() = delete;
 
-			inline static const constexpr auto value = 0x2600;
+			inline static const constexpr auto value = GL_NEAREST_MIPMAP_LINEAR;
 		};
 
 		///
@@ -32,7 +34,7 @@ namespace galaxy
 		{
 			LinearTexFilter() = delete;
 
-			inline static const constexpr auto value = 0x2601;
+			inline static const constexpr auto value = GL_LINEAR_MIPMAP_LINEAR;
 		};
 
 		///
