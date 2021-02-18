@@ -16,6 +16,7 @@
 #include <imgui/imgui_stdlib.h>
 
 #include "../editor/Theme.hpp"
+#include "../resources/Roboto-Light.hpp"
 
 #include "EditorLayer.hpp"
 
@@ -41,8 +42,9 @@ namespace sc
 		io.ConfigDockingWithShift    = true;
 		io.IniFilename = "sclayout.ini";
 
-		const auto default_font_path = SL_HANDLE.vfs()->absolute("Roboto-Regular.ttf");
-		io.FontDefault = io.Fonts->AddFontFromFileTTF(default_font_path.c_str(), 16.0f);
+		ImFontConfig font_config = {};
+		font_config.FontDataOwnedByAtlas = false;
+		io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
 		// clang-format on
 
 		editor::theme::visual_dark();
