@@ -111,169 +111,204 @@ namespace sc
 							}
 						}
 
-						ImGui::Text("Animated:");
-						ImGui::SameLine();
-
-						if (ImGui::Button(" + ##1"))
+						if (ImGui::BeginTable("AddRemoveTable", 4, ImGuiTableFlags_NoBordersInBody))
 						{
-							world.create_component<components::Animated>(entity);
-						}
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Name");
+							ImGui::TableNextColumn();
+							ImGui::Text("Add");
+							ImGui::TableNextColumn();
+							ImGui::Text("Remove");
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Animated");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##2"))
-						{
-							world.remove<components::Animated>(entity);
-						}
+							if (ImGui::Button(" + ##1"))
+							{
+								world.create_component<components::Animated>(entity);
+							}
 
-						ImGui::Text("Batched Sprite:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##3"))
-						{
-							world.create_component<components::BatchedSprite>(entity);
-						}
+							if (ImGui::Button(" - ##2"))
+							{
+								world.remove<components::Animated>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Batch Sprite");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##4"))
-						{
-							world.remove<components::BatchedSprite>(entity);
-						}
+							if (ImGui::Button(" + ##3"))
+							{
+								world.create_component<components::BatchedSprite>(entity);
+							}
 
-						ImGui::Text("Circle:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##5"))
-						{
-							world.create_component<components::Circle>(entity);
-						}
+							if (ImGui::Button(" - ##4"))
+							{
+								world.remove<components::BatchedSprite>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Circle");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##6"))
-						{
-							world.remove<components::Circle>(entity);
-						}
+							if (ImGui::Button(" + ##5"))
+							{
+								world.create_component<components::Circle>(entity);
+							}
 
-						ImGui::Text("Line:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##7"))
-						{
-							world.create_component<components::Line>(entity);
-						}
+							if (ImGui::Button(" - ##6"))
+							{
+								world.remove<components::Circle>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Line");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##8"))
-						{
-							world.remove<components::Line>(entity);
-						}
+							if (ImGui::Button(" + ##7"))
+							{
+								world.create_component<components::Line>(entity);
+							}
 
-						ImGui::Text("Point:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##9"))
-						{
-							world.create_component<components::Point>(entity);
-						}
+							if (ImGui::Button(" - ##8"))
+							{
+								world.remove<components::Line>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Point");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##10"))
-						{
-							world.remove<components::Point>(entity);
-						}
+							if (ImGui::Button(" + ##9"))
+							{
+								world.create_component<components::Point>(entity);
+							}
 
-						ImGui::Text("Renderable:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##11"))
-						{
-							world.create_component<components::Renderable>(entity);
-						}
+							if (ImGui::Button(" - ##10"))
+							{
+								world.remove<components::Point>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Renderable");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##12"))
-						{
-							world.remove<components::Renderable>(entity);
-						}
+							if (ImGui::Button(" + ##11"))
+							{
+								world.create_component<components::Renderable>(entity);
+							}
 
-						ImGui::Text("Shader ID:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##13"))
-						{
-							world.create_component<components::ShaderID>(entity);
-						}
+							if (ImGui::Button(" - ##12"))
+							{
+								world.remove<components::Renderable>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Shader ID");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##14"))
-						{
-							world.remove<components::ShaderID>(entity);
-						}
+							if (ImGui::Button(" + ##13"))
+							{
+								world.create_component<components::ShaderID>(entity);
+							}
 
-						ImGui::Text("Sprite:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##15"))
-						{
-							world.create_component<components::Sprite>(entity);
-						}
+							if (ImGui::Button(" - ##14"))
+							{
+								world.remove<components::ShaderID>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Sprite");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##16"))
-						{
-							world.remove<components::Sprite>(entity);
-						}
+							if (ImGui::Button(" + ##15"))
+							{
+								world.create_component<components::Sprite>(entity);
+							}
 
-						ImGui::Text("Tag:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##17"))
-						{
-							world.create_component<components::Tag>(entity);
-						}
+							if (ImGui::Button(" - ##16"))
+							{
+								world.remove<components::Sprite>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Tag");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##18"))
-						{
-							world.remove<components::Tag>(entity);
-						}
+							if (ImGui::Button(" + ##17"))
+							{
+								world.create_component<components::Tag>(entity);
+							}
 
-						ImGui::Text("Text:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##19"))
-						{
-							world.create_component<components::Text>(entity);
-						}
+							if (ImGui::Button(" - ##18"))
+							{
+								world.remove<components::Tag>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Text");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##20"))
-						{
-							world.remove<components::Text>(entity);
-						}
+							if (ImGui::Button(" + ##19"))
+							{
+								world.create_component<components::Text>(entity);
+							}
 
-						ImGui::Text("Transform:");
-						ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" + ##21"))
-						{
-							world.create_component<components::Transform>(entity);
-						}
+							if (ImGui::Button(" - ##20"))
+							{
+								world.remove<components::Text>(entity);
+							}
 
-						ImGui::SameLine();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Transform");
+							ImGui::TableNextColumn();
 
-						if (ImGui::Button(" - ##22"))
-						{
-							world.remove<components::Transform>(entity);
+							if (ImGui::Button(" + ##21"))
+							{
+								world.create_component<components::Transform>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##22"))
+							{
+								world.remove<components::Transform>(entity);
+							}
+
+							ImGui::EndTable();
 						}
 
 						ImGui::TreePop();
