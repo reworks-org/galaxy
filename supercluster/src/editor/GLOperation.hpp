@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_LAYERS_GLOperation_HPP_
-#define SUPERCLUSTER_LAYERS_GLOperation_HPP_
+#ifndef SUPERCLUSTER_EDITOR_GLOPERATION_HPP_
+#define SUPERCLUSTER_EDITOR_GLOPERATION_HPP_
 
 #include <functional>
 #include <vector>
