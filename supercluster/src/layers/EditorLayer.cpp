@@ -44,6 +44,8 @@ namespace sc
 
 		ImFontConfig font_config = {};
 		font_config.FontDataOwnedByAtlas = false;
+		font_config.RasterizerMultiply = 1.5f;
+		font_config.OversampleH = 4;
 		io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
 		// clang-format on
 
