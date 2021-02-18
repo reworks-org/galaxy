@@ -11,6 +11,8 @@
 
 using namespace galaxy;
 
+#define INPUT_WIDTH 150
+
 namespace sc
 {
 	namespace panel
@@ -24,7 +26,7 @@ namespace sc
 				ImGui::Text("Move");
 
 				static float s_move_x = camera.get_pos().x;
-				ImGui::SetNextItemWidth(200);
+				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("X##01", &s_move_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.move_x(s_move_x);
@@ -33,7 +35,7 @@ namespace sc
 				ImGui::SameLine();
 
 				static float s_move_y = camera.get_pos().y;
-				ImGui::SetNextItemWidth(200);
+				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("Y##02", &s_move_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.move_y(s_move_y);
@@ -54,7 +56,7 @@ namespace sc
 				ImGui::Text("Projection");
 
 				static float s_proj_x = camera.get_width();
-				ImGui::SetNextItemWidth(200);
+				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("X##05", &s_proj_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.set_width(s_proj_x);
@@ -63,7 +65,7 @@ namespace sc
 				ImGui::SameLine();
 
 				static float s_proj_y = camera.get_height();
-				ImGui::SetNextItemWidth(200);
+				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("Y##06", &s_proj_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.set_height(s_proj_y);
