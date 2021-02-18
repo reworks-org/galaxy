@@ -13,17 +13,19 @@
 
 #include "Text.hpp"
 
+#define TEXT_LIMIT 128
+
 namespace galaxy
 {
 	namespace components
 	{
 		Text::Text() noexcept
-		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {100}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {TEXT_LIMIT}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {100}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {TEXT_LIMIT}
 		{
 			deserialize(json);
 		}
@@ -74,47 +76,54 @@ namespace galaxy
 
 		void Text::create(std::string_view text)
 		{
-			m_text_str = text;
-			m_batch.set_texture(m_font->get_fontmap());
-			if (!text.empty())
+			if (text.size() > TEXT_LIMIT)
 			{
-				float x_offset       = 0.0f;
-				float y_offset       = 0.0f;
-				unsigned int counter = 0;
-				for (const char c : text)
-				{
-					if (c == '\n')
-					{
-						x_offset = 0.0f;
-						y_offset += m_font->get_height();
-					}
-					else
-					{
-						auto* c_obj = m_font->get_char(c);
-
-						if (c_obj != nullptr)
-						{
-							m_batch_data.emplace(counter, CharacterBatch {});
-
-							auto* data = &m_batch_data[counter];
-							data->m_sprite.create(c_obj->m_region, 1);
-							data->m_transform.set_pos(x_offset + c_obj->m_bearing.x, y_offset);
-							x_offset += (c_obj->m_advance >> 6);
-
-							m_batch.add(&data->m_sprite, &data->m_transform, 0);
-						}
-					}
-
-					counter++;
-				}
-
-				m_width  = m_font->get_width(text);
-				m_height = m_font->get_height();
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create text. Must be <= 128 characters.");
 			}
 			else
 			{
-				m_width  = 1;
-				m_height = 1;
+				m_text_str = text;
+				m_batch.set_texture(m_font->get_fontmap());
+				if (!text.empty())
+				{
+					float x_offset       = 0.0f;
+					float y_offset       = 0.0f;
+					unsigned int counter = 0;
+					for (const char c : text)
+					{
+						if (c == '\n')
+						{
+							x_offset = 0.0f;
+							y_offset += m_font->get_height();
+						}
+						else
+						{
+							auto* c_obj = m_font->get_char(c);
+
+							if (c_obj != nullptr)
+							{
+								m_batch_data.emplace(counter, CharacterBatch {});
+
+								auto* data = &m_batch_data[counter];
+								data->m_sprite.create(c_obj->m_region, 1);
+								data->m_transform.set_pos(x_offset + c_obj->m_bearing.x, y_offset);
+								x_offset += (c_obj->m_advance >> 6);
+
+								m_batch.add(&data->m_sprite, &data->m_transform, 0);
+							}
+						}
+
+						counter++;
+					}
+
+					m_width  = m_font->get_width(text);
+					m_height = m_font->get_height();
+				}
+				else
+				{
+					m_width  = 1;
+					m_height = 1;
+				}
 			}
 		}
 
@@ -123,7 +132,6 @@ namespace galaxy
 			m_batch.clear();
 			m_batch_data.clear();
 
-			m_text_str = text;
 			create(text);
 		}
 
