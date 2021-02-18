@@ -94,7 +94,7 @@ namespace galaxy
 			m_flags[entity] = {};
 			m_entities.emplace_back(entity);
 
-			enable(entity);
+			disable(entity);
 			return entity;
 		}
 
@@ -125,9 +125,9 @@ namespace galaxy
 			}
 
 			const bool enabled = json.at("enabled");
-			if (!enabled)
+			if (enabled)
 			{
-				disable(entity);
+				enable(entity);
 			}
 
 			auto* renderable = get<components::Renderable>(entity);
