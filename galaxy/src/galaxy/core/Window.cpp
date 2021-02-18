@@ -640,6 +640,7 @@ namespace galaxy
 				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 			}
 
+			m_fb_sprite->unbind();
 			glfwSwapBuffers(m_window);
 		}
 
