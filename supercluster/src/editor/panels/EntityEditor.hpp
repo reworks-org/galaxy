@@ -15,6 +15,8 @@
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/core/Scene.hpp>
 
+#include "editor/GLOperation.hpp"
+
 using namespace galaxy;
 
 namespace sc
@@ -27,13 +29,12 @@ namespace sc
 			EntityEditor();
 			~EntityEditor();
 
-			void pre_render();
-			void render();
+			void render(OpenGLOperationStack& gl_operations);
 
 			void set_scene(core::Scene* scene);
 
 		private:
-			void render_components(const ecs::Entity entity);
+			void render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations);
 
 		private:
 			core::Scene* m_cur_scene              = nullptr;

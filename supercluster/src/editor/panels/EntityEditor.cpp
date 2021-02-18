@@ -42,11 +42,7 @@ namespace sc
 			m_selected  = std::nullopt;
 		}
 
-		void EntityEditor::pre_render()
-		{
-		}
-
-		void EntityEditor::render()
+		void EntityEditor::render(OpenGLOperationStack& gl_operations)
 		{
 			if (ImGui::Begin("Entity Manager", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize))
 			{
@@ -60,7 +56,9 @@ namespace sc
 					if (ImGui::MenuItem("Create from JSON"))
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
-						m_cur_scene->world().create_from_json(file);
+						gl_operations.push_back([this, &file]() -> void {
+							m_cur_scene->world().create_from_json(file);
+						});
 					}
 
 					ImGui::EndMenuBar();
@@ -79,13 +77,18 @@ namespace sc
 						s_entity_label = "Unknown";
 					}
 
-					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
+					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
 					if (m_selected != std::nullopt)
 					{
 						if (m_selected.value() == entity)
 						{
 							flags |= ImGuiTreeNodeFlags_Selected;
 						}
+					}
+
+					if (!m_selected || m_selected.value() != entity)
+					{
+						ImGui::SetNextItemOpen(false);
 					}
 
 					const bool is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(entity), flags, s_entity_label.c_str());
@@ -96,7 +99,7 @@ namespace sc
 
 					if (is_open)
 					{
-						ImGui::Text(fmt::format("Numeric ID: {0}.", entity).c_str());
+						ImGui::Text(fmt::format("ID: {0}.", entity).c_str());
 
 						bool enabled = world.is_enabled(entity);
 						if (ImGui::Checkbox("Is Enabled?", &enabled))
@@ -128,6 +131,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##1"))
 							{
+								world.disable(entity);
 								world.create_component<components::Animated>(entity);
 							}
 
@@ -145,6 +149,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##3"))
 							{
+								world.disable(entity);
 								world.create_component<components::BatchedSprite>(entity);
 							}
 
@@ -162,6 +167,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##5"))
 							{
+								world.disable(entity);
 								world.create_component<components::Circle>(entity);
 							}
 
@@ -179,6 +185,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##7"))
 							{
+								world.disable(entity);
 								world.create_component<components::Line>(entity);
 							}
 
@@ -196,6 +203,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##9"))
 							{
+								world.disable(entity);
 								world.create_component<components::Point>(entity);
 							}
 
@@ -213,6 +221,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##11"))
 							{
+								world.disable(entity);
 								world.create_component<components::Renderable>(entity);
 							}
 
@@ -230,6 +239,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##13"))
 							{
+								world.disable(entity);
 								world.create_component<components::ShaderID>(entity);
 							}
 
@@ -247,6 +257,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##15"))
 							{
+								world.disable(entity);
 								world.create_component<components::Sprite>(entity);
 							}
 
@@ -264,6 +275,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##17"))
 							{
+								world.disable(entity);
 								world.create_component<components::Tag>(entity);
 							}
 
@@ -281,14 +293,19 @@ namespace sc
 
 							if (ImGui::Button(" + ##19"))
 							{
-								world.create_component<components::Text>(entity);
+								world.disable(entity);
+								gl_operations.emplace_back([&world, entity]() -> void {
+									world.create_component<components::Text>(entity);
+								});
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##20"))
 							{
-								world.remove<components::Text>(entity);
+								gl_operations.emplace_back([&world, entity]() -> void {
+									world.remove<components::Text>(entity);
+								});
 							}
 
 							ImGui::TableNextRow();
@@ -298,6 +315,7 @@ namespace sc
 
 							if (ImGui::Button(" + ##21"))
 							{
+								world.disable(entity);
 								world.create_component<components::Transform>(entity);
 							}
 
@@ -325,7 +343,7 @@ namespace sc
 					if (m_selected != std::nullopt)
 					{
 						const auto entity = m_selected.value();
-						render_components(entity);
+						render_components(entity, gl_operations);
 					}
 				}
 
@@ -340,7 +358,7 @@ namespace sc
 			m_cur_scene = scene;
 		}
 
-		void EntityEditor::render_components(const ecs::Entity entity)
+		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
 			auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, tag, text, transform]
@@ -355,6 +373,79 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Animated"))
 					{
+						static bool s_add = false;
+						if (ImGui::Button("Add"))
+						{
+							s_add = !s_add;
+							ImGui::OpenPopup("AddAnimation");
+						}
+
+						if (s_add)
+						{
+							static std::string s_id                      = "";
+							static bool s_loop                           = false;
+							static float s_speed                         = 1.0f;
+							static std::vector<graphics::Frame> s_frames = {};
+
+							if (ImGui::BeginPopup("AddAnimation", ImGuiWindowFlags_AlwaysAutoResize))
+							{
+								ImGui::InputText("ID", &s_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
+								ImGui::Checkbox("Is Looping?", &s_loop);
+								ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput);
+
+								static bool s_add_frame = false;
+								if (ImGui::Button("Add Frame"))
+								{
+									s_add_frame = !s_add_frame;
+								}
+
+								if (s_add_frame)
+								{
+									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
+									{
+										static graphics::Frame s_frame;
+										static std::string s_tex_id = "";
+										static double s_tpf         = 0.1;
+
+										ImGui::InputText("Texture Atlas ID", &s_tex_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
+
+										const static double s_min = 0.1;
+										const static double s_max = 10.0;
+										ImGui::SliderScalar("Time Per Frame", ImGuiDataType_Double, &s_tpf, &s_min, &s_max, "%.1f");
+
+										if (ImGui::Button("Add##frameaddbutton01"))
+										{
+											s_frame.set_region(s_tex_id);
+											s_frame.m_time_per_frame = s_tpf;
+											s_frames.push_back(s_frame);
+
+											s_frame  = {};
+											s_tex_id = "";
+											s_tpf    = 0.1;
+
+											ImGui::CloseCurrentPopup();
+										}
+
+										ImGui::EndPopup();
+									}
+								}
+
+								if (ImGui::Button("Add"))
+								{
+									animated->add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
+
+									s_id    = "";
+									s_loop  = false;
+									s_speed = 1.0f;
+									s_frames.clear();
+
+									ImGui::CloseCurrentPopup();
+								}
+
+								ImGui::EndPopup();
+							}
+						}
+
 						static std::string s_selected = "None";
 						if (animated->get_cur_animation())
 						{
@@ -451,13 +542,26 @@ namespace sc
 						float radius = circle->radius();
 						if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
-							circle->update(radius);
+							circle->set_radius(radius);
 						}
 
-						float colour[4] = {circle->get_colour().m_red, circle->get_colour().m_green, circle->get_colour().m_blue, circle->get_colour().m_alpha};
+						float fragments = circle->fragments();
+						if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						{
+							circle->set_fragments(fragments);
+						}
+
+						static float colour[4] = {circle->get_colour().m_red, circle->get_colour().m_green, circle->get_colour().m_blue, circle->get_colour().m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
 							circle->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([circle]() -> void {
+								circle->update();
+							});
 						}
 
 						ImGui::EndTabItem();
@@ -474,10 +578,17 @@ namespace sc
 							line->set_opacity(opacity);
 						}
 
-						float colour[4] = {line->get_colour().m_red, line->get_colour().m_green, line->get_colour().m_blue, line->get_colour().m_alpha};
+						static float colour[4] = {line->get_colour().m_red, line->get_colour().m_green, line->get_colour().m_blue, line->get_colour().m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
 							line->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([line]() -> void {
+								line->update();
+							});
 						}
 
 						ImGui::EndTabItem();
@@ -488,60 +599,54 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Physics"))
 					{
-						/*
-						if (!physics->m_body->is_rigid())
+						if (ImGui::Button("Create from JSON"))
 						{
-							ImGui::Text("Body: Kinetic.");
-
-							static float s_hf = 0.0f;
-							if (ImGui::InputFloat("Apply Horizontal Force", &s_hf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
-							{
-								auto* kin_body = static_cast<physics::KineticBody*>(physics->m_body.get());
-								kin_body->apply_horizontal_force(s_hf);
-								s_hf = 0.0f;
-							}
-
-							ImGui::SameLine();
-
-							static float s_vf = 0.0f;
-							if (ImGui::InputFloat("Apply Vertical Force", &s_vf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
-							{
-								auto* kin_body = static_cast<physics::KineticBody*>(physics->m_body.get());
-								kin_body->apply_vertical_force(s_vf);
-								s_vf = 0.0f;
-							}
-						}
-						else
-						{
-							ImGui::Text("Body: Static.");
+							physics->create_from_json(SL_HANDLE.vfs()->open_with_dialog("*.json"));
 						}
 
-						ImGui::Spacing();
+						if (physics->body())
+						{
+							static bool enable_body = physics->body()->IsEnabled();
+							if (ImGui::Checkbox("Enable", &enable_body))
+							{
+								physics->body()->SetEnabled(enable_body);
+							}
 
-						ImGui::SliderFloat("Restitution", &physics->m_body->m_restitution, 0.0f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+							static bool fixed_rotation = physics->body()->IsFixedRotation();
+							if (ImGui::Checkbox("Fixed Rotation", &fixed_rotation))
+							{
+								physics->body()->SetFixedRotation(fixed_rotation);
+							}
 
-						ImGui::Spacing();
+							static bool is_bullet = physics->body()->IsBullet();
+							if (ImGui::Checkbox("Is Bullet", &is_bullet))
+							{
+								physics->body()->SetBullet(is_bullet);
+							}
 
-						ImGui::SliderFloat("Dynamic Friction", &physics->m_body->m_dynamic_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
-						ImGui::SameLine();
-						ImGui::SliderFloat("Static Friction", &physics->m_body->m_static_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+							static const constexpr auto s_types = magic_enum::enum_names<b2BodyType>();
 
-						ImGui::Spacing();
+							std::string s_selected = static_cast<std::string>(magic_enum::enum_name(physics->body()->GetType()));
+							if (ImGui::BeginCombo("Type", s_selected.c_str()))
+							{
+								for (const auto& name : s_types)
+								{
+									const bool selected = (s_selected == name);
+									if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+									{
+										s_selected = name;
+										physics->body()->SetType(magic_enum::enum_cast<b2BodyType>(s_selected).value());
+									}
 
-						ImGui::Text(fmt::format("X Pos: {0}", physics->m_body->get_pos().x).c_str());
-						ImGui::SameLine();
-						ImGui::Text(fmt::format("Y Pos: {0}", physics->m_body->get_pos().y).c_str());
+									if (selected)
+									{
+										ImGui::SetItemDefaultFocus();
+									}
+								}
 
-						ImGui::Spacing();
-
-						ImGui::Text(fmt::format("X Velocity: {0}", physics->m_body->get_vel().x).c_str());
-						ImGui::SameLine();
-						ImGui::Text(fmt::format("Y Velocity: {0}", physics->m_body->get_vel().y).c_str());
-
-						ImGui::Spacing();
-
-						ImGui::Text(fmt::format("Body Mass: {0}", physics->m_body->mass()).c_str());
-						*/
+								ImGui::EndCombo();
+							}
+						}
 
 						ImGui::EndTabItem();
 					}
@@ -561,6 +666,19 @@ namespace sc
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 						{
 							point->set_opacity(opacity);
+						}
+
+						static float colour[4] = {point->get_colour().m_red, point->get_colour().m_green, point->get_colour().m_blue, point->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							point->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([point]() -> void {
+								point->update();
+							});
 						}
 
 						ImGui::EndTabItem();
@@ -604,7 +722,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("ShaderID"))
 					{
-						static std::string s_sid_buff = "";
+						static std::string s_sid_buff = shaderid->m_shader_id;
 						if (ImGui::InputText("Shader ID", &s_sid_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							shaderid->m_shader_id = s_sid_buff;
@@ -619,44 +737,84 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Sprite"))
 					{
-						/*
-						if (ImGui::Button("Load Texture"))
+						if (ImGui::Button("Load"))
 						{
-							m_sprites_to_create.emplace(sprite, SL_HANDLE.vfs()->open_with_dialog("*.png"));
+							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
+							gl_operations.push_back([sprite, &file]() -> void {
+								sprite->load(file);
+								sprite->create();
+							});
 						}
 
-						if (ImGui::Button("Clamp to Border"))
-						{
-							sprite->clamp_to_border();
-						}
-
-						if (ImGui::Button("Clamp to Edge"))
-						{
-							sprite->clamp_to_edge();
-						}
-
-						if (ImGui::Button("Set Repeated"))
-						{
-							sprite->set_repeated();
-						}
-
-						if (ImGui::Button("Set Mirrored"))
-						{
-							sprite->set_mirrored();
-						}
-
-						float opacity = sprite->opacity();
+						static float opacity = sprite->opacity();
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 						{
 							sprite->set_opacity(opacity);
 						}
 
-						int ansio = sprite->get_aniso_level();
+						static int ansio = sprite->get_aniso_level();
 						if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 0, 16))
 						{
-							sprite->set_anisotropy(ansio);
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_anisotropy(ansio);
+							});
 						}
-						*/
+
+						ImGui::Text("Clamping");
+
+						if (ImGui::Button("Border"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+							});
+							sprite->clamp_to_border();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Edge"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->clamp_to_edge();
+							});
+						}
+
+						ImGui::Text("Stretch Mode");
+
+						if (ImGui::Button("Repeat"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_repeated();
+							});
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Mirror"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_mirrored();
+							});
+						}
+
+						ImGui::Text("Filtering");
+
+						if (ImGui::Button("Nearest"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_minify_filter<graphics::NearestTexFilter>();
+								sprite->set_magnify_filter<graphics::NearestTexFilter>();
+							});
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Linear"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_minify_filter<graphics::LinearTexFilter>();
+								sprite->set_magnify_filter<graphics::LinearTexFilter>();
+							});
+						}
 
 						ImGui::EndTabItem();
 					}
@@ -666,7 +824,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Tag"))
 					{
-						ImGui::InputText("Tag##TagInput01", &tag->m_tag);
+						ImGui::InputText("Tag", &tag->m_tag);
 						ImGui::EndTabItem();
 					}
 				}
@@ -675,9 +833,28 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Text"))
 					{
-						/*
-						todo
-						*/
+						static std::string s_text_buff = text->get_text();
+						ImGui::InputText("Text", &s_text_buff);
+
+						static std::string s_font_buff = text->get_font_id();
+						if (ImGui::InputText("Font ID", &s_font_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							text->set_font(s_font_buff);
+						}
+
+						static float colour[4] = {text->get_colour().m_red, text->get_colour().m_green, text->get_colour().m_blue, text->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							text->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([text]() -> void {
+								text->create(s_text_buff);
+							});
+						}
+
 						ImGui::EndTabItem();
 					}
 				}
