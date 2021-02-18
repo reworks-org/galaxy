@@ -72,28 +72,35 @@ namespace galaxy
 			void create(std::string_view text);
 
 			///
-			/// Update the text.
+			/// Change colour.
 			///
-			/// \param text New text to display.
+			/// \param col Colour of line.
 			///
-			void update_text(std::string_view text);
+			void change_colour(const graphics::Colour& col);
 
 			///
-			/// Activate context.
+			/// Set font.
 			///
-			void bind();
+			/// \param font New font in VFS.
+			///
+			void set_font(std::string_view font);
 
 			///
-			/// Deactivate context.
+			/// Bind as active VA.
+			///
+			void bind() noexcept;
+
+			///
+			/// Unbind as active VA.
 			///
 			void unbind() noexcept;
 
 			///
-			/// Get colour of text.
+			/// Get current colour.
 			///
-			/// \return Size 4 array of floats.
+			/// \return Const reference to the current line colour.
 			///
-			[[nodiscard]] std::array<float, 4> get_colour() noexcept;
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
 
 			///
 			/// \brief Get texture width.
@@ -133,6 +140,20 @@ namespace galaxy
 			/// \return Const uint.
 			///
 			[[nodiscard]] const unsigned int index_count() const noexcept;
+
+			///
+			/// Get current text.
+			///
+			/// \return Const std::string reference.
+			///
+			[[nodiscard]] const std::string& get_text() const noexcept;
+
+			///
+			/// Get font id string.
+			///
+			/// \return Const std::string reference.
+			///
+			[[nodiscard]] const std::string& get_font_id() const noexcept;
 
 			///
 			/// Serializes object.

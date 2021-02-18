@@ -131,7 +131,7 @@ namespace galaxy
 						m_text_input->pop_back();
 					}
 
-					m_text.update_text(*m_text_input);
+					m_text.create(*m_text_input);
 
 					if (m_draw_cursor)
 					{

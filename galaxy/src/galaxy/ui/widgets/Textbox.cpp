@@ -117,7 +117,7 @@ namespace galaxy
 					auto cur_text = m_messages[m_messages_index].substr(0, m_char_index);
 					if (cur_text != m_prev_text)
 					{
-						m_text.update_text(cur_text);
+						m_text.create(cur_text);
 						m_prev_text = cur_text;
 					}
 				}

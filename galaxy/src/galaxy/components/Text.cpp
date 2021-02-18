@@ -68,10 +68,8 @@ namespace galaxy
 
 		void Text::load(std::string_view font, const graphics::Colour& col)
 		{
-			m_font = SL_HANDLE.fontbook()->get(font);
-
-			m_font_str = font;
-			m_colour   = col;
+			set_font(font);
+			m_colour = col;
 		}
 
 		void Text::create(std::string_view text)
@@ -82,6 +80,9 @@ namespace galaxy
 			}
 			else
 			{
+				m_batch.clear();
+				m_batch_data.clear();
+
 				m_text_str = text;
 				m_batch.set_texture(m_font->get_fontmap());
 				if (!text.empty())
@@ -127,15 +128,18 @@ namespace galaxy
 			}
 		}
 
-		void Text::update_text(std::string_view text)
+		void Text::change_colour(const graphics::Colour& col)
 		{
-			m_batch.clear();
-			m_batch_data.clear();
-
-			create(text);
+			m_colour = col;
 		}
 
-		void Text::bind()
+		void Text::set_font(std::string_view font)
+		{
+			m_font_str = font;
+			m_font     = SL_HANDLE.fontbook()->get(m_font_str);
+		}
+
+		void Text::bind() noexcept
 		{
 			m_batch.bind();
 		}
@@ -145,9 +149,9 @@ namespace galaxy
 			m_batch.unbind();
 		}
 
-		std::array<float, 4> Text::get_colour() noexcept
+		const graphics::Colour& Text::get_colour() const noexcept
 		{
-			return m_colour.normalized();
+			return m_colour;
 		}
 
 		const int Text::get_width() const noexcept
@@ -173,6 +177,16 @@ namespace galaxy
 		const unsigned int Text::index_count() const noexcept
 		{
 			return m_batch.get_used_index_count();
+		}
+
+		const std::string& Text::get_text() const noexcept
+		{
+			return m_text_str;
+		}
+
+		const std::string& Text::get_font_id() const noexcept
+		{
+			return m_font_str;
 		}
 
 		nlohmann::json Text::serialize()

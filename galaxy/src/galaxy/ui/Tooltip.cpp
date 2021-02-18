@@ -95,7 +95,7 @@ namespace galaxy
 
 		void Tooltip::update_text(std::string_view text)
 		{
-			m_text.update_text(text);
+			m_text.create(text);
 			m_sprite.stretch(m_text.get_width() + m_border, m_text.get_height() + m_border);
 			m_sprite.create();
 		}

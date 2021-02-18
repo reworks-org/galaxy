@@ -38,7 +38,7 @@ namespace galaxy
 
 		void Label::update_text(std::string_view text)
 		{
-			m_text.update_text(text);
+			m_text.create(text);
 
 			m_bounds.m_width  = m_text.get_width();
 			m_bounds.m_height = m_text.get_height();
