@@ -74,6 +74,13 @@ namespace galaxy
 			void create(const graphics::Colour& col, const float x1, const float y1, const float x2, const float y2);
 
 			///
+			/// Change colour.
+			///
+			/// \param col Colour of line.
+			///
+			void change_colour(const graphics::Colour& col);
+
+			///
 			/// Bind as active VA.
 			///
 			void bind() noexcept;
@@ -82,6 +89,13 @@ namespace galaxy
 			/// Unbind as active VA.
 			///
 			void unbind() noexcept;
+
+			///
+			/// Get current colour.
+			///
+			/// \return Const reference to the current line colour.
+			///
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
 
 			///
 			/// Serializes object.

@@ -88,6 +88,16 @@ namespace galaxy
 			m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 		}
 
+		void Circle::update(const float radius)
+		{
+			create(radius, m_fragments, m_colour);
+		}
+
+		void Circle::change_colour(const graphics::Colour& col)
+		{
+			create(m_radius, m_fragments, col);
+		}
+
 		void Circle::bind() noexcept
 		{
 			m_va.bind();
@@ -96,6 +106,11 @@ namespace galaxy
 		void Circle::unbind() noexcept
 		{
 			m_va.unbind();
+		}
+
+		const graphics::Colour& Circle::get_colour() const noexcept
+		{
+			return m_colour;
 		}
 
 		const float Circle::radius() const noexcept

@@ -73,6 +73,11 @@ namespace galaxy
 			m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 		}
 
+		void Line::change_colour(const graphics::Colour& col)
+		{
+			create(col, m_point_a.x, m_point_a.y, m_point_b.x, m_point_b.y);
+		}
+
 		void Line::bind() noexcept
 		{
 			m_va.bind();
@@ -81,6 +86,11 @@ namespace galaxy
 		void Line::unbind() noexcept
 		{
 			m_va.unbind();
+		}
+
+		const graphics::Colour& Line::get_colour() const noexcept
+		{
+			return m_colour;
 		}
 
 		nlohmann::json Line::serialize()
