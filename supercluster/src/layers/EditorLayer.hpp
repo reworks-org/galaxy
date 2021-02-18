@@ -49,8 +49,7 @@ namespace sc
 		void exit();
 
 	private:
-		galaxy::core::Window* m_window              = nullptr;
-		std::unique_ptr<EditorScene> m_editor_scene = nullptr;
+		galaxy::core::Window* m_window = nullptr;
 
 		void* m_process = nullptr;
 
@@ -71,6 +70,7 @@ namespace sc
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
 
 		OpenGLOperationStack m_gl_operations;
+		Scenemap m_scene_map;
 	};
 
 	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)

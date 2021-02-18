@@ -30,8 +30,8 @@ namespace sc
 		m_window = SL_HANDLE.window();
 
 		m_framebuffer.create(1, 1);
-		m_editor_scene = std::make_unique<EditorScene>();
-		m_active_scene = m_editor_scene.get();
+		m_scene_map["Editor"] = std::make_unique<EditorScene>();
+		m_active_scene        = m_scene_map["Editor"].get();
 
 		// clang-format off
 		IMGUI_CHECKVERSION();
@@ -57,8 +57,8 @@ namespace sc
 
 	EditorLayer::~EditorLayer()
 	{
-		m_editor_scene.reset();
 		m_active_scene = nullptr;
+		m_scene_map.clear();
 
 		platform::close_process(m_process);
 
@@ -249,7 +249,7 @@ namespace sc
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
-		m_scene_panel.render();
+		m_scene_panel.render(m_scene_map);
 		m_script_panel.render();
 		m_std_console.render();
 
