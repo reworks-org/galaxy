@@ -71,11 +71,23 @@ namespace galaxy
 			void create(const float radius, const unsigned int fragments, const graphics::Colour& colour);
 
 			///
+			/// Update vertexs.
+			///
+			void update();
+
+			///
 			/// Change circle radius.
 			///
 			/// \param radius Radius of the circle.
 			///
-			void update(const float radius);
+			void set_radius(const float radius);
+
+			///
+			/// Change circle fragments.
+			///
+			/// \param fragments Amount of points in the circle.
+			///
+			void set_fragments(const float fragments);
 
 			///
 			/// Change colour.
@@ -107,6 +119,13 @@ namespace galaxy
 			/// \return Const float.
 			///
 			[[nodiscard]] const float radius() const noexcept;
+
+			///
+			/// Get fragments of circle.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float fragments() const noexcept;
 
 			///
 			/// Serializes object.

@@ -53,8 +53,13 @@ namespace galaxy
 			m_size   = size;
 			m_colour = colour;
 
+			update();
+		}
+
+		void Point::update()
+		{
 			std::vector<graphics::PrimitiveVertex> vertexs;
-			vertexs.emplace_back(0.0f, 0.0f, colour);
+			vertexs.emplace_back(0.0f, 0.0f, m_colour);
 
 			m_vb.create<graphics::PrimitiveVertex>(vertexs);
 
@@ -67,6 +72,11 @@ namespace galaxy
 			m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 		}
 
+		void Point::change_colour(const graphics::Colour& col)
+		{
+			m_colour = col;
+		}
+
 		void Point::bind() noexcept
 		{
 			m_va.bind();
@@ -75,6 +85,11 @@ namespace galaxy
 		void Point::unbind() noexcept
 		{
 			m_va.unbind();
+		}
+
+		const graphics::Colour& Point::get_colour() const noexcept
+		{
+			return m_colour;
 		}
 
 		void Point::set_size(const int size) noexcept

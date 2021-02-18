@@ -68,6 +68,18 @@ namespace galaxy
 			void create(const unsigned int size, const graphics::Colour& colour);
 
 			///
+			/// Update vertexs.
+			///
+			void update();
+
+			///
+			/// Change colour.
+			///
+			/// \param col Colour of line.
+			///
+			void change_colour(const graphics::Colour& col);
+
+			///
 			/// Bind as active VA.
 			///
 			void bind() noexcept;
@@ -76,6 +88,13 @@ namespace galaxy
 			/// Unbind as active VA.
 			///
 			void unbind() noexcept;
+
+			///
+			/// Get current colour.
+			///
+			/// \return Const reference to the current line colour.
+			///
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
 
 			///
 			/// Set point size.

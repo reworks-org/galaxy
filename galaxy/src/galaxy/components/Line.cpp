@@ -58,9 +58,14 @@ namespace galaxy
 			m_point_b = {x2, y2};
 			m_colour  = col;
 
+			update();
+		}
+
+		void Line::update()
+		{
 			std::vector<graphics::PrimitiveVertex> vertexs;
-			vertexs.emplace_back(x1, y1, col);
-			vertexs.emplace_back(x2, y2, col);
+			vertexs.emplace_back(m_point_a.x, m_point_a.y, m_colour);
+			vertexs.emplace_back(m_point_b.x, m_point_b.y, m_colour);
 
 			m_vb.create<graphics::PrimitiveVertex>(vertexs);
 
@@ -75,7 +80,7 @@ namespace galaxy
 
 		void Line::change_colour(const graphics::Colour& col)
 		{
-			create(col, m_point_a.x, m_point_a.y, m_point_b.x, m_point_b.y);
+			m_colour = col;
 		}
 
 		void Line::bind() noexcept

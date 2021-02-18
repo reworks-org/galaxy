@@ -74,6 +74,11 @@ namespace galaxy
 			void create(const graphics::Colour& col, const float x1, const float y1, const float x2, const float y2);
 
 			///
+			/// Update vertexs.
+			///
+			void update();
+
+			///
 			/// Change colour.
 			///
 			/// \param col Colour of line.

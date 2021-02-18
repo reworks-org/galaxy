@@ -62,6 +62,11 @@ namespace galaxy
 			m_fragments = fragments;
 			m_colour    = colour;
 
+			update();
+		}
+
+		void Circle::update()
+		{
 			// Thanks to https://stackoverflow.com/a/33859443.
 			// For help with maths.
 
@@ -70,10 +75,10 @@ namespace galaxy
 
 			unsigned int count        = 0;
 			constexpr float incr_stat = 2.0f * glm::pi<float>();
-			float increment           = incr_stat / static_cast<float>(fragments);
+			float increment           = incr_stat / static_cast<float>(m_fragments);
 			for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 			{
-				vertexs.emplace_back(radius * glm::cos(angle), radius * glm::sin(angle), colour);
+				vertexs.emplace_back(m_radius * glm::cos(angle), m_radius * glm::sin(angle), m_colour);
 				indices.push_back(count);
 
 				count++;
@@ -88,14 +93,19 @@ namespace galaxy
 			m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Circle::update(const float radius)
+		void Circle::set_radius(const float radius)
 		{
-			create(radius, m_fragments, m_colour);
+			m_radius = radius;
+		}
+
+		void Circle::set_fragments(const float fragments)
+		{
+			m_fragments = fragments;
 		}
 
 		void Circle::change_colour(const graphics::Colour& col)
 		{
-			create(m_radius, m_fragments, col);
+			m_colour = col;
 		}
 
 		void Circle::bind() noexcept
@@ -116,6 +126,11 @@ namespace galaxy
 		const float Circle::radius() const noexcept
 		{
 			return m_radius;
+		}
+
+		const float Circle::fragments() const noexcept
+		{
+			return m_fragments;
 		}
 
 		nlohmann::json Circle::serialize()
