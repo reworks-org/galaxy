@@ -75,6 +75,7 @@ namespace sc
 	void EditorLayer::on_push()
 	{
 		m_entity_panel.set_scene(m_active_scene);
+		m_camera_panel.set_scene(m_active_scene);
 	}
 
 	void EditorLayer::on_pop()
@@ -106,9 +107,34 @@ namespace sc
 
 	void EditorLayer::pre_render()
 	{
-		m_active_scene->pre_render();
-		m_entity_panel.pre_render();
+		for (const auto& gl_operation : m_gl_operations)
+		{
+			gl_operation();
+		}
 
+		m_gl_operations.clear();
+
+		m_active_scene->pre_render();
+
+		m_framebuffer.bind();
+		m_active_scene->render();
+		m_framebuffer.unbind();
+
+		imgui_render();
+	}
+
+	void EditorLayer::render()
+	{
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
+	void EditorLayer::on_event(const events::WindowResized& event)
+	{
+		m_framebuffer.change_size(event.m_width, event.m_height);
+	}
+
+	void EditorLayer::imgui_render()
+	{
 		start();
 
 		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
@@ -220,7 +246,7 @@ namespace sc
 		}
 
 		m_camera_panel.render();
-		m_entity_panel.render();
+		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
 		m_scene_panel.render();
@@ -252,20 +278,6 @@ namespace sc
 
 		ImGui::End();
 		end();
-
-		m_framebuffer.bind();
-		m_active_scene->render();
-		m_framebuffer.unbind();
-	}
-
-	void EditorLayer::render()
-	{
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-	}
-
-	void EditorLayer::on_event(const events::WindowResized& event)
-	{
-		m_framebuffer.change_size(event.m_width, event.m_height);
 	}
 
 	void EditorLayer::start()

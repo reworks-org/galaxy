@@ -43,6 +43,7 @@ namespace sc
 		void on_event(const events::WindowResized& event);
 
 	private:
+		void imgui_render();
 		void start();
 		void end();
 		void exit();
@@ -68,6 +69,8 @@ namespace sc
 		graphics::RenderTexture m_framebuffer;
 
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
+
+		OpenGLOperationStack m_gl_operations;
 	};
 
 	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)

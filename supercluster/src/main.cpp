@@ -31,7 +31,6 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
-		try
 		{
 			Editor editor {"assets/", "assets/config.json"};
 			SL_HANDLE.window()->prevent_native_closing();
@@ -41,14 +40,6 @@ int main(int argsc, char* argsv[])
 			stack->push("Editor");
 
 			restart = editor.run();
-		}
-		catch (std::exception& e)
-		{
-			pfd::message message("Exception Caught", e.what(), pfd::choice::ok, pfd::icon::error);
-		}
-		catch (std::exception* e)
-		{
-			pfd::message message("Exception Caught", e->what(), pfd::choice::ok, pfd::icon::error);
 		}
 
 	} while (restart);
