@@ -9,6 +9,10 @@ Application Programming Library using C++20, with a Data driven design and Test 
 
 ![galaxy](logo.png?raw=true "galaxy")
 
+## Supercluster - Application Builder/Editor for Galaxy.
+
+![supercluster](editor.png?raw=true "supercluster")
+
 ## Building
 Only supports 64bit systems.
 
