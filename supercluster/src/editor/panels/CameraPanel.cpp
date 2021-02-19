@@ -25,7 +25,7 @@ namespace sc
 
 				ImGui::Text("Move");
 
-				static float s_move_x = camera.get_pos().x;
+				float s_move_x = camera.get_pos().x;
 				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("X##01", &s_move_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
@@ -34,9 +34,9 @@ namespace sc
 
 				ImGui::SameLine();
 
-				static float s_move_y = camera.get_pos().y;
+				float s_move_y = camera.get_pos().y;
 				ImGui::SetNextItemWidth(INPUT_WIDTH);
-				if (ImGui::InputFloat("Y##02", &s_move_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+				if (ImGui::InputFloat("Y##02", &s_move_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.move_y(s_move_y);
 				}

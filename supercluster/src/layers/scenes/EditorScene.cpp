@@ -36,6 +36,42 @@ namespace sc
 		{
 			m_camera.on_scroll(m_window->get_scroll_data());
 		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::W))
+		{
+			m_camera.on_key_down({input::Keys::W});
+		}
+		else
+		{
+			m_camera.on_key_up({input::Keys::W});
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::S))
+		{
+			m_camera.on_key_down({input::Keys::S});
+		}
+		else
+		{
+			m_camera.on_key_up({input::Keys::S});
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::A))
+		{
+			m_camera.on_key_down({input::Keys::A});
+		}
+		else
+		{
+			m_camera.on_key_up({input::Keys::A});
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::D))
+		{
+			m_camera.on_key_down({input::Keys::D});
+		}
+		else
+		{
+			m_camera.on_key_up({input::Keys::D});
+		}
 	}
 
 	void EditorScene::update(const double dt)
