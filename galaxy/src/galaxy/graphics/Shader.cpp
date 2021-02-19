@@ -78,10 +78,21 @@ namespace galaxy
 
 		const bool Shader::load_path(std::string_view vertex_file, std::string_view frag_file)
 		{
-			const std::string vertex   = SL_HANDLE.vfs()->open(vertex_file);
-			const std::string fragment = SL_HANDLE.vfs()->open(frag_file);
+			const auto vertex = SL_HANDLE.vfs()->open(vertex_file);
+			if (vertex == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load vertex shader: {0}.", vertex_file);
+				return false;
+			}
 
-			return load_raw(vertex, fragment);
+			const auto fragment = SL_HANDLE.vfs()->open(frag_file);
+			if (fragment == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load fragment shader: {0}.", frag_file);
+				return false;
+			}
+
+			return load_raw(vertex.value(), fragment.value());
 		}
 
 		const bool Shader::load_raw(const std::string& vertex_str, const std::string& fragment_str)

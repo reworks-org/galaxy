@@ -30,11 +30,18 @@ namespace galaxy
 
 		void MusicBook::create_from_json(std::string_view file)
 		{
-			nlohmann::json json = json::parse_from_disk(file);
-
-			for (const auto& [name, obj] : json.at("musicbook").items())
+			const auto json_opt = json::parse_from_disk(file);
+			if (json_opt == std::nullopt)
 			{
-				create(name, obj);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for Musicbook.", file);
+			}
+			else
+			{
+				auto& json = json_opt.value();
+				for (const auto& [name, obj] : json.at("musicbook").items())
+				{
+					create(name, obj);
+				}
 			}
 		}
 

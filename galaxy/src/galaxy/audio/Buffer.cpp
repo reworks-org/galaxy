@@ -75,50 +75,59 @@ namespace galaxy
 
 		const bool Buffer::internal_load(std::string_view file)
 		{
-			bool result = true;
-			auto path   = SL_HANDLE.vfs()->absolute(file);
+			bool result     = true;
+			const auto path = SL_HANDLE.vfs()->absolute(file);
 
-			if (std::filesystem::path(path).extension() != ".ogg")
+			if (path == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Sound must be ogg vorbis and have extension of .ogg!");
-				return result;
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find file to load into audio buffer: {0}.", file);
+				result = false;
 			}
 			else
 			{
-				int channels = 0;
-				int samples  = 0;
-				short* data  = nullptr;
-
-				const auto length = stb_vorbis_decode_filename(path.c_str(), &channels, &samples, &data);
-				if (length < 1)
+				const auto path_str = path.value();
+				if (std::filesystem::path(path_str).extension() != ".ogg")
 				{
+					GALAXY_LOG(GALAXY_ERROR, "Sound must be ogg vorbis and have extension of .ogg!");
 					result = false;
-
-					// Make sure data is freed.
-					if (data != nullptr)
-					{
-						std::free(data);
-					}
-
-					if (length == -1)
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to open file with stb_vorbis.");
-					}
-					else if (length == -2)
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to parse with stb_vorbis.");
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed due to unknown error. Error code returned: {0}.", length);
-					}
 				}
 				else
 				{
-					const auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
-					alBufferData(m_buffer, format, data, channels * length * sizeof(short), samples);
+					int channels = 0;
+					int samples  = 0;
+					short* data  = nullptr;
 
-					std::free(data);
+					const auto length = stb_vorbis_decode_filename(path_str.c_str(), &channels, &samples, &data);
+					if (length < 1)
+					{
+						result = false;
+
+						// Make sure data is freed.
+						if (data != nullptr)
+						{
+							std::free(data);
+						}
+
+						if (length == -1)
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to open file with stb_vorbis.");
+						}
+						else if (length == -2)
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to parse with stb_vorbis.");
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed due to unknown error. Error code returned: {0}.", length);
+						}
+					}
+					else
+					{
+						const auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
+						alBufferData(m_buffer, format, data, channels * length * sizeof(short), samples);
+
+						std::free(data);
+					}
 				}
 			}
 

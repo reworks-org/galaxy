@@ -17,47 +17,53 @@ namespace galaxy
 {
 	namespace json
 	{
-		nlohmann::json parse_from_disk(std::string_view file)
+		std::optional<nlohmann::json> parse_from_disk(std::string_view file)
 		{
 			const auto path = SL_HANDLE.vfs()->absolute(file);
-
-			nlohmann::json json;
-			std::ifstream input;
-
-			input.open(path, std::ifstream::in);
-			if (!input.good())
+			if (path != std::nullopt)
 			{
-				input.close();
-				GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path);
+				nlohmann::json json;
+				std::ifstream input;
+
+				input.open(path.value(), std::ifstream::in);
+				if (!input.good())
+				{
+					input.close();
+					GALAXY_LOG(GALAXY_ERROR, "Failed to open: {0}.", path.value());
+
+					return std::nullopt;
+				}
+				else
+				{
+					input >> json;
+					input.close();
+
+					return std::make_optional(json);
+				}
 			}
 			else
 			{
-				input >> json;
-				input.close();
+				return std::nullopt;
 			}
-
-			return json;
 		}
 
-		nlohmann::json parse_from_mem(std::span<char> memory)
+		std::optional<nlohmann::json> parse_from_mem(std::span<char> memory)
 		{
-			nlohmann::json json;
-
 			if (memory.empty())
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Passed empty buffer to json::parse_from_mem().");
+				GALAXY_LOG(GALAXY_ERROR, "Passed empty buffer to json::parse_from_mem().");
+				return std::nullopt;
 			}
 			else
 			{
-				json = nlohmann::json::parse(memory);
+				nlohmann::json json = nlohmann::json::parse(memory);
+				return std::make_optional(json);
 			}
-
-			return json;
 		}
 
-		void save_to_disk(std::string_view path, const nlohmann::json& json)
+		const bool save_to_disk(std::string_view path, const nlohmann::json& json)
 		{
-			SL_HANDLE.vfs()->save(json.dump(4), path);
+			return SL_HANDLE.vfs()->save(json.dump(4), path);
 		}
 	} // namespace json
 } // namespace galaxy

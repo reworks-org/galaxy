@@ -70,26 +70,41 @@ namespace galaxy
 
 		void TextureAtlas::add(std::string_view file)
 		{
-			std::string path = SL_HANDLE.vfs()->absolute(file);
-			const auto name  = std::filesystem::path(path).stem().string();
-			if (!m_textures.contains(name))
+			const auto path = SL_HANDLE.vfs()->absolute(file);
+			if (path == std::nullopt)
 			{
-				m_textures[name] = {.m_path = path};
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture {0} to add to atlas.", file);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to add pre-existing texture.");
+				const auto& path_str = path.value();
+				const auto name      = std::filesystem::path(path_str).stem().string();
+				if (!m_textures.contains(name))
+				{
+					m_textures[name] = {.m_path = path_str};
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Attempted to add pre-existing texture.");
+				}
 			}
 		}
 
-		void TextureAtlas::add_from_json(std::string_view json)
+		void TextureAtlas::add_from_json(std::string_view file)
 		{
-			auto j        = json::parse_from_disk(static_cast<std::string>(json));
-			auto textures = j.at("textures");
-
-			std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
-				add(texture.get<std::string>());
-			});
+			const auto json_opt = json::parse_from_disk(file);
+			if (json_opt == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for ", file);
+			}
+			else
+			{
+				auto& json    = json_opt.value();
+				auto textures = json.at("textures");
+				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
+					add(texture.get<std::string>());
+				});
+			}
 		}
 
 		void TextureAtlas::create(std::string_view shader)

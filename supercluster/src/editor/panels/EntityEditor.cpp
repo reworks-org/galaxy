@@ -57,7 +57,14 @@ namespace sc
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
 						gl_operations.push_back([this, &file]() -> void {
-							m_cur_scene->world().create_from_json(file);
+							if (file == std::nullopt)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
+							}
+							else
+							{
+								m_cur_scene->world().create_from_json(file.value());
+							}
 						});
 					}
 
@@ -601,7 +608,15 @@ namespace sc
 					{
 						if (ImGui::Button("Create from JSON"))
 						{
-							physics->create_from_json(SL_HANDLE.vfs()->open_with_dialog("*.json"));
+							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.json");
+							if (file == std::nullopt)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to find a file to open for physics component.");
+							}
+							else
+							{
+								physics->create_from_json(file.value());
+							}
 						}
 
 						if (physics->body())
@@ -741,8 +756,15 @@ namespace sc
 						{
 							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
 							gl_operations.push_back([sprite, &file]() -> void {
-								sprite->load(file);
-								sprite->create();
+								if (file == std::nullopt)
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for sprite component.");
+								}
+								else
+								{
+									sprite->load(file.value());
+									sprite->create();
+								}
 							});
 						}
 

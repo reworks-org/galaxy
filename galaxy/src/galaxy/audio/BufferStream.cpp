@@ -50,35 +50,44 @@ namespace galaxy
 			bool result     = true;
 			const auto path = SL_HANDLE.vfs()->absolute(file);
 
-			if (std::filesystem::path(path).extension() != ".ogg")
+			if (path == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Music must be ogg vorbis and have extension of .ogg!");
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find file to load into bufferstream: {0}.", file);
 				result = false;
 			}
 			else
 			{
-				m_stream = stb_vorbis_open_filename(path.c_str(), nullptr, nullptr);
-				if (!m_stream)
+				const auto path_str = path.value();
+				if (std::filesystem::path(path_str).extension() != ".ogg")
 				{
-					GALAXY_LOG(GALAXY_ERROR, "STB failed to load: {0}.", file);
+					GALAXY_LOG(GALAXY_ERROR, "Music must be ogg vorbis and have extension of .ogg!");
 					result = false;
 				}
 				else
 				{
-					m_info = stb_vorbis_get_info(m_stream);
+					m_stream = stb_vorbis_open_filename(path_str.c_str(), nullptr, nullptr);
+					if (!m_stream)
+					{
+						GALAXY_LOG(GALAXY_ERROR, "STB failed to load: {0}.", file);
+						result = false;
+					}
+					else
+					{
+						m_info = stb_vorbis_get_info(m_stream);
 
-					m_data   = new short[CHUNK];
-					m_format = (m_info.channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
+						m_data   = new short[CHUNK];
+						m_format = (m_info.channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
 
-					stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
-					alBufferData(m_buffers[0], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+						stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+						alBufferData(m_buffers[0], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
 
-					stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
-					alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+						stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+						alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+					}
 				}
-			}
 
-			return result;
+				return result;
+			}
 		}
 	} // namespace audio
 } // namespace galaxy

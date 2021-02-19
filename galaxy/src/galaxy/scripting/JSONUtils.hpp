@@ -8,6 +8,7 @@
 #ifndef GALAXY_SCRIPTING_JSONUTILS_HPP_
 #define GALAXY_SCRIPTING_JSONUTILS_HPP_
 
+#include <optional>
 #include <span>
 #include <string_view>
 
@@ -24,7 +25,7 @@ namespace galaxy
 		///
 		/// \return Fully parsed json object.
 		///
-		[[nodiscard]] nlohmann::json parse_from_disk(std::string_view file);
+		[[nodiscard]] std::optional<nlohmann::json> parse_from_disk(std::string_view file);
 
 		///
 		/// Load and parse a json file from memory.
@@ -33,7 +34,7 @@ namespace galaxy
 		///
 		/// \return Fully parsed json object.
 		///
-		[[nodiscard]] nlohmann::json parse_from_mem(std::span<char> memory);
+		[[nodiscard]] std::optional<nlohmann::json> parse_from_mem(std::span<char> memory);
 
 		///
 		/// Save a json file to disk.
@@ -41,7 +42,9 @@ namespace galaxy
 		/// \param path Path to the file to save.
 		/// \param json Json to write to file.
 		///
-		void save_to_disk(std::string_view path, const nlohmann::json& json);
+		/// \return Const bool. True if file successfully saved to disk.
+		///
+		[[nodiscard]] const bool save_to_disk(std::string_view path, const nlohmann::json& json);
 	} //namespace json
 } // namespace galaxy
 

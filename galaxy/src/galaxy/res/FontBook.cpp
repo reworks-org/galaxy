@@ -30,11 +30,19 @@ namespace galaxy
 
 		void FontBook::create_from_json(std::string_view file)
 		{
-			nlohmann::json json = json::parse_from_disk(file);
-
-			for (auto& [name, arr] : json.at("fontbook").items())
+			const auto json_opt = json::parse_from_disk(file);
+			if (json_opt == std::nullopt)
 			{
-				create(name, arr[0].get<std::string>(), arr[1].get<int>());
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for Fontbook.", file);
+			}
+			else
+			{
+				auto& json = json_opt.value();
+
+				for (auto& [name, arr] : json.at("fontbook").items())
+				{
+					create(name, arr[0].get<std::string>(), arr[1].get<int>());
+				}
 			}
 		}
 

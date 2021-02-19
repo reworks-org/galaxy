@@ -32,8 +32,8 @@ namespace sb
 		m_world.set_gravity(0.0f, 1.0f);
 		m_world.b2_world()->SetContactListener(&m_contact_listener);
 
-		auto floor = m_world.create_from_json("floor.json");
-		auto cube  = m_world.create_from_json("cube.json");
+		auto floor = m_world.create_from_json("floor.json").value();
+		auto cube  = m_world.create_from_json("cube.json").value();
 
 		auto* floor_event = m_world.create_component<components::OnEvent<events::Collision>>(floor);
 		auto* cube_event  = m_world.create_component<components::OnEvent<events::FinishCollision>>(cube);

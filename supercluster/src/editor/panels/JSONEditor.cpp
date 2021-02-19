@@ -17,6 +17,8 @@
 
 #define INDENT_PIXELS 16.0f
 
+using namespace galaxy;
+
 namespace sc
 {
 	namespace panel
@@ -59,8 +61,17 @@ namespace sc
 		{
 			if (!m_loaded)
 			{
-				m_root   = galaxy::json::parse_from_disk(file);
-				m_loaded = true;
+				const auto json_opt = json::parse_from_disk(file);
+				if (json_opt == std::nullopt)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for JSONEditor panel.", file);
+					m_loaded = false;
+				}
+				else
+				{
+					m_root   = json_opt.value();
+					m_loaded = true;
+				}
 			}
 		}
 
@@ -68,8 +79,17 @@ namespace sc
 		{
 			if (!m_loaded)
 			{
-				m_root   = galaxy::json::parse_from_mem(memory);
-				m_loaded = true;
+				const auto json_opt = json::parse_from_mem(memory);
+				if (json_opt == std::nullopt)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json from memory for JSONEditor. panel.");
+					m_loaded = false;
+				}
+				else
+				{
+					m_root   = json_opt.value();
+					m_loaded = true;
+				}
 			}
 		}
 
@@ -88,7 +108,10 @@ namespace sc
 			{
 				if (!m_external)
 				{
-					galaxy::json::save_to_disk(path, m_root);
+					if (!json::save_to_disk(path, m_root))
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to save json to disk using file: {0}, for JSONEditor panel.", path);
+					}
 				}
 				else
 				{
@@ -115,7 +138,14 @@ namespace sc
 					if (ImGui::MenuItem("Open"))
 					{
 						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.json");
-						load_file(path);
+						if (path == std::nullopt)
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to find file to open for JSONEditor panel.");
+						}
+						else
+						{
+							load_file(path.value());
+						}
 					}
 
 					if (ImGui::MenuItem("Save"))
@@ -123,7 +153,14 @@ namespace sc
 						if (is_loaded())
 						{
 							const auto path = SL_HANDLE.vfs()->show_save_dialog();
-							save(path);
+							if (path == std::nullopt)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to find file to save to for JSONEditor panel.");
+							}
+							else
+							{
+								save(path.value());
+							}
 						}
 					}
 

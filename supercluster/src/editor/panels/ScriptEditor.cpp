@@ -6,6 +6,7 @@
 ///
 
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/error/Log.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 
 #include "ScriptEditor.hpp"
@@ -32,12 +33,22 @@ namespace sc
 						if (ImGui::MenuItem("Open"))
 						{
 							const auto code = SL_HANDLE.vfs()->open_with_dialog("*.lua");
-							m_editor.SetText(code);
+							if (code == std::nullopt)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to open file for script editor.");
+							}
+							else
+							{
+								m_editor.SetText(code.value());
+							}
 						}
 
 						if (ImGui::MenuItem("Save"))
 						{
-							SL_HANDLE.vfs()->save_with_dialog(m_editor.GetText());
+							if (!SL_HANDLE.vfs()->save_with_dialog(m_editor.GetText()))
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to save script editor content.");
+							}
 						}
 
 						ImGui::EndMenu();

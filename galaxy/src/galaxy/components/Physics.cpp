@@ -67,8 +67,15 @@ namespace galaxy
 
 		void Physics::create_from_json(std::string_view file)
 		{
-			auto json = json::parse_from_disk(file);
-			parse_json(json);
+			const auto json = json::parse_from_disk(file);
+			if (json == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load and parse json file for physics component: {0}.", file);
+			}
+			else
+			{
+				parse_json(json.value());
+			}
 		}
 
 		b2Body* const Physics::body()

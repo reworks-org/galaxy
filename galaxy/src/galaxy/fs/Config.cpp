@@ -24,8 +24,8 @@ namespace galaxy
 
 		void Config::init(std::string_view file)
 		{
-			m_path = SL_HANDLE.vfs()->absolute(file);
-			if (m_path.empty())
+			const auto path = SL_HANDLE.vfs()->absolute(file);
+			if (path == std::nullopt)
 			{
 				m_path   = file;
 				m_config = nlohmann::json::object();
@@ -35,18 +35,29 @@ namespace galaxy
 			}
 			else
 			{
-				m_config = json::parse_from_disk(m_path);
-				m_blank  = false;
+				m_path            = path.value();
+				const auto result = json::parse_from_disk(m_path);
+				if (result == std::nullopt)
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to parse json from disk for config file: {0}.", file);
+				}
+				else
+				{
+					m_config = result.value();
+					m_blank  = false;
+					m_loaded = true;
+				}
 			}
-
-			m_loaded = true;
 		}
 
 		void Config::save()
 		{
 			if (m_loaded)
 			{
-				json::save_to_disk(m_path, m_config);
+				if (!json::save_to_disk(m_path, m_config))
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to save json to disk using path: {0}.", m_path);
+				}
 			}
 			else
 			{

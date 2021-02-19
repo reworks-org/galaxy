@@ -54,55 +54,63 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Open & Run Script"))
 					{
-						auto file = SL_HANDLE.vfs()->show_open_dialog("*.lua");
-						std::ifstream ifs;
-						ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
-						m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
-								     std::istreambuf_iterator<char>());
-
-						m_history.push_back("[SCRIPT]: ");
-						m_history.push_back(m_buff);
-
-						auto res        = SL_HANDLE.lua()->script(m_buff);
-						auto type       = res.get_type();
-						std::string out = "";
-						if (type == sol::type::string)
+						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.lua");
+						if (path == std::nullopt)
 						{
-							out = res.get<std::string>();
+							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
 						}
-						else if (type == sol::type::number)
+						else
 						{
-							out = std::to_string(res.get<float>());
-						}
-						else if (type == sol::type::boolean)
-						{
-							if (res.get<bool>())
+							const auto& file = path.value();
+							std::ifstream ifs;
+							ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
+							m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
+									     std::istreambuf_iterator<char>());
+
+							m_history.push_back("[SCRIPT]: ");
+							m_history.push_back(m_buff);
+
+							auto res        = SL_HANDLE.lua()->script(m_buff);
+							auto type       = res.get_type();
+							std::string out = "";
+							if (type == sol::type::string)
 							{
-								out = "true";
+								out = res.get<std::string>();
 							}
-							else
+							else if (type == sol::type::number)
 							{
-								out = "false";
+								out = std::to_string(res.get<float>());
 							}
-						}
-
-						if (!out.empty())
-						{
-							m_history.push_back(fmt::format("[RESULT]: {0}.", out));
-						}
-
-						if (!strs.empty())
-						{
-							for (const auto& str : strs)
+							else if (type == sol::type::boolean)
 							{
-								m_history.push_back(str);
+								if (res.get<bool>())
+								{
+									out = "true";
+								}
+								else
+								{
+									out = "false";
+								}
 							}
 
-							strs.clear();
-						}
+							if (!out.empty())
+							{
+								m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+							}
 
-						m_buff.clear();
-						ImGui::SetKeyboardFocusHere(-1);
+							if (!strs.empty())
+							{
+								for (const auto& str : strs)
+								{
+									m_history.push_back(str);
+								}
+
+								strs.clear();
+							}
+
+							m_buff.clear();
+							ImGui::SetKeyboardFocusHere(-1);
+						}
 					}
 
 					if (ImGui::MenuItem("Run GC"))

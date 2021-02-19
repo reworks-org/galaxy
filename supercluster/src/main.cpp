@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <optional>
+
 #include <portable-file-dialogs.h>
 
 #include <galaxy/core/Application.hpp>

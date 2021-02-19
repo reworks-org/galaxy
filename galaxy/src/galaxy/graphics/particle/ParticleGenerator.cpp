@@ -75,19 +75,27 @@ namespace galaxy
 
 		void ParticleGenerator::create_from_json(std::string_view json_file)
 		{
-			auto json = json::parse_from_disk(json_file);
-			create(json.at("particle-sheet"), json.at("emitter-x"), json.at("emitter-y"));
-
-			auto defines = json.at("defines");
-			for (const auto& [name, obj] : defines.items())
+			const auto json_opt = json::parse_from_disk(json_file);
+			if (json_opt == std::nullopt)
 			{
-				define(name, {obj.at("x"), obj.at("y"), obj.at("w"), obj.at("h")});
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create particle generator by load/parse json from disk using file: {0}.", json_file);
 			}
-
-			auto to_configure = json.at("types-to-configure");
-			for (const auto& name : to_configure)
+			else
 			{
-				configure(name);
+				auto& json = json_opt.value();
+				create(json.at("particle-sheet"), json.at("emitter-x"), json.at("emitter-y"));
+
+				auto defines = json.at("defines");
+				for (const auto& [name, obj] : defines.items())
+				{
+					define(name, {obj.at("x"), obj.at("y"), obj.at("w"), obj.at("h")});
+				}
+
+				auto to_configure = json.at("types-to-configure");
+				for (const auto& name : to_configure)
+				{
+					configure(name);
+				}
 			}
 		}
 

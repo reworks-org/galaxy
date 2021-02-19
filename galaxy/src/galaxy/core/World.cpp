@@ -98,10 +98,18 @@ namespace galaxy
 			return entity;
 		}
 
-		const ecs::Entity World::create_from_json(std::string_view file)
+		std::optional<ecs::Entity> World::create_from_json(std::string_view file)
 		{
-			nlohmann::json root = json::parse_from_disk(file);
-			return create_from_json_obj(root);
+			const auto root = json::parse_from_disk(file);
+			if (root == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file for entity: {0}.", file);
+				return std::nullopt;
+			}
+			else
+			{
+				return std::make_optional(create_from_json_obj(root.value()));
+			}
 		}
 
 		const ecs::Entity World::create_from_json_obj(const nlohmann::json& json)

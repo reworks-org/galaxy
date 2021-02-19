@@ -21,17 +21,29 @@ namespace galaxy
 			json["camera"]      = scene->m_camera.serialize();
 			json["world"]       = scene->m_world.serialize();
 
-			json::save_to_disk(file, json);
+			if (!json::save_to_disk(file, json))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save json to disk using file: {0}.", file);
+			}
 		}
 
 		void Serializer::deserialize(core::Scene* scene, std::string_view file)
 		{
-			nlohmann::json json    = json::parse_from_disk(file);
-			const auto camera_json = json.at("camera");
-			const auto world_json  = json.at("world");
+			const auto json_opt = json::parse_from_disk(file);
+			if (json_opt == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to deserialize because: load/parse json from disk failed for file: {0}.", file);
+			}
+			else
+			{
+				auto& json             = json_opt.value();
+				const auto camera_json = json.at("camera");
+				const auto world_json  = json.at("world");
 
-			scene->m_camera.deserialize(camera_json);
-			scene->m_world.deserialize(world_json);
+				scene->m_camera.deserialize(camera_json);
+				scene->m_world.deserialize(world_json);
+			}
 		}
+
 	} // namespace fs
 } // namespace galaxy

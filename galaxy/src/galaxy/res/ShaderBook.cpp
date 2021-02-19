@@ -45,15 +45,22 @@ namespace galaxy
 
 		void ShaderBook::create_from_json(std::string_view file)
 		{
-			nlohmann::json json = json::parse_from_disk(file);
-
-			const std::string vs_ext = json.at("vertex-extension");
-			const std::string fs_ext = json.at("fragment-extension");
-			const auto& arr          = json.at("shaderbook");
-
-			for (const std::string& filename : arr)
+			const auto json_opt = json::parse_from_disk(file);
+			if (json_opt == std::nullopt)
 			{
-				create(filename, filename + vs_ext, filename + fs_ext);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for Shaderbook.", file);
+			}
+			else
+			{
+				auto& json               = json_opt.value();
+				const std::string vs_ext = json.at("vertex-extension");
+				const std::string fs_ext = json.at("fragment-extension");
+				const auto& arr          = json.at("shaderbook");
+
+				for (const std::string& filename : arr)
+				{
+					create(filename, filename + vs_ext, filename + fs_ext);
+				}
 			}
 		}
 

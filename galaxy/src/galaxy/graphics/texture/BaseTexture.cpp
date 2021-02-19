@@ -53,10 +53,15 @@ namespace galaxy
 
 		void BaseTexture::save(std::string_view file)
 		{
-			auto path = SL_HANDLE.vfs()->absolute(file);
-			if (path.empty())
+			const auto path      = SL_HANDLE.vfs()->absolute(file);
+			std::string path_str = "";
+			if (path == std::nullopt)
 			{
-				path = std::filesystem::path(file).string();
+				path_str = std::filesystem::path(file).string();
+			}
+			else
+			{
+				path_str = path.value();
 			}
 
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
@@ -65,7 +70,7 @@ namespace galaxy
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			stbi_write_png(path_str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}

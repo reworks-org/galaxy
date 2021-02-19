@@ -9,6 +9,7 @@
 #define GALAXY_CORE_WORLD_HPP_
 
 #include <bitset>
+#include <optional>
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -89,7 +90,7 @@ namespace galaxy
 			///
 			/// \return Created entity.
 			///
-			[[maybe_unused]] const ecs::Entity create_from_json(std::string_view file);
+			[[maybe_unused]] std::optional<ecs::Entity> create_from_json(std::string_view file);
 
 			///
 			/// \brief Create an entity from a JSON object.

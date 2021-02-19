@@ -75,9 +75,9 @@ namespace galaxy
 			///
 			/// Uses galaxy::filesystem for parsed texture names.
 			///
-			/// \param json JSON filepath. Uses galaxy::filesystem to look in json folder.
+			/// \param file JSON filepath. Uses galaxy::filesystem to look in json folder.
 			///
-			void add_from_json(std::string_view json);
+			void add_from_json(std::string_view file);
 
 			///
 			/// \brief Creates atlas from added files.

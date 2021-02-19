@@ -9,6 +9,7 @@
 #define GALAXY_FS_FILESYSTEM_HPP_
 
 #include <filesystem>
+#include <optional>
 #include <span>
 #include <string_view>
 
@@ -57,7 +58,7 @@ namespace galaxy
 			///
 			/// \return Buffer in a std::string format holding read info.
 			///
-			[[nodiscard]] std::string open(std::string_view file);
+			[[nodiscard]] std::optional<std::string> open(std::string_view file);
 
 			///
 			/// Open a binary file and store in std::span.
@@ -66,7 +67,7 @@ namespace galaxy
 			///
 			/// \return Span buffer.
 			///
-			[[nodiscard]] std::vector<char> open_binary(std::string_view file);
+			[[nodiscard]] std::optional<std::vector<char>> open_binary(std::string_view file);
 
 			///
 			/// \brief Saves a string to a file.
@@ -76,7 +77,9 @@ namespace galaxy
 			/// \param data Data to write to file.
 			/// \param file File to save to.
 			///
-			void save(const std::string& data, std::string_view file);
+			/// \return Const bool. True if successful.
+			///
+			[[nodiscard]] const bool save(const std::string& data, std::string_view file);
 
 			///
 			/// \brief Saves binary data to a file.
@@ -86,7 +89,9 @@ namespace galaxy
 			/// \param data Data to write to file.
 			/// \param file File to overwrite.
 			///
-			void save_binary(std::span<char> data, std::string_view file);
+			/// \return Const bool. True if successful.
+			///
+			[[nodiscard]] const bool save_binary(std::span<char> data, std::string_view file);
 
 			///
 			/// \brief Retrieve the absolute position of a file to load.
@@ -95,7 +100,7 @@ namespace galaxy
 			///
 			/// \param file Name of file to get path for.
 			///
-			[[nodiscard]] std::string absolute(std::string_view file);
+			[[nodiscard]] std::optional<std::string> absolute(std::string_view file);
 
 			///
 			/// Open an open file dialog using pfd.
@@ -104,21 +109,21 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::string show_open_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
+			[[nodiscard]] std::optional<std::string> show_open_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
 
 			///
 			/// Open a save file dialog using pfd.
 			///
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::string show_save_dialog(const std::string& def_path = CUR_DIR);
+			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& def_path = CUR_DIR);
 
 			///
 			/// Open a folder using a file dialog.
 			///
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::string show_folder_dialog(const std::string& def_path = CUR_DIR);
+			[[nodiscard]] std::optional<std::string> show_folder_dialog(const std::string& def_path = CUR_DIR);
 
 			///
 			/// Open a file using a dialog.
@@ -127,7 +132,7 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::string open_with_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
+			[[nodiscard]] std::optional<std::string> open_with_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
 
 			///
 			/// Save a file using a dialog.
@@ -135,7 +140,9 @@ namespace galaxy
 			/// \param data Data to write to file.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::string save_with_dialog(const std::string& data, const std::string& def_path = CUR_DIR);
+			/// \return Const bool. True if successful.
+			///
+			[[nodiscard]] const bool save_with_dialog(const std::string& data, const std::string& def_path = CUR_DIR);
 
 		private:
 			///

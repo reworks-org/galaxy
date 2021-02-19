@@ -43,13 +43,17 @@ namespace galaxy
 
 		void Texture::load(std::string_view file)
 		{
-			auto path = SL_HANDLE.vfs()->absolute(file);
-			if (!path.empty())
+			const auto path = SL_HANDLE.vfs()->absolute(file);
+			if (path == std::nullopt)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture: {0}.", file);
+			}
+			else
 			{
 				glBindTexture(GL_TEXTURE_2D, m_texture);
 
 				stbi_set_flip_vertically_on_load(true);
-				unsigned char* data = stbi_load(path.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
+				unsigned char* data = stbi_load(path.value().c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 				if (data)
 				{
@@ -72,10 +76,6 @@ namespace galaxy
 
 				stbi_image_free(data);
 				glBindTexture(GL_TEXTURE_2D, 0);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture: {0}.", file);
 			}
 		}
 

@@ -51,7 +51,10 @@ namespace galaxy
 
 			// Filesystem.
 			m_vfs = std::make_unique<fs::Virtual>();
-			m_vfs->mount(asset_dir);
+			if (!m_vfs->mount(asset_dir))
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to mount VFS.");
+			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
 			// Config reader.

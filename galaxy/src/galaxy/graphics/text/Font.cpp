@@ -49,8 +49,8 @@ namespace galaxy
 			}
 			else
 			{
-				auto path = SL_HANDLE.vfs()->absolute(file);
-				if (path.empty())
+				const auto path = SL_HANDLE.vfs()->absolute(file);
+				if (path == std::nullopt)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Tried to open non-existent font: {0}.", file);
 					success = false;
@@ -58,7 +58,7 @@ namespace galaxy
 				else
 				{
 					FT_Face face;
-					if (FT_New_Face(FT_HANDLE.lib(), path.c_str(), 0, &face) != FT_OK)
+					if (FT_New_Face(FT_HANDLE.lib(), path.value().c_str(), 0, &face) != FT_OK)
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to create font face for: {0}.", file);
 						success = false;

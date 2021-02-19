@@ -449,24 +449,30 @@ namespace galaxy
 
 		void Window::set_icon(std::string_view icon)
 		{
-			stbi_set_flip_vertically_on_load(true);
 			const auto path = SL_HANDLE.vfs()->absolute(icon);
-
-			// Fill glfw-compatible struct.
-			GLFWimage img;
-			img.pixels = stbi_load(path.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
-
-			if (!img.pixels)
+			if (path == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load image: {0}.", path);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find window icon: {0}.", icon);
 			}
 			else
 			{
-				// Copies data so safe to destroy.
-				glfwSetWindowIcon(m_window, 1, &img);
-			}
+				// Fill glfw-compatible struct.
+				stbi_set_flip_vertically_on_load(true);
+				GLFWimage img;
+				img.pixels = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
-			stbi_image_free(img.pixels);
+				if (!img.pixels)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load image: {0}.", path.value());
+				}
+				else
+				{
+					// Copies data so safe to destroy.
+					glfwSetWindowIcon(m_window, 1, &img);
+				}
+
+				stbi_image_free(img.pixels);
+			}
 		}
 
 		void Window::set_icon(std::span<unsigned char> buffer)
@@ -503,27 +509,33 @@ namespace galaxy
 
 		void Window::set_cursor_icon(std::string_view icon)
 		{
-			stbi_set_flip_vertically_on_load(false);
 			const auto path = SL_HANDLE.vfs()->absolute(icon);
-
-			// Fill glfw-compatible struct.
-			GLFWimage img;
-			img.pixels = stbi_load(path.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
-
-			if (!img.pixels)
+			if (path == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load image: {0}.", path);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find cursor icon: {0}.", icon);
 			}
 			else
 			{
-				// Copies data so safe to destroy.
-				m_cursor.m_glfw = glfwCreateCursor(&img, 0, 0);
-				glfwSetCursor(m_window, m_cursor.m_glfw);
+				// Fill glfw-compatible struct.
+				stbi_set_flip_vertically_on_load(false);
+				GLFWimage img;
+				img.pixels = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+
+				if (!img.pixels)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load image: {0}.", path.value());
+				}
+				else
+				{
+					// Copies data so safe to destroy.
+					m_cursor.m_glfw = glfwCreateCursor(&img, 0, 0);
+					glfwSetCursor(m_window, m_cursor.m_glfw);
+				}
+
+				m_cursor_size = {img.width, img.height};
+
+				stbi_image_free(img.pixels);
 			}
-
-			m_cursor_size = {img.width, img.height};
-
-			stbi_image_free(img.pixels);
 		}
 
 		void Window::set_cursor_icon(std::span<unsigned char> buffer)
