@@ -1,7 +1,9 @@
 {
-    "name": "BatchEntityA",
     "enabled": true,
     "components": {
+    	"Tag": {
+            "tag": "BatchEntityA"
+        },
         "BatchedSprite": {
         	"texture-atlas-id": "wall",
         	"opacity": 1.0

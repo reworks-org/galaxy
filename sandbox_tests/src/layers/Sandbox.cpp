@@ -15,6 +15,7 @@
 
 #include "scenes/SandboxScene.hpp"
 #include "scenes/PhysicsScene.hpp"
+#include "scenes/MapScene.hpp"
 
 #include "Sandbox.hpp"
 
@@ -26,6 +27,7 @@ namespace sb
 
 		m_sandbox_scene = std::make_unique<SandboxScene>();
 		m_physics_scene = std::make_unique<PhysicsScene>();
+		m_map_scene     = std::make_unique<MapScene>();
 		m_active_scene  = m_sandbox_scene.get();
 	}
 
@@ -49,16 +51,19 @@ namespace sb
 			m_window->close();
 		}
 
-		if (m_window->key_pressed(galaxy::input::Keys::TAB))
+		if (m_window->key_pressed(galaxy::input::Keys::NUM_1))
 		{
-			if (m_active_scene == m_sandbox_scene.get())
-			{
-				m_active_scene = m_physics_scene.get();
-			}
-			else if (m_active_scene == m_physics_scene.get())
-			{
-				m_active_scene = m_sandbox_scene.get();
-			}
+			m_active_scene = m_sandbox_scene.get();
+		}
+
+		if (m_window->key_pressed(galaxy::input::Keys::NUM_2))
+		{
+			m_active_scene = m_physics_scene.get();
+		}
+
+		if (m_window->key_pressed(galaxy::input::Keys::NUM_3))
+		{
+			m_active_scene = m_map_scene.get();
 		}
 
 		m_active_scene->events();

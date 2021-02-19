@@ -1,7 +1,9 @@
 {
-    "name": "PointEntity",
     "enabled": true,
     "components": {
+    	"Tag": {
+            "tag": "PointEntity"
+        },
         "Point": {
             "size": 20,
             "colour": {

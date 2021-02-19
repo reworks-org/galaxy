@@ -1,8 +1,9 @@
 {
-    "name": "CircleEntity",
     "enabled": true,
-    "center-rotation-origin": false,
     "components": {
+    	"Tag": {
+            "tag": "CircleEntity"
+        },
         "Circle": {
             "radius": 20,
             "fragments": 50,

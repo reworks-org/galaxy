@@ -1,7 +1,9 @@
 {
-    "name": "Cube",
     "enabled": true,
     "components": {
+        "Tag": {
+            "tag": "Cube"
+        },
         "Sprite": {
         	"texture": "cube.png",
         	"opacity": 1.0

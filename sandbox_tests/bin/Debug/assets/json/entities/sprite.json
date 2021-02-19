@@ -1,7 +1,9 @@
 {
-    "name": "SpriteEntity",
     "enabled": true,
     "components": {
+    	"Tag": {
+            "tag": "SpriteEntity"
+        },
         "Sprite": {
         	"texture": "wall_2.png",
         	"opacity": 1.0

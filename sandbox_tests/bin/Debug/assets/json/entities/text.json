@@ -1,7 +1,9 @@
 {
-    "name": "TextEntity",
     "enabled": true,
     "components": {
+    	"Tag": {
+            "tag": "TextEntity"
+        },
         "Text": {
             "colour": {
                 "r": 255,

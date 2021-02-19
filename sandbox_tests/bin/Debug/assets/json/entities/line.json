@@ -1,7 +1,9 @@
 {
-    "name": "LineEntity",
     "enabled": true,
     "components": {
+    	"Tag": {
+            "tag": "LineEntity"
+        },
         "Line": {
             "x1": 0,
             "y1": 0,

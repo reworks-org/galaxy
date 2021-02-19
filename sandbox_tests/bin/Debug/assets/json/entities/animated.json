@@ -1,7 +1,9 @@
 {
-	"name": "Animated",
 	"enabled": true,
 	"components": {
+		"Tag": {
+            "tag": "Animated"
+        },
 		"BatchedSprite": {
 			"texture-atlas-id": "walk1",
 			"opacity": 1.0

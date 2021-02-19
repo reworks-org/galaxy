@@ -32,6 +32,7 @@ namespace sb
 		galaxy::core::Window* m_window;
 		std::unique_ptr<galaxy::core::Scene> m_sandbox_scene;
 		std::unique_ptr<galaxy::core::Scene> m_physics_scene;
+		std::unique_ptr<galaxy::core::Scene> m_map_scene;
 	};
 } // namespace sb
 

@@ -31,7 +31,6 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
-		try
 		{
 			SandboxApp sandbox {"assets/", "assets/config.json"};
 
@@ -40,14 +39,6 @@ int main(int argsc, char* argsv[])
 			stack->push("Sandbox");
 
 			restart = sandbox.run();
-		}
-		catch (std::exception& e)
-		{
-			pfd::message message("Exception Caught", e.what(), pfd::choice::ok, pfd::icon::error);
-		}
-		catch (std::exception* e)
-		{
-			pfd::message message("Exception Caught", e->what(), pfd::choice::ok, pfd::icon::error);
 		}
 
 	} while (restart);

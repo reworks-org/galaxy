@@ -1,7 +1,9 @@
 {
-    "name": "Floor",
     "enabled": true,
     "components": {
+        "Tag": {
+            "tag": "Floor"
+        },
         "Sprite": {
         	"texture": "floor.png",
         	"opacity": 1.0
