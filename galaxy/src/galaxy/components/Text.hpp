@@ -100,7 +100,7 @@ namespace galaxy
 			///
 			/// \return Const reference to the current line colour.
 			///
-			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
+			[[nodiscard]] graphics::Colour& get_colour() noexcept;
 
 			///
 			/// \brief Get texture width.

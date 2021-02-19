@@ -149,7 +149,7 @@ namespace galaxy
 			m_batch.unbind();
 		}
 
-		const graphics::Colour& Text::get_colour() const noexcept
+		graphics::Colour& Text::get_colour() noexcept
 		{
 			return m_colour;
 		}

@@ -73,7 +73,8 @@ namespace galaxy
 			text->m_batch.calculate(transform);
 			text->bind();
 
-			shader->set_uniform("u_colour", text->get_colour());
+			const auto& norm_col = text->get_colour().normalized();
+			shader->set_uniform("u_colour", norm_col);
 			shader->set_uniform("u_width", static_cast<float>(text->get_batch_width()));
 			shader->set_uniform("u_height", static_cast<float>(text->get_batch_height()));
 
