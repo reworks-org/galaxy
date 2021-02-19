@@ -224,6 +224,7 @@ TEST(ECS, Operate)
 {
 	galaxy::core::World m;
 	auto e = m.create();
+	m.enable(e);
 	m.create_component<AA>(e);
 	m.create_component<BB>(e);
 
@@ -246,6 +247,7 @@ TEST(ECS, OperateMissing)
 {
 	galaxy::core::World m;
 	auto e = m.create();
+	m.enable(e);
 	m.create_component<AA>(e);
 
 	auto* a = m.get<AA>(e);
@@ -272,6 +274,7 @@ TEST(ECS, OperateAddRemove)
 {
 	galaxy::core::World m;
 	auto e = m.create();
+	m.enable(e);
 
 	m.create_component<AA>(e);
 	m.create_component<BB>(e);
