@@ -25,9 +25,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			WangSet();
+			WangSet() noexcept;
 
 			///
 			/// Parse constructor.
@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~WangSet();
+			~WangSet() noexcept;
 
 			///
 			/// Parses json structure to member values; etc.
@@ -53,21 +53,21 @@ namespace galaxy
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_corner_colours() const;
+			[[nodiscard]] const std::vector<WangColour>& get_corner_colours() const noexcept;
 
 			///
 			/// Get edge wang tile colours.
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_edge_colours() const;
+			[[nodiscard]] const std::vector<WangTile>& get_edge_colours() const noexcept;
 
 			///
 			/// Get the name.
 			///
 			/// \return Const std::string reference.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// \brief Retrieve property.
@@ -86,14 +86,14 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_id() const;
+			[[nodiscard]] const int get_tile_id() const noexcept;
 
 			///
 			/// Get all wang tiles.
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_tiles() const;
+			[[nodiscard]] const std::vector<WangTile>& get_tiles() const noexcept;
 
 		private:
 			///

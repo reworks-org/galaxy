@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Chunk::Chunk()
+		Chunk::Chunk() noexcept
 		    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
 		{
 		}
@@ -51,13 +51,13 @@ namespace galaxy
 
 			if (json.count("data") > 0)
 			{
-				auto data_array = json.at("data");
+				const auto& data_array = json.at("data");
 				if (json.is_array())
 				{
 					std::vector<unsigned int> data_vector;
 					for (const auto& data : data_array)
 					{
-						data_vector.push_back(data.get<unsigned int>());
+						data_vector.emplace_back(data.get<unsigned int>());
 					}
 
 					m_data.emplace<std::vector<unsigned int>>(data_vector);
@@ -65,7 +65,7 @@ namespace galaxy
 				else
 				{
 					// base64 -> normal
-					std::string stage_one = algorithm::decode_base64(data_array.get<std::string>());
+					const std::string stage_one = algorithm::decode_base64(data_array.get<std::string>());
 
 					// validate
 					if (!stage_one.empty())
@@ -81,27 +81,27 @@ namespace galaxy
 			}
 		}
 
-		const auto& Chunk::get_data() const
+		const std::variant<std::string, std::vector<unsigned int>>& Chunk::get_data() const noexcept
 		{
 			return m_data;
 		}
 
-		const int Chunk::get_height() const
+		const int Chunk::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		const int Chunk::get_width() const
+		const int Chunk::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int Chunk::get_x() const
+		const int Chunk::get_x() const noexcept
 		{
 			return m_x;
 		}
 
-		const int Chunk::get_y() const
+		const int Chunk::get_y() const noexcept
 		{
 			return m_y;
 		}

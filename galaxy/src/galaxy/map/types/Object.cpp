@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Object::Object()
+		Object::Object() noexcept
 		    : m_ellipse {false}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_point {false}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 		{
 		}
@@ -24,7 +24,7 @@ namespace galaxy
 			parse(json);
 		}
 
-		Object::~Object()
+		Object::~Object() noexcept
 		{
 			m_points.clear();
 			m_properties.clear();
@@ -73,8 +73,8 @@ namespace galaxy
 
 			if (json.count("polyline") > 0)
 			{
-				auto point_array = json.at("polyline");
-				for (const auto& point : point_array)
+				const auto& point_array = json.at("polyline");
+				for (auto& point : point_array)
 				{
 					m_points.emplace_back(point);
 				}
@@ -82,8 +82,8 @@ namespace galaxy
 
 			if (json.count("properties") > 0)
 			{
-				auto prop_array = json.at("properties");
-				for (const auto& prop : prop_array)
+				const auto& prop_array = json.at("properties");
+				for (auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -130,67 +130,67 @@ namespace galaxy
 			}
 		}
 
-		const bool Object::is_ellipse() const
+		const bool Object::is_ellipse() const noexcept
 		{
 			return m_ellipse;
 		}
 
-		const int Object::get_gid() const
+		const int Object::get_gid() const noexcept
 		{
 			return m_gid;
 		}
 
-		std::string Object::get_name() const
+		const std::string& Object::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		const bool Object::is_point() const
+		const bool Object::is_point() const noexcept
 		{
 			return m_point;
 		}
 
-		const auto& Object::get_points() const
+		const std::vector<Point>& Object::get_points() const noexcept
 		{
 			return m_points;
 		}
 
-		const double Object::get_rotation() const
+		const double Object::get_rotation() const noexcept
 		{
 			return m_rotation;
 		}
 
-		std::string Object::get_template() const
+		const std::string& Object::get_template() const noexcept
 		{
 			return m_template;
 		}
 
-		const Text& Object::get_text() const
+		const Text& Object::get_text() const noexcept
 		{
 			return m_text;
 		}
 
-		std::string Object::get_type() const
+		const std::string& Object::get_type() const noexcept
 		{
 			return m_type;
 		}
 
-		const bool Object::is_visible() const
+		const bool Object::is_visible() const noexcept
 		{
 			return m_visible;
 		}
 
-		const double Object::get_width() const
+		const double Object::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const double Object::get_x() const
+		const double Object::get_x() const noexcept
 		{
 			return m_x;
 		}
 
-		const double Object::get_y() const
+		const double Object::get_y() const noexcept
 		{
 			return m_y;
 		}

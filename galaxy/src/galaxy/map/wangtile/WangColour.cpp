@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		WangColour::WangColour()
+		WangColour::WangColour() noexcept
 		    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 		{
 		}
@@ -47,22 +47,22 @@ namespace galaxy
 			}
 		}
 
-		std::string WangColour::get_colour() const
+		const std::string& WangColour::get_colour() const noexcept
 		{
 			return m_colour;
 		}
 
-		std::string WangColour::get_name() const
+		const std::string& WangColour::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		const double WangColour::get_probability() const
+		const double WangColour::get_probability() const noexcept
 		{
 			return m_probability;
 		}
 
-		const int WangColour::get_tile() const
+		const int WangColour::get_tile() const noexcept
 		{
 			return m_tile;
 		}

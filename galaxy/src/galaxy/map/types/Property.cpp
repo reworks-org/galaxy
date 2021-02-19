@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Property::Property()
+		Property::Property() noexcept
 		    : m_type {""}
 		{
 		}
@@ -24,7 +24,7 @@ namespace galaxy
 			parse(json);
 		}
 
-		Property::~Property()
+		Property::~Property() noexcept
 		{
 			m_value.reset();
 		}
@@ -42,7 +42,7 @@ namespace galaxy
 			}
 		}
 
-		std::string Property::get_type() const
+		const std::string& Property::get_type() const noexcept
 		{
 			return m_type;
 		}

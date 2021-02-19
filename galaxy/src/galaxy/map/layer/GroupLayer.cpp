@@ -28,7 +28,7 @@ namespace galaxy
 		{
 		}
 
-		GroupLayer::~GroupLayer()
+		GroupLayer::~GroupLayer() noexcept
 		{
 			m_layers.clear();
 		}
@@ -37,7 +37,7 @@ namespace galaxy
 		{
 			if (json.count("layers") > 0)
 			{
-				auto layer_array = json.at("layers");
+				const auto& layer_array = json.at("layers");
 				for (const auto& layer : layer_array)
 				{
 					if (json.count("type") > 0)
@@ -64,7 +64,7 @@ namespace galaxy
 			}
 		}
 
-		const auto& GroupLayer::get_layers() const
+		const std::vector<std::unique_ptr<Layer>>& GroupLayer::get_layers() const noexcept
 		{
 			return m_layers;
 		}

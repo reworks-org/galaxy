@@ -22,9 +22,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Point();
+			Point() noexcept;
 
 			///
 			/// Parameter constructor.
@@ -32,7 +32,7 @@ namespace galaxy
 			/// \param x X coordinate in pixels.
 			/// \param y Y coordinate in pixels.
 			///
-			explicit Point(const double x, const double y);
+			explicit Point(const double x, const double y) noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -46,7 +46,7 @@ namespace galaxy
 			///
 			/// Default destructor.
 			///
-			~Point() = default;
+			~Point() noexcept = default;
 
 			///
 			/// \brief Parse object level json.
@@ -62,14 +62,14 @@ namespace galaxy
 			///
 			/// \return const double x coord in pixels.
 			///
-			[[nodiscard]] const double get_x() const;
+			[[nodiscard]] const double get_x() const noexcept;
 
 			///
 			/// Get the y coord.
 			///
 			/// \return const double y coord in pixels.
 			///
-			[[nodiscard]] const double get_y() const;
+			[[nodiscard]] const double get_y() const noexcept;
 
 		private:
 			///

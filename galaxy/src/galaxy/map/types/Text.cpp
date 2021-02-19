@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Text::Text()
+		Text::Text() noexcept
 		    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 		{
 		}
@@ -87,62 +87,62 @@ namespace galaxy
 			}
 		}
 
-		const bool Text::is_bold() const
+		const bool Text::is_bold() const noexcept
 		{
 			return m_bold;
 		}
 
-		std::string Text::get_colour() const
+		const std::string& Text::get_colour() const noexcept
 		{
 			return m_color;
 		}
 
-		std::string Text::get_font_family() const
+		const std::string& Text::get_font_family() const noexcept
 		{
 			return m_font_family;
 		}
 
-		std::string Text::get_h_align() const
+		const std::string& Text::get_h_align() const noexcept
 		{
 			return m_halign;
 		}
 
-		const bool Text::is_italic() const
+		const bool Text::is_italic() const noexcept
 		{
 			return m_italic;
 		}
 
-		const bool Text::is_using_kerning() const
+		const bool Text::is_using_kerning() const noexcept
 		{
 			return m_kerning;
 		}
 
-		const int Text::get_pixel_size() const
+		const int Text::get_pixel_size() const noexcept
 		{
 			return m_pixel_size;
 		}
 
-		const bool Text::is_striked_out() const
+		const bool Text::is_striked_out() const noexcept
 		{
 			return m_strike_out;
 		}
 
-		std::string Text::get_text() const
+		const std::string& Text::get_text() const noexcept
 		{
 			return m_text;
 		}
 
-		const bool Text::is_underlined() const
+		const bool Text::is_underlined() const noexcept
 		{
 			return m_underline;
 		}
 
-		std::string Text::get_v_align() const
+		const std::string& Text::get_v_align() const noexcept
 		{
 			return m_valign;
 		}
 
-		const bool Text::is_wrapped() const
+		const bool Text::is_wrapped() const noexcept
 		{
 			return m_wrap;
 		}

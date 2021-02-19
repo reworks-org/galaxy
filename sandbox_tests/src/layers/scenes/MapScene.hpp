@@ -10,6 +10,7 @@
 
 #include <galaxy/core/Scene.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/map/Map.hpp>
 
 namespace sb
 {

@@ -22,7 +22,7 @@ namespace galaxy
 		{
 		public:
 			///
-			/// \brief Default constructor.
+			/// \brief Constructor.
 			///
 			/// Throws a runtime exception if called.
 			///
@@ -42,28 +42,28 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~TileLayer();
+			virtual ~TileLayer() noexcept;
 
 			///
 			/// Get chunks array.
 			///
 			/// \return Const std::vector<Chunk>
 			///
-			[[nodiscard]] const auto& get_chunks() const;
+			[[nodiscard]] const std::vector<Chunk>& get_chunks() const noexcept;
 
 			///
 			/// Get compression.
 			///
 			/// \return Compression as std::string. Can be empty.
 			///
-			[[nodiscard]] std::string get_compression() const;
+			[[nodiscard]] const std::string& get_compression() const noexcept;
 
 			///
 			/// Retrieve variant data.
 			///
 			/// \return Std::variant 0 = string 1 = vector.
 			///
-			[[nodiscard]] const auto& get_data() const;
+			[[nodiscard]] const std::variant<std::string, std::vector<unsigned int>>& get_data() const noexcept;
 
 		private:
 			///

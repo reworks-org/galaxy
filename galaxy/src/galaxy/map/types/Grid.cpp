@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Grid::Grid()
+		Grid::Grid() noexcept
 		    : m_height {0}, m_orientation {"orthogonal"}, m_width {0}
 		{
 		}
@@ -42,17 +42,17 @@ namespace galaxy
 			}
 		}
 
-		const int Grid::get_height() const
+		const int Grid::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		std::string Grid::get_orientation() const
+		const std::string& Grid::get_orientation() const noexcept
 		{
 			return m_orientation;
 		}
 
-		const int Grid::get_width() const
+		const int Grid::get_width() const noexcept
 		{
 			return m_width;
 		}

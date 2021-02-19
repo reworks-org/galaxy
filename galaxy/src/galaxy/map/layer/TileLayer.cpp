@@ -26,8 +26,8 @@ namespace galaxy
 		{
 			if (json.count("chunks") > 0)
 			{
-				auto chunk_array = json.at("chunks");
-				for (const auto& chunk : chunk_array)
+				const auto& chunk_array = json.at("chunks");
+				for (auto& chunk : chunk_array)
 				{
 					m_chunks.emplace_back(chunk);
 				}
@@ -41,13 +41,13 @@ namespace galaxy
 
 			if (json.count("data") > 0)
 			{
-				auto data_array = json.at("data");
+				const auto& data_array = json.at("data");
 				if (json.is_array())
 				{
 					std::vector<unsigned int> data_vector;
 					for (const auto& data : data_array)
 					{
-						data_vector.push_back(data.get<unsigned int>());
+						data_vector.emplace_back(data.get<unsigned int>());
 					}
 
 					m_data.emplace<std::vector<unsigned int>>(data_vector);
@@ -62,13 +62,13 @@ namespace galaxy
 					if (m_compression == "zlib")
 					{
 						// base64 -> zlib
-						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
 						// validate
 						if (!stage_one.empty())
 						{
 							// zlib-> normal
-							std::string stage_two = algorithm::decode_zlib(stage_one);
+							const std::string stage_two = algorithm::decode_zlib(stage_one);
 
 							// validate
 							if (!stage_two.empty())
@@ -89,13 +89,13 @@ namespace galaxy
 					else if (m_compression == "gzip")
 					{
 						// base64 -> gzip
-						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
 						// validate
 						if (!stage_one.empty())
 						{
 							// gzip -> normal
-							std::string stage_two = algorithm::decode_gzip(stage_one);
+							const std::string stage_two = algorithm::decode_gzip(stage_one);
 
 							// validate
 							if (!stage_two.empty())
@@ -116,7 +116,7 @@ namespace galaxy
 					else
 					{
 						// base64 -> normal
-						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
 						// validate
 						if (!stage_one.empty())
@@ -133,22 +133,22 @@ namespace galaxy
 			}
 		}
 
-		TileLayer::~TileLayer()
+		TileLayer::~TileLayer() noexcept
 		{
 			m_chunks.clear();
 		}
 
-		const auto& TileLayer::get_chunks() const
+		const std::vector<Chunk>& TileLayer::get_chunks() const noexcept
 		{
 			return m_chunks;
 		}
 
-		std::string TileLayer::get_compression() const
+		const std::string& TileLayer::get_compression() const noexcept
 		{
 			return m_compression;
 		}
 
-		const auto& TileLayer::get_data() const
+		const std::variant<std::string, std::vector<unsigned int>>& TileLayer::get_data() const noexcept
 		{
 			return m_data;
 		}

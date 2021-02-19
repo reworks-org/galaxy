@@ -21,9 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			WangTile();
+			WangTile() noexcept;
 
 			///
 			/// Parse constructor.
@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~WangTile();
+			~WangTile() noexcept;
 
 			///
 			/// Parses json structure to member values; etc.
@@ -49,35 +49,35 @@ namespace galaxy
 			///
 			/// \return True if flipped.
 			///
-			[[nodiscard]] const bool flipped_diagonally() const;
+			[[nodiscard]] const bool flipped_diagonally() const noexcept;
 
 			///
 			/// Is flipped horizontally.
 			///
 			/// \return True if flipped.
 			///
-			[[nodiscard]] const bool flipped_horizontally() const;
+			[[nodiscard]] const bool flipped_horizontally() const noexcept;
 
 			///
 			/// Get local tile id.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_id() const;
+			[[nodiscard]] const int get_tile_id() const noexcept;
 
 			///
 			/// Is flipped vertically.
 			///
 			/// \return True if flipped.
 			///
-			[[nodiscard]] const bool flipped_vertically() const;
+			[[nodiscard]] const bool flipped_vertically() const noexcept;
 
 			///
 			/// Get wang colour indexes.
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_indexes() const;
+			[[nodiscard]] const std::vector<int>& get_indexes() const noexcept;
 
 		private:
 			///

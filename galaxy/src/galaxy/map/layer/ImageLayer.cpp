@@ -34,11 +34,7 @@ namespace galaxy
 			}
 		}
 
-		ImageLayer::~ImageLayer()
-		{
-		}
-
-		std::string ImageLayer::get_image() const
+		const std::string& ImageLayer::get_image() const noexcept
 		{
 			return m_image;
 		}

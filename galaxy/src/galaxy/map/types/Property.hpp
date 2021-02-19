@@ -25,9 +25,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Property();
+			Property() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Property();
+			~Property() noexcept;
 
 			///
 			/// \brief Parse Property level jston.
@@ -57,7 +57,7 @@ namespace galaxy
 			///
 			/// \return boolean true if ellipse.
 			///
-			[[nodiscard]] std::string get_type() const;
+			[[nodiscard]] const std::string& get_type() const noexcept;
 
 			///
 			/// Get value. You should already know the type you want to retrieve.

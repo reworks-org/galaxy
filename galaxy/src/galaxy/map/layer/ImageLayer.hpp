@@ -21,7 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Constructor.
+			/// \brief Constructor.
+			///
+			/// Throws a runtime exception if called.
 			///
 			ImageLayer();
 
@@ -38,14 +40,14 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~ImageLayer();
+			virtual ~ImageLayer() noexcept = default;
 
 			///
 			/// Get image.
 			///
 			/// \return Image as std::string.
 			///
-			[[nodiscard]] std::string get_image() const;
+			[[nodiscard]] const std::string& get_image() const noexcept;
 
 		private:
 			///

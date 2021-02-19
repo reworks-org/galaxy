@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Tileset.hpp"
 
@@ -18,7 +19,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Tileset::Tileset()
+		Tileset::Tileset() noexcept
 		    : m_bg_colour {"00FFFFFF"}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {""}, m_source {""}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {"FFFFFF"}, m_type {"tileset"}
 		{
 		}
@@ -29,7 +30,7 @@ namespace galaxy
 			parse(json);
 		}
 
-		Tileset::~Tileset()
+		Tileset::~Tileset() noexcept
 		{
 			m_grid.reset();
 			m_properties.clear();
@@ -54,20 +55,14 @@ namespace galaxy
 			if (!m_source.empty())
 			{
 				// Makes sure the filepath is correct for the current platform.
-				auto path = std::filesystem::path {m_source};
-				std::ifstream input;
-				input.open(path.string(), std::ifstream::in);
-
-				if (!input.good())
+				const auto json_opt = json::parse_from_disk(m_source);
+				if (json_opt == std::nullopt)
 				{
-					input.close();
-					GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path.string());
+					GALAXY_LOG(GALAXY_ERROR, "Failed to laod source for tileset: {0}.", m_source);
 				}
 				else
 				{
-					// Use JSON stream to deserialize data and parse.
-					input >> src_json;
-					input.close();
+					src_json = json_opt.value();
 				}
 			}
 			else
@@ -87,7 +82,7 @@ namespace galaxy
 
 			if (src_json.count("grid") > 0)
 			{
-				auto grid_array = src_json.at("grid");
+				auto& grid_array = src_json.at("grid");
 				m_grid.emplace(grid_array);
 			}
 			else
@@ -127,8 +122,8 @@ namespace galaxy
 
 			if (src_json.count("properties") > 0)
 			{
-				auto prop_array = src_json.at("properties");
-				for (const auto& prop : prop_array)
+				const auto& prop_array = src_json.at("properties");
+				for (auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -141,8 +136,8 @@ namespace galaxy
 
 			if (src_json.count("terrains") > 0)
 			{
-				auto terrain_array = src_json.at("terrains");
-				for (const auto& terrain : terrain_array)
+				const auto& terrain_array = src_json.at("terrains");
+				for (auto& terrain : terrain_array)
 				{
 					m_terrain.emplace_back(terrain);
 				}
@@ -165,7 +160,7 @@ namespace galaxy
 
 			if (src_json.count("tileoffset") > 0)
 			{
-				auto tile_offset = src_json.at("tileoffset");
+				auto& tile_offset = src_json.at("tileoffset");
 				m_tile_offset.emplace(tile_offset);
 			}
 			else
@@ -175,8 +170,8 @@ namespace galaxy
 
 			if (src_json.count("tiles") > 0)
 			{
-				auto tile_array = src_json.at("tiles");
-				for (const auto& tile : tile_array)
+				const auto& tile_array = src_json.at("tiles");
+				for (auto& tile : tile_array)
 				{
 					m_tiles.emplace_back(tile);
 				}
@@ -199,110 +194,110 @@ namespace galaxy
 
 			if (src_json.count("wangsets") > 0)
 			{
-				auto wang_sets = src_json.at("wangsets");
-				for (const auto& set : wang_sets)
+				const auto& wang_sets = src_json.at("wangsets");
+				for (auto& set : wang_sets)
 				{
 					m_wang_sets.emplace_back(set);
 				}
 			}
 		}
 
-		std::string Tileset::get_bg_colour() const
+		const std::string& Tileset::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
 		}
 
-		const int Tileset::get_columns() const
+		const int Tileset::get_columns() const noexcept
 		{
 			return m_columns;
 		}
 
-		const int Tileset::get_first_gid() const
+		const int Tileset::get_first_gid() const noexcept
 		{
 			return m_first_gid;
 		}
 
-		const auto& Tileset::get_grid() const
+		const auto& Tileset::get_grid() const noexcept
 		{
 			return m_grid;
 		}
 
-		std::string Tileset::get_image() const
+		const std::string& Tileset::get_image() const noexcept
 		{
 			return m_image;
 		}
 
-		const int Tileset::get_image_height() const
+		const int Tileset::get_image_height() const noexcept
 		{
 			return m_image_height;
 		}
 
-		const int Tileset::get_image_width() const
+		const int Tileset::get_image_width() const noexcept
 		{
 			return m_image_width;
 		}
 
-		const int Tileset::get_margin() const
+		const int Tileset::get_margin() const noexcept
 		{
 			return m_margin;
 		}
 
-		std::string Tileset::get_name() const
+		const std::string& Tileset::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		std::string Tileset::get_object_alignment() const
+		const std::string& Tileset::get_object_alignment() const noexcept
 		{
 			return m_object_alignment;
 		}
 
-		const auto& Tileset::get_terrain() const
+		const std::vector<Terrain>& Tileset::get_terrain() const noexcept
 		{
 			return m_terrain;
 		}
 
-		const int Tileset::get_tile_count() const
+		const int Tileset::get_tile_count() const noexcept
 		{
 			return m_tile_count;
 		}
 
-		std::string Tileset::get_tiled_version() const
+		const std::string& Tileset::get_tiled_version() const noexcept
 		{
 			return m_tiled_version;
 		}
 
-		const int Tileset::get_tile_height() const
+		const int Tileset::get_tile_height() const noexcept
 		{
 			return m_tile_height;
 		}
 
-		const auto& Tileset::get_tile_offset() const
+		const std::optional<TileOffset>& Tileset::get_tile_offset() const noexcept
 		{
 			return m_tile_offset;
 		}
 
-		const auto& Tileset::get_tiles() const
+		const std::vector<Tile>& Tileset::get_tiles() const noexcept
 		{
 			return m_tiles;
 		}
 
-		const int Tileset::get_tile_width() const
+		const int Tileset::get_tile_width() const noexcept
 		{
 			return m_tile_width;
 		}
 
-		std::string Tileset::get_transparent_colour() const
+		const std::string& Tileset::get_transparent_colour() const noexcept
 		{
 			return m_transparent_colour;
 		}
 
-		std::string Tileset::get_type() const
+		const std::string& Tileset::get_type() const noexcept
 		{
 			return m_type;
 		}
 
-		const auto& Tileset::get_wang_sets() const
+		const std::vector<WangSet>& Tileset::get_wang_sets() const noexcept
 		{
 			return m_wang_sets;
 		}

@@ -21,9 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Grid();
+			Grid() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -37,7 +37,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Grid() = default;
+			~Grid() noexcept = default;
 
 			///
 			/// \brief Parses json structure to member values; etc.
@@ -53,21 +53,21 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get the orientation of the grid.
 			///
 			/// \return String, format: orthogonal (default) or isometric.
 			///
-			[[nodiscard]] std::string get_orientation() const;
+			[[nodiscard]] const std::string& get_orientation() const noexcept;
 
 			///
 			/// Get cell width of tile grid.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 		private:
 			///

@@ -30,25 +30,25 @@ namespace galaxy
 
 			if (json.count("objects") > 0)
 			{
-				auto object_array = json.at("objects");
-				for (const auto& object : object_array)
+				const auto& object_array = json.at("objects");
+				for (auto& object : object_array)
 				{
 					m_objects.emplace_back(object);
 				}
 			}
 		}
 
-		ObjectLayer::~ObjectLayer()
+		ObjectLayer::~ObjectLayer() noexcept
 		{
 			m_objects.clear();
 		}
 
-		std::string ObjectLayer::get_compression() const
+		const std::string& ObjectLayer::get_compression() const noexcept
 		{
 			return m_draw_order;
 		}
 
-		const auto& ObjectLayer::get_objects() const
+		const std::vector<Object>& ObjectLayer::get_objects() const noexcept
 		{
 			return m_objects;
 		}

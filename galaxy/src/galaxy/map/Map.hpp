@@ -25,14 +25,14 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Map();
+			Map() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Map();
+			~Map() noexcept;
 
 			///
 			/// Load a json formatted Tiled map.
@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load(std::string_view map);
+			[[maybe_unused]] const bool load(std::string_view map);
 
 			///
 			/// Load a json file from memory.
@@ -51,37 +51,28 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load(std::span<char> buffer);
-
-			///
-			/// Load from raw json.
-			///
-			/// \param json JSON object.
-			///
-			/// \return True if successful.
-			///
-			[[maybe_unused]] bool move(nlohmann::json&& json);
+			[[maybe_unused]] const bool load(std::span<char> buffer);
 
 			///
 			/// Parses json structure to member values, etc.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool parse();
+			[[maybe_unused]] const bool parse();
 
 			///
 			/// Get background colour of map.
 			///
 			/// \return String in format RRGGBB or AARRGGBB.
 			///
-			[[nodiscard]] std::string get_bg_colour() const;
+			[[nodiscard]] const std::string& get_bg_colour() const noexcept;
 
 			///
 			/// Get number of tile rows.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// \brief Get length of the side of a hex tile.
@@ -90,42 +81,42 @@ namespace galaxy
 			///
 			/// \return Const int. In pixels.
 			///
-			[[nodiscard]] const int get_hex_side_length() const;
+			[[nodiscard]] const int get_hex_side_length() const noexcept;
 
 			///
 			/// Does the map have infinite dimensions.
 			///
 			/// \return True if is infinite.
 			///
-			[[nodiscard]] const bool is_infinite() const;
+			[[nodiscard]] const bool is_infinite() const noexcept;
 
 			///
 			/// Get map layers.
 			///
 			/// \return Std::vector of unique_ptrs containing polymorphic layers.
 			///
-			[[nodiscard]] const auto& get_layers() const;
+			[[nodiscard]] std::vector<std::unique_ptr<Layer>>& get_layers() noexcept;
 
 			///
 			/// Returns the next free ID for the creation of a layer.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_next_layer_id() const;
+			[[nodiscard]] const int get_next_layer_id() const noexcept;
 
 			///
 			/// Returns the next free ID for the creation of an object.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_next_object_id() const;
+			[[nodiscard]] const int get_next_object_id() const noexcept;
 
 			///
 			/// Map viewpoint orientation.
 			///
 			/// \return String, format: orthogonal, isometric, staggered or hexagonal.
 			///
-			[[nodiscard]] std::string get_orientation() const;
+			[[nodiscard]] const std::string& get_orientation() const noexcept;
 
 			///
 			/// Retrieve property.
@@ -145,77 +136,77 @@ namespace galaxy
 			///
 			/// \return String, format: right-down, right-up, left-down or left-up.
 			///
-			[[nodiscard]] std::string get_render_order() const;
+			[[nodiscard]] const std::string& get_render_order() const noexcept;
 
 			///
 			/// Get stagger axis.
 			///
 			/// \return String, format: x or y.
 			///
-			[[nodiscard]] std::string get_stagger_axis() const;
+			[[nodiscard]] const std::string& get_stagger_axis() const noexcept;
 
 			///
 			/// Get stagger index.
 			///
 			/// \return String, format: odd or even.
 			///
-			[[nodiscard]] std::string get_stagger_index() const;
+			[[nodiscard]] const std::string& get_stagger_index() const noexcept;
 
 			///
 			/// Get tiled version used to save the file.
 			///
 			/// \return Formatted const string.
 			///
-			[[nodiscard]] std::string get_tiled_version() const;
+			[[nodiscard]] const std::string& get_tiled_version() const noexcept;
 
 			///
 			/// Get the map grid height.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_height() const;
+			[[nodiscard]] const int get_tile_height() const noexcept;
 
 			///
 			/// Get the array of tilesets.
 			///
 			/// \return Std::vector of tilesets.
 			///
-			[[nodiscard]] const auto& get_tile_sets() const;
+			[[nodiscard]] const auto& get_tile_sets() const noexcept;
 
 			///
 			/// Get the map grid width.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_width() const;
+			[[nodiscard]] const int get_tile_width() const noexcept;
 
 			///
 			/// Get type of tiled file.
 			///
 			/// \return String, format: map.
 			///
-			[[nodiscard]] std::string get_type() const;
+			[[nodiscard]] const std::string& get_type() const noexcept;
 
 			///
 			/// Gets the number of tile columns.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get layer compression level.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_compression_level() const;
+			[[nodiscard]] const int get_compression_level() const noexcept;
 
 			///
 			/// Get raw parsed JSON.
 			///
 			/// \return JSON object.
 			///
-			[[nodiscard]] nlohmann::json& raw_json();
+			[[nodiscard]] nlohmann::json& get_raw() noexcept;
 
 		private:
 			///

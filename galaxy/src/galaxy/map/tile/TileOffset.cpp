@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		TileOffset::TileOffset()
+		TileOffset::TileOffset() noexcept
 		    : m_x {0}, m_y {0}
 		{
 		}
@@ -37,12 +37,12 @@ namespace galaxy
 			}
 		}
 
-		const int TileOffset::get_x() const
+		const int TileOffset::get_x() const noexcept
 		{
 			return m_x;
 		}
 
-		const int TileOffset::get_y() const
+		const int TileOffset::get_y() const noexcept
 		{
 			return m_y;
 		}

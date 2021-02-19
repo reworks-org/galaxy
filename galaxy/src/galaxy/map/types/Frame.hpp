@@ -21,9 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Frame();
+			Frame() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -37,7 +37,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Frame() = default;
+			~Frame() noexcept = default;
 
 			///
 			/// \brief Parses json structure to member values; etc.
@@ -53,14 +53,14 @@ namespace galaxy
 			///
 			/// \return Const int. In milliseconds.
 			///
-			[[nodiscard]] const int get_duration() const;
+			[[nodiscard]] const int get_duration() const noexcept;
 
 			///
 			/// Get tile id of this frame.
 			///
 			/// \return Const int. Local id scope.
 			///
-			[[nodiscard]] const int get_tile_id() const;
+			[[nodiscard]] const int get_tile_id() const noexcept;
 
 		private:
 			///

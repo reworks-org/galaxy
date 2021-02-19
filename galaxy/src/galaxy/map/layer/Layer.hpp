@@ -25,49 +25,49 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Layer();
+			virtual ~Layer() noexcept;
 
 			///
 			/// Get row count. Same as map height for fixed-size maps.
 			///
 			/// \return Height as a const int.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get id - unique across all layers.
 			///
 			/// \return Height as a const int.
 			///
-			[[nodiscard]] const int get_id() const;
+			[[nodiscard]] const int get_id() const noexcept;
 
 			///
 			/// Get layer name.
 			///
 			/// \return Name as string.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// Horizontal layer offset.
 			///
 			/// \return Const double.
 			///
-			[[nodiscard]] const double get_offset_x() const;
+			[[nodiscard]] const double get_offset_x() const noexcept;
 
 			///
 			/// Vertical layer offset.
 			///
 			/// \return Const double.
 			///
-			[[nodiscard]] const double get_offset_y() const;
+			[[nodiscard]] const double get_offset_y() const noexcept;
 
 			///
 			/// Opacity of layer.
 			///
 			/// \return Double between 0 and 1.
 			///
-			[[nodiscard]] const double get_opacity() const;
+			[[nodiscard]] const double get_opacity() const noexcept;
 
 			///
 			/// \brief Retrieve property.
@@ -87,62 +87,62 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_start_x() const;
+			[[nodiscard]] const int get_start_x() const noexcept;
 
 			///
 			/// Get Y coordinate where layer content starts.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_start_y() const;
+			[[nodiscard]] const int get_start_y() const noexcept;
 
 			///
 			/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
 			///
 			/// \return String.
 			///
-			[[nodiscard]] std::string get_tint_colour() const;
+			[[nodiscard]] const std::string& get_tint_colour() const noexcept;
 
 			///
 			/// Get type of layer.
 			///
 			/// \return String in format: tilelayer, objectgroup, imagelayer or group.
 			///
-			[[nodiscard]] std::string get_type() const;
+			[[nodiscard]] const std::string& get_type() const noexcept;
 
 			///
 			/// Get visibility of layer.
 			///
 			/// \return True if layer is visible.
 			///
-			[[nodiscard]] const bool is_visible() const;
+			[[nodiscard]] const bool is_visible() const noexcept;
 
 			///
 			/// Get width of layer.
 			///
 			/// \return Const int. Column count. Same as map width for fixed-size maps.
 			///
-			[[nodiscard]] const int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get X offset.
 			///
 			/// \return Const int. Horizontal layer offset in tiles.
 			///
-			[[nodiscard]] const int get_x() const;
+			[[nodiscard]] const int get_x() const noexcept;
 
 			///
 			/// Get Y offset.
 			///
 			/// \return Const int. Vertical layer offset in tiles.
 			///
-			[[nodiscard]] const int get_y() const;
+			[[nodiscard]] const int get_y() const noexcept;
 
 		protected:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Layer();
+			Layer() noexcept;
 
 			///
 			/// \brief Parse constructor.

@@ -24,9 +24,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Terrain();
+			Terrain() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -40,7 +40,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Terrain();
+			~Terrain() noexcept;
 
 			///
 			/// \brief Parses json structure to member values; etc.
@@ -56,7 +56,7 @@ namespace galaxy
 			///
 			/// \return Name as string.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// \brief Retrieve property.
@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile() const;
+			[[nodiscard]] const int get_tile() const noexcept;
 
 		private:
 			///

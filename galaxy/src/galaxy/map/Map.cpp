@@ -5,14 +5,15 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <fstream>
 #include <filesystem>
+#include <fstream>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/map/layer/TileLayer.hpp"
 #include "galaxy/map/layer/ObjectLayer.hpp"
 #include "galaxy/map/layer/ImageLayer.hpp"
 #include "galaxy/map/layer/GroupLayer.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Map.hpp"
 
@@ -20,12 +21,12 @@ namespace galaxy
 {
 	namespace map
 	{
-		Map::Map()
+		Map::Map() noexcept
 		    : m_loaded {false}, m_root {}, m_bg_colour {"00FFFFFF"}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_width {0}, m_compression_level {0}
 		{
 		}
 
-		Map::~Map()
+		Map::~Map() noexcept
 		{
 			m_root.clear();
 			m_properties.clear();
@@ -33,62 +34,42 @@ namespace galaxy
 			m_tile_sets.clear();
 		}
 
-		bool Map::load(std::string_view map)
+		const bool Map::load(std::string_view map)
 		{
-			bool result = true;
-
-			// Makes sure the filepath is correct for the current platform.
-			auto path = std::filesystem::path {map};
-			std::ifstream input;
-			input.open(path.string(), std::ifstream::in);
-
-			if (!input.good())
+			const auto json = json::parse_from_disk(map);
+			if (json == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to open: {0}.", path.string());
-				result = false;
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load/parse json tiled map: {0}.", map);
+				m_loaded = false;
 			}
 			else
 			{
-				// Use JSON stream to deserialize data and parse.
-				input >> m_root;
+				m_root   = json.value();
 				m_loaded = true;
 			}
 
-			input.close();
-			return result;
+			return m_loaded;
 		}
 
-		bool Map::load(std::span<char> buffer)
+		const bool Map::load(std::span<char> buffer)
 		{
-			bool result = true;
-
-			if (buffer.empty())
+			const auto json = json::parse_from_mem(buffer);
+			if (json == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty buffer to Map::load()");
-				result = false;
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory for tiled map.");
+				m_loaded = false;
 			}
 			else
 			{
-				// This is the string parser.
-				m_root   = nlohmann::json::parse(buffer);
+				m_root   = json.value();
 				m_loaded = true;
 			}
 
-			return result;
+			return m_loaded;
 		}
 
-		bool Map::move(nlohmann::json&& json)
+		const bool Map::parse()
 		{
-			m_root   = std::move(json);
-			m_loaded = true;
-
-			return true;
-		}
-
-		bool Map::parse()
-		{
-			bool result = true;
-
 			// Make sure json is loaded to avoid error.
 			if (m_loaded)
 			{
@@ -121,7 +102,7 @@ namespace galaxy
 
 				if (m_root.count("layers") > 0)
 				{
-					auto layer_array = m_root.at("layers");
+					const auto& layer_array = m_root.at("layers");
 					for (const auto& layer : layer_array)
 					{
 						std::string type = layer.at("type");
@@ -161,8 +142,8 @@ namespace galaxy
 
 				if (m_root.count("properties") > 0)
 				{
-					auto property_array = m_root.at("properties");
-					for (const auto& prop : property_array)
+					const auto& property_array = m_root.at("properties");
+					for (auto& prop : property_array)
 					{
 						m_properties.emplace(prop.at("name"), prop);
 					}
@@ -195,8 +176,8 @@ namespace galaxy
 
 				if (m_root.count("tilesets") > 0)
 				{
-					auto tileset_array = m_root.at("tilesets");
-					for (const auto& tileset : tileset_array)
+					const auto& tileset_array = m_root.at("tilesets");
+					for (auto& tileset : tileset_array)
 					{
 						m_tile_sets.emplace_back(tileset);
 					}
@@ -220,103 +201,103 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Tried to parse map that was not loaded.");
-				result = false;
+				return false;
 			}
 
-			return result;
+			return true;
 		}
 
-		std::string Map::get_bg_colour() const
+		const std::string& Map::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
 		}
 
-		const int Map::get_height() const
+		const int Map::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		const int Map::get_hex_side_length() const
+		const int Map::get_hex_side_length() const noexcept
 		{
 			return m_hex_side_length;
 		}
 
-		const bool Map::is_infinite() const
+		const bool Map::is_infinite() const noexcept
 		{
 			return m_infinite;
 		}
 
-		const auto& Map::get_layers() const
+		std::vector<std::unique_ptr<Layer>>& Map::get_layers() noexcept
 		{
 			return m_layers;
 		}
 
-		const int Map::get_next_layer_id() const
+		const int Map::get_next_layer_id() const noexcept
 		{
 			return m_next_layer_id;
 		}
 
-		const int Map::get_next_object_id() const
+		const int Map::get_next_object_id() const noexcept
 		{
 			return m_next_object_id;
 		}
 
-		std::string Map::get_orientation() const
+		const std::string& Map::get_orientation() const noexcept
 		{
 			return m_orientation;
 		}
 
-		std::string Map::get_render_order() const
+		const std::string& Map::get_render_order() const noexcept
 		{
 			return m_render_order;
 		}
 
-		std::string Map::get_stagger_axis() const
+		const std::string& Map::get_stagger_axis() const noexcept
 		{
 			return m_stagger_axis;
 		}
 
-		std::string Map::get_stagger_index() const
+		const std::string& Map::get_stagger_index() const noexcept
 		{
 			return m_stagger_index;
 		}
 
-		std::string Map::get_tiled_version() const
+		const std::string& Map::get_tiled_version() const noexcept
 		{
 			return m_tiled_version;
 		}
 
-		const int Map::get_tile_height() const
+		const int Map::get_tile_height() const noexcept
 		{
 			return m_tile_height;
 		}
 
-		const auto& Map::get_tile_sets() const
+		const auto& Map::get_tile_sets() const noexcept
 		{
 			return m_tile_sets;
 		}
 
-		const int Map::get_tile_width() const
+		const int Map::get_tile_width() const noexcept
 		{
 			return m_tile_width;
 		}
 
-		std::string Map::get_type() const
+		const std::string& Map::get_type() const noexcept
 		{
 			return m_type;
 		}
 
-		const int Map::get_width() const
+		const int Map::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int Map::get_compression_level() const
+		const int Map::get_compression_level() const noexcept
 		{
 			return m_compression_level;
 		}
 
-		nlohmann::json& Map::raw_json()
+		nlohmann::json& Map::get_raw() noexcept
 		{
 			return m_root;
 		}

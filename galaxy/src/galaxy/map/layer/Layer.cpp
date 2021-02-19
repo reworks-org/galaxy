@@ -13,82 +13,82 @@ namespace galaxy
 {
 	namespace map
 	{
-		Layer::~Layer()
+		Layer::~Layer() noexcept
 		{
 			m_properties.clear();
 		}
 
-		const int Layer::get_height() const
+		const int Layer::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		const int Layer::get_id() const
+		const int Layer::get_id() const noexcept
 		{
 			return m_id;
 		}
 
-		std::string Layer::get_name() const
+		const std::string& Layer::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		const double Layer::get_offset_x() const
+		const double Layer::get_offset_x() const noexcept
 		{
 			return m_offset_x;
 		}
 
-		const double Layer::get_offset_y() const
+		const double Layer::get_offset_y() const noexcept
 		{
 			return m_offset_y;
 		}
 
-		const double Layer::get_opacity() const
+		const double Layer::get_opacity() const noexcept
 		{
 			return m_opacity;
 		}
 
-		const int Layer::get_start_x() const
+		const int Layer::get_start_x() const noexcept
 		{
 			return m_start_x;
 		}
 
-		const int Layer::get_start_y() const
+		const int Layer::get_start_y() const noexcept
 		{
 			return m_start_y;
 		}
 
-		std::string Layer::get_tint_colour() const
+		const std::string& Layer::get_tint_colour() const noexcept
 		{
 			return m_tint_colour;
 		}
 
-		std::string Layer::get_type() const
+		const std::string& Layer::get_type() const noexcept
 		{
 			return m_type;
 		}
 
-		const bool Layer::is_visible() const
+		const bool Layer::is_visible() const noexcept
 		{
 			return m_visible;
 		}
 
-		const int Layer::get_width() const
+		const int Layer::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int Layer::get_x() const
+		const int Layer::get_x() const noexcept
 		{
 			return m_x;
 		}
 
-		const int Layer::get_y() const
+		const int Layer::get_y() const noexcept
 		{
 			return m_y;
 		}
 
-		Layer::Layer()
+		Layer::Layer() noexcept
 		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}
 		{
 		}
@@ -128,8 +128,8 @@ namespace galaxy
 
 			if (json.count("properties") > 0)
 			{
-				auto prop_array = json.at("properties");
-				for (const auto& prop : prop_array)
+				const auto& prop_array = json.at("properties");
+				for (auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}

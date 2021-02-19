@@ -21,7 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Constructor.
+			/// \brief Constructor.
+			///
+			/// Throws a runtime exception if called.
 			///
 			GroupLayer();
 
@@ -38,7 +40,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~GroupLayer();
+			virtual ~GroupLayer() noexcept;
 
 			///
 			/// Parses tilelayer specific json.
@@ -52,7 +54,7 @@ namespace galaxy
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_layers() const;
+			[[nodiscard]] const std::vector<std::unique_ptr<Layer>>& get_layers() const noexcept;
 
 		private:
 			///

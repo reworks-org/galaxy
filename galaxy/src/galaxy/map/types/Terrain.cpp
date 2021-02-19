@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Terrain::Terrain()
+		Terrain::Terrain() noexcept
 		    : m_name {""}, m_tile {0}
 		{
 		}
@@ -24,7 +24,7 @@ namespace galaxy
 			parse(json);
 		}
 
-		Terrain::~Terrain()
+		Terrain::~Terrain() noexcept
 		{
 			m_properties.clear();
 		}
@@ -43,20 +43,20 @@ namespace galaxy
 
 			if (json.count("properties") > 0)
 			{
-				auto prop_array = json.at("properties");
-				for (const auto& prop : prop_array)
+				const auto& prop_array = json.at("properties");
+				for (auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
 			}
 		}
 
-		std::string Terrain::get_name() const
+		const std::string& Terrain::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		const int Terrain::get_tile() const
+		const int Terrain::get_tile() const noexcept
 		{
 			return m_tile;
 		}

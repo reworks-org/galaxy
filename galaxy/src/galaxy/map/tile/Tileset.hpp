@@ -29,9 +29,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Tileset();
+			Tileset() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Tileset();
+			~Tileset() noexcept;
 
 			///
 			/// \brief Parses json structure to member values, etc.
@@ -61,70 +61,70 @@ namespace galaxy
 			///
 			/// \return String in format RRGGBB or AARRGGBB.
 			///
-			[[nodiscard]] std::string get_bg_colour() const;
+			[[nodiscard]] const std::string& get_bg_colour() const noexcept;
 
 			///
 			/// Get total tile columns in tileset.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_columns() const;
+			[[nodiscard]] const int get_columns() const noexcept;
 
 			///
 			/// Get grid id of first tile in set.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_first_gid() const;
+			[[nodiscard]] const int get_first_gid() const noexcept;
 
 			///
 			/// Get the grid used by the tileset.
 			///
 			/// \return Returns a std::optional. Make sure you check for std::nullopt if grid is not used!
 			///
-			[[nodiscard]] const auto& get_grid() const;
+			[[nodiscard]] const auto& get_grid() const noexcept;
 
 			///
 			/// Get image.
 			///
 			/// \return String in format RRGGBB or AARRGGBB.
 			///
-			[[nodiscard]] std::string get_image() const;
+			[[nodiscard]] const std::string& get_image() const noexcept;
 
 			///
 			/// Get image height in pixels.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_image_height() const;
+			[[nodiscard]] const int get_image_height() const noexcept;
 
 			///
 			/// Get image width in pixels.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_image_width() const;
+			[[nodiscard]] const int get_image_width() const noexcept;
 
 			///
 			/// Get buffer between image edge and first tile.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_margin() const;
+			[[nodiscard]] const int get_margin() const noexcept;
 
 			///
 			/// Get tileset name.
 			///
 			/// \return Name as string.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// Alignment to use for tile objects.
 			///
 			/// \return unspecified (default), topleft, top, topright, left, center, right, bottomleft, bottom or bottomright.
 			///
-			[[nodiscard]] std::string get_object_alignment() const;
+			[[nodiscard]] const std::string& get_object_alignment() const noexcept;
 
 			///
 			/// \brief Retrieve property.
@@ -143,70 +143,70 @@ namespace galaxy
 			///
 			/// \return Std::vector containing Terrain.
 			///
-			[[nodiscard]] const auto& get_terrain() const;
+			[[nodiscard]] const std::vector<Terrain>& get_terrain() const noexcept;
 
 			///
 			/// Get the number of tiles.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_count() const;
+			[[nodiscard]] const int get_tile_count() const noexcept;
 
 			///
 			/// Get version of Tiled used to save tileset.
 			///
 			/// \return Const std::string.
 			///
-			[[nodiscard]] std::string get_tiled_version() const;
+			[[nodiscard]] const std::string& get_tiled_version() const noexcept;
 
 			///
 			/// Get the maximum height of tiles.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_height() const;
+			[[nodiscard]] const int get_tile_height() const noexcept;
 
 			///
 			/// Get the tile offset used by the tileset.
 			///
 			/// \return Returns a std::optional. Make sure you check for std::nullopt if tile offset is not used!
 			///
-			[[nodiscard]] const auto& get_tile_offset() const;
+			[[nodiscard]] const std::optional<TileOffset>& get_tile_offset() const noexcept;
 
 			///
 			/// Get the tiles in the tileset.
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_tiles() const;
+			[[nodiscard]] const std::vector<Tile>& get_tiles() const noexcept;
 
 			///
 			/// Get the maximum width of tiles.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile_width() const;
+			[[nodiscard]] const int get_tile_width() const noexcept;
 
 			///
 			/// Get colour used to mark an area transparent.
 			///
 			/// \return Const std::string reference. Hex-formatted. Defaults to White (FFFFFF).
 			///
-			[[nodiscard]] std::string get_transparent_colour() const;
+			[[nodiscard]] const std::string& get_transparent_colour() const noexcept;
 
 			///
 			/// Get type of tileset.
 			///
 			/// \return Const std::string reference. Defaults to "tileset".
 			///
-			[[nodiscard]] std::string get_type() const;
+			[[nodiscard]] const std::string& get_type() const noexcept;
 
 			///
 			/// Get wang sets.
 			///
 			/// \return Std::vector array.
 			///
-			[[nodiscard]] const auto& get_wang_sets() const;
+			[[nodiscard]] const std::vector<WangSet>& get_wang_sets() const noexcept;
 
 		private:
 			///

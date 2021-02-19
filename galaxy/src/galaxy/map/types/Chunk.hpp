@@ -23,9 +23,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Chunk();
+			Chunk() noexcept;
 
 			///
 			/// Parse constructor.
@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Chunk() = default;
+			~Chunk() noexcept = default;
 
 			///
 			/// \brief Parses json structure to member values; etc.
@@ -55,35 +55,35 @@ namespace galaxy
 			///
 			/// \return Const std::variant reference. Either string or array.
 			///
-			[[nodiscard]] const auto& get_data() const;
+			[[nodiscard]] const std::variant<std::string, std::vector<unsigned int>>& get_data() const noexcept;
 
 			///
 			/// Get height.
 			///
 			/// \return In tiles as int.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get width.
 			///
 			/// \return In tiles as int.
 			///
-			[[nodiscard]] const int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get x coord.
 			///
 			/// \return In tiles as int.
 			///
-			[[nodiscard]] const int get_x() const;
+			[[nodiscard]] const int get_x() const noexcept;
 
 			///
 			/// Get y coord.
 			///
 			/// \return In tiles as int.
 			///
-			[[nodiscard]] const int get_y() const;
+			[[nodiscard]] const int get_y() const noexcept;
 
 		private:
 			///

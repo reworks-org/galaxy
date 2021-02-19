@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		WangSet::WangSet()
+		WangSet::WangSet() noexcept
 		    : m_name {""}, m_tile_id {0}
 		{
 		}
@@ -24,7 +24,7 @@ namespace galaxy
 			parse(json);
 		}
 
-		WangSet::~WangSet()
+		WangSet::~WangSet() noexcept
 		{
 			m_corner_colours.clear();
 			m_edge_colours.clear();
@@ -36,8 +36,8 @@ namespace galaxy
 		{
 			if (json.count("cornercolors") > 0)
 			{
-				auto corner_array = json.at("cornercolors");
-				for (const auto& corner : corner_array)
+				const auto& corner_array = json.at("cornercolors");
+				for (auto& corner : corner_array)
 				{
 					m_corner_colours.emplace_back(corner);
 				}
@@ -45,8 +45,8 @@ namespace galaxy
 
 			if (json.count("edgecolors") > 0)
 			{
-				auto edge_array = json.at("edgecolors");
-				for (const auto& edge : edge_array)
+				const auto& edge_array = json.at("edgecolors");
+				for (auto& edge : edge_array)
 				{
 					m_edge_colours.emplace_back(edge);
 				}
@@ -59,8 +59,8 @@ namespace galaxy
 
 			if (json.count("properties") > 0)
 			{
-				auto prop_array = json.at("properties");
-				for (const auto& prop : prop_array)
+				const auto& prop_array = json.at("properties");
+				for (auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -73,35 +73,35 @@ namespace galaxy
 
 			if (json.count("wangtiles") > 0)
 			{
-				auto tile_array = json.at("wangtiles");
-				for (const auto& tile : tile_array)
+				const auto& tile_array = json.at("wangtiles");
+				for (auto& tile : tile_array)
 				{
 					m_tiles.emplace_back(tile);
 				}
 			}
 		}
 
-		const auto& WangSet::get_corner_colours() const
+		const std::vector<WangColour>& WangSet::get_corner_colours() const noexcept
 		{
 			return m_corner_colours;
 		}
 
-		const auto& WangSet::get_edge_colours() const
+		const std::vector<WangTile>& WangSet::get_edge_colours() const noexcept
 		{
 			return m_edge_colours;
 		}
 
-		std::string WangSet::get_name() const
+		const std::string& WangSet::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		const int WangSet::get_tile_id() const
+		const int WangSet::get_tile_id() const noexcept
 		{
 			return m_tile_id;
 		}
 
-		const auto& WangSet::get_tiles() const
+		const std::vector<WangTile>& WangSet::get_tiles() const noexcept
 		{
 			return m_tiles;
 		}

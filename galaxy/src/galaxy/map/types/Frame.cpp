@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		Frame::Frame()
+		Frame::Frame() noexcept
 		    : m_duration {0}, m_tile_id {0}
 		{
 		}
@@ -37,12 +37,12 @@ namespace galaxy
 			}
 		}
 
-		const int Frame::get_duration() const
+		const int Frame::get_duration() const noexcept
 		{
 			return m_duration;
 		}
 
-		const int Frame::get_tile_id() const
+		const int Frame::get_tile_id() const noexcept
 		{
 			return m_tile_id;
 		}

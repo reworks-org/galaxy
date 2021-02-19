@@ -13,12 +13,12 @@ namespace galaxy
 {
 	namespace map
 	{
-		Point::Point()
+		Point::Point() noexcept
 		    : m_x {0.0}, m_y {0.0}
 		{
 		}
 
-		Point::Point(const double x, const double y)
+		Point::Point(const double x, const double y) noexcept
 		    : m_x {x}, m_y {y}
 		{
 		}
@@ -42,12 +42,12 @@ namespace galaxy
 			}
 		}
 
-		const double Point::get_x() const
+		const double Point::get_x() const noexcept
 		{
 			return m_x;
 		}
 
-		const double Point::get_y() const
+		const double Point::get_y() const noexcept
 		{
 			return m_y;
 		}

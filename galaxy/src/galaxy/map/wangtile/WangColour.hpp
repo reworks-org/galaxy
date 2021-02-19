@@ -21,9 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			WangColour();
+			WangColour() noexcept;
 
 			///
 			/// Parse constructor.
@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~WangColour() = default;
+			~WangColour() noexcept = default;
 
 			///
 			/// Parses json structure to member values; etc.
@@ -49,28 +49,28 @@ namespace galaxy
 			///
 			/// \return Hex formatted std::string.
 			///
-			[[nodiscard]] std::string get_colour() const;
+			[[nodiscard]] const std::string& get_colour() const noexcept;
 
 			///
 			/// Get the name.
 			///
 			/// \return Const std::string reference.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// Get probability of being picked by editor randomizer.
 			///
 			/// \return Const double.
 			///
-			[[nodiscard]] const double get_probability() const;
+			[[nodiscard]] const double get_probability() const noexcept;
 
 			///
 			/// Get local tile id.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_tile() const;
+			[[nodiscard]] const int get_tile() const noexcept;
 
 		private:
 			///

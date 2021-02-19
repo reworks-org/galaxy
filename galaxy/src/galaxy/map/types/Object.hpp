@@ -25,9 +25,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Object();
+			Object() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Object();
+			~Object() noexcept;
 
 			///
 			/// \brief Parse object level json.
@@ -57,35 +57,91 @@ namespace galaxy
 			///
 			/// \return True if ellipse shaped.
 			///
-			[[nodiscard]] const bool is_ellipse() const;
+			[[nodiscard]] const bool is_ellipse() const noexcept;
 
 			///
 			/// Get gid.
 			///
 			/// \return Gid as const int.
 			///
-			[[nodiscard]] const int get_gid() const;
+			[[nodiscard]] const int get_gid() const noexcept;
 
 			///
 			/// Get name.
 			///
-			/// \return Name as std::string.
+			/// \return Name as const std::string&.
 			///
-			[[nodiscard]] std::string get_name() const;
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// Get point flag.
 			///
 			/// \return True if object is point shaped.
 			///
-			[[nodiscard]] const bool is_point() const;
+			[[nodiscard]] const bool is_point() const noexcept;
 
 			///
 			/// Gets points.
 			///
 			/// \return Points as std::vector array.
 			///
-			[[nodiscard]] const auto& get_points() const;
+			[[nodiscard]] const std::vector<Point>& get_points() const noexcept;
+
+			///
+			/// Get rotation of object.
+			///
+			/// \return Double - angle in degrees clockwise.
+			///
+			[[nodiscard]] const double get_rotation() const noexcept;
+
+			///
+			/// Get template reference.
+			///
+			/// \return String reference to a template file, in case object is a template instance.
+			///
+			[[nodiscard]] const std::string& get_template() const noexcept;
+
+			///
+			/// Get text object (if object is text based).
+			///
+			/// \return Const reference to a text object.
+			///
+			[[nodiscard]] const Text& get_text() const noexcept;
+
+			///
+			/// Get type string.
+			///
+			/// \return String assigned to type field in editor.
+			///
+			[[nodiscard]] const std::string& get_type() const noexcept;
+
+			///
+			/// Get visibility.
+			///
+			/// \return True if object is visible.
+			///
+			[[nodiscard]] const bool is_visible() const noexcept;
+
+			///
+			/// Get width of object.
+			///
+			/// \return Width in pixels as double.
+			///
+			[[nodiscard]] const double get_width() const noexcept;
+
+			///
+			/// Get width of object.
+			///
+			/// \return Width in pixels as double.
+			///
+			[[nodiscard]] const double get_x() const noexcept;
+
+			///
+			/// Get width of object.
+			///
+			/// \return Width in pixels as double.
+			///
+			[[nodiscard]] const double get_y() const noexcept;
 
 			///
 			/// Retrieve property.
@@ -97,62 +153,6 @@ namespace galaxy
 			///
 			template<tiled_property Type>
 			[[nodiscard]] const Type get_property(std::string_view name);
-
-			///
-			/// Get rotation of object.
-			///
-			/// \return Double - angle in degrees clockwise.
-			///
-			[[nodiscard]] const double get_rotation() const;
-
-			///
-			/// Get template reference.
-			///
-			/// \return String reference to a template file, in case object is a template instance.
-			///
-			[[nodiscard]] std::string get_template() const;
-
-			///
-			/// Get text object (if object is text based).
-			///
-			/// \return Const reference to a text object.
-			///
-			[[nodiscard]] const Text& get_text() const;
-
-			///
-			/// Get type string.
-			///
-			/// \return String assigned to type field in editor.
-			///
-			[[nodiscard]] std::string get_type() const;
-
-			///
-			/// Get visibility.
-			///
-			/// \return True if object is visible.
-			///
-			[[nodiscard]] const bool is_visible() const;
-
-			///
-			/// Get width of object.
-			///
-			/// \return Width in pixels as double.
-			///
-			[[nodiscard]] const double get_width() const;
-
-			///
-			/// Get width of object.
-			///
-			/// \return Width in pixels as double.
-			///
-			[[nodiscard]] const double get_x() const;
-
-			///
-			/// Get width of object.
-			///
-			/// \return Width in pixels as double.
-			///
-			[[nodiscard]] const double get_y() const;
 
 		private:
 			///

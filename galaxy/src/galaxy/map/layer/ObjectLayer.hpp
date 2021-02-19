@@ -22,7 +22,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// \brief Default constructor.
+			/// \brief Constructor.
+			///
+			/// Throws a runtime exception if called.
 			///
 			ObjectLayer();
 
@@ -39,25 +41,25 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~ObjectLayer();
+			virtual ~ObjectLayer() noexcept;
 
 			///
 			/// Get draw order.
 			///
 			/// \return Draw order as std::string.
 			///
-			[[nodiscard]] std::string get_compression() const;
+			[[nodiscard]] const std::string& get_compression() const noexcept;
 
 			///
 			/// Get objects.
 			///
 			/// \return Std::vector of objects.
 			///
-			[[nodiscard]] const auto& get_objects() const;
+			[[nodiscard]] const std::vector<Object>& get_objects() const noexcept;
 
 		private:
 			///
-			/// topdown (default) or index.
+			/// Topdown (default) or index.
 			///
 			std::string m_draw_order;
 

@@ -21,9 +21,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			TileOffset();
+			TileOffset() noexcept;
 
 			///
 			/// \brief Parse constructor.
@@ -37,7 +37,7 @@ namespace galaxy
 			///
 			/// Default destructor.
 			///
-			~TileOffset() = default;
+			~TileOffset() noexcept = default;
 
 			///
 			/// \brief Parses json structure to member values; etc.
@@ -53,14 +53,14 @@ namespace galaxy
 			///
 			/// \return Const int. In pixels.
 			///
-			[[nodiscard]] const int get_x() const;
+			[[nodiscard]] const int get_x() const noexcept;
 
 			///
 			/// Get vertical offset.
 			///
 			/// \return Const int. In pixels, positive is down.
 			///
-			[[nodiscard]] const int get_y() const;
+			[[nodiscard]] const int get_y() const noexcept;
 
 		private:
 			///
