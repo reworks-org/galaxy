@@ -12,7 +12,6 @@ SUPERCLUSTER:
 - serialization
 - audio support
 - click and drag
-- fix crash when closing with tiled open.
 
 TODO:
 - fix camera scrolling. lock at 0.1.

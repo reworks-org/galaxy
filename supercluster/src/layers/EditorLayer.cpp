@@ -60,10 +60,7 @@ namespace sc
 		m_active_scene = nullptr;
 		m_scene_map.clear();
 
-		platform::close_process(m_process);
-
-		m_window  = nullptr;
-		m_process = nullptr;
+		m_window = nullptr;
 
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
