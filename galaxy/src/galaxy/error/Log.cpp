@@ -59,10 +59,10 @@ namespace galaxy
 			m_thread.join();
 		}
 
-		void Log::change_stream(std::ostream& stream)
+		void Log::change_stream(std::ostream& ostream)
 		{
 			std::lock_guard<std::mutex> lock {m_msg_mutex};
-			m_stream = &stream;
+			m_stream = &ostream;
 		}
 	} // namespace error
 } // namespace galaxy

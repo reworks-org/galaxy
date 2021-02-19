@@ -210,7 +210,7 @@ namespace galaxy
 
 		private:
 			///
-			/// Hex-formatted color (#RRGGBB or #AARRGGBB) (optional).
+			/// Hex-formatted color (RRGGBB or AARRGGBB) (optional).
 			///
 			std::string m_bg_colour;
 
@@ -310,7 +310,7 @@ namespace galaxy
 			int m_tile_width;
 
 			///
-			/// Hex - formatted color(#RRGGBB) (optional)
+			/// Hex - formatted color (RRGGBB) (optional).
 			///
 			std::string m_transparent_colour;
 

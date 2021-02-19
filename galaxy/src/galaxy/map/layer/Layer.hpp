@@ -97,7 +97,7 @@ namespace galaxy
 			[[nodiscard]] const int get_start_y() const noexcept;
 
 			///
-			/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+			/// Hex-formatted color (RRGGBB or AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
 			///
 			/// \return String.
 			///
@@ -200,7 +200,7 @@ namespace galaxy
 			int m_start_y;
 
 			///
-			/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+			/// Hex-formatted color (RRGGBB or AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
 			///
 			std::string m_tint_colour;
 

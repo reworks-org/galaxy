@@ -47,7 +47,6 @@ namespace galaxy
 			/// Load a json file from memory.
 			///
 			/// \param buffer Pointer to buffer. IS NOT FREED, YOU MUST FREE AFTER CALLING THIS FUNCTION.
-			/// \param size Size of the buffer.
 			///
 			/// \return True if successful.
 			///
@@ -220,7 +219,7 @@ namespace galaxy
 			nlohmann::json m_root;
 
 			///
-			/// Hex-formatted colour (#RRGGBB or #AARRGGBB) (optional).
+			/// Hex-formatted colour (RRGGBB or AARRGGBB) (optional).
 			///
 			std::string m_bg_colour;
 

@@ -56,7 +56,7 @@ namespace galaxy
 			std::string m_image;
 
 			///
-			/// Hex-formatted color (#RRGGBB).
+			/// Hex-formatted color (RRGGBB).
 			///
 			std::string m_transparent_colour;
 		};

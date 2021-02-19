@@ -73,7 +73,7 @@
 ///
 /// Capture log output into a custom stream.
 ///
-/// \param stream Custom stream to output to.
+/// \param ostream Custom stream to output to.
 ///
 #define GALAXY_LOG_CAPTURE_CUSTOM(ostream) galaxy::error::Log::handle().change_stream(ostream)
 
@@ -117,9 +117,9 @@ namespace galaxy
 			///
 			/// Capture log output into a custom stream.
 			///
-			/// \param stream Custom stream to output to.
+			/// \param ostream Custom stream to output to.
 			///
-			void change_stream(std::ostream& stream);
+			void change_stream(std::ostream& ostream);
 
 			///
 			/// Log a message.

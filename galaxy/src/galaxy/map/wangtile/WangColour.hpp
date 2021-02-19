@@ -74,7 +74,7 @@ namespace galaxy
 
 		private:
 			///
-			/// Hex-formatted color (#RRGGBB or #AARRGGBB).
+			/// Hex-formatted color (RRGGBB or AARRGGBB).
 			///
 			std::string m_colour;
 

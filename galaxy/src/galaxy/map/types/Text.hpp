@@ -135,7 +135,7 @@ namespace galaxy
 			bool m_bold;
 
 			///
-			/// Hex-formatted color (#RRGGBB or #AARRGGBB) (default: #000000).
+			/// Hex-formatted color (RRGGBB or AARRGGBB) (default: 000000).
 			///
 			std::string m_color;
 

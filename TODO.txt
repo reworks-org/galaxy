@@ -12,6 +12,7 @@ SUPERCLUSTER:
 - serialization
 - audio support
 - click and drag
+- open fullscreen (but windowed)
 
 TODO:
 - fix camera scrolling. lock at 0.1.
@@ -23,6 +24,8 @@ TODO:
 - Set lua function as onevent. that way function is "serialized".
 - fix double fullstop in logging.
 - make sure default files are generated properly to prevent crashes.
+- Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
+	- Log if u try without them.
 
 
 
