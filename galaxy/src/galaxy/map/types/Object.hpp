@@ -130,16 +130,23 @@ namespace galaxy
 			[[nodiscard]] const double get_width() const noexcept;
 
 			///
-			/// Get width of object.
+			/// Get height of object.
 			///
-			/// \return Width in pixels as double.
+			/// \return Height in pixels as double.
+			///
+			[[nodiscard]] const double get_height() const noexcept;
+
+			///
+			/// Get x pos of object.
+			///
+			/// \return The x coordinate of the object in pixels.
 			///
 			[[nodiscard]] const double get_x() const noexcept;
 
 			///
-			/// Get width of object.
+			/// Get y pos of object.
 			///
-			/// \return Width in pixels as double.
+			/// \return The y coordinate of the object in pixels.
 			///
 			[[nodiscard]] const double get_y() const noexcept;
 

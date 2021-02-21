@@ -185,6 +185,11 @@ namespace galaxy
 			return m_width;
 		}
 
+		const double Object::get_height() const noexcept
+		{
+			return m_height;
+		}
+
 		const double Object::get_x() const noexcept
 		{
 			return m_x;
