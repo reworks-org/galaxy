@@ -143,7 +143,7 @@ namespace galaxy
 				if (m_root.count("properties") > 0)
 				{
 					const auto& property_array = m_root.at("properties");
-					for (auto& prop : property_array)
+					for (const auto& prop : property_array)
 					{
 						m_properties.emplace(prop.at("name"), prop);
 					}
@@ -177,7 +177,7 @@ namespace galaxy
 				if (m_root.count("tilesets") > 0)
 				{
 					const auto& tileset_array = m_root.at("tilesets");
-					for (auto& tileset : tileset_array)
+					for (const auto& tileset : tileset_array)
 					{
 						m_tile_sets.emplace_back(tileset);
 					}

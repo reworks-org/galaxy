@@ -54,7 +54,7 @@ namespace galaxy
 			if (json.count("wangid") > 0)
 			{
 				const auto& id_array = json.at("wangid");
-				for (auto& wang_id : id_array)
+				for (const auto& wang_id : id_array)
 				{
 					m_wang_indexes.emplace_back(wang_id);
 				}

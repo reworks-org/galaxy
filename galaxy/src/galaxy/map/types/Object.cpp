@@ -64,7 +64,7 @@ namespace galaxy
 
 			if (json.count("polygon") > 0)
 			{
-				auto point_array = json.at("polygon");
+				const auto& point_array = json.at("polygon");
 				for (const auto& point : point_array)
 				{
 					m_points.emplace_back(point);

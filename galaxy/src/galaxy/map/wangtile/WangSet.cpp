@@ -37,7 +37,7 @@ namespace galaxy
 			if (json.count("cornercolors") > 0)
 			{
 				const auto& corner_array = json.at("cornercolors");
-				for (auto& corner : corner_array)
+				for (const auto& corner : corner_array)
 				{
 					m_corner_colours.emplace_back(corner);
 				}
@@ -46,7 +46,7 @@ namespace galaxy
 			if (json.count("edgecolors") > 0)
 			{
 				const auto& edge_array = json.at("edgecolors");
-				for (auto& edge : edge_array)
+				for (const auto& edge : edge_array)
 				{
 					m_edge_colours.emplace_back(edge);
 				}
@@ -60,7 +60,7 @@ namespace galaxy
 			if (json.count("properties") > 0)
 			{
 				const auto& prop_array = json.at("properties");
-				for (auto& prop : prop_array)
+				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -74,7 +74,7 @@ namespace galaxy
 			if (json.count("wangtiles") > 0)
 			{
 				const auto& tile_array = json.at("wangtiles");
-				for (auto& tile : tile_array)
+				for (const auto& tile : tile_array)
 				{
 					m_tiles.emplace_back(tile);
 				}

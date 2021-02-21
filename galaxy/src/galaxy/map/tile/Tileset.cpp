@@ -82,7 +82,7 @@ namespace galaxy
 
 			if (src_json.count("grid") > 0)
 			{
-				auto& grid_array = src_json.at("grid");
+				const auto& grid_array = src_json.at("grid");
 				m_grid.emplace(grid_array);
 			}
 			else
@@ -123,7 +123,7 @@ namespace galaxy
 			if (src_json.count("properties") > 0)
 			{
 				const auto& prop_array = src_json.at("properties");
-				for (auto& prop : prop_array)
+				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -137,7 +137,7 @@ namespace galaxy
 			if (src_json.count("terrains") > 0)
 			{
 				const auto& terrain_array = src_json.at("terrains");
-				for (auto& terrain : terrain_array)
+				for (const auto& terrain : terrain_array)
 				{
 					m_terrain.emplace_back(terrain);
 				}
@@ -160,7 +160,7 @@ namespace galaxy
 
 			if (src_json.count("tileoffset") > 0)
 			{
-				auto& tile_offset = src_json.at("tileoffset");
+				const auto& tile_offset = src_json.at("tileoffset");
 				m_tile_offset.emplace(tile_offset);
 			}
 			else
@@ -171,7 +171,7 @@ namespace galaxy
 			if (src_json.count("tiles") > 0)
 			{
 				const auto& tile_array = src_json.at("tiles");
-				for (auto& tile : tile_array)
+				for (const auto& tile : tile_array)
 				{
 					m_tiles.emplace_back(tile);
 				}
@@ -195,7 +195,7 @@ namespace galaxy
 			if (src_json.count("wangsets") > 0)
 			{
 				const auto& wang_sets = src_json.at("wangsets");
-				for (auto& set : wang_sets)
+				for (const auto& set : wang_sets)
 				{
 					m_wang_sets.emplace_back(set);
 				}

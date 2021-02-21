@@ -35,7 +35,9 @@ namespace galaxy
 			~Map() noexcept;
 
 			///
-			/// Load a json formatted Tiled map.
+			/// \brief Load a json formatted Tiled map.
+			///
+			/// Only supports base64 uncompressed or base64 zlib/gzip. Does not support external tilesets.
 			///
 			/// \param map File Path to the map to load from disk.
 			///
@@ -44,7 +46,9 @@ namespace galaxy
 			[[maybe_unused]] const bool load(std::string_view map);
 
 			///
-			/// Load a json file from memory.
+			/// \brief Load a json file from memory.
+			///
+			/// Only supports base64 uncompressed or base64 zlib/gzip. Does not support external tilesets.
 			///
 			/// \param buffer Pointer to buffer. IS NOT FREED, YOU MUST FREE AFTER CALLING THIS FUNCTION.
 			///

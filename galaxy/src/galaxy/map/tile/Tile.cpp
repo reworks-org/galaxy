@@ -36,7 +36,7 @@ namespace galaxy
 			if (json.count("animation") > 0)
 			{
 				const auto& anim_array = json.at("animation");
-				for (auto& anim : anim_array)
+				for (const auto& anim : anim_array)
 				{
 					m_animation.emplace_back(anim);
 				}
@@ -64,7 +64,7 @@ namespace galaxy
 
 			if (json.count("objectgroup") > 0)
 			{
-				auto& object_group = json.at("objectgroup");
+				const auto& object_group = json.at("objectgroup");
 				m_object_group.emplace(object_group);
 			}
 			else
@@ -80,7 +80,7 @@ namespace galaxy
 			if (json.count("properties") > 0)
 			{
 				const auto& prop_array = json.at("properties");
-				for (auto& prop : prop_array)
+				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -89,7 +89,7 @@ namespace galaxy
 			if (json.count("terrain") > 0)
 			{
 				const auto& terrain_array = json.at("terrain");
-				for (auto& terrain : terrain_array)
+				for (const auto& terrain : terrain_array)
 				{
 					m_terrain_indices.emplace_back(terrain);
 				}

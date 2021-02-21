@@ -31,7 +31,7 @@ namespace galaxy
 			if (json.count("objects") > 0)
 			{
 				const auto& object_array = json.at("objects");
-				for (auto& object : object_array)
+				for (const auto& object : object_array)
 				{
 					m_objects.emplace_back(object);
 				}

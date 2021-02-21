@@ -44,7 +44,7 @@ namespace galaxy
 			if (json.count("properties") > 0)
 			{
 				const auto& prop_array = json.at("properties");
-				for (auto& prop : prop_array)
+				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
