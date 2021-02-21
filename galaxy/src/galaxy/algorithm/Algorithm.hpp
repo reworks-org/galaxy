@@ -45,9 +45,7 @@ namespace galaxy
 		}
 
 		///
-		/// \brief Decodes from base64.
-		///
-		/// Thanks to: https://stackoverflow.com/a/34571089.
+		/// Decodes from base64.
 		///
 		/// \param base64 Takes in a base64 encoded string.
 		///
@@ -56,28 +54,20 @@ namespace galaxy
 		[[nodiscard]] std::string decode_base64(const std::string& base64);
 
 		///
-		/// \brief Decompresses from zlib.
-		///
-		/// Note: Maximum size of: 32768 (1024^32) allowed.
-		/// Note: Can throw exception.
-		/// Thanks to: https://stackoverflow.com/a/50082615
+		/// Decompresses from zlib encoding.
 		///
 		/// \param zlib zlib compressed string.
 		///
-		/// \return Decompressed zlib string.
+		/// \return Decompressed std::string.
 		///
 		[[nodiscard]] std::string decode_zlib(const std::string& zlib);
 
 		///
-		/// \brief Decompresses from gzip.
-		///
-		/// Note: Maximum size of: 32768 (1024^32) allowed.
-		/// Note: Can throw exception.
-		/// Thanks to: https://stackoverflow.com/a/50082615
+		/// Decompresses from gzip encoding.
 		///
 		/// \param gzip gzip compressed string.
 		///
-		/// \return Decompressed gzip string.
+		/// \return Decompressed std::string.
 		///
 		[[nodiscard]] std::string decode_gzip(const std::string& gzip);
 	} // namespace algorithm

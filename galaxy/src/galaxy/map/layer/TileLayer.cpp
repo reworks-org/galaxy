@@ -18,7 +18,7 @@ namespace galaxy
 	{
 		TileLayer::TileLayer()
 		{
-			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed TileLayer.");
+			GALAXY_LOG(GALAXY_ERROR, "Cannot instantiate a default constructed TileLayer.");
 		}
 
 		TileLayer::TileLayer(const nlohmann::json& json)
@@ -61,72 +61,69 @@ namespace galaxy
 				{
 					if (m_compression == "zlib")
 					{
-						// base64 -> zlib
+						// base64 -> zlib.
 						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
-						// validate
+						// Validate.
 						if (!stage_one.empty())
 						{
-							// zlib-> normal
+							// zip -> normal.
 							const std::string stage_two = algorithm::decode_zlib(stage_one);
 
-							// validate
+							// Validate.
 							if (!stage_two.empty())
 							{
-								// update m_data string
 								m_data = stage_two;
 							}
 							else
 							{
-								GALAXY_LOG(GALAXY_FATAL, "zlib decoded string empty.");
+								GALAXY_LOG(GALAXY_ERROR, "zlib decoded string empty.");
 							}
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
 						}
 					}
 					else if (m_compression == "gzip")
 					{
-						// base64 -> gzip
+						// base64 -> gzip.
 						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
-						// validate
+						// Validate.
 						if (!stage_one.empty())
 						{
-							// gzip -> normal
+							// zip -> normal.
 							const std::string stage_two = algorithm::decode_gzip(stage_one);
 
-							// validate
+							// Validate.
 							if (!stage_two.empty())
 							{
-								// update m_data string
 								m_data = stage_two;
 							}
 							else
 							{
-								GALAXY_LOG(GALAXY_FATAL, "gzip decoded string empty.");
+								GALAXY_LOG(GALAXY_ERROR, "gzip decoded string empty.");
 							}
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
 						}
 					}
 					else
 					{
-						// base64 -> normal
+						// base64 -> normal.
 						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
 
-						// validate
+						// Validate.
 						if (!stage_one.empty())
 						{
-							// update m_data string
 							m_data = stage_one;
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
 						}
 					}
 				}
