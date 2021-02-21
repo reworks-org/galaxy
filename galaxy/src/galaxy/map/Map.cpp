@@ -8,11 +8,12 @@
 #include <filesystem>
 #include <fstream>
 
-#include "galaxy/error/Log.hpp"
-#include "galaxy/map/layer/TileLayer.hpp"
-#include "galaxy/map/layer/ObjectLayer.hpp"
-#include "galaxy/map/layer/ImageLayer.hpp"
-#include "galaxy/map/layer/GroupLayer.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Line.hpp"
+#include "galaxy/components/Tag.hpp"
+#include "galaxy/components/Transform.hpp"
+
+#include "galaxy/core/World.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Map.hpp"
@@ -30,7 +31,9 @@ namespace galaxy
 		{
 			m_root.clear();
 			m_properties.clear();
-			m_layers.clear();
+			m_tile_layers.clear();
+			m_object_layers.clear();
+			m_image_layers.clear();
 			m_tile_sets.clear();
 		}
 
@@ -100,30 +103,7 @@ namespace galaxy
 					m_compression_level = m_root.at("compressionlevel");
 				}
 
-				if (m_root.count("layers") > 0)
-				{
-					const auto& layer_array = m_root.at("layers");
-					for (const auto& layer : layer_array)
-					{
-						std::string type = layer.at("type");
-						if (type == "tilelayer")
-						{
-							m_layers.push_back(std::make_unique<TileLayer>(layer));
-						}
-						else if (type == "objectgroup")
-						{
-							m_layers.push_back(std::make_unique<ObjectLayer>(layer));
-						}
-						else if (type == "imagelayer ")
-						{
-							m_layers.push_back(std::make_unique<ImageLayer>(layer));
-						}
-						else if (type == "group")
-						{
-							m_layers.push_back(std::make_unique<GroupLayer>(layer));
-						}
-					}
-				}
+				parse_layers(m_root);
 
 				if (m_root.count("nextlayerid") > 0)
 				{
@@ -207,6 +187,10 @@ namespace galaxy
 			return true;
 		}
 
+		void Map::generate_object_entities(core::World& world)
+		{
+		}
+
 		const std::string& Map::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
@@ -227,9 +211,19 @@ namespace galaxy
 			return m_infinite;
 		}
 
-		std::vector<std::unique_ptr<Layer>>& Map::get_layers() noexcept
+		const std::vector<TileLayer>& Map::tile_layers() const noexcept
 		{
-			return m_layers;
+			return m_tile_layers;
+		}
+
+		const std::vector<ObjectLayer>& Map::object_layers() const noexcept
+		{
+			return m_object_layers;
+		}
+
+		const std::vector<ImageLayer>& Map::image_layers() const noexcept
+		{
+			return m_image_layers;
 		}
 
 		const int Map::get_next_layer_id() const noexcept
@@ -300,6 +294,37 @@ namespace galaxy
 		nlohmann::json& Map::get_raw() noexcept
 		{
 			return m_root;
+		}
+
+		void Map::parse_layers(const nlohmann::json& json)
+		{
+			if (json.count("layers") > 0)
+			{
+				const auto& layer_array = json.at("layers");
+				for (const auto& layer : layer_array)
+				{
+					if (json.count("type") > 0)
+					{
+						const std::string type = layer.at("type");
+						if (type == "tilelayer")
+						{
+							m_tile_layers.emplace_back(layer);
+						}
+						else if (type == "objectgroup")
+						{
+							m_object_layers.emplace_back(layer);
+						}
+						else if (type == "imagelayer ")
+						{
+							m_image_layers.emplace_back(layer);
+						}
+						else if (type == "group")
+						{
+							parse_layers(layer);
+						}
+					}
+				}
+			}
 		}
 	} // namespace map
 } // namespace galaxy

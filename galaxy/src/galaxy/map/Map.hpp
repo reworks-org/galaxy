@@ -12,10 +12,18 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/map/layer/TileLayer.hpp"
+#include "galaxy/map/layer/ObjectLayer.hpp"
+#include "galaxy/map/layer/ImageLayer.hpp"
 #include "galaxy/map/tile/Tileset.hpp"
 
 namespace galaxy
 {
+	namespace core
+	{
+		class World;
+	} // namespace core
+
 	namespace map
 	{
 		///
@@ -64,6 +72,13 @@ namespace galaxy
 			[[maybe_unused]] const bool parse();
 
 			///
+			/// Generate entities from objects.
+			///
+			/// \param world World to create entities in.
+			///
+			void generate_object_entities(core::World& world);
+
+			///
 			/// Get background colour of map.
 			///
 			/// \return String in format RRGGBB or AARRGGBB.
@@ -94,11 +109,25 @@ namespace galaxy
 			[[nodiscard]] const bool is_infinite() const noexcept;
 
 			///
-			/// Get map layers.
+			/// Get tile layers.
 			///
-			/// \return Std::vector of unique_ptrs containing polymorphic layers.
+			/// \return Const reference to vector.
 			///
-			[[nodiscard]] std::vector<std::unique_ptr<Layer>>& get_layers() noexcept;
+			[[nodiscard]] const std::vector<TileLayer>& tile_layers() const noexcept;
+
+			///
+			/// Get object layers.
+			///
+			/// \return Const reference to vector.
+			///
+			[[nodiscard]] const std::vector<ObjectLayer>& object_layers() const noexcept;
+
+			///
+			/// Get image layers.
+			///
+			/// \return Const reference to vector.
+			///
+			[[nodiscard]] const std::vector<ImageLayer>& image_layers() const noexcept;
 
 			///
 			/// Returns the next free ID for the creation of a layer.
@@ -213,6 +242,16 @@ namespace galaxy
 
 		private:
 			///
+			/// \brief Parse layers.
+			///
+			/// Is a seperate function to process groups.
+			///
+			/// \param json Tilemap layers json.
+			///
+			void parse_layers(const nlohmann::json& json);
+
+		private:
+			///
 			/// Flag for seeing if json is loaded.
 			///
 			bool m_loaded;
@@ -243,9 +282,19 @@ namespace galaxy
 			bool m_infinite;
 
 			///
-			/// Array of Layers.
+			/// Tile layers.
 			///
-			std::vector<std::unique_ptr<Layer>> m_layers;
+			std::vector<TileLayer> m_tile_layers;
+
+			///
+			/// Object layers.
+			///
+			std::vector<ObjectLayer> m_object_layers;
+
+			///
+			/// Image layers.
+			///
+			std::vector<ImageLayer> m_image_layers;
 
 			///
 			/// Auto-increments for each layer.
