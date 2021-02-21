@@ -27,6 +27,8 @@ namespace sb
 
 	private:
 		galaxy::core::Window* m_window;
+
+		galaxy::map::Map m_map;
 	};
 } // namespace sb
 

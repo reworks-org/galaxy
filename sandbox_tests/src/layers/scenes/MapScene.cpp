@@ -23,6 +23,9 @@ namespace sb
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
 		m_world.create_system<systems::RenderSystem>();
+
+		m_map.load("assets/maps/desert.json");
+		m_map.parse();
 	}
 
 	MapScene::~MapScene()
