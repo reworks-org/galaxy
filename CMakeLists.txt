@@ -143,6 +143,7 @@ else()
 	# Set header directories.
 	set(HEADERS
 		"${GALAXY_FREETYPE_HEADERS}"
+		"${CMAKE_SOURCE_DIR}/dependencies/base64"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
@@ -164,6 +165,7 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
+	    "${CMAKE_SOURCE_DIR}/dependencies/zstr/src"
 		"${CMAKE_SOURCE_DIR}/galaxy/src"
 		"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 		"${CMAKE_SOURCE_DIR}/supercluster/src"
