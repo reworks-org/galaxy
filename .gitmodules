@@ -36,3 +36,6 @@
 [submodule "dependencies/magic_enum"]
 	path = dependencies/magic_enum
 	url = https://github.com/Neargye/magic_enum.git
+[submodule "dependencies/zlc"]
+	path = dependencies/zlc
+	url = https://github.com/rudi-cilibrasi/zlibcomplete.git
