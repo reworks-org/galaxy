@@ -12,6 +12,7 @@
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -88,6 +89,10 @@ namespace galaxy
 
 					case graphics::Renderables::TEXT:
 						graphics::Renderer::submit_text(world.get<components::Text>(data.m_entity), data.m_transform, shader);
+						break;
+
+					case graphics::Renderables::POLYGON:
+						graphics::Renderer::submit_polygon(world.get<components::Polygon>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

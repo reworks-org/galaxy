@@ -5,9 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Line.hpp"
 #include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Line.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Camera.hpp"
@@ -91,6 +92,14 @@ namespace galaxy
 
 			Renderer::m_batch->bind();
 			glDrawElements(GL_TRIANGLES, Renderer::m_batch->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		void Renderer::submit_polygon(components::Polygon* polygon, components::Transform* transform, Shader* shader)
+		{
+			polygon->bind();
+			shader->set_uniform("u_transform", transform->get_transform());
+
+			glDrawElements(GL_LINE_LOOP, polygon->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer::draw_batch(graphics::SpriteBatch* sb, Camera& camera)

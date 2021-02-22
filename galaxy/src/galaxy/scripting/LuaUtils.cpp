@@ -522,7 +522,8 @@ namespace galaxy
 				{"CIRCLE", graphics::Renderables::CIRCLE},
 				{"SPRITE", graphics::Renderables::SPRITE},
 				{"TEXT", graphics::Renderables::TEXT},
-				{"BATCHED", graphics::Renderables::BATCHED}
+				{"BATCHED", graphics::Renderables::BATCHED},
+				{"POLYGON", graphics::Renderables::POLYGON}
 			});
 			// clang-format on
 

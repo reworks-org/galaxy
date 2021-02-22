@@ -45,7 +45,12 @@ namespace galaxy
 			///
 			/// Define an entity to be batch rendered.
 			///
-			BATCHED = 5
+			BATCHED = 5,
+
+			///
+			/// Defines an entity to be rendered as a POLYGON.
+			///
+			POLYGON = 6
 		};
 	} // namespace graphics
 } // namespace galaxy
