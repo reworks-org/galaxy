@@ -15,6 +15,7 @@
 #include <galaxy/components/OnEvent.hpp>
 #include <galaxy/components/Physics.hpp>
 #include <galaxy/components/Point.hpp>
+#include <galaxy/components/Polygon.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/ShaderID.hpp>
 #include <galaxy/components/Tag.hpp>
@@ -368,9 +369,9 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, tag, text, transform]
+			auto [animated, batchedsprite, circle, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform]
 			= m_cur_scene->world().get_multi<components::Animated, components::BatchedSprite, components::Circle, 
-			components::Line, components::Physics, components::Point, components::Renderable, components::ShaderID, 
+			components::Line, components::Physics, components::Point, components::Polygon, components::Renderable, components::ShaderID, 
 			components::Sprite, components::Tag, components::Text, components::Transform>(entity);
 			// clang-format on
 
@@ -693,6 +694,51 @@ namespace sc
 						{
 							gl_operations.emplace_back([point]() -> void {
 								point->update();
+							});
+						}
+
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (polygon)
+				{
+					if (ImGui::BeginTabItem("Polygon"))
+					{
+						float opacity = polygon->opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						{
+							polygon->set_opacity(opacity);
+						}
+
+						ImGui::Text("Point Coords");
+
+						float s_point[2] = {0.0f, 0.0f};
+						ImGui::SetNextItemWidth(150);
+						ImGui::InputFloat("X##01", &s_point[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+						ImGui::SameLine();
+
+						ImGui::SetNextItemWidth(150);
+						ImGui::InputFloat("Y##02", &s_point[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+						if (ImGui::Button("Add Point"))
+						{
+							polygon->add_point(s_point[0], s_point[1]);
+							s_point[0] = 0.0f;
+							s_point[1] = 0.0f;
+						}
+
+						static float colour[4] = {polygon->get_colour().m_red, polygon->get_colour().m_green, polygon->get_colour().m_blue, polygon->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							polygon->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([polygon]() -> void {
+								polygon->create();
 							});
 						}
 

@@ -14,6 +14,7 @@
 #include "galaxy/components/OnEvent.hpp"
 #include "galaxy/components/Physics.hpp"
 #include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -50,6 +51,7 @@ namespace galaxy
 			register_component<components::Line>("Line");
 			register_component<components::Physics>("Physics");
 			register_component<components::Point>("Point");
+			register_component<components::Polygon>("Polygon");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::ShaderID>("ShaderID");
 			register_component<components::Sprite>("Sprite");
@@ -286,13 +288,14 @@ namespace galaxy
 				entity_json["enabled"]    = is_enabled(entity);
 				entity_json["components"] = nlohmann::json::object();
 
-				auto [animated, batchedsprite, circle, line, physics, point, renderable, shaderid, sprite, tag, text, transform] = get_multi<
+				auto [animated, batchedsprite, circle, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform] = get_multi<
 					components::Animated,
 				    components::BatchedSprite,
 				    components::Circle,
 				    components::Line,
 					components::Physics,
 				    components::Point,
+					components::Polygon,
 				    components::Renderable,
 				    components::ShaderID,
 				    components::Sprite,
@@ -328,6 +331,11 @@ namespace galaxy
 				if (point)
 				{
 					entity_json["components"]["Point"] = point->serialize();
+				}
+
+				if (polygon)
+				{
+					entity_json["components"]["Polygon"] = polygon->serialize();
 				}
 
 				if (renderable)

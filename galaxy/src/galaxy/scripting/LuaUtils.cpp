@@ -19,6 +19,7 @@
 #include "galaxy/components/OnEvent.hpp"
 #include "galaxy/components/Physics.hpp"
 #include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -195,6 +196,11 @@ galaxy::components::Tag* add_tag(galaxy::core::World& world, const galaxy::ecs::
 	return world.create_component<galaxy::components::Tag>(entity);
 }
 
+galaxy::components::Polygon* add_polygon(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Polygon>(entity);
+}
+
 // BEGIN GET COMPONENTS
 
 galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
@@ -255,6 +261,11 @@ galaxy::components::Physics* get_physics(galaxy::core::World& world, const galax
 galaxy::components::Tag* get_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::Tag>(entity);
+}
+
+galaxy::components::Polygon* get_polygon(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Polygon>(entity);
 }
 
 // BEGIN EVENT ADD/GET
@@ -452,6 +463,7 @@ namespace galaxy
 			lua->set_function("add_animated_to_entity", &add_animated);
 			lua->set_function("add_physics_to_entity", &add_physics);
 			lua->set_function("add_tag_to_entity", &add_tag);
+			lua->set_function("add_polygon_to_entity", &add_polygon);
 
 			lua->set_function("get_shaderid_from_entity", &get_shaderid);
 			lua->set_function("get_transform_from_entity", &get_transform);
@@ -465,6 +477,7 @@ namespace galaxy
 			lua->set_function("get_animated_from_entity", &get_animated);
 			lua->set_function("get_physics_from_entity", &get_physics);
 			lua->set_function("get_tag_from_entity", &get_tag);
+			lua->set_function("get_polygon_from_entity", &get_polygon);
 
 			lua->set_function("add_keychar_to_entity", &add_keychar);
 			lua->set_function("add_keydown_to_entity", &add_keydown);
@@ -642,6 +655,15 @@ namespace galaxy
 
 			auto tag_type   = lua->new_usertype<components::Tag>("gTag", sol::constructors<components::Tag(), components::Tag(std::string_view)>());
 			tag_type["tag"] = &components::Tag::m_tag;
+
+			auto polygon_type             = lua->new_usertype<components::Polygon>("gPolygon", sol::constructors<components::Polygon()>());
+			polygon_type["add_point"]     = sol::resolve<void(const float, const float)>(&components::Polygon::add_point);
+			polygon_type["change_colour"] = &components::Polygon::change_colour;
+			polygon_type["create"]        = &components::Polygon::create;
+			polygon_type["get_colour"]    = &components::Polygon::get_colour;
+			polygon_type["get_points"]    = &components::Polygon::get_points;
+			polygon_type["opacity"]       = &components::Polygon::opacity;
+			polygon_type["set_opacity"]   = &components::Polygon::set_opacity;
 		}
 
 		void register_events()
