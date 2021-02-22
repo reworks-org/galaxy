@@ -58,6 +58,11 @@ namespace galaxy
 		void register_layerstack();
 
 		///
+		/// Register mapping functions.
+		///
+		void register_mapping();
+
+		///
 		/// Register math functions.
 		///
 		void register_math();

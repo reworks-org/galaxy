@@ -194,6 +194,7 @@ namespace galaxy
 				lua::register_graphics();
 				lua::register_json();
 				lua::register_layerstack();
+				lua::register_mapping();
 				lua::register_math();
 				lua::register_physics();
 				lua::register_res();

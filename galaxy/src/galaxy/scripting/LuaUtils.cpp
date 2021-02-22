@@ -53,6 +53,8 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
+#include "galaxy/map/Map.hpp"
+
 #include "galaxy/physics/Box2DIntegration.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
@@ -1014,6 +1016,17 @@ namespace galaxy
 			layerstack_type["push"]  = &core::LayerStack::push;
 			layerstack_type["pop"]   = &core::LayerStack::pop;
 			layerstack_type["clear"] = &core::LayerStack::clear;
+		}
+
+		void register_mapping()
+		{
+			auto lua = SL_HANDLE.lua();
+
+			auto map_type                        = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map()>());
+			map_type["load_file"]                = sol::resolve<const bool(std::string_view)>(&map::Map::load);
+			map_type["load_mem"]                 = sol::resolve<const bool(std::span<char>)>(&map::Map::load);
+			map_type["parse"]                    = &map::Map::parse;
+			map_type["generate_object_entities"] = &map::Map::generate_object_entities;
 		}
 
 		void register_math()
