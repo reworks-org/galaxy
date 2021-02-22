@@ -10,6 +10,9 @@
 
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
 
@@ -189,6 +192,58 @@ namespace galaxy
 
 		void Map::generate_object_entities(core::World& world)
 		{
+			for (const auto& object_layer : m_object_layers)
+			{
+				const auto& objects = object_layer.get_objects();
+				for (const auto& object : objects)
+				{
+					const auto entity = world.create();
+					auto* tag         = world.create_component<components::Tag>(entity);
+					tag->m_tag        = object.get_name();
+
+					auto* polygon = world.create_component<components::Polygon>(entity);
+					for (const auto& point : object.get_points())
+					{
+						polygon->add_point(point.get_x(), point.get_y());
+					}
+
+					std::string colour_str = object_layer.get_tint_colour();
+					if (colour_str[0] == '#')
+					{
+						colour_str.erase(0, 1);
+					}
+
+					graphics::Colour colour;
+					if (colour_str.length() == 8)
+					{
+						sscanf(colour_str.c_str(), "%02hhx%02hhx%02hhx%02hhx", &colour.m_alpha, &colour.m_red, &colour.m_green, &colour.m_blue);
+						polygon->change_colour(colour);
+					}
+					else if (colour_str.length() == 6)
+					{
+						sscanf(colour_str.c_str(), "%02hhx%02hhx%02hhx", &colour.m_red, &colour.m_green, &colour.m_blue);
+						colour.m_alpha = 255;
+						polygon->change_colour(colour);
+					}
+
+					auto* transform = world.create_component<components::Transform>(entity);
+					transform->set_pos(object.get_x(), object.get_y());
+					transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
+					transform->rotate(object.get_rotation());
+					
+					auto* renderable      = world.create_component<components::Renderable>(entity);
+					renderable->m_type    = graphics::Renderables::POLYGON;
+					renderable->m_z_level = 10;
+
+					auto* shaderid        = world.create_component<components::ShaderID>(entity);
+					shaderid->m_shader_id = "line";
+
+					if (object.is_visible())
+					{
+						world.enable(entity);
+					}
+				}
+			}
 		}
 
 		const std::string& Map::get_bg_colour() const noexcept
