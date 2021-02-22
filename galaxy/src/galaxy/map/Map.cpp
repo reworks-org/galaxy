@@ -198,8 +198,9 @@ namespace galaxy
 				for (const auto& object : objects)
 				{
 					const auto entity = world.create();
-					auto* tag         = world.create_component<components::Tag>(entity);
-					tag->m_tag        = object.get_name();
+
+					auto* tag  = world.create_component<components::Tag>(entity);
+					tag->m_tag = object.get_name();
 
 					auto* polygon = world.create_component<components::Polygon>(entity);
 					for (const auto& point : object.get_points())
@@ -226,11 +227,13 @@ namespace galaxy
 						polygon->change_colour(colour);
 					}
 
+					polygon->create();
+
 					auto* transform = world.create_component<components::Transform>(entity);
 					transform->set_pos(object.get_x(), object.get_y());
 					transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
 					transform->rotate(object.get_rotation());
-					
+
 					auto* renderable      = world.create_component<components::Renderable>(entity);
 					renderable->m_type    = graphics::Renderables::POLYGON;
 					renderable->m_z_level = 10;
