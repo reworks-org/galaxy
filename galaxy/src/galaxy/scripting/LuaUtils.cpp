@@ -663,6 +663,7 @@ namespace galaxy
 			polygon_type["add_point"]     = sol::resolve<void(const float, const float)>(&components::Polygon::add_point);
 			polygon_type["change_colour"] = &components::Polygon::change_colour;
 			polygon_type["create"]        = &components::Polygon::create;
+			polygon_type["update"]        = &components::Polygon::update;
 			polygon_type["get_colour"]    = &components::Polygon::get_colour;
 			polygon_type["get_points"]    = &components::Polygon::get_points;
 			polygon_type["opacity"]       = &components::Polygon::opacity;

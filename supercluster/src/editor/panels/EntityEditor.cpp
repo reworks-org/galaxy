@@ -738,7 +738,7 @@ namespace sc
 						if (ImGui::Button("Update"))
 						{
 							gl_operations.emplace_back([polygon]() -> void {
-								polygon->create();
+								polygon->update();
 							});
 						}
 
