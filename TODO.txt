@@ -20,13 +20,14 @@ TODO:
 - Docs error fix after this.
 - Loading state support?
 - AI
-- Map
 - Set lua function as onevent. that way function is "serialized".
 - fix double fullstop in logging.
 - make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
-
+- box2d support polygon components
+- sort out vertexdata having opacity and some components having colours with opacity.
+- ellipse object
 
 
 Run Include-What-You-Use, https://www.fluentcpp.com/2021/01/01/include-what-you-use/
