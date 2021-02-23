@@ -74,12 +74,19 @@ namespace galaxy
 			///
 			/// Create the polygon.
 			///
-			void create();
+			/// \param col Colour of polygon.
+			///
+			void create(const graphics::Colour& col);
+
+			///
+			/// Update the polygon.
+			///
+			void update();
 
 			///
 			/// Change colour.
 			///
-			/// \param col Colour of line.
+			/// \param col Colour of polygon.
 			///
 			void change_colour(const graphics::Colour& col);
 

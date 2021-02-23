@@ -54,7 +54,13 @@ namespace galaxy
 			m_points.emplace_back(point);
 		}
 
-		void Polygon::create()
+		void Polygon::create(const graphics::Colour& col)
+		{
+			m_colour = col;
+			update();
+		}
+
+		void Polygon::update()
 		{
 			std::vector<graphics::PrimitiveVertex> vertexs;
 			std::vector<unsigned int> indices;
@@ -134,7 +140,7 @@ namespace galaxy
 			const auto& colour = json.at("colour");
 			m_colour           = {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")};
 
-			create();
+			update();
 		}
 	} // namespace components
 } // namespace galaxy
