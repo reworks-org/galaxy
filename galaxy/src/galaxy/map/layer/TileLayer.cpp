@@ -21,9 +21,11 @@ namespace galaxy
 			GALAXY_LOG(GALAXY_ERROR, "Cannot instantiate a default constructed TileLayer.");
 		}
 
-		TileLayer::TileLayer(const nlohmann::json& json)
+		TileLayer::TileLayer(const nlohmann::json& json, const int zlevel)
 		    : Layer {json}, m_compression {""}
 		{
+			m_z_level = zlevel;
+
 			if (json.count("chunks") > 0)
 			{
 				const auto& chunk_array = json.at("chunks");

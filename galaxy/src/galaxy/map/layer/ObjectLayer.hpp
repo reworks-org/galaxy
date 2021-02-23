@@ -35,8 +35,9 @@ namespace galaxy
 			/// Parses Layer common json.
 			///
 			/// \param json JSON structure containing chunk array from root map.
+			/// \param zlevel Rendering level of this layer.
 			///
-			explicit ObjectLayer(const nlohmann::json& json);
+			explicit ObjectLayer(const nlohmann::json& json, const int zlevel);
 
 			///
 			/// Destructor.

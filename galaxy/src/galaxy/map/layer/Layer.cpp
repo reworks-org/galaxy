@@ -88,13 +88,18 @@ namespace galaxy
 			return m_y;
 		}
 
+		const int Layer::get_z_level() const noexcept
+		{
+			return m_z_level;
+		}
+
 		Layer::Layer() noexcept
-		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}
+		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}, m_z_level {0}
 		{
 		}
 
 		Layer::Layer(const nlohmann::json& json)
-		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}
+		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}, m_z_level {0}
 		{
 			if (json.count("height") > 0)
 			{

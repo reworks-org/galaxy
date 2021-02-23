@@ -36,8 +36,9 @@ namespace galaxy
 			/// Can throw exceptions.
 			///
 			/// \param json JSON structure containing chunk array from root map.
+			/// \param zlevel Rendering level of this layer.
 			///
-			explicit TileLayer(const nlohmann::json& json);
+			explicit TileLayer(const nlohmann::json& json, const int zlevel);
 
 			///
 			/// Destructor.

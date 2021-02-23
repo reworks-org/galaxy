@@ -20,9 +20,11 @@ namespace galaxy
 			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ImageLayer.");
 		}
 
-		ImageLayer::ImageLayer(const nlohmann::json& json)
+		ImageLayer::ImageLayer(const nlohmann::json& json, const int zlevel)
 		    : Layer {json}, m_image {""}, m_transparent_colour {"000000"}
 		{
+			m_z_level = zlevel;
+
 			if (json.count("image") > 0)
 			{
 				m_image = json.at("image");

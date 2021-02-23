@@ -138,6 +138,13 @@ namespace galaxy
 			///
 			[[nodiscard]] const int get_y() const noexcept;
 
+			///
+			/// Get Z level.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_z_level() const noexcept;
+
 		protected:
 			///
 			/// Constructor.
@@ -228,6 +235,11 @@ namespace galaxy
 			/// Vertical layer offset in tiles.
 			///
 			int m_y;
+
+			///
+			/// Z level of layer.
+			///
+			int m_z_level;
 		};
 
 		template<tiled_property Type>
