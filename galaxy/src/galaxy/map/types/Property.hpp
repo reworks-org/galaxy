@@ -12,7 +12,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/map/TiledProperty.hpp"
+#include "galaxy/map/MapUtils.hpp"
 
 namespace galaxy
 {
