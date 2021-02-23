@@ -97,8 +97,14 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
 * https://github.com/ocornut/imgui/issues/707
 
-## Box2D implementation.
+## Tiled implementation.
+* Can parse up to Tiled 1.4.3 .json maps.
+* Supports Tiled Worlds.
+* Supports Base64 encoding.
+* Only supports zlib and gzip compression.
+* Does not support tiled projects.
 
+## Box2D implementation.
 Has been customized for use in galaxy_engine.
 Includes heavy code modifications.
 

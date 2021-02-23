@@ -15,7 +15,6 @@ SUPERCLUSTER:
 - open fullscreen (but windowed)
 
 TODO:
-- fix camera scrolling. lock at 0.1.
 - Dependencies should only abstract away system specific implementations.
 - Docs error fix after this.
 - Loading state support?
