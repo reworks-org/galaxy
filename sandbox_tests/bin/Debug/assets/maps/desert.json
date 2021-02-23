@@ -1,57 +1,104 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
  "height":40,
  "infinite":false,
  "layers":[
         {
-         "id":2,
-         "layers":[
+         "compression":"zlib",
+         "data":"eJztmNkKwjAQRaN9cAPrAq5Yq3Xf6v9\/nSM2VIbQJjEZR+nDwQZScrwztoORECLySBcIgZ7nc2y4KfyWDLx+Jb9nViNgDEwY+KioAXUgQN4+zpoCMwPmQAtoAx2CLFbA2oDEo9+hwG8DnIDtF\/2K8ks086Tw2zH0uyMv7HcRr\/6\/EvvhnsPrsrxwX7rwU\/0ODig\/eV3mh3N1ld8eraWPaX6+64s9McesfrqcHfg1MpoifxcVEWjukyw+9AtFPl\/I71pER3Of6j4bv7HI54s+MChhqLlPdZ\/P3qMmFuo5h5NnTOhjM5tReN2yT51n5\/v7J3F0vi46fk+ne7aX0i9l6If7mpufTX3f5wsqv9TAD2fJLT9VrTn7UeZnM5tR+v0LMQOHXwFnxe2\/warGFRWf8QDjOLfP",
+         "encoding":"base64",
+         "height":40,
+         "id":1,
+         "name":"tilemap",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":40,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":5,
+         "name":"object",
+         "objects":[
                 {
-                 "id":4,
-                 "layers":[
-                        {
-                         "compression":"zlib",
-                         "data":"eJztmNkKwjAQRaN9cAPrAq5Yq3Xf6v9\/nSM2VIbQJjEZR+nDwQZScrwztoORECLySBcIgZ7nc2y4KfyWDLx+Jb9nViNgDEwY+KioAXUgQN4+zpoCMwPmQAtoAx2CLFbA2oDEo9+hwG8DnIDtF\/2K8ks086Tw2zH0uyMv7HcRr\/6\/EvvhnsPrsrxwX7rwU\/0ODig\/eV3mh3N1ld8eraWPaX6+64s9McesfrqcHfg1MpoifxcVEWjukyw+9AtFPl\/I71pER3Of6j4bv7HI54s+MChhqLlPdZ\/P3qMmFuo5h5NnTOhjM5tReN2yT51n5\/v7J3F0vi46fk+ne7aX0i9l6If7mpufTX3f5wsqv9TAD2fJLT9VrTn7UeZnM5tR+v0LMQOHXwFnxe2\/warGFRWf8QDjOLfP",
-                         "encoding":"base64",
-                         "height":40,
-                         "id":1,
-                         "name":"Ground",
-                         "opacity":1,
-                         "type":"tilelayer",
-                         "visible":true,
-                         "width":40,
-                         "x":0,
-                         "y":0
-                        }],
-                 "name":"Group 2",
-                 "opacity":1,
-                 "type":"group",
+                 "height":52.1658127619935,
+                 "id":1,
+                 "name":"",
+                 "rotation":45,
+                 "type":"rect",
                  "visible":true,
+                 "width":299.580810433163,
+                 "x":491.036485017854,
+                 "y":404.526936811054
+                }, 
+                {
+                 "ellipse":true,
+                 "height":294.638099673964,
+                 "id":3,
+                 "name":"",
+                 "rotation":0,
+                 "type":"circle",
+                 "visible":true,
+                 "width":295.198882161154,
+                 "x":413.23325866915,
+                 "y":0
+                }, 
+                {
+                 "height":284.676292501164,
+                 "id":5,
+                 "name":"",
+                 "rotation":0,
+                 "type":"rect",
+                 "visible":true,
+                 "width":360.689333954355,
                  "x":0,
                  "y":0
                 }, 
                 {
-                 "compression":"zlib",
-                 "data":"eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=",
-                 "encoding":"base64",
-                 "height":40,
-                 "id":3,
-                 "name":"Tile Layer 2",
-                 "opacity":1,
-                 "type":"tilelayer",
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-5.33333,
+                         "y":-134.667
+                        }, 
+                        {
+                         "x":338.667,
+                         "y":-102.667
+                        }, 
+                        {
+                         "x":232,
+                         "y":46.6667
+                        }],
+                 "rotation":0,
+                 "type":"polygon",
                  "visible":true,
-                 "width":40,
-                 "x":0,
-                 "y":0
+                 "width":0,
+                 "x":33.3333333333334,
+                 "y":582.666666666666
                 }],
-         "name":"Group 1",
          "opacity":1,
-         "type":"group",
+         "tintcolor":"#aa0000",
+         "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":1,
+ "nextlayerid":6,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
