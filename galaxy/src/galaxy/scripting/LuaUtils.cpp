@@ -1025,10 +1025,11 @@ namespace galaxy
 			auto lua = SL_HANDLE.lua();
 
 			auto map_type                        = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map()>());
-			map_type["load_file"]                = sol::resolve<const bool(std::string_view)>(&map::Map::load);
-			map_type["load_mem"]                 = sol::resolve<const bool(std::span<char>)>(&map::Map::load);
+			map_type["load"]                     = &map::Map::load;
 			map_type["parse"]                    = &map::Map::parse;
+			map_type["generate_image_entities"]  = &map::Map::generate_image_entities;
 			map_type["generate_object_entities"] = &map::Map::generate_object_entities;
+			map_type["generate_map_entities"]    = &map::Map::generate_map_entities;
 		}
 
 		void register_math()
