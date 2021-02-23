@@ -10,8 +10,10 @@
 
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
+#include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
@@ -57,7 +59,7 @@ namespace galaxy
 			return m_loaded;
 		}
 
-		const bool Map::load(std::span<char> buffer)
+		const bool Map::load_mem(std::span<char> buffer)
 		{
 			const auto json = json::parse_from_mem(buffer);
 			if (json == std::nullopt)
@@ -106,7 +108,7 @@ namespace galaxy
 					m_compression_level = m_root.at("compressionlevel");
 				}
 
-				parse_layers(m_root);
+				parse_layers(m_root, 0);
 
 				if (m_root.count("nextlayerid") > 0)
 				{
@@ -190,6 +192,40 @@ namespace galaxy
 			return true;
 		}
 
+		void Map::generate_image_entities(core::World& world)
+		{
+			for (const auto& image_layer : m_image_layers)
+			{
+				const auto entity = world.create();
+
+				auto* renderable      = world.create_component<components::Renderable>(entity);
+				renderable->m_type    = graphics::Renderables::SPRITE;
+				renderable->m_z_level = image_layer.get_z_level();
+
+				auto* shader        = world.create_component<components::ShaderID>(entity);
+				shader->m_shader_id = "sprite";
+
+				auto* sprite = world.create_component<components::Sprite>(entity);
+				sprite->load(image_layer.get_image());
+				sprite->create();
+
+				auto* transform = world.create_component<components::Transform>(entity);
+				transform->set_pos(image_layer.get_x(), image_layer.get_y());
+				transform->set_rotation_origin(image_layer.get_width() / 2.0, image_layer.get_height() / 2.0);
+
+				if (!image_layer.get_name().empty())
+				{
+					auto* tag  = world.create_component<components::Tag>(entity);
+					tag->m_tag = image_layer.get_name();
+				}
+
+				if (image_layer.is_visible())
+				{
+					world.enable(entity);
+				}
+			}
+		}
+
 		void Map::generate_object_entities(core::World& world)
 		{
 			for (const auto& object_layer : m_object_layers)
@@ -202,46 +238,100 @@ namespace galaxy
 					auto* tag  = world.create_component<components::Tag>(entity);
 					tag->m_tag = object.get_name();
 
-					auto* polygon = world.create_component<components::Polygon>(entity);
-					for (const auto& point : object.get_points())
-					{
-						polygon->add_point(point.get_x(), point.get_y());
-					}
+					auto* transform  = world.create_component<components::Transform>(entity);
+					auto* renderable = world.create_component<components::Renderable>(entity);
+					auto* shaderid   = world.create_component<components::ShaderID>(entity);
 
-					std::string colour_str = object_layer.get_tint_colour();
-					if (colour_str[0] == '#')
-					{
-						colour_str.erase(0, 1);
-					}
-
-					graphics::Colour colour;
-					if (colour_str.length() == 8)
-					{
-						sscanf(colour_str.c_str(), "%02hhx%02hhx%02hhx%02hhx", &colour.m_alpha, &colour.m_red, &colour.m_green, &colour.m_blue);
-						polygon->change_colour(colour);
-					}
-					else if (colour_str.length() == 6)
-					{
-						sscanf(colour_str.c_str(), "%02hhx%02hhx%02hhx", &colour.m_red, &colour.m_green, &colour.m_blue);
-						colour.m_alpha = 255;
-						polygon->change_colour(colour);
-					}
-
-					polygon->create();
-
-					auto* transform = world.create_component<components::Transform>(entity);
 					transform->set_pos(object.get_x(), object.get_y());
-					transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
-					transform->rotate(object.get_rotation());
 
-					auto* renderable      = world.create_component<components::Renderable>(entity);
-					renderable->m_type    = graphics::Renderables::POLYGON;
-					renderable->m_z_level = 10;
+					if (object.is_ellipse())
+					{
+						auto* circle = world.create_component<components::Circle>(entity);
 
-					auto* shaderid        = world.create_component<components::ShaderID>(entity);
-					shaderid->m_shader_id = "line";
+						const auto colour = map::convert_colour(object_layer.get_tint_colour());
+						circle->create(object.get_width() / 2.0, 50, colour);
+
+						transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
+						transform->rotate(object.get_rotation());
+
+						renderable->m_type    = graphics::Renderables::CIRCLE;
+						shaderid->m_shader_id = "line";
+					}
+					else if (object.is_point())
+					{
+						auto* point = world.create_component<components::Point>(entity);
+
+						const auto colour = map::convert_colour(object_layer.get_tint_colour());
+						point->create(2, colour);
+
+						renderable->m_type    = graphics::Renderables::POINT;
+						shaderid->m_shader_id = "point";
+					}
+					else if (!object.get_points().empty())
+					{
+						auto* polygon = world.create_component<components::Polygon>(entity);
+						for (const auto& point : object.get_points())
+						{
+							polygon->add_point(point.get_x(), point.get_y());
+						}
+
+						const auto colour = map::convert_colour(object_layer.get_tint_colour());
+						polygon->create(colour);
+
+						renderable->m_type    = graphics::Renderables::POLYGON;
+						shaderid->m_shader_id = "line";
+					}
+					else
+					{
+						// Is a rectangle.
+
+						auto* polygon = world.create_component<components::Polygon>(entity);
+						polygon->add_point(object.get_x(), object.get_y());
+						polygon->add_point(object.get_x() + object.get_width(), object.get_y());
+						polygon->add_point(object.get_x() + object.get_width(), object.get_y() + object.get_height());
+						polygon->add_point(object.get_x(), object.get_y() + object.get_height());
+
+						const auto colour = map::convert_colour(object_layer.get_tint_colour());
+						polygon->create(colour);
+
+						transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
+						transform->rotate(object.get_rotation());
+
+						renderable->m_type    = graphics::Renderables::POLYGON;
+						shaderid->m_shader_id = "line";
+					}
+
+					renderable->m_z_level = object_layer.get_z_level();
+
+					if (!object.get_name().empty())
+					{
+						auto* tag  = world.create_component<components::Tag>(entity);
+						tag->m_tag = object.get_name();
+					}
 
 					if (object.is_visible())
+					{
+						world.enable(entity);
+					}
+				}
+			}
+		}
+
+		void Map::generate_map_entities(core::World& world)
+		{
+			for (const auto& tile_layer : m_tile_layers)
+			{
+				if (!is_infinite())
+				{
+					const auto entity = world.create();
+					const auto& data  = tile_layer.get_data();
+
+					if (!tile_layer.get_compression().empty())
+					{
+						const auto& raw_data = std::get<0>(data);
+					}
+
+					if (tile_layer.is_visible())
 					{
 						world.enable(entity);
 					}
@@ -354,7 +444,7 @@ namespace galaxy
 			return m_root;
 		}
 
-		void Map::parse_layers(const nlohmann::json& json)
+		const int Map::parse_layers(const nlohmann::json& json, int level)
 		{
 			if (json.count("layers") > 0)
 			{
@@ -366,23 +456,28 @@ namespace galaxy
 						const std::string type = layer.at("type");
 						if (type == "tilelayer")
 						{
-							m_tile_layers.emplace_back(layer);
+							m_tile_layers.emplace_back(layer, level);
+							level++;
 						}
 						else if (type == "objectgroup")
 						{
-							m_object_layers.emplace_back(layer);
+							m_object_layers.emplace_back(layer, level);
+							level++;
 						}
 						else if (type == "imagelayer ")
 						{
-							m_image_layers.emplace_back(layer);
+							m_image_layers.emplace_back(layer, level);
+							level++;
 						}
 						else if (type == "group")
 						{
-							parse_layers(layer);
+							level = parse_layers(layer, level);
 						}
 					}
 				}
 			}
+
+			return level;
 		}
 	} // namespace map
 } // namespace galaxy

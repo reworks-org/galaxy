@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] const bool load(std::span<char> buffer);
+			[[maybe_unused]] const bool load_mem(std::span<char> buffer);
 
 			///
 			/// Parses json structure to member values, etc.
@@ -72,11 +72,25 @@ namespace galaxy
 			[[maybe_unused]] const bool parse();
 
 			///
+			/// Generate entities for image layers.
+			///
+			/// \param world World to create entities in.
+			///
+			void generate_image_entities(core::World& world);
+
+			///
 			/// Generate entities from objects.
 			///
 			/// \param world World to create entities in.
 			///
 			void generate_object_entities(core::World& world);
+
+			///
+			/// Generate map entities for tiles.
+			///
+			/// \param world World to create entities in.
+			///
+			void generate_map_entities(core::World& world);
 
 			///
 			/// Get background colour of map.
@@ -247,8 +261,11 @@ namespace galaxy
 			/// Is a seperate function to process groups.
 			///
 			/// \param json Tilemap layers json.
+			/// \param level Z Level of layer.
 			///
-			void parse_layers(const nlohmann::json& json);
+			/// \return Updated level count.
+			///
+			const int parse_layers(const nlohmann::json& json, int level);
 
 		private:
 			///

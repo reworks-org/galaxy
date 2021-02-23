@@ -65,7 +65,7 @@ namespace galaxy
 			if (json.count("objectgroup") > 0)
 			{
 				const auto& object_group = json.at("objectgroup");
-				m_object_group.emplace(object_group);
+				m_object_group.emplace(object_group, 0);
 			}
 			else
 			{
