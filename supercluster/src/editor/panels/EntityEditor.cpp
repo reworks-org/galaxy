@@ -517,7 +517,7 @@ namespace sc
 							batchedsprite->set_custom_height(s_ch);
 						}
 
-						float opacity = batchedsprite->opacity();
+						float opacity = batchedsprite->get_opacity();
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 						{
 							batchedsprite->set_opacity(opacity);
@@ -541,12 +541,6 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Circle"))
 					{
-						float opacity = circle->opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							circle->set_opacity(opacity);
-						}
-
 						float radius = circle->radius();
 						if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
@@ -580,12 +574,6 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Line"))
 					{
-						float opacity = line->opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							line->set_opacity(opacity);
-						}
-
 						static float colour[4] = {line->get_colour().m_red, line->get_colour().m_green, line->get_colour().m_blue, line->get_colour().m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
@@ -678,12 +666,6 @@ namespace sc
 							point->set_size(size);
 						}
 
-						float opacity = point->opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							point->set_opacity(opacity);
-						}
-
 						static float colour[4] = {point->get_colour().m_red, point->get_colour().m_green, point->get_colour().m_blue, point->get_colour().m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
@@ -705,12 +687,6 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Polygon"))
 					{
-						float opacity = polygon->opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							polygon->set_opacity(opacity);
-						}
-
 						ImGui::Text("Point Coords");
 
 						float s_point[2] = {0.0f, 0.0f};
@@ -814,7 +790,7 @@ namespace sc
 							});
 						}
 
-						static float opacity = sprite->opacity();
+						static float opacity = sprite->get_opacity();
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 						{
 							sprite->set_opacity(opacity);

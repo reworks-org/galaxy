@@ -647,7 +647,7 @@ namespace galaxy
 				effect->set_uniform("u_transform", m_fb_transform.get_transform());
 				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
 				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
-				effect->set_uniform("u_opacity", m_fb_sprite->opacity());
+				effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());
 
 				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 			}

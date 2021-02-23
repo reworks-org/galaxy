@@ -62,7 +62,7 @@ namespace galaxy
 			sprite->bind();
 
 			shader->set_uniform("u_transform", transform->get_transform());
-			shader->set_uniform("u_opacity", sprite->opacity());
+			shader->set_uniform("u_opacity", sprite->get_opacity());
 			shader->set_uniform("u_width", static_cast<float>(sprite->get_width()));
 			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
 

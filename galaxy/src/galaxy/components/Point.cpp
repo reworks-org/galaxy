@@ -89,6 +89,16 @@ namespace galaxy
 			m_va.unbind();
 		}
 
+		void Point::set_opacity(const std::uint8_t opacity) noexcept
+		{
+			m_colour.m_alpha = opacity;
+		}
+
+		const std::uint8_t Point::get_opacity() const noexcept
+		{
+			return m_colour.m_alpha;
+		}
+
 		const graphics::Colour& Point::get_colour() const noexcept
 		{
 			return m_colour;

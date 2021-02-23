@@ -86,6 +86,20 @@ namespace galaxy
 			void unbind() noexcept override;
 
 			///
+			/// Set opacity.
+			///
+			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+			///
+			void set_opacity(const float opacity) noexcept;
+
+			///
+			/// Get opacity.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_opacity() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -111,6 +125,11 @@ namespace galaxy
 			Sprite& operator=(const Sprite&) = delete;
 
 		private:
+			///
+			/// Opacity of sprite.
+			///
+			float m_opacity;
+
 			///
 			/// Texture ID.
 			///

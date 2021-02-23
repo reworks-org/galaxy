@@ -14,6 +14,7 @@ namespace galaxy
 		ParticleInstance::ParticleInstance(ParticleInstance&& p) noexcept
 		    : VertexData {std::move(p)}, Texture {std::move(p)}
 		{
+			this->m_opacity         = p.m_opacity;
 			this->m_instance_buffer = std::move(p.m_instance_buffer);
 		}
 
@@ -25,6 +26,7 @@ namespace galaxy
 
 				Texture::operator=(std::move(p));
 
+				this->m_opacity         = p.m_opacity;
 				this->m_instance_buffer = std::move(p.m_instance_buffer);
 			}
 
@@ -71,6 +73,16 @@ namespace galaxy
 		{
 			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		void ParticleInstance::set_opacity(const float opacity) noexcept
+		{
+			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
+		}
+
+		const float ParticleInstance::get_opacity() const noexcept
+		{
+			return m_opacity;
 		}
 	} // namespace graphics
 } // namespace galaxy

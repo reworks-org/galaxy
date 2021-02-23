@@ -118,6 +118,16 @@ namespace galaxy
 			m_va.unbind();
 		}
 
+		void Circle::set_opacity(const std::uint8_t opacity) noexcept
+		{
+			m_colour.m_alpha = opacity;
+		}
+
+		const std::uint8_t Circle::get_opacity() const noexcept
+		{
+			return m_colour.m_alpha;
+		}
+
 		const graphics::Colour& Circle::get_colour() const noexcept
 		{
 			return m_colour;

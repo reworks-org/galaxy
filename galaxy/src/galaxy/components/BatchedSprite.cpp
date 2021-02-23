@@ -95,7 +95,7 @@ namespace galaxy
 			m_region.m_height = height;
 		}
 
-		const float BatchedSprite::opacity() const noexcept
+		const float BatchedSprite::get_opacity() const noexcept
 		{
 			return m_opacity;
 		}

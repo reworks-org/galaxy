@@ -26,7 +26,6 @@ TODO:
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
 - box2d support polygon components
-- sort out vertexdata having opacity and some components having colours with opacity.
 - ellipse object
 
 

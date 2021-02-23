@@ -11,53 +11,25 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		VertexData::VertexData() noexcept
-		    : m_opacity {1.0f}
-		{
-		}
-
 		VertexData::VertexData(VertexData&& vd) noexcept
 		{
-			this->m_ib      = std::move(vd.m_ib);
-			this->m_layout  = std::move(vd.m_layout);
-			this->m_va      = std::move(vd.m_va);
-			this->m_vb      = std::move(vd.m_vb);
-			this->m_opacity = vd.m_opacity;
+			this->m_ib     = std::move(vd.m_ib);
+			this->m_layout = std::move(vd.m_layout);
+			this->m_va     = std::move(vd.m_va);
+			this->m_vb     = std::move(vd.m_vb);
 		}
 
 		VertexData& VertexData::operator=(VertexData&& vd) noexcept
 		{
 			if (this != &vd)
 			{
-				this->m_ib      = std::move(vd.m_ib);
-				this->m_layout  = std::move(vd.m_layout);
-				this->m_va      = std::move(vd.m_va);
-				this->m_vb      = std::move(vd.m_vb);
-				this->m_opacity = vd.m_opacity;
+				this->m_ib     = std::move(vd.m_ib);
+				this->m_layout = std::move(vd.m_layout);
+				this->m_va     = std::move(vd.m_va);
+				this->m_vb     = std::move(vd.m_vb);
 			}
 
 			return *this;
-		}
-
-		void VertexData::set_opacity(const float opacity) noexcept
-		{
-			if (m_opacity > 1.0f)
-			{
-				m_opacity = 1.0f;
-			}
-			else if (m_opacity < 0.0f)
-			{
-				m_opacity = 0.0f;
-			}
-			else
-			{
-				m_opacity = opacity;
-			}
-		}
-
-		const float VertexData::opacity() const noexcept
-		{
-			return m_opacity;
 		}
 
 		IndexBuffer& VertexData::get_ibo() noexcept

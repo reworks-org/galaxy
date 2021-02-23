@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			VertexData() noexcept;
+			VertexData() noexcept = default;
 
 			///
 			/// Move constructor.
@@ -39,22 +39,6 @@ namespace galaxy
 			/// Virtual destructor.
 			///
 			virtual ~VertexData() noexcept = default;
-
-			///
-			/// Set opacity.
-			///
-			/// Only affects the currently active quad.
-			///
-			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
-			///
-			void set_opacity(const float opacity) noexcept;
-
-			///
-			/// Get opacity.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float opacity() const noexcept;
 
 			///
 			/// Get IBO.
@@ -85,11 +69,6 @@ namespace galaxy
 			[[nodiscard]] const unsigned int index_count() const noexcept;
 
 		protected:
-			///
-			/// Opacity of sprite.
-			///
-			float m_opacity;
-
 			///
 			/// OpenGL Vertex Array Object.
 			///

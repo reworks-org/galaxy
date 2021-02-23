@@ -84,8 +84,6 @@ namespace galaxy
 			///
 			/// Set opacity.
 			///
-			/// Only affects the currently active quad.
-			///
 			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 			///
 			void set_opacity(const float opacity) noexcept;
@@ -109,7 +107,7 @@ namespace galaxy
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float opacity() const noexcept;
+			[[nodiscard]] const float get_opacity() const noexcept;
 
 			///
 			/// \brief Get texture width.

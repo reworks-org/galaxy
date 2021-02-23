@@ -537,7 +537,7 @@ namespace galaxy
 			point_type["unbind"]        = &components::Point::unbind;
 			point_type["get_size"]      = &components::Point::get_size;
 			point_type["index_count"]   = &components::Point::index_count;
-			point_type["opacity"]       = &components::Point::opacity;
+			point_type["get_opacity"]   = &components::Point::get_opacity;
 			point_type["set_opacity"]   = &components::Point::set_opacity;
 			point_type["change_colour"] = &components::Point::change_colour;
 			point_type["get_colour"]    = &components::Point::get_colour;
@@ -549,7 +549,7 @@ namespace galaxy
 			line_type["bind"]          = &components::Line::bind;
 			line_type["unbind"]        = &components::Line::unbind;
 			line_type["index_count"]   = &components::Line::index_count;
-			line_type["opacity"]       = &components::Line::opacity;
+			line_type["get_opacity"]   = &components::Line::get_opacity;
 			line_type["set_opacity"]   = &components::Line::set_opacity;
 			line_type["change_colour"] = &components::Line::change_colour;
 			line_type["get_colour"]    = &components::Line::get_colour;
@@ -561,7 +561,7 @@ namespace galaxy
 			circle_type["unbind"]        = &components::Circle::unbind;
 			circle_type["radius"]        = &components::Circle::radius;
 			circle_type["index_count"]   = &components::Circle::index_count;
-			circle_type["opacity"]       = &components::Circle::opacity;
+			circle_type["get_opacity"]   = &components::Circle::get_opacity;
 			circle_type["set_opacity"]   = &components::Circle::set_opacity;
 			circle_type["change_colour"] = &components::Circle::change_colour;
 			circle_type["get_colour"]    = &components::Circle::get_colour;
@@ -576,7 +576,7 @@ namespace galaxy
 			bs_type["get_height"]        = &components::BatchedSprite::get_height;
 			bs_type["get_region"]        = &components::BatchedSprite::get_region;
 			bs_type["get_width"]         = &components::BatchedSprite::get_width;
-			bs_type["opacity"]           = &components::BatchedSprite::opacity;
+			bs_type["get_opacity"]       = &components::BatchedSprite::get_opacity;
 			bs_type["set_opacity"]       = &components::BatchedSprite::set_opacity;
 			bs_type["set_region"]        = &components::BatchedSprite::set_region;
 			bs_type["set_custom_height"] = &components::BatchedSprite::set_custom_height;
@@ -593,7 +593,7 @@ namespace galaxy
 			sprite_type["get_aniso_level"] = &components::Sprite::get_aniso_level;
 			sprite_type["get_height"]      = &components::Sprite::get_height;
 			sprite_type["get_width"]       = &components::Sprite::get_width;
-			sprite_type["opacity"]         = &components::Sprite::opacity;
+			sprite_type["get_opacity"]     = &components::Sprite::get_opacity;
 			sprite_type["save"]            = &components::Sprite::save;
 			sprite_type["set_anisotropy"]  = &components::Sprite::set_anisotropy;
 			sprite_type["set_mirrored"]    = &components::Sprite::set_mirrored;
@@ -666,7 +666,7 @@ namespace galaxy
 			polygon_type["update"]        = &components::Polygon::update;
 			polygon_type["get_colour"]    = &components::Polygon::get_colour;
 			polygon_type["get_points"]    = &components::Polygon::get_points;
-			polygon_type["opacity"]       = &components::Polygon::opacity;
+			polygon_type["get_opacity"]   = &components::Polygon::get_opacity;
 			polygon_type["set_opacity"]   = &components::Polygon::set_opacity;
 		}
 
@@ -964,7 +964,7 @@ namespace galaxy
 			particle_instance_type["get_height"]       = &graphics::ParticleInstance::get_height;
 			particle_instance_type["get_width"]        = &graphics::ParticleInstance::get_width;
 			particle_instance_type["load"]             = sol::resolve<void(std::string_view)>(&graphics::ParticleInstance::load);
-			particle_instance_type["opacity"]          = &graphics::ParticleInstance::opacity;
+			particle_instance_type["get_opacity"]      = &graphics::ParticleInstance::get_opacity;
 			particle_instance_type["save"]             = &graphics::ParticleInstance::save;
 			particle_instance_type["set_anisotropy"]   = &graphics::ParticleInstance::set_anisotropy;
 			particle_instance_type["set_instance"]     = &graphics::ParticleInstance::set_instance;

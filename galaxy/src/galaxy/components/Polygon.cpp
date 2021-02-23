@@ -98,6 +98,16 @@ namespace galaxy
 			m_va.unbind();
 		}
 
+		void Polygon::set_opacity(const std::uint8_t opacity) noexcept
+		{
+			m_colour.m_alpha = opacity;
+		}
+
+		const std::uint8_t Polygon::get_opacity() const noexcept
+		{
+			return m_colour.m_alpha;
+		}
+
 		const graphics::Colour& Polygon::get_colour() const noexcept
 		{
 			return m_colour;

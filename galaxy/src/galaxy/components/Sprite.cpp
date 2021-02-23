@@ -16,12 +16,12 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-		    : Serializable {this}, VertexData {}, Texture {}
+		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-		    : Serializable {this}, VertexData {}, Texture {}
+		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
 		{
 			deserialize(json);
 		}
@@ -29,6 +29,8 @@ namespace galaxy
 		Sprite::Sprite(Sprite&& s) noexcept
 		    : Serializable {this}, VertexData {std::move(s)}, Texture {std::move(s)}
 		{
+			this->m_opacity     = s.m_opacity;
+			this->m_texture_str = s.m_texture_str;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s) noexcept
@@ -38,6 +40,9 @@ namespace galaxy
 				VertexData::operator=(std::move(s));
 
 				Texture::operator=(std::move(s));
+
+				this->m_opacity     = s.m_opacity;
+				this->m_texture_str = s.m_texture_str;
 			}
 
 			return *this;
@@ -97,6 +102,16 @@ namespace galaxy
 		{
 			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		void Sprite::set_opacity(const float opacity) noexcept
+		{
+			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
+		}
+
+		const float Sprite::get_opacity() const noexcept
+		{
+			return m_opacity;
 		}
 
 		nlohmann::json Sprite::serialize()

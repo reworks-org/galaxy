@@ -90,6 +90,20 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
+			/// Set opacity.
+			///
+			/// \param opacity Opacity 0 - 255.
+			///
+			void set_opacity(const std::uint8_t opacity) noexcept;
+
+			///
+			/// Get opacity.
+			///
+			/// \return Const std::uint8_t.
+			///
+			[[nodiscard]] const std::uint8_t get_opacity() const noexcept;
+
+			///
 			/// Get current colour.
 			///
 			/// \return Const reference to the current line colour.

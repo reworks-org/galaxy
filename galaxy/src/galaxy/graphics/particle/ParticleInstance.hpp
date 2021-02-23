@@ -75,6 +75,20 @@ namespace galaxy
 			///
 			void unbind() noexcept override;
 
+			///
+			/// Set opacity.
+			///
+			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+			///
+			void set_opacity(const float opacity) noexcept;
+
+			///
+			/// Get opacity.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_opacity() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -87,6 +101,11 @@ namespace galaxy
 			ParticleInstance& operator=(const ParticleInstance&) = delete;
 
 		private:
+			///
+			/// Opacity of particles.
+			///
+			float m_opacity;
+
 			///
 			/// InstanceBuffer object.
 			///
