@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_CIRCLE_HPP_
-#define QUASAR_CIRCLE_HPP_
+#ifndef GALAXY_COMPONENTS_CIRCLE_HPP_
+#define GALAXY_COMPONENTS_CIRCLE_HPP_
 
 #include <glm/vec2.hpp>
 #include <nlohmann/json_fwd.hpp>

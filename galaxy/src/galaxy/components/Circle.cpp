@@ -23,13 +23,13 @@ namespace galaxy
 		}
 
 		Circle::Circle(const float radius, const unsigned int fragments, const graphics::Colour& colour)
-		    : Serializable {this}, m_radius {10.0f}, m_fragments {20}, m_colour {0, 0, 0, 255}
+		    : Serializable {this}
 		{
 			create(radius, fragments, colour);
 		}
 
 		Circle::Circle(const nlohmann::json& json)
-		    : Serializable {this}, m_radius {10.0f}, m_fragments {20}, m_colour {0, 0, 0, 255}
+		    : Serializable {this}
 		{
 			deserialize(json);
 		}
@@ -59,7 +59,7 @@ namespace galaxy
 		void Circle::create(const float radius, const unsigned int fragments, const graphics::Colour& colour)
 		{
 			m_radius    = radius;
-			m_fragments = fragments;
+			m_fragments = static_cast<float>(fragments);
 			m_colour    = colour;
 
 			update();
@@ -67,7 +67,7 @@ namespace galaxy
 
 		void Circle::update()
 		{
-			// Thanks to https://stackoverflow.com/a/33859443.
+			// Thanks to https://stackoverflow.com/a/33859443
 			// For help with maths.
 
 			std::vector<graphics::PrimitiveVertex> vertexs;
