@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		/// \return Newly constructed graphics::Colour object.
 		///
-		graphics::Colour convert_colour(std::string_view hex_colour);
+		graphics::Colour parse_hex_colour(std::string_view hex_colour);
 
 		///
 		/// Concept for tiled property types.

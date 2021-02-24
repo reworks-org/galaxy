@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace map
 	{
-		graphics::Colour map::convert_colour(std::string_view hex_colour)
+		graphics::Colour map::parse_hex_colour(std::string_view hex_colour)
 		{
 			graphics::Colour colour;
 			auto str = static_cast<std::string>(hex_colour);
