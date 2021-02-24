@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include "galaxy/error/Log.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -48,8 +50,11 @@ namespace galaxy
 
 			for (const auto& obj : map_array)
 			{
-				auto& map        = m_maps.emplace_back();
 				std::string file = obj.at("fileName");
+				const auto id    = std::filesystem::path(file).stem().string();
+
+				m_maps[id] = {};
+				auto& map  = m_maps[id];
 				if (!map.load(file))
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to load map: {0}.", file);
@@ -66,6 +71,29 @@ namespace galaxy
 			}
 
 			return true;
+		}
+
+		map::Map* World::get_map(std::string_view map) noexcept
+		{
+			const auto str = static_cast<std::string>(map);
+			if (m_maps.contains(str))
+			{
+				return &m_maps[str];
+			}
+			else
+			{
+				return nullptr;
+			}
+		}
+
+		const MapHolder& World::get_maps() const noexcept
+		{
+			return m_maps;
+		}
+
+		const nlohmann::json& World::get_raw() const noexcept
+		{
+			return m_json;
 		}
 	} // namespace map
 } // namespace galaxy

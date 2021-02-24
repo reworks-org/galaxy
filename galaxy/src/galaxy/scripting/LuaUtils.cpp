@@ -53,7 +53,7 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
-#include "galaxy/map/Map.hpp"
+#include "galaxy/map/World.hpp"
 
 #include "galaxy/physics/Box2DIntegration.hpp"
 
@@ -1030,6 +1030,11 @@ namespace galaxy
 			map_type["generate_image_entities"]  = &map::Map::generate_image_entities;
 			map_type["generate_object_entities"] = &map::Map::generate_object_entities;
 			map_type["generate_map_entities"]    = &map::Map::generate_map_entities;
+
+			auto world_map_type       = lua->new_usertype<map::World>("gTiledWorld", sol::constructors<map::World()>());
+			world_map_type["load"]    = &map::World::load;
+			world_map_type["parse"]   = &map::World::parse;
+			world_map_type["get_map"] = &map::World::get_map;
 		}
 
 		void register_math()
