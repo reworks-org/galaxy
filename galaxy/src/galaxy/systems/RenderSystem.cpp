@@ -10,6 +10,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
@@ -93,6 +94,10 @@ namespace galaxy
 
 					case graphics::Renderables::POLYGON:
 						graphics::Renderer::submit_polygon(world.get<components::Polygon>(data.m_entity), data.m_transform, shader);
+						break;
+
+					case graphics::Renderables::ELLIPSE:
+						graphics::Renderer::submit_ellipse(world.get<components::Ellipse>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

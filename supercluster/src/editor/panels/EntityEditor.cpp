@@ -11,6 +11,7 @@
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchedSprite.hpp>
 #include <galaxy/components/Circle.hpp>
+#include <galaxy/components/Ellipse.hpp>
 #include <galaxy/components/Line.hpp>
 #include <galaxy/components/OnEvent.hpp>
 #include <galaxy/components/Physics.hpp>
@@ -369,8 +370,8 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchedsprite, circle, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform]
-			= m_cur_scene->world().get_multi<components::Animated, components::BatchedSprite, components::Circle, 
+			auto [animated, batchedsprite, circle, ellipse, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform]
+			= m_cur_scene->world().get_multi<components::Animated, components::BatchedSprite, components::Circle, components::Ellipse,
 			components::Line, components::Physics, components::Point, components::Polygon, components::Renderable, components::ShaderID, 
 			components::Sprite, components::Tag, components::Text, components::Transform>(entity);
 			// clang-format on
@@ -541,13 +542,13 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Circle"))
 					{
-						float radius = circle->radius();
+						static float radius = circle->radius();
 						if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
 							circle->set_radius(radius);
 						}
 
-						float fragments = circle->fragments();
+						static float fragments = circle->fragments();
 						if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
 							circle->set_fragments(fragments);
@@ -563,6 +564,44 @@ namespace sc
 						{
 							gl_operations.emplace_back([circle]() -> void {
 								circle->update();
+							});
+						}
+
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (ellipse)
+				{
+					if (ImGui::BeginTabItem("Ellipse"))
+					{
+						ImGui::Text("Radius");
+
+						static float s_radius[2] = {ellipse->radius().x, ellipse->radius().y};
+						ImGui::SetNextItemWidth(150);
+						ImGui::InputFloat("Hor Rad##Ellipse01", &s_radius[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+						ImGui::SameLine();
+
+						ImGui::SetNextItemWidth(150);
+						ImGui::InputFloat("Vert Rad##Ellipse02", &s_radius[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+						static float fragments = ellipse->fragments();
+						if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						{
+							ellipse->set_fragments(fragments);
+						}
+
+						static float colour[4] = {ellipse->get_colour().m_red, ellipse->get_colour().m_green, ellipse->get_colour().m_blue, ellipse->get_colour().m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							ellipse->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([ellipse]() -> void {
+								ellipse->update();
 							});
 						}
 
@@ -689,7 +728,7 @@ namespace sc
 					{
 						ImGui::Text("Point Coords");
 
-						float s_point[2] = {0.0f, 0.0f};
+						static float s_point[2] = {0.0f, 0.0f};
 						ImGui::SetNextItemWidth(150);
 						ImGui::InputFloat("X##01", &s_point[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 

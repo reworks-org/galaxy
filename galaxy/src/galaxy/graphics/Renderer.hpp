@@ -22,6 +22,7 @@ namespace galaxy
 	namespace components
 	{
 		class Circle;
+		class Ellipse;
 		class Line;
 		class Point;
 		class Polygon;
@@ -57,6 +58,7 @@ namespace galaxy
 			static void submit_text(components::Text* text, components::Transform* transform, Shader* shader);
 			static void submit_batched_sprite(Camera& camera);
 			static void submit_polygon(components::Polygon* polygon, components::Transform* transform, Shader* shader);
+			static void submit_ellipse(components::Ellipse* ellipse, components::Transform* transform, Shader* shader);
 
 			static void draw_batch(graphics::SpriteBatch* sb, Camera& camera);
 			static void draw_sprite_to_texture(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);

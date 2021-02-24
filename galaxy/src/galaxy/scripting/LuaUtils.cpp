@@ -15,6 +15,7 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchedSprite.hpp"
 #include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/OnEvent.hpp"
 #include "galaxy/components/Physics.hpp"
@@ -523,7 +524,8 @@ namespace galaxy
 				{"SPRITE", graphics::Renderables::SPRITE},
 				{"TEXT", graphics::Renderables::TEXT},
 				{"BATCHED", graphics::Renderables::BATCHED},
-				{"POLYGON", graphics::Renderables::POLYGON}
+				{"POLYGON", graphics::Renderables::POLYGON},
+				{"ELLIPSE", graphics::Renderables::ELLIPSE}
 			});
 			// clang-format on
 
@@ -531,7 +533,7 @@ namespace galaxy
 			renderable_type["type"]    = &components::Renderable::m_type;
 			renderable_type["z_level"] = &components::Renderable::m_z_level;
 
-			auto point_type             = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const unsigned int, graphics::Colour&)>());
+			auto point_type             = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const unsigned int, const graphics::Colour&)>());
 			point_type["create"]        = &components::Point::create;
 			point_type["bind"]          = &components::Point::bind;
 			point_type["unbind"]        = &components::Point::unbind;
@@ -544,7 +546,7 @@ namespace galaxy
 			point_type["update"]        = &components::Point::update;
 			point_type["set_size"]      = &components::Point::set_size;
 
-			auto line_type             = lua->new_usertype<components::Line>("gLine", sol::constructors<components::Line(), components::Line(graphics::Colour&, const float, const float, const float, const float)>());
+			auto line_type             = lua->new_usertype<components::Line>("gLine", sol::constructors<components::Line(), components::Line(const graphics::Colour&, const float, const float, const float, const float)>());
 			line_type["create"]        = &components::Line::create;
 			line_type["bind"]          = &components::Line::bind;
 			line_type["unbind"]        = &components::Line::unbind;
@@ -555,7 +557,7 @@ namespace galaxy
 			line_type["get_colour"]    = &components::Line::get_colour;
 			line_type["update"]        = &components::Line::update;
 
-			auto circle_type             = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const unsigned int, graphics::Colour&)>());
+			auto circle_type             = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const unsigned int, const graphics::Colour&)>());
 			circle_type["create"]        = &components::Circle::create;
 			circle_type["bind"]          = &components::Circle::bind;
 			circle_type["unbind"]        = &components::Circle::unbind;
@@ -668,6 +670,21 @@ namespace galaxy
 			polygon_type["get_points"]    = &components::Polygon::get_points;
 			polygon_type["get_opacity"]   = &components::Polygon::get_opacity;
 			polygon_type["set_opacity"]   = &components::Polygon::set_opacity;
+
+			auto ellipse_type             = lua->new_usertype<components::Ellipse>("gEllipse", sol::constructors<components::Ellipse(), components::Ellipse(const glm::vec2&, const unsigned int, const graphics::Colour&)>());
+			ellipse_type["create"]        = &components::Ellipse::create;
+			ellipse_type["bind"]          = &components::Ellipse::bind;
+			ellipse_type["unbind"]        = &components::Ellipse::unbind;
+			ellipse_type["radius"]        = &components::Ellipse::radius;
+			ellipse_type["index_count"]   = &components::Ellipse::index_count;
+			ellipse_type["get_opacity"]   = &components::Ellipse::get_opacity;
+			ellipse_type["set_opacity"]   = &components::Ellipse::set_opacity;
+			ellipse_type["change_colour"] = &components::Ellipse::change_colour;
+			ellipse_type["get_colour"]    = &components::Ellipse::get_colour;
+			ellipse_type["fragments"]     = &components::Ellipse::fragments;
+			ellipse_type["set_fragments"] = &components::Ellipse::set_fragments;
+			ellipse_type["set_radius"]    = &components::Ellipse::set_radius;
+			ellipse_type["update"]        = &components::Ellipse::update;
 		}
 
 		void register_events()

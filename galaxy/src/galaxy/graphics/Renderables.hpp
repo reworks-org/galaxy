@@ -50,7 +50,12 @@ namespace galaxy
 			///
 			/// Defines an entity to be rendered as a POLYGON.
 			///
-			POLYGON = 6
+			POLYGON = 6,
+
+			///
+			/// Defines an entity to be rendered as an ELLIPSE.
+			///
+			ELLIPSE = 7
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -6,9 +6,10 @@
 ///
 
 #include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
+#include "galaxy/components/Line.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/Line.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Camera.hpp"
@@ -100,6 +101,14 @@ namespace galaxy
 			shader->set_uniform("u_transform", transform->get_transform());
 
 			glDrawElements(GL_LINE_LOOP, polygon->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		void Renderer::submit_ellipse(components::Ellipse* ellipse, components::Transform* transform, Shader* shader)
+		{
+			ellipse->bind();
+			shader->set_uniform("u_transform", transform->get_transform());
+
+			glDrawElements(GL_LINE_LOOP, ellipse->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer::draw_batch(graphics::SpriteBatch* sb, Camera& camera)
