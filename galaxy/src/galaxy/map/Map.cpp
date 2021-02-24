@@ -8,7 +8,7 @@
 #include <filesystem>
 #include <fstream>
 
-#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
@@ -213,7 +213,7 @@ namespace galaxy
 				sprite->create();
 
 				auto* transform = world.create_component<components::Transform>(entity);
-				//transform->set_pos(image_layer.get_x(), image_layer.get_y());
+				transform->set_pos(image_layer.get_offset_x(), image_layer.get_offset_y());
 				transform->set_rotation_origin(image_layer.get_width() / 2.0, image_layer.get_height() / 2.0);
 
 				if (!image_layer.get_name().empty())
@@ -236,106 +236,86 @@ namespace galaxy
 				const auto& objects = object_layer.get_objects();
 				for (const auto& object : objects)
 				{
-					const auto entity = world.create();
-
-					auto* tag  = world.create_component<components::Tag>(entity);
-					tag->m_tag = object.get_name();
-
-					auto* transform  = world.create_component<components::Transform>(entity);
-					auto* renderable = world.create_component<components::Renderable>(entity);
-					auto* shaderid   = world.create_component<components::ShaderID>(entity);
-
-					transform->set_pos(object.get_x(), object.get_y());
-
 					const auto type = object.get_type_enum();
-					switch (type)
+					if (type != Object::Type::POLYLINE && type != Object::Type::TEXT)
 					{
-						case Object::Type::ELLIPSE:
-							break;
+						const auto entity = world.create();
 
-						case Object::Type::POINT:
-							break;
+						auto* transform       = world.create_component<components::Transform>(entity);
+						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* renderable      = world.create_component<components::Renderable>(entity);
+						renderable->m_z_level = object_layer.get_z_level();
 
-						case Object::Type::POLYGON:
-							break;
-
-						case Object::Type::POLYLINE:
-							break;
-
-						case Object::Type::TEXT:
-							break;
-					}
-
-					/*
-					if (object.is_ellipse())
-					{
-						auto* circle = world.create_component<components::Circle>(entity);
-
-						const auto colour = map::convert_colour(object_layer.get_tint_colour());
-						circle->create(object.get_width() / 2.0, 50, colour);
-
-						transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
-						transform->rotate(object.get_rotation());
-
-						renderable->m_type    = graphics::Renderables::CIRCLE;
-						shaderid->m_shader_id = "line";
-					}
-					else if (object.is_point())
-					{
-						auto* point = world.create_component<components::Point>(entity);
-
-						const auto colour = map::convert_colour(object_layer.get_tint_colour());
-						point->create(2, colour);
-
-						renderable->m_type    = graphics::Renderables::POINT;
-						shaderid->m_shader_id = "point";
-					}
-					else if (!object.get_points().empty())
-					{
-						auto* polygon = world.create_component<components::Polygon>(entity);
-						for (const auto& point : object.get_points())
+						switch (type)
 						{
-							polygon->add_point(point.get_x(), point.get_y());
+							case Object::Type::ELLIPSE:
+							{
+								auto* ellipse = world.create_component<components::Ellipse>(entity);
+								ellipse->create({object.get_width() / 2.0, object.get_height() / 2.0}, 50, object_layer.get_colour());
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::ELLIPSE;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::POINT:
+							{
+								auto* point = world.create_component<components::Point>(entity);
+								point->create(2, object_layer.get_colour());
+
+								transform->set_pos(object.get_x(), object.get_y());
+								renderable->m_type    = graphics::Renderables::POINT;
+								shaderid->m_shader_id = "point";
+							}
+							break;
+
+							case Object::Type::POLYGON:
+							{
+								auto* polygon = world.create_component<components::Polygon>(entity);
+								for (const auto& point : object.get_points())
+								{
+									polygon->add_point(point.get_x(), point.get_y());
+								}
+
+								polygon->create(object_layer.get_colour());
+
+								transform->set_pos(object.get_x(), object.get_y());
+								renderable->m_type    = graphics::Renderables::POLYGON;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::RECT:
+							{
+								auto* polygon = world.create_component<components::Polygon>(entity);
+								polygon->add_point(0.0f, 0.0f);
+								polygon->add_point(0.0f + object.get_width(), 0.0f);
+								polygon->add_point(0.0f + object.get_width(), 0.0f + object.get_height());
+								polygon->add_point(0.0f, 0.0f + object.get_height());
+								polygon->create(object_layer.get_colour());
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::POLYGON;
+								shaderid->m_shader_id = "line";
+							}
+							break;
 						}
 
-						const auto colour = map::convert_colour(object_layer.get_tint_colour());
-						polygon->create(colour);
+						if (!object.get_name().empty())
+						{
+							auto* tag  = world.create_component<components::Tag>(entity);
+							tag->m_tag = object.get_name();
+						}
 
-						renderable->m_type    = graphics::Renderables::POLYGON;
-						shaderid->m_shader_id = "line";
-					}
-					else
-					{
-						// Is a rectangle.
-
-						auto* polygon = world.create_component<components::Polygon>(entity);
-						polygon->add_point(object.get_x(), object.get_y());
-						polygon->add_point(object.get_x() + object.get_width(), object.get_y());
-						polygon->add_point(object.get_x() + object.get_width(), object.get_y() + object.get_height());
-						polygon->add_point(object.get_x(), object.get_y() + object.get_height());
-
-						const auto colour = map::convert_colour(object_layer.get_tint_colour());
-						polygon->create(colour);
-
-						transform->set_rotation_origin(object.get_width() / 2.0, object.get_height() / 2.0);
-						transform->rotate(object.get_rotation());
-
-						renderable->m_type    = graphics::Renderables::POLYGON;
-						shaderid->m_shader_id = "line";
-					}
-					*/
-
-					renderable->m_z_level = object_layer.get_z_level();
-
-					if (!object.get_name().empty())
-					{
-						auto* tag  = world.create_component<components::Tag>(entity);
-						tag->m_tag = object.get_name();
-					}
-
-					if (object.is_visible())
-					{
-						world.enable(entity);
+						if (object.is_visible())
+						{
+							world.enable(entity);
+						}
 					}
 				}
 			}

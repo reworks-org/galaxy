@@ -26,7 +26,7 @@ namespace sb
 
 		m_map.load("assets/maps/desert.json");
 		m_map.parse();
-		//m_map.generate_object_entities(m_world);
+		m_map.generate_object_entities(m_world);
 	}
 
 	MapScene::~MapScene()

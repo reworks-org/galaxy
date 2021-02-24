@@ -24,6 +24,7 @@
          "y":0
         }, 
         {
+         "color":"#ff0000",
          "draworder":"topdown",
          "id":5,
          "name":"object",
@@ -36,19 +37,19 @@
                  "type":"rect",
                  "visible":true,
                  "width":299.580810433163,
-                 "x":491.036485017854,
-                 "y":404.526936811054
+                 "x":547.036485017854,
+                 "y":350.526936811054
                 }, 
                 {
                  "ellipse":true,
-                 "height":294.638099673964,
+                 "height":200,
                  "id":3,
                  "name":"",
                  "rotation":0,
                  "type":"circle",
                  "visible":true,
-                 "width":295.198882161154,
-                 "x":413.23325866915,
+                 "width":317,
+                 "x":0,
                  "y":0
                 }, 
                 {
@@ -59,8 +60,8 @@
                  "type":"rect",
                  "visible":true,
                  "width":360.689333954355,
-                 "x":0,
-                 "y":0
+                 "x":358.333333333333,
+                 "y":35
                 }, 
                 {
                  "height":0,
@@ -87,20 +88,34 @@
                  "type":"polygon",
                  "visible":true,
                  "width":0,
-                 "x":33.3333333333334,
-                 "y":582.666666666666
+                 "x":43.3333333333334,
+                 "y":564.666666666666
+                }, 
+                {
+                 "height":19,
+                 "id":15,
+                 "name":"",
+                 "rotation":0,
+                 "text":
+                    {
+                     "fontfamily":"Bell MT",
+                     "text":"Hello World",
+                     "wrap":true
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":83,
+                 "x":934.5,
+                 "y":282.5
                 }],
-         "offsetx":11,
-         "offsety":12,
          "opacity":1,
-         "tintcolor":"#aa0000",
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":15,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

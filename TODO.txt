@@ -25,7 +25,6 @@ TODO:
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
 - box2d support polygon components
-- ellipse object
 
 
 Run Include-What-You-Use, https://www.fluentcpp.com/2021/01/01/include-what-you-use/

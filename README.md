@@ -106,6 +106,7 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * Only supports topdown (rightdown) rendering.
 * Does not support tiled projects.
 * Does not support external assets.
+* Does not support Polyline and Text objects.
 
 ## Box2D implementation.
 Has been customized for use in galaxy_engine.

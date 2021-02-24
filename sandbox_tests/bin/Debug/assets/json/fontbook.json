@@ -3,6 +3,10 @@
 		"public16": [
 			"public.ttf",
 			16
+		],
+		"public8": [
+			"public.ttf",
+			8
 		]
 	}
 }
