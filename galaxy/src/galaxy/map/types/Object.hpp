@@ -32,6 +32,7 @@ namespace galaxy
 				ELLIPSE,
 				POINT,
 				POLYGON,
+				RECT,
 				POLYLINE,
 				TEXT
 			};

@@ -14,12 +14,12 @@ namespace galaxy
 	namespace map
 	{
 		Object::Object() noexcept
-		    : m_type_enum {Type::POLYGON}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
+		    : m_type_enum {Type::RECT}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 		{
 		}
 
 		Object::Object(const nlohmann::json& json)
-		    : m_type_enum {Type::POLYGON}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
+		    : m_type_enum {Type::RECT}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 		{
 			parse(json);
 		}
@@ -78,7 +78,10 @@ namespace galaxy
 					m_points.emplace_back(point);
 				}
 
-				m_type_enum = Type::POLYGON;
+				if (!m_points.empty())
+				{
+					m_type_enum = Type::POLYGON;
+				}
 			}
 
 			if (json.count("polyline") > 0)
@@ -89,7 +92,10 @@ namespace galaxy
 					m_points.emplace_back(point);
 				}
 
-				m_type_enum = Type::POLYLINE;
+				if (!m_points.empty())
+				{
+					m_type_enum = Type::POLYLINE;
+				}
 			}
 
 			if (json.count("properties") > 0)
