@@ -75,10 +75,10 @@ namespace galaxy
 
 			unsigned int count        = 0;
 			constexpr float incr_stat = 2.0f * glm::pi<float>();
-			float increment           = incr_stat / static_cast<float>(m_fragments);
+			const float increment     = incr_stat / m_fragments;
 			for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 			{
-				vertexs.emplace_back(m_radius * glm::cos(angle), m_radius * glm::sin(angle), m_colour);
+				vertexs.emplace_back((m_radius * glm::cos(angle)) + m_radius, (m_radius * glm::sin(angle) + m_radius), m_colour);
 				indices.push_back(count);
 
 				count++;
