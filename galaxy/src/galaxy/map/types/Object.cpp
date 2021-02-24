@@ -14,12 +14,12 @@ namespace galaxy
 	namespace map
 	{
 		Object::Object() noexcept
-		    : m_ellipse {false}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_point {false}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
+		    : m_type_enum {Type::POLYGON}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 		{
 		}
 
 		Object::Object(const nlohmann::json& json)
-		    : m_ellipse {false}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_point {false}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
+		    : m_type_enum {Type::POLYGON}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 		{
 			parse(json);
 		}
@@ -34,7 +34,11 @@ namespace galaxy
 		{
 			if (json.count("ellipse") > 0)
 			{
-				m_ellipse = json.at("ellipse");
+				const bool is_ellipse = json.at("ellipse");
+				if (is_ellipse)
+				{
+					m_type_enum = Type::ELLIPSE;
+				}
 			}
 
 			if (json.count("gid") > 0)
@@ -59,7 +63,11 @@ namespace galaxy
 
 			if (json.count("point") > 0)
 			{
-				m_point = json.at("point");
+				const bool is_point = json.at("point");
+				if (is_point)
+				{
+					m_type_enum = Type::POINT;
+				}
 			}
 
 			if (json.count("polygon") > 0)
@@ -69,21 +77,25 @@ namespace galaxy
 				{
 					m_points.emplace_back(point);
 				}
+
+				m_type_enum = Type::POLYGON;
 			}
 
 			if (json.count("polyline") > 0)
 			{
 				const auto& point_array = json.at("polyline");
-				for (auto& point : point_array)
+				for (const auto& point : point_array)
 				{
 					m_points.emplace_back(point);
 				}
+
+				m_type_enum = Type::POLYLINE;
 			}
 
 			if (json.count("properties") > 0)
 			{
 				const auto& prop_array = json.at("properties");
-				for (auto& prop : prop_array)
+				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
@@ -102,6 +114,7 @@ namespace galaxy
 			if (json.count("text") > 0)
 			{
 				m_text.parse(json.at("text"));
+				m_type_enum = Type::TEXT;
 			}
 
 			if (json.count("type") > 0)
@@ -130,9 +143,9 @@ namespace galaxy
 			}
 		}
 
-		const bool Object::is_ellipse() const noexcept
+		const Object::Type Object::get_type_enum() const noexcept
 		{
-			return m_ellipse;
+			return m_type_enum;
 		}
 
 		const int Object::get_gid() const noexcept
@@ -140,14 +153,19 @@ namespace galaxy
 			return m_gid;
 		}
 
+		const double Object::get_height() const noexcept
+		{
+			return m_height;
+		}
+
+		const int Object::get_id() const noexcept
+		{
+			return m_id;
+		}
+
 		const std::string& Object::get_name() const noexcept
 		{
 			return m_name;
-		}
-
-		const bool Object::is_point() const noexcept
-		{
-			return m_point;
 		}
 
 		const std::vector<Point>& Object::get_points() const noexcept
@@ -183,11 +201,6 @@ namespace galaxy
 		const double Object::get_width() const noexcept
 		{
 			return m_width;
-		}
-
-		const double Object::get_height() const noexcept
-		{
-			return m_height;
 		}
 
 		const double Object::get_x() const noexcept

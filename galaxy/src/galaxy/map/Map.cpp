@@ -28,7 +28,7 @@ namespace galaxy
 	namespace map
 	{
 		Map::Map() noexcept
-		    : m_loaded {false}, m_root {}, m_bg_colour {"00FFFFFF"}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_width {0}, m_compression_level {0}
+		    : m_loaded {false}, m_root {}, m_bg_colour {255, 255, 255, 255}, m_compression_level {-1}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_version {0.0}, m_width {0}
 		{
 		}
 
@@ -81,10 +81,14 @@ namespace galaxy
 			// Make sure json is loaded to avoid error.
 			if (m_loaded)
 			{
-				// Optional attribute.
 				if (m_root.count("backgroundcolor") > 0)
 				{
-					m_bg_colour = m_root.at("backgroundcolor");
+					m_bg_colour = map::parse_hex_colour(m_root.at("backgroundcolor"));
+				}
+
+				if (m_root.count("compressionlevel") > 0)
+				{
+					m_compression_level = m_root.at("compressionlevel");
 				}
 
 				if (m_root.count("height") > 0)
@@ -92,7 +96,6 @@ namespace galaxy
 					m_height = m_root.at("height");
 				}
 
-				// Only present on hexagonal maps.
 				if (m_root.count("hexsidelength") > 0)
 				{
 					m_hex_side_length = m_root.at("hexsidelength");
@@ -101,11 +104,6 @@ namespace galaxy
 				if (m_root.count("infinite") > 0)
 				{
 					m_infinite = m_root.at("infinite");
-				}
-
-				if (m_root.count("compressionlevel") > 0)
-				{
-					m_compression_level = m_root.at("compressionlevel");
 				}
 
 				parse_layers(m_root, 0);
@@ -178,6 +176,11 @@ namespace galaxy
 					m_type = m_root.at("type");
 				}
 
+				if (m_root.count("version") > 0)
+				{
+					m_version = m_root.at("version");
+				}
+
 				if (m_root.count("width") > 0)
 				{
 					m_width = m_root.at("width");
@@ -210,7 +213,7 @@ namespace galaxy
 				sprite->create();
 
 				auto* transform = world.create_component<components::Transform>(entity);
-				transform->set_pos(image_layer.get_x(), image_layer.get_y());
+				//transform->set_pos(image_layer.get_x(), image_layer.get_y());
 				transform->set_rotation_origin(image_layer.get_width() / 2.0, image_layer.get_height() / 2.0);
 
 				if (!image_layer.get_name().empty())
@@ -244,6 +247,26 @@ namespace galaxy
 
 					transform->set_pos(object.get_x(), object.get_y());
 
+					const auto type = object.get_type_enum();
+					switch (type)
+					{
+						case Object::Type::ELLIPSE:
+							break;
+
+						case Object::Type::POINT:
+							break;
+
+						case Object::Type::POLYGON:
+							break;
+
+						case Object::Type::POLYLINE:
+							break;
+
+						case Object::Type::TEXT:
+							break;
+					}
+
+					/*
 					if (object.is_ellipse())
 					{
 						auto* circle = world.create_component<components::Circle>(entity);
@@ -300,6 +323,7 @@ namespace galaxy
 						renderable->m_type    = graphics::Renderables::POLYGON;
 						shaderid->m_shader_id = "line";
 					}
+					*/
 
 					renderable->m_z_level = object_layer.get_z_level();
 
@@ -324,24 +348,27 @@ namespace galaxy
 				if (!is_infinite())
 				{
 					const auto entity = world.create();
-					const auto& data  = tile_layer.get_data();
-
-					if (!tile_layer.get_compression().empty())
-					{
-						const auto& raw_data = std::get<0>(data);
-					}
 
 					if (tile_layer.is_visible())
 					{
 						world.enable(entity);
 					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Galaxy does not support infinite maps.");
+				}
 			}
 		}
 
-		const std::string& Map::get_bg_colour() const noexcept
+		const graphics::Colour& Map::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
+		}
+
+		const int Map::get_compression_level() const noexcept
+		{
+			return m_compression_level;
 		}
 
 		const int Map::get_height() const noexcept
@@ -429,17 +456,17 @@ namespace galaxy
 			return m_type;
 		}
 
+		const double Map::get_version() const noexcept
+		{
+			return m_version;
+		}
+
 		const int Map::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int Map::get_compression_level() const noexcept
-		{
-			return m_compression_level;
-		}
-
-		nlohmann::json& Map::get_raw() noexcept
+		const nlohmann::json& Map::get_raw() const noexcept
 		{
 			return m_root;
 		}
@@ -453,7 +480,7 @@ namespace galaxy
 				{
 					if (json.count("type") > 0)
 					{
-						const std::string type = layer.at("type");
+						const auto& type = layer.at("type");
 						if (type == "tilelayer")
 						{
 							m_tile_layers.emplace_back(layer, level);
@@ -464,7 +491,7 @@ namespace galaxy
 							m_object_layers.emplace_back(layer, level);
 							level++;
 						}
-						else if (type == "imagelayer ")
+						else if (type == "imagelayer")
 						{
 							m_image_layers.emplace_back(layer, level);
 							level++;

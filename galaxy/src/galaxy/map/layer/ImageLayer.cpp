@@ -15,16 +15,9 @@ namespace galaxy
 {
 	namespace map
 	{
-		ImageLayer::ImageLayer()
-		{
-			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ImageLayer.");
-		}
-
 		ImageLayer::ImageLayer(const nlohmann::json& json, const int zlevel)
-		    : Layer {json}, m_image {""}, m_transparent_colour {"000000"}
+		    : Layer {json, zlevel}, m_image {""}, m_transparent_colour {255, 255, 255, 255}
 		{
-			m_z_level = zlevel;
-
 			if (json.count("image") > 0)
 			{
 				m_image = json.at("image");
@@ -32,13 +25,18 @@ namespace galaxy
 
 			if (json.count("transparentcolor") > 0)
 			{
-				m_transparent_colour = json.at("transparentcolor");
+				m_transparent_colour = map::parse_hex_colour(json.at("transparentcolor"));
 			}
 		}
 
 		const std::string& ImageLayer::get_image() const noexcept
 		{
 			return m_image;
+		}
+
+		const graphics::Colour& ImageLayer::get_transparent_colour() const noexcept
+		{
+			return m_transparent_colour;
 		}
 	} // namespace map
 } // namespace galaxy

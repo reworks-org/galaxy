@@ -59,9 +59,9 @@ namespace galaxy
 			///
 			/// Get background colour of tileset.
 			///
-			/// \return String in format RRGGBB or AARRGGBB.
+			/// \return Const reference to graphics::Colour object.
 			///
-			[[nodiscard]] const std::string& get_bg_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_bg_colour() const noexcept;
 
 			///
 			/// Get total tile columns in tileset.
@@ -82,12 +82,12 @@ namespace galaxy
 			///
 			/// \return Returns a std::optional. Make sure you check for std::nullopt if grid is not used!
 			///
-			[[nodiscard]] const auto& get_grid() const noexcept;
+			[[nodiscard]] const std::optional<Grid>& get_grid() const noexcept;
 
 			///
 			/// Get image.
 			///
-			/// \return String in format RRGGBB or AARRGGBB.
+			/// \return Imag file string.
 			///
 			[[nodiscard]] const std::string& get_image() const noexcept;
 
@@ -136,7 +136,14 @@ namespace galaxy
 			/// \return Property cast as type.
 			///
 			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
+			[[nodiscard]] const Type& get_property(std::string_view name);
+
+			///
+			/// Get spacing between tiles.
+			///
+			/// \return Const integer.
+			///
+			[[nodiscard]] const int get_spacing() const noexcept;
 
 			///
 			/// Get array of terrains.
@@ -190,9 +197,9 @@ namespace galaxy
 			///
 			/// Get colour used to mark an area transparent.
 			///
-			/// \return Const std::string reference. Hex-formatted. Defaults to White (FFFFFF).
+			/// \return Const reference to graphics::Colour.
 			///
-			[[nodiscard]] const std::string& get_transparent_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_transparent_colour() const noexcept;
 
 			///
 			/// Get type of tileset.
@@ -200,6 +207,13 @@ namespace galaxy
 			/// \return Const std::string reference. Defaults to "tileset".
 			///
 			[[nodiscard]] const std::string& get_type() const noexcept;
+
+			///
+			/// Get JSON version.
+			///
+			/// \return Const double.
+			///
+			[[nodiscard]] const double get_version() const noexcept;
 
 			///
 			/// Get wang sets.
@@ -210,9 +224,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Hex-formatted color (RRGGBB or AARRGGBB) (optional).
+			/// Tileset background colour.
 			///
-			std::string m_bg_colour;
+			graphics::Colour m_bg_colour;
 
 			///
 			/// The number of tile columns in the tileset.
@@ -262,12 +276,7 @@ namespace galaxy
 			///
 			/// Map of Properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
-
-			///
-			/// The external file that contains this tilesets data.
-			///
-			std::string m_source;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// Spacing between adjacent tiles in image (pixels).
@@ -310,14 +319,19 @@ namespace galaxy
 			int m_tile_width;
 
 			///
-			/// Hex - formatted color (RRGGBB) (optional).
+			/// Tile transparent colour.
 			///
-			std::string m_transparent_colour;
+			graphics::Colour m_transparent_colour;
 
 			///
 			/// Tileset(for tileset files, since 1.0).
 			///
 			std::string m_type;
+
+			///
+			/// JSON version.
+			///
+			double m_version;
 
 			///
 			/// Array of Wang sets.
@@ -326,7 +340,7 @@ namespace galaxy
 		};
 
 		template<tiled_property Type>
-		inline const Type Tileset::get_property(std::string_view name)
+		inline const Type& Tileset::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

@@ -16,26 +16,15 @@ namespace galaxy
 	namespace map
 	{
 		///
-		/// Specialized type of layer.
+		/// Specialized type of layer for tiles.
 		///
 		class TileLayer final : public Layer
 		{
 		public:
 			///
-			/// \brief Constructor.
+			/// Parse constructor.
 			///
-			/// Throws a runtime exception if called.
-			///
-			TileLayer();
-
-			///
-			/// \brief Parse constructor.
-			///
-			/// Does not call TileLayer::parse() you must call that afterwards.
-			/// Parses Layer common json.
-			/// Can throw exceptions.
-			///
-			/// \param json JSON structure containing chunk array from root map.
+			/// \param json JSON structure containing layer json from root.
 			/// \param zlevel Rendering level of this layer.
 			///
 			explicit TileLayer(const nlohmann::json& json, const int zlevel);
@@ -46,13 +35,6 @@ namespace galaxy
 			virtual ~TileLayer() noexcept;
 
 			///
-			/// Get chunks array.
-			///
-			/// \return Const std::vector<Chunk>
-			///
-			[[nodiscard]] const std::vector<Chunk>& get_chunks() const noexcept;
-
-			///
 			/// Get compression.
 			///
 			/// \return Compression as std::string. Can be empty.
@@ -60,27 +42,52 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_compression() const noexcept;
 
 			///
+			/// Retrieve data encoding.
+			///
+			/// \return Const reference to a std::string.
+			///
+			[[nodiscard]] const std::string& get_encoding() const noexcept;
+
+			///
+			/// Get chunks array.
+			///
+			/// \return Const reference to an array of Chunks.
+			///
+			[[nodiscard]] const std::vector<Chunk>& get_chunks() const noexcept;
+
+			///
 			/// Retrieve variant data.
 			///
 			/// \return Std::variant 0 = string 1 = vector.
 			///
-			[[nodiscard]] const std::variant<std::string, std::vector<unsigned int>>& get_data() const noexcept;
+			[[nodiscard]] const std::vector<unsigned int>& get_data() const noexcept;
 
 		private:
 			///
-			/// Array of chunks (optional). tilelayer only.
+			/// Deleted constructor.
 			///
-			std::vector<Chunk> m_chunks;
+			TileLayer() = delete;
 
+		private:
 			///
 			/// zlib, gzip or empty (default). tilelayer only.
 			///
 			std::string m_compression;
 
 			///
+			/// csv (default) or base64. tilelayer only.
+			///
+			std::string m_encoding;
+
+			///
+			/// Array of chunks (optional). tilelayer only.
+			///
+			std::vector<Chunk> m_chunks;
+
+			///
 			/// Array of unsigned int (GIDs) or base64-encoded data.
 			///
-			std::variant<std::string, std::vector<unsigned int>> m_data;
+			std::vector<unsigned int> m_data;
 		};
 	} // namespace map
 } // namespace galaxy

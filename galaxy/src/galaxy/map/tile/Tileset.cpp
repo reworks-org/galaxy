@@ -20,12 +20,12 @@ namespace galaxy
 	namespace map
 	{
 		Tileset::Tileset() noexcept
-		    : m_bg_colour {"00FFFFFF"}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {""}, m_source {""}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {"FFFFFF"}, m_type {"tileset"}
+		    : m_bg_colour {255, 255, 255, 255}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {"unspecified"}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {255, 255, 255, 255}, m_type {"tileset"}, m_version {0.0}
 		{
 		}
 
 		Tileset::Tileset(const nlohmann::json& json)
-		    : m_bg_colour {"00FFFFFF"}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {""}, m_source {""}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {"FFFFFF"}, m_type {"tileset"}
+		    : m_bg_colour {255, 255, 255, 255}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {"unspecified"}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {255, 255, 255, 255}, m_type {"tileset"}, m_version {0.0}
 		{
 			parse(json);
 		}
@@ -41,48 +41,24 @@ namespace galaxy
 
 		void Tileset::parse(const nlohmann::json& json)
 		{
+			if (json.count("backgroundcolor") > 0)
+			{
+				m_bg_colour = map::parse_hex_colour(json.at("backgroundcolor"));
+			}
+
+			if (json.count("columns") > 0)
+			{
+				m_columns = json.at("columns");
+			}
+
 			if (json.count("firstgid") > 0)
 			{
 				m_first_gid = json.at("firstgid");
 			}
 
-			if (json.count("source") > 0)
+			if (json.count("grid") > 0)
 			{
-				m_source = json.at("source");
-			}
-
-			nlohmann::json src_json;
-			if (!m_source.empty())
-			{
-				// Makes sure the filepath is correct for the current platform.
-				const auto json_opt = json::parse_from_disk(m_source);
-				if (json_opt == std::nullopt)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to laod source for tileset: {0}.", m_source);
-				}
-				else
-				{
-					src_json = json_opt.value();
-				}
-			}
-			else
-			{
-				src_json = json;
-			}
-
-			if (src_json.count("backgroundcolor") > 0)
-			{
-				m_bg_colour = src_json.at("backgroundcolor");
-			}
-
-			if (src_json.count("columns") > 0)
-			{
-				m_columns = src_json.at("columns");
-			}
-
-			if (src_json.count("grid") > 0)
-			{
-				const auto& grid_array = src_json.at("grid");
+				const auto& grid_array = json.at("grid");
 				m_grid.emplace(grid_array);
 			}
 			else
@@ -90,111 +66,112 @@ namespace galaxy
 				m_grid = std::nullopt;
 			}
 
-			if (src_json.count("image") > 0)
+			if (json.count("image") > 0)
 			{
-				m_image = src_json.at("image");
+				m_image = json.at("image");
 			}
 
-			if (src_json.count("imageheight") > 0)
+			if (json.count("imageheight") > 0)
 			{
-				m_image_height = src_json.at("imageheight");
+				m_image_height = json.at("imageheight");
 			}
 
-			if (src_json.count("imagewidth") > 0)
+			if (json.count("imagewidth") > 0)
 			{
-				m_image_width = src_json.at("imagewidth");
+				m_image_width = json.at("imagewidth");
 			}
 
-			if (src_json.count("margin") > 0)
+			if (json.count("margin") > 0)
 			{
-				m_margin = src_json.at("margin");
+				m_margin = json.at("margin");
 			}
 
-			if (src_json.count("name") > 0)
+			if (json.count("name") > 0)
 			{
-				m_name = src_json.at("name");
+				m_name = json.at("name");
 			}
 
-			if (src_json.count("objectalignment") > 0)
+			if (json.count("objectalignment") > 0)
 			{
-				m_object_alignment = src_json.at("objectalignment");
+				m_object_alignment = json.at("objectalignment");
 			}
 
-			if (src_json.count("properties") > 0)
+			if (json.count("properties") > 0)
 			{
-				const auto& prop_array = src_json.at("properties");
+				const auto& prop_array = json.at("properties");
 				for (const auto& prop : prop_array)
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
 			}
 
-			if (src_json.count("spacing") > 0)
+			if (json.count("spacing") > 0)
 			{
-				m_spacing = src_json.at("spacing");
+				m_spacing = json.at("spacing");
 			}
 
-			if (src_json.count("terrains") > 0)
+			if (json.count("terrains") > 0)
 			{
-				const auto& terrain_array = src_json.at("terrains");
+				const auto& terrain_array = json.at("terrains");
 				for (const auto& terrain : terrain_array)
 				{
 					m_terrain.emplace_back(terrain);
 				}
 			}
 
-			if (src_json.count("tilecount") > 0)
+			if (json.count("tilecount") > 0)
 			{
-				m_tile_count = src_json.at("tilecount");
+				m_tile_count = json.at("tilecount");
 			}
 
-			if (src_json.count("tiledversion") > 0)
+			if (json.count("tiledversion") > 0)
 			{
-				m_tiled_version = src_json.at("tiledversion");
+				m_tiled_version = json.at("tiledversion");
 			}
 
-			if (src_json.count("tileheight") > 0)
+			if (json.count("tileheight") > 0)
 			{
-				m_tile_height = src_json.at("tileheight");
+				m_tile_height = json.at("tileheight");
 			}
 
-			if (src_json.count("tileoffset") > 0)
+			if (json.count("tileoffset") > 0)
 			{
-				const auto& tile_offset = src_json.at("tileoffset");
+				const auto& tile_offset = json.at("tileoffset");
 				m_tile_offset.emplace(tile_offset);
 			}
-			else
-			{
-				m_grid = std::nullopt;
-			}
 
-			if (src_json.count("tiles") > 0)
+			if (json.count("tiles") > 0)
 			{
-				const auto& tile_array = src_json.at("tiles");
+				const auto& tile_array = json.at("tiles");
 				for (const auto& tile : tile_array)
 				{
 					m_tiles.emplace_back(tile);
 				}
 			}
 
-			if (src_json.count("tilewidth") > 0)
+			if (json.count("tilewidth") > 0)
 			{
-				m_tile_width = src_json.at("tilewidth");
+				m_tile_width = json.at("tilewidth");
 			}
 
-			if (src_json.count("transparentcolor") > 0)
+			if (json.count("transparentcolor") > 0)
 			{
-				m_transparent_colour = src_json.at("transparentcolor");
+				m_transparent_colour = map::parse_hex_colour(json.at("transparentcolor"));
 			}
 
-			if (src_json.count("type") > 0)
+			if (json.count("type") > 0)
 			{
-				m_type = src_json.at("type");
+				m_type = json.at("type");
 			}
 
-			if (src_json.count("wangsets") > 0)
+			if (json.count("version") > 0)
 			{
-				const auto& wang_sets = src_json.at("wangsets");
+				m_version = json.at("version");
+			}
+
+			if (json.count("wangsets") > 0)
+			{
+				const auto& wang_sets = json.at("wangsets");
 				for (const auto& set : wang_sets)
 				{
 					m_wang_sets.emplace_back(set);
@@ -202,7 +179,7 @@ namespace galaxy
 			}
 		}
 
-		const std::string& Tileset::get_bg_colour() const noexcept
+		const graphics::Colour& Tileset::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
 		}
@@ -217,7 +194,7 @@ namespace galaxy
 			return m_first_gid;
 		}
 
-		const auto& Tileset::get_grid() const noexcept
+		const std::optional<Grid>& Tileset::get_grid() const noexcept
 		{
 			return m_grid;
 		}
@@ -250,6 +227,11 @@ namespace galaxy
 		const std::string& Tileset::get_object_alignment() const noexcept
 		{
 			return m_object_alignment;
+		}
+
+		const int Tileset::get_spacing() const noexcept
+		{
+			return m_spacing;
 		}
 
 		const std::vector<Terrain>& Tileset::get_terrain() const noexcept
@@ -287,7 +269,7 @@ namespace galaxy
 			return m_tile_width;
 		}
 
-		const std::string& Tileset::get_transparent_colour() const noexcept
+		const graphics::Colour& Tileset::get_transparent_colour() const noexcept
 		{
 			return m_transparent_colour;
 		}
@@ -295,6 +277,11 @@ namespace galaxy
 		const std::string& Tileset::get_type() const noexcept
 		{
 			return m_type;
+		}
+
+		const double Tileset::get_version() const noexcept
+		{
+			return m_version;
 		}
 
 		const std::vector<WangSet>& Tileset::get_wang_sets() const noexcept

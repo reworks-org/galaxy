@@ -8,7 +8,7 @@
 #ifndef GALAXY_MAP_TYPES_PROPERTY_HPP_
 #define GALAXY_MAP_TYPES_PROPERTY_HPP_
 
-#include <any>
+#include <variant>
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -30,9 +30,7 @@ namespace galaxy
 			Property() noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing Property.
 			///
@@ -41,16 +39,21 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Property() noexcept;
+			~Property() noexcept = default;
 
 			///
-			/// \brief Parse Property level jston.
-			///
-			/// Can throw exceptions.
+			/// Parse Property level json.
 			///
 			/// \param json JSON structure/array containing Property.
 			///
 			void parse(const nlohmann::json& json);
+
+			///
+			/// Get property name.
+			///
+			/// \return Const std::string reference.
+			///
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
 			/// Get type typename as a std::string.
@@ -69,6 +72,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Name of the property.
+			///
+			std::string m_name;
+
+			///
 			/// Type of the property (string (default); int; float; bool; color or file (since 0.16; with color and file added in 0.17)).
 			///
 			std::string m_type;
@@ -76,13 +84,13 @@ namespace galaxy
 			///
 			/// Value of the property.
 			///
-			std::any m_value;
+			std::variant<std::string, int, float, bool, graphics::Colour> m_value;
 		};
 
 		template<tiled_property Type>
 		inline const Type& Property::get() const
 		{
-			return std::any_cast<Type>(m_value);
+			return std::get<Type>(m_value);
 		}
 	} // namespace map
 } // namespace galaxy

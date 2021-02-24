@@ -11,8 +11,8 @@
 #include <robin_hood.h>
 
 #include "galaxy/map/types/Property.hpp"
-#include "galaxy/map/wangtile/WangTile.hpp"
 #include "galaxy/map/wangtile/WangColour.hpp"
+#include "galaxy/map/wangtile/WangTile.hpp"
 
 namespace galaxy
 {
@@ -79,7 +79,7 @@ namespace galaxy
 			/// \return Property cast as type.
 			///
 			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
+			[[nodiscard]] const Type& get_property(std::string_view name);
 
 			///
 			/// Get local tile id.
@@ -114,7 +114,7 @@ namespace galaxy
 			///
 			/// Map of Properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// Local ID of tile representing the Wang set.
@@ -128,7 +128,7 @@ namespace galaxy
 		};
 
 		template<tiled_property Type>
-		inline const Type WangSet::get_property(std::string_view name)
+		inline const Type& WangSet::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

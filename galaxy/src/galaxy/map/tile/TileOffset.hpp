@@ -26,23 +26,19 @@ namespace galaxy
 			TileOffset() noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing tileoffset json.
 			///
 			explicit TileOffset(const nlohmann::json& json);
 
 			///
-			/// Default destructor.
+			/// Destructor.
 			///
 			~TileOffset() noexcept = default;
 
 			///
-			/// \brief Parses json structure to member values; etc.
-			///
-			/// Can throws exceptions.
+			/// Parses json structure to member values; etc.
 			///
 			/// \param json JSON structure containing tileoffset json.
 			///

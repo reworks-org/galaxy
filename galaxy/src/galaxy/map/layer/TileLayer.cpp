@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/error/Log.hpp"
-
-#include <nlohmann/json.hpp>
 
 #include "TileLayer.hpp"
 
@@ -16,116 +16,73 @@ namespace galaxy
 {
 	namespace map
 	{
-		TileLayer::TileLayer()
-		{
-			GALAXY_LOG(GALAXY_ERROR, "Cannot instantiate a default constructed TileLayer.");
-		}
-
 		TileLayer::TileLayer(const nlohmann::json& json, const int zlevel)
-		    : Layer {json}, m_compression {""}
+		    : Layer {json, zlevel}, m_compression {""}, m_encoding {"csv"}
 		{
-			m_z_level = zlevel;
-
-			if (json.count("chunks") > 0)
-			{
-				const auto& chunk_array = json.at("chunks");
-				for (auto& chunk : chunk_array)
-				{
-					m_chunks.emplace_back(chunk);
-				}
-			}
-
-			// only present on tilelayers.
 			if (json.count("compression") > 0)
 			{
 				m_compression = json.at("compression");
 			}
 
+			if (json.count("encoding") > 0)
+			{
+				m_encoding = json.at("encoding");
+			}
+
+			if (json.count("chunks") > 0)
+			{
+				const auto& chunk_array = json.at("chunks");
+				for (const auto& chunk : chunk_array)
+				{
+					m_chunks.emplace_back(chunk, m_compression, m_encoding);
+				}
+			}
+
 			if (json.count("data") > 0)
 			{
 				const auto& data_array = json.at("data");
-				if (json.is_array())
+				if (m_encoding == "csv")
 				{
-					std::vector<unsigned int> data_vector;
-					for (const auto& data : data_array)
+					for (const auto& data : json.at("data"))
 					{
-						data_vector.emplace_back(data.get<unsigned int>());
+						m_data.emplace_back(data.get<unsigned int>());
 					}
-
-					m_data.emplace<std::vector<unsigned int>>(data_vector);
 				}
 				else
 				{
-					m_data = data_array.get<std::string>();
-				}
+					std::string data_str = json.at("data");
+					data_str             = algorithm::decode_base64(data_str);
 
-				if (std::holds_alternative<std::string>(m_data))
-				{
 					if (m_compression == "zlib")
 					{
-						// base64 -> zlib.
-						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
-
-						// Validate.
-						if (!stage_one.empty())
-						{
-							// zip -> normal.
-							const std::string stage_two = algorithm::decode_zlib(stage_one);
-
-							// Validate.
-							if (!stage_two.empty())
-							{
-								m_data = stage_two;
-							}
-							else
-							{
-								GALAXY_LOG(GALAXY_ERROR, "zlib decoded string empty.");
-							}
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
-						}
+						data_str = algorithm::decode_zlib(data_str);
 					}
 					else if (m_compression == "gzip")
 					{
-						// base64 -> gzip.
-						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+						data_str = algorithm::decode_gzip(data_str);
+					}
+					else if (m_compression == "zstd")
+					{
+						GALAXY_LOG(GALAXY_FATAL, "Unsupported compression format: zstd.");
+					}
 
-						// Validate.
-						if (!stage_one.empty())
-						{
-							// zip -> normal.
-							const std::string stage_two = algorithm::decode_gzip(stage_one);
-
-							// Validate.
-							if (!stage_two.empty())
-							{
-								m_data = stage_two;
-							}
-							else
-							{
-								GALAXY_LOG(GALAXY_ERROR, "gzip decoded string empty.");
-							}
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
-						}
+					if (data_str.empty())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to parse decompressed data string.");
 					}
 					else
 					{
-						// base64 -> normal.
-						const std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+						std::size_t expected_size = m_width * m_height * 4;
 
-						// Validate.
-						if (!stage_one.empty())
+						std::vector<unsigned char> buffer;
+						buffer.reserve(expected_size);
+						buffer.insert(buffer.end(), data_str.begin(), data_str.end());
+
+						m_data.reserve(m_width * m_height);
+						for (auto i = 0u; i < expected_size - 3u; i += 4u)
 						{
-							m_data = stage_one;
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_ERROR, "base64 decoded string empty.");
+							const unsigned int id = buffer[i] | buffer[i + 1] << 8 | buffer[i + 2] << 16 | buffer[i + 3] << 24;
+							m_data.push_back(id);
 						}
 					}
 				}
@@ -147,9 +104,15 @@ namespace galaxy
 			return m_compression;
 		}
 
-		const std::variant<std::string, std::vector<unsigned int>>& TileLayer::get_data() const noexcept
+		const std::string& TileLayer::get_encoding() const noexcept
+		{
+			return m_encoding;
+		}
+
+		const std::vector<unsigned int>& TileLayer::get_data() const noexcept
 		{
 			return m_data;
 		}
+
 	} // namespace map
 } // namespace galaxy

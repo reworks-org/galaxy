@@ -25,14 +25,24 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Object type enum.
+			///
+			enum class Type : int
+			{
+				ELLIPSE,
+				POINT,
+				POLYGON,
+				POLYLINE,
+				TEXT
+			};
+
+			///
 			/// Constructor.
 			///
 			Object() noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing object.
 			///
@@ -44,27 +54,39 @@ namespace galaxy
 			~Object() noexcept;
 
 			///
-			/// \brief Parse object level json.
-			///
-			/// Can throw exceptions.
+			/// Parse object level json.
 			///
 			/// \param json JSON structure/array containing object.
 			///
 			void parse(const nlohmann::json& json);
 
 			///
-			/// Get ellipse flag.
+			/// Get object type enum.
 			///
-			/// \return True if ellipse shaped.
+			/// \Return Const enum identifier.
 			///
-			[[nodiscard]] const bool is_ellipse() const noexcept;
+			[[nodiscard]] const Type get_type_enum() const noexcept;
 
 			///
-			/// Get gid.
+			/// Get global tile id, if object represents a tile.
 			///
 			/// \return Gid as const int.
 			///
 			[[nodiscard]] const int get_gid() const noexcept;
+
+			///
+			/// Get height of object.
+			///
+			/// \return Height in pixels as double.
+			///
+			[[nodiscard]] const double get_height() const noexcept;
+
+			///
+			/// Get object id.
+			///
+			/// \return Gid as const int.
+			///
+			[[nodiscard]] const int get_id() const noexcept;
 
 			///
 			/// Get name.
@@ -74,18 +96,22 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
-			/// Get point flag.
-			///
-			/// \return True if object is point shaped.
-			///
-			[[nodiscard]] const bool is_point() const noexcept;
-
-			///
 			/// Gets points.
 			///
 			/// \return Points as std::vector array.
 			///
 			[[nodiscard]] const std::vector<Point>& get_points() const noexcept;
+
+			///
+			/// Retrieve property.
+			/// You will need to provide the type when retrieving.
+			///
+			/// \param name Name of the property to retrieve.
+			///
+			/// \return Property cast as type.
+			///
+			template<tiled_property Type>
+			[[nodiscard]] const Type& get_property(std::string_view name);
 
 			///
 			/// Get rotation of object.
@@ -130,13 +156,6 @@ namespace galaxy
 			[[nodiscard]] const double get_width() const noexcept;
 
 			///
-			/// Get height of object.
-			///
-			/// \return Height in pixels as double.
-			///
-			[[nodiscard]] const double get_height() const noexcept;
-
-			///
 			/// Get x pos of object.
 			///
 			/// \return The x coordinate of the object in pixels.
@@ -150,22 +169,11 @@ namespace galaxy
 			///
 			[[nodiscard]] const double get_y() const noexcept;
 
-			///
-			/// Retrieve property.
-			/// You will need to provide the type when retrieving.
-			///
-			/// \param name Name of the property to retrieve.
-			///
-			/// \return Property cast as type.
-			///
-			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
-
 		private:
 			///
-			/// Used to mark an object as an ellipse.
+			/// Object type identifier.
 			///
-			bool m_ellipse;
+			Type m_type_enum;
 
 			///
 			/// Global tile ID, only if object represents a tile.
@@ -188,11 +196,6 @@ namespace galaxy
 			std::string m_name;
 
 			///
-			/// Used to mark an object as a point.
-			///
-			bool m_point;
-
-			///
 			/// Array of Points, in case the object is a polygon/polyline
 			///
 			std::vector<Point> m_points;
@@ -200,7 +203,7 @@ namespace galaxy
 			///
 			/// Map of Properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// Angle in degrees clockwise.
@@ -244,7 +247,7 @@ namespace galaxy
 		};
 
 		template<tiled_property Type>
-		inline const Type Object::get_property(std::string_view name)
+		inline const Type& Object::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

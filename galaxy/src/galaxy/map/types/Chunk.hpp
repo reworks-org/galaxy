@@ -8,8 +8,6 @@
 #ifndef GALAXY_MAP_TYPES_CHUNK_HPP_
 #define GALAXY_MAP_TYPES_CHUNK_HPP_
 
-#include <variant>
-
 #include <nlohmann/json_fwd.hpp>
 
 namespace galaxy
@@ -30,11 +28,11 @@ namespace galaxy
 			///
 			/// Parse constructor.
 			///
-			/// Can throw exceptions.
-			///
 			/// \param json JSON structure containing chunk array from root->layer.
+			/// \param encoding Encoding of string. csv or base64.
+			/// \param compression zlib, gzip or empty.
 			///
-			explicit Chunk(const nlohmann::json& json);
+			explicit Chunk(const nlohmann::json& json, std::string_view encoding, std::string_view compression);
 
 			///
 			/// Destructor.
@@ -42,20 +40,20 @@ namespace galaxy
 			~Chunk() noexcept = default;
 
 			///
-			/// \brief Parses json structure to member values; etc.
-			///
-			/// Can throws exceptions.
+			/// Parses json structure to member values; etc.
 			///
 			/// \param json JSON structure containing chunk array from root->layer.
+			/// \param encoding Encoding of string. csv or base64.
+			/// \param compression zlib, gzip or empty.
 			///
-			void parse(const nlohmann::json& json);
+			void parse(const nlohmann::json& jso, std::string_view encoding, std::string_view compressionn);
 
 			///
-			/// Gets data.
+			/// Gets tile GIDs.
 			///
-			/// \return Const std::variant reference. Either string or array.
+			/// \return Const std::vector reference.
 			///
-			[[nodiscard]] const std::variant<std::string, std::vector<unsigned int>>& get_data() const noexcept;
+			[[nodiscard]] const std::vector<unsigned int>& get_data() const noexcept;
 
 			///
 			/// Get height.
@@ -74,22 +72,22 @@ namespace galaxy
 			///
 			/// Get x coord.
 			///
-			/// \return In tiles as int.
+			/// \return X coordinate in tiles as const integer.
 			///
 			[[nodiscard]] const int get_x() const noexcept;
 
 			///
 			/// Get y coord.
 			///
-			/// \return In tiles as int.
+			/// \return Y coordinate in tiles as const integer.
 			///
 			[[nodiscard]] const int get_y() const noexcept;
 
 		private:
 			///
-			/// Array of unsigned int (GIDs) or base64-encoded data.
+			/// Array of unsigned int (GIDs).
 			///
-			std::variant<std::string, std::vector<unsigned int>> m_data;
+			std::vector<unsigned int> m_data;
 
 			///
 			/// Height in tiles.

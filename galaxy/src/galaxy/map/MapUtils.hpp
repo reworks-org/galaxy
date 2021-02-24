@@ -16,6 +16,16 @@ namespace galaxy
 	namespace map
 	{
 		///
+		/// Concept for tiled property types.
+		///
+		template<typename Type>
+		concept tiled_property = (std::is_same<Type, std::string>::value ||
+					  std::is_same<Type, int>::value ||
+					  std::is_same<Type, float>::value ||
+					  std::is_same<Type, bool>::value ||
+					  std::is_same<Type, graphics::Colour>::value);
+
+		///
 		/// Convert a hex string colour to a graphics colour object.
 		///
 		/// \param hex_colour String of hex colour i.e. AARRGGBB or RRGGBB.
@@ -23,15 +33,6 @@ namespace galaxy
 		/// \return Newly constructed graphics::Colour object.
 		///
 		graphics::Colour parse_hex_colour(std::string_view hex_colour);
-
-		///
-		/// Concept for tiled property types.
-		///
-		template<typename Type>
-		concept tiled_property = (std::is_same<Type, std::string>::value ||
-					  std::is_same<Type, int>::value ||
-					  std::is_same<Type, float>::value ||
-					  std::is_same<Type, bool>::value);
 	} // namespace map
 } // namespace galaxy
 

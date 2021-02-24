@@ -16,23 +16,13 @@ namespace galaxy
 	namespace map
 	{
 		///
-		/// Specialized type of layer.
+		/// Specialized type of layer for objects.
 		///
 		class ObjectLayer final : public Layer
 		{
 		public:
 			///
-			/// \brief Constructor.
-			///
-			/// Throws a runtime exception if called.
-			///
-			ObjectLayer();
-
-			///
-			/// \brief Parse constructor.
-			///
-			/// Does not call ObjectLayer::parse() you must call that afterwards.
-			/// Parses Layer common json.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure containing chunk array from root map.
 			/// \param zlevel Rendering level of this layer.
@@ -57,6 +47,12 @@ namespace galaxy
 			/// \return Std::vector of objects.
 			///
 			[[nodiscard]] const std::vector<Object>& get_objects() const noexcept;
+
+		private:
+			///
+			/// Constructor.
+			///
+			ObjectLayer() = delete;
 
 		private:
 			///

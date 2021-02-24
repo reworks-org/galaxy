@@ -80,28 +80,32 @@ namespace galaxy
 			/// \return Property cast as type.
 			///
 			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
+			[[nodiscard]] const Type& get_property(std::string_view name);
 
 			///
-			/// Get X coordinate where layer content starts.
+			/// \brief Get X coordinate where layer content starts.
+			///
+			/// For infinite maps.
 			///
 			/// \return Const int.
 			///
 			[[nodiscard]] const int get_start_x() const noexcept;
 
 			///
-			/// Get Y coordinate where layer content starts.
+			/// \brief Get Y coordinate where layer content starts.
+			///
+			/// For infinite maps.
 			///
 			/// \return Const int.
 			///
 			[[nodiscard]] const int get_start_y() const noexcept;
 
 			///
-			/// Hex-formatted color (RRGGBB or AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+			/// Get colour object.
 			///
-			/// \return String.
+			/// \return Const reference to graphics colour object.
 			///
-			[[nodiscard]] const std::string& get_tint_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_tint_colour() const noexcept;
 
 			///
 			/// Get type of layer.
@@ -125,20 +129,6 @@ namespace galaxy
 			[[nodiscard]] const int get_width() const noexcept;
 
 			///
-			/// Get X offset.
-			///
-			/// \return Const int. Horizontal layer offset in tiles.
-			///
-			[[nodiscard]] const int get_x() const noexcept;
-
-			///
-			/// Get Y offset.
-			///
-			/// \return Const int. Vertical layer offset in tiles.
-			///
-			[[nodiscard]] const int get_y() const noexcept;
-
-			///
 			/// Get Z level.
 			///
 			/// \return Const int.
@@ -157,8 +147,9 @@ namespace galaxy
 			/// Can throw exceptions.
 			///
 			/// \param json JSON structure containing chunk array from root map.
+			/// \param zlevel Rendering level of this layer.
 			///
-			explicit Layer(const nlohmann::json& json);
+			explicit Layer(const nlohmann::json& json, const int zlevel);
 
 		protected:
 			///
@@ -194,7 +185,7 @@ namespace galaxy
 			///
 			/// Map of Properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// X coordinate where layer content starts (for infinite maps).
@@ -207,9 +198,9 @@ namespace galaxy
 			int m_start_y;
 
 			///
-			/// Hex-formatted color (RRGGBB or AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+			/// Colour object.
 			///
-			std::string m_tint_colour;
+			graphics::Colour m_tint_colour;
 
 			///
 			/// Type of layer in string.
@@ -227,23 +218,13 @@ namespace galaxy
 			int m_width;
 
 			///
-			/// Horizontal layer offset in tiles.
-			///
-			int m_x;
-
-			///
-			/// Vertical layer offset in tiles.
-			///
-			int m_y;
-
-			///
 			/// Z level of layer.
 			///
 			int m_z_level;
 		};
 
 		template<tiled_property Type>
-		inline const Type Layer::get_property(std::string_view name)
+		inline const Type& Layer::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

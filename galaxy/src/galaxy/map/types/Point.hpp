@@ -35,16 +35,14 @@ namespace galaxy
 			explicit Point(const double x, const double y) noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing object.
 			///
 			explicit Point(const nlohmann::json& json);
 
 			///
-			/// Default destructor.
+			/// Destructor.
 			///
 			~Point() noexcept = default;
 

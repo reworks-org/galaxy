@@ -58,7 +58,7 @@ namespace galaxy
 			return m_start_y;
 		}
 
-		const std::string& Layer::get_tint_colour() const noexcept
+		const graphics::Colour& Layer::get_tint_colour() const noexcept
 		{
 			return m_tint_colour;
 		}
@@ -78,28 +78,18 @@ namespace galaxy
 			return m_width;
 		}
 
-		const int Layer::get_x() const noexcept
-		{
-			return m_x;
-		}
-
-		const int Layer::get_y() const noexcept
-		{
-			return m_y;
-		}
-
 		const int Layer::get_z_level() const noexcept
 		{
 			return m_z_level;
 		}
 
 		Layer::Layer() noexcept
-		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}, m_z_level {0}
+		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {255, 255, 255, 255}, m_type {""}, m_visible {true}, m_width {0}, m_z_level {0}
 		{
 		}
 
-		Layer::Layer(const nlohmann::json& json)
-		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}, m_z_level {0}
+		Layer::Layer(const nlohmann::json& json, const int zlevel)
+		    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {255, 255, 255, 255}, m_type {""}, m_visible {true}, m_width {0}, m_z_level {zlevel}
 		{
 			if (json.count("height") > 0)
 			{
@@ -152,7 +142,7 @@ namespace galaxy
 
 			if (json.count("tintcolor") > 0)
 			{
-				m_tint_colour = json.at("tintcolor");
+				m_tint_colour = map::parse_hex_colour(json.at("tintcolor"));
 			}
 
 			if (json.count("type") > 0)
@@ -168,16 +158,6 @@ namespace galaxy
 			if (json.count("width") > 0)
 			{
 				m_width = json.at("width");
-			}
-
-			if (json.count("x") > 0)
-			{
-				m_x = json.at("x");
-			}
-
-			if (json.count("y") > 0)
-			{
-				m_y = json.at("y");
 			}
 		}
 	} // namespace map

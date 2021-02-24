@@ -95,9 +95,16 @@ namespace galaxy
 			///
 			/// Get background colour of map.
 			///
-			/// \return String in format RRGGBB or AARRGGBB.
+			/// \return Const reference to a graphics::Colour object.
 			///
-			[[nodiscard]] const std::string& get_bg_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_bg_colour() const noexcept;
+
+			///
+			/// Get layer compression level.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_compression_level() const noexcept;
 
 			///
 			/// Get number of tile rows.
@@ -173,7 +180,7 @@ namespace galaxy
 			/// \return Property cast as type. const.
 			///
 			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
+			[[nodiscard]] const Type& get_property(std::string_view name);
 
 			///
 			/// \brief Defines order to render tiles in.
@@ -234,6 +241,13 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_type() const noexcept;
 
 			///
+			/// Get JSON format version.
+			///
+			/// \return Const double.
+			///
+			[[nodiscard]] const double get_version() const noexcept;
+
+			///
 			/// Gets the number of tile columns.
 			///
 			/// \return Const int.
@@ -241,18 +255,11 @@ namespace galaxy
 			[[nodiscard]] const int get_width() const noexcept;
 
 			///
-			/// Get layer compression level.
-			///
-			/// \return Const int.
-			///
-			[[nodiscard]] const int get_compression_level() const noexcept;
-
-			///
 			/// Get raw parsed JSON.
 			///
 			/// \return JSON object.
 			///
-			[[nodiscard]] nlohmann::json& get_raw() noexcept;
+			[[nodiscard]] const nlohmann::json& get_raw() const noexcept;
 
 		private:
 			///
@@ -279,9 +286,14 @@ namespace galaxy
 			nlohmann::json m_root;
 
 			///
-			/// Hex-formatted colour (RRGGBB or AARRGGBB) (optional).
+			/// Map background colour.
 			///
-			std::string m_bg_colour;
+			graphics::Colour m_bg_colour;
+
+			///
+			/// The compression level to use for tile layer data.
+			///
+			int m_compression_level;
 
 			///
 			/// Number of tile rows.
@@ -330,9 +342,9 @@ namespace galaxy
 			std::string m_orientation;
 
 			///
-			/// Map of Properties.
+			/// Fast hashmap of properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// Right-down (the default), right-up, left-down or left-up (orthogonal maps only).
@@ -375,18 +387,18 @@ namespace galaxy
 			std::string m_type;
 
 			///
+			/// The JSON format version.
+			///
+			double m_version;
+
+			///
 			/// Number of tile columns.
 			///
 			int m_width;
-
-			///
-			/// The compression level to use for tile layer data.
-			///
-			int m_compression_level;
 		};
 
 		template<tiled_property Type>
-		inline const Type Map::get_property(std::string_view name)
+		inline const Type& Map::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

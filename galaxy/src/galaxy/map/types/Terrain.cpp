@@ -36,11 +36,6 @@ namespace galaxy
 				m_name = json.at("name");
 			}
 
-			if (json.count("tile") > 0)
-			{
-				m_tile = json.at("tile");
-			}
-
 			if (json.count("properties") > 0)
 			{
 				const auto& prop_array = json.at("properties");
@@ -48,6 +43,11 @@ namespace galaxy
 				{
 					m_properties.emplace(prop.at("name"), prop);
 				}
+			}
+
+			if (json.count("tile") > 0)
+			{
+				m_tile = json.at("tile");
 			}
 		}
 

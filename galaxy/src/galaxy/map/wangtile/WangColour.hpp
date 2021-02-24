@@ -47,9 +47,9 @@ namespace galaxy
 			///
 			/// Get colour.
 			///
-			/// \return Hex formatted std::string.
+			/// \return Const reference to graphics::Colour.
 			///
-			[[nodiscard]] const std::string& get_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
 
 			///
 			/// Get the name.
@@ -74,9 +74,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Hex-formatted color (RRGGBB or AARRGGBB).
+			/// Colour.
 			///
-			std::string m_colour;
+			graphics::Colour m_colour;
 
 			///
 			/// Name of the Wang color.

@@ -100,9 +100,12 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 ## Tiled implementation.
 * Can parse up to Tiled 1.4.3 .json maps.
 * Supports Tiled Worlds.
+	* Only supports loading maps.
 * Supports Base64 encoding.
 * Only supports zlib and gzip compression.
+* Only supports topdown (rightdown) rendering.
 * Does not support tiled projects.
+* Does not support external assets.
 
 ## Box2D implementation.
 Has been customized for use in galaxy_engine.

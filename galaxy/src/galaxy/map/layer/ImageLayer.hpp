@@ -15,23 +15,13 @@ namespace galaxy
 	namespace map
 	{
 		///
-		/// Specialized type of layer.
+		/// Specialized type of layer for images.
 		///
 		class ImageLayer final : public Layer
 		{
 		public:
 			///
-			/// \brief Constructor.
-			///
-			/// Throws a runtime exception if called.
-			///
-			ImageLayer();
-
-			///
-			/// \brief Parse constructor.
-			///
-			/// Does not call ImageLayer::parse() you must call that afterwards.
-			/// Parses Layer common json.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure containing chunk array from root map.
 			/// \param zlevel Rendering level of this layer.
@@ -46,9 +36,22 @@ namespace galaxy
 			///
 			/// Get image.
 			///
-			/// \return Image as std::string.
+			/// \return Image file as std::string.
 			///
 			[[nodiscard]] const std::string& get_image() const noexcept;
+
+			///
+			/// Get transparent colour.
+			///
+			/// \return Const reference to graphics::Colour.
+			///
+			[[nodiscard]] const graphics::Colour& get_transparent_colour() const noexcept;
+
+		private:
+			///
+			/// Constructor.
+			///
+			ImageLayer() = delete;
 
 		private:
 			///
@@ -57,9 +60,9 @@ namespace galaxy
 			std::string m_image;
 
 			///
-			/// Hex-formatted color (RRGGBB).
+			/// Transparent colour.
 			///
-			std::string m_transparent_colour;
+			graphics::Colour m_transparent_colour;
 		};
 	} // namespace map
 } // namespace galaxy

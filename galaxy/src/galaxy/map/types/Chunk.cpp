@@ -21,13 +21,13 @@ namespace galaxy
 		{
 		}
 
-		Chunk::Chunk(const nlohmann::json& json)
+		Chunk::Chunk(const nlohmann::json& json, std::string_view encoding, std::string_view compression)
 		    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
 		{
-			parse(json);
+			parse(json, encoding, compression);
 		}
 
-		void Chunk::parse(const nlohmann::json& json)
+		void Chunk::parse(const nlohmann::json& json, std::string_view encoding, std::string_view compression)
 		{
 			if (json.count("height") > 0)
 			{
@@ -51,37 +51,55 @@ namespace galaxy
 
 			if (json.count("data") > 0)
 			{
-				const auto& data_array = json.at("data");
-				if (json.is_array())
+				if (encoding == "csv")
 				{
-					std::vector<unsigned int> data_vector;
-					for (const auto& data : data_array)
+					for (const auto& data : json.at("data"))
 					{
-						data_vector.emplace_back(data.get<unsigned int>());
+						m_data.emplace_back(data.get<unsigned int>());
 					}
-
-					m_data.emplace<std::vector<unsigned int>>(data_vector);
 				}
 				else
 				{
-					// base64 -> normal
-					const std::string stage_one = algorithm::decode_base64(data_array.get<std::string>());
+					std::string data_str = json.at("data");
+					data_str             = algorithm::decode_base64(data_str);
 
-					// validate
-					if (!stage_one.empty())
+					if (compression == "zlib")
 					{
-						// update m_data string
-						m_data = stage_one;
+						data_str = algorithm::decode_zlib(data_str);
+					}
+					else if (compression == "gzip")
+					{
+						data_str = algorithm::decode_gzip(data_str);
+					}
+					else if (compression == "zstd")
+					{
+						GALAXY_LOG(GALAXY_FATAL, "Unsupported compression format: zstd.");
+					}
+
+					if (data_str.empty())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to parse decompressed data string.");
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+						std::size_t expected_size = m_width * m_height * 4;
+
+						std::vector<unsigned char> buffer;
+						buffer.reserve(expected_size);
+						buffer.insert(buffer.end(), data_str.begin(), data_str.end());
+
+						m_data.reserve(m_width * m_height);
+						for (auto i = 0u; i < expected_size - 3u; i += 4u)
+						{
+							const unsigned int id = buffer[i] | buffer[i + 1] << 8 | buffer[i + 2] << 16 | buffer[i + 3] << 24;
+							m_data.push_back(id);
+						}
 					}
 				}
 			}
 		}
 
-		const std::variant<std::string, std::vector<unsigned int>>& Chunk::get_data() const noexcept
+		const std::vector<unsigned int>& Chunk::get_data() const noexcept
 		{
 			return m_data;
 		}

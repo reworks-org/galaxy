@@ -10,6 +10,8 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/graphics/Colour.hpp"
+
 namespace galaxy
 {
 	namespace map
@@ -52,11 +54,11 @@ namespace galaxy
 			[[nodiscard]] const bool is_bold() const noexcept;
 
 			///
-			/// Get colour as hex string.
+			/// Get colour of text.
 			///
-			/// \return String in format RRGGBB or AARRGGBB.
+			/// \return Const reference to graphics::Colour object.
 			///
-			[[nodiscard]] const std::string& get_colour() const noexcept;
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
 
 			///
 			/// Get font family.
@@ -135,9 +137,9 @@ namespace galaxy
 			bool m_bold;
 
 			///
-			/// Hex-formatted color (RRGGBB or AARRGGBB) (default: 000000).
+			/// Colour object.
 			///
-			std::string m_color;
+			graphics::Colour m_color;
 
 			///
 			/// Font family.

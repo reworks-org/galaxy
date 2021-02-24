@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/map/MapUtils.hpp"
+
 #include "WangColour.hpp"
 
 namespace galaxy
@@ -14,12 +16,12 @@ namespace galaxy
 	namespace map
 	{
 		WangColour::WangColour() noexcept
-		    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
+		    : m_colour {255, 255, 255, 255}, m_name {""}, m_probability {0.0}, m_tile {0}
 		{
 		}
 
 		WangColour::WangColour(const nlohmann::json& json)
-		    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
+		    : m_colour {255, 255, 255, 255}, m_name {""}, m_probability {0.0}, m_tile {0}
 		{
 			parse(json);
 		}
@@ -28,7 +30,7 @@ namespace galaxy
 		{
 			if (json.count("color") > 0)
 			{
-				m_colour = json.at("color");
+				m_colour = map::parse_hex_colour(json.at("color"));
 			}
 
 			if (json.count("name") > 0)
@@ -47,7 +49,7 @@ namespace galaxy
 			}
 		}
 
-		const std::string& WangColour::get_colour() const noexcept
+		const graphics::Colour& WangColour::get_colour() const noexcept
 		{
 			return m_colour;
 		}

@@ -29,9 +29,7 @@ namespace galaxy
 			Tile() noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing tile json.
 			///
@@ -43,9 +41,7 @@ namespace galaxy
 			~Tile() noexcept;
 
 			///
-			/// \brief Parses json structure to member values; etc.
-			///
-			/// Can throws exceptions.
+			/// Parses json structure to member values; etc.
 			///
 			/// \param json JSON structure containing tile json.
 			///
@@ -110,7 +106,7 @@ namespace galaxy
 			/// \return Property cast as type.
 			///
 			template<tiled_property Type>
-			[[nodiscard]] const Type get_property(std::string_view name);
+			[[nodiscard]] const Type& get_property(std::string_view name);
 
 			///
 			/// Get index of terrain for each corner of tile.
@@ -165,7 +161,7 @@ namespace galaxy
 			///
 			/// Map of Properties.
 			///
-			robin_hood::unordered_map<std::string, Property> m_properties;
+			robin_hood::unordered_flat_map<std::string, Property> m_properties;
 
 			///
 			/// Index of terrain for each corner of tile (optional).
@@ -179,7 +175,7 @@ namespace galaxy
 		};
 
 		template<tiled_property Type>
-		inline const Type Tile::get_property(std::string_view name)
+		inline const Type& Tile::get_property(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			return m_properties[str].get<Type>();

@@ -26,9 +26,7 @@ namespace galaxy
 			Grid() noexcept;
 
 			///
-			/// \brief Parse constructor.
-			///
-			/// Can throw exceptions.
+			/// Parse constructor.
 			///
 			/// \param json JSON structure/array containing Grid.
 			///
@@ -40,9 +38,7 @@ namespace galaxy
 			~Grid() noexcept = default;
 
 			///
-			/// \brief Parses json structure to member values; etc.
-			///
-			/// Can throws exceptions.
+			/// Parses json structure to member values; etc.
 			///
 			/// \param json JSON structure containing chunk array from root->layer.
 			///

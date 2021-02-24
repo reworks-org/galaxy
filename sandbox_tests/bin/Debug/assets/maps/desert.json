@@ -90,6 +90,8 @@
                  "x":33.3333333333334,
                  "y":582.666666666666
                 }],
+         "offsetx":11,
+         "offsety":12,
          "opacity":1,
          "tintcolor":"#aa0000",
          "type":"objectgroup",
@@ -98,7 +100,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":13,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

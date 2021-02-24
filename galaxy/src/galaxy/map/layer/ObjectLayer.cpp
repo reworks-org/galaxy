@@ -15,16 +15,9 @@ namespace galaxy
 {
 	namespace map
 	{
-		ObjectLayer::ObjectLayer()
-		{
-			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
-		}
-
 		ObjectLayer::ObjectLayer(const nlohmann::json& json, const int zlevel)
-		    : Layer {json}, m_draw_order {""}
+		    : Layer {json, zlevel}, m_draw_order {"topdown"}
 		{
-			m_z_level = zlevel;
-
 			if (json.count("draworder") > 0)
 			{
 				m_draw_order = json.at("draworder");

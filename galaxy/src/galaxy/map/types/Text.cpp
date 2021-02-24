@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/map/MapUtils.hpp"
+
 #include "Text.hpp"
 
 namespace galaxy
@@ -14,12 +16,12 @@ namespace galaxy
 	namespace map
 	{
 		Text::Text() noexcept
-		    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
+		    : m_bold {false}, m_color {255, 255, 255, 255}, m_font_family {"sans-serif"}, m_halign {"left"}, m_italic {false}, m_kerning {true}, m_pixel_size {16}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {"top"}, m_wrap {false}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
+		    : m_bold {false}, m_color {255, 255, 255, 255}, m_font_family {"sans-serif"}, m_halign {"left"}, m_italic {false}, m_kerning {true}, m_pixel_size {16}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {"top"}, m_wrap {false}
 		{
 			parse(json);
 		}
@@ -33,7 +35,7 @@ namespace galaxy
 
 			if (json.at("color") > 0)
 			{
-				m_color = json.at("color");
+				m_color = map::parse_hex_colour(json.at("color"));
 			}
 
 			if (json.at("fontfamily") > 0)
@@ -92,7 +94,7 @@ namespace galaxy
 			return m_bold;
 		}
 
-		const std::string& Text::get_colour() const noexcept
+		const graphics::Colour& Text::get_colour() const noexcept
 		{
 			return m_color;
 		}
