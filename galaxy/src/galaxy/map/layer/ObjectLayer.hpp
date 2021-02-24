@@ -42,6 +42,13 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_compression() const noexcept;
 
 			///
+			/// Get objects colour.
+			///
+			/// \return Const graphics::Colour object.
+			///
+			[[nodiscard]] const graphics::Colour& get_colour() const noexcept;
+
+			///
 			/// Get objects.
 			///
 			/// \return Std::vector of objects.
@@ -59,6 +66,11 @@ namespace galaxy
 			/// Topdown (default) or index.
 			///
 			std::string m_draw_order;
+
+			///
+			/// Colour of objects.
+			///
+			graphics::Colour m_colour;
 
 			///
 			/// Array of objects.

@@ -23,6 +23,11 @@ namespace galaxy
 				m_draw_order = json.at("draworder");
 			}
 
+			if (json.count("color") > 0)
+			{
+				m_colour = map::parse_hex_colour(json.at("color"));
+			}
+
 			if (json.count("objects") > 0)
 			{
 				const auto& object_array = json.at("objects");
@@ -41,6 +46,11 @@ namespace galaxy
 		const std::string& ObjectLayer::get_compression() const noexcept
 		{
 			return m_draw_order;
+		}
+
+		const graphics::Colour& ObjectLayer::get_colour() const noexcept
+		{
+			return m_colour;
 		}
 
 		const std::vector<Object>& ObjectLayer::get_objects() const noexcept
