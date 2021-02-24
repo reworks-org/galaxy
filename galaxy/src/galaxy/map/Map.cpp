@@ -214,7 +214,6 @@ namespace galaxy
 
 				auto* transform = world.create_component<components::Transform>(entity);
 				transform->set_pos(image_layer.get_offset_x(), image_layer.get_offset_y());
-				transform->set_rotation_origin(image_layer.get_width() / 2.0, image_layer.get_height() / 2.0);
 
 				if (!image_layer.get_name().empty())
 				{
