@@ -50,14 +50,6 @@ namespace galaxy
 			glDrawElements(GL_LINES, line->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer::submit_circle(components::Circle* circle, components::Transform* transform, Shader* shader)
-		{
-			circle->bind();
-			shader->set_uniform("u_transform", transform->get_transform());
-
-			glDrawElements(GL_LINE_LOOP, circle->index_count(), GL_UNSIGNED_INT, nullptr);
-		}
-
 		void Renderer::submit_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader)
 		{
 			sprite->bind();
@@ -95,7 +87,15 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, Renderer::m_batch->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer::submit_polygon(components::Polygon* polygon, components::Transform* transform, Shader* shader)
+		void Renderer::submit_lineloop(components::Circle* circle, components::Transform* transform, Shader* shader)
+		{
+			circle->bind();
+			shader->set_uniform("u_transform", transform->get_transform());
+
+			glDrawElements(GL_LINE_LOOP, circle->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		void Renderer::submit_lineloop(components::Polygon* polygon, components::Transform* transform, Shader* shader)
 		{
 			polygon->bind();
 			shader->set_uniform("u_transform", transform->get_transform());
@@ -103,7 +103,7 @@ namespace galaxy
 			glDrawElements(GL_LINE_LOOP, polygon->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer::submit_ellipse(components::Ellipse* ellipse, components::Transform* transform, Shader* shader)
+		void Renderer::submit_lineloop(components::Ellipse* ellipse, components::Transform* transform, Shader* shader)
 		{
 			ellipse->bind();
 			shader->set_uniform("u_transform", transform->get_transform());

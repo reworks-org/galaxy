@@ -81,7 +81,7 @@ namespace galaxy
 						break;
 
 					case graphics::Renderables::CIRCLE:
-						graphics::Renderer::submit_circle(world.get<components::Circle>(data.m_entity), data.m_transform, shader);
+						graphics::Renderer::submit_lineloop(world.get<components::Circle>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::SPRITE:
@@ -93,11 +93,11 @@ namespace galaxy
 						break;
 
 					case graphics::Renderables::POLYGON:
-						graphics::Renderer::submit_polygon(world.get<components::Polygon>(data.m_entity), data.m_transform, shader);
+						graphics::Renderer::submit_lineloop(world.get<components::Polygon>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::ELLIPSE:
-						graphics::Renderer::submit_ellipse(world.get<components::Ellipse>(data.m_entity), data.m_transform, shader);
+						graphics::Renderer::submit_lineloop(world.get<components::Ellipse>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

@@ -53,12 +53,13 @@ namespace galaxy
 
 			static void submit_point(components::Point* point, components::Transform* transform, Shader* shader);
 			static void submit_line(components::Line* line, components::Transform* transform, Shader* shader);
-			static void submit_circle(components::Circle* circle, components::Transform* transform, Shader* shader);
 			static void submit_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader);
 			static void submit_text(components::Text* text, components::Transform* transform, Shader* shader);
 			static void submit_batched_sprite(Camera& camera);
-			static void submit_polygon(components::Polygon* polygon, components::Transform* transform, Shader* shader);
-			static void submit_ellipse(components::Ellipse* ellipse, components::Transform* transform, Shader* shader);
+
+			static void submit_lineloop(components::Circle* circle, components::Transform* transform, Shader* shader);
+			static void submit_lineloop(components::Polygon* polygon, components::Transform* transform, Shader* shader);
+			static void submit_lineloop(components::Ellipse* ellipse, components::Transform* transform, Shader* shader);
 
 			static void draw_batch(graphics::SpriteBatch* sb, Camera& camera);
 			static void draw_sprite_to_texture(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
