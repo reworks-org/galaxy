@@ -77,8 +77,6 @@ namespace galaxy
 				m_config->define<bool>("is-cursor-visible", true);
 				m_config->define<bool>("gl-debug", false);
 				m_config->define<bool>("trilinear-filtering", false);
-				m_config->define<float>("gravity-x", 0.0f);
-				m_config->define<float>("gravity-y", 0.0f);
 				m_config->define<int>("max-batched-quads", 1000);
 				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");

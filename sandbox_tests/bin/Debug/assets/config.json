@@ -7,8 +7,6 @@
     "cursor-image": "cursor.png",
     "fontbook-json": "fontbook.json",
     "gl-debug": true,
-    "gravity-x": 0.0,
-    "gravity-y": 0.0,
     "icon-file": "icon.png",
     "is-cursor-visible": true,
     "line-thickness": 5.0,
