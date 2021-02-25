@@ -19,7 +19,7 @@ namespace galaxy
 	namespace systems
 	{
 		///
-		/// System that handles rendering of entities with a graphics::Sprite, TransformComponent, etc.
+		/// System that handles animating entities.
 		///
 		class AnimationSystem final : public ecs::System
 		{
