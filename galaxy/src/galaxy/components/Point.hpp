@@ -57,7 +57,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Point() noexcept = default;
+			virtual ~Point() noexcept = default;
 
 			///
 			/// Create the point.

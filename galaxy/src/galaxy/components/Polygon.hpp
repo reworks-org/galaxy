@@ -54,7 +54,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Polygon() noexcept = default;
+			virtual ~Polygon() noexcept = default;
 
 			///
 			/// Adds points to the polygon.

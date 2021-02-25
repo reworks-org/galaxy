@@ -56,7 +56,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~ShaderID() noexcept = default;
+			virtual ~ShaderID() noexcept = default;
 
 			///
 			/// Serializes object.

@@ -54,7 +54,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Animated() noexcept;
+			virtual ~Animated() noexcept;
 
 			///
 			/// Add an animation to the object.

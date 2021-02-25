@@ -54,7 +54,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Tag() noexcept = default;
+			virtual ~Tag() noexcept = default;
 
 			///
 			/// Serializes object.

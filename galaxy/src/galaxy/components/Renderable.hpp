@@ -56,7 +56,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Renderable() noexcept = default;
+			virtual ~Renderable() noexcept = default;
 
 			///
 			/// Serializes object.

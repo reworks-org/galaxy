@@ -54,7 +54,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Text() noexcept;
+			virtual ~Text() noexcept;
 
 			///
 			/// Load all data into text to prep for creation.

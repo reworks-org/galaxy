@@ -60,7 +60,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Line() noexcept = default;
+			virtual ~Line() noexcept = default;
 
 			///
 			/// Create the Line.

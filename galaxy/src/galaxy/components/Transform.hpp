@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Transform() noexcept = default;
+			virtual ~Transform() noexcept = default;
 
 			///
 			/// \brief Translate (move) position.

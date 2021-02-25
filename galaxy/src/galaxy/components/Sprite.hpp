@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Sprite() noexcept = default;
+			virtual ~Sprite() noexcept = default;
 
 			///
 			/// Change a sprites width/height before creation to stretch the texture.

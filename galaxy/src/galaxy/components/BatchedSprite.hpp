@@ -56,7 +56,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~BatchedSprite() noexcept;
+			virtual ~BatchedSprite() noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite.
