@@ -92,11 +92,6 @@ namespace galaxy
 			}
 			m_config->save();
 
-			// Threadpool.
-			m_threadpool = std::make_unique<async::ThreadPool<4>>();
-			m_threadpool->start();
-			SL_HANDLE.m_threadpool = m_threadpool.get();
-
 			// Window.
 			// clang-format off
 			core::WindowSettings settings
@@ -227,7 +222,6 @@ namespace galaxy
 			m_layerstack.reset();
 			m_lua.reset();
 			m_window.reset();
-			m_threadpool.reset();
 			m_config.reset();
 			m_vfs.reset();
 		}
@@ -276,7 +270,6 @@ namespace galaxy
 
 			FT_HANDLE.close();
 
-			m_threadpool->end();
 			m_window->destroy();
 
 			return SL_HANDLE.m_restart;

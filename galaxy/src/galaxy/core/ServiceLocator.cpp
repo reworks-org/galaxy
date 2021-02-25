@@ -22,11 +22,6 @@ namespace galaxy
 			return m_config;
 		}
 
-		async::ThreadPool<4>* ServiceLocator::pool() const noexcept
-		{
-			return m_threadpool;
-		}
-
 		core::Window* ServiceLocator::window() const noexcept
 		{
 			return m_window;
@@ -78,7 +73,7 @@ namespace galaxy
 		}
 
 		ServiceLocator::ServiceLocator() noexcept
-		    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_layers {nullptr}, m_dispatcher {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}
+		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_layers {nullptr}, m_dispatcher {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}
 		{
 		}
 	} // namespace core

@@ -14,7 +14,6 @@
 #include <sol/forward.hpp>
 
 #include "galaxy/audio/Context.hpp"
-#include "galaxy/async/ThreadPool.hpp"
 #include "galaxy/core/LayerStack.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
@@ -72,11 +71,6 @@ namespace galaxy
 			/// Instance of a config reader to parse library config.
 			///
 			std::unique_ptr<fs::Config> m_config;
-
-			///
-			/// Threadpool for app.
-			///
-			std::unique_ptr<async::ThreadPool<4>> m_threadpool;
 
 			///
 			/// Main app window.

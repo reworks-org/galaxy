@@ -52,11 +52,13 @@ namespace sb
 		m_world.create_system<systems::RenderSystem>();
 		m_world.create_system<systems::AnimationSystem>();
 
+		// clang-format off
 		m_timer.set_repeating(true);
-		m_timer.launch([]() {
+		m_timer.set([]() {
 			std::cout << "Timer Ping" << std::endl;
-		},
-			       1000);
+		}, 1000);
+		m_timer.start();
+		// clang-format on
 
 		m_theme.m_font_col   = {255, 0, 0, 255};
 		m_theme.m_projection = glm::ortho(0.0f, (float)SL_HANDLE.window()->get_width(), (float)SL_HANDLE.window()->get_height(), 0.0f, -1.0f, 1.0f);
@@ -239,6 +241,7 @@ namespace sb
 
 	void SandboxScene::update(const double dt)
 	{
+		m_timer.update(dt);
 		m_particle_gen.update(dt);
 		m_camera.update(dt);
 		m_world.update(dt);

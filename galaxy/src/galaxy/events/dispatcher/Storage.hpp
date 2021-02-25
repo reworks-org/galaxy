@@ -82,7 +82,7 @@ namespace galaxy
 			if constexpr (is_trigger)
 			{
 				// Exec each in parallel.
-				std::for_each(std::execution::par, funcs.begin(), funcs.end(), [&](auto& func) {
+				std::for_each(/*std::execution::par, */ funcs.begin(), funcs.end(), [&](auto& func) {
 					func(args...);
 				});
 			}

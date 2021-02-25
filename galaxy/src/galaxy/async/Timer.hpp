@@ -8,10 +8,7 @@
 #ifndef GALAXY_ASYNC_TIMER_HPP_
 #define GALAXY_ASYNC_TIMER_HPP_
 
-#include <chrono>
 #include <functional>
-#include <mutex>
-#include <thread>
 
 namespace galaxy
 {
@@ -49,12 +46,22 @@ namespace galaxy
 			/// \param delay Delay until function is called. In milliseconds.
 			///
 			template<typename Lambda>
-			void launch(Lambda&& func, int delay) noexcept;
+			void set(Lambda&& func, const std::uint32_t delay) noexcept;
 
 			///
-			/// \brief Stop timer.
+			/// Call to update timer count.
 			///
-			/// Will not preserve data, launch must be called again.
+			/// \param dt Total time to accumulate every time update() is called.
+			///
+			void update(const double dt);
+
+			///
+			/// Start timer.
+			///
+			void start();
+
+			///
+			/// Stop timer.
 			///
 			void stop();
 
@@ -71,24 +78,24 @@ namespace galaxy
 
 		private:
 			///
-			/// Flag to check if timer stopped already.
-			///
-			bool m_stopped;
-
-			///
 			/// Is function repeating on thread.
 			///
 			bool m_repeat;
 
 			///
-			/// Current delay on timer.
+			/// Is timer stopped.
 			///
-			int m_delay;
+			bool m_stopped;
 
 			///
-			/// Thread to run task on.
+			/// Time passed.
 			///
-			std::jthread m_thread;
+			double m_time_passed;
+
+			///
+			/// Current delay on timer.
+			///
+			std::uint32_t m_delay;
 
 			///
 			/// Callback function.
@@ -97,19 +104,10 @@ namespace galaxy
 		};
 
 		template<typename Lambda>
-		inline void Timer::launch(Lambda&& func, int delay) noexcept
+		inline void Timer::set(Lambda&& func, const std::uint32_t delay) noexcept
 		{
 			m_callback = func;
 			m_delay    = delay;
-			m_thread   = std::jthread([&]() {
-                                do
-                                {
-                                        std::this_thread::sleep_for(std::chrono::milliseconds(m_delay));
-                                        m_callback();
-                                } while (m_repeat);
-                        });
-
-			m_stopped = false;
 		}
 	} // namespace async
 } // namespace galaxy

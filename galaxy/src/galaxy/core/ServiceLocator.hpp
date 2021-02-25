@@ -81,13 +81,6 @@ namespace galaxy
 			[[maybe_unused]] fs::Config* config() const noexcept;
 
 			///
-			/// Get threadpool service.
-			///
-			/// \return Return pointer to threadpool.
-			///
-			[[maybe_unused]] async::ThreadPool<4>* pool() const noexcept;
-
-			///
 			/// Get window service.
 			///
 			/// \return Return pointer to window service.
@@ -192,11 +185,6 @@ namespace galaxy
 			/// Config service.
 			///
 			fs::Config* m_config;
-
-			///
-			/// Threadpool service.
-			///
-			async::ThreadPool<4>* m_threadpool;
 
 			///
 			/// Window service.

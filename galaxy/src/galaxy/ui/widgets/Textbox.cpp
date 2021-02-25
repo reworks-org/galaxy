@@ -43,7 +43,7 @@ namespace galaxy
 			m_text_transform.set_pos(m_bounds.m_x + m_border_width, m_bounds.m_y + m_border_width);
 
 			// clang-format off
-			m_indicator_timer.launch([&]()
+			m_indicator_timer.set([&]()
 			{
 				std::lock_guard<std::mutex> lock {m_mutex};
 				
@@ -59,8 +59,9 @@ namespace galaxy
 				}
 			},
 			800);
-			
-			m_draw_text_timer.launch([&]()
+			m_indicator_timer.start();
+
+			m_draw_text_timer.set([&]()
 			{
 				if (!(m_messages_index >= m_messages.size()))
 				{
@@ -71,6 +72,7 @@ namespace galaxy
 				}
 			},
 			150);
+			m_draw_text_timer.start();
 			// clang-format on
 
 			m_shader = SL_HANDLE.shaderbook()->get("text");
@@ -108,6 +110,8 @@ namespace galaxy
 
 		void Textbox::update(const double dt)
 		{
+			m_draw_text_timer.update(dt);
+			m_indicator_timer.update(dt);
 			if (!(m_messages_index >= m_messages.size()))
 			{
 				if (!(m_char_index >= m_messages[m_messages_index].size()))

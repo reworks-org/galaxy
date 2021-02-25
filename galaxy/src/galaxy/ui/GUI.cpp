@@ -41,7 +41,7 @@ namespace galaxy
 
 		void GUI::update(const double dt)
 		{
-			std::for_each(std::execution::par, m_widgets.begin(), m_widgets.end(), [&](const auto& widget) {
+			std::for_each(/*std::execution::par, */ m_widgets.begin(), m_widgets.end(), [&](const auto& widget) {
 				widget->update(dt);
 			});
 		}

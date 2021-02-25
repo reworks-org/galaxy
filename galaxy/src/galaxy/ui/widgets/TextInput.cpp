@@ -40,16 +40,19 @@ namespace galaxy
 			m_total_chars = (std::floor((m_bounds.m_width - (m_border_width * 2.0f)) / static_cast<float>(SL_HANDLE.fontbook()->get(font)->get_width("X")))) - 1;
 
 			m_cursor.create(m_theme->m_font_col, 0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
-			m_timer.launch([&]() {
+			m_line_shader = SL_HANDLE.shaderbook()->get("line");
+			m_text_shader = SL_HANDLE.shaderbook()->get("text");
+
+			// clang-format off
+			m_timer.set([&]()
+			{
 				if (m_is_focus)
 				{
 					m_draw_cursor = !m_draw_cursor;
 				}
-			},
-				       1000);
-
-			m_line_shader = SL_HANDLE.shaderbook()->get("line");
-			m_text_shader = SL_HANDLE.shaderbook()->get("text");
+			}, 1000);
+			m_timer.start();
+			// clang-format on
 		}
 
 		void TextInput::on_event(const events::MouseMoved& mme) noexcept
@@ -124,6 +127,7 @@ namespace galaxy
 		{
 			if (m_is_focus)
 			{
+				m_timer.update(dt);
 				if (m_text_input != nullptr)
 				{
 					while (m_text_input->length() > m_total_chars)
