@@ -322,9 +322,9 @@ namespace galaxy
 
 		void Map::generate_map_entities(core::World& world)
 		{
-			for (const auto& tile_layer : m_tile_layers)
+			if (!is_infinite())
 			{
-				if (!is_infinite())
+				for (const auto& tile_layer : m_tile_layers)
 				{
 					const auto entity = world.create();
 
@@ -333,10 +333,10 @@ namespace galaxy
 						world.enable(entity);
 					}
 				}
-				else
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Galaxy does not support infinite maps.");
-				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Galaxy does not support infinite maps.");
 			}
 		}
 
