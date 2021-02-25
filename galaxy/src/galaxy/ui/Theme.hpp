@@ -8,7 +8,7 @@
 #ifndef GALAXY_UI_THEME_HPP_
 #define GALAXY_UI_THEME_HPP_
 
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Shader.hpp"
 
@@ -49,14 +49,9 @@ namespace galaxy
 			graphics::Colour m_font_col;
 
 			///
-			/// Projection matrix.
+			/// Camera view for GUI.
 			///
-			glm::mat4 m_projection;
-
-			///
-			/// GUI transform.
-			///
-			components::Transform m_transform;
+			graphics::Camera m_camera;
 
 		private:
 			///

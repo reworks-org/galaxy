@@ -135,8 +135,8 @@ namespace galaxy
 		void Textbox::render()
 		{
 			m_shader->bind();
-			m_shader->set_uniform("u_cameraProj", m_theme->m_projection);
-			m_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
+			m_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			m_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_shader);
 
 			if (m_tooltip)

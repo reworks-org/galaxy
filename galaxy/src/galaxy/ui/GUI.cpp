@@ -52,8 +52,8 @@ namespace galaxy
 			{
 				m_sb.calculate();
 				graphics::Renderer::m_batch_shader->bind();
-				graphics::Renderer::m_batch_shader->set_uniform("u_cameraProj", m_theme->m_projection);
-				graphics::Renderer::m_batch_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
+				graphics::Renderer::m_batch_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+				graphics::Renderer::m_batch_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
 				graphics::Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(m_sb.get_width()));
 				graphics::Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(m_sb.get_height()));
 

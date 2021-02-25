@@ -73,9 +73,6 @@ namespace galaxy
 			m_sprite.stretch(m_text.get_width() + m_border * 2, m_text.get_height() + m_border * 2);
 			m_sprite.create();
 
-			m_sprite_transform.set_rotation_origin(m_sprite.get_width() * 0.5f, m_sprite.get_height() * 0.5f);
-			m_text_transform.set_rotation_origin(m_text.get_width() * 0.5f, m_text.get_height() * 0.5f);
-
 			m_sprite_shader = SL_HANDLE.shaderbook()->get("sprite");
 			m_text_shader   = SL_HANDLE.shaderbook()->get("text");
 		}
@@ -83,13 +80,13 @@ namespace galaxy
 		void Tooltip::render()
 		{
 			m_sprite_shader->bind();
-			m_sprite_shader->set_uniform("u_cameraProj", m_theme->m_projection);
-			m_sprite_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
+			m_sprite_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			m_sprite_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
 			graphics::Renderer::submit_sprite(&m_sprite, &m_sprite_transform, m_sprite_shader);
 
 			m_text_shader->bind();
-			m_text_shader->set_uniform("u_cameraProj", m_theme->m_projection);
-			m_text_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
+			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
 		}
 
