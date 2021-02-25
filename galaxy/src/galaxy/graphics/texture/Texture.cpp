@@ -65,8 +65,18 @@ namespace galaxy
 
 					// Default filtering.
 					set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-					set_minify_filter<NearestTexFilter>();
-					set_magnify_filter<NearestTexFilter>();
+
+					if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
+					{
+						set_minify_filter<TrilinearMipmapFilter>();
+						set_magnify_filter<LinearTexFilter>();
+					}
+					else
+					{
+						set_minify_filter<NearestMipmapFilter>();
+						set_magnify_filter<NearestTexFilter>();
+					}
+
 					clamp_to_border();
 				}
 				else
@@ -96,8 +106,16 @@ namespace galaxy
 
 				// Default filtering.
 				set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-				set_minify_filter<NearestTexFilter>();
-				set_magnify_filter<NearestTexFilter>();
+				if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
+				{
+					set_minify_filter<TrilinearMipmapFilter>();
+					set_magnify_filter<LinearTexFilter>();
+				}
+				else
+				{
+					set_minify_filter<NearestMipmapFilter>();
+					set_magnify_filter<NearestTexFilter>();
+				}
 				clamp_to_border();
 			}
 			else
@@ -134,8 +152,16 @@ namespace galaxy
 
 			// Default filtering.
 			set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-			set_minify_filter<NearestTexFilter>();
-			set_magnify_filter<NearestTexFilter>();
+			if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
+			{
+				set_minify_filter<TrilinearMipmapFilter>();
+				set_magnify_filter<LinearTexFilter>();
+			}
+			else
+			{
+				set_minify_filter<NearestMipmapFilter>();
+				set_magnify_filter<NearestTexFilter>();
+			}
 			clamp_to_border();
 
 			glBindTexture(GL_TEXTURE_2D, 0);

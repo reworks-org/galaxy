@@ -86,13 +86,13 @@ namespace galaxy
 			///
 			/// Set filter when texture is downscaled in OpenGL.
 			///
-			template<tex_filter Filter>
+			template<min_filter Filter>
 			void set_minify_filter() noexcept;
 
 			///
 			/// Set filter when texture would be scaled up in OpenGL.
 			///
-			template<tex_filter Filter>
+			template<mag_filter Filter>
 			void set_magnify_filter() noexcept;
 
 			///
@@ -161,7 +161,7 @@ namespace galaxy
 			BaseTexture& operator=(const BaseTexture&) = delete;
 		};
 
-		template<tex_filter Filter>
+		template<min_filter Filter>
 		inline void BaseTexture::set_minify_filter() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
@@ -169,7 +169,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		template<tex_filter Filter>
+		template<mag_filter Filter>
 		inline void BaseTexture::set_magnify_filter() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);

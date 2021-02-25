@@ -22,5 +22,6 @@
     "vsync": false,
     "window-height": 720,
     "window-name": "Supercluster Editor",
-    "window-width": 1280
+    "window-width": 1280,
+    "trilinear-filtering": false
 }

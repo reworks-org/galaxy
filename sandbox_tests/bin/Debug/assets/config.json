@@ -19,6 +19,7 @@
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
     "textureatlas-json": "textureatlas.json",
+    "trilinear-filtering": false,
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox Tests",
