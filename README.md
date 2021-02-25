@@ -65,9 +65,26 @@ make doxygen
 - Application Management.
 
 
+## Tiled implementation.
+* Can parse up to Tiled 1.4.3 .json maps.
+* Supports Tiled Worlds.
+	* Only supports loading maps.
+* Supports Base64 encoding.
+* Only supports zlib and gzip compression.
+* Only supports topdown (rightdown) rendering.
+* Does not support tiled projects.
+* Does not support external assets.
+* Does not support Polyline and Text objects.
+
+## Box2D implementation.
+Has been customized for use in galaxy_engine.
+Includes heavy code modifications.
+
+
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
 and pull requests for contributions. (Don't forget to add yourself to the credits section below.)
+
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
@@ -97,20 +114,6 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
 * https://github.com/ocornut/imgui/issues/707
 
-## Tiled implementation.
-* Can parse up to Tiled 1.4.3 .json maps.
-* Supports Tiled Worlds.
-	* Only supports loading maps.
-* Supports Base64 encoding.
-* Only supports zlib and gzip compression.
-* Only supports topdown (rightdown) rendering.
-* Does not support tiled projects.
-* Does not support external assets.
-* Does not support Polyline and Text objects.
-
-## Box2D implementation.
-Has been customized for use in galaxy_engine.
-Includes heavy code modifications.
 
 ### Box2D License.
 MIT License

@@ -15,9 +15,11 @@ SUPERCLUSTER:
 - open fullscreen (but windowed)
 
 TODO:
+- Fix CA and Compilation Warnings.
+- Docs error fix.
 - Dependencies should only abstract away system specific implementations.
-- Docs error fix after this.
 - Loading state support?
+	- Initial loading screen after window service is created, before other services.
 - AI
 - Set lua function as onevent. that way function is "serialized".
 - fix double fullstop in logging.
@@ -25,7 +27,18 @@ TODO:
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
 - box2d support polygon components
+- FPS and UPS counter.
+- box2d float point seriualize/desierialize error.
+- fix editor encapsulation
 
+IDE:
+- MSVC CA
+- CLANG TIDY
+- CLANG FORMAT
+- INCLUDE MANAGER
 
-Run Include-What-You-Use, https://www.fluentcpp.com/2021/01/01/include-what-you-use/
-Fix CA and Compilation Warnings.
+fix audio encapsulation / scene integration
+	- since its threaded
+
+- better physics integration
+	- use this for mousepicking?
