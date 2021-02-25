@@ -181,15 +181,6 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Camera::recalculate() noexcept
-		{
-			if (m_dirty)
-			{
-				m_model = m_translation * m_scaling;
-				m_dirty = false;
-			}
-		}
-
 		void Camera::set_pos(const float x, const float y) noexcept
 		{
 			m_translation = glm::translate(m_identity_matrix, {x, y, 0.0f});
@@ -235,7 +226,7 @@ namespace galaxy
 			return m_dirty;
 		}
 
-		const glm::mat4& Camera::get_transform() noexcept
+		const glm::mat4& Camera::get_view() noexcept
 		{
 			recalculate();
 			return m_model;
@@ -274,6 +265,15 @@ namespace galaxy
 			set_speed(json.at("speed"));
 
 			recalculate();
+		}
+
+		void Camera::recalculate() noexcept
+		{
+			if (m_dirty)
+			{
+				m_model = m_translation * m_scaling;
+				m_dirty = false;
+			}
 		}
 	} // namespace graphics
 } // namespace galaxy

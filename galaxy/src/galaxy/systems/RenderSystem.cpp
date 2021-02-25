@@ -68,7 +68,7 @@ namespace galaxy
 				auto* shader = SL_HANDLE.shaderbook()->get(world.get<components::ShaderID>(data.m_entity)->m_shader_id);
 				shader->bind();
 				shader->set_uniform("u_cameraProj", camera.get_proj());
-				shader->set_uniform("u_cameraView", camera.get_transform());
+				shader->set_uniform("u_cameraView", camera.get_view());
 
 				switch (data.m_type)
 				{

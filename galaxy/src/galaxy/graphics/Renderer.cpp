@@ -82,7 +82,7 @@ namespace galaxy
 		{
 			Renderer::m_batch_shader->bind();
 			Renderer::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
-			Renderer::m_batch_shader->set_uniform("u_cameraView", camera.get_transform());
+			Renderer::m_batch_shader->set_uniform("u_cameraView", camera.get_view());
 			Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(Renderer::m_batch->get_width()));
 			Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(Renderer::m_batch->get_height()));
 
@@ -118,7 +118,7 @@ namespace galaxy
 		{
 			Renderer::m_batch_shader->bind();
 			Renderer::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
-			Renderer::m_batch_shader->set_uniform("u_cameraView", camera.get_transform());
+			Renderer::m_batch_shader->set_uniform("u_cameraView", camera.get_view());
 			Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(sb->get_width()));
 			Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(sb->get_height()));
 
@@ -152,7 +152,7 @@ namespace galaxy
 
 				shader->bind();
 				shader->set_uniform("u_cameraProj", camera.get_proj());
-				shader->set_uniform("u_cameraView", camera.get_transform());
+				shader->set_uniform("u_cameraView", camera.get_view());
 				shader->set_uniform("u_width", static_cast<float>(current->get_width()));
 				shader->set_uniform("u_height", static_cast<float>(current->get_height()));
 

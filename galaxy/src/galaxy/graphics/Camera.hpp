@@ -139,11 +139,6 @@ namespace galaxy
 			void zoom(float scale) noexcept;
 
 			///
-			/// Recalculates the model view matrix.
-			///
-			void recalculate() noexcept;
-
-			///
 			/// Sets position without moving the object.
 			///
 			/// \param x X position to set object to.
@@ -205,7 +200,7 @@ namespace galaxy
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_transform() noexcept;
+			[[nodiscard]] const glm::mat4& get_view() noexcept;
 
 			///
 			/// Get stored scale cache.
@@ -241,6 +236,12 @@ namespace galaxy
 			/// \param json Json object to retrieve data from.
 			///
 			void deserialize(const nlohmann::json& json) override;
+
+		private:
+			///
+			/// Recalculates the model view matrix.
+			///
+			void recalculate() noexcept;
 
 		private:
 			///

@@ -156,14 +156,14 @@ namespace galaxy
 		{
 			m_text_shader->bind();
 			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
+			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
 
 			if (m_draw_cursor && m_is_focus)
 			{
 				m_line_shader->bind();
 				m_line_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-				m_line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
+				m_line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
 				graphics::Renderer::submit_line(&m_cursor, &m_cursor_transform, m_line_shader);
 			}
 

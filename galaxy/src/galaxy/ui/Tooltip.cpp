@@ -81,12 +81,12 @@ namespace galaxy
 		{
 			m_sprite_shader->bind();
 			m_sprite_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_sprite_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
+			m_sprite_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
 			graphics::Renderer::submit_sprite(&m_sprite, &m_sprite_transform, m_sprite_shader);
 
 			m_text_shader->bind();
 			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_transform());
+			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
 		}
 
