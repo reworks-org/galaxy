@@ -40,7 +40,7 @@ namespace sc
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigDockingAlwaysTabBar = true;
 		io.ConfigDockingWithShift    = true;
-		io.IniFilename = "sclayout.ini";
+		io.IniFilename = "assets/sclayout.ini";
 
 		ImFontConfig font_config = {};
 		font_config.FontDataOwnedByAtlas = false;
