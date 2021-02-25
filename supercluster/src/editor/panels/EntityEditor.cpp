@@ -884,17 +884,17 @@ namespace sc
 						if (ImGui::Button("Nearest"))
 						{
 							gl_operations.push_back([sprite]() -> void {
-								sprite->set_minify_filter<graphics::NearestTexFilter>();
+								sprite->set_minify_filter<graphics::NearestMipmapFilter>();
 								sprite->set_magnify_filter<graphics::NearestTexFilter>();
 							});
 						}
 
 						ImGui::SameLine();
 
-						if (ImGui::Button("Linear"))
+						if (ImGui::Button("Trilinear"))
 						{
 							gl_operations.push_back([sprite]() -> void {
-								sprite->set_minify_filter<graphics::LinearTexFilter>();
+								sprite->set_minify_filter<graphics::TrilinearMipmapFilter>();
 								sprite->set_magnify_filter<graphics::LinearTexFilter>();
 							});
 						}
