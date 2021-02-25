@@ -76,10 +76,6 @@ make doxygen
 * Does not support external assets.
 * Does not support Polyline and Text objects.
 
-## Box2D implementation.
-Has been customized for use in galaxy_engine.
-Includes heavy code modifications.
-
 
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
@@ -111,29 +107,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
 * https://github.com/zemasoft/clangformat-cmake
-* https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
 * https://github.com/ocornut/imgui/issues/707
-
-
-### Box2D License.
-MIT License
-
-Copyright (c) 2019 Erin Catto
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
