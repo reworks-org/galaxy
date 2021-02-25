@@ -644,7 +644,7 @@ namespace galaxy
 			{
 				effect->bind();
 				effect->set_uniform("u_projection", m_framebuffer->get_proj());
-				effect->set_uniform("u_transform", m_fb_transform.get_transform());
+				effect->set_uniform("u_transform", m_fb_transform.get_transform(-1.0f, -1.0f));
 				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
 				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
 				effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());

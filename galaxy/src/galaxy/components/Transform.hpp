@@ -83,14 +83,6 @@ namespace galaxy
 			void set_pos(const float x, const float y) noexcept;
 
 			///
-			/// Set the rotation point.
-			///
-			/// \param x X position to set origin to.
-			/// \param y Y position to set origin to.
-			///
-			void set_rotation_origin(const float x, const float y) noexcept;
-
-			///
 			/// Get flag indicating if transform needs to be applied before rendering.
 			///
 			/// \return Const boolean.
@@ -100,9 +92,12 @@ namespace galaxy
 			///
 			/// Retrieve internal transformation matrix.
 			///
+			/// \param half_width Half the width to center the origin point for transforms. hw < 0 makes no changes.
+			/// \param half_height Half the height to center the origin point for transforms. hh < 0 makes no changes.
+			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_transform();
+			[[nodiscard]] const glm::mat4& get_transform(const float half_width, const float half_height);
 
 			///
 			/// Get stored rotation cache.
@@ -117,6 +112,13 @@ namespace galaxy
 			/// \return Const glm::vec2.
 			///
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
+
+			///
+			/// Get the transform origin (half width, half height).
+			///
+			/// \return Const reference to a glm::vec3 that contains half width, half height. Ignore Z value.
+			///
+			[[nodiscard]] const glm::vec3& get_origin() const noexcept;
 
 			///
 			/// Serializes object.
@@ -139,7 +141,7 @@ namespace galaxy
 			bool m_dirty;
 
 			///
-			/// Rotation origin point.
+			/// Transform origin point.
 			///
 			glm::vec3 m_origin;
 

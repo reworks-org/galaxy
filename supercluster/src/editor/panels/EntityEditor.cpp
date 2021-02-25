@@ -14,7 +14,7 @@
 #include <galaxy/components/Ellipse.hpp>
 #include <galaxy/components/Line.hpp>
 #include <galaxy/components/OnEvent.hpp>
-#include <galaxy/components/Physics.hpp>
+#include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Point.hpp>
 #include <galaxy/components/Polygon.hpp>
 #include <galaxy/components/Renderable.hpp>
@@ -370,9 +370,9 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchedsprite, circle, ellipse, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform]
+			auto [animated, batchedsprite, circle, ellipse, line, rigidbody, point, polygon, renderable, shaderid, sprite, tag, text, transform]
 			= m_cur_scene->world().get_multi<components::Animated, components::BatchedSprite, components::Circle, components::Ellipse,
-			components::Line, components::Physics, components::Point, components::Polygon, components::Renderable, components::ShaderID, 
+			components::Line, components::RigidBody, components::Point, components::Polygon, components::Renderable, components::ShaderID, 
 			components::Sprite, components::Tag, components::Text, components::Transform>(entity);
 			// clang-format on
 
@@ -630,66 +630,68 @@ namespace sc
 					}
 				}
 
-				if (physics)
+				if (rigidbody)
 				{
-					if (ImGui::BeginTabItem("Physics"))
+					if (ImGui::BeginTabItem("Rigid Body"))
 					{
-						if (ImGui::Button("Create from JSON"))
-						{
-							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.json");
-							if (file == std::nullopt)
+						/*
+							if (ImGui::Button("Create from JSON"))
 							{
-								GALAXY_LOG(GALAXY_ERROR, "Failed to find a file to open for physics component.");
-							}
-							else
-							{
-								physics->create_from_json(file.value());
-							}
-						}
-
-						if (physics->body())
-						{
-							static bool enable_body = physics->body()->IsEnabled();
-							if (ImGui::Checkbox("Enable", &enable_body))
-							{
-								physics->body()->SetEnabled(enable_body);
-							}
-
-							static bool fixed_rotation = physics->body()->IsFixedRotation();
-							if (ImGui::Checkbox("Fixed Rotation", &fixed_rotation))
-							{
-								physics->body()->SetFixedRotation(fixed_rotation);
-							}
-
-							static bool is_bullet = physics->body()->IsBullet();
-							if (ImGui::Checkbox("Is Bullet", &is_bullet))
-							{
-								physics->body()->SetBullet(is_bullet);
-							}
-
-							static const constexpr auto s_types = magic_enum::enum_names<b2BodyType>();
-
-							std::string s_selected = static_cast<std::string>(magic_enum::enum_name(physics->body()->GetType()));
-							if (ImGui::BeginCombo("Type", s_selected.c_str()))
-							{
-								for (const auto& name : s_types)
+								const auto file = SL_HANDLE.vfs()->open_with_dialog("*.json");
+								if (file == std::nullopt)
 								{
-									const bool selected = (s_selected == name);
-									if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
-									{
-										s_selected = name;
-										physics->body()->SetType(magic_enum::enum_cast<b2BodyType>(s_selected).value());
-									}
+									GALAXY_LOG(GALAXY_ERROR, "Failed to find a file to open for rigidbody component.");
+								}
+								else
+								{
+									rigidbody->create_from_json(file.value());
+								}
+							}
 
-									if (selected)
-									{
-										ImGui::SetItemDefaultFocus();
-									}
+							if (rigidbody->body())
+							{
+								static bool enable_body = rigidbody->body()->IsEnabled();
+								if (ImGui::Checkbox("Enable", &enable_body))
+								{
+									rigidbody->body()->SetEnabled(enable_body);
 								}
 
-								ImGui::EndCombo();
+								static bool fixed_rotation = rigidbody->body()->IsFixedRotation();
+								if (ImGui::Checkbox("Fixed Rotation", &fixed_rotation))
+								{
+									rigidbody->body()->SetFixedRotation(fixed_rotation);
+								}
+
+								static bool is_bullet = rigidbody->body()->IsBullet();
+								if (ImGui::Checkbox("Is Bullet", &is_bullet))
+								{
+									rigidbody->body()->SetBullet(is_bullet);
+								}
+
+								static const constexpr auto s_types = magic_enum::enum_names<b2BodyType>();
+
+								std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->body()->GetType()));
+								if (ImGui::BeginCombo("Type", s_selected.c_str()))
+								{
+									for (const auto& name : s_types)
+									{
+										const bool selected = (s_selected == name);
+										if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+										{
+											s_selected = name;
+											rigidbody->body()->SetType(magic_enum::enum_cast<b2BodyType>(s_selected).value());
+										}
+
+										if (selected)
+										{
+											ImGui::SetItemDefaultFocus();
+										}
+									}
+
+									ImGui::EndCombo();
+								}
 							}
-						}
+						*/
 
 						ImGui::EndTabItem();
 					}
@@ -956,12 +958,6 @@ namespace sc
 						if (ImGui::SliderAngle("Rotate", &rotation, 0.0f, 360.0f))
 						{
 							transform->rotate(rotation);
-						}
-
-						static float origin[2] = {0.0f, 0.0f};
-						if (ImGui::InputFloat2("Rotation Origin", origin, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							transform->set_rotation_origin(origin[0], origin[1]);
 						}
 
 						ImGui::EndTabItem();

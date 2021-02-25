@@ -18,7 +18,7 @@
 #include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/OnEvent.hpp"
-#include "galaxy/components/Physics.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Renderable.hpp"
@@ -55,8 +55,6 @@
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
 #include "galaxy/map/World.hpp"
-
-#include "galaxy/physics/Box2DIntegration.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -189,9 +187,9 @@ galaxy::components::Animated* add_animated(galaxy::core::World& world, const gal
 	return world.create_component<galaxy::components::Animated>(entity);
 }
 
-galaxy::components::Physics* add_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+galaxy::components::RigidBody* add_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
-	return world.create_component<galaxy::components::Physics>(entity);
+	return world.create_component<galaxy::components::RigidBody>(entity);
 }
 
 galaxy::components::Tag* add_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
@@ -256,9 +254,9 @@ galaxy::components::Animated* get_animated(galaxy::core::World& world, const gal
 	return world.get<galaxy::components::Animated>(entity);
 }
 
-galaxy::components::Physics* get_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+galaxy::components::RigidBody* get_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
-	return world.get<galaxy::components::Physics>(entity);
+	return world.get<galaxy::components::RigidBody>(entity);
 }
 
 galaxy::components::Tag* get_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
@@ -452,7 +450,6 @@ namespace galaxy
 			world_type["enable"]           = &core::World::enable;
 			world_type["disable"]          = &core::World::disable;
 			world_type["clear"]            = &core::World::clear;
-			world_type["set_gravity"]      = sol::resolve<void(const float, const float)>(&core::World::set_gravity);
 
 			lua->set_function("add_shaderid_to_entity", &add_shaderid);
 			lua->set_function("add_transform_to_entity", &add_transform);
@@ -506,14 +503,14 @@ namespace galaxy
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
 
-			auto transform_type                   = lua->new_usertype<components::Transform>("gTransform", sol::constructors<components::Transform()>());
-			transform_type["get_pos"]             = &components::Transform::get_pos;
-			transform_type["get_rotation"]        = &components::Transform::get_rotation;
-			transform_type["is_dirty"]            = &components::Transform::is_dirty;
-			transform_type["move"]                = &components::Transform::move;
-			transform_type["rotate"]              = &components::Transform::rotate;
-			transform_type["set_pos"]             = &components::Transform::set_pos;
-			transform_type["set_rotation_origin"] = &components::Transform::set_rotation_origin;
+			auto transform_type            = lua->new_usertype<components::Transform>("gTransform", sol::constructors<components::Transform()>());
+			transform_type["get_pos"]      = &components::Transform::get_pos;
+			transform_type["get_rotation"] = &components::Transform::get_rotation;
+			transform_type["is_dirty"]     = &components::Transform::is_dirty;
+			transform_type["move"]         = &components::Transform::move;
+			transform_type["rotate"]       = &components::Transform::rotate;
+			transform_type["set_pos"]      = &components::Transform::set_pos;
+			transform_type["get_origin"]   = &components::Transform::get_origin;
 
 			// clang-format off
 			lua->new_enum<graphics::Renderables>("gRenderables",
@@ -624,9 +621,7 @@ namespace galaxy
 			animated_type["stop"]          = &components::Animated::stop;
 			animated_type["is_paused"]     = &components::Animated::is_paused;
 
-			auto physics_type                = lua->new_usertype<components::Physics>("gPhysics", sol::constructors<components::Physics()>());
-			physics_type["create_from_json"] = &components::Physics::create_from_json;
-			physics_type["body"]             = &components::Physics::body;
+			auto physics_type = lua->new_usertype<components::RigidBody>("gRigidBody", sol::constructors<components::RigidBody()>());
 
 			auto on_key_char_type        = lua->new_usertype<components::OnEvent<events::KeyChar>>("gOnKeyChar", sol::constructors<components::OnEvent<events::KeyChar>()>());
 			on_key_char_type["on_event"] = &components::OnEvent<events::KeyChar>::m_on_event;
@@ -848,13 +843,8 @@ namespace galaxy
 			window_resized_type["height"] = &events::WindowResized::m_height;
 			window_resized_type["width"]  = &events::WindowResized::m_width;
 
-			auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(b2Body*, b2Body*)>());
-			collision_type["a"] = &events::Collision::m_a;
-			collision_type["b"] = &events::Collision::m_b;
-
-			auto finish_collision_type = lua->new_usertype<events::FinishCollision>("gFinishCollision", sol::constructors<events::FinishCollision(), events::FinishCollision(b2Body*, b2Body*)>());
-			finish_collision_type["a"] = &events::FinishCollision::m_a;
-			finish_collision_type["b"] = &events::FinishCollision::m_b;
+			//auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(b2Body*, b2Body*)>());
+			//auto finish_collision_type = lua->new_usertype<events::FinishCollision>("gFinishCollision", sol::constructors<events::FinishCollision(), events::FinishCollision(b2Body*, b2Body*)>());
 
 			auto dispatcher_type                      = lua->new_usertype<events::Dispatcher>("gDispatcher", sol::constructors<events::Dispatcher()>());
 			dispatcher_type["trigger_keychar"]        = &events::Dispatcher::trigger<events::KeyChar, const input::Keys, const int>;
@@ -1077,44 +1067,6 @@ namespace galaxy
 		void register_physics()
 		{
 			auto lua = SL_HANDLE.lua();
-
-			lua->set("GALAXY_PHYSICS_SCALE", physics::SCALE);
-			lua->set("GALAXY_FROM_PIXELS_TO_METERS", physics::FROM_PIXELS_TO_METERS);
-			lua->set("GALAXY_FROM_METERS_TO_PIXELS", physics::FROM_METERS_TO_PIXELS);
-
-			auto b2vec2_type             = lua->new_usertype<b2Vec2>("b2Vec2", sol::constructors<b2Vec2(), b2Vec2(float, float)>());
-			b2vec2_type["Set"]           = &b2Vec2::Set;
-			b2vec2_type["SetZero"]       = &b2Vec2::SetZero;
-			b2vec2_type["Length"]        = &b2Vec2::Length;
-			b2vec2_type["Normalize"]     = &b2Vec2::Normalize;
-			b2vec2_type["LengthSquared"] = &b2Vec2::LengthSquared;
-			b2vec2_type["Skew"]          = &b2Vec2::Skew;
-			b2vec2_type["x"]             = &b2Vec2::x;
-			b2vec2_type["y"]             = &b2Vec2::y;
-
-			auto b2_body_type                   = lua->new_usertype<b2Body>("b2Body", sol::no_constructor);
-			b2_body_type["ApplyAngularImpulse"] = &b2Body::ApplyAngularImpulse;
-			b2_body_type["ApplyForce"]          = &b2Body::ApplyForce;
-			b2_body_type["ApplyLinearImpulse"]  = &b2Body::ApplyLinearImpulse;
-			b2_body_type["ApplyTorque"]         = &b2Body::ApplyTorque;
-			b2_body_type["IsAwake"]             = &b2Body::IsAwake;
-			b2_body_type["IsBullet"]            = &b2Body::IsBullet;
-			b2_body_type["IsEnabled"]           = &b2Body::IsEnabled;
-			b2_body_type["IsFixedRotation"]     = &b2Body::IsFixedRotation;
-			b2_body_type["SetAngularDamping"]   = &b2Body::SetAngularDamping;
-			b2_body_type["SetAngularVelocity"]  = &b2Body::SetAngularVelocity;
-			b2_body_type["SetAwake"]            = &b2Body::SetAwake;
-			b2_body_type["SetBullet"]           = &b2Body::SetBullet;
-			b2_body_type["SetEnabled"]          = &b2Body::SetEnabled;
-			b2_body_type["SetFixedRotation"]    = &b2Body::SetFixedRotation;
-			b2_body_type["SetLinearDamping"]    = &b2Body::SetLinearDamping;
-			b2_body_type["SetLinearVelocity"]   = &b2Body::SetLinearVelocity;
-			b2_body_type["SetSleepingAllowed"]  = &b2Body::SetSleepingAllowed;
-			b2_body_type["GetAngle"]            = &b2Body::GetAngle;
-			b2_body_type["GetInertia"]          = &b2Body::GetInertia;
-			b2_body_type["GetLinearVelocity"]   = &b2Body::GetLinearVelocity;
-			b2_body_type["GetMass"]             = &b2Body::GetMass;
-			b2_body_type["GetPosition"]         = &b2Body::GetPosition;
 		}
 
 		void register_res()

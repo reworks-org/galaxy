@@ -37,7 +37,7 @@ namespace galaxy
 		{
 			point->bind();
 			shader->set_uniform("u_point_size", point->get_size());
-			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_transform", transform->get_transform(-1.0f, -1.0f));
 
 			glDrawElements(GL_POINTS, point->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -45,7 +45,7 @@ namespace galaxy
 		void Renderer::submit_line(components::Line* line, components::Transform* transform, Shader* shader)
 		{
 			line->bind();
-			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_transform", transform->get_transform(-1.0f, -1.0f));
 
 			glDrawElements(GL_LINES, line->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -54,10 +54,13 @@ namespace galaxy
 		{
 			sprite->bind();
 
-			shader->set_uniform("u_transform", transform->get_transform());
+			const auto width  = static_cast<float>(sprite->get_width());
+			const auto height = static_cast<float>(sprite->get_height());
+
+			shader->set_uniform("u_transform", transform->get_transform(width / 2.0f, height / 2.0f));
 			shader->set_uniform("u_opacity", sprite->get_opacity());
-			shader->set_uniform("u_width", static_cast<float>(sprite->get_width()));
-			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
+			shader->set_uniform("u_width", width);
+			shader->set_uniform("u_height", height);
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -90,7 +93,7 @@ namespace galaxy
 		void Renderer::submit_lineloop(components::Circle* circle, components::Transform* transform, Shader* shader)
 		{
 			circle->bind();
-			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_transform", transform->get_transform(-1.0f, -1.0f));
 
 			glDrawElements(GL_LINE_LOOP, circle->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -98,7 +101,7 @@ namespace galaxy
 		void Renderer::submit_lineloop(components::Polygon* polygon, components::Transform* transform, Shader* shader)
 		{
 			polygon->bind();
-			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_transform", transform->get_transform(-1.0f, -1.0f));
 
 			glDrawElements(GL_LINE_LOOP, polygon->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -106,7 +109,7 @@ namespace galaxy
 		void Renderer::submit_lineloop(components::Ellipse* ellipse, components::Transform* transform, Shader* shader)
 		{
 			ellipse->bind();
-			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_transform", transform->get_transform(-1.0f, -1.0f));
 
 			glDrawElements(GL_LINE_LOOP, ellipse->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -127,11 +130,14 @@ namespace galaxy
 		{
 			sprite->bind();
 
+			const auto width  = static_cast<float>(sprite->get_width());
+			const auto height = static_cast<float>(sprite->get_height());
+
 			shader->bind();
 			shader->set_uniform("u_projection", target->get_proj());
-			shader->set_uniform("u_transform", transform->get_transform());
-			shader->set_uniform("u_width", static_cast<float>(sprite->get_width()));
-			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
+			shader->set_uniform("u_transform", transform->get_transform(width / 2.0f, height / 2.0f));
+			shader->set_uniform("u_width", width);
+			shader->set_uniform("u_height", height);
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
