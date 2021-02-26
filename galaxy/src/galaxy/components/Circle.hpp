@@ -142,6 +142,13 @@ namespace galaxy
 			[[nodiscard]] const float fragments() const noexcept;
 
 			///
+			/// Get shape vertexs.
+			///
+			/// \return Const reference to std::vector of primitive vertexs.
+			///
+			[[nodiscard]] const std::vector<graphics::PrimitiveVertex>& get_vertexs() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -181,6 +188,11 @@ namespace galaxy
 			/// Colour.
 			///
 			graphics::Colour m_colour;
+
+			///
+			/// Circle vertexs.
+			///
+			std::vector<graphics::PrimitiveVertex> m_vertexs;
 		};
 	} // namespace components
 } // namespace galaxy

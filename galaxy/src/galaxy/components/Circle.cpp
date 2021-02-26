@@ -40,6 +40,7 @@ namespace galaxy
 			this->m_radius    = c.m_radius;
 			this->m_fragments = c.m_fragments;
 			this->m_colour    = std::move(c.m_colour);
+			this->m_vertexs   = std::move(c.m_vertexs);
 		}
 
 		Circle& Circle::operator=(Circle&& c) noexcept
@@ -51,6 +52,7 @@ namespace galaxy
 				this->m_radius    = c.m_radius;
 				this->m_fragments = c.m_fragments;
 				this->m_colour    = std::move(c.m_colour);
+				this->m_vertexs   = std::move(c.m_vertexs);
 			}
 
 			return *this;
@@ -70,7 +72,7 @@ namespace galaxy
 			// Thanks to https://stackoverflow.com/a/33859443
 			// For help with maths.
 
-			std::vector<graphics::PrimitiveVertex> vertexs;
+			m_vertexs.clear();
 			std::vector<unsigned int> indices;
 
 			unsigned int count        = 0;
@@ -78,13 +80,13 @@ namespace galaxy
 			const float increment     = incr_stat / m_fragments;
 			for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 			{
-				vertexs.emplace_back((m_radius * glm::cos(angle)) + m_radius, (m_radius * glm::sin(angle) + m_radius), m_colour);
+				m_vertexs.emplace_back((m_radius * glm::cos(angle)) + m_radius, (m_radius * glm::sin(angle) + m_radius), m_colour);
 				indices.push_back(count);
 
 				count++;
 			}
 
-			m_vb.create<graphics::PrimitiveVertex>(vertexs);
+			m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 			m_ib.create(indices);
 
 			m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
@@ -141,6 +143,11 @@ namespace galaxy
 		const float Circle::fragments() const noexcept
 		{
 			return m_fragments;
+		}
+
+		const std::vector<graphics::PrimitiveVertex>& Circle::get_vertexs() const noexcept
+		{
+			return m_vertexs;
 		}
 
 		nlohmann::json Circle::serialize()

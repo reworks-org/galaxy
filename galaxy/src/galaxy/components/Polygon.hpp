@@ -129,6 +129,13 @@ namespace galaxy
 			[[nodiscard]] const PointStorage& get_points() const noexcept;
 
 			///
+			/// Get shape vertexs.
+			///
+			/// \return Const reference to std::vector of primitive vertexs.
+			///
+			[[nodiscard]] const std::vector<graphics::PrimitiveVertex>& get_vertexs() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -163,6 +170,11 @@ namespace galaxy
 			/// Colour.
 			///
 			graphics::Colour m_colour;
+
+			///
+			/// Polygon vertexs.
+			///
+			std::vector<graphics::PrimitiveVertex> m_vertexs;
 		};
 	} // namespace components
 } // namespace galaxy

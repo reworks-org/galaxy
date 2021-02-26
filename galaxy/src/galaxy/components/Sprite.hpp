@@ -100,6 +100,13 @@ namespace galaxy
 			[[nodiscard]] const float get_opacity() const noexcept;
 
 			///
+			/// Get sprite vertexs.
+			///
+			/// \return Const reference to std::vector of sprite vertexs.
+			///
+			[[nodiscard]] const std::vector<graphics::SpriteVertex>& get_vertexs() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -134,6 +141,11 @@ namespace galaxy
 			/// Texture ID.
 			///
 			std::string m_texture_str;
+
+			///
+			/// Sprite vertexs.
+			///
+			std::vector<graphics::SpriteVertex> m_vertexs;
 		};
 	} // namespace components
 } // namespace galaxy

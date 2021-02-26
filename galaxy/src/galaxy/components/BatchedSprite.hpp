@@ -135,6 +135,13 @@ namespace galaxy
 			[[nodiscard]] const graphics::fRect& get_region() const noexcept;
 
 			///
+			/// Get sprite vertexs.
+			///
+			/// \return Const reference to std::vector of sprite vertexs.
+			///
+			[[nodiscard]] const std::vector<glm::vec2>& get_vertexs() const noexcept;
+
+			///
 			/// Get region this frame occupies.
 			///
 			/// \return Const float rectangle.
@@ -176,6 +183,11 @@ namespace galaxy
 			graphics::fRect m_region;
 
 			///
+			/// Custom width/height.
+			///
+			glm::vec2 m_custom_wh;
+
+			///
 			/// Set by spritebatch.
 			///
 			unsigned int m_offset;
@@ -186,9 +198,9 @@ namespace galaxy
 			int m_z_level;
 
 			///
-			/// Custom width/height.
+			/// Set by spritebatch.
 			///
-			glm::vec2 m_custom_wh;
+			std::vector<glm::vec2> m_vertexs;
 		};
 	} // namespace components
 } // namespace galaxy

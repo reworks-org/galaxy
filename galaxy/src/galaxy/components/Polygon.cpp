@@ -27,8 +27,9 @@ namespace galaxy
 		Polygon::Polygon(Polygon&& p) noexcept
 		    : VertexData {std::move(p)}, Serializable {this}, m_colour {0, 0, 0, 255}
 		{
-			this->m_points = p.m_points;
-			this->m_colour = p.m_colour;
+			this->m_points  = p.m_points;
+			this->m_colour  = p.m_colour;
+			this->m_vertexs = std::move(p.m_vertexs);
 		}
 
 		Polygon& Polygon::operator=(Polygon&& p) noexcept
@@ -37,8 +38,9 @@ namespace galaxy
 			{
 				graphics::VertexData::operator=(std::move(p));
 
-				this->m_points = p.m_points;
-				this->m_colour = p.m_colour;
+				this->m_points  = p.m_points;
+				this->m_colour  = p.m_colour;
+				this->m_vertexs = std::move(p.m_vertexs);
 			}
 
 			return *this;
@@ -62,19 +64,19 @@ namespace galaxy
 
 		void Polygon::update()
 		{
-			std::vector<graphics::PrimitiveVertex> vertexs;
+			m_vertexs.clear();
 			std::vector<unsigned int> indices;
 
 			unsigned int count = 0;
 			for (const auto& point : m_points)
 			{
-				vertexs.emplace_back(point.first, point.second, m_colour);
+				m_vertexs.emplace_back(point.first, point.second, m_colour);
 				indices.push_back(count);
 
 				count++;
 			}
 
-			m_vb.create<graphics::PrimitiveVertex>(vertexs);
+			m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 			m_ib.create(indices);
 
 			m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
@@ -116,6 +118,11 @@ namespace galaxy
 		const PointStorage& Polygon::get_points() const noexcept
 		{
 			return m_points;
+		}
+
+		const std::vector<graphics::PrimitiveVertex>& Polygon::get_vertexs() const noexcept
+		{
+			return m_vertexs;
 		}
 
 		nlohmann::json Polygon::serialize()

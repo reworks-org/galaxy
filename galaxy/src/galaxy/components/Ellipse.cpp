@@ -34,23 +34,25 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Ellipse::Ellipse(Ellipse&& c) noexcept
-		    : VertexData {std::move(c)}, Serializable {this}
+		Ellipse::Ellipse(Ellipse&& e) noexcept
+		    : VertexData {std::move(e)}, Serializable {this}
 		{
-			this->m_radius    = c.m_radius;
-			this->m_fragments = c.m_fragments;
-			this->m_colour    = std::move(c.m_colour);
+			this->m_radius    = e.m_radius;
+			this->m_fragments = e.m_fragments;
+			this->m_colour    = std::move(e.m_colour);
+			this->m_vertexs   = std::move(e.m_vertexs);
 		}
 
-		Ellipse& Ellipse::operator=(Ellipse&& c) noexcept
+		Ellipse& Ellipse::operator=(Ellipse&& e) noexcept
 		{
-			if (this != &c)
+			if (this != &e)
 			{
-				graphics::VertexData::operator=(std::move(c));
+				graphics::VertexData::operator=(std::move(e));
 
-				this->m_radius    = c.m_radius;
-				this->m_fragments = c.m_fragments;
-				this->m_colour    = std::move(c.m_colour);
+				this->m_radius    = e.m_radius;
+				this->m_fragments = e.m_fragments;
+				this->m_colour    = std::move(e.m_colour);
+				this->m_vertexs   = std::move(e.m_vertexs);
 			}
 
 			return *this;
@@ -70,7 +72,7 @@ namespace galaxy
 			// Thanks to https://stackoverflow.com/a/34735255
 			// For help with maths.
 
-			std::vector<graphics::PrimitiveVertex> vertexs;
+			m_vertexs.clear();
 			std::vector<unsigned int> indices;
 
 			const float theta  = 2.0f * glm::pi<float>() / m_fragments;
@@ -84,7 +86,7 @@ namespace galaxy
 			unsigned int count = 0;
 			for (auto i = 0; i < std::floor(m_fragments); i++)
 			{
-				vertexs.emplace_back((x * m_radius.x) + m_radius.x, (y * m_radius.y) + m_radius.y, m_colour);
+				m_vertexs.emplace_back((x * m_radius.x) + m_radius.x, (y * m_radius.y) + m_radius.y, m_colour);
 				indices.push_back(count);
 				count++;
 
@@ -93,7 +95,7 @@ namespace galaxy
 				y    = sine * temp + cosine * y;
 			}
 
-			m_vb.create<graphics::PrimitiveVertex>(vertexs);
+			m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 			m_ib.create(indices);
 
 			m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
@@ -150,6 +152,11 @@ namespace galaxy
 		const float Ellipse::fragments() const noexcept
 		{
 			return m_fragments;
+		}
+
+		const std::vector<graphics::PrimitiveVertex>& Ellipse::get_vertexs() const noexcept
+		{
+			return m_vertexs;
 		}
 
 		nlohmann::json Ellipse::serialize()

@@ -33,10 +33,12 @@ namespace galaxy
 		    : Serializable {this}
 		{
 			this->m_id        = bs.m_id;
-			this->m_offset    = bs.m_offset;
 			this->m_opacity   = bs.m_opacity;
 			this->m_region    = std::move(bs.m_region);
 			this->m_custom_wh = std::move(bs.m_custom_wh);
+			this->m_offset    = bs.m_offset;
+			this->m_z_level   = bs.m_z_level;
+			this->m_vertexs   = bs.m_vertexs;
 		}
 
 		BatchedSprite& BatchedSprite::operator=(BatchedSprite&& bs) noexcept
@@ -44,10 +46,12 @@ namespace galaxy
 			if (this != &bs)
 			{
 				this->m_id        = bs.m_id;
-				this->m_offset    = bs.m_offset;
 				this->m_opacity   = bs.m_opacity;
 				this->m_region    = std::move(bs.m_region);
 				this->m_custom_wh = std::move(bs.m_custom_wh);
+				this->m_offset    = bs.m_offset;
+				this->m_z_level   = bs.m_z_level;
+				this->m_vertexs   = bs.m_vertexs;
 			}
 
 			return *this;
@@ -113,6 +117,11 @@ namespace galaxy
 		const graphics::fRect& BatchedSprite::get_region() const noexcept
 		{
 			return m_region;
+		}
+
+		const std::vector<glm::vec2>& BatchedSprite::get_vertexs() const noexcept
+		{
+			return m_vertexs;
 		}
 
 		nlohmann::json BatchedSprite::serialize()
