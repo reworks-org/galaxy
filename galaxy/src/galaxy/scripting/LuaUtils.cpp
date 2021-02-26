@@ -17,7 +17,6 @@
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
-#include "galaxy/components/OnEvent.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
@@ -271,98 +270,6 @@ galaxy::components::Polygon* get_polygon(galaxy::core::World& world, const galax
 	return world.get<galaxy::components::Polygon>(entity);
 }
 
-// BEGIN EVENT ADD/GET
-
-galaxy::components::OnEvent<galaxy::events::KeyChar>* add_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::KeyDown>* add_keydown(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyDown>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::KeyUp>* add_keyup(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyUp>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseMoved>* add_mouse_moved(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseMoved>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MousePressed>* add_mouse_pressed(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::MousePressed>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseReleased>* add_mouse_released(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseReleased>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseWheel>* add_mouse_wheel(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseWheel>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::WindowResized>* add_window_resized(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::Collision>* add_on_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::KeyChar>* get_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::KeyDown>* get_keydown(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::KeyDown>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::KeyUp>* get_keyup(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::KeyUp>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseMoved>* get_mouse_moved(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::MouseMoved>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MousePressed>* get_mouse_pressed(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::MousePressed>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseReleased>* get_mouse_released(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::MouseReleased>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::MouseWheel>* get_mouse_wheel(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::MouseWheel>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::WindowResized>* get_window_resized(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::Collision>* get_on_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
-}
-
 namespace galaxy
 {
 	namespace lua
@@ -470,25 +377,6 @@ namespace galaxy
 			lua->set_function("get_rigidbody_from_entity", &get_rigidbody);
 			lua->set_function("get_tag_from_entity", &get_tag);
 			lua->set_function("get_polygon_from_entity", &get_polygon);
-
-			lua->set_function("add_keychar_to_entity", &add_keychar);
-			lua->set_function("add_keydown_to_entity", &add_keydown);
-			lua->set_function("add_keyup_to_entity", &add_keyup);
-			lua->set_function("add_mouse_moved_to_entity", &add_mouse_moved);
-			lua->set_function("add_mouse_pressed_to_entity", &add_mouse_pressed);
-			lua->set_function("add_mouse_released_to_entity", &add_mouse_released);
-			lua->set_function("add_mouse_wheel_to_entity", &add_mouse_wheel);
-			lua->set_function("add_window_resized_to_entity", &add_window_resized);
-			lua->set_function("add_on_collision_to_entity", &add_on_collision);
-			lua->set_function("get_keychar_from_entity", &get_keychar);
-			lua->set_function("get_keydown_from_entity", &get_keydown);
-			lua->set_function("get_keyup_from_entity", &get_keyup);
-			lua->set_function("get_mouse_moved_from_entity", &get_mouse_moved);
-			lua->set_function("get_mouse_pressed_from_entity", &get_mouse_pressed);
-			lua->set_function("get_mouse_released_from_entity", &get_mouse_released);
-			lua->set_function("get_mouse_wheel_from_entity", &get_mouse_wheel);
-			lua->set_function("get_window_resized_from_entity", &get_window_resized);
-			lua->set_function("get_on_collision_from_entity", &get_on_collision);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -617,33 +505,6 @@ namespace galaxy
 			rigidbody_type[""]  = &components::RigidBody::set_bodytype;
 			rigidbody_type[""]  = &components::RigidBody::set_size;
 			rigidbody_type[""]  = &components::RigidBody::update_aabb;
-
-			auto on_key_char_type        = lua->new_usertype<components::OnEvent<events::KeyChar>>("gOnKeyChar", sol::constructors<components::OnEvent<events::KeyChar>()>());
-			on_key_char_type["on_event"] = &components::OnEvent<events::KeyChar>::m_on_event;
-
-			auto on_key_down_type        = lua->new_usertype<components::OnEvent<events::KeyDown>>("gOnKeyDown", sol::constructors<components::OnEvent<events::KeyDown>()>());
-			on_key_down_type["on_event"] = &components::OnEvent<events::KeyDown>::m_on_event;
-
-			auto on_key_up_type        = lua->new_usertype<components::OnEvent<events::KeyUp>>("gOnKeyUp", sol::constructors<components::OnEvent<events::KeyUp>()>());
-			on_key_up_type["on_event"] = &components::OnEvent<events::KeyUp>::m_on_event;
-
-			auto on_mouse_moved_type        = lua->new_usertype<components::OnEvent<events::MouseMoved>>("gOnMouseMoved", sol::constructors<components::OnEvent<events::MouseMoved>()>());
-			on_mouse_moved_type["on_event"] = &components::OnEvent<events::MouseMoved>::m_on_event;
-
-			auto on_mouse_pressed_type        = lua->new_usertype<components::OnEvent<events::MousePressed>>("gOnMousePressed", sol::constructors<components::OnEvent<events::MousePressed>()>());
-			on_mouse_pressed_type["on_event"] = &components::OnEvent<events::MousePressed>::m_on_event;
-
-			auto on_mouse_released_type        = lua->new_usertype<components::OnEvent<events::MouseReleased>>("gOnMouseReleased", sol::constructors<components::OnEvent<events::MouseReleased>()>());
-			on_mouse_released_type["on_event"] = &components::OnEvent<events::MouseReleased>::m_on_event;
-
-			auto on_mouse_wheel_type        = lua->new_usertype<components::OnEvent<events::MouseWheel>>("gOnMouseWheel", sol::constructors<components::OnEvent<events::MouseWheel>()>());
-			on_mouse_wheel_type["on_event"] = &components::OnEvent<events::MouseWheel>::m_on_event;
-
-			auto on_window_resized_type        = lua->new_usertype<components::OnEvent<events::WindowResized>>("gOnWindowResized", sol::constructors<components::OnEvent<events::WindowResized>()>());
-			on_window_resized_type["on_event"] = &components::OnEvent<events::WindowResized>::m_on_event;
-
-			auto on_collision_type        = lua->new_usertype<components::OnEvent<events::Collision>>("gOnCollision", sol::constructors<components::OnEvent<events::Collision>()>());
-			on_collision_type["on_event"] = &components::OnEvent<events::Collision>::m_on_event;
 
 			auto tag_type   = lua->new_usertype<components::Tag>("gTag", sol::constructors<components::Tag(), components::Tag(std::string_view)>());
 			tag_type["tag"] = &components::Tag::m_tag;

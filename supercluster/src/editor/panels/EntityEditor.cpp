@@ -13,7 +13,6 @@
 #include <galaxy/components/Circle.hpp>
 #include <galaxy/components/Ellipse.hpp>
 #include <galaxy/components/Line.hpp>
-#include <galaxy/components/OnEvent.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Point.hpp>
 #include <galaxy/components/Polygon.hpp>
