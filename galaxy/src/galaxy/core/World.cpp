@@ -13,7 +13,7 @@
 #include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/OnEvent.hpp"
-#include "galaxy/components/Physics.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Renderable.hpp"
@@ -24,7 +24,6 @@
 #include "galaxy/components/Transform.hpp"
 
 #include "galaxy/events/Collision.hpp"
-#include "galaxy/events/FinishCollision.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -44,14 +43,14 @@ namespace galaxy
 	namespace core
 	{
 		World::World()
-		    : Serializable {this}, m_next_id {0}, m_b2_world {{0.0f, 0.0f}}
+		    : Serializable {this}, m_next_id {0}
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchedSprite>("BatchedSprite");
 			register_component<components::Circle>("Circle");
 			register_component<components::Ellipse>("Ellipse");
 			register_component<components::Line>("Line");
-			register_component<components::Physics>("Physics");
+			register_component<components::RigidBody>("RigidBody");
 			register_component<components::Point>("Point");
 			register_component<components::Polygon>("Polygon");
 			register_component<components::Renderable>("Renderable");
@@ -60,8 +59,6 @@ namespace galaxy
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
-
-			m_b2_world.SetAllowSleeping(true);
 		}
 
 		World::~World()
@@ -78,8 +75,6 @@ namespace galaxy
 					ptr->update(*this, dt);
 				}
 			}
-
-			m_b2_world.Step(dt, 8, 3);
 		}
 
 		const ecs::Entity World::create()
@@ -142,12 +137,6 @@ namespace galaxy
 				enable(entity);
 			}
 
-			auto* renderable = get<components::Renderable>(entity);
-			if (renderable)
-			{
-				set_rotation_origin(entity, renderable->m_type);
-			}
-
 			return entity;
 		}
 
@@ -200,56 +189,6 @@ namespace galaxy
 			unset_flag<flags::Enabled>(entity);
 		}
 
-		void World::set_rotation_origin(const ecs::Entity entity, const graphics::Renderables render_type)
-		{
-			auto* transform = get<components::Transform>(entity);
-			switch (render_type)
-			{
-				case graphics::Renderables::POINT:
-					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a POINT.");
-					break;
-
-				case graphics::Renderables::LINE:
-					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a LINE.");
-					break;
-
-				case graphics::Renderables::CIRCLE:
-					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a CIRCLE.");
-					break;
-
-				case graphics::Renderables::SPRITE:
-				{
-					auto* sprite = get<components::Sprite>(entity);
-					transform->set_rotation_origin(sprite->get_width() * 0.5f, sprite->get_height() * 0.5f);
-				}
-				break;
-
-				case graphics::Renderables::TEXT:
-				{
-					auto* text = get<components::Text>(entity);
-					transform->set_rotation_origin(text->get_width() * 0.5f, text->get_height() * 0.5f);
-				}
-				break;
-
-				case graphics::Renderables::BATCHED:
-				{
-					auto* batched = get<components::BatchedSprite>(entity);
-					transform->set_rotation_origin(batched->get_width() * 0.5f, batched->get_height() * 0.5f);
-				}
-				break;
-			}
-		}
-
-		void World::set_gravity(const b2Vec2& vec2) noexcept
-		{
-			m_b2_world.SetGravity(vec2);
-		}
-
-		void World::set_gravity(const float x_grav, const float y_grav) noexcept
-		{
-			m_b2_world.SetGravity({x_grav, y_grav});
-		}
-
 		void World::clear()
 		{
 			m_next_id = 0;
@@ -266,18 +205,9 @@ namespace galaxy
 			m_data.clear();
 		}
 
-		b2World* const World::b2_world() noexcept
-		{
-			return &m_b2_world;
-		}
-
 		nlohmann::json World::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-
-			const auto grav   = m_b2_world.GetGravity();
-			json["gravity-x"] = grav.x;
-			json["gravity-y"] = grav.y;
 
 			json["entities"] = nlohmann::json::array();
 			for (const auto& entity : m_entities)
@@ -290,13 +220,13 @@ namespace galaxy
 				entity_json["enabled"]    = is_enabled(entity);
 				entity_json["components"] = nlohmann::json::object();
 
-				auto [animated, batchedsprite, circle, ellipse, line, physics, point, polygon, renderable, shaderid, sprite, tag, text, transform] = get_multi<
+				auto [animated, batchedsprite, circle, ellipse, line, rigidbody, point, polygon, renderable, shaderid, sprite, tag, text, transform] = get_multi<
 					components::Animated,
 				    components::BatchedSprite,
 				    components::Circle,
 					components::Ellipse,
 				    components::Line,
-					components::Physics,
+					components::RigidBody,
 				    components::Point,
 					components::Polygon,
 				    components::Renderable,
@@ -331,9 +261,9 @@ namespace galaxy
 					entity_json["components"]["Line"] = line->serialize();
 				}
 
-				if (physics)
+				if (rigidbody)
 				{
-					entity_json["components"]["Physics"] = physics->serialize();
+					entity_json["components"]["RigidBody"] = rigidbody->serialize();
 				}
 
 				if (point)
@@ -385,8 +315,6 @@ namespace galaxy
 		void World::deserialize(const nlohmann::json& json)
 		{
 			clear();
-
-			m_b2_world.SetGravity({json.at("gravity-x"), json.at("gravity-y")});
 
 			const auto entity_json = json.at("entities");
 			for (const auto& obj : entity_json)

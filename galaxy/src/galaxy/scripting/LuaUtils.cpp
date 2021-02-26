@@ -34,7 +34,6 @@
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/events/Collision.hpp"
-#include "galaxy/events/FinishCollision.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -55,6 +54,9 @@
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
 #include "galaxy/map/World.hpp"
+
+#include "galaxy/physics/AABB.hpp"
+#include "galaxy/physics/SATObject.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -187,7 +189,7 @@ galaxy::components::Animated* add_animated(galaxy::core::World& world, const gal
 	return world.create_component<galaxy::components::Animated>(entity);
 }
 
-galaxy::components::RigidBody* add_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+galaxy::components::RigidBody* add_rigidbody(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.create_component<galaxy::components::RigidBody>(entity);
 }
@@ -254,7 +256,7 @@ galaxy::components::Animated* get_animated(galaxy::core::World& world, const gal
 	return world.get<galaxy::components::Animated>(entity);
 }
 
-galaxy::components::RigidBody* get_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+galaxy::components::RigidBody* get_rigidbody(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::RigidBody>(entity);
 }
@@ -316,11 +318,6 @@ galaxy::components::OnEvent<galaxy::events::Collision>* add_on_collision(galaxy:
 	return world.create_component<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
 }
 
-galaxy::components::OnEvent<galaxy::events::FinishCollision>* add_finish_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::OnEvent<galaxy::events::FinishCollision>>(entity);
-}
-
 galaxy::components::OnEvent<galaxy::events::KeyChar>* get_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
@@ -364,11 +361,6 @@ galaxy::components::OnEvent<galaxy::events::WindowResized>* get_window_resized(g
 galaxy::components::OnEvent<galaxy::events::Collision>* get_on_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
-}
-
-galaxy::components::OnEvent<galaxy::events::FinishCollision>* get_finish_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::OnEvent<galaxy::events::FinishCollision>>(entity);
 }
 
 namespace galaxy
@@ -461,7 +453,7 @@ namespace galaxy
 			lua->set_function("add_sprite_to_entity", &add_sprite);
 			lua->set_function("add_text_to_entity", &add_text);
 			lua->set_function("add_animated_to_entity", &add_animated);
-			lua->set_function("add_physics_to_entity", &add_physics);
+			lua->set_function("add_rigidbody_to_entity", &add_rigidbody);
 			lua->set_function("add_tag_to_entity", &add_tag);
 			lua->set_function("add_polygon_to_entity", &add_polygon);
 
@@ -475,7 +467,7 @@ namespace galaxy
 			lua->set_function("get_sprite_from_entity", &get_sprite);
 			lua->set_function("get_text_from_entity", &get_text);
 			lua->set_function("get_animated_from_entity", &get_animated);
-			lua->set_function("get_physics_from_entity", &get_physics);
+			lua->set_function("get_rigidbody_from_entity", &get_rigidbody);
 			lua->set_function("get_tag_from_entity", &get_tag);
 			lua->set_function("get_polygon_from_entity", &get_polygon);
 
@@ -488,7 +480,6 @@ namespace galaxy
 			lua->set_function("add_mouse_wheel_to_entity", &add_mouse_wheel);
 			lua->set_function("add_window_resized_to_entity", &add_window_resized);
 			lua->set_function("add_on_collision_to_entity", &add_on_collision);
-			lua->set_function("add_finish_collision_to_entity", &add_finish_collision);
 			lua->set_function("get_keychar_from_entity", &get_keychar);
 			lua->set_function("get_keydown_from_entity", &get_keydown);
 			lua->set_function("get_keyup_from_entity", &get_keyup);
@@ -498,7 +489,6 @@ namespace galaxy
 			lua->set_function("get_mouse_wheel_from_entity", &get_mouse_wheel);
 			lua->set_function("get_window_resized_from_entity", &get_window_resized);
 			lua->set_function("get_on_collision_from_entity", &get_on_collision);
-			lua->set_function("get_finish_collision_from_entity", &get_finish_collision);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -621,7 +611,12 @@ namespace galaxy
 			animated_type["stop"]          = &components::Animated::stop;
 			animated_type["is_paused"]     = &components::Animated::is_paused;
 
-			auto physics_type = lua->new_usertype<components::RigidBody>("gRigidBody", sol::constructors<components::RigidBody()>());
+			auto rigidbody_type = lua->new_usertype<components::RigidBody>("gRigidBody", sol::constructors<components::RigidBody()>());
+			rigidbody_type[""]  = &components::RigidBody::get_aabb;
+			rigidbody_type[""]  = &components::RigidBody::get_type;
+			rigidbody_type[""]  = &components::RigidBody::set_bodytype;
+			rigidbody_type[""]  = &components::RigidBody::set_size;
+			rigidbody_type[""]  = &components::RigidBody::update_aabb;
 
 			auto on_key_char_type        = lua->new_usertype<components::OnEvent<events::KeyChar>>("gOnKeyChar", sol::constructors<components::OnEvent<events::KeyChar>()>());
 			on_key_char_type["on_event"] = &components::OnEvent<events::KeyChar>::m_on_event;
@@ -649,9 +644,6 @@ namespace galaxy
 
 			auto on_collision_type        = lua->new_usertype<components::OnEvent<events::Collision>>("gOnCollision", sol::constructors<components::OnEvent<events::Collision>()>());
 			on_collision_type["on_event"] = &components::OnEvent<events::Collision>::m_on_event;
-
-			auto finish_collision_type        = lua->new_usertype<components::OnEvent<events::FinishCollision>>("gFinishCollision", sol::constructors<components::OnEvent<events::FinishCollision>()>());
-			finish_collision_type["on_event"] = &components::OnEvent<events::FinishCollision>::m_on_event;
 
 			auto tag_type   = lua->new_usertype<components::Tag>("gTag", sol::constructors<components::Tag(), components::Tag(std::string_view)>());
 			tag_type["tag"] = &components::Tag::m_tag;
@@ -947,7 +939,7 @@ namespace galaxy
 			camera_type["set_speed"]     = &graphics::Camera::set_speed;
 			camera_type["update"]        = &graphics::Camera::update;
 			camera_type["get_proj"]      = &graphics::Camera::get_proj;
-			camera_type["get_transform"] = &graphics::Camera::get_transform;
+			camera_type["get_transform"] = &graphics::Camera::get_view;
 			camera_type["move_x"]        = &graphics::Camera::move_x;
 			camera_type["move_y"]        = &graphics::Camera::move_y;
 			camera_type["on_scroll"]     = &graphics::Camera::on_scroll;
@@ -1067,6 +1059,26 @@ namespace galaxy
 		void register_physics()
 		{
 			auto lua = SL_HANDLE.lua();
+
+			// clang-format off
+			lua->new_enum<physics::BodyType>("gBodyType",
+			{
+				{"DYNAMIC", physics::BodyType::DYNAMIC},
+				{"STATIC", physics::BodyType::STATIC}
+			});
+			// clang-format on
+
+			auto aabb_type            = lua->new_usertype<physics::AABB>("gAABB", sol::constructors<physics::AABB(), physics::AABB(const glm::vec2&, const glm::vec2&)>());
+			aabb_type["area"]         = &physics::AABB::area;
+			aabb_type["compute_area"] = &physics::AABB::compute_area;
+			aabb_type["contains"]     = &physics::AABB::contains;
+			aabb_type["fatten"]       = &physics::AABB::fatten;
+			aabb_type["max"]          = &physics::AABB::max;
+			aabb_type["min"]          = &physics::AABB::min;
+			aabb_type["overlaps"]     = &physics::AABB::overlaps;
+			aabb_type["size"]         = &physics::AABB::size;
+			aabb_type["update_area"]  = &physics::AABB::update_area;
+			lua->set_function("galaxy_merge_aabbs", &physics::AABB::merge);
 		}
 
 		void register_res()

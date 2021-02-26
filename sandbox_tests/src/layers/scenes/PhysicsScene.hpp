@@ -9,8 +9,8 @@
 #define SANDBOXTESTS_LAYERS_SCENES_PHYSICSSCENE_HPP_
 
 #include <galaxy/core/Scene.hpp>
+#include <galaxy/ecs/Entity.hpp>
 #include <galaxy/events/dispatcher/Dispatcher.hpp>
-#include <galaxy/physics/Box2DIntegration.hpp>
 
 namespace sb
 {
@@ -27,7 +27,8 @@ namespace sb
 
 	private:
 		galaxy::events::Dispatcher m_dispatcher;
-		galaxy::physics::GalaxyContactListener m_contact_listener;
+		galaxy::ecs::Entity m_cube;
+		galaxy::ecs::Entity m_floor;
 	};
 } // namespace sb
 

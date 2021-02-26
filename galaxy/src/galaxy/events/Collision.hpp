@@ -8,14 +8,14 @@
 #ifndef GALAXY_EVENTS_COLLISION_HPP_
 #define GALAXY_EVENTS_COLLISION_HPP_
 
-#include "galaxy/physics/b2_body.hpp"
+#include "galaxy/ecs/Entity.hpp"
 
 namespace galaxy
 {
 	namespace events
 	{
 		///
-		/// Event triggered when two bodies first touch.
+		/// Event triggered when two entities first touch.
 		///
 		struct Collision final
 		{
@@ -27,10 +27,10 @@ namespace galaxy
 			///
 			/// Argument constructor.
 			///
-			/// \param a First body.
-			/// \param b Second body.
+			/// \param a First entity.
+			/// \param b Second entity.
 			///
-			Collision(b2Body* a, b2Body* b) noexcept;
+			Collision(const ecs::Entity a, const ecs::Entity b) noexcept;
 
 			///
 			/// Default destructor.
@@ -38,14 +38,14 @@ namespace galaxy
 			~Collision() noexcept = default;
 
 			///
-			/// First body.
+			/// First entity.
 			///
-			b2Body* m_a;
+			ecs::Entity m_a;
 
 			///
-			/// Second body.
+			/// Second entity.
 			///
-			b2Body* m_b;
+			ecs::Entity m_b;
 		};
 	} // namespace events
 } // namespace galaxy

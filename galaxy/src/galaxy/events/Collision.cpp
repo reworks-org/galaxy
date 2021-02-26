@@ -11,7 +11,7 @@ namespace galaxy
 {
 	namespace events
 	{
-		Collision::Collision(b2Body* a, b2Body* b) noexcept
+		Collision::Collision(const ecs::Entity a, const ecs::Entity b) noexcept
 		    : m_a {a}, m_b {b}
 		{
 		}

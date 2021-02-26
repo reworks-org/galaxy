@@ -13,7 +13,6 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/components/Physics.hpp"
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/fs/Serializable.hpp"
@@ -199,16 +198,6 @@ namespace galaxy
 			void disable(const ecs::Entity entity);
 
 			///
-			/// \brief Set rotation origin for an entity.
-			///
-			/// Entity must have a transform and a renderable that can be rotated.
-			///
-			/// \param entity Entity to set origin for.
-			/// \param render_type Type of renderable this entity has.
-			///
-			void set_rotation_origin(const ecs::Entity entity, const graphics::Renderables render_type);
-
-			///
 			/// Retrieve multiple components assosiated with an entity.
 			/// Template type is type of components to get.
 			///
@@ -264,30 +253,9 @@ namespace galaxy
 			[[nodiscard]] System* get_system();
 
 			///
-			/// Set world gravity.
-			///
-			/// \param vec2 Gravity is supported in both dimensions.
-			///
-			void set_gravity(const b2Vec2& vec2) noexcept;
-
-			///
-			/// Set world gravity.
-			///
-			/// \param x_grav Gravity force in x direction.
-			/// \param y_grav Gravity force in y direction.
-			///
-			void set_gravity(const float x_grav, const float y_grav) noexcept;
-
-			///
 			/// Clear all entity data from world.
 			///
 			void clear();
-
-			///
-			/// Get Box2D world.
-			///
-			/// \return Constant pointer to b2World.
-			[[nodiscard]] b2World* const b2_world() noexcept;
 
 			///
 			/// Serializes object.
@@ -370,11 +338,6 @@ namespace galaxy
 			/// Used to allow for component creation without having to know the compile time type.
 			///
 			ComponentFactory m_component_factory;
-
-			///
-			/// Box2D physics world.
-			///
-			b2World m_b2_world;
 		};
 
 		template<meta::is_bitset_flag Flag>
@@ -446,22 +409,7 @@ namespace galaxy
 					{
 						if (!derived->has(entity))
 						{
-							if constexpr (std::is_same<Component, components::Physics>::value)
-							{
-								components::Physics* phys = derived->create(entity);
-								phys->m_world_pointer     = &m_b2_world;
-
-								if constexpr (sizeof...(Args) > 0)
-								{
-									phys->parse_json(std::forward<Args>(args)...);
-								}
-
-								return phys;
-							}
-							else
-							{
-								return derived->create(entity, std::forward<Args>(args)...);
-							}
+							return derived->create(entity, std::forward<Args>(args)...);
 						}
 						else
 						{

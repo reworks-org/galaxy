@@ -9,6 +9,9 @@
         	"opacity": 1.0
         },
         "Transform": {
+        	"x": 0,
+            "y": 500,
+            "rotation": 0
         },
         "Renderable": {
             "type": 3,
@@ -17,19 +20,8 @@
         "ShaderID": {
             "shader-id": "sprite"
         },
-        "Physics": {
-        	"enabled": true,
-        	"x": 0,
-        	"y": 600,
-        	"angle": 0,
-        	"fixed-rotation": true,
-        	"body": "static",
-        	"shape": "rect",
-        	"half-width": 256,
-        	"half-height": 8,
-			"density" : 1,
-			"friction" : 1,
-			"bounce" : 0
+        "RigidBody": {
+        	"type": "STATIC"
         }
     }
 }

@@ -207,6 +207,24 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
+							ImGui::Text("Rigid Body");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##23"))
+							{
+								world.disable(entity);
+								world.create_component<components::RigidBody>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##24"))
+							{
+								world.remove<components::RigidBody>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
 							ImGui::Text("Point");
 							ImGui::TableNextColumn();
 
@@ -634,64 +652,36 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Rigid Body"))
 					{
-						/*
-							if (ImGui::Button("Create from JSON"))
+						static const constexpr auto s_types = magic_enum::enum_names<physics::BodyType>();
+
+						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->get_type()));
+						if (ImGui::BeginCombo("Type", s_selected.c_str()))
+						{
+							for (const auto& name : s_types)
 							{
-								const auto file = SL_HANDLE.vfs()->open_with_dialog("*.json");
-								if (file == std::nullopt)
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
 								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to find a file to open for rigidbody component.");
+									s_selected = name;
+									rigidbody->set_bodytype(magic_enum::enum_cast<physics::BodyType>(s_selected).value());
 								}
-								else
+
+								if (selected)
 								{
-									rigidbody->create_from_json(file.value());
+									ImGui::SetItemDefaultFocus();
 								}
 							}
 
-							if (rigidbody->body())
-							{
-								static bool enable_body = rigidbody->body()->IsEnabled();
-								if (ImGui::Checkbox("Enable", &enable_body))
-								{
-									rigidbody->body()->SetEnabled(enable_body);
-								}
+							ImGui::EndCombo();
+						}
 
-								static bool fixed_rotation = rigidbody->body()->IsFixedRotation();
-								if (ImGui::Checkbox("Fixed Rotation", &fixed_rotation))
-								{
-									rigidbody->body()->SetFixedRotation(fixed_rotation);
-								}
+						ImGui::Text("AABB Stats:");
 
-								static bool is_bullet = rigidbody->body()->IsBullet();
-								if (ImGui::Checkbox("Is Bullet", &is_bullet))
-								{
-									rigidbody->body()->SetBullet(is_bullet);
-								}
-
-								static const constexpr auto s_types = magic_enum::enum_names<b2BodyType>();
-
-								std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->body()->GetType()));
-								if (ImGui::BeginCombo("Type", s_selected.c_str()))
-								{
-									for (const auto& name : s_types)
-									{
-										const bool selected = (s_selected == name);
-										if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
-										{
-											s_selected = name;
-											rigidbody->body()->SetType(magic_enum::enum_cast<b2BodyType>(s_selected).value());
-										}
-
-										if (selected)
-										{
-											ImGui::SetItemDefaultFocus();
-										}
-									}
-
-									ImGui::EndCombo();
-								}
-							}
-						*/
+						const auto& aabb = rigidbody->get_aabb();
+						ImGui::Text("Area: %d.", aabb.area());
+						ImGui::Text("Min: %f, %f.", aabb.min().x, aabb.min().y);
+						ImGui::Text("Max: %f, %f.", aabb.max().x, aabb.max().y);
+						ImGui::Text("Size: %f, %f.", aabb.size().x, aabb.size().y);
 
 						ImGui::EndTabItem();
 					}

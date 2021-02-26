@@ -6,10 +6,10 @@
 ///
 
 #include <galaxy/components/OnEvent.hpp>
+#include <galaxy/components/Tag.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/events/Collision.hpp>
-#include <galaxy/events/FinishCollision.hpp>
-#include <galaxy/systems/PhysicsSystem.hpp>
+#include <galaxy/systems/CollisionSystem.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 
 #include "PhysicsScene.hpp"
@@ -19,35 +19,24 @@ using namespace galaxy;
 namespace sb
 {
 	PhysicsScene::PhysicsScene()
-	    : m_contact_listener {&m_dispatcher}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
 
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
-		m_world.create_system<systems::PhysicsSystem>();
+		m_world.create_system<systems::CollisionSystem>(&m_dispatcher);
 		m_world.create_system<systems::RenderSystem>();
 
-		m_world.set_gravity(0.0f, 1.0f);
-		m_world.b2_world()->SetContactListener(&m_contact_listener);
+		m_cube  = m_world.create_from_json("cube.json").value();
+		m_floor = m_world.create_from_json("floor.json").value();
 
-		auto floor = m_world.create_from_json("floor.json").value();
-		auto cube  = m_world.create_from_json("cube.json").value();
-
-		auto* floor_event = m_world.create_component<components::OnEvent<events::Collision>>(floor);
-		auto* cube_event  = m_world.create_component<components::OnEvent<events::FinishCollision>>(cube);
-
-		floor_event->m_on_event = [&](const events::Collision& collision) -> void {
-			GALAXY_LOG(GALAXY_INFO, "Touched floor.");
+		auto* cube_event       = m_world.create_component<components::OnEvent<events::Collision>>(m_cube);
+		cube_event->m_on_event = [&](const events::Collision& collision) -> void {
+			GALAXY_LOG(GALAXY_WARNING, "Collision between {0} and {1}.", m_world.get<components::Tag>(collision.m_a)->m_tag, m_world.get<components::Tag>(collision.m_b)->m_tag);
 		};
 
-		cube_event->m_on_event = [&](const events::FinishCollision& finish_collision) -> void {
-			GALAXY_LOG(GALAXY_INFO, "Bounced.");
-		};
-
-		m_dispatcher.subscribe<events::Collision, components::OnEvent<events::Collision>>(*floor_event);
-		m_dispatcher.subscribe<events::FinishCollision, components::OnEvent<events::FinishCollision>>(*cube_event);
+		m_dispatcher.subscribe<events::Collision, components::OnEvent<events::Collision>>(*cube_event);
 	}
 
 	PhysicsScene::~PhysicsScene()
@@ -56,6 +45,35 @@ namespace sb
 
 	void PhysicsScene::events()
 	{
+		if (SL_HANDLE.window()->key_down(input::Keys::W))
+		{
+			m_world.get<components::Transform>(m_cube)->move(0.0f, -10.0f);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::S))
+		{
+			m_world.get<components::Transform>(m_cube)->move(0.0f, 10.0f);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::A))
+		{
+			m_world.get<components::Transform>(m_cube)->move(-10.0f, 0.0f);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::D))
+		{
+			m_world.get<components::Transform>(m_cube)->move(10.0f, 0.0f);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::Q))
+		{
+			m_world.get<components::Transform>(m_cube)->rotate(-1.0f);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::E))
+		{
+			m_world.get<components::Transform>(m_cube)->rotate(1.0f);
+		}
 	}
 
 	void PhysicsScene::update(const double dt)
