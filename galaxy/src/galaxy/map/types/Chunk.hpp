@@ -46,7 +46,7 @@ namespace galaxy
 			/// \param encoding Encoding of string. csv or base64.
 			/// \param compression zlib, gzip or empty.
 			///
-			void parse(const nlohmann::json& jso, std::string_view encoding, std::string_view compressionn);
+			void parse(const nlohmann::json& json, std::string_view encoding, std::string_view compression);
 
 			///
 			/// Gets tile GIDs.
@@ -58,14 +58,14 @@ namespace galaxy
 			///
 			/// Get height.
 			///
-			/// \return In tiles as int.
+			/// \return Const integer.
 			///
 			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get width.
 			///
-			/// \return In tiles as int.
+			/// \return Const integer.
 			///
 			[[nodiscard]] const int get_width() const noexcept;
 

@@ -192,7 +192,7 @@ namespace galaxy
 			/// This function has no effect if there is no AABB associated with the specified ID.
 			///
 			/// \param key The ID associated with the AABB that will be replaced.
-			/// \param box The new AABB that will be associated with the specified ID.
+			/// \param aabb The new AABB that will be associated with the specified ID.
 			/// \param force_reinsert Indicates whether or not the AABB is always reinserted,
 			///						which wont happen if this is set to `true` and the new AABB is within the old AABB.
 			///
