@@ -61,7 +61,7 @@ namespace sb
 		// clang-format on
 
 		m_theme.m_font_col = {255, 0, 0, 255};
-		m_theme.m_camera.create(0.0f, (float)SL_HANDLE.window()->get_width(), (float)SL_HANDLE.window()->get_height(), 0.0f, -1.0f, 1.0f);
+		m_theme.m_camera.create(0.0f, (float)SL_HANDLE.window()->get_width(), (float)SL_HANDLE.window()->get_height(), 0.0f);
 		m_gui.set_theme(&m_theme);
 
 		auto* image = m_gui.create_widget<galaxy::ui::Image>();

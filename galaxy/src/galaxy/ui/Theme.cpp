@@ -18,18 +18,16 @@ namespace galaxy
 
 		Theme::Theme(Theme&& t) noexcept
 		{
-			this->m_font_col   = std::move(t.m_font_col);
-			this->m_projection = std::move(t.m_projection);
-			this->m_transform  = std::move(t.m_transform);
+			this->m_font_col = std::move(t.m_font_col);
+			this->m_camera   = std::move(t.m_camera);
 		}
 
 		Theme& Theme::operator=(Theme&& t) noexcept
 		{
 			if (this != &t)
 			{
-				this->m_font_col   = std::move(t.m_font_col);
-				this->m_projection = std::move(t.m_projection);
-				this->m_transform  = std::move(t.m_transform);
+				this->m_font_col = std::move(t.m_font_col);
+				this->m_camera   = std::move(t.m_camera);
 			}
 
 			return *this;
