@@ -65,7 +65,7 @@ namespace galaxy
 
 		void Transform::rotate(const float degrees) noexcept
 		{
-			m_rotate = degrees;
+			m_rotate += degrees;
 			std::clamp(m_rotate, 0.0f, 360.0f);
 
 			m_dirty = true;
@@ -82,6 +82,7 @@ namespace galaxy
 				m_rotation = glm::translate(m_rotation, m_origin);
 				m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
 				m_rotation = glm::translate(m_rotation, -m_origin);
+				m_rotate   = 0.0f;
 
 				m_model = m_translation * m_rotation;
 				m_dirty = false;
