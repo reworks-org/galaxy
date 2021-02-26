@@ -211,7 +211,7 @@ namespace galaxy
 					glm::vec4 result2 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f);
 					sprite->m_vertexs.emplace_back(result2.x, result2.y);
 
-					m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x + sprite->m_region.m_width;
+					m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x;
 					m_vertexs[sprite->m_offset + 1].m_pos[1]    = result2.y;
 					m_vertexs[sprite->m_offset + 1].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
 					m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
@@ -220,8 +220,8 @@ namespace galaxy
 					glm::vec4 result3 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f);
 					sprite->m_vertexs.emplace_back(result3.x, result3.y);
 
-					m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x + sprite->m_region.m_width;
-					m_vertexs[sprite->m_offset + 2].m_pos[1]    = result3.y + sprite->m_region.m_height;
+					m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x;
+					m_vertexs[sprite->m_offset + 2].m_pos[1]    = result3.y;
 					m_vertexs[sprite->m_offset + 2].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
 					m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
 					m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
@@ -230,7 +230,7 @@ namespace galaxy
 					sprite->m_vertexs.emplace_back(result4.x, result4.y);
 
 					m_vertexs[sprite->m_offset + 3].m_pos[0]    = result4.x;
-					m_vertexs[sprite->m_offset + 3].m_pos[1]    = result4.y + sprite->m_region.m_height;
+					m_vertexs[sprite->m_offset + 3].m_pos[1]    = result4.y;
 					m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
 					m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
 					m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
