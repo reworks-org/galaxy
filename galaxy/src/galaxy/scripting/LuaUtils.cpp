@@ -384,7 +384,6 @@ namespace galaxy
 			auto transform_type            = lua->new_usertype<components::Transform>("gTransform", sol::constructors<components::Transform()>());
 			transform_type["get_pos"]      = &components::Transform::get_pos;
 			transform_type["get_rotation"] = &components::Transform::get_rotation;
-			transform_type["is_dirty"]     = &components::Transform::is_dirty;
 			transform_type["move"]         = &components::Transform::move;
 			transform_type["rotate"]       = &components::Transform::rotate;
 			transform_type["set_pos"]      = &components::Transform::set_pos;

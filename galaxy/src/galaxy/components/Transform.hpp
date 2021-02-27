@@ -52,6 +52,14 @@ namespace galaxy
 			virtual ~Transform() noexcept = default;
 
 			///
+			/// Sets position without moving the object.
+			///
+			/// \param x X position to set object to.
+			/// \param y Y position to set object to.
+			///
+			void set_pos(const float x, const float y) noexcept;
+
+			///
 			/// \brief Translate (move) position.
 			///
 			/// Does not set the position but moves it.
@@ -73,21 +81,6 @@ namespace galaxy
 			/// Recalculates the model view matrix.
 			///
 			void recalculate();
-
-			///
-			/// Sets position without moving the object.
-			///
-			/// \param x X position to set object to.
-			/// \param y Y position to set object to.
-			///
-			void set_pos(const float x, const float y) noexcept;
-
-			///
-			/// Get flag indicating if transform needs to be applied before rendering.
-			///
-			/// \return Const boolean.
-			///
-			[[nodiscard]] const bool is_dirty() const noexcept;
 
 			///
 			/// Retrieve internal transformation matrix.

@@ -55,6 +55,14 @@ namespace galaxy
 			return *this;
 		}
 
+		void Transform::set_pos(const float x, const float y) noexcept
+		{
+			m_pos.x = x;
+			m_pos.y = y;
+
+			m_dirty = true;
+		}
+
 		void Transform::move(const float x, const float y) noexcept
 		{
 			m_pos.x += x;
@@ -79,27 +87,14 @@ namespace galaxy
 			{
 				m_translation = glm::translate(identity_matrix, {m_pos.x, m_pos.y, 0.0f});
 
+				m_rotation = identity_matrix;
 				m_rotation = glm::translate(m_rotation, m_origin);
 				m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
 				m_rotation = glm::translate(m_rotation, -m_origin);
-				m_rotate   = 0.0f;
 
 				m_model = m_translation * m_rotation;
 				m_dirty = false;
 			}
-		}
-
-		void Transform::set_pos(const float x, const float y) noexcept
-		{
-			m_pos.x = x;
-			m_pos.y = y;
-
-			m_dirty = true;
-		}
-
-		const bool Transform::is_dirty() const noexcept
-		{
-			return m_dirty;
 		}
 
 		const glm::mat4& Transform::get_transform(const float half_width, const float half_height)
