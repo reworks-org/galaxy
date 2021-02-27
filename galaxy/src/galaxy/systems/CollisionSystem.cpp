@@ -27,7 +27,7 @@ namespace galaxy
 			m_tree.clear();
 			world.operate<components::RigidBody, components::Transform>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform) {
 				body->set_size({transform->get_origin().x * 2.0f, transform->get_origin().y * 2.0f});
-				const auto& aabb = body->update_aabb(transform->get_transform(-1.0f, -1.0f));
+				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
 
 				m_tree.insert(entity, aabb.min(), aabb.max());
 			});

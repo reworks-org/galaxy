@@ -45,12 +45,14 @@ namespace galaxy
 			return *this;
 		}
 
-		const physics::AABB& RigidBody::update_aabb(const glm::mat4& transform)
+		const physics::AABB& RigidBody::update_aabb(const float x, const float y)
 		{
-			const auto min = transform * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
-			const auto max = transform * glm::vec4(m_size.x, m_size.y, 0.0f, 1.0f);
+			const glm::vec2 min = {x, y};
+			const glm::vec2 max = {x + m_size.x, y + m_size.y};
 
-			m_aabb = {{min.x, min.y}, {max.x, max.y}};
+			m_aabb = {min, max};
+
+			m_aabb.fatten(1.5f);
 			m_aabb.update_area();
 
 			return m_aabb;

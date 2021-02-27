@@ -56,11 +56,12 @@ namespace galaxy
 			///
 			/// Update the internal AABB box.
 			///
-			/// \param transform Transform to apply to the aabb box.
+			/// \param x New x position.
+			/// \param y New y position.
 			///
 			/// \return Returns internal aabb after updating, for convenience.
 			///
-			[[maybe_unused]] const physics::AABB& update_aabb(const glm::mat4& transform);
+			[[maybe_unused]] const physics::AABB& update_aabb(const float x, const float y);
 
 			///
 			/// Set body type.
