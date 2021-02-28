@@ -17,7 +17,7 @@
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 #include "Application.hpp"
@@ -159,7 +159,7 @@ namespace galaxy
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// Set up renderer.
-				graphics::Renderer::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
 				// FontBook.
 				m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
@@ -168,7 +168,7 @@ namespace galaxy
 				// Texture Atlas.
 				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<std::string>("textureatlas-json"));
 				m_texture_atlas->create("render_to_texture");
-				graphics::Renderer::m_batch->set_texture(m_texture_atlas->get_atlas());
+				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// SoundBook.
@@ -245,11 +245,11 @@ namespace galaxy
 				previous = current;
 				accumulator += elapsed;
 
-				m_window->poll_events();
-				m_layerstack->events();
-
 				while (accumulator >= ups)
 				{
+					m_window->poll_events();
+					m_layerstack->events();
+
 					m_layerstack->update(ups_s);
 					accumulator -= ups_as_nano;
 				}
@@ -269,6 +269,7 @@ namespace galaxy
 			FT_HANDLE.close();
 
 			m_window->destroy();
+			graphics::Renderer2D::clean_up();
 
 			return SL_HANDLE.m_restart;
 		}
