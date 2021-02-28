@@ -275,17 +275,17 @@ namespace galaxy
 		{
 			if (LogLevel::value >= m_min_level)
 			{
-				std::lock_guard<std::mutex> lock {m_msg_mutex};
-
 				constexpr const char* colour = process_colour<LogLevel>();
 				constexpr const char* level  = process_level<LogLevel>();
 
-				const auto fmt_msg  = fmt::format(message, args...);
+				const auto fmt_msg = fmt::format(message, args...);
+
 				const auto time_obj = std::time(nullptr);
 
 				std::stringstream sstream;
 				sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
 
+				std::lock_guard<std::mutex> lock {m_msg_mutex};
 				m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
 				if constexpr (LogLevel::value == level::Fatal::value)
 				{

@@ -41,8 +41,6 @@ namespace galaxy
 			m_thread = std::jthread([&]() {
 				while (m_file_stream.is_open())
 				{
-					std::this_thread::sleep_for(1s);
-					
 					std::lock_guard<std::mutex> lock {m_msg_mutex};
 					*m_stream << m_message;
 					m_file_stream << m_message;
