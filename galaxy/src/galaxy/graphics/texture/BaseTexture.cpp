@@ -126,9 +126,9 @@ namespace galaxy
 
 		const int BaseTexture::get_aniso_level() noexcept
 		{
-			int ansio = 0;
+			float ansio = 1.0f;
 			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, &ansio);
+			glGetTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, &ansio);
 			glBindTexture(GL_TEXTURE_2D, 0);
 
 			return ansio;

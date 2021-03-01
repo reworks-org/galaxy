@@ -1,6 +1,6 @@
 {
-    "ansio-filter": 0,
-    "anti-aliasing": 0,
+    "ansio-filter": 1,
+    "anti-aliasing": 1,
     "aspect-ratio-x": -1,
     "aspect-ratio-y": -1,
     "audio-volume": 0.5,
