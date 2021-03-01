@@ -10,9 +10,7 @@
 
 #include <fstream>
 #include <iomanip>
-#include <mutex>
 #include <sstream>
-#include <thread>
 
 #include <fmt/format.h>
 
@@ -179,21 +177,6 @@ namespace galaxy
 			/// Minimum level of messages required to be logged.
 			///
 			int m_min_level;
-
-			///
-			/// Thread all logging takes place on.
-			///
-			std::jthread m_thread;
-
-			///
-			/// Message mutex.
-			///
-			std::mutex m_msg_mutex;
-
-			///
-			/// Cross-Thread message
-			///
-			std::string m_message;
 		};
 
 		///
@@ -278,18 +261,19 @@ namespace galaxy
 				constexpr const char* colour = process_colour<LogLevel>();
 				constexpr const char* level  = process_level<LogLevel>();
 
-				const auto fmt_msg = fmt::format(message, args...);
-
+				const auto fmt_msg  = fmt::format(message, args...);
 				const auto time_obj = std::time(nullptr);
 
 				std::stringstream sstream;
 				sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
 
-				std::lock_guard<std::mutex> lock {m_msg_mutex};
-				m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
+				const auto final_str = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
+				*m_stream << final_str;
+				m_file_stream << final_str;
+
 				if constexpr (LogLevel::value == level::Fatal::value)
 				{
-					throw std::runtime_error {m_message};
+					throw std::runtime_error {final_str};
 				}
 			}
 		}

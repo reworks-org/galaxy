@@ -36,30 +36,15 @@ namespace galaxy
 		{
 			auto path = std::filesystem::path {log_file};
 			m_file_stream.open(path.string(), std::ofstream::out);
-
-			// clang-format off
-			m_thread = std::jthread([&]() {
-				while (m_file_stream.is_open())
-				{
-					std::lock_guard<std::mutex> lock {m_msg_mutex};
-					*m_stream << m_message;
-					m_file_stream << m_message;
-					m_message.clear();
-				}
-			});
-			// clang-format on
 		}
 
 		void Log::finish()
 		{
 			m_file_stream.close();
-			m_thread.request_stop();
-			m_thread.join();
 		}
 
 		void Log::change_stream(std::ostream& ostream)
 		{
-			std::lock_guard<std::mutex> lock {m_msg_mutex};
 			m_stream = &ostream;
 		}
 	} // namespace error
