@@ -18,7 +18,7 @@
     "spritebatch-shader": "spritebatch",
     "textureatlas-json": "textureatlas.json",
     "trilinear-filtering": false,
-    "vsync": false,
+    "vsync": true,
     "window-height": 720,
     "window-name": "Supercluster Editor",
     "window-width": 1280
