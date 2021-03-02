@@ -260,6 +260,8 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
+				m_active_scene->camera().set_width(m_viewport_size.x);
+				m_active_scene->camera().set_height(m_viewport_size.y);
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});

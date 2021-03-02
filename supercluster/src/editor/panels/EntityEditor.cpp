@@ -774,31 +774,31 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Sprite"))
 					{
-						static float s_cw = 1.0f;
+						static float s_cw = static_cast<float>(sprite2d->get_width());
 						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							sprite2d->set_custom_width(s_cw);
 						}
 
-						static float s_ch = 1.0f;
+						static float s_ch = static_cast<float>(sprite2d->get_height());
 						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							sprite2d->set_custom_height(s_ch);
 						}
 
-						float opacity = sprite2d->get_opacity();
+						static float opacity = sprite2d->get_opacity();
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 						{
 							sprite2d->set_opacity(opacity);
 						}
 
-						static std::string s_bs_tex = "";
+						static std::string s_bs_tex = sprite2d->get_tex_id();
 						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							if (!s_bs_tex.empty())
 							{
 								sprite2d->set_region(s_bs_tex);
-								s_bs_tex.clear();
+								s_bs_tex = sprite2d->get_tex_id();
 							}
 						}
 
@@ -849,13 +849,13 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Transform"))
 					{
-						float pos[2] = {transform->get_pos().x, transform->get_pos().y};
+						static float pos[2] = {transform->get_pos().x, transform->get_pos().y};
 						if (ImGui::InputFloat2("Position", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							transform->set_pos(pos[0], pos[1]);
 						}
 
-						float rotation = transform->get_rotation();
+						static float rotation = transform->get_rotation();
 						if (ImGui::SliderAngle("Rotate", &rotation, 0.0f, 360.0f))
 						{
 							transform->rotate(rotation);

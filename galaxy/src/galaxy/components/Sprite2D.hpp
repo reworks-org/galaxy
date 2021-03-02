@@ -142,6 +142,13 @@ namespace galaxy
 			[[nodiscard]] const std::vector<glm::vec2>& get_vertexs() const noexcept;
 
 			///
+			/// Get texture string id.
+			///
+			/// \return Const std::string reference.
+			///
+			[[nodiscard]] const std::string& get_tex_id() const noexcept;
+
+			///
 			/// Get region this frame occupies.
 			///
 			/// \return Const float rectangle.

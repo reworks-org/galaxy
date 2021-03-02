@@ -124,6 +124,11 @@ namespace galaxy
 			return m_vertexs;
 		}
 
+		const std::string& Sprite2D::get_tex_id() const noexcept
+		{
+			return m_id;
+		}
+
 		nlohmann::json Sprite2D::serialize()
 		{
 			nlohmann::json json      = "{}"_json;
