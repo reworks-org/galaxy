@@ -70,6 +70,11 @@ namespace galaxy
 			/// Height of window.
 			///
 			int m_height;
+
+			///
+			/// Open window maximized.
+			///
+			bool m_maximized;
 		};
 	} // namespace core
 } // namespace galaxy

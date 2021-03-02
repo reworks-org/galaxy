@@ -10,6 +10,7 @@
     "icon-file": "icon.png",
     "is-cursor-visible": true,
     "max-batched-quads": 1000,
+    "maximized": false,
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,
     "shaderbook-json": "shaderbook.json",

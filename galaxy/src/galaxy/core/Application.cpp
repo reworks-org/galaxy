@@ -76,6 +76,7 @@ namespace galaxy
 				m_config->define<bool>("is-cursor-visible", true);
 				m_config->define<bool>("gl-debug", false);
 				m_config->define<bool>("trilinear-filtering", false);
+				m_config->define<bool>("maximized", false);
 				m_config->define<int>("max-batched-quads", 1000);
 				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
@@ -102,7 +103,8 @@ namespace galaxy
 				.m_gl_debug = m_config->get<bool>("gl-debug"),
 				.m_title = m_config->get<std::string>("window-name"),
 				.m_width = m_config->get<int>("window-width"),
-				.m_height = m_config->get<int>("window-height")
+				.m_height = m_config->get<int>("window-height"),
+				.m_maximized = m_config->get<bool>("maximized")
 			};
 			// clang-format on
 

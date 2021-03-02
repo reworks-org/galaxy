@@ -93,7 +93,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_DECORATED, true);
 				glfwWindowHint(GLFW_FOCUSED, true);
 
-				// Framebuffer stuff
+				// Framebuffer stuff.
 				glfwWindowHint(GLFW_RED_BITS, 8);
 				glfwWindowHint(GLFW_GREEN_BITS, 8);
 				glfwWindowHint(GLFW_BLUE_BITS, 8);
@@ -102,12 +102,22 @@ namespace galaxy
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, true);
 
-				// MSAA
+				// Window maximized check.
+				if (settings.m_maximized)
+				{
+					glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
+				}
+
+				// MSAA.
 				const auto max_samples = std::clamp(settings.m_anti_aliasing, 1, 16);
 				glfwWindowHint(GLFW_SAMPLES, max_samples);
 
 				// Create the window from input, ensuring it is centered in the screen.
 				m_window = glfwCreateWindow(m_width, m_height, settings.m_title.c_str(), nullptr, nullptr);
+				if (settings.m_maximized)
+				{
+					glfwGetWindowSize(m_window, &m_width, &m_height);
+				}
 
 				// Then if the window failed to create:
 				if (!m_window)
