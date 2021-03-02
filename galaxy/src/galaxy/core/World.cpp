@@ -8,17 +8,12 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/BatchedSprite.hpp"
-#include "galaxy/components/Circle.hpp"
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/Line.hpp"
 #include "galaxy/components/OnEvent.hpp"
-#include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
@@ -46,16 +41,11 @@ namespace galaxy
 		    : Serializable {this}, m_next_id {0}
 		{
 			register_component<components::Animated>("Animated");
-			register_component<components::BatchedSprite>("BatchedSprite");
-			register_component<components::Circle>("Circle");
-			register_component<components::Ellipse>("Ellipse");
-			register_component<components::Line>("Line");
-			register_component<components::RigidBody>("RigidBody");
-			register_component<components::Point>("Point");
-			register_component<components::Polygon>("Polygon");
+			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
+			register_component<components::RigidBody>("RigidBody");
 			register_component<components::ShaderID>("ShaderID");
-			register_component<components::Sprite>("Sprite");
+			register_component<components::Sprite2D>("Sprite2D");
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
@@ -68,12 +58,9 @@ namespace galaxy
 
 		void World::update(const double dt)
 		{
-			for (const auto& ptr : m_systems)
+			for (const auto& pair : m_systems)
 			{
-				if (ptr)
-				{
-					ptr->update(*this, dt);
-				}
+				pair.second->update(*this, dt);
 			}
 		}
 
@@ -220,18 +207,13 @@ namespace galaxy
 				entity_json["enabled"]    = is_enabled(entity);
 				entity_json["components"] = nlohmann::json::object();
 
-				auto [animated, batchedsprite, circle, ellipse, line, rigidbody, point, polygon, renderable, shaderid, sprite, tag, text, transform] = get_multi<
+				auto [animated, primitive2d, renderable, rigidbody, shaderid, sprite2d, tag, text, transform] = get_multi<
 					components::Animated,
-				    components::BatchedSprite,
-				    components::Circle,
-					components::Ellipse,
-				    components::Line,
-					components::RigidBody,
-				    components::Point,
-					components::Polygon,
+				    components::Primitive2D,
 				    components::Renderable,
+					components::RigidBody,
 				    components::ShaderID,
-				    components::Sprite,
+				    components::Sprite2D,
 					components::Tag,
 				    components::Text,
 				    components::Transform>(entity);
@@ -241,39 +223,9 @@ namespace galaxy
 					entity_json["components"]["Animated"] = animated->serialize();
 				}
 
-				if (batchedsprite)
+				if (primitive2d)
 				{
-					entity_json["components"]["BatchedSprite"] = batchedsprite->serialize();
-				}
-
-				if (circle)
-				{
-					entity_json["components"]["Circle"] = circle->serialize();
-				}
-
-				if (ellipse)
-				{
-					entity_json["components"]["Ellipse"] = ellipse->serialize();
-				}
-
-				if (line)
-				{
-					entity_json["components"]["Line"] = line->serialize();
-				}
-
-				if (rigidbody)
-				{
-					entity_json["components"]["RigidBody"] = rigidbody->serialize();
-				}
-
-				if (point)
-				{
-					entity_json["components"]["Point"] = point->serialize();
-				}
-
-				if (polygon)
-				{
-					entity_json["components"]["Polygon"] = polygon->serialize();
+					entity_json["components"]["Primitive2D"] = primitive2d->serialize();
 				}
 
 				if (renderable)
@@ -281,14 +233,19 @@ namespace galaxy
 					entity_json["components"]["Renderable"] = renderable->serialize();
 				}
 
+				if (rigidbody)
+				{
+					entity_json["components"]["RigidBody"] = rigidbody->serialize();
+				}
+
 				if (shaderid)
 				{
 					entity_json["components"]["ShaderID"] = shaderid->serialize();
 				}
 
-				if (sprite)
+				if (sprite2d)
 				{
-					entity_json["components"]["Sprite"] = sprite->serialize();
+					entity_json["components"]["Sprite2D"] = sprite2d->serialize();
 				}
 
 				if (tag)

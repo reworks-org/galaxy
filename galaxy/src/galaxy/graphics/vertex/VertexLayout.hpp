@@ -69,24 +69,8 @@ namespace galaxy
 			// constexpr will discard the branch that is false and it wont be compiled.
 			constexpr bool is_prim_vertex   = std::is_same<VertexType, PrimitiveVertex>::value;
 			constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
-			constexpr bool is_batch_vertex  = std::is_same<VertexType, BatchedVertex>::value;
 
-			if constexpr (is_sprite_vertex)
-			{
-				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_pos)));
-				}
-				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_texels)));
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for sprite vertex.");
-				}
-			}
-			else if constexpr (is_prim_vertex)
+			if constexpr (is_prim_vertex)
 			{
 				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
 				{
@@ -101,19 +85,19 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for primitive vertex.");
 				}
 			}
-			else if constexpr (is_batch_vertex)
+			else if constexpr (is_sprite_vertex)
 			{
 				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
 				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_pos)));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_pos)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
 				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_texels)));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_texels)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, meta::VAOpacity>::value)
 				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_opacity)));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_opacity)));
 				}
 				else
 				{

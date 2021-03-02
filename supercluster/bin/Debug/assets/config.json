@@ -9,7 +9,6 @@
     "gl-debug": true,
     "icon-file": "icon.png",
     "is-cursor-visible": true,
-    "line-thickness": 4.0,
     "max-batched-quads": 1000,
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,

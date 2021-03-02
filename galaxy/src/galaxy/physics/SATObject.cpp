@@ -5,14 +5,12 @@
 /// https://github.com/ghost7/collision
 ///
 
+#include <glm/geometric.hpp>
+
 #include "galaxy/core/World.hpp"
-#include "galaxy/components/BatchedSprite.hpp"
-#include "galaxy/components/Circle.hpp"
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 
 #include "SATObject.hpp"
 
@@ -46,82 +44,21 @@ namespace galaxy
 			auto* renderable = world.get<components::Renderable>(entity);
 			if (renderable)
 			{
-				auto* transform = world.get<components::Transform>(entity);
-
-				switch (renderable->m_type)
+				if (renderable->m_type == graphics::Renderables::BATCHED)
 				{
-					case graphics::Renderables::POINT:
+					auto* s2d = world.get<components::Sprite2D>(entity);
+					for (const auto& vertex : s2d->get_vertexs())
 					{
-						GALAXY_LOG(GALAXY_WARNING, "Point is not supported yet for collision.");
+						m_vertexs.emplace_back(vertex);
 					}
-					break;
-
-					case graphics::Renderables::LINE:
+				}
+				else
+				{
+					auto* p2d = world.get<components::Primitive2D>(entity);
+					for (const auto& vertex : p2d->get_vertexs())
 					{
-						GALAXY_LOG(GALAXY_WARNING, "Line is not supported yet for collision.");
+						m_vertexs.emplace_back(vertex.m_pos);
 					}
-					break;
-
-					case graphics::Renderables::CIRCLE:
-					{
-						auto* circle = world.get<components::Circle>(entity);
-						for (const auto& vertex : circle->get_vertexs())
-						{
-							const auto result = transform->get_transform(-1.0f, -1.0f) * glm::vec4(vertex.m_pos, 0.0f, 1.0f);
-							m_vertexs.emplace_back(result.x, result.y);
-						}
-					}
-					break;
-
-					case graphics::Renderables::SPRITE:
-					{
-						auto* sprite = world.get<components::Sprite>(entity);
-						for (const auto& vertex : sprite->get_vertexs())
-						{
-							const auto result = transform->get_transform(-1.0f, -1.0f) * glm::vec4(vertex.m_pos, 0.0f, 1.0f);
-							m_vertexs.emplace_back(result.x, result.y);
-						}
-					}
-					break;
-
-					case graphics::Renderables::TEXT:
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Text is not supported yet for collision.");
-					}
-					break;
-
-					case graphics::Renderables::BATCHED:
-					{
-						auto* batch = world.get<components::BatchedSprite>(entity);
-						for (const auto& vertex : batch->get_vertexs())
-						{
-							const auto result = transform->get_transform(-1.0f, -1.0f) * glm::vec4(vertex, 0.0f, 1.0f);
-							m_vertexs.emplace_back(result.x, result.y);
-						}
-					}
-					break;
-
-					case graphics::Renderables::POLYGON:
-					{
-						auto* polygon = world.get<components::Polygon>(entity);
-						for (const auto& vertex : polygon->get_vertexs())
-						{
-							const auto result = transform->get_transform(-1.0f, -1.0f) * glm::vec4(vertex.m_pos, 0.0f, 1.0f);
-							m_vertexs.emplace_back(result.x, result.y);
-						}
-					}
-					break;
-
-					case graphics::Renderables::ELLIPSE:
-					{
-						auto* ellipse = world.get<components::Ellipse>(entity);
-						for (const auto& vertex : ellipse->get_vertexs())
-						{
-							const auto result = transform->get_transform(-1.0f, -1.0f) * glm::vec4(vertex.m_pos, 0.0f, 1.0f);
-							m_vertexs.emplace_back(result.x, result.y);
-						}
-					}
-					break;
 				}
 
 				// Calculate the polygon's normals. These are used as the axes to project
@@ -177,7 +114,8 @@ namespace galaxy
 				const auto overlap  = p1.get_overlap(p2);
 				if (overlap == 0)
 				{
-					mtv = glm::vec2(0, 0);
+					mtv.x = 0.0f;
+					mtv.y = 0.0f;
 					return false;
 				}
 

@@ -52,7 +52,7 @@ namespace galaxy
 
 			m_aabb = {min, max};
 
-			m_aabb.fatten(1.5f);
+			m_aabb.fatten(0.5f);
 			m_aabb.update_area();
 
 			return m_aabb;
@@ -66,6 +66,12 @@ namespace galaxy
 		void RigidBody::set_size(const glm::vec2& size) noexcept
 		{
 			m_size = size;
+		}
+
+		void RigidBody::set_size(const float width, const float height) noexcept
+		{
+			m_size.x = width;
+			m_size.y = height;
 		}
 
 		const physics::AABB& RigidBody::get_aabb() const noexcept
@@ -90,10 +96,7 @@ namespace galaxy
 
 		void RigidBody::deserialize(const nlohmann::json& json)
 		{
-			// clang-format off
-			const std::string& type_str = json.at("type");
-			m_type = magic_enum::enum_cast<physics::BodyType>(type_str).value();
-			// clang-format on
+			m_type = magic_enum::enum_cast<physics::BodyType>(json.at("type").get<std::string>()).value();
 		}
 	} // namespace components
 } // namespace galaxy

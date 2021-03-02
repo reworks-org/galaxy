@@ -38,14 +38,14 @@ namespace galaxy
 			m_sprites.reserve(m_max_quads);
 			m_vertexs.reserve(m_max_vertexs);
 
-			m_vb.create<BatchedVertex>(m_vertexs);
+			m_vb.create<SpriteVertex>(m_vertexs);
 			m_ib.create(is);
 
-			m_layout.add<BatchedVertex, meta::VAPosition>(2);
-			m_layout.add<BatchedVertex, meta::VATexel>(2);
-			m_layout.add<BatchedVertex, meta::VAOpacity>(1);
+			m_layout.add<SpriteVertex, meta::VAPosition>(2);
+			m_layout.add<SpriteVertex, meta::VATexel>(2);
+			m_layout.add<SpriteVertex, meta::VAOpacity>(1);
 
-			m_va.create<BatchedVertex>(m_vb, m_ib, m_layout);
+			m_va.create<SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
 		SpriteBatch::SpriteBatch(SpriteBatch&& sb) noexcept
@@ -106,7 +106,7 @@ namespace galaxy
 			}
 		}
 
-		void SpriteBatch::add(components::BatchedSprite* sprite, components::Transform* transform, const int z_level)
+		void SpriteBatch::add(components::Sprite2D* sprite, components::Transform* transform, const int z_level)
 		{
 			if (!sprite || !transform)
 			{
@@ -139,10 +139,7 @@ namespace galaxy
 			{
 				sprite->m_vertexs.clear();
 
-				const auto hw = sprite->m_region.m_width / 2.0f;
-				const auto hh = sprite->m_region.m_height / 2.0f;
-
-				glm::vec4 result1 = transform->get_transform(hw, hh) * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+				const auto result1 = transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
 				sprite->m_vertexs.emplace_back(result1.x, result1.y);
 
 				m_vertexs[sprite->m_offset + 0].m_pos[0]    = result1.x;
@@ -151,7 +148,7 @@ namespace galaxy
 				m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
 				m_vertexs[sprite->m_offset + 0].m_opacity   = sprite->m_opacity;
 
-				glm::vec4 result2 = transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f);
+				const auto result2 = transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f};
 				sprite->m_vertexs.emplace_back(result2.x, result2.y);
 
 				m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x;
@@ -160,7 +157,7 @@ namespace galaxy
 				m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
 				m_vertexs[sprite->m_offset + 1].m_opacity   = sprite->m_opacity;
 
-				glm::vec4 result3 = transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f);
+				const auto result3 = transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
 				sprite->m_vertexs.emplace_back(result3.x, result3.y);
 
 				m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x;
@@ -169,7 +166,7 @@ namespace galaxy
 				m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
 				m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
 
-				glm::vec4 result4 = transform->get_transform(hw, hh) * glm::vec4(0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f);
+				const auto result4 = transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
 				sprite->m_vertexs.emplace_back(result4.x, result4.y);
 
 				m_vertexs[sprite->m_offset + 3].m_pos[0]    = result4.x;
@@ -179,7 +176,7 @@ namespace galaxy
 				m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
 			}
 
-			glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchedVertex) * m_vertexs.size(), m_vertexs.data());
+			glNamedBufferSubData(m_vb.id(), 0, sizeof(SpriteVertex) * m_vertexs.size(), m_vertexs.data());
 		}
 
 		void SpriteBatch::calculate(components::Transform* global_transform)
@@ -196,10 +193,7 @@ namespace galaxy
 				{
 					sprite->m_vertexs.clear();
 
-					const auto hw = sprite->m_region.m_width / 2.0f;
-					const auto hh = sprite->m_region.m_height / 2.0f;
-
-					glm::vec4 result1 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+					const auto result1 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
 					sprite->m_vertexs.emplace_back(result1.x, result1.y);
 
 					m_vertexs[sprite->m_offset + 0].m_pos[0]    = result1.x;
@@ -208,7 +202,7 @@ namespace galaxy
 					m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
 					m_vertexs[sprite->m_offset + 0].m_opacity   = sprite->m_opacity;
 
-					glm::vec4 result2 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f);
+					const auto result2 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f};
 					sprite->m_vertexs.emplace_back(result2.x, result2.y);
 
 					m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x;
@@ -217,7 +211,7 @@ namespace galaxy
 					m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
 					m_vertexs[sprite->m_offset + 1].m_opacity   = sprite->m_opacity;
 
-					glm::vec4 result3 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f);
+					const auto result3 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
 					sprite->m_vertexs.emplace_back(result3.x, result3.y);
 
 					m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x;
@@ -226,7 +220,7 @@ namespace galaxy
 					m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
 					m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
 
-					glm::vec4 result4 = global_transform->get_transform(-1.0f, -1.0f) * transform->get_transform(hw, hh) * glm::vec4(0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f);
+					const auto result4 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
 					sprite->m_vertexs.emplace_back(result4.x, result4.y);
 
 					m_vertexs[sprite->m_offset + 3].m_pos[0]    = result4.x;
@@ -236,7 +230,7 @@ namespace galaxy
 					m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
 				}
 
-				glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchedVertex) * m_vertexs.size(), m_vertexs.data());
+				glNamedBufferSubData(m_vb.id(), 0, sizeof(SpriteVertex) * m_vertexs.size(), m_vertexs.data());
 			}
 		}
 

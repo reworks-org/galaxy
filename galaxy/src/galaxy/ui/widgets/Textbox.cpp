@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Textbox.hpp"
@@ -32,11 +32,11 @@ namespace galaxy
 		void Textbox::create(std::string_view box, std::string_view indicator, std::string_view font, float border_width)
 		{
 			m_border_width = border_width;
-			m_batched.create(box);
+			m_sprite.create(box);
 			m_indicator.create(indicator, 0.0f);
 
-			m_bounds.m_width  = m_batched.get_width();
-			m_bounds.m_height = m_batched.get_height();
+			m_bounds.m_width  = m_sprite.get_width();
+			m_bounds.m_height = m_sprite.get_height();
 
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create("");
@@ -76,6 +76,9 @@ namespace galaxy
 			// clang-format on
 
 			m_shader = SL_HANDLE.shaderbook()->get("text");
+
+			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
+			m_theme->m_sb.add(&m_indicator, &m_indicator_transform, 1);
 		}
 
 		void Textbox::on_event(const events::MouseMoved& mme) noexcept
@@ -137,7 +140,7 @@ namespace galaxy
 			m_shader->bind();
 			m_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			m_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_shader);
+			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, m_shader);
 
 			if (m_tooltip)
 			{

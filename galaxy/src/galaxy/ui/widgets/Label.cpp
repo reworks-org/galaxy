@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Label.hpp"
@@ -69,7 +69,7 @@ namespace galaxy
 			m_shader->bind();
 			m_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			m_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer::submit_text(&m_text, &m_transform, m_shader);
+			graphics::Renderer2D::draw_text(&m_text, &m_transform, m_shader);
 
 			if (m_tooltip)
 			{

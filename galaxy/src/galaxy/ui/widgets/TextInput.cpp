@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -30,16 +30,20 @@ namespace galaxy
 		void TextInput::create(std::string_view textinput, std::string_view font, float border_width)
 		{
 			m_border_width = border_width;
-			m_batched.create(textinput);
+			m_sprite.create(textinput);
 
-			m_bounds.m_width  = m_batched.get_width();
-			m_bounds.m_height = m_batched.get_height();
+			m_bounds.m_width  = m_sprite.get_width();
+			m_bounds.m_height = m_sprite.get_height();
 
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create("");
 			m_total_chars = (std::floor((m_bounds.m_width - (m_border_width * 2.0f)) / static_cast<float>(SL_HANDLE.fontbook()->get(font)->get_width("X")))) - 1;
 
-			m_cursor.create(m_theme->m_font_col, 0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
+			components::Primitive2D::PrimitiveData data;
+			data.m_colour    = m_theme->m_font_col;
+			data.m_start_end = std::make_optional<glm::vec4>(0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
+			m_cursor.create<graphics::Primitives::LINE>(data);
+
 			m_line_shader = SL_HANDLE.shaderbook()->get("line");
 			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 
@@ -53,6 +57,8 @@ namespace galaxy
 			}, 1000);
 			m_timer.start();
 			// clang-format on
+
+			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
 		}
 
 		void TextInput::on_event(const events::MouseMoved& mme) noexcept
@@ -157,14 +163,14 @@ namespace galaxy
 			m_text_shader->bind();
 			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
+			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, m_text_shader);
 
 			if (m_draw_cursor && m_is_focus)
 			{
 				m_line_shader->bind();
 				m_line_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 				m_line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-				graphics::Renderer::submit_line(&m_cursor, &m_cursor_transform, m_line_shader);
+				graphics::Renderer2D::draw_line(&m_cursor, &m_cursor_transform, m_line_shader);
 			}
 
 			if (m_tooltip)

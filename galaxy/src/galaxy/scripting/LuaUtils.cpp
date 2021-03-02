@@ -12,21 +12,6 @@
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/algorithm/Random.hpp"
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/BatchedSprite.hpp"
-#include "galaxy/components/Circle.hpp"
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/Line.hpp"
-#include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Tag.hpp"
-#include "galaxy/components/Text.hpp"
-#include "galaxy/components/Transform.hpp"
-
 #include "galaxy/core/LayerStack.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
@@ -48,6 +33,7 @@
 #include "galaxy/graphics/animation/Animation.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
@@ -55,6 +41,7 @@
 #include "galaxy/map/World.hpp"
 
 #include "galaxy/physics/AABB.hpp"
+#include "galaxy/physics/BodyType.hpp"
 #include "galaxy/physics/SATObject.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
@@ -136,140 +123,6 @@ void set_vec4_uniform(galaxy::graphics::Shader& shader, std::string_view name, c
 	shader.set_uniform("name", val);
 }
 
-// BEGIN ADD COMPONENTS
-
-galaxy::components::ShaderID* add_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::ShaderID>(entity);
-}
-
-galaxy::components::Transform* add_transform(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Transform>(entity);
-}
-
-galaxy::components::Renderable* add_renderable(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Renderable>(entity);
-}
-
-galaxy::components::Point* add_point(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Point>(entity);
-}
-
-galaxy::components::Line* add_line(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Line>(entity);
-}
-
-galaxy::components::Circle* add_circle(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Circle>(entity);
-}
-
-galaxy::components::BatchedSprite* add_batched_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::BatchedSprite>(entity);
-}
-
-galaxy::components::Sprite* add_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Sprite>(entity);
-}
-
-galaxy::components::Text* add_text(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Text>(entity);
-}
-
-galaxy::components::Animated* add_animated(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Animated>(entity);
-}
-
-galaxy::components::RigidBody* add_rigidbody(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::RigidBody>(entity);
-}
-
-galaxy::components::Tag* add_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Tag>(entity);
-}
-
-galaxy::components::Polygon* add_polygon(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.create_component<galaxy::components::Polygon>(entity);
-}
-
-// BEGIN GET COMPONENTS
-
-galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::ShaderID>(entity);
-}
-
-galaxy::components::Transform* get_transform(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Transform>(entity);
-}
-
-galaxy::components::Renderable* get_renderable(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Renderable>(entity);
-}
-
-galaxy::components::Point* get_point(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Point>(entity);
-}
-
-galaxy::components::Line* get_line(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Line>(entity);
-}
-
-galaxy::components::Circle* get_circle(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Circle>(entity);
-}
-
-galaxy::components::BatchedSprite* get_batched_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::BatchedSprite>(entity);
-}
-
-galaxy::components::Sprite* get_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Sprite>(entity);
-}
-
-galaxy::components::Text* get_text(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Text>(entity);
-}
-
-galaxy::components::Animated* get_animated(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Animated>(entity);
-}
-
-galaxy::components::RigidBody* get_rigidbody(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::RigidBody>(entity);
-}
-
-galaxy::components::Tag* get_tag(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Tag>(entity);
-}
-
-galaxy::components::Polygon* get_polygon(galaxy::core::World& world, const galaxy::ecs::Entity entity)
-{
-	return world.get<galaxy::components::Polygon>(entity);
-}
-
 namespace galaxy
 {
 	namespace lua
@@ -349,189 +202,6 @@ namespace galaxy
 			world_type["enable"]           = &core::World::enable;
 			world_type["disable"]          = &core::World::disable;
 			world_type["clear"]            = &core::World::clear;
-
-			lua->set_function("add_shaderid_to_entity", &add_shaderid);
-			lua->set_function("add_transform_to_entity", &add_transform);
-			lua->set_function("add_renderable_to_entity", &add_renderable);
-			lua->set_function("add_point_to_entity", &add_point);
-			lua->set_function("add_line_to_entity", &add_line);
-			lua->set_function("add_circle_to_entity", &add_circle);
-			lua->set_function("add_batched_sprite_to_entity", &add_batched_sprite);
-			lua->set_function("add_sprite_to_entity", &add_sprite);
-			lua->set_function("add_text_to_entity", &add_text);
-			lua->set_function("add_animated_to_entity", &add_animated);
-			lua->set_function("add_rigidbody_to_entity", &add_rigidbody);
-			lua->set_function("add_tag_to_entity", &add_tag);
-			lua->set_function("add_polygon_to_entity", &add_polygon);
-
-			lua->set_function("get_shaderid_from_entity", &get_shaderid);
-			lua->set_function("get_transform_from_entity", &get_transform);
-			lua->set_function("get_renderable_from_entity", &get_renderable);
-			lua->set_function("get_point_from_entity", &get_point);
-			lua->set_function("get_line_from_entity", &get_line);
-			lua->set_function("get_circle_from_entity", &get_circle);
-			lua->set_function("get_batched_sprite_from_entity", &get_batched_sprite);
-			lua->set_function("get_sprite_from_entity", &get_sprite);
-			lua->set_function("get_text_from_entity", &get_text);
-			lua->set_function("get_animated_from_entity", &get_animated);
-			lua->set_function("get_rigidbody_from_entity", &get_rigidbody);
-			lua->set_function("get_tag_from_entity", &get_tag);
-			lua->set_function("get_polygon_from_entity", &get_polygon);
-
-			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
-			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
-
-			auto transform_type            = lua->new_usertype<components::Transform>("gTransform", sol::constructors<components::Transform()>());
-			transform_type["get_pos"]      = &components::Transform::get_pos;
-			transform_type["get_rotation"] = &components::Transform::get_rotation;
-			transform_type["move"]         = &components::Transform::move;
-			transform_type["rotate"]       = &components::Transform::rotate;
-			transform_type["set_pos"]      = &components::Transform::set_pos;
-			transform_type["get_origin"]   = &components::Transform::get_origin;
-
-			// clang-format off
-			lua->new_enum<graphics::Renderables>("gRenderables",
-			{
-				{"POINT", graphics::Renderables::POINT},
-				{"LINE", graphics::Renderables::LINE},
-				{"CIRCLE", graphics::Renderables::CIRCLE},
-				{"SPRITE", graphics::Renderables::SPRITE},
-				{"TEXT", graphics::Renderables::TEXT},
-				{"BATCHED", graphics::Renderables::BATCHED},
-				{"POLYGON", graphics::Renderables::POLYGON},
-				{"ELLIPSE", graphics::Renderables::ELLIPSE}
-			});
-			// clang-format on
-
-			auto renderable_type       = lua->new_usertype<components::Renderable>("gRenderable", sol::constructors<components::Renderable(), components::Renderable(graphics::Renderables, const int)>());
-			renderable_type["type"]    = &components::Renderable::m_type;
-			renderable_type["z_level"] = &components::Renderable::m_z_level;
-
-			auto point_type             = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const unsigned int, const graphics::Colour&)>());
-			point_type["create"]        = &components::Point::create;
-			point_type["bind"]          = &components::Point::bind;
-			point_type["unbind"]        = &components::Point::unbind;
-			point_type["get_size"]      = &components::Point::get_size;
-			point_type["index_count"]   = &components::Point::index_count;
-			point_type["get_opacity"]   = &components::Point::get_opacity;
-			point_type["set_opacity"]   = &components::Point::set_opacity;
-			point_type["change_colour"] = &components::Point::change_colour;
-			point_type["get_colour"]    = &components::Point::get_colour;
-			point_type["update"]        = &components::Point::update;
-			point_type["set_size"]      = &components::Point::set_size;
-
-			auto line_type             = lua->new_usertype<components::Line>("gLine", sol::constructors<components::Line(), components::Line(const graphics::Colour&, const float, const float, const float, const float)>());
-			line_type["create"]        = &components::Line::create;
-			line_type["bind"]          = &components::Line::bind;
-			line_type["unbind"]        = &components::Line::unbind;
-			line_type["index_count"]   = &components::Line::index_count;
-			line_type["get_opacity"]   = &components::Line::get_opacity;
-			line_type["set_opacity"]   = &components::Line::set_opacity;
-			line_type["change_colour"] = &components::Line::change_colour;
-			line_type["get_colour"]    = &components::Line::get_colour;
-			line_type["update"]        = &components::Line::update;
-
-			auto circle_type             = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const unsigned int, const graphics::Colour&)>());
-			circle_type["create"]        = &components::Circle::create;
-			circle_type["bind"]          = &components::Circle::bind;
-			circle_type["unbind"]        = &components::Circle::unbind;
-			circle_type["radius"]        = &components::Circle::radius;
-			circle_type["index_count"]   = &components::Circle::index_count;
-			circle_type["get_opacity"]   = &components::Circle::get_opacity;
-			circle_type["set_opacity"]   = &components::Circle::set_opacity;
-			circle_type["change_colour"] = &components::Circle::change_colour;
-			circle_type["get_colour"]    = &components::Circle::get_colour;
-			circle_type["fragments"]     = &components::Circle::fragments;
-			circle_type["set_fragments"] = &components::Circle::set_fragments;
-			circle_type["set_radius"]    = &components::Circle::set_radius;
-			circle_type["update"]        = &components::Circle::update;
-
-			auto bs_type                 = lua->new_usertype<components::BatchedSprite>("gBatchedSprite", sol::constructors<components::BatchedSprite()>());
-			bs_type["create_region"]     = sol::resolve<void(const graphics::fRect&, float)>(&components::BatchedSprite::create);
-			bs_type["create_atlas"]      = sol::resolve<void(std::string_view, float)>(&components::BatchedSprite::create);
-			bs_type["get_height"]        = &components::BatchedSprite::get_height;
-			bs_type["get_region"]        = &components::BatchedSprite::get_region;
-			bs_type["get_width"]         = &components::BatchedSprite::get_width;
-			bs_type["get_opacity"]       = &components::BatchedSprite::get_opacity;
-			bs_type["set_opacity"]       = &components::BatchedSprite::set_opacity;
-			bs_type["set_region"]        = &components::BatchedSprite::set_region;
-			bs_type["set_custom_height"] = &components::BatchedSprite::set_custom_height;
-			bs_type["set_custom_width"]  = &components::BatchedSprite::set_custom_width;
-
-			auto sprite_type               = lua->new_usertype<components::Sprite>("gSprite", sol::constructors<components::Sprite()>());
-			sprite_type["bind"]            = &components::Sprite::bind;
-			sprite_type["unbind"]          = &components::Sprite::unbind;
-			sprite_type["clamp_to_border"] = &components::Sprite::clamp_to_border;
-			sprite_type["clamp_to_edge"]   = &components::Sprite::clamp_to_edge;
-			sprite_type["stretch"]         = &components::Sprite::stretch;
-			sprite_type["create"]          = &components::Sprite::create;
-			sprite_type["create_clipped"]  = &components::Sprite::create_clipped;
-			sprite_type["get_aniso_level"] = &components::Sprite::get_aniso_level;
-			sprite_type["get_height"]      = &components::Sprite::get_height;
-			sprite_type["get_width"]       = &components::Sprite::get_width;
-			sprite_type["get_opacity"]     = &components::Sprite::get_opacity;
-			sprite_type["save"]            = &components::Sprite::save;
-			sprite_type["set_anisotropy"]  = &components::Sprite::set_anisotropy;
-			sprite_type["set_mirrored"]    = &components::Sprite::set_mirrored;
-			sprite_type["set_opacity"]     = &components::Sprite::set_opacity;
-			sprite_type["set_repeated"]    = &components::Sprite::set_repeated;
-
-			auto text_type                = lua->new_usertype<components::Text>("gText", sol::constructors<components::Text>());
-			text_type["bind"]             = &components::Text::bind;
-			text_type["create"]           = &components::Text::create;
-			text_type["get_batch_height"] = &components::Text::get_batch_height;
-			text_type["get_batch_width"]  = &components::Text::get_batch_width;
-			text_type["get_colour"]       = &components::Text::get_colour;
-			text_type["get_height"]       = &components::Text::get_height;
-			text_type["get_width"]        = &components::Text::get_width;
-			text_type["load"]             = &components::Text::load;
-			text_type["unbind"]           = &components::Text::unbind;
-			text_type["get_text"]         = &components::Text::get_text;
-			text_type["set_font"]         = &components::Text::set_font;
-			text_type["get_font_id"]      = &components::Text::get_font_id;
-
-			auto animated_type             = lua->new_usertype<components::Animated>("gAnimated", sol::constructors<components::Animated()>());
-			animated_type["pause"]         = &components::Animated::pause;
-			animated_type["play"]          = sol::resolve<void(void)>(&components::Animated::play);
-			animated_type["play_specific"] = sol::resolve<void(std::string_view)>(&components::Animated::play);
-			animated_type["set_animation"] = &components::Animated::set_animation;
-			animated_type["stop"]          = &components::Animated::stop;
-			animated_type["is_paused"]     = &components::Animated::is_paused;
-
-			auto rigidbody_type = lua->new_usertype<components::RigidBody>("gRigidBody", sol::constructors<components::RigidBody()>());
-			rigidbody_type[""]  = &components::RigidBody::get_aabb;
-			rigidbody_type[""]  = &components::RigidBody::get_type;
-			rigidbody_type[""]  = &components::RigidBody::set_bodytype;
-			rigidbody_type[""]  = &components::RigidBody::set_size;
-			rigidbody_type[""]  = &components::RigidBody::update_aabb;
-
-			auto tag_type   = lua->new_usertype<components::Tag>("gTag", sol::constructors<components::Tag(), components::Tag(std::string_view)>());
-			tag_type["tag"] = &components::Tag::m_tag;
-
-			auto polygon_type             = lua->new_usertype<components::Polygon>("gPolygon", sol::constructors<components::Polygon()>());
-			polygon_type["add_point"]     = sol::resolve<void(const float, const float)>(&components::Polygon::add_point);
-			polygon_type["change_colour"] = &components::Polygon::change_colour;
-			polygon_type["create"]        = &components::Polygon::create;
-			polygon_type["update"]        = &components::Polygon::update;
-			polygon_type["get_colour"]    = &components::Polygon::get_colour;
-			polygon_type["get_points"]    = &components::Polygon::get_points;
-			polygon_type["get_opacity"]   = &components::Polygon::get_opacity;
-			polygon_type["set_opacity"]   = &components::Polygon::set_opacity;
-
-			auto ellipse_type             = lua->new_usertype<components::Ellipse>("gEllipse", sol::constructors<components::Ellipse(), components::Ellipse(const glm::vec2&, const unsigned int, const graphics::Colour&)>());
-			ellipse_type["create"]        = &components::Ellipse::create;
-			ellipse_type["bind"]          = &components::Ellipse::bind;
-			ellipse_type["unbind"]        = &components::Ellipse::unbind;
-			ellipse_type["radius"]        = &components::Ellipse::radius;
-			ellipse_type["index_count"]   = &components::Ellipse::index_count;
-			ellipse_type["get_opacity"]   = &components::Ellipse::get_opacity;
-			ellipse_type["set_opacity"]   = &components::Ellipse::set_opacity;
-			ellipse_type["change_colour"] = &components::Ellipse::change_colour;
-			ellipse_type["get_colour"]    = &components::Ellipse::get_colour;
-			ellipse_type["fragments"]     = &components::Ellipse::fragments;
-			ellipse_type["set_fragments"] = &components::Ellipse::set_fragments;
-			ellipse_type["set_radius"]    = &components::Ellipse::set_radius;
-			ellipse_type["update"]        = &components::Ellipse::update;
 		}
 
 		void register_events()
@@ -695,8 +365,9 @@ namespace galaxy
 			window_resized_type["height"] = &events::WindowResized::m_height;
 			window_resized_type["width"]  = &events::WindowResized::m_width;
 
-			//auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(b2Body*, b2Body*)>());
-			//auto finish_collision_type = lua->new_usertype<events::FinishCollision>("gFinishCollision", sol::constructors<events::FinishCollision(), events::FinishCollision(b2Body*, b2Body*)>());
+			auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(const ecs::Entity, const ecs::Entity)>());
+			collision_type["a"] = &events::Collision::m_a;
+			collision_type["b"] = &events::Collision::m_b;
 
 			auto dispatcher_type                      = lua->new_usertype<events::Dispatcher>("gDispatcher", sol::constructors<events::Dispatcher()>());
 			dispatcher_type["trigger_keychar"]        = &events::Dispatcher::trigger<events::KeyChar, const input::Keys, const int>;
@@ -742,6 +413,27 @@ namespace galaxy
 		void register_graphics()
 		{
 			auto lua = SL_HANDLE.lua();
+
+			// clang-format off
+			lua->new_enum<graphics::Renderables>("gRenderables",
+			{
+				{"POINT", graphics::Renderables::POINT},
+				{"LINE", graphics::Renderables::LINE},
+				{"CIRCLE", graphics::Renderables::LINE_LOOP},
+				{"SPRITE", graphics::Renderables::BATCHED},
+				{"TEXT", graphics::Renderables::TEXT}
+			});
+
+			lua->new_enum<graphics::Primitives>("gPrimitives",
+			{
+				{"CIRCLE", graphics::Primitives::CIRCLE},
+				{"ELLIPSE", graphics::Primitives::ELLIPSE},
+				{"LINE", graphics::Primitives::LINE},
+				{"POINT", graphics::Primitives::POINT},
+				{"POLYLINE", graphics::Primitives::POLYLINE},
+				{"POLYGON", graphics::Primitives::POLYGON}
+			});
+			// clang-format on
 
 			auto colour_type        = lua->new_usertype<graphics::Colour>("gColour", sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
 			colour_type["r"]        = &graphics::Colour::m_red;
@@ -823,12 +515,10 @@ namespace galaxy
 			particle_instance_type["get_height"]       = &graphics::ParticleInstance::get_height;
 			particle_instance_type["get_width"]        = &graphics::ParticleInstance::get_width;
 			particle_instance_type["load"]             = sol::resolve<void(std::string_view)>(&graphics::ParticleInstance::load);
-			particle_instance_type["get_opacity"]      = &graphics::ParticleInstance::get_opacity;
 			particle_instance_type["save"]             = &graphics::ParticleInstance::save;
 			particle_instance_type["set_anisotropy"]   = &graphics::ParticleInstance::set_anisotropy;
 			particle_instance_type["set_instance"]     = &graphics::ParticleInstance::set_instance;
 			particle_instance_type["set_mirrored"]     = &graphics::ParticleInstance::set_mirrored;
-			particle_instance_type["set_opacity"]      = &graphics::ParticleInstance::set_opacity;
 			particle_instance_type["set_repeated"]     = &graphics::ParticleInstance::set_repeated;
 			particle_instance_type["update_instances"] = &graphics::ParticleInstance::update_instances;
 

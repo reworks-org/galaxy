@@ -25,6 +25,9 @@ namespace galaxy
 
 			m_bounds.m_width  = m_slider.get_width();
 			m_bounds.m_height = m_slider.get_height();
+
+			m_theme->m_sb.add(&m_slider, &m_slider_transform, 0);
+			m_theme->m_sb.add(&m_marker, &m_marker_transform, 1);
 		}
 
 		void Slider::on_event(const events::MouseMoved& mme) noexcept

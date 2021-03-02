@@ -11,6 +11,7 @@
 #include <galaxy/events/Collision.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
+#include <galaxy/systems/TransformSystem.hpp>
 
 #include "PhysicsScene.hpp"
 
@@ -25,8 +26,9 @@ namespace sb
 
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
-		m_world.create_system<systems::CollisionSystem>(&m_dispatcher);
+		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
+		m_world.create_system<systems::CollisionSystem>(&m_dispatcher);
 
 		m_cube  = m_world.create_from_json("cube.json").value();
 		m_floor = m_world.create_from_json("floor.json").value();

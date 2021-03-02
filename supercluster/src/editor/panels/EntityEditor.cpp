@@ -9,15 +9,11 @@
 #include <galaxy/fs/FileSystem.hpp>
 
 #include <galaxy/components/Animated.hpp>
-#include <galaxy/components/BatchedSprite.hpp>
-#include <galaxy/components/Circle.hpp>
-#include <galaxy/components/Ellipse.hpp>
-#include <galaxy/components/Line.hpp>
-#include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/Point.hpp>
-#include <galaxy/components/Polygon.hpp>
+#include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
+#include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/Sprite2D.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
@@ -152,92 +148,20 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Batch Sprite");
+							ImGui::Text("2D Primitive");
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" + ##3"))
 							{
 								world.disable(entity);
-								world.create_component<components::BatchedSprite>(entity);
+								world.create_component<components::Primitive2D>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##4"))
 							{
-								world.remove<components::BatchedSprite>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Circle");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##5"))
-							{
-								world.disable(entity);
-								world.create_component<components::Circle>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##6"))
-							{
-								world.remove<components::Circle>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Line");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##7"))
-							{
-								world.disable(entity);
-								world.create_component<components::Line>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##8"))
-							{
-								world.remove<components::Line>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Rigid Body");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##23"))
-							{
-								world.disable(entity);
-								world.create_component<components::RigidBody>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##24"))
-							{
-								world.remove<components::RigidBody>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Point");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##9"))
-							{
-								world.disable(entity);
-								world.create_component<components::Point>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##10"))
-							{
-								world.remove<components::Point>(entity);
+								world.remove<components::Primitive2D>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -245,7 +169,7 @@ namespace sc
 							ImGui::Text("Renderable");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##11"))
+							if (ImGui::Button(" + ##5"))
 							{
 								world.disable(entity);
 								world.create_component<components::Renderable>(entity);
@@ -253,9 +177,27 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##12"))
+							if (ImGui::Button(" - ##6"))
 							{
 								world.remove<components::Renderable>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Rigid Body");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##7"))
+							{
+								world.disable(entity);
+								world.create_component<components::RigidBody>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##8"))
+							{
+								world.remove<components::RigidBody>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -263,7 +205,7 @@ namespace sc
 							ImGui::Text("Shader ID");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##13"))
+							if (ImGui::Button(" + ##9"))
 							{
 								world.disable(entity);
 								world.create_component<components::ShaderID>(entity);
@@ -271,27 +213,27 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##14"))
+							if (ImGui::Button(" - ##10"))
 							{
 								world.remove<components::ShaderID>(entity);
 							}
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Sprite");
+							ImGui::Text("Sprite2D");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##15"))
+							if (ImGui::Button(" + ##11"))
 							{
 								world.disable(entity);
-								world.create_component<components::Sprite>(entity);
+								world.create_component<components::Sprite2D>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##16"))
+							if (ImGui::Button(" - ##12"))
 							{
-								world.remove<components::Sprite>(entity);
+								world.remove<components::Sprite2D>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -299,7 +241,7 @@ namespace sc
 							ImGui::Text("Tag");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##17"))
+							if (ImGui::Button(" + ##13"))
 							{
 								world.disable(entity);
 								world.create_component<components::Tag>(entity);
@@ -307,7 +249,7 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##18"))
+							if (ImGui::Button(" - ##14"))
 							{
 								world.remove<components::Tag>(entity);
 							}
@@ -317,7 +259,7 @@ namespace sc
 							ImGui::Text("Text");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##19"))
+							if (ImGui::Button(" + ##15"))
 							{
 								world.disable(entity);
 								gl_operations.emplace_back([&world, entity]() -> void {
@@ -327,7 +269,7 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##20"))
+							if (ImGui::Button(" - ##16"))
 							{
 								gl_operations.emplace_back([&world, entity]() -> void {
 									world.remove<components::Text>(entity);
@@ -339,7 +281,7 @@ namespace sc
 							ImGui::Text("Transform");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##21"))
+							if (ImGui::Button(" + ##17"))
 							{
 								world.disable(entity);
 								world.create_component<components::Transform>(entity);
@@ -347,7 +289,7 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##22"))
+							if (ImGui::Button(" - ##18"))
 							{
 								world.remove<components::Transform>(entity);
 							}
@@ -387,10 +329,17 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchedsprite, circle, ellipse, line, rigidbody, point, polygon, renderable, shaderid, sprite, tag, text, transform]
-			= m_cur_scene->world().get_multi<components::Animated, components::BatchedSprite, components::Circle, components::Ellipse,
-			components::Line, components::RigidBody, components::Point, components::Polygon, components::Renderable, components::ShaderID, 
-			components::Sprite, components::Tag, components::Text, components::Transform>(entity);
+			auto [animated, primitive2d, renderable, rigidbody, shaderid, sprite2d, tag, text, transform]
+			= m_cur_scene->world().get_multi<
+				components::Animated, 
+				components::Primitive2D, 
+				components::Renderable, 
+				components::RigidBody, 
+				components::ShaderID, 
+				components::Sprite2D, 
+				components::Tag, 
+				components::Text, 
+				components::Transform>(entity);
 			// clang-format on
 
 			if (ImGui::BeginTabBar("EntityComponentsTabBar", ImGuiTabBarFlags_NoCloseWithMiddleMouseButton | ImGuiTabBarFlags_Reorderable))
@@ -519,129 +468,249 @@ namespace sc
 					}
 				}
 
-				if (batchedsprite)
+				if (primitive2d)
 				{
-					if (ImGui::BeginTabItem("Batched Sprite"))
+					if (ImGui::BeginTabItem("2D Primitive"))
 					{
-						static float s_cw = 1.0f;
-						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							batchedsprite->set_custom_width(s_cw);
-						}
+						static const constexpr auto s_types = magic_enum::enum_names<graphics::Primitives>();
 
-						static float s_ch = 1.0f;
-						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						static std::string s_selected = static_cast<std::string>(magic_enum::enum_name(primitive2d->get_type()));
+						static auto s_type            = primitive2d->get_type();
+						if (ImGui::BeginCombo("Type", s_selected.c_str()))
 						{
-							batchedsprite->set_custom_height(s_ch);
-						}
-
-						float opacity = batchedsprite->get_opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							batchedsprite->set_opacity(opacity);
-						}
-
-						static std::string s_bs_tex = "";
-						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							if (!s_bs_tex.empty())
+							for (const auto& name : s_types)
 							{
-								batchedsprite->set_region(s_bs_tex);
-								s_bs_tex.clear();
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								{
+									s_selected = name;
+									s_type     = magic_enum::enum_cast<graphics::Primitives>(s_selected).value();
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						static auto data       = primitive2d->get_data();
+						static float colour[4] = {data.m_colour.m_red, data.m_colour.m_green, data.m_colour.m_blue, data.m_colour.m_alpha};
+						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							data.m_colour = {static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])};
+						}
+
+						if (data.m_fragments != std::nullopt)
+						{
+							static float fragments = data.m_fragments.value();
+							if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+							{
+								data.m_fragments = fragments;
 							}
 						}
 
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (circle)
-				{
-					if (ImGui::BeginTabItem("Circle"))
-					{
-						static float radius = circle->radius();
-						if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						if (data.m_points != std::nullopt)
 						{
-							circle->set_radius(radius);
+							static float s_point[2] = {0.0f, 0.0f};
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X##01", &s_point[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y##02", &s_point[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							static std::vector<glm::vec2> points = {};
+							if (ImGui::Button("Add Point"))
+							{
+								points.emplace_back(s_point[0], s_point[1]);
+
+								s_point[0] = 0.0f;
+								s_point[1] = 0.0f;
+								points.clear();
+							}
 						}
 
-						static float fragments = circle->fragments();
-						if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						if (data.m_pointsize != std::nullopt)
 						{
-							circle->set_fragments(fragments);
+							static int size = data.m_pointsize.value();
+							if (ImGui::InputInt("Size", &size, 1, 2, ImGuiInputTextFlags_CharsNoBlank))
+							{
+								data.m_pointsize = size;
+							}
 						}
 
-						static float colour[4] = {circle->get_colour().m_red, circle->get_colour().m_green, circle->get_colour().m_blue, circle->get_colour().m_alpha};
-						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						if (data.m_radii != std::nullopt)
 						{
-							circle->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Hor Rad##Ellipse01", &data.m_radii.value().x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Vert Rad##Ellipse02", &data.m_radii.value().y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						if (data.m_radius != std::nullopt)
+						{
+							static float radius = data.m_radius.value();
+							if (ImGui::InputFloat("Radius", &radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+							{
+								data.m_radius = radius;
+							}
+						}
+
+						if (data.m_start_end != std::nullopt)
+						{
+							ImGui::Text("First Point");
+							static float s_point_xy[2] = {0.0f, 0.0f};
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X1##03", &s_point_xy[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y1##04", &s_point_xy[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::Text("Second Point");
+							static float s_point_zw[2] = {0.0f, 0.0f};
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X2##05", &s_point_zw[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y2##06", &s_point_zw[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						if (ImGui::Button("Create"))
+						{
+							switch (s_type)
+							{
+								case graphics::Primitives::CIRCLE:
+								{
+									data.m_fragments = 40;
+									data.m_radius    = 10.0f;
+								}
+								break;
+
+								case graphics::Primitives::ELLIPSE:
+								{
+									data.m_fragments = 40;
+									data.m_radii     = {15.0f, 10.0f};
+								}
+								break;
+
+								case graphics::Primitives::LINE:
+								{
+									data.m_start_end = {0.0f, 0.0f, 50.0f, 50.0f};
+								}
+								break;
+
+								case graphics::Primitives::POINT:
+								{
+									data.m_pointsize = 3;
+								}
+								break;
+
+								case graphics::Primitives::POLYLINE:
+								{
+									data.m_points = std::make_optional<std::vector<glm::vec2>>({});
+								}
+								break;
+
+								case graphics::Primitives::POLYGON:
+								{
+									data.m_points = std::make_optional<std::vector<glm::vec2>>({});
+								}
+								break;
+							}
 						}
 
 						if (ImGui::Button("Update"))
 						{
-							gl_operations.emplace_back([circle]() -> void {
-								circle->update();
+							gl_operations.push_back([primitive2d]() {
+								switch (s_type)
+								{
+									case graphics::Primitives::CIRCLE:
+									{
+										primitive2d->create<graphics::Primitives::CIRCLE>(data);
+									}
+									break;
+
+									case graphics::Primitives::ELLIPSE:
+									{
+										primitive2d->create<graphics::Primitives::ELLIPSE>(data);
+									}
+									break;
+
+									case graphics::Primitives::LINE:
+									{
+										primitive2d->create<graphics::Primitives::LINE>(data);
+									}
+									break;
+
+									case graphics::Primitives::POINT:
+									{
+										primitive2d->create<graphics::Primitives::POINT>(data);
+									}
+									break;
+
+									case graphics::Primitives::POLYLINE:
+									{
+										primitive2d->create<graphics::Primitives::POLYLINE>(data);
+									}
+									break;
+
+									case graphics::Primitives::POLYGON:
+									{
+										primitive2d->create<graphics::Primitives::POLYGON>(data);
+									}
+									break;
+								}
 							});
+						}
+
+						if (ImGui::Button("Reset"))
+						{
+							data = {};
 						}
 
 						ImGui::EndTabItem();
 					}
 				}
 
-				if (ellipse)
+				if (renderable)
 				{
-					if (ImGui::BeginTabItem("Ellipse"))
+					if (ImGui::BeginTabItem("Renderable"))
 					{
-						ImGui::Text("Radius");
+						static const constexpr auto s_types = magic_enum::enum_names<graphics::Renderables>();
 
-						static float s_radius[2] = {ellipse->radius().x, ellipse->radius().y};
-						ImGui::SetNextItemWidth(150);
-						ImGui::InputFloat("Hor Rad##Ellipse01", &s_radius[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-						ImGui::SameLine();
-
-						ImGui::SetNextItemWidth(150);
-						ImGui::InputFloat("Vert Rad##Ellipse02", &s_radius[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-						static float fragments = ellipse->fragments();
-						if (ImGui::InputFloat("Fragments", &fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(renderable->m_type));
+						if (ImGui::BeginCombo("Type", s_selected.c_str()))
 						{
-							ellipse->set_fragments(fragments);
+							for (const auto& name : s_types)
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								{
+									s_selected         = name;
+									renderable->m_type = magic_enum::enum_cast<graphics::Renderables>(s_selected).value();
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
 						}
 
-						static float colour[4] = {ellipse->get_colour().m_red, ellipse->get_colour().m_green, ellipse->get_colour().m_blue, ellipse->get_colour().m_alpha};
-						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
-						{
-							ellipse->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
-						}
-
-						if (ImGui::Button("Update"))
-						{
-							gl_operations.emplace_back([ellipse]() -> void {
-								ellipse->update();
-							});
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (line)
-				{
-					if (ImGui::BeginTabItem("Line"))
-					{
-						static float colour[4] = {line->get_colour().m_red, line->get_colour().m_green, line->get_colour().m_blue, line->get_colour().m_alpha};
-						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
-						{
-							line->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
-						}
-
-						if (ImGui::Button("Update"))
-						{
-							gl_operations.emplace_back([line]() -> void {
-								line->update();
-							});
-						}
+						ImGui::InputInt("Z Level", &renderable->m_z_level, 1, 2, ImGuiInputTextFlags_CharsNoBlank);
 
 						ImGui::EndTabItem();
 					}
@@ -686,105 +755,6 @@ namespace sc
 					}
 				}
 
-				if (point)
-				{
-					if (ImGui::BeginTabItem("Point"))
-					{
-						int size = point->get_size();
-						if (ImGui::InputInt("Size", &size, 1, 2, ImGuiInputTextFlags_CharsNoBlank))
-						{
-							point->set_size(size);
-						}
-
-						static float colour[4] = {point->get_colour().m_red, point->get_colour().m_green, point->get_colour().m_blue, point->get_colour().m_alpha};
-						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
-						{
-							point->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
-						}
-
-						if (ImGui::Button("Update"))
-						{
-							gl_operations.emplace_back([point]() -> void {
-								point->update();
-							});
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (polygon)
-				{
-					if (ImGui::BeginTabItem("Polygon"))
-					{
-						ImGui::Text("Point Coords");
-
-						static float s_point[2] = {0.0f, 0.0f};
-						ImGui::SetNextItemWidth(150);
-						ImGui::InputFloat("X##01", &s_point[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-						ImGui::SameLine();
-
-						ImGui::SetNextItemWidth(150);
-						ImGui::InputFloat("Y##02", &s_point[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-						if (ImGui::Button("Add Point"))
-						{
-							polygon->add_point(s_point[0], s_point[1]);
-							s_point[0] = 0.0f;
-							s_point[1] = 0.0f;
-						}
-
-						static float colour[4] = {polygon->get_colour().m_red, polygon->get_colour().m_green, polygon->get_colour().m_blue, polygon->get_colour().m_alpha};
-						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
-						{
-							polygon->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
-						}
-
-						if (ImGui::Button("Update"))
-						{
-							gl_operations.emplace_back([polygon]() -> void {
-								polygon->update();
-							});
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (renderable)
-				{
-					if (ImGui::BeginTabItem("Renderable"))
-					{
-						static const constexpr auto s_types = magic_enum::enum_names<graphics::Renderables>();
-
-						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(renderable->m_type));
-						if (ImGui::BeginCombo("Type", s_selected.c_str()))
-						{
-							for (const auto& name : s_types)
-							{
-								const bool selected = (s_selected == name);
-								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
-								{
-									s_selected         = name;
-									renderable->m_type = magic_enum::enum_cast<graphics::Renderables>(s_selected).value();
-								}
-
-								if (selected)
-								{
-									ImGui::SetItemDefaultFocus();
-								}
-							}
-
-							ImGui::EndCombo();
-						}
-
-						ImGui::InputInt("Z Level", &renderable->m_z_level, 1, 2, ImGuiInputTextFlags_CharsNoBlank);
-
-						ImGui::EndTabItem();
-					}
-				}
-
 				if (shaderid)
 				{
 					if (ImGui::BeginTabItem("ShaderID"))
@@ -800,94 +770,36 @@ namespace sc
 					}
 				}
 
-				if (sprite)
+				if (sprite2d)
 				{
 					if (ImGui::BeginTabItem("Sprite"))
 					{
-						if (ImGui::Button("Load"))
+						static float s_cw = 1.0f;
+						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
-							gl_operations.push_back([sprite, &file]() -> void {
-								if (file == std::nullopt)
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for sprite component.");
-								}
-								else
-								{
-									sprite->load(file.value());
-									sprite->create();
-								}
-							});
+							sprite2d->set_custom_width(s_cw);
 						}
 
-						static float opacity = sprite->get_opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
+						static float s_ch = 1.0f;
+						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							sprite->set_opacity(opacity);
+							sprite2d->set_custom_height(s_ch);
 						}
 
-						static int ansio = sprite->get_aniso_level();
-						if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 0, 16))
+						float opacity = sprite2d->get_opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->set_anisotropy(ansio);
-							});
+							sprite2d->set_opacity(opacity);
 						}
 
-						ImGui::Text("Clamping");
-
-						if (ImGui::Button("Border"))
+						static std::string s_bs_tex = "";
+						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							gl_operations.push_back([sprite]() -> void {
-							});
-							sprite->clamp_to_border();
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Edge"))
-						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->clamp_to_edge();
-							});
-						}
-
-						ImGui::Text("Stretch Mode");
-
-						if (ImGui::Button("Repeat"))
-						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->set_repeated();
-							});
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Mirror"))
-						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->set_mirrored();
-							});
-						}
-
-						ImGui::Text("Filtering");
-
-						if (ImGui::Button("Nearest"))
-						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->set_minify_filter<graphics::NearestMipmapFilter>();
-								sprite->set_magnify_filter<graphics::NearestTexFilter>();
-							});
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Trilinear"))
-						{
-							gl_operations.push_back([sprite]() -> void {
-								sprite->set_minify_filter<graphics::TrilinearMipmapFilter>();
-								sprite->set_magnify_filter<graphics::LinearTexFilter>();
-							});
+							if (!s_bs_tex.empty())
+							{
+								sprite2d->set_region(s_bs_tex);
+								s_bs_tex.clear();
+							}
 						}
 
 						ImGui::EndTabItem();

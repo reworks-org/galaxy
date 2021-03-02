@@ -4,7 +4,7 @@
 		"Tag": {
             "tag": "Animated"
         },
-		"BatchedSprite": {
+		"Sprite2D": {
 			"texture-atlas-id": "walk1",
 			"opacity": 1.0
 		},
@@ -14,7 +14,7 @@
 			"rotation": 0
 		},
 		"Renderable": {
-			"type": 5,
+			"type": "BATCHED",
 			"z-level": 6
 		},
 		"Animated": {

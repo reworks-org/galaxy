@@ -25,6 +25,9 @@ namespace galaxy
 
 			m_bounds.m_width  = m_container.get_width();
 			m_bounds.m_height = m_container.get_height();
+
+			m_theme->m_sb.add(&m_container, &m_container_transform, 0);
+			m_theme->m_sb.add(&m_bar, &m_bar_transform, 1);
 		}
 
 		void Progressbar::on_event(const events::MouseMoved& mme) noexcept

@@ -10,17 +10,22 @@
 
 #include <galaxy/fs/Serializer.hpp>
 
-#include <galaxy/graphics/Renderer.hpp>
+#include <galaxy/graphics/Renderer2D.hpp>
 
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
 #include <galaxy/res/TextureAtlas.hpp>
 
-#include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/systems/AnimationSystem.hpp>
+#include <galaxy/systems/RenderSystem.hpp>
+#include <galaxy/systems/TransformSystem.hpp>
 
 #include <galaxy/ui/widgets/Button.hpp>
 #include <galaxy/ui/widgets/Image.hpp>
+#include <galaxy/ui/Widgets/Label.hpp>
+#include <galaxy/ui/widgets/ProgressBar.hpp>
+#include <galaxy/ui/widgets/Slider.hpp>
+#include <galaxy/ui/widgets/Textbox.hpp>
 #include <galaxy/ui/widgets/TextInput.hpp>
 #include <galaxy/ui/widgets/ToggleButton.hpp>
 
@@ -43,14 +48,14 @@ namespace sb
 		m_world.create_from_json("point.json");
 		m_world.create_from_json("line.json");
 		m_world.create_from_json("circle.json");
-		m_world.create_from_json("sprite.json");
 		m_world.create_from_json("batch_a.json");
 		m_world.create_from_json("batch_b.json");
 		m_world.create_from_json("text.json");
 		m_world.create_from_json("animated.json");
 
-		m_world.create_system<systems::RenderSystem>();
+		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::AnimationSystem>();
+		m_world.create_system<systems::RenderSystem>();
 
 		// clang-format off
 		m_timer.set_repeating(true);
@@ -69,7 +74,7 @@ namespace sb
 		image->set_pos(1000, 100);
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
-		tooltip->create({.m_texture = "tooltip.png", .m_border = 2.0f}, "Demo Test", "public16");
+		tooltip->create("Demo Test", "public16");
 
 		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(image);
 
@@ -264,7 +269,7 @@ namespace sb
 	void SandboxScene::render()
 	{
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
-		graphics::Renderer::draw_particles(&m_particle_gen, m_camera);
+		graphics::Renderer2D::draw_particles(&m_particle_gen, m_camera);
 		m_gui.render();
 	}
 } // namespace sb

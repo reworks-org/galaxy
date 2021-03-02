@@ -62,21 +62,20 @@ namespace galaxy
 			virtual ~RenderSystem() noexcept = default;
 
 			///
-			/// Render sprites / textures to screen.
-			///
-			/// \param world Game World containing entities.
-			/// \param camera Camera used for rendering.
-			///
-			void render(core::World& world, graphics::Camera& camera);
-
-		private:
-			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
 			/// \param world Game World containing entities.
 			/// \param dt DeltaTime from gameloop.
 			///
 			void update(core::World& world, const double dt) override;
+
+			///
+			/// Render sprites / textures to screen.
+			///
+			/// \param world Game World containing entities.
+			/// \param camera Camera used for rendering.
+			///
+			void render(core::World& world, graphics::Camera& camera);
 
 		private:
 			///

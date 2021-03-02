@@ -12,7 +12,6 @@
 
 #include <robin_hood.h>
 
-#include <galaxy/components/Sprite.hpp>
 #include <galaxy/core/Scene.hpp>
 
 #include "editor/GLOperation.hpp"

@@ -10,7 +10,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/graphics/Shader.hpp>
 
 #include "scenes/SandboxScene.hpp"

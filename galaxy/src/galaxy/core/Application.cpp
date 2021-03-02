@@ -73,7 +73,6 @@ namespace galaxy
 				m_config->define<std::string>("window-name", "Title");
 				m_config->define<int>("window-width", 1280);
 				m_config->define<int>("window-height", 720);
-				m_config->define<float>("line-thickness", 1.0f);
 				m_config->define<bool>("is-cursor-visible", true);
 				m_config->define<bool>("gl-debug", false);
 				m_config->define<bool>("trilinear-filtering", false);
@@ -100,7 +99,6 @@ namespace galaxy
 				.m_aspect_ratio_x = m_config->get<int>("aspect-ratio-x"),
 				.m_aspect_ratio_y = m_config->get<int>("aspect-ratio-y"),
 				.m_raw_mouse_input = m_config->get<bool>("raw-mouse-input"),
-				.m_line_thickness = m_config->get<float>("line-thickness"),
 				.m_gl_debug = m_config->get<bool>("gl-debug"),
 				.m_title = m_config->get<std::string>("window-name"),
 				.m_width = m_config->get<int>("window-width"),

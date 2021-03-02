@@ -49,20 +49,6 @@ namespace galaxy
 			///
 			CollisionSystem() = delete;
 
-			///
-			/// \brief Narrow phase collision.
-			///
-			/// Uses SAT (seperating axis theorm).
-			///
-			/// \param world Game World containing entities.
-			/// \param a First entity that is colliding.
-			/// \param b Second entity that is colliding.
-			/// \param mtv Minimum transation vector used to resolve the collision.
-			///
-			/// \return True if there is a collision.
-			///
-			[[nodiscard]] const bool narrow_phase_collision(core::World& world, const ecs::Entity a, const ecs::Entity b, glm::vec2& mtv);
-
 		private:
 			///
 			/// Dynamic Tree for efficient collision detection.
@@ -73,6 +59,11 @@ namespace galaxy
 			/// Dispatcher pointer.
 			///
 			events::Dispatcher* m_dispatcher;
+
+			///
+			/// Offset from collision.
+			///
+			glm::vec2 m_mtv;
 		};
 	} // namespace systems
 } // namespace galaxy

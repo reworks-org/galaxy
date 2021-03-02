@@ -78,19 +78,31 @@ namespace galaxy
 			void rotate(const float degrees) noexcept;
 
 			///
+			/// Set the rotation point.
+			///
+			/// \param x X position to set origin to.
+			/// \param y Y position to set origin to.
+			///
+			void set_rotation_origin(const float x, const float y) noexcept;
+
+			///
 			/// Recalculates the model view matrix.
 			///
 			void recalculate();
 
 			///
-			/// Retrieve internal transformation matrix.
+			/// Get flag indicating if transform needs to be applied before rendering.
 			///
-			/// \param half_width Half the width to center the origin point for transforms. hw < 0 makes no changes.
-			/// \param half_height Half the height to center the origin point for transforms. hh < 0 makes no changes.
+			/// \return Const boolean.
+			///
+			[[nodiscard]] const bool is_dirty() const noexcept;
+
+			///
+			/// Retrieve internal transformation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_transform(const float half_width, const float half_height);
+			[[nodiscard]] const glm::mat4& get_transform();
 
 			///
 			/// Get stored rotation cache.
@@ -107,11 +119,9 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
 			///
-			/// Get the transform origin (half width, half height).
+			/// Reset transform.
 			///
-			/// \return Const reference to a glm::vec3 that contains half width, half height. Ignore Z value.
-			///
-			[[nodiscard]] const glm::vec3& get_origin() const noexcept;
+			void reset() noexcept;
 
 			///
 			/// Serializes object.

@@ -8,32 +8,16 @@
 #ifndef GALAXY_UI_TOOLTIP_HPP_
 #define GALAXY_UI_TOOLTIP_HPP_
 
-#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/texture/Texture.hpp"
 #include "galaxy/ui/Theme.hpp"
 
 namespace galaxy
 {
 	namespace ui
 	{
-		///
-		/// Texture definition for the tooltip.
-		///
-		struct TooltipTexture final
-		{
-			///
-			/// Texture in VFS.
-			///
-			std::string m_texture;
-
-			///
-			/// Border on texture. I.e. text will be positioned inside these borders.
-			///
-			float m_border;
-		};
-
 		///
 		/// Tooltip for widgets.
 		///
@@ -65,16 +49,14 @@ namespace galaxy
 			///
 			/// Create the tooltip.
 			///
-			/// \param tex Texture definition of the tooltip.
 			/// \param text Text to draw on the tooltip.
 			/// \param font Font to use.
 			///
-			void create(const TooltipTexture& tex, std::string_view text, std::string_view font);
+			void create(std::string_view text, std::string_view font);
 
 			///
-			/// \brief Render the tooltip.
+			/// Render the tooltip.
 			///
-			/// Required shaders: "glyph", "sprite".
 			///
 			void render();
 
@@ -125,24 +107,9 @@ namespace galaxy
 			bool m_draw;
 
 			///
-			/// Texture border size.
-			///
-			float m_border;
-
-			///
 			/// Text to display.
 			///
 			components::Text m_text;
-
-			///
-			/// Sprite for background.
-			///
-			components::Sprite m_sprite;
-
-			///
-			/// Sprite transform.
-			///
-			components::Transform m_sprite_transform;
 
 			///
 			/// Text transform.
@@ -153,11 +120,6 @@ namespace galaxy
 			/// UI theme for tooltip.
 			///
 			Theme* m_theme;
-
-			///
-			/// Sprite shader cache.
-			///
-			graphics::Shader* m_sprite_shader;
 
 			///
 			/// Text shader cache.

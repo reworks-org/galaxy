@@ -7,6 +7,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
+#include <galaxy/systems/TransformSystem.hpp>
 
 #include "MapScene.hpp"
 
@@ -22,6 +23,7 @@ namespace sb
 		m_camera.set_speed(100.0f);
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
+		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
 
 		m_map.load("assets/maps/desert.json");

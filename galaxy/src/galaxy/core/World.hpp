@@ -9,6 +9,7 @@
 #define GALAXY_CORE_WORLD_HPP_
 
 #include <bitset>
+#include <execution>
 #include <optional>
 
 #include <nlohmann/json_fwd.hpp>
@@ -67,7 +68,7 @@ namespace galaxy
 			~World();
 
 			///
-			/// Update all systems.
+			/// Update all registered systems.
 			///
 			/// \param dt "Lag" time to pass to systems.
 			///
@@ -332,7 +333,7 @@ namespace galaxy
 			///
 			/// Stores systems.
 			///
-			std::vector<std::unique_ptr<ecs::System>> m_systems;
+			std::vector<std::pair<std::size_t, std::unique_ptr<ecs::System>>> m_systems;
 
 			///
 			/// Used to allow for component creation without having to know the compile time type.
@@ -533,26 +534,26 @@ namespace galaxy
 		inline void World::create_system(Args&&... args)
 		{
 			const auto type = SUniqueID::get<System>();
-			if (type >= m_systems.size())
-			{
-				m_systems.resize(type + 1);
-			}
-
-			m_systems[type] = std::make_unique<System>(std::forward<Args>(args)...);
+			m_systems.emplace_back(std::make_pair(type, std::make_unique<System>(std::forward<Args>(args)...)));
 		}
 
 		template<is_system System>
 		inline System* World::get_system()
 		{
 			const auto type = SUniqueID::get<System>();
-			if (type > m_systems.size())
+
+			auto res = std::find_if(std::execution::par, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
+				return pair.first == type;
+			});
+
+			if (res == m_systems.end())
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access a system type that doesnt exist!");
 				return nullptr;
 			}
 			else
 			{
-				return static_cast<System*>(m_systems[type].get());
+				return static_cast<System*>(res->second.get());
 			}
 		}
 

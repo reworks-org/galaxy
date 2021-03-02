@@ -8,13 +8,10 @@
 #include <filesystem>
 #include <fstream>
 
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/Line.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
 
@@ -202,15 +199,11 @@ namespace galaxy
 				const auto entity = world.create();
 
 				auto* renderable      = world.create_component<components::Renderable>(entity);
-				renderable->m_type    = graphics::Renderables::SPRITE;
+				renderable->m_type    = graphics::Renderables::BATCHED;
 				renderable->m_z_level = image_layer.get_z_level();
 
-				auto* shader        = world.create_component<components::ShaderID>(entity);
-				shader->m_shader_id = "sprite";
-
-				auto* sprite = world.create_component<components::Sprite>(entity);
-				sprite->load(image_layer.get_image());
-				sprite->create();
+				auto* sprite2d = world.create_component<components::Sprite2D>(entity);
+				sprite2d->create(std::filesystem::path(image_layer.get_image()).stem().string(), static_cast<float>(image_layer.get_opacity()));
 
 				auto* transform = world.create_component<components::Transform>(entity);
 				transform->set_pos(image_layer.get_offset_x(), image_layer.get_offset_y());
@@ -236,12 +229,13 @@ namespace galaxy
 				for (const auto& object : objects)
 				{
 					const auto type = object.get_type_enum();
+
 					if (type != Object::Type::POLYLINE && type != Object::Type::TEXT)
 					{
-						const auto entity = world.create();
-
+						const auto entity     = world.create();
 						auto* transform       = world.create_component<components::Transform>(entity);
 						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
 						auto* renderable      = world.create_component<components::Renderable>(entity);
 						renderable->m_z_level = object_layer.get_z_level();
 
@@ -249,21 +243,26 @@ namespace galaxy
 						{
 							case Object::Type::ELLIPSE:
 							{
-								auto* ellipse = world.create_component<components::Ellipse>(entity);
-								ellipse->create({object.get_width() / 2.0, object.get_height() / 2.0}, 50, object_layer.get_colour());
+								components::Primitive2D::PrimitiveData data;
+								data.m_colour    = object_layer.get_colour();
+								data.m_fragments = std::make_optional(40);
+								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
 
+								primitive2d->create<graphics::Primitives::ELLIPSE>(data);
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::ELLIPSE;
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
 								shaderid->m_shader_id = "line";
 							}
 							break;
 
 							case Object::Type::POINT:
 							{
-								auto* point = world.create_component<components::Point>(entity);
-								point->create(2, object_layer.get_colour());
+								components::Primitive2D::PrimitiveData data;
+								data.m_colour    = object_layer.get_colour();
+								data.m_pointsize = 3;
+								primitive2d->create<graphics::Primitives::POINT>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
 								renderable->m_type    = graphics::Renderables::POINT;
@@ -273,33 +272,58 @@ namespace galaxy
 
 							case Object::Type::POLYGON:
 							{
-								auto* polygon = world.create_component<components::Polygon>(entity);
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
 								for (const auto& point : object.get_points())
 								{
-									polygon->add_point(point.get_x(), point.get_y());
+									points.emplace_back(point.get_x(), point.get_y());
 								}
 
-								polygon->create(object_layer.get_colour());
+								data.m_points = std::make_optional(points);
+								data.m_colour = object_layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYGON>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
-								renderable->m_type    = graphics::Renderables::POLYGON;
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::POLYLINE:
+							{
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
+								for (const auto& point : object.get_points())
+								{
+									points.emplace_back(point.get_x(), point.get_y());
+								}
+
+								data.m_points = std::make_optional(points);
+								data.m_colour = object_layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYLINE>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								renderable->m_type    = graphics::Renderables::LINE;
 								shaderid->m_shader_id = "line";
 							}
 							break;
 
 							case Object::Type::RECT:
 							{
-								auto* polygon = world.create_component<components::Polygon>(entity);
-								polygon->add_point(0.0f, 0.0f);
-								polygon->add_point(0.0f + object.get_width(), 0.0f);
-								polygon->add_point(0.0f + object.get_width(), 0.0f + object.get_height());
-								polygon->add_point(0.0f, 0.0f + object.get_height());
-								polygon->create(object_layer.get_colour());
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
+								points.emplace_back(0.0f, 0.0f);
+								points.emplace_back(0.0f + object.get_width(), 0.0f);
+								points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
+								points.emplace_back(0.0f, 0.0f + object.get_height());
+
+								data.m_points = std::make_optional(points);
+								data.m_colour = object_layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYGON>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::POLYGON;
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
 								shaderid->m_shader_id = "line";
 							}
 							break;

@@ -20,7 +20,7 @@
             "rotation": 45
         },
         "Renderable": {
-            "type": 4,
+            "type": "TEXT",
             "z-level": 5
         },
         "ShaderID": {

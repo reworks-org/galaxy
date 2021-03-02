@@ -11,6 +11,7 @@
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/SpriteBatch.hpp"
 
 namespace galaxy
 {
@@ -52,6 +53,11 @@ namespace galaxy
 			/// Camera view for GUI.
 			///
 			graphics::Camera m_camera;
+
+			///
+			/// Spritebatch.
+			///
+			graphics::SpriteBatch m_sb;
 
 		private:
 			///

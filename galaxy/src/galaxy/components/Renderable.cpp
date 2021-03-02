@@ -6,6 +6,7 @@
 ///
 
 #include <nlohmann/json.hpp>
+#include <magic_enum.hpp>
 
 #include "Renderable.hpp"
 
@@ -14,7 +15,7 @@ namespace galaxy
 	namespace components
 	{
 		Renderable::Renderable() noexcept
-		    : Serializable {this}, m_type {graphics::Renderables::SPRITE}, m_z_level {0}
+		    : Serializable {this}, m_type {graphics::Renderables::BATCHED}, m_z_level {0}
 		{
 		}
 
@@ -50,7 +51,7 @@ namespace galaxy
 		nlohmann::json Renderable::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["type"]        = static_cast<int>(m_type);
+			json["type"]        = static_cast<std::string>(magic_enum::enum_name<graphics::Renderables>(m_type));
 			json["z-level"]     = m_z_level;
 
 			return json;
@@ -59,8 +60,7 @@ namespace galaxy
 		void Renderable::deserialize(const nlohmann::json& json)
 		{
 			// clang-format off
-			const int renderable = json.at("type");
-			m_type    = static_cast<graphics::Renderables>(renderable);
+			m_type = magic_enum::enum_cast<graphics::Renderables>(json.at("type").get<std::string>()).value();
 			m_z_level = json.at("z-level");
 			// clang-format on
 		}

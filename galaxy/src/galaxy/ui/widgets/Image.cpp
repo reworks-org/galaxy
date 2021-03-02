@@ -13,10 +13,12 @@ namespace galaxy
 	{
 		void Image::create(std::string_view name)
 		{
-			m_batched.create(name);
+			m_sprite.create(name);
 
-			m_bounds.m_width  = m_batched.get_width();
-			m_bounds.m_height = m_batched.get_height();
+			m_bounds.m_width  = m_sprite.get_width();
+			m_bounds.m_height = m_sprite.get_height();
+
+			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
 		}
 
 		void Image::set_pos(const float x, const float y) noexcept

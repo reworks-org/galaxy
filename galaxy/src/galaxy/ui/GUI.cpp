@@ -9,7 +9,8 @@
 #include <optional>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/res/Shaderbook.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
 
 #include "GUI.hpp"
@@ -19,8 +20,9 @@ namespace galaxy
 	namespace ui
 	{
 		GUI::GUI() noexcept
-		    : m_state {ConstructionState::DEFAULT}, m_id_counter {0}, m_theme {nullptr}, m_sb {100}
+		    : m_state {ConstructionState::DEFAULT}, m_id_counter {0}, m_theme {nullptr}
 		{
+			m_batch_shader = SL_HANDLE.shaderbook()->get("spritebatch");
 		}
 
 		GUI::~GUI()
@@ -36,7 +38,7 @@ namespace galaxy
 			m_theme = theme;
 			m_state = ConstructionState::THEME_SET;
 
-			m_sb.set_texture(SL_HANDLE.atlas()->get_atlas());
+			m_theme->m_sb.set_texture(SL_HANDLE.atlas()->get_atlas());
 		}
 
 		void GUI::update(const double dt)
@@ -48,17 +50,17 @@ namespace galaxy
 
 		void GUI::render()
 		{
-			if (!m_sb.empty())
+			if (!m_theme->m_sb.empty())
 			{
-				m_sb.calculate();
-				graphics::Renderer::m_batch_shader->bind();
-				graphics::Renderer::m_batch_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-				graphics::Renderer::m_batch_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-				graphics::Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(m_sb.get_width()));
-				graphics::Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(m_sb.get_height()));
+				m_theme->m_sb.calculate();
+				m_batch_shader->bind();
+				m_batch_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+				m_batch_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+				m_batch_shader->set_uniform("u_width", static_cast<float>(m_theme->m_sb.get_width()));
+				m_batch_shader->set_uniform("u_height", static_cast<float>(m_theme->m_sb.get_height()));
 
-				m_sb.bind();
-				glDrawElements(GL_TRIANGLES, m_sb.get_used_index_count(), GL_UNSIGNED_INT, nullptr);
+				m_theme->m_sb.bind();
+				glDrawElements(GL_TRIANGLES, m_theme->m_sb.get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 			}
 
 			for (const auto& widget : m_widgets)
@@ -91,7 +93,8 @@ namespace galaxy
 			}
 
 			m_widgets.clear();
-			m_state = ConstructionState::DEFAULT;
+			m_batch_shader = nullptr;
+			m_state        = ConstructionState::DEFAULT;
 		}
 
 	} // namespace ui

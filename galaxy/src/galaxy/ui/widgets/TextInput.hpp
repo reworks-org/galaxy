@@ -9,8 +9,8 @@
 #define GALAXY_UI_WIDGETS_TEXTINPUT_HPP_
 
 #include "galaxy/async/Timer.hpp"
-#include "galaxy/components/Line.hpp"
-#include "galaxy/components/BatchedSprite.hpp"
+#include "galaxy/components/Primitive2D.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/MouseMoved.hpp"
@@ -140,7 +140,7 @@ namespace galaxy
 			///
 			/// Batched sprite.
 			///
-			components::BatchedSprite m_batched;
+			components::Sprite2D m_sprite;
 
 			///
 			/// Batched Transform.
@@ -150,7 +150,7 @@ namespace galaxy
 			///
 			/// Indicator line in input field.
 			///
-			components::Line m_cursor;
+			components::Primitive2D m_cursor;
 
 			///
 			/// Cursor transform.

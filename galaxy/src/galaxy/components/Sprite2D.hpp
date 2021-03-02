@@ -1,12 +1,12 @@
 ///
-/// BatchedSprite.hpp
+/// Sprite2D.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_BATCHEDSPRITE_HPP_
-#define GALAXY_COMPONENTS_BATCHEDSPRITE_HPP_
+#ifndef GALAXY_COMPONENTS_SPRITE2D_HPP_
+#define GALAXY_COMPONENTS_SPRITE2D_HPP_
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -24,9 +24,9 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// A sprite that does not contain a texture. Useful for when working with batches and texture atlas'.
+		/// Quad with a texture ID used for drawing a sprite in a spritebatch.
 		///
-		class BatchedSprite final : public fs::Serializable
+		class Sprite2D final : public fs::Serializable
 		{
 			friend class graphics::SpriteBatch;
 
@@ -34,29 +34,29 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			BatchedSprite() noexcept;
+			Sprite2D() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			BatchedSprite(const nlohmann::json& json);
+			Sprite2D(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			BatchedSprite(BatchedSprite&&) noexcept;
+			Sprite2D(Sprite2D&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			BatchedSprite& operator=(BatchedSprite&&) noexcept;
+			Sprite2D& operator=(Sprite2D&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~BatchedSprite() noexcept;
+			virtual ~Sprite2D() noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite.
@@ -137,7 +137,7 @@ namespace galaxy
 			///
 			/// Get sprite vertexs.
 			///
-			/// \return Const reference to std::vector of sprite vertexs.
+			/// \return Const reference to std::vector of sprite position vertexs.
 			///
 			[[nodiscard]] const std::vector<glm::vec2>& get_vertexs() const noexcept;
 
@@ -159,12 +159,12 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			BatchedSprite(const BatchedSprite&) = delete;
+			Sprite2D(const Sprite2D&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			BatchedSprite& operator=(const BatchedSprite&) = delete;
+			Sprite2D& operator=(const Sprite2D&) = delete;
 
 		private:
 			///
@@ -173,7 +173,7 @@ namespace galaxy
 			std::string m_id;
 
 			///
-			/// Opacity of BatchedSprite.
+			/// Opacity of Sprite2D.
 			///
 			float m_opacity;
 

@@ -4,8 +4,8 @@
         "Tag": {
             "tag": "Cube"
         },
-        "Sprite": {
-        	"texture": "cube.png",
+        "Sprite2D": {
+        	"texture-atlas-id": "cube",
         	"opacity": 1.0
         },
         "Transform": {
@@ -14,11 +14,8 @@
             "rotation": 0
         },
         "Renderable": {
-            "type": 3,
-            "z-level": 1
-        },
-        "ShaderID": {
-            "shader-id": "sprite"
+            "type": "BATCHED",
+            "z-level": 2
         },
         "RigidBody": {
         	"type": "DYNAMIC"

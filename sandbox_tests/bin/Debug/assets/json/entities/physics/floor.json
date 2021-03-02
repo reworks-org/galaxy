@@ -4,8 +4,8 @@
         "Tag": {
             "tag": "Floor"
         },
-        "Sprite": {
-        	"texture": "floor.png",
+        "Sprite2D": {
+        	"texture-atlas-id": "floor",
         	"opacity": 1.0
         },
         "Transform": {
@@ -14,11 +14,8 @@
             "rotation": 0
         },
         "Renderable": {
-            "type": 3,
-            "z-level": 0
-        },
-        "ShaderID": {
-            "shader-id": "sprite"
+            "type": "BATCHED",
+            "z-level": 1
         },
         "RigidBody": {
         	"type": "STATIC"

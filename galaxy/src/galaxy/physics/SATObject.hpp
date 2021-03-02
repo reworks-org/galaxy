@@ -78,7 +78,14 @@ namespace galaxy
 				[[nodiscard]] const float get_overlap(const Projection& other);
 
 			private:
+				///
+				/// Projection min.
+				///
 				float m_min;
+
+				///
+				/// Projection max.
+				///
 				float m_max;
 			};
 
@@ -96,7 +103,14 @@ namespace galaxy
 			[[nodiscard]] const Projection project(const glm::vec2& axis);
 
 		private:
+			///
+			/// Vertexs to process.
+			///
 			std::vector<glm::vec2> m_vertexs;
+
+			///
+			/// Normals to process.
+			///
 			std::vector<glm::vec2> m_normals;
 		};
 	} // namespace physics

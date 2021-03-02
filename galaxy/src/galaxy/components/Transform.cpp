@@ -79,6 +79,12 @@ namespace galaxy
 			m_dirty = true;
 		}
 
+		void Transform::set_rotation_origin(const float x, const float y) noexcept
+		{
+			m_origin.x = x;
+			m_origin.y = y;
+		}
+
 		void Transform::recalculate()
 		{
 			static const constexpr auto identity_matrix = glm::mat4 {1.0f};
@@ -97,18 +103,13 @@ namespace galaxy
 			}
 		}
 
-		const glm::mat4& Transform::get_transform(const float half_width, const float half_height)
+		const bool Transform::is_dirty() const noexcept
 		{
-			if (half_width >= 0.0f)
-			{
-				m_origin.x = half_width;
-			}
+			return m_dirty;
+		}
 
-			if (half_height >= 0.0f)
-			{
-				m_origin.y = half_height;
-			}
-
+		const glm::mat4& Transform::get_transform()
+		{
 			recalculate();
 			return m_model;
 		}
@@ -123,9 +124,14 @@ namespace galaxy
 			return m_pos;
 		}
 
-		const glm::vec3& Transform::get_origin() const noexcept
+		void Transform::reset() noexcept
 		{
-			return m_origin;
+			m_dirty       = true;
+			m_origin      = {0.0f, 0.0f, 0.0f};
+			m_rotation    = glm::mat4 {1.0f};
+			m_translation = glm::mat4 {1.0f};
+			m_rotate      = 0.0f;
+			m_pos         = {0.0f, 0.0f};
 		}
 
 		nlohmann::json Transform::serialize()
@@ -140,6 +146,8 @@ namespace galaxy
 
 		void Transform::deserialize(const nlohmann::json& json)
 		{
+			reset();
+
 			if ((json.count("x") > 0) && json.count("y") > 0)
 			{
 				set_pos(json.at("x"), json.at("y"));
@@ -149,6 +157,8 @@ namespace galaxy
 			{
 				rotate(json.at("rotation"));
 			}
+
+			recalculate();
 		}
 	} // namespace components
 } // namespace galaxy

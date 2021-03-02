@@ -78,6 +78,14 @@ namespace galaxy
 			void set_size(const glm::vec2& size) noexcept;
 
 			///
+			/// Set body size.
+			///
+			/// \param width New body width.
+			/// \param height New body height.
+			///
+			void set_size(const float width, const float height) noexcept;
+
+			///
 			/// Get AABB.
 			///
 			/// \return Const reference to body AABB.

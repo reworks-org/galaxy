@@ -4,11 +4,14 @@
     	"Tag": {
             "tag": "LineEntity"
         },
-        "Line": {
-            "x1": 0,
-            "y1": 0,
-            "x2": 50,
-            "y2": 50,
+        "Primitive2D": {
+        	"type": "LINE",
+        	"line-points" : {
+	        	"x1": 0,
+	            "y1": 0,
+	            "x2": 50,
+	            "y2": 50	
+        	},
             "colour": {
                 "r": 255,
                 "g": 0,
@@ -22,7 +25,7 @@
             "rotation": 0.0
         },
         "Renderable": {
-            "type": 1,
+            "type": "LINE",
             "z-level": 2
         },
         "ShaderID": {

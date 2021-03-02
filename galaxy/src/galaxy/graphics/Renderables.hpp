@@ -28,34 +28,19 @@ namespace galaxy
 			LINE = 1,
 
 			///
-			/// Defines an entity to be rendered as a CIRCLE.
+			/// Defines an entity to be rendered as a LINE_LOOP.
 			///
-			CIRCLE = 2,
+			LINE_LOOP = 2,
 
 			///
-			/// Defines an entity to be rendered as a SPRITE.
+			/// Define an entity to be rendered as a BATCH.
 			///
-			SPRITE = 3,
+			BATCHED = 3,
 
 			///
-			/// Defines an entity to be rendered as TEXT.
+			/// Define an entity to be rendered as TEXT.
 			///
-			TEXT = 4,
-
-			///
-			/// Define an entity to be batch rendered.
-			///
-			BATCHED = 5,
-
-			///
-			/// Defines an entity to be rendered as a POLYGON.
-			///
-			POLYGON = 6,
-
-			///
-			/// Defines an entity to be rendered as an ELLIPSE.
-			///
-			ELLIPSE = 7
+			TEXT = 4
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -7,14 +7,14 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/texture/Texture.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -117,12 +117,28 @@ namespace galaxy
 				{
 					// Load texture.
 					components::Transform to_draw_transform;
-					components::Sprite to_draw;
-					to_draw.load(info.m_path);
-					to_draw.create();
+					graphics::VertexData to_draw_data;
+					graphics::Texture to_draw_texture;
+					to_draw_texture.load(info.m_path);
+
+					std::vector<graphics::SpriteVertex> vertexs;
+					std::array<unsigned int, 6> indicies = {0, 1, 3, 1, 2, 3};
+					vertexs.emplace_back(0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+					vertexs.emplace_back(0.0f + to_draw_texture.get_width(), 0.0f, 0.0f + to_draw_texture.get_width(), 0.0f, 1.0f);
+					vertexs.emplace_back(0.0f + to_draw_texture.get_width(), 0.0f + to_draw_texture.get_height(), 0.0f + to_draw_texture.get_width(), 0.0f + to_draw_texture.get_height(), 1.0f);
+					vertexs.emplace_back(0.0f, 0.0f + to_draw_texture.get_height(), 0.0f, 0.0f + to_draw_texture.get_height(), 1.0f);
+
+					to_draw_data.get_vbo().create<graphics::SpriteVertex>(vertexs);
+					to_draw_data.get_ibo().create(indicies);
+
+					graphics::VertexLayout layout;
+					layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
+					layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+
+					to_draw_data.get_vao().create<graphics::SpriteVertex>(to_draw_data.get_vbo(), to_draw_data.get_ibo(), layout);
 
 					// Pack into rect then add to hashmap.
-					const auto opt = m_packer.pack(to_draw.get_width(), to_draw.get_height());
+					const auto opt = m_packer.pack(to_draw_texture.get_width(), to_draw_texture.get_height());
 					if (opt == std::nullopt)
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to pack texture: {0}.", name);
@@ -132,8 +148,9 @@ namespace galaxy
 						auto rect = opt.value();
 						to_draw_transform.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
 
-						auto* shader_ptr = SL_HANDLE.shaderbook()->get(shader);
-						graphics::Renderer::draw_sprite_to_texture(&to_draw, &to_draw_transform, shader_ptr, &m_texture);
+						auto* s_ptr           = SL_HANDLE.shaderbook()->get(shader);
+						const auto& transform = to_draw_transform.get_transform();
+						graphics::Renderer2D::draw_texture_to_target(&to_draw_data, &to_draw_texture, transform, s_ptr, &m_texture);
 
 						info.m_region = {static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)};
 					}

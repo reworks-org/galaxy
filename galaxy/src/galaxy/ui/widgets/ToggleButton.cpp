@@ -8,7 +8,7 @@
 #include <optional>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
 
 #include "ToggleButton.hpp"
@@ -24,14 +24,16 @@ namespace galaxy
 
 		void ToggleButton::create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover)
 		{
-			m_batched.create(on);
+			m_sprite.create(on);
 			m_regions[0] = on;
 			m_regions[1] = off;
 			m_regions[2] = on_hover;
 			m_regions[3] = off_hover;
 
-			m_bounds.m_width  = m_batched.get_width();
-			m_bounds.m_height = m_batched.get_height();
+			m_bounds.m_width  = m_sprite.get_width();
+			m_bounds.m_height = m_sprite.get_height();
+
+			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
 		}
 
 		void ToggleButton::set_pos(const float x, const float y) noexcept
@@ -115,19 +117,19 @@ namespace galaxy
 			switch (m_state)
 			{
 				case ToggleButton::State::ON:
-					m_batched.set_region(m_regions[0]);
+					m_sprite.set_region(m_regions[0]);
 					break;
 
 				case ToggleButton::State::OFF:
-					m_batched.set_region(m_regions[1]);
+					m_sprite.set_region(m_regions[1]);
 					break;
 
 				case ToggleButton::State::ON_HOVER:
-					m_batched.set_region(m_regions[2]);
+					m_sprite.set_region(m_regions[2]);
 					break;
 
 				case ToggleButton::State::OFF_HOVER:
-					m_batched.set_region(m_regions[3]);
+					m_sprite.set_region(m_regions[3]);
 					break;
 			}
 		}

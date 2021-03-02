@@ -9,7 +9,7 @@
 #define GALAXY_UI_WIDGETS_TEXTBOX_HPP_
 
 #include "galaxy/async/Timer.hpp"
-#include "galaxy/components/BatchedSprite.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/ui/Widget.hpp"
@@ -118,7 +118,7 @@ namespace galaxy
 			///
 			/// Batched sprite.
 			///
-			components::BatchedSprite m_batched;
+			components::Sprite2D m_sprite;
 
 			///
 			/// Batched Transform.
@@ -138,7 +138,7 @@ namespace galaxy
 			///
 			/// Indicator.
 			///
-			components::BatchedSprite m_indicator;
+			components::Sprite2D m_indicator;
 
 			///
 			/// Indicator transform.

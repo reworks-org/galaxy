@@ -10,13 +10,8 @@
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
 
 #include "galaxy/ui/Widget.hpp"
-#include "galaxy/ui/widgets/Label.hpp"
-#include "galaxy/ui/widgets/ProgressBar.hpp"
-#include "galaxy/ui/widgets/Slider.hpp"
-#include "galaxy/ui/widgets/Textbox.hpp"
 
 namespace galaxy
 {
@@ -57,7 +52,8 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			GUI() noexcept;
+			GUI()
+			noexcept;
 
 			///
 			/// Destructor.
@@ -176,9 +172,9 @@ namespace galaxy
 			events::Dispatcher m_event_manager;
 
 			///
-			/// Spritebatch.
+			/// Spritebatch shader.
 			///
-			graphics::SpriteBatch m_sb;
+			graphics::Shader* m_batch_shader;
 		};
 
 		template<is_widget WidgetDerived, typename... Args>
@@ -212,26 +208,6 @@ namespace galaxy
 				ptr          = static_cast<WidgetDerived*>(m_widgets[id].get());
 				ptr->m_id    = id;
 				ptr->m_theme = m_theme;
-
-				if constexpr (std::is_same<WidgetDerived, Slider>::value)
-				{
-					m_sb.add(&ptr->m_slider, &ptr->m_slider_transform, 0);
-					m_sb.add(&ptr->m_marker, &ptr->m_marker_transform, 1);
-				}
-				else if constexpr (std::is_same<WidgetDerived, Progressbar>::value)
-				{
-					m_sb.add(&ptr->m_container, &ptr->m_container_transform, 0);
-					m_sb.add(&ptr->m_bar, &ptr->m_bar_transform, 1);
-				}
-				else if constexpr (std::is_same<WidgetDerived, Textbox>::value)
-				{
-					m_sb.add(&ptr->m_batched, &ptr->m_transform, 0);
-					m_sb.add(&ptr->m_indicator, &ptr->m_indicator_transform, 1);
-				}
-				else if constexpr (!std::is_same<WidgetDerived, Label>::value)
-				{
-					m_sb.add(&ptr->m_batched, &ptr->m_transform, 0);
-				}
 			}
 			else
 			{

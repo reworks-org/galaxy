@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		class Renderer;
+		class Renderer2D;
 	} // namespace graphics
 
 	namespace components
@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		class Text final : public fs::Serializable
 		{
-			friend class graphics::Renderer;
+			friend class graphics::Renderer2D;
 
 		public:
 			///
@@ -185,7 +185,7 @@ namespace galaxy
 			///
 			struct CharacterBatch final
 			{
-				BatchedSprite m_sprite;
+				Sprite2D m_sprite;
 				Transform m_transform;
 			};
 

@@ -4,7 +4,8 @@
     	"Tag": {
             "tag": "CircleEntity"
         },
-        "Circle": {
+        "Primitive2D": {
+        	"type": "CIRCLE",
             "radius": 20,
             "fragments": 50,
             "colour": {
@@ -20,7 +21,7 @@
             "rotation": 0.0
         },
         "Renderable": {
-            "type": 2,
+            "type": "LINE_LOOP",
             "z-level": 3
         },
         "ShaderID": {

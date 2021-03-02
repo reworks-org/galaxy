@@ -1,5 +1,5 @@
 ///
-/// BatchedSprite.cpp
+/// Sprite2D.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -12,24 +12,24 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
 
-#include "BatchedSprite.hpp"
+#include "Sprite2D.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
-		BatchedSprite::BatchedSprite() noexcept
+		Sprite2D::Sprite2D() noexcept
 		    : Serializable {this}, m_opacity {1.0f}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_offset {0}, m_z_level {0}, m_custom_wh {0.0f, 0.0f}
 		{
 		}
 
-		BatchedSprite::BatchedSprite(const nlohmann::json& json)
+		Sprite2D::Sprite2D(const nlohmann::json& json)
 		    : Serializable {this}, m_opacity {1.0f}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_offset {0}, m_z_level {0}, m_custom_wh {0.0f, 0.0f}
 		{
 			deserialize(json);
 		}
 
-		BatchedSprite::BatchedSprite(BatchedSprite&& bs) noexcept
+		Sprite2D::Sprite2D(Sprite2D&& bs) noexcept
 		    : Serializable {this}
 		{
 			this->m_id        = bs.m_id;
@@ -38,10 +38,10 @@ namespace galaxy
 			this->m_custom_wh = std::move(bs.m_custom_wh);
 			this->m_offset    = bs.m_offset;
 			this->m_z_level   = bs.m_z_level;
-			this->m_vertexs   = bs.m_vertexs;
+			this->m_vertexs   = std::move(bs.m_vertexs);
 		}
 
-		BatchedSprite& BatchedSprite::operator=(BatchedSprite&& bs) noexcept
+		Sprite2D& Sprite2D::operator=(Sprite2D&& bs) noexcept
 		{
 			if (this != &bs)
 			{
@@ -51,30 +51,30 @@ namespace galaxy
 				this->m_custom_wh = std::move(bs.m_custom_wh);
 				this->m_offset    = bs.m_offset;
 				this->m_z_level   = bs.m_z_level;
-				this->m_vertexs   = bs.m_vertexs;
+				this->m_vertexs   = std::move(bs.m_vertexs);
 			}
 
 			return *this;
 		}
 
-		BatchedSprite::~BatchedSprite() noexcept
+		Sprite2D::~Sprite2D() noexcept
 		{
 			m_offset = 0;
 		}
 
-		void BatchedSprite::create(const graphics::fRect& region, float opacity)
+		void Sprite2D::create(const graphics::fRect& region, float opacity)
 		{
 			m_region  = region;
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
-		void BatchedSprite::create(std::string_view texture_atlas_id, float opacity)
+		void Sprite2D::create(std::string_view texture_atlas_id, float opacity)
 		{
 			m_region  = SL_HANDLE.atlas()->get_region(texture_atlas_id);
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
-		void BatchedSprite::set_region(std::string_view region)
+		void Sprite2D::set_region(std::string_view region)
 		{
 			m_id     = region;
 			m_region = SL_HANDLE.atlas()->get_region(m_id);
@@ -82,49 +82,49 @@ namespace galaxy
 			m_custom_wh = {0.0f, 0.0f};
 		}
 
-		void BatchedSprite::set_opacity(const float opacity) noexcept
+		void Sprite2D::set_opacity(const float opacity) noexcept
 		{
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
-		void BatchedSprite::set_custom_width(const float width) noexcept
+		void Sprite2D::set_custom_width(const float width) noexcept
 		{
 			m_custom_wh.x    = width;
 			m_region.m_width = width;
 		}
 
-		void BatchedSprite::set_custom_height(const float height) noexcept
+		void Sprite2D::set_custom_height(const float height) noexcept
 		{
 			m_custom_wh.y     = height;
 			m_region.m_height = height;
 		}
 
-		const float BatchedSprite::get_opacity() const noexcept
+		const float Sprite2D::get_opacity() const noexcept
 		{
 			return m_opacity;
 		}
 
-		const int BatchedSprite::get_width() const noexcept
+		const int Sprite2D::get_width() const noexcept
 		{
 			return m_region.m_width;
 		}
 
-		const int BatchedSprite::get_height() const noexcept
+		const int Sprite2D::get_height() const noexcept
 		{
 			return m_region.m_height;
 		}
 
-		const graphics::fRect& BatchedSprite::get_region() const noexcept
+		const graphics::fRect& Sprite2D::get_region() const noexcept
 		{
 			return m_region;
 		}
 
-		const std::vector<glm::vec2>& BatchedSprite::get_vertexs() const noexcept
+		const std::vector<glm::vec2>& Sprite2D::get_vertexs() const noexcept
 		{
 			return m_vertexs;
 		}
 
-		nlohmann::json BatchedSprite::serialize()
+		nlohmann::json Sprite2D::serialize()
 		{
 			nlohmann::json json      = "{}"_json;
 			json["texture-atlas-id"] = m_id;
@@ -143,19 +143,19 @@ namespace galaxy
 			return json;
 		}
 
-		void BatchedSprite::deserialize(const nlohmann::json& json)
+		void Sprite2D::deserialize(const nlohmann::json& json)
 		{
 			set_region(json.at("texture-atlas-id"));
 			m_opacity = std::clamp(json.at("opacity").get<float>(), 0.0f, 1.0f);
 
 			if (json.count("custom-width") > 0)
 			{
-				m_custom_wh.x = json.at("custom-width");
+				set_custom_width(json.at("custom-width"));
 			}
 
 			if (json.count("custom-height") > 0)
 			{
-				m_custom_wh.y = json.at("custom-height");
+				set_custom_height(json.at("custom-height"));
 			}
 		}
 	} // namespace components

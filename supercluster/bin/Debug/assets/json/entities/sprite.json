@@ -1,11 +1,11 @@
 {
     "enabled": true,
     "components": {
-        "Tag": {
-        	"tag": "Sprite Test"
+    	"Tag": {
+            "tag": "Sprite Test"
         },
-        "Sprite": {
-        	"texture": "wall.png",
+        "Sprite2D": {
+        	"texture-atlas-id": "wall",
         	"opacity": 1.0
         },
         "Transform": {
@@ -14,11 +14,8 @@
             "rotation": 0
         },
         "Renderable": {
-            "type": 3,
+            "type": "BATCHED",
             "z-level": 1
-        },
-        "ShaderID": {
-            "shader-id": "sprite"
         }
     }
 }

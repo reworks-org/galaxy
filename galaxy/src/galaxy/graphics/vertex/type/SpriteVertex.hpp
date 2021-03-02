@@ -34,16 +34,18 @@ namespace galaxy
 			/// \param y Y pos.
 			/// \param u Texel x pos.
 			/// \param v Texel y pos.
+			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
-			SpriteVertex(const float x, const float y, const float u, const float v) noexcept;
+			SpriteVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
 
 			///
 			/// Argument constructor.
 			///
 			/// \param pos Vec2 position.
 			/// \param texels Vec2 texture coords.
+			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
-			SpriteVertex(const glm::vec2& pos, const glm::vec2& texels) noexcept;
+			SpriteVertex(const glm::vec2& pos, const glm::vec2& texels, const float opacity) noexcept;
 
 			///
 			/// Destructor.
@@ -60,6 +62,11 @@ namespace galaxy
 			/// SpriteVertex texels.
 			///
 			glm::vec2 m_texels;
+
+			///
+			/// Opacity.
+			///
+			float m_opacity;
 		};
 	} // namespace graphics
 } // namespace galaxy

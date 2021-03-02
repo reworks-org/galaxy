@@ -52,11 +52,6 @@ namespace galaxy
 			bool m_raw_mouse_input;
 
 			///
-			/// Line thickness.
-			///
-			float m_line_thickness;
-
-			///
 			/// OpenGL debug mode.
 			///
 			bool m_gl_debug;

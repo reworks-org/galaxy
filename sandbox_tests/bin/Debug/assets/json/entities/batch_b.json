@@ -4,7 +4,7 @@
     	"Tag": {
             "tag": "BatchEntityB"
         },
-        "BatchedSprite": {
+        "Sprite2D": {
             "texture-atlas-id": "wall_3",
         	"opacity": 1.0
         },
@@ -14,7 +14,7 @@
             "rotation": 45
         },
         "Renderable": {
-            "type": 5,
+            "type": "BATCHED",
             "z-level": 2
         }
     }
