@@ -77,6 +77,41 @@ namespace galaxy
 			///
 			void set_listener_orientation(const glm::vec3& at, const glm::vec3& up) noexcept;
 
+			///
+			/// Get doppler factor.
+			///
+			/// \return Global doppler factor as const float.
+			///
+			[[nodiscard]] float get_dopper_factor() noexcept;
+
+			///
+			/// Get speed of sound.
+			///
+			/// \return Returns a const float.
+			///
+			[[nodiscard]] float get_speed_of_sound() noexcept;
+
+			///
+			/// Get the gain for the listener.
+			///
+			/// \return Returns a const float.
+			///
+			[[nodiscard]] float get_listener_gain() noexcept;
+
+			///
+			/// Get the location of the listener in the world coord system.
+			///
+			/// \return Vec3 containing position.
+			///
+			[[nodiscard]] glm::vec3 get_listener_position() noexcept;
+
+			///
+			/// Get the audio velocity (speed and direction) of the listener.
+			///
+			/// \return Vec3 containing velocity.
+			///
+			[[nodiscard]] glm::vec3 get_listener_velocity() noexcept;
+
 		private:
 			///
 			/// Copy constructor.

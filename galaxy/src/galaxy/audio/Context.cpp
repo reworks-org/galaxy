@@ -124,5 +124,39 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set listener AL_ORIENTATION."));
 			}
 		}
+
+		float Context::get_dopper_factor() noexcept
+		{
+			return alGetFloat(AL_DOPPLER_FACTOR);
+		}
+
+		float Context::get_speed_of_sound() noexcept
+		{
+			return alGetFloat(AL_SPEED_OF_SOUND);
+		}
+
+		float Context::get_listener_gain() noexcept
+		{
+			float gain = 0.0f;
+			alGetListenerf(AL_GAIN, &gain);
+
+			return gain;
+		}
+
+		glm::vec3 Context::get_listener_position() noexcept
+		{
+			glm::vec3 pos;
+			alGetListener3f(AL_POSITION, &pos.x, &pos.y, &pos.z);
+
+			return pos;
+		}
+
+		glm::vec3 Context::get_listener_velocity() noexcept
+		{
+			glm::vec3 vel;
+			alGetListener3f(AL_VELOCITY, &vel.x, &vel.y, &vel.z);
+
+			return vel;
+		}
 	} // namespace audio
 } // namespace galaxy
