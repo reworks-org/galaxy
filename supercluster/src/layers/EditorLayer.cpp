@@ -169,9 +169,31 @@ namespace sc
 
 			if (ImGui::BeginMenu("Menu"))
 			{
-				if (ImGui::MenuItem("Show ImGui::Demo"))
+				if (ImGui::MenuItem("Mount Folder"))
 				{
-					m_render_demo = !m_render_demo;
+					const auto& folder = SL_HANDLE.vfs()->show_folder_dialog();
+					if (folder != std::nullopt)
+					{
+						if (!SL_HANDLE.vfs()->mount(folder.value()))
+						{
+							GALAXY_LOG(GALAXY_WARNING, "Attempted to mount invalid folder.");
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Attempted to open invalid folder.");
+					}
+				}
+
+				if (ImGui::MenuItem("Reload"))
+				{
+					SL_HANDLE.m_restart = true;
+					exit();
+				}
+
+				if (ImGui::MenuItem("Exit"))
+				{
+					exit();
 				}
 
 				if (ImGui::BeginMenu("Theme"))
@@ -214,15 +236,9 @@ namespace sc
 					ImGui::EndMenu();
 				}
 
-				if (ImGui::MenuItem("Reload"))
+				if (ImGui::MenuItem("Show ImGui::Demo"))
 				{
-					SL_HANDLE.m_restart = true;
-					exit();
-				}
-
-				if (ImGui::MenuItem("Exit"))
-				{
-					exit();
+					m_render_demo = !m_render_demo;
 				}
 
 				ImGui::EndMenu();
