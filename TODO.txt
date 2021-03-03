@@ -2,19 +2,16 @@ SUPERCLUSTER:
 - physics tools
 - export to json / save as json
 - documentation
-- VFS mount/unmount
 - two states ("game") and ("editor")
-- play button switches between them.
-- serialzie data when swtiching, then load and run game state.
-- tilemap editor
-	- see stb tilemap on utube for ideas
-- Integrate openal context with dev tools.
+	- play button switches between them.
+	- serialzie data when swtiching, then load and run new scene. Clear on exit.
+- fix encapsulation
 - serialization
 - audio support
 - click and drag
-- open fullscreen (but windowed)
 
 TODO:
+- proper mipmap support.
 - Fix CA and Compilation Warnings.
 - Docs error fix.
 - Dependencies should only abstract away system specific implementations.
@@ -26,19 +23,24 @@ TODO:
 - make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
-- box2d support polygon components
 - FPS and UPS counter.
-- box2d float point seriualize/desierialize error.
-- fix editor encapsulation
+- use rigid bodies for mouse picking / generate (update) mouse aabb on click, then test for collisions.
+- create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
+	- component default data should safely create a component, no crash.
+- further rendersystem improvements
+convert type classes to enums (log, vertexs, etc...).
+- fix audio encapsulation / scene integration
+	- since its threaded
+- figure out what to do about spritebatch quad limits
+- update map entity/component generation from layers
+- async log
+- log not writing data to file
+- z ordering in spritebatches
+- texture tooltip
+- support rotation for tiled objects
 
 IDE:
 - MSVC CA
 - CLANG TIDY
 - CLANG FORMAT
 - INCLUDE MANAGER
-
-fix audio encapsulation / scene integration
-	- since its threaded
-
-- better physics integration
-	- use this for mousepicking?
