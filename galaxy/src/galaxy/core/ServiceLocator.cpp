@@ -72,7 +72,7 @@ namespace galaxy
 			return m_vfs;
 		}
 
-		audio::Context* ServiceLocator::get_openal() const noexcept
+		audio::Context* ServiceLocator::openal() const noexcept
 		{
 			return m_openal;
 		}

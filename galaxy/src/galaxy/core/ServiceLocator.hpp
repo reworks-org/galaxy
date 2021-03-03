@@ -158,7 +158,7 @@ namespace galaxy
 			///
 			/// \return Return pointer to OpenAL context.
 			///
-			[[maybe_unused]] audio::Context* get_openal() const noexcept;
+			[[maybe_unused]] audio::Context* openal() const noexcept;
 
 		public:
 			///
