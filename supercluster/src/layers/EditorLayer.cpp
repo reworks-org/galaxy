@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include <galaxy/audio/Context.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
@@ -185,17 +186,6 @@ namespace sc
 					}
 				}
 
-				if (ImGui::MenuItem("Reload"))
-				{
-					SL_HANDLE.m_restart = true;
-					exit();
-				}
-
-				if (ImGui::MenuItem("Exit"))
-				{
-					exit();
-				}
-
 				if (ImGui::BeginMenu("Theme"))
 				{
 					if (ImGui::MenuItem("Light"))
@@ -241,12 +231,28 @@ namespace sc
 					m_render_demo = !m_render_demo;
 				}
 
+				if (ImGui::MenuItem("Reload"))
+				{
+					SL_HANDLE.m_restart = true;
+					exit();
+				}
+
+				if (ImGui::MenuItem("Exit"))
+				{
+					exit();
+				}
+
 				ImGui::EndMenu();
 			}
 
 			if (ImGui::MenuItem("Open Tiled"))
 			{
 				m_process = platform::run_process("tools/tiled/tiled.exe");
+			}
+
+			if (ImGui::MenuItem("Audio Panel"))
+			{
+				m_audio_panel = !m_audio_panel;
 			}
 
 			if (ImGui::MenuItem("Reload"))
@@ -267,7 +273,7 @@ namespace sc
 		m_std_console.render();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		if (ImGui::Begin("Viewport"))
+		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground))
 		{
 			m_viewport_focused    = ImGui::IsWindowFocused();
 			m_viewport_hovered    = ImGui::IsWindowHovered();
@@ -285,6 +291,76 @@ namespace sc
 
 		ImGui::End();
 		ImGui::PopStyleVar(1);
+
+		if (m_audio_panel)
+		{
+			auto* openal = SL_HANDLE.openal();
+			ImGui::Begin("Audio Panel", &m_audio_panel, ImGuiWindowFlags_AlwaysAutoResize);
+
+			static float s_factor = openal->get_dopper_factor();
+			if (ImGui::SliderFloat("Doppler Factor", &s_factor, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_doppler_factor(s_factor);
+			}
+
+			static float s_gain = openal->get_listener_gain();
+			if (ImGui::SliderFloat("Global Volume", &s_gain, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_gain(s_gain);
+			}
+
+			static float s_sos = openal->get_speed_of_sound();
+			if (ImGui::SliderFloat("Speed of Sound", &s_sos, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_speed_of_sound(s_sos);
+			}
+
+			static glm::vec3 pos = openal->get_listener_position();
+			ImGui::Text("Listener Position");
+
+			if (ImGui::SliderFloat("X##VEC301", &pos.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_position(pos);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::SliderFloat("Y##VEC301", &pos.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_position(pos);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::SliderFloat("Z##VEC301", &pos.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_position(pos);
+			}
+
+			static glm::vec3 vel = openal->get_listener_velocity();
+			ImGui::Text("Listener Velocity");
+
+			if (ImGui::SliderFloat("X##VEC302", &vel.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_velocity(vel);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::SliderFloat("Y##VEC302", &vel.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_velocity(vel);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::SliderFloat("Z##VEC302", &vel.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			{
+				openal->set_listener_velocity(vel);
+			}
+
+			ImGui::End();
+		}
 
 		if (m_render_demo)
 		{

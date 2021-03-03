@@ -56,6 +56,7 @@ namespace sc
 		bool m_render_demo      = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
+		bool m_audio_panel      = false;
 
 		panel::CameraPanel m_camera_panel;
 		panel::EntityEditor m_entity_panel;
