@@ -47,7 +47,7 @@ namespace sc
 					camera.set_speed(s_speed);
 				}
 
-				static float s_zoom = camera.get_scale();
+				float s_zoom = camera.get_scale();
 				if (ImGui::SliderFloat("Scale##04", &s_zoom, 0.2, 10.0, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 				{
 					camera.zoom(s_zoom);
@@ -55,7 +55,7 @@ namespace sc
 
 				ImGui::Text("Projection");
 
-				static float s_proj_x = camera.get_width();
+				float s_proj_x = camera.get_width();
 				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("X##05", &s_proj_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
@@ -64,7 +64,7 @@ namespace sc
 
 				ImGui::SameLine();
 
-				static float s_proj_y = camera.get_height();
+				float s_proj_y = camera.get_height();
 				ImGui::SetNextItemWidth(INPUT_WIDTH);
 				if (ImGui::InputFloat("Y##06", &s_proj_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
