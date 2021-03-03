@@ -161,16 +161,6 @@ namespace sc
 
 		if (ImGui::BeginMenuBar())
 		{
-			ImGui::Text("[INFO]");
-			if (ImGui::IsItemHovered())
-			{
-				ImGui::BeginTooltip();
-				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-				ImGui::TextUnformatted("[SHIFT] for docking.");
-				ImGui::PopTextWrapPos();
-				ImGui::EndTooltip();
-			}
-
 			if (ImGui::BeginMenu("Menu"))
 			{
 				if (ImGui::MenuItem("Mount Folder"))
@@ -262,6 +252,16 @@ namespace sc
 			{
 				SL_HANDLE.m_restart = true;
 				exit();
+			}
+
+			ImGui::Text("( ? )");
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted("[SHIFT] for docking.\n[RMB] to drag viewport.");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
 			}
 
 			ImGui::EndMenuBar();
