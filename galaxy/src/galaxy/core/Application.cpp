@@ -137,6 +137,7 @@ namespace galaxy
 
 				// Configure audio context.
 				m_openal.set_listener_gain(m_config->get<float>("audio-volume"));
+				SL_HANDLE.m_openal = &m_openal;
 
 				// Freetype.
 				FT_HANDLE.open();

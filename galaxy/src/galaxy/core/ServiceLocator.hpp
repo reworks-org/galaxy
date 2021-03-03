@@ -23,6 +23,11 @@ namespace galaxy
 		class ThreadPool;
 	} // namespace async
 
+	namespace audio
+	{
+		class Context;
+	} // namespace audio
+
 	namespace core
 	{
 		class Window;
@@ -148,6 +153,13 @@ namespace galaxy
 			///
 			[[maybe_unused]] fs::Virtual* vfs() const noexcept;
 
+			///
+			/// Get OpenAL context service.
+			///
+			/// \return Return pointer to OpenAL context.
+			///
+			[[maybe_unused]] audio::Context* get_openal() const noexcept;
+
 		public:
 			///
 			/// Restart flag.
@@ -235,6 +247,11 @@ namespace galaxy
 			/// Virtual FileSystem service.
 			///
 			fs::Virtual* m_vfs;
+
+			///
+			/// Audio Context service.
+			///
+			audio::Context* m_openal;
 		};
 	} // namespace core
 } // namespace galaxy

@@ -72,8 +72,13 @@ namespace galaxy
 			return m_vfs;
 		}
 
+		audio::Context* ServiceLocator::get_openal() const noexcept
+		{
+			return m_openal;
+		}
+
 		ServiceLocator::ServiceLocator() noexcept
-		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_layers {nullptr}, m_dispatcher {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}
+		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_layers {nullptr}, m_dispatcher {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}, m_openal {nullptr}
 		{
 		}
 	} // namespace core
