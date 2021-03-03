@@ -48,7 +48,7 @@ namespace sc
 				}
 
 				static float s_zoom = camera.get_scale();
-				if (ImGui::DragFloat("Scale##04", &s_zoom, 0.1, 0.2, 10.0, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+				if (ImGui::SliderFloat("Scale##04", &s_zoom, 0.2, 10.0, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
 				{
 					camera.zoom(s_zoom);
 				}
