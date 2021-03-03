@@ -206,6 +206,8 @@ namespace galaxy
 
 						// Set up depth testing.
 						glEnable(GL_DEPTH_TEST);
+						glClearDepth(1.0);
+						glDepthFunc(GL_LEQUAL);
 
 						// Allow for changing vertex point size.
 						glEnable(GL_PROGRAM_POINT_SIZE);
