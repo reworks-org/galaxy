@@ -85,10 +85,13 @@ namespace sc
 		if (m_viewport_focused && m_viewport_hovered)
 		{
 			ImGui_ImplGlfw::g_BlockInput = true;
+
+			m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
 			m_active_scene->events();
 		}
 		else
 		{
+			m_mouse_dragging             = false;
 			ImGui_ImplGlfw::g_BlockInput = false;
 		}
 
@@ -284,6 +287,19 @@ namespace sc
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
 				m_active_scene->camera().set_width(m_viewport_size.x);
 				m_active_scene->camera().set_height(m_viewport_size.y);
+			}
+
+			if (m_mouse_dragging)
+			{
+				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+
+				m_active_scene->camera().move(delta.x, delta.y);
+				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
+			}
+			else
+			{
+				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
