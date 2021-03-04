@@ -222,9 +222,9 @@ namespace galaxy
 			///
 			/// Get the array of tilesets.
 			///
-			/// \return Std::vector of tilesets.
+			/// \return Tileset hashmap.
 			///
-			[[nodiscard]] const auto& get_tile_sets() const noexcept;
+			[[nodiscard]] const robin_hood::unordered_flat_map<std::string, Tileset>& get_tile_sets() const noexcept;
 
 			///
 			/// Get the map grid width.
@@ -372,9 +372,9 @@ namespace galaxy
 			int m_tile_height;
 
 			///
-			/// Array of Tilesets.
+			/// Hashmap of Tilesets.
 			///
-			std::vector<Tileset> m_tile_sets;
+			robin_hood::unordered_flat_map<std::string, Tileset> m_tile_sets;
 
 			///
 			/// Map grid width.

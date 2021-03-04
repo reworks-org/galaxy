@@ -156,10 +156,22 @@ namespace galaxy
 
 				if (m_root.count("tilesets") > 0)
 				{
+					unsigned int counter      = 0;
 					const auto& tileset_array = m_root.at("tilesets");
 					for (const auto& tileset : tileset_array)
 					{
-						m_tile_sets.emplace_back(tileset);
+						std::string name;
+						if (tileset.count("name") > 0)
+						{
+							name = tileset.at("name");
+						}
+						else
+						{
+							name = std::to_string(counter);
+						}
+
+						m_tile_sets.emplace(name, tileset_array);
+						counter++;
 					}
 				}
 
@@ -452,7 +464,7 @@ namespace galaxy
 			return m_tile_height;
 		}
 
-		const auto& Map::get_tile_sets() const noexcept
+		const robin_hood::unordered_flat_map<std::string, Tileset>& Map::get_tile_sets() const noexcept
 		{
 			return m_tile_sets;
 		}
