@@ -439,6 +439,11 @@ namespace galaxy
 						// Setup framebuffer.
 						m_framebuffer = std::make_unique<graphics::RenderTexture>();
 						m_framebuffer->create(m_width, m_height);
+
+						// Configure ansio.
+						const auto ansio = std::clamp(settings.m_ansio_filtering, 1, 16);
+						m_framebuffer->set_anisotropy(ansio);
+
 						create_fb_vao();
 
 						// Set transform to default.

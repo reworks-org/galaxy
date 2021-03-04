@@ -12,7 +12,6 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "Texture.hpp"
@@ -61,8 +60,6 @@ namespace galaxy
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 					// Default filtering.
-					set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
-
 					set_minify_filter<NearestTexFilter>();
 					set_magnify_filter<NearestTexFilter>();
 
@@ -91,7 +88,6 @@ namespace galaxy
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 				// Default filtering.
-				set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
 				set_minify_filter<NearestTexFilter>();
 				set_magnify_filter<NearestTexFilter>();
 				clamp_to_border();
@@ -110,8 +106,6 @@ namespace galaxy
 			m_texture = id;
 			m_width   = width;
 			m_height  = height;
-
-			set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
 		}
 
 		void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept
@@ -126,7 +120,6 @@ namespace galaxy
 			glTexImage2D(GL_TEXTURE_2D, level, internalformat, width, height, border, format, type, pixels);
 
 			// Default filtering.
-			set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
 			set_minify_filter<NearestTexFilter>();
 			set_magnify_filter<NearestTexFilter>();
 			clamp_to_border();
