@@ -12,6 +12,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "Texture.hpp"
@@ -58,10 +59,18 @@ namespace galaxy
 				{
 					// Gen texture into OpenGL.
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+					glGenerateMipmap(GL_TEXTURE_2D);
 
-					// Default filtering.
-					set_minify_filter<NearestTexFilter>();
-					set_magnify_filter<NearestTexFilter>();
+					if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
+					{
+						set_minify_filter<TrilinearMipmapFilter>();
+						set_magnify_filter<BilinearTexFilter>();
+					}
+					else
+					{
+						set_minify_filter<NearestMipmapFilter>();
+						set_magnify_filter<NearestTexFilter>();
+					}
 
 					clamp_to_border();
 				}
@@ -86,10 +95,19 @@ namespace galaxy
 			{
 				// Gen texture into OpenGL.
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+				glGenerateMipmap(GL_TEXTURE_2D);
 
-				// Default filtering.
-				set_minify_filter<NearestTexFilter>();
-				set_magnify_filter<NearestTexFilter>();
+				if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
+				{
+					set_minify_filter<TrilinearMipmapFilter>();
+					set_magnify_filter<BilinearTexFilter>();
+				}
+				else
+				{
+					set_minify_filter<NearestMipmapFilter>();
+					set_magnify_filter<NearestTexFilter>();
+				}
+
 				clamp_to_border();
 			}
 			else
@@ -106,25 +124,6 @@ namespace galaxy
 			m_texture = id;
 			m_width   = width;
 			m_height  = height;
-		}
-
-		void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept
-		{
-			m_width  = width;
-			m_height = height;
-
-			// Generate texture in OpenGL and bind to 2D texture.
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-
-			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, level, internalformat, width, height, border, format, type, pixels);
-
-			// Default filtering.
-			set_minify_filter<NearestTexFilter>();
-			set_magnify_filter<NearestTexFilter>();
-			clamp_to_border();
-
-			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		void Texture::bind() noexcept
