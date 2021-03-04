@@ -8,7 +8,6 @@ SUPERCLUSTER:
 - fix encapsulation
 - serialization
 - audio support
-- click and drag
 
 TODO:
 - proper mipmap support.
@@ -37,7 +36,6 @@ convert type classes to enums (log, vertexs, etc...).
 - log not writing data to file
 - z ordering in spritebatches
 - texture tooltip
-- support rotation for tiled objects
 
 IDE:
 - MSVC CA

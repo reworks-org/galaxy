@@ -249,6 +249,7 @@ namespace galaxy
 								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
 
 								primitive2d->create<graphics::Primitives::ELLIPSE>(data);
+
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
@@ -265,6 +266,8 @@ namespace galaxy
 								primitive2d->create<graphics::Primitives::POINT>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
 								renderable->m_type    = graphics::Renderables::POINT;
 								shaderid->m_shader_id = "point";
 							}
@@ -284,6 +287,8 @@ namespace galaxy
 								primitive2d->create<graphics::Primitives::POLYGON>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
 								renderable->m_type    = graphics::Renderables::LINE_LOOP;
 								shaderid->m_shader_id = "line";
 							}
@@ -303,6 +308,8 @@ namespace galaxy
 								primitive2d->create<graphics::Primitives::POLYLINE>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
 								renderable->m_type    = graphics::Renderables::LINE;
 								shaderid->m_shader_id = "line";
 							}
@@ -322,6 +329,7 @@ namespace galaxy
 								primitive2d->create<graphics::Primitives::POLYGON>(data);
 
 								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
 
 								renderable->m_type    = graphics::Renderables::LINE_LOOP;
 								shaderid->m_shader_id = "line";
