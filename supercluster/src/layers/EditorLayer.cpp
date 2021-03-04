@@ -95,9 +95,12 @@ namespace sc
 			ImGui_ImplGlfw::g_BlockInput = false;
 		}
 
-		if (m_window->key_pressed(input::Keys::ESC))
+		if (!ImGui_ImplGlfw::g_BlockInput)
 		{
-			exit();
+			if (m_window->key_pressed(input::Keys::ESC))
+			{
+				exit();
+			}
 		}
 	}
 
