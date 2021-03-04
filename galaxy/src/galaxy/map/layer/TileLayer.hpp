@@ -56,9 +56,9 @@ namespace galaxy
 			[[nodiscard]] const std::vector<Chunk>& get_chunks() const noexcept;
 
 			///
-			/// Retrieve variant data.
+			/// Retrieve tile id grid.
 			///
-			/// \return Std::variant 0 = string 1 = vector.
+			/// \return Const reference to a std::vector of unsigned integers.
 			///
 			[[nodiscard]] const std::vector<unsigned int>& get_data() const noexcept;
 
