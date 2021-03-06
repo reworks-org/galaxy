@@ -52,6 +52,7 @@ namespace sb
 		m_world.create_from_json("batch_b.json");
 		m_world.create_from_json("text.json");
 		m_world.create_from_json("animated.json");
+		m_world.create_from_json("sprite.json");
 
 		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::AnimationSystem>();

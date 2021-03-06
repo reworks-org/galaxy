@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/components/Primitive2D.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Shader.hpp"
@@ -85,6 +86,18 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, text->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
+		void Renderer2D::draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader)
+		{
+			sprite->bind();
+
+			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_opacity", sprite->get_opacity());
+			shader->set_uniform("u_width", static_cast<float>(sprite->get_width()));
+			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
+
+			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
 		void Renderer2D::draw_batch(graphics::SpriteBatch* sb, Camera& camera)
 		{
 			Renderer2D::m_batch_shader->bind();
@@ -109,6 +122,19 @@ namespace galaxy
 			shader->set_uniform("u_height", static_cast<float>(texture->get_height()));
 
 			glDrawElements(GL_TRIANGLES, vertex_data->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		void Renderer2D::draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target)
+		{
+			sprite->bind();
+
+			shader->bind();
+			shader->set_uniform("u_projection", target->get_proj());
+			shader->set_uniform("u_transform", transform->get_transform());
+			shader->set_uniform("u_width", static_cast<float>(sprite->get_width()));
+			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
+
+			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer2D::draw_particles(graphics::ParticleGenerator* gen, Camera& camera)

@@ -38,7 +38,7 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
-#include "galaxy/map/World.hpp"
+#include "galaxy/map/TiledWorld.hpp"
 
 #include "galaxy/physics/AABB.hpp"
 #include "galaxy/physics/BodyType.hpp"
@@ -573,17 +573,13 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto map_type                        = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map()>());
-			map_type["load"]                     = &map::Map::load;
-			map_type["parse"]                    = &map::Map::parse;
-			map_type["generate_image_entities"]  = &map::Map::generate_image_entities;
-			map_type["generate_object_entities"] = &map::Map::generate_object_entities;
-			map_type["generate_map_entities"]    = &map::Map::generate_map_entities;
+			auto map_type    = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map()>());
+			map_type["load"] = &map::Map::load;
 
-			auto world_map_type       = lua->new_usertype<map::World>("gTiledWorld", sol::constructors<map::World()>());
-			world_map_type["load"]    = &map::World::load;
-			world_map_type["parse"]   = &map::World::parse;
-			world_map_type["get_map"] = &map::World::get_map;
+			auto world_map_type       = lua->new_usertype<map::TiledWorld>("gTiledWorld", sol::constructors<map::TiledWorld()>());
+			world_map_type["load"]    = &map::TiledWorld::load;
+			world_map_type["parse"]   = &map::TiledWorld::parse;
+			world_map_type["get_map"] = &map::TiledWorld::get_map;
 		}
 
 		void register_math()

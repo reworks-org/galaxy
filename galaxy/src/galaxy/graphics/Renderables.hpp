@@ -40,7 +40,12 @@ namespace galaxy
 			///
 			/// Define an entity to be rendered as TEXT.
 			///
-			TEXT = 4
+			TEXT = 4,
+
+			///
+			/// Define an entity to be rendered as QUAD.
+			///
+			SPRITE = 5
 		};
 	} // namespace graphics
 } // namespace galaxy

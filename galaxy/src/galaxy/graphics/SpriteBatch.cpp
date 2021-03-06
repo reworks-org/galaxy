@@ -38,14 +38,14 @@ namespace galaxy
 			m_sprites.reserve(m_max_quads);
 			m_vertexs.reserve(m_max_vertexs);
 
-			m_vb.create<SpriteVertex>(m_vertexs);
+			m_vb.create<BatchVertex>(m_vertexs);
 			m_ib.create(is);
 
-			m_layout.add<SpriteVertex, meta::VAPosition>(2);
-			m_layout.add<SpriteVertex, meta::VATexel>(2);
-			m_layout.add<SpriteVertex, meta::VAOpacity>(1);
+			m_layout.add<BatchVertex, meta::VAPosition>(2);
+			m_layout.add<BatchVertex, meta::VATexel>(2);
+			m_layout.add<BatchVertex, meta::VAOpacity>(1);
 
-			m_va.create<SpriteVertex>(m_vb, m_ib, m_layout);
+			m_va.create<BatchVertex>(m_vb, m_ib, m_layout);
 		}
 
 		SpriteBatch::SpriteBatch(SpriteBatch&& sb) noexcept
@@ -106,7 +106,7 @@ namespace galaxy
 			}
 		}
 
-		void SpriteBatch::add(components::Sprite2D* sprite, components::Transform* transform, const int z_level)
+		void SpriteBatch::add(components::BatchSprite* sprite, components::Transform* transform, const int z_level)
 		{
 			if (!sprite || !transform)
 			{
@@ -176,7 +176,7 @@ namespace galaxy
 				m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
 			}
 
-			glNamedBufferSubData(m_vb.id(), 0, sizeof(SpriteVertex) * m_vertexs.size(), m_vertexs.data());
+			glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchVertex) * m_vertexs.size(), m_vertexs.data());
 		}
 
 		void SpriteBatch::calculate(components::Transform* global_transform)
@@ -230,7 +230,7 @@ namespace galaxy
 					m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
 				}
 
-				glNamedBufferSubData(m_vb.id(), 0, sizeof(SpriteVertex) * m_vertexs.size(), m_vertexs.data());
+				glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchVertex) * m_vertexs.size(), m_vertexs.data());
 			}
 		}
 

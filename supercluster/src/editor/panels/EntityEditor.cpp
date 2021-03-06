@@ -9,11 +9,12 @@
 #include <galaxy/fs/FileSystem.hpp>
 
 #include <galaxy/components/Animated.hpp>
+#include <galaxy/components/BatchSprite.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
-#include <galaxy/components/Sprite2D.hpp>
+#include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
@@ -148,6 +149,24 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
+							ImGui::Text("BatchSprite");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##19"))
+							{
+								world.disable(entity);
+								world.create_component<components::BatchSprite>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##20"))
+							{
+								world.remove<components::BatchSprite>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
 							ImGui::Text("2D Primitive");
 							ImGui::TableNextColumn();
 
@@ -220,20 +239,20 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Sprite2D");
+							ImGui::Text("Sprite");
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" + ##11"))
 							{
 								world.disable(entity);
-								world.create_component<components::Sprite2D>(entity);
+								world.create_component<components::Sprite>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##12"))
 							{
-								world.remove<components::Sprite2D>(entity);
+								world.remove<components::Sprite>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -329,14 +348,15 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, primitive2d, renderable, rigidbody, shaderid, sprite2d, tag, text, transform]
+			auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
 			= m_cur_scene->world().get_multi<
 				components::Animated, 
+				components::BatchSprite,
 				components::Primitive2D, 
 				components::Renderable, 
 				components::RigidBody, 
 				components::ShaderID, 
-				components::Sprite2D, 
+				components::Sprite,
 				components::Tag, 
 				components::Text, 
 				components::Transform>(entity);
@@ -462,6 +482,42 @@ namespace sc
 						if (ImGui::Button("Stop"))
 						{
 							animated->stop();
+						}
+
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (batchsprite)
+				{
+					if (ImGui::BeginTabItem("Batch Sprite"))
+					{
+						static float s_cw = static_cast<float>(batchsprite->get_width());
+						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							batchsprite->set_custom_width(s_cw);
+						}
+
+						static float s_ch = static_cast<float>(batchsprite->get_height());
+						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							batchsprite->set_custom_height(s_ch);
+						}
+
+						static float opacity = batchsprite->get_opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						{
+							batchsprite->set_opacity(opacity);
+						}
+
+						static std::string s_bs_tex = batchsprite->get_tex_id();
+						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							if (!s_bs_tex.empty())
+							{
+								batchsprite->set_region(s_bs_tex);
+								s_bs_tex = batchsprite->get_tex_id();
+							}
 						}
 
 						ImGui::EndTabItem();
@@ -770,36 +826,66 @@ namespace sc
 					}
 				}
 
-				if (sprite2d)
+				if (sprite)
 				{
 					if (ImGui::BeginTabItem("Sprite"))
 					{
-						static float s_cw = static_cast<float>(sprite2d->get_width());
-						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						if (ImGui::Button("Load"))
 						{
-							sprite2d->set_custom_width(s_cw);
+							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
+							gl_operations.push_back([sprite, &file]() {
+								if (file == std::nullopt)
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for sprite component.");
+								}
+								else
+								{
+									sprite->load(file.value());
+									sprite->create();
+								}
+							});
 						}
 
-						static float s_ch = static_cast<float>(sprite2d->get_height());
-						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						static float opacity = sprite->get_opacity();
+						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 						{
-							sprite2d->set_custom_height(s_ch);
+							sprite->set_opacity(opacity);
 						}
 
-						static float opacity = sprite2d->get_opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						ImGui::Text("Clamping");
+
+						if (ImGui::Button("Border"))
 						{
-							sprite2d->set_opacity(opacity);
+							gl_operations.push_back([sprite]() -> void {
+							});
+							sprite->clamp_to_border();
 						}
 
-						static std::string s_bs_tex = sprite2d->get_tex_id();
-						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						ImGui::SameLine();
+
+						if (ImGui::Button("Edge"))
 						{
-							if (!s_bs_tex.empty())
-							{
-								sprite2d->set_region(s_bs_tex);
-								s_bs_tex = sprite2d->get_tex_id();
-							}
+							gl_operations.push_back([sprite]() -> void {
+								sprite->clamp_to_edge();
+							});
+						}
+
+						ImGui::Text("Stretch Mode");
+
+						if (ImGui::Button("Repeat"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_repeated();
+							});
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Mirror"))
+						{
+							gl_operations.push_back([sprite]() -> void {
+								sprite->set_mirrored();
+							});
 						}
 
 						ImGui::EndTabItem();

@@ -8,7 +8,7 @@
 #ifndef GALAXY_UI_WIDGETS_BUTTON_HPP_
 #define GALAXY_UI_WIDGETS_BUTTON_HPP_
 
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
@@ -151,7 +151,7 @@ namespace galaxy
 			///
 			/// Batched sprite.
 			///
-			components::Sprite2D m_sprite;
+			components::BatchSprite m_sprite;
 
 			///
 			/// Batched Transform.

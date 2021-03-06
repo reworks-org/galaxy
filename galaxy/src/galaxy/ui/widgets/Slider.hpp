@@ -8,7 +8,7 @@
 #ifndef GALAXY_UI_WIDGETS_SLIDER_HPP_
 #define GALAXY_UI_WIDGETS_SLIDER_HPP_
 
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
@@ -143,7 +143,7 @@ namespace galaxy
 			///
 			/// Slider texture.
 			///
-			components::Sprite2D m_slider;
+			components::BatchSprite m_slider;
 
 			///
 			/// Slider transform.
@@ -153,7 +153,7 @@ namespace galaxy
 			///
 			/// Marker texture.
 			///
-			components::Sprite2D m_marker;
+			components::BatchSprite m_marker;
 
 			///
 			/// Marker transform.

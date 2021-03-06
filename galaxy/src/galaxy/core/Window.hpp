@@ -15,6 +15,7 @@
 #include <glm/vec2.hpp>
 #include <robin_hood.h>
 
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
@@ -30,7 +31,6 @@ namespace galaxy
 	namespace graphics
 	{
 		class Renderer;
-		class VertexData;
 	} // namespace graphics
 
 	namespace core
@@ -376,11 +376,6 @@ namespace galaxy
 			///
 			Window& operator=(Window&&) = delete;
 
-			///
-			/// (Re)Creates framebuffer vertex array object(s).
-			///
-			void create_fb_vao();
-
 		private:
 			///
 			/// GLFW window data.
@@ -445,12 +440,12 @@ namespace galaxy
 			///
 			/// Internal framebuffer VAO.
 			///
-			std::unique_ptr<graphics::VertexData> m_fb_vao;
+			std::unique_ptr<components::Sprite> m_fb_sprite;
 
 			///
 			/// Internal framebuffer transform.
 			///
-			glm::mat4 m_fb_transform;
+			components::Transform m_fb_transform;
 
 			///
 			/// Triggers window resized event.

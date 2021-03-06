@@ -4,7 +4,7 @@
         "Tag": {
             "tag": "Floor"
         },
-        "Sprite2D": {
+        "BatchSprite": {
         	"texture-atlas-id": "floor",
         	"opacity": 1.0
         },

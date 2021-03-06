@@ -1,12 +1,12 @@
 ///
-/// Sprite2D.hpp
+/// BatchSprite.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_SPRITE2D_HPP_
-#define GALAXY_COMPONENTS_SPRITE2D_HPP_
+#ifndef GALAXY_COMPONENTS_BATCHSPRITE_HPP_
+#define GALAXY_COMPONENTS_BATCHSPRITE_HPP_
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		/// Quad with a texture ID used for drawing a sprite in a spritebatch.
 		///
-		class Sprite2D final : public fs::Serializable
+		class BatchSprite final : public fs::Serializable
 		{
 			friend class graphics::SpriteBatch;
 
@@ -34,29 +34,29 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Sprite2D() noexcept;
+			BatchSprite() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Sprite2D(const nlohmann::json& json);
+			BatchSprite(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Sprite2D(Sprite2D&&) noexcept;
+			BatchSprite(BatchSprite&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Sprite2D& operator=(Sprite2D&&) noexcept;
+			BatchSprite& operator=(BatchSprite&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sprite2D() noexcept;
+			virtual ~BatchSprite() noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite.
@@ -166,12 +166,12 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			Sprite2D(const Sprite2D&) = delete;
+			BatchSprite(const BatchSprite&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Sprite2D& operator=(const Sprite2D&) = delete;
+			BatchSprite& operator=(const BatchSprite&) = delete;
 
 		private:
 			///
@@ -180,7 +180,7 @@ namespace galaxy
 			std::string m_id;
 
 			///
-			/// Opacity of Sprite2D.
+			/// Opacity of BatchSprite.
 			///
 			float m_opacity;
 

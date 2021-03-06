@@ -33,21 +33,21 @@ namespace galaxy
 
 		void ParticleInstance::create(const float tex_x, const float tex_y)
 		{
-			std::vector<SpriteVertex> vb_arr;
+			std::vector<BatchVertex> vb_arr;
 			vb_arr.emplace_back(0.0f, 0.0f, tex_x, tex_y, 1.0f);
 			vb_arr.emplace_back(0.0f + m_width, 0.0f, tex_x + m_width, tex_y, 1.0f);
 			vb_arr.emplace_back(0.0f + m_width, 0.0f + m_height, tex_x + m_width, tex_y + m_height, 1.0f);
 			vb_arr.emplace_back(0.0f, 0.0f + m_height, tex_x, tex_y + m_height, 1.0f);
 
-			m_vb.create<SpriteVertex>(vb_arr);
+			m_vb.create<BatchVertex>(vb_arr);
 
 			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
 			m_ib.create(ib_arr);
 
-			m_layout.add<SpriteVertex, meta::VAPosition>(2);
-			m_layout.add<SpriteVertex, meta::VATexel>(2);
+			m_layout.add<BatchVertex, meta::VAPosition>(2);
+			m_layout.add<BatchVertex, meta::VATexel>(2);
 
-			m_va.create<SpriteVertex>(m_vb, m_ib, m_layout);
+			m_va.create<BatchVertex>(m_vb, m_ib, m_layout);
 		}
 
 		void ParticleInstance::set_instance(std::span<glm::vec3> instances)

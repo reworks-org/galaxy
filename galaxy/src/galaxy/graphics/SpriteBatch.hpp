@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_SPRITEBATCH_HPP_
 #define GALAXY_GRAPHICS_SPRITEBATCH_HPP_
 
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/texture/BaseTexture.hpp"
 
@@ -58,7 +58,7 @@ namespace galaxy
 			/// \param transform Transform for the batched sprite.
 			/// \param z_level Z level of batched sprite for sorting later.
 			///
-			void add(components::Sprite2D* sprite, components::Transform* transform, const int z_level);
+			void add(components::BatchSprite* sprite, components::Transform* transform, const int z_level);
 
 			///
 			/// Calculate spritebatch vertexs.
@@ -226,12 +226,12 @@ namespace galaxy
 			///
 			/// Array of batched sprites.
 			///
-			std::vector<std::pair<components::Sprite2D*, components::Transform*>> m_sprites;
+			std::vector<std::pair<components::BatchSprite*, components::Transform*>> m_sprites;
 
 			///
 			/// Vertexs of spritebatch.
 			///
-			std::vector<SpriteVertex> m_vertexs;
+			std::vector<BatchVertex> m_vertexs;
 		};
 	} // namespace graphics
 } // namespace galaxy

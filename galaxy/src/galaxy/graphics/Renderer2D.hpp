@@ -15,8 +15,9 @@ namespace galaxy
 {
 	namespace components
 	{
+		class BatchSprite;
 		class Primitive2D;
-		class Sprite2D;
+		class Sprite;
 		class Text;
 	} // namespace components
 
@@ -40,9 +41,11 @@ namespace galaxy
 			static void draw_lineloop(components::Primitive2D* data, components::Transform* transform, Shader* shader);
 			static void draw_spritebatch(Camera& camera);
 			static void draw_text(components::Text* text, components::Transform* transform, Shader* shader);
+			static void draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader);
 
 			static void draw_batch(graphics::SpriteBatch* sb, Camera& camera);
 			static void draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target);
+			static void draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
 			static void draw_particles(graphics::ParticleGenerator* gen, Camera& camera);
 
 		public:

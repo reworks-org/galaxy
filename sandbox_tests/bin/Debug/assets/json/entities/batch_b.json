@@ -4,7 +4,7 @@
     	"Tag": {
             "tag": "BatchEntityB"
         },
-        "Sprite2D": {
+        "BatchSprite": {
             "texture-atlas-id": "wall_3",
         	"opacity": 1.0
         },

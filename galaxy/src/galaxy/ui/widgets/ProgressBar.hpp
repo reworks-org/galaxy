@@ -8,7 +8,7 @@
 #ifndef GALAXY_UI_WIDGETS_PROGRESSBAR_HPP_
 #define GALAXY_UI_WIDGETS_PROGRESSBAR_HPP_
 
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/ui/Widget.hpp"
 
@@ -134,7 +134,7 @@ namespace galaxy
 			///
 			/// Progressbar texture.
 			///
-			components::Sprite2D m_container;
+			components::BatchSprite m_container;
 
 			///
 			/// Progressbar transform.
@@ -144,7 +144,7 @@ namespace galaxy
 			///
 			/// Bar texture.
 			///
-			components::Sprite2D m_bar;
+			components::BatchSprite m_bar;
 
 			///
 			/// Bar transform.

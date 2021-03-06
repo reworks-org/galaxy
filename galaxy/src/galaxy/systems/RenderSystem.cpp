@@ -38,7 +38,7 @@ namespace galaxy
 
 					if (renderable->m_type == graphics::Renderables::BATCHED)
 					{
-						graphics::Renderer2D::m_batch->add(world.get<components::Sprite2D>(entity), transform, renderable->m_z_level);
+						graphics::Renderer2D::m_batch->add(world.get<components::BatchSprite>(entity), transform, renderable->m_z_level);
 					}
 					else
 					{
@@ -88,6 +88,10 @@ namespace galaxy
 
 					case graphics::Renderables::TEXT:
 						graphics::Renderer2D::draw_text(world.get<components::Text>(data.m_entity), data.m_transform, shader);
+						break;
+
+					case graphics::Renderables::SPRITE:
+						graphics::Renderer2D::draw_sprite(world.get<components::Sprite>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

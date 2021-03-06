@@ -4,7 +4,7 @@
 		"Tag": {
             "tag": "Animated"
         },
-		"Sprite2D": {
+		"BatchSprite": {
 			"texture-atlas-id": "walk1",
 			"opacity": 1.0
 		},

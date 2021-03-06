@@ -37,12 +37,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_vao {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_vao {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 			if (!create(settings))
 			{
@@ -439,15 +439,12 @@ namespace galaxy
 						// Setup framebuffer.
 						m_framebuffer = std::make_unique<graphics::RenderTexture>();
 						m_framebuffer->create(m_width, m_height);
+						m_framebuffer->set_anisotropy(std::clamp(settings.m_ansio_filtering, 1, 16));
 
-						// Configure ansio.
-						const auto ansio = std::clamp(settings.m_ansio_filtering, 1, 16);
-						m_framebuffer->set_anisotropy(ansio);
-
-						create_fb_vao();
-
-						// Set transform to default.
-						m_fb_transform = components::Transform().get_transform();
+						m_fb_sprite = std::make_unique<components::Sprite>();
+						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
+						m_fb_sprite->create();
+						m_fb_sprite->set_opacity(1.0f);
 					}
 				}
 			}
@@ -582,7 +579,7 @@ namespace galaxy
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
-				m_fb_vao.reset();
+				m_fb_sprite.reset();
 				m_framebuffer.reset();
 				glfwDestroyWindow(m_window);
 				m_window = nullptr;
@@ -613,7 +610,8 @@ namespace galaxy
 			m_height = height;
 
 			m_framebuffer->change_size(width, height);
-			create_fb_vao();
+			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
+			m_fb_sprite->create();
 
 			m_window_dispatcher.trigger<events::WindowResized>(width, height);
 
@@ -650,23 +648,21 @@ namespace galaxy
 			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			m_fb_vao->get_vao().bind();
-			glBindTexture(GL_TEXTURE_2D, m_framebuffer->gl_texture());
+			m_fb_sprite->bind();
 
 			for (auto* effect : graphics::Renderer2D::m_post_shaders)
 			{
 				effect->bind();
 				effect->set_uniform("u_projection", m_framebuffer->get_proj());
-				effect->set_uniform("u_transform", m_fb_transform);
-				effect->set_uniform("u_width", static_cast<float>(m_framebuffer->get_width()));
-				effect->set_uniform("u_height", static_cast<float>(m_framebuffer->get_height()));
-				effect->set_uniform("u_opacity", 1.0f);
+				effect->set_uniform("u_transform", m_fb_transform.get_transform());
+				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
+				effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());
 
-				glDrawElements(GL_TRIANGLES, m_fb_vao->index_count(), GL_UNSIGNED_INT, nullptr);
+				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 			}
 
-			m_fb_vao->get_vao().unbind();
-			glBindTexture(GL_TEXTURE_2D, 0);
+			m_fb_sprite->unbind();
 			glfwSwapBuffers(m_window);
 		}
 
@@ -781,28 +777,6 @@ namespace galaxy
 		const glm::vec2& Window::cursor_size() const noexcept
 		{
 			return m_cursor_size;
-		}
-
-		void Window::create_fb_vao()
-		{
-			m_fb_vao.reset();
-			m_fb_vao = std::make_unique<graphics::VertexData>();
-
-			std::vector<graphics::SpriteVertex> vertexs;
-			std::array<unsigned int, 6> indicies = {0, 1, 3, 1, 2, 3};
-			vertexs.emplace_back(0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
-			vertexs.emplace_back(0.0f + m_framebuffer->get_width(), 0.0f, 0.0f + m_framebuffer->get_width(), 0.0f, 1.0f);
-			vertexs.emplace_back(0.0f + m_framebuffer->get_width(), 0.0f + m_framebuffer->get_height(), 0.0f + m_framebuffer->get_width(), 0.0f + m_framebuffer->get_height(), 1.0f);
-			vertexs.emplace_back(0.0f, 0.0f + m_framebuffer->get_height(), 0.0f, 0.0f + m_framebuffer->get_height(), 1.0f);
-
-			m_fb_vao->get_vbo().create<graphics::SpriteVertex>(vertexs);
-			m_fb_vao->get_ibo().create(indicies);
-
-			graphics::VertexLayout layout;
-			layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
-			layout.add<graphics::SpriteVertex, meta::VATexel>(2);
-
-			m_fb_vao->get_vao().create<graphics::SpriteVertex>(m_fb_vao->get_vbo(), m_fb_vao->get_ibo(), layout);
 		}
 	} // namespace core
 } // namespace galaxy

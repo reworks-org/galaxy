@@ -185,7 +185,7 @@ namespace galaxy
 			///
 			struct CharacterBatch final
 			{
-				Sprite2D m_sprite;
+				BatchSprite m_sprite;
 				Transform m_transform;
 			};
 

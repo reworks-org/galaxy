@@ -5,9 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <optional>
+
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/events/Collision.hpp"
@@ -34,8 +37,15 @@ namespace galaxy
 				m_tree.insert(entity, aabb.min(), aabb.max());
 			});
 
-			world.operate<components::RigidBody, components::Transform, components::Sprite2D>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::Sprite2D* s2d) {
+			world.operate<components::RigidBody, components::Transform, components::BatchSprite>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::BatchSprite* s2d) {
 				body->set_size(s2d->get_width(), s2d->get_height());
+				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
+
+				m_tree.insert(entity, aabb.min(), aabb.max());
+			});
+
+			world.operate<components::RigidBody, components::Transform, components::Sprite>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::Sprite* sprite) {
+				body->set_size(sprite->get_width(), sprite->get_height());
 				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
 
 				m_tree.insert(entity, aabb.min(), aabb.max());
