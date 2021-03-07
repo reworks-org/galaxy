@@ -27,8 +27,6 @@ namespace sb
 		m_world.create_system<systems::RenderSystem>();
 
 		m_map.load("assets/maps/desert.json");
-		m_map.parse();
-		m_map.generate_object_entities(m_world);
 	}
 
 	MapScene::~MapScene()
@@ -91,6 +89,7 @@ namespace sb
 
 	void MapScene::render()
 	{
+		m_map.render(m_camera);
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
 	}
 } // namespace sb

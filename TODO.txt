@@ -17,7 +17,6 @@ TODO:
 - Loading state support?
 	- Initial loading screen after window service is created, before other services.
 - AI
-- Set lua function as onevent. that way function is "serialized".
 - fix double fullstop in logging.
 - make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
@@ -31,10 +30,10 @@ convert type classes to enums (log, vertexs, etc...).
 - fix audio encapsulation / scene integration
 	- since its threaded
 - figure out what to do about spritebatch quad limits
-- update map entity/component generation from layers
+- collisonsystem should not need rendering information
 - async log
 - log not writing data to file
-- z ordering in spritebatches
+- z ordering in spritebatches / in general / rendersystem / etc
 - texture tooltip
 
 IDE:
