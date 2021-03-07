@@ -227,14 +227,19 @@ namespace galaxy
 
 		const bool Application::run()
 		{
+			unsigned int frames  = 0;
+			unsigned int updates = 0;
+
 			using clock     = std::chrono::high_resolution_clock;
 			using ups_ratio = std::chrono::duration<double, std::ratio<1, 60>>;
 
 			const constexpr ups_ratio ups {1};
 			const constexpr auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(ups);
 			const constexpr auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
+			const constexpr auto one_second  = std::chrono::seconds {1};
 
 			std::chrono::nanoseconds accumulator {0};
+			std::chrono::nanoseconds perf_counter {0};
 			std::chrono::nanoseconds elapsed {0};
 			auto previous = clock::now();
 			auto current  = clock::now();
@@ -245,6 +250,7 @@ namespace galaxy
 				elapsed  = current - previous;
 				previous = current;
 				accumulator += elapsed;
+				perf_counter += elapsed;
 
 				while (accumulator >= ups)
 				{
@@ -253,6 +259,7 @@ namespace galaxy
 
 					m_layerstack->update(ups_s);
 					accumulator -= ups_as_nano;
+					updates++;
 				}
 
 				m_layerstack->pre_render();
@@ -262,6 +269,15 @@ namespace galaxy
 				m_layerstack->render();
 
 				m_window->end();
+				frames++;
+
+				if (perf_counter >= one_second)
+				{
+					GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
+					frames       = 0;
+					updates      = 0;
+					perf_counter = std::chrono::nanoseconds {0};
+				}
 			}
 
 			m_layerstack->clear();
