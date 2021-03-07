@@ -166,6 +166,19 @@ namespace galaxy
 			m_texture.save(file);
 		}
 
+		void TextureAtlas::add_custom_region(std::string_view name, const graphics::fRect& region)
+		{
+			const auto str = static_cast<std::string>(name);
+			if (m_textures.contains(str))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to add existing texture region as custom region: {0}.", str);
+			}
+			else
+			{
+				m_textures.emplace(str, graphics::TextureInfo {.m_region = region, .m_path = ""});
+			}
+		}
+
 		const graphics::fRect& TextureAtlas::get_region(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);

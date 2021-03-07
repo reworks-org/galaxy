@@ -104,6 +104,14 @@ namespace galaxy
 			void save(std::string_view file);
 
 			///
+			/// Allows you to define a custom region on the texture atlas.
+			///
+			/// \param name ID for this new sub region.
+			/// \param region New bounds for this sub region.
+			///
+			void add_custom_region(std::string_view name, const graphics::fRect& region);
+
+			///
 			/// \brief Retrieve a texture quad defined in the atlas.
 			///
 			/// Throws exception if it cant find texture.

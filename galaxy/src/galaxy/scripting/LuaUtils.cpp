@@ -641,13 +641,14 @@ namespace galaxy
 			fontbook_type["get"]              = &res::FontBook::get;
 			fontbook_type["clear"]            = &res::FontBook::clear;
 
-			auto tex_atlas_type          = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
-			tex_atlas_type["add"]        = &res::TextureAtlas::add;
-			tex_atlas_type["create"]     = &res::TextureAtlas::create;
-			tex_atlas_type["get_size"]   = &res::TextureAtlas::get_size;
-			tex_atlas_type["get_region"] = &res::TextureAtlas::get_region;
-			tex_atlas_type["save"]       = &res::TextureAtlas::save;
-			tex_atlas_type["update"]     = &res::TextureAtlas::update;
+			auto tex_atlas_type                 = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
+			tex_atlas_type["add"]               = &res::TextureAtlas::add;
+			tex_atlas_type["create"]            = &res::TextureAtlas::create;
+			tex_atlas_type["get_size"]          = &res::TextureAtlas::get_size;
+			tex_atlas_type["get_region"]        = &res::TextureAtlas::get_region;
+			tex_atlas_type["save"]              = &res::TextureAtlas::save;
+			tex_atlas_type["update"]            = &res::TextureAtlas::update;
+			tex_atlas_type["add_custom_region"] = &res::TextureAtlas::add_custom_region;
 
 			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::no_constructor);
 			soundbook_type["create_from_json"] = &res::SoundBook::create_from_json;
