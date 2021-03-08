@@ -52,8 +52,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			GUI()
-			noexcept;
+			GUI() noexcept;
 
 			///
 			/// Destructor.

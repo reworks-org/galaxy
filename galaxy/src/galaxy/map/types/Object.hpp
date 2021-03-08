@@ -64,7 +64,7 @@ namespace galaxy
 			///
 			/// Get object type enum.
 			///
-			/// \Return Const enum identifier.
+			/// \return Const enum identifier.
 			///
 			[[nodiscard]] const Type get_type_enum() const noexcept;
 
