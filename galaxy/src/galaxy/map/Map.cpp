@@ -434,11 +434,11 @@ namespace galaxy
 			}
 		}
 
-		const int Map::parse_layers(const nlohmann::json& layer, int level)
+		const int Map::parse_layers(const nlohmann::json& json, int level)
 		{
-			if (layer.count("layers") > 0)
+			if (json.count("layers") > 0)
 			{
-				const auto& layer_array = layer.at("layers");
+				const auto& layer_array = json.at("layers");
 				for (const auto& layer : layer_array)
 				{
 					if (layer.count("type") > 0)
@@ -702,11 +702,11 @@ namespace galaxy
 							}
 							else
 							{
-								auto& data   = m_data[level]->m_batch_data.emplace_back(std::make_unique<BatchData>());
-								data->first  = std::make_unique<components::BatchSprite>();
-								data->second = std::make_unique<components::Transform>();
-								data->first->create(tile_name, layer.get_opacity());
-								data->second->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
+								auto& batch_data   = m_data[level]->m_batch_data.emplace_back(std::make_unique<BatchData>());
+								batch_data->first  = std::make_unique<components::BatchSprite>();
+								batch_data->second = std::make_unique<components::Transform>();
+								batch_data->first->create(tile_name, layer.get_opacity());
+								batch_data->second->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
 
 								auto& end = m_data[level]->m_batch_data.back();
 								m_data[level]->m_batch->add(end->first.get(), end->second.get(), level);

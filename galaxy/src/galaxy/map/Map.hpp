@@ -318,12 +318,12 @@ namespace galaxy
 			///
 			/// Is a seperate function to process groups.
 			///
-			/// \param layer Tilemap layer json.
+			/// \param json Tilemap layer json.
 			/// \param level Z Level of layer.
 			///
 			/// \return Updated level count.
 			///
-			[[nodiscard]] const int parse_layers(const nlohmann::json& layer, int level);
+			[[maybe_unused]] const int parse_layers(const nlohmann::json& json, int level);
 
 			///
 			/// Create image layer data.

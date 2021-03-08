@@ -1,5 +1,5 @@
 SUPERCLUSTER:
-- physics tools
+- physics tools (rigidbody tools).
 - export to json / save as json
 - documentation
 - two states ("game") and ("editor")
@@ -10,18 +10,15 @@ SUPERCLUSTER:
 - audio support
 
 TODO:
-- proper mipmap support.
 - Fix CA and Compilation Warnings.
 - Docs error fix.
 - Dependencies should only abstract away system specific implementations.
 - Loading state support?
 	- Initial loading screen after window service is created, before other services.
 - AI
-- fix double fullstop in logging.
 - make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
-- FPS and UPS counter.
 - use rigid bodies for mouse picking / generate (update) mouse aabb on click, then test for collisions.
 - create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
 	- component default data should safely create a component, no crash.
@@ -29,10 +26,8 @@ TODO:
 convert type classes to enums (log, vertexs, etc...).
 - fix audio encapsulation / scene integration
 	- since its threaded
-- figure out what to do about spritebatch quad limits
 - collisonsystem should not need rendering information
 - async log
-- log not writing data to file
 - z ordering in spritebatches / in general / rendersystem / etc
 - texture tooltip
 

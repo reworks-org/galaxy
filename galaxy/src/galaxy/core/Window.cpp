@@ -185,10 +185,10 @@ namespace galaxy
 							{
 								switch (severity)
 								{
-									case GL_DEBUG_SEVERITY_HIGH: GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}.", message); break;
-									case GL_DEBUG_SEVERITY_MEDIUM: GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - {0}.", message); break;
-									case GL_DEBUG_SEVERITY_LOW: GALAXY_LOG(GALAXY_DEBUG, "[OpenGL] - {0}.", message); break;
-									case GL_DEBUG_SEVERITY_NOTIFICATION: GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}.", message); break;
+									case GL_DEBUG_SEVERITY_HIGH: GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message); break;
+									case GL_DEBUG_SEVERITY_MEDIUM: GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - {0}", message); break;
+									case GL_DEBUG_SEVERITY_LOW: GALAXY_LOG(GALAXY_DEBUG, "[OpenGL] - {0}", message); break;
+									case GL_DEBUG_SEVERITY_NOTIFICATION: GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message); break;
 								};
 							},
 							nullptr);
