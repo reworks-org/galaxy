@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+
 #include "Image.hpp"
 
 namespace galaxy

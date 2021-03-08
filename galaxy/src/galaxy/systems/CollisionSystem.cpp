@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
 #include <optional>
 
 #include "galaxy/components/BatchSprite.hpp"

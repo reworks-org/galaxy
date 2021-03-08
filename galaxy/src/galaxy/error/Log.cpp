@@ -20,7 +20,7 @@ namespace galaxy
 	namespace error
 	{
 		Log::Log() noexcept
-		    : m_min_level {0}
+		    : m_min_level {0}, m_started {false}
 		{
 			m_stream = &std::cout;
 			platform::configure_terminal();
@@ -36,11 +36,13 @@ namespace galaxy
 		{
 			auto path = std::filesystem::path {log_file};
 			m_file_stream.open(path.string(), std::ofstream::out);
+			m_started = true;
 		}
 
 		void Log::finish()
 		{
 			m_file_stream.close();
+			m_started = false;
 		}
 
 		void Log::change_stream(std::ostream& ostream)

@@ -177,6 +177,11 @@ namespace galaxy
 			/// Minimum level of messages required to be logged.
 			///
 			int m_min_level;
+
+			///
+			/// Check if started.
+			///
+			bool m_started;
 		};
 
 		///
@@ -256,7 +261,7 @@ namespace galaxy
 		template<loglevel_type LogLevel, typename... MsgInputs>
 		inline void Log::log(std::string_view message, const MsgInputs&... args)
 		{
-			if (LogLevel::value >= m_min_level)
+			if ((LogLevel::value >= m_min_level) && m_started)
 			{
 				constexpr const char* colour = process_colour<LogLevel>();
 				constexpr const char* level  = process_level<LogLevel>();

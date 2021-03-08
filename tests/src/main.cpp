@@ -10,8 +10,6 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/error/Log.hpp>
-
 using namespace std::chrono_literals;
 
 int main(int argsc, char* argsv[])
@@ -20,6 +18,6 @@ int main(int argsc, char* argsv[])
 	const auto result = RUN_ALL_TESTS();
 
 	// Let us look at the results before closing.
-	std::this_thread::sleep_for(5s);
+	std::this_thread::sleep_for(8s);
 	return result;
 }
