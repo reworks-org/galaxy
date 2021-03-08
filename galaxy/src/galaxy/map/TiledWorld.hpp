@@ -8,7 +8,6 @@
 #ifndef GALAXY_MAP_TILEDWORLD_HPP_
 #define GALAXY_MAP_TILEDWORLD_HPP_
 
-#include <nlohmann/json_fwd.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/map/Map.hpp"

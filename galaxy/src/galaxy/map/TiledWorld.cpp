@@ -59,7 +59,15 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_ERROR, "Failed to load map: {0}.", file);
 					return false;
 				}
-
+				else
+				{
+					if (!map.parse())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to parse map: {0}.", file);
+						return false;
+					}
+				}
+				
 				m_maps.emplace(id, std::move(map));
 			}
 

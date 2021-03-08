@@ -17,7 +17,7 @@ Application Programming Library using C++20, with a Data driven design and Test 
 Only supports 64bit systems.
 
 ### Windows:
-You will need to install ```Visual Studio 2019 16.9 Preview 2```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
+You will need to install ```Visual Studio 2019 16.10 Preview 1```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
 
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
@@ -65,6 +65,25 @@ make doxygen
 - Application Management.
 
 
+### Tiled Implementation.
+* Supported:
+	* Tiled 1.4.3 .json maps.
+	* Loading maps from Tiled Worlds.
+	* Base64 encoding.
+	* zlib compression.
+	* gzip compression.
+* Limitations:
+	* Only renders right-down maps.
+	* Only renders topdown objects.
+* Unsupported:
+	* Tiled projects.
+	* External Tiled assets.
+	* Text objects.
+	* Terrain.
+	* Wang-Sets.
+	* Tile Flipping.
+
+
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
 and pull requests for contributions. (Don't forget to add yourself to the credits section below.)
@@ -96,3 +115,5 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
 * https://github.com/zemasoft/clangformat-cmake
 * https://github.com/ocornut/imgui/issues/707
+* https://github.com/SSBMTonberry/tileson/
+* https://github.com/RandyGaul/cute_headers/

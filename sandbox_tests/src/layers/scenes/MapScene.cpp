@@ -27,6 +27,8 @@ namespace sb
 		m_world.create_system<systems::RenderSystem>();
 
 		m_map.load("assets/maps/desert.json");
+		m_map.parse();
+		m_map.create(m_world);
 	}
 
 	MapScene::~MapScene()
