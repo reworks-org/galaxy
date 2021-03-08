@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
 #include <galaxy/components/Primitive2D.hpp>
@@ -18,6 +15,10 @@
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
+
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/flags/AllowSerialize.hpp>
+#include <galaxy/fs/FileSystem.hpp>
 
 #include <imgui/imgui_stdlib.h>
 #include <magic_enum.hpp>
@@ -106,8 +107,12 @@ namespace sc
 					{
 						ImGui::Text(fmt::format("ID: {0}.", entity).c_str());
 
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
 						bool enabled = world.is_enabled(entity);
-						if (ImGui::Checkbox("Is Enabled?", &enabled))
+						if (ImGui::Checkbox("Enabled?", &enabled))
 						{
 							if (enabled)
 							{
@@ -118,6 +123,23 @@ namespace sc
 								world.disable(entity);
 							}
 						}
+
+						bool allow_serialize = world.is_flag_set<flags::AllowSerialize>(entity);
+						if (ImGui::Checkbox("Allow Serialization?", &allow_serialize))
+						{
+							if (allow_serialize)
+							{
+								world.set_flag<flags::AllowSerialize>(entity);
+							}
+							else
+							{
+								world.unset_flag<flags::AllowSerialize>(entity);
+							}
+						}
+
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
 
 						if (ImGui::BeginTable("AddRemoveTable", 4, ImGuiTableFlags_NoBordersInBody))
 						{

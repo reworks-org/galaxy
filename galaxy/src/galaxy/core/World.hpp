@@ -104,7 +104,7 @@ namespace galaxy
 			[[maybe_unused]] const ecs::Entity create_from_json_obj(const nlohmann::json& json);
 
 			///
-			/// Set a flag on a component.
+			/// Set a flag on an entity.
 			///
 			/// \param entity Entity to set flag on.
 			///
@@ -112,7 +112,15 @@ namespace galaxy
 			void set_flag(const ecs::Entity entity);
 
 			///
-			/// UNset a flag on a component.
+			/// Check flag value on an entity.
+			///
+			/// \param entity Entity to check flag.
+			///
+			template<meta::is_bitset_flag Flag>
+			[[nodiscard]] const bool is_flag_set(const ecs::Entity entity);
+
+			///
+			/// Unset a flag on an entity.
 			///
 			/// \param entity Entity to unset flag on.
 			///
@@ -350,7 +358,20 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to set flag: {0} for entity: {1}.", Flag::value, entity);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to set flag: {0} for entity: {1}. Entity does not exist.", Flag::value, entity);
+			}
+		}
+
+		template<meta::is_bitset_flag Flag>
+		inline const bool World::is_flag_set(const ecs::Entity entity)
+		{
+			if (has(entity))
+			{
+				return m_flags[entity].test(Flag::value);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to test flag: {0} for entity: {1}. Entity does not exist.", Flag::value, entity);
 			}
 		}
 
@@ -363,7 +384,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to unset flag: {0} for entity: {1}.", Flag::value, entity);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to unset flag: {0} for entity: {1}. Entity does not exist.", Flag::value, entity);
 			}
 		}
 

@@ -29,6 +29,7 @@
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
 
+#include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -82,7 +83,6 @@ namespace galaxy
 			m_flags[entity] = {};
 			m_entities.emplace_back(entity);
 
-			disable(entity);
 			return entity;
 		}
 
@@ -126,6 +126,15 @@ namespace galaxy
 				enable(entity);
 			}
 
+			if (json.count("allow-serialize") > 0)
+			{
+				const bool allow_serialize = json.at("allow-serialize");
+				if (allow_serialize)
+				{
+					set_flag<flags::AllowSerialize>(entity);
+				}
+			}
+
 			return entity;
 		}
 
@@ -162,10 +171,7 @@ namespace galaxy
 
 		const bool World::is_enabled(const ecs::Entity entity)
 		{
-			if (has(entity))
-			{
-				return m_flags[entity].test(flags::Enabled::value);
-			}
+			return is_flag_set<flags::Enabled>(entity);
 		}
 
 		void World::enable(const ecs::Entity entity)
@@ -201,77 +207,82 @@ namespace galaxy
 			json["entities"] = nlohmann::json::array();
 			for (const auto& entity : m_entities)
 			{
-				nlohmann::json entity_json = nlohmann::json::object();
-
-				// Data
-				// clang-format off
-				
-				entity_json["enabled"]    = is_enabled(entity);
-				entity_json["components"] = nlohmann::json::object();
-
-				auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform] = get_multi<
-					components::Animated,
-					components::BatchSprite,
-				    components::Primitive2D,
-				    components::Renderable,
-					components::RigidBody,
-				    components::ShaderID,
-				    components::Sprite,
-					components::Tag,
-				    components::Text,
-				    components::Transform>(entity);
-				// clang-format on
-				if (animated)
+				const auto allow_serialize = is_flag_set<flags::AllowSerialize>(entity);
+				if (allow_serialize)
 				{
-					entity_json["components"]["Animated"] = animated->serialize();
-				}
+					nlohmann::json entity_json = nlohmann::json::object();
 
-				if (batchsprite)
-				{
-					entity_json["components"]["BatchSprite"] = batchsprite->serialize();
-				}
+					// Data
+					// clang-format off
 
-				if (primitive2d)
-				{
-					entity_json["components"]["Primitive2D"] = primitive2d->serialize();
-				}
+					entity_json["allow-serialize"] = allow_serialize;
+					entity_json["enabled"] = is_enabled(entity);
+					entity_json["components"] = nlohmann::json::object();
 
-				if (renderable)
-				{
-					entity_json["components"]["Renderable"] = renderable->serialize();
-				}
+					auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform] = get_multi<
+						components::Animated,
+						components::BatchSprite,
+						components::Primitive2D,
+						components::Renderable,
+						components::RigidBody,
+						components::ShaderID,
+						components::Sprite,
+						components::Tag,
+						components::Text,
+						components::Transform>(entity);
+					// clang-format on
+					if (animated)
+					{
+						entity_json["components"]["Animated"] = animated->serialize();
+					}
 
-				if (rigidbody)
-				{
-					entity_json["components"]["RigidBody"] = rigidbody->serialize();
-				}
+					if (batchsprite)
+					{
+						entity_json["components"]["BatchSprite"] = batchsprite->serialize();
+					}
 
-				if (shaderid)
-				{
-					entity_json["components"]["ShaderID"] = shaderid->serialize();
-				}
+					if (primitive2d)
+					{
+						entity_json["components"]["Primitive2D"] = primitive2d->serialize();
+					}
 
-				if (sprite)
-				{
-					entity_json["components"]["Sprite"] = sprite->serialize();
-				}
+					if (renderable)
+					{
+						entity_json["components"]["Renderable"] = renderable->serialize();
+					}
 
-				if (tag)
-				{
-					entity_json["components"]["Tag"] = tag->serialize();
-				}
+					if (rigidbody)
+					{
+						entity_json["components"]["RigidBody"] = rigidbody->serialize();
+					}
 
-				if (text)
-				{
-					entity_json["components"]["Text"] = text->serialize();
-				}
+					if (shaderid)
+					{
+						entity_json["components"]["ShaderID"] = shaderid->serialize();
+					}
 
-				if (transform)
-				{
-					entity_json["components"]["Transform"] = transform->serialize();
-				}
+					if (sprite)
+					{
+						entity_json["components"]["Sprite"] = sprite->serialize();
+					}
 
-				json["entities"].push_back(entity_json);
+					if (tag)
+					{
+						entity_json["components"]["Tag"] = tag->serialize();
+					}
+
+					if (text)
+					{
+						entity_json["components"]["Text"] = text->serialize();
+					}
+
+					if (transform)
+					{
+						entity_json["components"]["Transform"] = transform->serialize();
+					}
+
+					json["entities"].push_back(entity_json);
+				}
 			}
 
 			return json;

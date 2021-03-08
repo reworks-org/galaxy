@@ -2,9 +2,9 @@
     "enabled": true,
     "components": {
     	"Tag": {
-            "tag": "Sprite Test"
+            "tag": "BatchEntityA"
         },
-        "Sprite2D": {
+        "BatchSprite": {
         	"texture-atlas-id": "wall",
         	"opacity": 1.0
         },

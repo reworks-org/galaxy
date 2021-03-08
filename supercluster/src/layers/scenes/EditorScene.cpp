@@ -23,7 +23,7 @@ namespace sc
 		m_camera.create(0.0f, 1024, 1024, 0.0f);
 		m_camera.set_speed(100.0f);
 
-		m_world.create_from_json("sprite.json");
+		m_world.create_from_json("batch.json");
 
 		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
