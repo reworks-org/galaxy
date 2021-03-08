@@ -77,6 +77,16 @@ namespace sb
 		{
 			m_camera.on_key_up({input::Keys::D});
 		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::Z))
+		{
+			m_map.enable_objects(m_world);
+		}
+
+		if (SL_HANDLE.window()->key_down(input::Keys::X))
+		{
+			m_map.disable_objects(m_world);
+		}
 	}
 
 	void MapScene::update(const double dt)

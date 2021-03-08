@@ -274,6 +274,22 @@ namespace galaxy
 			}
 		}
 
+		void Map::enable_objects(core::World& world) noexcept
+		{
+			for (const auto entity : m_object_entities)
+			{
+				world.enable(entity);
+			}
+		}
+
+		void Map::disable_objects(core::World& world) noexcept
+		{
+			for (const auto entity : m_object_entities)
+			{
+				world.disable(entity);
+			}
+		}
+
 		const graphics::Colour& Map::get_bg_colour() const noexcept
 		{
 			return m_bg_colour;
@@ -482,143 +498,142 @@ namespace galaxy
 
 		void Map::create_object_layer(const ObjectLayer& layer, core::World& world)
 		{
-			if (layer.is_visible())
+			if (layer.get_draworder() == "topdown")
 			{
-				if (layer.get_draworder() == "topdown")
+				const auto& objects = layer.get_objects();
+				for (const auto& object : objects)
 				{
-					const auto& objects = layer.get_objects();
-					for (const auto& object : objects)
+					const auto type = object.get_type_enum();
+
+					if (type == Object::Type::TEXT)
 					{
-						const auto type = object.get_type_enum();
+						GALAXY_LOG(GALAXY_WARNING, "Text objects are not supported.");
+					}
+					else
+					{
+						const auto entity     = world.create();
+						auto* transform       = world.create_component<components::Transform>(entity);
+						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
+						auto* renderable      = world.create_component<components::Renderable>(entity);
+						renderable->m_z_level = layer.get_z_level();
 
-						if (type == Object::Type::TEXT)
+						switch (type)
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Text objects are not supported.");
+							case Object::Type::ELLIPSE:
+							{
+								components::Primitive2D::PrimitiveData data;
+								data.m_colour    = layer.get_colour();
+								data.m_fragments = std::make_optional(40);
+								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
+
+								primitive2d->create<graphics::Primitives::ELLIPSE>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::POINT:
+							{
+								components::Primitive2D::PrimitiveData data;
+								data.m_colour    = layer.get_colour();
+								data.m_pointsize = 3;
+								primitive2d->create<graphics::Primitives::POINT>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::POINT;
+								shaderid->m_shader_id = "point";
+							}
+							break;
+
+							case Object::Type::POLYGON:
+							{
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
+								for (const auto& point : object.get_points())
+								{
+									points.emplace_back(point.get_x(), point.get_y());
+								}
+
+								data.m_points = std::make_optional(points);
+								data.m_colour = layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYGON>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::POLYLINE:
+							{
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
+								for (const auto& point : object.get_points())
+								{
+									points.emplace_back(point.get_x(), point.get_y());
+								}
+
+								data.m_points = std::make_optional(points);
+								data.m_colour = layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYLINE>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::LINE;
+								shaderid->m_shader_id = "line";
+							}
+							break;
+
+							case Object::Type::RECT:
+							{
+								components::Primitive2D::PrimitiveData data;
+								std::vector<glm::vec2> points;
+								points.emplace_back(0.0f, 0.0f);
+								points.emplace_back(0.0f + object.get_width(), 0.0f);
+								points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
+								points.emplace_back(0.0f, 0.0f + object.get_height());
+
+								data.m_points = std::make_optional(points);
+								data.m_colour = layer.get_colour();
+								primitive2d->create<graphics::Primitives::POLYGON>(data);
+
+								transform->set_pos(object.get_x(), object.get_y());
+								transform->rotate(object.get_rotation());
+
+								renderable->m_type    = graphics::Renderables::LINE_LOOP;
+								shaderid->m_shader_id = "line";
+							}
+							break;
 						}
-						else
+
+						if (!object.get_name().empty())
 						{
-							const auto entity     = world.create();
-							auto* transform       = world.create_component<components::Transform>(entity);
-							auto* shaderid        = world.create_component<components::ShaderID>(entity);
-							auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
-							auto* renderable      = world.create_component<components::Renderable>(entity);
-							renderable->m_z_level = layer.get_z_level();
-
-							switch (type)
-							{
-								case Object::Type::ELLIPSE:
-								{
-									components::Primitive2D::PrimitiveData data;
-									data.m_colour    = layer.get_colour();
-									data.m_fragments = std::make_optional(40);
-									data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
-
-									primitive2d->create<graphics::Primitives::ELLIPSE>(data);
-
-									transform->set_pos(object.get_x(), object.get_y());
-									transform->rotate(object.get_rotation());
-
-									renderable->m_type    = graphics::Renderables::LINE_LOOP;
-									shaderid->m_shader_id = "line";
-								}
-								break;
-
-								case Object::Type::POINT:
-								{
-									components::Primitive2D::PrimitiveData data;
-									data.m_colour    = layer.get_colour();
-									data.m_pointsize = 3;
-									primitive2d->create<graphics::Primitives::POINT>(data);
-
-									transform->set_pos(object.get_x(), object.get_y());
-									transform->rotate(object.get_rotation());
-
-									renderable->m_type    = graphics::Renderables::POINT;
-									shaderid->m_shader_id = "point";
-								}
-								break;
-
-								case Object::Type::POLYGON:
-								{
-									components::Primitive2D::PrimitiveData data;
-									std::vector<glm::vec2> points;
-									for (const auto& point : object.get_points())
-									{
-										points.emplace_back(point.get_x(), point.get_y());
-									}
-
-									data.m_points = std::make_optional(points);
-									data.m_colour = layer.get_colour();
-									primitive2d->create<graphics::Primitives::POLYGON>(data);
-
-									transform->set_pos(object.get_x(), object.get_y());
-									transform->rotate(object.get_rotation());
-
-									renderable->m_type    = graphics::Renderables::LINE_LOOP;
-									shaderid->m_shader_id = "line";
-								}
-								break;
-
-								case Object::Type::POLYLINE:
-								{
-									components::Primitive2D::PrimitiveData data;
-									std::vector<glm::vec2> points;
-									for (const auto& point : object.get_points())
-									{
-										points.emplace_back(point.get_x(), point.get_y());
-									}
-
-									data.m_points = std::make_optional(points);
-									data.m_colour = layer.get_colour();
-									primitive2d->create<graphics::Primitives::POLYLINE>(data);
-
-									transform->set_pos(object.get_x(), object.get_y());
-									transform->rotate(object.get_rotation());
-
-									renderable->m_type    = graphics::Renderables::LINE;
-									shaderid->m_shader_id = "line";
-								}
-								break;
-
-								case Object::Type::RECT:
-								{
-									components::Primitive2D::PrimitiveData data;
-									std::vector<glm::vec2> points;
-									points.emplace_back(0.0f, 0.0f);
-									points.emplace_back(0.0f + object.get_width(), 0.0f);
-									points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
-									points.emplace_back(0.0f, 0.0f + object.get_height());
-
-									data.m_points = std::make_optional(points);
-									data.m_colour = layer.get_colour();
-									primitive2d->create<graphics::Primitives::POLYGON>(data);
-
-									transform->set_pos(object.get_x(), object.get_y());
-									transform->rotate(object.get_rotation());
-
-									renderable->m_type    = graphics::Renderables::LINE_LOOP;
-									shaderid->m_shader_id = "line";
-								}
-								break;
-							}
-
-							if (!object.get_name().empty())
-							{
-								auto* tag  = world.create_component<components::Tag>(entity);
-								tag->m_tag = object.get_name();
-							}
-
-							if (object.is_visible())
-							{
-								world.enable(entity);
-							}
+							auto* tag  = world.create_component<components::Tag>(entity);
+							tag->m_tag = object.get_name();
 						}
+
+						if (object.is_visible())
+						{
+							world.enable(entity);
+						}
+
+						m_object_entities.push_back(entity);
 					}
 				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Only topdown object layers are supported.");
-				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Only topdown object layers are supported.");
 			}
 		}
 

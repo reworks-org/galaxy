@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/ecs/Entity.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/map/layer/TileLayer.hpp"
@@ -122,6 +123,20 @@ namespace galaxy
 			/// \param camera Camera view to draw map to.
 			///
 			void render(graphics::Camera& camera);
+
+			///
+			/// Enable all objects.
+			///
+			/// \param world World entities belong to.
+			///
+			void enable_objects(core::World& world) noexcept;
+
+			///
+			/// Disable all objects.
+			///
+			/// \param world World entities belong to.
+			///
+			void disable_objects(core::World& world) noexcept;
 
 			///
 			/// Get background colour of map.
@@ -466,6 +481,11 @@ namespace galaxy
 			/// Render data.
 			///
 			std::vector<std::unique_ptr<RenderData>> m_data;
+
+			///
+			/// Keep track of object entities.
+			///
+			std::vector<ecs::Entity> m_object_entities;
 		};
 
 		template<tiled_property Type>

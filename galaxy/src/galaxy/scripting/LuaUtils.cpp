@@ -573,11 +573,13 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto map_type              = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map(), map::Map(std::string_view)>());
-			map_type["load"]           = &map::Map::load;
-			map_type["parse"]          = &map::Map::parse;
-			map_type["create"]         = &map::Map::create;
-			map_type["update_batches"] = &map::Map::update_batches;
+			auto map_type               = lua->new_usertype<map::Map>("gMap", sol::constructors<map::Map(), map::Map(std::string_view)>());
+			map_type["load"]            = &map::Map::load;
+			map_type["parse"]           = &map::Map::parse;
+			map_type["create"]          = &map::Map::create;
+			map_type["update_batches"]  = &map::Map::update_batches;
+			map_type["enable_objects"]  = &map::Map::enable_objects;
+			map_type["disable_objects"] = &map::Map::disable_objects;
 
 			auto world_map_type       = lua->new_usertype<map::TiledWorld>("gTiledWorld", sol::constructors<map::TiledWorld()>());
 			world_map_type["load"]    = &map::TiledWorld::load;
