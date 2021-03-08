@@ -146,7 +146,6 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/base64"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
-	    "${CMAKE_SOURCE_DIR}/dependencies/cute_headers/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 		"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/glm"
