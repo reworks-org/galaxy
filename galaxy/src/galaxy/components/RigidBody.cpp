@@ -89,6 +89,8 @@ namespace galaxy
 			// clang-format off
 			nlohmann::json json = "{}"_json;
 			json["type"] = magic_enum::enum_name(m_type);
+			json["width"] = m_size.x;
+			json["height"] = m_size.y;
 			// clang-format on
 
 			return json;
@@ -96,7 +98,9 @@ namespace galaxy
 
 		void RigidBody::deserialize(const nlohmann::json& json)
 		{
-			m_type = magic_enum::enum_cast<physics::BodyType>(json.at("type").get<std::string>()).value();
+			m_type   = magic_enum::enum_cast<physics::BodyType>(json.at("type").get<std::string>()).value();
+			m_size.x = json["width"];
+			m_size.y = json["height"];
 		}
 	} // namespace components
 } // namespace galaxy

@@ -31,24 +31,8 @@ namespace galaxy
 		void CollisionSystem::update(core::World& world, const double dt)
 		{
 			m_tree.clear();
-			world.operate<components::RigidBody, components::Transform, components::Primitive2D>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::Primitive2D* p2d) {
-				body->set_size(p2d->get_width(), p2d->get_height());
+			world.operate<components::RigidBody, components::Transform>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform) {
 				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
-
-				m_tree.insert(entity, aabb.min(), aabb.max());
-			});
-
-			world.operate<components::RigidBody, components::Transform, components::BatchSprite>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::BatchSprite* s2d) {
-				body->set_size(s2d->get_width(), s2d->get_height());
-				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
-
-				m_tree.insert(entity, aabb.min(), aabb.max());
-			});
-
-			world.operate<components::RigidBody, components::Transform, components::Sprite>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform, components::Sprite* sprite) {
-				body->set_size(sprite->get_width(), sprite->get_height());
-				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
-
 				m_tree.insert(entity, aabb.min(), aabb.max());
 			});
 
