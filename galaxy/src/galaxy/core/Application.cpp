@@ -77,6 +77,7 @@ namespace galaxy
 				m_config->define<bool>("gl-debug", false);
 				m_config->define<bool>("trilinear-filtering", false);
 				m_config->define<bool>("maximized", false);
+				m_config->define<bool>("log-perf", false);
 				m_config->define<int>("max-batched-quads", 1000);
 				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
@@ -227,6 +228,7 @@ namespace galaxy
 
 		const bool Application::run()
 		{
+			const bool log_perf  = m_config->get<bool>("log-perf");
 			unsigned int frames  = 0;
 			unsigned int updates = 0;
 
@@ -250,7 +252,11 @@ namespace galaxy
 				elapsed  = current - previous;
 				previous = current;
 				accumulator += elapsed;
-				perf_counter += elapsed;
+
+				if (log_perf)
+				{
+					perf_counter += elapsed;
+				}
 
 				while (accumulator >= ups)
 				{
@@ -259,7 +265,11 @@ namespace galaxy
 
 					m_layerstack->update(ups_s);
 					accumulator -= ups_as_nano;
-					updates++;
+
+					if (log_perf)
+					{
+						updates++;
+					}
 				}
 
 				m_layerstack->pre_render();
@@ -269,14 +279,18 @@ namespace galaxy
 				m_layerstack->render();
 
 				m_window->end();
-				frames++;
 
-				if (perf_counter >= one_second)
+				if (log_perf)
 				{
-					GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
-					frames       = 0;
-					updates      = 0;
-					perf_counter = std::chrono::nanoseconds {0};
+					frames++;
+
+					if (perf_counter >= one_second)
+					{
+						GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
+						frames       = 0;
+						updates      = 0;
+						perf_counter = std::chrono::nanoseconds {0};
+					}
 				}
 			}
 

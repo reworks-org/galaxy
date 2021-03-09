@@ -9,6 +9,7 @@
     "gl-debug": true,
     "icon-file": "icon.png",
     "is-cursor-visible": true,
+    "log-perf": false,
     "max-batched-quads": 1000,
     "maximized": true,
     "musicbook-json": "musicbook.json",
