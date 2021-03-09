@@ -216,11 +216,11 @@ namespace sc
 
 		void JSONEditor::do_object(nlohmann::json& json)
 		{
-			ImGui::Text("{");
-			ImGui::Indent(INDENT_PIXELS);
-
 			m_counter++;
 			ImGui::PushID(m_counter);
+
+			ImGui::Text("{");
+			ImGui::Indent(INDENT_PIXELS);
 
 			if (ImGui::Button("New Object"))
 			{
@@ -228,7 +228,6 @@ namespace sc
 			}
 
 			new_object(json);
-			ImGui::PopID();
 
 			for (auto& [key, value] : json.items())
 			{
@@ -276,15 +275,17 @@ namespace sc
 
 			ImGui::Unindent(INDENT_PIXELS);
 			ImGui::Text("}");
+
+			ImGui::PopID();
 		}
 
 		void JSONEditor::do_array(nlohmann::json& json)
 		{
-			ImGui::Text("[");
-			ImGui::Indent(INDENT_PIXELS);
-
 			m_counter++;
 			ImGui::PushID(m_counter);
+
+			ImGui::Text("[");
+			ImGui::Indent(INDENT_PIXELS);
 
 			if (ImGui::Button("New Element"))
 			{
@@ -292,7 +293,6 @@ namespace sc
 			}
 
 			add_to_array(json);
-			ImGui::PopID();
 
 			unsigned int counter = 0;
 			std::string name     = "";
@@ -339,6 +339,7 @@ namespace sc
 
 			ImGui::Unindent(INDENT_PIXELS);
 			ImGui::Text("]");
+			ImGui::PopID();
 		}
 
 		void JSONEditor::new_object(nlohmann::json& json)
