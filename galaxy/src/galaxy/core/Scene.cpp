@@ -11,6 +11,16 @@ namespace galaxy
 {
 	namespace core
 	{
+		Scene::Scene(std::string_view name) noexcept
+		    : m_name {name}
+		{
+		}
+
+		const std::string& Scene::get_name() const noexcept
+		{
+			return m_name;
+		}
+
 		World& Scene::world() noexcept
 		{
 			return m_world;

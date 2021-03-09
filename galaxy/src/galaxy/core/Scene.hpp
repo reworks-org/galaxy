@@ -29,9 +29,9 @@ namespace galaxy
 
 		public:
 			///
-			/// Constructor.
+			/// Name constructor.
 			///
-			Scene() noexcept = default;
+			Scene(std::string_view name) noexcept;
 
 			///
 			/// Destructor.
@@ -61,6 +61,13 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
+			/// Get scene name.
+			///
+			/// \return Reference to a const std::string.
+			///
+			[[nodiscard]] const std::string& get_name() const noexcept;
+
+			///
 			/// Get scene world.
 			///
 			/// \return Reference to internal scene world.
@@ -74,7 +81,18 @@ namespace galaxy
 			///
 			[[nodiscard]] graphics::Camera& camera() noexcept;
 
+		private:
+			///
+			/// Constructor.
+			///
+			Scene() = delete;
+
 		protected:
+			///
+			/// Scene name.
+			///
+			std::string m_name;
+
 			///
 			/// Entity/System manager.
 			///

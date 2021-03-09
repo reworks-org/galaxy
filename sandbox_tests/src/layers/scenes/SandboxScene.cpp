@@ -39,6 +39,7 @@ ui::Progressbar* progressbar;
 namespace sb
 {
 	SandboxScene::SandboxScene()
+	    : Scene {"SandboxScene"}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
@@ -148,12 +149,12 @@ namespace sb
 	{
 		if (SL_HANDLE.window()->key_pressed(input::Keys::Z))
 		{
-			fs::Serializer::serialize(this, "assets/saves/sandbox.json");
+			fs::Serializer::serialize(this);
 		}
 
 		if (SL_HANDLE.window()->key_pressed(input::Keys::X))
 		{
-			fs::Serializer::deserialize(this, "assets/saves/sandbox.json");
+			fs::Serializer::deserialize(this);
 		}
 
 		if (SL_HANDLE.window()->key_pressed(input::Keys::M))

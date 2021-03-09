@@ -20,6 +20,7 @@ using namespace galaxy;
 namespace sb
 {
 	PhysicsScene::PhysicsScene()
+	    : Scene {"PhysicsScene"}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);

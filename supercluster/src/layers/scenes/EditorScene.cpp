@@ -18,6 +18,7 @@ using namespace galaxy;
 namespace sc
 {
 	EditorScene::EditorScene()
+	    : Scene {"EditorScene"}
 	{
 		m_window = SL_HANDLE.window();
 		m_camera.create(0.0f, 1024, 1024, 0.0f);

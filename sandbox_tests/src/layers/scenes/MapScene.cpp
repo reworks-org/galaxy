@@ -16,6 +16,7 @@ using namespace galaxy;
 namespace sb
 {
 	MapScene::MapScene()
+	    : Scene {"MapScene"}
 	{
 		m_window = SL_HANDLE.window();
 
