@@ -31,6 +31,7 @@ namespace sc
 			void render(OpenGLOperationStack& gl_operations);
 
 			void set_scene(core::Scene* scene);
+			void set_selected_entity(const std::optional<ecs::Entity>& entity);
 
 		private:
 			void render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations);

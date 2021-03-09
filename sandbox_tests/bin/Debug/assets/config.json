@@ -9,6 +9,7 @@
     "gl-debug": true,
     "icon-file": "icon.png",
     "is-cursor-visible": true,
+    "log-perf": true,
     "max-batched-quads": 1000,
     "maximized": false,
     "musicbook-json": "musicbook.json",
@@ -21,6 +22,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox Tests",
-    "window-width": 1280,
-    "log-perf": true
+    "window-width": 1280
 }

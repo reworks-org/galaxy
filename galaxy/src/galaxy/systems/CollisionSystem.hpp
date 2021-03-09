@@ -43,6 +43,13 @@ namespace galaxy
 			///
 			void update(core::World& world, const double dt) override;
 
+			///
+			/// Retrieve dynamic AABB tree.
+			///
+			/// \return Pointer to dynamic tree.
+			///
+			[[nodiscard]] physics::DynamicTree<ecs::Entity>* get_tree() noexcept;
+
 		private:
 			///
 			/// Default constructor.

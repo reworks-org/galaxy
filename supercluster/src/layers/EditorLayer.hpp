@@ -58,6 +58,7 @@ namespace sc
 		bool m_viewport_hovered = false;
 		bool m_audio_panel      = false;
 		bool m_mouse_dragging   = false;
+		bool m_mouse_picked     = false;
 
 		panel::CameraPanel m_camera_panel;
 		panel::EntityEditor m_entity_panel;
@@ -73,6 +74,7 @@ namespace sc
 
 		OpenGLOperationStack m_gl_operations;
 		Scenemap m_scene_map;
+		std::unique_ptr<EditorScene> m_editor_scene;
 	};
 
 	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)

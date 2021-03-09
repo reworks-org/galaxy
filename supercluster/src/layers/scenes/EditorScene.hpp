@@ -10,6 +10,7 @@
 
 #include <galaxy/core/Scene.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/systems/CollisionSystem.hpp>
 
 using namespace galaxy;
 
@@ -26,7 +27,10 @@ namespace sc
 		void pre_render() override;
 		void render() override;
 
+		[[nodiscard]] systems::CollisionSystem* get_collision_system() noexcept;
+
 	private:
+		systems::CollisionSystem* m_collision_system;
 		core::Window* m_window;
 	};
 } // namespace sc

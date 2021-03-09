@@ -18,7 +18,9 @@
             "z-level": 2
         },
         "RigidBody": {
-        	"type": "DYNAMIC"
+        	"type": "DYNAMIC",
+            "width": 32,
+            "height": 32
         }
     }
 }

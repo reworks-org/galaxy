@@ -18,7 +18,9 @@
             "z-level": 1
         },
         "RigidBody": {
-        	"type": "STATIC"
+        	"type": "STATIC",
+            "width": 512,
+            "height": 16
         }
     }
 }

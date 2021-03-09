@@ -1,21 +1,26 @@
 {
-    "enabled": true,
     "components": {
-    	"Tag": {
-            "tag": "BatchEntityA"
-        },
         "BatchSprite": {
-        	"texture-atlas-id": "wall",
-        	"opacity": 1.0
-        },
-        "Transform": {
-            "x": 0,
-            "y": 0,
-            "rotation": 0
+            "opacity": 1.0,
+            "texture-atlas-id": "wall"
         },
         "Renderable": {
             "type": "BATCHED",
             "z-level": 1
+        },
+        "RigidBody": {
+            "height": 256,
+            "type": "STATIC",
+            "width": 256
+        },
+        "Tag": {
+            "tag": "BatchEntityA"
+        },
+        "Transform": {
+            "rotation": 0,
+            "x": 0,
+            "y": 0
         }
-    }
+    },
+    "enabled": true
 }

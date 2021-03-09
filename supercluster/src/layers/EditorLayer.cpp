@@ -32,8 +32,8 @@ namespace sc
 		m_window = SL_HANDLE.window();
 
 		m_framebuffer.create(1, 1);
-		m_scene_map["Editor"] = std::make_unique<EditorScene>();
-		m_active_scene        = m_scene_map["Editor"].get();
+		m_editor_scene = std::make_unique<EditorScene>();
+		m_active_scene = m_editor_scene.get();
 
 		// clang-format off
 		IMGUI_CHECKVERSION();
@@ -60,6 +60,8 @@ namespace sc
 	EditorLayer::~EditorLayer()
 	{
 		m_active_scene = nullptr;
+		m_editor_scene.reset();
+
 		m_scene_map.clear();
 
 		m_window = nullptr;
@@ -88,6 +90,12 @@ namespace sc
 			ImGui_ImplGlfw::g_BlockInput = true;
 
 			m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
+
+			if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+			{
+				m_mouse_picked = true;
+			}
+
 			m_active_scene->events();
 		}
 		else
@@ -98,10 +106,12 @@ namespace sc
 
 		if (!ImGui_ImplGlfw::g_BlockInput)
 		{
-			if (m_window->key_pressed(input::Keys::ESC))
-			{
-				exit();
-			}
+			// Editor hotkeys.
+		}
+
+		if (m_window->key_pressed(input::Keys::ESC))
+		{
+			exit();
 		}
 	}
 
@@ -291,6 +301,33 @@ namespace sc
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
 				m_active_scene->camera().set_width(m_viewport_size.x);
 				m_active_scene->camera().set_height(m_viewport_size.y);
+			}
+
+			if (m_mouse_picked)
+			{
+				const constexpr static auto mp_id = std::numeric_limits<ecs::Entity>::max();
+
+				glm::vec2 pos;
+				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_active_scene->camera().get_pos().x;
+				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_active_scene->camera().get_pos().y;
+
+				auto* tree = m_editor_scene->get_collision_system()->get_tree();
+				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
+
+				// Will be erased by collision system, as this is after update().
+				std::vector<ecs::Entity> entity;
+				tree->query(mp_id, std::back_inserter(entity));
+
+				if (entity.size() > 0)
+				{
+					m_entity_panel.set_selected_entity(std::make_optional(entity[0]));
+				}
+				else
+				{
+					m_entity_panel.set_selected_entity(std::nullopt);
+				}
+
+				m_mouse_picked = false;
 			}
 
 			if (m_mouse_dragging)

@@ -62,5 +62,10 @@ namespace galaxy
 				}
 			});
 		}
+
+		physics::DynamicTree<ecs::Entity>* CollisionSystem::get_tree() noexcept
+		{
+			return &m_tree;
+		}
 	} // namespace systems
 } // namespace galaxy

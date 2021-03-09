@@ -367,6 +367,11 @@ namespace sc
 			m_cur_scene = scene;
 		}
 
+		void EntityEditor::set_selected_entity(const std::optional<ecs::Entity>& entity)
+		{
+			m_selected = entity;
+		}
+
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off

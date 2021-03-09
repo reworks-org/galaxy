@@ -52,6 +52,7 @@ namespace galaxy
 
 			m_aabb = {min, max};
 
+			// Fatten to encompass rotation.
 			m_aabb.fatten(0.5f);
 			m_aabb.update_area();
 
