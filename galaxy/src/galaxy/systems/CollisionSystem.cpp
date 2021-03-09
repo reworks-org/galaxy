@@ -53,7 +53,11 @@ namespace galaxy
 					{
 						m_tree.erase(entity_a);
 						transform->move(m_mtv.x, m_mtv.y);
-						m_dispatcher->trigger<events::Collision>(entity_a, entity_b);
+
+						if (m_dispatcher)
+						{
+							m_dispatcher->trigger<events::Collision>(entity_a, entity_b);
+						}
 					}
 				}
 			});

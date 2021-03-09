@@ -8,6 +8,7 @@
 #include <optional>
 
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/systems/CollisionSystem.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/systems/TransformSystem.hpp>
 
@@ -28,6 +29,7 @@ namespace sc
 
 		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
+		m_world.create_system<systems::CollisionSystem>(nullptr);
 	}
 
 	EditorScene::~EditorScene()
