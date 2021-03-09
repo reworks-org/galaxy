@@ -139,8 +139,6 @@ namespace sb
 
 	SandboxScene::~SandboxScene()
 	{
-		// Will block thread until finished.
-		// This is intended.
 		m_timer.stop();
 		progressbar = nullptr;
 	}
@@ -149,12 +147,12 @@ namespace sb
 	{
 		if (SL_HANDLE.window()->key_pressed(input::Keys::Z))
 		{
-			fs::Serializer::serialize(this);
+			fs::Serializer::serialize(this, "assets/saves/");
 		}
 
 		if (SL_HANDLE.window()->key_pressed(input::Keys::X))
 		{
-			fs::Serializer::deserialize(this);
+			fs::Serializer::deserialize(this, "assets/saves/");
 		}
 
 		if (SL_HANDLE.window()->key_pressed(input::Keys::M))

@@ -19,21 +19,20 @@ namespace galaxy
 		struct Serializer final
 		{
 			///
-			/// \brief Serialize a scene.
-			///
-			/// Saves to "saves/SCENE_NAME.json".
+			/// Serialize a scene.
 			///
 			/// \param scene Scene to serialize to disk.
+			/// \param path Path containing the folder to serialize to, not a file.
 			///
-			static void serialize(core::Scene* scene);
+			static void serialize(core::Scene* scene, std::string_view path);
 
 			///
 			/// Deserialize a json file.
 			///
 			/// \param scene Scene to deserialize.
-			/// \param file Defaults to "saves/SCENE_NAME.json", but you can specify a custom filepath.
+			/// \param path Path containing the folder to serialize to, not a file.
 			///
-			static void deserialize(core::Scene* scene, std::string_view file = "");
+			static void deserialize(core::Scene* scene, std::string_view path);
 		};
 	} // namespace fs
 } // namespace galaxy
