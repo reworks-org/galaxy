@@ -8,9 +8,10 @@
 #include <glm/geometric.hpp>
 
 #include "galaxy/core/World.hpp"
+#include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/BatchSprite.hpp"
+#include "galaxy/components/Sprite.hpp"
 
 #include "SATObject.hpp"
 
@@ -46,10 +47,18 @@ namespace galaxy
 			{
 				if (renderable->m_type == graphics::Renderables::BATCHED)
 				{
-					auto* s2d = world.get<components::BatchSprite>(entity);
-					for (const auto& vertex : s2d->get_vertexs())
+					auto* b2d = world.get<components::BatchSprite>(entity);
+					for (const auto& vertex : b2d->get_vertexs())
 					{
 						m_vertexs.emplace_back(vertex);
+					}
+				}
+				else if (renderable->m_type == graphics::Renderables::SPRITE)
+				{
+					auto* s2d = world.get<components::Sprite>(entity);
+					for (const auto& vertex : s2d->get_vertexs())
+					{
+						m_vertexs.emplace_back(vertex.m_pos);
 					}
 				}
 				else
