@@ -59,16 +59,16 @@ namespace galaxy
 		};
 
 		///
-		/// Concept to restrict min filter type.
-		///
-		template<typename Type>
-		concept min_filter = (std::is_same<NearestMipmapFilter, Type>::value || std::is_same<TrilinearMipmapFilter, Type>::value);
-
-		///
 		/// Concept to restrict mag filter type.
 		///
 		template<typename Type>
 		concept mag_filter = (std::is_same<NearestTexFilter, Type>::value || std::is_same<BilinearTexFilter, Type>::value);
+
+		///
+		/// Concept to restrict min filter type.
+		///
+		template<typename Type>
+		concept min_filter = mag_filter<Type> || (std::is_same<NearestMipmapFilter, Type>::value || std::is_same<TrilinearMipmapFilter, Type>::value);
 	} // namespace graphics
 } // namespace galaxy
 

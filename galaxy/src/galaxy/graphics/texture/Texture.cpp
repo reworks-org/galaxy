@@ -68,7 +68,7 @@ namespace galaxy
 					}
 					else
 					{
-						set_minify_filter<NearestMipmapFilter>();
+						set_minify_filter<NearestTexFilter>();
 						set_magnify_filter<NearestTexFilter>();
 					}
 
@@ -104,7 +104,7 @@ namespace galaxy
 				}
 				else
 				{
-					set_minify_filter<NearestMipmapFilter>();
+					set_minify_filter<NearestTexFilter>();
 					set_magnify_filter<NearestTexFilter>();
 				}
 
