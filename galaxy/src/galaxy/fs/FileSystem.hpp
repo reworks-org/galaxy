@@ -52,6 +52,15 @@ namespace galaxy
 			[[maybe_unused]] const bool mount();
 
 			///
+			/// \brief Creates a blank file in the filesystem.
+			///
+			/// WARNING: THIS WILL OVERWRITE AN EXISTING FILE.
+			///
+			/// \param filepath Path and filename to create file. I.e. "assets/test.txt".
+			///
+			void create_file(std::string_view filepath);
+
+			///
 			/// Open a file and store contents in std::string.
 			///
 			/// \param file File to open.

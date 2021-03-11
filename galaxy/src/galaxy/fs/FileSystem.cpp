@@ -54,6 +54,14 @@ namespace galaxy
 			}
 		}
 
+		void Virtual::create_file(std::string_view filepath)
+		{
+			const auto abs_fp = std_fs::absolute(filepath).string();
+
+			std::ofstream ofs {abs_fp, std::ofstream::trunc};
+			ofs.close();
+		}
+
 		std::optional<std::string> Virtual::open(std::string_view file)
 		{
 			const auto path = absolute(file);
