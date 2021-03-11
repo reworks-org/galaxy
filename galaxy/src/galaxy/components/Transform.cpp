@@ -132,6 +132,7 @@ namespace galaxy
 			m_translation = glm::mat4 {1.0f};
 			m_rotate      = 0.0f;
 			m_pos         = {0.0f, 0.0f};
+			m_model       = glm::mat4 {1.0f};
 		}
 
 		nlohmann::json Transform::serialize()
