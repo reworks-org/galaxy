@@ -36,6 +36,7 @@ https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
 https://github.com/EQMG/Acid
 https://github.com/jmorton06/Lumos
 https://github.com/TheCherno/Hazel
+https://github.com/nem0/LumixEngine
 
 https://gamedevelopment.tutsplus.com/series/how-to-create-a-custom-physics-engine--gamedev-12715
 https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331
