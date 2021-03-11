@@ -226,7 +226,7 @@ namespace galaxy
 			///
 			/// Serializes object.
 			///
-			/// \param j Json object needing to be filled out.
+			/// \return JSON object containing data to write out.
 			///
 			[[nodiscard]] nlohmann::json serialize() override;
 
@@ -248,11 +248,6 @@ namespace galaxy
 			/// Update flag.
 			///
 			bool m_dirty;
-
-			///
-			/// Rotation origin point.
-			///
-			glm::vec3 m_origin;
 
 			///
 			/// Scaled matrix.
