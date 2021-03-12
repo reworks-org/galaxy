@@ -6,6 +6,7 @@
 ///
 
 #include <imgui/imgui_stdlib.h>
+#include <magic_enum.hpp>
 
 #include "ScenePanel.hpp"
 
@@ -21,6 +22,31 @@ namespace sc
 			{
 				if (ImGui::Button("New Scene"))
 				{
+					ImGui::OpenPopup("NewScenePopup");
+				}
+
+				if (ImGui::Button("Pop"))
+				{
+					scene_stack.pop();
+				}
+
+				if (ImGui::BeginPopup("NewScenePopup"))
+				{
+					static std::string s_buff = "";
+					if (ImGui::InputText("New WORLD Scene", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+					{
+						scene_stack.create<scenes::WorldScene>(s_buff);
+						s_buff = "";
+					}
+
+					static std::string s_buff_two = "";
+					if (ImGui::InputText("New GUI Scene", &s_buff_two, ImGuiInputTextFlags_EnterReturnsTrue))
+					{
+						scene_stack.create<scenes::GUIScene>(s_buff_two);
+						s_buff_two = "";
+					}
+
+					ImGui::EndPopup();
 				}
 
 				for (const auto& [name, scene] : scene_stack.get_scenes())
@@ -44,7 +70,14 @@ namespace sc
 
 					if (is_open)
 					{
-						ImGui::Text(m_selected.c_str());
+						const auto str = static_cast<std::string>(magic_enum::enum_name<scenes::Types>(scene->get_type()));
+						ImGui::Text(str.c_str());
+
+						if (ImGui::Button("Push"))
+						{
+							scene_stack.push(name);
+						}
+
 						ImGui::TreePop();
 					}
 
