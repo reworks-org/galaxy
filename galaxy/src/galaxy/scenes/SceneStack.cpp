@@ -113,9 +113,6 @@ namespace galaxy
 
 		void SceneStack::pop()
 		{
-			m_stack.back()->on_pop();
-			m_stack.pop_back();
-
 			// Make sure we dont pop an empty stack...
 			// Or the only current state.
 			if (m_stack.size() > 1)
@@ -159,7 +156,7 @@ namespace galaxy
 
 		nlohmann::json SceneStack::serialize()
 		{
-			nlohmann::json json = "{scenes={}}"_json;
+			nlohmann::json json = "{\"scenes\":{}}"_json;
 
 			auto& scenes = json.at("scenes");
 			for (const auto& [key, value] : m_scenes)

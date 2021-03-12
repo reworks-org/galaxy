@@ -178,7 +178,7 @@ namespace galaxy
 			SceneStorage m_scenes;
 
 			///
-			/// Contiguous storage.
+			/// Simulate a stack using a std::vector.
 			///
 			std::vector<std::shared_ptr<scenes::Scene>> m_stack;
 		};
@@ -193,10 +193,8 @@ namespace galaxy
 			}
 			else
 			{
-				std::shared_ptr<Scene> scene = std::make_shared<Scene>(name);
-
-				m_scenes[str] = scene;
-				return std::static_pointer_cast<Scene>(scene);
+				m_scenes[str] = std::make_shared<Scene>(str);
+				return std::static_pointer_cast<Scene>(m_scenes[str]);
 			}
 		}
 
