@@ -27,7 +27,7 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
-		    : m_openal {}
+		    : m_instance {nullptr}, m_openal {}
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -148,10 +148,6 @@ namespace galaxy
 				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
-				// Layer Stack.
-				m_layerstack       = std::make_unique<LayerStack>();
-				SL_HANDLE.m_layers = m_layerstack.get();
-
 				// Event dispatcher.
 				m_dispatcher           = std::make_unique<events::Dispatcher>();
 				SL_HANDLE.m_dispatcher = m_dispatcher.get();
@@ -189,7 +185,6 @@ namespace galaxy
 				lua::register_fs();
 				lua::register_graphics();
 				lua::register_json();
-				lua::register_layerstack();
 				lua::register_mapping();
 				lua::register_math();
 				lua::register_physics();
@@ -199,7 +194,6 @@ namespace galaxy
 				m_lua->set("galaxy_audio_context", &m_openal);
 				m_lua->set("galaxy_config", m_config.get());
 				m_lua->set("galaxy_vfs", m_vfs.get());
-				m_lua->set("galaxy_layers", m_layerstack.get());
 				m_lua->set("galaxy_shaderboox", m_shaderbook.get());
 				m_lua->set("galaxy_fontbook", m_fontbook.get());
 				m_lua->set("galaxy_tex_atlas", m_texture_atlas.get());
@@ -212,6 +206,7 @@ namespace galaxy
 		{
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
+			m_instance = nullptr;
 
 			m_musicbook.reset();
 			m_soundbook.reset();
@@ -219,11 +214,15 @@ namespace galaxy
 			m_fontbook.reset();
 			m_shaderbook.reset();
 			m_dispatcher.reset();
-			m_layerstack.reset();
 			m_lua.reset();
 			m_window.reset();
 			m_config.reset();
 			m_vfs.reset();
+		}
+
+		void Application::set_instance(std::shared_ptr<Instance> instance)
+		{
+			m_instance = instance;
 		}
 
 		const bool Application::run()
@@ -261,9 +260,9 @@ namespace galaxy
 				while (accumulator >= ups)
 				{
 					m_window->poll_events();
-					m_layerstack->events();
+					m_instance->events();
 
-					m_layerstack->update(ups_s);
+					m_instance->update(ups_s);
 					accumulator -= ups_as_nano;
 
 					if (log_perf)
@@ -272,11 +271,11 @@ namespace galaxy
 					}
 				}
 
-				m_layerstack->pre_render();
+				m_instance->pre_render();
 
 				m_window->begin();
 
-				m_layerstack->render();
+				m_instance->render();
 
 				m_window->end();
 
@@ -294,7 +293,6 @@ namespace galaxy
 				}
 			}
 
-			m_layerstack->clear();
 			GALAXY_LOG_FINISH;
 
 			FT_HANDLE.close();

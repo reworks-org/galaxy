@@ -24,10 +24,11 @@ namespace sb
 	{
 		m_window = SL_HANDLE.window();
 
-		m_sandbox_scene = std::make_unique<SandboxScene>();
-		m_physics_scene = std::make_unique<PhysicsScene>();
-		m_map_scene     = std::make_unique<MapScene>();
-		m_active_scene  = m_sandbox_scene.get();
+		m_scene_stack.create<SandboxScene>("SandboxScene");
+		m_scene_stack.create<PhysicsScene>("PhysicsScene");
+		m_scene_stack.create<MapScene>("MapScene");
+
+		m_scene_stack.push("SandboxScene");
 	}
 
 	Sandbox::~Sandbox()
@@ -35,16 +36,18 @@ namespace sb
 		m_window = nullptr;
 	}
 
-	void Sandbox::on_push()
-	{
-	}
-
-	void Sandbox::on_pop()
-	{
-	}
-
 	void Sandbox::events()
 	{
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::Z))
+		{
+			//galaxy::fs::Serializer::serialize(this, "assets/saves/");
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::X))
+		{
+			//galaxy::fs::Serializer::deserialize(this, "assets/saves/");
+		}
+
 		if (m_window->key_pressed(galaxy::input::Keys::ESC))
 		{
 			m_window->close();
@@ -52,34 +55,37 @@ namespace sb
 
 		if (m_window->key_pressed(galaxy::input::Keys::NUM_1))
 		{
-			m_active_scene = m_sandbox_scene.get();
+			m_scene_stack.pop();
+			m_scene_stack.push("SandboxScene");
 		}
 
 		if (m_window->key_pressed(galaxy::input::Keys::NUM_2))
 		{
-			m_active_scene = m_physics_scene.get();
+			m_scene_stack.pop();
+			m_scene_stack.push("PhysicsScene");
 		}
 
 		if (m_window->key_pressed(galaxy::input::Keys::NUM_3))
 		{
-			m_active_scene = m_map_scene.get();
+			m_scene_stack.pop();
+			m_scene_stack.push("MapScene");
 		}
 
-		m_active_scene->events();
+		m_scene_stack.events();
 	}
 
 	void Sandbox::update(const double dt)
 	{
-		m_active_scene->update(dt);
+		m_scene_stack.update(dt);
 	}
 
 	void Sandbox::pre_render()
 	{
-		m_active_scene->pre_render();
+		m_scene_stack.pre_render();
 	}
 
 	void Sandbox::render()
 	{
-		m_active_scene->render();
+		m_scene_stack.render();
 	}
 } // namespace sb

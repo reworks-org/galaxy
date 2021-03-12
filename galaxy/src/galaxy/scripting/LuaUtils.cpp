@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+
 #include <sol/sol.hpp>
 
 #include "galaxy/audio/Context.hpp"
@@ -12,7 +14,6 @@
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/algorithm/Random.hpp"
 
-#include "galaxy/core/LayerStack.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 
@@ -557,16 +558,6 @@ namespace galaxy
 			lua->set_function("parse_json_from_disk", &json::parse_from_disk);
 			lua->set_function("parse_json_from_mem", &json::parse_from_mem);
 			lua->set_function("save_json_to_disk", &json::save_to_disk);
-		}
-
-		void register_layerstack()
-		{
-			auto lua = SL_HANDLE.lua();
-
-			auto layerstack_type     = lua->new_usertype<core::LayerStack>("gLayerStack", sol::no_constructor);
-			layerstack_type["push"]  = &core::LayerStack::push;
-			layerstack_type["pop"]   = &core::LayerStack::pop;
-			layerstack_type["clear"] = &core::LayerStack::clear;
 		}
 
 		void register_mapping()

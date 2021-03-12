@@ -8,22 +8,18 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 
-#include <robin_hood.h>
-
-#include <galaxy/core/Scene.hpp>
+#include <galaxy/scenes/SceneStack.hpp>
 
 using namespace galaxy;
 
 namespace sc
 {
-	using Scenemap = robin_hood::unordered_flat_map<std::string, std::unique_ptr<core::Scene>>;
-
 	namespace panel
 	{
 		class ScenePanel final
 		{
 		public:
-			void render(Scenemap& scene_map);
+			void render(scenes::SceneStack& scene_stack);
 
 		private:
 			std::string m_selected = "";

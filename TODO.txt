@@ -7,7 +7,15 @@ SUPERCLUSTER:
 	- serialzie data when swtiching, then load and run new scene. Clear on exit.
 - fix encapsulation
 - serialization
+	- scene serialization
 - audio support
+- hot reloading
+- on window focus (for viewport)
+	- reload tile map from disk
+- expose more to lua
+- scene graph
+	- entity heirachy
+- rewrite serializer class
 
 TODO:
 - Fix CA and Compilation Warnings.
@@ -19,7 +27,6 @@ TODO:
 - make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
-- use rigid bodies for mouse picking / generate (update) mouse aabb on click, then test for collisions.
 - create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
 	- component default data should safely create a component, no crash.
 - further rendersystem improvements
@@ -36,3 +43,24 @@ IDE:
 - CLANG TIDY
 - CLANG FORMAT
 - INCLUDE MANAGER
+
+
+Supercluster is the game with an extra layer.
+will need to export custom main and game layer.
+
+EXPORTING:
+- Engine will export a custom gamelayer and main.cpp along with a cmakelists file to build the game.
+- that way supercluster will strip out the editorlayer when compiling.
+- supercluster is just the game with an editor layer.
+- strip out when exporting.
+
+https://gamedev.stackexchange.com/questions/17331/game-engine-and-data-driven-design
+https://gamedev.net/forums/topic/563740-in-game-editor-vs-separate-editor/4611826/
+https://old.reddit.com/r/gamedev/comments/8pkol6/create_a_game_engine_that_can_export_an_executable/
+
+
+
+
+Need to add a "New project" screen.
+Need to add a default scene to an instance.
+properly seperate game mode from editor mode

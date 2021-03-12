@@ -19,8 +19,8 @@ using namespace galaxy;
 
 namespace sb
 {
-	PhysicsScene::PhysicsScene()
-	    : Scene {"PhysicsScene"}
+	PhysicsScene::PhysicsScene(std::string_view name)
+	    : Scene {name, scenes::Types::WORLD}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
@@ -43,6 +43,14 @@ namespace sb
 	}
 
 	PhysicsScene::~PhysicsScene()
+	{
+	}
+
+	void PhysicsScene::on_push()
+	{
+	}
+
+	void PhysicsScene::on_pop()
 	{
 	}
 
@@ -92,5 +100,15 @@ namespace sb
 	void PhysicsScene::render()
 	{
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
+	}
+
+	nlohmann::json PhysicsScene::sub_serialize()
+	{
+		nlohmann::json json = "{}"_json;
+		return json;
+	}
+
+	void PhysicsScene::sub_deserialize(const nlohmann::json& json)
+	{
 	}
 } // namespace sb

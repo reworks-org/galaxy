@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+#include <optional>
+
 #include <nlohmann/json.hpp>
 
 #include "galaxy/components/Animated.hpp"

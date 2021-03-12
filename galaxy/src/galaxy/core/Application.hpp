@@ -14,7 +14,7 @@
 #include <sol/forward.hpp>
 
 #include "galaxy/audio/Context.hpp"
-#include "galaxy/core/LayerStack.hpp"
+#include "galaxy/core/Instance.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
@@ -43,6 +43,13 @@ namespace galaxy
 			virtual ~Application();
 
 			///
+			/// Set current instance to process.
+			///
+			/// \param instance The instance to select.
+			///
+			void set_instance(std::shared_ptr<Instance> instance);
+
+			///
 			/// Runs the application.
 			///
 			/// \return Returns true if the program should restart.
@@ -63,6 +70,11 @@ namespace galaxy
 
 		protected:
 			///
+			/// Application project instance.
+			///
+			std::shared_ptr<Instance> m_instance;
+
+			///
 			/// OpenAL context.
 			///
 			audio::Context m_openal;
@@ -81,11 +93,6 @@ namespace galaxy
 			/// Master Lua state for application.
 			///
 			std::unique_ptr<sol::state> m_lua;
-
-			///
-			/// Controls game states (layers).
-			///
-			std::unique_ptr<LayerStack> m_layerstack;
 
 			///
 			/// Process game events.

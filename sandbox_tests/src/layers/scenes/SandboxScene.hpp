@@ -13,22 +13,28 @@
 #include <chrono>
 
 #include <galaxy/async/Timer.hpp>
-#include <galaxy/core/Scene.hpp>
+#include <galaxy/scenes/Scene.hpp>
 #include <galaxy/graphics/particle/ParticleGenerator.hpp>
 #include <galaxy/ui/GUI.hpp>
 
 namespace sb
 {
-	class SandboxScene final : public galaxy::core::Scene
+	class SandboxScene final : public galaxy::scenes::Scene
 	{
 	public:
-		SandboxScene();
+		SandboxScene(std::string_view name);
 		virtual ~SandboxScene();
+
+		void on_push() override;
+		void on_pop() override;
 
 		void events() override;
 		void update(const double dt) override;
 		void pre_render() override;
 		void render() override;
+
+		[[nodiscard]] nlohmann::json sub_serialize() override;
+		void sub_deserialize(const nlohmann::json& json) override;
 
 	private:
 		galaxy::async::Timer m_timer;

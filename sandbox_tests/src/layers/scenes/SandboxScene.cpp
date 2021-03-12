@@ -8,8 +8,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
-#include <galaxy/fs/Serializer.hpp>
-
 #include <galaxy/graphics/Renderer2D.hpp>
 
 #include <galaxy/res/MusicBook.hpp>
@@ -38,8 +36,8 @@ ui::Progressbar* progressbar;
 
 namespace sb
 {
-	SandboxScene::SandboxScene()
-	    : Scene {"SandboxScene"}
+	SandboxScene::SandboxScene(std::string_view name)
+	    : Scene {name, scenes::Types::WORLD}
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
@@ -143,18 +141,16 @@ namespace sb
 		progressbar = nullptr;
 	}
 
+	void SandboxScene::on_push()
+	{
+	}
+
+	void SandboxScene::on_pop()
+	{
+	}
+
 	void SandboxScene::events()
 	{
-		if (SL_HANDLE.window()->key_pressed(input::Keys::Z))
-		{
-			fs::Serializer::serialize(this, "assets/saves/");
-		}
-
-		if (SL_HANDLE.window()->key_pressed(input::Keys::X))
-		{
-			fs::Serializer::deserialize(this, "assets/saves/");
-		}
-
 		if (SL_HANDLE.window()->key_pressed(input::Keys::M))
 		{
 			SL_HANDLE.musicbook()->get("PleasingGuns")->play();
@@ -271,5 +267,15 @@ namespace sb
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
 		graphics::Renderer2D::draw_particles(&m_particle_gen, m_camera);
 		m_gui.render();
+	}
+
+	nlohmann::json SandboxScene::sub_serialize()
+	{
+		nlohmann::json json = "{}"_json;
+		return json;
+	}
+
+	void SandboxScene::sub_deserialize(const nlohmann::json& json)
+	{
 	}
 } // namespace sb

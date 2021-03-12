@@ -31,7 +31,6 @@ namespace galaxy
 	namespace core
 	{
 		class Window;
-		class LayerStack;
 	} // namespace core
 
 	namespace events
@@ -98,11 +97,6 @@ namespace galaxy
 			/// \return Return pointer to Lua service.
 			///
 			[[maybe_unused]] sol::state* lua() const noexcept;
-
-			///
-			/// Get game state service.
-			///
-			[[maybe_unused]] core::LayerStack* layerstack() const noexcept;
 
 			///
 			/// Get Dispatcher service.
@@ -207,11 +201,6 @@ namespace galaxy
 			/// Lua service. Main instance of Lua.
 			///
 			sol::state* m_lua;
-
-			///
-			/// Game state service.
-			///
-			core::LayerStack* m_layers;
 
 			///
 			/// Dispatcher service.

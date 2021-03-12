@@ -15,8 +15,8 @@ using namespace galaxy;
 
 namespace sb
 {
-	MapScene::MapScene()
-	    : Scene {"MapScene"}
+	MapScene::MapScene(std::string_view name)
+	    : Scene {name, scenes::Types::WORLD}
 	{
 		m_window = SL_HANDLE.window();
 
@@ -33,6 +33,14 @@ namespace sb
 	}
 
 	MapScene::~MapScene()
+	{
+	}
+
+	void MapScene::on_push()
+	{
+	}
+
+	void MapScene::on_pop()
 	{
 	}
 
@@ -104,5 +112,15 @@ namespace sb
 	{
 		m_map.render(m_camera);
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
+	}
+
+	nlohmann::json MapScene::sub_serialize()
+	{
+		nlohmann::json json = "{}"_json;
+		return json;
+	}
+
+	void MapScene::sub_deserialize(const nlohmann::json& json)
+	{
 	}
 } // namespace sb

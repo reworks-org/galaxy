@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_LAYERS_EDITOR_HPP_
-#define SUPERCLUSTER_LAYERS_EDITOR_HPP_
+#ifndef SUPERCLUSTER_EDITOR_EDITORSCENE_HPP_
+#define SUPERCLUSTER_EDITOR_EDITORSCENE_HPP_
 
-#include <galaxy/core/Scene.hpp>
+#include <galaxy/scenes/Scene.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
 
@@ -16,11 +16,14 @@ using namespace galaxy;
 
 namespace sc
 {
-	class EditorScene final : public core::Scene
+	class EditorScene final : public scenes::Scene
 	{
 	public:
-		EditorScene();
+		EditorScene(std::string_view name);
 		virtual ~EditorScene();
+
+		void on_push() override;
+		void on_pop() override;
 
 		void events() override;
 		void update(const double dt) override;
@@ -28,6 +31,9 @@ namespace sc
 		void render() override;
 
 		[[nodiscard]] systems::CollisionSystem* get_collision_system() noexcept;
+
+		[[nodiscard]] nlohmann::json sub_serialize() override;
+		void sub_deserialize(const nlohmann::json& json) override;
 
 	private:
 		systems::CollisionSystem* m_collision_system;

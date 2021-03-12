@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+#include <optional>
+
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
 #include <galaxy/components/Primitive2D.hpp>
@@ -37,8 +40,8 @@ namespace sc
 
 		EntityEditor::~EntityEditor()
 		{
-			m_cur_scene = nullptr;
-			m_selected  = std::nullopt;
+			m_cur_instance = nullptr;
+			m_selected     = std::nullopt;
 		}
 
 		void EntityEditor::render(OpenGLOperationStack& gl_operations)
@@ -49,7 +52,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Create"))
 					{
-						m_cur_scene->world().create();
+						m_cur_instance->get_stack().top()->world().create();
 					}
 
 					if (ImGui::MenuItem("Create from JSON"))
@@ -62,7 +65,7 @@ namespace sc
 							}
 							else
 							{
-								m_cur_scene->world().create_from_json(file.value());
+								m_cur_instance->get_stack().top()->world().create_from_json(file.value());
 							}
 						});
 					}
@@ -71,7 +74,7 @@ namespace sc
 				}
 
 				static std::string s_entity_label;
-				auto& world = m_cur_scene->world();
+				auto& world = m_cur_instance->get_stack().top()->world();
 				world.each([&](const ecs::Entity entity) {
 					auto* tag = world.get<components::Tag>(entity);
 					if (tag)
@@ -362,9 +365,9 @@ namespace sc
 			ImGui::End();
 		}
 
-		void EntityEditor::set_scene(core::Scene* scene)
+		void EntityEditor::set_instance(core::Instance* instance)
 		{
-			m_cur_scene = scene;
+			m_cur_instance = instance;
 		}
 
 		void EntityEditor::set_selected_entity(const std::optional<ecs::Entity>& entity)
@@ -376,7 +379,7 @@ namespace sc
 		{
 			// clang-format off
 			auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
-			= m_cur_scene->world().get_multi<
+			= m_cur_instance->get_stack().top()->world().get_multi<
 				components::Animated, 
 				components::BatchSprite,
 				components::Primitive2D, 

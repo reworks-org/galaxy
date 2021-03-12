@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_CAMERAPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_CAMERAPANEL_HPP_
 
-#include <galaxy/core/Scene.hpp>
+#include <galaxy/core/Instance.hpp>
 
 using namespace galaxy;
 
@@ -19,12 +19,14 @@ namespace sc
 		class CameraPanel final
 		{
 		public:
+			~CameraPanel() noexcept;
+
 			void render();
 
-			void set_scene(core::Scene* scene);
+			void set_instance(core::Instance* instance);
 
 		private:
-			core::Scene* m_cur_scene = nullptr;
+			core::Instance* m_cur_instance = nullptr;
 		};
 	} // namespace panel
 } // namespace sc

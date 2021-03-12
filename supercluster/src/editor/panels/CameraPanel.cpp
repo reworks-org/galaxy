@@ -17,11 +17,16 @@ namespace sc
 {
 	namespace panel
 	{
+		CameraPanel::~CameraPanel() noexcept
+		{
+			m_cur_instance = nullptr;
+		}
+
 		void CameraPanel::render()
 		{
 			if (ImGui::Begin("Camera Editor"))
 			{
-				auto& camera = m_cur_scene->camera();
+				auto& camera = m_cur_instance->get_stack().top()->camera();
 
 				ImGui::Text("Move");
 
@@ -41,7 +46,7 @@ namespace sc
 					camera.move_y(s_move_y);
 				}
 
-				static int s_speed = static_cast<int>(camera.get_speed());
+				int s_speed = static_cast<int>(camera.get_speed());
 				if (ImGui::InputInt("Speed##03", &s_speed, 1, 10, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
 					camera.set_speed(s_speed);
@@ -75,9 +80,9 @@ namespace sc
 			ImGui::End();
 		}
 
-		void CameraPanel::set_scene(core::Scene* scene)
+		void CameraPanel::set_instance(core::Instance* instance)
 		{
-			m_cur_scene = scene;
+			m_cur_instance = instance;
 		}
 	} // namespace panel
 } // namespace sc

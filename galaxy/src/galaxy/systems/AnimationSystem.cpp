@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+#include <optional>
+
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/core/World.hpp"

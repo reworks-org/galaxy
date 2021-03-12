@@ -18,8 +18,8 @@ using namespace galaxy;
 
 namespace sc
 {
-	EditorScene::EditorScene()
-	    : Scene {"EditorScene"}
+	EditorScene::EditorScene(std::string_view name)
+	    : Scene {name, scenes::Types::WORLD}
 	{
 		m_window = SL_HANDLE.window();
 		m_camera.create(0.0f, 1024, 1024, 0.0f);
@@ -34,6 +34,14 @@ namespace sc
 	}
 
 	EditorScene::~EditorScene()
+	{
+	}
+
+	void EditorScene::on_push()
+	{
+	}
+
+	void EditorScene::on_pop()
 	{
 	}
 
@@ -101,4 +109,13 @@ namespace sc
 		return m_collision_system;
 	}
 
+	nlohmann::json EditorScene::sub_serialize()
+	{
+		nlohmann::json json = "{}"_json;
+		return json;
+	}
+
+	void EditorScene::sub_deserialize(const nlohmann::json& json)
+	{
+	}
 } // namespace sc

@@ -36,9 +36,10 @@ int main(int argsc, char* argsv[])
 		{
 			SandboxApp sandbox {"assets/", "assets/config.json"};
 
-			auto* stack = SL_HANDLE.layerstack();
-			stack->create<sb::Sandbox>("Sandbox");
-			stack->push("Sandbox");
+			{
+				std::shared_ptr<sb::Sandbox> sandbox_instance = std::make_shared<sb::Sandbox>();
+				sandbox.set_instance(sandbox_instance);
+			}
 
 			restart = sandbox.run();
 		}

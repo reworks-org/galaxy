@@ -15,27 +15,15 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(Scenemap& scene_map)
+		void ScenePanel::render(scenes::SceneStack& scene_stack)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
-				if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+				if (ImGui::Button("New Scene"))
 				{
 				}
 
-				ImGui::SameLine();
-
-				if (ImGui::Button(" || ##PauseSceneButton"))
-				{
-				}
-
-				ImGui::Spacing();
-
-				ImGui::Button("New Scene");
-
-				ImGui::Separator();
-
-				for (const auto& [name, scene] : scene_map)
+				for (const auto& [name, scene] : scene_stack.get_scenes())
 				{
 					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
 					if (m_selected == name)
@@ -56,6 +44,7 @@ namespace sc
 
 					if (is_open)
 					{
+						ImGui::Text(m_selected.c_str());
 						ImGui::TreePop();
 					}
 

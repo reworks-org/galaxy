@@ -10,7 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/fs/Serializer.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/meta/Concepts.hpp"
 

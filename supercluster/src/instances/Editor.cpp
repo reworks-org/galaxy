@@ -1,5 +1,5 @@
 ///
-/// EditorLayer.cpp
+/// Editor.cpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
@@ -8,32 +8,32 @@
 #include <chrono>
 #include <iostream>
 
-#include <galaxy/audio/Context.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
+#include <galaxy/scripting/JSONUtils.hpp>
 
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
 #include <imgui/imgui_stdlib.h>
 
-#include "../editor/Theme.hpp"
-#include "../resources/Roboto-Light.hpp"
+#include "editor/Theme.hpp"
+#include "resources/Roboto-Light.hpp"
 
-#include "EditorLayer.hpp"
+#include "Editor.hpp"
 
 using namespace galaxy;
 
 namespace sc
 {
-	EditorLayer::EditorLayer()
+	Editor::Editor()
 	{
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		m_window = SL_HANDLE.window();
 
 		m_framebuffer.create(1, 1);
-		m_editor_scene = std::make_unique<EditorScene>();
-		m_active_scene = m_editor_scene.get();
+		m_scene_stack.create<EditorScene>("EditorScene");
+		m_scene_stack.push("EditorScene");
 
 		// clang-format off
 		IMGUI_CHECKVERSION();
@@ -57,13 +57,8 @@ namespace sc
 		ImGui_ImplOpenGL3_Init("#version 450 core");
 	}
 
-	EditorLayer::~EditorLayer()
+	Editor::~Editor()
 	{
-		m_active_scene = nullptr;
-		m_editor_scene.reset();
-
-		m_scene_map.clear();
-
 		m_window = nullptr;
 
 		ImGui_ImplOpenGL3_Shutdown();
@@ -73,91 +68,122 @@ namespace sc
 		GALAXY_LOG_CAPTURE_CUSTOM(std::cout);
 	}
 
-	void EditorLayer::on_push()
+	void Editor::events()
 	{
-		m_entity_panel.set_scene(m_active_scene);
-		m_camera_panel.set_scene(m_active_scene);
-	}
-
-	void EditorLayer::on_pop()
-	{
-	}
-
-	void EditorLayer::events()
-	{
-		if (m_viewport_focused && m_viewport_hovered)
+		if (!m_first_start)
 		{
-			ImGui_ImplGlfw::g_BlockInput = true;
-
-			m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
-
-			if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+			if (!m_game_mode)
 			{
-				m_mouse_picked = true;
-			}
+				if (m_viewport_focused && m_viewport_hovered)
+				{
+					ImGui_ImplGlfw::g_BlockInput = true;
 
-			m_active_scene->events();
+					m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
+
+					if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+					{
+						m_mouse_picked = true;
+					}
+				}
+				else
+				{
+					m_mouse_dragging             = false;
+					ImGui_ImplGlfw::g_BlockInput = false;
+				}
+
+				if (!ImGui_ImplGlfw::g_BlockInput)
+				{
+					// Editor hotkeys.
+				}
+
+				if (m_window->key_pressed(input::Keys::ESC))
+				{
+					exit();
+				}
+
+				m_scene_stack.events();
+			}
+			else
+			{
+				m_project->m_instance->get_stack().events();
+			}
+		}
+	}
+
+	void Editor::update(const double dt)
+	{
+		if (!m_first_start)
+		{
+			if (!m_game_mode)
+			{
+				m_scene_stack.update(dt);
+			}
+			else
+			{
+				m_project->m_instance->get_stack().update(dt);
+			}
+		}
+	}
+
+	void Editor::pre_render()
+	{
+		if (m_first_start)
+		{
+			first_start();
 		}
 		else
 		{
-			m_mouse_dragging             = false;
-			ImGui_ImplGlfw::g_BlockInput = false;
-		}
+			if (!m_game_mode)
+			{
+				for (const auto& gl_operation : m_gl_operations)
+				{
+					gl_operation();
+				}
 
-		if (!ImGui_ImplGlfw::g_BlockInput)
-		{
-			// Editor hotkeys.
-		}
+				m_gl_operations.clear();
 
-		if (m_window->key_pressed(input::Keys::ESC))
-		{
-			exit();
+				m_scene_stack.pre_render();
+
+				m_framebuffer.bind();
+				m_scene_stack.render();
+				m_framebuffer.unbind();
+
+				imgui_render();
+			}
+			else
+			{
+				m_project->m_instance->get_stack().pre_render();
+			}
 		}
 	}
 
-	void EditorLayer::update(const double dt)
+	void Editor::render()
 	{
-		m_active_scene->update(dt);
-	}
-
-	void EditorLayer::pre_render()
-	{
-		for (const auto& gl_operation : m_gl_operations)
+		if (!m_game_mode)
 		{
-			gl_operation();
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 		}
-
-		m_gl_operations.clear();
-
-		m_active_scene->pre_render();
-
-		m_framebuffer.bind();
-		m_active_scene->render();
-		m_framebuffer.unbind();
-
-		imgui_render();
+		else
+		{
+			m_project->m_instance->get_stack().render();
+		}
 	}
 
-	void EditorLayer::render()
-	{
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-	}
-
-	void EditorLayer::on_event(const events::WindowResized& event)
+	void Editor::on_event(const events::WindowResized& event)
 	{
 		m_framebuffer.change_size(event.m_width, event.m_height);
 	}
 
-	void EditorLayer::imgui_render()
+	void Editor::imgui_render()
 	{
 		start();
 
 		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
 		ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
-		ImGuiViewport* viewport            = ImGui::GetMainViewport();
-		ImGui::SetNextWindowPos(viewport->GetWorkPos());
-		ImGui::SetNextWindowSize(viewport->GetWorkSize());
-		ImGui::SetNextWindowViewport(viewport->ID);
+		ImGuiViewport* imgui_viewport      = ImGui::GetMainViewport();
+		ImGui::SetNextWindowPos(imgui_viewport->GetWorkPos());
+		ImGui::SetNextWindowSize(imgui_viewport->GetWorkSize());
+		ImGui::SetNextWindowViewport(imgui_viewport->ID);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 		window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
@@ -166,17 +192,61 @@ namespace sc
 		window_flags |= ImGuiWindowFlags_NoBackground;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Dev Tools", NULL, window_flags);
+		ImGui::Begin("Supercluster", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::DockSpace(ImGui::GetID("EditorScene_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
-
-		ImGui::SameLine();
+		ImGui::DockSpace(ImGui::GetID("EditorScene_Dockspace_1"), {0.0f, 0.0f}, dockspace_flags);
 
 		if (ImGui::BeginMenuBar())
 		{
 			if (ImGui::BeginMenu("Menu"))
 			{
+				if (ImGui::MenuItem("New"))
+				{
+					auto file = SL_HANDLE.vfs()->show_save_dialog();
+
+					if (file != std::nullopt)
+					{
+						SL_HANDLE.vfs()->create_file(file.value());
+
+						save_project();
+						new_project(file.value());
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to create new project file.");
+					}
+				}
+
+				if (ImGui::MenuItem("Load"))
+				{
+					auto file = SL_HANDLE.vfs()->show_open_dialog();
+					if (file != std::nullopt)
+					{
+						save_project();
+						new_project(file.value());
+
+						auto json = json::parse_from_disk(file.value());
+						if (json != std::nullopt)
+						{
+							m_project->deserialize(json.value());
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to open json for project.");
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to open project file.");
+					}
+				}
+
+				if (ImGui::MenuItem("Save"))
+				{
+					save_project();
+				}
+
 				if (ImGui::MenuItem("Mount Folder"))
 				{
 					const auto& folder = SL_HANDLE.vfs()->show_folder_dialog();
@@ -257,11 +327,6 @@ namespace sc
 				m_process = platform::run_process("tools/tiled/tiled.exe");
 			}
 
-			if (ImGui::MenuItem("Audio Panel"))
-			{
-				m_audio_panel = !m_audio_panel;
-			}
-
 			if (ImGui::MenuItem("Reload"))
 			{
 				SL_HANDLE.m_restart = true;
@@ -281,14 +346,62 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
+		ImGui::Begin("Play Game", NULL, ImGuiWindowFlags_AlwaysAutoResize);
+		if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+		{
+			m_game_mode = true;
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button(" || ##PauseSceneButton"))
+		{
+			m_game_mode = false;
+		}
+
+		ImGui::End();
+
 		m_camera_panel.render();
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
-		m_scene_panel.render(m_scene_map);
+		//m_scene_panel.render(m_project->m_instance->get_stack());
 		m_script_panel.render();
 		m_std_console.render();
+		m_audio_panel.render();
 
+		viewport();
+
+		if (m_render_demo)
+		{
+			ImGui::ShowDemoWindow(&m_render_demo);
+		}
+
+		ImGui::End();
+		end();
+	}
+
+	void Editor::start()
+	{
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+	}
+
+	void Editor::end()
+	{
+		ImGui::Render();
+	}
+
+	void Editor::exit()
+	{
+		platform::close_process(m_process);
+		m_window->close();
+	}
+
+	void Editor::viewport()
+	{
+		/*
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground))
 		{
@@ -348,101 +461,105 @@ namespace sc
 
 		ImGui::End();
 		ImGui::PopStyleVar(1);
+		*/
+	}
 
-		if (m_audio_panel)
+	void Editor::save_project()
+	{
+		if (m_project)
 		{
-			auto* openal = SL_HANDLE.openal();
-			ImGui::Begin("Audio Panel", &m_audio_panel, ImGuiWindowFlags_AlwaysAutoResize);
+			json::save_to_disk(m_project->get_path(), m_project->serialize());
+		}
+	}
 
-			static float s_factor = openal->get_dopper_factor();
-			if (ImGui::SliderFloat("Doppler Factor", &s_factor, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+	void Editor::new_project(std::string_view path)
+	{
+		// Implictly destroys existing project.
+		m_project             = nullptr;
+		m_project             = std::make_unique<Project>(path);
+		m_project->m_instance = std::make_shared<Game>();
+
+		m_project->m_instance->get_stack().create<scenes::WorldScene>("Default Scene");
+		m_project->m_instance->get_stack().push("Default Scene");
+
+		m_camera_panel.set_instance(m_project->m_instance.get());
+		m_entity_panel.set_instance(m_project->m_instance.get());
+	}
+
+	void Editor::first_start()
+	{
+		start();
+
+		ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar;
+		ImGuiViewport* imgui_viewport = ImGui::GetMainViewport();
+		ImGui::SetNextWindowPos(imgui_viewport->GetWorkPos());
+		ImGui::SetNextWindowSize(imgui_viewport->GetWorkSize());
+		ImGui::SetNextWindowViewport(imgui_viewport->ID);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+		window_flags |= ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+		window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::Begin("Supercluster", NULL, window_flags);
+		ImGui::PopStyleVar(3);
+
+		ImGui::SetCursorPos({ImGui::GetWindowSize().x / 2.0f, ImGui::GetWindowSize().y / 2.0f});
+
+		if (ImGui::Button("New"))
+		{
+			auto file = SL_HANDLE.vfs()->show_save_dialog();
+
+			if (file != std::nullopt)
 			{
-				openal->set_doppler_factor(s_factor);
-			}
+				SL_HANDLE.vfs()->create_file(file.value());
 
-			static float s_gain = openal->get_listener_gain();
-			if (ImGui::SliderFloat("Global Volume", &s_gain, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+				save_project();
+				new_project(file.value());
+
+				m_first_start = false;
+			}
+			else
 			{
-				openal->set_listener_gain(s_gain);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create new project file.");
 			}
-
-			static float s_sos = openal->get_speed_of_sound();
-			if (ImGui::SliderFloat("Speed of Sound", &s_sos, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_speed_of_sound(s_sos);
-			}
-
-			static glm::vec3 pos = openal->get_listener_position();
-			ImGui::Text("Listener Position");
-
-			if (ImGui::SliderFloat("X##VEC301", &pos.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_position(pos);
-			}
-
-			ImGui::SameLine();
-
-			if (ImGui::SliderFloat("Y##VEC301", &pos.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_position(pos);
-			}
-
-			ImGui::SameLine();
-
-			if (ImGui::SliderFloat("Z##VEC301", &pos.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_position(pos);
-			}
-
-			static glm::vec3 vel = openal->get_listener_velocity();
-			ImGui::Text("Listener Velocity");
-
-			if (ImGui::SliderFloat("X##VEC302", &vel.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_velocity(vel);
-			}
-
-			ImGui::SameLine();
-
-			if (ImGui::SliderFloat("Y##VEC302", &vel.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_velocity(vel);
-			}
-
-			ImGui::SameLine();
-
-			if (ImGui::SliderFloat("Z##VEC302", &vel.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-			{
-				openal->set_listener_velocity(vel);
-			}
-
-			ImGui::End();
 		}
 
-		if (m_render_demo)
+		ImGui::SameLine();
+
+		if (ImGui::Button("Open"))
 		{
-			ImGui::ShowDemoWindow(&m_render_demo);
+			auto file = SL_HANDLE.vfs()->show_open_dialog();
+			if (file != std::nullopt)
+			{
+				save_project();
+				new_project(file.value());
+
+				auto json = json::parse_from_disk(file.value());
+				if (json != std::nullopt)
+				{
+					m_project->deserialize(json.value());
+					m_first_start = false;
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to open json for project.");
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to open project file.");
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Exit"))
+		{
+			exit();
 		}
 
 		ImGui::End();
 		end();
-	}
-
-	void EditorLayer::start()
-	{
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-	}
-
-	void EditorLayer::end()
-	{
-		ImGui::Render();
-	}
-
-	void EditorLayer::exit()
-	{
-		platform::close_process(m_process);
-		m_window->close();
 	}
 } // namespace sc
