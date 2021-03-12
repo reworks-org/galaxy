@@ -34,7 +34,7 @@ namespace sc
 
 	nlohmann::json Project::serialize()
 	{
-		nlohmann::json json = "{instance={}}"_json;
+		nlohmann::json json = "{\"instance\":{}}"_json;
 		json["instance"]    = m_instance->serialize();
 
 		return json;

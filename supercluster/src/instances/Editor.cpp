@@ -365,7 +365,7 @@ namespace sc
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
-		//m_scene_panel.render(m_project->m_instance->get_stack());
+		m_scene_panel.render(m_project->m_instance->get_stack());
 		m_script_panel.render();
 		m_std_console.render();
 		m_audio_panel.render();
@@ -401,7 +401,6 @@ namespace sc
 
 	void Editor::viewport()
 	{
-		/*
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground))
 		{
@@ -412,8 +411,8 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
-				m_active_scene->camera().set_width(m_viewport_size.x);
-				m_active_scene->camera().set_height(m_viewport_size.y);
+				m_project->m_instance->get_stack().top()->camera().set_width(m_viewport_size.x);
+				m_project->m_instance->get_stack().top()->camera().set_height(m_viewport_size.y);
 			}
 
 			if (m_mouse_picked)
@@ -421,9 +420,10 @@ namespace sc
 				const constexpr static auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 				glm::vec2 pos;
-				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_active_scene->camera().get_pos().x;
-				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_active_scene->camera().get_pos().y;
+				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_project->m_instance->get_stack().top()->camera().get_pos().x;
+				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_project->m_instance->get_stack().top()->camera().get_pos().y;
 
+				/*
 				auto* tree = m_editor_scene->get_collision_system()->get_tree();
 				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
 
@@ -439,6 +439,7 @@ namespace sc
 				{
 					m_entity_panel.set_selected_entity(std::nullopt);
 				}
+				*/
 
 				m_mouse_picked = false;
 			}
@@ -448,7 +449,7 @@ namespace sc
 				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 
-				m_active_scene->camera().move(delta.x, delta.y);
+				m_project->m_instance->get_stack().top()->camera().move(delta.x, delta.y);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 			}
 			else
@@ -461,7 +462,6 @@ namespace sc
 
 		ImGui::End();
 		ImGui::PopStyleVar(1);
-		*/
 	}
 
 	void Editor::save_project()
