@@ -25,12 +25,12 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
 			Dispatcher() noexcept = default;
 
 			///
-			/// Default destructor.
+			/// Destructor.
 			///
 			~Dispatcher();
 
@@ -52,6 +52,11 @@ namespace galaxy
 			///
 			template<meta::is_class Event, typename... Args>
 			void trigger(Args&&... args);
+
+			///
+			/// Clear out data.
+			///
+			void clear();
 
 		private:
 			///

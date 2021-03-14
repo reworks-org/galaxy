@@ -13,6 +13,11 @@ namespace galaxy
 	{
 		Dispatcher::~Dispatcher()
 		{
+			clear();
+		}
+
+		void Dispatcher::clear()
+		{
 			m_event_funcs.clear();
 		}
 	} // namespace events
