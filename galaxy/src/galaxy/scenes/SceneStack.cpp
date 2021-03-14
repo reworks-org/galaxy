@@ -156,18 +156,21 @@ namespace galaxy
 
 		nlohmann::json SceneStack::serialize()
 		{
-			nlohmann::json json = "{\"scenes\":{}}"_json;
+			nlohmann::json json = "{\"scenes\":{},\"scene-stack\":{}}"_json;
 
 			auto& scenes = json.at("scenes");
 			for (const auto& [key, value] : m_scenes)
 			{
 				scenes[key] = value->serialize();
-
-				if (key == top()->get_name())
-				{
-					json["top"] = top()->get_name();
-				}
 			}
+
+			auto& scene_stack = json.at("scene-stack");
+			for (std::size_t i = 0; i < m_stack.size(); i++)
+			{
+				scene_stack[std::to_string(i)] = m_stack[i]->get_name();
+			}
+
+			json["stack-size"] = m_stack.size();
 
 			return json;
 		}
@@ -191,7 +194,18 @@ namespace galaxy
 				m_scenes[key]->deserialize(value);
 			}
 
-			push(json.at("top"));
+			std::vector<std::string> names;
+			names.resize(json.at("stack-size"));
+			const auto& scene_stack = json.at("scene-stack");
+			for (const auto& [key, value] : scene_stack.items())
+			{
+				names[std::stoi(key)] = value;
+			}
+
+			for (const auto& name : names)
+			{
+				push(name);
+			}
 		}
 	} // namespace scenes
 } // namespace galaxy
