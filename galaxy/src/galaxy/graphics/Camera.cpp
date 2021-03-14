@@ -254,6 +254,8 @@ namespace galaxy
 			json["y"]           = m_pos.y;
 			json["zoom"]        = m_scale;
 			json["speed"]       = m_speed;
+			json["width"]       = m_width;
+			json["height"]      = m_height;
 
 			return json;
 		}
@@ -268,7 +270,11 @@ namespace galaxy
 			m_move_down   = false;
 			m_move_left   = false;
 			m_move_right  = false;
+			m_width       = 0.0f;
+			m_height      = 0.0f;
+			m_projection  = glm::mat4 {1.0f};
 
+			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			set_pos(json.at("x"), json.at("y"));
 			zoom(json.at("zoom"));
 			set_speed(json.at("speed"));

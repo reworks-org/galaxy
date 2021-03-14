@@ -11,12 +11,15 @@
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/graphics/Shader.hpp>
+#include <galaxy/scripting/JSONUtils.hpp>
 
 #include "scenes/SandboxScene.hpp"
 #include "scenes/PhysicsScene.hpp"
 #include "scenes/MapScene.hpp"
 
 #include "Sandbox.hpp"
+
+using namespace galaxy;
 
 namespace sb
 {
@@ -38,34 +41,39 @@ namespace sb
 
 	void Sandbox::events()
 	{
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::Z))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::Z))
 		{
-			//galaxy::fs::Serializer::serialize(this, "assets/saves/");
+			nlohmann::json json = serialize();
+			json::save_to_disk("assets/saves/test.json", json);
 		}
 
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::X))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::X))
 		{
-			//galaxy::fs::Serializer::deserialize(this, "assets/saves/");
+			const auto json = json::parse_from_disk("assets/saves/test.json");
+			if (json != std::nullopt)
+			{
+				deserialize(json.value());
+			}
 		}
 
-		if (m_window->key_pressed(galaxy::input::Keys::ESC))
+		if (m_window->key_pressed(input::Keys::ESC))
 		{
 			m_window->close();
 		}
 
-		if (m_window->key_pressed(galaxy::input::Keys::NUM_1))
+		if (m_window->key_pressed(input::Keys::NUM_1))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("SandboxScene");
 		}
 
-		if (m_window->key_pressed(galaxy::input::Keys::NUM_2))
+		if (m_window->key_pressed(input::Keys::NUM_2))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("PhysicsScene");
 		}
 
-		if (m_window->key_pressed(galaxy::input::Keys::NUM_3))
+		if (m_window->key_pressed(input::Keys::NUM_3))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("MapScene");

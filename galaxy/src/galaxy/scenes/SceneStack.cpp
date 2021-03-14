@@ -162,6 +162,11 @@ namespace galaxy
 			for (const auto& [key, value] : m_scenes)
 			{
 				scenes[key] = value->serialize();
+
+				if (key == top()->get_name())
+				{
+					json["top"] = top()->get_name();
+				}
 			}
 
 			return json;
@@ -185,6 +190,8 @@ namespace galaxy
 
 				m_scenes[key]->deserialize(value);
 			}
+
+			push(json.at("top"));
 		}
 	} // namespace scenes
 } // namespace galaxy

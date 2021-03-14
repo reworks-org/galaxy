@@ -1,5 +1,6 @@
 {
 	"enabled": true,
+	"allow-serialize": true,
 	"components": {
 		"Tag": {
             "tag": "Animated"

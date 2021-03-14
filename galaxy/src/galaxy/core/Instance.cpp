@@ -45,6 +45,8 @@ namespace galaxy
 
 		void Instance::deserialize(const nlohmann::json& json)
 		{
+			m_scene_stack.clear();
+
 			m_name = json.at("name");
 			m_scene_stack.deserialize(json.at("stack"));
 		}

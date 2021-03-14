@@ -43,7 +43,7 @@ namespace galaxy
 			virtual void pre_render() = 0;
 
 			///
-			/// Render Instance.
+			/// Render instance.
 			///
 			virtual void render() = 0;
 
@@ -55,7 +55,7 @@ namespace galaxy
 			void set_name(std::string_view name) noexcept;
 
 			///
-			/// Get Instance name.
+			/// Get instance name.
 			///
 			/// \return Const std::string reference.
 			///

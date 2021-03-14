@@ -132,6 +132,11 @@ namespace galaxy
 
 		void Animated::deserialize(const nlohmann::json& json)
 		{
+			m_active_anim         = nullptr;
+			m_paused              = false;
+			m_time_spent_on_frame = 0.0;
+			m_animations.clear();
+
 			const bool _play                = json.at("play");
 			const std::string starting_anim = json.at("starting-animation");
 

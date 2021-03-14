@@ -114,6 +114,10 @@ namespace galaxy
 
 		void Animation::deserialize(const nlohmann::json& json)
 		{
+			m_active_frame        = nullptr;
+			m_current_frame_index = 0;
+			m_frames.clear();
+
 			m_looping      = json.at("loop");
 			m_speed        = json.at("speed");
 			m_total_frames = json.at("total-frames");
