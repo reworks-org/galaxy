@@ -15,6 +15,7 @@
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,
     "shaderbook-json": "shaderbook.json",
+    "scriptbook-json" : "scriptbook.json",
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
     "textureatlas-json": "textureatlas.json",

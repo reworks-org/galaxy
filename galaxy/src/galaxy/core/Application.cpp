@@ -84,6 +84,7 @@ namespace galaxy
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
 				m_config->define<std::string>("shaderbook-json", "shaderbook.json");
+				m_config->define<std::string>("scriptbook-json", "scriptbook.json");
 				m_config->define<std::string>("textureatlas-json", "textureatlas.json");
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
@@ -156,6 +157,10 @@ namespace galaxy
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
+				// ScriptBook.
+				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
+				SL_HANDLE.m_scriptbook = m_scriptbook.get();
+
 				// Set up renderer.
 				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
@@ -199,6 +204,7 @@ namespace galaxy
 				m_lua->set("galaxy_tex_atlas", m_texture_atlas.get());
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
+				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
 			}
 		}
 
@@ -214,6 +220,7 @@ namespace galaxy
 			m_fontbook.reset();
 			m_shaderbook.reset();
 			m_dispatcher.reset();
+			m_scriptbook.reset();
 			m_lua.reset();
 			m_window.reset();
 			m_config.reset();

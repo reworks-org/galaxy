@@ -22,6 +22,7 @@
 #include "galaxy/res/TextureAtlas.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/ScriptBook.hpp"
 #include "galaxy/res/SoundBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
 
@@ -128,6 +129,11 @@ namespace galaxy
 			/// Virtual File System.
 			///
 			std::unique_ptr<fs::Virtual> m_vfs;
+
+			///
+			/// Script library.
+			///
+			std::unique_ptr<res::ScriptBook> m_scriptbook;
 
 		private:
 			///

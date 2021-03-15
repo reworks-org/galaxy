@@ -51,7 +51,7 @@ namespace galaxy
 		class TextureAtlas;
 		class SoundBook;
 		class MusicBook;
-
+		class ScriptBook;
 	} // namespace res
 
 	namespace core
@@ -154,6 +154,13 @@ namespace galaxy
 			///
 			[[maybe_unused]] audio::Context* openal() const noexcept;
 
+			///
+			/// Get ScriptBook service.
+			///
+			/// \return Return pointer to ScriptBook service.
+			///
+			[[maybe_unused]] res::ScriptBook* scriptbook() const noexcept;
+
 		public:
 			///
 			/// Restart flag.
@@ -241,6 +248,11 @@ namespace galaxy
 			/// Audio Context service.
 			///
 			audio::Context* m_openal;
+
+			///
+			/// ScriptBook service.
+			///
+			res::ScriptBook* m_scriptbook;
 		};
 	} // namespace core
 } // namespace galaxy

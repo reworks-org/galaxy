@@ -52,6 +52,7 @@
 #include "galaxy/res/TextureAtlas.hpp"
 #include "galaxy/res/SoundBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
+#include "galaxy/res/ScriptBook.hpp"
 
 #include "LuaUtils.hpp"
 
@@ -655,6 +656,11 @@ namespace galaxy
 			musicbook_type["create_from_json"] = &res::MusicBook::create_from_json;
 			musicbook_type["get"]              = &res::MusicBook::get;
 			musicbook_type["clear"]            = &res::MusicBook::clear;
+
+			auto scriptbook_type                = lua->new_usertype<res::ScriptBook>("gScriptBook", sol::no_constructor);
+			scriptbook_type["create_from_json"] = &res::ScriptBook::create_from_json;
+			scriptbook_type["clear"]            = &res::ScriptBook::clear;
+			scriptbook_type["get"]              = &res::ScriptBook::get;
 		}
 	} // namespace lua
 } // namespace galaxy
