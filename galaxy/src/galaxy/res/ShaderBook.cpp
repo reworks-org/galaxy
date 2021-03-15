@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <nlohmann/json.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
@@ -55,8 +53,8 @@ namespace galaxy
 				auto& json               = json_opt.value();
 				const std::string vs_ext = json.at("vertex-extension");
 				const std::string fs_ext = json.at("fragment-extension");
-				const auto& arr          = json.at("shaderbook");
 
+				const auto& arr = json.at("shaderbook");
 				for (const std::string& filename : arr)
 				{
 					create(filename, filename + vs_ext, filename + fs_ext);

@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <nlohmann/json.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
@@ -37,8 +35,7 @@ namespace galaxy
 			}
 			else
 			{
-				auto& json = json_opt.value();
-
+				const auto& json = json_opt.value();
 				for (auto& [name, arr] : json.at("fontbook").items())
 				{
 					create(name, arr[0].get<std::string>(), arr[1].get<int>());
