@@ -68,6 +68,9 @@ namespace galaxy
 
 		void Text::load(std::string_view font, const graphics::Colour& col)
 		{
+			m_batch.clear();
+			m_batch_data.clear();
+
 			set_font(font);
 			m_colour = col;
 		}
@@ -206,9 +209,6 @@ namespace galaxy
 
 		void Text::deserialize(const nlohmann::json& json)
 		{
-			m_batch.clear();
-			m_batch_data.clear();
-
 			const auto colour = json.at("colour");
 			load(json.at("font"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
 			create(json.at("text"));
