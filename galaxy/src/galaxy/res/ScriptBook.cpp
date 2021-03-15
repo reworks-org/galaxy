@@ -6,6 +6,7 @@
 ///
 
 #include <nlohmann/json.hpp>
+#include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
@@ -50,6 +51,12 @@ namespace galaxy
 					}
 				}
 			}
+		}
+
+		void ScriptBook::run(std::string_view script_id)
+		{
+			const auto str = static_cast<std::string>(script_id);
+			SL_HANDLE.lua()->script(*m_resources[str]);
 		}
 
 		void ScriptBook::clear() noexcept

@@ -7,7 +7,6 @@
 
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/events/Collision.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/systems/TransformSystem.hpp>

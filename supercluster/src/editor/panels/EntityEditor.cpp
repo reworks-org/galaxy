@@ -10,6 +10,7 @@
 
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
+#include <galaxy/components/OnCollision.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
@@ -188,6 +189,24 @@ namespace sc
 							if (ImGui::Button(" - ##20"))
 							{
 								world.remove<components::BatchSprite>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("On Collision");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##21"))
+							{
+								world.disable(entity);
+								world.create_component<components::OnCollision>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##22"))
+							{
+								world.remove<components::OnCollision>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -378,10 +397,11 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
+			auto [animated, batchsprite, oncollision, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
 			= m_cur_instance->get_stack().top()->world().get_multi<
 				components::Animated, 
 				components::BatchSprite,
+				components::OnCollision,
 				components::Primitive2D, 
 				components::Renderable, 
 				components::RigidBody, 
@@ -550,6 +570,15 @@ namespace sc
 							}
 						}
 
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (oncollision)
+				{
+					if (ImGui::BeginTabItem("On Collision"))
+					{
+						ImGui::InputText("Script", &oncollision->m_script);
 						ImGui::EndTabItem();
 					}
 				}

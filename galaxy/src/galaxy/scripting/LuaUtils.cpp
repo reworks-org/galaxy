@@ -18,7 +18,6 @@
 #include "galaxy/core/World.hpp"
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
-#include "galaxy/events/Collision.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -366,10 +365,6 @@ namespace galaxy
 			auto window_resized_type      = lua->new_usertype<events::WindowResized>("gWindowResized", sol::constructors<events::WindowResized()>());
 			window_resized_type["height"] = &events::WindowResized::m_height;
 			window_resized_type["width"]  = &events::WindowResized::m_width;
-
-			auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(const ecs::Entity, const ecs::Entity)>());
-			collision_type["a"] = &events::Collision::m_a;
-			collision_type["b"] = &events::Collision::m_b;
 
 			auto dispatcher_type                      = lua->new_usertype<events::Dispatcher>("gDispatcher", sol::constructors<events::Dispatcher()>());
 			dispatcher_type["trigger_keychar"]        = &events::Dispatcher::trigger<events::KeyChar, const input::Keys, const int>;

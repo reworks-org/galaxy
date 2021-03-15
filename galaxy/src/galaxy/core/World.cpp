@@ -12,6 +12,7 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
+#include "galaxy/components/OnCollision.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -21,7 +22,6 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
-#include "galaxy/events/Collision.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -46,6 +46,7 @@ namespace galaxy
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");
+			register_component<components::OnCollision>("OnCollision");
 			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::RigidBody>("RigidBody");
@@ -221,9 +222,10 @@ namespace galaxy
 					entity_json["enabled"] = is_enabled(entity);
 					entity_json["components"] = nlohmann::json::object();
 
-					auto [animated, batchsprite, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform] = get_multi<
+					auto [animated, batchsprite, oncollision, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform] = get_multi<
 						components::Animated,
 						components::BatchSprite,
+						components::OnCollision,
 						components::Primitive2D,
 						components::Renderable,
 						components::RigidBody,
@@ -241,6 +243,11 @@ namespace galaxy
 					if (batchsprite)
 					{
 						entity_json["components"]["BatchSprite"] = batchsprite->serialize();
+					}
+
+					if (oncollision)
+					{
+						entity_json["components"]["OnCollision"] = oncollision->serialize();
 					}
 
 					if (primitive2d)

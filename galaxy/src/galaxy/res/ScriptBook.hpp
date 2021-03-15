@@ -45,6 +45,13 @@ namespace galaxy
 			void create_from_json(std::string_view file);
 
 			///
+			/// Run a script.
+			///
+			/// \param script_id ID of the script to run.
+			///
+			void run(std::string_view script_id);
+
+			///
 			/// Clean up.
 			///
 			void clear() noexcept override;

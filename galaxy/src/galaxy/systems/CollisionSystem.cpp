@@ -9,13 +9,15 @@
 #include <optional>
 
 #include "galaxy/components/BatchSprite.hpp"
+#include "galaxy/components/OnCollision.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
-#include "galaxy/events/Collision.hpp"
 #include "galaxy/physics/SATObject.hpp"
+#include "galaxy/res/ScriptBook.hpp"
 
 #include "CollisionSystem.hpp"
 
@@ -54,7 +56,17 @@ namespace galaxy
 						m_tree.erase(entity_a);
 						transform->move(m_mtv.x, m_mtv.y);
 
-						// Trigger entity collisions.
+						auto collision_a = world.get<components::OnCollision>(entity_a);
+						if (collision_a)
+						{
+							SL_HANDLE.scriptbook()->run(collision_a->m_script);
+						}
+
+						auto collision_b = world.get<components::OnCollision>(entity_b);
+						if (collision_b)
+						{
+							SL_HANDLE.scriptbook()->run(collision_b->m_script);
+						}
 					}
 				}
 			});
