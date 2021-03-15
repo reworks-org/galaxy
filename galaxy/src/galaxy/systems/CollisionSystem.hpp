@@ -11,7 +11,6 @@
 #include "galaxy/ecs/Entity.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/physics/DynamicTree.hpp"
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
 
 namespace galaxy
 {
@@ -24,11 +23,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Argument constructor.
+			/// Constructor.
 			///
-			/// \param dispatcher Pointer to dispatcher to trigger collision events from.
-			///
-			CollisionSystem(events::Dispatcher* dispatcher);
+			CollisionSystem() noexcept;
 
 			///
 			/// Destructor.
@@ -52,20 +49,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Default constructor.
-			///
-			CollisionSystem() = delete;
-
-		private:
-			///
 			/// Dynamic Tree for efficient collision detection.
 			///
 			physics::DynamicTree<ecs::Entity> m_tree;
-
-			///
-			/// Dispatcher pointer.
-			///
-			events::Dispatcher* m_dispatcher;
 
 			///
 			/// Offset from collision.

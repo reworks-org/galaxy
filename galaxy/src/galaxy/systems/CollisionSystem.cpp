@@ -23,8 +23,8 @@ namespace galaxy
 {
 	namespace systems
 	{
-		CollisionSystem::CollisionSystem(events::Dispatcher* dispatcher)
-		    : m_dispatcher {dispatcher}
+		CollisionSystem::CollisionSystem() noexcept
+		    : m_mtv {0.0f, 0.0f}
 		{
 		}
 
@@ -54,10 +54,7 @@ namespace galaxy
 						m_tree.erase(entity_a);
 						transform->move(m_mtv.x, m_mtv.y);
 
-						if (m_dispatcher)
-						{
-							m_dispatcher->trigger<events::Collision>(entity_a, entity_b);
-						}
+						// Trigger entity collisions.
 					}
 				}
 			});

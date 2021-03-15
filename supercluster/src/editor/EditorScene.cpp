@@ -27,7 +27,7 @@ namespace sc
 
 		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
-		m_world.create_system<systems::CollisionSystem>(nullptr);
+		m_world.create_system<systems::CollisionSystem>();
 		m_collision_system = m_world.get_system<systems::CollisionSystem>();
 	}
 

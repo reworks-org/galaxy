@@ -9,7 +9,6 @@
 #define GALAXY_EVENTS_DISPATCHER_STORAGE_HPP_
 
 #include <any>
-#include <execution>
 #include <vector>
 
 #include "galaxy/error/Log.hpp"
@@ -82,7 +81,7 @@ namespace galaxy
 			if constexpr (is_trigger)
 			{
 				// Exec each in parallel.
-				std::for_each(/*std::execution::par, */ funcs.begin(), funcs.end(), [&](auto& func) {
+				std::for_each(funcs.begin(), funcs.end(), [&](auto& func) {
 					func(args...);
 				});
 			}
@@ -96,7 +95,7 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_FATAL, "Too many arguments being passed when adding function.");
+					GALAXY_LOG(GALAXY_ERROR, "Too many arguments being passed when adding function.");
 				}
 			}
 			else if constexpr (is_destroy)

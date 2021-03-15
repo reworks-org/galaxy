@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/components/OnEvent.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/events/Collision.hpp>
@@ -29,17 +28,10 @@ namespace sb
 
 		m_world.create_system<systems::TransformSystem>();
 		m_world.create_system<systems::RenderSystem>();
-		m_world.create_system<systems::CollisionSystem>(&m_dispatcher);
+		m_world.create_system<systems::CollisionSystem>();
 
 		m_cube  = m_world.create_from_json("cube.json").value();
 		m_floor = m_world.create_from_json("floor.json").value();
-
-		auto* cube_event       = m_world.create_component<components::OnEvent<events::Collision>>(m_cube);
-		cube_event->m_on_event = [&](const events::Collision& collision) -> void {
-			GALAXY_LOG(GALAXY_WARNING, "Collision between {0} and {1}.", m_world.get<components::Tag>(collision.m_a)->m_tag, m_world.get<components::Tag>(collision.m_b)->m_tag);
-		};
-
-		m_dispatcher.subscribe<events::Collision, components::OnEvent<events::Collision>>(*cube_event);
 	}
 
 	PhysicsScene::~PhysicsScene()

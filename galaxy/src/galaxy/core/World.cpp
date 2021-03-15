@@ -12,7 +12,6 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
-#include "galaxy/components/OnEvent.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
