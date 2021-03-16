@@ -20,6 +20,7 @@
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -340,6 +341,9 @@ namespace galaxy
 
 			auto key_down_type       = lua->new_usertype<events::KeyDown>("gKeyDown", sol::constructors<events::KeyDown()>());
 			key_down_type["keycode"] = &events::KeyDown::m_keycode;
+
+			auto key_repeat_type       = lua->new_usertype<events::KeyRepeat>("gKeyRepeat", sol::constructors<events::KeyRepeat()>());
+			key_repeat_type["keycode"] = &events::KeyRepeat::m_keycode;
 
 			auto key_up_type       = lua->new_usertype<events::KeyUp>("gKeyUp", sol::constructors<events::KeyUp()>());
 			key_up_type["keycode"] = &events::KeyUp::m_keycode;

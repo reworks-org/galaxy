@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			/// \param keycode Keycode of key pressed.
+			/// \param keycode Keycode of key released.
 			///
 			KeyUp(const input::Keys keycode) noexcept;
 
@@ -37,7 +37,7 @@ namespace galaxy
 			~KeyUp() noexcept = default;
 
 			///
-			/// Keycode for the key that was pressed.
+			/// Keycode for the key that was released.
 			///
 			input::Keys m_keycode;
 		};
