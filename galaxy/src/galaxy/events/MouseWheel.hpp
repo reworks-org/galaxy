@@ -28,7 +28,7 @@ namespace galaxy
 			/// \param x x offset. -1 or 1.
 			/// \param y y offset. -1 or 1.
 			///
-			MouseWheel(const int x, const int y) noexcept;
+			MouseWheel(const double x, const double y) noexcept;
 
 			///
 			/// Default destructor.

@@ -16,8 +16,8 @@ namespace galaxy
 		{
 		}
 
-		MouseWheel::MouseWheel(const int x, const int y) noexcept
-		    : m_x_offset {x}, m_y_offset {y}
+		MouseWheel::MouseWheel(const double x, const double y) noexcept
+		    : m_x_offset {static_cast<int>(x)}, m_y_offset {static_cast<int>(y)}
 		{
 		}
 	} // namespace events

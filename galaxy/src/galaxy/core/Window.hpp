@@ -19,8 +19,6 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
-#include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/input/Keys.hpp"
@@ -70,27 +68,6 @@ namespace galaxy
 				/// Stores previous position.
 				///
 				glm::dvec2 m_prev_pos;
-			};
-
-			///
-			/// Scroll event data.
-			///
-			struct ScrollData final
-			{
-				///
-				/// Constructor.
-				///
-				ScrollData() noexcept;
-
-				///
-				/// Is the user currently scrolling.
-				///
-				bool m_active;
-
-				///
-				/// Mouse wheel offsets.
-				///
-				events::MouseWheel m_data;
 			};
 
 			///
@@ -236,77 +213,13 @@ namespace galaxy
 			void poll_events() noexcept;
 
 			///
-			/// Check if a mouse button was pressed.
+			/// \brief Set current scene dispatcher.
 			///
-			/// \param mouse_button mouse button keycode.
+			/// Best set/unset when scene is pushed/popped.
 			///
-			/// \return True if a press occured.
+			/// \param dispatcher Pointer to scene dispatcher.
 			///
-			[[nodiscard]] const bool mouse_button_pressed(input::MouseButton mouse_button) noexcept;
-
-			///
-			/// Check if a mouse button was released.
-			///
-			/// \param mouse_button mouse button keycode.
-			///
-			/// \return True if a release occured.
-			///
-			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
-
-			///
-			/// \brief Set scroll data.
-			///
-			/// Called internally for you.
-			///
-			/// \param active Is the user currently scrolling?
-			/// \param x -1 or 1.
-			/// \param y -1 or 1.
-			///
-			void set_scroll_data(const bool active, const int x, const int y);
-
-			///
-			/// Check if user is currently scrolling.
-			///
-			/// \return True if user if scroll callback is being called.
-			///
-			[[nodiscard]] const bool is_scrolling() const noexcept;
-
-			///
-			/// \brief Get scroll data.
-			///
-			/// This sets is_scrolling to false, so you need to check is_scrolling first!
-			///
-			/// \return Const reference to event data.
-			///
-			[[nodiscard]] const events::MouseWheel& get_scroll_data();
-
-			///
-			/// Register an object with the window dispatch resizer.
-			///
-			/// \param obj An object with an on_event(const WindowResized& event) function.
-			///
-			template<meta::is_class Type>
-			void register_on_window_resize(Type& obj) noexcept;
-
-			///
-			/// \brief See if a key is being held down.
-			///
-			/// This will pick up repeated events.
-			///
-			/// \param key Key to check.
-			///
-			/// \return True if key is currently down.
-			///
-			[[nodiscard]] const bool key_down(input::Keys key) noexcept;
-
-			///
-			/// Check if a key was pressed once.
-			///
-			/// \param key Key to check.
-			///
-			/// \return True if key was pressed once.
-			///
-			[[nodiscard]] const bool key_pressed(input::Keys key) noexcept;
+			void set_scene_dispatcher(events::Dispatcher* dispatcher) noexcept;
 
 			///
 			/// Starts filling the returned pointer to string with characters as they are typed.
@@ -323,9 +236,9 @@ namespace galaxy
 			///
 			/// Get current cursor position.
 			///
-			/// \return Returns true or false if cursor has moved, and the current position.
+			/// \return Returns cursor position as a const reference to a glm::vec2.
 			///
-			[[nodiscard]] std::tuple<bool, glm::vec2> get_cursor_pos() noexcept;
+			[[nodiscard]] const glm::vec2& get_cursor_pos() noexcept;
 
 			///
 			/// Retrieve pointer to GLFWwindow object.
@@ -403,24 +316,24 @@ namespace galaxy
 			std::array<float, 4> m_colour;
 
 			///
-			/// Array storing each of the 8 mouse buttons supported by GLFW.
+			/// Map of galaxy mouse buttons to GLFW mouse buttons.
 			///
-			std::array<int, 8> m_prev_mouse_btn_states;
+			robin_hood::unordered_flat_map<input::MouseButton, int> m_mouse_map;
 
 			///
 			/// Map of GLFW mouse buttons to galaxy mouse buttons.
 			///
-			robin_hood::unordered_map<input::MouseButton, int> m_mousebutton_map;
+			robin_hood::unordered_flat_map<int, input::MouseButton> m_reverse_mouse_map;
 
 			///
-			/// Map of GLFW scancodes to galaxy keys.
+			/// Map of galaxy keys to GLFW key codes.
 			///
-			robin_hood::unordered_map<input::Keys, int> m_keymap;
+			robin_hood::unordered_flat_map<input::Keys, int> m_keymap;
 
 			///
-			/// Previous key states.
+			/// Map of GLFW key codes to galaxy keys.
 			///
-			robin_hood::unordered_map<input::Keys, int> m_prev_key_states;
+			robin_hood::unordered_flat_map<int, input::Keys> m_reverse_keymap;
 
 			///
 			/// String for text input.
@@ -448,26 +361,15 @@ namespace galaxy
 			components::Transform m_fb_transform;
 
 			///
-			/// Triggers window resized event.
+			/// Scene dispatcher.
 			///
-			events::Dispatcher m_window_dispatcher;
+			events::Dispatcher* m_scene_dispatcher;
 
 			///
 			/// Cursor size.
 			///
 			glm::vec2 m_cursor_size;
-
-			///
-			/// Scroll data.
-			///
-			ScrollData m_scroll_data;
 		};
-
-		template<meta::is_class Type>
-		inline void galaxy::core::Window::register_on_window_resize(Type& obj) noexcept
-		{
-			m_window_dispatcher.subscribe<events::WindowResized, Type>(obj);
-		}
 	} // namespace core
 } // namespace galaxy
 

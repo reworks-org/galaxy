@@ -22,7 +22,6 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
-#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseMoved.hpp"

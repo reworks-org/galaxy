@@ -365,13 +365,13 @@ namespace galaxy
 			window_resized_type["width"]  = &events::WindowResized::m_width;
 
 			auto dispatcher_type                      = lua->new_usertype<events::Dispatcher>("gDispatcher", sol::constructors<events::Dispatcher()>());
-			dispatcher_type["trigger_keychar"]        = &events::Dispatcher::trigger<events::KeyChar, const input::Keys, const int>;
 			dispatcher_type["trigger_keydown"]        = &events::Dispatcher::trigger<events::KeyDown, const input::Keys>;
+			dispatcher_type["trigger_keyrepeat"]      = &events::Dispatcher::trigger<events::KeyRepeat, const input::Keys>;
 			dispatcher_type["trigger_keyup"]          = &events::Dispatcher::trigger<events::KeyUp, const input::Keys>;
 			dispatcher_type["trigger_mouse_moved"]    = &events::Dispatcher::trigger<events::MouseMoved, const double, const double>;
 			dispatcher_type["trigger_mouse_pressed"]  = &events::Dispatcher::trigger<events::MousePressed, const float, const float, const input::MouseButton>;
 			dispatcher_type["trigger_mouse_released"] = &events::Dispatcher::trigger<events::MouseReleased, const float, const float, const input::MouseButton>;
-			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const int, const int>;
+			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const double, const double>;
 		}
 
 		void register_fs()
