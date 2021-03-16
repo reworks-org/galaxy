@@ -70,7 +70,7 @@ namespace galaxy
 
 		void BatchSprite::create(std::string_view texture_atlas_id, float opacity)
 		{
-			m_region  = SL_HANDLE.atlas()->get_region(texture_atlas_id);
+			set_region(texture_atlas_id);
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
