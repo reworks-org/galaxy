@@ -30,6 +30,16 @@ namespace galaxy
 			Dispatcher() noexcept = default;
 
 			///
+			/// Move constructor.
+			///
+			Dispatcher(Dispatcher&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Dispatcher& operator=(Dispatcher&&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Dispatcher();
@@ -57,6 +67,17 @@ namespace galaxy
 			/// Clear out data.
 			///
 			void clear();
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Dispatcher(const Dispatcher&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Dispatcher& operator=(const Dispatcher&) = delete;
 
 		private:
 			///

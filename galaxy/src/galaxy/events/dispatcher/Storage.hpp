@@ -31,6 +31,16 @@ namespace galaxy
 			Storage() noexcept = default;
 
 			///
+			/// Move constructor.
+			///
+			Storage(Storage&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Storage& operator=(Storage&&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			virtual ~Storage() noexcept = default;
@@ -51,6 +61,17 @@ namespace galaxy
 			///
 			template<meta::is_class Event, meta::is_action Action, typename... Args>
 			void apply_action_to_subscribers(Args&... args);
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Storage(const Storage&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Storage& operator=(const Storage&) = delete;
 
 		private:
 			///
