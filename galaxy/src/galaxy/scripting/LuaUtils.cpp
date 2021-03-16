@@ -18,7 +18,6 @@
 #include "galaxy/core/World.hpp"
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
-#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -334,11 +333,6 @@ namespace galaxy
 				{"NUMPAD_9", input::Keys::NUMPAD_9}
 			});
 			// clang-format on
-
-			auto key_char_type       = lua->new_usertype<events::KeyChar>("gKeyChar", sol::constructors<events::KeyChar()>());
-			key_char_type["keycode"] = &events::KeyChar::m_keycode;
-			key_char_type["unichar"] = &events::KeyChar::m_unichar;
-
 			auto key_down_type       = lua->new_usertype<events::KeyDown>("gKeyDown", sol::constructors<events::KeyDown()>());
 			key_down_type["keycode"] = &events::KeyDown::m_keycode;
 
