@@ -9,7 +9,8 @@
 #define GALAXY_EVENTS_DISPATCHER_DISPATCHER_HPP_
 
 #include <functional>
-#include <vector>
+
+#include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/events/dispatcher/Storage.hpp"
@@ -83,7 +84,7 @@ namespace galaxy
 			///
 			/// Stores the event functions.
 			///
-			std::vector<Storage> m_event_funcs;
+			robin_hood::unordered_flat_map<std::size_t, Storage> m_event_funcs;
 		};
 
 		template<meta::is_class Event, meta::is_class Receiver>
@@ -91,9 +92,9 @@ namespace galaxy
 		{
 			const auto type = meta::DispatcherUID::get<Event>();
 
-			if (type >= m_event_funcs.size())
+			if (!m_event_funcs.contains(type))
 			{
-				m_event_funcs.resize(type + 1);
+				m_event_funcs.emplace(type, Storage {});
 				m_event_funcs[type].create_storage<Event>();
 			}
 
@@ -104,7 +105,7 @@ namespace galaxy
 		inline void Dispatcher::trigger(Args&&... args)
 		{
 			const auto type = meta::DispatcherUID::get<Event>();
-			if (type >= m_event_funcs.size())
+			if (!m_event_funcs.contains(type))
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Attempted to trigger event with no subscribers.");
 			}

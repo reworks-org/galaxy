@@ -149,10 +149,6 @@ namespace galaxy
 				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
-				// Event dispatcher.
-				m_dispatcher           = std::make_unique<events::Dispatcher>();
-				SL_HANDLE.m_dispatcher = m_dispatcher.get();
-
 				// ShaderBook.
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
@@ -219,7 +215,6 @@ namespace galaxy
 			m_texture_atlas.reset();
 			m_fontbook.reset();
 			m_shaderbook.reset();
-			m_dispatcher.reset();
 			m_scriptbook.reset();
 			m_lua.reset();
 			m_window.reset();

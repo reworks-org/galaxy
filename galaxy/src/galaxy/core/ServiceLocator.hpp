@@ -33,11 +33,6 @@ namespace galaxy
 		class Window;
 	} // namespace core
 
-	namespace events
-	{
-		class Dispatcher;
-	} // namespace events
-
 	namespace fs
 	{
 		class Config;
@@ -97,13 +92,6 @@ namespace galaxy
 			/// \return Return pointer to Lua service.
 			///
 			[[maybe_unused]] sol::state* lua() const noexcept;
-
-			///
-			/// Get Dispatcher service.
-			///
-			/// \return Return pointer to Dispatcher service.
-			///
-			[[maybe_unused]] events::Dispatcher* dispatcher() const noexcept;
 
 			///
 			/// Get FontBook service.
@@ -208,11 +196,6 @@ namespace galaxy
 			/// Lua service. Main instance of Lua.
 			///
 			sol::state* m_lua;
-
-			///
-			/// Dispatcher service.
-			///
-			events::Dispatcher* m_dispatcher;
 
 			///
 			/// FontBook service.

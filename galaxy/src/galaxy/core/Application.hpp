@@ -16,7 +16,6 @@
 #include "galaxy/audio/Context.hpp"
 #include "galaxy/core/Instance.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
@@ -94,11 +93,6 @@ namespace galaxy
 			/// Master Lua state for application.
 			///
 			std::unique_ptr<sol::state> m_lua;
-
-			///
-			/// Process game events.
-			///
-			std::unique_ptr<events::Dispatcher> m_dispatcher;
 
 			///
 			/// Library of all fonts.
