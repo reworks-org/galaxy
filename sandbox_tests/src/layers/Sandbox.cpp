@@ -252,7 +252,7 @@ namespace sb
 	{
 		auto map = m_scene_stack.create("MapScene");
 
-		map->m_dispatcher.subscribe_callback<events::KeyDown>([&](const events::KeyDown& kde) {
+		map->m_dispatcher.subscribe_callback<events::KeyDown>([map, this](const events::KeyDown& kde) {
 			switch (kde.m_keycode)
 			{
 				case input::Keys::Z:
