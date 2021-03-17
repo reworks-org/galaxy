@@ -12,7 +12,6 @@
 #include "galaxy/graphics/shaders/DefaultFramebuffer.hpp"
 #include "galaxy/graphics/shaders/Glyph.hpp"
 #include "galaxy/graphics/shaders/Line.hpp"
-#include "galaxy/graphics/shaders/Particle.hpp"
 #include "galaxy/graphics/shaders/Point.hpp"
 #include "galaxy/graphics/shaders/RenderToTexture.hpp"
 #include "galaxy/graphics/shaders/Sprite.hpp"
@@ -77,9 +76,6 @@ namespace galaxy
 
 			auto* line = create("line");
 			line->load_raw(shaders::line_vert, shaders::line_frag);
-
-			auto* particle = create("particle");
-			particle->load_raw(shaders::particle_vert, shaders::particle_frag);
 
 			auto* point = create("point");
 			point->load_raw(shaders::point_vert, shaders::point_frag);

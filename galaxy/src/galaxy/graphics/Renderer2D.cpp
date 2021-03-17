@@ -10,7 +10,6 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/particle/ParticleGenerator.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -135,24 +134,6 @@ namespace galaxy
 			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
-		}
-
-		void Renderer2D::draw_particles(graphics::ParticleGenerator* gen, Camera& camera)
-		{
-			if (!gen->finished())
-			{
-				gen->bind();
-				auto* current = gen->get_instance();
-				auto* shader  = SL_HANDLE.shaderbook()->get("particle");
-
-				shader->bind();
-				shader->set_uniform("u_cameraProj", camera.get_proj());
-				shader->set_uniform("u_cameraView", camera.get_view());
-				shader->set_uniform("u_width", static_cast<float>(current->get_width()));
-				shader->set_uniform("u_height", static_cast<float>(current->get_height()));
-
-				glDrawElementsInstanced(GL_TRIANGLES, gen->gl_index_count(), GL_UNSIGNED_INT, nullptr, gen->amount());
-			}
 		}
 	} // namespace graphics
 } // namespace galaxy

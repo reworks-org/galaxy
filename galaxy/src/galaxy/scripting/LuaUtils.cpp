@@ -36,7 +36,6 @@
 #include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 
@@ -414,9 +413,10 @@ namespace galaxy
 			{
 				{"POINT", graphics::Renderables::POINT},
 				{"LINE", graphics::Renderables::LINE},
-				{"CIRCLE", graphics::Renderables::LINE_LOOP},
-				{"SPRITE", graphics::Renderables::BATCHED},
-				{"TEXT", graphics::Renderables::TEXT}
+				{"LINE_LOOP", graphics::Renderables::LINE_LOOP},
+				{"BATCHED", graphics::Renderables::BATCHED},
+				{"TEXT", graphics::Renderables::TEXT},
+				{"SPRITE", graphics::Renderables::SPRITE}
 			});
 
 			lua->new_enum<graphics::Primitives>("gPrimitives",
@@ -492,40 +492,6 @@ namespace galaxy
 			camera_type["on_scroll"]     = &graphics::Camera::on_scroll;
 			camera_type["set_width"]     = &graphics::Camera::set_width;
 			camera_type["set_height"]    = &graphics::Camera::set_height;
-
-			auto particle_type            = lua->new_usertype<graphics::Particle>("gParticle", sol::constructors<graphics::Particle(), graphics::Particle(const float, const float)>());
-			particle_type["angle"]        = &graphics::Particle::angle;
-			particle_type["move"]         = &graphics::Particle::move;
-			particle_type["life"]         = &graphics::Particle::m_life;
-			particle_type["pos"]          = &graphics::Particle::pos;
-			particle_type["set_position"] = &graphics::Particle::set_position;
-			particle_type["set_velocity"] = &graphics::Particle::set_velocity;
-			particle_type["velocity"]     = &graphics::Particle::velocity;
-
-			auto particle_instance_type                = lua->new_usertype<graphics::ParticleInstance>("gParticleInstance", sol::constructors<>());
-			particle_instance_type["clamp_to_border"]  = &graphics::ParticleInstance::clamp_to_border;
-			particle_instance_type["clamp_to_edge"]    = &graphics::ParticleInstance::clamp_to_edge;
-			particle_instance_type["create"]           = &graphics::ParticleInstance::create;
-			particle_instance_type["get_aniso_level"]  = &graphics::ParticleInstance::get_aniso_level;
-			particle_instance_type["get_height"]       = &graphics::ParticleInstance::get_height;
-			particle_instance_type["get_width"]        = &graphics::ParticleInstance::get_width;
-			particle_instance_type["load"]             = sol::resolve<void(std::string_view)>(&graphics::ParticleInstance::load);
-			particle_instance_type["save"]             = &graphics::ParticleInstance::save;
-			particle_instance_type["set_anisotropy"]   = &graphics::ParticleInstance::set_anisotropy;
-			particle_instance_type["set_instance"]     = &graphics::ParticleInstance::set_instance;
-			particle_instance_type["set_mirrored"]     = &graphics::ParticleInstance::set_mirrored;
-			particle_instance_type["set_repeated"]     = &graphics::ParticleInstance::set_repeated;
-			particle_instance_type["update_instances"] = &graphics::ParticleInstance::update_instances;
-
-			auto particle_generator_type              = lua->new_usertype<graphics::ParticleGenerator>("gParticleGenerator", sol::constructors<graphics::ParticleGenerator()>());
-			particle_generator_type["amount"]         = &graphics::ParticleGenerator::amount;
-			particle_generator_type["configure"]      = &graphics::ParticleGenerator::configure;
-			particle_generator_type["create"]         = &graphics::ParticleGenerator::create;
-			particle_generator_type["define"]         = &graphics::ParticleGenerator::define;
-			particle_generator_type["finished"]       = &graphics::ParticleGenerator::finished;
-			particle_generator_type["gen_circular"]   = &graphics::ParticleGenerator::gen_circular;
-			particle_generator_type["gen_linear"]     = &graphics::ParticleGenerator::gen_linear;
-			particle_generator_type["update_emitter"] = &graphics::ParticleGenerator::update_emitter;
 
 			auto frame_type              = lua->new_usertype<graphics::Frame>("gFrame", sol::constructors<graphics::Frame(), graphics::Frame(const graphics::fRect&, const double)>());
 			frame_type["set_region"]     = &graphics::Frame::set_region;
