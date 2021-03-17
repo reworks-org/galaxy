@@ -8,9 +8,9 @@
 #ifndef GALAXY_UI_WIDGET_HPP_
 #define GALAXY_UI_WIDGET_HPP_
 
-#include "galaxy/audio/Sound.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/ui/Tooltip.hpp"
+#include "galaxy/ui/WidgetType.hpp"
 
 namespace galaxy
 {
@@ -22,7 +22,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Widget
+		class Widget : public fs::Serializable
 		{
 			friend class GUI;
 
@@ -59,11 +59,12 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
-			/// Add a sound effect to this widget when clicked.
+			/// Create a tooltip and assign it to a widget.
 			///
-			/// \param sound Sound to load from the soundbook resource manager.
+			/// \param args Arguments to construct tooltip with.
 			///
-			void add_sfx(std::string_view sound);
+			template<typename... Args>
+			[[nodiscard]] Tooltip* create_tooltip(Args&&... args);
 
 			///
 			/// \brief Get ID of this widget.
@@ -78,9 +79,16 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Widget() noexcept;
+			/// \param type The Type of this widget.
+			///
+			Widget(const WidgetType type) noexcept;
 
 		private:
+			///
+			/// Deleted default constructor.
+			///
+			Widget() = delete;
+
 			///
 			/// Copy constructor.
 			///
@@ -107,17 +115,36 @@ namespace galaxy
 			///
 			graphics::fRect m_bounds;
 
-			///
-			/// Sound effect to play on clicking of UI. Optional.
-			///
-			audio::Sound* m_sound;
-
 		private:
 			///
 			/// Widget ID.
 			///
 			unsigned int m_id;
+
+			///
+			/// Widget type.
+			///
+			WidgetType m_type;
 		};
+
+		template<typename... Args>
+		inline Tooltip* Widget::create_tooltip(Args&&... args)
+		{
+			Tooltip* ptr = nullptr;
+
+			if (m_tooltip != nullptr)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to add duplicate tooltip.");
+			}
+			else
+			{
+				m_tooltip    = std::make_unique<Tooltip>(std::forward<Args>(args)...);
+				ptr          = m_tooltip.get();
+				ptr->m_theme = m_theme;
+			}
+
+			return ptr;
+		}
 
 		///
 		/// Shorthand.

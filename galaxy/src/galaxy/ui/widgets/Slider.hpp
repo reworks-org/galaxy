@@ -103,6 +103,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const float percentage() const noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.

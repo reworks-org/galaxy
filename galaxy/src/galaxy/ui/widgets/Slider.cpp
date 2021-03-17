@@ -15,7 +15,7 @@ namespace galaxy
 	namespace ui
 	{
 		Slider::Slider() noexcept
-		    : m_value {1.0f}, m_pressed {false}, m_marker_pos {0.0f, 0.0f, 0.0f, 0.0f}
+		    : Widget {WidgetType::SLIDER}, m_value {1.0f}, m_pressed {false}, m_marker_pos {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 		}
 
@@ -29,6 +29,9 @@ namespace galaxy
 
 			m_theme->m_sb.add(&m_slider, &m_slider_transform, 0);
 			m_theme->m_sb.add(&m_marker, &m_marker_transform, 1);
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
+			m_theme->m_event_manager.subscribe<galaxy::events::MousePressed>(*this);
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseReleased>(*this);
 		}
 
 		void Slider::on_event(const events::MouseMoved& mme) noexcept
@@ -61,11 +64,6 @@ namespace galaxy
 			{
 				m_pressed = true;
 				m_value   = std::clamp((mpe.m_x - m_bounds.m_x) / m_bounds.m_width, 0.0f, 1.0f);
-
-				if (m_sound != nullptr)
-				{
-					m_sound->play();
-				}
 			}
 		}
 
@@ -114,6 +112,46 @@ namespace galaxy
 		const float Slider::percentage() const noexcept
 		{
 			return m_value * 100.0f;
+		}
+
+		nlohmann::json Slider::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["x"]       = m_bounds.m_x;
+			json["y"]       = m_bounds.m_y;
+			json["value"]   = m_value;
+			json["pressed"] = m_pressed;
+			json["slider"]  = m_slider.get_tex_id();
+			json["marker"]  = m_marker.get_tex_id();
+
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				m_tooltip->serialize();
+			}
+
+			return json;
+		}
+
+		void Slider::deserialize(const nlohmann::json& json)
+		{
+			m_tooltip = nullptr;
+			m_slider_transform.reset();
+			m_marker_transform.reset();
+
+			create(json.at("slider"), json.at("marker"));
+			set_pos(json.at("x"), json.at("y"));
+
+			m_value   = json.at("value");
+			m_pressed = json.at("pressed");
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

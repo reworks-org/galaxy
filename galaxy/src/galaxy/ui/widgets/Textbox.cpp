@@ -16,10 +16,12 @@ namespace galaxy
 	namespace ui
 	{
 		Textbox::Textbox() noexcept
-		    : m_text_to_draw {""}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}, m_shader {nullptr}
+		    : Widget {WidgetType::TEXTBOX}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}, m_shader {nullptr}
 		{
 			m_indicator_timer.set_repeating(true);
 			m_draw_text_timer.set_repeating(true);
+
+			m_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Textbox::~Textbox()
@@ -32,11 +34,12 @@ namespace galaxy
 		void Textbox::create(std::string_view box, std::string_view indicator, std::string_view font, float border_width)
 		{
 			m_border_width = border_width;
-			m_sprite.create(box);
+
+			m_box.create(box);
 			m_indicator.create(indicator, 0.0f);
 
-			m_bounds.m_width  = m_sprite.get_width();
-			m_bounds.m_height = m_sprite.get_height();
+			m_bounds.m_width  = m_box.get_width();
+			m_bounds.m_height = m_box.get_height();
 
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create("");
@@ -45,8 +48,6 @@ namespace galaxy
 			// clang-format off
 			m_indicator_timer.set([&]()
 			{
-				std::lock_guard<std::mutex> lock {m_mutex};
-				
 				if (m_draw_lower)
 				{
 					m_draw_lower = false;
@@ -75,10 +76,10 @@ namespace galaxy
 			m_draw_text_timer.start();
 			// clang-format on
 
-			m_shader = SL_HANDLE.shaderbook()->get("text");
-
-			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
+			m_theme->m_sb.add(&m_box, &m_box_transform, 0);
 			m_theme->m_sb.add(&m_indicator, &m_indicator_transform, 1);
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
+			m_theme->m_event_manager.subscribe<galaxy::events::KeyDown>(*this);
 		}
 
 		void Textbox::on_event(const events::MouseMoved& mme) noexcept
@@ -160,16 +161,72 @@ namespace galaxy
 
 		void Textbox::set_pos(const float x, const float y) noexcept
 		{
-			std::lock_guard<std::mutex> lock {m_mutex};
-
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
-			m_transform.set_pos(x, y);
+			m_box_transform.set_pos(x, y);
 
 			m_text_transform.set_pos(m_bounds.m_x + m_border_width, m_bounds.m_y + m_border_width);
 
 			m_ind_x = ((m_bounds.m_x + m_bounds.m_width) - m_indicator.get_width()) - m_border_width;
 			m_ind_y = ((m_bounds.m_y + m_bounds.m_height) - m_indicator.get_height()) - m_border_width;
+		}
+
+		nlohmann::json Textbox::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["box"]          = m_box.get_tex_id();
+			json["indicator"]    = m_indicator.get_tex_id();
+			json["font"]         = m_text.get_font_id();
+			json["border-width"] = m_border_width;
+			json["x"]            = m_bounds.m_x;
+			json["y"]            = m_bounds.m_y;
+
+			nlohmann::ordered_json ojson = "[]"_json;
+			for (const auto& message : m_messages)
+			{
+				ojson.push_back(message);
+			}
+			json["messages"] = ojson;
+
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				m_tooltip->serialize();
+			}
+
+			return json;
+		}
+
+		void Textbox::deserialize(const nlohmann::json& json)
+		{
+			m_indicator_timer.stop();
+			m_draw_text_timer.stop();
+			m_draw_lower = false;
+			m_messages.clear();
+			m_messages_index = 0;
+			m_char_index     = 0;
+			m_prev_text      = "";
+			m_box_transform.reset();
+			m_text_transform.reset();
+			m_indicator_transform.reset();
+			m_tooltip = nullptr;
+
+			create(json.at("box"), json.at("indicator"), json.at("font"), json.at("border-width"));
+			set_pos(json.at("x"), json.at("y"));
+
+			const auto& messages = json.at("messages");
+			for (const auto& message : messages)
+			{
+				m_messages.push_back(message);
+			}
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

@@ -16,12 +16,14 @@ namespace galaxy
 	namespace ui
 	{
 		Tooltip::Tooltip() noexcept
-		    : m_draw {false}, m_theme {nullptr}, m_text_shader {nullptr}
+		    : Serializable {this}, m_draw {false}, m_theme {nullptr}, m_text_shader {nullptr}
 		{
 			m_cursor_size = SL_HANDLE.window()->cursor_size();
+			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Tooltip::Tooltip(Tooltip&& t) noexcept
+		    : Serializable {this}
 		{
 			this->m_draw           = t.m_draw;
 			this->m_text           = std::move(t.m_text);
@@ -56,8 +58,6 @@ namespace galaxy
 		{
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create(text);
-
-			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		void Tooltip::render()
@@ -89,6 +89,24 @@ namespace galaxy
 		const bool Tooltip::can_draw() const noexcept
 		{
 			return m_draw;
+		}
+
+		nlohmann::json Tooltip::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["can-draw"]       = m_draw;
+			json["text"]           = m_text.serialize();
+			json["text-transform"] = m_text_transform.serialize();
+
+			return json;
+		}
+
+		void Tooltip::deserialize(const nlohmann::json& json)
+		{
+			m_draw = json.at("can-draw");
+			m_text.deserialize(json.at("text"));
+			m_text_transform.deserialize(json.at("text-transform"));
 		}
 	} // namespace ui
 } // namespace galaxy

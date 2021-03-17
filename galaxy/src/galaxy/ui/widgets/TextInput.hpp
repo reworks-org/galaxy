@@ -44,11 +44,11 @@ namespace galaxy
 			///
 			/// Needs "glyph" shader and "line" shader.
 			///
-			/// \param textinput Texture of the input field.
+			/// \param input_bg Texture of the input field.
 			/// \param font Font for the inputted text.
 			/// \param border_width Border on texture around input field.
 			///
-			void create(std::string_view textinput, std::string_view font, float border_width);
+			void create(std::string_view input_bg, std::string_view font, float border_width);
 
 			///
 			/// Triggered upon mouse movement.
@@ -100,6 +100,20 @@ namespace galaxy
 			///
 			void stop() noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -138,14 +152,14 @@ namespace galaxy
 			float m_border_width;
 
 			///
-			/// Batched sprite.
+			/// Box sprite.
 			///
-			components::BatchSprite m_sprite;
+			components::BatchSprite m_box;
 
 			///
-			/// Batched Transform.
+			/// Box Transform.
 			///
-			components::Transform m_transform;
+			components::Transform m_box_transform;
 
 			///
 			/// Indicator line in input field.

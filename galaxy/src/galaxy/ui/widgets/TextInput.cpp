@@ -17,9 +17,12 @@ namespace galaxy
 	namespace ui
 	{
 		TextInput::TextInput() noexcept
-		    : m_total_chars {0}, m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
+		    : Widget {WidgetType::TEXTINPUT}, m_total_chars {0}, m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
 		{
 			m_timer.set_repeating(true);
+
+			m_line_shader = SL_HANDLE.shaderbook()->get("line");
+			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		TextInput::~TextInput() noexcept
@@ -27,13 +30,13 @@ namespace galaxy
 			m_text_input = nullptr;
 		}
 
-		void TextInput::create(std::string_view textinput, std::string_view font, float border_width)
+		void TextInput::create(std::string_view input_bg, std::string_view font, float border_width)
 		{
 			m_border_width = border_width;
-			m_sprite.create(textinput);
+			m_box.create(input_bg);
 
-			m_bounds.m_width  = m_sprite.get_width();
-			m_bounds.m_height = m_sprite.get_height();
+			m_bounds.m_width  = m_box.get_width();
+			m_bounds.m_height = m_box.get_height();
 
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create("");
@@ -43,9 +46,6 @@ namespace galaxy
 			data.m_colour    = m_theme->m_font_col;
 			data.m_start_end = std::make_optional<glm::vec4>(0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
 			m_cursor.create<graphics::Primitives::LINE>(data);
-
-			m_line_shader = SL_HANDLE.shaderbook()->get("line");
-			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 
 			// clang-format off
 			m_timer.set([&]()
@@ -58,7 +58,10 @@ namespace galaxy
 			m_timer.start();
 			// clang-format on
 
-			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
+			m_theme->m_sb.add(&m_box, &m_box_transform, 0);
+			m_theme->m_event_manager.subscribe<events::MouseMoved>(*this);
+			m_theme->m_event_manager.subscribe<events::MousePressed>(*this);
+			m_theme->m_event_manager.subscribe<events::KeyDown>(*this);
 		}
 
 		void TextInput::on_event(const events::MouseMoved& mme) noexcept
@@ -87,11 +90,6 @@ namespace galaxy
 					*m_text_input = "";
 					m_draw_cursor = true;
 					m_is_focus    = true;
-				}
-
-				if (m_sound != nullptr)
-				{
-					m_sound->play();
 				}
 
 				if (m_tooltip)
@@ -186,7 +184,7 @@ namespace galaxy
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
-			m_transform.set_pos(x, y);
+			m_box_transform.set_pos(x, y);
 			m_text_transform.set_pos(m_bounds.m_x + (m_border_width * 2.0f), (m_bounds.m_y + (m_bounds.m_height / 2.0f)) - (m_text.get_height() / 2.0f));
 		}
 
@@ -198,6 +196,33 @@ namespace galaxy
 				m_draw_cursor = false;
 				m_is_focus    = false;
 			}
+		}
+
+		nlohmann::json TextInput::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["input-bg"]     = m_box.get_tex_id();
+			json["font"]         = m_text.get_font_id();
+			json["border-width"] = m_border_width;
+			json["x"]            = m_bounds.m_x;
+			json["y"]            = m_bounds.m_y;
+
+			return json;
+		}
+
+		void TextInput::deserialize(const nlohmann::json& json)
+		{
+			stop();
+			m_total_chars = 0;
+			m_text_input  = nullptr;
+			m_box_transform.reset();
+			m_cursor_transform.reset();
+			m_text_transform.reset();
+			m_timer.stop();
+
+			create(json.at("input-bg"), json.at("font"), json.at("border-width"));
+			set_pos(json.at("x"), json.at("y"));
 		}
 	} // namespace ui
 } // namespace galaxy

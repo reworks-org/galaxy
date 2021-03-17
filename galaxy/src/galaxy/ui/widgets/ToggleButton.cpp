@@ -7,8 +7,11 @@
 
 #include <optional>
 
+#include <magic_enum.hpp>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/res/ScriptBook.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
 
 #include "ToggleButton.hpp"
@@ -18,7 +21,7 @@ namespace galaxy
 	namespace ui
 	{
 		ToggleButton::ToggleButton() noexcept
-		    : m_state {ToggleButton::State::OFF}, m_on {false}, m_callback {nullptr}
+		    : Widget {WidgetType::TOGGLEBUTTON}, m_state {ToggleButton::State::OFF}, m_on {false}
 		{
 		}
 
@@ -34,6 +37,13 @@ namespace galaxy
 			m_bounds.m_height = m_sprite.get_height();
 
 			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
+			m_theme->m_event_manager.subscribe<galaxy::events::MousePressed>(*this);
+		}
+
+		void ToggleButton::set_onclick(std::string_view script_id)
+		{
+			m_onclick = static_cast<std::string>(script_id);
 		}
 
 		void ToggleButton::set_pos(const float x, const float y) noexcept
@@ -95,14 +105,9 @@ namespace galaxy
 					m_state = ToggleButton::State::OFF_HOVER;
 				}
 
-				if (m_callback != nullptr)
+				if (!m_onclick.empty())
 				{
-					m_callback(m_on);
-				}
-
-				if (m_sound != nullptr)
-				{
-					m_sound->play();
+					SL_HANDLE.scriptbook()->run(m_onclick);
 				}
 
 				if (m_tooltip)
@@ -148,6 +153,49 @@ namespace galaxy
 		const bool ToggleButton::is_on() const noexcept
 		{
 			return m_on;
+		}
+
+		nlohmann::json ToggleButton::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["x"]               = m_bounds.m_x;
+			json["y"]               = m_bounds.m_y;
+			json["selected"]        = m_on;
+			json["state"]           = static_cast<std::string>(magic_enum::enum_name<ToggleButton::State>(m_state));
+			json["on-click-script"] = m_onclick;
+			json["on"]              = m_regions[0];
+			json["off"]             = m_regions[1];
+			json["on_hover"]        = m_regions[2];
+			json["off_hover"]       = m_regions[3];
+
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				m_tooltip->serialize();
+			}
+
+			return json;
+		}
+
+		void ToggleButton::deserialize(const nlohmann::json& json)
+		{
+			m_tooltip = nullptr;
+			m_transform.reset();
+
+			m_on      = json.at("selected");
+			m_state   = magic_enum::enum_cast<ToggleButton::State>(json.at("state").get<std::string>()).value();
+			m_onclick = json.at("on-click-script");
+
+			create(json.at("on"), json.at("off"), json.at("on_hover"), json.at("off_hover"));
+			set_pos(json.at("x"), json.at("y"));
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

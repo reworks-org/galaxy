@@ -15,7 +15,7 @@ namespace galaxy
 	namespace ui
 	{
 		Progressbar::Progressbar() noexcept
-		    : m_progress {1.0f}, m_prev_progress {-1.0f}, m_bar_pos {0.0f, 0.0f, 0.0f, 0.0f}
+		    : Widget {WidgetType::PROGRESSBAR}, m_progress {1.0f}, m_prev_progress {-1.0f}, m_bar_pos {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 		}
 
@@ -29,6 +29,7 @@ namespace galaxy
 
 			m_theme->m_sb.add(&m_container, &m_container_transform, 0);
 			m_theme->m_sb.add(&m_bar, &m_bar_transform, 1);
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
 		}
 
 		void Progressbar::on_event(const events::MouseMoved& mme) noexcept
@@ -89,6 +90,44 @@ namespace galaxy
 		const float Progressbar::percentage() const noexcept
 		{
 			return m_progress * 100.0f;
+		}
+
+		nlohmann::json Progressbar::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["x"]         = m_bounds.m_x;
+			json["y"]         = m_bounds.m_y;
+			json["container"] = m_container.get_tex_id();
+			json["bar"]       = m_bar.get_tex_id();
+
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				m_tooltip->serialize();
+			}
+
+			return json;
+		}
+
+		void Progressbar::deserialize(const nlohmann::json& json)
+		{
+			m_tooltip       = nullptr;
+			m_progress      = 1.0f;
+			m_prev_progress = -1.0f;
+			m_bar_pos       = {0.0f, 0.0f, 0.0f, 0.0f};
+			m_container_transform.reset();
+			m_bar_transform.reset();
+
+			create(json.at("container"), json.at("bar"));
+			set_pos(json.at("x"), json.at("y"));
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

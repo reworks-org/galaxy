@@ -30,7 +30,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Image() noexcept = default;
+			Image() noexcept;
 
 			///
 			/// Destructor.
@@ -74,6 +74,20 @@ namespace galaxy
 			/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 			///
 			void render() override;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///

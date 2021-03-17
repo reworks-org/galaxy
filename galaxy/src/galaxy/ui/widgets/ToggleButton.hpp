@@ -61,12 +61,11 @@ namespace galaxy
 			void create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
 
 			///
-			/// Set the callback function.
+			/// Set the script to call when this button is pressed.
 			///
-			/// \param func Function must be void return type and take a single bool parameter.
+			/// \param script_id ID of the script in the ScriptBook.
 			///
-			template<typename Callback>
-			void set_callback(Callback&& func);
+			void set_onclick(std::string_view script_id);
 
 			///
 			/// Sets position without moving the object.
@@ -113,6 +112,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const bool is_on() const noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -146,9 +159,9 @@ namespace galaxy
 			ToggleButton::State m_state;
 
 			///
-			/// Callback.
+			/// Script to call on click.
 			///
-			std::function<void(bool)> m_callback;
+			std::string m_onclick;
 
 			///
 			/// Contains each region on the texture atlas.
@@ -165,12 +178,6 @@ namespace galaxy
 			///
 			components::Transform m_transform;
 		};
-
-		template<typename Callback>
-		inline void ToggleButton::set_callback(Callback&& func)
-		{
-			m_callback = std::move(func);
-		}
 	} // namespace ui
 } // namespace galaxy
 

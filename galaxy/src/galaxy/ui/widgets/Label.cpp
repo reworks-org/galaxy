@@ -16,8 +16,9 @@ namespace galaxy
 	namespace ui
 	{
 		Label::Label() noexcept
-		    : m_shader {nullptr}
+		    : Widget {WidgetType::LABEL}, m_shader {nullptr}
 		{
+			m_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Label::~Label() noexcept
@@ -33,7 +34,7 @@ namespace galaxy
 			m_bounds.m_width  = m_text.get_width();
 			m_bounds.m_height = m_text.get_height();
 
-			m_shader = SL_HANDLE.shaderbook()->get("text");
+			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
 		}
 
 		void Label::update_text(std::string_view text)
@@ -85,6 +86,40 @@ namespace galaxy
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
 			m_transform.set_pos(x, y);
+		}
+
+		nlohmann::json Label::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["x"]    = m_bounds.m_x;
+			json["y"]    = m_bounds.m_y;
+			json["text"] = m_text.get_text();
+			json["font"] = m_text.get_font_id();
+
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				m_tooltip->serialize();
+			}
+
+			return json;
+		}
+
+		void Label::deserialize(const nlohmann::json& json)
+		{
+			m_tooltip = nullptr;
+			m_transform.reset();
+
+			create(json.at("text"), json.at("font"));
+			set_pos(json.at("x"), json.at("y"));
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

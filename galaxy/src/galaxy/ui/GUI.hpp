@@ -9,9 +9,14 @@
 #define GALAXY_UI_GUI_HPP_
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
-
-#include "galaxy/ui/Widget.hpp"
+#include "galaxy/ui/widgets/Button.hpp"
+#include "galaxy/ui/widgets/Image.hpp"
+#include "galaxy/ui/Widgets/Label.hpp"
+#include "galaxy/ui/widgets/ProgressBar.hpp"
+#include "galaxy/ui/widgets/Slider.hpp"
+#include "galaxy/ui/widgets/Textbox.hpp"
+#include "galaxy/ui/widgets/TextInput.hpp"
+#include "galaxy/ui/widgets/ToggleButton.hpp"
 
 namespace galaxy
 {
@@ -30,7 +35,7 @@ namespace galaxy
 		/// Structural pattern: Composite.
 		/// Behavioral pattern: Observer.
 		///
-		class GUI final
+		class GUI final : public fs::Serializable
 		{
 		public:
 			///
@@ -52,7 +57,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			GUI() noexcept;
+			GUI();
 
 			///
 			/// Destructor.
@@ -73,10 +78,42 @@ namespace galaxy
 			[[maybe_unused]] WidgetDerived* create_widget(Args&&... args);
 
 			///
-			/// Create a tooltip and assign it to a widget.
+			/// Enable input.
 			///
-			template<is_widget WidgetDerived, typename... Args>
-			[[nodiscard]] Tooltip* create_tooltip_for_widget(WidgetDerived* widget, Args&&... args);
+			void enable_input() noexcept;
+
+			///
+			/// Disable input.
+			///
+			void disable_input() noexcept;
+
+			///
+			/// Triggered upon mouse movement.
+			///
+			/// \param mme Mouse Moved Event.
+			///
+			void on_event(const events::MouseMoved& mme) noexcept;
+
+			///
+			/// Triggered upon mouse click.
+			///
+			/// \param mpe Mouse Pressed Event.
+			///
+			void on_event(const events::MousePressed& mpe) noexcept;
+
+			///
+			/// Triggered upon mouse release.
+			///
+			/// \param mre Mouse Released Event.
+			///
+			void on_event(const events::MouseReleased& mre) noexcept;
+
+			///
+			/// Triggered upon key down.
+			///
+			/// \param kde Key Down Event.
+			///
+			void on_event(const events::KeyDown& kde) noexcept;
 
 			///
 			/// Update widgets.
@@ -91,22 +128,6 @@ namespace galaxy
 			void render();
 
 			///
-			/// Registers a function to be called on the triggering of an event.
-			///
-			/// \param widget Widget to add function to.
-			///
-			template<meta::is_class Event, is_widget WidgetDerived>
-			void add_event_to_widget(WidgetDerived* widget);
-
-			///
-			/// Triggers a UI event.
-			///
-			/// \param args Arguments to construct event to trigger.
-			///
-			template<meta::is_class Event, typename... Args>
-			void trigger(Args&&... args);
-
-			///
 			/// Remove a widget.
 			///
 			/// \param id Widget id (widget->id()).
@@ -116,7 +137,21 @@ namespace galaxy
 			///
 			/// Destroy all widgets and clean up GUI.
 			///
-			void destroy();
+			void clear();
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
@@ -166,14 +201,14 @@ namespace galaxy
 			std::vector<WidgetPtr> m_widgets;
 
 			///
-			/// Internal event manager to GUI.
-			///
-			events::Dispatcher m_event_manager;
-
-			///
 			/// Spritebatch shader.
 			///
 			graphics::Shader* m_batch_shader;
+
+			///
+			/// Event input flag.
+			///
+			bool m_allow_input;
 		};
 
 		template<is_widget WidgetDerived, typename... Args>
@@ -214,51 +249,6 @@ namespace galaxy
 			}
 
 			return ptr;
-		}
-
-		template<is_widget WidgetDerived, typename... Args>
-		inline Tooltip* GUI::create_tooltip_for_widget(WidgetDerived* widget, Args&&... args)
-		{
-			Tooltip* ptr = nullptr;
-
-			if (m_state >= ConstructionState::THEME_SET)
-			{
-				if (widget != nullptr)
-				{
-					if (widget->m_tooltip != nullptr)
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Attempted to add tooltip to widget that already has one.");
-					}
-					else
-					{
-						widget->m_tooltip = std::make_unique<Tooltip>(std::forward<Args>(args)...);
-						ptr               = widget->m_tooltip.get();
-						ptr->m_theme      = m_theme;
-					}
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Attempted to pass a nullptr widget to GUI::create_for_widget.");
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "You must construct the GUI first.");
-			}
-
-			return ptr;
-		}
-
-		template<meta::is_class Event, is_widget WidgetDerived>
-		inline void GUI::add_event_to_widget(WidgetDerived* widget)
-		{
-			m_event_manager.subscribe<Event, WidgetDerived>(*widget);
-		}
-
-		template<meta::is_class Event, typename... Args>
-		inline void GUI::trigger(Args&&... args)
-		{
-			m_event_manager.trigger<Event>(std::forward<Args>(args)...);
 		}
 	} // namespace ui
 } // namespace galaxy

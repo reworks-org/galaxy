@@ -93,6 +93,20 @@ namespace galaxy
 			///
 			void set_pos(const float x, const float y) noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -116,14 +130,14 @@ namespace galaxy
 
 		private:
 			///
-			/// Batched sprite.
+			/// Box sprite.
 			///
-			components::BatchSprite m_sprite;
+			components::BatchSprite m_box;
 
 			///
-			/// Batched Transform.
+			/// Box Transform.
 			///
-			components::Transform m_transform;
+			components::Transform m_box_transform;
 
 			///
 			/// Text to render.
@@ -144,11 +158,6 @@ namespace galaxy
 			/// Indicator transform.
 			///
 			components::Transform m_indicator_transform;
-
-			///
-			/// Text to display in textbox.
-			///
-			std::string m_text_to_draw;
 
 			///
 			/// All the text to draw.
@@ -199,11 +208,6 @@ namespace galaxy
 			/// Indicator y.
 			///
 			float m_ind_y;
-
-			///
-			/// Prevents race conditions.
-			///
-			std::mutex m_mutex;
 
 			///
 			/// Text shader cache.

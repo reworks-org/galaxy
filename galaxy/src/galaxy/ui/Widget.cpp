@@ -14,27 +14,22 @@ namespace galaxy
 {
 	namespace ui
 	{
-		void Widget::add_sfx(std::string_view sound)
-		{
-			m_sound = SL_HANDLE.soundbook()->get(sound);
-		}
-
 		const unsigned int Widget::id() const noexcept
 		{
 			return m_id;
 		}
 
-		Widget::Widget() noexcept
-		    : m_id {0}, m_theme {nullptr}, m_tooltip {nullptr}, m_bounds {0.0f, 0.0f, 0.0f, 0.0f}, m_sound {nullptr}
+		Widget::Widget(const WidgetType type) noexcept
+		    : Serializable {this}, m_id {0}, m_theme {nullptr}, m_tooltip {nullptr}, m_bounds {0.0f, 0.0f, 0.0f, 0.0f}, m_type {type}
 		{
 		}
 
 		Widget::Widget(Widget&& w) noexcept
+		    : Serializable {this}
 		{
 			this->m_id      = w.m_id;
 			this->m_theme   = w.m_theme;
 			this->m_tooltip = std::move(w.m_tooltip);
-			this->m_sound   = w.m_sound;
 
 			w.m_id = 0;
 		}
@@ -46,7 +41,6 @@ namespace galaxy
 				this->m_id      = w.m_id;
 				this->m_theme   = w.m_theme;
 				this->m_tooltip = std::move(w.m_tooltip);
-				this->m_sound   = w.m_sound;
 
 				w.m_id = 0;
 			}
@@ -56,8 +50,6 @@ namespace galaxy
 
 		Widget::~Widget()
 		{
-			m_sound = nullptr;
-
 			m_tooltip.reset();
 			m_theme = nullptr;
 		}

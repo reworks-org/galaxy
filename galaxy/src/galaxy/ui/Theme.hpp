@@ -8,6 +8,8 @@
 #ifndef GALAXY_UI_THEME_HPP_
 #define GALAXY_UI_THEME_HPP_
 
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Shader.hpp"
@@ -20,7 +22,7 @@ namespace galaxy
 		///
 		/// Defines the theme used by the GUI.
 		///
-		class Theme final
+		class Theme final : public fs::Serializable
 		{
 		public:
 			///
@@ -43,6 +45,20 @@ namespace galaxy
 			///
 			~Theme() noexcept = default;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		public:
 			///
 			/// Font colour.
@@ -58,6 +74,11 @@ namespace galaxy
 			/// Spritebatch.
 			///
 			graphics::SpriteBatch m_sb;
+
+			///
+			/// Internal event manager.
+			///
+			events::Dispatcher m_event_manager;
 
 		private:
 			///
