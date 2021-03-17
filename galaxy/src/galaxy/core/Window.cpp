@@ -400,6 +400,120 @@ namespace galaxy
 							m_reverse_keymap.emplace(value, key);
 						}
 
+						m_prev_key_states.reserve(102);
+						m_prev_key_states.emplace(input::Keys::A, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::B, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::C, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::D, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::E, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::G, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::H, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::I, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::J, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::K, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::L, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::M, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::N, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::O, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::P, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::Q, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::R, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::S, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::T, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::U, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::V, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::W, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::X, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::Y, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::Z, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_1, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_2, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_3, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_4, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_5, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_6, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_7, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_8, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_9, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUM_0, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::MINUS, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::EQUALS, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::BACKSPACE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::GRAVE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::TAB, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::CAPS, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LSHIFT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LCNTRL, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LSTART, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LALT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::SPACE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RALT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RSTART, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::MENU, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RCNTRL, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RSHIFT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::ENTER, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::SEMICOLON, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::APOSTROPHE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::SLASH, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::PERIOD, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::COMMA, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LBRACKET, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RBRACKET, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::BACKSLASH, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::ESC, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F1, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F2, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F3, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F4, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F5, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F6, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F7, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F8, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F9, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F10, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F11, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::F12, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::PRINTSCREEN, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::SCROLL_LOCK, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::PAUSE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::INSERT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::HOME, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::PAGEUP, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::PAGEDOWN, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::END, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::DEL, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::UP, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::DOWN, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::LEFT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::RIGHT, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMLOCK, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_MULTIPLY, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_DIVIDE, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_ADD, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_ENTER, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_PERIOD, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_0, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_1, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_2, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_3, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_4, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_5, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_6, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_7, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_8, GLFW_RELEASE);
+						m_prev_key_states.emplace(input::Keys::NUMPAD_9, GLFW_RELEASE);
+
+						m_prev_mouse_btn_states[0] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[1] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[2] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[3] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[4] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[5] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[6] = GLFW_RELEASE;
+						m_prev_mouse_btn_states[7] = GLFW_RELEASE;
+
 						// Setup framebuffer.
 						m_framebuffer = std::make_unique<graphics::RenderTexture>();
 						m_framebuffer->create(m_width, m_height);
@@ -633,6 +747,50 @@ namespace galaxy
 		void Window::poll_events() noexcept
 		{
 			glfwPollEvents();
+		}
+
+		const bool Window::key_down(input::Keys key) noexcept
+		{
+			return glfwGetKey(m_window, m_keymap[key]) == GLFW_PRESS;
+		}
+
+		const bool Window::key_pressed(input::Keys key) noexcept
+		{
+			bool res  = false;
+			int state = glfwGetKey(m_window, m_keymap[key]);
+			if (m_prev_key_states[key] == GLFW_RELEASE && state == GLFW_PRESS)
+			{
+				res = true;
+			}
+
+			m_prev_key_states[key] = state;
+			return res;
+		}
+
+		const bool Window::mouse_button_pressed(input::MouseButton mouse_button) noexcept
+		{
+			bool res = false;
+
+			int state = glfwGetMouseButton(m_window, m_mouse_map[mouse_button]);
+			if (state == GLFW_PRESS && m_prev_mouse_btn_states[m_mouse_map[mouse_button]] == GLFW_RELEASE)
+			{
+				res = true;
+			}
+
+			m_prev_mouse_btn_states[m_mouse_map[mouse_button]] = state;
+
+			return res;
+		}
+
+		const bool Window::mouse_button_released(input::MouseButton mouse_button) noexcept
+		{
+			if (glfwGetMouseButton(m_window, m_mouse_map[mouse_button]) == GLFW_RELEASE)
+			{
+				m_prev_mouse_btn_states[m_mouse_map[mouse_button]] = GLFW_RELEASE;
+				return true;
+			}
+
+			return false;
 		}
 
 		void Window::set_scene_dispatcher(events::Dispatcher* dispatcher) noexcept

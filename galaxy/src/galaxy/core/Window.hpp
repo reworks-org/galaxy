@@ -213,6 +213,44 @@ namespace galaxy
 			void poll_events() noexcept;
 
 			///
+			/// \brief See if a key is being held down.
+			///
+			/// This will pick up repeated events.
+			///
+			/// \param key Key to check.
+			///
+			/// \return True if key is currently down.
+			///
+			[[nodiscard]] const bool key_down(input::Keys key) noexcept;
+
+			///
+			/// Check if a key was pressed once.
+			///
+			/// \param key Key to check.
+			///
+			/// \return True if key was pressed once.
+			///
+			[[nodiscard]] const bool key_pressed(input::Keys key) noexcept;
+
+			///
+			/// Check if a mouse button was pressed.
+			///
+			/// \param mouse_button mouse button keycode.
+			///
+			/// \return True if a press occured.
+			///
+			[[nodiscard]] const bool mouse_button_pressed(input::MouseButton mouse_button) noexcept;
+
+			///
+			/// Check if a mouse button was released.
+			///
+			/// \param mouse_button mouse button keycode.
+			///
+			/// \return True if a release occured.
+			///
+			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
+
+			///
 			/// \brief Set current scene dispatcher.
 			///
 			/// Best set/unset when scene is pushed/popped.
@@ -334,6 +372,16 @@ namespace galaxy
 			/// Map of GLFW key codes to galaxy keys.
 			///
 			robin_hood::unordered_flat_map<int, input::Keys> m_reverse_keymap;
+
+			///
+			/// Previous key states.
+			///
+			robin_hood::unordered_flat_map<input::Keys, int> m_prev_key_states;
+
+			///
+			/// Previous mouse button states.
+			///
+			std::array<int, 8> m_prev_mouse_btn_states;
 
 			///
 			/// String for text input.
