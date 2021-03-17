@@ -26,7 +26,7 @@ namespace sc
 		{
 			if (ImGui::Begin("Camera Editor"))
 			{
-				auto& camera = m_cur_instance->get_stack().top()->camera();
+				auto& camera = m_cur_instance->get_stack().top()->m_camera;
 
 				ImGui::Text("Move");
 

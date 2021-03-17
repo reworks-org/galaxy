@@ -53,7 +53,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Create"))
 					{
-						m_cur_instance->get_stack().top()->world().create();
+						m_cur_instance->get_stack().top()->m_world.create();
 					}
 
 					if (ImGui::MenuItem("Create from JSON"))
@@ -66,7 +66,7 @@ namespace sc
 							}
 							else
 							{
-								m_cur_instance->get_stack().top()->world().create_from_json(file.value());
+								m_cur_instance->get_stack().top()->m_world.create_from_json(file.value());
 							}
 						});
 					}
@@ -75,7 +75,7 @@ namespace sc
 				}
 
 				static std::string s_entity_label;
-				auto& world = m_cur_instance->get_stack().top()->world();
+				auto& world = m_cur_instance->get_stack().top()->m_world;
 				world.each([&](const ecs::Entity entity) {
 					auto* tag = world.get<components::Tag>(entity);
 					if (tag)
@@ -398,7 +398,7 @@ namespace sc
 		{
 			// clang-format off
 			auto [animated, batchsprite, oncollision, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
-			= m_cur_instance->get_stack().top()->world().get_multi<
+			= m_cur_instance->get_stack().top()->m_world.get_multi<
 				components::Animated, 
 				components::BatchSprite,
 				components::OnCollision,

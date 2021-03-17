@@ -23,8 +23,6 @@
 
 #include "../Project.hpp"
 
-#include "editor/EditorScene.hpp"
-
 using namespace galaxy;
 
 namespace sc

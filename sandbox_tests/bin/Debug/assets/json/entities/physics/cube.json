@@ -24,7 +24,7 @@
             "height": 32
         },
         "OnCollision":{
-            "script": "on_click"
+            "script": "on_collide"
         }
     }
 }

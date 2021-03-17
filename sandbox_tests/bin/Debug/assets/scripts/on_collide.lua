@@ -1,0 +1,1 @@
+galaxy_log(2, "Collision detected.")

@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/scenes/GUIScene.hpp"
-#include "galaxy/scenes/WorldScene.hpp"
-
 #include "Instance.hpp"
 
 namespace galaxy
@@ -29,7 +26,7 @@ namespace galaxy
 			return m_name;
 		}
 
-		scenes::SceneStack& Instance::get_stack() noexcept
+		core::SceneStack& Instance::get_stack() noexcept
 		{
 			return m_scene_stack;
 		}

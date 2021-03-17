@@ -32,7 +32,7 @@ namespace sc
 		m_window = SL_HANDLE.window();
 
 		m_framebuffer.create(1, 1);
-		m_scene_stack.create<EditorScene>("EditorScene");
+		m_scene_stack.create("EditorScene");
 		m_scene_stack.push("EditorScene");
 
 		// clang-format off
@@ -94,11 +94,6 @@ namespace sc
 				if (!ImGui_ImplGlfw::g_BlockInput)
 				{
 					// Editor hotkeys.
-				}
-
-				if (m_window->key_pressed(input::Keys::ESC))
-				{
-					exit();
 				}
 
 				m_scene_stack.events();
@@ -411,8 +406,8 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
-				m_project->m_instance->get_stack().top()->camera().set_width(m_viewport_size.x);
-				m_project->m_instance->get_stack().top()->camera().set_height(m_viewport_size.y);
+				m_project->m_instance->get_stack().top()->m_camera.set_width(m_viewport_size.x);
+				m_project->m_instance->get_stack().top()->m_camera.set_height(m_viewport_size.y);
 			}
 
 			if (m_mouse_picked)
@@ -420,8 +415,8 @@ namespace sc
 				const constexpr static auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 				glm::vec2 pos;
-				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_project->m_instance->get_stack().top()->camera().get_pos().x;
-				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_project->m_instance->get_stack().top()->camera().get_pos().y;
+				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_project->m_instance->get_stack().top()->m_camera.get_pos().x;
+				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_project->m_instance->get_stack().top()->m_camera.get_pos().y;
 
 				/*
 				auto* tree = m_editor_scene->get_collision_system()->get_tree();
@@ -449,7 +444,7 @@ namespace sc
 				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 
-				m_project->m_instance->get_stack().top()->camera().move(delta.x, delta.y);
+				m_project->m_instance->get_stack().top()->m_camera.move(delta.x, delta.y);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 			}
 			else
@@ -479,7 +474,7 @@ namespace sc
 		m_project             = std::make_unique<Project>(path);
 		m_project->m_instance = std::make_shared<Game>();
 
-		m_project->m_instance->get_stack().create<scenes::WorldScene>("Default Scene");
+		m_project->m_instance->get_stack().create("Default Scene");
 		m_project->m_instance->get_stack().push("Default Scene");
 
 		m_camera_panel.set_instance(m_project->m_instance.get());

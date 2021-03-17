@@ -8,13 +8,17 @@
 #ifndef SANDBOXTESTS_LAYERS_SANDBOX_HPP_
 #define SANDBOXTESTS_LAYERS_SANDBOX_HPP_
 
+#include <galaxy/async/Timer.hpp>
 #include <galaxy/core/Instance.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/graphics/Camera.hpp>
+#include <galaxy/map/Map.hpp>
+
+using namespace galaxy;
 
 namespace sb
 {
-	class Sandbox final : public galaxy::core::Instance
+	class Sandbox final : public core::Instance
 	{
 	public:
 		Sandbox();
@@ -26,7 +30,16 @@ namespace sb
 		void render() override;
 
 	private:
-		galaxy::core::Window* m_window;
+		void create_sandbox_scene();
+		void create_physics_scene();
+		void create_map_scene();
+
+	private:
+		core::Window* m_window;
+		async::Timer m_timer;
+
+		ecs::Entity m_cube;
+		map::Map m_map;
 	};
 } // namespace sb
 

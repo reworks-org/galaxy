@@ -9,7 +9,7 @@
 
 namespace galaxy
 {
-	namespace scenes
+	namespace core
 	{
 		SceneStack::SceneStack() noexcept
 		    : Serializable {this}
@@ -21,7 +21,35 @@ namespace galaxy
 			clear();
 		}
 
-		std::shared_ptr<scenes::Scene> SceneStack::top()
+		std::shared_ptr<Scene> SceneStack::create(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+			if (m_scenes.contains(str))
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to create a scene that already exists!");
+			}
+			else
+			{
+				m_scenes[str] = std::make_shared<Scene>(str);
+				return m_scenes[str];
+			}
+		}
+
+		std::shared_ptr<Scene> SceneStack::get(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+			if (m_scenes.contains(str))
+			{
+				return m_scenes[str];
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve non-existant scene: {0}.", name);
+				return nullptr;
+			}
+		}
+
+		std::shared_ptr<core::Scene> SceneStack::top()
 		{
 			if (!m_stack.empty())
 			{
@@ -89,7 +117,7 @@ namespace galaxy
 			{
 				if (!m_stack.empty())
 				{
-					if (m_stack.back()->get_name() != str)
+					if (m_stack.back()->m_name != str)
 					{
 						m_stack.push_back(m_scenes[str]);
 						m_stack.back()->on_push();
@@ -167,7 +195,7 @@ namespace galaxy
 			auto& scene_stack = json.at("scene-stack");
 			for (std::size_t i = 0; i < m_stack.size(); i++)
 			{
-				scene_stack[std::to_string(i)] = m_stack[i]->get_name();
+				scene_stack[std::to_string(i)] = m_stack[i]->m_name;
 			}
 
 			json["stack-size"] = m_stack.size();
@@ -182,20 +210,13 @@ namespace galaxy
 			const auto& scenes = json.at("scenes");
 			for (const auto& [key, value] : scenes.items())
 			{
-				if (value.at("type") == "WORLD")
-				{
-					create<scenes::WorldScene>(key);
-				}
-				else if (value.at("type") == "GUI")
-				{
-					create<scenes::GUIScene>(key);
-				}
-
+				create(key);
 				m_scenes[key]->deserialize(value);
 			}
 
 			std::vector<std::string> names;
 			names.resize(json.at("stack-size"));
+
 			const auto& scene_stack = json.at("scene-stack");
 			for (const auto& [key, value] : scene_stack.items())
 			{
@@ -207,5 +228,5 @@ namespace galaxy
 				push(name);
 			}
 		}
-	} // namespace scenes
+	} // namespace core
 } // namespace galaxy
