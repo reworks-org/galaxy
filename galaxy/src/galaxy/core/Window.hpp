@@ -274,9 +274,9 @@ namespace galaxy
 			///
 			/// Get current cursor position.
 			///
-			/// \return Returns cursor position as a const reference to a glm::vec2.
+			/// \return Returns cursor position as a glm::vec2.
 			///
-			[[nodiscard]] const glm::vec2& get_cursor_pos() noexcept;
+			[[nodiscard]] glm::vec2 get_cursor_pos() noexcept;
 
 			///
 			/// Retrieve pointer to GLFWwindow object.

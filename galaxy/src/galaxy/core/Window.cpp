@@ -210,7 +210,7 @@ namespace galaxy
 
 							if (this_win->m_scene_dispatcher)
 							{
-								const auto& pos = this_win->get_cursor_pos();
+								const auto pos = this_win->get_cursor_pos();
 								switch (action)
 								{
 									case GLFW_PRESS:
@@ -811,7 +811,7 @@ namespace galaxy
 			m_inputting_text = false;
 		}
 
-		const glm::vec2& Window::get_cursor_pos() noexcept
+		glm::vec2 Window::get_cursor_pos() noexcept
 		{
 			glfwGetCursorPos(m_window, &m_cursor.m_pos.x, &m_cursor.m_pos.y);
 			return m_cursor.m_pos;
