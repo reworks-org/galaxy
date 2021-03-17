@@ -70,21 +70,21 @@ namespace galaxy
 			///
 			/// \param e Takes in a shared galaxy event defining a key press down.
 			///
-			void on_key_down(const events::KeyDown& e) noexcept;
+			void on_event(const events::KeyDown& e) noexcept;
 
 			///
 			/// Event processing method for key up for camera.
 			///
 			/// \param e Takes in a shared galaxy event defining a key release.
 			///
-			void on_key_up(const events::KeyUp& e) noexcept;
+			void on_event(const events::KeyUp& e) noexcept;
 
 			///
 			/// Event processing method for scroll event for camera.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
-			void on_scroll(const events::MouseWheel& e) noexcept;
+			void on_event(const events::MouseWheel& e) noexcept;
 
 			///
 			/// Event window resizing.

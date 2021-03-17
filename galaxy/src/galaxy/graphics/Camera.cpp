@@ -54,7 +54,7 @@ namespace galaxy
 			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		void Camera::on_key_down(const events::KeyDown& e) noexcept
+		void Camera::on_event(const events::KeyDown& e) noexcept
 		{
 			switch (e.m_keycode)
 			{
@@ -76,7 +76,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_key_up(const events::KeyUp& e) noexcept
+		void Camera::on_event(const events::KeyUp& e) noexcept
 		{
 			switch (e.m_keycode)
 			{
@@ -98,7 +98,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_scroll(const events::MouseWheel& e) noexcept
+		void Camera::on_event(const events::MouseWheel& e) noexcept
 		{
 			if (e.m_y_offset < 0)
 			{
