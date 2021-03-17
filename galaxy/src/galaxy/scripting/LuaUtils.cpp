@@ -489,7 +489,6 @@ namespace galaxy
 			camera_type["get_transform"] = &graphics::Camera::get_view;
 			camera_type["move_x"]        = &graphics::Camera::move_x;
 			camera_type["move_y"]        = &graphics::Camera::move_y;
-			camera_type["on_scroll"]     = &graphics::Camera::on_scroll;
 			camera_type["set_width"]     = &graphics::Camera::set_width;
 			camera_type["set_height"]    = &graphics::Camera::set_height;
 
