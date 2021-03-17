@@ -94,9 +94,10 @@ namespace galaxy
 			auto& funcs = std::any_cast<std::vector<std::function<void(const Event&)>>&>(m_event_functions);
 
 			// Figure out at compile time which action to execute for this function instance.
-			constexpr bool is_trigger = std::is_same<Action, meta::TriggerAction>::value;
-			constexpr bool is_add     = std::is_same<Action, meta::AddAction>::value;
-			constexpr bool is_destroy = std::is_same<Action, meta::DestroyAction>::value;
+			constexpr bool is_trigger      = std::is_same<Action, meta::TriggerAction>::value;
+			constexpr bool is_add          = std::is_same<Action, meta::AddAction>::value;
+			constexpr bool is_add_callback = std::is_same<Action, meta::AddCallbackAction>::value;
+			constexpr bool is_destroy      = std::is_same<Action, meta::DestroyAction>::value;
 
 			// Discard unused branches and only compile used option.
 			if constexpr (is_trigger)
@@ -116,7 +117,18 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Too many arguments being passed when adding function.");
+					GALAXY_LOG(GALAXY_ERROR, "Too many arguments being passed when adding event class.");
+				}
+			}
+			else if constexpr (is_add_callback)
+			{
+				if constexpr (sizeof...(Args) == 1)
+				{
+					funcs.emplace_back(args...);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Too many arguments being passed when adding event callback.");
 				}
 			}
 			else if constexpr (is_destroy)

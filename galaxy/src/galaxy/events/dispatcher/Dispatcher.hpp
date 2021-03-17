@@ -12,7 +12,6 @@
 
 #include <robin_hood.h>
 
-#include "galaxy/error/Log.hpp"
 #include "galaxy/events/dispatcher/Storage.hpp"
 
 namespace galaxy
@@ -46,8 +45,9 @@ namespace galaxy
 			~Dispatcher();
 
 			///
-			/// \brief Registers a function to be called on the triggering of an event.
+			/// \brief Registers an on_event function from a reciever.
 			///
+			/// Function will be called on the triggering of an event.
 			/// Event is the event to register.
 			/// Receiver is the type of object.
 			///
@@ -55,6 +55,14 @@ namespace galaxy
 			///
 			template<meta::is_class Event, meta::is_class Receiver>
 			void subscribe(Receiver& receiver) requires meta::has_on_event_for<Receiver, Event>;
+
+			///
+			/// Registers a function callback for an event, without needing a class.
+			///
+			/// \param func Function to set for event.
+			///
+			template<meta::is_class Event, typename Lambda>
+			void subscribe_callback(Lambda&& func);
 
 			///
 			/// Triggers a single event.
@@ -80,6 +88,14 @@ namespace galaxy
 			///
 			Dispatcher& operator=(const Dispatcher&) = delete;
 
+			///
+			/// Checks if an event storage needs to be constructed.
+			///
+			/// \return Returns event type from DispatcherUID.
+			///
+			template<meta::is_class Event>
+			const std::size_t construct_storage();
+
 		private:
 			///
 			/// Stores the event functions.
@@ -90,6 +106,31 @@ namespace galaxy
 		template<meta::is_class Event, meta::is_class Receiver>
 		inline void Dispatcher::subscribe(Receiver& receiver) requires meta::has_on_event_for<Receiver, Event>
 		{
+			const auto type = construct_storage<Event>();
+			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddAction, Receiver>(receiver);
+		}
+
+		template<meta::is_class Event, typename Lambda>
+		inline void Dispatcher::subscribe_callback(Lambda&& func)
+		{
+			const auto type = construct_storage<Event>();
+			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddCallbackAction>(func);
+		}
+
+		template<meta::is_class Event, typename... Args>
+		inline void Dispatcher::trigger(Args&&... args)
+		{
+			const auto type = meta::DispatcherUID::get<Event>();
+			if (m_event_funcs.contains(type))
+			{
+				Event e {std::forward<Args>(args)...};
+				m_event_funcs[type].apply_action_to_subscribers<Event, meta::TriggerAction>(e);
+			}
+		}
+
+		template<meta::is_class Event>
+		inline const std::size_t Dispatcher::construct_storage()
+		{
 			const auto type = meta::DispatcherUID::get<Event>();
 
 			if (!m_event_funcs.contains(type))
@@ -98,22 +139,7 @@ namespace galaxy
 				m_event_funcs[type].create_storage<Event>();
 			}
 
-			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddAction, Receiver>(receiver);
-		}
-
-		template<meta::is_class Event, typename... Args>
-		inline void Dispatcher::trigger(Args&&... args)
-		{
-			const auto type = meta::DispatcherUID::get<Event>();
-			if (!m_event_funcs.contains(type))
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to trigger event with no subscribers.");
-			}
-			else
-			{
-				Event e {std::forward<Args>(args)...};
-				m_event_funcs[type].apply_action_to_subscribers<Event, meta::TriggerAction>(e);
-			}
+			return type;
 		}
 
 	} // namespace events

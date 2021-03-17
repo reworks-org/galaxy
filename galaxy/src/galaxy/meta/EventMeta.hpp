@@ -47,7 +47,7 @@ namespace galaxy
 		///
 		/// Type to specify the triggering of events.
 		///
-		struct TriggerAction
+		struct TriggerAction final
 		{
 			TriggerAction() = delete;
 		};
@@ -55,15 +55,23 @@ namespace galaxy
 		///
 		/// Type to specify the adding of an event function.
 		///
-		struct AddAction
+		struct AddAction final
 		{
 			AddAction() = delete;
 		};
 
 		///
+		/// Type to specify the adding of a callback for an event.
+		///
+		struct AddCallbackAction final
+		{
+			AddCallbackAction() = delete;
+		};
+
+		///
 		/// Type to specify the destruction of the event function storage.
 		///
-		struct DestroyAction
+		struct DestroyAction final
 		{
 			DestroyAction() = delete;
 		};
@@ -84,6 +92,7 @@ namespace galaxy
 		concept is_action =
 		    (std::is_same<Type, TriggerAction>::value ||
 		     std::is_same<Type, AddAction>::value ||
+		     std::is_same<Type, AddCallbackAction>::value ||
 		     std::is_same<Type, DestroyAction>::value);
 	} // namespace meta
 } // namespace galaxy
