@@ -56,12 +56,64 @@ namespace galaxy
 
 		Map::Map(Map&& m) noexcept
 		{
+			this->m_loaded            = m.m_loaded;
+			this->m_root              = std::move(m.m_root);
+			this->m_bg_colour         = std::move(m.m_bg_colour);
+			this->m_compression_level = m.m_compression_level;
+			this->m_height            = m.m_height;
+			this->m_hex_side_length   = m.m_hex_side_length;
+			this->m_infinite          = m.m_infinite;
+			this->m_tile_layers       = std::move(m.m_tile_layers);
+			this->m_object_layers     = std::move(m.m_object_layers);
+			this->m_image_layers      = std::move(m.m_image_layers);
+			this->m_next_layer_id     = m.m_next_layer_id;
+			this->m_next_object_id    = m.m_next_object_id;
+			this->m_orientation       = std::move(m.m_orientation);
+			this->m_properties        = std::move(m.m_properties);
+			this->m_render_order      = std::move(m.m_render_order);
+			this->m_stagger_axis      = std::move(m.m_stagger_axis);
+			this->m_stagger_index     = std::move(m.m_stagger_index);
+			this->m_tiled_version     = std::move(m.m_tiled_version);
+			this->m_tile_height       = m.m_tile_height;
+			this->m_tilesets          = std::move(m.m_tilesets);
+			this->m_tile_width        = m.m_tile_width;
+			this->m_type              = std::move(m.m_type);
+			this->m_version           = m.m_version;
+			this->m_width             = m.m_width;
+			this->m_data              = std::move(m.m_data);
+			this->m_object_entities   = std::move(m.m_object_entities);
 		}
 
 		Map& Map::operator=(Map&& m) noexcept
 		{
 			if (this != &m)
 			{
+				this->m_loaded            = m.m_loaded;
+				this->m_root              = std::move(m.m_root);
+				this->m_bg_colour         = std::move(m.m_bg_colour);
+				this->m_compression_level = m.m_compression_level;
+				this->m_height            = m.m_height;
+				this->m_hex_side_length   = m.m_hex_side_length;
+				this->m_infinite          = m.m_infinite;
+				this->m_tile_layers       = std::move(m.m_tile_layers);
+				this->m_object_layers     = std::move(m.m_object_layers);
+				this->m_image_layers      = std::move(m.m_image_layers);
+				this->m_next_layer_id     = m.m_next_layer_id;
+				this->m_next_object_id    = m.m_next_object_id;
+				this->m_orientation       = std::move(m.m_orientation);
+				this->m_properties        = std::move(m.m_properties);
+				this->m_render_order      = std::move(m.m_render_order);
+				this->m_stagger_axis      = std::move(m.m_stagger_axis);
+				this->m_stagger_index     = std::move(m.m_stagger_index);
+				this->m_tiled_version     = std::move(m.m_tiled_version);
+				this->m_tile_height       = m.m_tile_height;
+				this->m_tilesets          = std::move(m.m_tilesets);
+				this->m_tile_width        = m.m_tile_width;
+				this->m_type              = std::move(m.m_type);
+				this->m_version           = m.m_version;
+				this->m_width             = m.m_width;
+				this->m_data              = std::move(m.m_data);
+				this->m_object_entities   = std::move(m.m_object_entities);
 			}
 
 			return *this;
