@@ -56,3 +56,7 @@ https://gamedev.stackexchange.com/questions/181304/ecs-as-part-of-the-rendering-
 https://gamedev.stackexchange.com/questions/31473/what-is-the-role-of-systems-in-a-component-based-entity-architecture/31491#31491
 https://gamedev.stackexchange.com/questions/135784/how-do-i-better-organise-rendering-in-an-entity-component-system
 https://gamedev.stackexchange.com/questions/181304/ecs-as-part-of-the-rendering-pipeline-of-an-engine
+
+https://old.reddit.com/r/gamedev/comments/8pkol6/create_a_game_engine_that_can_export_an_executable/
+https://gamedev.net/forums/topic/563740-in-game-editor-vs-separate-editor/4611826/
+https://gamedev.stackexchange.com/questions/17331/game-engine-and-data-driven-design

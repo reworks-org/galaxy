@@ -15,9 +15,12 @@ SUPERCLUSTER:
 - expose more to lua
 - scene graph
 	- entity heirachy
-- rewrite serializer class
+- properly seperate game mode from editor mode
+- entity editor for particle generator
+- hot reloading
 
 TODO:
+- convert particles to ecs structure.
 - Fix CA and Compilation Warnings.
 - Docs error fix.
 - Dependencies should only abstract away system specific implementations.
@@ -33,10 +36,11 @@ TODO:
 convert type classes to enums (log, vertexs, etc...).
 - fix audio encapsulation / scene integration
 	- since its threaded
-- collisonsystem should not need rendering information
 - async log
 - z ordering in spritebatches / in general / rendersystem / etc
 - texture tooltip
+- for scene push/pop run lua script?
+- particle gen
 
 IDE:
 - MSVC CA
@@ -44,23 +48,10 @@ IDE:
 - CLANG FORMAT
 - INCLUDE MANAGER
 
-
-Supercluster is the game with an extra layer.
-will need to export custom main and game layer.
-
 EXPORTING:
+- Supercluster is the game with an extra layer.
+- will need to export custom main and game layer.
 - Engine will export a custom gamelayer and main.cpp along with a cmakelists file to build the game.
 - that way supercluster will strip out the editorlayer when compiling.
 - supercluster is just the game with an editor layer.
 - strip out when exporting.
-
-https://gamedev.stackexchange.com/questions/17331/game-engine-and-data-driven-design
-https://gamedev.net/forums/topic/563740-in-game-editor-vs-separate-editor/4611826/
-https://old.reddit.com/r/gamedev/comments/8pkol6/create_a_game_engine_that_can_export_an_executable/
-
-
-
-
-Need to add a "New project" screen.
-Need to add a default scene to an instance.
-properly seperate game mode from editor mode
