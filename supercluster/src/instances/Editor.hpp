@@ -13,7 +13,6 @@
 #include <galaxy/graphics/texture/RenderTexture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
-#include "editor/panels/CameraPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
@@ -64,9 +63,7 @@ namespace sc
 		bool m_viewport_hovered = false;
 		bool m_mouse_dragging   = false;
 		bool m_mouse_picked     = false;
-		bool m_game_mode        = false;
 
-		panel::CameraPanel m_camera_panel;
 		panel::EntityEditor m_entity_panel;
 		panel::JSONEditor m_json_panel;
 		panel::LuaConsole m_console;

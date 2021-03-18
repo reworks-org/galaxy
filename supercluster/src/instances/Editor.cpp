@@ -12,6 +12,7 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
+#include <galaxy/systems/CollisionSystem.hpp>
 
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
@@ -28,9 +29,10 @@ namespace sc
 {
 	Editor::Editor()
 	{
-		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		m_name   = "Editor";
 		m_window = SL_HANDLE.window();
 
+		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		m_framebuffer.create(1, 1);
 		m_scene_stack.create("EditorScene");
 		m_scene_stack.push("EditorScene");
@@ -72,35 +74,25 @@ namespace sc
 	{
 		if (!m_first_start)
 		{
-			if (!m_game_mode)
+			if (m_viewport_focused && m_viewport_hovered)
 			{
-				if (m_viewport_focused && m_viewport_hovered)
-				{
-					ImGui_ImplGlfw::g_BlockInput = true;
+				ImGui_ImplGlfw::g_BlockInput = true;
 
-					m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
+				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
 
-					if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
-					{
-						m_mouse_picked = true;
-					}
-				}
-				else
+				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
 				{
-					m_mouse_dragging             = false;
-					ImGui_ImplGlfw::g_BlockInput = false;
+					m_mouse_picked = true;
 				}
 
-				if (!ImGui_ImplGlfw::g_BlockInput)
-				{
-					// Editor hotkeys.
-				}
-
-				m_scene_stack.events();
+				m_project->m_instance->get_stack().events();
+				m_window->set_scene_dispatcher(&m_project->get_top_scene()->m_dispatcher);
 			}
 			else
 			{
-				m_project->m_instance->get_stack().events();
+				m_window->set_scene_dispatcher(nullptr);
+				m_mouse_dragging             = false;
+				ImGui_ImplGlfw::g_BlockInput = false;
 			}
 		}
 	}
@@ -109,14 +101,7 @@ namespace sc
 	{
 		if (!m_first_start)
 		{
-			if (!m_game_mode)
-			{
-				m_scene_stack.update(dt);
-			}
-			else
-			{
-				m_project->m_instance->get_stack().update(dt);
-			}
+			m_project->m_instance->get_stack().update(dt);
 		}
 	}
 
@@ -128,40 +113,26 @@ namespace sc
 		}
 		else
 		{
-			if (!m_game_mode)
+			for (const auto& gl_operation : m_gl_operations)
 			{
-				for (const auto& gl_operation : m_gl_operations)
-				{
-					gl_operation();
-				}
-
-				m_gl_operations.clear();
-
-				m_scene_stack.pre_render();
-
-				m_framebuffer.bind();
-				m_scene_stack.render();
-				m_framebuffer.unbind();
-
-				imgui_render();
+				gl_operation();
 			}
-			else
-			{
-				m_project->m_instance->get_stack().pre_render();
-			}
+
+			m_gl_operations.clear();
+
+			m_project->m_instance->get_stack().pre_render();
+
+			m_framebuffer.bind();
+			m_project->m_instance->get_stack().render();
+			m_framebuffer.unbind();
+
+			imgui_render();
 		}
 	}
 
 	void Editor::render()
 	{
-		if (!m_game_mode)
-		{
-			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-		}
-		else
-		{
-			m_project->m_instance->get_stack().render();
-		}
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void Editor::on_event(const events::WindowResized& event)
@@ -206,6 +177,8 @@ namespace sc
 
 						save_project();
 						new_project(file.value());
+						m_project->m_instance->get_stack().create("Base");
+						m_project->m_instance->get_stack().push("Base");
 					}
 					else
 					{
@@ -344,19 +317,16 @@ namespace sc
 		ImGui::Begin("Play Game", NULL, ImGuiWindowFlags_AlwaysAutoResize);
 		if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
 		{
-			m_game_mode = true;
 		}
 
 		ImGui::SameLine();
 
 		if (ImGui::Button(" || ##PauseSceneButton"))
 		{
-			m_game_mode = false;
 		}
 
 		ImGui::End();
 
-		m_camera_panel.render();
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
@@ -406,8 +376,8 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
-				m_project->m_instance->get_stack().top()->m_camera.set_width(m_viewport_size.x);
-				m_project->m_instance->get_stack().top()->m_camera.set_height(m_viewport_size.y);
+				m_project->get_top_scene()->m_camera.set_width(m_viewport_size.x);
+				m_project->get_top_scene()->m_camera.set_height(m_viewport_size.y);
 			}
 
 			if (m_mouse_picked)
@@ -415,11 +385,10 @@ namespace sc
 				const constexpr static auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 				glm::vec2 pos;
-				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_project->m_instance->get_stack().top()->m_camera.get_pos().x;
-				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_project->m_instance->get_stack().top()->m_camera.get_pos().y;
+				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_project->get_top_scene()->m_camera.get_pos().x;
+				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_project->get_top_scene()->m_camera.get_pos().y;
 
-				/*
-				auto* tree = m_editor_scene->get_collision_system()->get_tree();
+				auto* tree = m_project->get_top_scene()->m_world.get_system<systems::CollisionSystem>()->get_tree();
 				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
 
 				// Will be erased by collision system, as this is after update().
@@ -434,7 +403,6 @@ namespace sc
 				{
 					m_entity_panel.set_selected_entity(std::nullopt);
 				}
-				*/
 
 				m_mouse_picked = false;
 			}
@@ -444,7 +412,7 @@ namespace sc
 				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 
-				m_project->m_instance->get_stack().top()->m_camera.move(delta.x, delta.y);
+				m_project->get_top_scene()->m_camera.move(delta.x, delta.y);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 			}
 			else
@@ -474,10 +442,6 @@ namespace sc
 		m_project             = std::make_unique<Project>(path);
 		m_project->m_instance = std::make_shared<Game>();
 
-		m_project->m_instance->get_stack().create("Default Scene");
-		m_project->m_instance->get_stack().push("Default Scene");
-
-		m_camera_panel.set_instance(m_project->m_instance.get());
 		m_entity_panel.set_instance(m_project->m_instance.get());
 	}
 
@@ -499,9 +463,9 @@ namespace sc
 		ImGui::Begin("Supercluster", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::SetCursorPos({ImGui::GetWindowSize().x / 2.0f, ImGui::GetWindowSize().y / 2.0f});
+		ImGui::SetCursorPos({ImGui::GetWindowSize().x / 2.0f - 200, ImGui::GetWindowSize().y / 2.0f});
 
-		if (ImGui::Button("New"))
+		if (ImGui::Button("New", {100, 50}))
 		{
 			auto file = SL_HANDLE.vfs()->show_save_dialog();
 
@@ -511,6 +475,8 @@ namespace sc
 
 				save_project();
 				new_project(file.value());
+				m_project->m_instance->get_stack().create("Base");
+				m_project->m_instance->get_stack().push("Base");
 
 				m_first_start = false;
 			}
@@ -522,7 +488,7 @@ namespace sc
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("Open"))
+		if (ImGui::Button("Open", {100, 50}))
 		{
 			auto file = SL_HANDLE.vfs()->show_open_dialog();
 			if (file != std::nullopt)
@@ -549,7 +515,7 @@ namespace sc
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("Exit"))
+		if (ImGui::Button("Exit", {100, 50}))
 		{
 			exit();
 		}
