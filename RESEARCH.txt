@@ -60,3 +60,10 @@ https://gamedev.stackexchange.com/questions/181304/ecs-as-part-of-the-rendering-
 https://old.reddit.com/r/gamedev/comments/8pkol6/create_a_game_engine_that_can_export_an_executable/
 https://gamedev.net/forums/topic/563740-in-game-editor-vs-separate-editor/4611826/
 https://gamedev.stackexchange.com/questions/17331/game-engine-and-data-driven-design
+
+https://www.mono-project.com/docs/advanced/embedding/
+https://github.com/ocornut/imgui/wiki/Useful-Widgets#text-editors
+https://docs.unity3d.com/560/Documentation/Manual/MonoDevelop.html
+https://docs.unity3d.com/Manual/ManagedCodeDebugging.html
+https://docs.godotengine.org/en/stable/getting_started/step_by_step/scenes_and_nodes.html
+https://docs.godotengine.org/en/stable/index.html
