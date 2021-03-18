@@ -20,6 +20,8 @@ namespace sc
 		{
 			auto* openal = SL_HANDLE.openal();
 			ImGui::Begin("Audio Panel");
+			ImGui::Text("OpenAL Context Panel");
+			ImGui::Spacing();
 
 			static float s_factor = openal->get_dopper_factor();
 			if (ImGui::SliderFloat("Doppler Factor", &s_factor, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
@@ -77,6 +79,8 @@ namespace sc
 				openal->set_listener_velocity(vel);
 			}
 
+			ImGui::Spacing();
+			ImGui::Separator();
 			ImGui::End();
 		}
 	} // namespace panel
