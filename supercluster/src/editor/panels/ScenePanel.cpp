@@ -52,6 +52,11 @@ namespace sc
 						flags |= ImGuiTreeNodeFlags_Selected;
 					}
 
+					if (m_selected.empty() || m_selected != name)
+					{
+						ImGui::SetNextItemOpen(false);
+					}
+
 					const bool is_open = ImGui::TreeNodeEx(name.c_str(), flags);
 					if (ImGui::IsItemClicked())
 					{
@@ -60,8 +65,6 @@ namespace sc
 
 					if (is_open)
 					{
-						ImGui::Spacing();
-						ImGui::InputText("Name", &scene->m_name, ImGuiInputTextFlags_AutoSelectAll);
 						ImGui::Spacing();
 
 						if (ImGui::Button("Push"))
@@ -122,7 +125,6 @@ namespace sc
 						}
 
 						ImGui::Spacing();
-						ImGui::Separator();
 						ImGui::TreePop();
 					}
 				}
