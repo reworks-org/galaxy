@@ -11,6 +11,7 @@ namespace sc
 {
 	Game::Game()
 	{
+		m_name = "Game";
 	}
 
 	Game::~Game()
