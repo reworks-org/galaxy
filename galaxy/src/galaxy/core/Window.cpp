@@ -201,7 +201,10 @@ namespace galaxy
 						glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
-							this_win->m_scene_dispatcher->trigger<events::MouseMoved>(xpos, ypos);
+							if (this_win->m_scene_dispatcher)
+							{
+								this_win->m_scene_dispatcher->trigger<events::MouseMoved>(xpos, ypos);
+							}
 						});
 
 						// Mouse button callback.
