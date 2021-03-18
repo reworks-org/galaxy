@@ -59,7 +59,7 @@ namespace sc
 					if (ImGui::MenuItem("Create from JSON"))
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
-						gl_operations.push_back([this, &file]() -> void {
+						gl_operations.push_back([this, file]() -> void {
 							if (file == std::nullopt)
 							{
 								GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
@@ -874,13 +874,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("ShaderID"))
 					{
-						static std::string s_sid_buff = shaderid->m_shader_id;
-						if (ImGui::InputText("Shader ID", &s_sid_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							shaderid->m_shader_id = s_sid_buff;
-							s_sid_buff            = "";
-						}
-
+						ImGui::InputText("Shader ID", &shaderid->m_shader_id, ImGuiInputTextFlags_CharsNoBlank);
 						ImGui::EndTabItem();
 					}
 				}
@@ -892,7 +886,7 @@ namespace sc
 						if (ImGui::Button("Load"))
 						{
 							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
-							gl_operations.push_back([sprite, &file]() {
+							gl_operations.push_back([sprite, file]() {
 								if (file == std::nullopt)
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for sprite component.");
@@ -905,7 +899,7 @@ namespace sc
 							});
 						}
 
-						static float opacity = sprite->get_opacity();
+						float opacity = sprite->get_opacity();
 						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 						{
 							sprite->set_opacity(opacity);
