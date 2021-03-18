@@ -51,6 +51,13 @@ namespace sc
 		const std::string& get_path() const noexcept;
 
 		///
+		/// Get top scene.
+		///
+		/// \return Shared Pointer to top scene.
+		///
+		std::shared_ptr<core::Scene> get_top_scene();
+
+		///
 		/// Serializes object.
 		///
 		/// \return JSON object containing data to be serialized.

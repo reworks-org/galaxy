@@ -32,6 +32,11 @@ namespace sc
 		return m_path;
 	}
 
+	std::shared_ptr<core::Scene> Project::get_top_scene()
+	{
+		return m_instance->get_stack().top();
+	}
+
 	nlohmann::json Project::serialize()
 	{
 		nlohmann::json json = "{\"instance\":{}}"_json;
