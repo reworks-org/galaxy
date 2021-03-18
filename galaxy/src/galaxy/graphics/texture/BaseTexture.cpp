@@ -10,6 +10,7 @@
 #include <stb/stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "BaseTexture.hpp"
@@ -53,26 +54,33 @@ namespace galaxy
 
 		void BaseTexture::save(std::string_view file)
 		{
-			const auto path      = SL_HANDLE.vfs()->absolute(file);
-			std::string path_str = "";
-			if (path == std::nullopt)
+			if (std::filesystem::path(file).extension().string() == ".png")
 			{
-				path_str = std::filesystem::path(file).string();
+				const auto path      = SL_HANDLE.vfs()->absolute(file);
+				std::string path_str = "";
+				if (path == std::nullopt)
+				{
+					path_str = std::filesystem::path(file).string();
+				}
+				else
+				{
+					path_str = path.value();
+				}
+
+				std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
+
+				glBindTexture(GL_TEXTURE_2D, m_texture);
+				glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+
+				stbi_flip_vertically_on_write(true);
+				stbi_write_png(path_str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+
+				glBindTexture(GL_TEXTURE_2D, 0);
 			}
 			else
 			{
-				path_str = path.value();
+				GALAXY_LOG(GALAXY_ERROR, "Cannot save file: {0}, as extension is not PNG.", file);
 			}
-
-			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
-
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
-
-			stbi_flip_vertically_on_write(true);
-			stbi_write_png(path_str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
-
-			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		void BaseTexture::clamp_to_edge() noexcept
