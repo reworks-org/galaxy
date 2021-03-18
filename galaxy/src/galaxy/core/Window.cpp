@@ -231,7 +231,10 @@ namespace galaxy
 						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x, double y) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
-							this_win->m_scene_dispatcher->trigger<events::MouseWheel>(x, y);
+							if (this_win->m_scene_dispatcher)
+							{
+								this_win->m_scene_dispatcher->trigger<events::MouseWheel>(x, y);
+							}
 						});
 
 						if (settings.m_gl_debug)
