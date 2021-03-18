@@ -42,9 +42,6 @@ namespace sc
 
 	void Project::deserialize(const nlohmann::json& json)
 	{
-		m_instance = nullptr;
-		m_instance = std::make_shared<Game>();
-
 		m_instance->deserialize(json.at("instance"));
 	}
 } // namespace sc
