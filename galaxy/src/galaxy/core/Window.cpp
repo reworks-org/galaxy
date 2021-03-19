@@ -697,7 +697,10 @@ namespace galaxy
 			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 			m_fb_sprite->create();
 
-			m_scene_dispatcher->trigger<events::WindowResized>(width, height);
+			if (m_scene_dispatcher)
+			{
+				m_scene_dispatcher->trigger<events::WindowResized>(width, height);
+			}
 
 			glfwSetWindowSize(m_window, width, height);
 		}
