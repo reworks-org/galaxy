@@ -8,8 +8,6 @@
 #ifndef SUPERCLUSTER_PROJECT_HPP_
 #define SUPERCLUSTER_PROJECT_HPP_
 
-#include <string_view>
-
 #include <galaxy/fs/Serializable.hpp>
 
 #include "instances/Game.hpp"
@@ -24,69 +22,27 @@ namespace sc
 	class Project final : public fs::Serializable
 	{
 	public:
-		///
-		/// Argument constructor.
-		///
-		/// \param path Path to file on disk.
-		///
+		Project() noexcept;
 		Project(std::string_view path) noexcept;
+		~Project();
 
-		///
-		/// Export game.
-		///
+		void new_project(std::string_view path);
+		void load(std::string_view path);
+		void save();
 		void export_game();
 
-		///
-		/// Set the path to the file on disk.
-		///
-		/// \param path Path to file on disk.
-		///
 		void set_path(std::string_view path) noexcept;
 
-		///
-		/// Get the path to the file on disk.
-		///
-		/// \return Path to file on disk as const std::string reference.
-		///
 		const std::string& get_path() const noexcept;
-
-		///
-		/// Get top scene.
-		///
-		/// \return Shared Pointer to top scene.
-		///
 		std::shared_ptr<core::Scene> get_top_scene();
 
-		///
-		/// Serializes object.
-		///
-		/// \return JSON object containing data to be serialized.
-		///
 		[[nodiscard]] nlohmann::json serialize() override;
-
-		///
-		/// Deserializes from object.
-		///
-		/// \param json Json object to retrieve data from.
-		///
 		void deserialize(const nlohmann::json& json) override;
 
-	private:
-		///
-		/// Deleted default constructor.
-		///
-		Project() = delete;
-
 	public:
-		///
-		/// Project instance.
-		///
-		std::shared_ptr<Game> m_instance;
+		std::unique_ptr<Game> m_game_instance;
 
 	private:
-		///
-		/// Path to file on disk.
-		///
 		std::string m_path;
 	};
 } // namespace sc

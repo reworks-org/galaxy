@@ -5,12 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_INSTANCES_EDITOR_HPP_
-#define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
+#ifndef SUPERCLUSTER_EDITOR_EDITOR_HPP_
+#define SUPERCLUSTER_EDITOR_EDITOR_HPP_
 
-#include <galaxy/core/Instance.hpp>
-#include <galaxy/events/WindowResized.hpp>
-#include <galaxy/graphics/texture/RenderTexture.hpp>
+//#include <galaxy/events/WindowResized.hpp>
+//#include <galaxy/graphics/texture/RenderTexture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -19,42 +18,24 @@
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/ScriptEditor.hpp"
 #include "editor/panels/StdConsole.hpp"
-
-#include "../Project.hpp"
-
-using namespace galaxy;
+#include "Project.hpp"
 
 namespace sc
 {
-	class Editor final : public core::Instance
+	class Editor final
 	{
 	public:
 		Editor();
-		virtual ~Editor();
 
-		void events() override;
-		void update(const double dt) override;
-		void pre_render() override;
-		void render() override;
+		void events();
+		void pre_render();
+		void render(Project* project);
 
-		void on_event(const events::WindowResized& event);
-
-	private:
-		void imgui_render();
-		void start();
-		void end();
 		void exit();
 
-		void viewport();
-
-		void save_project();
-		void new_project(std::string_view path);
-
-		void first_start();
+		void viewport(Project* project);
 
 	private:
-		galaxy::core::Window* m_window = nullptr;
-
 		void* m_process = nullptr;
 
 		bool m_first_start      = true;
@@ -75,16 +56,14 @@ namespace sc
 		graphics::RenderTexture m_framebuffer;
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
 		OpenGLOperationStack m_gl_operations;
-
-		std::unique_ptr<Project> m_project = nullptr;
 	};
 
-	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)
+	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b) noexcept
 	{
 		return ((a.x == b.x) && (a.y == b.y));
 	}
 
-	[[nodiscard]] inline const bool operator!=(const ImVec2& a, const ImVec2& b)
+	[[nodiscard]] inline const bool operator!=(const ImVec2& a, const ImVec2& b) noexcept
 	{
 		return !(a == b);
 	}

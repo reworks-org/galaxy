@@ -13,7 +13,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/error/Log.hpp>
 
-#include "instances/Editor.hpp"
+#include "instances/EditorInstance.hpp"
 
 class EditorApp : public galaxy::core::Application
 {
@@ -38,7 +38,7 @@ int main(int argsc, char* argsv[])
 			SL_HANDLE.window()->prevent_native_closing();
 
 			{
-				std::shared_ptr<sc::Editor> instance = std::make_shared<sc::Editor>();
+				std::shared_ptr<sc::EditorInstance> instance = std::make_shared<sc::EditorInstance>();
 				editor.set_instance(instance);
 			}
 
