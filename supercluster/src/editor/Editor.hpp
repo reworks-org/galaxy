@@ -8,9 +8,6 @@
 #ifndef SUPERCLUSTER_EDITOR_EDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_EDITOR_HPP_
 
-//#include <galaxy/events/WindowResized.hpp>
-//#include <galaxy/graphics/texture/RenderTexture.hpp>
-
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
@@ -28,8 +25,8 @@ namespace sc
 		Editor();
 
 		void events();
-		void pre_render();
-		void render(Project* project);
+		void pre_render(Project* project);
+		void render(Project* project, bool* game_mode);
 
 		void exit();
 

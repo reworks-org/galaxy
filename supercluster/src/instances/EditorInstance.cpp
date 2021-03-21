@@ -68,6 +68,11 @@ namespace sc
 			}
 			else
 			{
+				if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
+				{
+					m_game_mode = false;
+				}
+
 				SL_HANDLE.window()->set_scene_dispatcher(&m_project.get_top_scene()->m_dispatcher);
 				m_project.m_game_instance->get_stack().events();
 			}
@@ -76,7 +81,7 @@ namespace sc
 
 	void EditorInstance::update(const double dt)
 	{
-		if (!m_menu.active() && m_game_mode)
+		if (!m_menu.active())
 		{
 			m_project.m_game_instance->get_stack().update(dt);
 		}
@@ -90,19 +95,30 @@ namespace sc
 			m_menu.render(&m_project);
 			end();
 		}
-		else
+		else if (!m_game_mode)
 		{
-			m_editor.pre_render();
+			m_editor.pre_render(&m_project);
 
 			start();
-			m_editor.render(&m_project);
+			m_editor.render(&m_project, &m_game_mode);
 			end();
+		}
+		else
+		{
+			m_project.m_game_instance->get_stack().pre_render();
 		}
 	}
 
 	void EditorInstance::render()
 	{
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		if (!m_game_mode)
+		{
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		}
+		else
+		{
+			m_project.m_game_instance->get_stack().render();
+		}
 	}
 
 	void EditorInstance::start()

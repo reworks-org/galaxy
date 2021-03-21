@@ -55,3 +55,6 @@ EXPORTING:
 - that way supercluster will strip out the editorlayer when compiling.
 - supercluster is just the game with an editor layer.
 - strip out when exporting.
+
+
+- copy editor interface into game interface, then reset game interface on exit.

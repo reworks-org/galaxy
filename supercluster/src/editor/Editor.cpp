@@ -46,7 +46,7 @@ namespace sc
 		}
 	}
 
-	void Editor::pre_render()
+	void Editor::pre_render(Project* project)
 	{
 		for (const auto& gl_operation : m_gl_operations)
 		{
@@ -55,14 +55,14 @@ namespace sc
 
 		m_gl_operations.clear();
 
-		//m_project->m_instance->get_stack().pre_render();
+		project->m_game_instance->get_stack().pre_render();
 
 		m_framebuffer.bind();
-		//m_project->m_instance->get_stack().render();
+		project->m_game_instance->get_stack().render();
 		m_framebuffer.unbind();
 	}
 
-	void Editor::render(Project* project)
+	void Editor::render(Project* project, bool* game_mode)
 	{
 		m_entity_panel.set_instance(project->m_game_instance.get());
 
@@ -224,21 +224,18 @@ namespace sc
 				ImGui::EndTooltip();
 			}
 
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
+			if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+			{
+				*game_mode = true;
+			}
+
+			if (ImGui::Button(" || ##PauseSceneButton"))
+			{
+			}
+
 			ImGui::EndMenuBar();
 		}
-
-		ImGui::Begin("Play Game", NULL, ImGuiWindowFlags_AlwaysAutoResize);
-		if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
-		{
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button(" || ##PauseSceneButton"))
-		{
-		}
-
-		ImGui::End();
 
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();

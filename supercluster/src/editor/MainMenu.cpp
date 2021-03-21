@@ -30,8 +30,7 @@ namespace sc
 		ImGui::Begin("MainMenu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::SetCursorPos({ImGui::GetWindowSize().x / 2.0f - 200, ImGui::GetWindowSize().y / 2.0f});
-
+		ImGui::SetCursorPos({(ImGui::GetWindowWidth() / 2.0f) - 150, (ImGui::GetWindowHeight() / 2.0f) - 50});
 		if (ImGui::Button("New", {100, 50}))
 		{
 			auto file = SL_HANDLE.vfs()->show_save_dialog();
