@@ -13,12 +13,12 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/scripting/LuaUtils.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
+#include "galaxy/scripting/LuaUtils.hpp"
 
 #include "Application.hpp"
 
