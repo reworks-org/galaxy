@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root type="ship" name="The Rusted Clunker">
+    <texture src="ship/starter.bmp" src_moving="ship/starter_moving.bmp"/>
+    <info shield="2" fuel="10" hull="5" shippower="5" speed="640"/>
+</root>

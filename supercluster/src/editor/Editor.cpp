@@ -46,7 +46,11 @@ namespace sc
 		}
 	}
 
-	void Editor::pre_render(Project* project)
+	void Editor::update(const double dt)
+	{
+	}
+
+	void Editor::pre_render()
 	{
 		for (const auto& gl_operation : m_gl_operations)
 		{
@@ -60,9 +64,21 @@ namespace sc
 		m_framebuffer.bind();
 		project->m_game_instance->get_stack().render();
 		m_framebuffer.unbind();
+
+		imgui_render(project, game_mode);
 	}
 
-	void Editor::render(Project* project, bool* game_mode)
+	void Editor::render()
+	{
+	}
+
+	void Editor::exit()
+	{
+		platform::close_process(m_process);
+		SL_HANDLE.window()->close();
+	}
+
+	void Editor::imgui_render(Project* project, bool* game_mode)
 	{
 		m_entity_panel.set_instance(project->m_game_instance.get());
 
@@ -253,12 +269,6 @@ namespace sc
 		}
 
 		ImGui::End();
-	}
-
-	void Editor::exit()
-	{
-		platform::close_process(m_process);
-		SL_HANDLE.window()->close();
 	}
 
 	void Editor::viewport(Project* project)

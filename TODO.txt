@@ -58,3 +58,18 @@ EXPORTING:
 
 
 - copy editor interface into game interface, then reset game interface on exit.
+
+
+Application
+	- Editor Instance
+		- Stack
+	- Game Instance
+		- Stack
+	- Menu Instance
+		- Stack
+
+
+Show Menu
+	- New/Open
+		- Goes to Editor Instance
+	- Exit

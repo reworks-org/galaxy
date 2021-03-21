@@ -6,7 +6,6 @@ Thumbs.db
 .vs/
 build/
 output/
-legacy/
 
 # Build junk.
 supercluster/bin/Debug/*.exe
@@ -16,7 +15,6 @@ supercluster/bin/Debug/*.obj
 supercluster/bin/Debug/*.idb
 supercluster/bin/Debug/*.dll
 supercluster/bin/Debug/logs/
-supercluster/bin/Debug/assets/saves/
 supercluster/bin/Debug/tools
 supercluster/bin/Release/*.exe
 supercluster/bin/Release/*.ilk
@@ -24,7 +22,6 @@ supercluster/bin/Release/*.pdb
 supercluster/bin/Release/*.obj
 supercluster/bin/Release/*.idb
 supercluster/bin/Release/logs/
-supercluster/bin/Release/assets/saves/
 supercluster/bin/Release/tools
 
 sandbox_tests/bin/Debug/*.exe
@@ -34,13 +31,11 @@ sandbox_tests/bin/Debug/*.obj
 sandbox_tests/bin/Debug/*.idb
 sandbox_tests/bin/Debug/*.dll
 sandbox_tests/bin/Debug/logs/
-sandbox_tests/bin/Debug/assets/saves/
 sandbox_tests/bin/Release/*.exe
 sandbox_tests/bin/Release/*.ilk
 sandbox_tests/bin/Release/*.pdb
 sandbox_tests/bin/Release/*.obj
 sandbox_tests/bin/Release/*.idb
 sandbox_tests/bin/Release/logs/
-sandbox_tests/bin/Release/assets/saves/
 
 tests/bin/

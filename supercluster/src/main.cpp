@@ -7,18 +7,14 @@
 
 #include <optional>
 
-#include <portable-file-dialogs.h>
-
-#include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/error/Log.hpp>
 
-#include "instances/EditorInstance.hpp"
+#include "instances/MainMenu.hpp"
 
-class EditorApp : public galaxy::core::Application
+class Supercluster : public galaxy::core::Application
 {
 public:
-	EditorApp(std::string_view asset_dir, std::string_view config_file)
+	Supercluster(std::string_view asset_dir, std::string_view config_file)
 	    : Application {asset_dir, config_file}
 	{
 	}
@@ -34,15 +30,19 @@ int main(int argsc, char* argsv[])
 		SL_HANDLE.m_restart = false;
 
 		{
-			EditorApp editor {"assets/", "assets/config.json"};
+			Supercluster supercluster {"assets/", "assets/config.json"};
+			sc::Project project;
+
 			SL_HANDLE.window()->prevent_native_closing();
 
 			{
-				std::shared_ptr<sc::EditorInstance> instance = std::make_shared<sc::EditorInstance>();
-				editor.set_instance(instance);
+				std::shared_ptr<sc::Editor> editor      = std::make_shared<sc::Editor>();
+				std::shared_ptr<sc::MainMenu> main_menu = std::make_shared<sc::MainMenu>(&supercluster, &project, editor);
+
+				supercluster.set_instance(main_menu);
 			}
 
-			restart = editor.run();
+			restart = supercluster.run();
 		}
 
 	} while (restart);

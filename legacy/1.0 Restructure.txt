@@ -1,0 +1,23 @@
+RESTRUCTURE:
+Composition > Inheritance
+Each Module Shall Have (if needed):
+- Lua Interface
+- JSON Interface
+- Serialization Interface
+
+
+- Seperate methods and members into their own public/private/etc in classes
+	- Put deleted into private.
+- Proper use of 'noexcept', 'static', and 'multithreading'.
+- Attributes
+- Const/Constexpr
+- Parallell Execution
+- Header orders
+- call base move opoerators
+
+
+- Use VFS
+- Restore data-driven design
+- Engine needs to be cohesive.
+- write tests
+- dynamic_cast -> static_cast

@@ -5,8 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_EDITOR_EDITOR_HPP_
-#define SUPERCLUSTER_EDITOR_EDITOR_HPP_
+#ifndef SUPERCLUSTER_INSTANCES_EDITOR_HPP_
+#define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
+
+#include <galaxy/core/Instance.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -15,26 +17,34 @@
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/ScriptEditor.hpp"
 #include "editor/panels/StdConsole.hpp"
-#include "Project.hpp"
+
+using namespace galaxy;
 
 namespace sc
 {
-	class Editor final
+	class Editor final : public core::Instance
 	{
 	public:
 		Editor();
+		virtual ~Editor();
 
-		void events();
-		void pre_render(Project* project);
-		void render(Project* project, bool* game_mode);
+		void events() override;
+		void update(const double dt) override;
+		void pre_render() override;
+		void render() override;
 
 		void exit();
 
+	private:
+		void start();
+		void end();
+		void imgui_render(Project* project, bool* game_mode);
 		void viewport(Project* project);
 
 	private:
 		void* m_process = nullptr;
 
+		bool m_game_mode        = false;
 		bool m_first_start      = true;
 		bool m_render_demo      = false;
 		bool m_viewport_focused = false;
