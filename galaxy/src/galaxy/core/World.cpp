@@ -84,6 +84,7 @@ namespace galaxy
 
 			m_flags[entity] = {};
 			m_entities.emplace_back(entity);
+			m_flags[entity].set(flags::AllowSerialize::value);
 
 			return entity;
 		}

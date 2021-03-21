@@ -123,9 +123,11 @@ namespace galaxy
 			///
 			/// Open a save file dialog using pfd.
 			///
+			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
+			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& def_path = CUR_DIR);
+			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
 
 			///
 			/// Open a folder using a file dialog.

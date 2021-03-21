@@ -73,14 +73,14 @@ namespace galaxy
 			///
 			/// \return JSON object containing data to write out.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]] virtual nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
 			///
 			/// \param json Json object to retrieve data from.
 			///
-			void deserialize(const nlohmann::json& json) override;
+			virtual void deserialize(const nlohmann::json& json) override;
 
 		protected:
 			///

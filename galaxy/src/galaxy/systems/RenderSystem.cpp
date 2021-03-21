@@ -25,6 +25,9 @@ namespace galaxy
 	{
 		void RenderSystem::update(core::World& world, const double dt)
 		{
+			m_sorted.clear();
+			graphics::Renderer2D::m_batch->clear_sprites();
+
 			// clang-format off
 			world.operate<components::Renderable, components::Transform>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform* transform) -> void
 				{
@@ -95,9 +98,6 @@ namespace galaxy
 						break;
 				}
 			}
-
-			m_sorted.clear();
-			graphics::Renderer2D::m_batch->clear_sprites();
 		}
 	} // namespace systems
 } // namespace galaxy

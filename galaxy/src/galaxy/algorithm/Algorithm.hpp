@@ -45,6 +45,15 @@ namespace galaxy
 		}
 
 		///
+		/// Compresses to zlib encoding.
+		///
+		/// \param to_compress String to be compressed.
+		///
+		/// \return Compressed std::string.
+		///
+		[[nodiscard]] std::string encode_zlib(const std::string& to_compress);
+
+		///
 		/// Decodes from base64.
 		///
 		/// \param base64 Takes in a base64 encoded string.

@@ -17,6 +17,44 @@ namespace galaxy
 {
 	namespace algorithm
 	{
+		std::string encode_zlib(const std::string& to_compress)
+		{
+			zlibcomplete::ZLibCompressor compressor;
+
+			try
+			{
+				char in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read      = 0;
+
+				std::string result;
+				std::stringstream sstream;
+				sstream.str(to_compress);
+
+				while (true)
+				{
+					sstream.read(in, ZLIB_COMPLETE_CHUNK);
+					total_read = sstream.gcount();
+
+					if (total_read != 0)
+					{
+						result += compressor.compress({in, total_read});
+					}
+					else
+					{
+						break;
+					}
+				}
+
+				result += compressor.finish();
+				return result;
+			}
+			catch (std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				return "";
+			}
+		}
+
 		std::string decode_base64(const std::string& base64)
 		{
 			std::string output;
@@ -34,9 +72,31 @@ namespace galaxy
 		std::string decode_zlib(const std::string& zlib)
 		{
 			zlibcomplete::ZLibDecompressor decompressor;
+
 			try
 			{
-				const auto result = decompressor.decompress(zlib);
+				char in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read      = 0;
+
+				std::string result;
+				std::stringstream sstream;
+				sstream.str(zlib);
+
+				while (true)
+				{
+					sstream.read(in, ZLIB_COMPLETE_CHUNK);
+					total_read = sstream.gcount();
+
+					if (total_read != 0)
+					{
+						result += decompressor.decompress({in, total_read});
+					}
+					else
+					{
+						break;
+					}
+				}
+
 				return result;
 			}
 			catch (std::exception& e)
@@ -49,9 +109,31 @@ namespace galaxy
 		std::string decode_gzip(const std::string& gzip)
 		{
 			zlibcomplete::GZipDecompressor decompressor;
+
 			try
 			{
-				const auto result = decompressor.decompress(gzip);
+				char in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read      = 0;
+
+				std::string result;
+				std::stringstream sstream;
+				sstream.str(gzip);
+
+				while (true)
+				{
+					sstream.read(in, ZLIB_COMPLETE_CHUNK);
+					total_read = sstream.gcount();
+
+					if (total_read != 0)
+					{
+						result += decompressor.decompress({in, total_read});
+					}
+					else
+					{
+						break;
+					}
+				}
+
 				return result;
 			}
 			catch (std::exception& e)

@@ -18,6 +18,9 @@ SUPERCLUSTER:
 - properly seperate game mode from editor mode
 - entity editor for particle generator
 - hot reloading
+- force default mount pos
+	- save to project save file
+- during editor/game switch have some kind of prompt since loading may take awhile
 
 TODO:
 - convert particles to ecs structure.
@@ -73,3 +76,13 @@ Show Menu
 	- New/Open
 		- Goes to Editor Instance
 	- Exit
+
+	/*
+	void Project::export_game()
+	{
+		// NEEDS TO BE CONSTEXPR or CONSTINIT.
+		std::string m_cmake_path;
+		std::string m_cmake_code;
+		std::string m_main_code;
+	}
+	*/

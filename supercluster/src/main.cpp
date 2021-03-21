@@ -31,13 +31,12 @@ int main(int argsc, char* argsv[])
 
 		{
 			Supercluster supercluster {"assets/", "assets/config.json"};
-			sc::Project project;
 
 			SL_HANDLE.window()->prevent_native_closing();
 
 			{
 				std::shared_ptr<sc::Editor> editor      = std::make_shared<sc::Editor>();
-				std::shared_ptr<sc::MainMenu> main_menu = std::make_shared<sc::MainMenu>(&supercluster, &project, editor);
+				std::shared_ptr<sc::MainMenu> main_menu = std::make_shared<sc::MainMenu>(&supercluster, editor);
 
 				supercluster.set_instance(main_menu);
 			}

@@ -218,9 +218,9 @@ namespace galaxy
 			}
 		}
 
-		std::optional<std::string> Virtual::show_save_dialog(const std::string& def_path)
+		std::optional<std::string> Virtual::show_save_dialog(const std::string& filter, const std::string& def_path)
 		{
-			pfd::save_file dialog {"Save file.", def_path};
+			pfd::save_file dialog {"Save file.", def_path, {"Files", filter}};
 			auto result = dialog.result();
 
 			if (!result.empty())

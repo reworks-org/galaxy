@@ -12,7 +12,6 @@
 #include <galaxy/core/Instance.hpp>
 
 #include "instances/Editor.hpp"
-#include "../Project.hpp"
 
 using namespace galaxy;
 
@@ -21,7 +20,7 @@ namespace sc
 	class MainMenu final : public core::Instance
 	{
 	public:
-		MainMenu(core::Application* app, std::shared_ptr<Editor> editor, Project* project) noexcept;
+		MainMenu(core::Application* app, std::shared_ptr<Editor> editor) noexcept;
 		virtual ~MainMenu() noexcept;
 
 		void events() override;
@@ -35,7 +34,6 @@ namespace sc
 	private:
 		core::Application* m_app;
 		std::shared_ptr<Editor> m_editor;
-		Project* m_project;
 	};
 } // namespace sc
 
