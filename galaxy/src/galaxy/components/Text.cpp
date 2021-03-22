@@ -9,6 +9,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/res/FontBook.hpp"
 
 #include "Text.hpp"
@@ -20,12 +21,12 @@ namespace galaxy
 	namespace components
 	{
 		Text::Text() noexcept
-		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {TEXT_LIMIT}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_batch {TEXT_LIMIT}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch {TEXT_LIMIT}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_batch {TEXT_LIMIT}
 		{
 			deserialize(json);
 		}
@@ -36,11 +37,8 @@ namespace galaxy
 			this->m_batch      = std::move(t.m_batch);
 			this->m_batch_data = std::move(t.m_batch_data);
 			this->m_colour     = std::move(t.m_colour);
-			this->m_font       = t.m_font;
 			this->m_height     = t.m_height;
 			this->m_width      = t.m_width;
-
-			t.m_font = nullptr;
 		}
 
 		Text& Text::operator=(Text&& t) noexcept
@@ -50,11 +48,8 @@ namespace galaxy
 				this->m_batch      = std::move(t.m_batch);
 				this->m_batch_data = std::move(t.m_batch_data);
 				this->m_colour     = std::move(t.m_colour);
-				this->m_font       = t.m_font;
 				this->m_height     = t.m_height;
 				this->m_width      = t.m_width;
-
-				t.m_font = nullptr;
 			}
 
 			return *this;
@@ -87,7 +82,7 @@ namespace galaxy
 				m_batch_data.clear();
 
 				m_text_str = text;
-				m_batch.set_texture(m_font->get_fontmap());
+				m_batch.set_texture(SL_HANDLE.fontbook()->get(m_font_str)->get_fontmap());
 				if (!text.empty())
 				{
 					float x_offset       = 0.0f;
@@ -98,11 +93,11 @@ namespace galaxy
 						if (c == '\n')
 						{
 							x_offset = 0.0f;
-							y_offset += m_font->get_height();
+							y_offset += SL_HANDLE.fontbook()->get(m_font_str)->get_height();
 						}
 						else
 						{
-							auto* c_obj = m_font->get_char(c);
+							auto* c_obj = SL_HANDLE.fontbook()->get(m_font_str)->get_char(c);
 
 							if (c_obj != nullptr)
 							{
@@ -120,8 +115,8 @@ namespace galaxy
 						counter++;
 					}
 
-					m_width  = m_font->get_width(text);
-					m_height = m_font->get_height();
+					m_width  = SL_HANDLE.fontbook()->get(m_font_str)->get_width(text);
+					m_height = SL_HANDLE.fontbook()->get(m_font_str)->get_height();
 				}
 				else
 				{
@@ -139,7 +134,6 @@ namespace galaxy
 		void Text::set_font(std::string_view font)
 		{
 			m_font_str = font;
-			m_font     = SL_HANDLE.fontbook()->get(m_font_str);
 		}
 
 		void Text::bind() noexcept

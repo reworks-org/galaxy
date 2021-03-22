@@ -16,12 +16,10 @@ namespace galaxy
 	namespace ui
 	{
 		Textbox::Textbox() noexcept
-		    : Widget {WidgetType::TEXTBOX}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}, m_shader {nullptr}
+		    : Widget {WidgetType::TEXTBOX}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}
 		{
 			m_indicator_timer.set_repeating(true);
 			m_draw_text_timer.set_repeating(true);
-
-			m_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Textbox::~Textbox()
@@ -138,10 +136,11 @@ namespace galaxy
 
 		void Textbox::render()
 		{
-			m_shader->bind();
-			m_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, m_shader);
+			auto* shader = SL_HANDLE.shaderbook()->get("text");
+			shader->bind();
+			shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, shader);
 
 			if (m_tooltip)
 			{

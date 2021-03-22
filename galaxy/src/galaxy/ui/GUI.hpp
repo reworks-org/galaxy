@@ -201,11 +201,6 @@ namespace galaxy
 			std::vector<WidgetPtr> m_widgets;
 
 			///
-			/// Spritebatch shader.
-			///
-			graphics::Shader* m_batch_shader;
-
-			///
 			/// Event input flag.
 			///
 			bool m_allow_input;

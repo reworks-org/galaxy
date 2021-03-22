@@ -16,14 +16,12 @@ namespace galaxy
 	namespace ui
 	{
 		Label::Label() noexcept
-		    : Widget {WidgetType::LABEL}, m_shader {nullptr}
+		    : Widget {WidgetType::LABEL}
 		{
-			m_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Label::~Label() noexcept
 		{
-			m_shader = nullptr;
 		}
 
 		void Label::create(std::string_view text, std::string_view font)
@@ -67,10 +65,11 @@ namespace galaxy
 
 		void Label::render()
 		{
-			m_shader->bind();
-			m_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_transform, m_shader);
+			auto* shader = SL_HANDLE.shaderbook()->get("text");
+			shader->bind();
+			shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+			graphics::Renderer2D::draw_text(&m_text, &m_transform, shader);
 
 			if (m_tooltip)
 			{

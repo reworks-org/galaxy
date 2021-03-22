@@ -136,11 +136,6 @@ namespace galaxy
 			Theme* m_theme;
 
 			///
-			/// Text shader cache.
-			///
-			graphics::Shader* m_text_shader;
-
-			///
 			/// Cursor size.
 			///
 			glm::vec2 m_cursor_size;

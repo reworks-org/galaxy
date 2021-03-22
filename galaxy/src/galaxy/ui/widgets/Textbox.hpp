@@ -208,11 +208,6 @@ namespace galaxy
 			/// Indicator y.
 			///
 			float m_ind_y;
-
-			///
-			/// Text shader cache.
-			///
-			graphics::Shader* m_shader;
 		};
 	} // namespace ui
 } // namespace galaxy

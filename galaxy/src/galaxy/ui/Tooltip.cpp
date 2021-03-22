@@ -16,10 +16,9 @@ namespace galaxy
 	namespace ui
 	{
 		Tooltip::Tooltip() noexcept
-		    : Serializable {this}, m_draw {false}, m_theme {nullptr}, m_text_shader {nullptr}
+		    : Serializable {this}, m_draw {false}, m_theme {nullptr}
 		{
 			m_cursor_size = SL_HANDLE.window()->cursor_size();
-			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		Tooltip::Tooltip(Tooltip&& t) noexcept
@@ -29,7 +28,6 @@ namespace galaxy
 			this->m_text           = std::move(t.m_text);
 			this->m_text_transform = std::move(t.m_text_transform);
 			this->m_theme          = t.m_theme;
-			this->m_text_shader    = t.m_text_shader;
 			this->m_cursor_size    = std::move(t.m_cursor_size);
 		}
 
@@ -41,7 +39,6 @@ namespace galaxy
 				this->m_text           = std::move(t.m_text);
 				this->m_text_transform = std::move(t.m_text_transform);
 				this->m_theme          = t.m_theme;
-				this->m_text_shader    = t.m_text_shader;
 				this->m_cursor_size    = std::move(t.m_cursor_size);
 			}
 
@@ -50,8 +47,7 @@ namespace galaxy
 
 		Tooltip::~Tooltip() noexcept
 		{
-			m_theme       = nullptr;
-			m_text_shader = nullptr;
+			m_theme = nullptr;
 		}
 
 		void Tooltip::create(std::string_view text, std::string_view font)
@@ -62,10 +58,11 @@ namespace galaxy
 
 		void Tooltip::render()
 		{
-			m_text_shader->bind();
-			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, m_text_shader);
+			auto* text_shader = SL_HANDLE.shaderbook()->get("text");
+			text_shader->bind();
+			text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, text_shader);
 		}
 
 		void Tooltip::update_text(std::string_view text)

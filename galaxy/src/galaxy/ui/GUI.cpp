@@ -24,7 +24,6 @@ namespace galaxy
 		GUI::GUI()
 		    : Serializable {this}, m_state {ConstructionState::DEFAULT}, m_id_counter {0}, m_theme {nullptr}, m_allow_input {true}
 		{
-			m_batch_shader = SL_HANDLE.shaderbook()->get("spritebatch");
 		}
 
 		GUI::~GUI()
@@ -96,12 +95,13 @@ namespace galaxy
 		{
 			if (!m_theme->m_sb.empty())
 			{
+				auto* batch_shader = SL_HANDLE.shaderbook()->get("spritebatch");
 				m_theme->m_sb.calculate();
-				m_batch_shader->bind();
-				m_batch_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-				m_batch_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-				m_batch_shader->set_uniform("u_width", static_cast<float>(m_theme->m_sb.get_width()));
-				m_batch_shader->set_uniform("u_height", static_cast<float>(m_theme->m_sb.get_height()));
+				batch_shader->bind();
+				batch_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+				batch_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+				batch_shader->set_uniform("u_width", static_cast<float>(m_theme->m_sb.get_width()));
+				batch_shader->set_uniform("u_height", static_cast<float>(m_theme->m_sb.get_height()));
 
 				m_theme->m_sb.bind();
 				glDrawElements(GL_TRIANGLES, m_theme->m_sb.get_used_index_count(), GL_UNSIGNED_INT, nullptr);

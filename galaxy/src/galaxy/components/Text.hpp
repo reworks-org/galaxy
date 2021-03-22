@@ -8,8 +8,9 @@
 #ifndef GALAXY_COMPONENTS_TEXT_HPP_
 #define GALAXY_COMPONENTS_TEXT_HPP_
 
+#include <robin_hood.h>
+
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 namespace galaxy
@@ -204,11 +205,6 @@ namespace galaxy
 			/// Colour of the text.
 			///
 			graphics::Colour m_colour;
-
-			///
-			/// Pointer to font used for this text.
-			///
-			graphics::Font* m_font;
 
 			///
 			/// Spritebatch.

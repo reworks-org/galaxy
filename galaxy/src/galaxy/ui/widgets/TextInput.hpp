@@ -195,16 +195,6 @@ namespace galaxy
 			/// Timer for cursor blinking.
 			///
 			async::Timer m_timer;
-
-			///
-			/// Cached line shader.
-			///
-			graphics::Shader* m_line_shader;
-
-			///
-			/// Cached text shader.
-			///
-			graphics::Shader* m_text_shader;
 		};
 	} // namespace ui
 } // namespace galaxy

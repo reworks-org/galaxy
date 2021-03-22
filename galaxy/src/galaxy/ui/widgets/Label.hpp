@@ -129,11 +129,6 @@ namespace galaxy
 			/// Label transform.
 			///
 			components::Transform m_transform;
-
-			///
-			/// Text shader.
-			///
-			graphics::Shader* m_shader;
 		};
 	} // namespace ui
 } // namespace galaxy

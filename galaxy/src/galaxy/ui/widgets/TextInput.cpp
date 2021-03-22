@@ -20,9 +20,6 @@ namespace galaxy
 		    : Widget {WidgetType::TEXTINPUT}, m_total_chars {0}, m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
 		{
 			m_timer.set_repeating(true);
-
-			m_line_shader = SL_HANDLE.shaderbook()->get("line");
-			m_text_shader = SL_HANDLE.shaderbook()->get("text");
 		}
 
 		TextInput::~TextInput() noexcept
@@ -158,17 +155,19 @@ namespace galaxy
 
 		void TextInput::render()
 		{
-			m_text_shader->bind();
-			m_text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			m_text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, m_text_shader);
+			auto* text_shader = SL_HANDLE.shaderbook()->get("text");
+			text_shader->bind();
+			text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, text_shader);
 
 			if (m_draw_cursor && m_is_focus)
 			{
-				m_line_shader->bind();
-				m_line_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-				m_line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-				graphics::Renderer2D::draw_line(&m_cursor, &m_cursor_transform, m_line_shader);
+				auto* line_shader = SL_HANDLE.shaderbook()->get("line");
+				line_shader->bind();
+				line_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+				line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+				graphics::Renderer2D::draw_line(&m_cursor, &m_cursor_transform, line_shader);
 			}
 
 			if (m_tooltip)
