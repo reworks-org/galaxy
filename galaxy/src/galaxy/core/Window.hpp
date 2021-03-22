@@ -279,11 +279,11 @@ namespace galaxy
 			[[nodiscard]] glm::vec2 get_cursor_pos() noexcept;
 
 			///
-			/// Retrieve pointer to GLFWwindow object.
+			/// Check if windows is in focus.
 			///
-			/// \return Returns const pointer to GLFWwindow.
+			/// \return True if window is in input focus.
 			///
-			[[nodiscard]] GLFWwindow* gl_window() noexcept;
+			[[nodiscard]] const bool is_focused() noexcept;
 
 			///
 			/// Get window width.
@@ -305,6 +305,13 @@ namespace galaxy
 			/// \return Const glm::vec2.
 			///
 			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
+
+			///
+			/// Retrieve pointer to GLFWwindow object.
+			///
+			/// \return Returns const pointer to GLFWwindow.
+			///
+			[[nodiscard]] GLFWwindow* gl_window() noexcept;
 
 		private:
 			///

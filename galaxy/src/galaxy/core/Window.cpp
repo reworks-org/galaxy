@@ -826,9 +826,9 @@ namespace galaxy
 			return m_cursor.m_pos;
 		}
 
-		GLFWwindow* Window::gl_window() noexcept
+		const bool Window::is_focused() noexcept
 		{
-			return m_window;
+			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
 		}
 
 		const int Window::get_width() const noexcept
@@ -844,6 +844,11 @@ namespace galaxy
 		const glm::vec2& Window::cursor_size() const noexcept
 		{
 			return m_cursor_size;
+		}
+
+		GLFWwindow* Window::gl_window() noexcept
+		{
+			return m_window;
 		}
 	} // namespace core
 } // namespace galaxy
