@@ -1,29 +1,17 @@
 SUPERCLUSTER:
 - physics tools (rigidbody tools).
-- export to json / save as json
 - documentation
-- two states ("game") and ("editor")
-	- play button switches between them.
-	- serialzie data when swtiching, then load and run new scene. Clear on exit.
-- fix encapsulation
-- serialization
-	- scene serialization
 - audio support
-- hot reloading
 - on window focus (for viewport)
 	- reload tile map from disk
 - expose more to lua
 - scene graph
 	- entity heirachy
-- properly seperate game mode from editor mode
-- entity editor for particle generator
 - hot reloading
 - force default mount pos
-	- save to project save file
 - during editor/game switch have some kind of prompt since loading may take awhile
 
 TODO:
-- convert particles to ecs structure.
 - Fix CA and Compilation Warnings.
 - Docs error fix.
 - Dependencies should only abstract away system specific implementations.
@@ -45,12 +33,6 @@ convert type classes to enums (log, vertexs, etc...).
 - for scene push/pop run lua script?
 - particle gen
 
-IDE:
-- MSVC CA
-- CLANG TIDY
-- CLANG FORMAT
-- INCLUDE MANAGER
-
 EXPORTING:
 - Supercluster is the game with an extra layer.
 - will need to export custom main and game layer.
@@ -58,25 +40,6 @@ EXPORTING:
 - that way supercluster will strip out the editorlayer when compiling.
 - supercluster is just the game with an editor layer.
 - strip out when exporting.
-
-
-- copy editor interface into game interface, then reset game interface on exit.
-
-
-Application
-	- Editor Instance
-		- Stack
-	- Game Instance
-		- Stack
-	- Menu Instance
-		- Stack
-
-
-Show Menu
-	- New/Open
-		- Goes to Editor Instance
-	- Exit
-
 	/*
 	void Project::export_game()
 	{
