@@ -12,7 +12,8 @@
 #include <nlohmann/json.hpp>
 #include <portable-file-dialogs.h>
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 
 #include "FileSystem.hpp"
 
@@ -30,14 +31,17 @@ namespace galaxy
 
 		const bool Virtual::mount(std::string_view dir)
 		{
-			m_dirs.emplace_back(dir);
-			if (!std_fs::is_directory(m_dirs.back()))
+			if (std_fs::is_directory(dir))
 			{
-				m_dirs.pop_back();
+				m_dirs.emplace_back(dir);
+				m_watcher.addWatch(static_cast<std::string>(dir), &m_listener, true);
+
+				return true;
+			}
+			else
+			{
 				return false;
 			}
-
-			return true;
 		}
 
 		const bool Virtual::mount()
@@ -298,6 +302,14 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", path.value());
 					return false;
 				}
+			}
+		}
+
+		void Virtual::UpdateListener::handleFileAction(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action)
+		{
+			if (SL_HANDLE.window()->is_focused())
+			{
+				m_on_file_change(watch_id, dir, file_name, action);
 			}
 		}
 	} // namespace fs

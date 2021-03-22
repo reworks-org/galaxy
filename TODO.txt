@@ -7,18 +7,17 @@ SUPERCLUSTER:
 - expose more to lua
 - scene graph
 	- entity heirachy
-- hot reloading
 - force default mount pos
 - during editor/game switch have some kind of prompt since loading may take awhile
 
 TODO:
+- C# Scripting using Mono and Monodevelop/VSCode.
 - Fix CA and Compilation Warnings.
 - Docs error fix.
 - Dependencies should only abstract away system specific implementations.
 - Loading state support?
 	- Initial loading screen after window service is created, before other services.
 - AI
-- make sure default files are generated properly to prevent crashes.
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
 - create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
@@ -32,6 +31,7 @@ convert type classes to enums (log, vertexs, etc...).
 - texture tooltip
 - for scene push/pop run lua script?
 - particle gen
+- generate_default_assets() should be constexpr std::string.
 
 EXPORTING:
 - Supercluster is the game with an extra layer.

@@ -49,11 +49,32 @@ namespace galaxy
 
 			GALAXY_LOG_START(log_path);
 
-			// Filesystem.
+			// Virtual filesystem setup.
+			auto root = static_cast<std::string>(asset_dir);
+			if (root.back() != '/')
+			{
+				root += '/';
+			}
+
 			m_vfs = std::make_unique<fs::Virtual>();
-			if (!m_vfs->mount(asset_dir))
+			create_asset_layout(root, "");
+
+			if (!m_vfs->mount(root))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to mount VFS.");
+			}
+			else
+			{
+				// Generate default asset folder layout.
+				create_asset_layout(root, "audio/music/");
+				create_asset_layout(root, "audio/sfx/");
+				create_asset_layout(root, "fonts/");
+				create_asset_layout(root, "json/");
+				create_asset_layout(root, "scripts/");
+				create_asset_layout(root, "shaders/");
+				create_asset_layout(root, "textures/");
+
+				m_vfs->m_listener.m_on_file_change = std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
@@ -149,6 +170,9 @@ namespace galaxy
 				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
+				// Generate default assets specified by config.
+				generate_default_assets(root);
+
 				// ShaderBook.
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
@@ -236,10 +260,10 @@ namespace galaxy
 			using clock     = std::chrono::high_resolution_clock;
 			using ups_ratio = std::chrono::duration<double, std::ratio<1, 60>>;
 
-			const constexpr ups_ratio ups {1};
-			const constexpr auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(ups);
-			const constexpr auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
-			const constexpr auto one_second  = std::chrono::seconds {1};
+			constexpr const ups_ratio ups {1};
+			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(ups);
+			constexpr const auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
+			constexpr const auto one_second  = std::chrono::seconds {1};
 
 			std::chrono::nanoseconds accumulator {0};
 			std::chrono::nanoseconds perf_counter {0};
@@ -264,6 +288,7 @@ namespace galaxy
 					m_window->poll_events();
 					m_instance->events();
 
+					m_vfs->m_watcher.update();
 					m_instance->update(ups_s);
 					accumulator -= ups_as_nano;
 
@@ -303,6 +328,105 @@ namespace galaxy
 			graphics::Renderer2D::clean_up();
 
 			return SL_HANDLE.m_restart;
+		}
+
+		void Application::create_asset_layout(const std::string& root, const std::string& asset_folder)
+		{
+			const auto merged = root + asset_folder;
+
+			if (!std::filesystem::exists(merged))
+			{
+				GALAXY_LOG(GALAXY_INFO, "Missing asset folder, creating at: {0}.", merged);
+				std::filesystem::create_directories(merged);
+			}
+		}
+
+		void Application::generate_default_assets(const std::string& root)
+		{
+			constexpr const char* font   = "{\"fontbook\":{}}";
+			constexpr const char* music  = "{\"musicbook\":{}}";
+			constexpr const char* script = "{\"scriptbook\":{}}";
+			constexpr const char* shader = "{\"vertex-extension\":\".vs\",\"fragment-extension\":\".fs\",\"shaderbook\":[]}";
+			constexpr const char* sound  = "{\"soundbook\":{}}";
+			constexpr const char* atlas  = "{\"textures\":[]}";
+
+			const auto fb_path = root + "json/fontbook.json";
+			if (!std::filesystem::exists(fb_path))
+			{
+				m_vfs->save(font, fb_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", fb_path);
+			}
+
+			const auto mb_path = root + "json/musicbook.json";
+			if (!std::filesystem::exists(mb_path))
+			{
+				m_vfs->save(music, mb_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", mb_path);
+			}
+
+			const auto sb_path = root + "json/scriptbook.json";
+			if (!std::filesystem::exists(sb_path))
+			{
+				m_vfs->save(script, sb_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sb_path);
+			}
+
+			const auto shb_path = root + "json/shaderbook.json";
+			if (!std::filesystem::exists(shb_path))
+			{
+				m_vfs->save(shader, shb_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", shb_path);
+			}
+
+			const auto sfxb_path = root + "json/soundbook.json";
+			if (!std::filesystem::exists(sfxb_path))
+			{
+				m_vfs->save(sound, sfxb_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sfxb_path);
+			}
+
+			const auto ab_path = root + "json/textureatlas.json";
+			if (!std::filesystem::exists(ab_path))
+			{
+				m_vfs->save(atlas, ab_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", ab_path);
+			}
+		}
+
+		void Application::reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action)
+		{
+			m_window->request_attention();
+			GALAXY_LOG(GALAXY_INFO, "Reloading assets due to change in filesystem.");
+
+			// ShaderBook.
+			m_shaderbook->clear();
+			m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
+
+			// ScriptBook.
+			m_scriptbook->clear();
+			m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
+
+			// Set up renderer.
+			graphics::Renderer2D::clean_up();
+			graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+
+			// FontBook.
+			m_fontbook->clear();
+			m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
+
+			// Texture Atlas.
+			m_texture_atlas->clear();
+			m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
+			m_texture_atlas->create("render_to_texture");
+			graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+
+			// SoundBook.
+			m_soundbook->clear();
+			m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
+
+			// MusicBook.
+			m_musicbook->clear();
+			m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
 		}
 	} // namespace core
 } // namespace galaxy

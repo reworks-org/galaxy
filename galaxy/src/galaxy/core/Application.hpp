@@ -68,6 +68,35 @@ namespace galaxy
 			///
 			explicit Application(std::string_view asset_dir, std::string_view config_file);
 
+		private:
+			///
+			/// \brief Create default asset layout.
+			///
+			/// This uses a const string reference over string_view since
+			/// we need to combine the strings into a new string.
+			///
+			/// \param root Root asset folder.
+			/// \param asset Path to the asset folder to create.
+			///
+			void create_asset_layout(const std::string& root, const std::string& asset_folder);
+
+			///
+			/// Generate default required files in asset folders.
+			///
+			/// \param root Root directory. Is not a string_view because we need to merge it.
+			///
+			void generate_default_assets(const std::string& root);
+
+			///
+			/// Reload assets from disk.
+			///
+			/// \param watchid The watch id for the directory.
+			/// \param dir The directory.
+			/// \param filename The filename that was accessed (not full path).
+			/// \param action Action that was performed.
+			///
+			void reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action);
+
 		protected:
 			///
 			/// Application project instance.
