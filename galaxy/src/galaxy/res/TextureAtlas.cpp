@@ -68,7 +68,7 @@ namespace galaxy
 
 		TextureAtlas::~TextureAtlas() noexcept
 		{
-			m_textures.clear();
+			clear();
 		}
 
 		void TextureAtlas::add(std::string_view file)
@@ -179,6 +179,15 @@ namespace galaxy
 			{
 				m_textures.emplace(str, graphics::TextureInfo {.m_region = region, .m_path = ""});
 			}
+		}
+
+		void TextureAtlas::clear()
+		{
+			m_texture.bind();
+			m_texture.unbind();
+
+			m_packer.clear();
+			m_textures.clear();
 		}
 
 		const graphics::fRect& TextureAtlas::get_region(std::string_view name)

@@ -57,6 +57,11 @@ namespace galaxy
 			[[nodiscard]] std::optional<graphics::Rect<Type>> pack(const int width, const int height);
 
 			///
+			/// Clear all data.
+			///
+			void clear();
+
+			///
 			/// Get total width.
 			///
 			[[nodiscard]] const int get_width() const noexcept;
@@ -168,6 +173,13 @@ namespace galaxy
 			}
 
 			return result;
+		}
+
+		template<meta::is_arithmetic Type>
+		inline void RectPack<Type>::clear()
+		{
+			m_free_rects.clear();
+			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
 		template<meta::is_arithmetic Type>

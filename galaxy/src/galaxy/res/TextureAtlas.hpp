@@ -112,6 +112,11 @@ namespace galaxy
 			void add_custom_region(std::string_view name, const graphics::fRect& region);
 
 			///
+			/// Clear all data.
+			///
+			void clear();
+
+			///
 			/// \brief Retrieve a texture quad defined in the atlas.
 			///
 			/// Throws exception if it cant find texture.
