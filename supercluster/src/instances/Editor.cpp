@@ -73,7 +73,7 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				ImGui_ImplGlfw::g_BlockInput = true;
+				ImGui::ImplGlfw::g_BlockInput = true;
 
 				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
 
@@ -84,8 +84,8 @@ namespace sc
 			}
 			else
 			{
-				m_mouse_dragging             = false;
-				ImGui_ImplGlfw::g_BlockInput = false;
+				m_mouse_dragging              = false;
+				ImGui::ImplGlfw::g_BlockInput = false;
 			}
 		}
 		else
@@ -211,8 +211,8 @@ namespace sc
 		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
 		ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
 		ImGuiViewport* imgui_viewport      = ImGui::GetMainViewport();
-		ImGui::SetNextWindowPos(imgui_viewport->GetWorkPos());
-		ImGui::SetNextWindowSize(imgui_viewport->GetWorkSize());
+		ImGui::SetNextWindowPos(imgui_viewport->WorkPos);
+		ImGui::SetNextWindowSize(imgui_viewport->WorkSize);
 		ImGui::SetNextWindowViewport(imgui_viewport->ID);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);

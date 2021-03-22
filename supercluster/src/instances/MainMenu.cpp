@@ -50,8 +50,8 @@ namespace sc
 
 		ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar;
 		ImGuiViewport* imgui_viewport = ImGui::GetMainViewport();
-		ImGui::SetNextWindowPos(imgui_viewport->GetWorkPos());
-		ImGui::SetNextWindowSize(imgui_viewport->GetWorkSize());
+		ImGui::SetNextWindowPos(imgui_viewport->WorkPos);
+		ImGui::SetNextWindowSize(imgui_viewport->WorkSize);
 		ImGui::SetNextWindowViewport(imgui_viewport->ID);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
