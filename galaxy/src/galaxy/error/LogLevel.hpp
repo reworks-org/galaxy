@@ -23,7 +23,7 @@ namespace galaxy
 			{
 				Info() = delete;
 
-				inline static const constexpr auto value = 0;
+				inline static constexpr const auto value = 0;
 			};
 
 			///
@@ -33,7 +33,7 @@ namespace galaxy
 			{
 				Debug() = delete;
 
-				inline static const constexpr auto value = 1;
+				inline static constexpr const auto value = 1;
 			};
 
 			///
@@ -43,7 +43,7 @@ namespace galaxy
 			{
 				Warning() = delete;
 
-				inline static const constexpr auto value = 2;
+				inline static constexpr const auto value = 2;
 			};
 
 			///
@@ -53,7 +53,7 @@ namespace galaxy
 			{
 				Error() = delete;
 
-				inline static const constexpr auto value = 3;
+				inline static constexpr const auto value = 3;
 			};
 
 			///
@@ -63,7 +63,7 @@ namespace galaxy
 			{
 				Fatal() = delete;
 
-				inline static const constexpr auto value = 4;
+				inline static constexpr const auto value = 4;
 			};
 		} // namespace level
 

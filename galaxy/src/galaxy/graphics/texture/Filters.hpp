@@ -24,7 +24,7 @@ namespace galaxy
 		{
 			NearestMipmapFilter() = delete;
 
-			inline static const constexpr auto value = GL_NEAREST_MIPMAP_NEAREST;
+			inline static constexpr const auto value = GL_NEAREST_MIPMAP_NEAREST;
 		};
 
 		///
@@ -34,7 +34,7 @@ namespace galaxy
 		{
 			TrilinearMipmapFilter() = delete;
 
-			inline static const constexpr auto value = GL_LINEAR_MIPMAP_LINEAR;
+			inline static constexpr const auto value = GL_LINEAR_MIPMAP_LINEAR;
 		};
 
 		///
@@ -45,7 +45,7 @@ namespace galaxy
 		{
 			NearestTexFilter() = delete;
 
-			inline static const constexpr auto value = GL_NEAREST;
+			inline static constexpr const auto value = GL_NEAREST;
 		};
 
 		///
@@ -55,7 +55,7 @@ namespace galaxy
 		{
 			BilinearTexFilter() = delete;
 
-			inline static const constexpr auto value = GL_LINEAR;
+			inline static constexpr const auto value = GL_LINEAR;
 		};
 
 		///

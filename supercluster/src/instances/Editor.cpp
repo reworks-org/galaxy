@@ -116,7 +116,6 @@ namespace sc
 			}
 
 			m_gl_operations.clear();
-
 			m_scene_stack.pre_render();
 
 			m_framebuffer.bind();
@@ -417,7 +416,7 @@ namespace sc
 
 			if (m_mouse_picked)
 			{
-				const constexpr static auto mp_id = std::numeric_limits<ecs::Entity>::max();
+				constexpr const static auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 				glm::vec2 pos;
 				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_scene_stack.top()->m_camera.get_pos().x;

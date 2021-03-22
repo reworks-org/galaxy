@@ -50,7 +50,7 @@ namespace galaxy
 			bind();
 			ib.bind();
 
-			const constexpr auto size = 3 * sizeof(float);
+			constexpr const auto size = 3 * sizeof(float);
 
 			glEnableVertexAttribArray(m_counter);
 			glVertexAttribPointer(m_counter, 3, GL_FLOAT, GL_FALSE, size, nullptr);

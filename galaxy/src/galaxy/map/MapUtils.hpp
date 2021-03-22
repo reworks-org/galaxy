@@ -18,17 +18,17 @@ namespace galaxy
 		///
 		/// Horizontal Flip Flag.
 		///
-		const constexpr auto FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
+		constexpr const auto FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
 
 		///
 		/// Vertical Flip Flag.
 		///
-		const constexpr auto FLIPPED_VERTICALLY_FLAG = 0x40000000;
+		constexpr const auto FLIPPED_VERTICALLY_FLAG = 0x40000000;
 
 		///
 		/// Diagonal Flip Flag.
 		///
-		const constexpr auto FLIPPED_DIAGONALLY_FLAG = 0x20000000;
+		constexpr const auto FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
 		///
 		/// Concept for tiled property types.

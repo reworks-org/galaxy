@@ -587,7 +587,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("2D Primitive"))
 					{
-						static const constexpr auto s_types = magic_enum::enum_names<graphics::Primitives>();
+						static constexpr const auto s_types = magic_enum::enum_names<graphics::Primitives>();
 
 						static std::string s_selected = static_cast<std::string>(magic_enum::enum_name(primitive2d->get_type()));
 						static auto s_type            = primitive2d->get_type();
@@ -802,7 +802,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Renderable"))
 					{
-						static const constexpr auto s_types = magic_enum::enum_names<graphics::Renderables>();
+						static constexpr const auto s_types = magic_enum::enum_names<graphics::Renderables>();
 
 						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(renderable->m_type));
 						if (ImGui::BeginCombo("Type", s_selected.c_str()))
@@ -835,7 +835,7 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Rigid Body"))
 					{
-						static const constexpr auto s_types = magic_enum::enum_names<physics::BodyType>();
+						static constexpr const auto s_types = magic_enum::enum_names<physics::BodyType>();
 
 						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->get_type()));
 						if (ImGui::BeginCombo("Type", s_selected.c_str()))

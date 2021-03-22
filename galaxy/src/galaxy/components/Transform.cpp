@@ -87,7 +87,7 @@ namespace galaxy
 
 		void Transform::recalculate()
 		{
-			static const constexpr auto identity_matrix = glm::mat4 {1.0f};
+			static constexpr const auto identity_matrix = glm::mat4 {1.0f};
 
 			if (m_dirty)
 			{

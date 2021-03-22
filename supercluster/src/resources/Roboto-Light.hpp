@@ -14381,7 +14381,7 @@ namespace ttf
         0x00, 0x01, 0x00, 0x14, 0x00, 0x1d, 0x00, 0x00
     };
 
-    const constexpr unsigned int roboto_light_len = 170012;
+    constexpr const unsigned int roboto_light_len = 170012;
 	// clang-format on
 } // namespace ttf
 

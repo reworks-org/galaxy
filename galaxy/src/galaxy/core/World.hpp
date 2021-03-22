@@ -519,7 +519,7 @@ namespace galaxy
 		{
 			if (!m_data.empty())
 			{
-				const constexpr auto length = sizeof...(Components);
+				constexpr const auto length = sizeof...(Components);
 				EntitysWithCounters entities;
 
 				bool error = false;
