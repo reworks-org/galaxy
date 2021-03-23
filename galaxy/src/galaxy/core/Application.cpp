@@ -73,8 +73,6 @@ namespace galaxy
 				create_asset_layout(root, "scripts/");
 				create_asset_layout(root, "shaders/");
 				create_asset_layout(root, "textures/");
-
-				m_vfs->m_listener.m_on_file_change = std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
@@ -177,12 +175,12 @@ namespace galaxy
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
+				// Set up renderer.
+				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
 				SL_HANDLE.m_scriptbook = m_scriptbook.get();
-
-				// Set up renderer.
-				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
 				// FontBook.
 				m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
@@ -225,6 +223,9 @@ namespace galaxy
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
 				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
+
+				// Bind filesystem listener.
+				m_vfs->m_listener.m_on_file_change = std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
 			}
 		}
 
@@ -396,37 +397,97 @@ namespace galaxy
 		void Application::reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action)
 		{
 			m_window->request_attention();
-			GALAXY_LOG(GALAXY_INFO, "Reloading assets due to change in filesystem.");
 
-			// ShaderBook.
-			m_shaderbook->clear();
-			m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
+			if (dir.find("shaders") != std::string::npos)
+			{
+				// ShaderBook.
+				m_shaderbook->clear();
+				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
+				m_shaderbook->create_default();
 
-			// ScriptBook.
-			m_scriptbook->clear();
-			m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
+				// Set up renderer.
+				graphics::Renderer2D::clean_up();
+				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
-			// Set up renderer.
-			graphics::Renderer2D::clean_up();
-			graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
+			}
+			else if (dir.find("scripts"))
+			{
+				// ScriptBook.
+				m_scriptbook->clear();
+				m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
 
-			// FontBook.
-			m_fontbook->clear();
-			m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
+				GALAXY_LOG(GALAXY_INFO, "Reloading scripts due to change in filesystem.");
+			}
+			else if (dir.find("fonts"))
+			{
+				// FontBook.
+				m_fontbook->clear();
+				m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
 
-			// Texture Atlas.
-			m_texture_atlas->clear();
-			m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
-			m_texture_atlas->create("render_to_texture");
-			graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+				GALAXY_LOG(GALAXY_INFO, "Reloading fonts due to change in filesystem.");
+			}
+			else if (dir.find("textures"))
+			{
+				// Texture Atlas.
+				m_texture_atlas->clear();
+				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas->create("render_to_texture");
+				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
 
-			// SoundBook.
-			m_soundbook->clear();
-			m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
+				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
+			}
+			else if (dir.find("sfx"))
+			{
+				// SoundBook.
+				m_soundbook->clear();
+				m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
 
-			// MusicBook.
-			m_musicbook->clear();
-			m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
+				GALAXY_LOG(GALAXY_INFO, "Reloading sfx due to change in filesystem.");
+			}
+			else if (dir.find("music"))
+			{
+				// MusicBook.
+				m_musicbook->clear();
+				m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading music due to change in filesystem.");
+			}
+			else
+			{
+				// ShaderBook.
+				m_shaderbook->clear();
+				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
+				m_shaderbook->create_default();
+
+				// Set up renderer.
+				graphics::Renderer2D::clean_up();
+				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+
+				// ScriptBook.
+				m_scriptbook->clear();
+				m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
+
+				// FontBook.
+				m_fontbook->clear();
+				m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
+
+				// Texture Atlas.
+				m_texture_atlas->clear();
+				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas->create("render_to_texture");
+				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+
+				// SoundBook.
+				m_soundbook->clear();
+				m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
+
+				// MusicBook.
+				m_musicbook->clear();
+				m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading assets due to change in filesystem.");
+			}
 		}
 	} // namespace core
 } // namespace galaxy

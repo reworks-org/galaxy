@@ -61,11 +61,6 @@ namespace galaxy
 			}
 		}
 
-		void ShaderBook::clear() noexcept
-		{
-			m_resources.clear();
-		}
-
 		void ShaderBook::create_default()
 		{
 			auto* df = create("DefaultFramebuffer");
@@ -91,6 +86,11 @@ namespace galaxy
 
 			auto* text = create("text");
 			text->load_raw(shaders::text_vert, shaders::text_frag);
+		}
+
+		void ShaderBook::clear() noexcept
+		{
+			m_resources.clear();
 		}
 	} // namespace res
 } // namespace galaxy

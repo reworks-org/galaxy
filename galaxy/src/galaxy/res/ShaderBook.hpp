@@ -46,6 +46,11 @@ namespace galaxy
 			void create_from_json(std::string_view file);
 
 			///
+			/// Create default shaderbook shaders.
+			///
+			void create_default();
+
+			///
 			/// Clean up.
 			///
 			void clear() noexcept override;
@@ -70,11 +75,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			ShaderBook& operator=(ShaderBook&&) = delete;
-
-			///
-			/// Create default shaderbook shaders.
-			///
-			void create_default();
 		};
 	} // namespace res
 } // namespace galaxy

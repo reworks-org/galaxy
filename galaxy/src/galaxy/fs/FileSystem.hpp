@@ -46,22 +46,6 @@ namespace galaxy
 			~Virtual() noexcept;
 
 			///
-			/// Mounts a directory to the VFS.
-			///
-			/// \param dir Directory to add.
-			///
-			/// \return Returns false if not a directory, and does not mount if so.
-			///
-			[[maybe_unused]] const bool mount(std::string_view dir);
-
-			///
-			/// Mounts a directory to the VFS, opening a OS dialog.
-			///
-			/// \return Returns false if not a directory, and does not mount if so.
-			///
-			[[maybe_unused]] const bool mount();
-
-			///
 			/// \brief Creates a blank file in the filesystem.
 			///
 			/// WARNING: THIS WILL OVERWRITE AN EXISTING FILE.
@@ -198,6 +182,16 @@ namespace galaxy
 				///
 				std::function<void(FW::WatchID, const FW::String&, const FW::String&, FW::Action)> m_on_file_change;
 			};
+
+		private:
+			///
+			/// Mounts a directory to the VFS.
+			///
+			/// \param dir Directory to add.
+			///
+			/// \return Returns false if not a directory, and does not mount if so.
+			///
+			[[maybe_unused]] const bool mount(std::string_view dir);
 
 		private:
 			///

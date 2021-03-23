@@ -29,35 +29,6 @@ namespace galaxy
 			m_dirs.clear();
 		}
 
-		const bool Virtual::mount(std::string_view dir)
-		{
-			if (std_fs::is_directory(dir))
-			{
-				m_dirs.emplace_back(dir);
-				m_watcher.addWatch(static_cast<std::string>(dir), &m_listener, true);
-
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		const bool Virtual::mount()
-		{
-			const auto result = show_folder_dialog();
-			if (result != std::nullopt)
-			{
-				return mount(result.value());
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to open file path.");
-				return false;
-			}
-		}
-
 		void Virtual::create_file(std::string_view filepath)
 		{
 			const auto abs_fp = std_fs::absolute(filepath).string();
@@ -310,6 +281,21 @@ namespace galaxy
 			if (SL_HANDLE.window()->is_focused())
 			{
 				m_on_file_change(watch_id, dir, file_name, action);
+			}
+		}
+
+		const bool Virtual::mount(std::string_view dir)
+		{
+			if (std_fs::is_directory(dir))
+			{
+				m_dirs.emplace_back(dir);
+				m_watcher.addWatch(static_cast<std::string>(dir), &m_listener, true);
+
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 	} // namespace fs

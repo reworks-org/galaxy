@@ -397,11 +397,11 @@ namespace galaxy
 			config_type["get_float"]  = &fs::Config::get<float>;
 			config_type["get_string"] = &fs::Config::get<std::string>;
 
-			auto fs_type        = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::no_constructor);
-			fs_type["mount"]    = sol::resolve<const bool(std::string_view)>(&fs::Virtual::mount);
-			fs_type["open"]     = &fs::Virtual::open;
-			fs_type["save"]     = &fs::Virtual::save;
-			fs_type["absolute"] = &fs::Virtual::absolute;
+			auto fs_type           = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::no_constructor);
+			fs_type["open"]        = &fs::Virtual::open;
+			fs_type["save"]        = &fs::Virtual::save;
+			fs_type["absolute"]    = &fs::Virtual::absolute;
+			fs_type["create_file"] = &fs::Virtual::create_file;
 		}
 
 		void register_graphics()

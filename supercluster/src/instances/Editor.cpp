@@ -70,11 +70,10 @@ namespace sc
 		if (!m_game_mode)
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(nullptr);
+			ImGui::ImplGlfw::g_BlockInput = false;
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				ImGui::ImplGlfw::g_BlockInput = true;
-
 				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
 
 				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
@@ -84,19 +83,20 @@ namespace sc
 			}
 			else
 			{
-				m_mouse_dragging              = false;
-				ImGui::ImplGlfw::g_BlockInput = false;
+				m_mouse_dragging = false;
 			}
 		}
 		else
 		{
+			ImGui::ImplGlfw::g_BlockInput = true;
+			SL_HANDLE.window()->set_scene_dispatcher(&m_scene_stack.top()->m_dispatcher);
+
 			if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
 			{
 				m_game_mode = false;
 				deserialize(m_backup);
 			}
 
-			SL_HANDLE.window()->set_scene_dispatcher(&m_scene_stack.top()->m_dispatcher);
 			m_scene_stack.events();
 		}
 	}
@@ -265,22 +265,22 @@ namespace sc
 					save();
 				}
 
-				if (ImGui::MenuItem("Mount Folder"))
+				if (ImGui::MenuItem("Restart"))
 				{
-					const auto& folder = SL_HANDLE.vfs()->show_folder_dialog();
-					if (folder != std::nullopt)
-					{
-						if (!SL_HANDLE.vfs()->mount(folder.value()))
-						{
-							GALAXY_LOG(GALAXY_WARNING, "Attempted to mount invalid folder.");
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Attempted to open invalid folder.");
-					}
+					SL_HANDLE.m_restart = true;
+					exit();
 				}
 
+				if (ImGui::MenuItem("Exit"))
+				{
+					exit();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Editor"))
+			{
 				if (ImGui::BeginMenu("Theme"))
 				{
 					if (ImGui::MenuItem("Light"))
@@ -321,34 +321,17 @@ namespace sc
 					ImGui::EndMenu();
 				}
 
+				if (ImGui::MenuItem("Open Tiled"))
+				{
+					m_process = platform::run_process("tools/tiled/tiled.exe");
+				}
+
 				if (ImGui::MenuItem("Show ImGui::Demo"))
 				{
 					m_render_demo = !m_render_demo;
 				}
 
-				if (ImGui::MenuItem("Reload"))
-				{
-					SL_HANDLE.m_restart = true;
-					exit();
-				}
-
-				if (ImGui::MenuItem("Exit"))
-				{
-					exit();
-				}
-
 				ImGui::EndMenu();
-			}
-
-			if (ImGui::MenuItem("Open Tiled"))
-			{
-				m_process = platform::run_process("tools/tiled/tiled.exe");
-			}
-
-			if (ImGui::MenuItem("Reload"))
-			{
-				SL_HANDLE.m_restart = true;
-				exit();
 			}
 
 			ImGui::Text("( ? )");
