@@ -399,7 +399,7 @@ namespace sc
 
 			if (m_mouse_picked)
 			{
-				constexpr const static auto mp_id = std::numeric_limits<ecs::Entity>::max();
+				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 				glm::vec2 pos;
 				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_scene_stack.top()->m_camera.get_pos().x;
@@ -409,18 +409,19 @@ namespace sc
 				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
 
 				// Will be erased by collision system, as this is after update().
-				std::vector<ecs::Entity> entity;
-				tree->query(mp_id, std::back_inserter(entity));
+				static std::vector<ecs::Entity> possible = {};
+				tree->query(mp_id, std::back_inserter(possible));
 
-				if (entity.size() > 0)
+				if (possible.size() > 0)
 				{
-					m_entity_panel.set_selected_entity(std::make_optional(entity[0]));
+					m_entity_panel.set_selected_entity(std::make_optional(possible[0]));
 				}
 				else
 				{
 					m_entity_panel.set_selected_entity(std::nullopt);
 				}
 
+				possible.clear();
 				m_mouse_picked = false;
 			}
 

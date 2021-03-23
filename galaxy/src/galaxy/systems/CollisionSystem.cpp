@@ -38,7 +38,7 @@ namespace galaxy
 				m_tree.insert(entity, aabb.min(), aabb.max());
 			});
 
-			std::vector<ecs::Entity> possible;
+			static std::vector<ecs::Entity> possible = {};
 			world.operate<components::RigidBody, components::Transform>([&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform* transform) {
 				possible.clear();
 				m_tree.query(entity_a, std::back_inserter(possible));

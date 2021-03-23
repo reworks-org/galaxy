@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		struct AllowSerialize final
 		{
-			constexpr const inline static unsigned short value = 1;
+			inline static constexpr const unsigned short value = 1;
 		};
 	} // namespace flags
 } // namespace galaxy
