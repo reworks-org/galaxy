@@ -74,7 +74,7 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
+				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Left);
 
 				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
 				{
@@ -405,10 +405,10 @@ namespace sc
 				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_scene_stack.top()->m_camera.get_pos().x;
 				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_scene_stack.top()->m_camera.get_pos().y;
 
+				// Will be erased by collision system, as this is after update().
 				auto* tree = m_scene_stack.top()->m_world.get_system<systems::CollisionSystem>()->get_tree();
 				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
 
-				// Will be erased by collision system, as this is after update().
 				static std::vector<ecs::Entity> possible = {};
 				tree->query(mp_id, std::back_inserter(possible));
 
@@ -428,7 +428,7 @@ namespace sc
 			if (m_mouse_dragging)
 			{
 				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Left);
 
 				m_scene_stack.top()->m_camera.move(delta.x, delta.y);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
@@ -439,6 +439,37 @@ namespace sc
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+
+			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
+			{
+				if (ImGui::BeginMenu(" Create"))
+				{
+					if (ImGui::BeginMenu(" Entity"))
+					{
+						if (ImGui::MenuItem(" Sprite"))
+						{
+						}
+
+						if (ImGui::MenuItem(" Rigid Body"))
+						{
+						}
+
+						if (ImGui::MenuItem(" Text"))
+						{
+						}
+
+						ImGui::EndMenu();
+					}
+
+					if (ImGui::MenuItem(" Map"))
+					{
+					}
+
+					ImGui::EndMenu();
+				}
+
+				ImGui::EndPopup();
+			}
 		}
 
 		ImGui::End();
