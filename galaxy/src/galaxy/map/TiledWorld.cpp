@@ -7,6 +7,8 @@
 
 #include <filesystem>
 
+#include <nlohmann/json.hpp>
+
 #include "galaxy/error/Log.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -16,14 +18,6 @@ namespace galaxy
 {
 	namespace map
 	{
-		TiledWorld::TiledWorld(std::string_view file)
-		{
-			if (load(file))
-			{
-				parse();
-			}
-		}
-
 		TiledWorld::~TiledWorld()
 		{
 			m_maps.clear();
@@ -44,7 +38,7 @@ namespace galaxy
 			}
 		}
 
-		const bool TiledWorld::parse()
+		const bool TiledWorld::parse(core::World& world)
 		{
 			const auto& map_array = m_json.at("maps");
 
@@ -65,6 +59,10 @@ namespace galaxy
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to parse map: {0}.", file);
 						return false;
+					}
+					else
+					{
+						map.create(world);
 					}
 				}
 

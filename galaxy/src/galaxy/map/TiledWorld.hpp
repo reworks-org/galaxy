@@ -33,13 +33,6 @@ namespace galaxy
 			TiledWorld() noexcept = default;
 
 			///
-			/// Load and Parse constructor.
-			///
-			/// \param file Tiled TiledWorld definition in VFS.
-			///
-			TiledWorld(std::string_view file);
-
-			///
 			/// Destructor.
 			///
 			~TiledWorld() noexcept;
@@ -54,7 +47,9 @@ namespace galaxy
 			///
 			/// Parse out data from TiledWorld definition.
 			///
-			[[maybe_unused]] const bool parse();
+			/// \param world World to create entitys in.
+			///
+			[[maybe_unused]] const bool parse(core::World& world);
 
 			///
 			/// Clear all data from world.
