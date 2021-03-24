@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SANDBOXTESTS_LAYERS_SANDBOX_HPP_
-#define SANDBOXTESTS_LAYERS_SANDBOX_HPP_
+#ifndef SANDBOXTESTS_SANDBOX_HPP_
+#define SANDBOXTESTS_SANDBOX_HPP_
 
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/core/Instance.hpp>

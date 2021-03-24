@@ -13,7 +13,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/error/Log.hpp>
 
-#include "layers/Sandbox.hpp"
+#include "Sandbox.hpp"
 
 class SandboxApp : public galaxy::core::Application
 {
