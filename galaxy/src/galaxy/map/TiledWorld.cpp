@@ -67,11 +67,17 @@ namespace galaxy
 						return false;
 					}
 				}
-				
+
 				m_maps.emplace(id, std::move(map));
 			}
 
 			return true;
+		}
+
+		void TiledWorld::clear()
+		{
+			m_json.clear();
+			m_maps.clear();
 		}
 
 		map::Map* TiledWorld::get_map(std::string_view map) noexcept

@@ -57,6 +57,11 @@ namespace galaxy
 			[[maybe_unused]] const bool parse();
 
 			///
+			/// Clear all data from world.
+			///
+			void clear();
+
+			///
 			/// Get a map by name.
 			///
 			/// \param map Name of the map to retrieve.
