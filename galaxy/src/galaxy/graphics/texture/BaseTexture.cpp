@@ -48,8 +48,10 @@ namespace galaxy
 
 		BaseTexture::~BaseTexture() noexcept
 		{
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glDeleteTextures(1, &m_texture);
+			if (!m_shared)
+			{
+				glDeleteTextures(1, &m_texture);
+			}
 		}
 
 		void BaseTexture::save(std::string_view file)
@@ -148,7 +150,7 @@ namespace galaxy
 		}
 
 		BaseTexture::BaseTexture() noexcept
-		    : m_texture {0}, m_width {0}, m_height {0}
+		    : m_texture {0}, m_width {0}, m_height {0}, m_shared {false}
 		{
 			glGenTextures(1, &m_texture);
 		}

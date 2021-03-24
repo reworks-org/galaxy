@@ -149,6 +149,11 @@ namespace galaxy
 			///
 			int m_height;
 
+			///
+			/// Flag if shared texture.
+			///
+			bool m_shared;
+
 		private:
 			///
 			/// Copy constructor.
