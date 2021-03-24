@@ -11,8 +11,7 @@
 #include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/ecs/Entity.hpp"
-#include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
+#include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/map/layer/TileLayer.hpp"
 #include "galaxy/map/layer/ObjectLayer.hpp"
 #include "galaxy/map/layer/ImageLayer.hpp"
@@ -33,32 +32,10 @@ namespace galaxy
 		using TileWithSet = std::tuple<Tile*, Tileset*>;
 
 		///
-		/// Shorthand.
-		///
-		using BatchData = std::pair<std::unique_ptr<components::BatchSprite>, std::unique_ptr<components::Transform>>;
-
-		///
 		/// Represents the entire Tiled Map.
 		///
 		class Map final
 		{
-		public:
-			///
-			/// Holds data for rendering each layer.
-			///
-			struct RenderData final
-			{
-				///
-				/// Spritebatch.
-				///
-				std::unique_ptr<graphics::SpriteBatch> m_batch;
-
-				///
-				/// Spritebatch data.
-				///
-				std::vector<std::unique_ptr<BatchData>> m_batch_data;
-			};
-
 		public:
 			///
 			/// Constructor.
@@ -111,18 +88,6 @@ namespace galaxy
 			/// \param world World to create entities in.
 			///
 			void create(core::World& world);
-
-			///
-			/// Updates spritebatch data.
-			///
-			void update_batches();
-
-			///
-			/// Render map.
-			///
-			/// \param camera Camera view to draw map to.
-			///
-			void render(graphics::Camera& camera);
 
 			///
 			/// Enable all objects.
@@ -329,8 +294,9 @@ namespace galaxy
 			/// Create image layer data.
 			///
 			/// \param layer Image layer.
+			/// \param world World to create objects in.
 			///
-			void create_image_layer(const ImageLayer& layer);
+			void create_image_layer(const ImageLayer& layer, core::World& world);
 
 			///
 			/// Create object layer data.
@@ -478,14 +444,14 @@ namespace galaxy
 			int m_width;
 
 			///
-			/// Render data.
-			///
-			std::vector<std::unique_ptr<RenderData>> m_data;
-
-			///
 			/// Keep track of object entities.
 			///
 			std::vector<ecs::Entity> m_object_entities;
+
+			///
+			/// Framebuffer storage.
+			///
+			std::vector<graphics::RenderTexture> m_framebuffers;
 		};
 
 		template<tiled_property Type>

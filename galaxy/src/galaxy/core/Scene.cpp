@@ -19,7 +19,7 @@ namespace galaxy
 	namespace core
 	{
 		Scene::Scene(std::string_view name) noexcept
-		    : Serializable {this}, m_name {name}
+		    : Serializable {this}, m_name {name}, m_active_map {""}
 		{
 			m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 			m_camera.set_speed(100.0f);
@@ -76,6 +76,31 @@ namespace galaxy
 		{
 			m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
 			m_gui.render();
+		}
+
+		void Scene::create_maps(std::string_view path)
+		{
+			m_maps.clear();
+			m_maps.load(path);
+			if (!m_maps.parse(m_world))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse tiled world.");
+			}
+		}
+
+		map::Map* Scene::get_map(std::string_view name)
+		{
+			return m_maps.get_map(name);
+		}
+
+		map::Map* Scene::get_active_map()
+		{
+			return m_maps.get_map(m_active_map);
+		}
+
+		void Scene::set_active_map(std::string_view name)
+		{
+			m_active_map = static_cast<std::string>(name);
 		}
 
 		nlohmann::json Scene::serialize()

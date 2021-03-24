@@ -108,11 +108,6 @@ namespace sb
 
 	void Sandbox::render()
 	{
-		if (m_scene_stack.top()->m_name == "MapScene")
-		{
-			m_map.render(m_scene_stack.top()->m_camera);
-		}
-
 		m_scene_stack.render();
 	}
 
@@ -252,21 +247,20 @@ namespace sb
 	{
 		auto map = m_scene_stack.create("MapScene");
 
+		map->create_maps("assets/maps/maps.world");
+		map->set_active_map("desert");
+
 		map->m_dispatcher.subscribe_callback<events::KeyDown>([map, this](const events::KeyDown& kde) {
 			switch (kde.m_keycode)
 			{
 				case input::Keys::Z:
-					m_map.enable_objects(map->m_world);
+					map->get_active_map()->enable_objects(map->m_world);
 					break;
 
 				case input::Keys::X:
-					m_map.disable_objects(map->m_world);
+					map->get_active_map()->disable_objects(map->m_world);
 					break;
 			}
 		});
-
-		m_map.load("assets/maps/desert.json");
-		m_map.parse();
-		m_map.create(map->m_world);
 	}
 } // namespace sb

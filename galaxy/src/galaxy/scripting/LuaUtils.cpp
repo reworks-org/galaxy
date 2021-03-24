@@ -527,7 +527,6 @@ namespace galaxy
 			map_type["load"]            = &map::Map::load;
 			map_type["parse"]           = &map::Map::parse;
 			map_type["create"]          = &map::Map::create;
-			map_type["update_batches"]  = &map::Map::update_batches;
 			map_type["enable_objects"]  = &map::Map::enable_objects;
 			map_type["disable_objects"] = &map::Map::disable_objects;
 

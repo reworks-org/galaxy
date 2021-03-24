@@ -9,6 +9,7 @@
 #define GALAXY_SCENES_SCENE_HPP_
 
 #include "galaxy/core/World.hpp"
+#include "galaxy/map/TiledWorld.hpp"
 #include "galaxy/ui/GUI.hpp"
 
 namespace galaxy
@@ -66,6 +67,36 @@ namespace galaxy
 			void render();
 
 			///
+			/// Load a tiled world.
+			///
+			/// \param path Path to the tiled world.
+			///
+			void create_maps(std::string_view path);
+
+			///
+			/// Get a map.
+			///
+			/// \param name Name of the map file to get.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_map(std::string_view name);
+
+			///
+			/// Get active map.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_active_map();
+
+			///
+			/// Set the active map.
+			///
+			/// \param name Name of the map file to set as active.
+			///
+			void set_active_map(std::string_view name);
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -115,6 +146,17 @@ namespace galaxy
 			/// GUI for this scene.
 			///
 			ui::GUI m_gui;
+
+		private:
+			///
+			/// Tiled map world.
+			///
+			map::TiledWorld m_maps;
+
+			///
+			/// Currently active map.
+			///
+			std::string m_active_map;
 		};
 	} // namespace core
 } // namespace galaxy

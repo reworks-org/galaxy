@@ -17,6 +17,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/res/TextureAtlas.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -80,8 +81,8 @@ namespace galaxy
 			this->m_type              = std::move(m.m_type);
 			this->m_version           = m.m_version;
 			this->m_width             = m.m_width;
-			this->m_data              = std::move(m.m_data);
 			this->m_object_entities   = std::move(m.m_object_entities);
+			this->m_framebuffers      = std::move(m.m_framebuffers);
 		}
 
 		Map& Map::operator=(Map&& m) noexcept
@@ -112,8 +113,8 @@ namespace galaxy
 				this->m_type              = std::move(m.m_type);
 				this->m_version           = m.m_version;
 				this->m_width             = m.m_width;
-				this->m_data              = std::move(m.m_data);
 				this->m_object_entities   = std::move(m.m_object_entities);
+				this->m_framebuffers      = std::move(m.m_framebuffers);
 			}
 
 			return *this;
@@ -121,22 +122,13 @@ namespace galaxy
 
 		Map::~Map() noexcept
 		{
-			for (auto& data : m_data)
-			{
-				data->m_batch->clear();
-				data->m_batch_data.clear();
-
-				data->m_batch.reset();
-				data.reset();
-			}
-
-			m_data.clear();
 			m_root.clear();
 			m_properties.clear();
 			m_tile_layers.clear();
 			m_object_layers.clear();
 			m_image_layers.clear();
 			m_tilesets.clear();
+			m_framebuffers.clear();
 		}
 
 		const bool Map::load(std::string_view map)
@@ -275,6 +267,7 @@ namespace galaxy
 					{
 						parse_tilesets();
 						parse_layers(m_root, 0);
+						m_framebuffers.resize(m_tile_layers.size());
 
 						return true;
 					}
@@ -296,7 +289,7 @@ namespace galaxy
 		{
 			for (const auto& imagelayer : m_image_layers)
 			{
-				create_image_layer(imagelayer);
+				create_image_layer(imagelayer, world);
 			}
 
 			for (const auto& objectlayer : m_object_layers)
@@ -307,24 +300,6 @@ namespace galaxy
 			for (const auto& tilelayer : m_tile_layers)
 			{
 				create_tile_layer(tilelayer, world);
-			}
-
-			update_batches();
-		}
-
-		void Map::update_batches()
-		{
-			for (const auto& data : m_data)
-			{
-				data->m_batch->calculate();
-			}
-		}
-
-		void Map::render(graphics::Camera& camera)
-		{
-			for (const auto& data : m_data)
-			{
-				graphics::Renderer2D::draw_batch(data->m_batch.get(), camera);
 			}
 		}
 
@@ -524,29 +499,24 @@ namespace galaxy
 			return level;
 		}
 
-		void Map::create_image_layer(const ImageLayer& layer)
+		void Map::create_image_layer(const ImageLayer& layer, core::World& world)
 		{
 			if (layer.is_visible())
 			{
-				const auto level = layer.get_z_level();
-				if (level >= m_data.size())
-				{
-					m_data.resize(level + 1);
-					m_data[level]          = std::make_unique<RenderData>();
-					m_data[level]->m_batch = std::make_unique<graphics::SpriteBatch>((4096 / m_tile_width) * (4096 / m_tile_height));
-					m_data[level]->m_batch->set_texture(SL_HANDLE.atlas()->get_atlas());
-				}
+				const auto entity = world.create();
+				auto* batchsprite = world.create_component<components::BatchSprite>(entity);
+				auto* renderable  = world.create_component<components::Renderable>(entity);
+				auto* tag         = world.create_component<components::Tag>(entity);
+				auto* transform   = world.create_component<components::Transform>(entity);
 
-				auto& data = m_data[level]->m_batch_data.emplace_back(std::make_unique<BatchData>());
+				const auto image = std::filesystem::path(layer.get_image()).stem().string();
+				batchsprite->create(image, layer.get_opacity());
+				renderable->m_type    = graphics::Renderables::BATCHED;
+				renderable->m_z_level = layer.get_z_level();
+				tag->m_tag            = fmt::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
+				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
 
-				data->first  = std::make_unique<components::BatchSprite>();
-				data->second = std::make_unique<components::Transform>();
-
-				data->first->create(std::filesystem::path(layer.get_image()).stem().string(), layer.get_opacity());
-				data->second->set_pos(layer.get_offset_x(), layer.get_offset_y());
-
-				auto& end = m_data[level]->m_batch_data.back();
-				m_data[level]->m_batch->add(end->first.get(), end->second.get(), level);
+				world.enable(entity);
 			}
 		}
 
@@ -566,10 +536,10 @@ namespace galaxy
 					else
 					{
 						const auto entity     = world.create();
-						auto* transform       = world.create_component<components::Transform>(entity);
-						auto* shaderid        = world.create_component<components::ShaderID>(entity);
 						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
 						auto* renderable      = world.create_component<components::Renderable>(entity);
+						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* transform       = world.create_component<components::Transform>(entity);
 						renderable->m_z_level = layer.get_z_level();
 
 						switch (type)
@@ -696,15 +666,11 @@ namespace galaxy
 			if (layer.is_visible())
 			{
 				const auto level = layer.get_z_level();
-				if (level >= m_data.size())
-				{
-					m_data.resize(level + 1);
-					m_data[level]          = std::make_unique<RenderData>();
-					m_data[level]->m_batch = std::make_unique<graphics::SpriteBatch>((4096 / m_tile_width) * (4096 / m_tile_height));
-					m_data[level]->m_batch->set_texture(SL_HANDLE.atlas()->get_atlas());
-				}
-
 				const auto& data = layer.get_data();
+
+				m_framebuffers[level].create(m_tile_width * m_width, m_tile_height * m_height);
+				m_framebuffers[level].bind();
+
 				for (int i = 0; i < m_height; i++)
 				{
 					for (int j = 0; j < m_width; j++)
@@ -756,18 +722,47 @@ namespace galaxy
 							}
 							else
 							{
-								auto& batch_data   = m_data[level]->m_batch_data.emplace_back(std::make_unique<BatchData>());
-								batch_data->first  = std::make_unique<components::BatchSprite>();
-								batch_data->second = std::make_unique<components::Transform>();
-								batch_data->first->create(tile_name, layer.get_opacity());
-								batch_data->second->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
+								// Load texture.
+								const auto w          = SL_HANDLE.atlas()->get_atlas()->get_width();
+								const auto h          = SL_HANDLE.atlas()->get_atlas()->get_height();
+								const auto& tile_rect = SL_HANDLE.atlas()->get_region(tile_name);
 
-								auto& end = m_data[level]->m_batch_data.back();
-								m_data[level]->m_batch->add(end->first.get(), end->second.get(), level);
+								components::Sprite to_draw;
+								components::Transform to_draw_transform;
+								to_draw.load(SL_HANDLE.atlas()->get_atlas()->gl_texture(), w, h);
+								to_draw.create_clipped(tile_rect.m_x, tile_rect.m_y, tile_rect.m_width, tile_rect.m_height);
+								to_draw.set_opacity(layer.get_opacity());
+								to_draw_transform.set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
+
+								RENDERER_2D().draw_sprite_to_target(
+								    &to_draw,
+								    &to_draw_transform,
+								    SL_HANDLE.shaderbook()->get("render_to_texture"),
+								    &m_framebuffers[level]);
 							}
 						}
 					}
 				}
+
+				m_framebuffers[level].unbind();
+
+				const auto entity = world.create();
+				auto* renderable  = world.create_component<components::Renderable>(entity);
+				auto* shaderid    = world.create_component<components::ShaderID>(entity);
+				auto* sprite      = world.create_component<components::Sprite>(entity);
+				auto* tag         = world.create_component<components::Tag>(entity);
+				auto* transform   = world.create_component<components::Transform>(entity);
+
+				renderable->m_type    = graphics::Renderables::SPRITE;
+				renderable->m_z_level = level;
+				shaderid->m_shader_id = "sprite";
+				sprite->load(m_framebuffers[level].gl_texture(), m_framebuffers[level].get_width(), m_framebuffers[level].get_height());
+				sprite->create();
+				sprite->set_opacity(layer.get_opacity());
+				tag->m_tag = fmt::format("{0}_{1}_{2}{3}", layer.get_id(), layer.get_name(), "TileLayer", layer.get_z_level());
+				transform->set_pos(0.0f, 0.0f);
+
+				world.enable(entity);
 			}
 		}
 

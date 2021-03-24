@@ -12,7 +12,6 @@
 #include <galaxy/core/Instance.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/graphics/Camera.hpp>
-#include <galaxy/map/Map.hpp>
 
 using namespace galaxy;
 
@@ -39,7 +38,6 @@ namespace sb
 		async::Timer m_timer;
 
 		ecs::Entity m_cube;
-		map::Map m_map;
 	};
 } // namespace sb
 
