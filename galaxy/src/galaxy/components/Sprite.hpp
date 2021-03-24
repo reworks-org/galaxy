@@ -60,12 +60,22 @@ namespace galaxy
 			void create(const float tex_x = 0.0f, const float tex_y = 0.0f);
 
 			///
-			/// Creates the internal vertex array, with a clipped texture.
+			/// Creates the internal vertex array, with a clipped w/h.
 			///
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
 			void create_clipped(const float width, const float height);
+
+			///
+			/// Creates the internal vertex array, with a clipped rect.
+			///
+			/// \param x Optional texture x pos.
+			/// \param y Optional texture y pos.
+			/// \param width Clipped texture width.
+			/// \param height Clipped texture height.
+			///
+			void create_clipped(const float x, const float y, const float width, const float height);
 
 			///
 			/// Activate sprite context.

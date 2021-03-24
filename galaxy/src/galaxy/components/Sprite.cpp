@@ -71,11 +71,33 @@ namespace galaxy
 
 		void Sprite::create_clipped(const float width, const float height)
 		{
+			m_width  = width;
+			m_height = height;
+
 			m_vertexs.clear();
 			m_vertexs.push_back({0.0f, 0.0f, 0.0f, 0.0f});
-			m_vertexs.push_back({0.0f + m_width, 0.0f, 0.0f + width, 0.0f});
-			m_vertexs.push_back({0.0f + m_width, 0.0f + m_height, 0.0f + width, 0.0f + height});
-			m_vertexs.push_back({0.0f, 0.0f + m_height, 0.0f, 0.0f + height});
+			m_vertexs.push_back({0.0f + m_width, 0.0f, 0.0f + m_width, 0.0f});
+			m_vertexs.push_back({0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height});
+			m_vertexs.push_back({0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height});
+
+			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
+
+			m_vb.create<graphics::SpriteVertex>(m_vertexs);
+			m_ib.create(ib_arr);
+
+			m_layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
+			m_layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+
+			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
+		}
+
+		void Sprite::create_clipped(const float x, const float y, const float width, const float height)
+		{
+			m_vertexs.clear();
+			m_vertexs.push_back({0.0f, 0.0f, x, y});
+			m_vertexs.push_back({0.0f + m_width, 0.0f, x + m_width, y});
+			m_vertexs.push_back({0.0f + m_width, 0.0f + m_height, x + m_width, y + m_height});
+			m_vertexs.push_back({0.0f, 0.0f + m_height, x, y + m_height});
 
 			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
 
