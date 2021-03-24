@@ -159,7 +159,7 @@ namespace galaxy
 			text_shader->bind();
 			text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, text_shader);
+			RENDERER_2D().draw_text(&m_text, &m_text_transform, text_shader);
 
 			if (m_draw_cursor && m_is_focus)
 			{
@@ -167,7 +167,7 @@ namespace galaxy
 				line_shader->bind();
 				line_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 				line_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-				graphics::Renderer2D::draw_line(&m_cursor, &m_cursor_transform, line_shader);
+				RENDERER_2D().draw_line(&m_cursor, &m_cursor_transform, line_shader);
 			}
 
 			if (m_tooltip)

@@ -62,7 +62,7 @@ namespace galaxy
 			text_shader->bind();
 			text_shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			text_shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_text_transform, text_shader);
+			RENDERER_2D().draw_text(&m_text, &m_text_transform, text_shader);
 		}
 
 		void Tooltip::update_text(std::string_view text)

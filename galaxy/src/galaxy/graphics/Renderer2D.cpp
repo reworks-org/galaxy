@@ -19,20 +19,82 @@ namespace galaxy
 {
 	namespace graphics
 	{
+		Renderer2D::Renderer2D() noexcept
+		    : m_texture {nullptr}, m_batch_shader {nullptr}, m_max_quads {0}
+		{
+		}
+
+		Renderer2D::~Renderer2D() noexcept
+		{
+			clean_up();
+		}
+
+		Renderer2D& Renderer2D::inst() noexcept
+		{
+			static Renderer2D s_inst;
+			return s_inst;
+		}
+
 		void Renderer2D::init(const unsigned int max_quads, std::string_view batch_shader)
 		{
-			Renderer2D::m_post_shaders.push_back(SL_HANDLE.shaderbook()->get("DefaultFramebuffer"));
-
-			m_batch        = std::make_unique<graphics::SpriteBatch>(max_quads);
+			m_max_quads = max_quads;
+			m_post_shaders.push_back(SL_HANDLE.shaderbook()->get("DefaultFramebuffer"));
 			m_batch_shader = SL_HANDLE.shaderbook()->get(batch_shader);
 		}
 
 		void Renderer2D::clean_up()
 		{
-			Renderer2D::m_post_shaders.clear();
-			m_batch.reset();
-			m_batch        = nullptr;
+			for (auto& batch : m_batches)
+			{
+				batch.second->clear();
+				batch.second = nullptr;
+			}
+
+			m_batches.clear();
 			m_batch_shader = nullptr;
+			m_post_shaders.clear();
+			m_texture = nullptr;
+		}
+
+		void Renderer2D::create_default_batches(BaseTexture* texture) noexcept
+		{
+			m_texture = texture;
+
+			for (auto i = 0; i < 10; i++)
+			{
+				m_batches[i] = std::make_unique<graphics::SpriteBatch>(m_max_quads);
+				m_batches[i]->set_texture(m_texture);
+			}
+		}
+
+		void Renderer2D::add_batched_sprite(components::BatchSprite* batchsprite, components::Transform* transform, int zlevel)
+		{
+			if (!m_batches.contains(zlevel))
+			{
+				m_batches[zlevel] = std::make_unique<graphics::SpriteBatch>(m_max_quads);
+				m_batches[zlevel]->set_texture(m_texture);
+			}
+
+			m_batches[zlevel]->add(batchsprite, transform, zlevel);
+		}
+
+		void Renderer2D::calculate_batches()
+		{
+			for (auto& batch : m_batches)
+			{
+				if (!batch.second->empty())
+				{
+					batch.second->calculate();
+				}
+			}
+		}
+
+		void Renderer2D::clear()
+		{
+			for (auto& batch : m_batches)
+			{
+				batch.second->clear_sprites();
+			}
 		}
 
 		void Renderer2D::draw_point(components::Primitive2D* data, components::Transform* transform, Shader* shader)
@@ -60,16 +122,20 @@ namespace galaxy
 			glDrawElements(GL_LINE_LOOP, data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_spritebatch(Camera& camera)
+		void Renderer2D::draw_spritebatches(Camera& camera)
 		{
-			Renderer2D::m_batch_shader->bind();
-			Renderer2D::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
-			Renderer2D::m_batch_shader->set_uniform("u_cameraView", camera.get_view());
-			Renderer2D::m_batch_shader->set_uniform("u_width", static_cast<float>(Renderer2D::m_batch->get_width()));
-			Renderer2D::m_batch_shader->set_uniform("u_height", static_cast<float>(Renderer2D::m_batch->get_height()));
+			m_batch_shader->bind();
+			m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
+			m_batch_shader->set_uniform("u_cameraView", camera.get_view());
 
-			Renderer2D::m_batch->bind();
-			glDrawElements(GL_TRIANGLES, Renderer2D::m_batch->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
+			for (auto& batch : m_batches)
+			{
+				m_batch_shader->set_uniform("u_width", static_cast<float>(batch.second->get_width()));
+				m_batch_shader->set_uniform("u_height", static_cast<float>(batch.second->get_height()));
+
+				batch.second->bind();
+				glDrawElements(GL_TRIANGLES, batch.second->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
+			}
 		}
 
 		void Renderer2D::draw_text(components::Text* text, components::Transform* transform, Shader* shader)
@@ -95,18 +161,6 @@ namespace galaxy
 			shader->set_uniform("u_height", static_cast<float>(sprite->get_height()));
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
-		}
-
-		void Renderer2D::draw_batch(graphics::SpriteBatch* sb, Camera& camera)
-		{
-			Renderer2D::m_batch_shader->bind();
-			Renderer2D::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
-			Renderer2D::m_batch_shader->set_uniform("u_cameraView", camera.get_view());
-			Renderer2D::m_batch_shader->set_uniform("u_width", static_cast<float>(sb->get_width()));
-			Renderer2D::m_batch_shader->set_uniform("u_height", static_cast<float>(sb->get_height()));
-
-			sb->bind();
-			glDrawElements(GL_TRIANGLES, sb->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer2D::draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target)

@@ -26,7 +26,7 @@ namespace galaxy
 		void RenderSystem::update(core::World& world, const double dt)
 		{
 			m_sorted.clear();
-			graphics::Renderer2D::m_batch->clear_sprites();
+			RENDERER_2D().clear();
 
 			// clang-format off
 			world.operate<components::Renderable, components::Transform>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform* transform) -> void
@@ -41,7 +41,7 @@ namespace galaxy
 
 					if (renderable->m_type == graphics::Renderables::BATCHED)
 					{
-						graphics::Renderer2D::m_batch->add(world.get<components::BatchSprite>(entity), transform, renderable->m_z_level);
+						RENDERER_2D().add_batched_sprite(world.get<components::BatchSprite>(entity), transform, renderable->m_z_level);
 					}
 					else
 					{
@@ -50,11 +50,7 @@ namespace galaxy
 				});
 			// clang-format on
 
-			if (!graphics::Renderer2D::m_batch->empty())
-			{
-				graphics::Renderer2D::m_batch->calculate();
-			}
-
+			RENDERER_2D().calculate_batches();
 			std::sort(std::execution::par, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
 				return left.m_z_level < right.m_z_level;
 			});
@@ -62,11 +58,8 @@ namespace galaxy
 
 		void RenderSystem::render(core::World& world, graphics::Camera& camera)
 		{
-			if (!graphics::Renderer2D::m_batch->empty())
-			{
-				graphics::Renderer2D::m_batch->calculate();
-				graphics::Renderer2D::draw_spritebatch(camera);
-			}
+			RENDERER_2D().calculate_batches();
+			RENDERER_2D().draw_spritebatches(camera);
 
 			for (const auto& data : m_sorted)
 			{
@@ -78,23 +71,23 @@ namespace galaxy
 				switch (data.m_type)
 				{
 					case graphics::Renderables::POINT:
-						graphics::Renderer2D::draw_point(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_point(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::LINE:
-						graphics::Renderer2D::draw_line(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_line(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::LINE_LOOP:
-						graphics::Renderer2D::draw_lineloop(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_lineloop(world.get<components::Primitive2D>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::TEXT:
-						graphics::Renderer2D::draw_text(world.get<components::Text>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_text(world.get<components::Text>(data.m_entity), data.m_transform, shader);
 						break;
 
 					case graphics::Renderables::SPRITE:
-						graphics::Renderer2D::draw_sprite(world.get<components::Sprite>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_sprite(world.get<components::Sprite>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

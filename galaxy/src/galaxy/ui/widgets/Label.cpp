@@ -69,7 +69,7 @@ namespace galaxy
 			shader->bind();
 			shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
 			shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			graphics::Renderer2D::draw_text(&m_text, &m_transform, shader);
+			RENDERER_2D().draw_text(&m_text, &m_transform, shader);
 
 			if (m_tooltip)
 			{

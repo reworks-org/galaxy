@@ -73,6 +73,7 @@ namespace galaxy
 				create_asset_layout(root, "scripts/");
 				create_asset_layout(root, "shaders/");
 				create_asset_layout(root, "textures/");
+				create_asset_layout(root, "maps/");
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
@@ -97,7 +98,7 @@ namespace galaxy
 				m_config->define<bool>("trilinear-filtering", false);
 				m_config->define<bool>("maximized", false);
 				m_config->define<bool>("log-perf", false);
-				m_config->define<int>("max-batched-quads", 1000);
+				m_config->define<int>("max-batched-quads", 2048);
 				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
@@ -176,7 +177,7 @@ namespace galaxy
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// Set up renderer.
-				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
@@ -189,7 +190,7 @@ namespace galaxy
 				// Texture Atlas.
 				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<std::string>("textureatlas-json"));
 				m_texture_atlas->create("render_to_texture");
-				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// SoundBook.
@@ -326,7 +327,7 @@ namespace galaxy
 			FT_HANDLE.close();
 
 			m_window->destroy();
-			graphics::Renderer2D::clean_up();
+			RENDERER_2D().clean_up();
 
 			return SL_HANDLE.m_restart;
 		}
@@ -406,8 +407,8 @@ namespace galaxy
 				m_shaderbook->create_default();
 
 				// Set up renderer.
-				graphics::Renderer2D::clean_up();
-				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_2D().clean_up();
+				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
 			}
@@ -433,7 +434,7 @@ namespace galaxy
 				m_texture_atlas->clear();
 				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
 				m_texture_atlas->create("render_to_texture");
-				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
 			}
@@ -453,6 +454,10 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading music due to change in filesystem.");
 			}
+			else if (dir.find("maps"))
+			{
+				GALAXY_LOG(GALAXY_INFO, "Reloading maps.");
+			}
 			else
 			{
 				// ShaderBook.
@@ -461,8 +466,8 @@ namespace galaxy
 				m_shaderbook->create_default();
 
 				// Set up renderer.
-				graphics::Renderer2D::clean_up();
-				graphics::Renderer2D::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_2D().clean_up();
+				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
 
 				// ScriptBook.
 				m_scriptbook->clear();
@@ -476,7 +481,7 @@ namespace galaxy
 				m_texture_atlas->clear();
 				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
 				m_texture_atlas->create("render_to_texture");
-				graphics::Renderer2D::m_batch->set_texture(m_texture_atlas->get_atlas());
+				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
 
 				// SoundBook.
 				m_soundbook->clear();

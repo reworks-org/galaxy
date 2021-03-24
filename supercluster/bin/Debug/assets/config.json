@@ -10,7 +10,7 @@
     "icon-file": "icon.png",
     "is-cursor-visible": true,
     "log-perf": false,
-    "max-batched-quads": 1000,
+    "max-batched-quads": 2048,
     "maximized": true,
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,

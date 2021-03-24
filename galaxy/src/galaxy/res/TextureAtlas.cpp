@@ -136,7 +136,7 @@ namespace galaxy
 						to_draw_transform.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
 
 						auto* s_ptr = SL_HANDLE.shaderbook()->get(shader);
-						graphics::Renderer2D::draw_sprite_to_target(&to_draw, &to_draw_transform, s_ptr, &m_texture);
+						RENDERER_2D().draw_sprite_to_target(&to_draw, &to_draw_transform, s_ptr, &m_texture);
 
 						info.m_region = {static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)};
 					}

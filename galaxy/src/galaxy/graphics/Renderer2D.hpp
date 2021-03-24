@@ -11,6 +11,8 @@
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
+#define RENDERER_2D galaxy::graphics::Renderer2D::inst
+
 namespace galaxy
 {
 	namespace components
@@ -32,26 +34,53 @@ namespace galaxy
 		class Renderer2D final
 		{
 		public:
-			static void init(const unsigned int max_quads, std::string_view batch_shader);
-			static void clean_up();
+			///
+			/// Destructor.
+			///
+			~Renderer2D() noexcept;
 
-			static void draw_point(components::Primitive2D* data, components::Transform* transform, Shader* shader);
-			static void draw_line(components::Primitive2D* data, components::Transform* transform, Shader* shader);
-			static void draw_lineloop(components::Primitive2D* data, components::Transform* transform, Shader* shader);
-			static void draw_spritebatch(Camera& camera);
-			static void draw_text(components::Text* text, components::Transform* transform, Shader* shader);
-			static void draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader);
+			[[nodiscard]] static Renderer2D& inst() noexcept;
 
-			static void draw_batch(graphics::SpriteBatch* sb, Camera& camera);
-			static void draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target);
-			static void draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
+			void init(const unsigned int max_quads, std::string_view batch_shader);
 
-		public:
-			inline static std::vector<Shader*> m_post_shaders;
-			inline static std::unique_ptr<SpriteBatch> m_batch;
+			///
+			/// Clears all data from renderer, including static data.
+			///
+			void clean_up();
+
+			void create_default_batches(BaseTexture* texture) noexcept;
+			void add_batched_sprite(components::BatchSprite* batchsprite, components::Transform* transform, int zlevel);
+			void calculate_batches();
+
+			///
+			/// Clears sprite and batch data.
+			///
+			void clear();
+
+			void draw_point(components::Primitive2D* data, components::Transform* transform, Shader* shader);
+			void draw_line(components::Primitive2D* data, components::Transform* transform, Shader* shader);
+			void draw_lineloop(components::Primitive2D* data, components::Transform* transform, Shader* shader);
+			void draw_spritebatches(Camera& camera);
+			void draw_text(components::Text* text, components::Transform* transform, Shader* shader);
+			void draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader);
+
+			void draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target);
+			void draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
 
 		private:
-			inline static Shader* m_batch_shader;
+			///
+			/// Constructor.
+			///
+			Renderer2D() noexcept;
+
+		public:
+			std::vector<Shader*> m_post_shaders;
+			robin_hood::unordered_flat_map<int, std::unique_ptr<SpriteBatch>> m_batches;
+
+		private:
+			BaseTexture* m_texture;
+			Shader* m_batch_shader;
+			unsigned int m_max_quads;
 		};
 	} // namespace graphics
 } // namespace galaxy

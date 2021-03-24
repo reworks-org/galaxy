@@ -737,7 +737,7 @@ namespace galaxy
 
 			m_fb_sprite->bind();
 
-			for (auto* effect : graphics::Renderer2D::m_post_shaders)
+			for (auto* effect : RENDERER_2D().m_post_shaders)
 			{
 				effect->bind();
 				effect->set_uniform("u_projection", m_framebuffer->get_proj());
