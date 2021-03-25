@@ -74,11 +74,20 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Left);
+				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Middle);
 
 				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
 				{
 					m_mouse_picked = true;
+				}
+
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Middle))
+				{
+					ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+				}
+				else
+				{
+					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 				}
 			}
 			else
@@ -427,42 +436,79 @@ namespace sc
 
 			if (m_mouse_dragging)
 			{
-				ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Left);
+				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Middle);
 
 				m_scene_stack.top()->m_camera.move(delta.x, delta.y);
-				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-			}
-			else
-			{
-				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Middle);
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 			{
-				if (ImGui::BeginMenu(" Create"))
+				if (ImGui::BeginMenu("  Create"))
 				{
-					if (ImGui::BeginMenu(" Entity"))
+					if (ImGui::BeginMenu("  Entity"))
 					{
-						if (ImGui::MenuItem(" Sprite"))
+						if (ImGui::MenuItem("  Sprite"))
 						{
 						}
 
-						if (ImGui::MenuItem(" Rigid Body"))
+						if (ImGui::MenuItem("  Rigid Body"))
 						{
 						}
 
-						if (ImGui::MenuItem(" Text"))
+						if (ImGui::MenuItem("  Text"))
 						{
 						}
 
 						ImGui::EndMenu();
 					}
 
-					if (ImGui::MenuItem(" Map"))
+					if (ImGui::BeginMenu("  GUI"))
 					{
+						if (ImGui::MenuItem("  Button"))
+						{
+						}
+
+						if (ImGui::MenuItem("  Image"))
+						{
+						}
+
+						if (ImGui::MenuItem("  Label"))
+						{
+						}
+
+						if (ImGui::MenuItem("  ProgressBar"))
+						{
+						}
+
+						if (ImGui::MenuItem("  Slider"))
+						{
+						}
+
+						if (ImGui::MenuItem("  Textbox"))
+						{
+						}
+
+						if (ImGui::MenuItem("  TextInput"))
+						{
+						}
+
+						if (ImGui::MenuItem("  ToggleButton"))
+						{
+						}
+
+						ImGui::EndMenu();
+					}
+
+					if (ImGui::MenuItem("  Map"))
+					{
+						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.world", "assets/");
+						if (file != std::nullopt)
+						{
+							m_scene_stack.top()->create_maps(file.value());
+						}
 					}
 
 					ImGui::EndMenu();
