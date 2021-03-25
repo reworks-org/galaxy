@@ -15,6 +15,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -517,6 +518,7 @@ namespace galaxy
 				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
 
 				world.enable(entity);
+				world.unset_flag<flags::AllowSerialize>(entity);
 			}
 		}
 
@@ -539,8 +541,10 @@ namespace galaxy
 						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
 						auto* renderable      = world.create_component<components::Renderable>(entity);
 						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* tag             = world.create_component<components::Tag>(entity);
 						auto* transform       = world.create_component<components::Transform>(entity);
 						renderable->m_z_level = layer.get_z_level();
+						tag->m_tag            = fmt::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
 
 						switch (type)
 						{
@@ -651,6 +655,7 @@ namespace galaxy
 							world.enable(entity);
 						}
 
+						world.unset_flag<flags::AllowSerialize>(entity);
 						m_object_entities.push_back(entity);
 					}
 				}
@@ -719,6 +724,7 @@ namespace galaxy
 								transform->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
 
 								world.enable(entity);
+								world.unset_flag<flags::AllowSerialize>(entity);
 							}
 							else
 							{
@@ -763,6 +769,7 @@ namespace galaxy
 				transform->set_pos(0.0f, 0.0f);
 
 				world.enable(entity);
+				world.unset_flag<flags::AllowSerialize>(entity);
 			}
 		}
 
