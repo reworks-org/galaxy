@@ -14,8 +14,8 @@ Application Programming Library using C++20, with a Data driven design and Test 
 ![supercluster](editor.png?raw=true "supercluster")
 
 ## Videos on Supercluster
-- Basic Features (ALPHA): https://www.youtube.com/watch?v=U58YtCnqu7w
-
+- Basic Features: https://youtu.be/U58YtCnqu7w
+- Context Menu and Tile Mapping: https://youtu.be/g5xTNY93Hqg
 
 ## Building
 Only supports 64bit systems.
