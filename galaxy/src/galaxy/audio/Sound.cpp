@@ -63,6 +63,7 @@ namespace galaxy
 			const auto res = internal_load(file);
 			if (res)
 			{
+				set_max_distance(1000.0f);
 				m_source.queue(this);
 			}
 
@@ -76,6 +77,19 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source looping."));
 			}
+		}
+
+		const bool Sound::get_looping()
+		{
+			int looping = 0;
+
+			alGetSourcei(m_source.handle(), AL_LOOPING, &looping);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source looping."));
+			}
+
+			return static_cast<bool>(looping);
 		}
 	} // namespace audio
 } // namespace galaxy

@@ -84,6 +84,13 @@ namespace galaxy
 			///
 			void set_looping(const bool looping) override;
 
+			///
+			/// Get audio looping state.
+			///
+			/// \return Const bool.
+			///
+			[[nodiscard]] const bool get_looping() override;
+
 		private:
 			///
 			/// Move constructor.

@@ -123,6 +123,116 @@ namespace galaxy
 		{
 			int val = 0;
 			alGetSourcei(m_source.handle(), AL_SOURCE_STATE, &val);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source state."));
+			}
+
+			return val;
+		}
+
+		const float SourceManipulator::get_pitch()
+		{
+			float val = 0.0f;
+
+			alGetSourcef(m_source.handle(), AL_PITCH, &val);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source pitch."));
+			}
+
+			return val;
+		}
+
+		const float SourceManipulator::get_gain()
+		{
+			float val = 0.0f;
+
+			alGetSourcef(m_source.handle(), AL_GAIN, &val);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source gain."));
+			}
+
+			return val;
+		}
+
+		const float SourceManipulator::get_rolloff_factor()
+		{
+			float val = 0.0f;
+
+			alGetSourcef(m_source.handle(), AL_ROLLOFF_FACTOR, &val);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source rolloff factor."));
+			}
+
+			return val;
+		}
+
+		const float SourceManipulator::get_max_distance()
+		{
+			float val = 0.0f;
+
+			alGetSourcef(m_source.handle(), AL_MAX_DISTANCE, &val);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source max distance."));
+			}
+
+			return val;
+		}
+
+		glm::vec3 SourceManipulator::get_cone()
+		{
+			glm::vec3 val;
+
+			alGetSourcef(m_source.handle(), AL_CONE_OUTER_GAIN, &val.x);
+			alGetSourcef(m_source.handle(), AL_CONE_INNER_ANGLE, &val.y);
+			alGetSourcef(m_source.handle(), AL_CONE_OUTER_ANGLE, &val.z);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source cone."));
+			}
+
+			return val;
+		}
+
+		glm::vec3 SourceManipulator::get_position()
+		{
+			glm::vec3 val;
+
+			alGetSource3f(m_source.handle(), AL_POSITION, &val.x, &val.y, &val.z);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source position."));
+			}
+
+			return val;
+		}
+
+		glm::vec3 SourceManipulator::get_velocity()
+		{
+			glm::vec3 val;
+
+			alGetSource3f(m_source.handle(), AL_VELOCITY, &val.x, &val.y, &val.z);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source velocity."));
+			}
+
+			return val;
+		}
+
+		glm::vec3 SourceManipulator::get_direction()
+		{
+			glm::vec3 val;
+
+			alGetSource3f(m_source.handle(), AL_DIRECTION, &val.x, &val.y, &val.z);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source direction."));
+			}
 
 			return val;
 		}

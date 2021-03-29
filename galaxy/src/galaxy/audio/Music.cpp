@@ -84,6 +84,8 @@ namespace galaxy
 			const auto res = internal_load(file);
 			if (res)
 			{
+				set_max_distance(1000.0f);
+
 				m_source.queue(this);
 				m_running = true;
 
@@ -104,6 +106,11 @@ namespace galaxy
 		void Music::set_looping(const bool looping)
 		{
 			m_looping = looping;
+		}
+
+		const bool Music::get_looping()
+		{
+			return m_looping;
 		}
 
 		void Music::update()

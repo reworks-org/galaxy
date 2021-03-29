@@ -121,11 +121,74 @@ namespace galaxy
 			///
 			[[nodiscard]] const ALint get_state();
 
+			///
+			/// Get audio pitch.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_pitch();
+
+			///
+			/// Get audio gain.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_gain();
+
+			///
+			/// Get audio rolloff factor.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_rolloff_factor();
+
+			///
+			/// Get audio max distance.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_max_distance();
+
+			///
+			/// Get audio cone.
+			///
+			/// \return Vector3. x = outer_gain, y =  inner_angle, z = outer_angle.
+			///
+			[[nodiscard]] glm::vec3 get_cone();
+
+			///
+			/// Get audio pitch.
+			///
+			/// \return Vector3.
+			///
+			[[nodiscard]] glm::vec3 get_position();
+
+			///
+			/// Get audio velocity.
+			///
+			/// \return Vector3.
+			///
+			[[nodiscard]] glm::vec3 get_velocity();
+
+			///
+			/// Get audio direction.
+			///
+			/// \return Vector3.
+			///
+			[[nodiscard]] glm::vec3 get_direction();
+
+			///
+			/// Get audio looping state.
+			///
+			/// \return Const bool.
+			///
+			[[nodiscard]] virtual const bool get_looping() = 0;
+
 		protected:
 			///
 			/// Default constructor.
 			///
-			SourceManipulator() noexcept = default;
+			SourceManipulator() = default;
 
 		protected:
 			///
