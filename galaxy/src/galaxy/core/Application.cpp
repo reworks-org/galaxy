@@ -352,42 +352,42 @@ namespace galaxy
 			constexpr const char* sound  = "{\"soundbook\":{}}";
 			constexpr const char* atlas  = "{\"textures\":[]}";
 
-			const auto fb_path = root + "json/fontbook.json";
+			const auto fb_path = root + "json/" + m_config->get<std::string>("fontbook-json");
 			if (!std::filesystem::exists(fb_path))
 			{
 				m_vfs->save(font, fb_path);
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", fb_path);
 			}
 
-			const auto mb_path = root + "json/musicbook.json";
+			const auto mb_path = root + "json/" + m_config->get<std::string>("musicbook-json");
 			if (!std::filesystem::exists(mb_path))
 			{
 				m_vfs->save(music, mb_path);
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", mb_path);
 			}
 
-			const auto sb_path = root + "json/scriptbook.json";
+			const auto sb_path = root + "json/" + m_config->get<std::string>("scriptbook-json");
 			if (!std::filesystem::exists(sb_path))
 			{
 				m_vfs->save(script, sb_path);
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sb_path);
 			}
 
-			const auto shb_path = root + "json/shaderbook.json";
+			const auto shb_path = root + "json/" + m_config->get<std::string>("shaderbook-json");
 			if (!std::filesystem::exists(shb_path))
 			{
 				m_vfs->save(shader, shb_path);
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", shb_path);
 			}
 
-			const auto sfxb_path = root + "json/soundbook.json";
+			const auto sfxb_path = root + "json/" + m_config->get<std::string>("soundbook-json");
 			if (!std::filesystem::exists(sfxb_path))
 			{
 				m_vfs->save(sound, sfxb_path);
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sfxb_path);
 			}
 
-			const auto ab_path = root + "json/textureatlas.json";
+			const auto ab_path = root + "json/" + m_config->get<std::string>("textureatlas-json");
 			if (!std::filesystem::exists(ab_path))
 			{
 				m_vfs->save(atlas, ab_path);
