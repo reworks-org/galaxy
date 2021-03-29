@@ -21,7 +21,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Font::Font() noexcept
-		    : m_height {0}
+		    : m_height {0}, m_size {0}, m_filename {""}
 		{
 		}
 
@@ -57,6 +57,9 @@ namespace galaxy
 				}
 				else
 				{
+					m_filename = static_cast<std::string>(file);
+					m_size     = size;
+
 					FT_Face face;
 					if (FT_New_Face(FT_HANDLE.lib(), path.value().c_str(), 0, &face) != FT_OK)
 					{
@@ -218,6 +221,16 @@ namespace galaxy
 		const int Font::get_height() const noexcept
 		{
 			return m_height;
+		}
+
+		const int Font::get_pixel_size() const noexcept
+		{
+			return m_size;
+		}
+
+		const std::string& Font::get_filename() const noexcept
+		{
+			return m_filename;
 		}
 	} // namespace graphics
 } // namespace galaxy

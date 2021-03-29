@@ -93,6 +93,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const int get_height() const noexcept;
 
+			///
+			/// Get font pixel size.
+			///
+			/// \return Const integer.
+			///
+			[[nodiscard]] const int get_pixel_size() const noexcept;
+
+			///
+			/// Get font file name.
+			///
+			/// \return Const std::string.
+			///
+			[[nodiscard]] const std::string& get_filename() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -119,6 +133,16 @@ namespace galaxy
 			/// Render Texture.
 			///
 			RenderTexture m_fontmap;
+
+			///
+			/// Pixel size.
+			///
+			int m_size;
+
+			///
+			/// Font filename.
+			///
+			std::string m_filename;
 		};
 	} // namespace graphics
 } // namespace galaxy
