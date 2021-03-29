@@ -48,11 +48,6 @@ namespace galaxy
 		void register_graphics();
 
 		///
-		/// Register json utils with lua.
-		///
-		void register_json();
-
-		///
 		/// Register mapping functions.
 		///
 		void register_mapping();
@@ -71,6 +66,11 @@ namespace galaxy
 		/// Register resource functions.
 		///
 		void register_res();
+
+		///
+		/// Register scripting utils with lua.
+		///
+		void register_scripting();
 	} // namespace lua
 } // namespace galaxy
 

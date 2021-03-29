@@ -208,11 +208,11 @@ namespace galaxy
 				lua::register_events();
 				lua::register_fs();
 				lua::register_graphics();
-				lua::register_json();
 				lua::register_mapping();
 				lua::register_math();
 				lua::register_physics();
 				lua::register_res();
+				lua::register_scripting();
 
 				// Register services with Lua.
 				m_lua->set("galaxy_audio_context", &m_openal);

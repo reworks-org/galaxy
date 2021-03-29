@@ -44,6 +44,7 @@
 #include "galaxy/physics/SATObject.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/scripting/LoadedScript.hpp"
 
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -508,17 +509,6 @@ namespace galaxy
 			animation_type["restart"]           = &graphics::Animation::restart;
 		}
 
-		void register_json()
-		{
-			auto lua = SL_HANDLE.lua();
-
-			auto json_type = lua->new_usertype<nlohmann::json>("gJSON", sol::constructors<nlohmann::json()>());
-			lua->set_function("parse_json_from_str", &parse_json);
-			lua->set_function("parse_json_from_disk", &json::parse_from_disk);
-			lua->set_function("parse_json_from_mem", &json::parse_from_mem);
-			lua->set_function("save_json_to_disk", &json::save_to_disk);
-		}
-
 		void register_mapping()
 		{
 			auto lua = SL_HANDLE.lua();
@@ -618,6 +608,21 @@ namespace galaxy
 			scriptbook_type["create_from_json"] = &res::ScriptBook::create_from_json;
 			scriptbook_type["clear"]            = &res::ScriptBook::clear;
 			scriptbook_type["get"]              = &res::ScriptBook::get;
+		}
+
+		void register_scripting()
+		{
+			auto lua = SL_HANDLE.lua();
+
+			auto json_type = lua->new_usertype<nlohmann::json>("gJSON", sol::constructors<nlohmann::json()>());
+			lua->set_function("parse_json_from_str", &parse_json);
+			lua->set_function("parse_json_from_disk", &json::parse_from_disk);
+			lua->set_function("parse_json_from_mem", &json::parse_from_mem);
+			lua->set_function("save_json_to_disk", &json::save_to_disk);
+
+			auto loaded_script_type        = lua->new_usertype<lua::LoadedScript>("gLoadedScript", sol::constructors<lua::LoadedScript(), lua::LoadedScript(std::string_view)>());
+			loaded_script_type["filename"] = &lua::LoadedScript::m_filename;
+			loaded_script_type["code"]     = &lua::LoadedScript::m_code;
 		}
 	} // namespace lua
 } // namespace galaxy
