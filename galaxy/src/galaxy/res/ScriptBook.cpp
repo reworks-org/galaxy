@@ -37,31 +37,41 @@ namespace galaxy
 			}
 			else
 			{
-				const auto& json = json_opt.value();
-				for (auto& [name, script] : json.at("scriptbook").items())
-				{
-					const auto code = SL_HANDLE.vfs()->open(script);
-					if (code == std::nullopt)
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to load script: {0}.", script);
-					}
-					else
-					{
-						create(name, code.value());
-					}
-				}
+				deserialize(json_opt.value());
 			}
 		}
 
 		void ScriptBook::run(std::string_view script_id)
 		{
 			const auto str = static_cast<std::string>(script_id);
-			SL_HANDLE.lua()->script(*m_resources[str]);
+			SL_HANDLE.lua()->script(m_resources[str]->m_code);
 		}
 
 		void ScriptBook::clear() noexcept
 		{
 			m_resources.clear();
+		}
+
+		nlohmann::json ScriptBook::serialize()
+		{
+			nlohmann::json json = "{\"scriptbook\":{}"_json;
+
+			for (const auto& [name, script] : m_resources)
+			{
+				json["scriptbook"][name] = script->m_filename;
+			}
+
+			return json;
+		}
+
+		void ScriptBook::deserialize(const nlohmann::json& json)
+		{
+			clear();
+
+			for (const auto& [name, script] : json.at("scriptbook").items())
+			{
+				create(name, script);
+			}
 		}
 	} // namespace res
 } // namespace galaxy

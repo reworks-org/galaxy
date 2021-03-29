@@ -35,17 +35,36 @@ namespace galaxy
 			}
 			else
 			{
-				const auto& json = json_opt.value();
-				for (auto& [name, arr] : json.at("fontbook").items())
-				{
-					create(name, arr[0].get<std::string>(), arr[1].get<int>());
-				}
+				deserialize(json_opt.value());
 			}
 		}
 
 		void FontBook::clear() noexcept
 		{
 			m_resources.clear();
+		}
+
+		nlohmann::json FontBook::serialize()
+		{
+			nlohmann::json json = "{\"fontbook\":{}}"_json;
+
+			for (const auto& [name, font] : m_resources)
+			{
+				json["fontbook"][name]["file"] = font->get_filename();
+				json["fontbook"][name]["size"] = font->get_pixel_size();
+			}
+
+			return json;
+		}
+
+		void FontBook::deserialize(const nlohmann::json& json)
+		{
+			clear();
+
+			for (auto& [name, obj] : json.at("fontbook").items())
+			{
+				create(name, obj.at("file"), obj.at("size"));
+			}
 		}
 	} // namespace res
 } // namespace galaxy

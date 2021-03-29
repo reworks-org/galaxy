@@ -46,14 +46,23 @@ namespace galaxy
 			void create_from_json(std::string_view file);
 
 			///
-			/// Create default shaderbook shaders.
-			///
-			void create_default();
-
-			///
 			/// Clean up.
 			///
 			void clear() noexcept override;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
@@ -75,6 +84,22 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			ShaderBook& operator=(ShaderBook&&) = delete;
+
+			///
+			/// Create default shaderbook shaders.
+			///
+			void create_default();
+
+		private:
+			///
+			/// Vertex extension.
+			///
+			std::string m_vert_ext;
+
+			///
+			/// Fragment extension.
+			///
+			std::string m_frag_ext;
 		};
 	} // namespace res
 } // namespace galaxy

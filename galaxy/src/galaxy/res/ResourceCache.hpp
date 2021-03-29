@@ -11,12 +11,19 @@
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
 	namespace res
 	{
+		///
+		/// Shortcut.
+		///
+		template<meta::not_pointer_or_ref Holder>
+		using ResourceHolder = robin_hood::unordered_flat_map<std::string, std::unique_ptr<Holder>>;
+
 		///
 		/// Container structure for storing resource cache objects in containers.
 		///
@@ -38,9 +45,14 @@ namespace galaxy
 		/// resources can be a texture, sound, script, shader, etc...
 		///
 		template<meta::not_pointer_or_ref Resource>
-		class ResourceCache : public ResCacheBase
+		class ResourceCache : public ResCacheBase, public fs::Serializable
 		{
 		public:
+			///
+			/// Get rid of ugly template syntax.
+			///
+			using Cache = ResourceHolder<Resource>;
+
 			///
 			/// Destructor.
 			///
@@ -67,21 +79,45 @@ namespace galaxy
 			[[nodiscard]] Resource* const get(std::string_view handle);
 
 			///
+			/// Get entire resource cache.
+			///
+			/// \return Reference to the resource holders cache. An unordered_flat_map of unique_ptr's.
+			///
+			[[nodiscard]] Cache& cache() noexcept;
+
+			///
 			/// Clean up.
 			///
 			virtual void clear() noexcept = 0;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] virtual nlohmann::json serialize() = 0;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			virtual void deserialize(const nlohmann::json& json) = 0;
 
 		protected:
 			///
 			/// Constructor.
 			///
-			ResourceCache() noexcept = default;
+			inline ResourceCache() noexcept
+			    : fs::Serializable {this}
+			{
+			}
 
 		protected:
 			///
 			/// Contiguous resource array.
 			///
-			robin_hood::unordered_flat_map<std::string, std::unique_ptr<Resource>> m_resources;
+			Cache m_resources;
 
 		private:
 			///
@@ -135,6 +171,12 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "Failed to find resource with name: " + str);
 				return nullptr;
 			}
+		}
+
+		template<meta::not_pointer_or_ref Resource>
+		inline ResourceCache<Resource>::Cache& ResourceCache<Resource>::cache() noexcept
+		{
+			return m_resources;
 		}
 	} // namespace res
 } // namespace galaxy

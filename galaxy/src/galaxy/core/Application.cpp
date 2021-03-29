@@ -404,7 +404,6 @@ namespace galaxy
 				// ShaderBook.
 				m_shaderbook->clear();
 				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
-				m_shaderbook->create_default();
 
 				// Set up renderer.
 				RENDERER_2D().clean_up();
@@ -463,7 +462,6 @@ namespace galaxy
 				// ShaderBook.
 				m_shaderbook->clear();
 				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
-				m_shaderbook->create_default();
 
 				// Set up renderer.
 				RENDERER_2D().clean_up();

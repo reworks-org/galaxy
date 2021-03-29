@@ -25,6 +25,7 @@ namespace galaxy
 	namespace res
 	{
 		ShaderBook::ShaderBook()
+		    : m_vert_ext {".vs"}, m_frag_ext {".fs"}
 		{
 			create_default();
 		}
@@ -32,7 +33,6 @@ namespace galaxy
 		ShaderBook::ShaderBook(std::string_view file)
 		{
 			create_from_json(file);
-			create_default();
 		}
 
 		ShaderBook::~ShaderBook() noexcept
@@ -49,15 +49,41 @@ namespace galaxy
 			}
 			else
 			{
-				auto& json               = json_opt.value();
-				const std::string vs_ext = json.at("vertex-extension");
-				const std::string fs_ext = json.at("fragment-extension");
+				deserialize(json_opt.value());
+			}
+		}
 
-				const auto& arr = json.at("shaderbook");
-				for (const std::string& filename : arr)
-				{
-					create(filename, filename + vs_ext, filename + fs_ext);
-				}
+		void ShaderBook::clear() noexcept
+		{
+			m_resources.clear();
+		}
+
+		nlohmann::json ShaderBook::serialize()
+		{
+			nlohmann::json json        = "{\"shaderbook\":[]}"_json;
+			json["vertex-extension"]   = m_vert_ext;
+			json["fragment-extension"] = m_frag_ext;
+
+			for (const auto& [name, shader] : m_resources)
+			{
+				json["shaderbook"].push_back(name);
+			}
+
+			return json;
+		}
+
+		void ShaderBook::deserialize(const nlohmann::json& json)
+		{
+			clear();
+			create_default();
+
+			m_vert_ext = json.at("vertex-extension");
+			m_frag_ext = json.at("fragment-extension");
+
+			const auto& arr = json.at("shaderbook");
+			for (const std::string& filename : arr)
+			{
+				create(filename, filename + m_vert_ext, filename + m_frag_ext);
 			}
 		}
 
@@ -86,11 +112,6 @@ namespace galaxy
 
 			auto* text = create("text");
 			text->load_raw(shaders::text_vert, shaders::text_frag);
-		}
-
-		void ShaderBook::clear() noexcept
-		{
-			m_resources.clear();
 		}
 	} // namespace res
 } // namespace galaxy

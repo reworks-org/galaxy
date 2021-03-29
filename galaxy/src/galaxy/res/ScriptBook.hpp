@@ -9,6 +9,7 @@
 #define GALAXY_RES_SCRIPTBOOK_HPP_
 
 #include "galaxy/res/ResourceCache.hpp"
+#include "galaxy/scripting/LoadedScript.hpp"
 
 namespace galaxy
 {
@@ -17,7 +18,7 @@ namespace galaxy
 		///
 		/// Resource manager for lua scripts.
 		///
-		class ScriptBook final : public ResourceCache<std::string>
+		class ScriptBook final : public ResourceCache<lua::LoadedScript>
 		{
 		public:
 			///
@@ -55,6 +56,20 @@ namespace galaxy
 			/// Clean up.
 			///
 			void clear() noexcept override;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
