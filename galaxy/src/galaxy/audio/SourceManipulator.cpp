@@ -71,7 +71,7 @@ namespace galaxy
 			}
 		}
 
-		void SourceManipulator::set_cone(const float outer_gain, const float inner_angle, const float outer_angle)
+		void SourceManipulator::set_cone(const float outer_gain, const float inner_gain, const float outer_angle)
 		{
 			alSourcef(m_source.handle(), AL_CONE_OUTER_GAIN, outer_gain);
 			if (alGetError() != AL_NO_ERROR)
@@ -79,7 +79,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set AL_CONE_OUTER_GAIN."));
 			}
 
-			alSourcef(m_source.handle(), AL_CONE_INNER_ANGLE, inner_angle);
+			alSourcef(m_source.handle(), AL_CONE_INNER_ANGLE, inner_gain);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set AL_CONE_INNER_ANGLE."));

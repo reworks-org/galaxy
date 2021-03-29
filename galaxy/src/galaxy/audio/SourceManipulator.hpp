@@ -81,10 +81,10 @@ namespace galaxy
 			/// \brief Configure audio cone.
 			///
 			/// \param outer_gain The gain when outside the oriented cone.
-			/// \param inner_angle The gain when inside the oriented cone.
+			/// \param inner_gain The gain when inside the oriented cone.
 			/// \param outer_angle Outer angle of the sound cone, in degrees. Defaults to 360.
 			///
-			void set_cone(const float outer_gain, const float inner_angle, const float outer_angle = 360.0f);
+			void set_cone(const float outer_gain, const float inner_gain, const float outer_angle = 360.0f);
 
 			///
 			/// \brief Specifies the current location of the object in the world coordinate system.
@@ -152,7 +152,7 @@ namespace galaxy
 			///
 			/// Get audio cone.
 			///
-			/// \return Vector3. x = outer_gain, y =  inner_angle, z = outer_angle.
+			/// \return Vector3. x = outer_gain, y =  inner_gain, z = outer_angle.
 			///
 			[[nodiscard]] glm::vec3 get_cone();
 

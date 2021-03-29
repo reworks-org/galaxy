@@ -35,7 +35,7 @@ namespace galaxy
 			if (load(json.at("file")))
 			{
 				set_looping(json.at("looping"));
-				set_pitch(json.at("pitch"));
+				set_gain(json.at("volume"));
 			}
 			else
 			{
