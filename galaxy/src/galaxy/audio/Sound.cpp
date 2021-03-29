@@ -17,7 +17,7 @@ namespace galaxy
 	namespace audio
 	{
 		Sound::Sound() noexcept
-		    : Buffer {}, SourceManipulator {}, m_source {}
+		    : Buffer {}, SourceManipulator {}
 		{
 		}
 

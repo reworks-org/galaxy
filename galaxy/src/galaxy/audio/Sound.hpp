@@ -10,7 +10,6 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/audio/Source.hpp"
 #include "galaxy/audio/SourceManipulator.hpp"
 
 namespace galaxy
@@ -111,12 +110,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Sound& operator=(const Sound&) = delete;
-
-		private:
-			///
-			/// OpenAL audio source.
-			///
-			Source m_source;
 		};
 	} // namespace audio
 } // namespace galaxy
