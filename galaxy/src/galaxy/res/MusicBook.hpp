@@ -50,6 +50,20 @@ namespace galaxy
 			///
 			void clear() noexcept override;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.

@@ -35,17 +35,35 @@ namespace galaxy
 			}
 			else
 			{
-				const auto& json = json_opt.value();
-				for (const auto& [name, obj] : json.at("soundbook").items())
-				{
-					create(name, obj);
-				}
+				deserialize(json_opt.value());
 			}
 		}
 
 		void SoundBook::clear() noexcept
 		{
 			m_resources.clear();
+		}
+
+		nlohmann::json SoundBook::serialize()
+		{
+			nlohmann::json json = "{\"soundbook\":{}}"_json;
+
+			for (const auto& [name, sound] : m_resources)
+			{
+				json["soundbook"][name] = sound->serialize();
+			}
+
+			return json;
+		}
+
+		void SoundBook::deserialize(const nlohmann::json& json)
+		{
+			clear();
+
+			for (const auto& [name, obj] : json.at("soundbook").items())
+			{
+				create(name, obj);
+			}
 		}
 	} // namespace res
 } // namespace galaxy
