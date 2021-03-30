@@ -11,6 +11,7 @@
 #include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/audio/SourceManipulator.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
@@ -21,7 +22,7 @@ namespace galaxy
 		///
 		/// Contains a Buffer and Source.
 		///
-		class Sound final : public Buffer, public SourceManipulator
+		class Sound final : public Buffer, public SourceManipulator, public fs::Serializable
 		{
 		public:
 			///
@@ -30,18 +31,16 @@ namespace galaxy
 			Sound() noexcept;
 
 			///
-			/// Argument constructor.
-			///
-			/// \param file File to load from disk. Can only load ogg vorbis.
-			///
-			Sound(std::string_view file);
-
-			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
 			Sound(const nlohmann::json& json);
+
+			///
+			/// Destructor.
+			///
+			virtual ~Sound();
 
 			///
 			/// \brief Play sound.
@@ -61,11 +60,6 @@ namespace galaxy
 			/// Starts again from beginning.
 			///
 			void stop() override;
-
-			///
-			/// Destructor.
-			///
-			virtual ~Sound() = default;
 
 			///
 			/// Load a file from disk.
@@ -90,6 +84,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const bool get_looping() override;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Move constructor.
@@ -110,6 +118,11 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Sound& operator=(const Sound&) = delete;
+
+			///
+			/// Destroy sound data.
+			///
+			void destroy();
 		};
 	} // namespace audio
 } // namespace galaxy

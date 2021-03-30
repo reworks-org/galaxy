@@ -33,7 +33,32 @@ namespace galaxy
 
 		Buffer::~Buffer()
 		{
-			alDeleteBuffers(1, &m_buffer);
+			clear_buffer();
+		}
+
+		void Buffer::clear_buffer()
+		{
+			if (m_buffer != 0)
+			{
+				alDeleteBuffers(1, &m_buffer);
+				if (alGetError() != AL_NO_ERROR)
+				{
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s)."));
+				}
+
+				m_buffer = 0;
+			}
+		}
+
+		void Buffer::reset_buffer()
+		{
+			clear_buffer();
+
+			alGenBuffers(1, &m_buffer);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer."));
+			}
 		}
 
 		const ALint Buffer::get_frequency()
@@ -75,6 +100,11 @@ namespace galaxy
 
 		const bool Buffer::internal_load(std::string_view file)
 		{
+			if (m_buffer != 0)
+			{
+				reset_buffer();
+			}
+
 			bool result     = true;
 			const auto path = SL_HANDLE.vfs()->absolute(file);
 

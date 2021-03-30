@@ -196,6 +196,11 @@ namespace galaxy
 			///
 			Source m_source;
 
+			///
+			/// Audio filename.
+			///
+			std::string m_filename;
+
 		private:
 			///
 			/// Move constructor.

@@ -21,7 +21,7 @@ namespace galaxy
 	namespace audio
 	{
 		BufferStream::BufferStream()
-		    : m_buffers {0, 0}, m_data {nullptr}, m_stream {nullptr}
+		    : m_buffers {0, 0}, m_data {nullptr}, m_stream {nullptr}, m_format {0}
 		{
 			alGenBuffers(2, &m_buffers[0]);
 			if (alGetError() != AL_NO_ERROR)
@@ -32,21 +32,56 @@ namespace galaxy
 
 		BufferStream::~BufferStream()
 		{
-			alDeleteBuffers(2, &m_buffers[0]);
+			clear_buffer();
+		}
 
+		void BufferStream::clear_buffer()
+		{
 			if (m_stream != nullptr)
 			{
 				stb_vorbis_close(m_stream);
+				m_stream = nullptr;
 			}
 
 			if (m_data != nullptr)
 			{
 				delete[] m_data;
+				m_data = nullptr;
+			}
+
+			m_info   = {};
+			m_format = 0;
+
+			if ((m_buffers[0] != 0) || (m_buffers[1] != 0))
+			{
+				alDeleteBuffers(2, &m_buffers[0]);
+				if (alGetError() != AL_NO_ERROR)
+				{
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s)."));
+				}
+
+				m_buffers = {0, 0};
+			}
+		}
+
+		void BufferStream::reset_buffer()
+		{
+			clear_buffer();
+
+			alGenBuffers(2, &m_buffers[0]);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer(s)."));
 			}
 		}
 
 		const bool BufferStream::internal_load(std::string_view file)
 		{
+			if ((m_buffers[0] != 0) || (m_buffers[1] != 0))
+			{
+				reset_buffer();
+			}
+
 			bool result     = true;
 			const auto path = SL_HANDLE.vfs()->absolute(file);
 

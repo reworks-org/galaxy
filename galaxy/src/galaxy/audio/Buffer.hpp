@@ -38,6 +38,16 @@ namespace galaxy
 			virtual ~Buffer();
 
 			///
+			/// Clear data.
+			///
+			void clear_buffer();
+
+			///
+			/// Clears then reallocates OpenAL buffers (not audio file).
+			///
+			void reset_buffer();
+
+			///
 			/// Get frequency of buffer.
 			///
 			/// \return Frequency as integer.
@@ -82,6 +92,12 @@ namespace galaxy
 			///
 			[[maybe_unused]] const bool internal_load(std::string_view file);
 
+		protected:
+			///
+			/// Handle to Buffer.
+			///
+			ALuint m_buffer;
+
 		private:
 			///
 			/// Move constructor.
@@ -102,12 +118,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Buffer& operator=(const Buffer&) = delete;
-
-		private:
-			///
-			/// Handle to Buffer.
-			///
-			ALuint m_buffer;
 		};
 	} // namespace audio
 } // namespace galaxy

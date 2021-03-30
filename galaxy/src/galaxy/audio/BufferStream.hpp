@@ -38,6 +38,16 @@ namespace galaxy
 			///
 			virtual ~BufferStream();
 
+			///
+			/// Clear data.
+			///
+			void clear_buffer();
+
+			///
+			/// Clears then reallocates OpenAL buffers (not audio file).
+			///
+			void reset_buffer();
+
 		public:
 			///
 			/// Size of each buffer used by the stream.

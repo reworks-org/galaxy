@@ -13,6 +13,7 @@
 #include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/audio/SourceManipulator.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
@@ -21,20 +22,13 @@ namespace galaxy
 		///
 		/// \brief Streamed audio source.
 		///
-		class Music final : public BufferStream, public SourceManipulator
+		class Music final : public BufferStream, public SourceManipulator, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
 			Music() noexcept;
-
-			///
-			/// Argument constructor.
-			///
-			/// \param file File to load from disk. Can only load ogg vorbis.
-			///
-			Music(std::string_view file);
 
 			///
 			/// JSON constructor.
@@ -90,6 +84,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const bool get_looping() override;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Move constructor.
@@ -117,6 +125,11 @@ namespace galaxy
 			/// Internal use only.
 			///
 			void update();
+
+			///
+			/// Destroy music data.
+			///
+			void destroy();
 
 		private:
 			///
