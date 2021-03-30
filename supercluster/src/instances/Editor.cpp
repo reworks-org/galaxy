@@ -19,6 +19,7 @@
 #include <portable-file-dialogs.h>
 
 #include "editor/Theme.hpp"
+#include "resources/Checkerboard.hpp"
 #include "resources/Roboto-Light.hpp"
 
 #include "Editor.hpp"
@@ -53,6 +54,12 @@ namespace sc
 		editor::theme::visual_dark();
 		SL_HANDLE.window()->set_scene_dispatcher(nullptr);
 		m_entity_panel.set_instance(this);
+
+		m_checkerboard.load_mem(tex::checkerboard);
+		m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
+		m_checkerboard.set_magnify_filter<graphics::NearestTexFilter>();
+		m_checkerboard.clamp_to_border();
+		m_checkerboard.set_repeated();
 	}
 
 	Editor::~Editor()
@@ -392,7 +399,7 @@ namespace sc
 	void Editor::viewport()
 	{
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground))
+		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
 			m_viewport_focused    = ImGui::IsWindowFocused();
 			m_viewport_hovered    = ImGui::IsWindowHovered();
@@ -442,6 +449,7 @@ namespace sc
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Middle);
 			}
 
+			ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))

@@ -9,6 +9,7 @@
 #define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 
 #include <galaxy/core/Instance.hpp>
+#include <galaxy/graphics/texture/Texture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -64,6 +65,7 @@ namespace sc
 		panel::StdConsole m_std_console;
 		panel::AudioPanel m_audio_panel;
 
+		graphics::Texture m_checkerboard;
 		graphics::RenderTexture m_framebuffer;
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
 		OpenGLOperationStack m_gl_operations;
