@@ -1,14 +1,13 @@
 SUPERCLUSTER:
 - physics tools (rigidbody tools).
 - documentation
-- audio support
 - on window focus (for viewport)
 	- reload tile map from disk
 - expose more to lua
 - scene graph
 	- entity heirachy
-- force default mount pos
 - during editor/game switch have some kind of prompt since loading may take awhile
+- hotkeys
 
 TODO:
 - C# Scripting using Mono and Monodevelop/VSCode.
@@ -32,6 +31,9 @@ convert type classes to enums (log, vertexs, etc...).
 - for scene push/pop run lua script?
 - particle gen
 - generate_default_assets() should be constexpr std::string.
+- custom textureatlas data preserved when reloading.
+- fix map reloading.
+- fix texture atlas crashing with GALAXY_FATAL 
 
 EXPORTING:
 - Supercluster is the game with an extra layer.
