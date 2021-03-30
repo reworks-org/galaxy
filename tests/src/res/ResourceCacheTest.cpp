@@ -35,6 +35,15 @@ struct Cache : public galaxy::res::ResourceCache<DemoRes>
 	{
 		m_resources.clear();
 	}
+
+	nlohmann::json serialize() override
+	{
+		return {};
+	}
+
+	void deserialize(const nlohmann::json& json) override
+	{
+	}
 };
 
 TEST(ResourceCache, Create)
