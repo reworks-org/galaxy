@@ -231,7 +231,6 @@ namespace sc
 				colors[ImGuiCol_TextSelectedBg] = panelActiveColor;
 				colors[ImGuiCol_WindowBg] = bgColor;
 				colors[ImGuiCol_ChildBg] = bgColor;
-				colors[ImGuiCol_ChildBg].w = 0.0f;
 				colors[ImGuiCol_PopupBg] = bgColor;
 				colors[ImGuiCol_Border] = borderColor;
 				colors[ImGuiCol_BorderShadow] = borderColor;
@@ -251,7 +250,7 @@ namespace sc
 				colors[ImGuiCol_SliderGrabActive] = panelActiveColor;
 				colors[ImGuiCol_Button] = panelColor;
 				colors[ImGuiCol_ButtonHovered] = panelHoverColor;
-				colors[ImGuiCol_ButtonActive] = panelActiveColor;
+				colors[ImGuiCol_ButtonActive] = panelHoverColor;
 				colors[ImGuiCol_Header] = panelColor;
 				colors[ImGuiCol_HeaderHovered] = panelHoverColor;
 				colors[ImGuiCol_HeaderActive] = panelActiveColor;
@@ -268,13 +267,12 @@ namespace sc
 				colors[ImGuiCol_ModalWindowDimBg] = bgColor;
 				colors[ImGuiCol_DragDropTarget] = bgColor;
 				colors[ImGuiCol_NavHighlight] = bgColor;
+				colors[ImGuiCol_DockingPreview] = panelActiveColor;
 				colors[ImGuiCol_Tab] = bgColor;
 				colors[ImGuiCol_TabActive] = panelActiveColor;
 				colors[ImGuiCol_TabUnfocused] = bgColor;
 				colors[ImGuiCol_TabUnfocusedActive] = panelActiveColor;
 				colors[ImGuiCol_TabHovered] = panelHoverColor;
-
-				colors[ImGuiCol_DockingPreview] = colors[ImGuiCol_WindowBg];
 
 				style.WindowRounding = 0.0f;
 				style.ChildRounding = 0.0f;
@@ -282,7 +280,7 @@ namespace sc
 				style.GrabRounding = 0.0f;
 				style.PopupRounding = 0.0f;
 				style.ScrollbarRounding = 0.0f;
-				style.TabRounding = 0.0f;
+				style.TabRounding = 1.0f;
 				style.FrameBorderSize = 1.0f;
 				style.WindowBorderSize = 1.0f;
 			}
