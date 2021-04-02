@@ -1,5 +1,5 @@
 ///
-/// RenderSystem.cpp
+/// RenderSystem2D.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -17,19 +17,19 @@
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
-#include "RenderSystem.hpp"
+#include "RenderSystem2D.hpp"
 
 namespace galaxy
 {
 	namespace systems
 	{
-		void RenderSystem::update(core::World& world, const double dt)
+		void RenderSystem2D::update(core::World& world, const double dt)
 		{
 			m_sorted.clear();
 			RENDERER_2D().clear();
 
 			// clang-format off
-			world.operate<components::Renderable, components::Transform>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform* transform) -> void
+			world.operate<components::Renderable, components::Transform2D>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) -> void
 				{
 					RenderData data
 					{
@@ -56,7 +56,7 @@ namespace galaxy
 			});
 		}
 
-		void RenderSystem::render(core::World& world, graphics::Camera& camera)
+		void RenderSystem2D::render(core::World& world, graphics::Camera& camera)
 		{
 			RENDERER_2D().calculate_batches();
 			RENDERER_2D().draw_spritebatches(camera);
@@ -87,7 +87,7 @@ namespace galaxy
 						break;
 
 					case graphics::Renderables::SPRITE:
-						RENDERER_2D().draw_sprite(world.get<components::Sprite>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_sprite(world.get<components::Sprite2D>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

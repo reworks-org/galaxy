@@ -113,7 +113,7 @@ namespace sb
 
 	void Sandbox::create_sandbox_scene()
 	{
-		auto sandbox = m_scene_stack.create("SandboxScene");
+		auto sandbox = m_scene_stack.create<scene::Scene2D>("SandboxScene");
 
 		sandbox->m_world.create_from_json("point.json");
 		sandbox->m_world.create_from_json("line.json");
@@ -208,7 +208,7 @@ namespace sb
 
 	void Sandbox::create_physics_scene()
 	{
-		auto physics = m_scene_stack.create("PhysicsScene");
+		auto physics = m_scene_stack.create<scene::Scene2D>("PhysicsScene");
 
 		m_cube = physics->m_world.create_from_json("cube.json").value();
 		physics->m_world.create_from_json("floor.json");
@@ -217,27 +217,27 @@ namespace sb
 			switch (kde.m_keycode)
 			{
 				case input::Keys::UP:
-					physics->m_world.get<components::Transform>(m_cube)->move(0.0f, -10.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, -10.0f);
 					break;
 
 				case input::Keys::DOWN:
-					physics->m_world.get<components::Transform>(m_cube)->move(0.0f, 10.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, 10.0f);
 					break;
 
 				case input::Keys::LEFT:
-					physics->m_world.get<components::Transform>(m_cube)->move(-10.0f, 0.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->move(-10.0f, 0.0f);
 					break;
 
 				case input::Keys::RIGHT:
-					physics->m_world.get<components::Transform>(m_cube)->move(10.0f, 0.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->move(10.0f, 0.0f);
 					break;
 
 				case input::Keys::Q:
-					physics->m_world.get<components::Transform>(m_cube)->rotate(-1.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->rotate(-1.0f);
 					break;
 
 				case input::Keys::E:
-					physics->m_world.get<components::Transform>(m_cube)->rotate(1.0f);
+					physics->m_world.get<components::Transform2D>(m_cube)->rotate(1.0f);
 					break;
 			}
 		});
@@ -245,7 +245,7 @@ namespace sb
 
 	void Sandbox::create_map_scene()
 	{
-		auto map = m_scene_stack.create("MapScene");
+		auto map = m_scene_stack.create<scene::Scene2D>("MapScene");
 
 		map->create_maps("assets/maps/maps.world");
 		map->set_active_map("desert");

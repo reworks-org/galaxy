@@ -1,12 +1,12 @@
 ///
-/// Transform.hpp
+/// Transform2D.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_TRANSFORM_HPP_
-#define GALAXY_COMPONENTS_TRANSFORM_HPP_
+#ifndef GALAXY_COMPONENTS_TRANSFORM2D_HPP_
+#define GALAXY_COMPONENTS_TRANSFORM2D_HPP_
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json_fwd.hpp>
@@ -21,35 +21,35 @@ namespace galaxy
 		///
 		/// Defines the transformation of an entity.
 		///
-		class Transform final : public fs::Serializable
+		class Transform2D final : public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Transform() noexcept;
+			Transform2D() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Transform(const nlohmann::json& json);
+			Transform2D(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Transform(Transform&&) noexcept;
+			Transform2D(Transform2D&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Transform& operator=(Transform&&) noexcept;
+			Transform2D& operator=(Transform2D&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Transform() noexcept = default;
+			virtual ~Transform2D() noexcept = default;
 
 			///
 			/// Sets position without moving the object.
@@ -63,7 +63,7 @@ namespace galaxy
 			/// \brief Translate (move) position.
 			///
 			/// Does not set the position but moves it.
-			/// By adding the parameters to the existing transformation matrix.
+			/// By adding the parameters to the existing Transform2Dation matrix.
 			///
 			/// \param x How far to translate on x axis.
 			/// \param y How far to translate on y axis.
@@ -71,7 +71,7 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// Rotate transformation in degrees.
+			/// Rotate Transform2Dation in degrees.
 			///
 			/// \param degrees Max 360, min -360.
 			///
@@ -91,14 +91,14 @@ namespace galaxy
 			void recalculate();
 
 			///
-			/// Get flag indicating if transform needs to be applied before rendering.
+			/// Get flag indicating if Transform2D needs to be applied before rendering.
 			///
 			/// \return Const boolean.
 			///
 			[[nodiscard]] const bool is_dirty() const noexcept;
 
 			///
-			/// Retrieve internal transformation matrix.
+			/// Retrieve internal Transform2Dation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
 			///
@@ -119,7 +119,7 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
 			///
-			/// Reset transform.
+			/// Reset Transform2D.
 			///
 			void reset() noexcept;
 
@@ -144,7 +144,7 @@ namespace galaxy
 			bool m_dirty;
 
 			///
-			/// Transform origin point.
+			/// Transform2D origin point.
 			///
 			glm::vec3 m_origin;
 
@@ -171,7 +171,7 @@ namespace galaxy
 			glm::vec2 m_pos;
 
 			///
-			/// Combined transformation matrix.
+			/// Combined Transform2Dation matrix.
 			///
 			glm::mat4 m_model;
 
@@ -179,12 +179,12 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			Transform& operator=(const Transform&) = delete;
+			Transform2D& operator=(const Transform2D&) = delete;
 
 			///
 			/// Copy constructor.
 			///
-			Transform(const Transform&) = delete;
+			Transform2D(const Transform2D&) = delete;
 		};
 	} // namespace components
 } // namespace galaxy

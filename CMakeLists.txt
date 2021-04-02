@@ -179,6 +179,7 @@ else()
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
 		"${CMAKE_SOURCE_DIR}/galaxy/src"
 		"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
+		"${CMAKE_SOURCE_DIR}/sandbox_3d_tests/src"
 		"${CMAKE_SOURCE_DIR}/supercluster/src"
 		"${CMAKE_SOURCE_DIR}/tests/src"
 	)
@@ -271,29 +272,46 @@ else()
 	target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
 
 	if (${GALAXY_BUILD_TESTS})
+		add_subdirectory(sandbox_3d_tests)
 		add_subdirectory(sandbox_tests)
 		add_subdirectory(tests)
 
+		add_dependencies(sandbox_3d_test galaxy)
 		add_dependencies(sandbox_test galaxy)
 		add_dependencies(tests galaxy)
 
+		target_include_directories(sandbox_3d_test PUBLIC ${HEADERS})
 		target_include_directories(sandbox_test PUBLIC ${HEADERS})
 		target_include_directories(tests PUBLIC ${HEADERS})
 
+		target_link_libraries(sandbox_3d_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(sandbox_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
+		target_link_libraries(sandbox_3d_test PUBLIC "${GALAXY_FREETYPE_LIB}")
 		target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
 		target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
 
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+			target_compile_definitions(sandbox_3d_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 			target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 			target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 
+			target_compile_options(sandbox_3d_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 			target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 			target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 
+			target_link_options(sandbox_3d_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+
+			target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
@@ -313,14 +331,26 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+			target_compile_definitions(sandbox_3d_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 			target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 			target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 
+			target_compile_options(sandbox_3d_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 			target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 			target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 
+			target_link_options(sandbox_3d_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+
+			target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
@@ -343,6 +373,7 @@ else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
 
+		target_compile_options(sandbox_3d_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
 	endif()

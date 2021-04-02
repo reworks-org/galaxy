@@ -5,11 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+#include <optional>
+
 #include "SceneStack.hpp"
 
 namespace galaxy
 {
-	namespace core
+	namespace scene
 	{
 		SceneStack::SceneStack() noexcept
 		    : Serializable {this}
@@ -21,35 +24,7 @@ namespace galaxy
 			clear();
 		}
 
-		std::shared_ptr<Scene> SceneStack::create(std::string_view name)
-		{
-			const auto str = static_cast<std::string>(name);
-			if (m_scenes.contains(str))
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to create a scene that already exists!");
-			}
-			else
-			{
-				m_scenes[str] = std::make_shared<Scene>(str);
-				return m_scenes[str];
-			}
-		}
-
-		std::shared_ptr<Scene> SceneStack::get(std::string_view name)
-		{
-			const auto str = static_cast<std::string>(name);
-			if (m_scenes.contains(str))
-			{
-				return m_scenes[str];
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve non-existant scene: {0}.", name);
-				return nullptr;
-			}
-		}
-
-		std::shared_ptr<core::Scene> SceneStack::top()
+		std::shared_ptr<Scene> SceneStack::top()
 		{
 			if (!m_stack.empty())
 			{
@@ -210,7 +185,20 @@ namespace galaxy
 			const auto& scenes = json.at("scenes");
 			for (const auto& [key, value] : scenes.items())
 			{
-				create(key);
+				const auto type = value.at("type").get<std::string>();
+				if (type == "2D")
+				{
+					create<Scene2D>(key);
+				}
+				else if (type == "3D")
+				{
+					create<Scene3D>(key);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Could not deserialize scene, unknown type: {0}.", type);
+				}
+
 				m_scenes[key]->deserialize(value);
 			}
 
@@ -228,5 +216,5 @@ namespace galaxy
 				push(name);
 			}
 		}
-	} // namespace core
+	} // namespace scene
 } // namespace galaxy

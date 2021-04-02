@@ -8,7 +8,7 @@
 #ifndef GALAXY_CORE_INSTANCE_HPP_
 #define GALAXY_CORE_INSTANCE_HPP_
 
-#include "galaxy/core/SceneStack.hpp"
+#include "galaxy/scenes/SceneStack.hpp"
 
 namespace galaxy
 {
@@ -66,7 +66,7 @@ namespace galaxy
 			///
 			/// \return Reference to scene stack.
 			///
-			[[nodiscard]] core::SceneStack& get_stack() noexcept;
+			[[nodiscard]] scene::SceneStack& get_stack() noexcept;
 
 			///
 			/// Serializes object.
@@ -97,7 +97,7 @@ namespace galaxy
 			///
 			/// Controls current application instance.
 			///
-			core::SceneStack m_scene_stack;
+			scene::SceneStack m_scene_stack;
 		};
 	} // namespace core
 } // namespace galaxy

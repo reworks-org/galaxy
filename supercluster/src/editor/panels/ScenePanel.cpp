@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+
+#include <imgui/addons/ToggleButton.h>
 #include <imgui/imgui_stdlib.h>
 #include <magic_enum.hpp>
 
@@ -18,7 +21,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(core::SceneStack& scene_stack)
+		void ScenePanel::render(scene::SceneStack& scene_stack)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -34,10 +37,28 @@ namespace sc
 
 				if (ImGui::BeginPopup("NewScenePopup"))
 				{
+					ImGui::Text("2D");
+					ImGui::SameLine();
+
+					// False = 2D, True = 3D.
+					static bool s_type = true;
+					ImGui::ToggleButton("2D3DToggleButton", &s_type);
+
+					ImGui::SameLine();
+					ImGui::Text("3D");
+
 					static std::string s_buff = "";
 					if (ImGui::InputText("New Scene", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
 					{
-						scene_stack.create(s_buff);
+						if (s_type)
+						{
+							scene_stack.create<scene::Scene3D>(s_buff);
+						}
+						else
+						{
+							scene_stack.create<scene::Scene2D>(s_buff);
+						}
+
 						s_buff = "";
 					}
 
@@ -67,6 +88,7 @@ namespace sc
 							scene_stack.push(name);
 						}
 
+						/*
 						ImGui::Spacing();
 						ImGui::Text("Camera:");
 						ImGui::Spacing();
@@ -118,6 +140,7 @@ namespace sc
 						{
 							scene->m_camera.set_height(s_proj_y);
 						}
+						*/
 
 						ImGui::Spacing();
 						ImGui::TreePop();

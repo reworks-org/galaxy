@@ -1,12 +1,12 @@
 ///
-/// RenderSystem.hpp
+/// RenderSystem2D.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
-#define GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
+#ifndef GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
+#define GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 
 #include "galaxy/ecs/Entity.hpp"
 #include "galaxy/ecs/System.hpp"
@@ -40,13 +40,13 @@ namespace galaxy
 			///
 			/// Pointer to a transformation.
 			///
-			components::Transform* m_transform = nullptr;
+			components::Transform2D* m_transform = nullptr;
 		};
 
 		///
 		/// System that handles rendering of entities with a graphics::Sprite, TransformComponent, etc.
 		///
-		class RenderSystem final : public ecs::System
+		class RenderSystem2D final : public ecs::System
 		{
 			friend class core::World;
 
@@ -54,12 +54,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RenderSystem() noexcept = default;
+			RenderSystem2D() noexcept = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~RenderSystem() noexcept = default;
+			virtual ~RenderSystem2D() noexcept = default;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.

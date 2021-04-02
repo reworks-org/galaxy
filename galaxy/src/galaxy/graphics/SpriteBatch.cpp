@@ -108,7 +108,7 @@ namespace galaxy
 			}
 		}
 
-		void SpriteBatch::add(components::BatchSprite* sprite, components::Transform* transform, const int z_level)
+		void SpriteBatch::add(components::BatchSprite* sprite, components::Transform2D* transform, const int z_level)
 		{
 			if (!sprite || !transform)
 			{
@@ -181,7 +181,7 @@ namespace galaxy
 			glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchVertex) * m_vertexs.size(), m_vertexs.data());
 		}
 
-		void SpriteBatch::calculate(components::Transform* global_transform)
+		void SpriteBatch::calculate(components::Transform2D* global_transform)
 		{
 			if (!global_transform)
 			{

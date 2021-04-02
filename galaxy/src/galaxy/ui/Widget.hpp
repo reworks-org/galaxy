@@ -8,7 +8,7 @@
 #ifndef GALAXY_UI_WIDGET_HPP_
 #define GALAXY_UI_WIDGET_HPP_
 
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/ui/Tooltip.hpp"
 #include "galaxy/ui/WidgetType.hpp"
 

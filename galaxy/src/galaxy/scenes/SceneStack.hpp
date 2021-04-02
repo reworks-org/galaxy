@@ -5,25 +5,25 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_CORE_SCENESTACK_HPP_
-#define GALAXY_CORE_SCENESTACK_HPP_
+#ifndef GALAXY_SCENES_SCENESTACK_HPP_
+#define GALAXY_SCENES_SCENESTACK_HPP_
 
 #include <memory>
 #include <vector>
 
 #include <robin_hood.h>
 
-#include "galaxy/core/Scene.hpp"
 #include "galaxy/meta/Concepts.hpp"
+#include "galaxy/meta/SceneMeta.hpp"
 
 namespace galaxy
 {
-	namespace core
+	namespace scene
 	{
 		///
 		/// Shorthand.
 		///
-		using SceneStorage = robin_hood::unordered_node_map<std::string, std::shared_ptr<core::Scene>>;
+		using SceneStorage = robin_hood::unordered_node_map<std::string, std::shared_ptr<Scene>>;
 
 		///
 		/// Stack based storage for scenes.
@@ -48,7 +48,8 @@ namespace galaxy
 			///
 			/// \return Shared pointer to created scene. nullptr if failed.
 			///
-			[[maybe_unused]] std::shared_ptr<Scene> create(std::string_view name);
+			template<meta::is_scene DerivedScene>
+			[[maybe_unused]] std::shared_ptr<DerivedScene> create(std::string_view name);
 
 			///
 			/// Retrieve an scene from the provided name.
@@ -57,14 +58,23 @@ namespace galaxy
 			///
 			/// \return Pointer to scene.
 			///
-			[[nodiscard]] std::shared_ptr<Scene> get(std::string_view name);
+			template<meta::is_scene DerivedScene>
+			[[nodiscard]] std::shared_ptr<DerivedScene> get(std::string_view name);
 
 			///
-			/// Get the scene on top of the stack.
+			/// Get the base scene on top of the stack.
 			///
 			/// \return Returns pointer to topmost scene.
 			///
-			[[nodiscard]] std::shared_ptr<core::Scene> top();
+			[[nodiscard]] std::shared_ptr<Scene> top();
+
+			///
+			/// Get the casted scene on top of the stack.
+			///
+			/// \return Returns pointer to topmost scene.
+			///
+			template<meta::is_scene DerivedScene>
+			[[nodiscard]] std::shared_ptr<DerivedScene> top();
 
 			///
 			/// Process all scene events.
@@ -163,9 +173,54 @@ namespace galaxy
 			///
 			/// Simulate a stack using a std::vector.
 			///
-			std::vector<std::shared_ptr<core::Scene>> m_stack;
+			std::vector<std::shared_ptr<Scene>> m_stack;
 		};
-	} // namespace core
+
+		template<meta::is_scene DerivedScene>
+		std::shared_ptr<DerivedScene> SceneStack::create(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+			if (m_scenes.contains(str))
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to create a scene that already exists!");
+			}
+			else
+			{
+				std::shared_ptr<DerivedScene> ptr = std::make_shared<DerivedScene>(str);
+				m_scenes[str]                     = std::static_pointer_cast<Scene>(ptr);
+				return ptr;
+			}
+		}
+
+		template<meta::is_scene DerivedScene>
+		std::shared_ptr<DerivedScene> SceneStack::get(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+			if (m_scenes.contains(str))
+			{
+				return std::static_pointer_cast<DerivedScene>(m_scenes[str]);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve non-existant scene: {0}.", name);
+				return nullptr;
+			}
+		}
+
+		template<meta::is_scene DerivedScene>
+		std::shared_ptr<DerivedScene> SceneStack::top()
+		{
+			if (!m_stack.empty())
+			{
+				return std::static_pointer_cast<DerivedScene>(m_stack.back());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "No scenes in stack!");
+				return nullptr;
+			}
+		}
+	} // namespace scene
 } // namespace galaxy
 
 #endif

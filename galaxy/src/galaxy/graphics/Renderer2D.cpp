@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/components/Primitive2D.hpp"
-#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Shader.hpp"
@@ -67,7 +67,7 @@ namespace galaxy
 			}
 		}
 
-		void Renderer2D::add_batched_sprite(components::BatchSprite* batchsprite, components::Transform* transform, int zlevel)
+		void Renderer2D::add_batched_sprite(components::BatchSprite* batchsprite, components::Transform2D* transform, int zlevel)
 		{
 			if (!m_batches.contains(zlevel))
 			{
@@ -97,7 +97,7 @@ namespace galaxy
 			}
 		}
 
-		void Renderer2D::draw_point(components::Primitive2D* data, components::Transform* transform, Shader* shader)
+		void Renderer2D::draw_point(components::Primitive2D* data, components::Transform2D* transform, Shader* shader)
 		{
 			data->bind();
 			shader->set_uniform("u_point_size", *data->get_data().m_pointsize);
@@ -106,7 +106,7 @@ namespace galaxy
 			glDrawElements(GL_POINTS, data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_line(components::Primitive2D* data, components::Transform* transform, Shader* shader)
+		void Renderer2D::draw_line(components::Primitive2D* data, components::Transform2D* transform, Shader* shader)
 		{
 			data->bind();
 			shader->set_uniform("u_transform", transform->get_transform());
@@ -114,7 +114,7 @@ namespace galaxy
 			glDrawElements(GL_LINES, data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_lineloop(components::Primitive2D* data, components::Transform* transform, Shader* shader)
+		void Renderer2D::draw_lineloop(components::Primitive2D* data, components::Transform2D* transform, Shader* shader)
 		{
 			data->bind();
 			shader->set_uniform("u_transform", transform->get_transform());
@@ -138,7 +138,7 @@ namespace galaxy
 			}
 		}
 
-		void Renderer2D::draw_text(components::Text* text, components::Transform* transform, Shader* shader)
+		void Renderer2D::draw_text(components::Text* text, components::Transform2D* transform, Shader* shader)
 		{
 			text->m_batch.calculate(transform);
 			text->bind();
@@ -151,7 +151,7 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, text->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader)
+		void Renderer2D::draw_sprite(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader)
 		{
 			sprite->bind();
 
@@ -177,7 +177,7 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, vertex_data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target)
+		void Renderer2D::draw_sprite_to_target(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target)
 		{
 			sprite->bind();
 

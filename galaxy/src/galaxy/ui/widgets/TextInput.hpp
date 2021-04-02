@@ -159,7 +159,7 @@ namespace galaxy
 			///
 			/// Box Transform.
 			///
-			components::Transform m_box_transform;
+			components::Transform2D m_box_transform;
 
 			///
 			/// Indicator line in input field.
@@ -169,7 +169,7 @@ namespace galaxy
 			///
 			/// Cursor transform.
 			///
-			components::Transform m_cursor_transform;
+			components::Transform2D m_cursor_transform;
 
 			///
 			/// Text drawn as typed.
@@ -179,7 +179,7 @@ namespace galaxy
 			///
 			/// Text transform.
 			///
-			components::Transform m_text_transform;
+			components::Transform2D m_text_transform;
 
 			///
 			/// String containing text input.

@@ -8,7 +8,7 @@
 #ifndef GALAXY_MAP_MAP_HPP_
 #define GALAXY_MAP_MAP_HPP_
 
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 
 #include "galaxy/ecs/Entity.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"

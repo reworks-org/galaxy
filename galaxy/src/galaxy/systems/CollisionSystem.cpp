@@ -12,8 +12,8 @@
 #include "galaxy/components/OnCollision.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/physics/SATObject.hpp"
@@ -33,13 +33,13 @@ namespace galaxy
 		void CollisionSystem::update(core::World& world, const double dt)
 		{
 			m_tree.clear();
-			world.operate<components::RigidBody, components::Transform>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform* transform) {
+			world.operate<components::RigidBody, components::Transform2D>([&](const ecs::Entity entity, components::RigidBody* body, components::Transform2D* transform) {
 				const auto& aabb = body->update_aabb(transform->get_pos().x, transform->get_pos().y);
 				m_tree.insert(entity, aabb.min(), aabb.max());
 			});
 
 			static std::vector<ecs::Entity> possible = {};
-			world.operate<components::RigidBody, components::Transform>([&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform* transform) {
+			world.operate<components::RigidBody, components::Transform2D>([&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform2D* transform) {
 				possible.clear();
 				m_tree.query(entity_a, std::back_inserter(possible));
 

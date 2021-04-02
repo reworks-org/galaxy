@@ -508,7 +508,7 @@ namespace galaxy
 				auto* batchsprite = world.create_component<components::BatchSprite>(entity);
 				auto* renderable  = world.create_component<components::Renderable>(entity);
 				auto* tag         = world.create_component<components::Tag>(entity);
-				auto* transform   = world.create_component<components::Transform>(entity);
+				auto* transform   = world.create_component<components::Transform2D>(entity);
 
 				const auto image = std::filesystem::path(layer.get_image()).stem().string();
 				batchsprite->create(image, layer.get_opacity());
@@ -542,7 +542,7 @@ namespace galaxy
 						auto* renderable      = world.create_component<components::Renderable>(entity);
 						auto* shaderid        = world.create_component<components::ShaderID>(entity);
 						auto* tag             = world.create_component<components::Tag>(entity);
-						auto* transform       = world.create_component<components::Transform>(entity);
+						auto* transform       = world.create_component<components::Transform2D>(entity);
 						renderable->m_z_level = layer.get_z_level();
 						tag->m_tag            = fmt::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
 
@@ -696,7 +696,7 @@ namespace galaxy
 								auto* renderable  = world.create_component<components::Renderable>(entity);
 								auto* batch       = world.create_component<components::BatchSprite>(entity);
 								auto* animated    = world.create_component<components::Animated>(entity);
-								auto* transform   = world.create_component<components::Transform>(entity);
+								auto* transform   = world.create_component<components::Transform2D>(entity);
 
 								renderable->m_z_level = layer.get_z_level();
 								renderable->m_type    = graphics::Renderables::BATCHED;
@@ -733,8 +733,8 @@ namespace galaxy
 								const auto h          = SL_HANDLE.atlas()->get_atlas()->get_height();
 								const auto& tile_rect = SL_HANDLE.atlas()->get_region(tile_name);
 
-								components::Sprite to_draw;
-								components::Transform to_draw_transform;
+								components::Sprite2D to_draw;
+								components::Transform2D to_draw_transform;
 								to_draw.load(SL_HANDLE.atlas()->get_atlas()->gl_texture(), w, h);
 								to_draw.create_clipped(tile_rect.m_x, tile_rect.m_y, tile_rect.m_width, tile_rect.m_height);
 								to_draw.set_opacity(layer.get_opacity());
@@ -755,9 +755,9 @@ namespace galaxy
 				const auto entity = world.create();
 				auto* renderable  = world.create_component<components::Renderable>(entity);
 				auto* shaderid    = world.create_component<components::ShaderID>(entity);
-				auto* sprite      = world.create_component<components::Sprite>(entity);
+				auto* sprite      = world.create_component<components::Sprite2D>(entity);
 				auto* tag         = world.create_component<components::Tag>(entity);
-				auto* transform   = world.create_component<components::Transform>(entity);
+				auto* transform   = world.create_component<components::Transform2D>(entity);
 
 				renderable->m_type    = graphics::Renderables::SPRITE;
 				renderable->m_z_level = level;

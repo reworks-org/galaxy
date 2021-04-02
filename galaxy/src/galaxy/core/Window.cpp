@@ -36,12 +36,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 			if (!create(settings))
 			{
@@ -62,8 +62,15 @@ namespace galaxy
 			bool result = true;
 
 			// Window w/h.
-			m_width  = settings.m_width;
-			m_height = settings.m_height;
+			if (settings.m_width != 0)
+			{
+				m_width = settings.m_width;
+			}
+
+			if (settings.m_height != 0)
+			{
+				m_height = settings.m_height;
+			}
 
 			// Error callbacks.
 			glfwSetErrorCallback([](int error, const char* description) {
@@ -525,7 +532,7 @@ namespace galaxy
 						m_framebuffer->create(m_width, m_height);
 						m_framebuffer->set_anisotropy(std::clamp(settings.m_ansio_filtering, 1, 16));
 
-						m_fb_sprite = std::make_unique<components::Sprite>();
+						m_fb_sprite = std::make_unique<components::Sprite2D>();
 						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 						m_fb_sprite->create();
 						m_fb_sprite->set_opacity(1.0f);

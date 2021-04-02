@@ -49,7 +49,7 @@ namespace galaxy
 			void clean_up();
 
 			void create_default_batches(BaseTexture* texture) noexcept;
-			void add_batched_sprite(components::BatchSprite* batchsprite, components::Transform* transform, int zlevel);
+			void add_batched_sprite(components::BatchSprite* batchsprite, components::Transform2D* transform, int zlevel);
 			void calculate_batches();
 
 			///
@@ -57,15 +57,15 @@ namespace galaxy
 			///
 			void clear();
 
-			void draw_point(components::Primitive2D* data, components::Transform* transform, Shader* shader);
-			void draw_line(components::Primitive2D* data, components::Transform* transform, Shader* shader);
-			void draw_lineloop(components::Primitive2D* data, components::Transform* transform, Shader* shader);
+			void draw_point(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
+			void draw_line(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
+			void draw_lineloop(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
 			void draw_spritebatches(Camera& camera);
-			void draw_text(components::Text* text, components::Transform* transform, Shader* shader);
-			void draw_sprite(components::Sprite* sprite, components::Transform* transform, Shader* shader);
+			void draw_text(components::Text* text, components::Transform2D* transform, Shader* shader);
+			void draw_sprite(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader);
 
 			void draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target);
-			void draw_sprite_to_target(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
+			void draw_sprite_to_target(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target);
 
 		private:
 			///

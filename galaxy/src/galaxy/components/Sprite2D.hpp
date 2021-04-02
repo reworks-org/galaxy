@@ -1,12 +1,12 @@
 ///
-/// Sprite.hpp
+/// Sprite2D.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_SPRITE_HPP_
-#define GALAXY_COMPONENTS_SPRITE_HPP_
+#ifndef GALAXY_COMPONENTS_SPRITE2D_HPP_
+#define GALAXY_COMPONENTS_SPRITE2D_HPP_
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -19,37 +19,37 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// Everything you need to draw a sprite.
+		/// Everything you need to draw a Sprite2D.
 		///
-		class Sprite final : public graphics::VertexData, public graphics::Texture, public fs::Serializable
+		class Sprite2D final : public graphics::VertexData, public graphics::Texture, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Sprite() noexcept;
+			Sprite2D() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Sprite(const nlohmann::json& json);
+			Sprite2D(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Sprite(Sprite&&) noexcept;
+			Sprite2D(Sprite2D&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Sprite& operator=(Sprite&&) noexcept;
+			Sprite2D& operator=(Sprite2D&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sprite() noexcept = default;
+			virtual ~Sprite2D() noexcept = default;
 
 			///
 			/// Creates the internal vertex array.
@@ -78,12 +78,12 @@ namespace galaxy
 			void create_clipped(const float x, const float y, const float width, const float height);
 
 			///
-			/// Activate sprite context.
+			/// Activate Sprite2D context.
 			///
 			void bind() noexcept override;
 
 			///
-			/// Deactivate sprite context.
+			/// Deactivate Sprite2D context.
 			///
 			void unbind() noexcept override;
 
@@ -102,9 +102,9 @@ namespace galaxy
 			[[nodiscard]] const float get_opacity() const noexcept;
 
 			///
-			/// Get sprite vertexs.
+			/// Get Sprite2D vertexs.
 			///
-			/// \return Const reference to std::vector of sprite vertexs.
+			/// \return Const reference to std::vector of Sprite2D vertexs.
 			///
 			[[nodiscard]] const std::vector<graphics::SpriteVertex>& get_vertexs() const noexcept;
 
@@ -126,16 +126,16 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			Sprite(const Sprite&) = delete;
+			Sprite2D(const Sprite2D&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Sprite& operator=(const Sprite&) = delete;
+			Sprite2D& operator=(const Sprite2D&) = delete;
 
 		private:
 			///
-			/// Opacity of sprite.
+			/// Opacity of Sprite2D.
 			///
 			float m_opacity;
 
@@ -145,7 +145,7 @@ namespace galaxy
 			std::string m_texture_str;
 
 			///
-			/// Sprite vertexs.
+			/// Sprite2D vertexs.
 			///
 			std::vector<graphics::SpriteVertex> m_vertexs;
 		};

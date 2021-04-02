@@ -15,10 +15,10 @@
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
-#include <galaxy/components/Sprite.hpp>
+#include <galaxy/components/Sprite2D.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
-#include <galaxy/components/Transform.hpp>
+#include <galaxy/components/Transform2D.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
@@ -289,14 +289,14 @@ namespace sc
 							if (ImGui::Button(" + ##11"))
 							{
 								world.disable(entity);
-								world.create_component<components::Sprite>(entity);
+								world.create_component<components::Sprite2D>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##12"))
 							{
-								world.remove<components::Sprite>(entity);
+								world.remove<components::Sprite2D>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -347,14 +347,14 @@ namespace sc
 							if (ImGui::Button(" + ##17"))
 							{
 								world.disable(entity);
-								world.create_component<components::Transform>(entity);
+								world.create_component<components::Transform2D>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##18"))
 							{
-								world.remove<components::Transform>(entity);
+								world.remove<components::Transform2D>(entity);
 							}
 
 							ImGui::EndTable();
@@ -406,10 +406,10 @@ namespace sc
 				components::Renderable, 
 				components::RigidBody, 
 				components::ShaderID, 
-				components::Sprite,
+				components::Sprite2D,
 				components::Tag, 
 				components::Text, 
-				components::Transform>(entity);
+				components::Transform2D>(entity);
 			// clang-format on
 
 			if (ImGui::BeginTabBar("EntityComponentsTabBar", ImGuiTabBarFlags_NoCloseWithMiddleMouseButton | ImGuiTabBarFlags_Reorderable))

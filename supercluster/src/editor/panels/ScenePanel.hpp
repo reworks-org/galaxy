@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 
-#include <galaxy/core/SceneStack.hpp>
+#include <galaxy/scenes/SceneStack.hpp>
 
 using namespace galaxy;
 
@@ -19,7 +19,7 @@ namespace sc
 		class ScenePanel final
 		{
 		public:
-			void render(core::SceneStack& scene_stack);
+			void render(scene::SceneStack& scene_stack);
 
 		private:
 			std::string m_selected = "";

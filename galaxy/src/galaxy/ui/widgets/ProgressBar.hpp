@@ -153,7 +153,7 @@ namespace galaxy
 			///
 			/// Progressbar transform.
 			///
-			components::Transform m_container_transform;
+			components::Transform2D m_container_transform;
 
 			///
 			/// Bar texture.
@@ -163,7 +163,7 @@ namespace galaxy
 			///
 			/// Bar transform.
 			///
-			components::Transform m_bar_transform;
+			components::Transform2D m_bar_transform;
 		};
 	} // namespace ui
 } // namespace galaxy

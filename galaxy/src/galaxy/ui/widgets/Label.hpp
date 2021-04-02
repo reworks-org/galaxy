@@ -128,7 +128,7 @@ namespace galaxy
 			///
 			/// Label transform.
 			///
-			components::Transform m_transform;
+			components::Transform2D m_transform;
 		};
 	} // namespace ui
 } // namespace galaxy

@@ -1,5 +1,5 @@
 ///
-/// Sprite.cpp
+/// Sprite2D.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -9,24 +9,24 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "Sprite.hpp"
+#include "Sprite2D.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
-		Sprite::Sprite() noexcept
+		Sprite2D::Sprite2D() noexcept
 		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
 		{
 		}
 
-		Sprite::Sprite(const nlohmann::json& json)
+		Sprite2D::Sprite2D(const nlohmann::json& json)
 		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
 		{
 			deserialize(json);
 		}
 
-		Sprite::Sprite(Sprite&& s) noexcept
+		Sprite2D::Sprite2D(Sprite2D&& s) noexcept
 		    : Serializable {this}, VertexData {std::move(s)}, Texture {std::move(s)}
 		{
 			this->m_opacity     = s.m_opacity;
@@ -34,7 +34,7 @@ namespace galaxy
 			this->m_vertexs     = std::move(s.m_vertexs);
 		}
 
-		Sprite& Sprite::operator=(Sprite&& s) noexcept
+		Sprite2D& Sprite2D::operator=(Sprite2D&& s) noexcept
 		{
 			if (this != &s)
 			{
@@ -50,7 +50,7 @@ namespace galaxy
 			return *this;
 		}
 
-		void Sprite::create(const float tex_x, const float tex_y)
+		void Sprite2D::create(const float tex_x, const float tex_y)
 		{
 			m_vertexs.clear();
 			m_vertexs.push_back({0.0f, 0.0f, tex_x, tex_y});
@@ -69,7 +69,7 @@ namespace galaxy
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Sprite::create_clipped(const float width, const float height)
+		void Sprite2D::create_clipped(const float width, const float height)
 		{
 			m_vertexs.clear();
 			m_vertexs.push_back({0.0f, 0.0f, 0.0f, 0.0f});
@@ -88,7 +88,7 @@ namespace galaxy
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Sprite::create_clipped(const float x, const float y, const float width, const float height)
+		void Sprite2D::create_clipped(const float x, const float y, const float width, const float height)
 		{
 			m_vertexs.clear();
 			m_vertexs.push_back({0.0f, 0.0f, x, y});
@@ -107,34 +107,34 @@ namespace galaxy
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Sprite::bind() noexcept
+		void Sprite2D::bind() noexcept
 		{
 			m_va.bind();
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 		}
 
-		void Sprite::unbind() noexcept
+		void Sprite2D::unbind() noexcept
 		{
 			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void Sprite::set_opacity(const float opacity) noexcept
+		void Sprite2D::set_opacity(const float opacity) noexcept
 		{
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
-		const float Sprite::get_opacity() const noexcept
+		const float Sprite2D::get_opacity() const noexcept
 		{
 			return m_opacity;
 		}
 
-		const std::vector<graphics::SpriteVertex>& Sprite::get_vertexs() const noexcept
+		const std::vector<graphics::SpriteVertex>& Sprite2D::get_vertexs() const noexcept
 		{
 			return m_vertexs;
 		}
 
-		nlohmann::json Sprite::serialize()
+		nlohmann::json Sprite2D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["texture"]     = m_texture_str;
@@ -143,7 +143,7 @@ namespace galaxy
 			return json;
 		}
 
-		void Sprite::deserialize(const nlohmann::json& json)
+		void Sprite2D::deserialize(const nlohmann::json& json)
 		{
 			m_texture_str = json.at("texture");
 			load(m_texture_str);

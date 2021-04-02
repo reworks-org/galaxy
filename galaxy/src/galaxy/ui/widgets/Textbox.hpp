@@ -137,7 +137,7 @@ namespace galaxy
 			///
 			/// Box Transform.
 			///
-			components::Transform m_box_transform;
+			components::Transform2D m_box_transform;
 
 			///
 			/// Text to render.
@@ -147,7 +147,7 @@ namespace galaxy
 			///
 			/// Text transform.
 			///
-			components::Transform m_text_transform;
+			components::Transform2D m_text_transform;
 
 			///
 			/// Indicator.
@@ -157,7 +157,7 @@ namespace galaxy
 			///
 			/// Indicator transform.
 			///
-			components::Transform m_indicator_transform;
+			components::Transform2D m_indicator_transform;
 
 			///
 			/// All the text to draw.

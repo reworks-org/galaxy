@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
+#include <optional>
+
 #include "Instance.hpp"
 
 namespace galaxy
@@ -26,7 +29,7 @@ namespace galaxy
 			return m_name;
 		}
 
-		core::SceneStack& Instance::get_stack() noexcept
+		scene::SceneStack& Instance::get_stack() noexcept
 		{
 			return m_scene_stack;
 		}

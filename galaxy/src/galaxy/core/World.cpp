@@ -17,10 +17,10 @@
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Transform2D.hpp"
 
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -50,10 +50,10 @@ namespace galaxy
 			register_component<components::Renderable>("Renderable");
 			register_component<components::RigidBody>("RigidBody");
 			register_component<components::ShaderID>("ShaderID");
-			register_component<components::Sprite>("Sprite");
+			register_component<components::Sprite2D>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
-			register_component<components::Transform>("Transform");
+			register_component<components::Transform2D>("Transform");
 		}
 
 		World::~World()
@@ -230,10 +230,10 @@ namespace galaxy
 						components::Renderable,
 						components::RigidBody,
 						components::ShaderID,
-						components::Sprite,
+						components::Sprite2D,
 						components::Tag,
 						components::Text,
-						components::Transform>(entity);
+						components::Transform2D>(entity);
 					// clang-format on
 					if (animated)
 					{

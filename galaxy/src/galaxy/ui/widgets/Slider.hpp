@@ -162,7 +162,7 @@ namespace galaxy
 			///
 			/// Slider transform.
 			///
-			components::Transform m_slider_transform;
+			components::Transform2D m_slider_transform;
 
 			///
 			/// Marker texture.
@@ -172,7 +172,7 @@ namespace galaxy
 			///
 			/// Marker transform.
 			///
-			components::Transform m_marker_transform;
+			components::Transform2D m_marker_transform;
 		};
 	} // namespace ui
 } // namespace galaxy

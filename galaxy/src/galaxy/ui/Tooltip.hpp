@@ -9,7 +9,7 @@
 #define GALAXY_UI_TOOLTIP_HPP_
 
 #include "galaxy/components/Text.hpp"
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/texture/Texture.hpp"
 #include "galaxy/ui/Theme.hpp"
@@ -128,7 +128,7 @@ namespace galaxy
 			///
 			/// Text transform.
 			///
-			components::Transform m_text_transform;
+			components::Transform2D m_text_transform;
 
 			///
 			/// UI theme for tooltip.

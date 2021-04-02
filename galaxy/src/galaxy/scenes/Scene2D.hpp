@@ -1,70 +1,69 @@
 ///
-/// Scene.hpp
+/// Scene2D.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SCENES_SCENE_HPP_
-#define GALAXY_SCENES_SCENE_HPP_
+#ifndef GALAXY_SCENES_SCENE2D_HPP_
+#define GALAXY_SCENES_SCENE2D_HPP_
 
-#include "galaxy/core/World.hpp"
 #include "galaxy/map/TiledWorld.hpp"
-#include "galaxy/ui/GUI.hpp"
+#include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy
 {
-	namespace core
+	namespace scene
 	{
 		///
-		/// Represents a scene within an instance.
+		/// 2D scene implementation.
 		///
-		class Scene final : public fs::Serializable
+		class Scene2D final : public Scene
 		{
 		public:
 			///
 			/// Argument Constructor.
 			///
-			/// \param name Name of the scene.
+			/// \param name Name of the Scene2D.
 			///
-			Scene(std::string_view name) noexcept;
+			Scene2D(std::string_view name) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Scene() noexcept;
+			virtual ~Scene2D() noexcept;
 
 			///
-			/// On push of scene to stack.
+			/// On push of Scene2D to stack.
 			///
-			void on_push();
+			void on_push() override;
 
 			///
-			/// On pop of scene off stack.
+			/// On pop of Scene2D off stack.
 			///
-			void on_pop();
+			void on_pop() override;
 
 			///
 			/// Process events.
 			///
-			void events();
+			void events() override;
 
 			///
 			/// Process update (fixed timestep) logic.
 			///
 			/// \param dt Delta-Time from fixed timestep gameloop.
 			///
-			void update(const double dt);
+			void update(const double dt) override;
 
 			///
 			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
 			///
-			void pre_render();
+			void pre_render() override;
 
 			///
 			/// Render to screen.
 			///
-			void render();
+			void render() override;
 
 			///
 			/// Load a tiled world.
@@ -114,38 +113,13 @@ namespace galaxy
 			///
 			/// Deleted default constructor.
 			///
-			Scene() = delete;
+			Scene2D() = delete;
 
 		public:
-			///
-			/// Scene name.
-			///
-			std::string m_name;
-
-			///
-			/// Entity/System manager.
-			///
-			core::World m_world;
-
 			///
 			/// Camera.
 			///
 			graphics::Camera m_camera;
-
-			///
-			/// Event dispatcher.
-			///
-			events::Dispatcher m_dispatcher;
-
-			///
-			/// GUI theme.
-			///
-			ui::Theme m_gui_theme;
-
-			///
-			/// GUI for this scene.
-			///
-			ui::GUI m_gui;
 
 		private:
 			///
@@ -158,7 +132,7 @@ namespace galaxy
 			///
 			std::string m_active_map;
 		};
-	} // namespace core
+	} // namespace scene
 } // namespace galaxy
 
 #endif

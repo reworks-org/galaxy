@@ -169,7 +169,7 @@ namespace sc
 	void Editor::new_project()
 	{
 		m_scene_stack.clear();
-		m_scene_stack.create("Base");
+		m_scene_stack.create<scene::Scene2D>("Base");
 		m_scene_stack.push("Base");
 	}
 
@@ -374,8 +374,8 @@ namespace sc
 				m_game_mode = true;
 				m_backup    = serialize();
 
-				m_scene_stack.top()->m_camera.set_width(SL_HANDLE.window()->get_width());
-				m_scene_stack.top()->m_camera.set_height(SL_HANDLE.window()->get_height());
+				//m_scene_stack.top()->m_camera.set_width(SL_HANDLE.window()->get_width());
+				//m_scene_stack.top()->m_camera.set_height(SL_HANDLE.window()->get_height());
 			}
 
 			if (ImGui::Button(" || ##PauseSceneButton"))
@@ -417,10 +417,11 @@ namespace sc
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
 
-				m_scene_stack.top()->m_camera.set_width(m_viewport_size.x);
-				m_scene_stack.top()->m_camera.set_height(m_viewport_size.y);
+				//m_scene_stack.top()->m_camera.set_width(m_viewport_size.x);
+				//m_scene_stack.top()->m_camera.set_height(m_viewport_size.y);
 			}
 
+			/*
 			if (m_mouse_picked)
 			{
 				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
@@ -448,12 +449,13 @@ namespace sc
 				possible.clear();
 				m_mouse_picked = false;
 			}
+			*/
 
 			if (m_mouse_dragging)
 			{
 				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Middle);
 
-				m_scene_stack.top()->m_camera.move(delta.x, delta.y);
+				//m_scene_stack.top()->m_camera.move(delta.x, delta.y);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Middle);
 			}
 
@@ -475,7 +477,7 @@ namespace sc
 
 							world.create_component<components::BatchSprite>(entity);
 							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::BATCHED;
 						}
@@ -488,7 +490,7 @@ namespace sc
 							world.create_component<components::Animated>(entity);
 							world.create_component<components::BatchSprite>(entity);
 							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::BATCHED;
 						}
@@ -501,7 +503,7 @@ namespace sc
 							world.create_component<components::Primitive2D>(entity);
 							world.create_component<components::ShaderID>(entity);
 							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::LINE_LOOP;
 						}
@@ -515,7 +517,7 @@ namespace sc
 							world.create_component<components::OnCollision>(entity);
 							world.create_component<components::RigidBody>(entity);
 							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::BATCHED;
 						}
@@ -530,7 +532,7 @@ namespace sc
 							world.create_component<components::OnCollision>(entity);
 							world.create_component<components::RigidBody>(entity);
 							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::BATCHED;
 						}
@@ -543,7 +545,7 @@ namespace sc
 							world.create_component<components::ShaderID>(entity);
 							world.create_component<components::Tag>(entity);
 							world.create_component<components::Text>(entity);
-							world.create_component<components::Transform>(entity);
+							world.create_component<components::Transform2D>(entity);
 							auto* r   = world.create_component<components::Renderable>(entity);
 							r->m_type = graphics::Renderables::TEXT;
 						}
@@ -558,7 +560,7 @@ namespace sc
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.world", "assets/");
 						if (file != std::nullopt)
 						{
-							m_scene_stack.top()->create_maps(file.value());
+							//m_scene_stack.top()->create_maps(file.value());
 						}
 					}
 

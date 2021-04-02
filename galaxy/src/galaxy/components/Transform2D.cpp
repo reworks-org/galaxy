@@ -1,5 +1,5 @@
 ///
-/// Transform.cpp
+/// Transform2D.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -10,24 +10,24 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <nlohmann/json.hpp>
 
-#include "Transform.hpp"
+#include "Transform2D.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
-		Transform::Transform() noexcept
+		Transform2D::Transform2D() noexcept
 		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}, m_origin {0.0f, 0.0f, 0.0f}
 		{
 		}
 
-		Transform::Transform(const nlohmann::json& json)
+		Transform2D::Transform2D(const nlohmann::json& json)
 		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}, m_origin {0.0f, 0.0f, 0.0f}
 		{
 			deserialize(json);
 		}
 
-		Transform::Transform(Transform&& t) noexcept
+		Transform2D::Transform2D(Transform2D&& t) noexcept
 		    : Serializable {this}
 		{
 			this->m_dirty       = t.m_dirty;
@@ -39,7 +39,7 @@ namespace galaxy
 			this->m_translation = std::move(t.m_translation);
 		}
 
-		Transform& galaxy::components::Transform::operator=(Transform&& t) noexcept
+		Transform2D& Transform2D::operator=(Transform2D&& t) noexcept
 		{
 			if (this != &t)
 			{
@@ -55,7 +55,7 @@ namespace galaxy
 			return *this;
 		}
 
-		void Transform::set_pos(const float x, const float y) noexcept
+		void Transform2D::set_pos(const float x, const float y) noexcept
 		{
 			m_pos.x = x;
 			m_pos.y = y;
@@ -63,7 +63,7 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform::move(const float x, const float y) noexcept
+		void Transform2D::move(const float x, const float y) noexcept
 		{
 			m_pos.x += x;
 			m_pos.y += y;
@@ -71,7 +71,7 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform::rotate(const float degrees) noexcept
+		void Transform2D::rotate(const float degrees) noexcept
 		{
 			m_rotate += degrees;
 			std::clamp(m_rotate, 0.0f, 360.0f);
@@ -79,13 +79,13 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform::set_rotation_origin(const float x, const float y) noexcept
+		void Transform2D::set_rotation_origin(const float x, const float y) noexcept
 		{
 			m_origin.x = x;
 			m_origin.y = y;
 		}
 
-		void Transform::recalculate()
+		void Transform2D::recalculate()
 		{
 			static constexpr const auto identity_matrix = glm::mat4 {1.0f};
 
@@ -103,28 +103,28 @@ namespace galaxy
 			}
 		}
 
-		const bool Transform::is_dirty() const noexcept
+		const bool Transform2D::is_dirty() const noexcept
 		{
 			return m_dirty;
 		}
 
-		const glm::mat4& Transform::get_transform()
+		const glm::mat4& Transform2D::get_transform()
 		{
 			recalculate();
 			return m_model;
 		}
 
-		const float Transform::get_rotation() const noexcept
+		const float Transform2D::get_rotation() const noexcept
 		{
 			return m_rotate;
 		}
 
-		const glm::vec2& Transform::get_pos() const noexcept
+		const glm::vec2& Transform2D::get_pos() const noexcept
 		{
 			return m_pos;
 		}
 
-		void Transform::reset() noexcept
+		void Transform2D::reset() noexcept
 		{
 			m_dirty       = true;
 			m_origin      = {0.0f, 0.0f, 0.0f};
@@ -135,7 +135,7 @@ namespace galaxy
 			m_model       = glm::mat4 {1.0f};
 		}
 
-		nlohmann::json Transform::serialize()
+		nlohmann::json Transform2D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["x"]           = m_pos.x;
@@ -145,7 +145,7 @@ namespace galaxy
 			return json;
 		}
 
-		void Transform::deserialize(const nlohmann::json& json)
+		void Transform2D::deserialize(const nlohmann::json& json)
 		{
 			reset();
 

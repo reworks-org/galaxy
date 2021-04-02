@@ -15,8 +15,8 @@
 #include <glm/vec2.hpp>
 #include <robin_hood.h>
 
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Colour.hpp"
@@ -408,12 +408,12 @@ namespace galaxy
 			///
 			/// Internal framebuffer VAO.
 			///
-			std::unique_ptr<components::Sprite> m_fb_sprite;
+			std::unique_ptr<components::Sprite2D> m_fb_sprite;
 
 			///
 			/// Internal framebuffer transform.
 			///
-			components::Transform m_fb_transform;
+			components::Transform2D m_fb_transform;
 
 			///
 			/// Scene dispatcher.

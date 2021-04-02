@@ -30,6 +30,7 @@ namespace galaxy
 				m_path   = file;
 				m_config = nlohmann::json::object();
 				m_blank  = true;
+				m_loaded = true;
 
 				save();
 			}

@@ -38,4 +38,18 @@ sandbox_tests/bin/Release/*.obj
 sandbox_tests/bin/Release/*.idb
 sandbox_tests/bin/Release/logs/
 
+sandbox_3d_tests/bin/Debug/*.exe
+sandbox_3d_tests/bin/Debug/*.ilk
+sandbox_3d_tests/bin/Debug/*.pdb
+sandbox_3d_tests/bin/Debug/*.obj
+sandbox_3d_tests/bin/Debug/*.idb
+sandbox_3d_tests/bin/Debug/*.dll
+sandbox_3d_tests/bin/Debug/logs/
+sandbox_3d_tests/bin/Release/*.exe
+sandbox_3d_tests/bin/Release/*.ilk
+sandbox_3d_tests/bin/Release/*.pdb
+sandbox_3d_tests/bin/Release/*.obj
+sandbox_3d_tests/bin/Release/*.idb
+sandbox_3d_tests/bin/Release/logs/
+
 tests/bin/

@@ -187,7 +187,7 @@ namespace galaxy
 			struct CharacterBatch final
 			{
 				BatchSprite m_sprite;
-				Transform m_transform;
+				Transform2D m_transform;
 			};
 
 		private:
