@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_RENDERER2D_HPP_
 #define GALAXY_GRAPHICS_RENDERER2D_HPP_
 
-#include "galaxy/graphics/camera/OrthoCamera.hpp"
+#include "galaxy/graphics/camera/Camera2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 #define RENDERER_2D galaxy::graphics::Renderer2D::inst
@@ -60,7 +60,7 @@ namespace galaxy
 			void draw_point(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
 			void draw_line(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
 			void draw_lineloop(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
-			void draw_spritebatches(OrthoCamera& camera);
+			void draw_spritebatches(Camera2D& camera);
 			void draw_text(components::Text* text, components::Transform2D* transform, Shader* shader);
 			void draw_sprite(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader);
 

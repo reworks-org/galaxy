@@ -10,7 +10,7 @@
 
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform2D.hpp"
-#include "galaxy/graphics/camera/OrthoCamera.hpp"
+#include "galaxy/graphics/camera/Camera2D.hpp"
 #include "galaxy/graphics/texture/Texture.hpp"
 #include "galaxy/ui/Theme.hpp"
 

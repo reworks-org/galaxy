@@ -10,7 +10,7 @@
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/camera/OrthoCamera.hpp"
+#include "galaxy/graphics/camera/Camera2D.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
@@ -68,7 +68,7 @@ namespace galaxy
 			///
 			/// Camera view for GUI.
 			///
-			graphics::OrthoCamera m_camera;
+			graphics::Camera2D m_camera;
 
 			///
 			/// Spritebatch.

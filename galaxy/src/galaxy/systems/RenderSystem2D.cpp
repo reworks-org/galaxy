@@ -56,7 +56,7 @@ namespace galaxy
 			});
 		}
 
-		void RenderSystem2D::render(core::World& world, graphics::OrthoCamera& camera)
+		void RenderSystem2D::render(core::World& world, graphics::Camera2D& camera)
 		{
 			RENDERER_2D().calculate_batches();
 			RENDERER_2D().draw_spritebatches(camera);

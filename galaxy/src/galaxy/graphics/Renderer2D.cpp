@@ -122,7 +122,7 @@ namespace galaxy
 			glDrawElements(GL_LINE_LOOP, data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_spritebatches(OrthoCamera& camera)
+		void Renderer2D::draw_spritebatches(Camera2D& camera)
 		{
 			m_batch_shader->bind();
 			m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
