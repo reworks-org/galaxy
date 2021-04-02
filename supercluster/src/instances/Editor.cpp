@@ -5,9 +5,17 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <chrono>
 #include <iostream>
+#include <optional>
 
 #include <galaxy/algorithm/Algorithm.hpp>
+#include <galaxy/components/Animated.hpp>
+#include <galaxy/components/OnCollision.hpp>
+#include <galaxy/components/Renderable.hpp>
+#include <galaxy/components/RigidBody.hpp>
+#include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/Tag.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
@@ -449,8 +457,10 @@ namespace sc
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Middle);
 			}
 
-			ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+			//ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+
+			// FIX: right click menu.
 
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 			{
@@ -460,55 +470,88 @@ namespace sc
 					{
 						if (ImGui::MenuItem("  Sprite"))
 						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::BatchSprite>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::BATCHED;
+						}
+
+						if (ImGui::MenuItem("  Animated Sprite"))
+						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::Animated>(entity);
+							world.create_component<components::BatchSprite>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::BATCHED;
+						}
+
+						if (ImGui::MenuItem("  Primitive2D"))
+						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::Primitive2D>(entity);
+							world.create_component<components::ShaderID>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::LINE_LOOP;
 						}
 
 						if (ImGui::MenuItem("  Rigid Body"))
 						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::BatchSprite>(entity);
+							world.create_component<components::OnCollision>(entity);
+							world.create_component<components::RigidBody>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::BATCHED;
+						}
+
+						if (ImGui::MenuItem("  Animated Body"))
+						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::Animated>(entity);
+							world.create_component<components::BatchSprite>(entity);
+							world.create_component<components::OnCollision>(entity);
+							world.create_component<components::RigidBody>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::BATCHED;
 						}
 
 						if (ImGui::MenuItem("  Text"))
 						{
+							auto& world       = m_scene_stack.top()->m_world;
+							const auto entity = world.create();
+
+							world.create_component<components::ShaderID>(entity);
+							world.create_component<components::Tag>(entity);
+							world.create_component<components::Text>(entity);
+							world.create_component<components::Transform>(entity);
+							auto* r   = world.create_component<components::Renderable>(entity);
+							r->m_type = graphics::Renderables::TEXT;
 						}
 
 						ImGui::EndMenu();
 					}
 
-					if (ImGui::BeginMenu("  GUI"))
-					{
-						if (ImGui::MenuItem("  Button"))
-						{
-						}
-
-						if (ImGui::MenuItem("  Image"))
-						{
-						}
-
-						if (ImGui::MenuItem("  Label"))
-						{
-						}
-
-						if (ImGui::MenuItem("  ProgressBar"))
-						{
-						}
-
-						if (ImGui::MenuItem("  Slider"))
-						{
-						}
-
-						if (ImGui::MenuItem("  Textbox"))
-						{
-						}
-
-						if (ImGui::MenuItem("  TextInput"))
-						{
-						}
-
-						if (ImGui::MenuItem("  ToggleButton"))
-						{
-						}
-
-						ImGui::EndMenu();
-					}
+					m_gui_panel.gui_context_menu();
 
 					if (ImGui::MenuItem("  Map"))
 					{
