@@ -10,7 +10,7 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/ecs/System.hpp"
-#include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/camera/OrthoCamera.hpp"
 
 namespace galaxy
 {

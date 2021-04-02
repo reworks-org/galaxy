@@ -119,7 +119,7 @@ namespace galaxy
 			///
 			/// Camera.
 			///
-			graphics::Camera m_camera;
+			graphics::OrthoCamera m_camera;
 
 		private:
 			///

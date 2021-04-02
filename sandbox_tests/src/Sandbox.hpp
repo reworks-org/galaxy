@@ -11,7 +11,7 @@
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/core/Instance.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/graphics/Camera.hpp>
+#include <galaxy/graphics/camera/OrthoCamera.hpp>
 
 using namespace galaxy;
 

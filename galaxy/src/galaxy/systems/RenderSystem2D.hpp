@@ -10,7 +10,7 @@
 
 #include "galaxy/ecs/Entity.hpp"
 #include "galaxy/ecs/System.hpp"
-#include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/camera/OrthoCamera.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy
@@ -75,7 +75,7 @@ namespace galaxy
 			/// \param world Game World containing entities.
 			/// \param camera Camera used for rendering.
 			///
-			void render(core::World& world, graphics::Camera& camera);
+			void render(core::World& world, graphics::OrthoCamera& camera);
 
 		private:
 			///

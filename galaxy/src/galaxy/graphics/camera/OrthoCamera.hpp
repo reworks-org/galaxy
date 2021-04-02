@@ -1,12 +1,12 @@
 ///
-/// Camera.hpp
+/// OrthoCamera.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA_HPP_
-#define GALAXY_GRAPHICS_CAMERA_HPP_
+#ifndef GALAXY_GRAPHICS_ORTHOCAMERA_HPP_
+#define GALAXY_GRAPHICS_ORTHOCAMERA_HPP_
 
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -20,22 +20,22 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Defines a Camera (view) of an OpenGL 2D space.
+		/// Defines a OrthoCamera (view) of an OpenGL 2D space.
 		///
-		class Camera final : public fs::Serializable
+		class OrthoCamera final : public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Camera() noexcept;
+			OrthoCamera() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON object.
 			///
-			Camera(const nlohmann::json& json) noexcept;
+			OrthoCamera(const nlohmann::json& json) noexcept;
 
 			///
 			/// \brief Argument constructor.
@@ -46,17 +46,17 @@ namespace galaxy
 			/// \param right Right point of ortho perspective.
 			/// \param bottom Bottom point of ortho perspective.
 			/// \param top Top point of ortho perspective.
-			/// \param speed Speed of the camera. Multiplicative float.
+			/// \param speed Speed of the OrthoCamera. Multiplicative float.
 			///
-			Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
+			OrthoCamera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Camera() noexcept = default;
+			virtual ~OrthoCamera() noexcept = default;
 
 			///
-			/// Configures camera for window model view projection.
+			/// Configures OrthoCamera for window model view projection.
 			///
 			/// \param left Left point of ortho perspective.
 			/// \param right Right point of ortho perspective.
@@ -66,21 +66,21 @@ namespace galaxy
 			void create(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
-			///	Event processing method for key down for camera.
+			///	Event processing method for key down for OrthoCamera.
 			///
 			/// \param e Takes in a shared galaxy event defining a key press down.
 			///
 			void on_event(const events::KeyDown& e) noexcept;
 
 			///
-			/// Event processing method for key up for camera.
+			/// Event processing method for key up for OrthoCamera.
 			///
 			/// \param e Takes in a shared galaxy event defining a key release.
 			///
 			void on_event(const events::KeyUp& e) noexcept;
 
 			///
-			/// Event processing method for scroll event for camera.
+			/// Event processing method for scroll event for OrthoCamera.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
@@ -94,7 +94,7 @@ namespace galaxy
 			void on_event(const events::WindowResized& e) noexcept;
 
 			///
-			/// Update method for camera.
+			/// Update method for OrthoCamera.
 			///
 			/// \param ts Time-step from update() loop.
 			///
@@ -132,7 +132,7 @@ namespace galaxy
 			void move_y(const float y) noexcept;
 
 			///
-			/// Zoom camera.
+			/// Zoom OrthoCamera.
 			///
 			/// \param scale Scale. Multiplier. Min 0.2.
 			///
@@ -147,9 +147,9 @@ namespace galaxy
 			void set_pos(const float x, const float y) noexcept;
 
 			///
-			/// Set the speed of the camera.
+			/// Set the speed of the OrthoCamera.
 			///
-			/// \param speed Speed of the camera. Multiplicative float.
+			/// \param speed Speed of the OrthoCamera. Multiplicative float.
 			///
 			void set_speed(const float speed) noexcept;
 
@@ -168,21 +168,21 @@ namespace galaxy
 			void set_height(const float height) noexcept;
 
 			///
-			/// Get camera speed.
+			/// Get OrthoCamera speed.
 			///
 			/// \return Const float.
 			///
 			[[nodiscard]] const float get_speed() const noexcept;
 
 			///
-			/// Get camera width.
+			/// Get OrthoCamera width.
 			///
 			/// \return Const float.
 			///
 			[[nodiscard]] const float get_width() const noexcept;
 
 			///
-			/// Get camera height.
+			/// Get OrthoCamera height.
 			///
 			/// \return Const float.
 			///
@@ -217,7 +217,7 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
 			///
-			/// Get the camera projection.
+			/// Get the OrthoCamera projection.
 			///
 			/// \return Const glm::mat4 reference.
 			///
@@ -282,42 +282,42 @@ namespace galaxy
 			glm::mat4 m_model;
 
 			///
-			/// Camera move up flag.
+			/// OrthoCamera move up flag.
 			///
 			bool m_move_up;
 
 			///
-			/// Camera move down flag.
+			/// OrthoCamera move down flag.
 			///
 			bool m_move_down;
 
 			///
-			/// Camera move left flag.
+			/// OrthoCamera move left flag.
 			///
 			bool m_move_left;
 
 			///
-			/// Camera move right flag.
+			/// OrthoCamera move right flag.
 			///
 			bool m_move_right;
 
 			///
-			/// Speed of camera.
+			/// Speed of OrthoCamera.
 			///
 			float m_speed;
 
 			///
-			/// Width of camera bounds.
+			/// Width of OrthoCamera bounds.
 			///
 			float m_width;
 
 			///
-			/// Height of camera bounds.
+			/// Height of OrthoCamera bounds.
 			///
 			float m_height;
 
 			///
-			/// Camera projection matrix.
+			/// OrthoCamera projection matrix.
 			///
 			glm::mat4 m_projection;
 		};

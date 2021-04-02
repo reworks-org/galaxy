@@ -31,7 +31,7 @@
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "galaxy/graphics/animation/Animation.hpp"
-#include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/camera/OrthoCamera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/graphics/Rect.hpp"
@@ -473,25 +473,25 @@ namespace galaxy
 			lua->set_function("gShader_set_vec3", &set_vec3_uniform);
 			lua->set_function("gShader_set_vec4", &set_vec4_uniform);
 
-			auto camera_type             = lua->new_usertype<graphics::Camera>("gCamera", sol::constructors<graphics::Camera(), graphics::Camera(const float, const float, const float, const float, const float)>());
-			camera_type["create"]        = &graphics::Camera::create;
-			camera_type["get_height"]    = &graphics::Camera::get_height;
-			camera_type["get_pos"]       = &graphics::Camera::get_pos;
-			camera_type["get_scale"]     = &graphics::Camera::get_scale;
-			camera_type["get_speed"]     = &graphics::Camera::get_speed;
-			camera_type["get_width"]     = &graphics::Camera::get_width;
-			camera_type["is_dirty"]      = &graphics::Camera::is_dirty;
-			camera_type["move"]          = &graphics::Camera::move;
-			camera_type["zoom"]          = &graphics::Camera::zoom;
-			camera_type["set_pos"]       = &graphics::Camera::set_pos;
-			camera_type["set_speed"]     = &graphics::Camera::set_speed;
-			camera_type["update"]        = &graphics::Camera::update;
-			camera_type["get_proj"]      = &graphics::Camera::get_proj;
-			camera_type["get_transform"] = &graphics::Camera::get_view;
-			camera_type["move_x"]        = &graphics::Camera::move_x;
-			camera_type["move_y"]        = &graphics::Camera::move_y;
-			camera_type["set_width"]     = &graphics::Camera::set_width;
-			camera_type["set_height"]    = &graphics::Camera::set_height;
+			auto camera_type             = lua->new_usertype<graphics::OrthoCamera>("gOrthoCamera", sol::constructors<graphics::OrthoCamera(), graphics::OrthoCamera(const float, const float, const float, const float, const float)>());
+			camera_type["create"]        = &graphics::OrthoCamera::create;
+			camera_type["get_height"]    = &graphics::OrthoCamera::get_height;
+			camera_type["get_pos"]       = &graphics::OrthoCamera::get_pos;
+			camera_type["get_scale"]     = &graphics::OrthoCamera::get_scale;
+			camera_type["get_speed"]     = &graphics::OrthoCamera::get_speed;
+			camera_type["get_width"]     = &graphics::OrthoCamera::get_width;
+			camera_type["is_dirty"]      = &graphics::OrthoCamera::is_dirty;
+			camera_type["move"]          = &graphics::OrthoCamera::move;
+			camera_type["zoom"]          = &graphics::OrthoCamera::zoom;
+			camera_type["set_pos"]       = &graphics::OrthoCamera::set_pos;
+			camera_type["set_speed"]     = &graphics::OrthoCamera::set_speed;
+			camera_type["update"]        = &graphics::OrthoCamera::update;
+			camera_type["get_proj"]      = &graphics::OrthoCamera::get_proj;
+			camera_type["get_transform"] = &graphics::OrthoCamera::get_view;
+			camera_type["move_x"]        = &graphics::OrthoCamera::move_x;
+			camera_type["move_y"]        = &graphics::OrthoCamera::move_y;
+			camera_type["set_width"]     = &graphics::OrthoCamera::set_width;
+			camera_type["set_height"]    = &graphics::OrthoCamera::set_height;
 
 			auto frame_type              = lua->new_usertype<graphics::Frame>("gFrame", sol::constructors<graphics::Frame(), graphics::Frame(const graphics::fRect&, const double)>());
 			frame_type["set_region"]     = &graphics::Frame::set_region;
