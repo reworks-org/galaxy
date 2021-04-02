@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_ORTHOCAMERA_HPP_
-#define GALAXY_GRAPHICS_ORTHOCAMERA_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA_ORTHOCAMERA_HPP_
+#define GALAXY_GRAPHICS_CAMERA_ORTHOCAMERA_HPP_
 
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -107,7 +107,7 @@ namespace galaxy
 			/// By adding the parameters to the existing transformation matrix.
 			///
 			/// \param x How far to translate on x axis.
-			/// \param y How far to translate on x axis.
+			/// \param y How far to translate on y axis.
 			///
 			void move(const float x, const float y) noexcept;
 
@@ -145,6 +145,20 @@ namespace galaxy
 			/// \param y Y position to set object to.
 			///
 			void set_pos(const float x, const float y) noexcept;
+
+			///
+			/// Set x pos.
+			///
+			/// \param x X position to set object to.
+			///
+			void set_pos_x(const float x) noexcept;
+
+			///
+			/// Set y pos.
+			///
+			/// \param y Y position to set object to.
+			///
+			void set_pos_y(const float y) noexcept;
 
 			///
 			/// Set the speed of the OrthoCamera.

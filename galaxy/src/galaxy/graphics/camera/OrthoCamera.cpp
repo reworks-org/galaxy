@@ -1,3 +1,5 @@
+#include "OrthoCamera.hpp"
+#include "OrthoCamera.hpp"
 ///
 /// OrthoCamera.cpp
 /// galaxy
@@ -186,6 +188,24 @@ namespace galaxy
 			m_translation = glm::translate(m_identity_matrix, {x, y, 0.0f});
 
 			m_pos.x = x;
+			m_pos.y = y;
+
+			m_dirty = true;
+		}
+
+		void OrthoCamera::set_pos_x(const float x) noexcept
+		{
+			m_translation = glm::translate(m_identity_matrix, {x, m_pos.y, 0.0f});
+
+			m_pos.x = x;
+
+			m_dirty = true;
+		}
+
+		void OrthoCamera::set_pos_y(const float y) noexcept
+		{
+			m_translation = glm::translate(m_identity_matrix, {m_pos.x, y, 0.0f});
+
 			m_pos.y = y;
 
 			m_dirty = true;
