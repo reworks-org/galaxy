@@ -8,6 +8,7 @@
 #ifndef GALAXY_SCENES_SCENE3D_HPP_
 #define GALAXY_SCENES_SCENE3D_HPP_
 
+#include "galaxy/graphics/camera/Camera3D.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy
@@ -83,6 +84,9 @@ namespace galaxy
 			/// Deleted default constructor.
 			///
 			Scene3D() = delete;
+
+		private:
+			graphics::Camera3D m_camera;
 		};
 	} // namespace scene
 } // namespace galaxy

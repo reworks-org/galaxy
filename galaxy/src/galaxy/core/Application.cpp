@@ -100,6 +100,7 @@ namespace galaxy
 				m_config->define<bool>("log-perf", false);
 				m_config->define<int>("max-batched-quads", 2048);
 				m_config->define<float>("audio-volume", 0.7f);
+				m_config->define<float>("mouse-sensitivity", 1.0f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");

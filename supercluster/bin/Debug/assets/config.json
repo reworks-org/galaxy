@@ -23,5 +23,6 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Supercluster Editor",
-    "window-width": 1280
+    "window-width": 1280,
+    "mouse-sensitivity": 0.1
 }

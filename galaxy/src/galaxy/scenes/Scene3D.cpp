@@ -17,6 +17,9 @@ namespace galaxy
 		Scene3D::Scene3D(std::string_view name) noexcept
 		    : Scene {name}
 		{
+			m_dispatcher.subscribe<events::KeyDown>(m_camera);
+			m_dispatcher.subscribe<events::MouseMoved>(m_camera);
+			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -39,6 +42,7 @@ namespace galaxy
 
 		void Scene3D::update(const double dt)
 		{
+			m_camera.update(dt);
 			m_world.update(dt);
 			m_gui.update(dt);
 		}
