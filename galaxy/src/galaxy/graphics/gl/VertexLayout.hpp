@@ -44,7 +44,7 @@ namespace galaxy
 			///
 			/// \param size Number of components for each vertex attribute.
 			///
-			template<meta::is_vertex VertexType, meta::is_vertex_attribute VertexAttribute>
+			template<meta::is_vertex VertexType, VertexAttributes va>
 			void add(const unsigned int size) noexcept;
 
 			///
@@ -61,7 +61,7 @@ namespace galaxy
 			std::vector<VertexAttribute> m_attributes;
 		};
 
-		template<meta::is_vertex VertexType, meta::is_vertex_attribute VertexAttribute>
+		template<meta::is_vertex VertexType, VertexAttributes va>
 		inline void VertexLayout::add(const unsigned int size) noexcept
 		{
 			// Now to use constexpr to check on compile time the buffer type.
@@ -70,54 +70,70 @@ namespace galaxy
 			constexpr bool is_prim_vertex   = std::is_same<VertexType, PrimitiveVertex>::value;
 			constexpr bool is_batch_vertex  = std::is_same<VertexType, BatchVertex>::value;
 			constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
+			constexpr bool is_vertex_3d     = std::is_same<VertexType, Vertex3D>::value;
 
 			if constexpr (is_prim_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
+				if constexpr (va == VertexAttributes::POSITION)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, meta::VAColour>::value)
+				else if constexpr (va == VertexAttributes::COLOUR)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_colour)));
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for primitive vertex.");
+					static_assert(false, "Invalid vertex attribute specificed. Primitive Vertex requires position or colour.");
 				}
 			}
 			else if constexpr (is_batch_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
+				if constexpr (va == VertexAttributes::POSITION)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
+				else if constexpr (va == VertexAttributes::TEXEL)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchVertex, m_texels)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, meta::VAOpacity>::value)
+				else if constexpr (va == VertexAttributes::OPACITY)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchVertex, m_opacity)));
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for batched vertex.");
+					static_assert(false, "Invalid vertex attribute specificed. Batch Vertex requires position, texel, or opacity.");
 				}
 			}
 			else if constexpr (is_sprite_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
+				if constexpr (va == VertexAttributes::POSITION)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
+				else if constexpr (va == VertexAttributes::TEXEL)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_texels)));
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for sprite vertex.");
+					static_assert(false, "Invalid vertex attribute specificed. Sprite Vertex requires position, or texel.");
+				}
+			}
+			else if constexpr (is_vertex_3d)
+			{
+				if constexpr (va == VertexAttributes::POSITION)
+				{
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_pos)));
+				}
+				else if constexpr (va == VertexAttributes::TEXEL)
+				{
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_texels)));
+				}
+				else
+				{
+					static_assert(false, "Invalid vertex attribute specificed. Vertex3D requires position or texel.");
 				}
 			}
 		}

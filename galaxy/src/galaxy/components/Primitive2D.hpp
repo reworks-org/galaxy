@@ -254,8 +254,8 @@ namespace galaxy
 				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
-				m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
@@ -290,8 +290,8 @@ namespace galaxy
 				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
-				m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
@@ -309,8 +309,8 @@ namespace galaxy
 				indices.push_back(1);
 				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
-				m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
@@ -326,8 +326,8 @@ namespace galaxy
 				indices.push_back(0);
 				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
-				m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
@@ -364,8 +364,8 @@ namespace galaxy
 				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
 				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
-				m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
+				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 			}

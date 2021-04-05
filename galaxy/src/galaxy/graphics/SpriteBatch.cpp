@@ -43,9 +43,9 @@ namespace galaxy
 			m_vb.create<BatchVertex>(m_vertexs);
 			m_ib.create(is);
 
-			m_layout.add<BatchVertex, meta::VAPosition>(2);
-			m_layout.add<BatchVertex, meta::VATexel>(2);
-			m_layout.add<BatchVertex, meta::VAOpacity>(1);
+			m_layout.add<BatchVertex, graphics::VertexAttributes::POSITION>(2);
+			m_layout.add<BatchVertex, graphics::VertexAttributes::TEXEL>(2);
+			m_layout.add<BatchVertex, graphics::VertexAttributes::OPACITY>(1);
 
 			m_va.create<BatchVertex>(m_vb, m_ib, m_layout);
 		}

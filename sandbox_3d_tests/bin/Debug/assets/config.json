@@ -12,6 +12,7 @@
     "log-perf": false,
     "max-batched-quads": 2048,
     "maximized": false,
+    "mouse-sensitivity": 0.1,
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,
     "scriptbook-json": "scriptbook.json",
@@ -23,6 +24,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Title",
-    "window-width": 1280,
-    "mouse-sensitivity": 0.1
+    "window-width": 1280
 }

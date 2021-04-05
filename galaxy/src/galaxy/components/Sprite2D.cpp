@@ -63,8 +63,8 @@ namespace galaxy
 			m_vb.create<graphics::SpriteVertex>(m_vertexs);
 			m_ib.create(ib_arr);
 
-			m_layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
-			m_layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
 
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
@@ -82,8 +82,8 @@ namespace galaxy
 			m_vb.create<graphics::SpriteVertex>(m_vertexs);
 			m_ib.create(ib_arr);
 
-			m_layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
-			m_layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
 
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
@@ -101,8 +101,8 @@ namespace galaxy
 			m_vb.create<graphics::SpriteVertex>(m_vertexs);
 			m_ib.create(ib_arr);
 
-			m_layout.add<graphics::SpriteVertex, meta::VAPosition>(2);
-			m_layout.add<graphics::SpriteVertex, meta::VATexel>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
+			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
 
 			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}

@@ -63,7 +63,7 @@ namespace galaxy
 			///
 			/// \return Vertex storage.
 			///
-			template<typename VertexType>
+			template<meta::is_vertex VertexType>
 			[[nodiscard]] std::vector<VertexType> get();
 
 			///
@@ -114,7 +114,7 @@ namespace galaxy
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}
 
-		template<typename VertexType>
+		template<meta::is_vertex VertexType>
 		inline std::vector<VertexType> VertexBuffer::get()
 		{
 			std::vector<VertexType> vs;

@@ -15,6 +15,37 @@ namespace galaxy
 	namespace graphics
 	{
 		///
+		/// Enum of different vertex attribute types.
+		///
+		enum class VertexAttributes : short
+		{
+			///
+			/// Specifies "position" vertex attribute type at compile time.
+			///
+			POSITION,
+
+			///
+			/// Specifies "colour" vertex attribute type at compile time.
+			///
+			COLOUR,
+
+			///
+			/// Specifies "texel" vertex attribute type at compile time.
+			///
+			TEXEL,
+
+			///
+			/// Specifies "instance offset" vertex attribute type at compile time.
+			///
+			INSTANCE_OFFSET,
+
+			///
+			/// Specifies "opacity" vertex attribute type at compile time.
+			///
+			OPACITY
+		};
+
+		///
 		/// Specifys the attributes of a vertex array for its verticies.
 		///
 		class VertexAttribute final
