@@ -417,7 +417,8 @@ namespace galaxy
 				{"LINE_LOOP", graphics::Renderables::LINE_LOOP},
 				{"BATCHED", graphics::Renderables::BATCHED},
 				{"TEXT", graphics::Renderables::TEXT},
-				{"SPRITE", graphics::Renderables::SPRITE}
+				{"SPRITE", graphics::Renderables::SPRITE},
+				{"MESH", graphics::Renderables::MESH}
 			});
 
 			lua->new_enum<graphics::Primitives>("gPrimitives",
