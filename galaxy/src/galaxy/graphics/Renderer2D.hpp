@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_RENDERER2D_HPP_
 #define GALAXY_GRAPHICS_RENDERER2D_HPP_
 
-#include "galaxy/graphics/camera/Camera2D.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 #define RENDERER_2D galaxy::graphics::Renderer2D::inst

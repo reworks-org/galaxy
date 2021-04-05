@@ -17,7 +17,7 @@
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Renderables.hpp"
+#include "galaxy/graphics/gl/Renderables.hpp"
 #include "galaxy/meta/UniqueID.hpp"
 
 namespace galaxy

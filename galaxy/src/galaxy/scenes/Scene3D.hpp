@@ -8,7 +8,7 @@
 #ifndef GALAXY_SCENES_SCENE3D_HPP_
 #define GALAXY_SCENES_SCENE3D_HPP_
 
-#include "galaxy/graphics/camera/Camera3D.hpp"
+#include "galaxy/graphics/Camera3D.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy

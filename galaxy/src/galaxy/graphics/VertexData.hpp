@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_VERTEXDATA_HPP_
 #define GALAXY_GRAPHICS_VERTEX_VERTEXDATA_HPP_
 
-#include "galaxy/graphics/vertex/VertexArray.hpp"
+#include "galaxy/graphics/gl/VertexArray.hpp"
 
 namespace galaxy
 {

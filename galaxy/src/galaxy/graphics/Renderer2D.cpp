@@ -9,8 +9,8 @@
 #include "galaxy/components/Sprite2D.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Renderer2D.hpp"

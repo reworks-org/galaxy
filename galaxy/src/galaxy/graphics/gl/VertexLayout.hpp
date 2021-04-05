@@ -13,7 +13,7 @@
 #include <glad/glad.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/graphics/vertex/VertexAttribute.hpp"
+#include "galaxy/graphics/gl/VertexAttribute.hpp"
 #include "galaxy/meta/GLMeta.hpp"
 
 namespace galaxy

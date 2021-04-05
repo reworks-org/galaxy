@@ -10,7 +10,7 @@
 
 #include <robin_hood.h>
 
-#include "galaxy/graphics/animation/Animation.hpp"
+#include "galaxy/graphics/Animation.hpp"
 
 namespace galaxy
 {

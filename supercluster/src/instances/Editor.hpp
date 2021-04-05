@@ -9,7 +9,7 @@
 #define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 
 #include <galaxy/core/Instance.hpp>
-#include <galaxy/graphics/texture/Texture.hpp>
+#include <galaxy/graphics/Texture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"

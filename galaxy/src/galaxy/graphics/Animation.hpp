@@ -14,7 +14,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/graphics/animation/Frame.hpp"
+#include "galaxy/graphics/Frame.hpp"
 
 namespace galaxy
 {

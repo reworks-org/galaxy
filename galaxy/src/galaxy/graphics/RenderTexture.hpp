@@ -10,7 +10,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "galaxy/graphics/texture/BaseTexture.hpp"
+#include "galaxy/graphics/gl/BaseTexture.hpp"
 
 namespace galaxy
 {

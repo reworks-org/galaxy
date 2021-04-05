@@ -10,9 +10,9 @@
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/camera/Camera2D.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 namespace galaxy

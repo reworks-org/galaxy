@@ -12,7 +12,7 @@
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
-#include "galaxy/graphics/vertex/VertexData.hpp"
+#include "galaxy/graphics/VertexData.hpp"
 
 namespace galaxy
 {

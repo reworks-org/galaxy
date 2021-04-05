@@ -20,7 +20,7 @@
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
 

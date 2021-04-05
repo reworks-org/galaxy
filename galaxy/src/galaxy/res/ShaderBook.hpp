@@ -8,7 +8,7 @@
 #ifndef GALAXY_RES_SHADERBOOK_HPP_
 #define GALAXY_RES_SHADERBOOK_HPP_
 
-#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
 namespace galaxy
