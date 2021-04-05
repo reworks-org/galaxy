@@ -42,3 +42,9 @@
 [submodule "dependencies/simplefilewatcher"]
 	path = dependencies/simplefilewatcher
 	url = https://github.com/shadowndacorner/SimpleFileWatcher.git
+[submodule "dependencies/tinyobjloader"]
+	path = dependencies/tinyobjloader
+	url = https://github.com/tinyobjloader/tinyobjloader.git
+[submodule "dependencies/meshoptimizer"]
+	path = dependencies/meshoptimizer
+	url = https://github.com/zeux/meshoptimizer.git

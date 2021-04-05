@@ -137,6 +137,13 @@ else()
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 	)
 
+	# Set external projects to not show compiler warnings.
+	target_compile_options(sfw_lib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+
 	# Import projects.
 	add_subdirectory(galaxy)
 	add_subdirectory(supercluster)
@@ -168,12 +175,15 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/meshoptimizer/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/simplefilewatcher/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/tinygltf"
+		"${CMAKE_SOURCE_DIR}/dependencies/tinyobjloader"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlc/lib"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
@@ -192,13 +202,6 @@ else()
 	include(cmake/CompileDefs.cmake)
 	include(cmake/LinkDefs.cmake)
 	include(cmake/PreprocessorDefs.cmake)
-
-	# Set project to not show system/deps compiler errors.
-	target_compile_options(sfw_lib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 
 	# System specific libraries.
 	set(SYSTEM_LIBS
