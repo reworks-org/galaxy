@@ -137,12 +137,31 @@ else()
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 	)
 
+	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+	set(ASSIMP_NO_EXPORT ON CACHE BOOL "" FORCE)
+	set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
+	set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+	set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+	set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
+	set(ASSIMP_IGNORE_GIT_HASH ON CACHE BOOL "" FORCE)
+	add_subdirectory(dependencies/assimp)
+	set_target_properties(assimp PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
+	    PREFIX ""
+	    OUTPUT_NAME "assimp"
+	    SUFFIX ".${LIB_FILE_EXT}"
+	)
+
 	# Set external projects to not show compiler warnings.
 	target_compile_options(sfw_lib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(assimp PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 
 	# Import projects.
 	add_subdirectory(galaxy)
@@ -160,6 +179,7 @@ else()
 	# Set header directories.
 	set(HEADERS
 		"${GALAXY_FREETYPE_HEADERS}"
+		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/base64"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
@@ -182,8 +202,6 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/simplefilewatcher/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/tinygltf"
-		"${CMAKE_SOURCE_DIR}/dependencies/tinyobjloader"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlc/lib"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
@@ -244,6 +262,7 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -265,6 +284,7 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -312,6 +332,7 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -321,6 +342,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -330,6 +352,7 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -351,6 +374,7 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -360,6 +384,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -369,6 +394,7 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -378,6 +404,6 @@ else()
 
 		target_compile_options(sandbox_3d_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
+		target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	endif()
 endif()
