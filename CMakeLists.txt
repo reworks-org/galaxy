@@ -180,6 +180,7 @@ else()
 	set(HEADERS
 		"${GALAXY_FREETYPE_HEADERS}"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/assimp-conf"
 		"${CMAKE_SOURCE_DIR}/dependencies/base64"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
