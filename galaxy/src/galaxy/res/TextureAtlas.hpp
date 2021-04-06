@@ -11,8 +11,8 @@
 #include <robin_hood.h>
 
 #include "galaxy/algorithm/RectPack.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/graphics/gl/TextureInfo.hpp"
+#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/texture/Info.hpp"
 
 namespace galaxy
 {

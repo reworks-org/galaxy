@@ -10,7 +10,7 @@
 
 #include <string_view>
 
-#include "galaxy/graphics/gl/Filters.hpp"
+#include "galaxy/graphics/texture/Filters.hpp"
 
 namespace galaxy
 {

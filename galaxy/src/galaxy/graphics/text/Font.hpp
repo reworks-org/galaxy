@@ -11,7 +11,7 @@
 #include <robin_hood.h>
 
 #include "galaxy/graphics/text/Character.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/texture/RenderTexture.hpp"
 
 namespace galaxy
 {

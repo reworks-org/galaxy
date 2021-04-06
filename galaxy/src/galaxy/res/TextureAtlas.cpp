@@ -16,8 +16,8 @@
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
-#include "galaxy/graphics/gl/Shader.hpp"
-#include "galaxy/graphics/Texture.hpp"
+#include "galaxy/graphics/shader/Shader.hpp"
+#include "galaxy/graphics/texture/Texture.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 

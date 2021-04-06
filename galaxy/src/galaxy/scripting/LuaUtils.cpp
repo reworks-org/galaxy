@@ -30,12 +30,12 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "galaxy/graphics/Animation.hpp"
+#include "galaxy/graphics/animation/Animation.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/graphics/Rect.hpp"
-#include "galaxy/graphics/gl/Shader.hpp"
+#include "galaxy/graphics/shader/Shader.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 

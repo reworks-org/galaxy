@@ -8,7 +8,9 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_VERTEXBUFFER_HPP_
 #define GALAXY_GRAPHICS_VERTEX_VERTEXBUFFER_HPP_
 
-#include "galaxy/graphics/gl/VertexLayout.hpp"
+#include <vector>
+
+#include "galaxy/graphics/vertex/Layout.hpp"
 
 namespace galaxy
 {

@@ -1,19 +1,19 @@
 ///
-/// VertexLayout.hpp
+/// Layout.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_VERTEXLAYOUT_HPP_
-#define GALAXY_GRAPHICS_VERTEX_VERTEXLAYOUT_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEX_LAYOUT_HPP_
+#define GALAXY_GRAPHICS_VERTEX_LAYOUT_HPP_
 
 #include <vector>
 
 #include <glad/glad.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/graphics/gl/VertexAttribute.hpp"
+#include "galaxy/graphics/vertex/Attribute.hpp"
 #include "galaxy/meta/GLMeta.hpp"
 
 namespace galaxy
@@ -126,6 +126,10 @@ namespace galaxy
 				if constexpr (va == VertexAttributes::POSITION)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_pos)));
+				}
+				else if constexpr (va == VertexAttributes::NORMAL)
+				{
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_normal)));
 				}
 				else if constexpr (va == VertexAttributes::TEXEL)
 				{

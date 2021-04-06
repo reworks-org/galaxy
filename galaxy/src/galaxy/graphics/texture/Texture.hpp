@@ -10,7 +10,7 @@
 
 #include <span>
 
-#include "galaxy/graphics/gl/BaseTexture.hpp"
+#include "galaxy/graphics/texture/BaseTexture.hpp"
 
 namespace galaxy
 {

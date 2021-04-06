@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA_CAMERA2D_HPP_
-#define GALAXY_GRAPHICS_CAMERA_CAMERA2D_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA2D_HPP_
+#define GALAXY_GRAPHICS_CAMERA2D_HPP_
 
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/KeyUp.hpp"

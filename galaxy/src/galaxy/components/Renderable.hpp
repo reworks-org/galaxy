@@ -11,7 +11,7 @@
 #include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/gl/Renderables.hpp"
+#include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy
 {

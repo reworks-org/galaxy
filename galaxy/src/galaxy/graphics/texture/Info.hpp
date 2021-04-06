@@ -1,12 +1,12 @@
 ///
-/// TextureInfo.hpp
+/// Info.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_TEXTUREINFO_HPP_
-#define GALAXY_GRAPHICS_TEXTUREINFO_HPP_
+#ifndef GALAXY_GRAPHICS_TEXTURE_INFO_HPP_
+#define GALAXY_GRAPHICS_TEXTURE_INFO_HPP_
 
 #include <string>
 

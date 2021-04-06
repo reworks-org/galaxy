@@ -1,11 +1,11 @@
 ///
-/// VertexAttribute.cpp
+/// Attribute.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "VertexAttribute.hpp"
+#include "Attribute.hpp"
 
 namespace galaxy
 {

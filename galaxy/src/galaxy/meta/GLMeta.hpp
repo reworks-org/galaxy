@@ -10,11 +10,11 @@
 
 #include <type_traits>
 
-#include "galaxy/graphics/gl/InstanceBuffer.hpp"
-#include "galaxy/graphics/gl/vertex/BatchVertex.hpp"
-#include "galaxy/graphics/gl/vertex/PrimitiveVertex.hpp"
-#include "galaxy/graphics/gl/vertex/SpriteVertex.hpp"
-#include "galaxy/graphics/gl/vertex/Vertex3D.hpp"
+#include "galaxy/graphics/vertex/InstanceBuffer.hpp"
+#include "galaxy/graphics/vertex/BatchVertex.hpp"
+#include "galaxy/graphics/vertex/PrimitiveVertex.hpp"
+#include "galaxy/graphics/vertex/SpriteVertex.hpp"
+#include "galaxy/graphics/vertex/Vertex3D.hpp"
 
 namespace galaxy
 {

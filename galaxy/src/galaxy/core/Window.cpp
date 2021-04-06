@@ -20,7 +20,7 @@
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/gl/Shader.hpp"
+#include "galaxy/graphics/shader/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 

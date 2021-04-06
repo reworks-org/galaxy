@@ -11,7 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/ecs/Entity.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/map/layer/TileLayer.hpp"
 #include "galaxy/map/layer/ObjectLayer.hpp"
 #include "galaxy/map/layer/ImageLayer.hpp"

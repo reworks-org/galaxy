@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA_CAMERA3D_HPP_
-#define GALAXY_GRAPHICS_CAMERA_CAMERA3D_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA3D_HPP_
+#define GALAXY_GRAPHICS_CAMERA3D_HPP_
 
 #include <glm/vec3.hpp>
 #include <glm/matrix.hpp>

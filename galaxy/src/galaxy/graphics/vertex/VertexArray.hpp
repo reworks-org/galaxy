@@ -8,9 +8,9 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_VERTEXARRAY_HPP_
 #define GALAXY_GRAPHICS_VERTEX_VERTEXARRAY_HPP_
 
-#include "galaxy/graphics/gl/IndexBuffer.hpp"
-#include "galaxy/graphics/gl/VertexBuffer.hpp"
-#include "galaxy/graphics/gl/VertexLayout.hpp"
+#include "galaxy/graphics/vertex/Layout.hpp"
+#include "galaxy/graphics/vertex/IndexBuffer.hpp"
+#include "galaxy/graphics/vertex/VertexBuffer.hpp"
 
 namespace galaxy
 {

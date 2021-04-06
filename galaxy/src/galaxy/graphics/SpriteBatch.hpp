@@ -10,7 +10,7 @@
 
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Transform2D.hpp"
-#include "galaxy/graphics/gl/BaseTexture.hpp"
+#include "galaxy/graphics/texture/BaseTexture.hpp"
 
 namespace galaxy
 {

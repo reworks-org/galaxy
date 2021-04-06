@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHADERS_GLYPH_HPP_
-#define GALAXY_GRAPHICS_SHADERS_GLYPH_HPP_
+#ifndef GALAXY_GRAPHICS_SHADER_GLYPH_HPP_
+#define GALAXY_GRAPHICS_SHADER_GLYPH_HPP_
 
 #include <string>
 

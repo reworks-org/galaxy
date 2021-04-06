@@ -1,12 +1,12 @@
 ///
-/// BatchVertex.hpp
+/// SpriteVertex.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_TYPE_BATCHVERTEX_HPP_
-#define GALAXY_GRAPHICS_VERTEX_TYPE_BATCHVERTEX_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEX_SPRITEVERTEX_HPP_
+#define GALAXY_GRAPHICS_VERTEX_SPRITEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
 
@@ -17,15 +17,15 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Represents a single BatchVertex of a primitive.
+		/// Represents a single SpriteVertex of a primitive.
 		///
-		class BatchVertex final
+		class SpriteVertex final
 		{
 		public:
 			///
 			/// Default constructor.
 			///
-			BatchVertex() noexcept;
+			SpriteVertex() noexcept;
 
 			///
 			/// Argument constructor.
@@ -34,39 +34,32 @@ namespace galaxy
 			/// \param y Y pos.
 			/// \param u Texel x pos.
 			/// \param v Texel y pos.
-			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
-			BatchVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+			SpriteVertex(const float x, const float y, const float u, const float v) noexcept;
 
 			///
 			/// Argument constructor.
 			///
 			/// \param pos Vec2 position.
 			/// \param texels Vec2 texture coords.
-			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
-			BatchVertex(const glm::vec2& pos, const glm::vec2& texels, const float opacity) noexcept;
+			SpriteVertex(const glm::vec2& pos, const glm::vec2& texels) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~BatchVertex() noexcept = default;
+			~SpriteVertex() noexcept = default;
 
 		public:
 			///
-			/// Position of BatchVertex.
+			/// Position of SpriteVertex.
 			///
 			glm::vec2 m_pos;
 
 			///
-			/// BatchVertex texels.
+			/// SpriteVertex texels.
 			///
 			glm::vec2 m_texels;
-
-			///
-			/// Opacity.
-			///
-			float m_opacity;
 		};
 	} // namespace graphics
 } // namespace galaxy

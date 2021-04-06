@@ -16,7 +16,7 @@
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/graphics/VertexData.hpp"
+#include "galaxy/graphics/vertex/VertexData.hpp"
 
 namespace galaxy
 {

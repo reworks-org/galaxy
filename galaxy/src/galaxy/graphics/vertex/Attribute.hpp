@@ -1,12 +1,12 @@
 ///
-/// VertexAttribute.hpp
+/// Attribute.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_VERTEXATTRIBUTE_HPP_
-#define GALAXY_GRAPHICS_VERTEX_VERTEXATTRIBUTE_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEX_ATTRIBUTE_HPP_
+#define GALAXY_GRAPHICS_VERTEX_ATTRIBUTE_HPP_
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -42,7 +42,12 @@ namespace galaxy
 			///
 			/// Specifies "opacity" vertex attribute type at compile time.
 			///
-			OPACITY
+			OPACITY,
+
+			///
+			/// Specifies the "normal vector" vertex attribute type at compile time.
+			///
+			NORMAL
 		};
 
 		///
