@@ -9,14 +9,15 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
-#include "galaxy/graphics/shaders/DefaultFramebuffer.hpp"
-#include "galaxy/graphics/shaders/Glyph.hpp"
-#include "galaxy/graphics/shaders/Line.hpp"
-#include "galaxy/graphics/shaders/Point.hpp"
-#include "galaxy/graphics/shaders/RenderToTexture.hpp"
-#include "galaxy/graphics/shaders/Sprite.hpp"
-#include "galaxy/graphics/shaders/SpriteBatch.hpp"
-#include "galaxy/graphics/shaders/Text.hpp"
+#include "galaxy/graphics/shader/DefaultFramebuffer.hpp"
+#include "galaxy/graphics/shader/Glyph.hpp"
+#include "galaxy/graphics/shader/Line.hpp"
+#include "galaxy/graphics/shader/Model.hpp"
+#include "galaxy/graphics/shader/Point.hpp"
+#include "galaxy/graphics/shader/RenderToTexture.hpp"
+#include "galaxy/graphics/shader/Sprite.hpp"
+#include "galaxy/graphics/shader/SpriteBatch.hpp"
+#include "galaxy/graphics/shader/Text.hpp"
 
 #include "ShaderBook.hpp"
 
@@ -97,6 +98,9 @@ namespace galaxy
 
 			auto* line = create("line");
 			line->load_raw(shaders::line_vert, shaders::line_frag);
+
+			auto* model = create("model");
+			model->load_raw(shaders::model_vert, shaders::model_frag);
 
 			auto* point = create("point");
 			point->load_raw(shaders::point_vert, shaders::point_frag);

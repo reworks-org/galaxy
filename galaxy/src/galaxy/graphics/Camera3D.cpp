@@ -5,10 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
 
 #include "Camera3D.hpp"
@@ -18,157 +20,265 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera3D::Camera3D()
-		    : Serializable {this}, m_dirty_vectors {true}, m_dirty_view {true}, m_pos {0.0f, 0.0f, 0.0f}, m_front {0.0f, 0.0f, -1.0f}, m_up {0.0f, 1.0f, 0.0f}, m_right_axis {0.0f, 0.0f, 0.0f}, m_world_up {0.0f, 0.0f, 0.0f}, m_yaw {-90.0f}, m_pitch {0.0f}, m_speed {2.5f}, m_zoom {45.0f}, m_view {1.0f}, m_forward {input::Keys::W}, m_back {input::Keys::S}, m_left {input::Keys::A}, m_right {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}
+		    : Serializable {this}
 		{
-			m_sensitivity = SL_HANDLE.config()->get<float>("mouse-sensitivity");
-			recalculate();
+			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
+			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+
+			m_pos       = {0.0f, 0.0f, 0.0f};
+			m_delta     = {0.0f, 0.0f, 0.0f};
+			m_focal     = {0.0f, 0.0f, 0.0f};
+			m_dir       = {0.0f, 0.0f, 0.0f};
+			m_up        = {0.0f, 1.0f, 0.0f};
+			m_mouse_pos = {0.0f, 0.0f, 0.0f};
+
+			m_view = glm::mat4 {1.0f};
+			m_proj = glm::mat4 {1.0f};
 		}
 
 		Camera3D::Camera3D(const nlohmann::json& json)
-		    : Serializable {this}, m_dirty_vectors {true}, m_dirty_view {true}, m_view {1.0f}, m_forward {input::Keys::W}, m_back {input::Keys::S}, m_left {input::Keys::A}, m_right {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}
+		    : Serializable {this}
 		{
-			m_sensitivity = SL_HANDLE.config()->get<float>("mouse-sensitivity");
+			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
+			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+
+			m_pos       = {0.0f, 0.0f, 0.0f};
+			m_delta     = {0.0f, 0.0f, 0.0f};
+			m_focal     = {0.0f, 0.0f, 0.0f};
+			m_dir       = {0.0f, 0.0f, 0.0f};
+			m_up        = {0.0f, 1.0f, 0.0f};
+			m_mouse_pos = {0.0f, 0.0f, 0.0f};
+
+			m_view = glm::mat4 {1.0f};
+			m_proj = glm::mat4 {1.0f};
+
 			deserialize(json);
 		}
 
-		Camera3D::~Camera3D() noexcept
+		void Camera3D::set_mode(const Mode mode) noexcept
 		{
+			m_mode = mode;
+		}
+
+		void Camera3D::set_position(const glm::vec3& pos) noexcept
+		{
+			m_pos.x = pos.x;
+			m_pos.y = pos.y;
+			m_pos.z = pos.z;
+		}
+
+		void Camera3D::set_focal(const glm::vec3& look_at) noexcept
+		{
+			m_focal.x = look_at.x;
+			m_focal.y = look_at.y;
+			m_focal.z = look_at.z;
+		}
+
+		void Camera3D::set_fov(const float fov) noexcept
+		{
+			m_fov = fov;
+		}
+
+		void Camera3D::set_near(const float near_clip) noexcept
+		{
+			m_near = near_clip;
+		}
+
+		void Camera3D::set_far(const float far_clip) noexcept
+		{
+			m_far = far_clip;
+		}
+
+		void Camera3D::set_speed(const float speed) noexcept
+		{
+			m_speed = speed;
+		}
+
+		void Camera3D::pitch(float degrees) noexcept
+		{
+			if (degrees < -m_max_pitch_rate)
+			{
+				degrees = -m_max_pitch_rate;
+			}
+			else if (degrees > m_max_pitch_rate)
+			{
+				degrees = m_max_pitch_rate;
+			}
+
+			m_pitch += degrees;
+
+			if (m_pitch > 360.0f)
+			{
+				m_pitch -= 360.0f;
+			}
+			else if (m_pitch < -360.0f)
+			{
+				m_pitch += 360.0f;
+			}
+		}
+
+		void Camera3D::heading(float degrees) noexcept
+		{
+			if (degrees < -m_max_heading_rate)
+			{
+				degrees = -m_max_heading_rate;
+			}
+			else if (degrees > m_max_heading_rate)
+			{
+				degrees = m_max_heading_rate;
+			}
+
+			if (m_pitch > 90 && m_pitch < 270 || (m_pitch < -90 && m_pitch > -270))
+			{
+				m_heading -= degrees;
+			}
+			else
+			{
+				m_heading += degrees;
+			}
+
+			if (m_heading > 360.0f)
+			{
+				m_heading -= 360.0f;
+			}
+			else if (m_heading < -360.0f)
+			{
+				m_heading += 360.0f;
+			}
 		}
 
 		void Camera3D::on_event(const events::KeyDown& e) noexcept
 		{
-			if (e.m_keycode == m_forward)
+			if (e.m_keycode == m_forward_key)
 			{
-				m_moving_fwd = true;
+				m_delta += (m_dir * m_speed);
 			}
 
-			if (e.m_keycode == m_back)
+			if (e.m_keycode == m_back_key)
 			{
-				m_moving_back = true;
+				m_delta -= (m_dir * m_speed);
 			}
 
-			if (e.m_keycode == m_left)
+			if (e.m_keycode == m_left_key)
 			{
-				m_moving_left = true;
+				m_delta -= (glm::cross(m_dir, m_up) * m_speed);
 			}
 
-			if (e.m_keycode == m_right)
+			if (e.m_keycode == m_right_key)
 			{
-				m_moving_right = true;
+				m_delta += (glm::cross(m_dir, m_up) * m_speed);
+			}
+
+			if (m_mode == Mode::FREE)
+			{
+				if (e.m_keycode == m_up_key)
+				{
+					m_delta += (m_up * m_speed);
+				}
+
+				if (e.m_keycode == m_down_key)
+				{
+					m_delta -= (m_up * m_speed);
+				}
 			}
 		}
 
 		void Camera3D::on_event(const events::MouseMoved& e) noexcept
 		{
-			m_yaw += (e.m_x * m_sensitivity);
-			m_pitch += (e.m_y * m_sensitivity);
+			const glm::vec3 new_pos = {e.m_x, e.m_y, 0.0f};
+			const glm::vec3 delta   = m_mouse_pos - new_pos;
 
-			if (m_pitch > 89.0f)
-			{
-				m_pitch = 89.0f;
-			}
-			else if (m_pitch < -89.0f)
-			{
-				m_pitch = -89.0f;
-			}
+			heading((delta.x * m_sensitivity) * m_speed);
+			pitch((delta.y * m_sensitivity) * m_speed);
 
-			m_dirty_vectors = true;
+			m_mouse_pos = new_pos;
 		}
 
 		void Camera3D::on_event(const events::MouseWheel& e) noexcept
 		{
-			m_zoom -= e.m_y_offset;
+			if (m_mode == Mode::FREE)
+			{
+				m_fov -= e.m_y_offset;
+				if (m_fov > 110.0f)
+				{
+					m_fov = 110.0f;
+				}
+				else if (m_fov < 45.0f)
+				{
+					m_fov = 45.0f;
+				}
+			}
+		}
 
-			if (m_zoom > 45.0f)
-			{
-				m_zoom = 45.0f;
-			}
-			else if (m_zoom < 1.0f)
-			{
-				m_zoom = 1.0f;
-			}
+		void Camera3D::on_event(const events::WindowResized& e) noexcept
+		{
+			m_aspect_ratio = e.m_width / e.m_height;
 		}
 
 		void Camera3D::update(const double dt) noexcept
 		{
-			const float velocity = m_speed * dt;
+			m_dir = glm::normalize(m_focal - m_pos);
 
-			if (m_moving_fwd)
+			if (m_mode == Mode::FREE)
 			{
-				m_pos += m_front * velocity;
-				m_moving_fwd = false;
+				m_proj = glm::perspective(m_fov, m_aspect_ratio, m_near, m_far);
 
-				m_dirty_view = true;
-				m_pos.y      = 0.0f;
+				glm::vec3 axis         = glm::cross(m_dir, m_up);
+				glm::quat pitch_quat   = glm::angleAxis(m_pitch, axis);
+				glm::quat heading_quat = glm::angleAxis(m_heading, m_up);
+				glm::quat temp         = glm::cross(pitch_quat, heading_quat);
+				temp                   = glm::normalize(temp);
+
+				m_dir = glm::rotate(temp, m_dir);
+				m_pos += m_delta;
+				m_focal = m_pos + m_dir * 1.0f;
+				m_heading *= .5;
+				m_pitch *= .5;
+				m_delta = m_delta * .8f;
 			}
 
-			if (m_moving_back)
-			{
-				m_pos -= m_front * velocity;
-				m_moving_back = false;
-
-				m_dirty_view = true;
-				m_pos.y      = 0.0f;
-			}
-
-			if (m_moving_left)
-			{
-				m_pos -= m_right_axis * velocity;
-				m_moving_left = false;
-
-				m_dirty_view = true;
-				m_pos.y      = 0.0f;
-			}
-
-			if (m_moving_right)
-			{
-				m_pos += m_right_axis * velocity;
-				m_moving_right = false;
-
-				m_dirty_view = true;
-				m_pos.y      = 0.0f;
-			}
+			m_view = glm::lookAt(m_pos, m_focal, m_up);
 		}
 
 		void Camera3D::reset() noexcept
 		{
-			m_dirty_vectors = true;
-			m_dirty_view    = true;
-			m_moving_fwd    = false;
-			m_moving_back   = false;
-			m_moving_left   = false;
-			m_moving_right  = false;
+			float m_fov  = 45.0f;
+			float m_near = 0.1f;
+			float m_far  = 100.0f;
 
-			m_view       = glm::mat4 {1.0f};
-			m_pos        = {0.0f, 0.0f, 0.0f};
-			m_front      = {0.0f, 0.0f, -1.0f};
-			m_up         = {0.0f, 1.0f, 0.0f};
-			m_right_axis = {0.0f, 0.0f, 0.0f};
-			m_world_up   = {0.0f, 0.0f, 0.0f};
+			float m_heading          = 0.0f;
+			float m_pitch            = 0.0f;
+			float m_max_pitch_rate   = 5.0f;
+			float m_max_heading_rate = 5.0f;
 
-			m_yaw   = -90.0f;
-			m_pitch = 0.0f;
-			m_speed = 2.5f;
-			m_zoom  = 45.0f;
+			m_pos       = {0.0f, 0.0f, 0.0f};
+			m_delta     = {0.0f, 0.0f, 0.0f};
+			m_focal     = {0.0f, 0.0f, 0.0f};
+			m_dir       = {0.0f, 0.0f, 0.0f};
+			m_up        = {0.0f, 1.0f, 0.0f};
+			m_mouse_pos = {0.0f, 0.0f, 0.0f};
 
-			recalculate();
+			m_view = glm::mat4 {1.0f};
+			m_proj = glm::mat4 {1.0f};
+
+			float m_speed = 1.0f;
 		}
 
-		const glm::mat4& Camera3D::get_view_matrix() noexcept
+		const glm::mat4& Camera3D::get_view() noexcept
 		{
-			if (m_dirty_view)
-			{
-				m_view       = glm::lookAt(m_pos, m_pos + m_front, m_up);
-				m_dirty_view = false;
-			}
-
 			return m_view;
+		}
+
+		const glm::mat4& Camera3D::get_proj() noexcept
+		{
+			return m_proj;
 		}
 
 		nlohmann::json Camera3D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
+			/*
 			json["pos"]["x"] = m_pos.x;
 			json["pos"]["y"] = m_pos.y;
 			json["pos"]["z"] = m_pos.z;
@@ -189,10 +299,13 @@ namespace galaxy
 			json["world-up"]["y"] = m_world_up.y;
 			json["world-up"]["z"] = m_world_up.z;
 
-			json["yaw"]   = m_yaw;
-			json["pitch"] = m_pitch;
-			json["speed"] = m_speed;
-			json["zoom"]  = m_zoom;
+			json["yaw"]     = m_yaw;
+			json["pitch"]   = m_pitch;
+			json["fov"]     = m_fov;
+			json["prev-mx"] = m_prev_mx;
+			json["prev-my"] = m_prev_my;
+			json["speed"]   = m_speed;
+			*/
 
 			return json;
 		}
@@ -201,6 +314,7 @@ namespace galaxy
 		{
 			reset();
 
+			/*
 			const auto& pos = json.at("pos");
 			m_pos.x         = pos.at("x");
 			m_pos.y         = pos.at("y");
@@ -226,32 +340,13 @@ namespace galaxy
 			m_world_up.y         = world_up.at("y");
 			m_world_up.z         = world_up.at("z");
 
-			m_yaw   = json.at("yaw");
-			m_pitch = json.at("pitch");
-			m_speed = json.at("speed");
-			m_zoom  = json.at("zoom");
-
-			recalculate();
-		}
-
-		void Camera3D::recalculate() noexcept
-		{
-			if (m_dirty_vectors)
-			{
-				m_dirty_view    = true;
-				m_dirty_vectors = false;
-
-				const auto yaw_radians   = glm::radians(m_yaw);
-				const auto pitch_radians = glm::radians(m_pitch);
-
-				m_front.x = glm::cos(yaw_radians) * glm::cos(pitch_radians);
-				m_front.y = glm::sin(pitch_radians);
-				m_front.z = glm::sin(yaw_radians) * glm::cos(pitch_radians);
-				m_front   = glm::normalize(m_front);
-
-				m_right_axis = glm::normalize(glm::cross(m_front, m_world_up));
-				m_up         = glm::normalize(glm::cross(m_right_axis, m_front));
-			}
+			m_yaw     = json.at("yaw");
+			m_pitch   = json.at("pitch");
+			m_fov     = json.at("fov");
+			m_prev_mx = json.at("prev-mx");
+			m_prev_my = json.at("prev-my");
+			m_speed   = json.at("speed");
+			*/
 		}
 	} // namespace graphics
 } // namespace galaxy

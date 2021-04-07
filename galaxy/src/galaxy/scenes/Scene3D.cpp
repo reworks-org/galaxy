@@ -7,6 +7,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Renderer3D.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 #include "Scene3D.hpp"
 
@@ -17,9 +19,27 @@ namespace galaxy
 		Scene3D::Scene3D(std::string_view name) noexcept
 		    : Scene {name}
 		{
+			m_camera.m_forward_key = input::Keys::W;
+			m_camera.m_back_key    = input::Keys::S;
+			m_camera.m_left_key    = input::Keys::A;
+			m_camera.m_right_key   = input::Keys::D;
+			m_camera.m_up_key      = input::Keys::Q;
+			m_camera.m_down_key    = input::Keys::E;
+
+			m_camera.set_mode(graphics::Camera3D::Mode::FREE);
+			m_camera.set_position({0.0f, 0.0f, 3.0f});
+			m_camera.set_speed(0.01f);
+
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
 			m_dispatcher.subscribe<events::MouseMoved>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
+			m_dispatcher.subscribe<events::WindowResized>(m_camera);
+
+			m_model.load("backpack.obj");
+			m_model.create();
+
+			// Wireframe.
+			//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -53,6 +73,8 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
+			RENDERER_3D().draw_model(&m_model, m_camera, SL_HANDLE.shaderbook()->get("model"));
+
 			m_gui.render();
 		}
 

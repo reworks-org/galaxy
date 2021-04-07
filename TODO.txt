@@ -34,6 +34,7 @@ convert type classes to enums (log, vertexs, etc...).
 - custom textureatlas data preserved when reloading.
 - fix map reloading.
 - fix texture atlas crashing with GALAXY_FATAL 
+- cache camera between shaders
 
 EXPORTING:
 - Supercluster is the game with an extra layer.
