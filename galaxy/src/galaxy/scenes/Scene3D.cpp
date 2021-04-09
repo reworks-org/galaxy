@@ -38,8 +38,7 @@ namespace galaxy
 			m_model.load("backpack.obj");
 			m_model.create();
 
-			// Wireframe.
-			//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			//https://learnopengl.com/Model-Loading/Model
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -58,6 +57,10 @@ namespace galaxy
 
 		void Scene3D::events()
 		{
+			if (SL_HANDLE.window()->key_pressed(input::Keys::K))
+			{
+				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			}
 		}
 
 		void Scene3D::update(const double dt)

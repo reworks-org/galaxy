@@ -25,6 +25,7 @@ supercluster/bin/Release/*.ilk
 supercluster/bin/Release/*.pdb
 supercluster/bin/Release/*.obj
 supercluster/bin/Release/*.idb
+supercluster/bin/Release/*.dll
 supercluster/bin/Release/logs/
 supercluster/bin/Release/tools
 
@@ -44,6 +45,7 @@ sandbox_tests/bin/Release/*.ilk
 sandbox_tests/bin/Release/*.pdb
 sandbox_tests/bin/Release/*.obj
 sandbox_tests/bin/Release/*.idb
+sandbox_tests/bin/Release/*.dll
 sandbox_tests/bin/Release/logs/
 
 sandbox_3d_tests/bin/Debug/*.exp
@@ -62,6 +64,7 @@ sandbox_3d_tests/bin/Release/*.ilk
 sandbox_3d_tests/bin/Release/*.pdb
 sandbox_3d_tests/bin/Release/*.obj
 sandbox_3d_tests/bin/Release/*.idb
+sandbox_3d_tests/bin/Release/*.dll
 sandbox_3d_tests/bin/Release/logs/
 
 tests/bin/
