@@ -120,6 +120,11 @@ namespace galaxy
 			/// OpenGL framebuffer handle.
 			///
 			unsigned int m_framebuffer;
+
+			///
+			/// OpenGL renderbuffer handle.
+			///
+			unsigned int m_renderbuffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

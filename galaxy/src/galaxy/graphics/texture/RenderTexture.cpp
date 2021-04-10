@@ -22,25 +22,30 @@ namespace galaxy
 	namespace graphics
 	{
 		RenderTexture::RenderTexture() noexcept
-		    : m_projection {1.0f}, m_framebuffer {0}
+		    : m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
+			glGenRenderbuffers(1, &m_renderbuffer);
 		}
 
 		RenderTexture::RenderTexture(const int width, const int height)
-		    : m_projection {1.0f}, m_framebuffer {0}
+		    : m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
+			glGenRenderbuffers(1, &m_renderbuffer);
+
 			create(width, height);
 		}
 
 		RenderTexture::RenderTexture(RenderTexture&& rt) noexcept
 		    : BaseTexture {std::move(rt)}
 		{
-			this->m_projection  = std::move(rt.m_projection);
-			this->m_framebuffer = rt.m_framebuffer;
+			this->m_projection   = std::move(rt.m_projection);
+			this->m_framebuffer  = rt.m_framebuffer;
+			this->m_renderbuffer = rt.m_renderbuffer;
 
-			rt.m_framebuffer = 0;
+			rt.m_framebuffer  = 0;
+			rt.m_renderbuffer = 0;
 		}
 
 		RenderTexture& RenderTexture::operator=(RenderTexture&& rt) noexcept
@@ -48,10 +53,13 @@ namespace galaxy
 			if (this != &rt)
 			{
 				BaseTexture::operator=(std::move(rt));
+
 				this->m_projection   = std::move(rt.m_projection);
 				this->m_framebuffer  = rt.m_framebuffer;
+				this->m_renderbuffer = rt.m_renderbuffer;
 
-				rt.m_framebuffer = 0;
+				rt.m_framebuffer  = 0;
+				rt.m_renderbuffer = 0;
 			}
 
 			return *this;
@@ -59,8 +67,8 @@ namespace galaxy
 
 		RenderTexture::~RenderTexture() noexcept
 		{
-			glBindFramebuffer(GL_TEXTURE_2D, 0);
 			glDeleteFramebuffers(1, &m_framebuffer);
+			glDeleteRenderbuffers(1, &m_renderbuffer);
 		}
 
 		void RenderTexture::create(const int width, const int height)
@@ -80,12 +88,14 @@ namespace galaxy
 
 			m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
+			// Framebuffer creation.
 			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
+			// Generate mipmaps since it applies to the framebuffer, but leave AA and AT as post effects.
 			if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
 			{
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -103,19 +113,28 @@ namespace galaxy
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
 
+			// Renderbuffer creation.
+			glBindRenderbuffer(GL_RENDERBUFFER, m_renderbuffer);
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, m_width, m_height);
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_renderbuffer);
+
 			if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to create GL_FRAMEBUFFER!");
 			}
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glBindRenderbuffer(GL_RENDERBUFFER, 0);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		void RenderTexture::change_size(const int width, const int height)
 		{
 			glDeleteFramebuffers(1, &m_framebuffer);
+			glDeleteRenderbuffers(1, &m_renderbuffer);
+
 			glGenFramebuffers(1, &m_framebuffer);
+			glGenRenderbuffers(1, &m_renderbuffer);
 
 			create(width, height);
 		}
@@ -125,6 +144,7 @@ namespace galaxy
 			// Bind to framebuffer.
 			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 			glViewport(0, 0, m_width, m_height);
+			glEnable(GL_DEPTH_TEST);
 
 			// Reset Colour, in prep for rendering.
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);

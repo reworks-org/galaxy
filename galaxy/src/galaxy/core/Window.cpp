@@ -274,11 +274,6 @@ namespace galaxy
 						glEnable(GL_BLEND);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-						// Set up depth testing.
-						glEnable(GL_DEPTH_TEST);
-						glClearDepth(1.0);
-						glDepthFunc(GL_LEQUAL);
-
 						// Allow for changing vertex point size.
 						glEnable(GL_PROGRAM_POINT_SIZE);
 
@@ -739,8 +734,10 @@ namespace galaxy
 			m_framebuffer->unbind();
 
 			glViewport(0, 0, m_width, m_height);
+			glDisable(GL_DEPTH_TEST);
+
 			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT);
 
 			m_fb_sprite->bind();
 
