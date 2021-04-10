@@ -183,6 +183,7 @@ namespace galaxy
 			if (m_scenes.contains(str))
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Attempted to create a scene that already exists!");
+				return nullptr;
 			}
 			else
 			{
