@@ -162,7 +162,8 @@ else()
 	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(assimp PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(assimp PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(assimp_zlibstatic PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 
 	# Import projects.
 	add_subdirectory(galaxy)
