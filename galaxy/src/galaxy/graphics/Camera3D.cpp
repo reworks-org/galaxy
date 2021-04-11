@@ -32,6 +32,11 @@ namespace galaxy
 			m_up        = {0.0f, 1.0f, 0.0f};
 			m_mouse_pos = {0.0f, 0.0f, 0.0f};
 
+			m_moving_fwd   = false;
+			m_moving_back  = false;
+			m_moving_left  = false;
+			m_moving_right = false;
+
 			m_view = glm::mat4 {1.0f};
 			m_proj = glm::mat4 {1.0f};
 		}
@@ -48,6 +53,11 @@ namespace galaxy
 			m_dir       = {0.0f, 0.0f, 0.0f};
 			m_up        = {0.0f, 1.0f, 0.0f};
 			m_mouse_pos = {0.0f, 0.0f, 0.0f};
+
+			m_moving_fwd   = false;
+			m_moving_back  = false;
+			m_moving_left  = false;
+			m_moving_right = false;
 
 			m_view = glm::mat4 {1.0f};
 			m_proj = glm::mat4 {1.0f};
@@ -151,26 +161,28 @@ namespace galaxy
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				m_delta += (m_dir * m_speed);
+				m_moving_fwd = true;
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				m_delta -= (m_dir * m_speed);
+				m_moving_back = true;
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				m_delta -= (glm::cross(m_dir, m_up) * m_speed);
+				m_moving_left = true;
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				m_delta += (glm::cross(m_dir, m_up) * m_speed);
+				m_moving_right = true;
 			}
 
 			if (m_mode == Mode::FREE)
 			{
+				// Different so it staggers rather than repeats.
+				// This is to allow easier movement of up and down axis.
 				if (e.m_keycode == m_up_key)
 				{
 					m_delta += (m_up * m_speed);
@@ -183,13 +195,36 @@ namespace galaxy
 			}
 		}
 
+		void Camera3D::on_event(const events::KeyUp& e) noexcept
+		{
+			if (e.m_keycode == m_forward_key)
+			{
+				m_moving_fwd = false;
+			}
+
+			if (e.m_keycode == m_back_key)
+			{
+				m_moving_back = false;
+			}
+
+			if (e.m_keycode == m_left_key)
+			{
+				m_moving_left = false;
+			}
+
+			if (e.m_keycode == m_right_key)
+			{
+				m_moving_right = false;
+			}
+		}
+
 		void Camera3D::on_event(const events::MouseMoved& e) noexcept
 		{
 			const glm::vec3 new_pos = {e.m_x, e.m_y, 0.0f};
 			const glm::vec3 delta   = m_mouse_pos - new_pos;
 
-			heading((delta.x * m_sensitivity) * m_speed);
-			pitch((delta.y * m_sensitivity) * m_speed);
+			heading((delta.x * m_sensitivity) * (m_speed / 100.0f));
+			pitch((delta.y * m_sensitivity) * (m_speed / 100.0f));
 
 			m_mouse_pos = new_pos;
 		}
@@ -217,6 +252,28 @@ namespace galaxy
 
 		void Camera3D::update(const double dt) noexcept
 		{
+			const auto velocity = m_speed * static_cast<float>(dt);
+
+			if (m_moving_fwd)
+			{
+				m_delta += (m_dir * velocity);
+			}
+
+			if (m_moving_back)
+			{
+				m_delta -= (m_dir * velocity);
+			}
+
+			if (m_moving_left)
+			{
+				m_delta -= (glm::cross(m_dir, m_up) * velocity);
+			}
+
+			if (m_moving_right)
+			{
+				m_delta += (glm::cross(m_dir, m_up) * velocity);
+			}
+
 			m_dir = glm::normalize(m_focal - m_pos);
 
 			if (m_mode == Mode::FREE)
@@ -257,6 +314,11 @@ namespace galaxy
 			m_dir       = {0.0f, 0.0f, 0.0f};
 			m_up        = {0.0f, 1.0f, 0.0f};
 			m_mouse_pos = {0.0f, 0.0f, 0.0f};
+
+			m_moving_fwd   = false;
+			m_moving_back  = false;
+			m_moving_left  = false;
+			m_moving_right = false;
 
 			m_view = glm::mat4 {1.0f};
 			m_proj = glm::mat4 {1.0f};

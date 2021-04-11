@@ -13,6 +13,7 @@
 #include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
@@ -137,6 +138,13 @@ namespace galaxy
 			void on_event(const events::KeyDown& e) noexcept;
 
 			///
+			///	On key up function.
+			///
+			/// \param e Key up event.
+			///
+			void on_event(const events::KeyUp& e) noexcept;
+
+			///
 			///	Mouse moved function.
 			///
 			/// \param e Mouse moved event.
@@ -208,6 +216,11 @@ namespace galaxy
 		private:
 			Mode m_mode = Mode::FREE;
 
+			bool m_moving_fwd   = false;
+			bool m_moving_back  = false;
+			bool m_moving_left  = false;
+			bool m_moving_right = false;
+
 			float m_aspect_ratio;
 			float m_fov  = 45.0f;
 			float m_near = 0.1f;
@@ -225,7 +238,7 @@ namespace galaxy
 			glm::vec3 m_up;
 			glm::vec3 m_mouse_pos;
 
-			float m_speed = 0.5f;
+			float m_speed = 1.0f;
 			float m_sensitivity;
 
 			glm::mat4 m_view;

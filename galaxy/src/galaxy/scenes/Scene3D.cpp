@@ -28,9 +28,10 @@ namespace galaxy
 
 			m_camera.set_mode(graphics::Camera3D::Mode::FREE);
 			m_camera.set_position({0.0f, 0.0f, 3.0f});
-			m_camera.set_speed(0.01f);
+			m_camera.set_speed(0.5f);
 
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
+			m_dispatcher.subscribe<events::KeyUp>(m_camera);
 			m_dispatcher.subscribe<events::MouseMoved>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
