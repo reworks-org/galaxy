@@ -141,14 +141,18 @@ namespace galaxy
 			{
 				m_window->request_attention();
 
-				const bool cursor = m_config->get<bool>("is-cursor-visible");
-				m_window->set_cursor_visibility(cursor);
-				if (cursor)
+				if (!settings.m_raw_mouse_input)
 				{
-					const auto cursor_image = m_config->get<std::string>("cursor-image");
-					if (cursor_image != "")
+					const bool cursor = m_config->get<bool>("is-cursor-visible");
+					m_window->set_cursor_visibility(cursor);
+
+					if (cursor)
 					{
-						m_window->set_cursor_icon(cursor_image);
+						const auto cursor_image = m_config->get<std::string>("cursor-image");
+						if (cursor_image != "")
+						{
+							m_window->set_cursor_icon(cursor_image);
+						}
 					}
 				}
 
