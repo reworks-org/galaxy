@@ -11,7 +11,7 @@
 
 namespace galaxy
 {
-	namespace graphics
+	namespace light
 	{
 		Material::Material() noexcept
 		    : m_ambient {0.0f, 0.0f, 0.0f}, m_diffuse {0.0f, 0.0f, 0.0f}, m_specular {0.0f, 0.0f, 0.0f}, m_shininess {0.0f}
@@ -37,5 +37,5 @@ namespace galaxy
 
 			m_shininess = json.at("shininess");
 		}
-	} // namespace graphics
+	} // namespace light
 } // namespace galaxy

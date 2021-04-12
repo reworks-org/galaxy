@@ -37,8 +37,7 @@ namespace galaxy
 
 		void Renderer2D::init(const unsigned int max_quads, std::string_view batch_shader)
 		{
-			m_max_quads = max_quads;
-			m_post_shaders.push_back(SL_HANDLE.shaderbook()->get("DefaultFramebuffer"));
+			m_max_quads    = max_quads;
 			m_batch_shader = SL_HANDLE.shaderbook()->get(batch_shader);
 		}
 
@@ -52,8 +51,7 @@ namespace galaxy
 
 			m_batches.clear();
 			m_batch_shader = nullptr;
-			m_post_shaders.clear();
-			m_texture = nullptr;
+			m_texture      = nullptr;
 		}
 
 		void Renderer2D::create_default_batches(BaseTexture* texture) noexcept

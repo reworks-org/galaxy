@@ -9,6 +9,7 @@
 #define GALAXY_SCENES_SCENE3D_HPP_
 
 #include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/light/Point.hpp"
 #include "galaxy/graphics/model/Model.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
@@ -89,6 +90,7 @@ namespace galaxy
 		private:
 			graphics::Camera3D m_camera;
 			graphics::Model m_model;
+			light::Point m_point_light;
 		};
 	} // namespace scene
 } // namespace galaxy

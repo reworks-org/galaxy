@@ -18,6 +18,11 @@ namespace galaxy
 	{
 	} // namespace components
 
+	namespace light
+	{
+		class Point;
+	} // namespace light
+
 	namespace graphics
 	{
 		class Model;
@@ -45,10 +50,11 @@ namespace galaxy
 			/// Draw a model to the screen.
 			///
 			/// \param model
+			/// \param light
 			/// \param camera
 			/// \param shader
 			///
-			void draw_model(Model* model, Camera3D& camera, Shader* shader);
+			void draw_model(Model* model, light::Point* light, Camera3D& camera, Shader* shader);
 
 		private:
 			///

@@ -13,7 +13,7 @@
 
 namespace galaxy
 {
-	namespace graphics
+	namespace light
 	{
 		class Material final
 		{
@@ -28,7 +28,7 @@ namespace galaxy
 			glm::vec3 m_specular;
 			float m_shininess;
 		};
-	} // namespace graphics
+	} // namespace light
 } // namespace galaxy
 
 #endif

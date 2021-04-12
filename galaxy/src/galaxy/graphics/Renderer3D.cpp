@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/graphics/light/Point.hpp"
 #include "galaxy/graphics/model/Model.hpp"
 #include "galaxy/graphics/shader/Shader.hpp"
 
@@ -28,7 +29,7 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer3D::draw_model(Model* model, Camera3D& camera, Shader* shader)
+		void Renderer3D::draw_model(Model* model, light::Point* light, Camera3D& camera, Shader* shader)
 		{
 			auto transform = glm::mat4 {1.0f};
 			transform      = glm::translate(transform, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -38,6 +39,8 @@ namespace galaxy
 			shader->set_uniform("u_transform", transform);
 			shader->set_uniform("u_cameraProj", camera.get_proj());
 			shader->set_uniform("u_cameraView", camera.get_view());
+			shader->set_uniform("u_light_colour", light->m_colour);
+			shader->set_uniform("u_ambient_strength", 1.0f);
 
 			model->draw(shader);
 		}

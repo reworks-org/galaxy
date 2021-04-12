@@ -169,11 +169,6 @@ namespace galaxy
 
 		public:
 			///
-			/// Stores post processing shaders.
-			///
-			std::vector<Shader*> m_post_shaders;
-
-			///
 			/// Stores spritebatches by zlevel.
 			///
 			robin_hood::unordered_flat_map<int, std::unique_ptr<SpriteBatch>> m_batches;

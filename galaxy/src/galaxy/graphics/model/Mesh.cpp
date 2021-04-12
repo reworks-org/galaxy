@@ -126,14 +126,13 @@ namespace galaxy
 			unsigned int specular_count = 1;
 			unsigned int normal_count   = 1;
 			unsigned int height_count   = 1;
-			unsigned int counter        = 0;
 
+			int counter = 0;
 			for (const auto& [filename, texture] : m_textures)
 			{
 				glActiveTexture(GL_TEXTURE0 + counter);
 
 				std::string number;
-
 				switch (texture.m_type)
 				{
 					case TextureMap::Type::DIFFUSE:
@@ -162,7 +161,7 @@ namespace galaxy
 			}
 
 			m_va.bind();
-			glDrawElements(GL_TRIANGLES, m_ib.count(), GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, m_ib.count(), GL_UNSIGNED_INT, nullptr);
 
 			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);

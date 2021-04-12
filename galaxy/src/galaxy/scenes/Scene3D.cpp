@@ -39,7 +39,8 @@ namespace galaxy
 			m_model.load("backpack.obj");
 			m_model.create();
 
-			//https://learnopengl.com/Model-Loading/Model
+			m_point_light.m_colour = {1.0f, 1.0f, 1.0f};
+			m_point_light.m_pos    = {0.0f, 0.0f, 1.0f};
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -77,7 +78,7 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
-			RENDERER_3D().draw_model(&m_model, m_camera, SL_HANDLE.shaderbook()->get("model"));
+			RENDERER_3D().draw_model(&m_model, &m_point_light, m_camera, SL_HANDLE.shaderbook()->get("model"));
 
 			m_gui.render();
 		}

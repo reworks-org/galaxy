@@ -66,7 +66,7 @@ namespace galaxy
 		{
 			for (const auto& mesh : m_meshes)
 			{
-				//mesh->optimize();
+				mesh->optimize();
 				mesh->create();
 			}
 		}

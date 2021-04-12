@@ -23,6 +23,7 @@
 #include "galaxy/graphics/shader/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 #include "Window.hpp"
 
@@ -740,18 +741,16 @@ namespace galaxy
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			m_fb_sprite->bind();
+			auto* default_effect = SL_HANDLE.shaderbook()->get("DefaultFramebuffer");
 
-			for (auto* effect : RENDERER_2D().m_post_shaders)
-			{
-				effect->bind();
-				effect->set_uniform("u_projection", m_framebuffer->get_proj());
-				effect->set_uniform("u_transform", m_fb_transform.get_transform());
-				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
-				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
-				effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());
+			default_effect->bind();
+			default_effect->set_uniform("u_projection", m_framebuffer->get_proj());
+			default_effect->set_uniform("u_transform", m_fb_transform.get_transform());
+			default_effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+			default_effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
+			default_effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());
 
-				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
-			}
+			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 
 			m_fb_sprite->unbind();
 			glfwSwapBuffers(m_window);

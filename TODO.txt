@@ -52,3 +52,10 @@ EXPORTING:
 		std::string m_main_code;
 	}
 	*/
+
+
+
+Shaders CAN be mixed i.e.
+
+"model_ambinet" would have an ambient fragment shader and a model vertex shader.
+need constexpr std::string to add this to a "point light" class as static const constexpr inline etc etc
