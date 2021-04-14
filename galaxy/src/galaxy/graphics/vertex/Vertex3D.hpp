@@ -18,7 +18,7 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Represents a single vertex of a 3D object .
+		/// Represents a single vertex of a 3D object.
 		///
 		class Vertex3D final
 		{
@@ -42,6 +42,20 @@ namespace galaxy
 			///
 			~Vertex3D() noexcept = default;
 
+			///
+			/// Set index.
+			///
+			/// \param index Index in order to sort vertex.
+			///
+			void set_index(const unsigned int index) noexcept;
+
+			///
+			/// Get index.
+			///
+			/// \return Const unsigned integer.
+			///
+			[[nodiscard]] const unsigned int get_index() const noexcept;
+
 		public:
 			///
 			/// Position.
@@ -57,6 +71,12 @@ namespace galaxy
 			/// Texels.
 			///
 			glm::vec2 m_texels;
+
+		private:
+			///
+			/// Used for ordering.
+			///
+			unsigned int m_index;
 		};
 	} // namespace graphics
 } // namespace galaxy

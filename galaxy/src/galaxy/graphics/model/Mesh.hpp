@@ -10,8 +10,8 @@
 
 #include <robin_hood.h>
 
+#include "galaxy/graphics/light/Material.hpp"
 #include "galaxy/graphics/shader/Shader.hpp"
-
 #include "galaxy/graphics/texture/TextureMap.hpp"
 #include "galaxy/graphics/vertex/Vertex3D.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
@@ -65,6 +65,11 @@ namespace galaxy
 			/// Mesh material.
 			///
 			TextureMapHolder m_textures;
+
+			///
+			/// Light material.
+			///
+			light::Material m_material;
 		};
 	} // namespace graphics
 } // namespace galaxy

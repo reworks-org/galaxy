@@ -160,6 +160,11 @@ namespace galaxy
 				counter++;
 			}
 
+			shader->set_uniform("material.ambient", m_material.m_ambient);
+			shader->set_uniform("material.diffuse", m_material.m_diffuse);
+			shader->set_uniform("material.specular", m_material.m_specular);
+			shader->set_uniform("material.shininess", m_material.m_shininess);
+
 			m_va.bind();
 			glDrawElements(GL_TRIANGLES, m_ib.count(), GL_UNSIGNED_INT, nullptr);
 
