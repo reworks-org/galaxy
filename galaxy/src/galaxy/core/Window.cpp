@@ -539,9 +539,9 @@ namespace galaxy
 			return result;
 		}
 
-		void Window::set_window_background(graphics::Colour& col) noexcept
+		void Window::set_window_background(const graphics::Colour& col) noexcept
 		{
-			m_colour = col.normalized();
+			m_colour = const_cast<graphics::Colour&>(col).normalized();
 		}
 
 		void Window::set_icon(std::string_view icon)

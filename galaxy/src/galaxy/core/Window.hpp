@@ -103,7 +103,7 @@ namespace galaxy
 			///
 			/// \param col Colour to use.
 			///
-			void set_window_background(graphics::Colour& col) noexcept;
+			void set_window_background(const graphics::Colour& col) noexcept;
 
 			///
 			/// Set window icon.
