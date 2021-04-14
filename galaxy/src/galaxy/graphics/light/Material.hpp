@@ -9,7 +9,6 @@
 #define GALAXY_GRAPHICS_LIGHT_MATERIAL_HPP_
 
 #include <glm/vec3.hpp>
-#include <nlohmann/json_fwd.hpp>
 
 namespace galaxy
 {
@@ -18,14 +17,35 @@ namespace galaxy
 		class Material final
 		{
 		public:
+			///
+			/// Constructor.
+			///
 			Material() noexcept;
-			Material(const nlohmann::json& json);
+
+			///
+			/// Destructor.
+			///
 			~Material() noexcept = default;
 
 		public:
+			///
+			/// Ambient material colour.
+			///
 			glm::vec3 m_ambient;
+
+			///
+			/// Diffuse material colour.
+			///
 			glm::vec3 m_diffuse;
+
+			///
+			/// Specular material colour.
+			///
 			glm::vec3 m_specular;
+
+			///
+			/// Material shininess.
+			///
 			float m_shininess;
 		};
 	} // namespace light

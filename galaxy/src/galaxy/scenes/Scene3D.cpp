@@ -39,8 +39,12 @@ namespace galaxy
 			m_model.load("backpack.obj");
 			m_model.create();
 
-			m_point_light.m_colour = {1.0f, 1.0f, 1.0f};
-			m_point_light.m_pos    = {0.0f, 0.0f, 1.0f};
+			m_point_light.m_pos = {0.0f, 0.0f, 1.0f};
+
+			m_light_object.m_pos = m_point_light.m_pos;
+			m_light_object.create();
+
+			SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -78,7 +82,8 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
-			RENDERER_3D().draw_model(&m_model, &m_point_light, m_camera, SL_HANDLE.shaderbook()->get("model"));
+			RENDERER_3D().draw_model(&m_model, &m_point_light, m_camera, SL_HANDLE.shaderbook()->get("phong"));
+			RENDERER_3D().draw_light_object(&m_light_object, m_camera, SL_HANDLE.shaderbook()->get("light_object"));
 
 			m_gui.render();
 		}

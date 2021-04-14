@@ -1,18 +1,18 @@
 ///
-/// Point.cpp
+/// Light.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Point.hpp"
+#include "Light.hpp"
 
 namespace galaxy
 {
 	namespace light
 	{
-		Point::Point() noexcept
-		    : Light {}, m_pos {0.0f, 0.0f, 0.0f}
+		Light::Light() noexcept
+		    : m_ambient_intensity {0.2f}, m_diffuse_intensity {0.5f}, m_specular_intensity {1.0f}
 		{
 		}
 	} // namespace light

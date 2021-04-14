@@ -24,15 +24,20 @@ namespace galaxy
 			layout(location = 2) in vec2 l_texels;
 
 			out vec2 io_texels;
+			out vec3 io_normals;
+			out vec3 io_frag_pos;
 
+			uniform mat3 u_inverse_matrix;
 			uniform mat4 u_transform;
-			uniform mat4 u_cameraView;
-			uniform mat4 u_cameraProj;
+			uniform mat4 u_camera_view;
+			uniform mat4 u_camera_proj;
 
 			void main()
 			{
-				gl_Position = u_cameraProj * u_cameraView * u_transform * vec4(l_pos, 1.0);
+				gl_Position = u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 1.0);
 				io_texels = l_texels;
+				io_normals = u_inverse_matrix * l_normals;
+				io_frag_pos = vec3(u_transform * vec4(l_pos, 1.0));
 			}
 		)";
 
@@ -45,19 +50,13 @@ namespace galaxy
 			in vec2 io_texels;
 			out vec4 io_frag_colour;
 
-			uniform vec3 u_light_colour;
-			uniform float u_ambient_strength;
-
 			uniform sampler2D tex_DIFFUSE1;
 			uniform sampler2D tex_SPECULAR1;
 			uniform sampler2D tex_NORMAL1;
 
 			void main()
 			{
-				vec4 object_colour = texture(tex_DIFFUSE1, io_texels);
-				vec3 ambient = u_ambient_strength * u_light_colour;
-				
-				io_frag_colour = vec4(ambient * object_colour, 1.0);
+				io_frag_colour = texture(tex_DIFFUSE1, io_texels);
 			}
 		)";
 	} // namespace shaders

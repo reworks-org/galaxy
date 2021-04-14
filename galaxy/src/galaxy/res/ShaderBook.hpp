@@ -90,6 +90,11 @@ namespace galaxy
 			///
 			void create_default();
 
+			///
+			/// Create post processing shaders.
+			///
+			void create_post_shaders();
+
 		private:
 			///
 			/// Vertex extension.

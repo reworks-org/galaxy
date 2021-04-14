@@ -21,6 +21,7 @@ namespace galaxy
 	namespace light
 	{
 		class Point;
+		class Object;
 	} // namespace light
 
 	namespace graphics
@@ -55,6 +56,8 @@ namespace galaxy
 			/// \param shader
 			///
 			void draw_model(Model* model, light::Point* light, Camera3D& camera, Shader* shader);
+
+			void draw_light_object(light::Object* light, Camera3D& camera, Shader* shader);
 
 		private:
 			///

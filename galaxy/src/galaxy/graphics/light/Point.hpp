@@ -5,13 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_LIGHT_Point_HPP_
-#define GALAXY_GRAPHICS_LIGHT_Point_HPP_
+#ifndef GALAXY_GRAPHICS_LIGHT_POINT_HPP_
+#define GALAXY_GRAPHICS_LIGHT_POINT_HPP_
 
-#include <glm/vec3.hpp>
-#include <nlohmann/json_fwd.hpp>
-
-#include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/light/Light.hpp"
 
 namespace galaxy
 {
@@ -20,7 +17,7 @@ namespace galaxy
 		///
 		/// Applies a point light to a scene.
 		///
-		class Point final : public fs::Serializable
+		class Point final : public Light
 		{
 		public:
 			///
@@ -29,37 +26,11 @@ namespace galaxy
 			Point() noexcept;
 
 			///
-			/// JSON constructor.
+			/// Virtual destructor.
 			///
-			/// \param json JSON object holding data.
-			///
-			Point(const nlohmann::json& json);
-
-			///
-			/// Default destructor.
-			///
-			~Point() noexcept = default;
-
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
+			virtual ~Point() noexcept = default;
 
 		public:
-			///
-			/// Colour of the light.
-			///
-			glm::vec3 m_colour;
-
 			///
 			/// Position of the light.
 			///

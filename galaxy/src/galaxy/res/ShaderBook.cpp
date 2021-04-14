@@ -12,7 +12,9 @@
 #include "galaxy/graphics/shader/DefaultFramebuffer.hpp"
 #include "galaxy/graphics/shader/Glyph.hpp"
 #include "galaxy/graphics/shader/Line.hpp"
+#include "galaxy/graphics/shader/LightObject.hpp"
 #include "galaxy/graphics/shader/Model.hpp"
+#include "galaxy/graphics/shader/Phong.hpp"
 #include "galaxy/graphics/shader/Point.hpp"
 #include "galaxy/graphics/shader/RenderToTexture.hpp"
 #include "galaxy/graphics/shader/Sprite.hpp"
@@ -29,6 +31,7 @@ namespace galaxy
 		    : m_vert_ext {".vs"}, m_frag_ext {".fs"}
 		{
 			create_default();
+			create_post_shaders();
 		}
 
 		ShaderBook::ShaderBook(std::string_view file)
@@ -77,6 +80,7 @@ namespace galaxy
 		{
 			clear();
 			create_default();
+			create_post_shaders();
 
 			m_vert_ext = json.at("vertex-extension");
 			m_frag_ext = json.at("fragment-extension");
@@ -116,6 +120,15 @@ namespace galaxy
 
 			auto* text = create("text");
 			text->load_raw(shaders::text_vert, shaders::text_frag);
+		}
+
+		void ShaderBook::create_post_shaders()
+		{
+			auto* phong = create("phong");
+			phong->load_raw(shaders::model_vert, shaders::phong_frag);
+
+			auto* light_object = create("light_object");
+			light_object->load_raw(shaders::light_object_vert, shaders::light_object_frag);
 		}
 	} // namespace res
 } // namespace galaxy
