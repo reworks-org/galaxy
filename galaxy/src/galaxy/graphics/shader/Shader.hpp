@@ -251,9 +251,15 @@ namespace galaxy
 		}
 
 		template<>
-		inline void Shader::set_uniform<glm::mat4>(std::string_view name, const glm::mat4& transform)
+		inline void Shader::set_uniform<glm::mat3>(std::string_view name, const glm::mat3& matrix)
 		{
-			glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(transform));
+			glUniformMatrix3fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(matrix));
+		}
+
+		template<>
+		inline void Shader::set_uniform<glm::mat4>(std::string_view name, const glm::mat4& matrix)
+		{
+			glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(matrix));
 		}
 
 		template<>
