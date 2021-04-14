@@ -182,14 +182,21 @@ namespace galaxy
 			///
 			/// \return Const reference to a glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_view() noexcept;
+			[[nodiscard]] const glm::mat4& get_view() const noexcept;
 
 			///
 			/// Get camera projection.
 			///
 			/// \return Const reference to a glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+			[[nodiscard]] const glm::mat4& get_proj() const noexcept;
+
+			///
+			/// Get camera position.
+			///
+			/// \return Const reference to a glm::vec3.
+			///
+			[[nodiscard]] const glm::vec3& get_pos() const noexcept;
 
 			///
 			/// Serializes object.

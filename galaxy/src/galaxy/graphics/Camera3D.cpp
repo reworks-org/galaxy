@@ -326,14 +326,19 @@ namespace galaxy
 			float m_speed = 1.0f;
 		}
 
-		const glm::mat4& Camera3D::get_view() noexcept
+		const glm::mat4& Camera3D::get_view() const noexcept
 		{
 			return m_view;
 		}
 
-		const glm::mat4& Camera3D::get_proj() noexcept
+		const glm::mat4& Camera3D::get_proj() const noexcept
 		{
 			return m_proj;
+		}
+
+		const glm::vec3& Camera3D::get_pos() const noexcept
+		{
+			return m_pos;
 		}
 
 		nlohmann::json Camera3D::serialize()
