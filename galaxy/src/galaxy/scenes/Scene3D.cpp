@@ -39,7 +39,10 @@ namespace galaxy
 			m_model.load("backpack.obj");
 			m_model.create();
 
-			m_point_light.m_pos = {0.0f, 0.0f, 1.0f};
+			m_point_light.m_pos                = {0.0f, 0.0f, 1.0f};
+			m_point_light.m_ambient_intensity  = glm::vec3 {0.2f};
+			m_point_light.m_diffuse_intensity  = glm::vec3 {0.5f};
+			m_point_light.m_specular_intensity = glm::vec3 {1.0f};
 
 			m_light_object.m_pos = m_point_light.m_pos;
 			m_light_object.create();

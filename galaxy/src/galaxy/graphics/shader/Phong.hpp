@@ -52,23 +52,24 @@ namespace galaxy
 			
 			void main()
 			{
-				vec4 object_colour = texture(tex_DIFFUSE1, io_texels);
-				vec3 ambient = light.ambient_intensity * material.ambient;
+				vec4 diffmap = texture(tex_DIFFUSE1, io_texels);
+
+				vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
 				
 				vec3 norm = normalize(io_normals);
 				vec3 light_dir = normalize(u_light_pos - io_frag_pos);
 
 				float diff = max(dot(norm, light_dir), 0.0);
-				vec3 diffuse = light.diffuse_intensity * (diff * material.diffuse);
+				vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
 				
 				vec3 view_dir = normalize(u_camera_pos - io_frag_pos);
 				vec3 reflect_dir = reflect(-light_dir, norm);
 
 				float spec_calc = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
-				vec3 specular = light.specular_intensity * (spec_calc * material.specular);
+				vec3 specular = light.specular_intensity * spec_calc * (material.specular * vec3(texture(tex_SPECULAR1, io_texels)));
 
-				vec3 result = (ambient + diffuse + specular) * object_colour.rgb;
-				io_frag_colour = vec4(result, object_colour.a);
+				vec3 result = ambient + diffuse + specular;
+				io_frag_colour = vec4(result, diff_map.a);
 			}
 		)";
 	} // namespace shaders
