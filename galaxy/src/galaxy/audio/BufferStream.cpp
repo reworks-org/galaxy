@@ -120,9 +120,9 @@ namespace galaxy
 						alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
 					}
 				}
-
-				return result;
 			}
+
+			return result;
 		}
 	} // namespace audio
 } // namespace galaxy
