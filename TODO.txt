@@ -30,7 +30,6 @@ convert type classes to enums (log, vertexs, etc...).
 - texture tooltip
 - for scene push/pop run lua script?
 - particle gen
-- generate_default_assets() should be constexpr std::string.
 - custom textureatlas data preserved when reloading.
 - fix map reloading.
 - fix texture atlas crashing with GALAXY_FATAL 
@@ -52,10 +51,3 @@ EXPORTING:
 		std::string m_main_code;
 	}
 	*/
-
-
-
-Shaders CAN be mixed i.e.
-
-"model_ambinet" would have an ambient fragment shader and a model vertex shader.
-need constexpr std::string to add this to a "point light" class as static const constexpr inline etc etc

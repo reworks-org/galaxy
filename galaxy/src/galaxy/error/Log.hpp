@@ -64,9 +64,10 @@
 /// Macro shortcut with variadic arguments.
 ///
 /// \param level Log error level.
+/// \param msg Error message.
 /// \param ... Message and arguments to format and log.
 ///
-#define GALAXY_LOG(level, ...) galaxy::error::Log::handle().log<level>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...) galaxy::error::Log::handle().log<level>(msg __VA_OPT__(,) __VA_ARGS__)
 
 ///
 /// Capture log output into a custom stream.
@@ -126,7 +127,7 @@ namespace galaxy
 			/// \param args std::format supported arguments to be formatted into a string.
 			///
 			template<loglevel_type LogLevel, typename... MsgInputs>
-			void log(std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);
+			void log(std::string_view message, const MsgInputs&... args);
 
 			///
 			/// \brief	Set a minimum log level.

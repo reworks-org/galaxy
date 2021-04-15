@@ -9,7 +9,7 @@ set(GALAXY_COMPILE_FLAGS_DEBUG
     /fp:precise
     /bigobj
     /Y-
-    /Wall
+    /W4
     /JMC
     /ZI
     /Od
@@ -18,6 +18,7 @@ set(GALAXY_COMPILE_FLAGS_DEBUG
     /GS
     /GR
     /sdl
+    /Zc:preprocessor
 )
 
 set(GALAXY_COMPILE_FLAGS_RELEASE
@@ -40,4 +41,5 @@ set(GALAXY_COMPILE_FLAGS_RELEASE
     /GS-
     /Gy
     /GR-
+    /Zc:preprocessor
 )
