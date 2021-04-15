@@ -1,18 +1,18 @@
 ///
-/// Light.cpp
+/// Directional.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Light.hpp"
+#include "Directional.hpp"
 
 namespace galaxy
 {
 	namespace light
 	{
-		Light::Light() noexcept
-		    : m_ambient_intensity {1.0f}, m_diffuse_intensity {1.0f}, m_specular_intensity {1.0f}
+		Directional::Directional() noexcept
+		    : Light {}, m_dir {-0.2f, -1.0f, -0.3f}
 		{
 		}
 	} // namespace light

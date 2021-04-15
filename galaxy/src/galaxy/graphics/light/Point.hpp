@@ -15,10 +15,29 @@ namespace galaxy
 	namespace light
 	{
 		///
-		/// Applies a point light to a scene.
+		/// Point light in a shader.
 		///
 		class Point final : public Light
 		{
+			///
+			/// Different distances the light can be emitted out to.
+			///
+			enum class Ranges : short
+			{
+				DIST_7,
+				DIST_13,
+				DIST_20,
+				DIST_32,
+				DIST_50,
+				DIST_65,
+				DIST_100,
+				DIST_160,
+				DIST_200,
+				DIST_325,
+				DIST_600,
+				DIST_3250
+			};
+
 		public:
 			///
 			/// Constructor.
@@ -30,11 +49,48 @@ namespace galaxy
 			///
 			virtual ~Point() noexcept = default;
 
+			///
+			/// Set attunement based on range.
+			///
+			/// \param dist How far the point light emissions reach.
+			///
+			void set_attunement(const Ranges dist) noexcept;
+
+			///
+			/// Get linear attunement value.
+			///
+			/// \return Const double.
+			///
+			[[nodiscard]] const double get_linear() const noexcept;
+
+			///
+			/// Get quadratic attunement value.
+			///
+			/// \return Const double.
+			///
+			[[nodiscard]] const double get_quadratic() const noexcept;
+
 		public:
 			///
 			/// Position of the light.
 			///
 			glm::vec3 m_pos;
+
+		private:
+			///
+			/// Stored for info.
+			///
+			Ranges m_dist;
+
+			///
+			/// Linear attunement value.
+			///
+			double m_linear;
+
+			///
+			/// Quadratic attunement value.
+			///
+			double m_quadratic;
 		};
 	} // namespace light
 } // namespace galaxy
