@@ -9,9 +9,6 @@
 #define GALAXY_SCENES_SCENE3D_HPP_
 
 #include "galaxy/graphics/Camera3D.hpp"
-#include "galaxy/graphics/light/Point.hpp"
-#include "galaxy/graphics/light/Object.hpp"
-#include "galaxy/graphics/model/Model.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy
@@ -69,6 +66,13 @@ namespace galaxy
 			void render() override;
 
 			///
+			/// Get camera.
+			///
+			/// \return Reference to scene Camera3D.
+			///
+			[[nodiscard]] graphics::Camera3D& camera() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -89,10 +93,10 @@ namespace galaxy
 			Scene3D() = delete;
 
 		private:
+			///
+			/// Scene camera.
+			///
 			graphics::Camera3D m_camera;
-			graphics::Model m_model;
-			light::Point m_point_light;
-			light::Object m_light_object;
 		};
 	} // namespace scene
 } // namespace galaxy

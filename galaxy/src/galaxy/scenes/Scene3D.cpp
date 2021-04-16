@@ -7,8 +7,6 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/graphics/Renderer3D.hpp"
-#include "galaxy/res/ShaderBook.hpp"
 
 #include "Scene3D.hpp"
 
@@ -19,35 +17,11 @@ namespace galaxy
 		Scene3D::Scene3D(std::string_view name) noexcept
 		    : Scene {name}
 		{
-			m_camera.m_forward_key = input::Keys::W;
-			m_camera.m_back_key    = input::Keys::S;
-			m_camera.m_left_key    = input::Keys::A;
-			m_camera.m_right_key   = input::Keys::D;
-			m_camera.m_up_key      = input::Keys::Q;
-			m_camera.m_down_key    = input::Keys::E;
-
-			m_camera.set_mode(graphics::Camera3D::Mode::FREE);
-			m_camera.set_position({0.0f, 0.0f, 3.0f});
-			m_camera.set_speed(0.5f);
-
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
 			m_dispatcher.subscribe<events::KeyUp>(m_camera);
 			m_dispatcher.subscribe<events::MouseMoved>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
-
-			m_model.load("backpack.obj");
-			m_model.create();
-
-			m_point_light.m_pos                = {0.0f, 0.0f, 1.0f};
-			m_point_light.m_ambient_intensity  = glm::vec3 {0.2f};
-			m_point_light.m_diffuse_intensity  = glm::vec3 {0.5f};
-			m_point_light.m_specular_intensity = glm::vec3 {1.0f};
-
-			m_light_object.m_pos = m_point_light.m_pos;
-			m_light_object.create();
-
-			SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -66,10 +40,6 @@ namespace galaxy
 
 		void Scene3D::events()
 		{
-			if (SL_HANDLE.window()->key_pressed(input::Keys::K))
-			{
-				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-			}
 		}
 
 		void Scene3D::update(const double dt)
@@ -85,27 +55,32 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
-			RENDERER_3D().draw_model(&m_model, &m_point_light, m_camera, SL_HANDLE.shaderbook()->get("phong"));
-			RENDERER_3D().draw_light_object(&m_light_object, m_camera, SL_HANDLE.shaderbook()->get("light_object"));
-
 			m_gui.render();
+		}
+
+		graphics::Camera3D& Scene3D::camera() noexcept
+		{
+			return m_camera;
 		}
 
 		nlohmann::json Scene3D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["name"]  = m_name;
+			/*
+						json["name"]  = m_name;
 			json["type"]  = "3D";
 			json["world"] = m_world.serialize();
 			json["theme"] = m_gui_theme.serialize();
 			json["gui"]   = m_gui.serialize();
+			*/
 
 			return json;
 		}
 
 		void Scene3D::deserialize(const nlohmann::json& json)
 		{
+			/*
 			m_name = json.at("name");
 
 			const auto world_json = json.at("world");
@@ -114,6 +89,7 @@ namespace galaxy
 			m_gui_theme.deserialize(json.at("theme"));
 			m_gui.set_theme(&m_gui_theme);
 			m_gui.deserialize(json.at("gui"));
+			*/
 		}
 	} // namespace scene
 } // namespace galaxy
