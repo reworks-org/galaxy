@@ -341,6 +341,16 @@ namespace galaxy
 			return m_pos;
 		}
 
+		const glm::vec3& Camera3D::get_focus() const noexcept
+		{
+			return m_focal;
+		}
+
+		const glm::vec3& Camera3D::get_dir() const noexcept
+		{
+			return m_dir;
+		}
+
 		nlohmann::json Camera3D::serialize()
 		{
 			nlohmann::json json = "{}"_json;

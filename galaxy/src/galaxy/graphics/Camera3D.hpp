@@ -199,6 +199,20 @@ namespace galaxy
 			[[nodiscard]] const glm::vec3& get_pos() const noexcept;
 
 			///
+			/// Get camera focus.
+			///
+			/// \return Const reference to a glm::vec3.
+			///
+			[[nodiscard]] const glm::vec3& get_focus() const noexcept;
+
+			///
+			/// Get camera direction.
+			///
+			/// \return Const reference to a glm::vec3.
+			///
+			[[nodiscard]] const glm::vec3& get_dir() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
