@@ -56,6 +56,19 @@ namespace s3d
 		m_dir_light.m_diffuse_intensity  = glm::vec3 {0.4f};
 		m_dir_light.m_specular_intensity = glm::vec3 {0.5f};
 
+		// Spot light.
+		m_spot_light.m_pos                = {1.0f, 2.0f, 1.0f};
+		m_spot_light.m_dir                = {-0.2f, -1.0f, -0.3f};
+		m_spot_light.m_ambient_intensity  = glm::vec3 {0.05f};
+		m_spot_light.m_diffuse_intensity  = glm::vec3 {0.4f};
+		m_spot_light.m_specular_intensity = glm::vec3 {0.5f};
+		m_spot_light.set_attunement(light::Point::Ranges::DIST_50);
+		m_spot_light.m_inner_cutoff = glm::cos(glm::radians(12.5f));
+		m_spot_light.m_outer_cutoff = glm::cos(glm::radians(15.0f));
+
+		m_spot_obj.m_pos = m_spot_light.m_pos;
+		m_spot_obj.create();
+
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 	}
 
@@ -91,9 +104,9 @@ namespace s3d
 
 	void Sandbox3D::render()
 	{
-		SL_HANDLE.window()->enable_back_cull();
-		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, m_scene->camera(), SL_HANDLE.shaderbook()->get("phong"));
+		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, &m_spot_light, m_scene->camera(), SL_HANDLE.shaderbook()->get("phong"));
 		RENDERER_3D().draw_light_object(&m_pl_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
+		RENDERER_3D().draw_light_object(&m_spot_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
 
 		m_scene_stack.render();
 	}

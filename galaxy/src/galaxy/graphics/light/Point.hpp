@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Point light in a shader.
 		///
-		class Point final : public Light
+		class Point : public Light
 		{
 		public:
 			///
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			glm::vec3 m_pos;
 
-		private:
+		protected:
 			///
 			/// Stored for info.
 			///

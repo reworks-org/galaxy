@@ -10,7 +10,7 @@
 
 #include <galaxy/core/Instance.hpp>
 #include <galaxy/graphics/light/Directional.hpp>
-#include <galaxy/graphics/light/Point.hpp>
+#include <galaxy/graphics/light/Spot.hpp>
 #include <galaxy/graphics/light/Object.hpp>
 #include <galaxy/graphics/model/Model.hpp>
 #include <galaxy/core/Window.hpp>
@@ -37,8 +37,10 @@ namespace s3d
 		graphics::Model m_model;
 		light::Point m_point_light;
 		light::Directional m_dir_light;
+		light::Spot m_spot_light;
 
 		light::Object m_pl_obj;
+		light::Object m_spot_obj;
 	};
 } // namespace s3d
 

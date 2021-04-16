@@ -22,6 +22,7 @@ namespace galaxy
 	{
 		class Directional;
 		class Point;
+		class Spot;
 		class Object;
 	} // namespace light
 
@@ -48,7 +49,7 @@ namespace galaxy
 			///
 			[[nodiscard]] static Renderer3D& inst() noexcept;
 
-			void draw_model(Model* model, light::Point* point, light::Directional* dir, Camera3D& camera, Shader* shader);
+			void draw_model(Model* model, light::Point* point, light::Directional* dir, light::Spot* spot, Camera3D& camera, Shader* shader);
 			void draw_light_object(light::Object* light, Camera3D& camera, Shader* shader);
 
 		private:
