@@ -28,8 +28,7 @@ set(GALAXY_COMPILE_FLAGS_RELEASE
     /MP
     /GF
     /EHsc
-    /fp:except
-    /fp:precise
+    /fp:fast
     /bigobj
     /Y-
     /w
@@ -42,4 +41,5 @@ set(GALAXY_COMPILE_FLAGS_RELEASE
     /Gy
     /GR-
     /Zc:preprocessor
+    /LTCG
 )
