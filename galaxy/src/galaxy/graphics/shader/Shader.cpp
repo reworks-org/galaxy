@@ -215,7 +215,7 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_WARNING, "Failed to find uniform: {0}.", name);
+					GALAXY_LOG(GALAXY_WARNING, "Failed to get uniform: {0}.", name);
 				}
 
 				return location;

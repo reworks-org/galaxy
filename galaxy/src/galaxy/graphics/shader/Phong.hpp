@@ -20,57 +20,105 @@ namespace galaxy
 		inline const std::string phong_frag = R"(
 			#version 450 core
 
-			struct Light
-			{
-				vec3 ambient_intensity;
-				vec3 diffuse_intensity;
-				vec3 specular_intensity;
-			};
+            #define ATTENUATION_CONSTANT 1.0
 
-			struct Material
-			{
-				vec3 ambient;
-				vec3 diffuse;
-				vec3 specular;
-				float shininess;
-			};
+            struct DirLight
+            {
+                vec3 ambient_intensity;
+                vec3 diffuse_intensity;
+                vec3 specular_intensity;
 
-			in vec2 io_texels;
-			in vec3 io_normals;
-			in vec3 io_frag_pos;
-			out vec4 io_frag_colour;
+                vec3 dir;
+            };
 
-			uniform vec3 u_light_pos;
-			uniform vec3 u_camera_pos;
+            struct PointLight
+            {
+                vec3 ambient_intensity;
+                vec3 diffuse_intensity;
+                vec3 specular_intensity;
 
-			uniform sampler2D tex_DIFFUSE1;
-			uniform sampler2D tex_SPECULAR1;
-			uniform sampler2D tex_NORMAL1;
-			
-			uniform Light light;
-			uniform Material material;
-			
-			void main()
-			{
-				vec4 diffmap = texture(tex_DIFFUSE1, io_texels);
+                vec3 pos;
+                float linear;
+                float quadratic;
+            };
 
-				vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
-				
-				vec3 norm = normalize(io_normals);
-				vec3 light_dir = normalize(u_light_pos - io_frag_pos);
+            struct Material
+            {
+                vec3 ambient;
+                vec3 diffuse;
+                vec3 specular;
+                float shininess;
+            };
 
-				float diff = max(dot(norm, light_dir), 0.0);
-				vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
-				
-				vec3 view_dir = normalize(u_camera_pos - io_frag_pos);
-				vec3 reflect_dir = reflect(-light_dir, norm);
+            vec3 calc_directional(DirLight light, vec3 normal, vec3 view_dir, vec4 diff_map, vec3 spec_map);
+            vec3 calc_point(PointLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec4 diff_map, vec3 spec_map);
 
-				float spec_calc = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
-				vec3 specular = light.specular_intensity * spec_calc * (material.specular * vec3(texture(tex_SPECULAR1, io_texels)));
+            in vec2 io_texels;
+            in vec3 io_normals;
+            in vec3 io_frag_pos;
+            out vec4 io_frag_colour;
 
-				vec3 result = ambient + diffuse + specular;
-				io_frag_colour = vec4(result, diff_map.a);
-			}
+            uniform vec3 u_camera_pos;
+
+            uniform sampler2D tex_DIFFUSE1;
+            uniform sampler2D tex_SPECULAR1;
+            uniform sampler2D tex_NORMAL1;
+
+            uniform Material material;
+
+            uniform DirLight dir_light;
+            uniform PointLight point_light;
+            
+            void main()
+            {
+                vec3 normals = normalize(io_normals);
+                vec3 view_dir = normalize(u_camera_pos - io_frag_pos);
+
+                vec4 diff_map = texture(tex_DIFFUSE1, io_texels);
+                vec3 spec_map = vec3(texture(tex_SPECULAR1, io_texels));
+
+                vec3 result = calc_directional(dir_light, normals, view_dir, diff_map, spec_map);
+                result += calc_point(point_light, normals, io_frag_pos, view_dir, diff_map, spec_map);
+
+                io_frag_colour = vec4(result, diff_map.a);
+            }
+
+            vec3 calc_directional(DirLight light, vec3 normal, vec3 view_dir, vec4 diff_map, vec3 spec_map)
+            {
+                vec3 light_dir = normalize(-light.dir);
+
+                float diff = max(dot(normal, light_dir), 0.0);
+                vec3 reflect_dir = reflect(-light_dir, normal);
+                float spec = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
+
+                vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
+                vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
+                vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+
+                return ambient + diffuse + specular;
+            }
+
+            vec3 calc_point(PointLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec4 diff_map, vec3 spec_map)
+            {
+                vec3 light_dir = normalize(light.pos - frag_pos);
+    
+                float diff = max(dot(normal, light_dir), 0.0);
+                vec3 reflect_dir = reflect(-light_dir, normal);
+                float spec = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
+
+                float dist    = length(light.pos - frag_pos);
+                float attenuation = 1.0 / (ATTENUATION_CONSTANT + light.linear * dist + light.quadratic * (dist * dist));
+
+                vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
+                vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
+                vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+
+                ambient  *= attenuation;
+                diffuse  *= attenuation;
+                specular *= attenuation;
+
+                return ambient + diffuse + specular;
+            }
 		)";
 	} // namespace shaders
 } // namespace galaxy

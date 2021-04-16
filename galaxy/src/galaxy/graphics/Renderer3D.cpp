@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/graphics/light/Directional.hpp"
 #include "galaxy/graphics/light/Point.hpp"
 #include "galaxy/graphics/light/Object.hpp"
 #include "galaxy/graphics/model/Model.hpp"
@@ -30,7 +31,7 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer3D::draw_model(Model* model, light::Point* light, Camera3D& camera, Shader* shader)
+		void Renderer3D::draw_model(Model* model, light::Point* point, light::Directional* dir, Camera3D& camera, Shader* shader)
 		{
 			auto transform = glm::mat4 {1.0f};
 			transform      = glm::translate(transform, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -39,15 +40,27 @@ namespace galaxy
 			glm::mat3 inverse = glm::transpose(glm::inverse(transform));
 
 			shader->bind();
+
+			// Vertex Uniforms.
 			shader->set_uniform("u_inverse_matrix", inverse);
 			shader->set_uniform("u_transform", transform);
 			shader->set_uniform("u_camera_proj", camera.get_proj());
 			shader->set_uniform("u_camera_view", camera.get_view());
+
+			// Fragment uniforms.
 			shader->set_uniform("u_camera_pos", camera.get_pos());
-			shader->set_uniform("light.ambient_intensity", light->m_ambient_intensity);
-			shader->set_uniform("light.diffuse_intensity", light->m_diffuse_intensity);
-			shader->set_uniform("light.specular_intensity", light->m_specular_intensity);
-			shader->set_uniform("u_light_pos", light->m_pos);
+
+			shader->set_uniform("point_light.ambient_intensity", point->m_ambient_intensity);
+			shader->set_uniform("point_light.diffuse_intensity", point->m_diffuse_intensity);
+			shader->set_uniform("point_light.specular_intensity", point->m_specular_intensity);
+			shader->set_uniform("point_light.pos", point->m_pos);
+			shader->set_uniform("point_light.linear", point->get_linear());
+			shader->set_uniform("point_light.quadratic", point->get_quadratic());
+
+			shader->set_uniform("dir_light.ambient_intensity", dir->m_ambient_intensity);
+			shader->set_uniform("dir_light.diffuse_intensity", dir->m_diffuse_intensity);
+			shader->set_uniform("dir_light.specular_intensity", dir->m_specular_intensity);
+			shader->set_uniform("dir_light.dir", dir->m_dir);
 
 			model->draw(shader);
 		}

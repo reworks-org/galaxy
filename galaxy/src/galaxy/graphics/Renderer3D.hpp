@@ -20,6 +20,7 @@ namespace galaxy
 
 	namespace light
 	{
+		class Directional;
 		class Point;
 		class Object;
 	} // namespace light
@@ -47,16 +48,7 @@ namespace galaxy
 			///
 			[[nodiscard]] static Renderer3D& inst() noexcept;
 
-			///
-			/// Draw a model to the screen.
-			///
-			/// \param model
-			/// \param light
-			/// \param camera
-			/// \param shader
-			///
-			void draw_model(Model* model, light::Point* light, Camera3D& camera, Shader* shader);
-
+			void draw_model(Model* model, light::Point* point, light::Directional* dir, Camera3D& camera, Shader* shader);
 			void draw_light_object(light::Object* light, Camera3D& camera, Shader* shader);
 
 		private:

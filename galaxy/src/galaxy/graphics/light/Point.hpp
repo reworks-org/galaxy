@@ -19,6 +19,7 @@ namespace galaxy
 		///
 		class Point final : public Light
 		{
+		public:
 			///
 			/// Different distances the light can be emitted out to.
 			///
@@ -59,16 +60,16 @@ namespace galaxy
 			///
 			/// Get linear attunement value.
 			///
-			/// \return Const double.
+			/// \return Const float.
 			///
-			[[nodiscard]] const double get_linear() const noexcept;
+			[[nodiscard]] const float get_linear() const noexcept;
 
 			///
 			/// Get quadratic attunement value.
 			///
-			/// \return Const double.
+			/// \return Const float.
 			///
-			[[nodiscard]] const double get_quadratic() const noexcept;
+			[[nodiscard]] const float get_quadratic() const noexcept;
 
 		public:
 			///
@@ -85,12 +86,12 @@ namespace galaxy
 			///
 			/// Linear attunement value.
 			///
-			double m_linear;
+			float m_linear;
 
 			///
 			/// Quadratic attunement value.
 			///
-			double m_quadratic;
+			float m_quadratic;
 		};
 	} // namespace light
 } // namespace galaxy
