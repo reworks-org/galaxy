@@ -30,6 +30,7 @@ namespace galaxy
 	{
 		class Model;
 		class Shader;
+		class Skybox;
 
 		///
 		/// OpenGL 3D renderer.
@@ -51,6 +52,7 @@ namespace galaxy
 
 			void draw_model(Model* model, light::Point* point, light::Directional* dir, light::Spot* spot, Camera3D& camera, Shader* shader);
 			void draw_light_object(light::Object* light, Camera3D& camera, Shader* shader);
+			void draw_skybox(Skybox* skybox, Camera3D& camera, Shader* shader);
 
 		private:
 			///

@@ -7,6 +7,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Renderer3D.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 #include "Scene3D.hpp"
 
@@ -55,12 +57,18 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
+			RENDERER_3D().draw_skybox(&m_skybox, m_camera, SL_HANDLE.shaderbook()->get("cubemap"));
 			m_gui.render();
 		}
 
 		graphics::Camera3D& Scene3D::camera() noexcept
 		{
 			return m_camera;
+		}
+
+		graphics::Skybox& Scene3D::skybox() noexcept
+		{
+			return m_skybox;
 		}
 
 		nlohmann::json Scene3D::serialize()

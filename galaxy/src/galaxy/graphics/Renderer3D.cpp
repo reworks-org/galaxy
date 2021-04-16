@@ -8,6 +8,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
+#include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/graphics/light/Directional.hpp"
 #include "galaxy/graphics/light/Spot.hpp"
 #include "galaxy/graphics/light/Object.hpp"
@@ -91,6 +92,20 @@ namespace galaxy
 
 			light->bind();
 			glDrawArrays(GL_TRIANGLES, 0, light->get_count());
+			light->unbind();
+		}
+
+		void Renderer3D::draw_skybox(Skybox* skybox, Camera3D& camera, Shader* shader)
+		{
+			shader->bind();
+
+			const auto view = glm::mat4 {glm::mat3 {camera.get_view()}};
+			shader->set_uniform("u_view_matrix", view);
+			shader->set_uniform("u_camera_proj", camera.get_proj());
+
+			skybox->bind();
+			glDrawArrays(GL_TRIANGLES, 0, 36);
+			skybox->unbind();
 		}
 	} // namespace graphics
 } // namespace galaxy

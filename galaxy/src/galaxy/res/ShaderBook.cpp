@@ -9,6 +9,7 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/graphics/shader/Cubemap.hpp"
 #include "galaxy/graphics/shader/DefaultFramebuffer.hpp"
 #include "galaxy/graphics/shader/Glyph.hpp"
 #include "galaxy/graphics/shader/Line.hpp"
@@ -94,6 +95,9 @@ namespace galaxy
 
 		void ShaderBook::create_default()
 		{
+			auto* cubemap = create("cubemap");
+			cubemap->load_raw(shaders::cubemap_vert, shaders::cubemap_frag);
+
 			auto* df = create("DefaultFramebuffer");
 			df->load_raw(shaders::default_framebuffer_vert, shaders::default_framebuffer_frag);
 

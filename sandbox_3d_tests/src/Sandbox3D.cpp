@@ -69,6 +69,20 @@ namespace s3d
 		m_spot_obj.m_pos = m_spot_light.m_pos;
 		m_spot_obj.create();
 
+		// clang-format off
+		// Must be in order: right, left, top, bottom, front, back.
+		std::array<std::string, 6> faces = {
+			"right.png",
+			"left.png",
+			"top.png",
+			"bottom.png",
+			"front.png",
+			"back.png"
+		};
+
+		// clang-format on
+		m_scene->skybox().load(faces);
+
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 	}
 

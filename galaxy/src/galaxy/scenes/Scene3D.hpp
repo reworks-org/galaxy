@@ -9,6 +9,7 @@
 #define GALAXY_SCENES_SCENE3D_HPP_
 
 #include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy
@@ -73,6 +74,13 @@ namespace galaxy
 			[[nodiscard]] graphics::Camera3D& camera() noexcept;
 
 			///
+			/// Get skybox.
+			///
+			/// \return Reference to scene skybox.
+			///
+			[[nodiscard]] graphics::Skybox& skybox() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -97,6 +105,11 @@ namespace galaxy
 			/// Scene camera.
 			///
 			graphics::Camera3D m_camera;
+
+			///
+			/// Scene skybox.
+			///
+			graphics::Skybox m_skybox;
 		};
 	} // namespace scene
 } // namespace galaxy
