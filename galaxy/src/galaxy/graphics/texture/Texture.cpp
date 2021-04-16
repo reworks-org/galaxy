@@ -59,6 +59,7 @@ namespace galaxy
 				{
 					// Gen texture into OpenGL.
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 					glGenerateMipmap(GL_TEXTURE_2D);
 
 					if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
@@ -68,7 +69,7 @@ namespace galaxy
 					}
 					else
 					{
-						set_minify_filter<NearestTexFilter>();
+						set_minify_filter<NearestMipmapFilter>();
 						set_magnify_filter<NearestTexFilter>();
 					}
 
@@ -95,6 +96,7 @@ namespace galaxy
 			{
 				// Gen texture into OpenGL.
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
 				if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
@@ -104,7 +106,7 @@ namespace galaxy
 				}
 				else
 				{
-					set_minify_filter<NearestTexFilter>();
+					set_minify_filter<NearestMipmapFilter>();
 					set_magnify_filter<NearestTexFilter>();
 				}
 
