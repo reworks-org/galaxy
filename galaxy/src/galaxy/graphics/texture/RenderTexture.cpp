@@ -145,6 +145,7 @@ namespace galaxy
 			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 			glViewport(0, 0, m_width, m_height);
 			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LEQUAL);
 
 			// Reset Colour, in prep for rendering.
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
