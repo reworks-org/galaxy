@@ -725,6 +725,29 @@ namespace galaxy
 			});
 		}
 
+		void Window::enable_front_cull() noexcept
+		{
+			glEnable(GL_CULL_FACE);
+			glCullFace(GL_FRONT);
+		}
+
+		void Window::enable_back_cull() noexcept
+		{
+			glEnable(GL_CULL_FACE);
+			glCullFace(GL_BACK);
+		}
+
+		void Window::enable_fandb_cull() noexcept
+		{
+			glEnable(GL_CULL_FACE);
+			glCullFace(GL_FRONT_AND_BACK);
+		}
+
+		void Window::disable_culling() noexcept
+		{
+			glDisable(GL_CULL_FACE);
+		}
+
 		void Window::begin()
 		{
 			m_framebuffer->bind();
@@ -733,6 +756,7 @@ namespace galaxy
 		void Window::end()
 		{
 			m_framebuffer->unbind();
+			disable_culling();
 
 			glViewport(0, 0, m_width, m_height);
 			glDisable(GL_DEPTH_TEST);

@@ -91,6 +91,7 @@ namespace s3d
 
 	void Sandbox3D::render()
 	{
+		SL_HANDLE.window()->enable_back_cull();
 		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, m_scene->camera(), SL_HANDLE.shaderbook()->get("phong"));
 		RENDERER_3D().draw_light_object(&m_pl_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
 

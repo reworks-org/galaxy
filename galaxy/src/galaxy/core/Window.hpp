@@ -198,6 +198,26 @@ namespace galaxy
 			void prevent_native_closing() noexcept;
 
 			///
+			/// Enable front face culling.
+			///
+			void enable_front_cull() noexcept;
+
+			///
+			/// Enable back face culling.
+			///
+			void enable_back_cull() noexcept;
+
+			///
+			/// Enable front and back face culling.
+			///
+			void enable_fandb_cull() noexcept;
+
+			///
+			/// Disable face culling.
+			///
+			void disable_culling() noexcept;
+
+			///
 			/// Clears the Rendering buffer.
 			///
 			void begin();
