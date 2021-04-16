@@ -44,9 +44,9 @@ namespace galaxy
 
             struct Material
             {
-                vec3 ambient;
-                vec3 diffuse;
-                vec3 specular;
+                //vec3 ambient;
+                //vec3 diffuse;
+                //vec3 specular;
                 float shininess;
             };
 
@@ -91,9 +91,13 @@ namespace galaxy
                 vec3 reflect_dir = reflect(-light_dir, normal);
                 float spec = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
 
-                vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
-                vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
-                vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+                //vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
+                //vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
+                //vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+
+                vec3 ambient = light.ambient_intensity * diff_map.rgb;
+                vec3 diffuse = light.diffuse_intensity * diff * diff_map.rgb;
+                vec3 specular = light.specular_intensity * spec * spec_map;
 
                 return ambient + diffuse + specular;
             }
@@ -109,9 +113,13 @@ namespace galaxy
                 float dist    = length(light.pos - frag_pos);
                 float attenuation = 1.0 / (ATTENUATION_CONSTANT + light.linear * dist + light.quadratic * (dist * dist));
 
-                vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
-                vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
-                vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+                //vec3 ambient = light.ambient_intensity * (material.ambient * diff_map.rgb);
+                //vec3 diffuse = light.diffuse_intensity * diff * (material.diffuse * diff_map.rgb);
+                //vec3 specular = light.specular_intensity * spec * (material.specular * spec_map);
+
+                vec3 ambient = light.ambient_intensity * diff_map.rgb;
+                vec3 diffuse = light.diffuse_intensity * diff * diff_map.rgb;
+                vec3 specular = light.specular_intensity * spec * spec_map;
 
                 ambient  *= attenuation;
                 diffuse  *= attenuation;
