@@ -45,14 +45,14 @@ namespace s3d
 		m_point_light.m_ambient_intensity  = glm::vec3 {0.05f};
 		m_point_light.m_diffuse_intensity  = glm::vec3 {0.4f};
 		m_point_light.m_specular_intensity = glm::vec3 {0.5f};
-		m_point_light.set_attunement(light::Point::Ranges::DIST_7);
+		m_point_light.set_attunement(light::Point::Ranges::DIST_600);
 
 		m_pl_obj.m_pos = m_point_light.m_pos;
 		m_pl_obj.create();
 
 		// Directional light.
 		m_dir_light.m_dir                = {-0.2f, -1.0f, -0.3f};
-		m_dir_light.m_ambient_intensity  = glm::vec3 {0.05f};
+		m_dir_light.m_ambient_intensity  = glm::vec3 {0.1f};
 		m_dir_light.m_diffuse_intensity  = glm::vec3 {0.4f};
 		m_dir_light.m_specular_intensity = glm::vec3 {0.5f};
 
