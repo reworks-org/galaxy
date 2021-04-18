@@ -57,7 +57,7 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
-			RENDERER_3D().draw_skybox(&m_skybox, m_camera, SL_HANDLE.shaderbook()->get("cubemap"));
+			RENDERER_3D().draw_skybox(&m_skybox, m_camera, SL_HANDLE.shaderbook()->get("skybox"));
 			m_gui.render();
 		}
 

@@ -1,8 +1,8 @@
 ///
-/// Cubemap.cpp
+/// Skybox.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Cubemap.hpp"
+#include "Skybox.hpp"

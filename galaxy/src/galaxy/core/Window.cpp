@@ -268,15 +268,12 @@ namespace galaxy
 							glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
 						}
 
-						// Enable MSAA.
+						// Configure global GL state.
 						glEnable(GL_MULTISAMPLE);
-
-						// Set up blending.
+						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_BLEND);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-						// Allow for changing vertex point size.
-						glEnable(GL_PROGRAM_POINT_SIZE);
 
 						m_mouse_map.reserve(12);
 						m_mouse_map.emplace(input::MouseButton::BUTTON_1, GLFW_MOUSE_BUTTON_1);

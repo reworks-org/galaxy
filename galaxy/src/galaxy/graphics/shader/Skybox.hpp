@@ -1,12 +1,12 @@
 ///
-/// Cubemap.hpp
+/// Skybox.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHADER_CUBEMAP_HPP_
-#define GALAXY_GRAPHICS_SHADER_CUBEMAP_HPP_
+#ifndef GALAXY_GRAPHICS_SHADER_SKYBOX_HPP_
+#define GALAXY_GRAPHICS_SHADER_SKYBOX_HPP_
 
 #include <string>
 
@@ -15,9 +15,9 @@ namespace galaxy
 	namespace shaders
 	{
 		///
-		/// Cubemap vertex shader.
+		/// Skybox vertex shader.
 		///
-		inline const std::string cubemap_vert = R"(
+		inline const std::string skybox_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec3 l_pos;
 
@@ -28,27 +28,27 @@ namespace galaxy
 
 			void main()
 			{
-				io_texels = l_pos;
-
+				io_texels = vec3(l_pos.xy, -l_pos.z);
+				
 				vec4 pos = u_camera_proj * u_view_matrix * vec4(l_pos, 1.0);
 				gl_Position = pos.xyww;
 			}
 		)";
 
 		///
-		/// Cubemap fragment shader.
+		/// Skybox fragment shader.
 		///
-		inline const std::string cubemap_frag = R"(
+		inline const std::string skybox_frag = R"(
 			#version 450 core
 
 			in vec3 io_texels;
 			out vec4 io_frag_colour;
 
-			uniform samplerCube cubemap;
+			uniform samplerCube skybox;
 
 			void main()
 			{
-				io_frag_colour = texture(cubemap, io_texels);
+				io_frag_colour = texture(skybox, io_texels);
 			}
 		)";
 	} // namespace shaders

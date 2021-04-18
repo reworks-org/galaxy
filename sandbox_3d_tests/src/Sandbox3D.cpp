@@ -79,10 +79,9 @@ namespace s3d
 			"front.png",
 			"back.png"
 		};
-
 		// clang-format on
-		m_scene->skybox().load(faces);
 
+		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 	}
 
