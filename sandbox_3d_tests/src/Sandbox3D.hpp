@@ -41,6 +41,8 @@ namespace s3d
 
 		light::Object m_pl_obj;
 		light::Object m_spot_obj;
+
+		std::string m_cur_shader;
 	};
 } // namespace s3d
 

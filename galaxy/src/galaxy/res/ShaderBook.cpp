@@ -9,6 +9,7 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/graphics/shader/BlinnPhong.hpp"
 #include "galaxy/graphics/shader/DefaultFramebuffer.hpp"
 #include "galaxy/graphics/shader/Glyph.hpp"
 #include "galaxy/graphics/shader/Line.hpp"
@@ -133,6 +134,9 @@ namespace galaxy
 
 			auto* light_object = create("light_object");
 			light_object->load_raw(shaders::light_object_vert, shaders::light_object_frag);
+
+			auto* blinn_phong = create("blinn_phong");
+			blinn_phong->load_raw(shaders::model_vert, shaders::blinnphong_frag);
 		}
 	} // namespace res
 } // namespace galaxy

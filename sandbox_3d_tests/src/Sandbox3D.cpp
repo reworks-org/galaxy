@@ -83,6 +83,8 @@ namespace s3d
 
 		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
+
+		m_cur_shader = "phong";
 	}
 
 	Sandbox3D::~Sandbox3D()
@@ -97,9 +99,16 @@ namespace s3d
 			m_window->close();
 		}
 
-		if (SL_HANDLE.window()->key_pressed(input::Keys::K))
+		if (m_window->key_pressed(input::Keys::TAB))
 		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			if (m_cur_shader == "phong")
+			{
+				m_cur_shader = "blinn_phong";
+			}
+			else
+			{
+				m_cur_shader = "phong";
+			}
 		}
 
 		m_scene_stack.events();
@@ -117,7 +126,7 @@ namespace s3d
 
 	void Sandbox3D::render()
 	{
-		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, &m_spot_light, m_scene->camera(), SL_HANDLE.shaderbook()->get("phong"));
+		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, &m_spot_light, m_scene->camera(), SL_HANDLE.shaderbook()->get(m_cur_shader));
 		RENDERER_3D().draw_light_object(&m_pl_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
 		RENDERER_3D().draw_light_object(&m_spot_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
 
