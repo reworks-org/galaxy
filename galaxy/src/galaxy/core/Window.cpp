@@ -108,6 +108,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, true);
+				glfwWindowHint(GLFW_SRGB_CAPABLE, true);
 
 				// Window maximized check.
 				if (settings.m_maximized)
@@ -757,6 +758,7 @@ namespace galaxy
 
 			glViewport(0, 0, m_width, m_height);
 			glDisable(GL_DEPTH_TEST);
+			glEnable(GL_FRAMEBUFFER_SRGB);
 
 			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 			glClear(GL_COLOR_BUFFER_BIT);

@@ -146,6 +146,7 @@ namespace galaxy
 			glViewport(0, 0, m_width, m_height);
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LEQUAL);
+			glDisable(GL_FRAMEBUFFER_SRGB);
 
 			// Reset Colour, in prep for rendering.
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);

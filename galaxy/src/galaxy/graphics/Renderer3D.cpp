@@ -60,8 +60,6 @@ namespace galaxy
 			shader->set_uniform("point_light.diffuse_intensity", point->m_diffuse_intensity);
 			shader->set_uniform("point_light.specular_intensity", point->m_specular_intensity);
 			shader->set_uniform("point_light.pos", point->m_pos);
-			shader->set_uniform("point_light.linear", point->get_linear());
-			shader->set_uniform("point_light.quadratic", point->get_quadratic());
 
 			shader->set_uniform("dir_light.ambient_intensity", dir->m_ambient_intensity);
 			shader->set_uniform("dir_light.diffuse_intensity", dir->m_diffuse_intensity);
@@ -73,8 +71,6 @@ namespace galaxy
 			shader->set_uniform("spot_light.specular_intensity", spot->m_specular_intensity);
 			shader->set_uniform("spot_light.pos", spot->m_pos);
 			shader->set_uniform("spot_light.dir", spot->m_dir);
-			shader->set_uniform("spot_light.linear", spot->get_linear());
-			shader->set_uniform("spot_light.quadratic", spot->get_quadratic());
 			shader->set_uniform("spot_light.inner_cutoff", spot->m_inner_cutoff);
 			shader->set_uniform("spot_light.outer_cutoff", spot->m_outer_cutoff);
 

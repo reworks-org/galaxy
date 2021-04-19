@@ -45,7 +45,6 @@ namespace s3d
 		m_point_light.m_ambient_intensity  = glm::vec3 {0.05f};
 		m_point_light.m_diffuse_intensity  = glm::vec3 {0.4f};
 		m_point_light.m_specular_intensity = glm::vec3 {0.5f};
-		m_point_light.set_attunement(light::Point::Ranges::DIST_50);
 
 		m_pl_obj.m_pos = m_point_light.m_pos;
 		m_pl_obj.create();
@@ -62,9 +61,8 @@ namespace s3d
 		m_spot_light.m_ambient_intensity  = glm::vec3 {0.05f};
 		m_spot_light.m_diffuse_intensity  = glm::vec3 {0.4f};
 		m_spot_light.m_specular_intensity = glm::vec3 {0.5f};
-		m_spot_light.set_attunement(light::Point::Ranges::DIST_50);
-		m_spot_light.m_inner_cutoff = glm::cos(glm::radians(12.5f));
-		m_spot_light.m_outer_cutoff = glm::cos(glm::radians(15.0f));
+		m_spot_light.m_inner_cutoff       = glm::cos(glm::radians(12.5f));
+		m_spot_light.m_outer_cutoff       = glm::cos(glm::radians(15.0f));
 
 		m_spot_obj.m_pos = m_spot_light.m_pos;
 		m_spot_obj.create();
@@ -84,7 +82,7 @@ namespace s3d
 		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 
-		m_cur_shader = "phong";
+		m_cur_shader = "blinn_phong";
 	}
 
 	Sandbox3D::~Sandbox3D()

@@ -57,7 +57,6 @@ namespace galaxy
 
 				if (data)
 				{
-					// Gen texture into OpenGL.
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 					glGenerateMipmap(GL_TEXTURE_2D);
@@ -94,7 +93,6 @@ namespace galaxy
 
 			if (data)
 			{
-				// Gen texture into OpenGL.
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 				glGenerateMipmap(GL_TEXTURE_2D);
