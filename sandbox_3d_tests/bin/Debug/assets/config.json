@@ -12,7 +12,7 @@
     "log-perf": false,
     "max-batched-quads": 4096,
     "maximized": false,
-    "mouse-sensitivity": 0.05,
+    "mouse-sensitivity": 0.35,
     "musicbook-json": "musicbook.json",
     "raw-mouse-input": true,
     "scriptbook-json": "scriptbook.json",

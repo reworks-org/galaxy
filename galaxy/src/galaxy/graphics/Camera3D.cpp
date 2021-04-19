@@ -181,16 +181,14 @@ namespace galaxy
 
 			if (m_mode == Mode::FREE)
 			{
-				// Different so it staggers rather than repeats.
-				// This is to allow easier movement of up and down axis.
 				if (e.m_keycode == m_up_key)
 				{
-					m_delta += (m_up * m_speed);
+					m_moving_up = true;
 				}
 
 				if (e.m_keycode == m_down_key)
 				{
-					m_delta -= (m_up * m_speed);
+					m_moving_down = true;
 				}
 			}
 		}
@@ -216,6 +214,19 @@ namespace galaxy
 			{
 				m_moving_right = false;
 			}
+
+			if (m_mode == Mode::FREE)
+			{
+				if (e.m_keycode == m_up_key)
+				{
+					m_moving_up = false;
+				}
+
+				if (e.m_keycode == m_down_key)
+				{
+					m_moving_down = false;
+				}
+			}
 		}
 
 		void Camera3D::on_event(const events::MouseMoved& e) noexcept
@@ -223,8 +234,8 @@ namespace galaxy
 			const glm::vec3 new_pos = {e.m_x, e.m_y, 0.0f};
 			const glm::vec3 delta   = m_mouse_pos - new_pos;
 
-			heading((delta.x * m_sensitivity) * (m_speed / 100.0f));
-			pitch((delta.y * m_sensitivity) * (m_speed / 100.0f));
+			heading(delta.x * (m_sensitivity / 1000.0f));
+			pitch(delta.y * (m_sensitivity / 1000.0f));
 
 			m_mouse_pos = new_pos;
 		}
@@ -234,13 +245,14 @@ namespace galaxy
 			if (m_mode == Mode::FREE)
 			{
 				m_fov -= e.m_y_offset;
-				if (m_fov > 110.0f)
-				{
-					m_fov = 110.0f;
-				}
-				else if (m_fov < 45.0f)
+
+				if (m_fov < 45.0f)
 				{
 					m_fov = 45.0f;
+				}
+				else if (m_fov > 110.0f)
+				{
+					m_fov = 110.0f;
 				}
 			}
 		}
@@ -274,11 +286,20 @@ namespace galaxy
 				m_delta += (glm::cross(m_dir, m_up) * velocity);
 			}
 
-			m_dir = glm::normalize(m_focal - m_pos);
+			m_dir  = glm::normalize(m_focal - m_pos);
+			m_proj = glm::perspective(glm::radians(m_fov), m_aspect_ratio, m_near, m_far);
 
 			if (m_mode == Mode::FREE)
 			{
-				m_proj = glm::perspective(m_fov, m_aspect_ratio, m_near, m_far);
+				if (m_moving_up)
+				{
+					m_delta += (m_up * velocity);
+				}
+
+				if (m_moving_down)
+				{
+					m_delta -= (m_up * velocity);
+				}
 
 				glm::vec3 axis         = glm::cross(m_dir, m_up);
 				glm::quat pitch_quat   = glm::angleAxis(m_pitch, axis);

@@ -241,6 +241,8 @@ namespace galaxy
 			bool m_moving_back  = false;
 			bool m_moving_left  = false;
 			bool m_moving_right = false;
+			bool m_moving_up    = false;
+			bool m_moving_down  = false;
 
 			float m_aspect_ratio;
 			float m_fov  = 45.0f;
