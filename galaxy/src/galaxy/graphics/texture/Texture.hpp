@@ -81,6 +81,13 @@ namespace galaxy
 			///
 			void unbind() noexcept override;
 
+			///
+			/// Check if texture has been loaded.
+			///
+			/// \return True if load() or load_mem() has been successfully called.
+			///
+			[[nodiscard]] const bool is_loaded() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -91,6 +98,12 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Texture& operator=(const Texture&) = delete;
+
+		private:
+			///
+			/// Is texture loaded flag.
+			///
+			bool m_loaded;
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -22,13 +22,14 @@ namespace galaxy
 	namespace graphics
 	{
 		Texture::Texture() noexcept
-		    : BaseTexture {}
+		    : BaseTexture {}, m_loaded {false}
 		{
 		}
 
 		Texture::Texture(Texture&& t) noexcept
 		    : BaseTexture {std::move(t)}
 		{
+			this->m_loaded = t.m_loaded;
 		}
 
 		Texture& Texture::operator=(Texture&& t) noexcept
@@ -36,6 +37,8 @@ namespace galaxy
 			if (this != &t)
 			{
 				BaseTexture::operator=(std::move(t));
+
+				this->m_loaded = t.m_loaded;
 			}
 
 			return *this;
@@ -73,6 +76,7 @@ namespace galaxy
 					}
 
 					clamp_to_border();
+					m_loaded = true;
 				}
 				else
 				{
@@ -109,6 +113,7 @@ namespace galaxy
 				}
 
 				clamp_to_border();
+				m_loaded = true;
 			}
 			else
 			{
@@ -129,6 +134,7 @@ namespace galaxy
 			m_height  = height;
 
 			m_shared = true;
+			m_loaded = true;
 		}
 
 		void Texture::bind() noexcept
@@ -139,6 +145,11 @@ namespace galaxy
 		void Texture::unbind() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		const bool Texture::is_loaded() const noexcept
+		{
+			return m_loaded;
 		}
 	} // namespace graphics
 } // namespace galaxy
