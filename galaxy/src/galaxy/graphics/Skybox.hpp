@@ -16,7 +16,7 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		///
+		/// Standard cubemap style skybox implementation.
 		///
 		class Skybox final
 		{
