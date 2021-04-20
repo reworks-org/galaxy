@@ -131,6 +131,17 @@ namespace galaxy
 
 		private:
 			///
+			/// Copy constructor.
+			///
+			Animated(const Animated&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Animated& operator=(const Animated&) = delete;
+
+		private:
+			///
 			/// Current active animation.
 			///
 			graphics::Animation* m_active_anim;
