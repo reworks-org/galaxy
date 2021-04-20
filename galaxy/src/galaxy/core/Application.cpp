@@ -110,6 +110,12 @@ namespace galaxy
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
 				m_config->define<std::string>("spritebatch-shader", "spritebatch");
+				m_config->define<std::string>("key-forward", "W");
+				m_config->define<std::string>("key-back", "S");
+				m_config->define<std::string>("key-left", "A");
+				m_config->define<std::string>("key-right", "D");
+				m_config->define<std::string>("key-freecam-up", "Q");
+				m_config->define<std::string>("key-freecam-down", "E");
 			}
 			m_config->save();
 

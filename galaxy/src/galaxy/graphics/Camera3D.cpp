@@ -25,20 +25,7 @@ namespace galaxy
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
 			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
 
-			m_pos       = {0.0f, 0.0f, 0.0f};
-			m_delta     = {0.0f, 0.0f, 0.0f};
-			m_focal     = {0.0f, 0.0f, 0.0f};
-			m_dir       = {0.0f, 0.0f, 0.0f};
-			m_up        = {0.0f, 1.0f, 0.0f};
-			m_mouse_pos = {0.0f, 0.0f, 0.0f};
-
-			m_moving_fwd   = false;
-			m_moving_back  = false;
-			m_moving_left  = false;
-			m_moving_right = false;
-
-			m_view = glm::mat4 {1.0f};
-			m_proj = glm::mat4 {1.0f};
+			reset();
 		}
 
 		Camera3D::Camera3D(const nlohmann::json& json)
@@ -46,21 +33,6 @@ namespace galaxy
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
 			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
-
-			m_pos       = {0.0f, 0.0f, 0.0f};
-			m_delta     = {0.0f, 0.0f, 0.0f};
-			m_focal     = {0.0f, 0.0f, 0.0f};
-			m_dir       = {0.0f, 0.0f, 0.0f};
-			m_up        = {0.0f, 1.0f, 0.0f};
-			m_mouse_pos = {0.0f, 0.0f, 0.0f};
-
-			m_moving_fwd   = false;
-			m_moving_back  = false;
-			m_moving_left  = false;
-			m_moving_right = false;
-
-			m_view = glm::mat4 {1.0f};
-			m_proj = glm::mat4 {1.0f};
 
 			deserialize(json);
 		}
@@ -106,13 +78,15 @@ namespace galaxy
 
 		void Camera3D::pitch(float degrees) noexcept
 		{
-			if (degrees < -m_max_pitch_rate)
+			const constexpr auto max_pitch_rate = 5.0f;
+
+			if (degrees < -max_pitch_rate)
 			{
-				degrees = -m_max_pitch_rate;
+				degrees = -max_pitch_rate;
 			}
-			else if (degrees > m_max_pitch_rate)
+			else if (degrees > max_pitch_rate)
 			{
-				degrees = m_max_pitch_rate;
+				degrees = max_pitch_rate;
 			}
 
 			m_pitch += degrees;
@@ -129,13 +103,15 @@ namespace galaxy
 
 		void Camera3D::heading(float degrees) noexcept
 		{
-			if (degrees < -m_max_heading_rate)
+			const constexpr auto max_heading_rate = 5.0f;
+
+			if (degrees < -max_heading_rate)
 			{
-				degrees = -m_max_heading_rate;
+				degrees = -max_heading_rate;
 			}
-			else if (degrees > m_max_heading_rate)
+			else if (degrees > max_heading_rate)
 			{
-				degrees = m_max_heading_rate;
+				degrees = max_heading_rate;
 			}
 
 			if (m_pitch > 90 && m_pitch < 270 || (m_pitch < -90 && m_pitch > -270))
@@ -244,15 +220,18 @@ namespace galaxy
 		{
 			if (m_mode == Mode::FREE)
 			{
+				const constexpr auto min_fov = 45.0f;
+				const constexpr auto max_fov = 110.0f;
+
 				m_fov -= e.m_y_offset;
 
-				if (m_fov < 45.0f)
+				if (m_fov < min_fov)
 				{
-					m_fov = 45.0f;
+					m_fov = min_fov;
 				}
-				else if (m_fov > 110.0f)
+				else if (m_fov > max_fov)
 				{
-					m_fov = 110.0f;
+					m_fov = max_fov;
 				}
 			}
 		}
@@ -320,14 +299,12 @@ namespace galaxy
 
 		void Camera3D::reset() noexcept
 		{
-			float m_fov  = 45.0f;
-			float m_near = 0.1f;
-			float m_far  = 100.0f;
+			m_fov  = 45.0f;
+			m_near = 0.1f;
+			m_far  = 100.0f;
 
-			float m_heading          = 0.0f;
-			float m_pitch            = 0.0f;
-			float m_max_pitch_rate   = 5.0f;
-			float m_max_heading_rate = 5.0f;
+			m_heading = 0.0f;
+			m_pitch   = 0.0f;
 
 			m_pos       = {0.0f, 0.0f, 0.0f};
 			m_delta     = {0.0f, 0.0f, 0.0f};
@@ -340,11 +317,13 @@ namespace galaxy
 			m_moving_back  = false;
 			m_moving_left  = false;
 			m_moving_right = false;
+			m_moving_up    = false;
+			m_moving_down  = false;
 
 			m_view = glm::mat4 {1.0f};
 			m_proj = glm::mat4 {1.0f};
 
-			float m_speed = 1.0f;
+			m_speed = 1.0f;
 		}
 
 		const glm::mat4& Camera3D::get_view() const noexcept
@@ -360,16 +339,6 @@ namespace galaxy
 		const glm::vec3& Camera3D::get_pos() const noexcept
 		{
 			return m_pos;
-		}
-
-		const glm::vec3& Camera3D::get_focus() const noexcept
-		{
-			return m_focal;
-		}
-
-		const glm::vec3& Camera3D::get_dir() const noexcept
-		{
-			return m_dir;
 		}
 
 		nlohmann::json Camera3D::serialize()

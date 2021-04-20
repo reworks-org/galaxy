@@ -7,10 +7,12 @@
 
 #include <iostream>
 
+#include <magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/Enabled.hpp>
+#include <galaxy/fs/Config.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/graphics/Renderer2D.hpp>
 #include <galaxy/graphics/shader/Shader.hpp>
@@ -25,6 +27,11 @@ using namespace galaxy;
 using namespace std::chrono_literals;
 
 ui::Progressbar* progressbar;
+
+input::Keys parse_key(const std::string& key)
+{
+	return magic_enum::enum_cast<input::Keys>(key).value();
+}
 
 namespace sb
 {
@@ -204,6 +211,11 @@ namespace sb
 					break;
 			}
 		});
+
+		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		sandbox->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		sandbox->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_physics_scene()
@@ -241,6 +253,11 @@ namespace sb
 					break;
 			}
 		});
+
+		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		physics->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		physics->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_map_scene()
@@ -262,5 +279,10 @@ namespace sb
 					break;
 			}
 		});
+
+		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		map->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		map->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 } // namespace sb

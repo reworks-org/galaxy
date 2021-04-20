@@ -199,20 +199,6 @@ namespace galaxy
 			[[nodiscard]] const glm::vec3& get_pos() const noexcept;
 
 			///
-			/// Get camera focus.
-			///
-			/// \return Const reference to a glm::vec3.
-			///
-			[[nodiscard]] const glm::vec3& get_focus() const noexcept;
-
-			///
-			/// Get camera direction.
-			///
-			/// \return Const reference to a glm::vec3.
-			///
-			[[nodiscard]] const glm::vec3& get_dir() const noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -227,44 +213,150 @@ namespace galaxy
 			void deserialize(const nlohmann::json& json) override;
 
 		public:
+			///
+			/// Forward key binding.
+			///
 			input::Keys m_forward_key = input::Keys::W;
-			input::Keys m_back_key    = input::Keys::S;
-			input::Keys m_left_key    = input::Keys::A;
-			input::Keys m_right_key   = input::Keys::D;
-			input::Keys m_up_key      = input::Keys::Q;
-			input::Keys m_down_key    = input::Keys::E;
+
+			///
+			/// Backward key binding.
+			///
+			input::Keys m_back_key = input::Keys::S;
+
+			///
+			/// Left key binding.
+			///
+			input::Keys m_left_key = input::Keys::A;
+
+			///
+			/// Right key binding.
+			///
+			input::Keys m_right_key = input::Keys::D;
+
+			///
+			/// "Free" camera up key.
+			///
+			input::Keys m_up_key = input::Keys::Q;
+
+			///
+			/// "Free" camera down key.
+			///
+			input::Keys m_down_key = input::Keys::E;
 
 		private:
+			///
+			/// Camera mode. Affects calculations to simulate camera movement style.
+			///
 			Mode m_mode = Mode::FREE;
 
-			bool m_moving_fwd   = false;
-			bool m_moving_back  = false;
-			bool m_moving_left  = false;
+			///
+			/// Moving forward flag.
+			///
+			bool m_moving_fwd = false;
+
+			///
+			/// Moving back flag.
+			///
+			bool m_moving_back = false;
+
+			///
+			/// Moving left flag.
+			///
+			bool m_moving_left = false;
+
+			///
+			/// Moving right flag.
+			///
 			bool m_moving_right = false;
-			bool m_moving_up    = false;
-			bool m_moving_down  = false;
 
+			///
+			/// Moving up flag.
+			///
+			bool m_moving_up = false;
+
+			///
+			/// Moving down flag.
+			///
+			bool m_moving_down = false;
+
+			///
+			/// Screen aspect ratio.
+			///
 			float m_aspect_ratio;
-			float m_fov  = 45.0f;
+
+			///
+			/// Camera FOV.
+			///
+			float m_fov = 45.0f;
+
+			///
+			/// Camera near plane.
+			///
 			float m_near = 0.1f;
-			float m_far  = 100.0f;
 
-			float m_heading          = 0.0f;
-			float m_pitch            = 0.0f;
-			float m_max_pitch_rate   = 5.0f;
-			float m_max_heading_rate = 5.0f;
+			///
+			/// Camera far plane.
+			///
+			float m_far = 100.0f;
 
+			///
+			/// Camera heading.
+			///
+			float m_heading = 0.0f;
+
+			///
+			/// Camera pitch.
+			///
+			float m_pitch = 0.0f;
+
+			///
+			/// Camera world position.
+			///
 			glm::vec3 m_pos;
+
+			///
+			/// Camera delta calculation.
+			///
 			glm::vec3 m_delta;
+
+			///
+			/// Camera focal point.
+			///
 			glm::vec3 m_focal;
+
+			///
+			/// Camera view direction.
+			///
 			glm::vec3 m_dir;
+
+			///
+			/// Camera up vector.
+			///
 			glm::vec3 m_up;
+
+			///
+			/// Camera mouse position.
+			///
 			glm::vec3 m_mouse_pos;
 
-			float m_speed = 1.0f;
+			///
+			/// Camera movement speed.
+			///
+			float m_speed;
+
+			///
+			/// Camera mouse movement speed.
+			///
 			float m_sensitivity;
 
+			///
+			/// Camera view matrix.
+			///
 			glm::mat4 m_view;
+
+			///
+			/// Camera projection matrix.
+			///
 			glm::mat4 m_proj;
 		};
 	} // namespace graphics

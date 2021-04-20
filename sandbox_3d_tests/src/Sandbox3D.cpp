@@ -5,14 +5,22 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <magic_enum.hpp>
+
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/fs/Config.hpp>
 #include <galaxy/graphics/Renderer3D.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 
 #include "Sandbox3D.hpp"
 
 using namespace galaxy;
+
+input::Keys parse_key(const std::string& key)
+{
+	return magic_enum::enum_cast<input::Keys>(key).value();
+}
 
 namespace s3d
 {
@@ -22,12 +30,12 @@ namespace s3d
 
 		m_scene = m_scene_stack.create<scene::Scene3D>("Sandbox3DScene");
 
-		m_scene->camera().m_forward_key = input::Keys::W;
-		m_scene->camera().m_back_key    = input::Keys::S;
-		m_scene->camera().m_left_key    = input::Keys::A;
-		m_scene->camera().m_right_key   = input::Keys::D;
-		m_scene->camera().m_up_key      = input::Keys::Q;
-		m_scene->camera().m_down_key    = input::Keys::E;
+		m_scene->camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		m_scene->camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		m_scene->camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		m_scene->camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		m_scene->camera().m_up_key      = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-up"));
+		m_scene->camera().m_down_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-down"));
 
 		m_scene->camera().set_mode(graphics::Camera3D::Mode::FREE);
 		m_scene->camera().set_position({0.0f, 0.0f, 3.0f});

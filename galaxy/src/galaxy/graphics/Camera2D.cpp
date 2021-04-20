@@ -56,45 +56,47 @@ namespace galaxy
 
 		void Camera2D::on_event(const events::KeyDown& e) noexcept
 		{
-			switch (e.m_keycode)
+			if (e.m_keycode == m_forward_key)
 			{
-				case input::Keys::W:
-					m_move_up = true;
-					break;
+				m_move_up = true;
+			}
 
-				case input::Keys::S:
-					m_move_down = true;
-					break;
+			if (e.m_keycode == m_back_key)
+			{
+				m_move_down = true;
+			}
 
-				case input::Keys::A:
-					m_move_left = true;
-					break;
+			if (e.m_keycode == m_left_key)
+			{
+				m_move_left = true;
+			}
 
-				case input::Keys::D:
-					m_move_right = true;
-					break;
+			if (e.m_keycode == m_right_key)
+			{
+				m_move_right = true;
 			}
 		}
 
 		void Camera2D::on_event(const events::KeyUp& e) noexcept
 		{
-			switch (e.m_keycode)
+			if (e.m_keycode == m_forward_key)
 			{
-				case input::Keys::W:
-					m_move_up = false;
-					break;
+				m_move_up = false;
+			}
 
-				case input::Keys::S:
-					m_move_down = false;
-					break;
+			if (e.m_keycode == m_back_key)
+			{
+				m_move_down = false;
+			}
 
-				case input::Keys::A:
-					m_move_left = false;
-					break;
+			if (e.m_keycode == m_left_key)
+			{
+				m_move_left = false;
+			}
 
-				case input::Keys::D:
-					m_move_right = false;
-					break;
+			if (e.m_keycode == m_right_key)
+			{
+				m_move_right = false;
 			}
 		}
 

@@ -257,6 +257,27 @@ namespace galaxy
 			///
 			void recalculate() noexcept;
 
+		public:
+			///
+			/// Forward key binding.
+			///
+			input::Keys m_forward_key = input::Keys::W;
+
+			///
+			/// Backward key binding.
+			///
+			input::Keys m_back_key = input::Keys::S;
+
+			///
+			/// Left key binding.
+			///
+			input::Keys m_left_key = input::Keys::A;
+
+			///
+			/// Right key binding.
+			///
+			input::Keys m_right_key = input::Keys::D;
+
 		private:
 			///
 			/// Update flag.

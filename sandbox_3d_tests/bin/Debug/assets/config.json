@@ -24,5 +24,11 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox 3D Tests",
-    "window-width": 1280
+    "window-width": 1280,
+    "key-forward": "W",
+	"key-back": "S",
+	"key-left": "A",
+	"key-right": "D",
+	"key-freecam-up": "Q",
+	"key-freecam-down": "E"
 }
