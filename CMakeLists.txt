@@ -4,6 +4,13 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
 endif()
 
+# Force set cmake vars
+set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE TYPE INTERNAL FORCE)
+set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE TYPE INTERNAL FORCE)
+set(CMAKE_SYSTEM_VERSION 10.0 (latest installed version) CACHE TYPE INTERNAL FORCE)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE TYPE INTERNAL FORCE)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
 project(galaxy_engine LANGUAGES C CXX)
 message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
 
@@ -57,15 +64,9 @@ else()
 		"Release"
 		CACHE STRING "" FORCE
 	)
-	set(CMAKE_SYSTEM_VERSION 10.0.19041.0)
-	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
-	set(VS_WINDOWS_TARGET_PLATFORM_MIN_VERSION 10.0.19041.0)
-	set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0)
-	set (CMAKE_SYSTEM_VERSION 10.0 (latest installed version))
-	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 	set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
 	set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
-	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 	set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
 	set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
 	set(LIB_FILE_EXT "lib")
