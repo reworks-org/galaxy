@@ -73,6 +73,13 @@ namespace galaxy
 			virtual void clear() override;
 
 			///
+			/// Get size of set.
+			///
+			/// \return Const unsigned int.
+			///
+			[[nodiscard]] const unsigned int get_size() const noexcept override;
+
+			///
 			/// Retrieve internal component array.
 			///
 			/// \return Const reference to a std::vector.
@@ -181,6 +188,12 @@ namespace galaxy
 			m_keymap.clear();
 
 			m_count = 0;
+		}
+
+		template<meta::is_class Component>
+		inline const unsigned int ComponentSet<Component>::get_size() const noexcept
+		{
+			return m_components.size();
 		}
 
 		template<meta::is_class Component>

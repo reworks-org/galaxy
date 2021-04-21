@@ -57,6 +57,13 @@ namespace galaxy
 			///
 			virtual void clear() = 0;
 
+			///
+			/// Get size of set.
+			///
+			/// \return Const unsigned int.
+			///
+			[[nodiscard]] virtual const unsigned int get_size() const noexcept = 0;
+
 		protected:
 			///
 			/// Constructor.
