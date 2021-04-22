@@ -15,7 +15,7 @@
             "font":"public16",
             "text":"Demo"
         },
-        "Transform": {
+        "Transform2D": {
             "x": 512,
             "y": 512,
             "rotation": 45

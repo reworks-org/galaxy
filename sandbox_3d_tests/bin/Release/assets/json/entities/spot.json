@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "allow-serialize": true,
+    "components": {
+        "SpotLight": {
+            "ambient": {
+                "r": 0.05,
+                "g": 0.05,
+                "b": 0.05
+            },
+            "diffuse": {
+                "r": 0.4,
+                "g": 0.4,
+                "b": 0.4
+            },
+            "specular": {
+                "r": 0.5,
+                "g": 0.5,
+                "b": 0.5
+            },
+            "position": {
+                "x": 1.0,
+                "y": 2.0,
+                "z": 1.0
+            },
+            "direction": {
+                "x": -0.2,
+                "y": -1.0,
+                "z": -0.3
+            },
+            "inner-cutoff": 12.5,
+            "outer-cutoff": 15.0
+        }
+    }
+}

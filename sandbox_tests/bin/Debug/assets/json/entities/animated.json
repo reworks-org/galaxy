@@ -9,7 +9,7 @@
 			"texture-atlas-id": "walk1",
 			"opacity": 1.0
 		},
-		"Transform": {
+		"Transform2D": {
 			"x": 500,
 			"y": 500,
 			"rotation": 0

@@ -9,6 +9,12 @@
     "gl-debug": true,
     "icon-file": "icon.png",
     "is-cursor-visible": false,
+    "key-back": "S",
+    "key-forward": "W",
+    "key-freecam-down": "E",
+    "key-freecam-up": "Q",
+    "key-left": "A",
+    "key-right": "D",
     "log-perf": false,
     "max-batched-quads": 4096,
     "maximized": false,
@@ -24,11 +30,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox 3D Tests",
-    "window-width": 1280,
-    "key-forward": "W",
-	"key-back": "S",
-	"key-left": "A",
-	"key-right": "D",
-	"key-freecam-up": "Q",
-	"key-freecam-down": "E"
+    "window-width": 1280
 }

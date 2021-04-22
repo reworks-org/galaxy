@@ -9,7 +9,7 @@
         	"texture-atlas-id": "wall",
         	"opacity": 1.0
         },
-        "Transform": {
+        "Transform2D": {
             "x": 0,
             "y": 0,
             "rotation": 0

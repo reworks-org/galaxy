@@ -9,7 +9,7 @@
         	"texture-atlas-id": "cube",
         	"opacity": 1.0
         },
-        "Transform": {
+        "Transform2D": {
         	"x": 250,
             "y": 10,
             "rotation": 0
