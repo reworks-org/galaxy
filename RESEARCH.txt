@@ -67,3 +67,7 @@ https://docs.unity3d.com/560/Documentation/Manual/MonoDevelop.html
 https://docs.unity3d.com/Manual/ManagedCodeDebugging.html
 https://docs.godotengine.org/en/stable/getting_started/step_by_step/scenes_and_nodes.html
 https://docs.godotengine.org/en/stable/index.html
+
+https://www.khronos.org/opengl/wiki/Shader_Subroutine
+https://www.lighthouse3d.com/tutorials/glsl-tutorial/subroutines/
+https://www.geeks3d.com/20140701/opengl-4-shader-subroutines-introduction-3d-programming-tutorial/

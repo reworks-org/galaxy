@@ -1,0 +1,8 @@
+On model load:
+	Static meshes cant be transformed
+	Dynamic meshes can be
+	Sort mesh(s) by material
+	Batch meshs together
+	Run through MeshOptimizer
+	Draw
+	https://docs.unity3d.com/Manual/DrawCallBatching.html

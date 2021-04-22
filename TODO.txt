@@ -51,3 +51,18 @@ EXPORTING:
 		std::string m_main_code;
 	}
 	*/
+
+TODO:
+- Update unit tests, sandbox tests and script support for new content.
+- Add option for World::OPerate() to be run in parallell. Only contents of lambda is parallell.
+- Reflection Mapping https://learnopengl.com/Advanced-OpenGL/Cubemaps
+	- Environment Mapping 
+		- Reflection
+		- Refraction
+- Geometry Shading https://learnopengl.com/Advanced-OpenGL/Geometry-Shader
+- Instancing (particles) https://learnopengl.com/Advanced-OpenGL/Instancing
+	- Instance Rendering for 3D
+- Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
+
+
+https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping

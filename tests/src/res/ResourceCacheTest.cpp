@@ -6,7 +6,6 @@
 ///
 
 #include <gtest/gtest.h>
-
 #include <galaxy/res/ResourceCache.hpp>
 
 struct DemoRes
@@ -34,15 +33,6 @@ struct Cache : public galaxy::res::ResourceCache<DemoRes>
 	void clear() noexcept override
 	{
 		m_resources.clear();
-	}
-
-	nlohmann::json serialize() override
-	{
-		return {};
-	}
-
-	void deserialize(const nlohmann::json& json) override
-	{
 	}
 };
 
