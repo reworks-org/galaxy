@@ -18,10 +18,11 @@ namespace galaxy
 		/// Processess for an OpenAL error.
 		///
 		/// \param message Message to print alongside OpenAL error.
+		/// \param error OpenAL error value.
 		///
 		/// \return String containing full error message.
 		///
-		[[nodiscard]] std::string al_parse_error(std::string_view message);
+		[[nodiscard]] std::string al_parse_error(std::string_view message, const int error);
 
 		///
 		/// Retrieve error code value as string.

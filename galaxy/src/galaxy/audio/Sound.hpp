@@ -118,11 +118,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Sound& operator=(const Sound&) = delete;
-
-			///
-			/// Destroy sound data.
-			///
-			void destroy();
 		};
 	} // namespace audio
 } // namespace galaxy

@@ -52,21 +52,21 @@ namespace galaxy
 			///
 			/// Audio pitch.
 			///
-			/// \param pitch Multiplier value. I.e. 0.5f is a *0.5 multiplier.
+			/// \param pitch Multiplier value. I.e. 0.5f is a *0.5 multiplier. 0.0f - 10.0f.
 			///
 			void set_pitch(const float pitch);
 
 			///
 			/// Audio gain.
 			///
-			/// \param gain Multiplier value. I.e. 0.5f is a *0.5 multiplier.
+			/// \param gain Multiplier value. I.e. 0.5f is a *0.5 multiplier. 0.0f - 10.0f.
 			///
 			void set_gain(const float gain);
 
 			///
 			/// \brief Set RollOff factor for source.
 			///
-			/// \param factor Floating point factor value.
+			/// \param factor Floating point factor value. 0.0f - 10.0f.
 			///
 			void set_rolloff_factor(const float factor);
 

@@ -38,16 +38,6 @@ namespace galaxy
 			virtual ~Buffer();
 
 			///
-			/// Clear data.
-			///
-			void clear_buffer();
-
-			///
-			/// Clears then reallocates OpenAL buffers (not audio file).
-			///
-			void reset_buffer();
-
-			///
 			/// Get frequency of buffer.
 			///
 			/// \return Frequency as integer.

@@ -25,39 +25,27 @@ namespace galaxy
 		{
 			// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
 			alGenBuffers(1, &m_buffer);
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer."));
+				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer.", error));
 			}
 		}
 
 		Buffer::~Buffer()
 		{
-			clear_buffer();
-		}
-
-		void Buffer::clear_buffer()
-		{
-			if (m_buffer != 0)
+			if (m_buffer > 0)
 			{
 				alDeleteBuffers(1, &m_buffer);
-				if (alGetError() != AL_NO_ERROR)
+
+				const auto error = alGetError();
+				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s)."));
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s).", error));
 				}
 
 				m_buffer = 0;
-			}
-		}
-
-		void Buffer::reset_buffer()
-		{
-			clear_buffer();
-
-			alGenBuffers(1, &m_buffer);
-			if (alGetError() != AL_NO_ERROR)
-			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer."));
 			}
 		}
 
@@ -100,11 +88,6 @@ namespace galaxy
 
 		const bool Buffer::internal_load(std::string_view file)
 		{
-			if (m_buffer != 0)
-			{
-				reset_buffer();
-			}
-
 			bool result     = true;
 			const auto path = SL_HANDLE.vfs()->absolute(file);
 

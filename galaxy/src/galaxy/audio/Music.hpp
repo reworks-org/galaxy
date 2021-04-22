@@ -126,11 +126,6 @@ namespace galaxy
 			///
 			void update();
 
-			///
-			/// Destroy music data.
-			///
-			void destroy();
-
 		private:
 			///
 			/// Looping flag.

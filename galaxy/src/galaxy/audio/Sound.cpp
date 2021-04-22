@@ -29,7 +29,8 @@ namespace galaxy
 
 		Sound::~Sound()
 		{
-			destroy();
+			stop();
+			alSourceUnqueueBuffers(m_source.handle(), 1, &m_buffer);
 		}
 
 		void Sound::play()
@@ -50,12 +51,12 @@ namespace galaxy
 
 		const bool Sound::load(std::string_view file)
 		{
-			destroy();
-
 			const auto res = internal_load(file);
 			if (res)
 			{
-				set_max_distance(1000.0f);
+				m_filename = static_cast<std::string>(file);
+
+				set_max_distance(100.0f);
 				m_source.queue(this);
 			}
 
@@ -65,20 +66,23 @@ namespace galaxy
 		void Sound::set_looping(const bool looping)
 		{
 			alSourcei(m_source.handle(), AL_LOOPING, looping);
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source looping."));
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source looping.", error));
 			}
 		}
 
 		const bool Sound::get_looping()
 		{
 			int looping = 0;
-
 			alGetSourcei(m_source.handle(), AL_LOOPING, &looping);
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source looping."));
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source looping.", error));
 			}
 
 			return static_cast<bool>(looping);
@@ -126,7 +130,8 @@ namespace galaxy
 
 		void Sound::deserialize(const nlohmann::json& json)
 		{
-			if (load(json.at("file")))
+			m_filename = json.at("file");
+			if (load(m_filename))
 			{
 				set_looping(json.at("looping"));
 				set_pitch(json.at("pitch"));
@@ -159,12 +164,6 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Unable to load sound effect: {0}.", std::string {json.at("file")});
 			}
-		}
-
-		void Sound::destroy()
-		{
-			stop();
-			alSourceUnqueueBuffers(m_source.handle(), 1, &m_buffer);
 		}
 	} // namespace audio
 } // namespace galaxy

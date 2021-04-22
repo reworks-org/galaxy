@@ -19,16 +19,21 @@ namespace galaxy
 		{
 			// Create source and check for error. Only create 1 source since source is being managed per object.
 			alGenSources(1, &m_source);
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen source."));
+				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen source.", error));
 			}
 		}
 
 		Source::~Source()
 		{
-			alDeleteSources(1, &m_source);
-			m_source = 0;
+			if (m_source > 0)
+			{
+				alDeleteSources(1, &m_source);
+				m_source = 0;
+			}
 		}
 
 		void Source::queue(Buffer* buffer)
@@ -40,9 +45,11 @@ namespace galaxy
 			else
 			{
 				alSourcei(m_source, AL_BUFFER, buffer->handle());
-				if (alGetError() != AL_NO_ERROR)
+
+				const auto error = alGetError();
+				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to bind buffer."));
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to bind buffer.", error));
 				}
 			}
 		}
@@ -56,9 +63,11 @@ namespace galaxy
 			else
 			{
 				alSourceQueueBuffers(m_source, 2, &stream_buffer->m_buffers[0]);
-				if (alGetError() != AL_NO_ERROR)
+
+				const auto error = alGetError();
+				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue stream buffer."));
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue stream buffer.", error));
 				}
 			}
 		}
@@ -73,9 +82,11 @@ namespace galaxy
 			});
 
 			alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue buffer(s)."));
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue buffer(s).", error));
 			}
 		}
 
@@ -88,9 +99,11 @@ namespace galaxy
 			else
 			{
 				alSourceQueueBuffers(m_source, static_cast<ALsizei>(buffer_array.size()), buffer_array.data());
-				if (alGetError() != AL_NO_ERROR)
+
+				const auto error = alGetError();
+				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue buffer(s)."));
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue buffer(s).", error));
 				}
 			}
 		}
@@ -99,9 +112,11 @@ namespace galaxy
 		{
 			ALint val = 0;
 			alGetSourcei(m_source, AL_SOURCE_STATE, &val);
-			if (alGetError() != AL_NO_ERROR)
+
+			const auto error = alGetError();
+			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get AL_SOURCE_STATE."));
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get AL_SOURCE_STATE.", error));
 			}
 
 			return val;

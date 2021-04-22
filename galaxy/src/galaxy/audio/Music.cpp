@@ -28,7 +28,17 @@ namespace galaxy
 
 		Music::~Music()
 		{
-			destroy();
+			m_running = false;
+			m_looping = false;
+
+			if (m_thread.joinable())
+			{
+				m_thread.request_stop();
+				m_thread.join();
+			}
+
+			alSourceStop(m_source.handle());
+			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
 		}
 
 		void Music::play()
@@ -60,12 +70,11 @@ namespace galaxy
 
 		const bool Music::load(std::string_view file)
 		{
-			destroy();
-
 			const auto res = internal_load(file);
 			if (res)
 			{
-				set_max_distance(1000.0f);
+				m_filename = static_cast<std::string>(file);
+				set_max_distance(100.0f);
 
 				m_source.queue(this);
 				m_running = true;
@@ -136,7 +145,8 @@ namespace galaxy
 
 		void Music::deserialize(const nlohmann::json& json)
 		{
-			if (load(json.at("file")))
+			m_filename = json.at("file");
+			if (load(m_filename))
 			{
 				set_looping(json.at("looping"));
 				set_pitch(json.at("pitch"));
@@ -167,7 +177,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Unable to load music: {0}.", std::string {json.at("file")});
+				GALAXY_LOG(GALAXY_ERROR, "Unable to load music: {0}.", json.at("file").get<std::string>());
 			}
 		}
 
@@ -197,21 +207,6 @@ namespace galaxy
 					}
 				}
 			}
-		}
-
-		void Music::destroy()
-		{
-			m_running = false;
-			m_looping = false;
-
-			if (m_thread.joinable())
-			{
-				m_thread.request_stop();
-				m_thread.join();
-			}
-
-			alSourceStop(m_source.handle());
-			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
 		}
 	} // namespace audio
 } // namespace galaxy
