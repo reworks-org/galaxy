@@ -21,13 +21,18 @@ namespace galaxy
 			#version 450 core
 			layout(location = 0) in vec3 l_pos;
 
+			layout (std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_view;
+				mat4 u_camera_proj;
+				vec3 u_camera_pos;
+			};
+
 			uniform mat4 u_transform;
-			uniform mat4 u_cameraView;
-			uniform mat4 u_cameraProj;
 
 			void main()
 			{
-				gl_Position = u_cameraProj * u_cameraView * u_transform * vec4(l_pos, 1.0);
+				gl_Position = u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 1.0);
 			}
 		)";
 

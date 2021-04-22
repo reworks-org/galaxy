@@ -30,12 +30,8 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "galaxy/graphics/animation/Animation.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/graphics/Rect.hpp"
-#include "galaxy/graphics/shader/Shader.hpp"
+#include "galaxy/graphics/Camera3D.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 
@@ -43,15 +39,18 @@
 #include "galaxy/physics/BodyType.hpp"
 #include "galaxy/physics/SATObject.hpp"
 
+#include "galaxy/platform/Platform.hpp"
+
 #include "galaxy/scripting/JSONUtils.hpp"
 #include "galaxy/scripting/LoadedScript.hpp"
 
 #include "galaxy/res/FontBook.hpp"
-#include "galaxy/res/ShaderBook.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
-#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/MaterialBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
 #include "galaxy/res/ScriptBook.hpp"
+#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/TextureAtlas.hpp"
 
 #include "LuaUtils.hpp"
 
@@ -92,38 +91,6 @@ nlohmann::json parse_json(std::string_view json)
 	return nlohmann::json::parse(json);
 }
 
-// BEGIN SHADER FUNCTIONS
-
-void set_int_uniform(galaxy::graphics::Shader& shader, std::string_view name, const int val)
-{
-	shader.set_uniform("name", val);
-}
-
-void set_float_uniform(galaxy::graphics::Shader& shader, std::string_view name, const float val)
-{
-	shader.set_uniform("name", val);
-}
-
-void set_uint_uniform(galaxy::graphics::Shader& shader, std::string_view name, const unsigned int val)
-{
-	shader.set_uniform("name", val);
-}
-
-void set_vec2_uniform(galaxy::graphics::Shader& shader, std::string_view name, const glm::vec2& val)
-{
-	shader.set_uniform("name", val);
-}
-
-void set_vec3_uniform(galaxy::graphics::Shader& shader, std::string_view name, const glm::vec3& val)
-{
-	shader.set_uniform("name", val);
-}
-
-void set_vec4_uniform(galaxy::graphics::Shader& shader, std::string_view name, const glm::vec4& val)
-{
-	shader.set_uniform("name", val);
-}
-
 namespace galaxy
 {
 	namespace lua
@@ -141,6 +108,7 @@ namespace galaxy
 			lua->set_function("galaxy_decode_base64", &algorithm::decode_base64);
 			lua->set_function("galaxy_decode_zlib", &algorithm::decode_zlib);
 			lua->set_function("galaxy_decode_gzip", &algorithm::decode_gzip);
+			lua->set_function("galaxy_encode_zlib", &algorithm::encode_zlib);
 
 			// Error handling.
 			lua->set_function("galaxy_log", &log_wrapper);
@@ -372,6 +340,7 @@ namespace galaxy
 			dispatcher_type["trigger_mouse_pressed"]  = &events::Dispatcher::trigger<events::MousePressed, const float, const float, const input::MouseButton>;
 			dispatcher_type["trigger_mouse_released"] = &events::Dispatcher::trigger<events::MouseReleased, const float, const float, const input::MouseButton>;
 			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const double, const double>;
+			dispatcher_type["tigger_window_resized"]  = &events::Dispatcher::trigger<events::WindowResized, const int, const int>;
 		}
 
 		void register_fs()
@@ -398,115 +367,82 @@ namespace galaxy
 			config_type["get_float"]  = &fs::Config::get<float>;
 			config_type["get_string"] = &fs::Config::get<std::string>;
 
-			auto fs_type           = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::no_constructor);
-			fs_type["open"]        = &fs::Virtual::open;
-			fs_type["save"]        = &fs::Virtual::save;
-			fs_type["absolute"]    = &fs::Virtual::absolute;
-			fs_type["create_file"] = &fs::Virtual::create_file;
+			auto fs_type                  = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::no_constructor);
+			fs_type["absolute"]           = &fs::Virtual::absolute;
+			fs_type["create_file"]        = &fs::Virtual::create_file;
+			fs_type["open"]               = &fs::Virtual::open;
+			fs_type["open_binary"]        = &fs::Virtual::open_binary;
+			fs_type["open_with_dialog"]   = &fs::Virtual::open_with_dialog;
+			fs_type["save"]               = &fs::Virtual::save;
+			fs_type["save_binary"]        = &fs::Virtual::save_binary;
+			fs_type["save_with_dialog"]   = &fs::Virtual::save_with_dialog;
+			fs_type["show_folder_dialog"] = &fs::Virtual::show_folder_dialog;
+			fs_type["show_open_dialog"]   = &fs::Virtual::show_open_dialog;
+			fs_type["show_save_dialog"]   = &fs::Virtual::show_save_dialog;
 		}
 
 		void register_graphics()
 		{
 			auto lua = SL_HANDLE.lua();
 
-			// clang-format off
-			lua->new_enum<graphics::Renderables>("gRenderables",
-			{
-				{"POINT", graphics::Renderables::POINT},
-				{"LINE", graphics::Renderables::LINE},
-				{"LINE_LOOP", graphics::Renderables::LINE_LOOP},
-				{"BATCHED", graphics::Renderables::BATCHED},
-				{"TEXT", graphics::Renderables::TEXT},
-				{"SPRITE", graphics::Renderables::SPRITE}
-			});
+			auto camera_type_2d          = lua->new_usertype<graphics::Camera2D>("gCamera2D", sol::constructors<graphics::Camera2D(), graphics::Camera2D(const float, const float, const float, const float, const float)>());
+			camera_type_2d["create"]     = &graphics::Camera2D::create;
+			camera_type_2d["update"]     = &graphics::Camera2D::update;
+			camera_type_2d["move"]       = &graphics::Camera2D::move;
+			camera_type_2d["move_x"]     = &graphics::Camera2D::move_x;
+			camera_type_2d["move_y"]     = &graphics::Camera2D::move_y;
+			camera_type_2d["zoom"]       = &graphics::Camera2D::zoom;
+			camera_type_2d["set_pos"]    = &graphics::Camera2D::set_pos;
+			camera_type_2d["set_pos_x"]  = &graphics::Camera2D::set_pos_x;
+			camera_type_2d["set_pos_y"]  = &graphics::Camera2D::set_pos_y;
+			camera_type_2d["set_speed"]  = &graphics::Camera2D::set_speed;
+			camera_type_2d["set_width"]  = &graphics::Camera2D::set_width;
+			camera_type_2d["set_height"] = &graphics::Camera2D::set_height;
+			camera_type_2d["get_speed"]  = &graphics::Camera2D::get_speed;
+			camera_type_2d["get_width"]  = &graphics::Camera2D::get_width;
+			camera_type_2d["get_height"] = &graphics::Camera2D::get_height;
+			camera_type_2d["is_dirty"]   = &graphics::Camera2D::is_dirty;
+			camera_type_2d["get_view"]   = &graphics::Camera2D::get_view;
+			camera_type_2d["get_scale"]  = &graphics::Camera2D::get_scale;
+			camera_type_2d["get_pos"]    = &graphics::Camera2D::get_pos;
+			camera_type_2d["get_proj"]   = &graphics::Camera2D::get_proj;
 
-			lua->new_enum<graphics::Primitives>("gPrimitives",
+			auto camera_type_data      = lua->new_usertype<graphics::Camera3D::Data>("gCamera3DData", sol::constructors<graphics::Camera3D::Data()>());
+			camera_type_data["m_pos"]  = &graphics::Camera3D::Data::m_pos;
+			camera_type_data["m_proj"] = &graphics::Camera3D::Data::m_proj;
+			camera_type_data["m_view"] = &graphics::Camera3D::Data::m_view;
+
+			// clang-format off
+			lua->new_enum<graphics::Camera3D::Mode>("gCamera3DMode",
 			{
-				{"CIRCLE", graphics::Primitives::CIRCLE},
-				{"ELLIPSE", graphics::Primitives::ELLIPSE},
-				{"LINE", graphics::Primitives::LINE},
-				{"POINT", graphics::Primitives::POINT},
-				{"POLYLINE", graphics::Primitives::POLYLINE},
-				{"POLYGON", graphics::Primitives::POLYGON}
+				{"FIRST",graphics::Camera3D::Mode::FIRST},
+				{"THIRD", graphics::Camera3D::Mode::THIRD},
+				{"FREE", graphics::Camera3D::Mode::FREE}
 			});
 			// clang-format on
 
-			auto colour_type        = lua->new_usertype<graphics::Colour>("gColour", sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
-			colour_type["r"]        = &graphics::Colour::m_red;
-			colour_type["g"]        = &graphics::Colour::m_green;
-			colour_type["b"]        = &graphics::Colour::m_blue;
-			colour_type["a"]        = &graphics::Colour::m_alpha;
-			colour_type["r_normal"] = &graphics::Colour::r_normal;
-			colour_type["g_normal"] = &graphics::Colour::g_normal;
-			colour_type["b_normal"] = &graphics::Colour::b_normal;
-			colour_type["a_normal"] = &graphics::Colour::a_normal;
-
-			auto irect_type              = lua->new_usertype<graphics::iRect>("giRect", sol::constructors<graphics::iRect(), graphics::iRect(int, int, int, int)>());
-			irect_type["contains_point"] = sol::resolve<const bool(const int, const int)>(&graphics::iRect::contains);
-			irect_type["contains_rect"]  = sol::resolve<const bool(const graphics::iRect&)>(&graphics::iRect::contains);
-			irect_type["overlaps"]       = &graphics::iRect::overlaps;
-			irect_type["x"]              = &graphics::iRect::m_x;
-			irect_type["y"]              = &graphics::iRect::m_y;
-			irect_type["w"]              = &graphics::iRect::m_width;
-			irect_type["h"]              = &graphics::iRect::m_height;
-
-			auto frect_type              = lua->new_usertype<graphics::fRect>("gfRect", sol::constructors<graphics::fRect(), graphics::fRect(float, float, float, float)>());
-			frect_type["contains_point"] = sol::resolve<const bool(const float, const float)>(&graphics::fRect::contains);
-			frect_type["contains_rect"]  = sol::resolve<const bool(const graphics::fRect&)>(&graphics::fRect::contains);
-			frect_type["overlaps"]       = &graphics::fRect::overlaps;
-			frect_type["x"]              = &graphics::fRect::m_x;
-			frect_type["y"]              = &graphics::fRect::m_y;
-			frect_type["w"]              = &graphics::fRect::m_width;
-			frect_type["h"]              = &graphics::fRect::m_height;
-
-			auto shader_type         = lua->new_usertype<graphics::Shader>("gShader", sol::constructors<graphics::Shader()>());
-			shader_type["load_path"] = &graphics::Shader::load_path;
-			shader_type["load_raw"]  = &graphics::Shader::load_raw;
-			shader_type["bind"]      = &graphics::Shader::bind;
-			shader_type["unbind"]    = &graphics::Shader::unbind;
-			shader_type["is_loaded"] = &graphics::Shader::is_loaded;
-
-			lua->set_function("gShader_set_int", &set_int_uniform);
-			lua->set_function("gShader_set_float", &set_float_uniform);
-			lua->set_function("gShader_set_uint", &set_uint_uniform);
-			lua->set_function("gShader_set_vec2", &set_vec2_uniform);
-			lua->set_function("gShader_set_vec3", &set_vec3_uniform);
-			lua->set_function("gShader_set_vec4", &set_vec4_uniform);
-
-			auto camera_type             = lua->new_usertype<graphics::Camera2D>("gCamera2D", sol::constructors<graphics::Camera2D(), graphics::Camera2D(const float, const float, const float, const float, const float)>());
-			camera_type["create"]        = &graphics::Camera2D::create;
-			camera_type["get_height"]    = &graphics::Camera2D::get_height;
-			camera_type["get_pos"]       = &graphics::Camera2D::get_pos;
-			camera_type["get_scale"]     = &graphics::Camera2D::get_scale;
-			camera_type["get_speed"]     = &graphics::Camera2D::get_speed;
-			camera_type["get_width"]     = &graphics::Camera2D::get_width;
-			camera_type["is_dirty"]      = &graphics::Camera2D::is_dirty;
-			camera_type["move"]          = &graphics::Camera2D::move;
-			camera_type["zoom"]          = &graphics::Camera2D::zoom;
-			camera_type["set_pos"]       = &graphics::Camera2D::set_pos;
-			camera_type["set_speed"]     = &graphics::Camera2D::set_speed;
-			camera_type["update"]        = &graphics::Camera2D::update;
-			camera_type["get_proj"]      = &graphics::Camera2D::get_proj;
-			camera_type["get_transform"] = &graphics::Camera2D::get_view;
-			camera_type["move_x"]        = &graphics::Camera2D::move_x;
-			camera_type["move_y"]        = &graphics::Camera2D::move_y;
-			camera_type["set_width"]     = &graphics::Camera2D::set_width;
-			camera_type["set_height"]    = &graphics::Camera2D::set_height;
-
-			auto frame_type              = lua->new_usertype<graphics::Frame>("gFrame", sol::constructors<graphics::Frame(), graphics::Frame(const graphics::fRect&, const double)>());
-			frame_type["set_region"]     = &graphics::Frame::set_region;
-			frame_type["get_region"]     = &graphics::Frame::get_region;
-			frame_type["get_region_id"]  = &graphics::Frame::get_region_id;
-			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
-
-			auto animation_type                 = lua->new_usertype<graphics::Animation>("gAnimation", sol::no_constructor);
-			animation_type["get_current_frame"] = &graphics::Animation::get_current_frame;
-			animation_type["get_name"]          = &graphics::Animation::get_name;
-			animation_type["get_speed"]         = &graphics::Animation::get_speed;
-			animation_type["get_total_frames"]  = &graphics::Animation::get_total_frames;
-			animation_type["is_looping"]        = &graphics::Animation::is_looping;
-			animation_type["next_frame"]        = &graphics::Animation::next_frame;
-			animation_type["restart"]           = &graphics::Animation::restart;
+			auto camera_type_3d             = lua->new_usertype<graphics::Camera3D>("gCamera3D", sol::constructors<graphics::Camera3D()>());
+			camera_type_3d["get_data"]      = &graphics::Camera3D::get_data;
+			camera_type_3d["get_pos"]       = &graphics::Camera3D::get_pos;
+			camera_type_3d["get_proj"]      = &graphics::Camera3D::get_proj;
+			camera_type_3d["get_view"]      = &graphics::Camera3D::get_view;
+			camera_type_3d["heading"]       = &graphics::Camera3D::heading;
+			camera_type_3d["m_back_key"]    = &graphics::Camera3D::m_back_key;
+			camera_type_3d["m_down_key"]    = &graphics::Camera3D::m_down_key;
+			camera_type_3d["m_forward_key"] = &graphics::Camera3D::m_forward_key;
+			camera_type_3d["m_left_key"]    = &graphics::Camera3D::m_left_key;
+			camera_type_3d["m_right_key"]   = &graphics::Camera3D::m_right_key;
+			camera_type_3d["m_up_key"]      = &graphics::Camera3D::m_up_key;
+			camera_type_3d["pitch"]         = &graphics::Camera3D::pitch;
+			camera_type_3d["reset"]         = &graphics::Camera3D::reset;
+			camera_type_3d["set_far"]       = &graphics::Camera3D::set_far;
+			camera_type_3d["set_focal"]     = &graphics::Camera3D::set_focal;
+			camera_type_3d["set_fov"]       = &graphics::Camera3D::set_fov;
+			camera_type_3d["set_mode"]      = &graphics::Camera3D::set_mode;
+			camera_type_3d["set_near"]      = &graphics::Camera3D::set_near;
+			camera_type_3d["set_position"]  = &graphics::Camera3D::set_position;
+			camera_type_3d["set_speed"]     = &graphics::Camera3D::set_speed;
+			camera_type_3d["update"]        = &graphics::Camera3D::update;
 		}
 
 		void register_mapping()
@@ -524,26 +460,30 @@ namespace galaxy
 			world_map_type["load"]    = &map::TiledWorld::load;
 			world_map_type["parse"]   = &map::TiledWorld::parse;
 			world_map_type["get_map"] = &map::TiledWorld::get_map;
+			world_map_type["clear"]   = &map::TiledWorld::clear;
 		}
 
 		void register_math()
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto vec2_type = lua->new_usertype<glm::vec2>("gVec2", sol::constructors<glm::vec2(), glm::vec2(float, float)>());
+			auto vec2_type = lua->new_usertype<glm::vec2>("gVec2", sol::constructors<glm::vec2()>());
 			vec2_type["x"] = &glm::vec2::x;
 			vec2_type["y"] = &glm::vec2::y;
 
-			auto vec3_type = lua->new_usertype<glm::vec3>("gVec3", sol::constructors<glm::vec3(), glm::vec3(float, float, float)>());
+			auto vec3_type = lua->new_usertype<glm::vec3>("gVec3", sol::constructors<glm::vec3()>());
 			vec3_type["x"] = &glm::vec3::x;
 			vec3_type["y"] = &glm::vec3::y;
 			vec3_type["z"] = &glm::vec3::z;
 
-			auto vec4_type = lua->new_usertype<glm::vec4>("gVec4", sol::constructors<glm::vec4(), glm::vec4(float, float, float, float)>());
+			auto vec4_type = lua->new_usertype<glm::vec4>("gVec4", sol::constructors<glm::vec4()>());
 			vec4_type["x"] = &glm::vec4::x;
 			vec4_type["y"] = &glm::vec4::y;
 			vec4_type["z"] = &glm::vec4::z;
 			vec4_type["w"] = &glm::vec4::w;
+
+			auto mat3_type = lua->new_usertype<glm::mat3>("gMat3", sol::constructors<glm::mat3()>());
+			auto mat4_type = lua->new_usertype<glm::mat4>("gMat4", sol::constructors<glm::mat4()>());
 		}
 
 		void register_physics()
@@ -557,57 +497,66 @@ namespace galaxy
 				{"STATIC", physics::BodyType::STATIC}
 			});
 			// clang-format on
+		}
 
-			auto aabb_type            = lua->new_usertype<physics::AABB>("gAABB", sol::constructors<physics::AABB(), physics::AABB(const glm::vec2&, const glm::vec2&)>());
-			aabb_type["area"]         = &physics::AABB::area;
-			aabb_type["compute_area"] = &physics::AABB::compute_area;
-			aabb_type["contains"]     = &physics::AABB::contains;
-			aabb_type["fatten"]       = &physics::AABB::fatten;
-			aabb_type["max"]          = &physics::AABB::max;
-			aabb_type["min"]          = &physics::AABB::min;
-			aabb_type["overlaps"]     = &physics::AABB::overlaps;
-			aabb_type["size"]         = &physics::AABB::size;
-			aabb_type["update_area"]  = &physics::AABB::update_area;
-			lua->set_function("galaxy_merge_aabbs", &physics::AABB::merge);
+		void register_platform()
+		{
+			auto lua = SL_HANDLE.lua();
+
+			lua->set_function("configure_terminal", &platform::configure_terminal);
+			lua->set_function("run_process", &platform::run_process);
+			lua->set_function("close_process", &platform::close_process);
 		}
 
 		void register_res()
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto shaderbook_type                = lua->new_usertype<res::ShaderBook>("gShaderBook", sol::no_constructor);
-			shaderbook_type["create_from_json"] = &res::ShaderBook::create_from_json;
-			shaderbook_type["get"]              = &res::ShaderBook::get;
-			shaderbook_type["clear"]            = &res::ShaderBook::clear;
-
 			auto fontbook_type                = lua->new_usertype<res::FontBook>("gFontBook", sol::no_constructor);
 			fontbook_type["create_from_json"] = &res::FontBook::create_from_json;
 			fontbook_type["get"]              = &res::FontBook::get;
 			fontbook_type["clear"]            = &res::FontBook::clear;
+			fontbook_type["has"]              = &res::FontBook::has;
 
-			auto tex_atlas_type                 = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
-			tex_atlas_type["add"]               = &res::TextureAtlas::add;
-			tex_atlas_type["create"]            = &res::TextureAtlas::create;
-			tex_atlas_type["get_size"]          = &res::TextureAtlas::get_size;
-			tex_atlas_type["get_region"]        = &res::TextureAtlas::get_region;
-			tex_atlas_type["save"]              = &res::TextureAtlas::save;
-			tex_atlas_type["update"]            = &res::TextureAtlas::update;
-			tex_atlas_type["add_custom_region"] = &res::TextureAtlas::add_custom_region;
-
-			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::no_constructor);
-			soundbook_type["create_from_json"] = &res::SoundBook::create_from_json;
-			soundbook_type["get"]              = &res::SoundBook::get;
-			soundbook_type["clear"]            = &res::SoundBook::clear;
+			auto materialbook_type     = lua->new_usertype<res::MaterialBook>("gMaterialBook", sol::no_constructor);
+			materialbook_type["get"]   = &res::MaterialBook::get;
+			materialbook_type["clear"] = &res::MaterialBook::clear;
+			materialbook_type["has"]   = &res::MaterialBook::has;
 
 			auto musicbook_type                = lua->new_usertype<res::MusicBook>("gMusicBook", sol::no_constructor);
 			musicbook_type["create_from_json"] = &res::MusicBook::create_from_json;
 			musicbook_type["get"]              = &res::MusicBook::get;
 			musicbook_type["clear"]            = &res::MusicBook::clear;
+			musicbook_type["has"]              = &res::MusicBook::has;
 
 			auto scriptbook_type                = lua->new_usertype<res::ScriptBook>("gScriptBook", sol::no_constructor);
 			scriptbook_type["create_from_json"] = &res::ScriptBook::create_from_json;
 			scriptbook_type["clear"]            = &res::ScriptBook::clear;
 			scriptbook_type["get"]              = &res::ScriptBook::get;
+			scriptbook_type["has"]              = &res::ScriptBook::has;
+
+			auto shaderbook_type                = lua->new_usertype<res::ShaderBook>("gShaderBook", sol::no_constructor);
+			shaderbook_type["create_from_json"] = &res::ShaderBook::create_from_json;
+			shaderbook_type["get"]              = &res::ShaderBook::get;
+			shaderbook_type["clear"]            = &res::ShaderBook::clear;
+			shaderbook_type["has"]              = &res::ShaderBook::has;
+
+			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::no_constructor);
+			soundbook_type["create_from_json"] = &res::SoundBook::create_from_json;
+			soundbook_type["get"]              = &res::SoundBook::get;
+			soundbook_type["clear"]            = &res::SoundBook::clear;
+			soundbook_type["has"]              = &res::SoundBook::has;
+
+			auto tex_atlas_type                 = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
+			tex_atlas_type["add"]               = &res::TextureAtlas::add;
+			tex_atlas_type["add_from_json"]     = &res::TextureAtlas::add_from_json;
+			tex_atlas_type["create"]            = &res::TextureAtlas::create;
+			tex_atlas_type["update"]            = &res::TextureAtlas::update;
+			tex_atlas_type["save"]              = &res::TextureAtlas::save;
+			tex_atlas_type["add_custom_region"] = &res::TextureAtlas::add_custom_region;
+			tex_atlas_type["clear"]             = &res::TextureAtlas::clear;
+			tex_atlas_type["get_region"]        = &res::TextureAtlas::get_region;
+			tex_atlas_type["get_size"]          = &res::TextureAtlas::get_size;
 		}
 
 		void register_scripting()
@@ -615,10 +564,10 @@ namespace galaxy
 			auto lua = SL_HANDLE.lua();
 
 			auto json_type = lua->new_usertype<nlohmann::json>("gJSON", sol::constructors<nlohmann::json()>());
-			lua->set_function("parse_json_from_str", &parse_json);
-			lua->set_function("parse_json_from_disk", &json::parse_from_disk);
-			lua->set_function("parse_json_from_mem", &json::parse_from_mem);
-			lua->set_function("save_json_to_disk", &json::save_to_disk);
+			lua->set_function("galaxy_parse_json_from_str", &parse_json);
+			lua->set_function("galaxy_parse_json_from_disk", &json::parse_from_disk);
+			lua->set_function("galaxy_parse_json_from_mem", &json::parse_from_mem);
+			lua->set_function("galaxy_save_json_to_disk", &json::save_to_disk);
 
 			auto loaded_script_type        = lua->new_usertype<lua::LoadedScript>("gLoadedScript", sol::constructors<lua::LoadedScript(), lua::LoadedScript(std::string_view)>());
 			loaded_script_type["filename"] = &lua::LoadedScript::m_filename;

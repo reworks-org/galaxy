@@ -9,7 +9,8 @@
 #define GALAXY_GRAPHICS_SKYBOX_HPP_
 
 #include <array>
-#include <string>
+
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Standard cubemap style skybox implementation.
 		///
-		class Skybox final
+		class Skybox final : public fs::Serializable
 		{
 		public:
 			///
@@ -83,6 +84,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
 		private:
 			///
 			/// Copy constructor.
@@ -124,6 +139,11 @@ namespace galaxy
 			/// Cached texture height.
 			///
 			int m_height;
+
+			///
+			/// Texture filepaths.
+			///
+			std::array<std::string, 6> m_faces;
 		};
 	} // namespace graphics
 } // namespace galaxy

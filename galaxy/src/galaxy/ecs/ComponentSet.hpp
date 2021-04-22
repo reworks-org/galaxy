@@ -193,7 +193,7 @@ namespace galaxy
 		template<meta::is_class Component>
 		inline const unsigned int ComponentSet<Component>::get_size() const noexcept
 		{
-			return m_components.size();
+			return static_cast<unsigned int>(m_components.size());
 		}
 
 		template<meta::is_class Component>

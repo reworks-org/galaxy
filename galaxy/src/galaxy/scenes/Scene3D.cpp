@@ -9,6 +9,8 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer3D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/systems/RenderSystem3D.hpp"
+#include "galaxy/systems/TransformSystem3D.hpp"
 
 #include "Scene3D.hpp"
 
@@ -24,6 +26,9 @@ namespace galaxy
 			m_dispatcher.subscribe<events::MouseMoved>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
+
+			m_world.create_system<systems::TransformSystem3D>();
+			m_world.create_system<systems::RenderSystem3D>();
 		}
 
 		Scene3D::~Scene3D() noexcept
@@ -57,7 +62,9 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
-			RENDERER_3D().draw_skybox(&m_skybox, m_camera, SL_HANDLE.shaderbook()->get("skybox"));
+			RENDERER_3D().sub_buffer_ubo(0, 0, 1, &m_camera.get_data());
+			RENDERER_3D().draw_skybox(&m_skybox, SL_HANDLE.shaderbook()->get("skybox"));
+			m_world.get_system<systems::RenderSystem3D>()->render(m_world, m_camera);
 			m_gui.render();
 		}
 
@@ -75,29 +82,28 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 
-			/*
-						json["name"]  = m_name;
-			json["type"]  = "3D";
-			json["world"] = m_world.serialize();
-			json["theme"] = m_gui_theme.serialize();
-			json["gui"]   = m_gui.serialize();
-			*/
+			json["name"]   = m_name;
+			json["type"]   = "3D";
+			json["camera"] = m_camera.serialize();
+			json["world"]  = m_world.serialize();
+			json["theme"]  = m_gui_theme.serialize();
+			json["gui"]    = m_gui.serialize();
+			json["skybox"] = m_skybox.serialize();
 
 			return json;
 		}
 
 		void Scene3D::deserialize(const nlohmann::json& json)
 		{
-			/*
 			m_name = json.at("name");
 
-			const auto world_json = json.at("world");
-			m_world.deserialize(world_json);
+			m_camera.deserialize(json.at("camera"));
+			m_world.deserialize(json.at("world"));
+			m_skybox.deserialize(json.at("skybox"));
 
 			m_gui_theme.deserialize(json.at("theme"));
 			m_gui.set_theme(&m_gui_theme);
 			m_gui.deserialize(json.at("gui"));
-			*/
 		}
 	} // namespace scene
 } // namespace galaxy

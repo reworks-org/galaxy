@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_LIGHT_MATERIAL_HPP_
 #define GALAXY_GRAPHICS_LIGHT_MATERIAL_HPP_
 
-#include <glm/vec3.hpp>
+#include "galaxy/graphics/texture/Texture.hpp"
 
 namespace galaxy
 {
@@ -29,19 +29,14 @@ namespace galaxy
 
 		public:
 			///
-			/// Ambient material colour.
+			/// Diffuse material texture.
 			///
-			glm::vec3 m_ambient;
+			graphics::Texture m_diffuse;
 
 			///
-			/// Diffuse material colour.
+			/// Specular material texture.
 			///
-			glm::vec3 m_diffuse;
-
-			///
-			/// Specular material colour.
-			///
-			glm::vec3 m_specular;
+			graphics::Texture m_specular;
 
 			///
 			/// Material shininess.

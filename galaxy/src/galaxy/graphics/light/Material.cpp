@@ -12,7 +12,7 @@ namespace galaxy
 	namespace light
 	{
 		Material::Material() noexcept
-		    : m_ambient {0.0f, 0.0f, 0.0f}, m_diffuse {0.0f, 0.0f, 0.0f}, m_specular {0.0f, 0.0f, 0.0f}, m_shininess {0.0f}
+		    : m_shininess {-1.0f}
 		{
 		}
 	} // namespace light

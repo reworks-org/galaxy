@@ -228,6 +228,7 @@ namespace galaxy
 				lua::register_mapping();
 				lua::register_math();
 				lua::register_physics();
+				lua::register_platform();
 				lua::register_res();
 				lua::register_scripting();
 
@@ -442,6 +443,8 @@ namespace galaxy
 		{
 			m_window->request_attention();
 
+			// NOTE: We dont need to reload 3D renderer since it has no static data.
+
 			if (dir.find("shaders") != std::string::npos)
 			{
 				// ShaderBook.
@@ -454,7 +457,7 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
 			}
-			else if (dir.find("scripts"))
+			else if (dir.find("scripts") != std::string::npos)
 			{
 				// ScriptBook.
 				m_scriptbook->clear();
@@ -462,7 +465,7 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading scripts due to change in filesystem.");
 			}
-			else if (dir.find("fonts"))
+			else if (dir.find("fonts") != std::string::npos)
 			{
 				// FontBook.
 				m_fontbook->clear();
@@ -470,7 +473,7 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading fonts due to change in filesystem.");
 			}
-			else if (dir.find("textures"))
+			else if (dir.find("textures") != std::string::npos)
 			{
 				// Texture Atlas.
 				m_texture_atlas->clear();
@@ -480,7 +483,7 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
 			}
-			else if (dir.find("sfx"))
+			else if (dir.find("sfx") != std::string::npos)
 			{
 				// SoundBook.
 				m_soundbook->clear();
@@ -488,7 +491,7 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading sfx due to change in filesystem.");
 			}
-			else if (dir.find("music"))
+			else if (dir.find("music") != std::string::npos)
 			{
 				// MusicBook.
 				m_musicbook->clear();
@@ -496,43 +499,9 @@ namespace galaxy
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading music due to change in filesystem.");
 			}
-			else if (dir.find("maps"))
+			else if (dir.find("maps") != std::string::npos)
 			{
 				GALAXY_LOG(GALAXY_INFO, "Reloading maps.");
-			}
-			else
-			{
-				// ShaderBook.
-				m_shaderbook->clear();
-				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
-
-				// Set up renderer.
-				RENDERER_2D().clean_up();
-				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
-
-				// ScriptBook.
-				m_scriptbook->clear();
-				m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
-
-				// FontBook.
-				m_fontbook->clear();
-				m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
-
-				// Texture Atlas.
-				m_texture_atlas->clear();
-				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
-				m_texture_atlas->create("render_to_texture");
-				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
-
-				// SoundBook.
-				m_soundbook->clear();
-				m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
-
-				// MusicBook.
-				m_musicbook->clear();
-				m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading assets due to change in filesystem.");
 			}
 		}
 	} // namespace core

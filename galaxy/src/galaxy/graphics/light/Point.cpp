@@ -6,14 +6,3 @@
 ///
 
 #include "Point.hpp"
-
-namespace galaxy
-{
-	namespace light
-	{
-		Point::Point() noexcept
-		    : Light {}, m_pos {0.0f, 0.0f, 0.0f}
-		{
-		}
-	} // namespace light
-} // namespace galaxy

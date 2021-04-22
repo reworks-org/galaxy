@@ -7,12 +7,12 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-
+#include "galaxy/graphics/Mesh.hpp"
 #include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/graphics/light/Directional.hpp"
+#include "galaxy/graphics/light/Material.hpp"
 #include "galaxy/graphics/light/Spot.hpp"
 #include "galaxy/graphics/light/Object.hpp"
-#include "galaxy/graphics/model/Model.hpp"
 #include "galaxy/graphics/shader/Shader.hpp"
 
 #include "Renderer3D.hpp"
@@ -21,12 +21,9 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Renderer3D::Renderer3D() noexcept
-		{
-		}
-
 		Renderer3D::~Renderer3D() noexcept
 		{
+			clean_up();
 		}
 
 		Renderer3D& Renderer3D::inst() noexcept
@@ -35,73 +32,139 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer3D::draw_model(Model* model, light::Point* point, light::Directional* dir, light::Spot* spot, Camera3D& camera, Shader* shader)
+		void Renderer3D::reserve_ssbo(const unsigned int index, const unsigned int size)
 		{
-			SL_HANDLE.window()->enable_back_cull();
+			bind_ssbo(index);
 
-			auto transform = glm::mat4 {1.0f};
-			transform      = glm::translate(transform, glm::vec3(0.0f, 0.0f, 0.0f));
-			transform      = glm::scale(transform, glm::vec3(1.0f, 1.0f, 1.0f));
+			GLint64 buffer_size = 0;
+			glGetBufferParameteri64v(GL_SHADER_STORAGE_BUFFER, GL_BUFFER_SIZE, &buffer_size);
 
-			glm::mat3 inverse = glm::transpose(glm::inverse(transform));
+			if (buffer_size != size)
+			{
+				glInvalidateBufferData(m_buffers[index]);
+				glBufferData(GL_SHADER_STORAGE_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
+			}
 
-			shader->bind();
-
-			// Vertex Uniforms.
-			shader->set_uniform("u_inverse_matrix", inverse);
-			shader->set_uniform("u_transform", transform);
-			shader->set_uniform("u_camera_proj", camera.get_proj());
-			shader->set_uniform("u_camera_view", camera.get_view());
-
-			// Fragment uniforms.
-			shader->set_uniform("u_camera_pos", camera.get_pos());
-
-			shader->set_uniform("point_light.ambient_intensity", point->m_ambient_intensity);
-			shader->set_uniform("point_light.diffuse_intensity", point->m_diffuse_intensity);
-			shader->set_uniform("point_light.specular_intensity", point->m_specular_intensity);
-			shader->set_uniform("point_light.pos", point->m_pos);
-
-			shader->set_uniform("dir_light.ambient_intensity", dir->m_ambient_intensity);
-			shader->set_uniform("dir_light.diffuse_intensity", dir->m_diffuse_intensity);
-			shader->set_uniform("dir_light.specular_intensity", dir->m_specular_intensity);
-			shader->set_uniform("dir_light.dir", dir->m_dir);
-
-			shader->set_uniform("spot_light.ambient_intensity", spot->m_ambient_intensity);
-			shader->set_uniform("spot_light.diffuse_intensity", spot->m_diffuse_intensity);
-			shader->set_uniform("spot_light.specular_intensity", spot->m_specular_intensity);
-			shader->set_uniform("spot_light.pos", spot->m_pos);
-			shader->set_uniform("spot_light.dir", spot->m_dir);
-			shader->set_uniform("spot_light.inner_cutoff", spot->m_inner_cutoff);
-			shader->set_uniform("spot_light.outer_cutoff", spot->m_outer_cutoff);
-
-			model->draw(shader);
+			unbind_ssbo();
 		}
 
-		void Renderer3D::draw_light_object(light::Object* light, Camera3D& camera, Shader* shader)
+		void Renderer3D::reserve_ubo(const unsigned int index, const unsigned int size)
+		{
+			bind_ubo(index);
+
+			GLint64 buffer_size = 0;
+			glGetBufferParameteri64v(GL_UNIFORM_BUFFER, GL_BUFFER_SIZE, &buffer_size);
+
+			if (buffer_size != size)
+			{
+				glInvalidateBufferData(m_buffers[index]);
+				glBufferData(GL_UNIFORM_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
+			}
+
+			unbind_ubo();
+		}
+
+		void Renderer3D::bind_ubo(const unsigned int index)
+		{
+			if ((index + 1) > m_buffers.size())
+			{
+				unsigned int buff = 0;
+
+				glGenBuffers(1, &buff);
+				glBindBuffer(GL_UNIFORM_BUFFER, buff);
+				glBindBufferBase(GL_UNIFORM_BUFFER, index, buff);
+
+				m_buffers.resize(index + 1, 0);
+				m_buffers[index] = buff;
+			}
+			else
+			{
+				glBindBuffer(GL_UNIFORM_BUFFER, m_buffers[index]);
+			}
+		}
+
+		void Renderer3D::unbind_ubo()
+		{
+			glBindBuffer(GL_UNIFORM_BUFFER, 0);
+		}
+
+		void Renderer3D::bind_ssbo(const unsigned int index)
+		{
+			if ((index + 1) > m_buffers.size())
+			{
+				unsigned int buff = 0;
+
+				glGenBuffers(1, &buff);
+				glBindBuffer(GL_SHADER_STORAGE_BUFFER, buff);
+				glBindBufferBase(GL_SHADER_STORAGE_BUFFER, index, buff);
+
+				m_buffers.resize(index + 1, 0);
+				m_buffers[index] = buff;
+			}
+			else
+			{
+				glBindBuffer(GL_SHADER_STORAGE_BUFFER, m_buffers[index]);
+			}
+		}
+
+		void Renderer3D::unbind_ssbo()
+		{
+			glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+		}
+
+		void Renderer3D::draw_mesh(Mesh* mesh, light::Material* material, Shader* shader)
+		{
+			SL_HANDLE.window()->enable_back_cull();
+			shader->bind();
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, material->m_diffuse.gl_texture());
+			shader->set_uniform("material.diffuse", 0);
+
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, material->m_specular.gl_texture());
+			shader->set_uniform("material.specular", 1);
+
+			shader->set_uniform("material.shininess", material->m_shininess);
+
+			mesh->bind();
+			glDrawElements(GL_TRIANGLES, mesh->index_count(), GL_UNSIGNED_INT, nullptr);
+			mesh->unbind();
+
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, 0);
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		void Renderer3D::draw_skybox(Skybox* skybox, Shader* shader)
+		{
+			shader->bind();
+
+			skybox->bind();
+			glDrawArrays(GL_TRIANGLES, 0, 36);
+			skybox->unbind();
+		}
+
+		void Renderer3D::draw_light_object(light::Object* light, Shader* shader)
 		{
 			SL_HANDLE.window()->disable_culling();
 
 			shader->bind();
 			shader->set_uniform("u_transform", light->get_transform());
-			shader->set_uniform("u_cameraProj", camera.get_proj());
-			shader->set_uniform("u_cameraView", camera.get_view());
 
 			light->bind();
 			glDrawArrays(GL_TRIANGLES, 0, light->get_count());
 			light->unbind();
 		}
 
-		void Renderer3D::draw_skybox(Skybox* skybox, Camera3D& camera, Shader* shader)
+		void Renderer3D::clean_up()
 		{
-			shader->bind();
-
-			const auto view = glm::mat4 {glm::mat3 {camera.get_view()}};
-			shader->set_uniform("u_view_matrix", view);
-			shader->set_uniform("u_camera_proj", camera.get_proj());
-
-			skybox->bind();
-			glDrawArrays(GL_TRIANGLES, 0, 36);
-			skybox->unbind();
+			if (!m_buffers.empty())
+			{
+				glDeleteBuffers(m_buffers.size(), m_buffers.data());
+			}
 		}
 	} // namespace graphics
 } // namespace galaxy

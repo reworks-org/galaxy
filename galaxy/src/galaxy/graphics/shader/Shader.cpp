@@ -31,6 +31,7 @@ namespace galaxy
 		}
 
 		Shader::Shader(const nlohmann::json& json)
+		    : m_id {0}, m_loaded {false}
 		{
 			if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))
 			{
@@ -52,8 +53,9 @@ namespace galaxy
 
 		Shader::Shader(Shader&& s) noexcept
 		{
-			this->m_id    = s.m_id;
-			this->m_cache = std::move(s.m_cache);
+			this->m_id     = s.m_id;
+			this->m_cache  = std::move(s.m_cache);
+			this->m_loaded = s.m_loaded;
 
 			s.m_id = 0;
 		}
@@ -62,8 +64,9 @@ namespace galaxy
 		{
 			if (this != &s)
 			{
-				this->m_id    = s.m_id;
-				this->m_cache = std::move(s.m_cache);
+				this->m_id     = s.m_id;
+				this->m_cache  = std::move(s.m_cache);
+				this->m_loaded = s.m_loaded;
 
 				s.m_id = 0;
 			}

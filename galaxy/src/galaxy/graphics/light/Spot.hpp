@@ -8,43 +8,51 @@
 #ifndef GALAXY_GRAPHICS_LIGHT_SPOT_HPP_
 #define GALAXY_GRAPHICS_LIGHT_SPOT_HPP_
 
-#include "galaxy/graphics/light/Point.hpp"
+#include <glm/vec3.hpp>
 
 namespace galaxy
 {
 	namespace light
 	{
 		///
-		/// Spot light in a shader.
+		/// Spot light in a shader. GLSL compatible.
 		///
-		class Spot final : public Point
+		struct Spot final
 		{
-		public:
 			///
-			/// Constructor.
+			/// Intensity of ambient light.
 			///
-			Spot() noexcept;
+			alignas(16) glm::vec3 m_ambient_intensity;
 
 			///
-			/// Virtual destructor.
+			/// Intensity of diffuse light.
 			///
-			virtual ~Spot() noexcept = default;
+			alignas(16) glm::vec3 m_diffuse_intensity;
 
-		public:
+			///
+			/// Intensity of specular light.
+			///
+			alignas(16) glm::vec3 m_specular_intensity;
+
+			///
+			/// Position of the light.
+			///
+			alignas(16) glm::vec3 m_pos;
+
 			///
 			/// Direction of the light.
 			///
-			glm::vec3 m_dir;
+			alignas(16) glm::vec3 m_dir;
 
 			///
 			/// Inner cutoff angle.
 			///
-			float m_inner_cutoff;
+			alignas(4) float m_inner_cutoff;
 
 			///
 			/// Outer cutoff angle.
 			///
-			float m_outer_cutoff;
+			alignas(4) float m_outer_cutoff;
 		};
 	} // namespace light
 } // namespace galaxy

@@ -8,33 +8,36 @@
 #ifndef GALAXY_GRAPHICS_LIGHT_DIRECTIONAL_HPP_
 #define GALAXY_GRAPHICS_LIGHT_DIRECTIONAL_HPP_
 
-#include "galaxy/graphics/light/Light.hpp"
+#include <glm/vec3.hpp>
 
 namespace galaxy
 {
 	namespace light
 	{
 		///
-		/// Directional light in a shader.
+		/// Directional light in a shader.  GLSL compatible.
 		///
-		class Directional final : public Light
+		struct Directional final
 		{
-		public:
 			///
-			/// Constructor.
+			/// Intensity of ambient light.
 			///
-			Directional() noexcept;
+			alignas(16) glm::vec3 m_ambient_intensity;
 
 			///
-			/// Virtual destructor.
+			/// Intensity of diffuse light.
 			///
-			virtual ~Directional() noexcept = default;
+			alignas(16) glm::vec3 m_diffuse_intensity;
 
-		public:
+			///
+			/// Intensity of specular light.
+			///
+			alignas(16) glm::vec3 m_specular_intensity;
+
 			///
 			/// Direction of the light.
 			///
-			glm::vec3 m_dir;
+			alignas(16) glm::vec3 m_dir;
 		};
 	} // namespace light
 } // namespace galaxy

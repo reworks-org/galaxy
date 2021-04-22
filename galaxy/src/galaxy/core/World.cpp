@@ -12,15 +12,20 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
+#include "galaxy/components/DirectionLight.hpp"
+#include "galaxy/components/Model.hpp"
 #include "galaxy/components/OnCollision.hpp"
+#include "galaxy/components/PointLight.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/SpotLight.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform2D.hpp"
+#include "galaxy/components/Transform3D.hpp"
 
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -45,15 +50,20 @@ namespace galaxy
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");
+			register_component<components::DirectionLight>("DirectionLight");
+			register_component<components::Model>("Model");
 			register_component<components::OnCollision>("OnCollision");
+			register_component<components::PointLight>("PointLight");
 			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::RigidBody>("RigidBody");
 			register_component<components::ShaderID>("ShaderID");
-			register_component<components::Sprite2D>("Sprite");
+			register_component<components::SpotLight>("SpotLight");
+			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
-			register_component<components::Transform2D>("Transform");
+			register_component<components::Transform2D>("Transform2D");
+			register_component<components::Transform3D>("Transform3D");
 		}
 
 		World::~World()
@@ -222,18 +232,41 @@ namespace galaxy
 					entity_json["enabled"] = is_enabled(entity);
 					entity_json["components"] = nlohmann::json::object();
 
-					auto [animated, batchsprite, oncollision, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform] = get_multi<
+					auto [animated,
+						batchsprite,
+						directionlight,
+						model,
+						oncollision,
+						pointlight,
+						primitive2d,
+						renderable,
+						rigidbody,
+						shaderid,
+						spotlight,
+						sprite,
+						tag,
+						text,
+						transform2d,
+						transform3d
+					] = get_multi<
 						components::Animated,
 						components::BatchSprite,
+						components::DirectionLight,
+						components::Model,
 						components::OnCollision,
+						components::PointLight,
 						components::Primitive2D,
 						components::Renderable,
 						components::RigidBody,
 						components::ShaderID,
-						components::Sprite2D,
+						components::SpotLight,
+						components::Sprite,
 						components::Tag,
 						components::Text,
-						components::Transform2D>(entity);
+						components::Transform2D,
+						components::Transform3D
+					>(entity);
+
 					// clang-format on
 					if (animated)
 					{
@@ -245,9 +278,24 @@ namespace galaxy
 						entity_json["components"]["BatchSprite"] = batchsprite->serialize();
 					}
 
+					if (directionlight)
+					{
+						entity_json["components"]["DirectionLight"] = directionlight->serialize();
+					}
+
+					if (model)
+					{
+						entity_json["components"]["Model"] = model->serialize();
+					}
+
 					if (oncollision)
 					{
 						entity_json["components"]["OnCollision"] = oncollision->serialize();
+					}
+
+					if (pointlight)
+					{
+						entity_json["components"]["PointLight"] = pointlight->serialize();
 					}
 
 					if (primitive2d)
@@ -270,6 +318,11 @@ namespace galaxy
 						entity_json["components"]["ShaderID"] = shaderid->serialize();
 					}
 
+					if (spotlight)
+					{
+						entity_json["components"]["SpotLight"] = spotlight->serialize();
+					}
+
 					if (sprite)
 					{
 						entity_json["components"]["Sprite"] = sprite->serialize();
@@ -285,9 +338,14 @@ namespace galaxy
 						entity_json["components"]["Text"] = text->serialize();
 					}
 
-					if (transform)
+					if (transform2d)
 					{
-						entity_json["components"]["Transform"] = transform->serialize();
+						entity_json["components"]["Transform2D"] = transform2d->serialize();
+					}
+
+					if (transform3d)
+					{
+						entity_json["components"]["Transform3D"] = transform3d->serialize();
 					}
 
 					json["entities"].push_back(entity_json);

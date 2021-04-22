@@ -15,7 +15,6 @@
 #include "galaxy/graphics/shader/Line.hpp"
 #include "galaxy/graphics/shader/LightObject.hpp"
 #include "galaxy/graphics/shader/Model.hpp"
-#include "galaxy/graphics/shader/Phong.hpp"
 #include "galaxy/graphics/shader/Point.hpp"
 #include "galaxy/graphics/shader/RenderToTexture.hpp"
 #include "galaxy/graphics/shader/Skybox.hpp"
@@ -30,13 +29,14 @@ namespace galaxy
 	namespace res
 	{
 		ShaderBook::ShaderBook()
-		    : m_vert_ext {".vs"}, m_frag_ext {".fs"}
+		    : Serializable {this}, m_vert_ext {".vs"}, m_frag_ext {".fs"}
 		{
 			create_default();
 			create_post_shaders();
 		}
 
 		ShaderBook::ShaderBook(std::string_view file)
+		    : Serializable {this}
 		{
 			create_from_json(file);
 		}
@@ -105,9 +105,6 @@ namespace galaxy
 			auto* line = create("line");
 			line->load_raw(shaders::line_vert, shaders::line_frag);
 
-			auto* model = create("model");
-			model->load_raw(shaders::model_vert, shaders::model_frag);
-
 			auto* point = create("point");
 			point->load_raw(shaders::point_vert, shaders::point_frag);
 
@@ -129,14 +126,11 @@ namespace galaxy
 
 		void ShaderBook::create_post_shaders()
 		{
-			auto* phong = create("phong");
-			phong->load_raw(shaders::model_vert, shaders::phong_frag);
+			auto* blinn_phong = create("blinn_phong");
+			blinn_phong->load_raw(shaders::model_vert, shaders::blinnphong_frag);
 
 			auto* light_object = create("light_object");
 			light_object->load_raw(shaders::light_object_vert, shaders::light_object_frag);
-
-			auto* blinn_phong = create("blinn_phong");
-			blinn_phong->load_raw(shaders::model_vert, shaders::blinnphong_frag);
 		}
 	} // namespace res
 } // namespace galaxy

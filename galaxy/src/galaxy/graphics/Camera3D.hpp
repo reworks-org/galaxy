@@ -51,6 +51,27 @@ namespace galaxy
 			};
 
 			///
+			/// GLSL compatible data structure.
+			///
+			struct Data final
+			{
+				///
+				/// Camera view matrix.
+				///
+				alignas(16) glm::mat4 m_view;
+
+				///
+				/// Camera projection matrix.
+				///
+				alignas(16) glm::mat4 m_proj;
+
+				///
+				/// Camera world position.
+				///
+				alignas(16) glm::vec3 m_pos;
+			};
+
+			///
 			/// Constructor.
 			///
 			Camera3D();
@@ -199,6 +220,13 @@ namespace galaxy
 			[[nodiscard]] const glm::vec3& get_pos() const noexcept;
 
 			///
+			/// Retrieve GLSL compatible data struct.
+			///
+			/// \return Properly aligned const reference to a struct.
+			///
+			[[nodiscard]] const Camera3D::Data& get_data() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -310,11 +338,6 @@ namespace galaxy
 			float m_pitch = 0.0f;
 
 			///
-			/// Camera world position.
-			///
-			glm::vec3 m_pos;
-
-			///
 			/// Camera delta calculation.
 			///
 			glm::vec3 m_delta;
@@ -350,14 +373,9 @@ namespace galaxy
 			float m_sensitivity;
 
 			///
-			/// Camera view matrix.
+			/// Camera GLSL data.
 			///
-			glm::mat4 m_view;
-
-			///
-			/// Camera projection matrix.
-			///
-			glm::mat4 m_proj;
+			Data m_data;
 		};
 	} // namespace graphics
 } // namespace galaxy

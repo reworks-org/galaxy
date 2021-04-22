@@ -9,10 +9,6 @@
 #define SANDBOX3DTESTS_SANDBOX3D_HPP_
 
 #include <galaxy/core/Instance.hpp>
-#include <galaxy/graphics/light/Directional.hpp>
-#include <galaxy/graphics/light/Spot.hpp>
-#include <galaxy/graphics/light/Object.hpp>
-#include <galaxy/graphics/model/Model.hpp>
 #include <galaxy/core/Window.hpp>
 
 using namespace galaxy;
@@ -33,16 +29,6 @@ namespace s3d
 	private:
 		core::Window* m_window;
 		std::shared_ptr<scene::Scene3D> m_scene;
-
-		graphics::Model m_model;
-		light::Point m_point_light;
-		light::Directional m_dir_light;
-		light::Spot m_spot_light;
-
-		light::Object m_pl_obj;
-		light::Object m_spot_obj;
-
-		std::string m_cur_shader;
 	};
 } // namespace s3d
 

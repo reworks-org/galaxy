@@ -63,6 +63,11 @@ namespace galaxy
 		void register_physics();
 
 		///
+		/// Register platform.
+		///
+		void register_platform();
+
+		///
 		/// Register resource functions.
 		///
 		void register_res();

@@ -10,7 +10,7 @@
 
 #include "Mesh.hpp"
 
-namespace
+namespace galaxy
 {
 	///
 	/// 3D vertex compatible with mesh optimizer.
@@ -21,12 +21,31 @@ namespace
 		float nx, ny, nz;
 		float tx, ty;
 	};
-} // namespace
 
-namespace galaxy
-{
 	namespace graphics
 	{
+		Mesh::Mesh(Mesh&& m) noexcept
+		    : VertexData {std::move(m)}
+		{
+			this->m_verticies   = std::move(m.m_verticies);
+			this->m_indicies    = std::move(m.m_indicies);
+			this->m_material_id = std::move(m.m_material_id);
+		}
+
+		Mesh& Mesh::operator=(Mesh&& m) noexcept
+		{
+			if (this != &m)
+			{
+				VertexData::operator=(std::move(m));
+
+				this->m_verticies   = std::move(m.m_verticies);
+				this->m_indicies    = std::move(m.m_indicies);
+				this->m_material_id = std::move(m.m_material_id);
+			}
+
+			return *this;
+		}
+
 		Mesh::~Mesh() noexcept
 		{
 			m_verticies.clear();
@@ -120,57 +139,19 @@ namespace galaxy
 			m_verticies.shrink_to_fit();
 		}
 
-		void Mesh::draw(Shader* shader)
+		void Mesh::bind() noexcept
 		{
-			unsigned int diffuse_count  = 1;
-			unsigned int specular_count = 1;
-			unsigned int normal_count   = 1;
-			unsigned int height_count   = 1;
-
-			int counter = 0;
-			for (const auto& [filename, texture] : m_textures)
-			{
-				glActiveTexture(GL_TEXTURE0 + counter);
-
-				std::string number;
-				switch (texture.m_type)
-				{
-					case TextureMap::Type::DIFFUSE:
-						number = std::to_string(diffuse_count++);
-						break;
-
-					case TextureMap::Type::SPECULAR:
-						number = std::to_string(specular_count++);
-						break;
-
-					case TextureMap::Type::NORMAL:
-						number = std::to_string(normal_count++);
-						break;
-
-					case TextureMap::Type::HEIGHT:
-						number = std::to_string(height_count++);
-						break;
-				}
-
-				const auto name = "tex_" + static_cast<std::string>(magic_enum::enum_name<TextureMap::Type>(texture.m_type)) + number;
-
-				shader->set_uniform(name, counter);
-				glBindTexture(GL_TEXTURE_2D, texture.m_texture.gl_texture());
-
-				counter++;
-			}
-
-			//shader->set_uniform("material.ambient", m_material.m_ambient);
-			//shader->set_uniform("material.diffuse", m_material.m_diffuse);
-			//shader->set_uniform("material.specular", m_material.m_specular);
-			shader->set_uniform("material.shininess", m_material.m_shininess);
-
 			m_va.bind();
-			glDrawElements(GL_TRIANGLES, m_ib.count(), GL_UNSIGNED_INT, nullptr);
+		}
 
+		void Mesh::unbind() noexcept
+		{
 			m_va.unbind();
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glActiveTexture(GL_TEXTURE0);
+		}
+
+		const unsigned int Mesh::index_count() const noexcept
+		{
+			return m_ib.count();
 		}
 	} // namespace graphics
 } // namespace galaxy

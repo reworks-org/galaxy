@@ -193,6 +193,14 @@ namespace galaxy
 			[[nodiscard]] const bool is_enabled(const ecs::Entity entity);
 
 			///
+			/// Query how many entities belong to a component.
+			///
+			/// \return Const unsigned int. Only returns enabled entities.
+			///
+			template<meta::is_class Component>
+			[[nodiscard]] const unsigned int query_count();
+
+			///
 			/// Enable an entity.
 			///
 			/// \param entity Entity to enable.
@@ -372,6 +380,7 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to test flag: {0} for entity: {1}. Entity does not exist.", Flag::value, entity);
+				return false;
 			}
 		}
 
@@ -508,6 +517,22 @@ namespace galaxy
 			}
 		}
 
+		template<meta::is_class Component>
+		inline const unsigned int World::query_count()
+		{
+			const auto type = CUniqueID::get<Component>();
+
+			if (!(type >= m_data.size() || m_data.size() == 0))
+			{
+				if (m_data[type] != nullptr)
+				{
+					return m_data[type]->get_size();
+				}
+			}
+
+			return 0;
+		}
+
 		template<meta::is_class... Component>
 		inline std::tuple<Component*...> World::get_multi(const ecs::Entity entity)
 		{
@@ -563,7 +588,7 @@ namespace galaxy
 		{
 			const auto type = SUniqueID::get<System>();
 
-			auto res = std::find_if(std::execution::par, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
+			auto res = std::find_if(std::execution::par_unseq, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
 				return pair.first == type;
 			});
 

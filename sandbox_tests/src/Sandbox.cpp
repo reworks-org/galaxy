@@ -63,24 +63,24 @@ namespace sb
 
 	void Sandbox::events()
 	{
-		if (m_window->key_down(input::Keys::ESC))
+		if (m_window->key_pressed(input::Keys::ESC))
 		{
 			m_window->close();
 		}
 
-		if (m_window->key_down(input::Keys::NUM_1))
+		if (m_window->key_pressed(input::Keys::NUM_1))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("SandboxScene");
 		}
 
-		if (m_window->key_down(input::Keys::NUM_2))
+		if (m_window->key_pressed(input::Keys::NUM_2))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("PhysicsScene");
 		}
 
-		if (m_window->key_down(input::Keys::NUM_3))
+		if (m_window->key_pressed(input::Keys::NUM_3))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("MapScene");

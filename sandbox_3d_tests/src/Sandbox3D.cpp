@@ -43,38 +43,6 @@ namespace s3d
 
 		m_scene->m_gui.disable_input();
 
-		m_scene_stack.push("Sandbox3DScene");
-
-		m_model.load("backpack.obj");
-		m_model.create();
-
-		// Point light.
-		m_point_light.m_pos                = {0.7f, 0.2f, 2.0f};
-		m_point_light.m_ambient_intensity  = glm::vec3 {0.05f};
-		m_point_light.m_diffuse_intensity  = glm::vec3 {0.4f};
-		m_point_light.m_specular_intensity = glm::vec3 {0.5f};
-
-		m_pl_obj.m_pos = m_point_light.m_pos;
-		m_pl_obj.create();
-
-		// Directional light.
-		m_dir_light.m_dir                = {-0.2f, -1.0f, -0.3f};
-		m_dir_light.m_ambient_intensity  = glm::vec3 {0.1f};
-		m_dir_light.m_diffuse_intensity  = glm::vec3 {0.4f};
-		m_dir_light.m_specular_intensity = glm::vec3 {0.5f};
-
-		// Spot light.
-		m_spot_light.m_pos                = {1.0f, 2.0f, 1.0f};
-		m_spot_light.m_dir                = {-0.2f, -1.0f, -0.3f};
-		m_spot_light.m_ambient_intensity  = glm::vec3 {0.05f};
-		m_spot_light.m_diffuse_intensity  = glm::vec3 {0.4f};
-		m_spot_light.m_specular_intensity = glm::vec3 {0.5f};
-		m_spot_light.m_inner_cutoff       = glm::cos(glm::radians(12.5f));
-		m_spot_light.m_outer_cutoff       = glm::cos(glm::radians(15.0f));
-
-		m_spot_obj.m_pos = m_spot_light.m_pos;
-		m_spot_obj.create();
-
 		// clang-format off
 		// Must be in order: right, left, top, bottom, front, back.
 		std::array<std::string, 6> faces = {
@@ -90,7 +58,11 @@ namespace s3d
 		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 
-		m_cur_shader = "blinn_phong";
+		m_scene->m_world.create_from_json("backpack.json");
+		m_scene->m_world.create_from_json("dir.json");
+		m_scene->m_world.create_from_json("point.json");
+		m_scene->m_world.create_from_json("spot.json");
+		m_scene_stack.push("Sandbox3DScene");
 	}
 
 	Sandbox3D::~Sandbox3D()
@@ -103,18 +75,6 @@ namespace s3d
 		if (m_window->key_down(input::Keys::ESC))
 		{
 			m_window->close();
-		}
-
-		if (m_window->key_pressed(input::Keys::TAB))
-		{
-			if (m_cur_shader == "phong")
-			{
-				m_cur_shader = "blinn_phong";
-			}
-			else
-			{
-				m_cur_shader = "phong";
-			}
 		}
 
 		m_scene_stack.events();
@@ -132,10 +92,6 @@ namespace s3d
 
 	void Sandbox3D::render()
 	{
-		RENDERER_3D().draw_model(&m_model, &m_point_light, &m_dir_light, &m_spot_light, m_scene->camera(), SL_HANDLE.shaderbook()->get(m_cur_shader));
-		RENDERER_3D().draw_light_object(&m_pl_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
-		RENDERER_3D().draw_light_object(&m_spot_obj, m_scene->camera(), SL_HANDLE.shaderbook()->get("light_object"));
-
 		m_scene_stack.render();
 	}
 } // namespace s3d

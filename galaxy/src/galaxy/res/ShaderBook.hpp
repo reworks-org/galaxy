@@ -8,6 +8,7 @@
 #ifndef GALAXY_RES_SHADERBOOK_HPP_
 #define GALAXY_RES_SHADERBOOK_HPP_
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/shader/Shader.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Resource manager for shaders.
 		///
-		class ShaderBook final : public ResourceCache<graphics::Shader>
+		class ShaderBook final : public ResourceCache<graphics::Shader>, public fs::Serializable
 		{
 		public:
 			///

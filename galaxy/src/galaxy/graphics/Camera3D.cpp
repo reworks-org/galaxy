@@ -7,6 +7,7 @@
 
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
+#include <magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -44,9 +45,9 @@ namespace galaxy
 
 		void Camera3D::set_position(const glm::vec3& pos) noexcept
 		{
-			m_pos.x = pos.x;
-			m_pos.y = pos.y;
-			m_pos.z = pos.z;
+			m_data.m_pos.x = pos.x;
+			m_data.m_pos.y = pos.y;
+			m_data.m_pos.z = pos.z;
 		}
 
 		void Camera3D::set_focal(const glm::vec3& look_at) noexcept
@@ -78,7 +79,7 @@ namespace galaxy
 
 		void Camera3D::pitch(float degrees) noexcept
 		{
-			const constexpr auto max_pitch_rate = 5.0f;
+			constexpr const auto max_pitch_rate = 5.0f;
 
 			if (degrees < -max_pitch_rate)
 			{
@@ -103,7 +104,7 @@ namespace galaxy
 
 		void Camera3D::heading(float degrees) noexcept
 		{
-			const constexpr auto max_heading_rate = 5.0f;
+			constexpr const auto max_heading_rate = 5.0f;
 
 			if (degrees < -max_heading_rate)
 			{
@@ -220,8 +221,8 @@ namespace galaxy
 		{
 			if (m_mode == Mode::FREE)
 			{
-				const constexpr auto min_fov = 45.0f;
-				const constexpr auto max_fov = 110.0f;
+				constexpr const auto min_fov = 45.0f;
+				constexpr const auto max_fov = 110.0f;
 
 				m_fov -= e.m_y_offset;
 
@@ -265,8 +266,8 @@ namespace galaxy
 				m_delta += (glm::cross(m_dir, m_up) * velocity);
 			}
 
-			m_dir  = glm::normalize(m_focal - m_pos);
-			m_proj = glm::perspective(glm::radians(m_fov), m_aspect_ratio, m_near, m_far);
+			m_dir         = glm::normalize(m_focal - m_data.m_pos);
+			m_data.m_proj = glm::perspective(glm::radians(m_fov), m_aspect_ratio, m_near, m_far);
 
 			if (m_mode == Mode::FREE)
 			{
@@ -287,14 +288,14 @@ namespace galaxy
 				temp                   = glm::normalize(temp);
 
 				m_dir = glm::rotate(temp, m_dir);
-				m_pos += m_delta;
-				m_focal = m_pos + m_dir * 1.0f;
+				m_data.m_pos += m_delta;
+				m_focal = m_data.m_pos + m_dir * 1.0f;
 				m_heading *= .5;
 				m_pitch *= .5;
 				m_delta = m_delta * .8f;
 			}
 
-			m_view = glm::lookAt(m_pos, m_focal, m_up);
+			m_data.m_view = glm::lookAt(m_data.m_pos, m_focal, m_up);
 		}
 
 		void Camera3D::reset() noexcept
@@ -306,12 +307,12 @@ namespace galaxy
 			m_heading = 0.0f;
 			m_pitch   = 0.0f;
 
-			m_pos       = {0.0f, 0.0f, 0.0f};
-			m_delta     = {0.0f, 0.0f, 0.0f};
-			m_focal     = {0.0f, 0.0f, 0.0f};
-			m_dir       = {0.0f, 0.0f, 0.0f};
-			m_up        = {0.0f, 1.0f, 0.0f};
-			m_mouse_pos = {0.0f, 0.0f, 0.0f};
+			m_data.m_pos = {0.0f, 0.0f, 0.0f};
+			m_delta      = {0.0f, 0.0f, 0.0f};
+			m_focal      = {0.0f, 0.0f, 0.0f};
+			m_dir        = {0.0f, 0.0f, 0.0f};
+			m_up         = {0.0f, 1.0f, 0.0f};
+			m_mouse_pos  = {0.0f, 0.0f, 0.0f};
 
 			m_moving_fwd   = false;
 			m_moving_back  = false;
@@ -320,59 +321,73 @@ namespace galaxy
 			m_moving_up    = false;
 			m_moving_down  = false;
 
-			m_view = glm::mat4 {1.0f};
-			m_proj = glm::mat4 {1.0f};
+			m_data.m_view = glm::mat4 {1.0f};
+			m_data.m_proj = glm::mat4 {1.0f};
 
 			m_speed = 1.0f;
 		}
 
 		const glm::mat4& Camera3D::get_view() const noexcept
 		{
-			return m_view;
+			return m_data.m_view;
 		}
 
 		const glm::mat4& Camera3D::get_proj() const noexcept
 		{
-			return m_proj;
+			return m_data.m_proj;
 		}
 
 		const glm::vec3& Camera3D::get_pos() const noexcept
 		{
-			return m_pos;
+			return m_data.m_pos;
+		}
+
+		const Camera3D::Data& Camera3D::get_data() const noexcept
+		{
+			return m_data;
 		}
 
 		nlohmann::json Camera3D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
-			/*
-			json["pos"]["x"] = m_pos.x;
-			json["pos"]["y"] = m_pos.y;
-			json["pos"]["z"] = m_pos.z;
+			json["mode"]    = magic_enum::enum_name<Camera3D::Mode>(m_mode);
+			json["fov"]     = m_fov;
+			json["near"]    = m_near;
+			json["far"]     = m_far;
+			json["heading"] = m_heading;
+			json["pitch"]   = m_pitch;
+			json["speed"]   = m_speed;
 
-			json["front"]["x"] = m_front.x;
-			json["front"]["y"] = m_front.y;
-			json["front"]["z"] = m_front.z;
+			json["pos"]      = nlohmann::json::object();
+			json["pos"]["x"] = m_data.m_pos.x;
+			json["pos"]["y"] = m_data.m_pos.y;
+			json["pos"]["z"] = m_data.m_pos.z;
 
+			json["delta"]      = nlohmann::json::object();
+			json["delta"]["x"] = m_delta.x;
+			json["delta"]["y"] = m_delta.y;
+			json["delta"]["z"] = m_delta.z;
+
+			json["focal"]      = nlohmann::json::object();
+			json["focal"]["x"] = m_focal.x;
+			json["focal"]["y"] = m_focal.y;
+			json["focal"]["z"] = m_focal.z;
+
+			json["dir"]      = nlohmann::json::object();
+			json["dir"]["x"] = m_dir.x;
+			json["dir"]["y"] = m_dir.y;
+			json["dir"]["z"] = m_dir.z;
+
+			json["up"]      = nlohmann::json::object();
 			json["up"]["x"] = m_up.x;
 			json["up"]["y"] = m_up.y;
 			json["up"]["z"] = m_up.z;
 
-			json["right-axis"]["x"] = m_right_axis.x;
-			json["right-axis"]["y"] = m_right_axis.y;
-			json["right-axis"]["z"] = m_right_axis.z;
-
-			json["world-up"]["x"] = m_world_up.x;
-			json["world-up"]["y"] = m_world_up.y;
-			json["world-up"]["z"] = m_world_up.z;
-
-			json["yaw"]     = m_yaw;
-			json["pitch"]   = m_pitch;
-			json["fov"]     = m_fov;
-			json["prev-mx"] = m_prev_mx;
-			json["prev-my"] = m_prev_my;
-			json["speed"]   = m_speed;
-			*/
+			json["mouse-pos"]      = nlohmann::json::object();
+			json["mouse-pos"]["x"] = m_mouse_pos.x;
+			json["mouse-pos"]["y"] = m_mouse_pos.y;
+			json["mouse-pos"]["z"] = m_mouse_pos.z;
 
 			return json;
 		}
@@ -381,39 +396,43 @@ namespace galaxy
 		{
 			reset();
 
-			/*
-			const auto& pos = json.at("pos");
-			m_pos.x         = pos.at("x");
-			m_pos.y         = pos.at("y");
-			m_pos.z         = pos.at("z");
+			m_mode    = magic_enum::enum_cast<Camera3D::Mode>(json.at("mode").get<std::string>()).value();
+			m_fov     = json.at("fov");
+			m_near    = json.at("near");
+			m_far     = json.at("far");
+			m_heading = json.at("heading");
+			m_pitch   = json.at("pitch");
+			m_speed   = json.at("speed");
 
-			const auto& front = json.at("front");
-			m_front.x         = front.at("x");
-			m_front.y         = front.at("y");
-			m_front.z         = front.at("z");
+			const auto& pos = json.at("pos");
+			m_data.m_pos.x  = pos.at("x");
+			m_data.m_pos.y  = pos.at("y");
+			m_data.m_pos.z  = pos.at("z");
+
+			const auto& delta = json.at("delta");
+			m_delta.x         = delta.at("x");
+			m_delta.y         = delta.at("y");
+			m_delta.z         = delta.at("z");
+
+			const auto& focal = json.at("focal");
+			m_focal.x         = focal.at("x");
+			m_focal.y         = focal.at("y");
+			m_focal.z         = focal.at("z");
+
+			const auto& dir = json.at("dir");
+			m_dir.x         = dir.at("x");
+			m_dir.y         = dir.at("y");
+			m_dir.z         = dir.at("z");
 
 			const auto& up = json.at("up");
 			m_up.x         = up.at("x");
 			m_up.y         = up.at("y");
 			m_up.z         = up.at("z");
 
-			const auto& right_axis = json.at("right-axis");
-			m_right_axis.x         = right_axis.at("x");
-			m_right_axis.y         = right_axis.at("y");
-			m_right_axis.z         = right_axis.at("z");
-
-			const auto& world_up = json.at("world-up");
-			m_world_up.x         = world_up.at("x");
-			m_world_up.y         = world_up.at("y");
-			m_world_up.z         = world_up.at("z");
-
-			m_yaw     = json.at("yaw");
-			m_pitch   = json.at("pitch");
-			m_fov     = json.at("fov");
-			m_prev_mx = json.at("prev-mx");
-			m_prev_my = json.at("prev-my");
-			m_speed   = json.at("speed");
-			*/
+			const auto& mouse_pos = json.at("mouse-pos");
+			m_mouse_pos.x         = mouse_pos.at("x");
+			m_mouse_pos.y         = mouse_pos.at("y");
+			m_mouse_pos.z         = mouse_pos.at("z");
 		}
 	} // namespace graphics
 } // namespace galaxy

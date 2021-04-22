@@ -45,7 +45,9 @@ namespace galaxy
 		///
 		inline const std::string default_framebuffer_frag = R"(
 			#version 450 core
-
+			
+			#define GAMMA_CORRECTION 2.2
+			
 			in vec2 io_texels;
 			in float io_opacity;
 
@@ -56,9 +58,10 @@ namespace galaxy
 			void main()
 			{
 				vec4 tex = texture(u_texture, io_texels);
-				tex.a *= io_opacity;
+                vec3 corrected = pow(tex.rgb, vec3(GAMMA_CORRECTION));
 
-				io_frag_colour = tex;
+				float opacity = tex.a * io_opacity;
+				io_frag_colour = vec4(corrected, opacity);
 			}
 		)";
 	} // namespace shaders
