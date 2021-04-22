@@ -526,7 +526,7 @@ namespace galaxy
 						m_framebuffer->create(m_width, m_height);
 						m_framebuffer->set_anisotropy(std::clamp(settings.m_ansio_filtering, 1, 16));
 
-						m_fb_sprite = std::make_unique<components::Sprite2D>();
+						m_fb_sprite = std::make_unique<components::Sprite>();
 						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 						m_fb_sprite->create();
 						m_fb_sprite->set_opacity(1.0f);

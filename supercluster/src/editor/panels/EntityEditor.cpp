@@ -15,7 +15,7 @@
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
-#include <galaxy/components/Sprite2D.hpp>
+#include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform2D.hpp>
@@ -289,14 +289,14 @@ namespace sc
 							if (ImGui::Button(" + ##11"))
 							{
 								world.disable(entity);
-								world.create_component<components::Sprite2D>(entity);
+								world.create_component<components::Sprite>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##12"))
 							{
-								world.remove<components::Sprite2D>(entity);
+								world.remove<components::Sprite>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -406,7 +406,7 @@ namespace sc
 				components::Renderable, 
 				components::RigidBody, 
 				components::ShaderID, 
-				components::Sprite2D,
+				components::Sprite,
 				components::Tag, 
 				components::Text, 
 				components::Transform2D>(entity);

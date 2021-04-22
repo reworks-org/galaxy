@@ -733,7 +733,7 @@ namespace galaxy
 								const auto h          = SL_HANDLE.atlas()->get_atlas()->get_height();
 								const auto& tile_rect = SL_HANDLE.atlas()->get_region(tile_name);
 
-								components::Sprite2D to_draw;
+								components::Sprite to_draw;
 								components::Transform2D to_draw_transform;
 								to_draw.load(SL_HANDLE.atlas()->get_atlas()->gl_texture(), w, h);
 								to_draw.create_clipped(tile_rect.m_x, tile_rect.m_y, tile_rect.m_width, tile_rect.m_height);
@@ -755,7 +755,7 @@ namespace galaxy
 				const auto entity = world.create();
 				auto* renderable  = world.create_component<components::Renderable>(entity);
 				auto* shaderid    = world.create_component<components::ShaderID>(entity);
-				auto* sprite      = world.create_component<components::Sprite2D>(entity);
+				auto* sprite      = world.create_component<components::Sprite>(entity);
 				auto* tag         = world.create_component<components::Tag>(entity);
 				auto* transform   = world.create_component<components::Transform2D>(entity);
 
@@ -780,7 +780,7 @@ namespace galaxy
 				auto& tiles         = tileset.get_tiles();
 				const auto local_id = gid - tileset.get_first_gid();
 
-				auto res = std::find_if(std::execution::par, tiles.begin(), tiles.end(), [&](const Tile& tile) {
+				auto res = std::find_if(std::execution::par_unseq, tiles.begin(), tiles.end(), [&](const Tile& tile) {
 					return tile.get_id() == local_id;
 				});
 

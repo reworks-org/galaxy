@@ -9,7 +9,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform2D.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
@@ -120,7 +120,7 @@ namespace galaxy
 				{
 					// Load texture.
 					components::Transform2D to_draw_transform;
-					components::Sprite2D to_draw;
+					components::Sprite to_draw;
 					to_draw.load(info.m_path);
 					to_draw.create();
 

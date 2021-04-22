@@ -29,7 +29,7 @@ namespace galaxy
 			RENDERER_2D().clear();
 
 			// clang-format off
-			world.operate<components::Renderable, components::Transform2D>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) -> void
+			world.operate<components::Renderable, components::Transform2D>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform)
 				{
 					RenderData data
 					{
@@ -51,7 +51,7 @@ namespace galaxy
 			// clang-format on
 
 			RENDERER_2D().calculate_batches();
-			std::sort(std::execution::par, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
+			std::sort(std::execution::par_unseq, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
 				return left.m_z_level < right.m_z_level;
 			});
 		}
@@ -87,7 +87,7 @@ namespace galaxy
 						break;
 
 					case graphics::Renderables::SPRITE:
-						RENDERER_2D().draw_sprite(world.get<components::Sprite2D>(data.m_entity), data.m_transform, shader);
+						RENDERER_2D().draw_sprite(world.get<components::Sprite>(data.m_entity), data.m_transform, shader);
 						break;
 				}
 			}

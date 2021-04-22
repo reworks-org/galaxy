@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/components/Primitive2D.hpp"
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/shader/Shader.hpp"
@@ -149,7 +149,7 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, text->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_sprite(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader)
+		void Renderer2D::draw_sprite(components::Sprite* sprite, components::Transform2D* transform, Shader* shader)
 		{
 			sprite->bind();
 
@@ -175,7 +175,7 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, vertex_data->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer2D::draw_sprite_to_target(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target)
+		void Renderer2D::draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target)
 		{
 			sprite->bind();
 

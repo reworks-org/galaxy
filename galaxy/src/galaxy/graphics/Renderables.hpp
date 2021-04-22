@@ -45,12 +45,7 @@ namespace galaxy
 			///
 			/// Define an entity to be rendered as QUAD.
 			///
-			SPRITE,
-
-			///
-			/// Defines an entity to be rendered as a 3D object.
-			///
-			MESH
+			SPRITE
 		};
 	} // namespace graphics
 } // namespace galaxy

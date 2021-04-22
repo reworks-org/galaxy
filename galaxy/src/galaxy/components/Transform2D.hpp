@@ -19,7 +19,7 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// Defines the transformation of an entity.
+		/// Defines the 2D transformation of an entity.
 		///
 		class Transform2D final : public fs::Serializable
 		{

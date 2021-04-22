@@ -138,7 +138,7 @@ namespace galaxy
 			/// \param transform Transform of sprite.
 			/// \param shader Shader to draw sprite with.
 			///
-			void draw_sprite(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader);
+			void draw_sprite(components::Sprite* sprite, components::Transform2D* transform, Shader* shader);
 
 			///
 			/// Draw a textured VAO to a framebuffer.
@@ -159,7 +159,7 @@ namespace galaxy
 			/// \param shader Shader to draw sprite with.
 			/// \param target Target framebuffer to draw sprite to.
 			///
-			void draw_sprite_to_target(components::Sprite2D* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target);
+			void draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target);
 
 		private:
 			///

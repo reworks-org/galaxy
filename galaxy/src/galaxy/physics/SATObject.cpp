@@ -11,7 +11,7 @@
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/Sprite2D.hpp"
+#include "galaxy/components/Sprite.hpp"
 
 #include "SATObject.hpp"
 
@@ -55,7 +55,7 @@ namespace galaxy
 				}
 				else if (renderable->m_type == graphics::Renderables::SPRITE)
 				{
-					auto* s2d = world.get<components::Sprite2D>(entity);
+					auto* s2d = world.get<components::Sprite>(entity);
 					for (const auto& vertex : s2d->get_vertexs())
 					{
 						m_vertexs.emplace_back(vertex.m_pos);

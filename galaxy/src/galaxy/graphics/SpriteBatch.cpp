@@ -304,7 +304,7 @@ namespace galaxy
 
 		void SpriteBatch::sort() noexcept
 		{
-			std::sort(std::execution::par, m_sprites.begin(), m_sprites.end(), [](const auto& left, const auto& right) {
+			std::sort(std::execution::par_unseq, m_sprites.begin(), m_sprites.end(), [](const auto& left, const auto& right) {
 				return left.first->m_z_level < right.first->m_z_level;
 			});
 		}
