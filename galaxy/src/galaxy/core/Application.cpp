@@ -17,6 +17,7 @@
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/graphics/Renderer3D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/scripting/LuaUtils.hpp"
 
@@ -187,8 +188,9 @@ namespace galaxy
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
-				// Set up renderer.
+				// Set up renderers.
 				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_3D().reserve_ubo(0, sizeof(graphics::Camera3D::Data));
 
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
@@ -211,6 +213,10 @@ namespace galaxy
 				// MusicBook.
 				m_musicbook           = std::make_unique<res::MusicBook>(m_config->get<std::string>("musicbook-json"));
 				SL_HANDLE.m_musicbook = m_musicbook.get();
+
+				// MaterialBook.
+				m_materialbook           = std::make_unique<res::MaterialBook>();
+				SL_HANDLE.m_materialbook = m_materialbook.get();
 
 				// Set up custom lua functions and types.
 				lua::register_functions();
@@ -247,6 +253,7 @@ namespace galaxy
 			// And of course the file system being the last to be destroyed.
 			m_instance = nullptr;
 
+			m_materialbook.reset();
 			m_musicbook.reset();
 			m_soundbook.reset();
 			m_texture_atlas.reset();
@@ -339,6 +346,7 @@ namespace galaxy
 
 			m_window->destroy();
 			RENDERER_2D().clean_up();
+			RENDERER_3D().clean_up();
 
 			return SL_HANDLE.m_restart;
 		}

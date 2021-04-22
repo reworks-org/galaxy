@@ -18,12 +18,13 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
-#include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/res/FontBook.hpp"
-#include "galaxy/res/ScriptBook.hpp"
-#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/MaterialBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
+#include "galaxy/res/ScriptBook.hpp"
+#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/TextureAtlas.hpp"
 
 namespace galaxy
 {
@@ -157,6 +158,11 @@ namespace galaxy
 			/// Script library.
 			///
 			std::unique_ptr<res::ScriptBook> m_scriptbook;
+
+			///
+			/// Material library.
+			///
+			std::unique_ptr<res::MaterialBook> m_materialbook;
 
 		private:
 			///

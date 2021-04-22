@@ -47,6 +47,7 @@ namespace galaxy
 		class SoundBook;
 		class MusicBook;
 		class ScriptBook;
+		class MaterialBook;
 	} // namespace res
 
 	namespace core
@@ -149,6 +150,13 @@ namespace galaxy
 			///
 			[[maybe_unused]] res::ScriptBook* scriptbook() const noexcept;
 
+			///
+			/// Get MaterialBook service.
+			///
+			/// \return Return pointer to ScriptBook service.
+			///
+			[[maybe_unused]] res::MaterialBook* materialbook() const noexcept;
+
 		public:
 			///
 			/// Restart flag.
@@ -236,6 +244,11 @@ namespace galaxy
 			/// ScriptBook service.
 			///
 			res::ScriptBook* m_scriptbook;
+
+			///
+			/// MaterialBook service.
+			///
+			res::MaterialBook* m_materialbook;
 		};
 	} // namespace core
 } // namespace galaxy
