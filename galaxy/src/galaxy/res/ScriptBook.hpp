@@ -8,6 +8,7 @@
 #ifndef GALAXY_RES_SCRIPTBOOK_HPP_
 #define GALAXY_RES_SCRIPTBOOK_HPP_
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 #include "galaxy/scripting/LoadedScript.hpp"
 
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Resource manager for lua scripts.
 		///
-		class ScriptBook final : public ResourceCache<lua::LoadedScript>
+		class ScriptBook final : public ResourceCache<lua::LoadedScript>, public fs::Serializable
 		{
 		public:
 			///

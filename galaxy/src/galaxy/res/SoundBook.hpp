@@ -9,6 +9,7 @@
 #define GALAXY_RES_SOUNDBOOK_HPP_
 
 #include "galaxy/audio/Sound.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
 namespace galaxy
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Resource manager for fonts.
 		///
-		class SoundBook final : public ResourceCache<audio::Sound>
+		class SoundBook final : public ResourceCache<audio::Sound>, public fs::Serializable
 		{
 		public:
 			///

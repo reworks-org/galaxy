@@ -17,6 +17,7 @@ namespace galaxy
 	namespace res
 	{
 		FontBook::FontBook(std::string_view file)
+		    : Serializable {this}
 		{
 			create_from_json(file);
 		}

@@ -9,6 +9,7 @@
 #define GALAXY_RES_MUSICBOOK_HPP_
 
 #include "galaxy/audio/Music.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
 namespace galaxy
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Resource manager for music.
 		///
-		class MusicBook final : public ResourceCache<audio::Music>
+		class MusicBook final : public ResourceCache<audio::Music>, public fs::Serializable
 		{
 		public:
 			///

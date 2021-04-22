@@ -8,6 +8,7 @@
 #ifndef GALAXY_RES_FONTBOOK_HPP_
 #define GALAXY_RES_FONTBOOK_HPP_
 
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
@@ -18,7 +19,7 @@ namespace galaxy
 		///
 		/// Resource manager for fonts.
 		///
-		class FontBook final : public ResourceCache<graphics::Font>
+		class FontBook final : public ResourceCache<graphics::Font>, public fs::Serializable
 		{
 		public:
 			///

@@ -11,7 +11,6 @@
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -45,7 +44,7 @@ namespace galaxy
 		/// resources can be a texture, sound, script, shader, etc...
 		///
 		template<meta::not_pointer_or_ref Resource>
-		class ResourceCache : public ResCacheBase, public fs::Serializable
+		class ResourceCache : public ResCacheBase
 		{
 		public:
 			///
@@ -61,22 +60,31 @@ namespace galaxy
 			///
 			/// Create a resource.
 			///
-			/// \param name Should be name of resource without path or extension.
+			/// \param handle Should be name of resource without path or extension.
 			/// \param args Constructor arguments.
 			///
 			/// \return Const pointer to newly created resource.
 			///
 			template<typename... Args>
-			[[maybe_unused]] Resource* const create(std::string_view name, Args&&... args);
+			[[maybe_unused]] Resource* const create(std::string_view handle, Args&&... args);
+
+			///
+			/// Check if a resource exists.
+			///
+			/// \param handle The name of the resource.
+			///
+			/// \return True if resource was found.
+			///
+			[[nodiscard]] const bool has(std::string_view handle) noexcept;
 
 			///
 			/// Retrieve a resource.
 			///
-			/// \param handle The name of the file without path or extension.
+			/// \param handle The name of the resource.
 			///
 			/// \return Returns a pointer to the resource.
 			///
-			[[nodiscard]] Resource* const get(std::string_view handle);
+			[[nodiscard]] Resource* const get(std::string_view handle) noexcept;
 
 			///
 			/// Get entire resource cache.
@@ -90,28 +98,11 @@ namespace galaxy
 			///
 			virtual void clear() noexcept = 0;
 
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] virtual nlohmann::json serialize() = 0;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			virtual void deserialize(const nlohmann::json& json) = 0;
-
 		protected:
 			///
 			/// Constructor.
 			///
-			inline ResourceCache() noexcept
-			    : fs::Serializable {this}
-			{
-			}
+			ResourceCache() noexcept = default;
 
 		protected:
 			///
@@ -143,9 +134,9 @@ namespace galaxy
 
 		template<meta::not_pointer_or_ref Resource>
 		template<typename... Args>
-		inline Resource* const ResourceCache<Resource>::create(std::string_view name, Args&&... args)
+		inline Resource* const ResourceCache<Resource>::create(std::string_view handle, Args&&... args)
 		{
-			const auto str = static_cast<std::string>(name);
+			const auto str = static_cast<std::string>(handle);
 			if (!m_resources.contains(str))
 			{
 				m_resources[str] = std::make_unique<Resource>(args...);
@@ -159,9 +150,16 @@ namespace galaxy
 		}
 
 		template<meta::not_pointer_or_ref Resource>
-		inline Resource* const ResourceCache<Resource>::get(std::string_view name)
+		inline const bool ResourceCache<Resource>::has(std::string_view handle) noexcept
 		{
-			const auto str = static_cast<std::string>(name);
+			const auto str = static_cast<std::string>(handle);
+			return m_resources.contains(str);
+		}
+
+		template<meta::not_pointer_or_ref Resource>
+		inline Resource* const ResourceCache<Resource>::get(std::string_view handle) noexcept
+		{
+			const auto str = static_cast<std::string>(handle);
 			if (m_resources.contains(str))
 			{
 				return m_resources[str].get();
