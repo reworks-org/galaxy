@@ -168,8 +168,7 @@ namespace galaxy
 						{
 							if (settings.m_raw_mouse_input)
 							{
-								glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-								glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+								remove_cursor();
 							}
 						}
 
@@ -593,6 +592,7 @@ namespace galaxy
 
 		void Window::set_cursor_visibility(const bool visible) noexcept
 		{
+			glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
 			visible == true ? glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL)
 					: glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		}
@@ -600,6 +600,7 @@ namespace galaxy
 		void Window::remove_cursor() noexcept
 		{
 			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
 		}
 
 		void Window::set_cursor_icon(std::string_view icon)

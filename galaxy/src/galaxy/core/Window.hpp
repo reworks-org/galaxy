@@ -129,7 +129,7 @@ namespace galaxy
 			///
 			/// \brief Restricts cursor to window bounds, and makes invisible.
 			///
-			/// setCursorVisibility() overrides this.
+			/// set_cursor_visibility() overrides this.
 			///
 			void remove_cursor() noexcept;
 
