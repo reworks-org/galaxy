@@ -43,6 +43,13 @@ namespace galaxy
 			~Skybox() noexcept;
 
 			///
+			/// Loads the skybox from a JSON file.
+			///
+			/// \param file JSON file on disk to parse.
+			///
+			void load(std::string_view json_file);
+
+			///
 			/// Loads Skybox from file.
 			///
 			/// \param faces Each file represents a face. Must be in order: right, left, top, bottom, front, back.

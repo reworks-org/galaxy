@@ -15,6 +15,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Skybox.hpp"
 
@@ -69,6 +70,22 @@ namespace galaxy
 			glDeleteTextures(1, &m_texture);
 			glDeleteBuffers(1, &m_vbo);
 			glDeleteVertexArrays(1, &m_vao);
+		}
+
+		void Skybox::load(std::string_view json_file)
+		{
+			const auto& json_opt = json::parse_from_disk(json_file);
+			const auto& json_obj = json_opt.value();
+
+			std::array<std::string, 6> faces;
+			faces[0] = json_obj.at("right");
+			faces[1] = json_obj.at("left");
+			faces[2] = json_obj.at("top");
+			faces[3] = json_obj.at("bottom");
+			faces[4] = json_obj.at("front");
+			faces[5] = json_obj.at("back");
+
+			load(faces);
 		}
 
 		void Skybox::load(const std::array<std::string, 6>& faces)
@@ -153,7 +170,7 @@ namespace galaxy
 
 		nlohmann::json Skybox::serialize()
 		{
-			nlohmann::json json = ""_json;
+			nlohmann::json json = "{}"_json;
 
 			json["faces"]           = nlohmann::json::object();
 			json["faces"]["right"]  = m_faces[0];
