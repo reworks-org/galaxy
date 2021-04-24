@@ -50,6 +50,13 @@ namespace galaxy
 			m_data.m_pos.z = pos.z;
 		}
 
+		void Camera3D::move_position(const glm::vec3& move) noexcept
+		{
+			m_data.m_pos.x += move.x;
+			m_data.m_pos.y += move.y;
+			m_data.m_pos.z += move.z;
+		}
+
 		void Camera3D::set_focal(const glm::vec3& look_at) noexcept
 		{
 			m_focal.x = look_at.x;
@@ -300,6 +307,7 @@ namespace galaxy
 
 		void Camera3D::reset() noexcept
 		{
+			m_mode = graphics::Camera3D::Mode::FREE;
 			m_fov  = 45.0f;
 			m_near = 0.1f;
 			m_far  = 100.0f;
@@ -307,7 +315,7 @@ namespace galaxy
 			m_heading = 0.0f;
 			m_pitch   = 0.0f;
 
-			m_data.m_pos = {0.0f, 0.0f, 0.0f};
+			m_data.m_pos = {0.0f, 0.0f, 3.0f};
 			m_delta      = {0.0f, 0.0f, 0.0f};
 			m_focal      = {0.0f, 0.0f, 0.0f};
 			m_dir        = {0.0f, 0.0f, 0.0f};
@@ -324,7 +332,7 @@ namespace galaxy
 			m_data.m_view = glm::mat4 {1.0f};
 			m_data.m_proj = glm::mat4 {1.0f};
 
-			m_speed = 1.0f;
+			m_speed = 0.5f;
 		}
 
 		const glm::mat4& Camera3D::get_view() const noexcept

@@ -103,6 +103,13 @@ namespace galaxy
 			void set_position(const glm::vec3& pos) noexcept;
 
 			///
+			/// Move position of camera.
+			///
+			/// \param move Additional movement of camera.
+			///
+			void move_position(const glm::vec3& move) noexcept;
+
+			///
 			/// Set focus point of camera.
 			///
 			/// \param look_at Set point the camera is looking at.
