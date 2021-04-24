@@ -1,0 +1,66 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_ambient_occlusion.oso
+shader node_ambient_occlusion
+param	color	ColorIn	1 1 1		%read{15,15} %write{2147483647,-1}
+param	int	samples	16		%read{9,9} %write{2147483647,-1}
+param	float	Distance	1		%read{1,14} %write{2147483647,-1}
+param	normal	Normal	0 0 0		%read{10,12} %write{0,0} %initexpr
+param	int	inside	0		%read{13,13} %write{2147483647,-1}
+param	int	only_local	0		%read{14,14} %write{2147483647,-1}
+oparam	color	ColorOut	1 1 1		%read{2147483647,-1} %write{15,15}
+oparam	float	AO	1		%read{15,15} %write{14,14}
+global	normal	N	%read{0,0} %write{2147483647,-1}
+local	int	global_radius	%read{14,14} %write{8,8}
+const	float	$const1	0		%read{1,1} %write{2147483647,-1}
+temp	int	$tmp1	%read{2,2} %write{1,1}
+temp	int	$tmp2	%read{3,8} %write{2,7}
+const	int	$const2	0		%read{2,10} %write{2147483647,-1}
+temp	int	$tmp3	%read{5,5} %write{4,4}
+temp	int	$tmp4	%read{6,6} %write{5,5}
+temp	int	$tmp5	%read{7,7} %write{6,6}
+const	string	$const3	"@ao"		%read{14,14} %write{2147483647,-1}
+temp	float	$tmp6	%read{14,14} %write{9,9}
+temp	float	$tmp7	%read{14,14} %write{10,10}
+const	int	$const4	1		%read{11,11} %write{2147483647,-1}
+temp	float	$tmp8	%read{14,14} %write{11,11}
+const	int	$const5	2		%read{12,12} %write{2147483647,-1}
+temp	float	$tmp9	%read{14,14} %write{12,12}
+temp	float	$tmp10	%read{14,14} %write{13,13}
+const	string	$const6	"sblur"		%read{14,14} %write{2147483647,-1}
+const	string	$const7	"tblur"		%read{14,14} %write{2147483647,-1}
+code Normal
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:22
+#                               normal Normal = N,
+	assign		Normal N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl"} %line{22} %argrw{"wr"}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:28
+#   int global_radius = (Distance == 0.0 && !isconnected(Distance));
+	eq		$tmp1 Distance $const1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl"} %line{28} %argrw{"wrr"}
+	neq		$tmp2 $tmp1 $const2 	%argrw{"wrr"}
+	if		$tmp2 8 8 	%argrw{"r"}
+	isconnected	$tmp3 Distance 	%argrw{"wr"}
+	eq		$tmp4 $tmp3 $const2 	%argrw{"wrr"}
+	neq		$tmp5 $tmp4 $const2 	%argrw{"wrr"}
+	assign		$tmp2 $tmp5 	%argrw{"wr"}
+	assign		global_radius $tmp2 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:31
+#   AO = texture("@ao",
+	assign		$tmp6 samples 	%line{31} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:34
+#                Normal[0],
+	compref		$tmp7 Normal $const2 	%line{34} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:35
+#                Normal[1],
+	compref		$tmp8 Normal $const4 	%line{35} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:36
+#                Normal[2],
+	compref		$tmp9 Normal $const5 	%line{36} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:31
+#   AO = texture("@ao",
+	assign		$tmp10 inside 	%line{31} %argrw{"wr"}
+	texture		AO $const3 $tmp6 Distance $tmp7 $tmp8 $tmp9 $tmp10 $const6 only_local $const7 global_radius 	%argrw{"wrrrrrrrrrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_ambient_occlusion.osl:42
+#   ColorOut = ColorIn * AO;
+	mul		ColorOut ColorIn AO 	%line{42} %argrw{"wrr"}
+	end

@@ -1,0 +1,81 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_glossy_bsdf.oso
+shader node_glossy_bsdf
+param	color	Color	0.800000012 0.800000012 0.800000012		%read{6,20} %write{2147483647,-1}
+param	string	distribution	"GGX"		%read{2,15} %write{2147483647,-1}
+param	float	Roughness	0.200000003		%read{1,1} %write{2147483647,-1}
+param	normal	Normal	0 0 0		%read{5,19} %write{0,0} %initexpr
+oparam	closure color	BSDF			%read{2147483647,-1} %write{6,20}
+global	normal	N	%read{0,0} %write{2147483647,-1}
+local	float	roughness	%read{9,19} %write{1,1}
+const	string	$const1	"sharp"		%read{2,2} %write{2147483647,-1}
+temp	int	$tmp1	%read{3,3} %write{2,2}
+temp	closure color	$tmp2	%read{6,6} %write{5,5}
+const	string	$const2	"reflection"		%read{4,5} %write{2147483647,-1}
+const	float	$const3	0		%read{5,5} %write{2147483647,-1}
+const	string	$const4	"beckmann"		%read{7,7} %write{2147483647,-1}
+temp	int	$tmp3	%read{8,8} %write{7,7}
+temp	closure color	$tmp4	%read{10,10} %write{9,9}
+const	string	$const5	"microfacet_beckmann"		%read{9,9} %write{2147483647,-1}
+const	string	$const6	"GGX"		%read{11,11} %write{2147483647,-1}
+temp	int	$tmp5	%read{12,12} %write{11,11}
+temp	closure color	$tmp6	%read{14,14} %write{13,13}
+const	string	$const7	"microfacet_ggx"		%read{13,13} %write{2147483647,-1}
+const	string	$const8	"Multiscatter GGX"		%read{15,15} %write{2147483647,-1}
+temp	int	$tmp7	%read{16,16} %write{15,15}
+temp	closure color	$tmp8	%read{18,18} %write{17,17}
+const	string	$const9	"microfacet_multi_ggx"		%read{17,17} %write{2147483647,-1}
+temp	closure color	$tmp9	%read{20,20} %write{19,19}
+const	vector	$const10	0 0 0		%read{19,19} %write{2147483647,-1}
+const	string	$const11	"ashikhmin_shirley"		%read{19,19} %write{2147483647,-1}
+code Normal
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:23
+#                         normal Normal = N,
+	assign		Normal N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl"} %line{23} %argrw{"wr"}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:26
+#   float roughness = Roughness * Roughness;
+	mul		roughness Roughness Roughness 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl"} %line{26} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:28
+#   if (distribution == "sharp")
+	eq		$tmp1 distribution $const1 	%line{28} %argrw{"wrr"}
+	if		$tmp1 7 21 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:29
+#     BSDF = Color * reflection(Normal);
+	functioncall	$const2 6 	%line{29} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:488
+# closure color reflection(normal N) { return reflection (N, 0.0); }
+	closure		$tmp2 $const2 Normal $const3 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{488} %argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:29
+#     BSDF = Color * reflection(Normal);
+	mul		BSDF $tmp2 Color 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl"} %line{29} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:30
+#   else if (distribution == "beckmann")
+	eq		$tmp3 distribution $const4 	%line{30} %argrw{"wrr"}
+	if		$tmp3 11 21 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:31
+#     BSDF = Color * microfacet_beckmann(Normal, roughness);
+	closure		$tmp4 $const5 Normal roughness 	%line{31} %argrw{"wrrr"}
+	mul		BSDF $tmp4 Color 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:32
+#   else if (distribution == "GGX")
+	eq		$tmp5 distribution $const6 	%line{32} %argrw{"wrr"}
+	if		$tmp5 15 21 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:33
+#     BSDF = Color * microfacet_ggx(Normal, roughness);
+	closure		$tmp6 $const7 Normal roughness 	%line{33} %argrw{"wrrr"}
+	mul		BSDF $tmp6 Color 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:34
+#   else if (distribution == "Multiscatter GGX")
+	eq		$tmp7 distribution $const8 	%line{34} %argrw{"wrr"}
+	if		$tmp7 19 21 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:35
+#     BSDF = Color * microfacet_multi_ggx(Normal, roughness, Color);
+	closure		$tmp8 $const9 Normal roughness Color 	%line{35} %argrw{"wrrrr"}
+	mul		BSDF $tmp8 Color 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_glossy_bsdf.osl:37
+#     BSDF = Color * ashikhmin_shirley(Normal, vector(0, 0, 0), roughness, roughness);
+	closure		$tmp9 $const11 Normal $const10 roughness roughness 	%line{37} %argrw{"wrrrrr"}
+	mul		BSDF $tmp9 Color 	%argrw{"wrr"}
+	end

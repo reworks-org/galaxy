@@ -1,0 +1,13 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_combine_rgb.oso
+shader node_combine_rgb
+param	float	R	0		%read{0,0} %write{2147483647,-1}
+param	float	G	0		%read{0,0} %write{2147483647,-1}
+param	float	B	0		%read{0,0} %write{2147483647,-1}
+oparam	color	Image	0.800000012 0.800000012 0.800000012		%read{2147483647,-1} %write{0,0}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_combine_rgb.osl:21
+#   Image = color(R, G, B);
+	color		Image R G B 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_combine_rgb.osl"} %line{21} %argrw{"wrrr"}
+	end

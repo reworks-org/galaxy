@@ -1,0 +1,671 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_principled_bsdf.oso
+shader node_principled_bsdf
+param	string	distribution	"Multiscatter GGX"		%read{129,201} %write{2147483647,-1}
+param	string	subsurface_method	"burley"		%read{90,90} %write{2147483647,-1}
+param	color	BaseColor	0.800000012 0.800000012 0.800000012		%read{23,219} %write{2147483647,-1}
+param	float	Subsurface	0		%read{84,95} %write{2147483647,-1}
+param	vector	SubsurfaceRadius	1 1 1		%read{92,95} %write{2147483647,-1}
+param	color	SubsurfaceColor	0.699999988 0.100000001 0.100000001		%read{86,93} %write{2147483647,-1}
+param	float	Metallic	0		%read{5,127} %write{2147483647,-1}
+param	float	Specular	0.5		%read{123,144} %write{2147483647,-1}
+param	float	SpecularTint	0		%read{119,155} %write{2147483647,-1}
+param	float	Roughness	0.5		%read{93,218} %write{2147483647,-1}
+param	float	Anisotropic	0		%read{113,113} %write{2147483647,-1}
+param	float	AnisotropicRotation	0		%read{28,30} %write{2147483647,-1}
+param	float	Sheen	0		%read{100,107} %write{2147483647,-1}
+param	float	SheenTint	0.5		%read{102,104} %write{2147483647,-1}
+param	float	Clearcoat	0		%read{222,225} %write{2147483647,-1}
+param	float	ClearcoatRoughness	0.0299999993		%read{224,224} %write{2147483647,-1}
+param	float	IOR	1.45000005		%read{3,3} %write{2147483647,-1}
+param	float	Transmission	0		%read{9,14} %write{2147483647,-1}
+param	float	TransmissionRoughness	0		%read{204,204} %write{2147483647,-1}
+param	normal	Normal	0 0 0		%read{32,219} %write{0,0} %initexpr
+param	normal	ClearcoatNormal	0 0 0		%read{225,225} %write{1,1} %initexpr
+param	normal	Tangent	0 0 0		%read{22,22} %write{2,2} %initexpr
+oparam	closure color	BSDF			%read{109,226} %write{94,226}
+global	vector	I	%read{169,169} %write{2147483647,-1}
+global	normal	N	%read{0,1} %write{2147483647,-1}
+global	vector	dPdu	%read{2,2} %write{2147483647,-1}
+local	vector	___252_axis	%read{36,38} %write{33,33}
+local	float	___252_cosang	%read{35,76} %write{34,34}
+local	float	___252_sinang	%read{46,71} %write{34,34}
+local	float	___252_cosang1	%read{45,70} %write{35,35}
+local	float	___252_x	%read{39,71} %write{36,36}
+local	float	___252_y	%read{44,69} %write{37,37}
+local	float	___252_z	%read{46,74} %write{38,38}
+local	matrix	___252_M	%read{80,80} %write{78,78}
+local	float	___325_c	%read{174,186} %write{171,171}
+local	float	___325_g	%read{176,185} %write{175,178}
+local	float	___325_result	%read{195,195} %write{193,194}
+local	float	___326_A	%read{189,190} %write{181,181}
+local	float	___326_B	%read{191,191} %write{188,188}
+local	float	f	%read{160,161} %write{3,3}
+local	float	diffuse_weight	%read{82,110} %write{12,12}
+local	float	final_transmission	%read{21,220} %write{20,20}
+local	float	specular_weight	%read{111,150} %write{21,21}
+local	vector	T	%read{79,149} %write{22,81}
+local	float	m_cdlum	%read{24,26} %write{23,23}
+local	color	m_ctint	%read{104,121} %write{26,27}
+local	color	___367_mixed_ss_base_color	%read{94,97} %write{89,89}
+local	color	___371_sheen_color	%read{107,107} %write{105,105}
+local	float	___372_aspect	%read{117,118} %write{115,115}
+local	float	___372_r2	%read{117,118} %write{116,116}
+local	float	___372_alpha_x	%read{141,149} %write{117,117}
+local	float	___372_alpha_y	%read{141,149} %write{118,118}
+local	color	___372_tmp_col	%read{124,124} %write{122,122}
+local	color	___372_Cspec0	%read{141,149} %write{128,128}
+local	color	___375_Cspec0	%read{208,219} %write{157,157}
+local	float	___375_eta	%read{172,219} %write{160,161}
+local	float	___376_cosNO	%read{171,171} %write{169,169}
+local	float	___376_Fr	%read{209,212} %write{195,195}
+local	float	___376_refl_roughness	%read{200,207} %write{196,199}
+local	float	___376_transmission_roughness	%read{210,210} %write{200,206}
+const	float	$const1	9.99999975e-06		%read{3,222} %write{2147483647,-1}
+const	float	$const2	1		%read{5,212} %write{2147483647,-1}
+temp	float	$tmp1	%read{7,7} %write{6,6}
+const	float	$const3	0		%read{6,199} %write{2147483647,-1}
+const	string	$const4	"clamp"		%read{4,16} %write{2147483647,-1}
+temp	float	$tmp2	%read{6,6} %write{5,5}
+temp	float	$tmp3	%read{12,12} %write{7,7}
+temp	float	$tmp4	%read{11,11} %write{10,10}
+temp	float	$tmp5	%read{10,10} %write{9,9}
+temp	float	$tmp6	%read{12,12} %write{11,11}
+temp	float	$tmp7	%read{20,20} %write{15,15}
+temp	float	$tmp8	%read{15,15} %write{14,14}
+temp	float	$tmp9	%read{19,19} %write{18,18}
+temp	float	$tmp10	%read{18,18} %write{17,17}
+temp	float	$tmp11	%read{20,20} %write{19,19}
+temp	int	$tmp12	%read{25,25} %write{24,24}
+const	color	$const5	0 0 0		%read{27,27} %write{2147483647,-1}
+temp	int	$tmp13	%read{29,29} %write{28,28}
+const	float	$const6	6.28318548		%read{30,30} %write{2147483647,-1}
+temp	float	$tmp14	%read{34,34} %write{30,30}
+const	point	$const7	0 0 0		%read{32,81} %write{2147483647,-1}
+const	string	$const8	"rotate"		%read{31,31} %write{2147483647,-1}
+temp	vector	$tmp16	%read{33,33} %write{32,32}
+const	int	$const9	0		%read{36,176} %write{2147483647,-1}
+const	int	$const10	1		%read{37,37} %write{2147483647,-1}
+const	int	$const11	2		%read{38,38} %write{2147483647,-1}
+temp	float	$tmp17	%read{43,43} %write{39,39}
+temp	float	$tmp18	%read{41,41} %write{40,40}
+temp	float	$tmp19	%read{42,42} %write{41,41}
+temp	float	$tmp20	%read{43,43} %write{42,42}
+temp	float	$tmp21	%read{78,78} %write{43,43}
+temp	float	$tmp22	%read{45,45} %write{44,44}
+temp	float	$tmp23	%read{47,47} %write{45,45}
+temp	float	$tmp24	%read{47,47} %write{46,46}
+temp	float	$tmp25	%read{78,78} %write{47,47}
+temp	float	$tmp26	%read{49,49} %write{48,48}
+temp	float	$tmp27	%read{51,51} %write{49,49}
+temp	float	$tmp28	%read{51,51} %write{50,50}
+temp	float	$tmp29	%read{78,78} %write{51,51}
+temp	float	$tmp30	%read{53,53} %write{52,52}
+temp	float	$tmp31	%read{55,55} %write{53,53}
+temp	float	$tmp32	%read{55,55} %write{54,54}
+temp	float	$tmp33	%read{78,78} %write{55,55}
+temp	float	$tmp34	%read{60,60} %write{56,56}
+temp	float	$tmp35	%read{58,58} %write{57,57}
+temp	float	$tmp36	%read{59,59} %write{58,58}
+temp	float	$tmp37	%read{60,60} %write{59,59}
+temp	float	$tmp38	%read{78,78} %write{60,60}
+temp	float	$tmp39	%read{62,62} %write{61,61}
+temp	float	$tmp40	%read{64,64} %write{62,62}
+temp	float	$tmp41	%read{64,64} %write{63,63}
+temp	float	$tmp42	%read{78,78} %write{64,64}
+temp	float	$tmp43	%read{66,66} %write{65,65}
+temp	float	$tmp44	%read{68,68} %write{66,66}
+temp	float	$tmp45	%read{68,68} %write{67,67}
+temp	float	$tmp46	%read{78,78} %write{68,68}
+temp	float	$tmp47	%read{70,70} %write{69,69}
+temp	float	$tmp48	%read{72,72} %write{70,70}
+temp	float	$tmp49	%read{72,72} %write{71,71}
+temp	float	$tmp50	%read{78,78} %write{72,72}
+temp	float	$tmp51	%read{77,77} %write{73,73}
+temp	float	$tmp52	%read{75,75} %write{74,74}
+temp	float	$tmp53	%read{76,76} %write{75,75}
+temp	float	$tmp54	%read{77,77} %write{76,76}
+temp	float	$tmp55	%read{78,78} %write{77,77}
+temp	vector	$tmp56	%read{81,81} %write{80,80}
+temp	vector	$tmp57	%read{80,80} %write{79,79}
+temp	int	$tmp58	%read{83,83} %write{82,82}
+temp	int	$tmp59	%read{85,85} %write{84,84}
+temp	color	$tmp60	%read{89,89} %write{86,86}
+temp	float	$tmp61	%read{88,88} %write{87,87}
+temp	color	$tmp62	%read{89,89} %write{88,88}
+const	string	$const12	"burley"		%read{90,90} %write{2147483647,-1}
+temp	int	$tmp63	%read{91,91} %write{90,90}
+temp	closure color	$tmp64	%read{94,94} %write{93,93}
+const	string	$const13	"principled"		%read{93,93} %write{2147483647,-1}
+temp	vector	$tmp65	%read{93,93} %write{92,92}
+const	string	$const14	"roughness"		%read{93,96} %write{2147483647,-1}
+const	string	$const15	"bssrdf"		%read{93,96} %write{2147483647,-1}
+temp	closure color	$tmp66	%read{97,97} %write{96,96}
+const	string	$const16	"principled_random_walk"		%read{96,96} %write{2147483647,-1}
+temp	vector	$tmp67	%read{96,96} %write{95,95}
+temp	closure color	$tmp68	%read{99,99} %write{98,98}
+const	string	$const17	"principled_diffuse"		%read{98,98} %write{2147483647,-1}
+temp	int	$tmp69	%read{101,101} %write{100,100}
+const	color	$const18	1 1 1		%read{103,156} %write{2147483647,-1}
+temp	float	$tmp71	%read{103,103} %write{102,102}
+temp	color	$tmp72	%read{105,105} %write{103,103}
+temp	color	$tmp73	%read{105,105} %write{104,104}
+temp	closure color	$tmp74	%read{108,108} %write{106,106}
+const	string	$const19	"principled_sheen"		%read{106,106} %write{2147483647,-1}
+temp	color	$tmp75	%read{108,108} %write{107,107}
+temp	closure color	$tmp76	%read{109,109} %write{108,108}
+temp	int	$tmp77	%read{112,112} %write{111,111}
+const	float	$const20	0.899999976		%read{113,113} %write{2147483647,-1}
+temp	float	$tmp78	%read{114,114} %write{113,113}
+temp	float	$tmp79	%read{115,115} %write{114,114}
+temp	float	$tmp81	%read{120,120} %write{119,119}
+temp	color	$tmp82	%read{122,122} %write{120,120}
+temp	color	$tmp83	%read{122,122} %write{121,121}
+const	float	$const21	0.0799999982		%read{123,144} %write{2147483647,-1}
+temp	float	$tmp84	%read{124,124} %write{123,123}
+temp	color	$tmp85	%read{126,126} %write{124,124}
+temp	float	$tmp86	%read{126,126} %write{125,125}
+temp	color	$tmp87	%read{128,128} %write{126,126}
+temp	color	$tmp88	%read{128,128} %write{127,127}
+const	string	$const22	"GGX"		%read{129,201} %write{2147483647,-1}
+temp	int	$tmp89	%read{130,130} %write{129,129}
+temp	int	$tmp90	%read{131,135} %write{130,134}
+const	float	$const23	0.075000003		%read{132,132} %write{2147483647,-1}
+temp	int	$tmp91	%read{133,133} %write{132,132}
+temp	int	$tmp92	%read{134,134} %write{133,133}
+temp	closure color	$tmp93	%read{142,142} %write{141,141}
+const	float	$const24	2		%read{139,147} %write{2147483647,-1}
+temp	float	$tmp94	%read{138,138} %write{137,137}
+temp	float	$tmp95	%read{137,137} %write{136,136}
+temp	float	$tmp96	%read{139,139} %write{138,138}
+temp	float	$tmp97	%read{140,140} %write{139,139}
+temp	float	$tmp98	%read{141,141} %write{140,140}
+const	string	$const25	"microfacet_ggx_aniso_fresnel"		%read{141,141} %write{2147483647,-1}
+temp	closure color	$tmp99	%read{143,143} %write{142,142}
+temp	closure color	$tmp100	%read{150,150} %write{149,149}
+temp	float	$tmp101	%read{146,146} %write{145,145}
+temp	float	$tmp102	%read{145,145} %write{144,144}
+temp	float	$tmp103	%read{147,147} %write{146,146}
+temp	float	$tmp104	%read{148,148} %write{147,147}
+temp	float	$tmp105	%read{149,149} %write{148,148}
+const	string	$const26	"microfacet_multi_ggx_aniso_fresnel"		%read{149,149} %write{2147483647,-1}
+temp	closure color	$tmp106	%read{151,151} %write{150,150}
+temp	int	$tmp107	%read{153,153} %write{152,152}
+temp	color	$tmp108	%read{157,157} %write{154,154}
+temp	float	$tmp110	%read{156,156} %write{155,155}
+temp	color	$tmp111	%read{157,157} %write{156,156}
+temp	int	$tmp112	%read{159,159} %write{158,158}
+temp	int	$tmp113	%read{163,163} %write{162,162}
+temp	int	$tmp114	%read{164,168} %write{163,167}
+const	float	$const27	0.0500000007		%read{165,165} %write{2147483647,-1}
+temp	int	$tmp115	%read{166,166} %write{165,165}
+temp	int	$tmp116	%read{167,167} %write{166,166}
+const	string	$const28	"fresnel_dielectric_cos"		%read{170,170} %write{2147483647,-1}
+temp	float	$tmp117	%read{173,173} %write{172,172}
+temp	float	$tmp118	%read{175,175} %write{173,173}
+temp	float	$tmp119	%read{175,175} %write{174,174}
+temp	int	$tmp120	%read{177,177} %write{176,176}
+temp	float	$tmp121	%read{181,181} %write{179,179}
+temp	float	$tmp122	%read{181,181} %write{180,180}
+temp	float	$tmp123	%read{183,183} %write{182,182}
+temp	float	$tmp124	%read{184,184} %write{183,183}
+temp	float	$tmp125	%read{188,188} %write{184,184}
+temp	float	$tmp126	%read{186,186} %write{185,185}
+temp	float	$tmp127	%read{187,187} %write{186,186}
+temp	float	$tmp128	%read{188,188} %write{187,187}
+const	float	$const29	0.5		%read{189,189} %write{2147483647,-1}
+temp	float	$tmp129	%read{190,190} %write{189,189}
+temp	float	$tmp130	%read{193,193} %write{190,190}
+temp	float	$tmp131	%read{192,192} %write{191,191}
+temp	float	$tmp132	%read{193,193} %write{192,192}
+const	float	$const30	0.00999999978		%read{197,197} %write{2147483647,-1}
+temp	int	$tmp133	%read{198,198} %write{197,197}
+temp	int	$tmp134	%read{202,202} %write{201,201}
+temp	float	$tmp135	%read{205,205} %write{203,203}
+temp	float	$tmp136	%read{205,205} %write{204,204}
+temp	float	$tmp137	%read{206,206} %write{205,205}
+temp	closure color	$tmp138	%read{209,209} %write{208,208}
+temp	float	$tmp139	%read{208,208} %write{207,207}
+const	string	$const31	"microfacet_ggx_fresnel"		%read{208,208} %write{2147483647,-1}
+temp	closure color	$tmp140	%read{215,215} %write{209,209}
+temp	closure color	$tmp141	%read{214,214} %write{211,211}
+temp	float	$tmp142	%read{211,211} %write{210,210}
+const	string	$const32	"microfacet_ggx_refraction"		%read{211,211} %write{2147483647,-1}
+temp	float	$tmp143	%read{213,213} %write{212,212}
+temp	color	$tmp144	%read{214,214} %write{213,213}
+temp	closure color	$tmp145	%read{215,215} %write{214,214}
+temp	closure color	$tmp146	%read{216,216} %write{215,215}
+temp	closure color	$tmp147	%read{217,217} %write{216,216}
+temp	closure color	$tmp148	%read{220,220} %write{219,219}
+temp	float	$tmp149	%read{219,219} %write{218,218}
+const	string	$const33	"microfacet_multi_ggx_glass_fresnel"		%read{219,219} %write{2147483647,-1}
+temp	closure color	$tmp150	%read{221,221} %write{220,220}
+temp	int	$tmp151	%read{223,223} %write{222,222}
+temp	closure color	$tmp152	%read{226,226} %write{225,225}
+temp	float	$tmp153	%read{225,225} %write{224,224}
+const	string	$const34	"principled_clearcoat"		%read{225,225} %write{2147483647,-1}
+code Normal
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:39
+#                             normal Normal = N,
+	assign		Normal N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{39} %argrw{"wr"}
+code ClearcoatNormal
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:40
+#                             normal ClearcoatNormal = N,
+	assign		ClearcoatNormal N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{40} %argrw{"wr"}
+code Tangent
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:41
+#                             normal Tangent = normalize(dPdu),
+	normalize	Tangent dPdu 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{41} %argrw{"wr"}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:44
+#   float f = max(IOR, 1e-5);
+	max		f IOR $const1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{44} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:45
+#   float diffuse_weight = (1.0 - clamp(Metallic, 0.0, 1.0)) * (1.0 - clamp(Transmission, 0.0, 1.0));
+	functioncall	$const4 7 	%line{45} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp2 Metallic $const2 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp1 $tmp2 $const3 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:45
+#   float diffuse_weight = (1.0 - clamp(Metallic, 0.0, 1.0)) * (1.0 - clamp(Transmission, 0.0, 1.0));
+	sub		$tmp3 $const2 $tmp1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{45} %argrw{"wrr"}
+	functioncall	$const4 11 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp5 Transmission $const2 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp4 $tmp5 $const3 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:45
+#   float diffuse_weight = (1.0 - clamp(Metallic, 0.0, 1.0)) * (1.0 - clamp(Transmission, 0.0, 1.0));
+	sub		$tmp6 $const2 $tmp4 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{45} %argrw{"wrr"}
+	mul		diffuse_weight $tmp3 $tmp6 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:46
+#   float final_transmission = clamp(Transmission, 0.0, 1.0) * (1.0 - clamp(Metallic, 0.0, 1.0));
+	functioncall	$const4 16 	%line{46} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp8 Transmission $const2 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp7 $tmp8 $const3 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:46
+#   float final_transmission = clamp(Transmission, 0.0, 1.0) * (1.0 - clamp(Metallic, 0.0, 1.0));
+	functioncall	$const4 19 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{46} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp10 Metallic $const2 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp9 $tmp10 $const3 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:46
+#   float final_transmission = clamp(Transmission, 0.0, 1.0) * (1.0 - clamp(Metallic, 0.0, 1.0));
+	sub		$tmp11 $const2 $tmp9 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{46} %argrw{"wrr"}
+	mul		final_transmission $tmp7 $tmp11 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:47
+#   float specular_weight = (1.0 - final_transmission);
+	sub		specular_weight $const2 final_transmission 	%line{47} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:49
+#   vector T = Tangent;
+	assign		T Tangent 	%line{49} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:51
+#   float m_cdlum = luminance(BaseColor);
+	luminance	m_cdlum BaseColor 	%line{51} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:52
+#   color m_ctint = m_cdlum > 0.0 ? BaseColor / m_cdlum :
+	gt		$tmp12 m_cdlum $const3 	%line{52} %argrw{"wrr"}
+	if		$tmp12 27 28 	%argrw{"r"}
+	div		m_ctint BaseColor m_cdlum 	%argrw{"wrr"}
+	assign		m_ctint $const5 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:56
+#   if (AnisotropicRotation != 0.0)
+	neq		$tmp13 AnisotropicRotation $const3 	%line{56} %argrw{"wrr"}
+	if		$tmp13 82 82 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:57
+#     T = rotate(T, AnisotropicRotation * M_2PI, point(0.0, 0.0, 0.0), Normal);
+	mul		$tmp14 AnisotropicRotation $const6 	%line{57} %argrw{"wrr"}
+	functioncall	$const8 82 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:292
+#     vector axis = normalize (b - a);
+	sub		$tmp16 Normal $const7 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{292} %argrw{"wrr"}
+	normalize	___252_axis $tmp16 	%argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:294
+#     sincos (angle, sinang, cosang);
+	sincos		$tmp14 ___252_sinang ___252_cosang 	%line{294} %argrw{"rww"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:295
+#     float cosang1 = 1.0 - cosang;
+	sub		___252_cosang1 $const2 ___252_cosang 	%line{295} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:296
+#     float x = axis[0], y = axis[1], z = axis[2];
+	compref		___252_x ___252_axis $const9 	%line{296} %argrw{"wrr"}
+	compref		___252_y ___252_axis $const10 	%argrw{"wrr"}
+	compref		___252_z ___252_axis $const11 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:297
+#     matrix M = matrix (x * x + (1.0 - x * x) * cosang,
+	mul		$tmp17 ___252_x ___252_x 	%line{297} %argrw{"wrr"}
+	mul		$tmp18 ___252_x ___252_x 	%argrw{"wrr"}
+	sub		$tmp19 $const2 $tmp18 	%argrw{"wrr"}
+	mul		$tmp20 $tmp19 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp21 $tmp17 $tmp20 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:298
+#                        x * y * cosang1 + z * sinang,
+	mul		$tmp22 ___252_x ___252_y 	%line{298} %argrw{"wrr"}
+	mul		$tmp23 $tmp22 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp24 ___252_z ___252_sinang 	%argrw{"wrr"}
+	add		$tmp25 $tmp23 $tmp24 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:299
+#                        x * z * cosang1 - y * sinang,
+	mul		$tmp26 ___252_x ___252_z 	%line{299} %argrw{"wrr"}
+	mul		$tmp27 $tmp26 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp28 ___252_y ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp29 $tmp27 $tmp28 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:301
+#                        x * y * cosang1 - z * sinang,
+	mul		$tmp30 ___252_x ___252_y 	%line{301} %argrw{"wrr"}
+	mul		$tmp31 $tmp30 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp32 ___252_z ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp33 $tmp31 $tmp32 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:302
+#                        y * y + (1.0 - y * y) * cosang,
+	mul		$tmp34 ___252_y ___252_y 	%line{302} %argrw{"wrr"}
+	mul		$tmp35 ___252_y ___252_y 	%argrw{"wrr"}
+	sub		$tmp36 $const2 $tmp35 	%argrw{"wrr"}
+	mul		$tmp37 $tmp36 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp38 $tmp34 $tmp37 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:303
+#                        y * z * cosang1 + x * sinang,
+	mul		$tmp39 ___252_y ___252_z 	%line{303} %argrw{"wrr"}
+	mul		$tmp40 $tmp39 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp41 ___252_x ___252_sinang 	%argrw{"wrr"}
+	add		$tmp42 $tmp40 $tmp41 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:305
+#                        x * z * cosang1 + y * sinang,
+	mul		$tmp43 ___252_x ___252_z 	%line{305} %argrw{"wrr"}
+	mul		$tmp44 $tmp43 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp45 ___252_y ___252_sinang 	%argrw{"wrr"}
+	add		$tmp46 $tmp44 $tmp45 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:306
+#                        y * z * cosang1 - x * sinang,
+	mul		$tmp47 ___252_y ___252_z 	%line{306} %argrw{"wrr"}
+	mul		$tmp48 $tmp47 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp49 ___252_x ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp50 $tmp48 $tmp49 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:307
+#                        z * z + (1.0 - z * z) * cosang,
+	mul		$tmp51 ___252_z ___252_z 	%line{307} %argrw{"wrr"}
+	mul		$tmp52 ___252_z ___252_z 	%argrw{"wrr"}
+	sub		$tmp53 $const2 $tmp52 	%argrw{"wrr"}
+	mul		$tmp54 $tmp53 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp55 $tmp51 $tmp54 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:297
+#     matrix M = matrix (x * x + (1.0 - x * x) * cosang,
+	matrix		___252_M $tmp21 $tmp25 $tmp29 $const3 $tmp33 $tmp38 $tmp42 $const3 $tmp46 $tmp50 $tmp55 $const3 $const3 $const3 $const3 $const2 	%line{297} %argrw{"wrrrrrrrrrrrrrrrr"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:310
+#     return transform (M, p-a) + a;
+	sub		$tmp57 T $const7 	%line{310} %argrw{"wrr"}
+	transformv	$tmp56 ___252_M $tmp57 	%argrw{"wrr"}
+	add		T $tmp56 $const7 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:59
+#   if (diffuse_weight > 1e-5) {
+	gt		$tmp58 diffuse_weight $const1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{59} %argrw{"wrr"}
+	if		$tmp58 111 111 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:60
+#     if (Subsurface > 1e-5) {
+	gt		$tmp59 Subsurface $const1 	%line{60} %argrw{"wrr"}
+	if		$tmp59 98 100 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:61
+#       color mixed_ss_base_color = SubsurfaceColor * Subsurface + BaseColor * (1.0 - Subsurface);
+	mul		$tmp60 SubsurfaceColor Subsurface 	%line{61} %argrw{"wrr"}
+	sub		$tmp61 $const2 Subsurface 	%argrw{"wrr"}
+	mul		$tmp62 BaseColor $tmp61 	%argrw{"wrr"}
+	add		___367_mixed_ss_base_color $tmp60 $tmp62 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:62
+#       if (subsurface_method == "burley") {
+	eq		$tmp63 subsurface_method $const12 	%line{62} %argrw{"wrr"}
+	if		$tmp63 95 98 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:65
+#                                             Subsurface * SubsurfaceRadius,
+	mul		$tmp65 Subsurface SubsurfaceRadius 	%line{65} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:63
+#         BSDF = mixed_ss_base_color * bssrdf("principled",
+	closure		$tmp64 $const15 $const13 Normal $tmp65 SubsurfaceColor $const14 Roughness 	%line{63} %argrw{"wrrrrrrr"}
+	mul		BSDF $tmp64 ___367_mixed_ss_base_color 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:73
+#                                             Subsurface * SubsurfaceRadius,
+	mul		$tmp67 Subsurface SubsurfaceRadius 	%line{73} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:71
+#         BSDF = mixed_ss_base_color * bssrdf("principled_random_walk",
+	closure		$tmp66 $const15 $const16 Normal $tmp67 ___367_mixed_ss_base_color $const14 Roughness 	%line{71} %argrw{"wrrrrrrr"}
+	mul		BSDF $tmp66 ___367_mixed_ss_base_color 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:80
+#       BSDF = BaseColor * principled_diffuse(Normal, Roughness);
+	closure		$tmp68 $const17 Normal Roughness 	%line{80} %argrw{"wrrr"}
+	mul		BSDF $tmp68 BaseColor 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:83
+#     if (Sheen > 1e-5) {
+	gt		$tmp69 Sheen $const1 	%line{83} %argrw{"wrr"}
+	if		$tmp69 110 110 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:84
+#       color sheen_color = color(1.0, 1.0, 1.0) * (1.0 - SheenTint) + m_ctint * SheenTint;
+	sub		$tmp71 $const2 SheenTint 	%line{84} %argrw{"wrr"}
+	mul		$tmp72 $const18 $tmp71 	%argrw{"wrr"}
+	mul		$tmp73 m_ctint SheenTint 	%argrw{"wrr"}
+	add		___371_sheen_color $tmp72 $tmp73 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:86
+#       BSDF = BSDF + sheen_color * Sheen * principled_sheen(Normal);
+	closure		$tmp74 $const19 Normal 	%line{86} %argrw{"wrr"}
+	mul		$tmp75 ___371_sheen_color Sheen 	%argrw{"wrr"}
+	mul		$tmp76 $tmp74 $tmp75 	%argrw{"wrr"}
+	add		BSDF BSDF $tmp76 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:89
+#     BSDF = BSDF * diffuse_weight;
+	mul		BSDF BSDF diffuse_weight 	%line{89} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:92
+#   if (specular_weight > 1e-5) {
+	gt		$tmp77 specular_weight $const1 	%line{92} %argrw{"wrr"}
+	if		$tmp77 152 152 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:93
+#     float aspect = sqrt(1.0 - Anisotropic * 0.9);
+	mul		$tmp78 Anisotropic $const20 	%line{93} %argrw{"wrr"}
+	sub		$tmp79 $const2 $tmp78 	%argrw{"wrr"}
+	sqrt		___372_aspect $tmp79 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:94
+#     float r2 = Roughness * Roughness;
+	mul		___372_r2 Roughness Roughness 	%line{94} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:96
+#     float alpha_x = r2 / aspect;
+	div		___372_alpha_x ___372_r2 ___372_aspect 	%line{96} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:97
+#     float alpha_y = r2 * aspect;
+	mul		___372_alpha_y ___372_r2 ___372_aspect 	%line{97} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:99
+#     color tmp_col = color(1.0, 1.0, 1.0) * (1.0 - SpecularTint) + m_ctint * SpecularTint;
+	sub		$tmp81 $const2 SpecularTint 	%line{99} %argrw{"wrr"}
+	mul		$tmp82 $const18 $tmp81 	%argrw{"wrr"}
+	mul		$tmp83 m_ctint SpecularTint 	%argrw{"wrr"}
+	add		___372_tmp_col $tmp82 $tmp83 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:101
+#     color Cspec0 = (Specular * 0.08 * tmp_col) * (1.0 - Metallic) + BaseColor * Metallic;
+	mul		$tmp84 Specular $const21 	%line{101} %argrw{"wrr"}
+	mul		$tmp85 $tmp84 ___372_tmp_col 	%argrw{"wrr"}
+	sub		$tmp86 $const2 Metallic 	%argrw{"wrr"}
+	mul		$tmp87 $tmp85 $tmp86 	%argrw{"wrr"}
+	mul		$tmp88 BaseColor Metallic 	%argrw{"wrr"}
+	add		___372_Cspec0 $tmp87 $tmp88 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:103
+#     if (distribution == "GGX" || Roughness <= 0.075) {
+	eq		$tmp89 distribution $const22 	%line{103} %argrw{"wrr"}
+	neq		$tmp90 $tmp89 $const9 	%argrw{"wrr"}
+	if		$tmp90 132 135 	%argrw{"r"}
+	le		$tmp91 Roughness $const23 	%argrw{"wrr"}
+	neq		$tmp92 $tmp91 $const9 	%argrw{"wrr"}
+	assign		$tmp90 $tmp92 	%argrw{"wr"}
+	if		$tmp90 144 152 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:109
+#                                                      (2.0 / (1.0 - sqrt(0.08 * Specular))) - 1.0,
+	mul		$tmp95 $const21 Specular 	%line{109} %argrw{"wrr"}
+	sqrt		$tmp94 $tmp95 	%argrw{"wr"}
+	sub		$tmp96 $const2 $tmp94 	%argrw{"wrr"}
+	div		$tmp97 $const24 $tmp96 	%argrw{"wrr"}
+	sub		$tmp98 $tmp97 $const2 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:105
+#                         microfacet_ggx_aniso_fresnel(Normal,
+	closure		$tmp93 $const25 Normal T ___372_alpha_x ___372_alpha_y $tmp98 BaseColor ___372_Cspec0 	%line{105} %argrw{"wrrrrrrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:104
+#       BSDF = BSDF + specular_weight *
+	mul		$tmp99 $tmp93 specular_weight 	%line{104} %argrw{"wrr"}
+	add		BSDF BSDF $tmp99 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:119
+#                                           (2.0 / (1.0 - sqrt(0.08 * Specular))) - 1.0,
+	mul		$tmp102 $const21 Specular 	%line{119} %argrw{"wrr"}
+	sqrt		$tmp101 $tmp102 	%argrw{"wr"}
+	sub		$tmp103 $const2 $tmp101 	%argrw{"wrr"}
+	div		$tmp104 $const24 $tmp103 	%argrw{"wrr"}
+	sub		$tmp105 $tmp104 $const2 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:114
+#       BSDF = BSDF + specular_weight * microfacet_multi_ggx_aniso_fresnel(
+	closure		$tmp100 $const26 Normal T ___372_alpha_x ___372_alpha_y $tmp105 BaseColor ___372_Cspec0 	%line{114} %argrw{"wrrrrrrrr"}
+	mul		$tmp106 $tmp100 specular_weight 	%argrw{"wrr"}
+	add		BSDF BSDF $tmp106 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:125
+#   if (final_transmission > 1e-5) {
+	gt		$tmp107 final_transmission $const1 	%line{125} %argrw{"wrr"}
+	if		$tmp107 222 222 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:126
+#     color Cspec0 = BaseColor * SpecularTint + color(1.0, 1.0, 1.0) * (1.0 - SpecularTint);
+	mul		$tmp108 BaseColor SpecularTint 	%line{126} %argrw{"wrr"}
+	sub		$tmp110 $const2 SpecularTint 	%argrw{"wrr"}
+	mul		$tmp111 $const18 $tmp110 	%argrw{"wrr"}
+	add		___375_Cspec0 $tmp108 $tmp111 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:127
+#     float eta = backfacing() ? 1.0 / f : f;
+	backfacing	$tmp112 	%line{127} %argrw{"w"}
+	if		$tmp112 161 162 	%argrw{"r"}
+	div		___375_eta $const2 f 	%argrw{"wrr"}
+	assign		___375_eta f 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:129
+#     if (distribution == "GGX" || Roughness <= 5e-2) {
+	eq		$tmp113 distribution $const22 	%line{129} %argrw{"wrr"}
+	neq		$tmp114 $tmp113 $const9 	%argrw{"wrr"}
+	if		$tmp114 165 168 	%argrw{"r"}
+	le		$tmp115 Roughness $const27 	%argrw{"wrr"}
+	neq		$tmp116 $tmp115 $const9 	%argrw{"wrr"}
+	assign		$tmp114 $tmp116 	%argrw{"wr"}
+	if		$tmp114 218 222 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:130
+#       float cosNO = dot(Normal, I);
+	dot		___376_cosNO Normal I 	%line{130} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:131
+#       float Fr = fresnel_dielectric_cos(cosNO, eta);
+	functioncall	$const28 196 	%line{131} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:37
+#   float c = fabs(cosi);
+	fabs		___325_c ___376_cosNO 	%filename{"C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h"} %line{37} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:38
+#   float g = eta * eta - 1 + c * c;
+	mul		$tmp117 ___375_eta ___375_eta 	%line{38} %argrw{"wrr"}
+	sub		$tmp118 $tmp117 $const2 	%argrw{"wrr"}
+	mul		$tmp119 ___325_c ___325_c 	%argrw{"wrr"}
+	add		___325_g $tmp118 $tmp119 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:41
+#   if (g > 0) {
+	gt		$tmp120 ___325_g $const9 	%line{41} %argrw{"wrr"}
+	if		$tmp120 194 195 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:42
+#     g = sqrt(g);
+	sqrt		___325_g ___325_g 	%line{42} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:43
+#     float A = (g - c) / (g + c);
+	sub		$tmp121 ___325_g ___325_c 	%line{43} %argrw{"wrr"}
+	add		$tmp122 ___325_g ___325_c 	%argrw{"wrr"}
+	div		___326_A $tmp121 $tmp122 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:44
+#     float B = (c * (g + c) - 1) / (c * (g - c) + 1);
+	add		$tmp123 ___325_g ___325_c 	%line{44} %argrw{"wrr"}
+	mul		$tmp124 ___325_c $tmp123 	%argrw{"wrr"}
+	sub		$tmp125 $tmp124 $const2 	%argrw{"wrr"}
+	sub		$tmp126 ___325_g ___325_c 	%argrw{"wrr"}
+	mul		$tmp127 ___325_c $tmp126 	%argrw{"wrr"}
+	add		$tmp128 $tmp127 $const2 	%argrw{"wrr"}
+	div		___326_B $tmp125 $tmp128 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:45
+#     result = 0.5 * A * A * (1 + B * B);
+	mul		$tmp129 $const29 ___326_A 	%line{45} %argrw{"wrr"}
+	mul		$tmp130 $tmp129 ___326_A 	%argrw{"wrr"}
+	mul		$tmp131 ___326_B ___326_B 	%argrw{"wrr"}
+	add		$tmp132 $const2 $tmp131 	%argrw{"wrr"}
+	mul		___325_result $tmp130 $tmp132 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:48
+#     result = 1.0; /* TIR (no refracted component) */
+	assign		___325_result $const2 	%line{48} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_fresnel.h:50
+#   return result;
+	assign		___376_Fr ___325_result 	%line{50} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:133
+#       float refl_roughness = Roughness;
+	assign		___376_refl_roughness Roughness 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl"} %line{133} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:134
+#       if (Roughness <= 1e-2)
+	le		$tmp133 Roughness $const30 	%line{134} %argrw{"wrr"}
+	if		$tmp133 200 200 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:135
+#         refl_roughness = 0.0;
+	assign		___376_refl_roughness $const3 	%line{135} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:137
+#       float transmission_roughness = refl_roughness;
+	assign		___376_transmission_roughness ___376_refl_roughness 	%line{137} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:138
+#       if (distribution == "GGX")
+	eq		$tmp134 distribution $const22 	%line{138} %argrw{"wrr"}
+	if		$tmp134 207 207 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:139
+#         transmission_roughness = 1.0 - (1.0 - refl_roughness) * (1.0 - TransmissionRoughness);
+	sub		$tmp135 $const2 ___376_refl_roughness 	%line{139} %argrw{"wrr"}
+	sub		$tmp136 $const2 TransmissionRoughness 	%argrw{"wrr"}
+	mul		$tmp137 $tmp135 $tmp136 	%argrw{"wrr"}
+	sub		___376_transmission_roughness $const2 $tmp137 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:144
+#                            Normal, refl_roughness * refl_roughness, eta, BaseColor, Cspec0) +
+	mul		$tmp139 ___376_refl_roughness ___376_refl_roughness 	%line{144} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:143
+#                  (Fr * microfacet_ggx_fresnel(
+	closure		$tmp138 $const31 Normal $tmp139 ___375_eta BaseColor ___375_Cspec0 	%line{143} %argrw{"wrrrrrr"}
+	mul		$tmp140 $tmp138 ___376_Fr 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:147
+#                           Normal, transmission_roughness * transmission_roughness, eta));
+	mul		$tmp142 ___376_transmission_roughness ___376_transmission_roughness 	%line{147} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:146
+#                       microfacet_ggx_refraction(
+	closure		$tmp141 $const32 Normal $tmp142 ___375_eta 	%line{146} %argrw{"wrrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:145
+#                   (1.0 - Fr) * BaseColor *
+	sub		$tmp143 $const2 ___376_Fr 	%line{145} %argrw{"wrr"}
+	mul		$tmp144 $tmp143 BaseColor 	%argrw{"wrr"}
+	mul		$tmp145 $tmp141 $tmp144 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:144
+#                            Normal, refl_roughness * refl_roughness, eta, BaseColor, Cspec0) +
+	add		$tmp146 $tmp140 $tmp145 	%line{144} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:142
+#              final_transmission *
+	mul		$tmp147 $tmp146 final_transmission 	%line{142} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:141
+#       BSDF = BSDF +
+	add		BSDF BSDF $tmp147 	%line{141} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:152
+#                                       Normal, Roughness * Roughness, eta, BaseColor, Cspec0);
+	mul		$tmp149 Roughness Roughness 	%line{152} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:151
+#              final_transmission * microfacet_multi_ggx_glass_fresnel(
+	closure		$tmp148 $const33 Normal $tmp149 ___375_eta BaseColor ___375_Cspec0 	%line{151} %argrw{"wrrrrrr"}
+	mul		$tmp150 $tmp148 final_transmission 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:150
+#       BSDF = BSDF +
+	add		BSDF BSDF $tmp150 	%line{150} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:156
+#   if (Clearcoat > 1e-5) {
+	gt		$tmp151 Clearcoat $const1 	%line{156} %argrw{"wrr"}
+	if		$tmp151 227 227 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:158
+#                       ClearcoatNormal, Clearcoat, ClearcoatRoughness * ClearcoatRoughness);
+	mul		$tmp153 ClearcoatRoughness ClearcoatRoughness 	%line{158} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_principled_bsdf.osl:157
+#     BSDF = BSDF + principled_clearcoat(
+	closure		$tmp152 $const34 ClearcoatNormal Clearcoat $tmp153 	%line{157} %argrw{"wrrrr"}
+	add		BSDF BSDF $tmp152 	%argrw{"wrr"}
+	end

@@ -1,0 +1,11 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_wavelength.oso
+shader node_wavelength
+param	float	Wavelength	500		%read{0,0} %write{2147483647,-1}
+oparam	color	Color	0 0 0		%read{2147483647,-1} %write{0,0}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wavelength.osl:21
+#   Color = wavelength_color(Wavelength);
+	wavelength_color	Color Wavelength 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wavelength.osl"} %line{21} %argrw{"wr"}
+	end

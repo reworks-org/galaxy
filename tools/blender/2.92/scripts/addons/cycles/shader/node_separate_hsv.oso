@@ -1,0 +1,149 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_separate_hsv.oso
+shader node_separate_hsv
+param	color	Color	0.800000012 0.800000012 0.800000012		%read{1,30} %write{2147483647,-1}
+oparam	float	H	0		%read{2147483647,-1} %write{46,46}
+oparam	float	S	0		%read{2147483647,-1} %write{47,47}
+oparam	float	V	0		%read{2147483647,-1} %write{48,48}
+local	float	___332_cmax	%read{11,31} %write{5,5}
+local	float	___332_cmin	%read{11,11} %write{10,10}
+local	float	___332_h	%read{41,45} %write{17,44}
+local	float	___332_s	%read{18,45} %write{15,16}
+local	float	___332_v	%read{45,45} %write{12,12}
+local	float	___332_cdelta	%read{15,23} %write{11,11}
+local	color	___332_c	%read{27,39} %write{23,23}
+local	color	col	%read{46,48} %write{45,45}
+const	string	$const1	"rgb_to_hsv"		%read{0,0} %write{2147483647,-1}
+const	int	$const2	0		%read{1,46} %write{2147483647,-1}
+temp	float	$tmp1	%read{5,5} %write{1,1}
+temp	float	$tmp2	%read{5,5} %write{4,4}
+const	int	$const3	1		%read{2,47} %write{2147483647,-1}
+temp	float	$tmp3	%read{4,4} %write{2,2}
+const	int	$const4	2		%read{3,48} %write{2147483647,-1}
+temp	float	$tmp4	%read{4,4} %write{3,3}
+temp	float	$tmp5	%read{10,10} %write{6,6}
+temp	float	$tmp6	%read{10,10} %write{9,9}
+temp	float	$tmp7	%read{9,9} %write{7,7}
+temp	float	$tmp8	%read{9,9} %write{8,8}
+const	float	$const5	0		%read{13,42} %write{2147483647,-1}
+temp	int	$tmp9	%read{14,14} %write{13,13}
+temp	int	$tmp10	%read{19,19} %write{18,18}
+temp	color	$tmp11	%read{22,22} %write{21,21}
+temp	color	$tmp12	%read{23,23} %write{22,22}
+temp	float	$tmp13	%read{25,25} %write{24,24}
+temp	int	$tmp14	%read{26,26} %write{25,25}
+temp	float	$tmp15	%read{29,29} %write{27,27}
+temp	float	$tmp16	%read{29,29} %write{28,28}
+temp	float	$tmp17	%read{31,31} %write{30,30}
+temp	int	$tmp18	%read{32,32} %write{31,31}
+const	float	$const6	2		%read{34,34} %write{2147483647,-1}
+temp	float	$tmp19	%read{34,34} %write{33,33}
+temp	float	$tmp20	%read{36,36} %write{34,34}
+temp	float	$tmp21	%read{36,36} %write{35,35}
+const	float	$const7	4		%read{38,38} %write{2147483647,-1}
+temp	float	$tmp22	%read{38,38} %write{37,37}
+temp	float	$tmp23	%read{40,40} %write{38,38}
+temp	float	$tmp24	%read{40,40} %write{39,39}
+const	float	$const8	6		%read{41,41} %write{2147483647,-1}
+temp	int	$tmp25	%read{43,43} %write{42,42}
+const	float	$const9	1		%read{44,44} %write{2147483647,-1}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl:25
+#   color col = rgb_to_hsv(Color);
+	functioncall	$const1 46 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl"} %line{25} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:88
+#   cmax = max(rgb[0], max(rgb[1], rgb[2]));
+	compref		$tmp1 Color $const2 	%filename{"C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h"} %line{88} %argrw{"wrr"}
+	compref		$tmp3 Color $const3 	%argrw{"wrr"}
+	compref		$tmp4 Color $const4 	%argrw{"wrr"}
+	max		$tmp2 $tmp3 $tmp4 	%argrw{"wrr"}
+	max		___332_cmax $tmp1 $tmp2 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:89
+#   cmin = min(rgb[0], min(rgb[1], rgb[2]));
+	compref		$tmp5 Color $const2 	%line{89} %argrw{"wrr"}
+	compref		$tmp7 Color $const3 	%argrw{"wrr"}
+	compref		$tmp8 Color $const4 	%argrw{"wrr"}
+	min		$tmp6 $tmp7 $tmp8 	%argrw{"wrr"}
+	min		___332_cmin $tmp5 $tmp6 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:90
+#   cdelta = cmax - cmin;
+	sub		___332_cdelta ___332_cmax ___332_cmin 	%line{90} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:92
+#   v = cmax;
+	assign		___332_v ___332_cmax 	%line{92} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:94
+#   if (cmax != 0.0) {
+	neq		$tmp9 ___332_cmax $const5 	%line{94} %argrw{"wrr"}
+	if		$tmp9 16 18 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:95
+#     s = cdelta / cmax;
+	div		___332_s ___332_cdelta ___332_cmax 	%line{95} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:98
+#     s = 0.0;
+	assign		___332_s $const5 	%line{98} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:99
+#     h = 0.0;
+	assign		___332_h $const5 	%line{99} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:102
+#   if (s == 0.0) {
+	eq		$tmp10 ___332_s $const5 	%line{102} %argrw{"wrr"}
+	if		$tmp10 21 45 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:103
+#     h = 0.0;
+	assign		___332_h $const5 	%line{103} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:106
+#     c = (color(cmax, cmax, cmax) - rgb) / cdelta;
+	color		$tmp11 ___332_cmax ___332_cmax ___332_cmax 	%line{106} %argrw{"wrrr"}
+	sub		$tmp12 $tmp11 Color 	%argrw{"wrr"}
+	div		___332_c $tmp12 ___332_cdelta 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:108
+#     if (rgb[0] == cmax)
+	compref		$tmp13 Color $const2 	%line{108} %argrw{"wrr"}
+	eq		$tmp14 $tmp13 ___332_cmax 	%argrw{"wrr"}
+	if		$tmp14 30 41 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:109
+#       h = c[2] - c[1];
+	compref		$tmp15 ___332_c $const4 	%line{109} %argrw{"wrr"}
+	compref		$tmp16 ___332_c $const3 	%argrw{"wrr"}
+	sub		___332_h $tmp15 $tmp16 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:110
+#     else if (rgb[1] == cmax)
+	compref		$tmp17 Color $const3 	%line{110} %argrw{"wrr"}
+	eq		$tmp18 $tmp17 ___332_cmax 	%argrw{"wrr"}
+	if		$tmp18 37 41 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:111
+#       h = 2.0 + c[0] - c[2];
+	compref		$tmp19 ___332_c $const2 	%line{111} %argrw{"wrr"}
+	add		$tmp20 $const6 $tmp19 	%argrw{"wrr"}
+	compref		$tmp21 ___332_c $const4 	%argrw{"wrr"}
+	sub		___332_h $tmp20 $tmp21 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:113
+#       h = 4.0 + c[1] - c[0];
+	compref		$tmp22 ___332_c $const3 	%line{113} %argrw{"wrr"}
+	add		$tmp23 $const7 $tmp22 	%argrw{"wrr"}
+	compref		$tmp24 ___332_c $const2 	%argrw{"wrr"}
+	sub		___332_h $tmp23 $tmp24 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:115
+#     h /= 6.0;
+	div		___332_h ___332_h $const8 	%line{115} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:117
+#     if (h < 0.0)
+	lt		$tmp25 ___332_h $const5 	%line{117} %argrw{"wrr"}
+	if		$tmp25 45 45 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:118
+#       h += 1.0;
+	add		___332_h ___332_h $const9 	%line{118} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_color.h:121
+#   return color(h, s, v);
+	color		col ___332_h ___332_s ___332_v 	%line{121} %argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl:27
+#   H = col[0];
+	compref		H col $const2 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl"} %line{27} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl:28
+#   S = col[1];
+	compref		S col $const3 	%line{28} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_separate_hsv.osl:29
+#   V = col[2];
+	compref		V col $const4 	%line{29} %argrw{"wrr"}
+	end

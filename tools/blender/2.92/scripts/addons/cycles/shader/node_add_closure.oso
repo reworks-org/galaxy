@@ -1,0 +1,12 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_add_closure.oso
+shader node_add_closure
+param	closure color	Closure1			%read{0,0} %write{2147483647,-1}
+param	closure color	Closure2			%read{0,0} %write{2147483647,-1}
+oparam	closure color	Closure			%read{2147483647,-1} %write{0,0}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_add_closure.osl:23
+#   Closure = Closure1 + Closure2;
+	add		Closure Closure1 Closure2 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_add_closure.osl"} %line{23} %argrw{"wrr"}
+	end

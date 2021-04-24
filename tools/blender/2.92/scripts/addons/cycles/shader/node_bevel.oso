@@ -1,0 +1,33 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_bevel.oso
+shader node_bevel
+param	int	samples	4		%read{2,2} %write{2147483647,-1} %derivs
+param	float	Radius	0.0500000007		%read{3,3} %write{2147483647,-1} %derivs
+param	normal	NormalIn	0 0 0		%read{5,5} %write{0,0} %initexpr
+oparam	normal	NormalOut	0 0 0		%read{2147483647,-1} %write{1,6} %initexpr
+global	normal	N	%read{0,4} %write{2147483647,-1}
+local	vector	bevel_N	%read{4,4} %write{3,3}
+const	string	$const1	"@bevel"		%read{3,3} %write{2147483647,-1}
+temp	float	$tmp1	%read{3,3} %write{2,2} %derivs
+temp	vector	$tmp2	%read{5,5} %write{4,4}
+temp	normal	$tmp3	%read{6,6} %write{5,5}
+code NormalIn
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl:21
+#                   normal NormalIn = N,
+	assign		NormalIn N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl"} %line{21} %argrw{"wr"}
+code NormalOut
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl:22
+#                   output normal NormalOut = N)
+	assign		NormalOut N 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl"} %line{22} %argrw{"wr"}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl:25
+#   vector bevel_N = (normal)(color)texture("@bevel", samples, Radius);
+	assign		$tmp1 samples 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl"} %line{25} %argrw{"wr"}
+	texture		bevel_N $const1 $tmp1 Radius 	%argrw{"wrrr"} %argderivs{2,3}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_bevel.osl:28
+#   NormalOut = normalize(NormalIn + (bevel_N - N));
+	sub		$tmp2 bevel_N N 	%line{28} %argrw{"wrr"}
+	add		$tmp3 NormalIn $tmp2 	%argrw{"wrr"}
+	normalize	NormalOut $tmp3 	%argrw{"wr"}
+	end

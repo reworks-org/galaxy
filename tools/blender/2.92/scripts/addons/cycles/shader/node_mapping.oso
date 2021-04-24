@@ -1,0 +1,617 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_mapping.oso
+shader node_mapping
+param	string	mapping_type	"point"		%read{0,173} %write{2147483647,-1}
+param	point	VectorIn	0 0 0		%read{47,238} %write{2147483647,-1}
+param	point	Location	0 0 0		%read{49,98} %write{2147483647,-1}
+param	point	Rotation	0 0 0		%read{3,186} %write{2147483647,-1}
+param	point	Scale	1 1 1		%read{47,239} %write{2147483647,-1}
+oparam	point	VectorOut	0 0 0		%read{2147483647,-1} %write{49,245}
+local	float	___364_cx	%read{24,217} %write{4,177}
+local	float	___364_cy	%read{16,217} %write{6,179}
+local	float	___364_cz	%read{16,214} %write{8,181}
+local	float	___364_sx	%read{22,214} %write{10,183}
+local	float	___364_sy	%read{20,212} %write{12,185}
+local	float	___364_sz	%read{18,213} %write{14,187}
+local	matrix	___364_mat	%read{46,219} %write{15,218}
+const	string	$const1	"point"		%read{0,0} %write{2147483647,-1}
+temp	int	$tmp1	%read{1,1} %write{0,0}
+temp	point	$tmp2	%read{49,49} %write{48,48}
+temp	matrix	$tmp3	%read{48,48} %write{46,46}
+const	string	$const2	"euler_to_mat"		%read{2,175} %write{2147483647,-1}
+const	int	$const3	0		%read{3,225} %write{2147483647,-1}
+temp	float	$tmp4	%read{4,4} %write{3,3}
+const	int	$const4	1		%read{5,232} %write{2147483647,-1}
+temp	float	$tmp5	%read{6,6} %write{5,5}
+const	int	$const5	2		%read{7,239} %write{2147483647,-1}
+temp	float	$tmp6	%read{8,8} %write{7,7}
+temp	float	$tmp7	%read{10,10} %write{9,9}
+temp	float	$tmp8	%read{12,12} %write{11,11}
+temp	float	$tmp9	%read{14,14} %write{13,13}
+const	float	$const6	1		%read{15,188} %write{2147483647,-1}
+temp	float	$tmp10	%read{17,17} %write{16,16}
+temp	float	$tmp11	%read{19,19} %write{18,18}
+temp	float	$tmp12	%read{21,21} %write{20,20}
+temp	float	$tmp13	%read{23,23} %write{22,22}
+temp	float	$tmp14	%read{25,25} %write{23,23}
+temp	float	$tmp15	%read{25,25} %write{24,24}
+temp	float	$tmp16	%read{26,26} %write{25,25}
+temp	float	$tmp17	%read{28,28} %write{27,27}
+temp	float	$tmp18	%read{30,30} %write{28,28}
+temp	float	$tmp19	%read{30,30} %write{29,29}
+temp	float	$tmp20	%read{31,31} %write{30,30}
+temp	float	$tmp21	%read{33,33} %write{32,32}
+temp	float	$tmp22	%read{35,35} %write{34,34}
+temp	float	$tmp23	%read{37,37} %write{35,35}
+temp	float	$tmp24	%read{37,37} %write{36,36}
+temp	float	$tmp25	%read{38,38} %write{37,37}
+temp	float	$tmp26	%read{40,40} %write{39,39}
+temp	float	$tmp27	%read{42,42} %write{40,40}
+temp	float	$tmp28	%read{42,42} %write{41,41}
+temp	float	$tmp29	%read{43,43} %write{42,42}
+temp	float	$tmp30	%read{45,45} %write{44,44}
+temp	point	$tmp31	%read{48,48} %write{47,47}
+const	string	$const7	"texture"		%read{50,50} %write{2147483647,-1}
+temp	int	$tmp32	%read{51,51} %write{50,50}
+temp	vector	$tmp33	%read{104,118} %write{99,99}
+temp	matrix	$tmp34	%read{99,99} %write{97,97}
+temp	matrix	$tmp35	%read{97,97} %write{96,96}
+temp	float	$tmp36	%read{54,54} %write{53,53}
+temp	float	$tmp37	%read{56,56} %write{55,55}
+temp	float	$tmp38	%read{58,58} %write{57,57}
+temp	float	$tmp39	%read{60,60} %write{59,59}
+temp	float	$tmp40	%read{62,62} %write{61,61}
+temp	float	$tmp41	%read{64,64} %write{63,63}
+temp	float	$tmp42	%read{67,67} %write{66,66}
+temp	float	$tmp43	%read{69,69} %write{68,68}
+temp	float	$tmp44	%read{71,71} %write{70,70}
+temp	float	$tmp45	%read{73,73} %write{72,72}
+temp	float	$tmp46	%read{75,75} %write{73,73}
+temp	float	$tmp47	%read{75,75} %write{74,74}
+temp	float	$tmp48	%read{76,76} %write{75,75}
+temp	float	$tmp49	%read{78,78} %write{77,77}
+temp	float	$tmp50	%read{80,80} %write{78,78}
+temp	float	$tmp51	%read{80,80} %write{79,79}
+temp	float	$tmp52	%read{81,81} %write{80,80}
+temp	float	$tmp53	%read{83,83} %write{82,82}
+temp	float	$tmp54	%read{85,85} %write{84,84}
+temp	float	$tmp55	%read{87,87} %write{85,85}
+temp	float	$tmp56	%read{87,87} %write{86,86}
+temp	float	$tmp57	%read{88,88} %write{87,87}
+temp	float	$tmp58	%read{90,90} %write{89,89}
+temp	float	$tmp59	%read{92,92} %write{90,90}
+temp	float	$tmp60	%read{92,92} %write{91,91}
+temp	float	$tmp61	%read{93,93} %write{92,92}
+temp	float	$tmp62	%read{95,95} %write{94,94}
+temp	vector	$tmp63	%read{99,99} %write{98,98}
+const	string	$const8	"safe_divide"		%read{100,220} %write{2147483647,-1}
+temp	float	$tmp64	%read{122,122} %write{106,107}
+temp	float	$tmp65	%read{102,102} %write{101,101}
+const	float	$const9	0		%read{102,241} %write{2147483647,-1}
+temp	int	$tmp66	%read{103,103} %write{102,102}
+temp	float	$tmp67	%read{106,106} %write{104,104}
+temp	float	$tmp68	%read{106,106} %write{105,105}
+temp	float	$tmp69	%read{122,122} %write{113,114}
+temp	float	$tmp70	%read{109,109} %write{108,108}
+temp	int	$tmp71	%read{110,110} %write{109,109}
+temp	float	$tmp72	%read{113,113} %write{111,111}
+temp	float	$tmp73	%read{113,113} %write{112,112}
+temp	float	$tmp74	%read{122,122} %write{120,121}
+temp	float	$tmp75	%read{116,116} %write{115,115}
+temp	int	$tmp76	%read{117,117} %write{116,116}
+temp	float	$tmp77	%read{120,120} %write{118,118}
+temp	float	$tmp78	%read{120,120} %write{119,119}
+const	string	$const10	"vector"		%read{124,124} %write{2147483647,-1}
+temp	int	$tmp79	%read{125,125} %write{124,124}
+temp	matrix	$tmp80	%read{172,172} %write{170,170}
+temp	float	$tmp81	%read{128,128} %write{127,127}
+temp	float	$tmp82	%read{130,130} %write{129,129}
+temp	float	$tmp83	%read{132,132} %write{131,131}
+temp	float	$tmp84	%read{134,134} %write{133,133}
+temp	float	$tmp85	%read{136,136} %write{135,135}
+temp	float	$tmp86	%read{138,138} %write{137,137}
+temp	float	$tmp87	%read{141,141} %write{140,140}
+temp	float	$tmp88	%read{143,143} %write{142,142}
+temp	float	$tmp89	%read{145,145} %write{144,144}
+temp	float	$tmp90	%read{147,147} %write{146,146}
+temp	float	$tmp91	%read{149,149} %write{147,147}
+temp	float	$tmp92	%read{149,149} %write{148,148}
+temp	float	$tmp93	%read{150,150} %write{149,149}
+temp	float	$tmp94	%read{152,152} %write{151,151}
+temp	float	$tmp95	%read{154,154} %write{152,152}
+temp	float	$tmp96	%read{154,154} %write{153,153}
+temp	float	$tmp97	%read{155,155} %write{154,154}
+temp	float	$tmp98	%read{157,157} %write{156,156}
+temp	float	$tmp99	%read{159,159} %write{158,158}
+temp	float	$tmp100	%read{161,161} %write{159,159}
+temp	float	$tmp101	%read{161,161} %write{160,160}
+temp	float	$tmp102	%read{162,162} %write{161,161}
+temp	float	$tmp103	%read{164,164} %write{163,163}
+temp	float	$tmp104	%read{166,166} %write{164,164}
+temp	float	$tmp105	%read{166,166} %write{165,165}
+temp	float	$tmp106	%read{167,167} %write{166,166}
+temp	float	$tmp107	%read{169,169} %write{168,168}
+temp	point	$tmp108	%read{172,172} %write{171,171}
+const	string	$const11	"normal"		%read{173,173} %write{2147483647,-1}
+temp	int	$tmp109	%read{174,174} %write{173,173}
+temp	point	$tmp110	%read{245,245} %write{244,244}
+temp	matrix	$tmp111	%read{244,244} %write{219,219}
+temp	float	$tmp112	%read{177,177} %write{176,176}
+temp	float	$tmp113	%read{179,179} %write{178,178}
+temp	float	$tmp114	%read{181,181} %write{180,180}
+temp	float	$tmp115	%read{183,183} %write{182,182}
+temp	float	$tmp116	%read{185,185} %write{184,184}
+temp	float	$tmp117	%read{187,187} %write{186,186}
+temp	float	$tmp118	%read{190,190} %write{189,189}
+temp	float	$tmp119	%read{192,192} %write{191,191}
+temp	float	$tmp120	%read{194,194} %write{193,193}
+temp	float	$tmp121	%read{196,196} %write{195,195}
+temp	float	$tmp122	%read{198,198} %write{196,196}
+temp	float	$tmp123	%read{198,198} %write{197,197}
+temp	float	$tmp124	%read{199,199} %write{198,198}
+temp	float	$tmp125	%read{201,201} %write{200,200}
+temp	float	$tmp126	%read{203,203} %write{201,201}
+temp	float	$tmp127	%read{203,203} %write{202,202}
+temp	float	$tmp128	%read{204,204} %write{203,203}
+temp	float	$tmp129	%read{206,206} %write{205,205}
+temp	float	$tmp130	%read{208,208} %write{207,207}
+temp	float	$tmp131	%read{210,210} %write{208,208}
+temp	float	$tmp132	%read{210,210} %write{209,209}
+temp	float	$tmp133	%read{211,211} %write{210,210}
+temp	float	$tmp134	%read{213,213} %write{212,212}
+temp	float	$tmp135	%read{215,215} %write{213,213}
+temp	float	$tmp136	%read{215,215} %write{214,214}
+temp	float	$tmp137	%read{216,216} %write{215,215}
+temp	float	$tmp138	%read{218,218} %write{217,217}
+temp	point	$tmp139	%read{244,244} %write{242,242}
+temp	float	$tmp140	%read{242,242} %write{226,227}
+temp	float	$tmp141	%read{222,222} %write{221,221}
+temp	int	$tmp142	%read{223,223} %write{222,222}
+temp	float	$tmp143	%read{226,226} %write{224,224}
+temp	float	$tmp144	%read{226,226} %write{225,225}
+temp	float	$tmp145	%read{242,242} %write{233,234}
+temp	float	$tmp146	%read{229,229} %write{228,228}
+temp	int	$tmp147	%read{230,230} %write{229,229}
+temp	float	$tmp148	%read{233,233} %write{231,231}
+temp	float	$tmp149	%read{233,233} %write{232,232}
+temp	float	$tmp150	%read{242,242} %write{240,241}
+temp	float	$tmp151	%read{236,236} %write{235,235}
+temp	int	$tmp152	%read{237,237} %write{236,236}
+temp	float	$tmp153	%read{240,240} %write{238,238}
+temp	float	$tmp154	%read{240,240} %write{239,239}
+const	string	$const12	"%s"		%read{246,246} %write{2147483647,-1}
+const	string	$const13	"Unknown Mapping vector type!"		%read{246,246} %write{2147483647,-1}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:57
+#   if (mapping_type == "point") {
+	eq		$tmp1 mapping_type $const1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl"} %line{57} %argrw{"wrr"}
+	if		$tmp1 50 247 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:58
+#     VectorOut = transform(euler_to_mat(Rotation), (VectorIn * Scale)) + Location;
+	functioncall	$const2 47 	%line{58} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:28
+#   float cx = cos(euler[0]);
+	compref		$tmp4 Rotation $const3 	%line{28} %argrw{"wrr"}
+	cos		___364_cx $tmp4 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:29
+#   float cy = cos(euler[1]);
+	compref		$tmp5 Rotation $const4 	%line{29} %argrw{"wrr"}
+	cos		___364_cy $tmp5 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:30
+#   float cz = cos(euler[2]);
+	compref		$tmp6 Rotation $const5 	%line{30} %argrw{"wrr"}
+	cos		___364_cz $tmp6 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:31
+#   float sx = sin(euler[0]);
+	compref		$tmp7 Rotation $const3 	%line{31} %argrw{"wrr"}
+	sin		___364_sx $tmp7 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:32
+#   float sy = sin(euler[1]);
+	compref		$tmp8 Rotation $const4 	%line{32} %argrw{"wrr"}
+	sin		___364_sy $tmp8 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:33
+#   float sz = sin(euler[2]);
+	compref		$tmp9 Rotation $const5 	%line{33} %argrw{"wrr"}
+	sin		___364_sz $tmp9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:35
+#   matrix mat = matrix(1.0);
+	assign		___364_mat $const6 	%line{35} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:36
+#   mat[0][0] = cy * cz;
+	mul		$tmp10 ___364_cy ___364_cz 	%line{36} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const3 $tmp10 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:37
+#   mat[0][1] = cy * sz;
+	mul		$tmp11 ___364_cy ___364_sz 	%line{37} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const4 $tmp11 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:38
+#   mat[0][2] = -sy;
+	neg		$tmp12 ___364_sy 	%line{38} %argrw{"wr"}
+	mxcompassign	___364_mat $const3 $const5 $tmp12 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:40
+#   mat[1][0] = sy * sx * cz - cx * sz;
+	mul		$tmp13 ___364_sy ___364_sx 	%line{40} %argrw{"wrr"}
+	mul		$tmp14 $tmp13 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp15 ___364_cx ___364_sz 	%argrw{"wrr"}
+	sub		$tmp16 $tmp14 $tmp15 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const3 $tmp16 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:41
+#   mat[1][1] = sy * sx * sz + cx * cz;
+	mul		$tmp17 ___364_sy ___364_sx 	%line{41} %argrw{"wrr"}
+	mul		$tmp18 $tmp17 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp19 ___364_cx ___364_cz 	%argrw{"wrr"}
+	add		$tmp20 $tmp18 $tmp19 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const4 $tmp20 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:42
+#   mat[1][2] = cy * sx;
+	mul		$tmp21 ___364_cy ___364_sx 	%line{42} %argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const5 $tmp21 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:44
+#   mat[2][0] = sy * cx * cz + sx * sz;
+	mul		$tmp22 ___364_sy ___364_cx 	%line{44} %argrw{"wrr"}
+	mul		$tmp23 $tmp22 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp24 ___364_sx ___364_sz 	%argrw{"wrr"}
+	add		$tmp25 $tmp23 $tmp24 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const3 $tmp25 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:45
+#   mat[2][1] = sy * cx * sz - sx * cz;
+	mul		$tmp26 ___364_sy ___364_cx 	%line{45} %argrw{"wrr"}
+	mul		$tmp27 $tmp26 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp28 ___364_sx ___364_cz 	%argrw{"wrr"}
+	sub		$tmp29 $tmp27 $tmp28 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const4 $tmp29 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:46
+#   mat[2][2] = cy * cx;
+	mul		$tmp30 ___364_cy ___364_cx 	%line{46} %argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const5 $tmp30 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:47
+#   return mat;
+	assign		$tmp3 ___364_mat 	%line{47} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:58
+#     VectorOut = transform(euler_to_mat(Rotation), (VectorIn * Scale)) + Location;
+	mul		$tmp31 VectorIn Scale 	%line{58} %argrw{"wrr"}
+	transform	$tmp2 $tmp3 $tmp31 	%argrw{"wrr"}
+	add		VectorOut $tmp2 Location 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:60
+#   else if (mapping_type == "texture") {
+	eq		$tmp32 mapping_type $const7 	%line{60} %argrw{"wrr"}
+	if		$tmp32 124 247 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:61
+#     VectorOut = safe_divide(transform(transpose(euler_to_mat(Rotation)), (VectorIn - Location)),
+	functioncall	$const2 97 	%line{61} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:28
+#   float cx = cos(euler[0]);
+	compref		$tmp36 Rotation $const3 	%line{28} %argrw{"wrr"}
+	cos		___364_cx $tmp36 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:29
+#   float cy = cos(euler[1]);
+	compref		$tmp37 Rotation $const4 	%line{29} %argrw{"wrr"}
+	cos		___364_cy $tmp37 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:30
+#   float cz = cos(euler[2]);
+	compref		$tmp38 Rotation $const5 	%line{30} %argrw{"wrr"}
+	cos		___364_cz $tmp38 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:31
+#   float sx = sin(euler[0]);
+	compref		$tmp39 Rotation $const3 	%line{31} %argrw{"wrr"}
+	sin		___364_sx $tmp39 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:32
+#   float sy = sin(euler[1]);
+	compref		$tmp40 Rotation $const4 	%line{32} %argrw{"wrr"}
+	sin		___364_sy $tmp40 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:33
+#   float sz = sin(euler[2]);
+	compref		$tmp41 Rotation $const5 	%line{33} %argrw{"wrr"}
+	sin		___364_sz $tmp41 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:35
+#   matrix mat = matrix(1.0);
+	assign		___364_mat $const6 	%line{35} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:36
+#   mat[0][0] = cy * cz;
+	mul		$tmp42 ___364_cy ___364_cz 	%line{36} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const3 $tmp42 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:37
+#   mat[0][1] = cy * sz;
+	mul		$tmp43 ___364_cy ___364_sz 	%line{37} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const4 $tmp43 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:38
+#   mat[0][2] = -sy;
+	neg		$tmp44 ___364_sy 	%line{38} %argrw{"wr"}
+	mxcompassign	___364_mat $const3 $const5 $tmp44 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:40
+#   mat[1][0] = sy * sx * cz - cx * sz;
+	mul		$tmp45 ___364_sy ___364_sx 	%line{40} %argrw{"wrr"}
+	mul		$tmp46 $tmp45 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp47 ___364_cx ___364_sz 	%argrw{"wrr"}
+	sub		$tmp48 $tmp46 $tmp47 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const3 $tmp48 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:41
+#   mat[1][1] = sy * sx * sz + cx * cz;
+	mul		$tmp49 ___364_sy ___364_sx 	%line{41} %argrw{"wrr"}
+	mul		$tmp50 $tmp49 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp51 ___364_cx ___364_cz 	%argrw{"wrr"}
+	add		$tmp52 $tmp50 $tmp51 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const4 $tmp52 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:42
+#   mat[1][2] = cy * sx;
+	mul		$tmp53 ___364_cy ___364_sx 	%line{42} %argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const5 $tmp53 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:44
+#   mat[2][0] = sy * cx * cz + sx * sz;
+	mul		$tmp54 ___364_sy ___364_cx 	%line{44} %argrw{"wrr"}
+	mul		$tmp55 $tmp54 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp56 ___364_sx ___364_sz 	%argrw{"wrr"}
+	add		$tmp57 $tmp55 $tmp56 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const3 $tmp57 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:45
+#   mat[2][1] = sy * cx * sz - sx * cz;
+	mul		$tmp58 ___364_sy ___364_cx 	%line{45} %argrw{"wrr"}
+	mul		$tmp59 $tmp58 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp60 ___364_sx ___364_cz 	%argrw{"wrr"}
+	sub		$tmp61 $tmp59 $tmp60 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const4 $tmp61 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:46
+#   mat[2][2] = cy * cx;
+	mul		$tmp62 ___364_cy ___364_cx 	%line{46} %argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const5 $tmp62 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:47
+#   return mat;
+	assign		$tmp35 ___364_mat 	%line{47} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:61
+#     VectorOut = safe_divide(transform(transpose(euler_to_mat(Rotation)), (VectorIn - Location)),
+	transpose	$tmp34 $tmp35 	%line{61} %argrw{"wr"}
+	sub		$tmp63 VectorIn Location 	%argrw{"wrr"}
+	transformv	$tmp33 $tmp34 $tmp63 	%argrw{"wrr"}
+	functioncall	$const8 124 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:21
+#   return point((b[0] != 0.0) ? a[0] / b[0] : 0.0,
+	compref		$tmp65 Scale $const3 	%line{21} %argrw{"wrr"}
+	neq		$tmp66 $tmp65 $const9 	%argrw{"wrr"}
+	if		$tmp66 107 108 	%argrw{"r"}
+	compref		$tmp67 $tmp33 $const3 	%argrw{"wrr"}
+	compref		$tmp68 Scale $const3 	%argrw{"wrr"}
+	div		$tmp64 $tmp67 $tmp68 	%argrw{"wrr"}
+	assign		$tmp64 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:22
+#                (b[1] != 0.0) ? a[1] / b[1] : 0.0,
+	compref		$tmp70 Scale $const4 	%line{22} %argrw{"wrr"}
+	neq		$tmp71 $tmp70 $const9 	%argrw{"wrr"}
+	if		$tmp71 114 115 	%argrw{"r"}
+	compref		$tmp72 $tmp33 $const4 	%argrw{"wrr"}
+	compref		$tmp73 Scale $const4 	%argrw{"wrr"}
+	div		$tmp69 $tmp72 $tmp73 	%argrw{"wrr"}
+	assign		$tmp69 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:23
+#                (b[2] != 0.0) ? a[2] / b[2] : 0.0);
+	compref		$tmp75 Scale $const5 	%line{23} %argrw{"wrr"}
+	neq		$tmp76 $tmp75 $const9 	%argrw{"wrr"}
+	if		$tmp76 121 122 	%argrw{"r"}
+	compref		$tmp77 $tmp33 $const5 	%argrw{"wrr"}
+	compref		$tmp78 Scale $const5 	%argrw{"wrr"}
+	div		$tmp74 $tmp77 $tmp78 	%argrw{"wrr"}
+	assign		$tmp74 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:21
+#   return point((b[0] != 0.0) ? a[0] / b[0] : 0.0,
+	point		VectorOut $tmp64 $tmp69 $tmp74 	%line{21} %argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:23
+#                (b[2] != 0.0) ? a[2] / b[2] : 0.0);
+	return	%line{23}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:64
+#   else if (mapping_type == "vector") {
+	eq		$tmp79 mapping_type $const10 	%line{64} %argrw{"wrr"}
+	if		$tmp79 173 247 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:65
+#     VectorOut = transform(euler_to_mat(Rotation), (VectorIn * Scale));
+	functioncall	$const2 171 	%line{65} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:28
+#   float cx = cos(euler[0]);
+	compref		$tmp81 Rotation $const3 	%line{28} %argrw{"wrr"}
+	cos		___364_cx $tmp81 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:29
+#   float cy = cos(euler[1]);
+	compref		$tmp82 Rotation $const4 	%line{29} %argrw{"wrr"}
+	cos		___364_cy $tmp82 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:30
+#   float cz = cos(euler[2]);
+	compref		$tmp83 Rotation $const5 	%line{30} %argrw{"wrr"}
+	cos		___364_cz $tmp83 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:31
+#   float sx = sin(euler[0]);
+	compref		$tmp84 Rotation $const3 	%line{31} %argrw{"wrr"}
+	sin		___364_sx $tmp84 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:32
+#   float sy = sin(euler[1]);
+	compref		$tmp85 Rotation $const4 	%line{32} %argrw{"wrr"}
+	sin		___364_sy $tmp85 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:33
+#   float sz = sin(euler[2]);
+	compref		$tmp86 Rotation $const5 	%line{33} %argrw{"wrr"}
+	sin		___364_sz $tmp86 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:35
+#   matrix mat = matrix(1.0);
+	assign		___364_mat $const6 	%line{35} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:36
+#   mat[0][0] = cy * cz;
+	mul		$tmp87 ___364_cy ___364_cz 	%line{36} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const3 $tmp87 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:37
+#   mat[0][1] = cy * sz;
+	mul		$tmp88 ___364_cy ___364_sz 	%line{37} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const4 $tmp88 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:38
+#   mat[0][2] = -sy;
+	neg		$tmp89 ___364_sy 	%line{38} %argrw{"wr"}
+	mxcompassign	___364_mat $const3 $const5 $tmp89 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:40
+#   mat[1][0] = sy * sx * cz - cx * sz;
+	mul		$tmp90 ___364_sy ___364_sx 	%line{40} %argrw{"wrr"}
+	mul		$tmp91 $tmp90 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp92 ___364_cx ___364_sz 	%argrw{"wrr"}
+	sub		$tmp93 $tmp91 $tmp92 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const3 $tmp93 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:41
+#   mat[1][1] = sy * sx * sz + cx * cz;
+	mul		$tmp94 ___364_sy ___364_sx 	%line{41} %argrw{"wrr"}
+	mul		$tmp95 $tmp94 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp96 ___364_cx ___364_cz 	%argrw{"wrr"}
+	add		$tmp97 $tmp95 $tmp96 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const4 $tmp97 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:42
+#   mat[1][2] = cy * sx;
+	mul		$tmp98 ___364_cy ___364_sx 	%line{42} %argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const5 $tmp98 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:44
+#   mat[2][0] = sy * cx * cz + sx * sz;
+	mul		$tmp99 ___364_sy ___364_cx 	%line{44} %argrw{"wrr"}
+	mul		$tmp100 $tmp99 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp101 ___364_sx ___364_sz 	%argrw{"wrr"}
+	add		$tmp102 $tmp100 $tmp101 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const3 $tmp102 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:45
+#   mat[2][1] = sy * cx * sz - sx * cz;
+	mul		$tmp103 ___364_sy ___364_cx 	%line{45} %argrw{"wrr"}
+	mul		$tmp104 $tmp103 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp105 ___364_sx ___364_cz 	%argrw{"wrr"}
+	sub		$tmp106 $tmp104 $tmp105 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const4 $tmp106 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:46
+#   mat[2][2] = cy * cx;
+	mul		$tmp107 ___364_cy ___364_cx 	%line{46} %argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const5 $tmp107 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:47
+#   return mat;
+	assign		$tmp80 ___364_mat 	%line{47} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:65
+#     VectorOut = transform(euler_to_mat(Rotation), (VectorIn * Scale));
+	mul		$tmp108 VectorIn Scale 	%line{65} %argrw{"wrr"}
+	transform	VectorOut $tmp80 $tmp108 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:67
+#   else if (mapping_type == "normal") {
+	eq		$tmp109 mapping_type $const11 	%line{67} %argrw{"wrr"}
+	if		$tmp109 246 247 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:68
+#     VectorOut = normalize((vector)transform(euler_to_mat(Rotation), safe_divide(VectorIn, Scale)));
+	functioncall	$const2 220 	%line{68} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:28
+#   float cx = cos(euler[0]);
+	compref		$tmp112 Rotation $const3 	%line{28} %argrw{"wrr"}
+	cos		___364_cx $tmp112 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:29
+#   float cy = cos(euler[1]);
+	compref		$tmp113 Rotation $const4 	%line{29} %argrw{"wrr"}
+	cos		___364_cy $tmp113 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:30
+#   float cz = cos(euler[2]);
+	compref		$tmp114 Rotation $const5 	%line{30} %argrw{"wrr"}
+	cos		___364_cz $tmp114 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:31
+#   float sx = sin(euler[0]);
+	compref		$tmp115 Rotation $const3 	%line{31} %argrw{"wrr"}
+	sin		___364_sx $tmp115 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:32
+#   float sy = sin(euler[1]);
+	compref		$tmp116 Rotation $const4 	%line{32} %argrw{"wrr"}
+	sin		___364_sy $tmp116 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:33
+#   float sz = sin(euler[2]);
+	compref		$tmp117 Rotation $const5 	%line{33} %argrw{"wrr"}
+	sin		___364_sz $tmp117 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:35
+#   matrix mat = matrix(1.0);
+	assign		___364_mat $const6 	%line{35} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:36
+#   mat[0][0] = cy * cz;
+	mul		$tmp118 ___364_cy ___364_cz 	%line{36} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const3 $tmp118 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:37
+#   mat[0][1] = cy * sz;
+	mul		$tmp119 ___364_cy ___364_sz 	%line{37} %argrw{"wrr"}
+	mxcompassign	___364_mat $const3 $const4 $tmp119 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:38
+#   mat[0][2] = -sy;
+	neg		$tmp120 ___364_sy 	%line{38} %argrw{"wr"}
+	mxcompassign	___364_mat $const3 $const5 $tmp120 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:40
+#   mat[1][0] = sy * sx * cz - cx * sz;
+	mul		$tmp121 ___364_sy ___364_sx 	%line{40} %argrw{"wrr"}
+	mul		$tmp122 $tmp121 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp123 ___364_cx ___364_sz 	%argrw{"wrr"}
+	sub		$tmp124 $tmp122 $tmp123 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const3 $tmp124 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:41
+#   mat[1][1] = sy * sx * sz + cx * cz;
+	mul		$tmp125 ___364_sy ___364_sx 	%line{41} %argrw{"wrr"}
+	mul		$tmp126 $tmp125 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp127 ___364_cx ___364_cz 	%argrw{"wrr"}
+	add		$tmp128 $tmp126 $tmp127 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const4 $tmp128 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:42
+#   mat[1][2] = cy * sx;
+	mul		$tmp129 ___364_cy ___364_sx 	%line{42} %argrw{"wrr"}
+	mxcompassign	___364_mat $const4 $const5 $tmp129 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:44
+#   mat[2][0] = sy * cx * cz + sx * sz;
+	mul		$tmp130 ___364_sy ___364_cx 	%line{44} %argrw{"wrr"}
+	mul		$tmp131 $tmp130 ___364_cz 	%argrw{"wrr"}
+	mul		$tmp132 ___364_sx ___364_sz 	%argrw{"wrr"}
+	add		$tmp133 $tmp131 $tmp132 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const3 $tmp133 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:45
+#   mat[2][1] = sy * cx * sz - sx * cz;
+	mul		$tmp134 ___364_sy ___364_cx 	%line{45} %argrw{"wrr"}
+	mul		$tmp135 $tmp134 ___364_sz 	%argrw{"wrr"}
+	mul		$tmp136 ___364_sx ___364_cz 	%argrw{"wrr"}
+	sub		$tmp137 $tmp135 $tmp136 	%argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const4 $tmp137 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:46
+#   mat[2][2] = cy * cx;
+	mul		$tmp138 ___364_cy ___364_cx 	%line{46} %argrw{"wrr"}
+	mxcompassign	___364_mat $const5 $const5 $tmp138 	%argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:47
+#   return mat;
+	assign		$tmp111 ___364_mat 	%line{47} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:68
+#     VectorOut = normalize((vector)transform(euler_to_mat(Rotation), safe_divide(VectorIn, Scale)));
+	functioncall	$const8 244 	%line{68} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:21
+#   return point((b[0] != 0.0) ? a[0] / b[0] : 0.0,
+	compref		$tmp141 Scale $const3 	%line{21} %argrw{"wrr"}
+	neq		$tmp142 $tmp141 $const9 	%argrw{"wrr"}
+	if		$tmp142 227 228 	%argrw{"r"}
+	compref		$tmp143 VectorIn $const3 	%argrw{"wrr"}
+	compref		$tmp144 Scale $const3 	%argrw{"wrr"}
+	div		$tmp140 $tmp143 $tmp144 	%argrw{"wrr"}
+	assign		$tmp140 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:22
+#                (b[1] != 0.0) ? a[1] / b[1] : 0.0,
+	compref		$tmp146 Scale $const4 	%line{22} %argrw{"wrr"}
+	neq		$tmp147 $tmp146 $const9 	%argrw{"wrr"}
+	if		$tmp147 234 235 	%argrw{"r"}
+	compref		$tmp148 VectorIn $const4 	%argrw{"wrr"}
+	compref		$tmp149 Scale $const4 	%argrw{"wrr"}
+	div		$tmp145 $tmp148 $tmp149 	%argrw{"wrr"}
+	assign		$tmp145 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:23
+#                (b[2] != 0.0) ? a[2] / b[2] : 0.0);
+	compref		$tmp151 Scale $const5 	%line{23} %argrw{"wrr"}
+	neq		$tmp152 $tmp151 $const9 	%argrw{"wrr"}
+	if		$tmp152 241 242 	%argrw{"r"}
+	compref		$tmp153 VectorIn $const5 	%argrw{"wrr"}
+	compref		$tmp154 Scale $const5 	%argrw{"wrr"}
+	div		$tmp150 $tmp153 $tmp154 	%argrw{"wrr"}
+	assign		$tmp150 $const9 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:21
+#   return point((b[0] != 0.0) ? a[0] / b[0] : 0.0,
+	point		$tmp139 $tmp140 $tmp145 $tmp150 	%line{21} %argrw{"wrrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:23
+#                (b[2] != 0.0) ? a[2] / b[2] : 0.0);
+	return	%line{23}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:68
+#     VectorOut = normalize((vector)transform(euler_to_mat(Rotation), safe_divide(VectorIn, Scale)));
+	transform	$tmp110 $tmp111 $tmp139 	%line{68} %argrw{"wrr"}
+	normalize	VectorOut $tmp110 	%argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_mapping.osl:71
+#     warning("%s", "Unknown Mapping vector type!");
+	warning		$const12 $const13 	%line{71} %argrw{"rr"}
+	end

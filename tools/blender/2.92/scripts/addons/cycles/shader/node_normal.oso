@@ -1,0 +1,18 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_normal.oso
+shader node_normal
+param	normal	direction	0 0 0		%read{0,0} %write{2147483647,-1}
+param	normal	NormalIn	0 0 0		%read{1,1} %write{2147483647,-1}
+oparam	normal	NormalOut	0 0 0		%read{2,2} %write{0,0}
+oparam	float	Dot	1		%read{2147483647,-1} %write{2,2}
+temp	normal	$tmp1	%read{2,2} %write{1,1}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_normal.osl:24
+#   NormalOut = normalize(direction);
+	normalize	NormalOut direction 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_normal.osl"} %line{24} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_normal.osl:25
+#   Dot = dot(NormalOut, normalize(NormalIn));
+	normalize	$tmp1 NormalIn 	%line{25} %argrw{"wr"}
+	dot		Dot NormalOut $tmp1 	%argrw{"wrr"}
+	end

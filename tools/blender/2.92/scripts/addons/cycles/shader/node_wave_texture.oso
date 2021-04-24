@@ -1,0 +1,384 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_wave_texture.oso
+shader node_wave_texture
+param	int	use_mapping	0		%read{2,2} %write{2147483647,-1}
+param	matrix	mapping	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0		%read{3,3} %write{2147483647,-1}
+param	string	wave_type	"bands"		%read{9,29} %write{2147483647,-1}
+param	string	bands_direction	"x"		%read{11,19} %write{2147483647,-1}
+param	string	rings_direction	"x"		%read{32,38} %write{2147483647,-1}
+param	string	profile	"sine"		%read{106,113} %write{2147483647,-1}
+param	float	Scale	5		%read{4,4} %write{2147483647,-1}
+param	float	Distortion	0		%read{44,104} %write{2147483647,-1}
+param	float	Detail	2		%read{53,53} %write{2147483647,-1}
+param	float	DetailScale	1		%read{46,46} %write{2147483647,-1}
+param	float	DetailRoughness	0.5		%read{72,72} %write{2147483647,-1}
+param	float	PhaseOffset	0		%read{43,43} %write{2147483647,-1}
+param	point	Vector	0 0 0		%read{1,1} %write{0,0} %initexpr
+oparam	float	Fac	0		%read{126,126} %write{111,124}
+oparam	color	Color	0 0 0		%read{2147483647,-1} %write{126,126}
+global	point	P	%read{0,0} %write{2147483647,-1}
+local	float	___438_f	%read{58,89} %write{58,84}
+local	float	___454_fscale	%read{58,82} %write{48,77}
+local	float	___454_amp	%read{58,93} %write{49,77}
+local	float	___454_maxamp	%read{58,100} %write{50,77}
+local	float	___454_sum	%read{58,100} %write{51,92}
+local	float	___454_octaves	%read{55,79} %write{54,54}
+local	int	___454_n	%read{58,77} %write{55,55}
+local	int	___455_i	%read{58,77} %write{57,77}
+local	float	___456_t	%read{58,77} %write{58,77}
+local	float	___454_rmd	%read{80,97} %write{79,79}
+local	float	___457_t	%read{90,90} %write{87,89}
+local	float	___457_sum2	%read{94,97} %write{91,94}
+local	point	___502_p	%read{13,46} %write{7,7}
+local	float	___502_n	%read{43,122} %write{8,119}
+local	point	___508_rp	%read{34,41} %write{31,40}
+local	point	p	%read{3,4} %write{1,3}
+temp	point	$tmp1	%read{6,6} %write{4,4}
+const	string	$const1	"wave"		%read{5,5} %write{2147483647,-1}
+const	float	$const2	9.99999997e-07		%read{6,6} %write{2147483647,-1}
+temp	point	$tmp2	%read{7,7} %write{6,6}
+const	float	$const3	0.999998987		%read{7,7} %write{2147483647,-1}
+const	float	$const4	0		%read{8,80} %write{2147483647,-1}
+const	string	$const5	"bands"		%read{9,9} %write{2147483647,-1}
+temp	int	$tmp3	%read{10,10} %write{9,9}
+const	string	$const6	"x"		%read{11,32} %write{2147483647,-1}
+temp	int	$tmp4	%read{12,12} %write{11,11}
+const	int	$const7	0		%read{13,59} %write{2147483647,-1}
+temp	float	$tmp5	%read{14,14} %write{13,13}
+const	float	$const8	20		%read{14,42} %write{2147483647,-1}
+const	string	$const9	"y"		%read{15,35} %write{2147483647,-1}
+temp	int	$tmp6	%read{16,16} %write{15,15}
+const	int	$const10	1		%read{17,77} %write{2147483647,-1}
+temp	float	$tmp7	%read{18,18} %write{17,17}
+const	string	$const11	"z"		%read{19,38} %write{2147483647,-1}
+temp	int	$tmp8	%read{20,20} %write{19,19}
+const	int	$const12	2		%read{21,26} %write{2147483647,-1}
+temp	float	$tmp9	%read{22,22} %write{21,21}
+temp	float	$tmp10	%read{25,25} %write{23,23}
+temp	float	$tmp11	%read{25,25} %write{24,24}
+temp	float	$tmp12	%read{27,27} %write{25,25}
+temp	float	$tmp13	%read{27,27} %write{26,26}
+temp	float	$tmp14	%read{28,28} %write{27,27}
+const	float	$const13	10		%read{28,28} %write{2147483647,-1}
+const	string	$const14	"rings"		%read{29,29} %write{2147483647,-1}
+temp	int	$tmp15	%read{30,30} %write{29,29}
+temp	int	$tmp16	%read{33,33} %write{32,32}
+const	point	$const15	0 1 1		%read{34,34} %write{2147483647,-1}
+temp	int	$tmp18	%read{36,36} %write{35,35}
+const	point	$const16	1 0 1		%read{37,37} %write{2147483647,-1}
+temp	int	$tmp20	%read{39,39} %write{38,38}
+const	point	$const17	1 1 0		%read{40,40} %write{2147483647,-1}
+temp	float	$tmp22	%read{42,42} %write{41,41}
+temp	int	$tmp23	%read{45,45} %write{44,44}
+temp	float	$tmp24	%read{102,102} %write{98,100}
+temp	point	$tmp25	%read{58,82} %write{46,46}
+const	string	$const18	"fractal_noise"		%read{47,47} %write{2147483647,-1}
+const	float	$const19	1		%read{48,103} %write{2147483647,-1}
+const	float	$const20	16		%read{53,53} %write{2147483647,-1}
+const	string	$const21	"clamp"		%read{52,71} %write{2147483647,-1}
+temp	float	$tmp26	%read{54,54} %write{53,53}
+temp	int	$tmp27	%read{58,77} %write{58,77}
+temp	int	$tmp28	%read{56,77} %write{57,77}
+temp	point	$tmp29	%read{58,77} %write{58,77}
+const	string	$const22	"safe_noise"		%read{61,83} %write{2147483647,-1}
+const	string	$const23	"noise"		%read{62,84} %write{2147483647,-1}
+temp	int	$tmp30	%read{58,77} %write{58,77}
+const	float	$const24	0.5		%read{65,120} %write{2147483647,-1}
+temp	float	$tmp31	%read{58,77} %write{58,77}
+temp	float	$tmp32	%read{58,77} %write{58,77}
+temp	float	$tmp33	%read{58,77} %write{58,77}
+const	float	$const25	2		%read{75,124} %write{2147483647,-1}
+temp	int	$tmp34	%read{2147483647,-1} %write{58,77}
+temp	float	$tmp35	%read{79,79} %write{78,78}
+temp	int	$tmp36	%read{81,81} %write{80,80}
+temp	point	$tmp37	%read{84,84} %write{82,82}
+temp	int	$tmp38	%read{86,86} %write{85,85}
+temp	float	$tmp39	%read{91,91} %write{90,90}
+temp	float	$tmp40	%read{94,94} %write{93,93}
+temp	float	$tmp41	%read{96,96} %write{95,95}
+temp	float	$tmp42	%read{98,98} %write{96,96}
+temp	float	$tmp43	%read{98,98} %write{97,97}
+temp	float	$tmp44	%read{103,103} %write{102,102}
+temp	float	$tmp45	%read{104,104} %write{103,103}
+temp	float	$tmp46	%read{105,105} %write{104,104}
+const	string	$const26	"sine"		%read{106,106} %write{2147483647,-1}
+temp	int	$tmp47	%read{107,107} %write{106,106}
+temp	float	$tmp48	%read{110,110} %write{109,109}
+const	float	$const27	1.57079637		%read{108,108} %write{2147483647,-1}
+temp	float	$tmp49	%read{109,109} %write{108,108}
+temp	float	$tmp50	%read{111,111} %write{110,110}
+const	string	$const28	"saw"		%read{113,113} %write{2147483647,-1}
+temp	int	$tmp51	%read{114,114} %write{113,113}
+const	float	$const29	6.28318548		%read{115,119} %write{2147483647,-1}
+temp	float	$tmp52	%read{117,117} %write{116,116}
+temp	float	$tmp53	%read{124,124} %write{123,123}
+temp	float	$tmp54	%read{122,122} %write{121,121}
+temp	float	$tmp55	%read{121,121} %write{120,120}
+temp	float	$tmp56	%read{123,123} %write{122,122}
+code Vector
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:99
+#                          point Vector = P,
+	assign		Vector P 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{99} %argrw{"wr"}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:103
+#   point p = Vector;
+	assign		p Vector 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{103} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:105
+#   if (use_mapping)
+	if		use_mapping 4 4 	%line{105} %argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:106
+#     p = transform(mapping, p);
+	transform	p mapping p 	%line{106} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:108
+#   Fac = wave(p * Scale,
+	mul		$tmp1 p Scale 	%line{108} %argrw{"wrr"}
+	functioncall	$const1 126 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:34
+#   point p = (p_input + 0.000001) * 0.999999;
+	add		$tmp2 $tmp1 $const2 	%line{34} %argrw{"wrr"}
+	mul		___502_p $tmp2 $const3 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:36
+#   float n = 0.0;
+	assign		___502_n $const4 	%line{36} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:38
+#   if (type == "bands") {
+	eq		$tmp3 wave_type $const5 	%line{38} %argrw{"wrr"}
+	if		$tmp3 29 43 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:39
+#     if (bands_direction == "x") {
+	eq		$tmp4 bands_direction $const6 	%line{39} %argrw{"wrr"}
+	if		$tmp4 15 29 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:40
+#       n = p[0] * 20.0;
+	compref		$tmp5 ___502_p $const7 	%line{40} %argrw{"wrr"}
+	mul		___502_n $tmp5 $const8 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:42
+#     else if (bands_direction == "y") {
+	eq		$tmp6 bands_direction $const9 	%line{42} %argrw{"wrr"}
+	if		$tmp6 19 29 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:43
+#       n = p[1] * 20.0;
+	compref		$tmp7 ___502_p $const10 	%line{43} %argrw{"wrr"}
+	mul		___502_n $tmp7 $const8 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:45
+#     else if (bands_direction == "z") {
+	eq		$tmp8 bands_direction $const11 	%line{45} %argrw{"wrr"}
+	if		$tmp8 23 29 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:46
+#       n = p[2] * 20.0;
+	compref		$tmp9 ___502_p $const12 	%line{46} %argrw{"wrr"}
+	mul		___502_n $tmp9 $const8 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:49
+#       n = (p[0] + p[1] + p[2]) * 10.0;
+	compref		$tmp10 ___502_p $const7 	%line{49} %argrw{"wrr"}
+	compref		$tmp11 ___502_p $const10 	%argrw{"wrr"}
+	add		$tmp12 $tmp10 $tmp11 	%argrw{"wrr"}
+	compref		$tmp13 ___502_p $const12 	%argrw{"wrr"}
+	add		$tmp14 $tmp12 $tmp13 	%argrw{"wrr"}
+	mul		___502_n $tmp14 $const13 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:52
+#   else if (type == "rings") {
+	eq		$tmp15 wave_type $const14 	%line{52} %argrw{"wrr"}
+	if		$tmp15 43 43 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:53
+#     point rp = p;
+	assign		___508_rp ___502_p 	%line{53} %argrw{"wr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:54
+#     if (rings_direction == "x") {
+	eq		$tmp16 rings_direction $const6 	%line{54} %argrw{"wrr"}
+	if		$tmp16 35 41 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:55
+#       rp *= point(0.0, 1.0, 1.0);
+	mul		___508_rp ___508_rp $const15 	%line{55} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:57
+#     else if (rings_direction == "y") {
+	eq		$tmp18 rings_direction $const9 	%line{57} %argrw{"wrr"}
+	if		$tmp18 38 41 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:58
+#       rp *= point(1.0, 0.0, 1.0);
+	mul		___508_rp ___508_rp $const16 	%line{58} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:60
+#     else if (rings_direction == "z") {
+	eq		$tmp20 rings_direction $const11 	%line{60} %argrw{"wrr"}
+	if		$tmp20 41 41 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:61
+#       rp *= point(1.0, 1.0, 0.0);
+	mul		___508_rp ___508_rp $const17 	%line{61} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:65
+#     n = length(rp) * 20.0;
+	length		$tmp22 ___508_rp 	%line{65} %argrw{"wr"}
+	mul		___502_n $tmp22 $const8 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:68
+#   n += phase;
+	add		___502_n ___502_n PhaseOffset 	%line{68} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:70
+#   if (distortion != 0.0) {
+	neq		$tmp23 Distortion $const4 	%line{70} %argrw{"wrr"}
+	if		$tmp23 106 106 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:71
+#     n = n + (distortion * (fractal_noise(p * dscale, detail, droughness) * 2.0 - 1.0));
+	mul		$tmp25 ___502_p DetailScale 	%line{71} %argrw{"wrr"}
+	functioncall	$const18 102 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:147
+#   float fscale = 1.0;
+	assign		___454_fscale $const19 	%filename{"C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h"} %line{147} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:148
+#   float amp = 1.0;
+	assign		___454_amp $const19 	%line{148} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:149
+#   float maxamp = 0.0;
+	assign		___454_maxamp $const4 	%line{149} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:150
+#   float sum = 0.0;
+	assign		___454_sum $const4 	%line{150} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:151
+#   float octaves = clamp(details, 0.0, 16.0);
+	functioncall	$const21 55 	%line{151} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp26 Detail $const20 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		___454_octaves $tmp26 $const4 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:152
+#   int n = (int)octaves;
+	assign		___454_n ___454_octaves 	%filename{"C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h"} %line{152} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:153
+#   for (int i = 0; i <= n; i++) {
+	for		$tmp28 58 60 76 78 	%line{153} %argrw{"r"}
+	assign		___455_i $const7 	%argrw{"wr"}
+	le		$tmp27 ___455_i ___454_n 	%argrw{"wrr"}
+	neq		$tmp28 $tmp27 $const7 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:154
+#     float t = safe_noise(fscale * p);
+	mul		$tmp29 ___454_fscale $tmp25 	%line{154} %argrw{"wrr"}
+	functioncall	$const22 68 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:40
+#   float f = noise("noise", p);
+	noise		___438_f $const23 $tmp29 	%line{40} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:41
+#   if (isinf(f))
+	isinf		$tmp30 ___438_f 	%line{41} %argrw{"wr"}
+	if		$tmp30 67 67 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:42
+#     return 0.5;
+	assign		___456_t $const24 	%line{42} %argrw{"wr"}
+	return
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:43
+#   return f;
+	assign		___456_t ___438_f 	%line{43} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:155
+#     sum += t * amp;
+	mul		$tmp31 ___456_t ___454_amp 	%line{155} %argrw{"wrr"}
+	add		___454_sum ___454_sum $tmp31 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:156
+#     maxamp += amp;
+	add		___454_maxamp ___454_maxamp ___454_amp 	%line{156} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:157
+#     amp *= clamp(roughness, 0.0, 1.0);
+	functioncall	$const21 74 	%line{157} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp33 DetailRoughness $const19 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp32 $tmp33 $const4 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:157
+#     amp *= clamp(roughness, 0.0, 1.0);
+	mul		___454_amp ___454_amp $tmp32 	%filename{"C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h"} %line{157} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:158
+#     fscale *= 2.0;
+	mul		___454_fscale ___454_fscale $const25 	%line{158} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:153
+#   for (int i = 0; i <= n; i++) {
+	assign		$tmp34 ___455_i 	%line{153} %argrw{"wr"}
+	add		___455_i ___455_i $const10 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:160
+#   float rmd = octaves - floor(octaves);
+	floor		$tmp35 ___454_octaves 	%line{160} %argrw{"wr"}
+	sub		___454_rmd ___454_octaves $tmp35 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:161
+#   if (rmd != 0.0) {
+	neq		$tmp36 ___454_rmd $const4 	%line{161} %argrw{"wrr"}
+	if		$tmp36 100 102 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:162
+#     float t = safe_noise(fscale * p);
+	mul		$tmp37 ___454_fscale $tmp25 	%line{162} %argrw{"wrr"}
+	functioncall	$const22 90 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:40
+#   float f = noise("noise", p);
+	noise		___438_f $const23 $tmp37 	%line{40} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:41
+#   if (isinf(f))
+	isinf		$tmp38 ___438_f 	%line{41} %argrw{"wr"}
+	if		$tmp38 89 89 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:42
+#     return 0.5;
+	assign		___457_t $const24 	%line{42} %argrw{"wr"}
+	return
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:43
+#   return f;
+	assign		___457_t ___438_f 	%line{43} %argrw{"wr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:163
+#     float sum2 = sum + t * amp;
+	mul		$tmp39 ___457_t ___454_amp 	%line{163} %argrw{"wrr"}
+	add		___457_sum2 ___454_sum $tmp39 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:164
+#     sum /= maxamp;
+	div		___454_sum ___454_sum ___454_maxamp 	%line{164} %argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:165
+#     sum2 /= maxamp + amp;
+	add		$tmp40 ___454_maxamp ___454_amp 	%line{165} %argrw{"wrr"}
+	div		___457_sum2 ___457_sum2 $tmp40 	%argrw{"wrr"}
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:166
+#     return (1.0 - rmd) * sum + rmd * sum2;
+	sub		$tmp41 $const19 ___454_rmd 	%line{166} %argrw{"wrr"}
+	mul		$tmp42 $tmp41 ___454_sum 	%argrw{"wrr"}
+	mul		$tmp43 ___454_rmd ___457_sum2 	%argrw{"wrr"}
+	add		$tmp24 $tmp42 $tmp43 	%argrw{"wrr"}
+	return
+# C:\b\buildbot-worker-windows\windows_292\blender.git\intern\cycles\kernel\shaders\node_noise.h:169
+#     return sum / maxamp;
+	div		$tmp24 ___454_sum ___454_maxamp 	%line{169} %argrw{"wrr"}
+	return
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:71
+#     n = n + (distortion * (fractal_noise(p * dscale, detail, droughness) * 2.0 - 1.0));
+	mul		$tmp44 $tmp24 $const25 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{71} %argrw{"wrr"}
+	sub		$tmp45 $tmp44 $const19 	%argrw{"wrr"}
+	mul		$tmp46 Distortion $tmp45 	%argrw{"wrr"}
+	add		___502_n ___502_n $tmp46 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:74
+#   if (profile == "sine") {
+	eq		$tmp47 profile $const26 	%line{74} %argrw{"wrr"}
+	if		$tmp47 113 126 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:75
+#     return 0.5 + 0.5 * sin(n - M_PI_2);
+	sub		$tmp49 ___502_n $const27 	%line{75} %argrw{"wrr"}
+	sin		$tmp48 $tmp49 	%argrw{"wr"}
+	mul		$tmp50 $const24 $tmp48 	%argrw{"wrr"}
+	add		Fac $const24 $tmp50 	%argrw{"wrr"}
+	return
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:77
+#   else if (profile == "saw") {
+	eq		$tmp51 profile $const28 	%line{77} %argrw{"wrr"}
+	if		$tmp51 119 126 	%argrw{"r"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:78
+#     n /= M_2PI;
+	div		___502_n ___502_n $const29 	%line{78} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:79
+#     return n - floor(n);
+	floor		$tmp52 ___502_n 	%line{79} %argrw{"wr"}
+	sub		Fac ___502_n $tmp52 	%argrw{"wrr"}
+	return
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:82
+#     n /= M_2PI;
+	div		___502_n ___502_n $const29 	%line{82} %argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:83
+#     return abs(n - floor(n + 0.5)) * 2.0;
+	add		$tmp55 ___502_n $const24 	%line{83} %argrw{"wrr"}
+	floor		$tmp54 $tmp55 	%argrw{"wr"}
+	sub		$tmp56 ___502_n $tmp54 	%argrw{"wrr"}
+	abs		$tmp53 $tmp56 	%argrw{"wr"}
+	mul		Fac $tmp53 $const25 	%argrw{"wrr"}
+	return
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_wave_texture.osl:118
+#   Color = Fac;
+	assign		Color Fac 	%line{118} %argrw{"wr"}
+	end

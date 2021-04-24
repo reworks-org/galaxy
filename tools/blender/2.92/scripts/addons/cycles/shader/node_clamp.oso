@@ -1,0 +1,41 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.10
+# options: -q -O2 -IC:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders -IC:/b/buildbot-worker-windows/windows_292/blender.git/../lib/win64_vc15/osl/shaders -o C:/b/buildbot-worker-windows/windows_292/build/intern/cycles/kernel/shaders/node_clamp.oso
+shader node_clamp
+param	string	clamp_type	"minmax"		%read{0,0} %write{2147483647,-1}
+param	float	Value	1		%read{8,11} %write{2147483647,-1}
+param	float	Min	0		%read{3,12} %write{2147483647,-1}
+param	float	Max	1		%read{3,11} %write{2147483647,-1}
+oparam	float	Result	0		%read{2147483647,-1} %write{9,12}
+const	string	$const1	"range"		%read{0,0} %write{2147483647,-1}
+temp	int	$tmp1	%read{1,1} %write{0,0}
+temp	int	$tmp2	%read{2,6} %write{1,5}
+const	int	$const2	0		%read{1,4} %write{2147483647,-1}
+temp	int	$tmp3	%read{4,4} %write{3,3}
+temp	int	$tmp4	%read{5,5} %write{4,4}
+const	string	$const3	"clamp"		%read{7,10} %write{2147483647,-1}
+temp	float	$tmp5	%read{9,9} %write{8,8}
+temp	float	$tmp6	%read{12,12} %write{11,11}
+code ___main___
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_clamp.osl:25
+#   Result = (clamp_type == "range" && (Min > Max)) ? clamp(Value, Max, Min) :
+	eq		$tmp1 clamp_type $const1 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_clamp.osl"} %line{25} %argrw{"wrr"}
+	neq		$tmp2 $tmp1 $const2 	%argrw{"wrr"}
+	if		$tmp2 6 6 	%argrw{"r"}
+	gt		$tmp3 Min Max 	%argrw{"wrr"}
+	neq		$tmp4 $tmp3 $const2 	%argrw{"wrr"}
+	assign		$tmp2 $tmp4 	%argrw{"wr"}
+	if		$tmp2 10 13 	%argrw{"r"}
+	functioncall	$const3 10 	%argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp5 Value Min 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		Result $tmp5 Max 	%argrw{"wrr"}
+# C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_clamp.osl:26
+#                                                     clamp(Value, Min, Max);
+	functioncall	$const3 13 	%filename{"C:/b/buildbot-worker-windows/windows_292/blender.git/intern/cycles/kernel/shaders/node_clamp.osl"} %line{26} %argrw{"r"}
+# C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp6 Value Max 	%filename{"C:\b\buildbot-worker-windows\windows_292\lib\win64_vc15\osl\shaders\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		Result $tmp6 Min 	%argrw{"wrr"}
+	end
