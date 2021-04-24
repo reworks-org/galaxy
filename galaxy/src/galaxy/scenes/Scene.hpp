@@ -58,13 +58,30 @@ namespace galaxy
 			///
 			virtual void render() = 0;
 
+			///
+			/// Move camera.
+			///
+			/// \param x X distance to move.
+			/// \param y Y distance to move.
+			/// \param z Z distance to move.
+			///
+			virtual void move(const float x, const float y, const float z) noexcept = 0;
+
+			///
+			/// Get scene type.
+			///
+			/// \return Const std::string.
+			///
+			[[nodiscard]] const std::string& get_type() const noexcept;
+
 		protected:
 			///
 			/// Argument Constructor.
 			///
 			/// \param name Name of the scene.
+			/// \param type Type of the scene.
 			///
-			Scene(std::string_view name) noexcept;
+			Scene(std::string_view name, std::string_view type) noexcept;
 
 		private:
 			///
@@ -97,6 +114,12 @@ namespace galaxy
 			/// GUI for this scene.
 			///
 			ui::GUI m_gui;
+
+		private:
+			///
+			/// Scene type.
+			///
+			std::string m_type;
 		};
 	} // namespace scene
 } // namespace galaxy

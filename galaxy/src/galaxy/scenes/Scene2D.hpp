@@ -66,6 +66,15 @@ namespace galaxy
 			void render() override;
 
 			///
+			/// Move camera.
+			///
+			/// \param x X distance to move.
+			/// \param y Y distance to move.
+			/// \param z Z distance to move.
+			///
+			void move(const float x, const float y, const float z) noexcept override;
+
+			///
 			/// Load a tiled world.
 			///
 			/// \param path Path to the tiled world.

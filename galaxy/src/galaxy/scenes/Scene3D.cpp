@@ -19,7 +19,7 @@ namespace galaxy
 	namespace scene
 	{
 		Scene3D::Scene3D(std::string_view name) noexcept
-		    : Scene {name}
+		    : Scene {name, "3D"}
 		{
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
 			m_dispatcher.subscribe<events::KeyUp>(m_camera);
@@ -38,11 +38,13 @@ namespace galaxy
 		void Scene3D::on_push()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(&m_dispatcher);
+			m_gui.enable_input();
 		}
 
 		void Scene3D::on_pop()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(nullptr);
+			m_gui.disable_input();
 		}
 
 		void Scene3D::events()
@@ -66,6 +68,11 @@ namespace galaxy
 			RENDERER_3D().draw_skybox(&m_skybox, SL_HANDLE.shaderbook()->get("skybox"));
 			m_world.get_system<systems::RenderSystem3D>()->render(m_world, m_camera);
 			m_gui.render();
+		}
+
+		void Scene3D::move(const float x, const float y, const float z) noexcept
+		{
+			m_camera.move_position({x, y, z});
 		}
 
 		graphics::Camera3D& Scene3D::camera() noexcept

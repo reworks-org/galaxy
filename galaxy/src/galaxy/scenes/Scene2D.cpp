@@ -18,7 +18,7 @@ namespace galaxy
 	namespace scene
 	{
 		Scene2D::Scene2D(std::string_view name) noexcept
-		    : Scene {name}, m_active_map {""}
+		    : Scene {name, "2D"}, m_active_map {""}
 		{
 			m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 			m_camera.set_speed(100.0f);
@@ -41,11 +41,15 @@ namespace galaxy
 		void Scene2D::on_push()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(&m_dispatcher);
+			m_camera.set_width(SL_HANDLE.window()->get_width());
+			m_camera.set_height(SL_HANDLE.window()->get_height());
+			m_gui.enable_input();
 		}
 
 		void Scene2D::on_pop()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(nullptr);
+			m_gui.disable_input();
 		}
 
 		void Scene2D::events()
@@ -67,6 +71,11 @@ namespace galaxy
 		{
 			m_world.get_system<systems::RenderSystem2D>()->render(m_world, m_camera);
 			m_gui.render();
+		}
+
+		void Scene2D::move(const float x, const float y, const float z) noexcept
+		{
+			m_camera.move(x, y);
 		}
 
 		void Scene2D::create_maps(std::string_view path)

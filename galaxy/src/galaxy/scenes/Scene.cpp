@@ -13,8 +13,13 @@ namespace galaxy
 {
 	namespace scene
 	{
-		Scene::Scene(std::string_view name) noexcept
-		    : Serializable {this}, m_name {name}
+		const std::string& Scene::get_type() const noexcept
+		{
+			return m_type;
+		}
+
+		Scene::Scene(std::string_view name, std::string_view type) noexcept
+		    : Serializable {this}, m_name {name}, m_type {type}
 		{
 			m_gui_theme.m_camera.create(0.0f, (float)SL_HANDLE.window()->get_width(), (float)SL_HANDLE.window()->get_height(), 0.0f);
 			m_gui.set_theme(&m_gui_theme);
