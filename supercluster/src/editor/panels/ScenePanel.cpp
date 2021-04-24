@@ -7,6 +7,8 @@
 
 #include <chrono>
 
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/FileSystem.hpp>
 #include <imgui/addons/ToggleButton.h>
 #include <imgui/imgui_stdlib.h>
 #include <magic_enum.hpp>
@@ -21,7 +23,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(scene::SceneStack& scene_stack)
+		void ScenePanel::render(scene::SceneStack& scene_stack, OpenGLOperationStack& gl_operations)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -86,6 +88,21 @@ namespace sc
 						if (ImGui::Button("Push"))
 						{
 							scene_stack.push(name);
+						}
+
+						if (scene->get_type() == "3D")
+						{
+							auto* s3d = static_cast<scene::Scene3D*>(scene.get());
+							if (ImGui::Button("Load Skybox"))
+							{
+								const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
+								if (file != std::nullopt)
+								{
+									gl_operations.emplace_back([s3d, file]() -> void {
+										s3d->skybox().load(file.value());
+									});
+								}
+							}
 						}
 
 						/*

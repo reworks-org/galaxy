@@ -10,6 +10,8 @@
 
 #include <galaxy/scenes/SceneStack.hpp>
 
+#include "editor/GLOperation.hpp"
+
 using namespace galaxy;
 
 namespace sc
@@ -19,7 +21,7 @@ namespace sc
 		class ScenePanel final
 		{
 		public:
-			void render(scene::SceneStack& scene_stack);
+			void render(scene::SceneStack& scene_stack, OpenGLOperationStack& gl_operations);
 
 		private:
 			std::string m_selected = "";
