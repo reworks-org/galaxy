@@ -89,20 +89,20 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Middle);
+				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
 
-				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
-				{
-					m_mouse_picked = true;
-				}
-
-				if (ImGui::IsMouseDown(ImGuiMouseButton_Middle))
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
 				{
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
 				}
 				else
 				{
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+				}
+
+				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+				{
+					m_mouse_picked = true;
 				}
 			}
 			else
@@ -113,12 +113,13 @@ namespace sc
 		else
 		{
 			ImGui::ImplGlfw::g_BlockInput = true;
-			SL_HANDLE.window()->set_scene_dispatcher(&m_scene_stack.top()->m_dispatcher);
+			m_scene_stack.top()->on_push();
 
 			if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
 			{
 				m_game_mode = false;
 				deserialize(m_backup);
+				SL_HANDLE.window()->set_cursor_visibility(true);
 			}
 
 			m_scene_stack.events();
@@ -127,7 +128,10 @@ namespace sc
 
 	void Editor::update(const double dt)
 	{
-		m_scene_stack.update(dt);
+		if (!m_paused)
+		{
+			m_scene_stack.update(dt);
+		}
 	}
 
 	void Editor::pre_render()
@@ -169,7 +173,7 @@ namespace sc
 	void Editor::new_project()
 	{
 		m_scene_stack.clear();
-		m_scene_stack.create<scene::Scene2D>("Base");
+		m_scene_stack.create<scene::Scene3D>("Base");
 		m_scene_stack.push("Base");
 	}
 
@@ -221,7 +225,11 @@ namespace sc
 
 	void Editor::exit()
 	{
-		platform::close_process(m_process);
+		for (auto* process : m_processes)
+		{
+			platform::close_process(process);
+		}
+
 		SL_HANDLE.window()->close();
 	}
 
@@ -347,7 +355,12 @@ namespace sc
 
 				if (ImGui::MenuItem("Open Tiled"))
 				{
-					m_process = platform::run_process("tools/tiled/tiled.exe");
+					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
+				}
+
+				if (ImGui::MenuItem("Open Blender"))
+				{
+					m_processes.push_back(platform::run_process("tools/blender/blender.exe"));
 				}
 
 				if (ImGui::MenuItem("Show ImGui::Demo"))
@@ -373,13 +386,22 @@ namespace sc
 			{
 				m_game_mode = true;
 				m_backup    = serialize();
-
-				//m_scene_stack.top()->m_camera.set_width(SL_HANDLE.window()->get_width());
-				//m_scene_stack.top()->m_camera.set_height(SL_HANDLE.window()->get_height());
+				SL_HANDLE.window()->remove_cursor();
 			}
 
-			if (ImGui::Button(" || ##PauseSceneButton"))
+			static std::string s_pause_resume = " || ##PauseSceneButton";
+			if (ImGui::Button(s_pause_resume.c_str()))
 			{
+				if (!m_paused)
+				{
+					m_paused       = true;
+					s_pause_resume = " >> ##ResumeSceneButton";
+				}
+				else
+				{
+					m_paused       = false;
+					s_pause_resume = " || ##PauseSceneButton";
+				}
 			}
 
 			ImGui::EndMenuBar();
@@ -388,7 +410,7 @@ namespace sc
 		m_entity_panel.render(m_gl_operations);
 		m_json_panel.parse_and_display();
 		m_console.render();
-		m_scene_panel.render(m_scene_stack);
+		m_scene_panel.render(m_scene_stack, m_gl_operations);
 		m_script_panel.render();
 		m_std_console.render();
 		m_audio_panel.render();
@@ -416,9 +438,21 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
+			}
 
-				//m_scene_stack.top()->m_camera.set_width(m_viewport_size.x);
-				//m_scene_stack.top()->m_camera.set_height(m_viewport_size.y);
+			if (m_scene_stack.top()->get_type() == "2D")
+			{
+				ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+			}
+
+			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+
+			if (m_mouse_dragging)
+			{
+				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+
+				//m_scene_stack.top()->move(delta.x, delta.y, 0.0f);
+				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 			}
 
 			/*
@@ -449,20 +483,8 @@ namespace sc
 				possible.clear();
 				m_mouse_picked = false;
 			}
-			*/
 
-			if (m_mouse_dragging)
-			{
-				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Middle);
-
-				//m_scene_stack.top()->m_camera.move(delta.x, delta.y);
-				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Middle);
-			}
-
-			//ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
-			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
-
-			// FIX: right click menu.
+			
 
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 			{
@@ -569,6 +591,7 @@ namespace sc
 
 				ImGui::EndPopup();
 			}
+			*/
 		}
 
 		ImGui::End();

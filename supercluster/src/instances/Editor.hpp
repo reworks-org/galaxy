@@ -45,7 +45,7 @@ namespace sc
 		void viewport();
 
 	private:
-		void* m_process = nullptr;
+		std::vector<void*> m_processes;
 
 		std::string m_path = "";
 		nlohmann::json m_backup;
@@ -57,6 +57,7 @@ namespace sc
 		bool m_viewport_hovered = false;
 		bool m_mouse_dragging   = false;
 		bool m_mouse_picked     = false;
+		bool m_paused           = false;
 
 		panel::EntityEditor m_entity_panel;
 		panel::JSONEditor m_json_panel;
