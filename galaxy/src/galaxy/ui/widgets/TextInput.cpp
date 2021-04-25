@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -207,6 +208,12 @@ namespace galaxy
 			json["x"]            = m_bounds.m_x;
 			json["y"]            = m_bounds.m_y;
 
+			json["tooltip"] = nlohmann::json::object();
+			if (m_tooltip)
+			{
+				json["tooltip"] = json["tooltip"] = m_tooltip->serialize();
+			}
+
 			return json;
 		}
 
@@ -219,9 +226,17 @@ namespace galaxy
 			m_cursor_transform.reset();
 			m_text_transform.reset();
 			m_timer.stop();
+			m_tooltip = nullptr;
 
 			create(json.at("input-bg"), json.at("font"), json.at("border-width"));
 			set_pos(json.at("x"), json.at("y"));
+
+			const auto& tooltip_json = json.at("tooltip");
+			if (!tooltip_json.empty())
+			{
+				auto* tooltip = create_tooltip();
+				tooltip->deserialize(tooltip_json);
+			}
 		}
 	} // namespace ui
 } // namespace galaxy

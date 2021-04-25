@@ -33,8 +33,8 @@ namespace galaxy
 			m_regions[2] = on_hover;
 			m_regions[3] = off_hover;
 
-			m_bounds.m_width  = m_sprite.get_width();
-			m_bounds.m_height = m_sprite.get_height();
+			m_bounds.m_width  = static_cast<float>(m_sprite.get_width());
+			m_bounds.m_height = static_cast<float>(m_sprite.get_height());
 
 			m_theme->m_sb.add(&m_sprite, &m_transform, 0);
 			m_theme->m_event_manager.subscribe<galaxy::events::MouseMoved>(*this);
@@ -56,7 +56,7 @@ namespace galaxy
 
 		void ToggleButton::on_event(const events::MouseMoved& mme) noexcept
 		{
-			if (m_bounds.contains(mme.m_x, mme.m_y))
+			if (m_bounds.contains(static_cast<float>(mme.m_x), static_cast<float>(mme.m_y)))
 			{
 				if (m_on)
 				{
@@ -172,7 +172,7 @@ namespace galaxy
 			json["tooltip"] = nlohmann::json::object();
 			if (m_tooltip)
 			{
-				m_tooltip->serialize();
+				json["tooltip"] = m_tooltip->serialize();
 			}
 
 			return json;

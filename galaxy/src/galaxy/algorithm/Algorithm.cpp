@@ -33,7 +33,7 @@ namespace galaxy
 				while (true)
 				{
 					sstream.read(in, ZLIB_COMPLETE_CHUNK);
-					total_read = sstream.gcount();
+					total_read = static_cast<unsigned int>(sstream.gcount());
 
 					if (total_read != 0)
 					{
@@ -48,7 +48,7 @@ namespace galaxy
 				result += compressor.finish();
 				return result;
 			}
-			catch (std::exception& e)
+			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
 				return "";
@@ -85,7 +85,7 @@ namespace galaxy
 				while (true)
 				{
 					sstream.read(in, ZLIB_COMPLETE_CHUNK);
-					total_read = sstream.gcount();
+					total_read = static_cast<unsigned int>(sstream.gcount());
 
 					if (total_read != 0)
 					{
@@ -99,7 +99,7 @@ namespace galaxy
 
 				return result;
 			}
-			catch (std::exception& e)
+			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
 				return "";
@@ -122,7 +122,7 @@ namespace galaxy
 				while (true)
 				{
 					sstream.read(in, ZLIB_COMPLETE_CHUNK);
-					total_read = sstream.gcount();
+					total_read = static_cast<unsigned int>(sstream.gcount());
 
 					if (total_read != 0)
 					{

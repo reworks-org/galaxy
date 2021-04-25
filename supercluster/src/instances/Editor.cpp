@@ -17,6 +17,7 @@
 #include <galaxy/components/ShaderID.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/core/Window.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
@@ -204,23 +205,26 @@ namespace sc
 
 	void Editor::save()
 	{
-		auto file = m_path;
-		if (file.empty())
+		if (m_path.empty())
 		{
 			auto opt = SL_HANDLE.vfs()->show_save_dialog("*.scproj");
 			if (opt != std::nullopt)
 			{
-				file = opt.value();
-				SL_HANDLE.vfs()->create_file(file);
+				SL_HANDLE.vfs()->create_file(opt.value());
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to create new project file.");
 			}
-		}
 
-		auto compressed = algorithm::encode_zlib(serialize().dump(4));
-		SL_HANDLE.vfs()->save_binary(compressed, file);
+			auto compressed = algorithm::encode_zlib(serialize().dump(4));
+			SL_HANDLE.vfs()->save_binary(compressed, opt.value());
+		}
+		else
+		{
+			auto compressed = algorithm::encode_zlib(serialize().dump(4));
+			SL_HANDLE.vfs()->save_binary(compressed, m_path);
+		}
 	}
 
 	void Editor::exit()
@@ -447,15 +451,21 @@ namespace sc
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 
+			/*
 			if (m_mouse_dragging)
 			{
-				const auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+				auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 
-				//m_scene_stack.top()->move(delta.x, delta.y, 0.0f);
+				if (m_scene_stack.top()->get_type() == "3D")
+				{
+					auto* s3d = static_cast<scene::Scene3D*>(m_scene_stack.top().get());
+					s3d->camera().on_event(events::MouseMoved {delta.x, delta.y});
+				}
+
+				m_scene_stack.top()->move(, 0.0f);
 				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 			}
 
-			/*
 			if (m_mouse_picked)
 			{
 				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();

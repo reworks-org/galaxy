@@ -272,8 +272,14 @@ namespace galaxy
 		{
 			m_meshes.clear();
 
-			load(json.at("file"));
-			create();
+			if (!load(json.at("file")))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load model from deserialized json.");
+			}
+			else
+			{
+				create();
+			}
 		}
 	} // namespace components
 } // namespace galaxy

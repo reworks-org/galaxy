@@ -220,6 +220,10 @@ namespace galaxy
 				constexpr const char* out = "FATAL";
 				return out;
 			}
+			else
+			{
+				return nullptr;
+			}
 		}
 
 		///
@@ -256,6 +260,10 @@ namespace galaxy
 			{
 				constexpr const char* out = "\x1B[31m";
 				return out;
+			}
+			else
+			{
+				return nullptr;
 			}
 		}
 

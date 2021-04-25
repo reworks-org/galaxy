@@ -128,7 +128,7 @@ namespace galaxy
 			json["tooltip"] = nlohmann::json::object();
 			if (m_tooltip)
 			{
-				m_tooltip->serialize();
+				json["tooltip"] = m_tooltip->serialize();
 			}
 
 			return json;

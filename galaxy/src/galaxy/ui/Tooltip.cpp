@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 

@@ -11,6 +11,7 @@
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
