@@ -8,7 +8,6 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
 #include <magic_enum.hpp>
-#include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -21,7 +20,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera3D::Camera3D()
-		    : Serializable {this}
+		    : Camera {}, Serializable {this}
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
 			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
@@ -30,7 +29,7 @@ namespace galaxy
 		}
 
 		Camera3D::Camera3D(const nlohmann::json& json)
-		    : Serializable {this}
+		    : Camera {}, Serializable {this}
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
 			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
@@ -335,19 +334,14 @@ namespace galaxy
 			m_speed = 0.5f;
 		}
 
-		const glm::mat4& Camera3D::get_view() const noexcept
+		const glm::mat4& Camera3D::get_view() noexcept
 		{
 			return m_data.m_view;
 		}
 
-		const glm::mat4& Camera3D::get_proj() const noexcept
+		const glm::mat4& Camera3D::get_proj() noexcept
 		{
 			return m_data.m_proj;
-		}
-
-		const glm::vec3& Camera3D::get_pos() const noexcept
-		{
-			return m_data.m_pos;
 		}
 
 		const Camera3D::Data& Camera3D::get_data() const noexcept

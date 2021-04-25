@@ -70,14 +70,9 @@ namespace galaxy
 			m_gui.render();
 		}
 
-		void Scene3D::move(const float x, const float y, const float z) noexcept
+		graphics::Camera* Scene3D::get_camera() noexcept
 		{
-			m_camera.move_position({x, y, z});
-		}
-
-		graphics::Camera3D& Scene3D::camera() noexcept
-		{
-			return m_camera;
+			return static_cast<graphics::Camera*>(&m_camera);
 		}
 
 		graphics::Skybox& Scene3D::skybox() noexcept

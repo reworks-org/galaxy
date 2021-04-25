@@ -59,13 +59,11 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
-			/// Move camera.
+			/// Get camera object.
 			///
-			/// \param x X distance to move.
-			/// \param y Y distance to move.
-			/// \param z Z distance to move.
+			/// \return Pointer to base camera class.
 			///
-			virtual void move(const float x, const float y, const float z) noexcept = 0;
+			[[nodiscard]] virtual graphics::Camera* get_camera() noexcept = 0;
 
 			///
 			/// Get scene type.

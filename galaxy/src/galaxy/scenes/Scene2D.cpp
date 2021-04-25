@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/CollisionSystem.hpp"
 #include "galaxy/systems/RenderSystem2D.hpp"
@@ -20,7 +21,7 @@ namespace galaxy
 		Scene2D::Scene2D(std::string_view name) noexcept
 		    : Scene {name, "2D"}, m_active_map {""}
 		{
-			m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+			m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 			m_camera.set_speed(100.0f);
 
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
@@ -73,11 +74,6 @@ namespace galaxy
 			m_gui.render();
 		}
 
-		void Scene2D::move(const float x, const float y, const float z) noexcept
-		{
-			m_camera.move(x, y);
-		}
-
 		void Scene2D::create_maps(std::string_view path)
 		{
 			m_maps.clear();
@@ -86,6 +82,11 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to parse tiled world.");
 			}
+		}
+
+		graphics::Camera* Scene2D::get_camera() noexcept
+		{
+			return static_cast<graphics::Camera*>(&m_camera);
 		}
 
 		map::Map* Scene2D::get_map(std::string_view name)

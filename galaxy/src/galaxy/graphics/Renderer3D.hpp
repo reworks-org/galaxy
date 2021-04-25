@@ -12,7 +12,7 @@
 
 #include <glad/glad.h>
 
-#include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/camera/Camera3D.hpp"
 
 #define RENDERER_3D galaxy::graphics::Renderer3D::inst
 

@@ -5,19 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA3D_HPP_
-#define GALAXY_GRAPHICS_CAMERA3D_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA_CAMERA3D_HPP_
+#define GALAXY_GRAPHICS_CAMERA_CAMERA3D_HPP_
 
-#include <glm/vec3.hpp>
-#include <glm/matrix.hpp>
-#include <nlohmann/json_fwd.hpp>
-
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/MouseMoved.hpp"
-#include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/camera/Camera.hpp"
 
 namespace galaxy
 {
@@ -26,7 +18,7 @@ namespace galaxy
 		///
 		/// 3D view of an OpenGL scene.
 		///
-		class Camera3D final : public fs::Serializable
+		class Camera3D final : public Camera, public fs::Serializable
 		{
 		public:
 			///
@@ -163,42 +155,42 @@ namespace galaxy
 			///
 			/// \param e Key down event.
 			///
-			void on_event(const events::KeyDown& e) noexcept;
+			void on_event(const events::KeyDown& e) noexcept override;
 
 			///
 			///	On key up function.
 			///
 			/// \param e Key up event.
 			///
-			void on_event(const events::KeyUp& e) noexcept;
+			void on_event(const events::KeyUp& e) noexcept override;
 
 			///
 			///	Mouse moved function.
 			///
 			/// \param e Mouse moved event.
 			///
-			void on_event(const events::MouseMoved& e) noexcept;
+			void on_event(const events::MouseMoved& e) noexcept override;
 
 			///
 			///	Mouse wheel function.
 			///
 			/// \param e Mouse wheel event.
 			///
-			void on_event(const events::MouseWheel& e) noexcept;
+			void on_event(const events::MouseWheel& e) noexcept override;
 
 			///
 			/// Event window resizing.
 			///
 			/// \param e Window resized event.
 			///
-			void on_event(const events::WindowResized& e) noexcept;
+			void on_event(const events::WindowResized& e) noexcept override;
 
 			///
 			/// Update camera based on event input.
 			///
 			/// \param dt Delta-Time from gameloop.
 			///
-			void update(const double dt) noexcept;
+			void update(const double dt) noexcept override;
 
 			///
 			/// Reset camera data.
@@ -210,21 +202,14 @@ namespace galaxy
 			///
 			/// \return Const reference to a glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_view() const noexcept;
+			[[nodiscard]] const glm::mat4& get_view() noexcept override;
 
 			///
 			/// Get camera projection.
 			///
 			/// \return Const reference to a glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_proj() const noexcept;
-
-			///
-			/// Get camera position.
-			///
-			/// \return Const reference to a glm::vec3.
-			///
-			[[nodiscard]] const glm::vec3& get_pos() const noexcept;
+			[[nodiscard]] const glm::mat4& get_proj() noexcept override;
 
 			///
 			/// Retrieve GLSL compatible data struct.
@@ -249,26 +234,6 @@ namespace galaxy
 
 		public:
 			///
-			/// Forward key binding.
-			///
-			input::Keys m_forward_key = input::Keys::W;
-
-			///
-			/// Backward key binding.
-			///
-			input::Keys m_back_key = input::Keys::S;
-
-			///
-			/// Left key binding.
-			///
-			input::Keys m_left_key = input::Keys::A;
-
-			///
-			/// Right key binding.
-			///
-			input::Keys m_right_key = input::Keys::D;
-
-			///
 			/// "Free" camera up key.
 			///
 			input::Keys m_up_key = input::Keys::Q;
@@ -283,26 +248,6 @@ namespace galaxy
 			/// Camera mode. Affects calculations to simulate camera movement style.
 			///
 			Mode m_mode = Mode::FREE;
-
-			///
-			/// Moving forward flag.
-			///
-			bool m_moving_fwd = false;
-
-			///
-			/// Moving back flag.
-			///
-			bool m_moving_back = false;
-
-			///
-			/// Moving left flag.
-			///
-			bool m_moving_left = false;
-
-			///
-			/// Moving right flag.
-			///
-			bool m_moving_right = false;
 
 			///
 			/// Moving up flag.
@@ -368,11 +313,6 @@ namespace galaxy
 			/// Camera mouse position.
 			///
 			glm::vec3 m_mouse_pos;
-
-			///
-			/// Camera movement speed.
-			///
-			float m_speed;
 
 			///
 			/// Camera mouse movement speed.

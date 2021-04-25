@@ -30,8 +30,8 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/camera/Camera2D.hpp"
+#include "galaxy/graphics/camera/Camera3D.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 
@@ -423,7 +423,6 @@ namespace galaxy
 
 			auto camera_type_3d             = lua->new_usertype<graphics::Camera3D>("gCamera3D", sol::constructors<graphics::Camera3D()>());
 			camera_type_3d["get_data"]      = &graphics::Camera3D::get_data;
-			camera_type_3d["get_pos"]       = &graphics::Camera3D::get_pos;
 			camera_type_3d["get_proj"]      = &graphics::Camera3D::get_proj;
 			camera_type_3d["get_view"]      = &graphics::Camera3D::get_view;
 			camera_type_3d["heading"]       = &graphics::Camera3D::heading;

@@ -5,15 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA2D_HPP_
-#define GALAXY_GRAPHICS_CAMERA2D_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA_CAMERA2D_HPP_
+#define GALAXY_GRAPHICS_CAMERA_CAMERA2D_HPP_
 
-#include "galaxy/core/Window.hpp"
-#include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/camera/Camera.hpp"
 
 namespace galaxy
 {
@@ -22,7 +18,7 @@ namespace galaxy
 		///
 		/// Defines a Camera2D (view) of an OpenGL 2D space.
 		///
-		class Camera2D final : public fs::Serializable
+		class Camera2D final : public Camera, public fs::Serializable
 		{
 		public:
 			///
@@ -70,35 +66,35 @@ namespace galaxy
 			///
 			/// \param e Takes in a shared galaxy event defining a key press down.
 			///
-			void on_event(const events::KeyDown& e) noexcept;
+			void on_event(const events::KeyDown& e) noexcept override;
 
 			///
 			/// Event processing method for key up for Camera2D.
 			///
 			/// \param e Takes in a shared galaxy event defining a key release.
 			///
-			void on_event(const events::KeyUp& e) noexcept;
+			void on_event(const events::KeyUp& e) noexcept override;
 
 			///
 			/// Event processing method for scroll event for Camera2D.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
-			void on_event(const events::MouseWheel& e) noexcept;
+			void on_event(const events::MouseWheel& e) noexcept override;
 
 			///
 			/// Event window resizing.
 			///
 			/// \param e Window resized event.
 			///
-			void on_event(const events::WindowResized& e) noexcept;
+			void on_event(const events::WindowResized& e) noexcept override;
 
 			///
 			/// Update method for Camera2D.
 			///
 			/// \param ts Time-step from update() loop.
 			///
-			void update(const double ts) noexcept;
+			void update(const double ts) noexcept override;
 
 			///
 			/// \brief Translate (move) position.
@@ -214,7 +210,7 @@ namespace galaxy
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_view() noexcept;
+			[[nodiscard]] const glm::mat4& get_view() noexcept override;
 
 			///
 			/// Get stored scale cache.
@@ -235,7 +231,7 @@ namespace galaxy
 			///
 			/// \return Const glm::mat4 reference.
 			///
-			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+			[[nodiscard]] const glm::mat4& get_proj() noexcept override;
 
 			///
 			/// Serializes object.
@@ -257,26 +253,12 @@ namespace galaxy
 			///
 			void recalculate() noexcept;
 
-		public:
 			///
-			/// Forward key binding.
+			///	Mouse moved function.
 			///
-			input::Keys m_forward_key = input::Keys::W;
-
+			/// \param e Mouse moved event.
 			///
-			/// Backward key binding.
-			///
-			input::Keys m_back_key = input::Keys::S;
-
-			///
-			/// Left key binding.
-			///
-			input::Keys m_left_key = input::Keys::A;
-
-			///
-			/// Right key binding.
-			///
-			input::Keys m_right_key = input::Keys::D;
+			void on_event(const events::MouseMoved& e) noexcept override {};
 
 		private:
 			///
@@ -315,31 +297,6 @@ namespace galaxy
 			/// Combined transformation matrix.
 			///
 			glm::mat4 m_model;
-
-			///
-			/// Camera2D move up flag.
-			///
-			bool m_move_up;
-
-			///
-			/// Camera2D move down flag.
-			///
-			bool m_move_down;
-
-			///
-			/// Camera2D move left flag.
-			///
-			bool m_move_left;
-
-			///
-			/// Camera2D move right flag.
-			///
-			bool m_move_right;
-
-			///
-			/// Speed of Camera2D.
-			///
-			float m_speed;
 
 			///
 			/// Width of Camera2D bounds.

@@ -8,7 +8,9 @@
 #ifndef GALAXY_GRAPHICS_RENDERER2D_HPP_
 #define GALAXY_GRAPHICS_RENDERER2D_HPP_
 
-#include "galaxy/graphics/Camera2D.hpp"
+#include <robin_hood.h>
+
+#include "galaxy/graphics/camera/Camera2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 
 ///

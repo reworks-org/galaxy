@@ -28,18 +28,15 @@ namespace s3d
 	{
 		m_window = SL_HANDLE.window();
 
-		m_scene = m_scene_stack.create<scene::Scene3D>("Sandbox3DScene");
+		m_scene      = m_scene_stack.create<scene::Scene3D>("Sandbox3DScene");
+		auto* camera = static_cast<graphics::Camera3D*>(m_scene->get_camera());
 
-		m_scene->camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		m_scene->camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		m_scene->camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		m_scene->camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
-		m_scene->camera().m_up_key      = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-up"));
-		m_scene->camera().m_down_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-down"));
-
-		m_scene->camera().set_mode(graphics::Camera3D::Mode::FREE);
-		m_scene->camera().set_position({0.0f, 0.0f, 3.0f});
-		m_scene->camera().set_speed(0.5f);
+		camera->m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		camera->m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		camera->m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		camera->m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		camera->m_up_key      = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-up"));
+		camera->m_down_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-down"));
 
 		m_scene->m_gui.disable_input();
 

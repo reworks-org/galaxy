@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json.hpp>
 
 #include "Camera2D.hpp"
@@ -14,19 +15,19 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			m_speed = json.at("speed");
 		}
 
 		Camera2D::Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {speed}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
 		}
@@ -58,22 +59,22 @@ namespace galaxy
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				m_move_up = true;
+				m_moving_fwd = true;
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				m_move_down = true;
+				m_moving_back = true;
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				m_move_left = true;
+				m_moving_left = true;
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				m_move_right = true;
+				m_moving_right = true;
 			}
 		}
 
@@ -81,22 +82,22 @@ namespace galaxy
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				m_move_up = false;
+				m_moving_fwd = false;
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				m_move_down = false;
+				m_moving_back = false;
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				m_move_left = false;
+				m_moving_left = false;
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				m_move_right = false;
+				m_moving_right = false;
 			}
 		}
 
@@ -121,22 +122,22 @@ namespace galaxy
 
 		void Camera2D::update(const double ts) noexcept
 		{
-			if (m_move_up)
+			if (m_moving_fwd)
 			{
 				move(0.0f, ts * m_speed);
 			}
 
-			if (m_move_down)
+			if (m_moving_back)
 			{
 				move(0.0f, (ts * m_speed) * -1.0f);
 			}
 
-			if (m_move_left)
+			if (m_moving_left)
 			{
 				move(ts * m_speed, 0.0f);
 			}
 
-			if (m_move_right)
+			if (m_moving_right)
 			{
 				move((ts * m_speed) * -1.0f, 0.0f);
 			}
@@ -282,17 +283,17 @@ namespace galaxy
 
 		void Camera2D::deserialize(const nlohmann::json& json)
 		{
-			m_dirty       = true;
-			m_scaling     = glm::mat4 {1.0f};
-			m_translation = glm::mat4 {1.0f};
-			m_model       = glm::mat4 {1.0f};
-			m_move_up     = false;
-			m_move_down   = false;
-			m_move_left   = false;
-			m_move_right  = false;
-			m_width       = 0.0f;
-			m_height      = 0.0f;
-			m_projection  = glm::mat4 {1.0f};
+			m_dirty        = true;
+			m_scaling      = glm::mat4 {1.0f};
+			m_translation  = glm::mat4 {1.0f};
+			m_model        = glm::mat4 {1.0f};
+			m_moving_fwd   = false;
+			m_moving_back  = false;
+			m_moving_left  = false;
+			m_moving_right = false;
+			m_width        = 0.0f;
+			m_height       = 0.0f;
+			m_projection   = glm::mat4 {1.0f};
 
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			set_pos(json.at("x"), json.at("y"));

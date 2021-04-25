@@ -11,7 +11,7 @@
 #include "galaxy/components/Model.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/ecs/System.hpp"
-#include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/camera/Camera3D.hpp"
 
 namespace galaxy
 {

@@ -8,7 +8,7 @@
 #ifndef GALAXY_SCENES_SCENE3D_HPP_
 #define GALAXY_SCENES_SCENE3D_HPP_
 
-#include "galaxy/graphics/Camera3D.hpp"
+#include "galaxy/graphics/camera/Camera3D.hpp"
 #include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
@@ -67,20 +67,11 @@ namespace galaxy
 			void render() override;
 
 			///
-			/// Move camera.
+			/// Get camera object.
 			///
-			/// \param x X distance to move.
-			/// \param y Y distance to move.
-			/// \param z Z distance to move.
+			/// \return Pointer to base camera class.
 			///
-			void move(const float x, const float y, const float z) noexcept override;
-
-			///
-			/// Get camera.
-			///
-			/// \return Reference to scene Camera3D.
-			///
-			[[nodiscard]] graphics::Camera3D& camera() noexcept;
+			[[nodiscard]] graphics::Camera* get_camera() noexcept override;
 
 			///
 			/// Get skybox.
