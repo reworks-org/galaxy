@@ -8,9 +8,7 @@
 #ifndef GALAXY_PLATFORM_PLATFORM_HPP_
 #define GALAXY_PLATFORM_PLATFORM_HPP_
 
-#ifdef _WIN32 || _WIN64
+#if defined(_WIN32) || defined(_WIN64)
 #include "galaxy/platform/specific/Windows.hpp"
-#else
 #endif
-
 #endif
