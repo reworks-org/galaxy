@@ -271,6 +271,13 @@ namespace galaxy
 			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
 
 			///
+			/// Get mouse wheel delta.
+			///
+			/// \return Mouse scroll wheel delta.
+			///
+			[[nodiscard]] const double get_scroll_delta() noexcept;
+
+			///
 			/// \brief Set current scene dispatcher.
 			///
 			/// Best set/unset when scene is pushed/popped.
@@ -444,6 +451,11 @@ namespace galaxy
 			/// Cursor size.
 			///
 			glm::vec2 m_cursor_size;
+
+			///
+			/// Scroll callback value.
+			///
+			double m_scroll_delta;
 		};
 	} // namespace core
 } // namespace galaxy

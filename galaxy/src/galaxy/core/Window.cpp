@@ -37,12 +37,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
 		{
 			if (!create(settings))
 			{
@@ -243,6 +243,8 @@ namespace galaxy
 							{
 								this_win->m_scene_dispatcher->trigger<events::MouseWheel>(x, y);
 							}
+
+							this_win->m_scroll_delta = y;
 						});
 
 						if (settings.m_gl_debug)
@@ -827,6 +829,14 @@ namespace galaxy
 			}
 
 			return false;
+		}
+
+		const double Window::get_scroll_delta() noexcept
+		{
+			double old_delta = m_scroll_delta;
+			m_scroll_delta   = 0.0;
+
+			return old_delta;
 		}
 
 		void Window::set_scene_dispatcher(events::Dispatcher* dispatcher) noexcept
