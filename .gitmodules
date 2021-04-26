@@ -48,3 +48,6 @@
 [submodule "dependencies/assimp"]
 	path = dependencies/assimp
 	url = https://github.com/DomRe/assimp.git
+[submodule "dependencies/physx"]
+	path = dependencies/physx
+	url = https://github.com/NVIDIAGameWorks/PhysX.git
