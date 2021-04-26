@@ -90,8 +90,6 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_mouse_dragging = ImGui::IsMouseDragging(ImGuiMouseButton_Right);
-
 				if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
 				{
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
@@ -101,14 +99,95 @@ namespace sc
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 				}
 
+				auto* const camera = m_scene_stack.top()->get_camera();
+				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
+				{
+					m_imgui_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+
+					m_mousemoved_event.m_x += m_imgui_delta.x;
+					m_mousemoved_event.m_y += m_imgui_delta.y;
+
+					camera->on_event(m_mousemoved_event);
+					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
+				}
+
+				m_scroll_delta.m_x_offset = 0.0;
+				m_scroll_delta.m_y_offset = SL_HANDLE.window()->get_scroll_delta();
+				if (m_scroll_delta.m_y_offset != 0.0)
+				{
+					camera->on_event(m_scroll_delta);
+				}
+
 				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
 				{
 					m_mouse_picked = true;
 				}
-			}
-			else
-			{
-				m_mouse_dragging = false;
+
+				if (SL_HANDLE.window()->key_down(input::Keys::W))
+				{
+					m_keydown_event.m_keycode = input::Keys::W;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::W;
+					camera->on_event(m_keyup_event);
+				}
+
+				if (SL_HANDLE.window()->key_down(input::Keys::S))
+				{
+					m_keydown_event.m_keycode = input::Keys::S;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::S;
+					camera->on_event(m_keyup_event);
+				}
+
+				if (SL_HANDLE.window()->key_down(input::Keys::A))
+				{
+					m_keydown_event.m_keycode = input::Keys::A;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::A;
+					camera->on_event(m_keyup_event);
+				}
+
+				if (SL_HANDLE.window()->key_down(input::Keys::D))
+				{
+					m_keydown_event.m_keycode = input::Keys::D;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::D;
+					camera->on_event(m_keyup_event);
+				}
+
+				if (SL_HANDLE.window()->key_down(input::Keys::Q))
+				{
+					m_keydown_event.m_keycode = input::Keys::Q;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::Q;
+					camera->on_event(m_keyup_event);
+				}
+
+				if (SL_HANDLE.window()->key_down(input::Keys::E))
+				{
+					m_keydown_event.m_keycode = input::Keys::E;
+					camera->on_event(m_keydown_event);
+				}
+				else
+				{
+					m_keyup_event.m_keycode = input::Keys::E;
+					camera->on_event(m_keyup_event);
+				}
 			}
 		}
 		else
@@ -452,20 +531,6 @@ namespace sc
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			/*
-			if (m_mouse_dragging)
-			{
-				auto delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-
-				if (m_scene_stack.top()->get_type() == "3D")
-				{
-					auto* s3d = static_cast<scene::Scene3D*>(m_scene_stack.top().get());
-					s3d->camera().on_event(events::MouseMoved {delta.x, delta.y});
-				}
-
-				m_scene_stack.top()->move(, 0.0f);
-				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-			}
-
 			if (m_mouse_picked)
 			{
 				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();

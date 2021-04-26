@@ -55,7 +55,6 @@ namespace sc
 		bool m_render_demo      = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
-		bool m_mouse_dragging   = false;
 		bool m_mouse_picked     = false;
 		bool m_paused           = false;
 
@@ -72,6 +71,12 @@ namespace sc
 		graphics::RenderTexture m_framebuffer;
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
 		OpenGLOperationStack m_gl_operations;
+
+		ImVec2 m_imgui_delta;
+		events::MouseMoved m_mousemoved_event;
+		events::MouseWheel m_scroll_delta;
+		events::KeyDown m_keydown_event;
+		events::KeyUp m_keyup_event;
 	};
 
 	[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b) noexcept
