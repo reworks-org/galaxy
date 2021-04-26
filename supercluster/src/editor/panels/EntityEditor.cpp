@@ -611,7 +611,7 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						static auto data       = primitive2d->get_data();
+						auto& data             = primitive2d->get_data();
 						static float colour[4] = {data.m_colour.m_red, data.m_colour.m_green, data.m_colour.m_blue, data.m_colour.m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
@@ -747,7 +747,7 @@ namespace sc
 
 						if (ImGui::Button("Update"))
 						{
-							gl_operations.push_back([primitive2d]() {
+							gl_operations.push_back([&data, primitive2d]() {
 								switch (s_type)
 								{
 									case graphics::Primitives::CIRCLE:

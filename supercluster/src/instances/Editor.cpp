@@ -19,6 +19,8 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/graphics/camera/Camera2D.hpp>
+#include <galaxy/graphics/camera/Camera3D.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
@@ -530,37 +532,45 @@ namespace sc
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 
-			/*
 			if (m_mouse_picked)
 			{
-				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
-
-				glm::vec2 pos;
-				pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - m_scene_stack.top()->m_camera.get_pos().x;
-				pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - m_scene_stack.top()->m_camera.get_pos().y;
-
-				// Will be erased by collision system, as this is after update().
-				auto* tree = m_scene_stack.top()->m_world.get_system<systems::CollisionSystem>()->get_tree();
-				tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
-
-				static std::vector<ecs::Entity> possible = {};
-				tree->query(mp_id, std::back_inserter(possible));
-
-				if (possible.size() > 0)
+				if (m_scene_stack.top()->get_type() == "2D")
 				{
-					m_entity_panel.set_selected_entity(std::make_optional(possible[0]));
+					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
+
+					scene::Scene2D* s2d     = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
+					graphics::Camera2D* c2d = static_cast<graphics::Camera2D*>(s2d->get_camera());
+
+					glm::vec2 pos;
+					pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - c2d->get_pos().x;
+					pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - c2d->get_pos().y;
+
+					// Will be erased by collision system, as this is after update().
+					auto* tree = s2d->m_world.get_system<systems::CollisionSystem>()->get_tree();
+					tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
+
+					static std::vector<ecs::Entity> possible = {};
+					tree->query(mp_id, std::back_inserter(possible));
+
+					if (possible.size() > 0)
+					{
+						m_entity_panel.set_selected_entity(std::make_optional(possible[0]));
+					}
+					else
+					{
+						m_entity_panel.set_selected_entity(std::nullopt);
+					}
+
+					possible.clear();
 				}
 				else
 				{
-					m_entity_panel.set_selected_entity(std::nullopt);
 				}
 
-				possible.clear();
 				m_mouse_picked = false;
 			}
 
-			
-
+			/*
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 			{
 				if (ImGui::BeginMenu("  Create"))
