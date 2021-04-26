@@ -9,6 +9,8 @@ set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
 set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL INTERNAL FORCE)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" CACHE STRING INTERNAL FORCE)
+set(CMAKE_SHARED_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
+set(CMAKE_EXE_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
 
 project(galaxy_engine LANGUAGES C CXX)
 message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
@@ -33,6 +35,8 @@ if (${GALAXY_ENABLE_DOXYGEN})
     endif()
 else()
 	# Set to default.
+	set(CMAKE_EXE_LINKER_FLAGS_PROFILE "")
+	set(CMAKE_SHARED_LINKER_FLAGS_PROFILE "")
 	set(CMAKE_C_FLAGS_DEBUG "")
 	set(CMAKE_C_FLAGS_RELEASE "")
 	set(CMAKE_CXX_FLAGS "")
@@ -78,10 +82,10 @@ else()
 	set(SFW_WITH_TEST OFF CACHE BOOL "" FORCE)
 	add_subdirectory(dependencies/simplefilewatcher)
 	set_target_properties(sfw_lib PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
 	)
 
 	set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
@@ -90,10 +94,10 @@ else()
 	set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 	add_subdirectory(dependencies/glfw3)
 	set_target_properties(glfw PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw"
 	)
 
 	set(ALSOFT_UTILS OFF CACHE BOOL "" FORCE)
@@ -104,17 +108,17 @@ else()
 	set(ALSOFT_UPDATE_BUILD_VERSION OFF CACHE BOOL "" FORCE)
 	add_subdirectory(dependencies/openal)
 	set_target_properties(OpenAL PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
 	)
 
 	set_target_properties(common PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
 	)
 
 	set(WITH_GZFILEOP ON CACHE BOOL "" FORCE)
@@ -133,10 +137,10 @@ else()
 	set(WITH_UNALIGNED ON CACHE BOOL "" FORCE)
 	add_subdirectory(dependencies/zlib-ng)
 	set_target_properties(zlib PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
 	)
 
 	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
@@ -148,14 +152,94 @@ else()
 	set(ASSIMP_IGNORE_GIT_HASH ON CACHE BOOL "" FORCE)
 	add_subdirectory(dependencies/assimp)
 	set_target_properties(assimp PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp/"
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
 	    PREFIX ""
 	    OUTPUT_NAME "assimp"
 	    SUFFIX ".${LIB_FILE_EXT}"
 	)
+
+	# https://github.com/NVIDIAGameWorks/PhysX/issues/249
+	set(TARGET_BUILD_PLATFORM "windows")
+	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+		set(NV_USE_DEBUG_WINCRT ON CACHE BOOL "Use the debug version of the CRT")
+	else()
+		set(NV_USE_DEBUG_WINCRT OFF CACHE BOOL "Use the debug version of the CRT")
+	endif()
+	set(PHYSX_ROOT_DIR "${CMAKE_SOURCE_DIR}/dependencies/physx/physx")
+	set(PHYSX_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/dependencies/physx/physx/include ${CMAKE_SOURCE_DIR}/dependencies/physx/pxshared/include/)
+	set(PHYSX_LIBRARIES
+		PhysX;
+		PhysXCharacterKinematic;
+		PhysXCommon;
+		PhysXCooking;
+		PhysXExtensions;
+		PhysXVehicle;
+		LowLevel;
+		LowLevelAABB;
+		LowLevelDynamics;
+		SceneQuery;
+		SimulationController;
+		FastXml;
+		PhysXPvdSDK;
+		PhysXTask;
+		PhysXFoundation
+	)
+	set(PHYSX_LIBRARIES_OUTPUTS
+		PhysX;
+		PhysXCharacterKinematic;
+		PhysXCommon;
+		PhysXCooking;
+		PhysXExtensions;
+		PhysXFoundation;
+		PhysXPvdSDK;
+		PhysXVehicle
+	)
+	set(PXSHARED_PATH "${CMAKE_SOURCE_DIR}/dependencies/physx/pxshared")
+	set(PXSHARED_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+	set(CMAKEMODULES_VERSION "1.27")
+	set(CMAKEMODULES_PATH "${CMAKE_SOURCE_DIR}/dependencies/physx/externals/cmakemodules")
+	set(PX_OUTPUT_LIB_DIR "${CMAKE_SOURCE_DIR}/output/bin/physx")
+	set(PX_OUTPUT_BIN_DIR "${CMAKE_SOURCE_DIR}/output/bin/physx")
+	set(PX_BUILDSNIPPETS OFF CACHE BOOL "" FORCE)
+	set(PX_BUILDPUBLICSAMPLES OFF CACHE BOOL "" FORCE)
+	set(PX_GENERATE_STATIC_LIBRARIES ON CACHE BOOL "" FORCE)
+	set(PX_FLOAT_POINT_PRECISE_MATH OFF CACHE BOOL "" FORCE)
+	set(NV_USE_STATIC_WINCRT ON CACHE BOOL "" FORCE)
+	set(PX_CMAKE_SUPPRESS_REGENERATION OFF CACHE BOOL "" FORCE)
+	set(PX_COPY_EXTERNAL_DLL OFF CACHE BOOL "" FORCE)
+	file(COPY ${CMAKE_SOURCE_DIR}/cmake/patches/PxPreprocessor.h DESTINATION ${CMAKE_SOURCE_DIR}/dependencies/physx/pxshared/include/foundation)
+	add_subdirectory(dependencies/physx/physx/compiler/public)
+	foreach (target IN LISTS PHYSX_LIBRARIES)
+		target_compile_options(${target} PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+		set_target_properties(${target} PROPERTIES
+			LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
+	    	LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
+	    	LIBRARY_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
+	    	LIBRARY_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
+	    	LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
+	    	
+	    	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
+	    	ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
+	    	ARCHIVE_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
+	    	ARCHIVE_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
+	    	ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
+	    	
+	    	PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
+	    	PDB_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
+	    	PDB_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
+	    	PDB_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
+	    	PDB_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
+	    	
+	    	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
+	    	RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
+	    	RUNTIME_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
+	    	RUNTIME_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
+	    	RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
+		)
+	endforeach()
 
 	# Set external projects to not show compiler warnings.
 	target_compile_options(sfw_lib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
@@ -176,12 +260,19 @@ else()
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
+	add_dependencies(galaxy assimp)
+	add_dependencies(galaxy assimp_zlibstatic)
+	foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+		add_dependencies(galaxy ${target})
+	endforeach()
+
 	add_dependencies(galaxy dependencies)
 	add_dependencies(supercluster galaxy)
 
 	# Set header directories.
 	set(HEADERS
 		"${GALAXY_FREETYPE_HEADERS}"
+		"${PHYSX_INCLUDE_DIRS}"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp-conf"
 		"${CMAKE_SOURCE_DIR}/dependencies/base64"
@@ -194,7 +285,6 @@ else()
 	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googlemock"
 	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest"
-	    "${CMAKE_SOURCE_DIR}/dependencies/gsl/include/"
 		"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
@@ -268,6 +358,10 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
+		foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+			target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
+		endforeach()
+
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
@@ -289,6 +383,10 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
 		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
+
+		foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+			target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
+		endforeach()
 
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -338,6 +436,10 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
+		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
+
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 
@@ -348,6 +450,10 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
+		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
+
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 			
@@ -357,6 +463,10 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
+
+		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -380,6 +490,10 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
+		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
+
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
@@ -390,6 +504,10 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
+			foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
+
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
@@ -399,6 +517,10 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
 			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
+
+			foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
+				target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
+			endforeach()
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
