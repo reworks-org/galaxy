@@ -592,6 +592,11 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
+		void Window::set_title(std::string_view title)
+		{
+			glfwSetWindowTitle(m_window, static_cast<std::string>(title).c_str());
+		}
+
 		void Window::set_cursor_visibility(const bool visible) noexcept
 		{
 			glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);

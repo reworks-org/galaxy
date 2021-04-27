@@ -254,6 +254,7 @@ namespace sc
 
 	void Editor::new_project()
 	{
+		SL_HANDLE.window()->set_title("Untitled Project - Supercluster Editor");
 		m_scene_stack.clear();
 		m_scene_stack.create<scene::Scene3D>("Base");
 		m_scene_stack.push("Base");
@@ -272,6 +273,7 @@ namespace sc
 			if (json != std::nullopt)
 			{
 				deserialize(json.value());
+				SL_HANDLE.window()->set_title(std::filesystem::path(path).stem().string() + " - Supercluster Editor");
 			}
 			else
 			{
@@ -300,11 +302,13 @@ namespace sc
 
 			auto compressed = algorithm::encode_zlib(serialize().dump(4));
 			SL_HANDLE.vfs()->save_binary(compressed, opt.value());
+			SL_HANDLE.window()->set_title(std::filesystem::path(opt.value()).stem().string() + " - Supercluster Editor");
 		}
 		else
 		{
 			auto compressed = algorithm::encode_zlib(serialize().dump(4));
 			SL_HANDLE.vfs()->save_binary(compressed, m_path);
+			SL_HANDLE.window()->set_title(std::filesystem::path(m_path).stem().string() + " - Supercluster Editor");
 		}
 	}
 

@@ -120,6 +120,13 @@ namespace galaxy
 			void set_icon(std::span<unsigned char> buffer);
 
 			///
+			/// Set window title.
+			///
+			/// \param title New title to set window to.
+			///
+			void set_title(std::string_view title);
+
+			///
 			/// Set cursor visibility.
 			///
 			/// \param visible True for cursor to be visible, otherwise false.

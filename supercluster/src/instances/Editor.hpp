@@ -51,7 +51,6 @@ namespace sc
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;
-		bool m_first_start      = true;
 		bool m_render_demo      = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
