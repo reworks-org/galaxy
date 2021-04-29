@@ -554,8 +554,8 @@ namespace galaxy
 			{
 				// Fill glfw-compatible struct.
 				stbi_set_flip_vertically_on_load(true);
-				GLFWimage img;
-				img.pixels = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				GLFWimage img = {};
+				img.pixels    = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (!img.pixels)
 				{
@@ -576,8 +576,8 @@ namespace galaxy
 			stbi_set_flip_vertically_on_load(true);
 
 			// Fill glfw-compatible struct.
-			GLFWimage img;
-			img.pixels = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+			GLFWimage img = {};
+			img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 			if (!img.pixels)
 			{
@@ -621,8 +621,8 @@ namespace galaxy
 			{
 				// Fill glfw-compatible struct.
 				stbi_set_flip_vertically_on_load(false);
-				GLFWimage img;
-				img.pixels = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				GLFWimage img = {};
+				img.pixels    = stbi_load(path.value().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (!img.pixels)
 				{
@@ -646,8 +646,8 @@ namespace galaxy
 			stbi_set_flip_vertically_on_load(false);
 
 			// Fill glfw-compatible struct.
-			GLFWimage img;
-			img.pixels = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+			GLFWimage img = {};
+			img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 			if (!img.pixels)
 			{
@@ -702,16 +702,16 @@ namespace galaxy
 			m_width  = width;
 			m_height = height;
 
-			m_framebuffer->change_size(width, height);
+			m_framebuffer->change_size(m_width, m_height);
 			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 			m_fb_sprite->create();
 
 			if (m_scene_dispatcher)
 			{
-				m_scene_dispatcher->trigger<events::WindowResized>(width, height);
+				m_scene_dispatcher->trigger<events::WindowResized>(m_width, m_height);
 			}
 
-			glfwSetWindowSize(m_window, width, height);
+			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 
 		void Window::request_attention() noexcept

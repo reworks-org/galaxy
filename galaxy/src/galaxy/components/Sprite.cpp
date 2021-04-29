@@ -30,7 +30,7 @@ namespace galaxy
 		    : Serializable {this}, VertexData {std::move(s)}, Texture {std::move(s)}
 		{
 			this->m_opacity     = s.m_opacity;
-			this->m_texture_str = s.m_texture_str;
+			this->m_texture_str = std::move(s.m_texture_str);
 			this->m_vertexs     = std::move(s.m_vertexs);
 		}
 
@@ -43,7 +43,7 @@ namespace galaxy
 				Texture::operator=(std::move(s));
 
 				this->m_opacity     = s.m_opacity;
-				this->m_texture_str = s.m_texture_str;
+				this->m_texture_str = std::move(s.m_texture_str);
 				this->m_vertexs     = std::move(s.m_vertexs);
 			}
 

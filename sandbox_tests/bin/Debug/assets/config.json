@@ -20,7 +20,7 @@
     "maximized": false,
     "mouse-sensitivity": 0.35,
     "musicbook-json": "musicbook.json",
-    "raw-mouse-input": true,
+    "raw-mouse-input": false,
     "scriptbook-json": "scriptbook.json",
     "shaderbook-json": "shaderbook.json",
     "soundbook-json": "soundbook.json",

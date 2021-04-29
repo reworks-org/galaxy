@@ -127,7 +127,10 @@ namespace galaxy
 		void Texture::load(const unsigned int id, const int width, const int height) noexcept
 		{
 			// Clear out old data first.
-			glDeleteTextures(1, &m_texture);
+			if (m_texture != id)
+			{
+				glDeleteTextures(1, &m_texture);
+			}
 
 			m_texture = id;
 			m_width   = width;
