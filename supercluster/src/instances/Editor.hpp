@@ -47,7 +47,8 @@ namespace sc
 	private:
 		std::vector<void*> m_processes;
 
-		std::string m_path = "";
+		std::string m_path          = "";
+		std::string m_topscene_type = "3D";
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;

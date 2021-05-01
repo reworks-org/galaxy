@@ -210,6 +210,8 @@ namespace sc
 
 	void Editor::update(const double dt)
 	{
+		m_topscene_type = m_scene_stack.top()->get_type();
+
 		if (!m_paused)
 		{
 			m_scene_stack.update(dt);
@@ -314,7 +316,7 @@ namespace sc
 
 	void Editor::exit()
 	{
-		for (auto* process : m_processes)
+		for (auto* const process : m_processes)
 		{
 			platform::close_process(process);
 		}
@@ -529,7 +531,7 @@ namespace sc
 				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
 			}
 
-			if (m_scene_stack.top()->get_type() == "2D")
+			if (m_topscene_type == "2D")
 			{
 				ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 			}
@@ -538,19 +540,19 @@ namespace sc
 
 			if (m_mouse_picked)
 			{
-				if (m_scene_stack.top()->get_type() == "2D")
+				if (m_topscene_type == "2D")
 				{
 					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
-					scene::Scene2D* s2d     = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
-					graphics::Camera2D* c2d = static_cast<graphics::Camera2D*>(s2d->get_camera());
+					scene::Scene2D* const s2d     = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
+					graphics::Camera2D* const c2d = static_cast<graphics::Camera2D*>(s2d->get_camera());
 
 					glm::vec2 pos;
 					pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - c2d->get_pos().x;
 					pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - c2d->get_pos().y;
 
 					// Will be erased by collision system, as this is after update().
-					auto* tree = s2d->m_world.get_system<systems::CollisionSystem>()->get_tree();
+					auto* const tree = s2d->m_world.get_system<systems::CollisionSystem>()->get_tree();
 					tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
 
 					static std::vector<ecs::Entity> possible = {};
