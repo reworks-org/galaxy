@@ -60,7 +60,7 @@ namespace galaxy
 			{
 				m_file = file;
 
-				static constexpr const auto flags = aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph | aiProcess_FindInvalidData | aiProcess_SortByPType | aiProcess_RemoveRedundantMaterials | aiProcess_ImproveCacheLocality;
+				static constexpr const auto flags = aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph | aiProcess_FindInvalidData | aiProcess_SortByPType | aiProcess_RemoveRedundantMaterials | aiProcess_ImproveCacheLocality | aiProcess_GenUVCoords | aiProcess_CalcTangentSpace;
 
 				Assimp::Importer importer;
 				auto scene = importer.ReadFile(abs.value(), flags);
@@ -161,6 +161,17 @@ namespace galaxy
 						vertex.m_texels.y = 0.0f;
 					}
 
+					if (mesh->HasTangentsAndBitangents())
+					{
+						vertex.m_tangents.x = mesh->mTangents[i].x;
+						vertex.m_tangents.y = mesh->mTangents[i].y;
+						vertex.m_tangents.z = mesh->mTangents[i].z;
+
+						vertex.m_bitangents.x = mesh->mBitangents[i].x;
+						vertex.m_bitangents.y = mesh->mBitangents[i].y;
+						vertex.m_bitangents.z = mesh->mBitangents[i].z;
+					}
+
 					vertex.set_index(i);
 
 					// Only shared resource.
@@ -210,6 +221,7 @@ namespace galaxy
 
 				parse_material_texture(material, aiTextureType_DIFFUSE, light_mat);
 				parse_material_texture(material, aiTextureType_SPECULAR, light_mat);
+				parse_material_texture(material, aiTextureType_HEIGHT, light_mat); // Normal map.
 
 				output.m_material_id = material->GetName().C_Str();
 			}
@@ -254,6 +266,23 @@ namespace galaxy
 						else
 						{
 							GALAXY_LOG(GALAXY_WARNING, "Failed to load mesh specular texture: {0}.", filename);
+						}
+					}
+					break;
+
+				case aiTextureType_HEIGHT:
+					if (!material->m_normal.is_loaded())
+					{
+						const auto filename = std::filesystem::path(str.C_Str()).filename().string();
+						const auto abs      = SL_HANDLE.vfs()->absolute(filename);
+
+						if (abs != std::nullopt)
+						{
+							material->m_normal.load(abs.value());
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_WARNING, "Failed to load mesh normalmap texture: {0}.", filename);
 						}
 					}
 					break;

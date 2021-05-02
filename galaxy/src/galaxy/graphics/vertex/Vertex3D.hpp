@@ -29,15 +29,6 @@ namespace galaxy
 			Vertex3D() noexcept;
 
 			///
-			/// Argument constructor.
-			///
-			/// \param pos Coords (x, y, z) as a vec3.
-			/// \param normal Normal vector of vertex.
-			/// \param texels Texture coords (u, v) as a vec2.
-			///
-			Vertex3D(const glm::vec3& pos, const glm::vec3& normal, const glm::vec2& texels) noexcept;
-
-			///
 			/// Destructor.
 			///
 			~Vertex3D() noexcept = default;
@@ -66,6 +57,16 @@ namespace galaxy
 			/// Normal vector.
 			///
 			glm::vec3 m_normal;
+
+			///
+			/// Tangents vector.
+			///
+			glm::vec3 m_tangents;
+
+			///
+			/// Bitangents vector.
+			///
+			glm::vec3 m_bitangents;
 
 			///
 			/// Texels.

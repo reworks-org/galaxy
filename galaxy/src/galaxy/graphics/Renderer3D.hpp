@@ -108,7 +108,7 @@ namespace galaxy
 			///
 			/// \param index Index binding assigned to this UBO in shader(s).
 			/// \param offset Offset in UBO memory to buffer this data at.
-			/// \param size Size of data* in bytes.
+			/// \param size Count of data elements.
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>
@@ -119,7 +119,7 @@ namespace galaxy
 			///
 			/// \param index Index binding assigned to this SSBO in shader(s).
 			/// \param offset Offset in SSBO memory to buffer this data at.
-			/// \param size Size of data* in bytes.
+			/// \param size Count of data elements.
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>

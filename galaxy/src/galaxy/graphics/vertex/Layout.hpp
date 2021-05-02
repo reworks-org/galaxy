@@ -131,6 +131,14 @@ namespace galaxy
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_normal)));
 				}
+				else if constexpr (va == VertexAttributes::TANGENTS)
+				{
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_tangents)));
+				}
+				else if constexpr (va == VertexAttributes::BITANGENTS)
+				{
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_bitangents)));
+				}
 				else if constexpr (va == VertexAttributes::TEXEL)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_texels)));

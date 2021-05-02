@@ -59,6 +59,8 @@ namespace galaxy
 
 			m_layout.add<graphics::Vertex3D, graphics::VertexAttributes::POSITION>(3);
 			m_layout.add<graphics::Vertex3D, graphics::VertexAttributes::NORMAL>(3);
+			m_layout.add<graphics::Vertex3D, graphics::VertexAttributes::TANGENTS>(3);
+			m_layout.add<graphics::Vertex3D, graphics::VertexAttributes::BITANGENTS>(3);
 			m_layout.add<graphics::Vertex3D, graphics::VertexAttributes::TEXEL>(2);
 
 			m_va.create<graphics::Vertex3D>(m_vb, m_ib, m_layout);

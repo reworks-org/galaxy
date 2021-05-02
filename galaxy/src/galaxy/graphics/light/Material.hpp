@@ -39,6 +39,11 @@ namespace galaxy
 			graphics::Texture m_specular;
 
 			///
+			/// Normalmap material texture.
+			///
+			graphics::Texture m_normal;
+
+			///
 			/// Material shininess.
 			///
 			float m_shininess;

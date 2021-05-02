@@ -125,11 +125,18 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, material->m_specular.gl_texture());
 			shader->set_uniform("material.specular", 1);
 
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, material->m_normal.gl_texture());
+			shader->set_uniform("material.normal", 2);
+
 			shader->set_uniform("material.shininess", material->m_shininess);
 
 			mesh->bind();
 			glDrawElements(GL_TRIANGLES, mesh->index_count(), GL_UNSIGNED_INT, nullptr);
 			mesh->unbind();
+
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, 0);
 
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, 0);

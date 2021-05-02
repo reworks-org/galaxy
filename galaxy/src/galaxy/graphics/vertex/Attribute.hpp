@@ -47,7 +47,17 @@ namespace galaxy
 			///
 			/// Specifies the "normal vector" vertex attribute type at compile time.
 			///
-			NORMAL
+			NORMAL,
+
+			///
+			/// Specifies the "Tangents vector" vertex attribute type at compile time.
+			///
+			TANGENTS,
+
+			///
+			/// Specifies the "Bitangents vector" vertex attribute type at compile time.
+			///
+			BITANGENTS
 		};
 
 		///
