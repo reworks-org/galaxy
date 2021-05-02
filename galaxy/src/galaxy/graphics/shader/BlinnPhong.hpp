@@ -56,6 +56,7 @@ namespace galaxy
             {
                 sampler2D diffuse;
                 sampler2D specular;
+                sampler2D normal;
                 float shininess;
             };
 
@@ -86,20 +87,23 @@ namespace galaxy
             };
             
             in vec2 io_texels;
-            in vec3 io_normals;
             in vec3 io_frag_pos;
+            in mat3 io_tbn;
             out vec4 io_frag_colour;
 
             uniform Material material;
 
             void main()
             {
-                vec3 normals = normalize(io_normals);
                 vec3 view_dir = normalize(u_camera_pos - io_frag_pos);
                 
                 vec4 diff_tex = texture(material.diffuse, io_texels);
-                vec3 spec_map = vec3(texture(material.specular, io_texels));
+                vec3 spec_map = texture(material.specular, io_texels).rgb;
 
+                vec3 normals = texture(material.normal, io_texels).rgb;
+                normals = normals * 2.0 - 1.0;
+                normals = normalize(io_tbn * normals);
+                
                 vec3 result = vec3(0);
                 for (int i = 0; i < b_dir_lights.length(); i++)
                 {

@@ -22,7 +22,9 @@ namespace galaxy
 			
 			layout(location = 0) in vec3 l_pos;
 			layout(location = 1) in vec3 l_normals;
-			layout(location = 2) in vec2 l_texels;
+			layout(location = 2) in vec3 l_tangents;
+			layout(location = 3) in vec3 l_bitangents;
+			layout(location = 4) in vec2 l_texels;
 			
 			layout (std140, binding = 0) uniform camera_data
 			{
@@ -32,15 +34,22 @@ namespace galaxy
 			};
 			
 			out vec2 io_texels;
-			out vec3 io_normals;
 			out vec3 io_frag_pos;
+			out mat3 io_tbn;
 			
 			void main()
 			{
-				gl_Position = u_camera_proj * u_camera_view * vec4(l_pos, 1.0);
 				io_texels = l_texels;
-				io_normals = l_normals;
 				io_frag_pos = l_pos;
+				
+				vec3 T = normalize(l_tangents);
+				vec3 N = normalize(l_normals);
+				
+				T = normalize(T - dot(T, N) * N);
+				vec3 B = cross(N, T);
+
+				io_tbn = mat3(T, B, N);
+				gl_Position = u_camera_proj * u_camera_view * vec4(l_pos, 1.0);
 			}
 		)";
 	} // namespace shaders
