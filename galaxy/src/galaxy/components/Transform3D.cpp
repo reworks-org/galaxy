@@ -131,7 +131,7 @@ namespace galaxy
 				m_scale = glm::translate(m_scale, -m_origin);
 
 				m_model   = m_translation * m_rotation * m_scale;
-				m_inverse = glm::transpose(glm::inverse(m_model));
+				m_inverse = glm::transpose(glm::inverse(glm::mat3 {m_model}));
 
 				m_dirty = false;
 			}
