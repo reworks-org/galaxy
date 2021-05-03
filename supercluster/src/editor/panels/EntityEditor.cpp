@@ -885,7 +885,7 @@ namespace sc
 					{
 						if (ImGui::Button("Load"))
 						{
-							const auto file = SL_HANDLE.vfs()->open_with_dialog("*.png");
+							const auto file = SL_HANDLE.vfs()->open_with_dialog();
 							gl_operations.push_back([sprite, file]() {
 								if (file == std::nullopt)
 								{

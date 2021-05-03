@@ -99,7 +99,6 @@ namespace galaxy
 			/// Dumps internal atlas. May take a while.
 			///
 			/// \param file Path (including filename) to save file to.
-			///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 			///
 			void save(std::string_view file);
 
