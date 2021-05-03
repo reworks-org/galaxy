@@ -3,7 +3,7 @@
     "allow-serialize": true,
     "components": {
         "Model": {
-            "file": "sponza.dae"
+            "file": "sponza.obj"
         },
         "Transform3D": {
         	"x": 0.0,
