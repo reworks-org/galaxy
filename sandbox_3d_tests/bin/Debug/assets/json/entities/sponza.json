@@ -1,0 +1,21 @@
+{
+    "enabled": true,
+    "allow-serialize": true,
+    "components": {
+        "Model": {
+            "file": "sponza.dae"
+        },
+        "Transform3D": {
+        	"x": 0.0,
+            "y": 0.0,
+            "z": 1.0,
+            "rotation": 0,
+            "scale" : 1.0,
+            "rotation-axis" : {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+            }
+        }
+    }
+}
