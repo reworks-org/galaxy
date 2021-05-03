@@ -40,7 +40,7 @@ namespace galaxy
 						});
 					});
 
-					model->recreate();
+					model->create();
 				}
 			});
 		}

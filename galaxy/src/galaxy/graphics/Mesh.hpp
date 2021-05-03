@@ -48,11 +48,6 @@ namespace galaxy
 			void create();
 
 			///
-			/// Optimize vertices.
-			///
-			void optimize();
-
-			///
 			/// Bind mesh VAO.
 			///
 			void bind() noexcept;
