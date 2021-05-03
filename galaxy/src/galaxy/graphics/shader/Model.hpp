@@ -43,10 +43,8 @@ namespace galaxy
 				io_frag_pos = l_pos;
 				
 				vec3 T = normalize(l_tangents);
+				vec3 B = normalize(l_bitangents);
 				vec3 N = normalize(l_normals);
-				
-				T = normalize(T - dot(T, N) * N);
-				vec3 B = cross(N, T);
 
 				io_tbn = mat3(T, B, N);
 				gl_Position = u_camera_proj * u_camera_view * vec4(l_pos, 1.0);

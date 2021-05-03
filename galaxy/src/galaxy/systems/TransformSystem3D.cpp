@@ -34,9 +34,10 @@ namespace galaxy
 					transform->recalculate();
 					std::for_each(std::execution::par_unseq, model->get_meshes().begin(), model->get_meshes().end(), [&](auto& mesh) {
 						std::for_each(std::execution::par_unseq, mesh.m_verticies.begin(), mesh.m_verticies.end(), [&](auto& vertex) {
-							vertex.m_pos      = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_pos, 1.0f}};
-							vertex.m_normal   = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_normal, 1.0f}};
-							vertex.m_tangents = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_tangents, 1.0f}};
+							vertex.m_pos        = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_pos, 1.0f}};
+							vertex.m_normal     = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_normal, 0.0f}};
+							vertex.m_tangents   = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_tangents, 0.0f}};
+							vertex.m_bitangents = glm::vec3 {transform->get_transform() * glm::vec4 {vertex.m_bitangents, 0.0f}};
 						});
 					});
 
