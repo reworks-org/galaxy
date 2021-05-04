@@ -245,7 +245,20 @@ namespace galaxy
 
 		void Camera3D::on_event(const events::WindowResized& e) noexcept
 		{
-			m_aspect_ratio = e.m_width / e.m_height;
+			auto w = e.m_width;
+			auto h = e.m_height;
+
+			if (w <= 0)
+			{
+				w = 1;
+			}
+
+			if (h <= 0)
+			{
+				h = 1;
+			}
+
+			m_aspect_ratio = w / h;
 		}
 
 		void Camera3D::update(const double dt) noexcept
