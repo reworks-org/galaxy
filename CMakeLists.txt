@@ -160,6 +160,15 @@ else()
 	    OUTPUT_NAME "assimp"
 	    SUFFIX ".${LIB_FILE_EXT}"
 	)
+	set_target_properties(IrrXML PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
+	    PREFIX ""
+	    OUTPUT_NAME "IrrXML"
+	    SUFFIX ".${LIB_FILE_EXT}"
+	)
 
 	# https://github.com/NVIDIAGameWorks/PhysX/issues/249
 	set(TARGET_BUILD_PLATFORM "windows")
@@ -247,6 +256,7 @@ else()
 	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(IrrXML PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(assimp PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(assimp_zlibstatic PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 
@@ -260,6 +270,7 @@ else()
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
+	add_dependencies(galaxy IrrXML)
 	add_dependencies(galaxy assimp)
 	add_dependencies(galaxy assimp_zlibstatic)
 	foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -355,6 +366,7 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -381,6 +393,7 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -433,6 +446,7 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -447,6 +461,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -461,6 +476,7 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -487,6 +503,7 @@ else()
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -501,6 +518,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 			foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
@@ -515,6 +533,7 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 			foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
