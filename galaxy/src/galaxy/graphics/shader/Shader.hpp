@@ -155,6 +155,12 @@ namespace galaxy
 		}
 
 		template<>
+		inline void Shader::set_uniform<bool>(std::string_view name, const bool& a)
+		{
+			glUniform1i(get_uniform_location(name), a);
+		}
+
+		template<>
 		inline void Shader::set_uniform<int>(std::string_view name, const int& a)
 		{
 			glUniform1i(get_uniform_location(name), a);

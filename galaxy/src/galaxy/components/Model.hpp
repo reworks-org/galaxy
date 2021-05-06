@@ -65,15 +65,8 @@ namespace galaxy
 
 			///
 			/// Create mesh VAOs.
-			/// And optimizies loaded verticies.
 			///
 			void create();
-
-			///
-			/// Rebuilds vertex array object from existing verticies.
-			/// Does not call optimize (no need to).
-			///
-			void recreate();
 
 			///
 			/// Retrieve meshes.

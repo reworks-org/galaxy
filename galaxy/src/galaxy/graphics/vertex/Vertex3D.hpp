@@ -64,11 +64,6 @@ namespace galaxy
 			glm::vec3 m_tangents;
 
 			///
-			/// Bitangents vector.
-			///
-			glm::vec3 m_bitangents;
-
-			///
 			/// Texels.
 			///
 			glm::vec2 m_texels;

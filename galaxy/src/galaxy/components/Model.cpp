@@ -60,10 +60,8 @@ namespace galaxy
 			{
 				m_file = file;
 
-				static constexpr const auto flags = aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph | aiProcess_FindInvalidData | aiProcess_SortByPType | aiProcess_RemoveRedundantMaterials | aiProcess_ImproveCacheLocality | aiProcess_GenUVCoords | aiProcess_CalcTangentSpace;
-
 				Assimp::Importer importer;
-				auto scene = importer.ReadFile(abs.value(), flags);
+				auto scene = importer.ReadFile(abs.value(), aiProcess_CalcTangentSpace | aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_PreTransformVertices | aiProcess_ImproveCacheLocality | aiProcess_RemoveRedundantMaterials | aiProcess_FixInfacingNormals | aiProcess_SortByPType | aiProcess_FindInvalidData | aiProcess_GenUVCoords | aiProcess_OptimizeMeshes);
 				if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to import model: {0}, because: {1}.", file, importer.GetErrorString());
@@ -83,15 +81,6 @@ namespace galaxy
 		}
 
 		void Model::create()
-		{
-			for (auto& mesh : m_meshes)
-			{
-				mesh.optimize();
-				mesh.create();
-			}
-		}
-
-		void Model::recreate()
 		{
 			for (auto& mesh : m_meshes)
 			{
@@ -155,21 +144,12 @@ namespace galaxy
 						vertex.m_texels.x = mesh->mTextureCoords[0][i].x;
 						vertex.m_texels.y = mesh->mTextureCoords[0][i].y;
 					}
-					else
-					{
-						vertex.m_texels.x = 0.0f;
-						vertex.m_texels.y = 0.0f;
-					}
 
 					if (mesh->HasTangentsAndBitangents())
 					{
 						vertex.m_tangents.x = mesh->mTangents[i].x;
 						vertex.m_tangents.y = mesh->mTangents[i].y;
 						vertex.m_tangents.z = mesh->mTangents[i].z;
-
-						vertex.m_bitangents.x = mesh->mBitangents[i].x;
-						vertex.m_bitangents.y = mesh->mBitangents[i].y;
-						vertex.m_bitangents.z = mesh->mBitangents[i].z;
 					}
 
 					vertex.set_index(i);
@@ -221,7 +201,7 @@ namespace galaxy
 
 				parse_material_texture(material, aiTextureType_DIFFUSE, light_mat);
 				parse_material_texture(material, aiTextureType_SPECULAR, light_mat);
-				parse_material_texture(material, aiTextureType_HEIGHT, light_mat); // Normal map.
+				parse_material_texture(material, aiTextureType_HEIGHT, light_mat);
 
 				output.m_material_id = material->GetName().C_Str();
 			}
@@ -248,7 +228,20 @@ namespace galaxy
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Failed to load mesh diffuse texture: {0}.", filename);
+							material->m_use_diffuse_texture = false;
+
+							aiColor4D diff_color = {};
+							if (mat->Get(AI_MATKEY_COLOR_DIFFUSE, diff_color) != aiReturn_SUCCESS)
+							{
+								material->m_diffuse_colours = glm::vec4 {1.0f};
+							}
+							else
+							{
+								material->m_diffuse_colours.x = diff_color.r;
+								material->m_diffuse_colours.y = diff_color.g;
+								material->m_diffuse_colours.z = diff_color.b;
+								material->m_diffuse_colours.w = diff_color.a;
+							}
 						}
 					}
 					break;
@@ -265,7 +258,19 @@ namespace galaxy
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Failed to load mesh specular texture: {0}.", filename);
+							material->m_use_specular_texture = false;
+
+							aiColor4D spec_color = {};
+							if (mat->Get(AI_MATKEY_COLOR_SPECULAR, spec_color) != aiReturn_SUCCESS)
+							{
+								material->m_specular_colours = glm::vec3 {0.5f};
+							}
+							else
+							{
+								material->m_specular_colours.x = spec_color.r;
+								material->m_specular_colours.y = spec_color.g;
+								material->m_specular_colours.z = spec_color.b;
+							}
 						}
 					}
 					break;
@@ -282,7 +287,7 @@ namespace galaxy
 						}
 						else
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Failed to load mesh normalmap texture: {0}.", filename);
+							material->m_use_normal_texture = false;
 						}
 					}
 					break;

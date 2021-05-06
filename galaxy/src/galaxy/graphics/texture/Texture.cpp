@@ -61,21 +61,24 @@ namespace galaxy
 				if (data)
 				{
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 					glGenerateMipmap(GL_TEXTURE_2D);
 
 					if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
 					{
-						set_minify_filter<TrilinearMipmapFilter>();
-						set_magnify_filter<BilinearTexFilter>();
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 					}
 					else
 					{
-						set_minify_filter<NearestMipmapFilter>();
-						set_magnify_filter<NearestTexFilter>();
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+						glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 					}
 
-					clamp_to_border();
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1);
+
+					clamp_to_edge();
 					m_loaded = true;
 				}
 				else
@@ -98,21 +101,23 @@ namespace galaxy
 			if (data)
 			{
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
 				if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
 				{
-					set_minify_filter<TrilinearMipmapFilter>();
-					set_magnify_filter<BilinearTexFilter>();
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 				}
 				else
 				{
-					set_minify_filter<NearestMipmapFilter>();
-					set_magnify_filter<NearestTexFilter>();
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 				}
 
-				clamp_to_border();
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1);
+
 				m_loaded = true;
 			}
 			else

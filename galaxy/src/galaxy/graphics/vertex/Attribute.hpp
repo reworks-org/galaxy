@@ -52,12 +52,7 @@ namespace galaxy
 			///
 			/// Specifies the "Tangents vector" vertex attribute type at compile time.
 			///
-			TANGENTS,
-
-			///
-			/// Specifies the "Bitangents vector" vertex attribute type at compile time.
-			///
-			BITANGENTS
+			TANGENTS
 		};
 
 		///

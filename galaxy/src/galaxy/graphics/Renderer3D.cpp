@@ -116,24 +116,37 @@ namespace galaxy
 		{
 			SL_HANDLE.window()->enable_back_cull();
 			shader->bind();
+			mesh->bind();
 
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, material->m_diffuse.gl_texture());
-			shader->set_uniform("material.diffuse", 0);
+			if (material->m_use_diffuse_texture)
+			{
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, material->m_diffuse.gl_texture());
+				shader->set_uniform("material.diffuse", 0);
+			}
 
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, material->m_specular.gl_texture());
-			shader->set_uniform("material.specular", 1);
+			if (material->m_use_specular_texture)
+			{
+				glActiveTexture(GL_TEXTURE1);
+				glBindTexture(GL_TEXTURE_2D, material->m_specular.gl_texture());
+				shader->set_uniform("material.specular", 1);
+			}
 
-			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, material->m_normal.gl_texture());
-			shader->set_uniform("material.normal", 2);
+			if (material->m_use_normal_texture)
+			{
+				glActiveTexture(GL_TEXTURE2);
+				glBindTexture(GL_TEXTURE_2D, material->m_normal.gl_texture());
+				shader->set_uniform("material.normal", 2);
+			}
 
 			shader->set_uniform("material.shininess", material->m_shininess);
+			shader->set_uniform("material.diffuse_colours", material->m_diffuse_colours);
+			shader->set_uniform("material.specular_colours", material->m_specular_colours);
+			shader->set_uniform("material.use_diffuse_texture", material->m_use_diffuse_texture);
+			shader->set_uniform("material.use_specular_texture", material->m_use_specular_texture);
+			shader->set_uniform("material.use_normal_texture", material->m_use_normal_texture);
 
-			mesh->bind();
 			glDrawElements(GL_TRIANGLES, mesh->index_count(), GL_UNSIGNED_INT, nullptr);
-			mesh->unbind();
 
 			glActiveTexture(GL_TEXTURE2);
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -143,6 +156,8 @@ namespace galaxy
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, 0);
+
+			mesh->unbind();
 		}
 
 		void Renderer3D::draw_skybox(Skybox* skybox, Shader* shader)

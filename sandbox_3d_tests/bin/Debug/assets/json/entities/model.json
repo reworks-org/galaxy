@@ -3,7 +3,7 @@
     "allow-serialize": true,
     "components": {
         "Model": {
-            "file": "holodeck.obj"
+            "file": "cyborg.obj"
         },
         "Transform3D": {
         	"x": 0.0,

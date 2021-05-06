@@ -53,6 +53,10 @@ EXPORTING:
 	*/
 
 TODO:
+- Model Loader needs to support texture coords outside of [0, 1].
+- Model loader needs to determine to use height or normals for assimp normal maps.
+- Fix bugs in hot reload system.
+- Fix ansio and filtering (again).
 - Update unit tests, sandbox tests and script support for new content.
 - Add option for World::OPerate() to be run in parallell. Only contents of lambda is parallell.
 - Reflection Mapping https://learnopengl.com/Advanced-OpenGL/Cubemaps
@@ -62,6 +66,7 @@ TODO:
 - Geometry Shading https://learnopengl.com/Advanced-OpenGL/Geometry-Shader
 - Instancing (particles) https://learnopengl.com/Advanced-OpenGL/Instancing
 	- Instance Rendering for 3D
+- Shadows https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
 - Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
 
 

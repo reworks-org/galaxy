@@ -18,7 +18,7 @@ namespace galaxy
 		/// Blinn-Phong fragment shader.
 		///
 		inline const std::string blinnphong_frag = R"(
-			#version 450 core
+            #version 450 core
 
             #define ATTENUATION_CONSTANT 1.0
             
@@ -57,6 +57,11 @@ namespace galaxy
                 sampler2D diffuse;
                 sampler2D specular;
                 sampler2D normal;
+                vec4 diffuse_colours;
+                vec3 specular_colours;
+                bool use_diffuse_texture;
+		    	bool use_specular_texture;
+			    bool use_normal_texture;
                 float shininess;
             };
 
@@ -88,6 +93,7 @@ namespace galaxy
             
             in vec2 io_texels;
             in vec3 io_frag_pos;
+            in vec3 io_normals;
             in mat3 io_tbn;
             out vec4 io_frag_colour;
 
@@ -97,13 +103,38 @@ namespace galaxy
             {
                 vec3 view_dir = normalize(u_camera_pos - io_frag_pos);
                 
-                vec4 diff_tex = texture(material.diffuse, io_texels);
-                vec3 spec_map = texture(material.specular, io_texels).rgb;
+                vec4 diff_tex = vec4(1.0);
+                if (material.use_diffuse_texture)
+                {
+                    diff_tex = texture(material.diffuse, io_texels);
+                }
+                else
+                {
+                    diff_tex = material.diffuse_colours;
+                }
 
-                vec3 normals = texture(material.normal, io_texels).rgb;
-                normals = normals * 2.0 - 1.0;
-                normals = normalize(io_tbn * normals);
-                
+                vec3 spec_map = vec3(1.0);
+                if (material.use_specular_texture)
+                {
+                    spec_map = texture(material.specular, io_texels).rgb;
+                }
+                else
+                {
+                    spec_map = material.specular_colours;
+                }
+
+                vec3 normals = vec3(1.0);
+                if (material.use_normal_texture)
+                {
+                    normals = texture(material.normal, io_texels).rgb;
+                    normals = normals * 2.0 - 1.0;
+                    normals = normalize(io_tbn * normals);
+                }
+                else
+                {
+                    normals = normalize(io_tbn * normals);
+                }
+
                 vec3 result = vec3(0);
                 for (int i = 0; i < b_dir_lights.length(); i++)
                 {
@@ -119,7 +150,7 @@ namespace galaxy
                 {
                     result += calc_spot(b_spot_lights[i], normals, io_frag_pos, view_dir, diff_tex.rgb, spec_map);
                 }
-
+                
                 io_frag_colour = vec4(result, diff_tex.a);
             }
 

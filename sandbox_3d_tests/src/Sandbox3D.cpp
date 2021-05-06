@@ -37,6 +37,10 @@ namespace s3d
 		camera->m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 		camera->m_up_key      = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-up"));
 		camera->m_down_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-freecam-down"));
+		camera->set_near(0.1f);
+		camera->set_far(1000.0f);
+		camera->set_speed(2.0f);
+		camera->set_fov(90.0f);
 
 		m_scene->m_gui.disable_input();
 
@@ -55,7 +59,7 @@ namespace s3d
 		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 
-		m_scene->m_world.create_from_json("backpack.json");
+		m_scene->m_world.create_from_json("model.json");
 		m_scene->m_world.create_from_json("dir.json");
 		m_scene->m_world.create_from_json("point.json");
 		m_scene->m_world.create_from_json("spot.json");
