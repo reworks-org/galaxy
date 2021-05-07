@@ -103,6 +103,8 @@ namespace galaxy
 			m_origin.x = x;
 			m_origin.y = y;
 			m_origin.z = z;
+
+			m_dirty = true;
 		}
 
 		void Transform3D::set_rotation_axis(const float x, const float y, const float z) noexcept
@@ -110,6 +112,8 @@ namespace galaxy
 			m_rotation_axis.x = x;
 			m_rotation_axis.y = y;
 			m_rotation_axis.z = z;
+
+			m_dirty = true;
 		}
 
 		void Transform3D::recalculate()
@@ -167,6 +171,16 @@ namespace galaxy
 		const float Transform3D::get_scale() const noexcept
 		{
 			return m_scale_factor;
+		}
+
+		const glm::vec3& Transform3D::get_rotation_axis() const noexcept
+		{
+			return m_rotation_axis;
+		}
+
+		const glm::vec3& Transform3D::get_origin() const noexcept
+		{
+			return m_origin;
 		}
 
 		void Transform3D::reset() noexcept

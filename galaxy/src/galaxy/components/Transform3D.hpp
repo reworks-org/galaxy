@@ -154,6 +154,20 @@ namespace galaxy
 			[[nodiscard]] const float get_scale() const noexcept;
 
 			///
+			/// Get rotation axis.
+			///
+			/// \return Const glm::vec3 reference.
+			///
+			[[nodiscard]] const glm::vec3& get_rotation_axis() const noexcept;
+
+			///
+			/// Get origin.
+			///
+			/// \return Const glm::vec3 reference.
+			///
+			[[nodiscard]] const glm::vec3& get_origin() const noexcept;
+
+			///
 			/// Reset Transform3D.
 			///
 			void reset() noexcept;
