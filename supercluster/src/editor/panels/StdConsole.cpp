@@ -45,6 +45,7 @@ namespace sc
 
 		int StdConsoleStream::sync()
 		{
+			m_buffer.erase(0, 5);
 			m_history.push_back(m_buffer);
 			m_buffer.clear();
 
