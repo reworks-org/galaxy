@@ -228,7 +228,7 @@ namespace galaxy
 			const auto path = show_open_dialog(filter, def_path);
 			if (path == std::nullopt)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file: {0}.", path.value());
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file.");
 				return std::nullopt;
 			}
 			else
