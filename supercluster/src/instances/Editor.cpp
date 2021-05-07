@@ -11,14 +11,25 @@
 
 #include <galaxy/algorithm/Algorithm.hpp>
 #include <galaxy/components/Animated.hpp>
+#include <galaxy/components/BatchSprite.hpp>
+#include <galaxy/components/DirectionLight.hpp>
+#include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
+#include <galaxy/components/PointLight.hpp>
+#include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/SpotLight.hpp>
+#include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
+#include <galaxy/components/Text.hpp>
+#include <galaxy/components/Transform2D.hpp>
+#include <galaxy/components/Transform3D.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/graphics/camera/Camera2D.hpp>
 #include <galaxy/graphics/camera/Camera3D.hpp>
 #include <galaxy/platform/Platform.hpp>
@@ -571,101 +582,153 @@ namespace sc
 				}
 				else
 				{
+					// TODO: 3D Picking.
 				}
 
 				m_mouse_picked = false;
 			}
 
-			/*
 			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 			{
 				if (ImGui::BeginMenu("  Create"))
 				{
 					if (ImGui::BeginMenu("  Entity"))
 					{
-						if (ImGui::MenuItem("  Sprite"))
+						if (m_topscene_type == "2D")
 						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+							if (ImGui::MenuItem("  Sprite"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
 
-							world.create_component<components::BatchSprite>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::BATCHED;
+								world.create_component<components::BatchSprite>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::BATCHED;
+							}
+
+							if (ImGui::MenuItem("  Animated Sprite"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::Animated>(entity);
+								world.create_component<components::BatchSprite>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::BATCHED;
+							}
+
+							if (ImGui::MenuItem("  Primitive2D"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::Primitive2D>(entity);
+								world.create_component<components::ShaderID>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::LINE_LOOP;
+							}
+
+							if (ImGui::MenuItem("  Rigid Body"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::BatchSprite>(entity);
+								world.create_component<components::OnCollision>(entity);
+								world.create_component<components::RigidBody>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::BATCHED;
+							}
+
+							if (ImGui::MenuItem("  Animated Body"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::Animated>(entity);
+								world.create_component<components::BatchSprite>(entity);
+								world.create_component<components::OnCollision>(entity);
+								world.create_component<components::RigidBody>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::BATCHED;
+							}
+
+							if (ImGui::MenuItem("  Text"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::ShaderID>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Text>(entity);
+								world.create_component<components::Transform2D>(entity);
+								auto* r   = world.create_component<components::Renderable>(entity);
+								r->m_type = graphics::Renderables::TEXT;
+							}
 						}
-
-						if (ImGui::MenuItem("  Animated Sprite"))
+						else
 						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+							if (ImGui::MenuItem("  Model"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
 
-							world.create_component<components::Animated>(entity);
-							world.create_component<components::BatchSprite>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::BATCHED;
-						}
+								world.create_component<components::Model>(entity);
+								world.create_component<components::Tag>(entity);
+								world.create_component<components::Transform3D>(entity);
 
-						if (ImGui::MenuItem("  Primitive2D"))
-						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+								world.disable(entity);
+								world.set_flag<flags::AllowSerialize>(entity);
+							}
 
-							world.create_component<components::Primitive2D>(entity);
-							world.create_component<components::ShaderID>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::LINE_LOOP;
-						}
+							if (ImGui::MenuItem("  Directional Light"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
 
-						if (ImGui::MenuItem("  Rigid Body"))
-						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+								world.create_component<components::DirectionLight>(entity);
 
-							world.create_component<components::BatchSprite>(entity);
-							world.create_component<components::OnCollision>(entity);
-							world.create_component<components::RigidBody>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::BATCHED;
-						}
+								world.disable(entity);
+								world.set_flag<flags::AllowSerialize>(entity);
+							}
 
-						if (ImGui::MenuItem("  Animated Body"))
-						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+							if (ImGui::MenuItem("  Point Light"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
 
-							world.create_component<components::Animated>(entity);
-							world.create_component<components::BatchSprite>(entity);
-							world.create_component<components::OnCollision>(entity);
-							world.create_component<components::RigidBody>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::BATCHED;
-						}
+								world.create_component<components::PointLight>(entity);
 
-						if (ImGui::MenuItem("  Text"))
-						{
-							auto& world       = m_scene_stack.top()->m_world;
-							const auto entity = world.create();
+								world.disable(entity);
+								world.set_flag<flags::AllowSerialize>(entity);
+							}
 
-							world.create_component<components::ShaderID>(entity);
-							world.create_component<components::Tag>(entity);
-							world.create_component<components::Text>(entity);
-							world.create_component<components::Transform2D>(entity);
-							auto* r   = world.create_component<components::Renderable>(entity);
-							r->m_type = graphics::Renderables::TEXT;
+							if (ImGui::MenuItem("  Spot Light"))
+							{
+								auto& world       = m_scene_stack.top()->m_world;
+								const auto entity = world.create();
+
+								world.create_component<components::SpotLight>(entity);
+
+								world.disable(entity);
+								world.set_flag<flags::AllowSerialize>(entity);
+							}
 						}
 
 						ImGui::EndMenu();
 					}
 
+					/*
 					m_gui_panel.gui_context_menu();
 
 					if (ImGui::MenuItem("  Map"))
@@ -676,13 +739,13 @@ namespace sc
 							//m_scene_stack.top()->create_maps(file.value());
 						}
 					}
+					*/
 
 					ImGui::EndMenu();
 				}
 
 				ImGui::EndPopup();
 			}
-			*/
 		}
 
 		ImGui::End();

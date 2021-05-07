@@ -68,6 +68,5 @@ TODO:
 	- Instance Rendering for 3D
 - Shadows https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
 - Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
-
-
-https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+- BLOOM https://learnopengl.com/Advanced-Lighting/Bloom
+- HDR https://learnopengl.com/Advanced-Lighting/HDR

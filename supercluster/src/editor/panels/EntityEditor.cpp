@@ -10,21 +10,26 @@
 
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
+#include <galaxy/components/DirectionLight.hpp>
+#include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
+#include <galaxy/components/PointLight.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/SpotLight.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform2D.hpp>
+#include <galaxy/components/Transform3D.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/ui/ImGuiHelpers.hpp>
 
-#include <imgui/imgui_stdlib.h>
 #include <magic_enum.hpp>
 
 #include "EntityEditor.hpp"
@@ -128,8 +133,12 @@ namespace sc
 							}
 						}
 
+						ImGui::SameLine();
+						ImGui::Spacing();
+						ImGui::SameLine();
+
 						bool allow_serialize = world.is_flag_set<flags::AllowSerialize>(entity);
-						if (ImGui::Checkbox("Allow Serialization?", &allow_serialize))
+						if (ImGui::Checkbox("Serialize?", &allow_serialize))
 						{
 							if (allow_serialize)
 							{
@@ -145,7 +154,7 @@ namespace sc
 						ImGui::Separator();
 						ImGui::Spacing();
 
-						if (ImGui::BeginTable("AddRemoveTable", 4, ImGuiTableFlags_NoBordersInBody))
+						if (ImGui::BeginTable("AddRemoveTable1", 4, ImGuiTableFlags_NoBordersInBody))
 						{
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
@@ -175,20 +184,20 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("BatchSprite");
+							ImGui::Text("Directional Light");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##19"))
+							if (ImGui::Button(" + ##3"))
 							{
 								world.disable(entity);
-								world.create_component<components::BatchSprite>(entity);
+								world.create_component<components::DirectionLight>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##20"))
+							if (ImGui::Button(" - ##4"))
 							{
-								world.remove<components::BatchSprite>(entity);
+								world.remove<components::DirectionLight>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -196,7 +205,7 @@ namespace sc
 							ImGui::Text("On Collision");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##21"))
+							if (ImGui::Button(" + ##5"))
 							{
 								world.disable(entity);
 								world.create_component<components::OnCollision>(entity);
@@ -204,7 +213,7 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##22"))
+							if (ImGui::Button(" - ##6"))
 							{
 								world.remove<components::OnCollision>(entity);
 							}
@@ -214,7 +223,7 @@ namespace sc
 							ImGui::Text("2D Primitive");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##3"))
+							if (ImGui::Button(" + ##7"))
 							{
 								world.disable(entity);
 								world.create_component<components::Primitive2D>(entity);
@@ -222,27 +231,9 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##4"))
+							if (ImGui::Button(" - ##8"))
 							{
 								world.remove<components::Primitive2D>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Renderable");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##5"))
-							{
-								world.disable(entity);
-								world.create_component<components::Renderable>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##6"))
-							{
-								world.remove<components::Renderable>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -250,7 +241,7 @@ namespace sc
 							ImGui::Text("Rigid Body");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##7"))
+							if (ImGui::Button(" + ##9"))
 							{
 								world.disable(entity);
 								world.create_component<components::RigidBody>(entity);
@@ -258,45 +249,27 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##8"))
+							if (ImGui::Button(" - ##10"))
 							{
 								world.remove<components::RigidBody>(entity);
 							}
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Shader ID");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##9"))
-							{
-								world.disable(entity);
-								world.create_component<components::ShaderID>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##10"))
-							{
-								world.remove<components::ShaderID>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Sprite");
+							ImGui::Text("Spot Light");
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" + ##11"))
 							{
 								world.disable(entity);
-								world.create_component<components::Sprite>(entity);
+								world.create_component<components::SpotLight>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##12"))
 							{
-								world.remove<components::Sprite>(entity);
+								world.remove<components::SpotLight>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -319,10 +292,152 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Text");
+							ImGui::Text("Transform2D");
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" + ##15"))
+							{
+								world.disable(entity);
+								world.create_component<components::Transform2D>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##16"))
+							{
+								world.remove<components::Transform2D>(entity);
+							}
+
+							ImGui::EndTable();
+						}
+
+						ImGui::SetCursorPosX(230.0f);
+						ImGui::SetCursorPosY(143.0f);
+
+						if (ImGui::BeginTable("AddRemoveTable2", 4, ImGuiTableFlags_NoBordersInBody))
+						{
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Name");
+							ImGui::TableNextColumn();
+							ImGui::Text("Add");
+							ImGui::TableNextColumn();
+							ImGui::Text("Remove");
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Batch Sprite");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##17"))
+							{
+								world.disable(entity);
+								world.create_component<components::BatchSprite>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##18"))
+							{
+								world.remove<components::BatchSprite>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Model");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##19"))
+							{
+								world.disable(entity);
+								world.create_component<components::Model>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##20"))
+							{
+								world.remove<components::Model>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Point Light");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##21"))
+							{
+								world.disable(entity);
+								world.create_component<components::PointLight>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##22"))
+							{
+								world.remove<components::PointLight>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Renderable");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##23"))
+							{
+								world.disable(entity);
+								world.create_component<components::Renderable>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##24"))
+							{
+								world.remove<components::Renderable>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Shader");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##25"))
+							{
+								world.disable(entity);
+								world.create_component<components::ShaderID>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##26"))
+							{
+								world.remove<components::ShaderID>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Sprite2D");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##27"))
+							{
+								world.disable(entity);
+								world.create_component<components::Sprite>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##28"))
+							{
+								world.remove<components::Sprite>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Text");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##29"))
 							{
 								world.disable(entity);
 								gl_operations.emplace_back([&world, entity]() -> void {
@@ -332,7 +447,7 @@ namespace sc
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##16"))
+							if (ImGui::Button(" - ##30"))
 							{
 								gl_operations.emplace_back([&world, entity]() -> void {
 									world.remove<components::Text>(entity);
@@ -341,20 +456,20 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Transform");
+							ImGui::Text("Transform3D");
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" + ##17"))
+							if (ImGui::Button(" + ##31"))
 							{
 								world.disable(entity);
-								world.create_component<components::Transform2D>(entity);
+								world.create_component<components::Transform3D>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
-							if (ImGui::Button(" - ##18"))
+							if (ImGui::Button(" - ##32"))
 							{
-								world.remove<components::Transform2D>(entity);
+								world.remove<components::Transform3D>(entity);
 							}
 
 							ImGui::EndTable();
@@ -397,19 +512,40 @@ namespace sc
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
 			// clang-format off
-			auto [animated, batchsprite, oncollision, primitive2d, renderable, rigidbody, shaderid, sprite, tag, text, transform]
-			= m_cur_instance->get_stack().top()->m_world.get_multi<
-				components::Animated, 
+			auto [animated,
+				batchsprite,
+				directionlight,
+				model,
+				oncollision,
+				pointlight,
+				primitive2d,
+				renderable,
+				rigidbody,
+				shaderid,
+				spotlight,
+				sprite,
+				tag,
+				text,
+				transform2d,
+				transform3d
+			] = m_cur_instance->get_stack().top()->m_world.get_multi<
+				components::Animated,
 				components::BatchSprite,
+				components::DirectionLight,
+				components::Model,
 				components::OnCollision,
-				components::Primitive2D, 
-				components::Renderable, 
-				components::RigidBody, 
-				components::ShaderID, 
+				components::PointLight,
+				components::Primitive2D,
+				components::Renderable,
+				components::RigidBody,
+				components::ShaderID,
+				components::SpotLight,
 				components::Sprite,
-				components::Tag, 
-				components::Text, 
-				components::Transform2D>(entity);
+				components::Tag,
+				components::Text,
+				components::Transform2D,
+				components::Transform3D
+			>(entity);
 			// clang-format on
 
 			if (ImGui::BeginTabBar("EntityComponentsTabBar", ImGuiTabBarFlags_NoCloseWithMiddleMouseButton | ImGuiTabBarFlags_Reorderable))
@@ -524,10 +660,14 @@ namespace sc
 							animated->play();
 						}
 
+						ImGui::SameLine();
+
 						if (ImGui::Button("Pause"))
 						{
 							animated->pause();
 						}
+
+						ImGui::SameLine();
 
 						if (ImGui::Button("Stop"))
 						{
@@ -574,11 +714,61 @@ namespace sc
 					}
 				}
 
+				if (directionlight)
+				{
+					if (ImGui::BeginTabItem("Directional Light"))
+					{
+						ui::im_draw_class(directionlight->m_light.m_ambient_intensity, "Ambient");
+						ui::im_draw_class(directionlight->m_light.m_diffuse_intensity, "Diffuse");
+						ui::im_draw_class(directionlight->m_light.m_specular_intensity, "Specular");
+						ui::im_draw_class(directionlight->m_light.m_dir, "Direction");
+
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (model)
+				{
+					if (ImGui::BeginTabItem("Model"))
+					{
+						if (ImGui::Button("Load"))
+						{
+							const auto file = SL_HANDLE.vfs()->open_with_dialog();
+							gl_operations.push_back([model, &file]() {
+								if (file == std::nullopt)
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for model component.");
+								}
+								else
+								{
+									model->load(file.value());
+									model->create();
+								}
+							});
+						}
+
+						ImGui::EndTabItem();
+					}
+				}
+
 				if (oncollision)
 				{
 					if (ImGui::BeginTabItem("On Collision"))
 					{
 						ImGui::InputText("Script", &oncollision->m_script);
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (pointlight)
+				{
+					if (ImGui::BeginTabItem("Point Light"))
+					{
+						ui::im_draw_class(pointlight->m_light.m_ambient_intensity, "Ambient");
+						ui::im_draw_class(pointlight->m_light.m_diffuse_intensity, "Diffuse");
+						ui::im_draw_class(pointlight->m_light.m_specular_intensity, "Specular");
+						ui::im_draw_class(pointlight->m_light.m_pos, "Position");
+
 						ImGui::EndTabItem();
 					}
 				}
@@ -745,6 +935,8 @@ namespace sc
 							}
 						}
 
+						ImGui::SameLine();
+
 						if (ImGui::Button("Update"))
 						{
 							gl_operations.push_back([&data, primitive2d]() {
@@ -788,6 +980,8 @@ namespace sc
 								}
 							});
 						}
+
+						ImGui::SameLine();
 
 						if (ImGui::Button("Reset"))
 						{
@@ -872,9 +1066,26 @@ namespace sc
 
 				if (shaderid)
 				{
-					if (ImGui::BeginTabItem("ShaderID"))
+					if (ImGui::BeginTabItem("Shader"))
 					{
 						ImGui::InputText("Shader ID", &shaderid->m_shader_id, ImGuiInputTextFlags_CharsNoBlank);
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (spotlight)
+				{
+					if (ImGui::BeginTabItem("Spot Light"))
+					{
+						ui::im_draw_class(spotlight->m_light.m_ambient_intensity, "Ambient");
+						ui::im_draw_class(spotlight->m_light.m_diffuse_intensity, "Diffuse");
+						ui::im_draw_class(spotlight->m_light.m_specular_intensity, "Specular");
+						ui::im_draw_class(spotlight->m_light.m_pos, "Position");
+						ui::im_draw_class(spotlight->m_light.m_dir, "Direction");
+
+						ImGui::InputFloat("Inner Cutoff", &spotlight->m_light.m_inner_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+						ImGui::InputFloat("Outer Cutoff", &spotlight->m_light.m_outer_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
 						ImGui::EndTabItem();
 					}
 				}
@@ -886,7 +1097,7 @@ namespace sc
 						if (ImGui::Button("Load"))
 						{
 							const auto file = SL_HANDLE.vfs()->open_with_dialog();
-							gl_operations.push_back([sprite, file]() {
+							gl_operations.push_back([sprite, &file]() {
 								if (file == std::nullopt)
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for sprite component.");
@@ -984,20 +1195,57 @@ namespace sc
 					}
 				}
 
-				if (transform)
+				if (transform2d)
 				{
-					if (ImGui::BeginTabItem("Transform"))
+					if (ImGui::BeginTabItem("Transform2D"))
 					{
-						static float pos[2] = {transform->get_pos().x, transform->get_pos().y};
+						static float pos[2] = {transform2d->get_pos().x, transform2d->get_pos().y};
 						if (ImGui::InputFloat2("Position", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							transform->set_pos(pos[0], pos[1]);
+							transform2d->set_pos(pos[0], pos[1]);
 						}
 
-						static float rotation = transform->get_rotation();
+						static float rotation = transform2d->get_rotation();
 						if (ImGui::SliderAngle("Rotate", &rotation, 0.0f, 360.0f))
 						{
-							transform->rotate(rotation);
+							transform2d->rotate(rotation);
+						}
+
+						ImGui::EndTabItem();
+					}
+				}
+
+				if (transform3d)
+				{
+					if (ImGui::BeginTabItem("Transform3D"))
+					{
+						static glm::vec3 origin = transform3d->get_origin();
+						ui::im_draw_class(origin, "Origin");
+						transform3d->set_origin(origin.x, origin.y, origin.z);
+
+						static glm::vec3 rot_axis = transform3d->get_rotation_axis();
+						ui::im_draw_class(rot_axis, "Rotation Axis");
+						transform3d->set_rotation_axis(rot_axis.x, rot_axis.y, rot_axis.z);
+
+						static glm::vec3 pos = transform3d->get_pos();
+						ui::im_draw_class(pos, "Position");
+						transform3d->set_pos(pos.x, pos.y, pos.z);
+
+						static float rot = transform3d->get_rotation();
+						if (ImGui::InputFloat("Rotation", &rot, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							transform3d->rotate(rot);
+						}
+
+						static float scale = transform3d->get_scale();
+						if (ImGui::InputFloat("Scale", &scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							transform3d->scale(scale);
+						}
+
+						if (ImGui::Button("Reset"))
+						{
+							transform3d->reset();
 						}
 
 						ImGui::EndTabItem();
