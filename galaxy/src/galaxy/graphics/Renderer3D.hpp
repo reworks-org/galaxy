@@ -69,7 +69,7 @@ namespace galaxy
 			/// \param index Index binding assigned to this UBO in shader(s).
 			/// \param size Size (in bytes) to reserve.
 			///
-			void reserve_ubo(const unsigned int index, const unsigned int size);
+			void reserve_ubo(const std::size_t index, const unsigned int size);
 
 			///
 			/// Reserve GPU memory for Uniform Buffer.
@@ -77,14 +77,14 @@ namespace galaxy
 			/// \param index Index binding assigned to this UBO in shader(s).
 			/// \param size Size (in bytes) to reserve.
 			///
-			void reserve_ssbo(const unsigned int index, const unsigned int size);
+			void reserve_ssbo(const std::size_t index, const unsigned int size);
 
 			///
 			/// Bind Uniform Buffer Object as active.
 			///
 			/// \param index Index binding assigned to this UBO in shader(s).
 			///
-			void bind_ubo(const unsigned int index);
+			void bind_ubo(const std::size_t index);
 
 			///
 			/// Unbind UBO.
@@ -96,7 +96,7 @@ namespace galaxy
 			///
 			/// \param index Index binding assigned to this SSBO in shader(s).
 			///
-			void bind_ssbo(const unsigned int index);
+			void bind_ssbo(const std::size_t index);
 
 			///
 			/// Unbind SSBO.
@@ -112,7 +112,7 @@ namespace galaxy
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>
-			void sub_buffer_ubo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data);
+			void sub_buffer_ubo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data);
 
 			///
 			/// Copy data into existing SSBO buffer.
@@ -123,7 +123,7 @@ namespace galaxy
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>
-			void sub_buffer_ssbo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data);
+			void sub_buffer_ssbo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data);
 
 			///
 			/// Recreate SSBO buffer and copy new data into it.
@@ -132,7 +132,7 @@ namespace galaxy
 			/// \param data Data buffer to assign.
 			///
 			template<typename Type>
-			void buffer_ssbo(const unsigned int index, std::span<Type> data);
+			void buffer_ssbo(const std::size_t index, std::span<Type> data);
 
 			///
 			/// Draw a mesh.
@@ -180,7 +180,7 @@ namespace galaxy
 		};
 
 		template<typename Type>
-		inline void Renderer3D::sub_buffer_ubo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data)
+		inline void Renderer3D::sub_buffer_ubo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data)
 		{
 			bind_ubo(index);
 			glBufferSubData(GL_UNIFORM_BUFFER, offset, size * sizeof(Type), data);
@@ -188,7 +188,7 @@ namespace galaxy
 		}
 
 		template<typename Type>
-		inline void Renderer3D::sub_buffer_ssbo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data)
+		inline void Renderer3D::sub_buffer_ssbo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data)
 		{
 			bind_ssbo(index);
 			glBufferSubData(GL_SHADER_STORAGE_BUFFER, offset, size * sizeof(Type), data);
@@ -196,7 +196,7 @@ namespace galaxy
 		}
 
 		template<typename Type>
-		inline void Renderer3D::buffer_ssbo(const unsigned int index, std::span<Type> data)
+		inline void Renderer3D::buffer_ssbo(const std::size_t index, std::span<Type> data)
 		{
 			bind_ssbo(index);
 

@@ -32,7 +32,7 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer3D::reserve_ssbo(const unsigned int index, const unsigned int size)
+		void Renderer3D::reserve_ssbo(const std::size_t index, const unsigned int size)
 		{
 			bind_ssbo(index);
 
@@ -48,7 +48,7 @@ namespace galaxy
 			unbind_ssbo();
 		}
 
-		void Renderer3D::reserve_ubo(const unsigned int index, const unsigned int size)
+		void Renderer3D::reserve_ubo(const std::size_t index, const unsigned int size)
 		{
 			bind_ubo(index);
 
@@ -64,7 +64,7 @@ namespace galaxy
 			unbind_ubo();
 		}
 
-		void Renderer3D::bind_ubo(const unsigned int index)
+		void Renderer3D::bind_ubo(const std::size_t index)
 		{
 			if ((index + 1) > m_buffers.size())
 			{
@@ -88,7 +88,7 @@ namespace galaxy
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void Renderer3D::bind_ssbo(const unsigned int index)
+		void Renderer3D::bind_ssbo(const std::size_t index)
 		{
 			if ((index + 1) > m_buffers.size())
 			{
