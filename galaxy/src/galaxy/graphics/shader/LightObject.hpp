@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_LIGHTOBJECT_HPP_
 #define GALAXY_GRAPHICS_SHADER_LIGHTOBJECT_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// LightObject vertex shader.
 		///
-		inline const std::string light_object_vert = R"(
+		inline constexpr const char* const light_object_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec3 l_pos;
 
@@ -39,7 +37,7 @@ namespace galaxy
 		///
 		/// LightObject fragment shader.
 		///
-		inline const std::string light_object_frag = R"(
+		inline constexpr const char* const light_object_frag = R"(
 			#version 450 core
 
 			out vec4 io_frag_colour;

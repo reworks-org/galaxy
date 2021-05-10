@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_MODEL_HPP_
 #define GALAXY_GRAPHICS_SHADER_MODEL_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Model vertex shader.
 		///
-		inline const std::string model_vert = R"(
+		inline constexpr const char* const model_vert = R"(
 			#version 450 core
 			
 			layout(location = 0) in vec3 l_pos;

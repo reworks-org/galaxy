@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_SPRITEBATCH_HPP_
 #define GALAXY_GRAPHICS_SHADER_SPRITEBATCH_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// SpriteBatch vertex shader.
 		///
-		inline const std::string spritebatch_vert = R"(
+		inline constexpr const char* const spritebatch_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -44,7 +42,7 @@ namespace galaxy
 		///
 		/// SpriteBatch fragment shader.
 		///
-		inline const std::string spritebatch_frag = R"(
+		inline constexpr const char* const spritebatch_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

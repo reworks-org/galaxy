@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_SPRITE_HPP_
 #define GALAXY_GRAPHICS_SHADER_SPRITE_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Sprite vertex shader.
 		///
-		inline const std::string sprite_vert = R"(
+		inline constexpr const char* const sprite_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -45,7 +43,7 @@ namespace galaxy
 		///
 		/// Sprite fragment shader.
 		///
-		inline const std::string sprite_frag = R"(
+		inline constexpr const char* const sprite_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

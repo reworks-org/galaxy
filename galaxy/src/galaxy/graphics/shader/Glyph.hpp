@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_GLYPH_HPP_
 #define GALAXY_GRAPHICS_SHADER_GLYPH_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Glyph vertex shader.
 		///
-		inline const std::string glyph_vert = R"(
+		inline constexpr const char* const glyph_vert = R"(
 			#version 450 core
 			layout (location = 0) in vec4 vertex;
 		
@@ -35,7 +33,7 @@ namespace galaxy
 		///
 		/// Glyph fragment shader.
 		///
-		inline const std::string glyph_frag = R"(
+		inline constexpr const char* constglyph_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

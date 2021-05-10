@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_TEXT_HPP_
 #define GALAXY_GRAPHICS_SHADER_TEXT_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Text vertex shader.
 		///
-		inline const std::string text_vert = R"(
+		inline constexpr const char* const text_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -44,7 +42,7 @@ namespace galaxy
 		///
 		/// Text fragment shader.
 		///
-		inline const std::string text_frag = R"(
+		inline constexpr const char* const text_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

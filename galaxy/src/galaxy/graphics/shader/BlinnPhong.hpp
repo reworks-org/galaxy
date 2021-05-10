@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_BLINNPHONG_HPP_
 #define GALAXY_GRAPHICS_SHADER_BLINNPHONG_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Blinn-Phong fragment shader.
 		///
-		inline const std::string blinnphong_frag = R"(
+		inline constexpr const char* const blinnphong_frag = R"(
             #version 450 core
 
             #define ATTENUATION_CONSTANT 1.0

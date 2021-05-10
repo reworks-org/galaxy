@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_POINT_HPP_
 #define GALAXY_GRAPHICS_SHADER_POINT_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Point vertex shader.
 		///
-		inline const std::string point_vert = R"(
+		inline constexpr const char* const point_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec4 l_colour;
@@ -40,7 +38,7 @@ namespace galaxy
 		///
 		/// Point fragment shader.
 		///
-		inline const std::string point_frag = R"(
+		inline constexpr const char* const point_frag = R"(
 			#version 450 core
 
 			in vec4 io_colour;

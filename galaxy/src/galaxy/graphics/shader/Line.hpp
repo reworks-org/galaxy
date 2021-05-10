@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_LINE_HPP_
 #define GALAXY_GRAPHICS_SHADER_LINE_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Line vertex shader.
 		///
-		inline const std::string line_vert = R"(
+		inline constexpr const char* const line_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec4 l_colour;
@@ -38,7 +36,7 @@ namespace galaxy
 		///
 		/// Line fragment shader.
 		///
-		inline const std::string line_frag = R"(
+		inline constexpr const char* const line_frag = R"(
 			#version 450 core
 
 			in vec4 io_colour;

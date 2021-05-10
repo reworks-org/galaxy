@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_RENDERTOTEXTURE_HPP_
 #define GALAXY_GRAPHICS_SHADER_RENDERTOTEXTURE_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// RenderToTexture vertex shader.
 		///
-		inline const std::string render_to_texture_vert = R"(
+		inline constexpr const char* const render_to_texture_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -39,7 +37,7 @@ namespace galaxy
 		///
 		/// RenderToTexture fragment shader.
 		///
-		inline const std::string render_to_texture_frag = R"(
+		inline constexpr const char* const render_to_texture_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

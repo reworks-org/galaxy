@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SHADER_SKYBOX_HPP_
 #define GALAXY_GRAPHICS_SHADER_SKYBOX_HPP_
 
-#include <string>
-
 namespace galaxy
 {
 	namespace shaders
@@ -17,7 +15,7 @@ namespace galaxy
 		///
 		/// Skybox vertex shader.
 		///
-		inline const std::string skybox_vert = R"(
+		inline constexpr const char* const skybox_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec3 l_pos;
 
@@ -43,7 +41,7 @@ namespace galaxy
 		///
 		/// Skybox fragment shader.
 		///
-		inline const std::string skybox_frag = R"(
+		inline constexpr const char* const skybox_frag = R"(
 			#version 450 core
 
 			in vec3 io_texels;
