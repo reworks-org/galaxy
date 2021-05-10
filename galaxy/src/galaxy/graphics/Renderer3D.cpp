@@ -147,17 +147,6 @@ namespace galaxy
 			shader->set_uniform("material.use_normal_texture", material->m_use_normal_texture);
 
 			glDrawElements(GL_TRIANGLES, mesh->index_count(), GL_UNSIGNED_INT, nullptr);
-
-			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, 0);
-
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, 0);
-
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, 0);
-
-			mesh->unbind();
 		}
 
 		void Renderer3D::draw_skybox(Skybox* skybox, Shader* shader)
@@ -166,7 +155,6 @@ namespace galaxy
 
 			skybox->bind();
 			glDrawArrays(GL_TRIANGLES, 0, 36);
-			skybox->unbind();
 		}
 
 		void Renderer3D::draw_light_object(light::Object* light, Shader* shader)
@@ -178,7 +166,6 @@ namespace galaxy
 
 			light->bind();
 			glDrawArrays(GL_TRIANGLES, 0, light->get_count());
-			light->unbind();
 		}
 
 		void Renderer3D::clean_up()
