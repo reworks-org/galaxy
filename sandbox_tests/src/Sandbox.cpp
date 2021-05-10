@@ -15,7 +15,7 @@
 #include <galaxy/fs/Config.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/graphics/Renderer2D.hpp>
-#include <galaxy/graphics/shader/Shader.hpp>
+#include <galaxy/graphics/Shader.hpp>
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
 #include <galaxy/res/TextureAtlas.hpp>

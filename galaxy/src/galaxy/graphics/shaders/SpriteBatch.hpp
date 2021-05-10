@@ -1,21 +1,21 @@
 ///
-/// Text.hpp
+/// SpriteBatch.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHADER_TEXT_HPP_
-#define GALAXY_GRAPHICS_SHADER_TEXT_HPP_
+#ifndef GALAXY_GRAPHICS_SHADERS_SPRITEBATCH_HPP_
+#define GALAXY_GRAPHICS_SHADERS_SPRITEBATCH_HPP_
 
 namespace galaxy
 {
 	namespace shaders
 	{
 		///
-		/// Text vertex shader.
+		/// SpriteBatch vertex shader.
 		///
-		inline constexpr const char* const text_vert = R"(
+		inline constexpr const char* const spritebatch_vert = R"(
 			#version 450 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -40,22 +40,24 @@ namespace galaxy
 		)";
 
 		///
-		/// Text fragment shader.
+		/// SpriteBatch fragment shader.
 		///
-		inline constexpr const char* const text_frag = R"(
+		inline constexpr const char* const spritebatch_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;
 			in float io_opacity;
+
 			out vec4 io_frag_colour;
 
-			uniform vec4 u_colour;
 			uniform sampler2D u_texture;
 
 			void main()
 			{
-				vec4 corrected = vec4(u_colour.xyz, io_opacity);
-				io_frag_colour = texture(u_texture, io_texels) * corrected;
+				vec4 tex = texture(u_texture, io_texels);
+				tex.a *= io_opacity;
+
+				io_frag_colour = tex;
 			}
 		)";
 	} // namespace shaders

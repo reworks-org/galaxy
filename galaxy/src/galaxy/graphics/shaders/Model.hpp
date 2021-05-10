@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHADER_MODEL_HPP_
-#define GALAXY_GRAPHICS_SHADER_MODEL_HPP_
+#ifndef GALAXY_GRAPHICS_SHADERS_MODEL_HPP_
+#define GALAXY_GRAPHICS_SHADERS_MODEL_HPP_
 
 namespace galaxy
 {

@@ -9,7 +9,7 @@
 #define GALAXY_RES_SHADERBOOK_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/shader/Shader.hpp"
+#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/res/ResourceCache.hpp"
 
 namespace galaxy
