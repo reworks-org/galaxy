@@ -33,7 +33,7 @@ namespace galaxy
 		///
 		/// Glyph fragment shader.
 		///
-		inline constexpr const char* constglyph_frag = R"(
+		inline constexpr const char* const glyph_frag = R"(
 			#version 450 core
 
 			in vec2 io_texels;

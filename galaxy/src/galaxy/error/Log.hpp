@@ -193,31 +193,31 @@ namespace galaxy
 		/// \return std::string, in caps.
 		///
 		template<loglevel_type LogLevel>
-		[[nodiscard]] inline constexpr const char* process_level() noexcept
+		[[nodiscard]] inline constexpr const char* const process_level() noexcept
 		{
 			if constexpr (LogLevel::value == level::Info::value)
 			{
-				constexpr const char* out = "INFO";
+				constexpr const char* const out = "INFO";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Debug::value)
 			{
-				constexpr const char* out = "DEBUG";
+				constexpr const char* const out = "DEBUG";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Warning::value)
 			{
-				constexpr const char* out = "WARNING";
+				constexpr const char* const out = "WARNING";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Error::value)
 			{
-				constexpr const char* out = "ERROR";
+				constexpr const char* const out = "ERROR";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Fatal::value)
 			{
-				constexpr const char* out = "FATAL";
+				constexpr const char* const out = "FATAL";
 				return out;
 			}
 			else
@@ -234,31 +234,31 @@ namespace galaxy
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
 		template<loglevel_type LogLevel>
-		[[nodiscard]] inline constexpr const char* process_colour() noexcept
+		[[nodiscard]] inline constexpr const char* const process_colour() noexcept
 		{
 			if constexpr (LogLevel::value == level::Info::value)
 			{
-				constexpr const char* out = "\x1B[37m";
+				constexpr const char* const out = "\x1B[37m";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Debug::value)
 			{
-				constexpr const char* out = "\x1B[37m";
+				constexpr const char* const out = "\x1B[37m";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Warning::value)
 			{
-				constexpr const char* out = "\x1B[33m";
+				constexpr const char* const out = "\x1B[33m";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Error::value)
 			{
-				constexpr const char* out = "\x1B[31m";
+				constexpr const char* const out = "\x1B[31m";
 				return out;
 			}
 			else if constexpr (LogLevel::value == level::Fatal::value)
 			{
-				constexpr const char* out = "\x1B[31m";
+				constexpr const char* const out = "\x1B[31m";
 				return out;
 			}
 			else
@@ -272,8 +272,8 @@ namespace galaxy
 		{
 			if ((LogLevel::value >= m_min_level) && m_started)
 			{
-				constexpr const char* colour = process_colour<LogLevel>();
-				constexpr const char* level  = process_level<LogLevel>();
+				constexpr const char* const colour = process_colour<LogLevel>();
+				constexpr const char* const level  = process_level<LogLevel>();
 
 				const auto fmt_msg  = fmt::format(message, args...);
 				const auto time_obj = std::time(nullptr);
