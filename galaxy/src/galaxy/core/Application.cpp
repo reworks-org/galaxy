@@ -75,6 +75,7 @@ namespace galaxy
 				create_asset_layout(root, "shaders/");
 				create_asset_layout(root, "textures/");
 				create_asset_layout(root, "maps/");
+				create_asset_layout(root, "models/");
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
@@ -501,7 +502,11 @@ namespace galaxy
 			}
 			else if (dir.find("maps") != std::string::npos)
 			{
-				GALAXY_LOG(GALAXY_INFO, "Reloading maps.");
+				static_assert("Not yet implemented");
+			}
+			else if (dir.find("models") != std::string::npos)
+			{
+				static_assert("Not yet implemented");
 			}
 		}
 	} // namespace core
