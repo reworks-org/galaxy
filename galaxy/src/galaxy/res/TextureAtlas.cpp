@@ -192,15 +192,7 @@ namespace galaxy
 
 		const graphics::fRect& TextureAtlas::get_region(std::string_view name)
 		{
-			const auto str = static_cast<std::string>(name);
-			if (!m_textures.contains(str))
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Tried to access texture rect that does not exist.");
-			}
-			else
-			{
-				return m_textures[str].m_region;
-			}
+			return m_textures[static_cast<std::string>(name)].m_region;
 		}
 
 		TextureAtlas::AtlasTextureData& TextureAtlas::get_tex_data() noexcept
