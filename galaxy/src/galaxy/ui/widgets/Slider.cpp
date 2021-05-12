@@ -6,7 +6,6 @@
 ///
 
 #include <algorithm>
-#include <chrono>
 
 #include "Slider.hpp"
 

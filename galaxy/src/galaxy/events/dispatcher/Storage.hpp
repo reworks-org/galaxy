@@ -9,6 +9,7 @@
 #define GALAXY_EVENTS_DISPATCHER_STORAGE_HPP_
 
 #include <any>
+#include <algorithm>
 #include <vector>
 
 #include "galaxy/error/Log.hpp"

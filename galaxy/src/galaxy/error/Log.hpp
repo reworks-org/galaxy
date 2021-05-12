@@ -8,11 +8,11 @@
 #ifndef GALAXY_ERROR_LOG_HPP_
 #define GALAXY_ERROR_LOG_HPP_
 
+#include <chrono>
+#include <filesystem>
+#include <format>
 #include <fstream>
-#include <iomanip>
-#include <sstream>
-
-#include <fmt/format.h>
+#include <source_location>
 
 #include "galaxy/error/LogLevel.hpp"
 
@@ -67,7 +67,7 @@
 /// \param msg Error message.
 /// \param ... Message and arguments to format and log.
 ///
-#define GALAXY_LOG(level, msg, ...) galaxy::error::Log::handle().log<level>(msg __VA_OPT__(,) __VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...) galaxy::error::Log::handle().log<level>(std::source_location::current(), msg __VA_OPT__(,) __VA_ARGS__)
 
 ///
 /// Capture log output into a custom stream.
@@ -127,7 +127,7 @@ namespace galaxy
 			/// \param args std::format supported arguments to be formatted into a string.
 			///
 			template<loglevel_type LogLevel, typename... MsgInputs>
-			void log(std::string_view message, const MsgInputs&... args);
+			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
 			///
 			/// \brief	Set a minimum log level.
@@ -268,20 +268,16 @@ namespace galaxy
 		}
 
 		template<loglevel_type LogLevel, typename... MsgInputs>
-		inline void Log::log(std::string_view message, const MsgInputs&... args)
+		inline void Log::log(const std::source_location& loc, std::string_view message, const MsgInputs&... args)
 		{
 			if ((LogLevel::value >= m_min_level) && m_started)
 			{
 				constexpr const char* const colour = process_colour<LogLevel>();
 				constexpr const char* const level  = process_level<LogLevel>();
 
-				const auto fmt_msg  = fmt::format(message, args...);
-				const auto time_obj = std::time(nullptr);
+				const auto now       = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
+				const auto final_str = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n", colour, level, std::format("{0:%T}", now), std::format("File: {0}, Func: {1}, Line: {2}", std::filesystem::path(loc.file_name()).filename().string(), loc.function_name(), loc.line()), std::format(message, args...));
 
-				std::stringstream sstream;
-				sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
-
-				const auto final_str = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
 				*m_stream << final_str;
 				m_file_stream << final_str;
 

@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-#include <optional>
-
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/OnCollision.hpp"
 #include "galaxy/components/Primitive2D.hpp"

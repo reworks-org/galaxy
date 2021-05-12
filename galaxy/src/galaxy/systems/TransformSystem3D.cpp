@@ -6,7 +6,6 @@
 ///
 
 #include <execution>
-#include <optional>
 
 #include "galaxy/components/Model.hpp"
 #include "galaxy/components/Transform3D.hpp"

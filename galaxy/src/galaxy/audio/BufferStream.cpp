@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <AL/alext.h>
 
 #include "galaxy/core/ServiceLocator.hpp"

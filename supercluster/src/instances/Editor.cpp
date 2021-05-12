@@ -5,9 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
 #include <iostream>
-#include <optional>
 
 #include <galaxy/algorithm/Algorithm.hpp>
 #include <galaxy/components/Animated.hpp>

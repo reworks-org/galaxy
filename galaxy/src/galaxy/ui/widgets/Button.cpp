@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <optional>
-
 #include <magic_enum.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"

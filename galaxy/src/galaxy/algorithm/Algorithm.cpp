@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <sstream>
+
 #include <base64.hpp>
 #include <zlc/gzipcomplete.hpp>
 #include <zlc/zlibcomplete.hpp>

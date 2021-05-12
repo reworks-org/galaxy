@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-
 #include <sol/sol.hpp>
 
 #include "galaxy/audio/Context.hpp"

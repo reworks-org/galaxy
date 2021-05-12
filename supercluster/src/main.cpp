@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <optional>
-
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include "instances/MainMenu.hpp"

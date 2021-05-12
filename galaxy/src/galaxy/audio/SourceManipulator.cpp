@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <algorithm>
+
 #include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
 

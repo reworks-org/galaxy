@@ -6,7 +6,6 @@
 ///
 
 #include <execution>
-#include <optional>
 
 #include <magic_enum.hpp>
 

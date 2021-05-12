@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
 #include <numeric>
 
 #include "galaxy/core/ServiceLocator.hpp"

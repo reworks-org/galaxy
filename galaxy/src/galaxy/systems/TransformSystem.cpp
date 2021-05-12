@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-#include <optional>
-
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -40,8 +37,8 @@ namespace galaxy
 			});
 
 			world.operate<components::Transform2D, components::Sprite>([&](const ecs::Entity entity,
-											 components::Transform2D* transform,
-											 components::Sprite* sprite) {
+										       components::Transform2D* transform,
+										       components::Sprite* sprite) {
 				if (transform->is_dirty())
 				{
 					transform->set_rotation_origin(sprite->get_width() * 0.5f, sprite->get_height() * 0.5f);

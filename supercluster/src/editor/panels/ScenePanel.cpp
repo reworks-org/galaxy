@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <imgui/addons/ToggleButton.h>

@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
@@ -515,7 +513,7 @@ namespace galaxy
 				batchsprite->create(image, layer.get_opacity());
 				renderable->m_type    = graphics::Renderables::BATCHED;
 				renderable->m_z_level = layer.get_z_level();
-				tag->m_tag            = fmt::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
+				tag->m_tag            = std::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
 				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
 
 				world.enable(entity);
@@ -545,7 +543,7 @@ namespace galaxy
 						auto* tag             = world.create_component<components::Tag>(entity);
 						auto* transform       = world.create_component<components::Transform2D>(entity);
 						renderable->m_z_level = layer.get_z_level();
-						tag->m_tag            = fmt::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
+						tag->m_tag            = std::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
 
 						switch (type)
 						{
@@ -766,7 +764,7 @@ namespace galaxy
 				sprite->load(m_framebuffers[level].gl_texture(), m_framebuffers[level].get_width(), m_framebuffers[level].get_height());
 				sprite->create();
 				sprite->set_opacity(layer.get_opacity());
-				tag->m_tag = fmt::format("{0}_{1}_{2}{3}", layer.get_id(), layer.get_name(), "TileLayer", layer.get_z_level());
+				tag->m_tag = std::format("{0}_{1}_{2}{3}", layer.get_id(), layer.get_name(), "TileLayer", layer.get_z_level());
 				transform->set_pos(0.0f, 0.0f);
 
 				world.enable(entity);

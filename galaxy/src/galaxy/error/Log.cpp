@@ -5,8 +5,6 @@
 /// See LICENSE.txt.
 ///
 
-#include <execution>
-#include <filesystem>
 #include <iostream>
 
 #include "galaxy/platform/Platform.hpp"

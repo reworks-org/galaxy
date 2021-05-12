@@ -22,7 +22,7 @@ Application Programming Library using C++20, with a Data driven design and Test 
 Only supports 64bit systems.
 
 ### Windows:
-You will need to install ```Visual Studio 2019 16.10 Preview 2```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
+You will need to install ```Visual Studio 2019 16.10 Preview 3```, and set the ```Win-SDK``` minimum version to ```10.0.19041.0```.
 
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```

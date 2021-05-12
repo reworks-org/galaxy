@@ -5,9 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <format>
+
 #include <AL/al.h>
 #include <AL/alc.h>
-#include <fmt/format.h>
 
 #include "ALError.hpp"
 
@@ -17,7 +18,7 @@ namespace galaxy
 	{
 		std::string al_parse_error(std::string_view message, const int error)
 		{
-			return fmt::format("OpenAL: {0} | {1}.", message, alGetString(error));
+			return std::format("OpenAL: {0} | {1}.", message, alGetString(error));
 		}
 
 		std::string al_errcode_as_string(const int err) noexcept

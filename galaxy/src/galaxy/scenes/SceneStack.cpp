@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-#include <optional>
-
 #include "SceneStack.hpp"
 
 namespace galaxy

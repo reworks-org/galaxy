@@ -298,7 +298,7 @@ namespace sc
 			std::string name     = "";
 			for (auto& elem : json)
 			{
-				name = fmt::format("[{0}]", counter);
+				name = std::format("[{0}]", counter);
 				if (elem.is_array())
 				{
 					do_array(elem);

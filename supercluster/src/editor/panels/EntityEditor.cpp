@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <chrono>
-#include <optional>
-
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
 #include <galaxy/components/DirectionLight.hpp>
@@ -114,7 +111,7 @@ namespace sc
 
 					if (is_open)
 					{
-						ImGui::Text(fmt::format("ID: {0}.", entity).c_str());
+						ImGui::Text(std::format("ID: {0}.", entity).c_str());
 
 						ImGui::Spacing();
 						ImGui::Separator();

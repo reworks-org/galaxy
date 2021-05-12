@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <glad/glad.h>
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>

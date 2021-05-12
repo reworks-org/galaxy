@@ -26,9 +26,6 @@
 [submodule "dependencies/freetype2-win"]
 	path = dependencies/freetype2-win
 	url = https://github.com/ubawurinna/freetype-windows-binaries.git
-[submodule "dependencies/cpp20/fmt"]
-	path = dependencies/cpp20/fmt
-	url = https://github.com/fmtlib/fmt.git
 [submodule "dependencies/zlib-ng"]
 	path = dependencies/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git

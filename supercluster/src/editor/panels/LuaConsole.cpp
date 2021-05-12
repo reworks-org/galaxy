@@ -95,7 +95,7 @@ namespace sc
 
 							if (!out.empty())
 							{
-								m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+								m_history.push_back(std::format("[RESULT]: {0}.", out));
 							}
 
 							if (!strs.empty())
@@ -129,7 +129,7 @@ namespace sc
 
 					if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 					{
-						m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
+						m_history.push_back(std::format("[INPUT]:  {0}.", m_buff));
 
 						auto res  = SL_HANDLE.lua()->script(m_buff);
 						auto type = res.get_type();
@@ -156,7 +156,7 @@ namespace sc
 
 						if (!out.empty())
 						{
-							m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+							m_history.push_back(std::format("[RESULT]: {0}.", out));
 						}
 
 						m_buff.clear();
