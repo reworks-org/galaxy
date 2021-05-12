@@ -85,7 +85,7 @@ namespace galaxy
 		void Transform3D::rotate(const float degrees) noexcept
 		{
 			m_rotate += degrees;
-			std::clamp(m_rotate, 0.0f, 360.0f);
+			m_rotate = std::clamp(m_rotate, 0.0f, 360.0f);
 
 			m_dirty = true;
 		}

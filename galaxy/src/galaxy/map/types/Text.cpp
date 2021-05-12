@@ -28,62 +28,62 @@ namespace galaxy
 
 		void Text::parse(const nlohmann::json& json)
 		{
-			if (json.contains("bold") > 0)
+			if (json.count("bold") > 0)
 			{
 				m_bold = json.at("bold");
 			}
 
-			if (json.contains("color") > 0)
+			if (json.count("color") > 0)
 			{
 				m_color = map::parse_hex_colour(json.at("color"));
 			}
 
-			if (json.contains("fontfamily") > 0)
+			if (json.count("fontfamily") > 0)
 			{
 				m_font_family = json.at("fontfamily");
 			}
 
-			if (json.contains("halign") > 0)
+			if (json.count("halign") > 0)
 			{
 				m_halign = json.at("halign");
 			}
 
-			if (json.contains("italic") > 0)
+			if (json.count("italic") > 0)
 			{
 				m_italic = json.at("italic");
 			}
 
-			if (json.contains("kerning") > 0)
+			if (json.count("kerning") > 0)
 			{
 				m_kerning = json.at("kerning");
 			}
 
-			if (json.contains("pixelsize") > 0)
+			if (json.count("pixelsize") > 0)
 			{
 				m_pixel_size = json.at("pixelsize");
 			}
 
-			if (json.contains("strikeout") > 0)
+			if (json.count("strikeout") > 0)
 			{
 				m_strike_out = json.at("strikeout");
 			}
 
-			if (json.contains("text") > 0)
+			if (json.count("text") > 0)
 			{
 				m_text = json.at("text");
 			}
 
-			if (json.contains("underline") > 0)
+			if (json.count("underline") > 0)
 			{
 				m_underline = json.at("underline");
 			}
 
-			if (json.contains("valign") > 0)
+			if (json.count("valign") > 0)
 			{
 				m_valign = json.at("valign");
 			}
 
-			if (json.contains("wrap") > 0)
+			if (json.count("wrap") > 0)
 			{
 				m_wrap = json.at("wrap");
 			}
