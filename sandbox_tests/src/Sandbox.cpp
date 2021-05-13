@@ -122,6 +122,7 @@ namespace sb
 	{
 		auto sandbox = m_scene_stack.create<scene::Scene2D>("SandboxScene");
 
+		sandbox->m_world.create_from_json("bg.json");
 		sandbox->m_world.create_from_json("point.json");
 		sandbox->m_world.create_from_json("line.json");
 		sandbox->m_world.create_from_json("circle.json");
@@ -222,8 +223,9 @@ namespace sb
 	{
 		auto physics = m_scene_stack.create<scene::Scene2D>("PhysicsScene");
 
-		m_cube = physics->m_world.create_from_json("cube.json").value();
+		physics->m_world.create_from_json("bg.json");
 		physics->m_world.create_from_json("floor.json");
+		m_cube = physics->m_world.create_from_json("cube.json").value();
 
 		physics->m_dispatcher.subscribe_callback<events::KeyDown>([physics, this](const events::KeyDown& kde) {
 			switch (kde.m_keycode)
@@ -263,6 +265,8 @@ namespace sb
 	void Sandbox::create_map_scene()
 	{
 		auto map = m_scene_stack.create<scene::Scene2D>("MapScene");
+
+		map->m_world.create_from_json("bg.json");
 
 		map->create_maps("assets/maps/maps.world");
 		map->set_active_map("desert");

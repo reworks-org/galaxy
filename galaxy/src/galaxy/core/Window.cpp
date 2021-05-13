@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
 #include <iostream>
 
 #include <glad/glad.h>
@@ -20,9 +19,10 @@
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/shader/Shader.hpp"
+#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/graphics/Renderer3D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Window.hpp"
@@ -37,12 +37,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
 		{
 			if (!create(settings))
 			{
@@ -271,10 +271,12 @@ namespace galaxy
 						}
 
 						// Configure global GL state.
+						glDisable(GL_FRAMEBUFFER_SRGB);
 						glEnable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
-						glEnable(GL_BLEND);
+						glEnable(GL_DEPTH_TEST);
+						glDepthFunc(GL_LEQUAL);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						m_mouse_map.reserve(12);
@@ -521,16 +523,6 @@ namespace galaxy
 						m_prev_mouse_btn_states[5] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[6] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[7] = GLFW_RELEASE;
-
-						// Setup framebuffer.
-						m_framebuffer = std::make_unique<graphics::RenderTexture>();
-						m_framebuffer->create(m_width, m_height);
-						m_framebuffer->set_anisotropy(std::clamp(settings.m_ansio_filtering, 1, 16));
-
-						m_fb_sprite = std::make_unique<components::Sprite>();
-						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
-						m_fb_sprite->create();
-						m_fb_sprite->set_opacity(1.0f);
 					}
 				}
 			}
@@ -672,8 +664,6 @@ namespace galaxy
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
-				m_fb_sprite.reset();
-				m_framebuffer.reset();
 				glfwDestroyWindow(m_window);
 				m_window = nullptr;
 			}
@@ -702,16 +692,15 @@ namespace galaxy
 			m_width  = width;
 			m_height = height;
 
-			m_framebuffer->change_size(m_width, m_height);
-			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
-			m_fb_sprite->create();
+			glfwSetWindowSize(m_window, m_width, m_height);
+
+			RENDERER_2D().resize(m_width, m_height);
+			RENDERER_3D().resize(m_width, m_height);
 
 			if (m_scene_dispatcher)
 			{
 				m_scene_dispatcher->trigger<events::WindowResized>(m_width, m_height);
 			}
-
-			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 
 		void Window::request_attention() noexcept
@@ -756,34 +745,25 @@ namespace galaxy
 
 		void Window::begin()
 		{
-			m_framebuffer->bind();
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			RENDERER_2D().prepare();
+			RENDERER_3D().prepare();
 		}
 
 		void Window::end()
 		{
-			m_framebuffer->unbind();
-			disable_culling();
-
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, m_width, m_height);
-			glDisable(GL_DEPTH_TEST);
-			glEnable(GL_FRAMEBUFFER_SRGB);
 
-			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
-			glClear(GL_COLOR_BUFFER_BIT);
+			glDisable(GL_BLEND);
+			RENDERER_3D().render();
 
-			m_fb_sprite->bind();
-			auto* default_effect = SL_HANDLE.shaderbook()->get("DefaultFramebuffer");
+			glEnable(GL_BLEND);
+			RENDERER_2D().render();
 
-			default_effect->bind();
-			default_effect->set_uniform("u_projection", m_framebuffer->get_proj());
-			default_effect->set_uniform("u_transform", m_fb_transform.get_transform());
-			default_effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
-			default_effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
-			default_effect->set_uniform("u_opacity", m_fb_sprite->get_opacity());
-
-			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
-
-			m_fb_sprite->unbind();
 			glfwSwapBuffers(m_window);
 		}
 

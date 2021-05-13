@@ -225,12 +225,12 @@ namespace galaxy
 			void disable_culling() noexcept;
 
 			///
-			/// Clears the Rendering buffer.
+			/// Prepare renderers to render.
 			///
 			void begin();
 
 			///
-			/// Renders the OpenGL buffer to the screen.
+			/// Draw renderer contents to screen.
 			///
 			void end();
 
@@ -433,21 +433,6 @@ namespace galaxy
 			/// Flag to signal to glfw that text is being input.
 			///
 			bool m_inputting_text;
-
-			///
-			/// Internal framebuffer.
-			///
-			std::unique_ptr<graphics::RenderTexture> m_framebuffer;
-
-			///
-			/// Internal framebuffer VAO.
-			///
-			std::unique_ptr<components::Sprite> m_fb_sprite;
-
-			///
-			/// Internal framebuffer transform.
-			///
-			components::Transform2D m_fb_transform;
 
 			///
 			/// Scene dispatcher.

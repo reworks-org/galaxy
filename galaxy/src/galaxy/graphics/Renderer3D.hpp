@@ -13,6 +13,7 @@
 #include <glad/glad.h>
 
 #include "galaxy/graphics/camera/Camera3D.hpp"
+#include "galaxy/graphics/GeomBuffer.hpp"
 
 #define RENDERER_3D galaxy::graphics::Renderer3D::inst
 
@@ -62,6 +63,50 @@ namespace galaxy
 			/// \return Reference to renderer.
 			///
 			[[nodiscard]] static Renderer3D& inst() noexcept;
+
+			///
+			/// Init renderer.
+			///
+			/// \param width Usually screen width.
+			/// \param height Usually screen height.
+			///
+			void init(const int width, const int height);
+
+			///
+			/// Prepare framebuffer to recieve render commands.
+			///
+			void prepare() noexcept;
+
+			///
+			/// Bind to take render commands.
+			///
+			void bind() noexcept;
+
+			///
+			/// Unbind and finish rendering.
+			///
+			void unbind() noexcept;
+
+			///
+			/// Render contents to active framebuffer.
+			///
+			void render();
+
+			///
+			/// Add post processing shader.
+			///
+			/// \param vs Vertex shader source.
+			/// \param fs Fragment shader source.
+			///
+			void add_renderpass(const std::string& vs, const std::string& fs);
+
+			///
+			/// Resize framebuffer.
+			///
+			/// \param width New framebuffer width. Usually screen width.
+			/// \param height New framebuffer height. Usually screen height.
+			///
+			void resize(const int width, const int height);
 
 			///
 			/// Reserve GPU memory for Uniform Buffer.
@@ -139,9 +184,8 @@ namespace galaxy
 			///
 			/// \param mesh Mesh to draw.
 			/// \param material Material to draw mesh with.
-			/// \param shader Shader to draw mesh with.
 			///
-			void draw_mesh(Mesh* mesh, light::Material* material, Shader* shader);
+			void draw_mesh(Mesh* mesh, light::Material* material);
 
 			///
 			/// Draw skybox.
@@ -166,6 +210,13 @@ namespace galaxy
 			///
 			void clean_up();
 
+			///
+			/// Get G-Buffer.
+			///
+			/// \return Reference to the g-buffer.
+			///
+			[[nodiscard]] GeomBuffer& get_gbuffer() noexcept;
+
 		private:
 			///
 			/// Constructor.
@@ -174,9 +225,29 @@ namespace galaxy
 
 		private:
 			///
+			/// "G-Buffer" object.
+			///
+			GeomBuffer m_gbuffer;
+
+			///
 			/// OpenGL ubo/ssbo ids.
 			///
 			std::vector<unsigned int> m_buffers;
+
+			///
+			/// Render pass screen quad verter buffer object.
+			///
+			unsigned int m_screen_vbo;
+
+			///
+			/// Render pass screen quad vertex array object.
+			///
+			unsigned int m_screen_vao;
+
+			///
+			/// List of shaders to do render pass over.
+			///
+			std::vector<Shader> m_render_passes;
 		};
 
 		template<typename Type>

@@ -9,7 +9,8 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/shader/Shader.hpp"
+#include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -20,7 +21,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Renderer2D::Renderer2D() noexcept
-		    : m_texture {nullptr}, m_batch_shader {nullptr}, m_max_quads {0}
+		    : m_texture {nullptr}, m_batch_shader {nullptr}, m_fb_shader {nullptr}, m_max_quads {0}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
 		{
 		}
 
@@ -35,10 +36,19 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer2D::init(const unsigned int max_quads, std::string_view batch_shader)
+		void Renderer2D::init(const unsigned int max_quads, std::string_view batch_shader, std::string_view framebuffer_shader)
 		{
 			m_max_quads    = max_quads;
 			m_batch_shader = SL_HANDLE.shaderbook()->get(batch_shader);
+			m_fb_shader    = SL_HANDLE.shaderbook()->get(framebuffer_shader);
+
+			m_framebuffer = std::make_unique<graphics::RenderTexture>();
+			m_framebuffer->create(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+			m_framebuffer->toggle_clearing(false);
+
+			m_fb_sprite = std::make_unique<components::Sprite>();
+			m_fb_sprite->load(m_framebuffer->gl_texture(), SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+			m_fb_sprite->create();
 		}
 
 		void Renderer2D::clean_up()
@@ -51,7 +61,16 @@ namespace galaxy
 
 			m_batches.clear();
 			m_batch_shader = nullptr;
+			m_fb_shader    = nullptr;
 			m_texture      = nullptr;
+
+			m_framebuffer.reset();
+			m_framebuffer = nullptr;
+
+			m_fb_sprite.reset();
+			m_fb_sprite = nullptr;
+
+			m_fb_transform.reset();
 		}
 
 		void Renderer2D::create_default_batches(BaseTexture* texture) noexcept
@@ -93,6 +112,45 @@ namespace galaxy
 			{
 				batch.second->clear_sprites();
 			}
+		}
+
+		void Renderer2D::prepare() noexcept
+		{
+			m_framebuffer->clear_framebuffer();
+		}
+
+		void Renderer2D::bind() noexcept
+		{
+			m_framebuffer->bind();
+		}
+
+		void Renderer2D::unbind() noexcept
+		{
+			m_framebuffer->unbind();
+		}
+
+		void Renderer2D::render()
+		{
+			m_fb_shader->bind();
+			m_fb_sprite->bind();
+
+			m_fb_shader->set_uniform("u_projection", m_framebuffer->get_proj());
+			m_fb_shader->set_uniform("u_transform", m_fb_transform.get_transform());
+			m_fb_shader->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+			m_fb_shader->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
+			m_fb_shader->set_uniform("u_opacity", m_fb_sprite->get_opacity());
+
+			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
+
+			m_fb_sprite->unbind();
+			m_fb_shader->unbind();
+		}
+
+		void Renderer2D::resize(const int width, const int height)
+		{
+			m_framebuffer->change_size(width, height);
+			m_fb_sprite->load(m_framebuffer->gl_texture(), width, height);
+			m_fb_sprite->create();
 		}
 
 		void Renderer2D::draw_point(components::Primitive2D* data, components::Transform2D* transform, Shader* shader)

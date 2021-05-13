@@ -56,8 +56,9 @@ namespace galaxy
 			///
 			/// \param max_quads Maximum quads per spritebatch.
 			/// \param batch_shader ID of the shader to use for spritebatching.
+			/// \param framebuffer_sahder ID of the shader to use when drawing renderer contents to the main window framebuffer.
 			///
-			void init(const unsigned int max_quads, std::string_view batch_shader);
+			void init(const unsigned int max_quads, std::string_view batch_shader, std::string_view framebuffer_shader);
 
 			///
 			/// Clears all data from renderer, including static data.
@@ -89,6 +90,34 @@ namespace galaxy
 			/// Clears sprite and batch data.
 			///
 			void clear();
+
+			///
+			/// Prepare framebuffer to recieve render commands.
+			///
+			void prepare() noexcept;
+
+			///
+			/// Bind to take render commands.
+			///
+			void bind() noexcept;
+
+			///
+			/// Unbind and finish rendering.
+			///
+			void unbind() noexcept;
+
+			///
+			/// Render contents to active framebuffer.
+			///
+			void render();
+
+			///
+			/// Resize framebuffer.
+			///
+			/// \param width New framebuffer width. Usually screen width.
+			/// \param height New framebuffer height. Usually screen height.
+			///
+			void resize(const int width, const int height);
 
 			///
 			/// Draw a point primitive.
@@ -187,9 +216,29 @@ namespace galaxy
 			Shader* m_batch_shader;
 
 			///
+			/// Pointer to framebuffer shader.
+			///
+			Shader* m_fb_shader;
+
+			///
 			/// Total number of quads per spritebatch allowed.
 			///
 			unsigned int m_max_quads;
+
+			///
+			/// Internal framebuffer.
+			///
+			std::unique_ptr<graphics::RenderTexture> m_framebuffer;
+
+			///
+			/// Internal framebuffer VAO.
+			///
+			std::unique_ptr<components::Sprite> m_fb_sprite;
+
+			///
+			/// Internal framebuffer transform.
+			///
+			components::Transform2D m_fb_transform;
 		};
 	} // namespace graphics
 } // namespace galaxy

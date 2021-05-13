@@ -32,31 +32,12 @@ convert type classes to enums (log, vertexs, etc...).
 - particle gen
 - custom textureatlas data preserved when reloading.
 - fix map reloading.
-- fix texture atlas crashing with GALAXY_FATAL 
-- cache camera between shaders
 
-EXPORTING:
-- Supercluster is the game with an extra layer.
-- will need to export custom main and game layer.
-- Engine will export a custom gamelayer and main.cpp along with a cmakelists file to build the game.
-- that way supercluster will strip out the editorlayer when compiling.
-- supercluster is just the game with an editor layer.
-- strip out when exporting.
-	/*
-	void Project::export_game()
-	{
-		// NEEDS TO BE CONSTEXPR or CONSTINIT.
-		std::string m_cmake_path;
-		std::string m_cmake_code;
-		std::string m_main_code;
-	}
-	*/
-
-TODO:
 - Model Loader needs to support texture coords outside of [0, 1].
 - Model loader needs to determine to use height or normals for assimp normal maps.
 - Fix bugs in hot reload system.
-- Fix ansio and filtering (again).
+- Fix ansiotrophy and anti-aliasing.
+- fix gamma correction
 - Update unit tests, sandbox tests and script support for new content.
 - Add option for World::OPerate() to be run in parallell. Only contents of lambda is parallell.
 - Reflection Mapping https://learnopengl.com/Advanced-OpenGL/Cubemaps
@@ -70,3 +51,105 @@ TODO:
 - Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
 - BLOOM https://learnopengl.com/Advanced-Lighting/Bloom
 - HDR https://learnopengl.com/Advanced-Lighting/HDR
+
+
+
+- Place into shader buckets, sorted by process (works in hand with deffered rendering)
+- then in each bucket sort by material
+- do this in parallell
+https://blog.molecular-matters.com/2014/12/16/stateless-layered-multi-threaded-rendering-part-3-api-design-details/
+
+#include <algorithm>
+#include <string>
+#include <unordered_map>
+#include <vector>
+#include <iostream>
+#include <execution>
+
+struct Test
+{
+    std::string mat = "";
+    std::string sdr = "";
+    std::string id = "";
+    std::uint64_t val = 0;
+};
+
+int main()
+{
+    Test a;
+    a.mat = "brick";
+    a.sdr = "model";
+    a.val = std::hash<std::string>{}(a.mat);
+    a.val <<= 32;
+    a.val |= std::hash<std::string>{}(a.sdr);
+    a.id = "a";
+    
+    Test b;
+    b.mat = "brick";
+    b.sdr = "phong";
+    b.val = std::hash<std::string>{}(b.mat);
+    b.val <<= 32;
+    b.val |= std::hash<std::string>{}(b.sdr);
+    b.id = "b";
+    
+    Test c;
+    c.mat = "brick";
+    c.sdr = "model";
+    c.val = std::hash<std::string>{}(c.mat);
+    c.val <<= 32;
+    c.val |= std::hash<std::string>{}(c.sdr);
+    c.id = "c";
+
+    Test d;
+    d.mat = "concrete";
+    d.sdr = "model";
+    d.val = std::hash<std::string>{}(d.mat);
+    d.val <<= 32;
+    d.val |= std::hash<std::string>{}(d.sdr);
+    d.id = "d";
+    
+    Test e;
+    e.mat = "grass";
+    e.sdr = "terrain";
+    e.val = std::hash<std::string>{}(e.mat);
+    e.val <<= 32;
+    e.val |= std::hash<std::string>{}(e.sdr);
+    e.id = "e";
+    
+    Test f;
+    f.mat = "concrete";
+    f.sdr = "phong";
+    f.val = std::hash<std::string>{}(f.mat);
+    f.val <<= 32;
+    f.val |= std::hash<std::string>{}(f.sdr);
+    f.id = "f";
+    
+    Test g;
+    g.mat = "concrete";
+    g.sdr = "terrain";
+    g.val = std::hash<std::string>{}(g.mat);
+    g.val <<= 32;
+    g.val |= std::hash<std::string>{}(g.sdr);
+    g.id = "g";
+
+    std::vector<Test> arr;
+    arr.push_back(a);
+    arr.push_back(b);
+    arr.push_back(c);
+    arr.push_back(d);
+    arr.push_back(e);
+    arr.push_back(f);
+    arr.push_back(g);
+
+  std::stable_sort(std::execution::par_unseq, arr.begin(), arr.end(), [&](const auto& lhs, const auto& rhs)
+  {
+      return lhs.mat == rhs.mat;
+  });
+
+  for (const auto& val : arr)
+  {
+      std::cout << val.id << std::endl;
+  }
+  
+  return 0;
+}

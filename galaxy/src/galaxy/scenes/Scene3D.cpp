@@ -7,6 +7,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/Renderer3D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/systems/RenderSystem3D.hpp"
@@ -65,8 +66,12 @@ namespace galaxy
 		void Scene3D::render()
 		{
 			RENDERER_3D().sub_buffer_ubo(0, 0, 1, &m_camera.get_data());
-			RENDERER_3D().draw_skybox(&m_skybox, SL_HANDLE.shaderbook()->get("skybox"));
+
+			RENDERER_3D().bind();
+			//RENDERER_3D().draw_skybox(&m_skybox, SL_HANDLE.shaderbook()->get("skybox"));
 			m_world.get_system<systems::RenderSystem3D>()->render(m_world, m_camera);
+
+			RENDERER_2D().bind();
 			m_gui.render();
 		}
 

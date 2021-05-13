@@ -1,8 +1,8 @@
 ///
-/// Model.cpp
+/// GeomBuffer.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Model.hpp"
+#include "GeomBuffer.hpp"

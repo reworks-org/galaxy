@@ -73,6 +73,18 @@ namespace galaxy
 			void change_size(const int width, const int height);
 
 			///
+			/// Toggle framebuffer clearing.
+			///
+			/// \param clear Flag to clear framebuffers existing contents.
+			///
+			void toggle_clearing(const bool clear);
+
+			///
+			/// Manually clear framebuffer.
+			///
+			void clear_framebuffer() noexcept;
+
+			///
 			/// Activate texture context.
 			///
 			void bind() noexcept override;
@@ -111,6 +123,11 @@ namespace galaxy
 			RenderTexture& operator=(const RenderTexture&) = delete;
 
 		private:
+			///
+			/// Clear flag.
+			///
+			bool m_clear;
+
 			///
 			/// Projection.
 			///

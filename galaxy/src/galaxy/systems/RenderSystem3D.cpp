@@ -8,6 +8,7 @@
 #include <execution>
 
 #include "galaxy/components/DirectionLight.hpp"
+#include "galaxy/components/Model.hpp"
 #include "galaxy/components/PointLight.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/SpotLight.hpp"
@@ -51,7 +52,7 @@ namespace galaxy
 			world.operate<components::Model>([&](const ecs::Entity entity, components::Model* model) {
 				for (auto& mesh : model->get_meshes())
 				{
-					RENDERER_3D().draw_mesh(&mesh, SL_HANDLE.materialbook()->get(mesh.m_material_id), SL_HANDLE.shaderbook()->get("blinn_phong"));
+					RENDERER_3D().draw_mesh(&mesh, SL_HANDLE.materialbook()->get(mesh.m_material_id));
 				}
 			});
 		}

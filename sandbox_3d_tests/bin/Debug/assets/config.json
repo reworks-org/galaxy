@@ -1,4 +1,5 @@
 {
+    "2d-fb-shader": "2d_framebuffer",
     "ansio-filter": 16,
     "anti-aliasing": 16,
     "aspect-ratio-x": -1,

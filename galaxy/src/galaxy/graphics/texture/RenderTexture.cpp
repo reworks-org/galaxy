@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>
 
@@ -22,14 +20,14 @@ namespace galaxy
 	namespace graphics
 	{
 		RenderTexture::RenderTexture() noexcept
-		    : m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
+		    : m_clear {true}, m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
 			glGenRenderbuffers(1, &m_renderbuffer);
 		}
 
 		RenderTexture::RenderTexture(const int width, const int height)
-		    : m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
+		    : m_clear {true}, m_projection {1.0f}, m_framebuffer {0}, m_renderbuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
 			glGenRenderbuffers(1, &m_renderbuffer);
@@ -40,6 +38,7 @@ namespace galaxy
 		RenderTexture::RenderTexture(RenderTexture&& rt) noexcept
 		    : BaseTexture {std::move(rt)}
 		{
+			this->m_clear        = rt.m_clear;
 			this->m_projection   = std::move(rt.m_projection);
 			this->m_framebuffer  = rt.m_framebuffer;
 			this->m_renderbuffer = rt.m_renderbuffer;
@@ -54,6 +53,7 @@ namespace galaxy
 			{
 				BaseTexture::operator=(std::move(rt));
 
+				this->m_clear        = rt.m_clear;
 				this->m_projection   = std::move(rt.m_projection);
 				this->m_framebuffer  = rt.m_framebuffer;
 				this->m_renderbuffer = rt.m_renderbuffer;
@@ -118,9 +118,39 @@ namespace galaxy
 			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, m_width, m_height);
 			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_renderbuffer);
 
-			if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+			const auto status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+			if (status != GL_FRAMEBUFFER_COMPLETE)
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to create GL_FRAMEBUFFER!");
+				std::string reason = "";
+				switch (status)
+				{
+					case GL_FRAMEBUFFER_UNDEFINED:
+						reason = "GL_FRAMEBUFFER_UNDEFINED";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER";
+						break;
+					case GL_FRAMEBUFFER_UNSUPPORTED:
+						reason = "GL_FRAMEBUFFER_UNSUPPORTED";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS";
+						break;
+				}
+
+				GALAXY_LOG(GALAXY_FATAL, "Failed to complete rendertexture framebuffer: {0}.", reason);
 			}
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -139,18 +169,33 @@ namespace galaxy
 			create(width, height);
 		}
 
-		void RenderTexture::bind() noexcept
+		void RenderTexture::toggle_clearing(const bool clear)
 		{
-			// Bind to framebuffer.
-			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
-			glViewport(0, 0, m_width, m_height);
-			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LEQUAL);
-			glDisable(GL_FRAMEBUFFER_SRGB);
+			m_clear = clear;
+		}
 
-			// Reset Colour, in prep for rendering.
+		void RenderTexture::clear_framebuffer() noexcept
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
+
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		}
+
+		void RenderTexture::bind() noexcept
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
+
+			glViewport(0, 0, m_width, m_height);
+			glEnable(GL_BLEND);
+
+			if (m_clear)
+			{
+				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			}
 		}
 
 		void RenderTexture::unbind() noexcept

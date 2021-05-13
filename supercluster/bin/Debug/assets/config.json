@@ -25,6 +25,7 @@
     "shaderbook-json": "shaderbook.json",
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
+    "2d-fb-shader": "2d_framebuffer",
     "textureatlas-json": "textureatlas.json",
     "trilinear-filtering": false,
     "vsync": true,

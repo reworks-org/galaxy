@@ -9,18 +9,16 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
-#include "galaxy/graphics/shader/BlinnPhong.hpp"
-#include "galaxy/graphics/shader/DefaultFramebuffer.hpp"
-#include "galaxy/graphics/shader/Glyph.hpp"
-#include "galaxy/graphics/shader/Line.hpp"
-#include "galaxy/graphics/shader/LightObject.hpp"
-#include "galaxy/graphics/shader/Model.hpp"
-#include "galaxy/graphics/shader/Point.hpp"
-#include "galaxy/graphics/shader/RenderToTexture.hpp"
-#include "galaxy/graphics/shader/Skybox.hpp"
-#include "galaxy/graphics/shader/Sprite.hpp"
-#include "galaxy/graphics/shader/SpriteBatch.hpp"
-#include "galaxy/graphics/shader/Text.hpp"
+#include "galaxy/graphics/shaders/Framebuffer2D.hpp"
+#include "galaxy/graphics/shaders/Glyph.hpp"
+#include "galaxy/graphics/shaders/Line.hpp"
+#include "galaxy/graphics/shaders/LightObject.hpp"
+#include "galaxy/graphics/shaders/Point.hpp"
+#include "galaxy/graphics/shaders/RenderToTexture.hpp"
+#include "galaxy/graphics/shaders/Skybox.hpp"
+#include "galaxy/graphics/shaders/Sprite.hpp"
+#include "galaxy/graphics/shaders/SpriteBatch.hpp"
+#include "galaxy/graphics/shaders/Text.hpp"
 
 #include "ShaderBook.hpp"
 
@@ -32,7 +30,6 @@ namespace galaxy
 		    : Serializable {this}, m_vert_ext {".vs"}, m_frag_ext {".fs"}
 		{
 			create_default();
-			create_post_shaders();
 		}
 
 		ShaderBook::ShaderBook(std::string_view file)
@@ -82,7 +79,6 @@ namespace galaxy
 		{
 			clear();
 			create_default();
-			create_post_shaders();
 
 			m_vert_ext = json.at("vertex-extension");
 			m_frag_ext = json.at("fragment-extension");
@@ -96,8 +92,8 @@ namespace galaxy
 
 		void ShaderBook::create_default()
 		{
-			auto* df = create("DefaultFramebuffer");
-			df->load_raw(shaders::default_framebuffer_vert, shaders::default_framebuffer_frag);
+			auto* df = create("2d_framebuffer");
+			df->load_raw(shaders::framebuffer2d_vert, shaders::farmebuffer2d_frag);
 
 			auto* glyph = create("glyph");
 			glyph->load_raw(shaders::glyph_vert, shaders::glyph_frag);
@@ -122,12 +118,6 @@ namespace galaxy
 
 			auto* text = create("text");
 			text->load_raw(shaders::text_vert, shaders::text_frag);
-		}
-
-		void ShaderBook::create_post_shaders()
-		{
-			auto* blinn_phong = create("blinn_phong");
-			blinn_phong->load_raw(shaders::model_vert, shaders::blinnphong_frag);
 
 			auto* light_object = create("light_object");
 			light_object->load_raw(shaders::light_object_vert, shaders::light_object_frag);

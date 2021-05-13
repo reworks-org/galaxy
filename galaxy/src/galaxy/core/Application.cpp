@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <sstream>
-
-#include <fmt/format.h>
 #include <glad/glad.h>
 #include <portable-file-dialogs.h>
 #include <sol/sol.hpp>
@@ -18,6 +15,7 @@
 #include "galaxy/graphics/text/FreeType.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/Renderer3D.hpp"
+#include "galaxy/graphics/shaders/BlinnPhong.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/scripting/LuaUtils.hpp"
 
@@ -38,11 +36,8 @@ namespace galaxy
 			// Services are created in dependency order.
 
 			// Log.
-			const auto time = std::time(nullptr);
-			std::stringstream sstream;
-			sstream << std::put_time(std::localtime(&time), "%d-%m-%Y-[%H-%M]");
-
-			const std::string log_path = fmt::format("{0}{1}{2}", "logs/", sstream.str(), ".log");
+			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
+			const std::string log_path = std::format("{0}{1}{2}", "logs/", std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists("logs/"))
 			{
 				std::filesystem::create_directory("logs");
@@ -112,6 +107,7 @@ namespace galaxy
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
 				m_config->define<std::string>("spritebatch-shader", "spritebatch");
+				m_config->define<std::string>("2d-fb-shader", "2d_framebuffer");
 				m_config->define<std::string>("key-forward", "W");
 				m_config->define<std::string>("key-back", "S");
 				m_config->define<std::string>("key-left", "A");
@@ -190,8 +186,14 @@ namespace galaxy
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// Set up renderers.
-				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
+
+				RENDERER_3D().init(m_window->get_width(), m_window->get_height());
+				RENDERER_3D().get_gbuffer().add_attachments(3, graphics::GeomBuffer::AttachmentType::FLOAT);
+				RENDERER_3D().get_gbuffer().add_attachments(1, graphics::GeomBuffer::AttachmentType::UNSIGNED_BYTE);
+				RENDERER_3D().get_gbuffer().create();
 				RENDERER_3D().reserve_ubo(0, sizeof(graphics::Camera3D::Data));
+				RENDERER_3D().add_renderpass(shaders::blinnphong_vert, shaders::blinnphong_frag);
 
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
@@ -323,9 +325,7 @@ namespace galaxy
 				m_instance->pre_render();
 
 				m_window->begin();
-
 				m_instance->render();
-
 				m_window->end();
 
 				if (log_perf)
@@ -366,12 +366,12 @@ namespace galaxy
 
 		void Application::generate_default_assets(const std::string& root)
 		{
-			constexpr const char* font   = "{\"fontbook\":{}}";
-			constexpr const char* music  = "{\"musicbook\":{}}";
-			constexpr const char* script = "{\"scriptbook\":{}}";
-			constexpr const char* shader = "{\"vertex-extension\":\".vs\",\"fragment-extension\":\".fs\",\"shaderbook\":[]}";
-			constexpr const char* sound  = "{\"soundbook\":{}}";
-			constexpr const char* atlas  = "{\"textures\":[]}";
+			constexpr const char* const font   = "{\"fontbook\":{}}";
+			constexpr const char* const music  = "{\"musicbook\":{}}";
+			constexpr const char* const script = "{\"scriptbook\":{}}";
+			constexpr const char* const shader = "{\"vertex-extension\":\".vs\",\"fragment-extension\":\".fs\",\"shaderbook\":[]}";
+			constexpr const char* const sound  = "{\"soundbook\":{}}";
+			constexpr const char* const atlas  = "{\"textures\":[]}";
 
 			const auto fb_path = root + "json/" + m_config->get<std::string>("fontbook-json");
 			if (!std::filesystem::exists(fb_path))
@@ -452,9 +452,9 @@ namespace galaxy
 				m_shaderbook->clear();
 				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
 
-				// Set up renderer.
+				// Reconfigure 2D renderer.
 				RENDERER_2D().clean_up();
-				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
 			}

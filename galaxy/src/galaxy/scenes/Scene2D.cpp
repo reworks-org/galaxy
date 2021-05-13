@@ -7,6 +7,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/CollisionSystem.hpp"
 #include "galaxy/systems/RenderSystem2D.hpp"
@@ -70,6 +71,7 @@ namespace galaxy
 
 		void Scene2D::render()
 		{
+			RENDERER_2D().bind();
 			m_world.get_system<systems::RenderSystem2D>()->render(m_world, m_camera);
 			m_gui.render();
 		}
