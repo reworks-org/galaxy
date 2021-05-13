@@ -50,7 +50,7 @@ namespace galaxy
 		{
 			for (unsigned int counter = 0; counter < count; counter++)
 			{
-				if (m_buffer_objects.size() >= m_max_attachments)
+				if (m_attachments.size() >= m_max_attachments)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "No colour attachments left avaliable.");
 				}
@@ -71,7 +71,7 @@ namespace galaxy
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 					glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
 
-					m_buffer_objects.push_back(id);
+					m_attachments.push_back(id);
 				}
 			}
 
@@ -80,7 +80,7 @@ namespace galaxy
 
 		void GeomBuffer::create()
 		{
-			if (m_buffer_objects.empty())
+			if (m_attachments.empty())
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Attempted to create geometry buffer with no attachments.");
 			}
@@ -89,16 +89,16 @@ namespace galaxy
 				glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 				m_shader.bind();
 
-				for (unsigned int index = 0; index < m_buffer_objects.size(); index++)
+				for (unsigned int index = 0; index < m_attachments.size(); index++)
 				{
-					glBindTexture(GL_TEXTURE_2D, m_buffer_objects[index]);
-					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + index, GL_TEXTURE_2D, m_buffer_objects[index], 0);
+					glBindTexture(GL_TEXTURE_2D, m_attachments[index]);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + index, GL_TEXTURE_2D, m_attachments[index], 0);
 
-					m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + index);
+					m_used_colour_attachments.push_back(GL_COLOR_ATTACHMENT0 + index);
 				}
 
 				glBindTexture(GL_TEXTURE_2D, 0);
-				glDrawBuffers(m_used_attachments.size(), m_used_attachments.data());
+				glDrawBuffers(m_used_colour_attachments.size(), m_used_colour_attachments.data());
 
 				glGenRenderbuffers(1, &m_rbo);
 				glBindRenderbuffer(GL_RENDERBUFFER, m_rbo);
@@ -160,7 +160,7 @@ namespace galaxy
 			glGenFramebuffers(1, &m_fbo);
 			glGenRenderbuffers(1, &m_rbo);
 
-			for (const auto& id : m_buffer_objects)
+			for (const auto& id : m_attachments)
 			{
 				glBindTexture(GL_TEXTURE_2D, id);
 
@@ -178,10 +178,10 @@ namespace galaxy
 
 		void GeomBuffer::destroy()
 		{
-			if (m_buffer_objects.size() > 0)
+			if (m_attachments.size() > 0)
 			{
-				glDeleteTextures(m_buffer_objects.size(), m_buffer_objects.data());
-				m_buffer_objects.clear();
+				glDeleteTextures(m_attachments.size(), m_attachments.data());
+				m_attachments.clear();
 			}
 
 			glDeleteRenderbuffers(1, &m_rbo);
@@ -222,9 +222,9 @@ namespace galaxy
 			return m_fbo;
 		}
 
-		const std::vector<unsigned int>& GeomBuffer::get_objects() const noexcept
+		const std::vector<unsigned int>& GeomBuffer::get_attachments() const noexcept
 		{
-			return m_buffer_objects;
+			return m_attachments;
 		}
 	} // namespace graphics
 } // namespace galaxy

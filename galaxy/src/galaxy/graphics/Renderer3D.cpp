@@ -79,12 +79,12 @@ namespace galaxy
 		void Renderer3D::render()
 		{
 			glBindVertexArray(m_screen_vao);
-			const auto& objects = m_gbuffer.get_objects();
+			const auto& atchmnts = m_gbuffer.get_attachments();
 
-			for (auto index = 0; index < objects.size(); index++)
+			for (auto index = 0; index < atchmnts.size(); index++)
 			{
 				glActiveTexture(GL_TEXTURE0 + index);
-				glBindTexture(GL_TEXTURE_2D, objects[index]);
+				glBindTexture(GL_TEXTURE_2D, atchmnts[index]);
 			}
 
 			for (auto& shader : m_render_passes)
@@ -99,7 +99,7 @@ namespace galaxy
 				glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 			}
 
-			for (int index = (objects.size() - 1); index > -1; --index)
+			for (int index = (atchmnts.size() - 1); index > -1; --index)
 			{
 				glActiveTexture(GL_TEXTURE0 + index);
 				glBindTexture(GL_TEXTURE_2D, 0);
