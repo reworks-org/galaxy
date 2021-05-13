@@ -7,6 +7,8 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/graphics/shaders/GeomBuffer.hpp"
 
@@ -61,12 +63,13 @@ namespace galaxy
 					glGenTextures(1, &id);
 					glBindTexture(GL_TEXTURE_2D, id);
 					glTexImage2D(GL_TEXTURE_2D, 0, format, m_width, m_height, 0, GL_RGBA, gl_type, nullptr);
+					glGenerateMipmap(GL_TEXTURE_2D);
 
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1);
+					glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
 
 					m_buffer_objects.push_back(id);
 				}

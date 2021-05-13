@@ -88,8 +88,8 @@ namespace galaxy
 		void BaseTexture::clamp_to_edge() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
@@ -120,7 +120,7 @@ namespace galaxy
 		void BaseTexture::set_anisotropy(const unsigned int level) noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
+			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 

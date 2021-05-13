@@ -33,12 +33,14 @@ convert type classes to enums (log, vertexs, etc...).
 - custom textureatlas data preserved when reloading.
 - fix map reloading.
 
+Deferred Rendering:
+- Anti-Aliasing
+- Gamma Correction
+
 - Model Loader needs to support texture coords outside of [0, 1].
 - Model loader needs to determine to use height or normals for assimp normal maps.
 - Fix bugs in hot reload system.
-- Fix ansiotrophy and anti-aliasing.
-- fix gamma correction
-- Update unit tests, sandbox tests and script support for new content.
+- Update unit test|s, sandbox tests and script support for new content.
 - Add option for World::OPerate() to be run in parallell. Only contents of lambda is parallell.
 - Reflection Mapping https://learnopengl.com/Advanced-OpenGL/Cubemaps
 	- Environment Mapping 
@@ -51,8 +53,6 @@ convert type classes to enums (log, vertexs, etc...).
 - Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
 - BLOOM https://learnopengl.com/Advanced-Lighting/Bloom
 - HDR https://learnopengl.com/Advanced-Lighting/HDR
-
-
 
 - Place into shader buckets, sorted by process (works in hand with deffered rendering)
 - then in each bucket sort by material

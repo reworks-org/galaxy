@@ -146,6 +146,16 @@ namespace galaxy
 			unbind_ssbo();
 		}
 
+		void Renderer3D::do_forward_render()
+		{
+			for (const auto& call : m_forward_calls)
+			{
+				call();
+			}
+
+			m_forward_calls.clear();
+		}
+
 		void Renderer3D::reserve_ubo(const std::size_t index, const unsigned int size)
 		{
 			bind_ubo(index);
@@ -210,7 +220,7 @@ namespace galaxy
 			glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 		}
 
-		void Renderer3D::draw_mesh(Mesh* mesh, light::Material* material)
+		void Renderer3D::draw_mesh_deferred(Mesh* mesh, light::Material* material)
 		{
 			SL_HANDLE.window()->enable_back_cull();
 
@@ -256,15 +266,15 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void Renderer3D::draw_skybox(Skybox* skybox, Shader* shader)
+		void Renderer3D::draw(Skybox* skybox, Shader* shader)
 		{
 			shader->bind();
-
 			skybox->bind();
+
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
 
-		void Renderer3D::draw_light_object(light::Object* light, Shader* shader)
+		void Renderer3D::draw(light::Object* light, Shader* shader)
 		{
 			SL_HANDLE.window()->disable_culling();
 

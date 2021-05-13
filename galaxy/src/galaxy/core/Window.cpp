@@ -107,6 +107,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_ALPHA_BITS, 8);
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
+				glfwWindowHint(GLFW_SAMPLES, 0);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, true);
 				glfwWindowHint(GLFW_SRGB_CAPABLE, true);
 
@@ -116,9 +117,8 @@ namespace galaxy
 					glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 				}
 
-				// MSAA.
+				// Anti-Aliasing Samples.
 				const auto max_samples = std::clamp(settings.m_anti_aliasing, 1, 16);
-				glfwWindowHint(GLFW_SAMPLES, max_samples);
 
 				// Create the window from input, ensuring it is centered in the screen.
 				m_window = glfwCreateWindow(m_width, m_height, settings.m_title.c_str(), nullptr, nullptr);
@@ -272,7 +272,7 @@ namespace galaxy
 
 						// Configure global GL state.
 						glDisable(GL_FRAMEBUFFER_SRGB);
-						glEnable(GL_MULTISAMPLE);
+						glDisable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);
@@ -762,6 +762,8 @@ namespace galaxy
 			RENDERER_3D().render();
 
 			glEnable(GL_BLEND);
+			RENDERER_3D().do_forward_render();
+
 			RENDERER_2D().render();
 
 			glfwSwapBuffers(m_window);

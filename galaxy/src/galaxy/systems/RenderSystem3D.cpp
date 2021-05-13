@@ -52,7 +52,7 @@ namespace galaxy
 			world.operate<components::Model>([&](const ecs::Entity entity, components::Model* model) {
 				for (auto& mesh : model->get_meshes())
 				{
-					RENDERER_3D().draw_mesh(&mesh, SL_HANDLE.materialbook()->get(mesh.m_material_id));
+					RENDERER_3D().draw_mesh_deferred(&mesh, SL_HANDLE.materialbook()->get(mesh.m_material_id));
 				}
 			});
 		}

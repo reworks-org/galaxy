@@ -109,6 +109,20 @@ namespace galaxy
 			void resize(const int width, const int height);
 
 			///
+			/// Forward render an object.
+			///
+			/// \param renderable Renderable object corresponding to a RENDERER_3D draw call.
+			/// \param shader Shader to draw renderable with.
+			///
+			template<meta::is_class Renderable>
+			void forward_render(Renderable* renderable, Shader* shader);
+
+			///
+			/// Execute forward render draw calls.
+			///
+			void do_forward_render();
+
+			///
 			/// Reserve GPU memory for Uniform Buffer.
 			///
 			/// \param index Index binding assigned to this UBO in shader(s).
@@ -185,7 +199,7 @@ namespace galaxy
 			/// \param mesh Mesh to draw.
 			/// \param material Material to draw mesh with.
 			///
-			void draw_mesh(Mesh* mesh, light::Material* material);
+			void draw_mesh_deferred(Mesh* mesh, light::Material* material);
 
 			///
 			/// Draw skybox.
@@ -193,7 +207,7 @@ namespace galaxy
 			/// \param skybox Skybox to draw.
 			/// \param shader Shader to draw skybox with.
 			///
-			void draw_skybox(Skybox* skybox, Shader* shader);
+			void draw(Skybox* skybox, Shader* shader);
 
 			///
 			/// Draw a light cube for visualization purposes.
@@ -201,7 +215,7 @@ namespace galaxy
 			/// \param light Object data to draw.
 			/// \param shader Shader to draw cube with.
 			///
-			void draw_light_object(light::Object* light, Shader* shader);
+			void draw(light::Object* light, Shader* shader);
 
 			///
 			/// \brief Clean up renderer gl buffers.
@@ -248,7 +262,20 @@ namespace galaxy
 			/// List of shaders to do render pass over.
 			///
 			std::vector<Shader> m_render_passes;
+
+			///
+			/// Forward render calls.
+			///
+			std::vector<std::function<void(void)>> m_forward_calls;
 		};
+
+		template<meta::is_class Renderable>
+		inline void Renderer3D::forward_render(Renderable* renderable, Shader* shader)
+		{
+			m_forward_calls.emplace_back([this, renderable, shader]() {
+				draw(renderable, shader);
+			});
+		}
 
 		template<typename Type>
 		inline void Renderer3D::sub_buffer_ubo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data)
