@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
-
 #include "galaxy/components/DirectionLight.hpp"
 #include "galaxy/components/Model.hpp"
 #include "galaxy/components/PointLight.hpp"

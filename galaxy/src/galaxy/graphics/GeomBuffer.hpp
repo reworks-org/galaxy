@@ -83,12 +83,12 @@ namespace galaxy
 			///
 			/// Bind gbuffer for rendering to.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind gbuffer.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// Get OpenGL framebuffer object.

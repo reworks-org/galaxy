@@ -201,7 +201,7 @@ namespace galaxy
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 
-		void GeomBuffer::bind()
+		void GeomBuffer::bind() noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
@@ -211,7 +211,7 @@ namespace galaxy
 			m_shader.bind();
 		}
 
-		void GeomBuffer::unbind()
+		void GeomBuffer::unbind() noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			m_shader.unbind();

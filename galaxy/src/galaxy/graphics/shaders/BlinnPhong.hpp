@@ -13,7 +13,7 @@ namespace galaxy
 	namespace shaders
 	{
 		///
-		/// Blinn-Phong fragment shader.
+		/// Blinn-Phong vertex shader.
 		///
 		inline constexpr const char* const blinnphong_vert = R"(
             #version 450 core
