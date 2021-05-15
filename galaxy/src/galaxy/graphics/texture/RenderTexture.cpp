@@ -158,7 +158,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void RenderTexture::change_size(const int width, const int height)
+		void RenderTexture::resize(const int width, const int height)
 		{
 			glDeleteFramebuffers(1, &m_framebuffer);
 			glDeleteRenderbuffers(1, &m_renderbuffer);

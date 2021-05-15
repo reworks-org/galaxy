@@ -70,7 +70,7 @@ namespace galaxy
 			/// \param width Width of the RenderTexture.
 			/// \param height Height of the RenderTexture.
 			///
-			void change_size(const int width, const int height);
+			void resize(const int width, const int height);
 
 			///
 			/// Toggle framebuffer clearing.

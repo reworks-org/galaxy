@@ -152,7 +152,7 @@ namespace galaxy
 		{
 			if (!m_textures.empty())
 			{
-				m_texture.change_size(m_size, m_size);
+				m_texture.resize(m_size, m_size);
 				create(shader);
 			}
 			else

@@ -537,7 +537,7 @@ namespace sc
 			if (size_avail != m_viewport_size)
 			{
 				m_viewport_size = size_avail;
-				m_framebuffer.change_size(m_viewport_size.x, m_viewport_size.y);
+				m_framebuffer.resize(m_viewport_size.x, m_viewport_size.y);
 			}
 
 			if (m_topscene_type == "2D")

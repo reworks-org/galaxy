@@ -148,7 +148,7 @@ namespace galaxy
 
 		void Renderer2D::resize(const int width, const int height)
 		{
-			m_framebuffer->change_size(width, height);
+			m_framebuffer->resize(width, height);
 			m_fb_sprite->load(m_framebuffer->gl_texture(), width, height);
 			m_fb_sprite->create();
 		}
