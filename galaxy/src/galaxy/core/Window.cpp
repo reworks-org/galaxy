@@ -117,9 +117,6 @@ namespace galaxy
 					glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 				}
 
-				// Anti-Aliasing Samples.
-				const auto max_samples = std::clamp(settings.m_anti_aliasing, 1, 16);
-
 				// Create the window from input, ensuring it is centered in the screen.
 				m_window = glfwCreateWindow(m_width, m_height, settings.m_title.c_str(), nullptr, nullptr);
 				if (settings.m_maximized)

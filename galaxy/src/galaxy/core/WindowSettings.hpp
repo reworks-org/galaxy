@@ -20,11 +20,6 @@ namespace galaxy
 		struct WindowSettings final
 		{
 			///
-			/// Level of MSAA. I.e. 2, 4, etc.
-			///
-			int m_anti_aliasing;
-
-			///
 			/// Level of ansiotropic filtering.
 			///
 			int m_ansio_filtering;
