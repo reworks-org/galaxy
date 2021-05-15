@@ -37,12 +37,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}, m_post_processor {nullptr}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}
+		    : m_window {nullptr}, m_width {800}, m_height {600}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_scene_dispatcher {nullptr}, m_cursor_size {0.0, 0.0}, m_scroll_delta {0.0}, m_post_processor {nullptr}
 		{
 			if (!create(settings))
 			{
@@ -523,6 +523,9 @@ namespace galaxy
 						m_prev_mouse_btn_states[5] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[6] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[7] = GLFW_RELEASE;
+
+						m_post_processor = std::make_unique<graphics::PostProcessor>();
+						m_post_processor->init(m_width, m_height);
 					}
 				}
 			}
@@ -696,6 +699,7 @@ namespace galaxy
 
 			RENDERER_2D().resize(m_width, m_height);
 			RENDERER_3D().resize(m_width, m_height);
+			m_post_processor->resize(m_width, m_height);
 
 			if (m_scene_dispatcher)
 			{
@@ -758,12 +762,15 @@ namespace galaxy
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, m_width, m_height);
 
+			m_post_processor->bind();
+
 			glDisable(GL_BLEND);
 			RENDERER_3D().render();
 
 			glEnable(GL_BLEND);
 			RENDERER_3D().do_forward_render();
-
+			m_post_processor->unbind();
+			m_post_processor->render();
 			RENDERER_2D().render();
 
 			glfwSwapBuffers(m_window);

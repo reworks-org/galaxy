@@ -81,7 +81,7 @@ namespace galaxy
 			m_config->init(config_file);
 			if (m_config->is_blank())
 			{
-				m_config->define<int>("anti-aliasing", 1);
+				m_config->define<bool>("anti-aliasing", false);
 				m_config->define<int>("ansio-filter", 1);
 				m_config->define<bool>("vsync", true);
 				m_config->define<int>("aspect-ratio-x", -1);

@@ -20,6 +20,7 @@
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/PostProcessor.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
@@ -448,6 +449,11 @@ namespace galaxy
 			/// Scroll callback value.
 			///
 			double m_scroll_delta;
+
+			///
+			/// Post processor.
+			///
+			std::unique_ptr<graphics::PostProcessor> m_post_processor;
 		};
 	} // namespace core
 } // namespace galaxy

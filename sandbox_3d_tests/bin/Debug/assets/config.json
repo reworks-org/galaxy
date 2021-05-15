@@ -1,7 +1,7 @@
 {
     "2d-fb-shader": "2d_framebuffer",
     "ansio-filter": 16,
-    "anti-aliasing": 16,
+    "anti-aliasing": true,
     "aspect-ratio-x": -1,
     "aspect-ratio-y": -1,
     "audio-volume": 0.5,
