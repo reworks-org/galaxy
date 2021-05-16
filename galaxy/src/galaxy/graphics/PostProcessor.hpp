@@ -10,52 +10,82 @@
 #ifndef GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 #define GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 
-#include <vector>
-
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/posteffects/SMAA.hpp"
+#include "galaxy/graphics/posteffects/Sharpen.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
+		///
+		/// Manages post processing effects to apply to lit scene.
+		///
 		class PostProcessor final
 		{
 		public:
+			///
+			/// Constructor.
+			///
 			PostProcessor();
+
+			///
+			/// Destructor.
+			///
 			~PostProcessor();
 
-			void init(const int width, const int height);
+			///
+			/// Resize framebuffers.
+			///
+			/// \param width New width of internal framebuffer.
+			/// \param height New height of internal framebuffer.
+			///
 			void resize(const int width, const int height);
 
+			///
+			/// Bind to draw to post processor framebuffer.
+			///
 			void bind() noexcept;
+
+			///
+			/// Unbind to draw to post processor framebuffer.
+			///
 			void unbind() noexcept;
 
+			///
+			/// Draw post effects to stored framebuffer and render to screen.
+			///
 			void render();
 
 		private:
-			void init_smaa();
-
-		private:
-			int m_width;
-			int m_height;
-
+			///
+			/// For geometry and lighting.
+			///
 			RenderTexture m_fb;
+
+			///
+			/// Simple output shader.
+			///
+			Shader m_output;
+
+			///
+			/// SMAA effect.
+			///
+			SMAA m_smaa;
+
+			///
+			/// Sharpening effect to counteract blurriness of AA filtering.
+			///
+			Sharpen m_sharpen;
+
+			///
+			/// Simple quad to draw when applying effects (buffer).
+			///
 			unsigned int m_screen_vbo;
+
+			///
+			/// Simple quad to draw when applying effects (array).
+			///
 			unsigned int m_screen_vao;
-
-			Shader m_smaa_edge;
-			Shader m_smaa_blend;
-			Shader m_smaa_neighbourhood;
-
-			unsigned int m_edge_tex;
-			unsigned int m_blend_tex;
-			unsigned int m_area_tex;
-			unsigned int m_search_tex;
-
-			unsigned int m_edge_fbo;
-			unsigned int m_blend_fbo;
 		};
 	} // namespace graphics
 } // namespace galaxy

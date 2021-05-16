@@ -1,8 +1,8 @@
 ///
-/// AreaSMAA.cpp
+/// VAO.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "AreaSMAA.hpp"
+#include "VAO.hpp"

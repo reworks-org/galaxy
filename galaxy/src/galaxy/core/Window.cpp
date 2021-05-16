@@ -276,6 +276,9 @@ namespace galaxy
 						glDepthFunc(GL_LEQUAL);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+						// Create Post Processor.
+						m_post_processor = std::make_unique<graphics::PostProcessor>();
+
 						m_mouse_map.reserve(12);
 						m_mouse_map.emplace(input::MouseButton::BUTTON_1, GLFW_MOUSE_BUTTON_1);
 						m_mouse_map.emplace(input::MouseButton::BUTTON_2, GLFW_MOUSE_BUTTON_2);
@@ -520,9 +523,6 @@ namespace galaxy
 						m_prev_mouse_btn_states[5] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[6] = GLFW_RELEASE;
 						m_prev_mouse_btn_states[7] = GLFW_RELEASE;
-
-						m_post_processor = std::make_unique<graphics::PostProcessor>();
-						m_post_processor->init(m_width, m_height);
 					}
 				}
 			}
