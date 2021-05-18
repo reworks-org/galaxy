@@ -347,6 +347,16 @@ namespace galaxy
 			m_speed = 0.5f;
 		}
 
+		const float Camera3D::get_near() const noexcept
+		{
+			return m_near;
+		}
+
+		const float Camera3D::get_far() const noexcept
+		{
+			return m_far;
+		}
+
 		const glm::mat4& Camera3D::get_view() noexcept
 		{
 			return m_data.m_view;

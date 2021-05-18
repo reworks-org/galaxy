@@ -187,10 +187,11 @@ namespace galaxy
 				// Set up renderers.
 				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
 
-				RENDERER_3D().init(m_window->get_width(), m_window->get_height());
+				RENDERER_3D().get_gbuffer().init(m_window->get_width(), m_window->get_height());
 				RENDERER_3D().get_gbuffer().add_attachments(3, graphics::GeomBuffer::AttachmentType::FLOAT);
 				RENDERER_3D().get_gbuffer().add_attachments(1, graphics::GeomBuffer::AttachmentType::UNSIGNED_BYTE);
 				RENDERER_3D().get_gbuffer().create();
+				RENDERER_3D().init(m_window->get_width(), m_window->get_height());
 				RENDERER_3D().reserve_ubo(0, sizeof(graphics::Camera3D::Data));
 				RENDERER_3D().add_renderpass(shaders::blinnphong_vert, shaders::blinnphong_frag);
 

@@ -19,7 +19,7 @@ namespace galaxy
 	namespace graphics
 	{
 		GeomBuffer::GeomBuffer()
-		    : m_max_attachments {0}, m_width {0}, m_height {0}, m_fbo {0}, m_rbo {0}
+		    : m_max_attachments {0}, m_width {0}, m_height {0}, m_fbo {0}, m_depth_tex {0}
 		{
 		}
 
@@ -34,7 +34,6 @@ namespace galaxy
 			m_height = height;
 
 			glGenFramebuffers(1, &m_fbo);
-			glGenRenderbuffers(1, &m_rbo);
 
 			auto max_attachments       = 0;
 			auto max_drawn_attachments = 0;
@@ -97,13 +96,17 @@ namespace galaxy
 					m_used_colour_attachments.push_back(GL_COLOR_ATTACHMENT0 + index);
 				}
 
-				glBindTexture(GL_TEXTURE_2D, 0);
 				glDrawBuffers(m_used_colour_attachments.size(), m_used_colour_attachments.data());
 
-				glGenRenderbuffers(1, &m_rbo);
-				glBindRenderbuffer(GL_RENDERBUFFER, m_rbo);
-				glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, m_width, m_height);
-				glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_rbo);
+				glGenTextures(1, &m_depth_tex);
+				glBindTexture(GL_TEXTURE_2D, m_depth_tex);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, m_width, m_height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, nullptr);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_depth_tex, 0);
 
 				const auto status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 				if (status != GL_FRAMEBUFFER_COMPLETE)
@@ -140,8 +143,8 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_FATAL, "Failed to complete geometry framebuffer: {0}.", reason);
 				}
 
+				glBindTexture(GL_TEXTURE_2D, 0);
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
-				glBindRenderbuffer(GL_RENDERBUFFER, 0);
 				m_shader.unbind();
 			}
 		}
@@ -151,14 +154,17 @@ namespace galaxy
 			m_width  = width;
 			m_height = height;
 
-			glDeleteRenderbuffers(1, &m_rbo);
 			glDeleteFramebuffers(1, &m_fbo);
+			glDeleteTextures(1, &m_depth_tex);
 
-			m_rbo = 0;
-			m_fbo = 0;
+			m_fbo       = 0;
+			m_depth_tex = 0;
 
 			glGenFramebuffers(1, &m_fbo);
-			glGenRenderbuffers(1, &m_rbo);
+
+			glBindTexture(GL_TEXTURE_2D, m_depth_tex);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, m_width, m_height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, nullptr);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_depth_tex, 0);
 
 			for (const auto& id : m_attachments)
 			{
@@ -184,11 +190,11 @@ namespace galaxy
 				m_attachments.clear();
 			}
 
-			glDeleteRenderbuffers(1, &m_rbo);
 			glDeleteFramebuffers(1, &m_fbo);
+			glDeleteTextures(1, &m_depth_tex);
 
-			m_rbo = 0;
-			m_fbo = 0;
+			m_fbo       = 0;
+			m_depth_tex = 0;
 		}
 
 		void GeomBuffer::clear_framebuffer()
@@ -220,6 +226,11 @@ namespace galaxy
 		const unsigned int GeomBuffer::get_fbo() const noexcept
 		{
 			return m_fbo;
+		}
+
+		const unsigned int GeomBuffer::get_depth_tex() const noexcept
+		{
+			return m_depth_tex;
 		}
 
 		const std::vector<unsigned int>& GeomBuffer::get_attachments() const noexcept

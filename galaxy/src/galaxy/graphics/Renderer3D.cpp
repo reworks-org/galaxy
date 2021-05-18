@@ -21,6 +21,11 @@ namespace galaxy
 {
 	namespace graphics
 	{
+		Renderer3D::Renderer3D() noexcept
+		    : m_screen_vbo {0}, m_screen_vao {0}, m_bound_fb {0}
+		{
+		}
+
 		Renderer3D::~Renderer3D() noexcept
 		{
 			clean_up();
@@ -34,8 +39,6 @@ namespace galaxy
 
 		void Renderer3D::init(const int width, const int height)
 		{
-			m_gbuffer.init(width, height);
-
 			// clang-format off
 			constexpr const std::array<float, 20> verticies =
 			{
@@ -68,6 +71,7 @@ namespace galaxy
 
 		void Renderer3D::bind() noexcept
 		{
+			// Geometry pass.
 			m_gbuffer.bind();
 		}
 
@@ -81,21 +85,17 @@ namespace galaxy
 			glBindVertexArray(m_screen_vao);
 			const auto& atchmnts = m_gbuffer.get_attachments();
 
+			// Lighting Texture Pass.
 			for (auto index = 0; index < atchmnts.size(); index++)
 			{
 				glActiveTexture(GL_TEXTURE0 + index);
 				glBindTexture(GL_TEXTURE_2D, atchmnts[index]);
 			}
 
+			// Lighting Shader Pass.
 			for (auto& shader : m_render_passes)
 			{
 				shader.bind();
-
-				shader.set_uniform("u_pos", 0);
-				shader.set_uniform("u_diffuse", 1);
-				shader.set_uniform("u_specular", 2);
-				shader.set_uniform("u_normals", 3);
-
 				glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 			}
 
@@ -110,12 +110,13 @@ namespace galaxy
 
 			// Copy depth buffer info.
 			// clang-format off
+			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_bound_fb);
 			glBindFramebuffer(GL_READ_FRAMEBUFFER, m_gbuffer.get_fbo());
-			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-			glBlitFramebuffer(0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 
-				              0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(),
-				              GL_DEPTH_BUFFER_BIT, GL_NEAREST);
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_bound_fb);
+			glBlitFramebuffer(0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(),
+				0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(),
+				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+			glBindFramebuffer(GL_FRAMEBUFFER, m_bound_fb);
 			// clang-format on
 		}
 
@@ -123,6 +124,14 @@ namespace galaxy
 		{
 			auto& back = m_render_passes.emplace_back(Shader {});
 			back.load_raw(vs, fs);
+			back.bind();
+
+			back.set_uniform("u_pos", 0);
+			back.set_uniform("u_diffuse", 1);
+			back.set_uniform("u_specular", 2);
+			back.set_uniform("u_normals", 3);
+
+			back.unbind();
 		}
 
 		void Renderer3D::resize(const int width, const int height)

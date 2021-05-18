@@ -235,7 +235,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Renderer3D() noexcept = default;
+			Renderer3D() noexcept;
 
 		private:
 			///
@@ -257,6 +257,11 @@ namespace galaxy
 			/// Render pass screen quad vertex array object.
 			///
 			unsigned int m_screen_vao;
+
+			///
+			/// Currently bound framebuffer.
+			///
+			int m_bound_fb;
 
 			///
 			/// List of shaders to do render pass over.

@@ -323,6 +323,11 @@ else()
 	include(cmake/LinkDefs.cmake)
 	include(cmake/PreprocessorDefs.cmake)
 
+	# Set precompiled libs.
+	set(GALAXY_PRECOMPILED_LIBS
+		"${GALAXY_FREETYPE_LIB}"
+	)
+
 	# System specific libraries.
 	set(SYSTEM_LIBS
 	    "opengl32.lib"
@@ -343,7 +348,7 @@ else()
 	    "synchronization.lib"
 	)
 
-	target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB}")
+	target_link_libraries(supercluster PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 	target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
 
 	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
@@ -422,9 +427,9 @@ else()
 		target_link_libraries(sandbox_3d_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(sandbox_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
-		target_link_libraries(sandbox_3d_test PUBLIC "${GALAXY_FREETYPE_LIB}")
-		target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
-		target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
+		target_link_libraries(sandbox_3d_test PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
+		target_link_libraries(sandbox_test PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
+		target_link_libraries(tests PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 			target_compile_definitions(sandbox_3d_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})

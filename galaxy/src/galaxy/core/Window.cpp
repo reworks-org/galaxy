@@ -766,7 +766,6 @@ namespace galaxy
 
 			glEnable(GL_BLEND);
 			RENDERER_3D().do_forward_render();
-			m_post_processor->unbind();
 			m_post_processor->render();
 			RENDERER_2D().render();
 

@@ -198,6 +198,20 @@ namespace galaxy
 			void reset() noexcept;
 
 			///
+			/// Get near clipping distance.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_near() const noexcept;
+
+			///
+			/// Get far clipping distance.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_far() const noexcept;
+
+			///
 			/// Get camera view.
 			///
 			/// \return Const reference to a glm::mat4.

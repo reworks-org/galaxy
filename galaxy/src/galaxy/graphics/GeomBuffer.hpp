@@ -98,6 +98,13 @@ namespace galaxy
 			[[nodiscard]] const unsigned int get_fbo() const noexcept;
 
 			///
+			/// Get framebuffer depth texture.
+			///
+			/// \return Const unsigned int.
+			///
+			[[nodiscard]] const unsigned int get_depth_tex() const noexcept;
+
+			///
 			/// Get all attachments.
 			///
 			/// \return Reference to const vector of OpenGL texture ids.
@@ -132,9 +139,9 @@ namespace galaxy
 			unsigned int m_fbo;
 
 			///
-			/// OpenGL renderbuffer id.
+			/// OpenGL depth texture.
 			///
-			unsigned int m_rbo;
+			unsigned int m_depth_tex;
 
 			///
 			/// Array of texture attachemnts.
