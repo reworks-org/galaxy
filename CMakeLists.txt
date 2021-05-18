@@ -298,6 +298,8 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
@@ -326,6 +328,8 @@ else()
 	# Set precompiled libs.
 	set(GALAXY_PRECOMPILED_LIBS
 		"${GALAXY_FREETYPE_LIB}"
+		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}"
+		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}"
 	)
 
 	# System specific libraries.
