@@ -432,11 +432,8 @@ namespace galaxy
 			camera_type_3d["m_up_key"]      = &graphics::Camera3D::m_up_key;
 			camera_type_3d["pitch"]         = &graphics::Camera3D::pitch;
 			camera_type_3d["reset"]         = &graphics::Camera3D::reset;
-			camera_type_3d["set_far"]       = &graphics::Camera3D::set_far;
 			camera_type_3d["set_focal"]     = &graphics::Camera3D::set_focal;
-			camera_type_3d["set_fov"]       = &graphics::Camera3D::set_fov;
 			camera_type_3d["set_mode"]      = &graphics::Camera3D::set_mode;
-			camera_type_3d["set_near"]      = &graphics::Camera3D::set_near;
 			camera_type_3d["set_position"]  = &graphics::Camera3D::set_position;
 			camera_type_3d["set_speed"]     = &graphics::Camera3D::set_speed;
 			camera_type_3d["update"]        = &graphics::Camera3D::update;

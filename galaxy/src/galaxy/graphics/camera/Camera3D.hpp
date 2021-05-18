@@ -109,27 +109,6 @@ namespace galaxy
 			void set_focal(const glm::vec3& look_at) noexcept;
 
 			///
-			/// Set field of view of camera.
-			///
-			/// \param fov New FOV of camera.
-			///
-			void set_fov(const float fov) noexcept;
-
-			///
-			/// Set near clipping distance.
-			///
-			/// \param near_clip Near clip.
-			///
-			void set_near(const float near_clip) noexcept;
-
-			///
-			/// Set far clipping distance.
-			///
-			/// \param far_clip Far clip.
-			///
-			void set_far(const float far_clip) noexcept;
-
-			///
 			/// Set camera speed.
 			///
 			/// \param speed New camera speed. Multiplier.
@@ -198,20 +177,6 @@ namespace galaxy
 			void reset() noexcept;
 
 			///
-			/// Get near clipping distance.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_near() const noexcept;
-
-			///
-			/// Get far clipping distance.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_far() const noexcept;
-
-			///
 			/// Get camera view.
 			///
 			/// \return Const reference to a glm::mat4.
@@ -276,22 +241,22 @@ namespace galaxy
 			///
 			/// Screen aspect ratio.
 			///
-			float m_aspect_ratio;
+			float m_aspect_ratio = 0.0f;
 
 			///
 			/// Camera FOV.
 			///
-			float m_fov = 45.0f;
+			float m_fov = 0.0f;
 
 			///
 			/// Camera near plane.
 			///
-			float m_near = 0.1f;
+			float m_near = 0.0f;
 
 			///
 			/// Camera far plane.
 			///
-			float m_far = 100.0f;
+			float m_far = 0.0f;
 
 			///
 			/// Camera heading.

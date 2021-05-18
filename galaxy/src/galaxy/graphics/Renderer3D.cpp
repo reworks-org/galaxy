@@ -5,8 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glm/gtc/matrix_inverse.hpp>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/graphics/Mesh.hpp"
 #include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/graphics/light/Directional.hpp"
@@ -22,7 +25,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Renderer3D::Renderer3D() noexcept
-		    : m_screen_vbo {0}, m_screen_vao {0}, m_bound_fb {0}
+		    : m_hbao_context {nullptr}, m_screen_vbo {0}, m_screen_vao {0}, m_bound_fb {0}
 		{
 		}
 
@@ -62,6 +65,114 @@ namespace galaxy
 
 			glBindVertexArray(0);
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+			// Configure HBAO+.
+			m_hbao_heap.new_    = ::operator new;
+			m_hbao_heap.delete_ = ::operator delete;
+
+			m_hbao_funcs.glad_glActiveTexture           = glActiveTexture;
+			m_hbao_funcs.glad_glAttachShader            = glAttachShader;
+			m_hbao_funcs.glad_glBindBuffer              = glBindBuffer;
+			m_hbao_funcs.glad_glBindBufferBase          = glBindBufferBase;
+			m_hbao_funcs.glad_glBindFramebuffer         = glBindFramebuffer;
+			m_hbao_funcs.glad_glBindFragDataLocation    = glBindFragDataLocation;
+			m_hbao_funcs.glad_glBindTexture             = glBindTexture;
+			m_hbao_funcs.glad_glBindVertexArray         = glBindVertexArray;
+			m_hbao_funcs.glad_glBlendColor              = glBlendColor;
+			m_hbao_funcs.glad_glBlendEquationSeparate   = glBlendEquationSeparate;
+			m_hbao_funcs.glad_glBlendFuncSeparate       = glBlendFuncSeparate;
+			m_hbao_funcs.glad_glBufferData              = glBufferData;
+			m_hbao_funcs.glad_glBufferSubData           = glBufferSubData;
+			m_hbao_funcs.glad_glColorMaski              = glColorMaski;
+			m_hbao_funcs.glad_glCompileShader           = glCompileShader;
+			m_hbao_funcs.glad_glCreateShader            = glCreateShader;
+			m_hbao_funcs.glad_glCreateProgram           = glCreateProgram;
+			m_hbao_funcs.glad_glDeleteBuffers           = glDeleteBuffers;
+			m_hbao_funcs.glad_glDeleteFramebuffers      = glDeleteFramebuffers;
+			m_hbao_funcs.glad_glDeleteProgram           = glDeleteProgram;
+			m_hbao_funcs.glad_glDeleteShader            = glDeleteShader;
+			m_hbao_funcs.glad_glDeleteTextures          = glDeleteTextures;
+			m_hbao_funcs.glad_glDeleteVertexArrays      = glDeleteVertexArrays;
+			m_hbao_funcs.glad_glDisable                 = glDisable;
+			m_hbao_funcs.glad_glDrawBuffers             = glDrawBuffers;
+			m_hbao_funcs.glad_glEnable                  = glEnable;
+			m_hbao_funcs.glad_glDrawArrays              = glDrawArrays;
+			m_hbao_funcs.glad_glFramebufferTexture      = glFramebufferTexture;
+			m_hbao_funcs.glad_glFramebufferTexture2D    = glFramebufferTexture2D;
+			m_hbao_funcs.glad_glFramebufferTextureLayer = glFramebufferTextureLayer;
+			m_hbao_funcs.glad_glGenBuffers              = glGenBuffers;
+			m_hbao_funcs.glad_glGenFramebuffers         = glGenFramebuffers;
+			m_hbao_funcs.glad_glGenTextures             = glGenTextures;
+			m_hbao_funcs.glad_glGenVertexArrays         = glGenVertexArrays;
+			m_hbao_funcs.glad_glGetError                = glGetError;
+			m_hbao_funcs.glad_glGetBooleani_v           = glGetBooleani_v;
+			m_hbao_funcs.glad_glGetFloatv               = glGetFloatv;
+			m_hbao_funcs.glad_glGetIntegerv             = glGetIntegerv;
+			m_hbao_funcs.glad_glGetIntegeri_v           = glGetIntegeri_v;
+			m_hbao_funcs.glad_glGetProgramiv            = glGetProgramiv;
+			m_hbao_funcs.glad_glGetProgramInfoLog       = glGetProgramInfoLog;
+			m_hbao_funcs.glad_glGetShaderiv             = glGetShaderiv;
+			m_hbao_funcs.glad_glGetShaderInfoLog        = glGetShaderInfoLog;
+			m_hbao_funcs.glad_glGetString               = glGetString;
+			m_hbao_funcs.glad_glGetUniformBlockIndex    = glGetUniformBlockIndex;
+			m_hbao_funcs.glad_glGetUniformLocation      = glGetUniformLocation;
+			m_hbao_funcs.glad_glGetTexLevelParameteriv  = glGetTexLevelParameteriv;
+			m_hbao_funcs.glad_glIsEnabled               = glIsEnabled;
+			m_hbao_funcs.glad_glIsEnabledi              = glIsEnabledi;
+			m_hbao_funcs.glad_glLinkProgram             = glLinkProgram;
+			m_hbao_funcs.glad_glPolygonOffset           = glPolygonOffset;
+			m_hbao_funcs.glad_glShaderSource            = glShaderSource;
+			m_hbao_funcs.glad_glTexImage2D              = glTexImage2D;
+			m_hbao_funcs.glad_glTexImage3D              = glTexImage3D;
+			m_hbao_funcs.glad_glTexParameteri           = glTexParameteri;
+			m_hbao_funcs.glad_glTexParameterfv          = glTexParameterfv;
+			m_hbao_funcs.glad_glUniform1i               = glUniform1i;
+			m_hbao_funcs.glad_glUniformBlockBinding     = glUniformBlockBinding;
+			m_hbao_funcs.glad_glUseProgram              = glUseProgram;
+			m_hbao_funcs.glad_glViewport                = glViewport;
+
+			GFSDK_SSAO_Status status;
+			status = GFSDK_SSAO_CreateContext_GL(&m_hbao_context, &m_hbao_funcs, &m_hbao_heap);
+			if (status != GFSDK_SSAO_OK)
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to create HBAO+ context.");
+			}
+			else
+			{
+				const auto fov    = SL_HANDLE.config()->get<float>("camera-fov");
+				const float ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+				const auto near   = SL_HANDLE.config()->get<float>("camera-near");
+				const auto far    = SL_HANDLE.config()->get<float>("camera-far");
+
+				m_hbao_inputdata.DepthData.DepthTextureType              = GFSDK_SSAO_HARDWARE_DEPTHS;
+				m_hbao_inputdata.DepthData.FullResDepthTexture.Target    = GL_TEXTURE_2D;
+				m_hbao_inputdata.DepthData.FullResDepthTexture.TextureId = m_gbuffer.get_depth_tex();
+				m_hbao_inputdata.DepthData.MetersToViewSpaceUnits        = 1.0f;
+				m_hbao_inputdata.DepthData.ProjectionMatrix.Data         = GFSDK_SSAO_Float4x4(glm::value_ptr(glm::perspective(glm::radians(fov), ratio, near, far)));
+				m_hbao_inputdata.DepthData.ProjectionMatrix.Layout       = GFSDK_SSAO_ROW_MAJOR_ORDER;
+				m_hbao_inputdata.DepthData.Viewport.Enable               = false;
+
+				m_hbao_inputdata.NormalData.Enable = false;
+
+				m_hbao_params.BackgroundAO.Enable              = true;
+				m_hbao_params.BackgroundAO.BackgroundViewDepth = SL_HANDLE.config()->get<float>("camera-far");
+				m_hbao_params.Bias                             = 0.0f;
+				m_hbao_params.Blur.Enable                      = true;
+				m_hbao_params.Blur.Radius                      = GFSDK_SSAO_BLUR_RADIUS_2;
+				m_hbao_params.Blur.Sharpness                   = 16.0f;
+				m_hbao_params.DepthClampMode                   = GFSDK_SSAO_CLAMP_TO_EDGE;
+				m_hbao_params.DepthStorage                     = GFSDK_SSAO_FP32_VIEW_DEPTHS;
+				m_hbao_params.DepthThreshold.Enable            = false;
+				m_hbao_params.ForegroundAO.Enable              = false;
+				m_hbao_params.LargeScaleAO                     = 1.0f;
+				m_hbao_params.PowerExponent                    = 2.0f;
+				m_hbao_params.Radius                           = 4.0f;
+				m_hbao_params.SmallScaleAO                     = 1.0f;
+
+				m_hbao_output.Blend.Mode = GFSDK_SSAO_OVERWRITE_RGB;
+
+				m_hbao_context->PreCreateFBOs(m_hbao_params, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+			}
 		}
 
 		void Renderer3D::prepare() noexcept
@@ -82,6 +193,10 @@ namespace galaxy
 
 		void Renderer3D::render()
 		{
+			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_bound_fb);
+			m_hbao_output.OutputFBO = m_bound_fb;
+			m_hbao_context->RenderAO(m_hbao_inputdata, m_hbao_params, m_hbao_output, GFSDK_SSAO_RENDER_AO);
+
 			glBindVertexArray(m_screen_vao);
 			const auto& atchmnts = m_gbuffer.get_attachments();
 
@@ -110,7 +225,6 @@ namespace galaxy
 
 			// Copy depth buffer info.
 			// clang-format off
-			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_bound_fb);
 			glBindFramebuffer(GL_READ_FRAMEBUFFER, m_gbuffer.get_fbo());
 			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_bound_fb);
 			glBlitFramebuffer(0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(),
@@ -137,6 +251,7 @@ namespace galaxy
 		void Renderer3D::resize(const int width, const int height)
 		{
 			m_gbuffer.resize(width, height);
+			m_hbao_context->PreCreateFBOs(m_hbao_params, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 		}
 
 		void Renderer3D::reserve_ssbo(const std::size_t index, const unsigned int size)
@@ -309,6 +424,12 @@ namespace galaxy
 
 			m_screen_vbo = 0;
 			m_screen_vao = 0;
+
+			if (m_hbao_context != nullptr)
+			{
+				m_hbao_context->Release();
+				m_hbao_context = nullptr;
+			}
 		}
 
 		GeomBuffer& Renderer3D::get_gbuffer() noexcept

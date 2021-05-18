@@ -23,7 +23,10 @@ namespace galaxy
 		    : Camera {}, Serializable {this}
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
-			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+			m_aspect_ratio = static_cast<float>(SL_HANDLE.window()->get_width()) / static_cast<float>(SL_HANDLE.window()->get_height());
+			m_fov          = SL_HANDLE.config()->get<float>("camera-fov");
+			m_near         = SL_HANDLE.config()->get<float>("camera-near");
+			m_far          = SL_HANDLE.config()->get<float>("camera-far");
 
 			reset();
 		}
@@ -32,7 +35,10 @@ namespace galaxy
 		    : Camera {}, Serializable {this}
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
-			m_aspect_ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+			m_aspect_ratio = static_cast<float>(SL_HANDLE.window()->get_width()) / static_cast<float>(SL_HANDLE.window()->get_height());
+			m_fov          = SL_HANDLE.config()->get<float>("camera-fov");
+			m_near         = SL_HANDLE.config()->get<float>("camera-near");
+			m_far          = SL_HANDLE.config()->get<float>("camera-far");
 
 			deserialize(json);
 		}
@@ -61,21 +67,6 @@ namespace galaxy
 			m_focal.x = look_at.x;
 			m_focal.y = look_at.y;
 			m_focal.z = look_at.z;
-		}
-
-		void Camera3D::set_fov(const float fov) noexcept
-		{
-			m_fov = fov;
-		}
-
-		void Camera3D::set_near(const float near_clip) noexcept
-		{
-			m_near = near_clip;
-		}
-
-		void Camera3D::set_far(const float far_clip) noexcept
-		{
-			m_far = far_clip;
 		}
 
 		void Camera3D::set_speed(const float speed) noexcept
@@ -258,7 +249,7 @@ namespace galaxy
 				h = 1;
 			}
 
-			m_aspect_ratio = w / h;
+			m_aspect_ratio = static_cast<float>(w) / static_cast<float>(h);
 		}
 
 		void Camera3D::update(const double dt) noexcept
@@ -320,9 +311,6 @@ namespace galaxy
 		void Camera3D::reset() noexcept
 		{
 			m_mode = graphics::Camera3D::Mode::FREE;
-			m_fov  = 45.0f;
-			m_near = 0.1f;
-			m_far  = 100.0f;
 
 			m_heading = 0.0f;
 			m_pitch   = 0.0f;
@@ -347,16 +335,6 @@ namespace galaxy
 			m_speed = 0.5f;
 		}
 
-		const float Camera3D::get_near() const noexcept
-		{
-			return m_near;
-		}
-
-		const float Camera3D::get_far() const noexcept
-		{
-			return m_far;
-		}
-
 		const glm::mat4& Camera3D::get_view() noexcept
 		{
 			return m_data.m_view;
@@ -377,9 +355,6 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 
 			json["mode"]    = magic_enum::enum_name<Camera3D::Mode>(m_mode);
-			json["fov"]     = m_fov;
-			json["near"]    = m_near;
-			json["far"]     = m_far;
 			json["heading"] = m_heading;
 			json["pitch"]   = m_pitch;
 			json["speed"]   = m_speed;
@@ -422,9 +397,6 @@ namespace galaxy
 			reset();
 
 			m_mode    = magic_enum::enum_cast<Camera3D::Mode>(json.at("mode").get<std::string>()).value();
-			m_fov     = json.at("fov");
-			m_near    = json.at("near");
-			m_far     = json.at("far");
 			m_heading = json.at("heading");
 			m_pitch   = json.at("pitch");
 			m_speed   = json.at("speed");

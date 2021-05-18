@@ -31,5 +31,8 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox Tests",
-    "window-width": 1280
+    "window-width": 1280,
+    "camera-near": 0.1,
+    "camera-far": 1000.0,
+    "camera-fov": 90.0
 }

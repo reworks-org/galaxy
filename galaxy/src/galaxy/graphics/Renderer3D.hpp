@@ -10,6 +10,7 @@
 
 #include <span>
 
+#include <GFSDK_SSAO.h>
 #include <glad/glad.h>
 
 #include "galaxy/graphics/camera/Camera3D.hpp"
@@ -242,6 +243,16 @@ namespace galaxy
 			/// "G-Buffer" object.
 			///
 			GeomBuffer m_gbuffer;
+
+			///
+			///
+			///
+			GFSDK_SSAO_CustomHeap m_hbao_heap;
+			GFSDK_SSAO_GLFunctions m_hbao_funcs;
+			GFSDK_SSAO_Context_GL* m_hbao_context;
+			GFSDK_SSAO_InputData_GL m_hbao_inputdata;
+			GFSDK_SSAO_Parameters m_hbao_params;
+			GFSDK_SSAO_Output_GL m_hbao_output;
 
 			///
 			/// OpenGL ubo/ssbo ids.
