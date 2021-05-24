@@ -140,7 +140,7 @@ namespace galaxy
 			else
 			{
 				const auto fov    = SL_HANDLE.config()->get<float>("camera-fov");
-				const float ratio = SL_HANDLE.window()->get_width() / SL_HANDLE.window()->get_height();
+				const float ratio = static_cast<float>(static_cast<double>(SL_HANDLE.window()->get_width()) / static_cast<double>(SL_HANDLE.window()->get_height()));
 				const auto near   = SL_HANDLE.config()->get<float>("camera-near");
 				const auto far    = SL_HANDLE.config()->get<float>("camera-far");
 
@@ -158,8 +158,8 @@ namespace galaxy
 				m_hbao_params.BackgroundAO.BackgroundViewDepth = SL_HANDLE.config()->get<float>("camera-far");
 				m_hbao_params.Bias                             = 0.0f;
 				m_hbao_params.Blur.Enable                      = true;
-				m_hbao_params.Blur.Radius                      = GFSDK_SSAO_BLUR_RADIUS_2;
-				m_hbao_params.Blur.Sharpness                   = 16.0f;
+				m_hbao_params.Blur.Radius                      = GFSDK_SSAO_BLUR_RADIUS_4;
+				m_hbao_params.Blur.Sharpness                   = 0.0f;
 				m_hbao_params.DepthClampMode                   = GFSDK_SSAO_CLAMP_TO_EDGE;
 				m_hbao_params.DepthStorage                     = GFSDK_SSAO_FP32_VIEW_DEPTHS;
 				m_hbao_params.DepthThreshold.Enable            = false;

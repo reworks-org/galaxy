@@ -23,7 +23,7 @@ namespace galaxy
 		    : Camera {}, Serializable {this}
 		{
 			m_sensitivity  = SL_HANDLE.config()->get<float>("mouse-sensitivity");
-			m_aspect_ratio = static_cast<float>(SL_HANDLE.window()->get_width()) / static_cast<float>(SL_HANDLE.window()->get_height());
+			m_aspect_ratio = static_cast<float>(static_cast<double>(SL_HANDLE.window()->get_width()) / static_cast<double>(SL_HANDLE.window()->get_height()));
 			m_fov          = SL_HANDLE.config()->get<float>("camera-fov");
 			m_near         = SL_HANDLE.config()->get<float>("camera-near");
 			m_far          = SL_HANDLE.config()->get<float>("camera-far");
