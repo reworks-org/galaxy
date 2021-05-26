@@ -34,5 +34,6 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox 3D Tests",
-    "window-width": 1280
+    "window-width": 1280,
+    "shadow-size": 1024
 }

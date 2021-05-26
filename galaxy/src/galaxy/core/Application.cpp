@@ -101,6 +101,7 @@ namespace galaxy
 				m_config->define<float>("camera-near", 0.1f);
 				m_config->define<float>("camera-far", 100.0f);
 				m_config->define<float>("camera-fov", 90.0f);
+				m_config->define<int>("shadow-size", 1024);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");

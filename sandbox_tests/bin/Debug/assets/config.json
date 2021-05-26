@@ -34,5 +34,6 @@
     "window-width": 1280,
     "camera-near": 0.1,
     "camera-far": 1000.0,
-    "camera-fov": 90.0
+    "camera-fov": 90.0,
+    "shadow-size": 1024
 }

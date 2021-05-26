@@ -17,7 +17,6 @@ namespace galaxy
 		///
 		inline constexpr const char* const geom_vert = R"(
             #version 450 core
-
             layout(location = 0) in vec3 l_pos;
             layout(location = 1) in vec3 l_normals;
             layout(location = 2) in vec3 l_tangents;
