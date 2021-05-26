@@ -23,24 +23,28 @@ namespace galaxy
 	{
 		void RenderSystem3D::update(core::World& world, const double dt)
 		{
+			static constexpr const auto SIZEOF_DIR_LIGHT = sizeof(light::Directional);
+			static constexpr const auto SIZEOF_PNT_LIGHT = sizeof(light::Point);
+			static constexpr const auto SIZEOF_SPT_LIGHT = sizeof(light::Spot);
+
 			RENDERER_3D().reserve_ssbo(1, world.query_count<components::DirectionLight>() * sizeof(light::Directional));
 			unsigned int counter = 0;
 			world.operate<components::DirectionLight>([&](const ecs::Entity entity, components::DirectionLight* dir_light) {
-				RENDERER_3D().sub_buffer_ssbo(1, counter * sizeof(light::Directional), 1, &dir_light->m_light);
+				RENDERER_3D().sub_buffer_ssbo(1, counter * SIZEOF_DIR_LIGHT, 1, &dir_light->m_light);
 				counter++;
 			});
 
 			RENDERER_3D().reserve_ssbo(2, world.query_count<components::PointLight>() * sizeof(light::Point));
 			counter = 0;
 			world.operate<components::PointLight>([&](const ecs::Entity entity, components::PointLight* point_light) {
-				RENDERER_3D().sub_buffer_ssbo(2, counter * sizeof(light::Point), 1, &point_light->m_light);
+				RENDERER_3D().sub_buffer_ssbo(2, counter * SIZEOF_PNT_LIGHT, 1, &point_light->m_light);
 				counter++;
 			});
 
 			RENDERER_3D().reserve_ssbo(3, world.query_count<components::SpotLight>() * sizeof(light::Spot));
 			counter = 0;
 			world.operate<components::SpotLight>([&](const ecs::Entity entity, components::SpotLight* spot_light) {
-				RENDERER_3D().sub_buffer_ssbo(3, counter * sizeof(light::Spot), 1, &spot_light->m_light);
+				RENDERER_3D().sub_buffer_ssbo(3, counter * SIZEOF_SPT_LIGHT, 1, &spot_light->m_light);
 				counter++;
 			});
 		}
