@@ -143,8 +143,8 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_FATAL, "Failed to complete geometry framebuffer: {0}.", reason);
 				}
 
-				glBindTexture(GL_TEXTURE_2D, 0);
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
+				glBindTexture(GL_TEXTURE_2D, 0);
 				m_shader.unbind();
 			}
 		}
