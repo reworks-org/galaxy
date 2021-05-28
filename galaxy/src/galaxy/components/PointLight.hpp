@@ -49,6 +49,63 @@ namespace galaxy
 			virtual ~PointLight() noexcept = default;
 
 			///
+			/// Set intensity of ambient light.
+			///
+			/// \param x X axis intensity.
+			/// \param y Y axis intensity.
+			/// \param z Z axis intensity.
+			///
+			void set_ambient_intensity(const float x, const float y, const float z) noexcept;
+
+			///
+			/// Set intensity of diffuse light.
+			///
+			/// \param x X axis intensity.
+			/// \param y Y axis intensity.
+			/// \param z Z axis intensity.
+			///
+			void set_diffuse_intensity(const float x, const float y, const float z) noexcept;
+
+			///
+			/// Set intensity of specular light.
+			///
+			/// \param x X axis intensity.
+			/// \param y Y axis intensity.
+			/// \param z Z axis intensity.
+			///
+			void set_specular_intensity(const float x, const float y, const float z) noexcept;
+
+			///
+			/// Set position of the light.
+			///
+			/// \param x X axis.
+			/// \param y Y axis.
+			/// \param z Z axis.
+			///
+			void set_pos(const float x, const float y, const float z) noexcept;
+
+			///
+			/// Set dirty flag.
+			///
+			void set_dirty() noexcept;
+
+			///
+			/// \brief Get pointlight data.
+			///
+			/// Resets IsDirty() flag.
+			///
+			/// \return Reference.
+			///
+			[[nodiscard]] light::Point& get_data() noexcept;
+
+			///
+			/// Has data been modified.
+			///
+			/// \return Const bool.
+			///
+			[[nodiscard]] const bool is_dirty() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -73,7 +130,12 @@ namespace galaxy
 			///
 			PointLight& operator=(const PointLight&) = delete;
 
-		public:
+		private:
+			///
+			/// Is modified flag.
+			///
+			bool m_dirty;
+
 			///
 			/// GLSL compatible object.
 			///

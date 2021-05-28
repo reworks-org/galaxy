@@ -197,7 +197,7 @@ namespace galaxy
 			m_depth_tex = 0;
 		}
 
-		void GeomBuffer::clear_framebuffer()
+		void GeomBuffer::prepare() noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
@@ -210,9 +210,8 @@ namespace galaxy
 		void GeomBuffer::bind() noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-
-			glViewport(0, 0, m_width, m_height);
 			glDisable(GL_BLEND);
+			glViewport(0, 0, m_width, m_height);
 
 			m_shader.bind();
 		}

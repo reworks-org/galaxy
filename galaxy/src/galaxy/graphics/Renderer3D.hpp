@@ -15,6 +15,7 @@
 
 #include "galaxy/graphics/camera/Camera3D.hpp"
 #include "galaxy/graphics/GeomBuffer.hpp"
+#include "galaxy/graphics/ShadowMap.hpp"
 
 #define RENDERER_3D galaxy::graphics::Renderer3D::inst
 
@@ -74,32 +75,37 @@ namespace galaxy
 			void init(const int width, const int height);
 
 			///
+			/// Set lighting shader.
+			///
+			/// \param vs Vertex shader source.
+			/// \param fs Fragment shader source.
+			///
+			void add_lighting_shader(const std::string& vs, const std::string& fs);
+
+			///
 			/// Prepare framebuffer to recieve render commands.
 			///
 			void prepare() noexcept;
 
 			///
-			/// Bind to take render commands.
+			/// Bind ShadowMap.
 			///
-			void bind() noexcept;
+			void bind_shadowpass() noexcept;
+
+			///
+			/// Bind g-buffer.
+			///
+			void bind_geompass() noexcept;
 
 			///
 			/// Unbind and finish rendering.
 			///
-			void unbind() noexcept;
+			void unbind_passes() noexcept;
 
 			///
 			/// Render contents to active framebuffer.
 			///
 			void render();
-
-			///
-			/// Add post processing shader.
-			///
-			/// \param vs Vertex shader source.
-			/// \param fs Fragment shader source.
-			///
-			void add_renderpass(const std::string& vs, const std::string& fs);
 
 			///
 			/// Resize framebuffer.
@@ -129,7 +135,7 @@ namespace galaxy
 			/// \param index Index binding assigned to this UBO in shader(s).
 			/// \param size Size (in bytes) to reserve.
 			///
-			void reserve_ubo(const std::size_t index, const unsigned int size);
+			void reserve_ubo(const unsigned int index, const unsigned int size);
 
 			///
 			/// Reserve GPU memory for Uniform Buffer.
@@ -137,14 +143,14 @@ namespace galaxy
 			/// \param index Index binding assigned to this UBO in shader(s).
 			/// \param size Size (in bytes) to reserve.
 			///
-			void reserve_ssbo(const std::size_t index, const unsigned int size);
+			void reserve_ssbo(const unsigned int index, const unsigned int size);
 
 			///
 			/// Bind Uniform Buffer Object as active.
 			///
 			/// \param index Index binding assigned to this UBO in shader(s).
 			///
-			void bind_ubo(const std::size_t index);
+			void bind_ubo(const unsigned int index);
 
 			///
 			/// Unbind UBO.
@@ -156,7 +162,7 @@ namespace galaxy
 			///
 			/// \param index Index binding assigned to this SSBO in shader(s).
 			///
-			void bind_ssbo(const std::size_t index);
+			void bind_ssbo(const unsigned int index);
 
 			///
 			/// Unbind SSBO.
@@ -172,7 +178,7 @@ namespace galaxy
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>
-			void sub_buffer_ubo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data);
+			void sub_buffer_ubo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data);
 
 			///
 			/// Copy data into existing SSBO buffer.
@@ -183,7 +189,7 @@ namespace galaxy
 			/// \param data Data buffer to copy.
 			///
 			template<typename Type>
-			void sub_buffer_ssbo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data);
+			void sub_buffer_ssbo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data);
 
 			///
 			/// Recreate SSBO buffer and copy new data into it.
@@ -192,7 +198,7 @@ namespace galaxy
 			/// \param data Data buffer to assign.
 			///
 			template<typename Type>
-			void buffer_ssbo(const std::size_t index, std::span<Type> data);
+			void buffer_ssbo(const unsigned int index, std::span<Type> data);
 
 			///
 			/// Draw a mesh.
@@ -201,6 +207,13 @@ namespace galaxy
 			/// \param material Material to draw mesh with.
 			///
 			void draw_mesh_deferred(Mesh* mesh, light::Material* material);
+
+			///
+			/// Draw mesh shadows.
+			///
+			/// \param mesh Mesh to draw.
+			///
+			void draw_mesh_shadows(Mesh* mesh);
 
 			///
 			/// Draw skybox.
@@ -275,9 +288,14 @@ namespace galaxy
 			int m_bound_fb;
 
 			///
+			/// Shadowing.
+			///
+			ShadowMap m_shadowmap;
+
+			///
 			/// List of shaders to do render pass over.
 			///
-			std::vector<Shader> m_render_passes;
+			Shader m_light_pass;
 
 			///
 			/// Forward render calls.
@@ -294,7 +312,7 @@ namespace galaxy
 		}
 
 		template<typename Type>
-		inline void Renderer3D::sub_buffer_ubo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data)
+		inline void Renderer3D::sub_buffer_ubo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data)
 		{
 			bind_ubo(index);
 			glBufferSubData(GL_UNIFORM_BUFFER, offset, size * sizeof(Type), data);
@@ -302,7 +320,7 @@ namespace galaxy
 		}
 
 		template<typename Type>
-		inline void Renderer3D::sub_buffer_ssbo(const std::size_t index, const unsigned int offset, const unsigned int size, Type* data)
+		inline void Renderer3D::sub_buffer_ssbo(const unsigned int index, const unsigned int offset, const unsigned int size, Type* data)
 		{
 			bind_ssbo(index);
 			glBufferSubData(GL_SHADER_STORAGE_BUFFER, offset, size * sizeof(Type), data);
@@ -310,7 +328,7 @@ namespace galaxy
 		}
 
 		template<typename Type>
-		inline void Renderer3D::buffer_ssbo(const std::size_t index, std::span<Type> data)
+		inline void Renderer3D::buffer_ssbo(const unsigned int index, std::span<Type> data)
 		{
 			bind_ssbo(index);
 

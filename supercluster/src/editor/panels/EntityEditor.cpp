@@ -7,7 +7,6 @@
 
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/DirectionLight.hpp>
 #include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
 #include <galaxy/components/PointLight.hpp>
@@ -177,24 +176,6 @@ namespace sc
 							if (ImGui::Button(" - ##2"))
 							{
 								world.remove<components::Animated>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Directional Light");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##3"))
-							{
-								world.disable(entity);
-								world.create_component<components::DirectionLight>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##4"))
-							{
-								world.remove<components::DirectionLight>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -511,7 +492,6 @@ namespace sc
 			// clang-format off
 			auto [animated,
 				batchsprite,
-				directionlight,
 				model,
 				oncollision,
 				pointlight,
@@ -528,7 +508,6 @@ namespace sc
 			] = m_cur_instance->get_stack().top()->m_world.get_multi<
 				components::Animated,
 				components::BatchSprite,
-				components::DirectionLight,
 				components::Model,
 				components::OnCollision,
 				components::PointLight,
@@ -711,19 +690,6 @@ namespace sc
 					}
 				}
 
-				if (directionlight)
-				{
-					if (ImGui::BeginTabItem("Directional Light"))
-					{
-						ui::im_draw_class(directionlight->m_light.m_ambient_intensity, "Ambient");
-						ui::im_draw_class(directionlight->m_light.m_diffuse_intensity, "Diffuse");
-						ui::im_draw_class(directionlight->m_light.m_specular_intensity, "Specular");
-						ui::im_draw_class(directionlight->m_light.m_dir, "Direction");
-
-						ImGui::EndTabItem();
-					}
-				}
-
 				if (model)
 				{
 					if (ImGui::BeginTabItem("Model"))
@@ -761,10 +727,17 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Point Light"))
 					{
-						ui::im_draw_class(pointlight->m_light.m_ambient_intensity, "Ambient");
-						ui::im_draw_class(pointlight->m_light.m_diffuse_intensity, "Diffuse");
-						ui::im_draw_class(pointlight->m_light.m_specular_intensity, "Specular");
-						ui::im_draw_class(pointlight->m_light.m_pos, "Position");
+						int clicked = 0;
+
+						clicked += ui::im_draw_class(pointlight->get_data().m_ambient_intensity, "Ambient");
+						clicked += ui::im_draw_class(pointlight->get_data().m_diffuse_intensity, "Diffuse");
+						clicked += ui::im_draw_class(pointlight->get_data().m_specular_intensity, "Specular");
+						clicked += ui::im_draw_class(pointlight->get_data().m_pos, "Position");
+
+						if (static_cast<bool>(clicked))
+						{
+							pointlight->set_dirty();
+						}
 
 						ImGui::EndTabItem();
 					}
@@ -1074,14 +1047,21 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Spot Light"))
 					{
-						ui::im_draw_class(spotlight->m_light.m_ambient_intensity, "Ambient");
-						ui::im_draw_class(spotlight->m_light.m_diffuse_intensity, "Diffuse");
-						ui::im_draw_class(spotlight->m_light.m_specular_intensity, "Specular");
-						ui::im_draw_class(spotlight->m_light.m_pos, "Position");
-						ui::im_draw_class(spotlight->m_light.m_dir, "Direction");
+						int clicked = 0;
 
-						ImGui::InputFloat("Inner Cutoff", &spotlight->m_light.m_inner_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
-						ImGui::InputFloat("Outer Cutoff", &spotlight->m_light.m_outer_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+						clicked += ui::im_draw_class(spotlight->get_data().m_ambient_intensity, "Ambient");
+						clicked += ui::im_draw_class(spotlight->get_data().m_diffuse_intensity, "Diffuse");
+						clicked += ui::im_draw_class(spotlight->get_data().m_specular_intensity, "Specular");
+						clicked += ui::im_draw_class(spotlight->get_data().m_pos, "Position");
+						clicked += ui::im_draw_class(spotlight->get_data().m_dir, "Direction");
+
+						clicked += ImGui::InputFloat("Inner Cutoff", &spotlight->get_data().m_inner_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+						clicked += ImGui::InputFloat("Outer Cutoff", &spotlight->get_data().m_outer_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
+						if (static_cast<bool>(clicked))
+						{
+							pointlight->set_dirty();
+						}
 
 						ImGui::EndTabItem();
 					}

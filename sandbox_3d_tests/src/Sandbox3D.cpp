@@ -56,8 +56,12 @@ namespace s3d
 		m_scene->skybox().load(faces);
 		SL_HANDLE.window()->set_window_background({0, 0, 0, 255});
 
+		m_scene->light().set_dir(-0.2f, -1.0f, -0.3f);
+		m_scene->light().set_far(100.0f);
+		m_scene->light().set_target(0.0f, 0.0f, 1.0f);
+
 		m_scene->m_world.create_from_json("model.json");
-		m_scene->m_world.create_from_json("dir.json");
+
 		m_scene->m_world.create_from_json("point.json");
 		m_scene->m_world.create_from_json("spot.json");
 		m_scene_stack.push("Sandbox3DScene");

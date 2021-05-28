@@ -14,12 +14,34 @@ namespace galaxy
 	namespace components
 	{
 		SpotLight::SpotLight() noexcept
-		    : Serializable {this}
+		    : Serializable {this}, m_dirty {true}
 		{
+			m_light.m_ambient_intensity.x = 0.05f;
+			m_light.m_ambient_intensity.y = 0.05f;
+			m_light.m_ambient_intensity.z = 0.05f;
+
+			m_light.m_diffuse_intensity.x = 0.4f;
+			m_light.m_diffuse_intensity.y = 0.4f;
+			m_light.m_diffuse_intensity.z = 0.4f;
+
+			m_light.m_specular_intensity.x = 0.5f;
+			m_light.m_specular_intensity.y = 0.5f;
+			m_light.m_specular_intensity.z = 0.5f;
+
+			m_light.m_pos.x = 1.0f;
+			m_light.m_pos.y = 1.0f;
+			m_light.m_pos.z = 1.0f;
+
+			m_light.m_dir.x = 0.0f;
+			m_light.m_dir.y = 0.0f;
+			m_light.m_dir.z = 0.0f;
+
+			m_light.m_inner_cutoff = 12.5f;
+			m_light.m_outer_cutoff = 15.0f;
 		}
 
 		SpotLight::SpotLight(const nlohmann::json& json)
-		    : Serializable {this}
+		    : Serializable {this}, m_dirty {true}
 		{
 			deserialize(json);
 		}
@@ -27,6 +49,7 @@ namespace galaxy
 		SpotLight::SpotLight(SpotLight&& sl) noexcept
 		    : Serializable {this}
 		{
+			this->m_dirty                      = sl.m_dirty;
 			this->m_light.m_ambient_intensity  = std::move(sl.m_light.m_ambient_intensity);
 			this->m_light.m_diffuse_intensity  = std::move(sl.m_light.m_diffuse_intensity);
 			this->m_light.m_specular_intensity = std::move(sl.m_light.m_specular_intensity);
@@ -40,6 +63,7 @@ namespace galaxy
 		{
 			if (this != &sl)
 			{
+				this->m_dirty                      = sl.m_dirty;
 				this->m_light.m_ambient_intensity  = std::move(sl.m_light.m_ambient_intensity);
 				this->m_light.m_diffuse_intensity  = std::move(sl.m_light.m_diffuse_intensity);
 				this->m_light.m_specular_intensity = std::move(sl.m_light.m_specular_intensity);
@@ -50,6 +74,64 @@ namespace galaxy
 			}
 
 			return *this;
+		}
+
+		void SpotLight::set_ambient_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                     = true;
+			m_light.m_ambient_intensity = {x, y, z};
+		}
+
+		void SpotLight::set_diffuse_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                     = true;
+			m_light.m_diffuse_intensity = {x, y, z};
+		}
+
+		void SpotLight::set_specular_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                      = true;
+			m_light.m_specular_intensity = {x, y, z};
+		}
+
+		void SpotLight::set_pos(const float x, const float y, const float z) noexcept
+		{
+			m_dirty       = true;
+			m_light.m_pos = {x, y, z};
+		}
+
+		void SpotLight::set_dir(const float x, const float y, const float z) noexcept
+		{
+			m_dirty       = true;
+			m_light.m_dir = {x, y, z};
+		}
+
+		void SpotLight::set_inner_cutoff(const float angle) noexcept
+		{
+			m_dirty                = true;
+			m_light.m_inner_cutoff = angle;
+		}
+
+		void SpotLight::set_outer_cutoff(const float angle) noexcept
+		{
+			m_dirty                = true;
+			m_light.m_outer_cutoff = angle;
+		}
+
+		void SpotLight::set_dirty() noexcept
+		{
+			m_dirty = true;
+		}
+
+		light::Spot& SpotLight::get_data() noexcept
+		{
+			m_dirty = false;
+			return m_light;
+		}
+
+		const bool SpotLight::is_dirty() const noexcept
+		{
+			return m_dirty;
 		}
 
 		nlohmann::json SpotLight::serialize()

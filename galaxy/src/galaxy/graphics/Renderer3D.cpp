@@ -12,7 +12,6 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/graphics/Mesh.hpp"
 #include "galaxy/graphics/Skybox.hpp"
-#include "galaxy/graphics/light/Directional.hpp"
 #include "galaxy/graphics/light/Material.hpp"
 #include "galaxy/graphics/light/Spot.hpp"
 #include "galaxy/graphics/light/Object.hpp"
@@ -170,25 +169,42 @@ namespace galaxy
 				m_hbao_params.SmallScaleAO                     = 1.0f;
 
 				m_hbao_output.Blend.Mode = GFSDK_SSAO_OVERWRITE_RGB;
-
 				m_hbao_context->PreCreateFBOs(m_hbao_params, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 			}
 		}
 
-		void Renderer3D::prepare() noexcept
+		void Renderer3D::add_lighting_shader(const std::string& vs, const std::string& fs)
 		{
-			m_gbuffer.clear_framebuffer();
+			m_light_pass.load_raw(vs, fs);
+			m_light_pass.bind();
+			m_light_pass.set_uniform("u_pos", 0);
+			m_light_pass.set_uniform("u_diffuse", 1);
+			m_light_pass.set_uniform("u_specular", 2);
+			m_light_pass.set_uniform("u_normals", 3);
+			m_light_pass.set_uniform("u_shadowmap", 4);
+			m_light_pass.unbind();
 		}
 
-		void Renderer3D::bind() noexcept
+		void Renderer3D::prepare() noexcept
 		{
-			// Geometry pass.
+			m_shadowmap.prepare();
+			m_gbuffer.prepare();
+		}
+
+		void Renderer3D::bind_shadowpass() noexcept
+		{
+			m_shadowmap.bind();
+		}
+
+		void Renderer3D::bind_geompass() noexcept
+		{
 			m_gbuffer.bind();
 		}
 
-		void Renderer3D::unbind() noexcept
+		void Renderer3D::unbind_passes() noexcept
 		{
-			m_gbuffer.unbind();
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glUseProgram(0);
 		}
 
 		void Renderer3D::render()
@@ -198,26 +214,32 @@ namespace galaxy
 			m_hbao_context->RenderAO(m_hbao_inputdata, m_hbao_params, m_hbao_output, GFSDK_SSAO_RENDER_AO);
 
 			glBindVertexArray(m_screen_vao);
-			const auto& atchmnts = m_gbuffer.get_attachments();
+			const auto& attachments = m_gbuffer.get_attachments();
 
 			// Lighting Texture Pass.
-			for (auto index = 0; index < atchmnts.size(); index++)
+			int index = 0;
+			for (auto& texture : attachments)
 			{
 				glActiveTexture(GL_TEXTURE0 + index);
-				glBindTexture(GL_TEXTURE_2D, atchmnts[index]);
+				glBindTexture(GL_TEXTURE_2D, texture);
+
+				index++;
 			}
+
+			glActiveTexture(GL_TEXTURE0 + index);
+			glBindTexture(GL_TEXTURE_2D, m_shadowmap.get_texture());
+			index++;
 
 			// Lighting Shader Pass.
-			for (auto& shader : m_render_passes)
-			{
-				shader.bind();
-				glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-			}
+			m_light_pass.bind();
+			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-			for (int index = (atchmnts.size() - 1); index > -1; --index)
+			while (index >= 0)
 			{
 				glActiveTexture(GL_TEXTURE0 + index);
 				glBindTexture(GL_TEXTURE_2D, 0);
+
+				index--;
 			}
 
 			glUseProgram(0);
@@ -234,27 +256,13 @@ namespace galaxy
 			// clang-format on
 		}
 
-		void Renderer3D::add_renderpass(const std::string& vs, const std::string& fs)
-		{
-			auto& back = m_render_passes.emplace_back(Shader {});
-			back.load_raw(vs, fs);
-			back.bind();
-
-			back.set_uniform("u_pos", 0);
-			back.set_uniform("u_diffuse", 1);
-			back.set_uniform("u_specular", 2);
-			back.set_uniform("u_normals", 3);
-
-			back.unbind();
-		}
-
 		void Renderer3D::resize(const int width, const int height)
 		{
 			m_gbuffer.resize(width, height);
-			m_hbao_context->PreCreateFBOs(m_hbao_params, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+			m_hbao_context->PreCreateFBOs(m_hbao_params, width, height);
 		}
 
-		void Renderer3D::reserve_ssbo(const std::size_t index, const unsigned int size)
+		void Renderer3D::reserve_ssbo(const unsigned int index, const unsigned int size)
 		{
 			bind_ssbo(index);
 
@@ -280,7 +288,7 @@ namespace galaxy
 			m_forward_calls.clear();
 		}
 
-		void Renderer3D::reserve_ubo(const std::size_t index, const unsigned int size)
+		void Renderer3D::reserve_ubo(const unsigned int index, const unsigned int size)
 		{
 			bind_ubo(index);
 
@@ -296,9 +304,9 @@ namespace galaxy
 			unbind_ubo();
 		}
 
-		void Renderer3D::bind_ubo(const std::size_t index)
+		void Renderer3D::bind_ubo(const unsigned int index)
 		{
-			if ((index + 1) > m_buffers.size())
+			if ((static_cast<std::size_t>(index) + 1) > m_buffers.size())
 			{
 				unsigned int buff = 0;
 
@@ -306,7 +314,7 @@ namespace galaxy
 				glBindBuffer(GL_UNIFORM_BUFFER, buff);
 				glBindBufferBase(GL_UNIFORM_BUFFER, index, buff);
 
-				m_buffers.resize(index + 1, 0);
+				m_buffers.resize(static_cast<std::size_t>(index) + 1, 0);
 				m_buffers[index] = buff;
 			}
 			else
@@ -320,9 +328,9 @@ namespace galaxy
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void Renderer3D::bind_ssbo(const std::size_t index)
+		void Renderer3D::bind_ssbo(const unsigned int index)
 		{
-			if ((index + 1) > m_buffers.size())
+			if ((static_cast<std::size_t>(index) + 1) > m_buffers.size())
 			{
 				unsigned int buff = 0;
 
@@ -330,7 +338,7 @@ namespace galaxy
 				glBindBuffer(GL_SHADER_STORAGE_BUFFER, buff);
 				glBindBufferBase(GL_SHADER_STORAGE_BUFFER, index, buff);
 
-				m_buffers.resize(index + 1, 0);
+				m_buffers.resize(static_cast<std::size_t>(index) + 1, 0);
 				m_buffers[index] = buff;
 			}
 			else
@@ -346,8 +354,6 @@ namespace galaxy
 
 		void Renderer3D::draw_mesh_deferred(Mesh* mesh, light::Material* material)
 		{
-			SL_HANDLE.window()->enable_back_cull();
-
 			mesh->bind();
 
 			if (material->m_use_diffuse_texture)
@@ -388,6 +394,12 @@ namespace galaxy
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		void Renderer3D::draw_mesh_shadows(Mesh* mesh)
+		{
+			mesh->bind();
+			glDrawElements(GL_TRIANGLES, mesh->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer3D::draw(Skybox* skybox, Shader* shader)

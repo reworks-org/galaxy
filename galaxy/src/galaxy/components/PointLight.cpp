@@ -12,12 +12,27 @@ namespace galaxy
 	namespace components
 	{
 		PointLight::PointLight() noexcept
-		    : Serializable {this}
+		    : Serializable {this}, m_dirty {true}
 		{
+			m_light.m_ambient_intensity.x = 0.05f;
+			m_light.m_ambient_intensity.y = 0.05f;
+			m_light.m_ambient_intensity.z = 0.05f;
+
+			m_light.m_diffuse_intensity.x = 0.4f;
+			m_light.m_diffuse_intensity.y = 0.4f;
+			m_light.m_diffuse_intensity.z = 0.4f;
+
+			m_light.m_specular_intensity.x = 0.5f;
+			m_light.m_specular_intensity.y = 0.5f;
+			m_light.m_specular_intensity.z = 0.5f;
+
+			m_light.m_pos.x = 1.0f;
+			m_light.m_pos.y = 1.0f;
+			m_light.m_pos.z = 1.0f;
 		}
 
 		PointLight::PointLight(const nlohmann::json& json)
-		    : Serializable {this}
+		    : Serializable {this}, m_dirty {true}
 		{
 			deserialize(json);
 		}
@@ -25,6 +40,7 @@ namespace galaxy
 		PointLight::PointLight(PointLight&& pl) noexcept
 		    : Serializable {this}
 		{
+			this->m_dirty                      = pl.m_dirty;
 			this->m_light.m_ambient_intensity  = std::move(pl.m_light.m_ambient_intensity);
 			this->m_light.m_diffuse_intensity  = std::move(pl.m_light.m_diffuse_intensity);
 			this->m_light.m_specular_intensity = std::move(pl.m_light.m_specular_intensity);
@@ -35,6 +51,7 @@ namespace galaxy
 		{
 			if (this != &pl)
 			{
+				this->m_dirty                      = pl.m_dirty;
 				this->m_light.m_ambient_intensity  = std::move(pl.m_light.m_ambient_intensity);
 				this->m_light.m_diffuse_intensity  = std::move(pl.m_light.m_diffuse_intensity);
 				this->m_light.m_specular_intensity = std::move(pl.m_light.m_specular_intensity);
@@ -42,6 +59,46 @@ namespace galaxy
 			}
 
 			return *this;
+		}
+
+		void PointLight::set_ambient_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                     = true;
+			m_light.m_ambient_intensity = {x, y, z};
+		}
+
+		void PointLight::set_diffuse_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                     = true;
+			m_light.m_diffuse_intensity = {x, y, z};
+		}
+
+		void PointLight::set_specular_intensity(const float x, const float y, const float z) noexcept
+		{
+			m_dirty                      = true;
+			m_light.m_specular_intensity = {x, y, z};
+		}
+
+		void PointLight::set_pos(const float x, const float y, const float z) noexcept
+		{
+			m_dirty       = true;
+			m_light.m_pos = {x, y, z};
+		}
+
+		void PointLight::set_dirty() noexcept
+		{
+			m_dirty = true;
+		}
+
+		light::Point& PointLight::get_data() noexcept
+		{
+			m_dirty = false;
+			return m_light;
+		}
+
+		const bool PointLight::is_dirty() const noexcept
+		{
+			return m_dirty;
 		}
 
 		nlohmann::json PointLight::serialize()

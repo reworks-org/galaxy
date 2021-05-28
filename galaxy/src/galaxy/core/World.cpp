@@ -9,7 +9,6 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
-#include "galaxy/components/DirectionLight.hpp"
 #include "galaxy/components/Model.hpp"
 #include "galaxy/components/OnCollision.hpp"
 #include "galaxy/components/PointLight.hpp"
@@ -47,7 +46,6 @@ namespace galaxy
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");
-			register_component<components::DirectionLight>("DirectionLight");
 			register_component<components::Model>("Model");
 			register_component<components::OnCollision>("OnCollision");
 			register_component<components::PointLight>("PointLight");
@@ -231,7 +229,6 @@ namespace galaxy
 
 					auto [animated,
 						batchsprite,
-						directionlight,
 						model,
 						oncollision,
 						pointlight,
@@ -248,7 +245,6 @@ namespace galaxy
 					] = get_multi<
 						components::Animated,
 						components::BatchSprite,
-						components::DirectionLight,
 						components::Model,
 						components::OnCollision,
 						components::PointLight,
@@ -273,11 +269,6 @@ namespace galaxy
 					if (batchsprite)
 					{
 						entity_json["components"]["BatchSprite"] = batchsprite->serialize();
-					}
-
-					if (directionlight)
-					{
-						entity_json["components"]["DirectionLight"] = directionlight->serialize();
 					}
 
 					if (model)

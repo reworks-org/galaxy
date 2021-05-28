@@ -9,6 +9,7 @@
 #define GALAXY_SCENES_SCENE3D_HPP_
 
 #include "galaxy/graphics/camera/Camera3D.hpp"
+#include "galaxy/graphics/light/Direction.hpp"
 #include "galaxy/graphics/Skybox.hpp"
 #include "galaxy/scenes/Scene.hpp"
 
@@ -81,6 +82,13 @@ namespace galaxy
 			[[nodiscard]] graphics::Skybox& skybox() noexcept;
 
 			///
+			/// Get global light.
+			///
+			/// \return Reference to scene directional light.
+			///
+			[[nodiscard]] graphics::DirectionLight& light() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -110,6 +118,11 @@ namespace galaxy
 			/// Scene skybox.
 			///
 			graphics::Skybox m_skybox;
+
+			///
+			/// Scene light.
+			///
+			graphics::DirectionLight m_light;
 		};
 	} // namespace scene
 } // namespace galaxy

@@ -43,7 +43,15 @@ namespace galaxy
 			void update(core::World& world, const double dt) override;
 
 			///
-			/// Render sprites / textures to screen.
+			/// Render shadows.
+			///
+			/// \param world Game World containing entities.
+			/// \param camera Camera used for rendering.
+			///
+			void render_shadows(core::World& world, graphics::Camera3D& camera);
+
+			///
+			/// Render models.
 			///
 			/// \param world Game World containing entities.
 			/// \param camera Camera used for rendering.

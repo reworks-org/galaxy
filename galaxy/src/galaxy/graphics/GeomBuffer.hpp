@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// Clear framebuffer contents.
 			///
-			void clear_framebuffer();
+			void prepare() noexcept;
 
 			///
 			/// Bind gbuffer for rendering to.

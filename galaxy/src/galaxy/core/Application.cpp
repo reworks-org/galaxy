@@ -197,7 +197,9 @@ namespace galaxy
 				RENDERER_3D().get_gbuffer().create();
 				RENDERER_3D().init(m_window->get_width(), m_window->get_height());
 				RENDERER_3D().reserve_ubo(0, sizeof(graphics::Camera3D::Data));
-				RENDERER_3D().add_renderpass(shaders::blinnphong_vert, shaders::blinnphong_frag);
+
+				const auto r3d_light_frag = std::format("{0}{1}{2}", shaders::blinnphong_frag_1, shaders::blinnphong_frag_2, shaders::blinnphong_frag_3);
+				RENDERER_3D().add_lighting_shader(shaders::blinnphong_vert, r3d_light_frag);
 
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));

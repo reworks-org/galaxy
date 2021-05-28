@@ -18,32 +18,37 @@ namespace galaxy
 	namespace ui
 	{
 		template<meta::is_class Type>
-		void im_draw_class(Type& value, const char* label = "");
+		[[maybe_unused]] const bool im_draw_class(Type& value, const char* label = "");
 
 		template<meta::is_class Type>
-		void im_draw_class(Type& value, const char* label)
+		const bool im_draw_class(Type& value, const char* label)
 		{
 			static_assert("Unsupported class type.");
+			return false;
 		}
 
 		template<>
-		void im_draw_class(glm::vec3& value, const char* label)
+		const bool im_draw_class(glm::vec3& value, const char* label)
 		{
+			int clicked = 0;
+
 			if (std::strlen(label) > 0)
 			{
 				ImGui::Text(label);
 			}
 
 			ImGui::SetNextItemWidth(60.0f);
-			ImGui::InputFloat("X", &value.x, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+			clicked += ImGui::InputFloat("X", &value.x, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(60.0f);
-			ImGui::InputFloat("Y", &value.y, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+			clicked += ImGui::InputFloat("Y", &value.y, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(60.0f);
-			ImGui::InputFloat("Z", &value.z, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+			clicked += ImGui::InputFloat("Z", &value.z, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
+			return static_cast<bool>(clicked);
 		}
 	} // namespace ui
 } // namespace galaxy

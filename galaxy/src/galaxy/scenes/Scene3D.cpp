@@ -65,10 +65,22 @@ namespace galaxy
 
 		void Scene3D::render()
 		{
+			if (m_light.is_dirty())
+			{
+				static constexpr const auto SIZEOF_DIR_LIGHT = sizeof(light::Directional);
+
+				RENDERER_3D().reserve_ssbo(1, SIZEOF_DIR_LIGHT);
+				RENDERER_3D().sub_buffer_ssbo(1, 0, 1, &m_light.get_data());
+			}
+
 			RENDERER_3D().sub_buffer_ubo(0, 0, 1, &m_camera.get_data());
+
 			RENDERER_3D().forward_render(&m_skybox, SL_HANDLE.shaderbook()->get("skybox"));
 
-			RENDERER_3D().bind();
+			RENDERER_3D().bind_shadowpass();
+			m_world.get_system<systems::RenderSystem3D>()->render_shadows(m_world, m_camera);
+
+			RENDERER_3D().bind_geompass();
 			m_world.get_system<systems::RenderSystem3D>()->render(m_world, m_camera);
 
 			RENDERER_2D().bind();
@@ -85,6 +97,11 @@ namespace galaxy
 			return m_skybox;
 		}
 
+		graphics::DirectionLight& Scene3D::light() noexcept
+		{
+			return m_light;
+		}
+
 		nlohmann::json Scene3D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
@@ -96,6 +113,7 @@ namespace galaxy
 			json["theme"]  = m_gui_theme.serialize();
 			json["gui"]    = m_gui.serialize();
 			json["skybox"] = m_skybox.serialize();
+			json["light"]  = m_light.serialize();
 
 			return json;
 		}
@@ -107,6 +125,7 @@ namespace galaxy
 			m_camera.deserialize(json.at("camera"));
 			m_world.deserialize(json.at("world"));
 			m_skybox.deserialize(json.at("skybox"));
+			m_light.deserialize(json.at("light"));
 
 			m_gui_theme.deserialize(json.at("theme"));
 			m_gui.set_theme(&m_gui_theme);

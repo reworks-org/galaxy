@@ -10,7 +10,6 @@
 #include <galaxy/algorithm/Algorithm.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/DirectionLight.hpp>
 #include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
 #include <galaxy/components/PointLight.hpp>
@@ -684,17 +683,6 @@ namespace sc
 								world.create_component<components::Model>(entity);
 								world.create_component<components::Tag>(entity);
 								world.create_component<components::Transform3D>(entity);
-
-								world.disable(entity);
-								world.set_flag<flags::AllowSerialize>(entity);
-							}
-
-							if (ImGui::MenuItem("  Directional Light"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::DirectionLight>(entity);
 
 								world.disable(entity);
 								world.set_flag<flags::AllowSerialize>(entity);

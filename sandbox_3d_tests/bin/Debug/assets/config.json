@@ -27,6 +27,7 @@
     "raw-mouse-input": true,
     "scriptbook-json": "scriptbook.json",
     "shaderbook-json": "shaderbook.json",
+    "shadow-size": 1024,
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
     "textureatlas-json": "textureatlas.json",
@@ -34,6 +35,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox 3D Tests",
-    "window-width": 1280,
-    "shadow-size": 1024
+    "window-width": 1280
 }
