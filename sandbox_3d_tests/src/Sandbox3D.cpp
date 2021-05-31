@@ -61,7 +61,7 @@ namespace s3d
 		m_scene->light().set_target(0.0f, 0.0f, 1.0f);
 
 		m_scene->m_world.create_from_json("model.json");
-
+		m_scene->m_world.create_from_json("floor.json");
 		m_scene->m_world.create_from_json("point.json");
 		m_scene->m_world.create_from_json("spot.json");
 		m_scene_stack.push("Sandbox3DScene");
