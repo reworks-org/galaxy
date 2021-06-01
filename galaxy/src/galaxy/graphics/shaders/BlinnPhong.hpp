@@ -494,6 +494,9 @@ namespace galaxy
             vec3 calc_point(PointLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess);
             vec3 calc_spot(SpotLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess);
 
+            // Parallax mapping.
+            vec2 parallax_map(vec2 texels, vec3 view_dir);
+
             // Percentage-Close Soft Shadows calc.
             float search_region_radius_uv(float z);
             float penumbra_radius_uv(float zReceiver, float zBlocker);
@@ -562,12 +565,7 @@ namespace galaxy
 	            vec3 diffuse  = light.diffuse_intensity * diff * diff_tex.rgb;
 	            vec3 specular = mix(light.specular_intensity, vec3(1.0), fresnel) * spec * spec_map;
 
-                // Rim lighting.
-                float rim_intensity = dot(view_dir, normal);
-                rim_intensity = max(0.0, 1.0 - rim_intensity);
-                vec3 rim_light = smoothstep(0.3, 0.4, rim_intensity) * diffuse;
-
-	            return ambient + diffuse + specular + rim_light;
+	            return ambient + diffuse + specular;
             }
 
             vec3 calc_point(PointLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess)
@@ -594,12 +592,7 @@ namespace galaxy
 	            diffuse *= attenuation;
 	            specular *= attenuation;
 
-	            // Rim lighting.
-                float rim_intensity = dot(view_dir, normal);
-                rim_intensity = max(0.0, 1.0 - rim_intensity);
-                vec3 rim_light = smoothstep(0.3, 0.4, rim_intensity) * diffuse;
-
-	            return ambient + diffuse + specular + rim_light;
+	            return ambient + diffuse + specular;
             }
 
             vec3 calc_spot(SpotLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess)
@@ -629,12 +622,11 @@ namespace galaxy
 	            diffuse *= attenuation * intensity;
 	            specular *= attenuation * intensity;
 
-	             // Rim lighting.
-                float rim_intensity = dot(view_dir, normal);
-                rim_intensity = max(0.0, 1.0 - rim_intensity);
-                vec3 rim_light = smoothstep(0.3, 0.4, rim_intensity) * diffuse;
+	            return ambient + diffuse + specular;
+            }
 
-	            return ambient + diffuse + specular + rim_light;
+            vec2 parallax_map(vec2 texels, vec3 view_dir)
+            {
             }
 
             // Using similar triangles from the surface point to the area light.
