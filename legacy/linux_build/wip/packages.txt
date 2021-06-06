@@ -1,0 +1,10 @@
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt upgrade
+
+make
+perl
+build-essential
+gcc
+gcc-11
+cmake
