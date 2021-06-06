@@ -1,3 +1,8 @@
+CONTINOUS:
+- Fix Code Analysis warnings.
+- Fix Compilation warnings.
+- Fix Doxygen errors.
+
 SUPERCLUSTER:
 - physics tools (rigidbody tools).
 - documentation
@@ -10,53 +15,8 @@ SUPERCLUSTER:
 - hotkeys
 
 TODO:
-- C# Scripting using Mono and Monodevelop/VSCode.
-- Fix CA and Compilation Warnings.
-- Docs error fix.
-- Dependencies should only abstract away system specific implementations.
-- Loading state support?
-	- Initial loading screen after window service is created, before other services.
-- AI
 - Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
 	- Log if u try without them.
 - create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
 	- component default data should safely create a component, no crash.
-- further rendersystem improvements
 convert type classes to enums (log, vertexs, etc...).
-- fix audio encapsulation / scene integration
-	- since its threaded
-- async log
-- z ordering in spritebatches / in general / rendersystem / etc
-- texture tooltip
-- for scene push/pop run lua script?
-- particle gen
-- custom textureatlas data preserved when reloading.
-- fix map reloading.
-
-Deferred Rendering:
-- Anti-Aliasing
-- Gamma Correction
-- Temporal Anti-Aliasing
-    - When PBR is done
-
-- Model Loader needs to support texture coords outside of [0, 1].
-- Model loader needs to determine to use height or normals for assimp normal maps.
-- Fix bugs in hot reload system.
-- Update unit test|s, sandbox tests and script support for new content.
-- Add option for World::OPerate() to be run in parallell. Only contents of lambda is parallell.
-- Reflection Mapping https://learnopengl.com/Advanced-OpenGL/Cubemaps
-	- Environment Mapping 
-		- Reflection
-		- Refraction
-- Geometry Shading https://learnopengl.com/Advanced-OpenGL/Geometry-Shader
-- Instancing (particles) https://learnopengl.com/Advanced-OpenGL/Instancing
-	- Instance Rendering for 3D
-- Shadows https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
-- Fix usage of GL_DYNAMIC_DRAW vs GL_STATIC_DRAW
-- BLOOM https://learnopengl.com/Advanced-Lighting/Bloom
-- HDR https://learnopengl.com/Advanced-Lighting/HDR
-
-- Place into shader buckets, sorted by process (works in hand with deffered rendering)
-- then in each bucket sort by material
-- do this in parallell
-https://blog.molecular-matters.com/2014/12/16/stateless-layered-multi-threaded-rendering-part-3-api-design-details/

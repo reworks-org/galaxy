@@ -26,11 +26,9 @@ https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 
-https://github.com/iryoku/smaa
 https://github.com/rokups/ImNodes
 
-https://gamedev.stackexchange.com/questions/153848/how-do-i-set-up-9-slicing-in-opengl
-https://www.gamedev.net/forums/topic/696879-glsl-9-slicing/
+
 
 https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
 https://github.com/EQMG/Acid
@@ -60,13 +58,6 @@ https://gamedev.stackexchange.com/questions/181304/ecs-as-part-of-the-rendering-
 https://old.reddit.com/r/gamedev/comments/8pkol6/create_a_game_engine_that_can_export_an_executable/
 https://gamedev.net/forums/topic/563740-in-game-editor-vs-separate-editor/4611826/
 https://gamedev.stackexchange.com/questions/17331/game-engine-and-data-driven-design
-
-https://www.mono-project.com/docs/advanced/embedding/
-https://github.com/ocornut/imgui/wiki/Useful-Widgets#text-editors
-https://docs.unity3d.com/560/Documentation/Manual/MonoDevelop.html
-https://docs.unity3d.com/Manual/ManagedCodeDebugging.html
-https://docs.godotengine.org/en/stable/getting_started/step_by_step/scenes_and_nodes.html
-https://docs.godotengine.org/en/stable/index.html
 
 https://www.khronos.org/opengl/wiki/Shader_Subroutine
 https://www.lighthouse3d.com/tutorials/glsl-tutorial/subroutines/
