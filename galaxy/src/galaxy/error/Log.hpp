@@ -14,8 +14,6 @@
 #include <fstream>
 #include <source_location>
 
-#include "galaxy/error/LogLevel.hpp"
-
 // clang-format off
 
 ///
@@ -38,27 +36,27 @@
 ///
 /// INFO log level macro shortcut.
 ///
-#define GALAXY_INFO galaxy::error::level::Info
+#define GALAXY_INFO galaxy::error::Level::INFO
 
 ///
 /// DEBUG log level macro shortcut.
 ///
-#define GALAXY_DEBUG galaxy::error::level::Debug
+#define GALAXY_DEBUG galaxy::error::Level::DEBUG
 
 ///
 /// WARNING log level macro shortcut.
 ///
-#define GALAXY_WARNING galaxy::error::level::Warning
+#define GALAXY_WARNING galaxy::error::Level::WARNING
 
 ///
 /// ERROR log level macro shortcut.
 ///
-#define GALAXY_ERROR galaxy::error::level::Error
+#define GALAXY_ERROR galaxy::error::Level::ERROR_
 
 ///
 /// FATAL log level macro shortcut.
 ///
-#define GALAXY_FATAL galaxy::error::level::Fatal
+#define GALAXY_FATAL galaxy::error::Level::FATAL
 
 ///
 /// Macro shortcut with variadic arguments.
@@ -82,6 +80,37 @@ namespace galaxy
 {
 	namespace error
 	{
+		///
+		/// Different levels of error messaging.
+		///
+		enum class Level : short
+		{
+			///
+			/// Info Log Level.
+			///
+			INFO = 0,
+
+			///
+			/// Debug Log Level.
+			///
+			DEBUG = 1,
+
+			///
+			/// Warning Log Level.
+			///
+			WARNING = 2,
+
+			///
+			/// Error Log Level.
+			///
+			ERROR_ = 3,
+
+			///
+			/// Fatal Log Level.
+			///
+			FATAL = 4
+		};
+
 		///
 		/// Log logging class.
 		/// Uses multithreading.
@@ -118,7 +147,7 @@ namespace galaxy
 			///
 			/// \param ostream Custom stream to output to.
 			///
-			void change_stream(std::ostream& ostream);
+			void change_stream(std::ostream& ostream) noexcept;
 
 			///
 			/// Log a message.
@@ -126,7 +155,7 @@ namespace galaxy
 			/// \param message Message to log.
 			/// \param args std::format supported arguments to be formatted into a string.
 			///
-			template<loglevel_type LogLevel, typename... MsgInputs>
+			template<Level log_level, typename... MsgInputs>
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
 			///
@@ -134,14 +163,14 @@ namespace galaxy
 			///
 			/// In order to only print and log levels greater than or equal to the current log message level.
 			///
-			template<loglevel_type LogLevel>
+			template<Level log_level>
 			void set_min_level() noexcept;
 
 		private:
 			///
 			/// Constructor.
 			///
-			Log() noexcept;
+			Log();
 
 			///
 			/// Copy constructor.
@@ -177,103 +206,62 @@ namespace galaxy
 			///
 			/// Minimum level of messages required to be logged.
 			///
-			int m_min_level;
+			Level m_min_level;
 
 			///
-			/// Check if started.
+			/// Flag to check if start() has been called.
 			///
 			bool m_started;
 		};
 
-		///
-		/// Convert log message level to a string.
-		///
-		/// \param level Level to convert.
-		///
-		/// \return std::string, in caps.
-		///
-		template<loglevel_type LogLevel>
-		[[nodiscard]] inline constexpr const char* const process_level() noexcept
-		{
-			if constexpr (LogLevel::value == level::Info::value)
-			{
-				constexpr const char* const out = "INFO";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Debug::value)
-			{
-				constexpr const char* const out = "DEBUG";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Warning::value)
-			{
-				constexpr const char* const out = "WARNING";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Error::value)
-			{
-				constexpr const char* const out = "ERROR";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Fatal::value)
-			{
-				constexpr const char* const out = "FATAL";
-				return out;
-			}
-			else
-			{
-				return nullptr;
-			}
-		}
-
-		///
-		/// Colourizes the terminal text based on the log message level.
-		///
-		/// \param level Level to use when selecting colour.
-		///
-		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
-		///
-		template<loglevel_type LogLevel>
-		[[nodiscard]] inline constexpr const char* const process_colour() noexcept
-		{
-			if constexpr (LogLevel::value == level::Info::value)
-			{
-				constexpr const char* const out = "\x1B[37m";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Debug::value)
-			{
-				constexpr const char* const out = "\x1B[37m";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Warning::value)
-			{
-				constexpr const char* const out = "\x1B[33m";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Error::value)
-			{
-				constexpr const char* const out = "\x1B[31m";
-				return out;
-			}
-			else if constexpr (LogLevel::value == level::Fatal::value)
-			{
-				constexpr const char* const out = "\x1B[31m";
-				return out;
-			}
-			else
-			{
-				return nullptr;
-			}
-		}
-
-		template<loglevel_type LogLevel, typename... MsgInputs>
+		template<Level log_level, typename... MsgInputs>
 		inline void Log::log(const std::source_location& loc, std::string_view message, const MsgInputs&... args)
 		{
-			if ((LogLevel::value >= m_min_level) && m_started)
+			if ((log_level >= m_min_level) && m_started)
 			{
-				constexpr const char* const colour = process_colour<LogLevel>();
-				constexpr const char* const level  = process_level<LogLevel>();
+				static std::string colour {""};
+				static std::string level {""};
+
+				if constexpr (log_level == Level::INFO)
+				{
+					static const std::string l_info("INFO");
+					static const std::string c_info("\x1B[37m");
+
+					level  = l_info;
+					colour = c_info;
+				}
+				else if constexpr (log_level == Level::DEBUG)
+				{
+					static const std::string l_debug {"DEBUG"};
+					static const std::string c_debug {"\x1B[37m"};
+
+					level  = l_debug;
+					colour = c_debug;
+				}
+				else if constexpr (log_level == Level::WARNING)
+				{
+					static const std::string l_warn {"WARNING"};
+					static const std::string c_warn {"\x1B[33m"};
+
+					level  = l_warn;
+					colour = c_warn;
+				}
+				else if constexpr (log_level == Level::ERROR_)
+				{
+					static const std::string l_err {"ERROR"};
+					static const std::string c_err {"\x1B[31m"};
+
+					level  = l_err;
+					colour = c_err;
+				}
+				else if constexpr (log_level == Level::FATAL)
+				{
+					static const std::string l_fatal {"FATAL"};
+					static const std::string c_fatal {"\x1B[31m"};
+
+					level  = l_fatal;
+					colour = c_fatal;
+				}
 
 				const auto now       = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 				const auto final_str = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n", colour, level, std::format("{0:%T}", now), std::format("File: {0}, Func: {1}, Line: {2}", std::filesystem::path(loc.file_name()).filename().string(), loc.function_name(), loc.line()), std::format(message, args...));
@@ -281,17 +269,17 @@ namespace galaxy
 				*m_stream << final_str;
 				m_file_stream << final_str;
 
-				if constexpr (LogLevel::value == level::Fatal::value)
+				if constexpr (log_level == Level::FATAL)
 				{
 					throw std::runtime_error {final_str};
 				}
 			}
 		}
 
-		template<loglevel_type LogLevel>
+		template<Level log_level>
 		inline void Log::set_min_level() noexcept
 		{
-			m_min_level = LogLevel::value;
+			m_min_level = log_level;
 		}
 	} // namespace error
 } // namespace galaxy

@@ -5,6 +5,9 @@
     "aspect-ratio-x": -1,
     "aspect-ratio-y": -1,
     "audio-volume": 0.7,
+    "camera-far": 1000.0,
+    "camera-fov": 90.0,
+    "camera-near": 0.1,
     "cursor-image": "cursor.png",
     "fontbook-json": "fontbook.json",
     "gl-debug": true,
@@ -24,6 +27,7 @@
     "raw-mouse-input": false,
     "scriptbook-json": "scriptbook.json",
     "shaderbook-json": "shaderbook.json",
+    "shadow-size": 1024,
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
     "textureatlas-json": "textureatlas.json",
@@ -31,9 +35,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox Tests",
-    "window-width": 1280,
-    "camera-near": 0.1,
-    "camera-far": 1000.0,
-    "camera-fov": 90.0,
-    "shadow-size": 1024
+    "window-width": 1280
 }

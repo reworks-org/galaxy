@@ -107,14 +107,14 @@ namespace galaxy
 		inline void Dispatcher::subscribe(Receiver& receiver) requires meta::has_on_event_for<Receiver, Event>
 		{
 			const auto type = construct_storage<Event>();
-			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddAction, Receiver>(receiver);
+			m_event_funcs[type].apply_action_to_subscribers<Event, meta::EventActions::ADD, Receiver>(receiver);
 		}
 
 		template<meta::is_class Event, typename Lambda>
 		inline void Dispatcher::subscribe_callback(Lambda&& func)
 		{
 			const auto type = construct_storage<Event>();
-			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddCallbackAction>(func);
+			m_event_funcs[type].apply_action_to_subscribers<Event, meta::EventActions::ADD_CALLBACK>(func);
 		}
 
 		template<meta::is_class Event, typename... Args>
@@ -124,7 +124,7 @@ namespace galaxy
 			if (m_event_funcs.contains(type))
 			{
 				Event e {std::forward<Args>(args)...};
-				m_event_funcs[type].apply_action_to_subscribers<Event, meta::TriggerAction>(e);
+				m_event_funcs[type].apply_action_to_subscribers<Event, meta::EventActions::TRIGGER>(e);
 			}
 		}
 

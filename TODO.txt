@@ -15,8 +15,5 @@ SUPERCLUSTER:
 - hotkeys
 
 TODO:
-- Add loaded/created flags for objects that use that model. i.e. sprite/texture/etc.
-	- Log if u try without them.
 - create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
 	- component default data should safely create a component, no crash.
-convert type classes to enums (log, vertexs, etc...).

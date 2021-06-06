@@ -45,35 +45,29 @@ namespace galaxy
 		using Callback = std::function<void(const Event&)>;
 
 		///
-		/// Type to specify the triggering of events.
+		/// Actions dispatcher should take on an event.
 		///
-		struct TriggerAction final
+		enum class EventActions : short
 		{
-			TriggerAction() = delete;
-		};
+			///
+			/// Type to specify the triggering of events.
+			///
+			TRIGGER,
 
-		///
-		/// Type to specify the adding of an event function.
-		///
-		struct AddAction final
-		{
-			AddAction() = delete;
-		};
+			///
+			/// Type to specify the adding of an event function.
+			///
+			ADD,
 
-		///
-		/// Type to specify the adding of a callback for an event.
-		///
-		struct AddCallbackAction final
-		{
-			AddCallbackAction() = delete;
-		};
+			///
+			/// Type to specify the adding of a callback for an event.
+			///
+			ADD_CALLBACK,
 
-		///
-		/// Type to specify the destruction of the event function storage.
-		///
-		struct DestroyAction final
-		{
-			DestroyAction() = delete;
+			///
+			/// Type to specify the destruction of the event function storage.
+			///
+			DESTROY
 		};
 
 		///
@@ -84,16 +78,6 @@ namespace galaxy
 		{
 			{r.on_event(e)};
 		};
-
-		///
-		/// Concept to ensure a type is restricted to an action.
-		///
-		template<typename Type>
-		concept is_action =
-		    (std::is_same<Type, TriggerAction>::value ||
-		     std::is_same<Type, AddAction>::value ||
-		     std::is_same<Type, AddCallbackAction>::value ||
-		     std::is_same<Type, DestroyAction>::value);
 	} // namespace meta
 } // namespace galaxy
 
