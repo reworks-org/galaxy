@@ -6,5 +6,8 @@ make
 perl
 build-essential
 gcc
-gcc-11
 cmake
+dkms
+manpages-dev
+software-properties-common
+gcc-11
