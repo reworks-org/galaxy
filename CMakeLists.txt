@@ -5,15 +5,27 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
 endif()
 
 # Force set cmake vars
-set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
-set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL INTERNAL FORCE)
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" CACHE STRING INTERNAL FORCE)
-set(CMAKE_SHARED_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
-set(CMAKE_EXE_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
+if (MSVC)
+	set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
+	set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
+	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL INTERNAL FORCE)
+	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" CACHE STRING INTERNAL FORCE)
+	set(CMAKE_SHARED_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
+	set(CMAKE_EXE_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
+endif()
 
 project(galaxy_engine LANGUAGES C CXX)
 message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
+
+# File properties.
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_source_files_properties(*.c LANGUAGE C)
+set_source_files_properties(*.cc LANGUAGE CXX)
+set_source_files_properties(*.cpp LANGUAGE CXX)
+set_source_files_properties(*.h LANGUAGES C CXX)
+set_source_files_properties(*.hh LANGUAGE CXX)
+set_source_files_properties(*.hpp LANGUAGE CXX)
+set_source_files_properties(*.inl LANGUAGE CXX)
 
 # Options
 option(GALAXY_ENABLE_DOXYGEN "Enable a target for building doxygen." OFF)
@@ -68,12 +80,27 @@ else()
 		CACHE STRING "" FORCE
 	)
 
-	set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
-	set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
-	set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
-	set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
-	set(LIB_FILE_EXT "lib")
-	set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+	if (MSVC)
+		set(LIB_FILE_EXT "lib")
+		set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
+		set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
+		
+		set(GALAXY_EXTERNAL_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
+		set(GALAXY_EXTERNAL_HEADERS "${GALAXY_EXTERNAL_HEADERS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include")
+		
+		set(GALAXY_PRECOMPILED_LIBS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.${LIB_FILE_EXT}")
+		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}")
+		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}")
+	else()
+		set(LIB_FILE_EXT "a")
+		find_package(Threads REQUIRED)
+		find_package(Freetype REQUIRED)
+		add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
+		set(GALAXY_EXTERNAL_HEADERS "${FREETYPE_INCLUDE_DIRS}")
+		set(GALAXY_EXTERNAL_HEADERS "${GALAXY_EXTERNAL_HEADERS} /usr/include")
+		set(GALAXY_PRECOMPILED_LIBS "${FREETYPE_LIBRARIES}")
+		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.x86_64-linux-gnu.${LIB_FILE_EXT}")
+	endif()
 
 	# Add internal projects.
 	add_subdirectory(dependencies)
@@ -250,15 +277,88 @@ else()
 	#	)
 	#endforeach()
 
-	# Set external projects to not show compiler warnings.
-	target_compile_options(sfw_lib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(IrrXML PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(assimp PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(assimp_zlibstatic PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	# Set external project options.
+	if (MSVC)
+		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+
+			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+
+			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+		else()
+			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
+		endif()
+	else()
+		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+				target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+
+				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+				target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+
+				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			else()
+				message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
+			endif()
+	endif()
 
 	# Import projects.
 	add_subdirectory(galaxy)
@@ -282,7 +382,7 @@ else()
 
 	# Set header directories.
 	set(HEADERS
-		"${GALAXY_FREETYPE_HEADERS}"
+		"${GALAXY_EXTERNAL_HEADERS}"
 		#"${PHYSX_INCLUDE_DIRS}"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp-conf"
@@ -298,7 +398,6 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
@@ -325,35 +424,45 @@ else()
 	include(cmake/LinkDefs.cmake)
 	include(cmake/PreprocessorDefs.cmake)
 
-	# Set precompiled libs.
-	set(GALAXY_PRECOMPILED_LIBS
-		"${GALAXY_FREETYPE_LIB}"
-		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}"
-		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}"
-	)
-
 	# System specific libraries.
-	set(SYSTEM_LIBS
-	    "opengl32.lib"
-		"kernel32.lib"
-	    "user32.lib"
-	    "gdi32.lib"
-	    "winspool.lib"
-	    "comdlg32.lib"
-	    "advapi32.lib"
-	    "shell32.lib"
-	    "ole32.lib"
-	    "oleaut32.lib"
-	    "uuid.lib"
-	    "winmm.lib"
-	    "Shlwapi.lib"
-	    "psapi.lib"
-	    "dsound.lib"
-	    "synchronization.lib"
-	)
+	if (MSVC)
+		set(SYSTEM_LIBS
+		    "opengl32.lib"
+			"kernel32.lib"
+		    "user32.lib"
+		    "gdi32.lib"
+		    "winspool.lib"
+		    "comdlg32.lib"
+		    "advapi32.lib"
+		    "shell32.lib"
+		    "ole32.lib"
+		    "oleaut32.lib"
+		    "uuid.lib"
+		    "winmm.lib"
+		    "Shlwapi.lib"
+		    "psapi.lib"
+		    "dsound.lib"
+		    "synchronization.lib"
+		)
+	else()
+		set(SYSTEM_LIBS
+			"pthread"
+			"dl"
+			"GL"
+		    "m"
+		    "c++"
+		    "c++abi"
+		    "c"
+		    "gcc_s"
+		    "gcc"
+		    "fmt"
+		)
 
-	target_link_libraries(supercluster PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
+		set(SYSTEM_LIBS ${SYSTEM_LIBS} Threads::Threads)
+	endif()
+
 	target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
+	target_link_libraries(supercluster PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 
 	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 		target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
@@ -413,7 +522,13 @@ else()
 		message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 	endif()
 
-	target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	if (MSVC)
+		target_compile_options(dependencies PUBLIC /w)
+		target_compile_options(galaxy PUBLIC /experimental:external /external:anglebrackets /external:W0)
+		target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	else()
+		target_compile_options(dependencies PUBLIC -w)
+	endif()
 
 	if (${GALAXY_BUILD_TESTS})
 		add_subdirectory(sandbox_3d_tests)
@@ -553,8 +668,14 @@ else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
 
-		target_compile_options(sandbox_3d_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+		if (MSVC)
+			target_compile_options(sandbox_3d_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+		else()
+			target_compile_options(sandbox_3d_test PUBLIC -w)
+			target_compile_options(sandbox_test PUBLIC -w)
+			target_compile_options(tests PUBLIC -w)
+		endif()
 	endif()
 endif()
