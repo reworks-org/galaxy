@@ -26,9 +26,6 @@ https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 
-https://github.com/rokups/ImNodes
-
-
 
 https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
 https://github.com/EQMG/Acid

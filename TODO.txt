@@ -3,17 +3,4 @@ CONTINOUS:
 - Fix Compilation warnings.
 - Fix Doxygen errors.
 
-SUPERCLUSTER:
-- physics tools (rigidbody tools).
-- documentation
-- on window focus (for viewport)
-	- reload tile map from disk
-- expose more to lua
-- scene graph
-	- entity heirachy
-- during editor/game switch have some kind of prompt since loading may take awhile
-- hotkeys
-
 TODO:
-- create component dependencies system where if a component is added the system checks if it is compatible/has right deps then ignores/adds.
-	- component default data should safely create a component, no crash.
