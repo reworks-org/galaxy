@@ -20,9 +20,11 @@ Application Programming Library using C++20, with a Data driven design and Test 
 
 ## Building
 Only supports 64bit systems.
+Windows 10 and Ubuntu are the only officially supported OS.
+MacOS is not supported.
 
 ### Windows:
-You will need to install ```Visual Studio 2019 16.10 Preview 3```, and set the ```Win-SDK``` minimum version to ```10.0.19041.0```.
+You will need to install at least ```Visual Studio 2019 16.10 Preview 3```, and set the ```Win-SDK``` minimum version to ```10.0.19041.0```.
 
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
@@ -36,8 +38,18 @@ msbuild galaxy_engine.sln
 OR open ```galaxy_engine.sln``` and press F5 to build.
 
 ### Linux:
+This has only been tested on Ubuntu 21.04.
 ```
-Coming soon.
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt upgrade
+sudo apt install make build-essential perl dkms git manpages-dev software-properties-common gcc gcc-11 g++-11 cmake libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev doxygen
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110 --slave /usr/bin/g++ g++ /usr/bin/g++-11 --slave /usr/bin/gcov gcov /usr/bin/gcov-11
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
+cd galaxy_engine
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DGALAXY_BUILD_TESTS=ON -DGALAXY_ENABLE_DOXYGEN=OFF -Bbuild -H.
+cd build
+make all
 ```
 
 ## Documentation
