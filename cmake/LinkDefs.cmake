@@ -13,7 +13,6 @@ if (MSVC)
 		/INCREMENTAL:NO
 		/OPT:REF
 		/OPT:ICF
-		/LTCG
 		/SUBSYSTEM:WINDOWS
 		/ENTRY:mainCRTStartup
 	)

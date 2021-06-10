@@ -85,21 +85,32 @@ else()
 		set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
 		set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
 		
-		set(GALAXY_EXTERNAL_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
-		set(GALAXY_EXTERNAL_HEADERS "${GALAXY_EXTERNAL_HEADERS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include")
+		set(GALAXY_EXTERNAL_HEADERS
+			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include"
+			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include"
+		)
 		
-		set(GALAXY_PRECOMPILED_LIBS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.${LIB_FILE_EXT}")
-		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}")
-		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}")
+		set(GALAXY_PRECOMPILED_LIBS
+			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.${LIB_FILE_EXT}"
+			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}"
+			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}"
+		)
 	else()
 		set(LIB_FILE_EXT "a")
+		
 		find_package(Threads REQUIRED)
 		find_package(Freetype REQUIRED)
 		add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
-		set(GALAXY_EXTERNAL_HEADERS "${FREETYPE_INCLUDE_DIRS}")
-		set(GALAXY_EXTERNAL_HEADERS "${GALAXY_EXTERNAL_HEADERS} /usr/include")
-		set(GALAXY_PRECOMPILED_LIBS "${FREETYPE_LIBRARIES}")
-		set(GALAXY_PRECOMPILED_LIBS "${GALAXY_PRECOMPILED_LIBS} ${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.x86_64-linux-gnu.${LIB_FILE_EXT}")
+
+		set(GALAXY_EXTERNAL_HEADERS
+			"${FREETYPE_INCLUDE_DIRS}"
+			"/usr/include"
+		)
+		
+		set(GALAXY_PRECOMPILED_LIBS
+			"${FREETYPE_LIBRARIES}"
+			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.x86_64-linux-gnu.${LIB_FILE_EXT}"
+		)
 	endif()
 
 	# Add internal projects.
@@ -249,7 +260,7 @@ else()
 	#file(COPY ${CMAKE_SOURCE_DIR}/cmake/patches/PxPreprocessor.h DESTINATION ${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/pxshared/include/foundation)
 	#add_subdirectory(dependencies/nvidia/physx/physx/compiler/public)
 	#foreach (target IN LISTS PHYSX_LIBRARIES)
-	#	target_compile_options(${target} PUBLIC /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	#	target_compile_options(${target} PUBLIC /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 	#	set_target_properties(${target} PROPERTIES
 	#		LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
 	#    	LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
@@ -280,14 +291,14 @@ else()
 	# Set external project options.
 	if (MSVC)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
@@ -298,14 +309,14 @@ else()
 			target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
@@ -455,9 +466,8 @@ else()
 		    "c"
 		    "gcc_s"
 		    "gcc"
+		    Threads::Threads
 		)
-
-		set(SYSTEM_LIBS ${SYSTEM_LIBS} Threads::Threads)
 	endif()
 
 	target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
@@ -522,9 +532,9 @@ else()
 	endif()
 
 	if (MSVC)
-		target_compile_options(dependencies PUBLIC /w)
-		target_compile_options(galaxy PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
+		target_compile_options(dependencies PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+		target_compile_options(galaxy PUBLIC /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+		target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 	else()
 		target_compile_options(dependencies PUBLIC -w)
 	endif()
@@ -668,9 +678,9 @@ else()
 		endif()
 
 		if (MSVC)
-			target_compile_options(sandbox_3d_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-			target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+			target_compile_options(sandbox_3d_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(sandbox_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 		else()
 			target_compile_options(sandbox_3d_test PUBLIC -w)
 			target_compile_options(sandbox_test PUBLIC -w)
