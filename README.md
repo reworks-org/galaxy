@@ -43,7 +43,7 @@ This has only been tested on Ubuntu 21.04.
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt upgrade
-sudo apt install make build-essential perl dkms git manpages-dev software-properties-common gcc gcc-11 g++-11 cmake libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev libfmt-dev
+sudo apt install make build-essential perl dkms git manpages-dev software-properties-common gcc gcc-11 g++-11 cmake libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev doxygen
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110 --slave /usr/bin/g++ g++ /usr/bin/g++-11 --slave /usr/bin/gcov gcov /usr/bin/gcov-11
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 cd galaxy_engine

@@ -5,18 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#if defined(_WIN32) || defined(_WIN64)
-	#include <format>
-#else
-	#include <fmt/format.h>
-	namespace std
-	{
-		constexpr auto format = [] (auto&& ...args)
-		{
-			return fmt::format(std::forward<decltype(args)>(args)...);
-		};
-	}
-#endif
+#include <format>
 
 #include <AL/al.h>
 #include <AL/alc.h>

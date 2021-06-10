@@ -455,7 +455,6 @@ else()
 		    "c"
 		    "gcc_s"
 		    "gcc"
-		    "fmt"
 		)
 
 		set(SYSTEM_LIBS ${SYSTEM_LIBS} Threads::Threads)
