@@ -1,4 +1,4 @@
-if (MSVC)
+if (WIN32)
 	set(GALAXY_LINK_FLAGS_DEBUG
 		/ignore:4099
 		/MACHINE:X64

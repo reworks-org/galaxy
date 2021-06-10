@@ -5,7 +5,7 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
 endif()
 
 # Force set cmake vars
-if (MSVC)
+if (WIN32)
 	set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
 	set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL INTERNAL FORCE)
@@ -80,7 +80,7 @@ else()
 		CACHE STRING "" FORCE
 	)
 
-	if (MSVC)
+	if (WIN32)
 		set(LIB_FILE_EXT "lib")
 		set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
 		set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
@@ -289,7 +289,7 @@ else()
 	#endforeach()
 
 	# Set external project options.
-	if (MSVC)
+	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
@@ -436,7 +436,7 @@ else()
 	include(cmake/PreprocessorDefs.cmake)
 
 	# System specific libraries.
-	if (MSVC)
+	if (WIN32)
 		set(SYSTEM_LIBS
 		    "opengl32.lib"
 			"kernel32.lib"
@@ -531,7 +531,7 @@ else()
 		message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 	endif()
 
-	if (MSVC)
+	if (WIN32)
 		target_compile_options(dependencies PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 		target_compile_options(galaxy PUBLIC /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 		target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
@@ -677,7 +677,7 @@ else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
 
-		if (MSVC)
+		if (WIN32)
 			target_compile_options(sandbox_3d_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(sandbox_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)

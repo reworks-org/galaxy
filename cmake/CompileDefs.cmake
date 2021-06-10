@@ -1,4 +1,4 @@
-if (MSVC)
+if (WIN32)
     set(GALAXY_COMPILE_FLAGS_DEBUG
         /QIntel-jcc-erratum
         /std:c++latest
