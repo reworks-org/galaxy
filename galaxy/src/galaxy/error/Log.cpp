@@ -32,7 +32,7 @@ namespace galaxy
 
 		void Log::start(std::string_view log_file)
 		{
-			const auto path = std::filesystem::path {log_file};
+			const auto path = std::filesystem::path(log_file);
 
 			m_file_stream.open(path.string(), std::ofstream::out);
 			m_started = true;

@@ -17,9 +17,6 @@
 
 #include "FileSystem.hpp"
 
-// Just for this file.
-namespace std_fs = std::filesystem;
-
 namespace galaxy
 {
 	namespace fs
@@ -31,7 +28,7 @@ namespace galaxy
 
 		void Virtual::create_file(std::string_view filepath)
 		{
-			const auto abs_fp = std_fs::absolute(filepath).string();
+			const auto abs_fp = std::filesystem::absolute(filepath).string();
 
 			std::ofstream ofs {abs_fp, std::ofstream::trunc};
 			ofs.close();
@@ -164,12 +161,12 @@ namespace galaxy
 			{
 				for (const auto& mounted_dir : m_dirs)
 				{
-					for (const auto& dir_entry : std_fs::recursive_directory_iterator(mounted_dir, std_fs::directory_options::skip_permission_denied))
+					for (const auto& dir_entry : std::filesystem::recursive_directory_iterator(mounted_dir, std::filesystem::directory_options::skip_permission_denied))
 					{
 						const auto& path = dir_entry.path();
 						if (path.filename() == std::filesystem::path(file).filename())
 						{
-							return std::make_optional(std_fs::absolute(path).string());
+							return std::make_optional(std::filesystem::absolute(path).string());
 						}
 					}
 				}
@@ -286,7 +283,7 @@ namespace galaxy
 
 		const bool Virtual::mount(std::string_view dir)
 		{
-			if (std_fs::is_directory(dir))
+			if (std::filesystem::is_directory(dir))
 			{
 				m_dirs.emplace_back(dir);
 				m_watcher.addWatch(static_cast<std::string>(dir), &m_listener, true);
