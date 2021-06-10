@@ -15,19 +15,19 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			m_speed = json.at("speed");
 		}
 
 		Camera2D::Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
 		}
@@ -177,9 +177,9 @@ namespace galaxy
 
 			m_scale   = scale;
 			m_scaling = m_identity_matrix;
-			m_scaling = glm::translate(m_scaling, {m_width / 2.0f, m_height / 2.0f, 0.0f});
+			m_scaling = glm::translate(m_scaling, {static_cast<float>(m_width) / 2.0f, static_cast<float>(m_height) / 2.0f, 0.0f});
 			m_scaling = glm::scale(m_scaling, {m_scale, m_scale, 1.0f});
-			m_scaling = glm::translate(m_scaling, {-(m_width / 2.0f), -(m_height / 2.0f), 0.0f});
+			m_scaling = glm::translate(m_scaling, {-(static_cast<float>(m_width) / 2.0f), -(static_cast<float>(m_height) / 2.0f), 0.0f});
 
 			m_dirty = true;
 		}
@@ -232,12 +232,12 @@ namespace galaxy
 			return m_speed;
 		}
 
-		const float Camera2D::get_width() const noexcept
+		const int Camera2D::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const float Camera2D::get_height() const noexcept
+		const int Camera2D::get_height() const noexcept
 		{
 			return m_height;
 		}
@@ -291,8 +291,8 @@ namespace galaxy
 			m_moving_back  = false;
 			m_moving_left  = false;
 			m_moving_right = false;
-			m_width        = 0.0f;
-			m_height       = 0.0f;
+			m_width        = 0;
+			m_height       = 0;
 			m_projection   = glm::mat4 {1.0f};
 
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);

@@ -166,14 +166,14 @@ namespace galaxy
 			///
 			/// \return Const float. 0 if object is not 2D.
 			///
-			[[nodiscard]] const float get_width() const noexcept;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get height of primitive.
 			///
 			/// \return Const float. 0 if object is not 2D.
 			///
-			[[nodiscard]] const float get_height() const noexcept;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Serializes object.
@@ -204,12 +204,12 @@ namespace galaxy
 			///
 			/// Width.
 			///
-			float m_width;
+			int m_width;
 
 			///
 			/// Height.
 			///
-			float m_height;
+			int m_height;
 
 			///
 			/// Creation data.
@@ -314,8 +314,8 @@ namespace galaxy
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
-				m_width  = 0.0f;
-				m_height = 0.0f;
+				m_width  = 0;
+				m_height = 0;
 			}
 			else if constexpr (type == graphics::Primitives::POINT)
 			{
@@ -331,13 +331,13 @@ namespace galaxy
 
 				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 
-				m_width  = 0.0f;
-				m_height = 0.0f;
+				m_width  = 0;
+				m_height = 0;
 			}
 			else if constexpr ((type == graphics::Primitives::POLYLINE) || (type == graphics::Primitives::POLYGON))
 			{
-				m_width  = 0.0f;
-				m_height = 0.0f;
+				m_width  = 0;
+				m_height = 0;
 
 				unsigned int count = 0;
 				for (const auto& point : *m_data.m_points)

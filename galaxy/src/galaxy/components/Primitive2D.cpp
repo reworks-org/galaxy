@@ -15,12 +15,12 @@ namespace galaxy
 	namespace components
 	{
 		Primitive2D::Primitive2D() noexcept
-		    : Serializable {this}, m_width {0.0f}, m_height {0.0f}
+		    : Serializable {this}, m_width {0}, m_height {0}
 		{
 		}
 
 		Primitive2D::Primitive2D(const nlohmann::json& json)
-		    : Serializable {this}, m_width {0.0f}, m_height {0.0f}
+		    : Serializable {this}, m_width {0}, m_height {0}
 		{
 			deserialize(json);
 		}
@@ -92,12 +92,12 @@ namespace galaxy
 			return m_vertexs;
 		}
 
-		const float Primitive2D::get_width() const noexcept
+		const int Primitive2D::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const float Primitive2D::get_height() const noexcept
+		const int Primitive2D::get_height() const noexcept
 		{
 			return m_height;
 		}

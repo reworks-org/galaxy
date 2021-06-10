@@ -189,14 +189,14 @@ namespace galaxy
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_width() const noexcept;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get Camera2D height.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_height() const noexcept;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get flag indicating if transform needs to be applied before rendering.
@@ -301,12 +301,12 @@ namespace galaxy
 			///
 			/// Width of Camera2D bounds.
 			///
-			float m_width;
+			int m_width;
 
 			///
 			/// Height of Camera2D bounds.
 			///
-			float m_height;
+			int m_height;
 
 			///
 			/// Camera2D projection matrix.
