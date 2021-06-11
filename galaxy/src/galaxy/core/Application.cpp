@@ -71,6 +71,7 @@ namespace galaxy
 				create_asset_layout(root, "textures/");
 				create_asset_layout(root, "maps/");
 				create_asset_layout(root, "models/");
+				create_asset_layout(root, "lang/");
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
 
@@ -184,6 +185,12 @@ namespace galaxy
 				// Generate default assets specified by config.
 				generate_default_assets(root);
 
+				// Parse languages.
+				m_language = std::make_unique<res::Language>();
+				m_language->parse_language_folder(root + "lang/");
+				m_language->set_language("en_au");
+				SL_HANDLE.m_language = m_language.get();
+
 				// ShaderBook.
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
@@ -270,6 +277,7 @@ namespace galaxy
 			m_fontbook.reset();
 			m_shaderbook.reset();
 			m_scriptbook.reset();
+			m_language.reset();
 			m_lua.reset();
 			m_window.reset();
 			m_config.reset();

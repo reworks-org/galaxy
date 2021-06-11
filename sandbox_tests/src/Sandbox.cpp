@@ -16,6 +16,7 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/graphics/Renderer2D.hpp>
 #include <galaxy/graphics/Shader.hpp>
+#include <galaxy/res/Language.hpp>
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
 #include <galaxy/res/TextureAtlas.hpp>
@@ -170,7 +171,8 @@ namespace sb
 		textbox->create("textbox", "arrow", "public16", 5.0f);
 		textbox->set_pos(600, 100);
 
-		std::vector<std::string> messages = {"Hello there!", "How are you today?", "I am good,\nthanks!"};
+		// Get messages from language file.
+		std::vector<std::string> messages = {SL_HANDLE.lang()->translate("demo_textbox_greet"), SL_HANDLE.lang()->translate("demo_textbox_question"), SL_HANDLE.lang()->translate("demo_textbox_reply")};
 		textbox->set_text(messages);
 
 		sandbox->m_gui.enable_input();
