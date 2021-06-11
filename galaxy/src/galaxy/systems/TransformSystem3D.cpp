@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
-
 #include "galaxy/components/Model.hpp"
 #include "galaxy/components/Transform3D.hpp"
 #include "galaxy/core/World.hpp"
@@ -27,7 +25,7 @@ namespace galaxy
 
 		void TransformSystem3D::update(core::World& world, const double dt)
 		{
-			world.operate<components::Transform3D, components::Model>([&](const ecs::Entity entity, components::Transform3D* transform, components::Model* model) {
+			world.operate<components::Transform3D, components::Model>(std::execution::par_unseq, [&](const ecs::Entity entity, components::Transform3D* transform, components::Model* model) {
 				if (transform->is_dirty())
 				{
 					transform->recalculate();

@@ -243,6 +243,24 @@ namespace galaxy
 			void operate(Lambda&& func);
 
 			///
+			/// \brief Iterate over a set of components of a set of types and manipulate their data.
+			///
+			/// The components to manipulate are specified in the template parameter.
+			///
+			/// \param policy STL exection policy. Beware that this may run on another thread.
+			/// \param func A lambda function that manipulates the components.
+			///		          For example:
+			/*
+								manager.operate<a, b>([](const ecs::Entity entity, a* ca, b* cb)
+								{
+									cb->var = 500;
+								});
+								*/
+			///
+			template<meta::is_class... Components, typename Policy, typename Lambda>
+			void operate(Policy&& policy, Lambda&& func);
+
+			///
 			/// Apply a function to each entity.
 			///
 			/// \param func Lambda is required to take in a const ecs::Entity type.
@@ -563,6 +581,35 @@ namespace galaxy
 							}
 						}
 					}
+				}
+			}
+		}
+
+		template<meta::is_class... Components, typename Policy, typename Lambda>
+		inline void World::operate(Policy&& policy, Lambda&& func)
+		{
+			if (!m_data.empty())
+			{
+				constexpr const auto length = sizeof...(Components);
+				EntitysWithCounters entities;
+
+				bool error = false;
+				(internal_operate<Components>(entities, error), ...);
+
+				if (!error)
+				{
+					// pair.first = entity
+					// pair.second = count
+					std::for_each(policy, entities.begin(), entities.end(), [&](const auto& pair) {
+						// Ensures that only entities that have all components are used.
+						if (!(pair.second < length))
+						{
+							if (is_enabled(pair.first))
+							{
+								func(pair.first, get<Components>(pair.first)...);
+							}
+						}
+					});
 				}
 			}
 		}

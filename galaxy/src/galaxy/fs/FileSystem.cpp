@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
 #include <fstream>
 #include <sstream>
 

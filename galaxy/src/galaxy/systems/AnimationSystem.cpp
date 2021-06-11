@@ -25,7 +25,7 @@ namespace galaxy
 
 		void AnimationSystem::update(core::World& world, const double dt)
 		{
-			world.operate<components::Animated, components::BatchSprite>([&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite) {
+			world.operate<components::Animated, components::BatchSprite>(std::execution::par_unseq, [&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite) {
 				if (!animated->m_paused)
 				{
 					animated->m_time_spent_on_frame += (dt * animated->m_active_anim->get_speed());

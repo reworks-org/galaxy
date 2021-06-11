@@ -494,9 +494,6 @@ namespace galaxy
             vec3 calc_point(PointLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess);
             vec3 calc_spot(SpotLight light, vec3 normal, vec3 frag_pos, vec3 view_dir, vec3 diff_tex, vec3 spec_map, float shininess);
 
-            // Parallax mapping.
-            vec2 parallax_map(vec2 texels, vec3 view_dir);
-
             // Percentage-Close Soft Shadows calc.
             float search_region_radius_uv(float z);
             float penumbra_radius_uv(float zReceiver, float zBlocker);
@@ -623,10 +620,6 @@ namespace galaxy
 	            specular *= attenuation * intensity;
 
 	            return ambient + diffuse + specular;
-            }
-
-            vec2 parallax_map(vec2 texels, vec3 view_dir)
-            {
             }
 
             // Using similar triangles from the surface point to the area light.
