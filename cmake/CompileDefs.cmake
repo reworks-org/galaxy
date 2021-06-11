@@ -20,6 +20,7 @@ if (WIN32)
         /GR
         /sdl
         /Zc:preprocessor
+        /utf-8
     )
 
     set(GALAXY_COMPILE_FLAGS_RELEASE
@@ -43,6 +44,7 @@ if (WIN32)
         /GR-
         /Zc:preprocessor
         /LTCG
+        /utf-8
     )
 else()
     set(GALAXY_COMPILE_FLAGS_DEBUG
