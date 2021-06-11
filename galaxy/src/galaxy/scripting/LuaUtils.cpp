@@ -43,6 +43,7 @@
 #include "galaxy/scripting/LoadedScript.hpp"
 
 #include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/Language.hpp"
 #include "galaxy/res/MaterialBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
 #include "galaxy/res/ScriptBook.hpp"
@@ -551,6 +552,11 @@ namespace galaxy
 			tex_atlas_type["clear"]             = &res::TextureAtlas::clear;
 			tex_atlas_type["get_region"]        = &res::TextureAtlas::get_region;
 			tex_atlas_type["get_size"]          = &res::TextureAtlas::get_size;
+
+			auto lang_type                     = lua->new_usertype<res::Language>("gLanguage", sol::no_constructor);
+			lang_type["parse_language_folder"] = &res::Language::parse_language_folder;
+			lang_type["set_language"]          = &res::Language::set_language;
+			lang_type["translate"]             = &res::Language::translate;
 		}
 
 		void register_scripting()

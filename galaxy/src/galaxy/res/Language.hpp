@@ -49,9 +49,9 @@ namespace galaxy
 			///
 			/// \param key Language key to retrieve translation from.
 			///
-			/// \return Const std::string reference.
+			/// \return String. RVO will automatically optimize this into a reference.
 			///
-			[[nodiscard]] const std::string& translate(std::string_view key) noexcept;
+			[[nodiscard]] std::string translate(std::string_view key) noexcept;
 
 		private:
 			///

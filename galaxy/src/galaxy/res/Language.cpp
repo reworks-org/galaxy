@@ -46,16 +46,33 @@ namespace galaxy
 		{
 			m_lang_map.clear();
 
-			sol::table lua = m_languages[static_cast<std::string>(lang)]["lang"];
-			for (const auto& [key, value] : lua)
+			const auto lang_key = static_cast<std::string>(lang);
+			if (m_languages.contains(lang_key))
 			{
-				m_lang_map.emplace(key.as<std::string>(), value.as<std::string>());
+				sol::table lua = m_languages[lang_key]["lang"];
+				for (const auto& [key, value] : lua)
+				{
+					m_lang_map.emplace(key.as<std::string>(), value.as<std::string>());
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Language not found: {0}.", lang);
 			}
 		}
 
-		const std::string& Language::translate(std::string_view key) noexcept
+		std::string Language::translate(std::string_view key) noexcept
 		{
-			return m_lang_map[static_cast<std::string>(key)];
+			const auto str = static_cast<std::string>(key);
+
+			if (m_lang_map.contains(str))
+			{
+				return m_lang_map[str];
+			}
+			else
+			{
+				return str;
+			}
 		}
 	} // namespace res
 } // namespace galaxy

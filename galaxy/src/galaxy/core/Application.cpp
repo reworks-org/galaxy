@@ -258,6 +258,7 @@ namespace galaxy
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
 				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
+				m_lua->set("galaxy_language", m_language.get());
 
 				// Bind filesystem listener.
 				m_vfs->m_listener.m_on_file_change = std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
