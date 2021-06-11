@@ -10,6 +10,7 @@
 
 #include "galaxy/async/Timer.hpp"
 #include "galaxy/components/BatchSprite.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/ui/Widget.hpp"
@@ -26,6 +27,71 @@ namespace galaxy
 			friend class GUI;
 
 		public:
+			///
+			/// Message to display, plus optional image.
+			///
+			class Message final
+			{
+				friend class Textbox;
+
+			public:
+				///
+				/// Constructor.
+				///
+				Message() noexcept;
+
+				///
+				/// Alternate constructor.
+				///
+				/// \param text Text to display.
+				///
+				Message(std::string_view text) noexcept;
+
+				///
+				/// Alternate constructor.
+				///
+				/// \param text Text to display.
+				/// \param speaker Speaker image to display alongside text.
+				///
+				Message(std::string_view text, std::string_view speaker) noexcept;
+
+				///
+				/// Move constructor.
+				///
+				Message(Message&&) noexcept;
+
+				///
+				/// Move assignment operator.
+				///
+				Message& operator=(Message&&) noexcept;
+
+				///
+				/// Destructor.
+				///
+				~Message() noexcept = default;
+
+			private:
+				///
+				/// Copy constructor.
+				///
+				Message(const Message&) = delete;
+
+				///
+				/// Copy assignment operator.
+				///
+				Message& operator=(const Message&) = delete;
+
+			private:
+				///
+				/// Message contents.
+				///
+				std::string m_text;
+
+				std::string m_speaker;
+				components::Sprite m_speaker_spr;
+				components::Transform2D m_speaker_tf;
+			};
+
 			///
 			/// Constructor.
 			///
@@ -83,7 +149,7 @@ namespace galaxy
 			///
 			/// \param messages A list of messages to display on the textbox. Each element should be a new message.
 			///
-			void set_text(std::span<std::string> messages) noexcept;
+			void set_text(std::span<Message> messages) noexcept;
 
 			///
 			/// Sets position without moving the object.
@@ -160,9 +226,9 @@ namespace galaxy
 			components::Transform2D m_indicator_transform;
 
 			///
-			/// All the text to draw.
+			/// All the messages to draw.
 			///
-			std::vector<std::string> m_messages;
+			std::vector<Message> m_messages;
 
 			///
 			/// Border width.

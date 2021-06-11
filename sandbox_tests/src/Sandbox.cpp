@@ -172,7 +172,10 @@ namespace sb
 		textbox->set_pos(600, 100);
 
 		// Get messages from language file.
-		std::vector<std::string> messages = {SL_HANDLE.lang()->translate("demo_textbox_greet"), SL_HANDLE.lang()->translate("demo_textbox_question"), SL_HANDLE.lang()->translate("demo_textbox_reply")};
+		std::vector<ui::Textbox::Message> messages;
+		messages.emplace_back(SL_HANDLE.lang()->translate("demo_textbox_greet"));
+		messages.emplace_back(SL_HANDLE.lang()->translate("demo_textbox_question"), "speaker_bob.png");
+		messages.emplace_back(SL_HANDLE.lang()->translate("demo_textbox_reply"));
 		textbox->set_text(messages);
 
 		sandbox->m_gui.enable_input();

@@ -11,10 +11,50 @@
 
 #include "Textbox.hpp"
 
+#define SPEAKER_OFFSET 3
+
 namespace galaxy
 {
 	namespace ui
 	{
+		Textbox::Message::Message() noexcept
+		    : m_text {""}, m_speaker {""}
+		{
+		}
+
+		Textbox::Message::Message(std::string_view text) noexcept
+		    : m_text {text}, m_speaker {""}
+		{
+		}
+
+		Textbox::Message::Message(std::string_view text, std::string_view speaker) noexcept
+		    : m_text {text}, m_speaker {speaker}
+		{
+			m_speaker_spr.load(speaker);
+			m_speaker_spr.create();
+		}
+
+		Textbox::Message::Message(Message&& m) noexcept
+		{
+			this->m_speaker     = std::move(m.m_speaker);
+			this->m_speaker_spr = std::move(m.m_speaker_spr);
+			this->m_speaker_tf  = std::move(m.m_speaker_tf);
+			this->m_text        = std::move(m.m_text);
+		}
+
+		Textbox::Message& Textbox::Message::operator=(Message&& m) noexcept
+		{
+			if (this != &m)
+			{
+				this->m_speaker     = std::move(m.m_speaker);
+				this->m_speaker_spr = std::move(m.m_speaker_spr);
+				this->m_speaker_tf  = std::move(m.m_speaker_tf);
+				this->m_text        = std::move(m.m_text);
+			}
+
+			return *this;
+		}
+
 		Textbox::Textbox() noexcept
 		    : Widget {WidgetType::TEXTBOX}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}
 		{
@@ -64,7 +104,7 @@ namespace galaxy
 			{
 				if (!(m_messages_index >= m_messages.size()))
 				{
-					if (!(m_char_index >= m_messages[m_messages_index].size()))
+					if (!(m_char_index >= m_messages[m_messages_index].m_text.size()))
 					{
 						m_char_index++;
 					}
@@ -116,11 +156,11 @@ namespace galaxy
 			m_indicator_timer.update(dt);
 			if (!(m_messages_index >= m_messages.size()))
 			{
-				if (!(m_char_index >= m_messages[m_messages_index].size()))
+				if (!(m_char_index >= m_messages[m_messages_index].m_text.size()))
 				{
 					m_indicator.set_opacity(0.0f);
 
-					auto cur_text = m_messages[m_messages_index].substr(0, m_char_index);
+					auto cur_text = m_messages[m_messages_index].m_text.substr(0, m_char_index);
 					if (cur_text != m_prev_text)
 					{
 						m_text.create(cur_text);
@@ -136,11 +176,24 @@ namespace galaxy
 
 		void Textbox::render()
 		{
-			auto* shader = SL_HANDLE.shaderbook()->get("text");
-			shader->bind();
-			shader->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
-			shader->set_uniform("u_cameraView", m_theme->m_camera.get_view());
-			RENDERER_2D().draw_text(&m_text, &m_text_transform, shader);
+			if (!(m_messages_index >= m_messages.size()))
+			{
+				auto& cur_msg = m_messages[m_messages_index];
+				if (!cur_msg.m_speaker.empty())
+				{
+					auto* ss = SL_HANDLE.shaderbook()->get("sprite");
+					ss->bind();
+					ss->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+					ss->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+					RENDERER_2D().draw_sprite(&cur_msg.m_speaker_spr, &cur_msg.m_speaker_tf, ss);
+				}
+			}
+
+			auto* ts = SL_HANDLE.shaderbook()->get("text");
+			ts->bind();
+			ts->set_uniform("u_cameraProj", m_theme->m_camera.get_proj());
+			ts->set_uniform("u_cameraView", m_theme->m_camera.get_view());
+			RENDERER_2D().draw_text(&m_text, &m_text_transform, ts);
 
 			if (m_tooltip)
 			{
@@ -151,11 +204,15 @@ namespace galaxy
 			}
 		}
 
-		void Textbox::set_text(std::span<std::string> messages) noexcept
+		void Textbox::set_text(std::span<Textbox::Message> messages) noexcept
 		{
 			m_messages.clear();
-			m_messages.reserve(messages.size());
-			m_messages.assign(messages.begin(), messages.end());
+			m_messages.insert(m_messages.end(), std::make_move_iterator(messages.begin()), std::make_move_iterator(messages.end()));
+
+			for (auto& msg : m_messages)
+			{
+				msg.m_speaker_tf.set_pos((m_bounds.m_x + m_bounds.m_width) - msg.m_speaker_spr.get_width(), m_bounds.m_y - (msg.m_speaker_spr.get_height() + SPEAKER_OFFSET));
+			}
 		}
 
 		void Textbox::set_pos(const float x, const float y) noexcept
@@ -184,7 +241,8 @@ namespace galaxy
 			nlohmann::ordered_json ojson = "[]"_json;
 			for (const auto& message : m_messages)
 			{
-				ojson.push_back(message);
+				const auto jstr = std::format("{text = {0}, speaker = {1}}", message.m_text, message.m_speaker);
+				ojson.push_back(nlohmann::json::parse(jstr));
 			}
 			json["messages"] = ojson;
 
@@ -217,7 +275,12 @@ namespace galaxy
 			const auto& messages = json.at("messages");
 			for (const auto& message : messages)
 			{
-				m_messages.push_back(message);
+				m_messages.emplace_back(messages.at("text").get<std::string>(), messages.at("speaker").get<std::string>());
+			}
+
+			for (auto& msg : m_messages)
+			{
+				msg.m_speaker_tf.set_pos((m_bounds.m_x + m_bounds.m_width) - msg.m_speaker_spr.get_width(), m_bounds.m_y - (msg.m_speaker_spr.get_height() + SPEAKER_OFFSET));
 			}
 
 			const auto& tooltip_json = json.at("tooltip");
