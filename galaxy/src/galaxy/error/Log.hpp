@@ -152,6 +152,7 @@ namespace galaxy
 			///
 			/// Log a message.
 			///
+			/// \param loc Source location argument.
 			/// \param message Message to log.
 			/// \param args std::format supported arguments to be formatted into a string.
 			///

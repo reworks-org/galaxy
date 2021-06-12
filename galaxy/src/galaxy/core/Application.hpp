@@ -78,7 +78,7 @@ namespace galaxy
 			/// we need to combine the strings into a new string.
 			///
 			/// \param root Root asset folder.
-			/// \param asset Path to the asset folder to create.
+			/// \param asset_folder Path to the asset folder to create.
 			///
 			void create_asset_layout(const std::string& root, const std::string& asset_folder);
 
@@ -92,9 +92,9 @@ namespace galaxy
 			///
 			/// Reload assets from disk.
 			///
-			/// \param watchid The watch id for the directory.
+			/// \param watch_id The watch id for the directory.
 			/// \param dir The directory.
-			/// \param filename The filename that was accessed (not full path).
+			/// \param file_name The filename that was accessed (not full path).
 			/// \param action Action that was performed.
 			///
 			void reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action);

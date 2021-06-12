@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Loads the skybox from a JSON file.
 			///
-			/// \param file JSON file on disk to parse.
+			/// \param json_file JSON file on disk to parse.
 			///
 			void load(std::string_view json_file);
 

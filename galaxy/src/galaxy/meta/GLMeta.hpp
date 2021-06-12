@@ -10,7 +10,7 @@
 
 #include <type_traits>
 
-#include "galaxy/graphics/vertex/InstanceBuffer.hpp"
+//#include "galaxy/graphics/vertex/InstanceBuffer.hpp"
 #include "galaxy/graphics/vertex/BatchVertex.hpp"
 #include "galaxy/graphics/vertex/PrimitiveVertex.hpp"
 #include "galaxy/graphics/vertex/SpriteVertex.hpp"
@@ -32,8 +32,8 @@ namespace galaxy
 		///
 		/// Allows instance buffer to be used as a vertex attribute array.
 		///
-		template<typename Type>
-		concept is_vertex_or_instance = (is_vertex<Type> || std::is_same<Type, graphics::InstanceBuffer>::value);
+		//template<typename Type>
+		//concept is_vertex_or_instance = (is_vertex<Type> || std::is_same<Type, graphics::InstanceBuffer>::value);
 
 	} // namespace meta
 } // namespace galaxy

@@ -57,7 +57,6 @@ namespace galaxy
 			/// Load model from disk.
 			///
 			/// \param file File on disk in VFS.
-			/// \param type Type of model.
 			///
 			/// \return True if load was sucessful.
 			///

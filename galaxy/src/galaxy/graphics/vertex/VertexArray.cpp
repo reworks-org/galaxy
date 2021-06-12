@@ -45,23 +45,6 @@ namespace galaxy
 			glDeleteVertexArrays(1, &m_id);
 		}
 
-		void VertexArray::set_instanced(InstanceBuffer& ib) noexcept
-		{
-			bind();
-			ib.bind();
-
-			constexpr const auto size = 3 * sizeof(float);
-
-			glEnableVertexAttribArray(m_counter);
-			glVertexAttribPointer(m_counter, 3, GL_FLOAT, GL_FALSE, size, nullptr);
-			glVertexAttribDivisor(m_counter, ib.divisor());
-
-			unbind();
-			ib.unbind();
-
-			++m_counter;
-		}
-
 		void VertexArray::bind() noexcept
 		{
 			glBindVertexArray(m_id);

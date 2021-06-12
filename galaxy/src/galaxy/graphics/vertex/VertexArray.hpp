@@ -53,15 +53,6 @@ namespace galaxy
 			void create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout);
 
 			///
-			/// \brief Set as an instanced vertex array.
-			///
-			/// You should call this after create().
-			///
-			/// \param ib InstanceBuffer object. You need to store this elsewhere.
-			///
-			void set_instanced(InstanceBuffer& ib) noexcept;
-
-			///
 			/// Bind the current vertex array to current GL context.
 			///
 			void bind() noexcept;

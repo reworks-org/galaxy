@@ -52,11 +52,11 @@ namespace galaxy
 			[[nodiscard]] static Renderer2D& inst() noexcept;
 
 			///
-			/// Initialize renderer2d.
+			/// Initialize Renderer2D.
 			///
 			/// \param max_quads Maximum quads per spritebatch.
 			/// \param batch_shader ID of the shader to use for spritebatching.
-			/// \param framebuffer_sahder ID of the shader to use when drawing renderer contents to the main window framebuffer.
+			/// \param framebuffer_shader ID of the shader to use when drawing renderer contents to the main window framebuffer.
 			///
 			void init(const unsigned int max_quads, std::string_view batch_shader, std::string_view framebuffer_shader);
 

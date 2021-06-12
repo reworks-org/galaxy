@@ -20,11 +20,6 @@ namespace galaxy
 		struct WindowSettings final
 		{
 			///
-			/// Level of ansiotropic filtering.
-			///
-			int m_ansio_filtering;
-
-			///
 			/// Vertical sync.
 			///
 			bool m_vsync;

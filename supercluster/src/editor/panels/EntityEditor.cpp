@@ -1155,7 +1155,11 @@ namespace sc
 							text->set_font(s_font_buff);
 						}
 
-						static float colour[4] = {text->get_colour().m_red, text->get_colour().m_green, text->get_colour().m_blue, text->get_colour().m_alpha};
+						static float colour[4] = {
+						    static_cast<float>(text->get_colour().m_red),
+						    static_cast<float>(text->get_colour().m_green),
+						    static_cast<float>(text->get_colour().m_blue),
+						    static_cast<float>(text->get_colour().m_alpha)};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
 							text->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});

@@ -28,7 +28,9 @@ namespace galaxy
 		Primitive2D::Primitive2D(Primitive2D&& p2d) noexcept
 		    : VertexData {std::move(p2d)}, Serializable {this}
 		{
-			this->m_data    = p2d.m_data;
+			this->m_width   = p2d.m_width;
+			this->m_height  = p2d.m_height;
+			this->m_data    = std::move(p2d.m_data);
 			this->m_type    = p2d.m_type;
 			this->m_vertexs = std::move(p2d.m_vertexs);
 		}
@@ -39,6 +41,8 @@ namespace galaxy
 			{
 				graphics::VertexData::operator=(std::move(p2d));
 
+				this->m_width   = p2d.m_width;
+				this->m_height  = p2d.m_height;
 				this->m_data    = std::move(p2d.m_data);
 				this->m_type    = p2d.m_type;
 				this->m_vertexs = std::move(p2d.m_vertexs);

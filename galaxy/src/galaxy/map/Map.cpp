@@ -645,8 +645,8 @@ namespace galaxy
 
 						if (!object.get_name().empty())
 						{
-							auto* tag  = world.create_component<components::Tag>(entity);
-							tag->m_tag = object.get_name();
+							auto* tag_component  = world.create_component<components::Tag>(entity);
+							tag_component->m_tag = object.get_name();
 						}
 
 						if (object.is_visible())

@@ -425,8 +425,8 @@ namespace galaxy
 					const auto& node = m_nodes.at(i);
 					if (node.height > 2)
 					{
-						const auto balance = std::abs(m_nodes.at(*node.left).height - m_nodes.at(*node.right).height);
-						max_balance        = std::max(max_balance, balance);
+						const auto bal = std::abs(m_nodes.at(*node.left).height - m_nodes.at(*node.right).height);
+						max_balance    = std::max(max_balance, bal);
 					}
 				}
 

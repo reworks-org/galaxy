@@ -126,7 +126,6 @@ namespace galaxy
 			// clang-format off
 			core::WindowSettings settings
 			{
-				.m_ansio_filtering = m_config->get<int>("ansio-filter"),
 				.m_vsync = m_config->get<bool>("vsync"),
 				.m_aspect_ratio_x = m_config->get<int>("aspect-ratio-x"),
 				.m_aspect_ratio_y = m_config->get<int>("aspect-ratio-y"),

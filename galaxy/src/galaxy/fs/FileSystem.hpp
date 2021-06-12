@@ -169,9 +169,9 @@ namespace galaxy
 				///
 				/// Handles the action file action.
 				///
-				/// \param watchid The watch id for the directory.
+				/// \param watch_id The watch id for the directory.
 				/// \param dir The directory.
-				/// \param filename The filename that was accessed (not full path).
+				/// \param file_name The filename that was accessed (not full path).
 				/// \param action Action that was performed.
 				///
 				void handleFileAction(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action) override;

@@ -324,9 +324,10 @@ namespace sc
 
 	void Editor::exit()
 	{
-		for (auto* const process : m_processes)
+		for (auto* process : m_processes)
 		{
 			platform::close_process(process);
+			process = nullptr;
 		}
 
 		SL_HANDLE.window()->close();
