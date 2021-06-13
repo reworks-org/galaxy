@@ -12,18 +12,15 @@
 TEST(Async, ThreadPool)
 {
 	std::atomic<int> count = 0;
-	galaxy::async::ThreadPool<1> pool;
+	galaxy::async::ThreadPool pool;
 	galaxy::async::Task task;
 	task.set([&]() {
 		count = 2;
 	});
 
 	pool.queue(&task);
-	pool.start();
-
 	task.wait_until_done();
-
-	pool.end();
+	pool.finish();
 
 	EXPECT_EQ(count.load(), 2);
 }
