@@ -19,7 +19,6 @@ namespace galaxy
 {
 	namespace async
 	{
-		template<std::size_t max_threads>
 		class ThreadPool;
 	} // namespace async
 
@@ -165,6 +164,13 @@ namespace galaxy
 			///
 			[[maybe_unused]] res::Language* lang() const noexcept;
 
+			///
+			/// Get ThreadPool service.
+			///
+			/// \return Return pointer to ThreadPool service.
+			///
+			[[maybe_unused]] async::ThreadPool* pool() const noexcept;
+
 		public:
 			///
 			/// Restart flag.
@@ -262,6 +268,11 @@ namespace galaxy
 			/// Language service.
 			///
 			res::Language* m_language;
+
+			///
+			/// ThreadPool service.
+			///
+			async::ThreadPool* m_pool;
 		};
 	} // namespace core
 } // namespace galaxy

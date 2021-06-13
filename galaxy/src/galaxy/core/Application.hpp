@@ -13,6 +13,7 @@
 
 #include <sol/forward.hpp>
 
+#include "galaxy/async/ThreadPool.hpp"
 #include "galaxy/audio/Context.hpp"
 #include "galaxy/core/Instance.hpp"
 #include "galaxy/core/Window.hpp"
@@ -169,6 +170,11 @@ namespace galaxy
 			/// Language service.
 			///
 			std::unique_ptr<res::Language> m_language;
+
+			///
+			/// Threadpool.
+			///
+			std::unique_ptr<async::ThreadPool> m_pool;
 
 		private:
 			///

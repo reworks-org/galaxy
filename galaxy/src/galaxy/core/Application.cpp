@@ -45,6 +45,10 @@ namespace galaxy
 
 			GALAXY_LOG_START(log_path);
 
+			// Threadpool setup.
+			m_pool           = std::make_unique<async::ThreadPool>();
+			SL_HANDLE.m_pool = m_pool.get();
+
 			// Virtual filesystem setup.
 			auto root = static_cast<std::string>(asset_dir);
 			if (root.back() != '/')
@@ -268,6 +272,9 @@ namespace galaxy
 		{
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
+			m_pool->finish();
+			m_window->destroy();
+
 			m_instance = nullptr;
 
 			m_materialbook.reset();
@@ -282,6 +289,7 @@ namespace galaxy
 			m_window.reset();
 			m_config.reset();
 			m_vfs.reset();
+			m_pool.reset();
 		}
 
 		void Application::set_instance(std::shared_ptr<Instance> instance)
@@ -356,13 +364,11 @@ namespace galaxy
 				}
 			}
 
-			GALAXY_LOG_FINISH;
-
-			FT_HANDLE.close();
-
-			m_window->destroy();
+			// Clean up static stuff here since we can't be sure of when the destructor is called.
 			RENDERER_2D().clean_up();
 			RENDERER_3D().clean_up();
+			FT_HANDLE.close();
+			GALAXY_LOG_FINISH;
 
 			return SL_HANDLE.m_restart;
 		}
