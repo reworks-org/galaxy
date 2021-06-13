@@ -8,22 +8,30 @@
 #ifndef GALAXY_ASYNC_THREADPOOL_HPP_
 #define GALAXY_ASYNC_THREADPOOL_HPP_
 
+#include <mutex>
 #include <queue>
 #include <semaphore>
 #include <thread>
 #include <vector>
 
 #include "galaxy/async/Task.hpp"
-#include "galaxy/error/Log.hpp"
 
 namespace galaxy
 {
 	namespace async
 	{
 		///
+		/// Concept to constrain thread count.
+		///
+		template<unsigned int max_threads>
+		concept hardware_count = ((max_threads > 0) && (max_threads <= std::thread::hardware_concurrency()));
+
+		// clang-format off
+
+		///
 		/// Creates a system defined count of threads to reuse for task based work.
 		///
-		template<std::size_t max_threads>
+		template<unsigned int max_threads> requires hardware_count<max_threads>
 		class ThreadPool final
 		{
 		public:
@@ -42,7 +50,7 @@ namespace galaxy
 			///
 			/// \param task Pointer to task to queue.
 			///
-			void queue(Task* task);
+			void queue(Task* task) noexcept;
 
 			///
 			/// Start all threads.
@@ -97,15 +105,10 @@ namespace galaxy
 			std::atomic_bool m_running;
 		};
 
-		template<std::size_t max_threads>
+		template<unsigned int max_threads> requires hardware_count<max_threads>
 		inline ThreadPool<max_threads>::ThreadPool()
 		    : m_is_destroyed {true}, m_sync {0}
 		{
-			if (max_threads > std::thread::hardware_concurrency())
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Threads exceed hardware max. Max is: {0}.", std::thread::hardware_concurrency());
-			}
-
 			m_running = false;
 
 			for (std::size_t i = 0; i < max_threads; i++)
@@ -139,7 +142,7 @@ namespace galaxy
 			}
 		}
 
-		template<std::size_t max_threads>
+		template<unsigned int max_threads> requires hardware_count<max_threads>
 		inline ThreadPool<max_threads>::~ThreadPool()
 		{
 			if (!m_is_destroyed)
@@ -148,8 +151,8 @@ namespace galaxy
 			}
 		}
 
-		template<std::size_t max_threads>
-		inline void ThreadPool<max_threads>::queue(Task* task)
+		template<unsigned int max_threads> requires hardware_count<max_threads>
+		inline void ThreadPool<max_threads>::queue(Task* task) noexcept
 		{
 			m_mutex.lock();
 			m_tasks.emplace(task);
@@ -158,13 +161,13 @@ namespace galaxy
 			m_sync.release();
 		}
 
-		template<std::size_t max_threads>
+		template<unsigned int max_threads> requires hardware_count<max_threads>
 		inline void ThreadPool<max_threads>::start() noexcept
 		{
 			m_running = true;
 		}
 
-		template<std::size_t max_threads>
+		template<unsigned int max_threads> requires hardware_count<max_threads>
 		inline void ThreadPool<max_threads>::end()
 		{
 			m_running = false;
@@ -190,6 +193,9 @@ namespace galaxy
 			m_workers.clear();
 			m_is_destroyed = true;
 		}
+
+		// clang-format on
+
 	} // namespace async
 } // namespace galaxy
 
