@@ -218,10 +218,10 @@ namespace sb
 			}
 		});
 
-		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		sandbox->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		sandbox->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		sandbox->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		sandbox->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		sandbox->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		sandbox->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_physics_scene()
@@ -261,10 +261,10 @@ namespace sb
 			}
 		});
 
-		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		physics->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		physics->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		physics->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		physics->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		physics->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		physics->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_map_scene()
@@ -289,9 +289,9 @@ namespace sb
 			}
 		});
 
-		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		map->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		map->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		map->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		map->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		map->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		map->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 } // namespace sb

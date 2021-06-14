@@ -23,7 +23,7 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
-#include <galaxy/graphics/camera/Camera2D.hpp>
+#include <galaxy/graphics/Camera2D.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
@@ -104,7 +104,7 @@ namespace sc
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 				}
 
-				auto* const camera = m_scene_stack.top()->get_camera();
+				const auto& camera = m_scene_stack.top()->get_camera();
 				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
 				{
 					m_imgui_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
@@ -112,7 +112,7 @@ namespace sc
 					m_mousemoved_event.m_x += m_imgui_delta.x;
 					m_mousemoved_event.m_y += m_imgui_delta.y;
 
-					camera->on_event(m_mousemoved_event);
+					//camera.on_event(m_mousemoved_event);
 					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 				}
 
@@ -120,7 +120,7 @@ namespace sc
 				m_scroll_delta.m_y_offset = SL_HANDLE.window()->get_scroll_delta();
 				if (m_scroll_delta.m_y_offset != 0.0)
 				{
-					camera->on_event(m_scroll_delta);
+					//camera.on_event(m_scroll_delta);
 				}
 
 				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
@@ -131,67 +131,67 @@ namespace sc
 				if (SL_HANDLE.window()->key_down(input::Keys::W))
 				{
 					m_keydown_event.m_keycode = input::Keys::W;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::W;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 
 				if (SL_HANDLE.window()->key_down(input::Keys::S))
 				{
 					m_keydown_event.m_keycode = input::Keys::S;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::S;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 
 				if (SL_HANDLE.window()->key_down(input::Keys::A))
 				{
 					m_keydown_event.m_keycode = input::Keys::A;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::A;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 
 				if (SL_HANDLE.window()->key_down(input::Keys::D))
 				{
 					m_keydown_event.m_keycode = input::Keys::D;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::D;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 
 				if (SL_HANDLE.window()->key_down(input::Keys::Q))
 				{
 					m_keydown_event.m_keycode = input::Keys::Q;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::Q;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 
 				if (SL_HANDLE.window()->key_down(input::Keys::E))
 				{
 					m_keydown_event.m_keycode = input::Keys::E;
-					camera->on_event(m_keydown_event);
+					//camera.on_event(m_keydown_event);
 				}
 				else
 				{
 					m_keyup_event.m_keycode = input::Keys::E;
-					camera->on_event(m_keyup_event);
+					//camera.on_event(m_keyup_event);
 				}
 			}
 		}
@@ -548,12 +548,12 @@ namespace sc
 				{
 					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
-					scene::Scene2D* const s2d     = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
-					graphics::Camera2D* const c2d = static_cast<graphics::Camera2D*>(s2d->get_camera());
+					scene::Scene2D* const s2d = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
+					const auto& c2d           = s2d->get_camera();
 
 					glm::vec2 pos;
-					pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - c2d->get_pos().x;
-					pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - c2d->get_pos().y;
+					pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - c2d.get_pos().x;
+					pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - c2d.get_pos().y;
 
 					// Will be erased by collision system, as this is after update().
 					auto* const tree = s2d->m_world.get_system<systems::CollisionSystem>()->get_tree();

@@ -28,7 +28,7 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "galaxy/graphics/camera/Camera2D.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 

@@ -73,13 +73,6 @@ namespace galaxy
 			void create_maps(std::string_view path);
 
 			///
-			/// Get camera object.
-			///
-			/// \return Pointer to base camera class.
-			///
-			[[nodiscard]] graphics::Camera* get_camera() noexcept override;
-
-			///
 			/// Get a map.
 			///
 			/// \param name Name of the map file to get.
@@ -121,12 +114,6 @@ namespace galaxy
 			/// Deleted default constructor.
 			///
 			Scene2D() = delete;
-
-		public:
-			///
-			/// Camera.
-			///
-			graphics::Camera2D m_camera;
 
 		private:
 			///

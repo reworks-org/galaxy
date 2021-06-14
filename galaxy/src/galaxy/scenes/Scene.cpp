@@ -14,6 +14,11 @@ namespace galaxy
 {
 	namespace scene
 	{
+		graphics::Camera2D& Scene::get_camera() noexcept
+		{
+			return m_camera;
+		}
+
 		const std::string& Scene::get_type() const noexcept
 		{
 			return m_type;

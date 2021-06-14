@@ -86,11 +86,6 @@ namespace galaxy
 			}
 		}
 
-		graphics::Camera* Scene2D::get_camera() noexcept
-		{
-			return static_cast<graphics::Camera*>(&m_camera);
-		}
-
 		map::Map* Scene2D::get_map(std::string_view name)
 		{
 			return m_maps.get_map(name);

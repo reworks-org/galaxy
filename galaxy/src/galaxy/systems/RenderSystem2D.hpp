@@ -10,7 +10,7 @@
 
 #include "galaxy/ecs/Entity.hpp"
 #include "galaxy/ecs/System.hpp"
-#include "galaxy/graphics/camera/Camera2D.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy

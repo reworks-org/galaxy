@@ -9,6 +9,7 @@
 #define GALAXY_SCENES_SCENE_HPP_
 
 #include "galaxy/core/World.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/ui/GUI.hpp"
 
 namespace galaxy
@@ -63,7 +64,7 @@ namespace galaxy
 			///
 			/// \return Pointer to base camera class.
 			///
-			[[nodiscard]] virtual graphics::Camera* get_camera() noexcept = 0;
+			[[nodiscard]] graphics::Camera2D& get_camera() noexcept;
 
 			///
 			/// Get scene type.
@@ -112,6 +113,12 @@ namespace galaxy
 			/// GUI for this scene.
 			///
 			ui::GUI m_gui;
+
+		protected:
+			///
+			/// Camera.
+			///
+			graphics::Camera2D m_camera;
 
 		private:
 			///

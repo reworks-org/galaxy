@@ -15,19 +15,19 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			m_speed = json.at("speed");
 		}
 
 		Camera2D::Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : Camera {}, Serializable {this}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
 		}
