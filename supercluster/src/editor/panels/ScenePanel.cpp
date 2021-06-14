@@ -45,14 +45,14 @@ namespace sc
 					ImGui::ToggleButton("2D3DToggleButton", &s_type);
 
 					ImGui::SameLine();
-					ImGui::Text("3D");
+					ImGui::Text("NYI");
 
 					static std::string s_buff = "";
 					if (ImGui::InputText("New Scene", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
 					{
 						if (s_type)
 						{
-							scene_stack.create<scene::Scene3D>(s_buff);
+							GALAXY_LOG(GALAXY_WARNING, "Alternate scene structures not yet implemented.");
 						}
 						else
 						{
@@ -86,21 +86,6 @@ namespace sc
 						if (ImGui::Button("Push"))
 						{
 							scene_stack.push(name);
-						}
-
-						if (scene->get_type() == "3D")
-						{
-							auto* s3d = static_cast<scene::Scene3D*>(scene.get());
-							if (ImGui::Button("Load Skybox"))
-							{
-								const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
-								if (file != std::nullopt)
-								{
-									gl_operations.emplace_back([s3d, file]() -> void {
-										s3d->skybox().load(file.value());
-									});
-								}
-							}
 						}
 
 						/*

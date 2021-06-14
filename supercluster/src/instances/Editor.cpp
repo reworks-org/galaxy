@@ -10,25 +10,20 @@
 #include <galaxy/algorithm/Algorithm.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
-#include <galaxy/components/PointLight.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
-#include <galaxy/components/SpotLight.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform2D.hpp>
-#include <galaxy/components/Transform3D.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/graphics/camera/Camera2D.hpp>
-#include <galaxy/graphics/camera/Camera3D.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
@@ -266,7 +261,7 @@ namespace sc
 	{
 		SL_HANDLE.window()->set_title("Untitled Project - Supercluster Editor");
 		m_scene_stack.clear();
-		m_scene_stack.create<scene::Scene3D>("Base");
+		m_scene_stack.create<scene::Scene2D>("Base");
 		m_scene_stack.push("Base");
 	}
 
@@ -672,43 +667,6 @@ namespace sc
 								world.create_component<components::Transform2D>(entity);
 								auto* r   = world.create_component<components::Renderable>(entity);
 								r->m_type = graphics::Renderables::TEXT;
-							}
-						}
-						else
-						{
-							if (ImGui::MenuItem("  Model"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::Model>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform3D>(entity);
-
-								world.disable(entity);
-								world.set_flag<flags::AllowSerialize>(entity);
-							}
-
-							if (ImGui::MenuItem("  Point Light"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::PointLight>(entity);
-
-								world.disable(entity);
-								world.set_flag<flags::AllowSerialize>(entity);
-							}
-
-							if (ImGui::MenuItem("  Spot Light"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::SpotLight>(entity);
-
-								world.disable(entity);
-								world.set_flag<flags::AllowSerialize>(entity);
 							}
 						}
 

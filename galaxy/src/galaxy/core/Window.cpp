@@ -22,7 +22,6 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/graphics/Renderer3D.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Window.hpp"
@@ -695,7 +694,6 @@ namespace galaxy
 			glfwSetWindowSize(m_window, m_width, m_height);
 
 			RENDERER_2D().resize(m_width, m_height);
-			RENDERER_3D().resize(m_width, m_height);
 			m_post_processor->resize(m_width, m_height);
 
 			if (m_scene_dispatcher)
@@ -751,7 +749,6 @@ namespace galaxy
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			RENDERER_2D().prepare();
-			RENDERER_3D().prepare();
 		}
 
 		void Window::end()
@@ -761,11 +758,7 @@ namespace galaxy
 
 			m_post_processor->bind();
 
-			glDisable(GL_BLEND);
-			RENDERER_3D().render();
-
 			glEnable(GL_BLEND);
-			RENDERER_3D().do_forward_render();
 			m_post_processor->render();
 			RENDERER_2D().render();
 

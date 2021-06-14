@@ -11,7 +11,6 @@
 #include <type_traits>
 
 #include "galaxy/scenes/Scene2D.hpp"
-#include "galaxy/scenes/Scene3D.hpp"
 
 namespace galaxy
 {
@@ -21,8 +20,7 @@ namespace galaxy
 		/// Concept to ensure template parameter is a Scene.
 		///
 		template<typename Type>
-		concept is_scene = (std::is_same<Type, scene::Scene2D>::value ||
-				    std::is_same<Type, scene::Scene3D>::value);
+		concept is_scene = (std::is_same<Type, scene::Scene2D>::value);
 	} // namespace meta
 } // namespace galaxy
 

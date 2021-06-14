@@ -21,7 +21,6 @@
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/Language.hpp"
-#include "galaxy/res/MaterialBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
 #include "galaxy/res/ScriptBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -160,11 +159,6 @@ namespace galaxy
 			/// Script library.
 			///
 			std::unique_ptr<res::ScriptBook> m_scriptbook;
-
-			///
-			/// Material library.
-			///
-			std::unique_ptr<res::MaterialBook> m_materialbook;
 
 			///
 			/// Language service.

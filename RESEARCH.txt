@@ -19,7 +19,6 @@ https://www.gamedev.net/tutorials/_/technical/game-programming/the-guide-to-impl
 https://gamedevelopment.tutsplus.com/tutorials/basic-2d-platformer-physics-part-8-slopes--cms-28704
 
 https://www.glfw.org/docs/latest/input_guide.html#input_key
-https://github.com/flingengine/FlingEngine
 https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/
 http://gameprogrammingpatterns.com/state.html
 https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
@@ -28,10 +27,10 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 
 
 https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
-https://github.com/EQMG/Acid
-https://github.com/jmorton06/Lumos
-https://github.com/TheCherno/Hazel
-https://github.com/nem0/LumixEngine
+https://ogldev.atspace.co.uk/
+
+https://lettier.github.io/3d-game-shaders-for-beginners/
+https://gamedev.stackexchange.com/questions/58408/how-would-you-implement-chromatic-aberration/58412#58412
 
 https://gamedevelopment.tutsplus.com/series/how-to-create-a-custom-physics-engine--gamedev-12715
 https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331

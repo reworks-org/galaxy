@@ -187,10 +187,6 @@ namespace galaxy
 				{
 					create<Scene2D>(key);
 				}
-				else if (type == "3D")
-				{
-					create<Scene3D>(key);
-				}
 				else
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Could not deserialize scene, unknown type: {0}.", type);

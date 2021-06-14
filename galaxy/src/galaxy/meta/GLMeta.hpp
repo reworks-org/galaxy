@@ -14,7 +14,6 @@
 #include "galaxy/graphics/vertex/BatchVertex.hpp"
 #include "galaxy/graphics/vertex/PrimitiveVertex.hpp"
 #include "galaxy/graphics/vertex/SpriteVertex.hpp"
-#include "galaxy/graphics/vertex/Vertex3D.hpp"
 
 namespace galaxy
 {
@@ -26,8 +25,7 @@ namespace galaxy
 		template<typename Type>
 		concept is_vertex = (std::is_same<Type, graphics::SpriteVertex>::value ||
 				     std::is_same<Type, graphics::PrimitiveVertex>::value ||
-				     std::is_same<Type, graphics::BatchVertex>::value ||
-				     std::is_same<Type, graphics::Vertex3D>::value);
+				     std::is_same<Type, graphics::BatchVertex>::value);
 
 		///
 		/// Allows instance buffer to be used as a vertex attribute array.

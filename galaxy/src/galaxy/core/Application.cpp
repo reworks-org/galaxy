@@ -14,8 +14,6 @@
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/graphics/Renderer3D.hpp"
-#include "galaxy/graphics/shaders/BlinnPhong.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/scripting/LuaUtils.hpp"
 
@@ -201,16 +199,6 @@ namespace galaxy
 				// Set up renderers.
 				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
 
-				RENDERER_3D().get_gbuffer().init(m_window->get_width(), m_window->get_height());
-				RENDERER_3D().get_gbuffer().add_attachments(3, graphics::GeomBuffer::AttachmentType::FLOAT);
-				RENDERER_3D().get_gbuffer().add_attachments(1, graphics::GeomBuffer::AttachmentType::UNSIGNED_BYTE);
-				RENDERER_3D().get_gbuffer().create();
-				RENDERER_3D().init(m_window->get_width(), m_window->get_height());
-				RENDERER_3D().reserve_ubo(0, sizeof(graphics::Camera3D::Data));
-
-				const auto r3d_light_frag = std::format("{0}{1}{2}", shaders::blinnphong_frag_1, shaders::blinnphong_frag_2, shaders::blinnphong_frag_3);
-				RENDERER_3D().add_lighting_shader(shaders::blinnphong_vert, r3d_light_frag);
-
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
 				SL_HANDLE.m_scriptbook = m_scriptbook.get();
@@ -232,10 +220,6 @@ namespace galaxy
 				// MusicBook.
 				m_musicbook           = std::make_unique<res::MusicBook>(m_config->get<std::string>("musicbook-json"));
 				SL_HANDLE.m_musicbook = m_musicbook.get();
-
-				// MaterialBook.
-				m_materialbook           = std::make_unique<res::MaterialBook>();
-				SL_HANDLE.m_materialbook = m_materialbook.get();
 
 				// Set up custom lua functions and types.
 				lua::register_functions();
@@ -277,7 +261,6 @@ namespace galaxy
 
 			m_instance = nullptr;
 
-			m_materialbook.reset();
 			m_musicbook.reset();
 			m_soundbook.reset();
 			m_texture_atlas.reset();
@@ -366,7 +349,6 @@ namespace galaxy
 
 			// Clean up static stuff here since we can't be sure of when the destructor is called.
 			RENDERER_2D().clean_up();
-			RENDERER_3D().clean_up();
 			FT_HANDLE.close();
 			GALAXY_LOG_FINISH;
 

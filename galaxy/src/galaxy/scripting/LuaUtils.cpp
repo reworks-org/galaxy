@@ -29,7 +29,6 @@
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "galaxy/graphics/camera/Camera2D.hpp"
-#include "galaxy/graphics/camera/Camera3D.hpp"
 
 #include "galaxy/map/TiledWorld.hpp"
 
@@ -44,7 +43,6 @@
 
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/Language.hpp"
-#include "galaxy/res/MaterialBook.hpp"
 #include "galaxy/res/MusicBook.hpp"
 #include "galaxy/res/ScriptBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -405,39 +403,6 @@ namespace galaxy
 			camera_type_2d["get_scale"]  = &graphics::Camera2D::get_scale;
 			camera_type_2d["get_pos"]    = &graphics::Camera2D::get_pos;
 			camera_type_2d["get_proj"]   = &graphics::Camera2D::get_proj;
-
-			auto camera_type_data      = lua->new_usertype<graphics::Camera3D::Data>("gCamera3DData", sol::constructors<graphics::Camera3D::Data()>());
-			camera_type_data["m_pos"]  = &graphics::Camera3D::Data::m_pos;
-			camera_type_data["m_proj"] = &graphics::Camera3D::Data::m_proj;
-			camera_type_data["m_view"] = &graphics::Camera3D::Data::m_view;
-
-			// clang-format off
-			lua->new_enum<graphics::Camera3D::Mode>("gCamera3DMode",
-			{
-				{"FIRST",graphics::Camera3D::Mode::FIRST},
-				{"THIRD", graphics::Camera3D::Mode::THIRD},
-				{"FREE", graphics::Camera3D::Mode::FREE}
-			});
-			// clang-format on
-
-			auto camera_type_3d             = lua->new_usertype<graphics::Camera3D>("gCamera3D", sol::constructors<graphics::Camera3D()>());
-			camera_type_3d["get_data"]      = &graphics::Camera3D::get_data;
-			camera_type_3d["get_proj"]      = &graphics::Camera3D::get_proj;
-			camera_type_3d["get_view"]      = &graphics::Camera3D::get_view;
-			camera_type_3d["heading"]       = &graphics::Camera3D::heading;
-			camera_type_3d["m_back_key"]    = &graphics::Camera3D::m_back_key;
-			camera_type_3d["m_down_key"]    = &graphics::Camera3D::m_down_key;
-			camera_type_3d["m_forward_key"] = &graphics::Camera3D::m_forward_key;
-			camera_type_3d["m_left_key"]    = &graphics::Camera3D::m_left_key;
-			camera_type_3d["m_right_key"]   = &graphics::Camera3D::m_right_key;
-			camera_type_3d["m_up_key"]      = &graphics::Camera3D::m_up_key;
-			camera_type_3d["pitch"]         = &graphics::Camera3D::pitch;
-			camera_type_3d["reset"]         = &graphics::Camera3D::reset;
-			camera_type_3d["set_focal"]     = &graphics::Camera3D::set_focal;
-			camera_type_3d["set_mode"]      = &graphics::Camera3D::set_mode;
-			camera_type_3d["set_position"]  = &graphics::Camera3D::set_position;
-			camera_type_3d["set_speed"]     = &graphics::Camera3D::set_speed;
-			camera_type_3d["update"]        = &graphics::Camera3D::update;
 		}
 
 		void register_mapping()
@@ -512,11 +477,6 @@ namespace galaxy
 			fontbook_type["get"]              = &res::FontBook::get;
 			fontbook_type["clear"]            = &res::FontBook::clear;
 			fontbook_type["has"]              = &res::FontBook::has;
-
-			auto materialbook_type     = lua->new_usertype<res::MaterialBook>("gMaterialBook", sol::no_constructor);
-			materialbook_type["get"]   = &res::MaterialBook::get;
-			materialbook_type["clear"] = &res::MaterialBook::clear;
-			materialbook_type["has"]   = &res::MaterialBook::has;
 
 			auto musicbook_type                = lua->new_usertype<res::MusicBook>("gMusicBook", sol::no_constructor);
 			musicbook_type["create_from_json"] = &res::MusicBook::create_from_json;

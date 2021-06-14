@@ -12,10 +12,8 @@
 #include "galaxy/graphics/shaders/Framebuffer2D.hpp"
 #include "galaxy/graphics/shaders/Glyph.hpp"
 #include "galaxy/graphics/shaders/Line.hpp"
-#include "galaxy/graphics/shaders/LightObject.hpp"
 #include "galaxy/graphics/shaders/Point.hpp"
 #include "galaxy/graphics/shaders/RenderToTexture.hpp"
-#include "galaxy/graphics/shaders/Skybox.hpp"
 #include "galaxy/graphics/shaders/Sprite.hpp"
 #include "galaxy/graphics/shaders/SpriteBatch.hpp"
 #include "galaxy/graphics/shaders/Text.hpp"
@@ -107,9 +105,6 @@ namespace galaxy
 			auto* render_to_texture = create("render_to_texture");
 			render_to_texture->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 
-			auto* skybox = create("skybox");
-			skybox->load_raw(shaders::skybox_vert, shaders::skybox_frag);
-
 			auto* sprite = create("sprite");
 			sprite->load_raw(shaders::sprite_vert, shaders::sprite_frag);
 
@@ -118,9 +113,6 @@ namespace galaxy
 
 			auto* text = create("text");
 			text->load_raw(shaders::text_vert, shaders::text_frag);
-
-			auto* light_object = create("light_object");
-			light_object->load_raw(shaders::light_object_vert, shaders::light_object_frag);
 		}
 	} // namespace res
 } // namespace galaxy

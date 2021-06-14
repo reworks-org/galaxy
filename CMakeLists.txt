@@ -87,13 +87,10 @@ else()
 		
 		set(GALAXY_EXTERNAL_HEADERS
 			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include"
-			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/include"
 		)
 		
 		set(GALAXY_PRECOMPILED_LIBS
 			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.${LIB_FILE_EXT}"
-			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/nvapi/lib/nvapi64.${LIB_FILE_EXT}"
-			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.win64.${LIB_FILE_EXT}"
 		)
 	else()
 		set(LIB_FILE_EXT "a")
@@ -109,7 +106,6 @@ else()
 		
 		set(GALAXY_PRECOMPILED_LIBS
 			"${FREETYPE_LIBRARIES}"
-			"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/lib/GFSDK_SSAO_GL.x86_64-linux-gnu.${LIB_FILE_EXT}"
 		)
 	endif()
 
@@ -208,86 +204,6 @@ else()
 	    SUFFIX ".${LIB_FILE_EXT}"
 	)
 
-	#https://github.com/NVIDIAGameWorks/PhysX/issues/249
-	#set(TARGET_BUILD_PLATFORM "windows")
-	#if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	#	set(NV_USE_DEBUG_WINCRT ON CACHE BOOL "Use the debug version of the CRT")
-	#else()
-	#	set(NV_USE_DEBUG_WINCRT OFF CACHE BOOL "Use the debug version of the CRT")
-	#endif()
-	#set(PHYSX_ROOT_DIR "${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/physx")
-	#set(PHYSX_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/physx/include ${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/pxshared/include/)
-	#set(PHYSX_LIBRARIES
-	#	PhysX;
-	#	PhysXCharacterKinematic;
-	#	PhysXCommon;
-	#	PhysXCooking;
-	#	PhysXExtensions;
-	#	PhysXVehicle;
-	#	LowLevel;
-	#	LowLevelAABB;
-	#	LowLevelDynamics;
-	#	SceneQuery;
-	#	SimulationController;
-	#	FastXml;
-	#	PhysXPvdSDK;
-	#	PhysXTask;
-	#	PhysXFoundation
-	#)
-	#set(PHYSX_LIBRARIES_OUTPUTS
-	#	PhysX;
-	#	PhysXCharacterKinematic;
-	#	PhysXCommon;
-	#	PhysXCooking;
-	#	PhysXExtensions;
-	#	PhysXFoundation;
-	#	PhysXPvdSDK;
-	#	PhysXVehicle
-	#)
-	#set(PXSHARED_PATH "${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/pxshared")
-	#set(PXSHARED_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-	#set(CMAKEMODULES_VERSION "1.27")
-	#set(CMAKEMODULES_PATH "${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/externals/cmakemodules")
-	#set(PX_OUTPUT_LIB_DIR "${CMAKE_SOURCE_DIR}/output/bin/physx")
-	#set(PX_OUTPUT_BIN_DIR "${CMAKE_SOURCE_DIR}/output/bin/physx")
-	#set(PX_BUILDSNIPPETS OFF CACHE BOOL "" FORCE)
-	#set(PX_BUILDPUBLICSAMPLES OFF CACHE BOOL "" FORCE)
-	#set(PX_GENERATE_STATIC_LIBRARIES ON CACHE BOOL "" FORCE)
-	#set(PX_FLOAT_POINT_PRECISE_MATH OFF CACHE BOOL "" FORCE)
-	#set(NV_USE_STATIC_WINCRT ON CACHE BOOL "" FORCE)
-	#set(PX_CMAKE_SUPPRESS_REGENERATION OFF CACHE BOOL "" FORCE)
-	#set(PX_COPY_EXTERNAL_DLL OFF CACHE BOOL "" FORCE)
-	#file(COPY ${CMAKE_SOURCE_DIR}/cmake/patches/PxPreprocessor.h DESTINATION ${CMAKE_SOURCE_DIR}/dependencies/nvidia/physx/pxshared/include/foundation)
-	#add_subdirectory(dependencies/nvidia/physx/physx/compiler/public)
-	#foreach (target IN LISTS PHYSX_LIBRARIES)
-	#	target_compile_options(${target} PUBLIC /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-	#	set_target_properties(${target} PROPERTIES
-	#		LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
-	#    	LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
-	#    	LIBRARY_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
-	#    	LIBRARY_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
-	#    	LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
-	#    	
-	#    	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
-	#    	ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
-	#    	ARCHIVE_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
-	#    	ARCHIVE_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
-	#    	ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
-	#    	
-	#    	PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
-	#    	PDB_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
-	#    	PDB_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
-	#    	PDB_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
-	#    	PDB_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
-	#    	
-	#    	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/physx"
-	#    	RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug"
-	#    	RUNTIME_OUTPUT_DIRECTORY_CHECKED "${CMAKE_SOURCE_DIR}/output/bin/physx/Checked"
-	#    	RUNTIME_OUTPUT_DIRECTORY_PROFILE "${CMAKE_SOURCE_DIR}/output/bin/physx/Profile"
-	#    	RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/output/bin/physx/Release"
-	#	)
-	#endforeach()
-
 	# Set external project options.
 	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
@@ -384,9 +300,6 @@ else()
 	add_dependencies(galaxy IrrXML)
 	add_dependencies(galaxy assimp)
 	add_dependencies(galaxy assimp_zlibstatic)
-	#foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-	#	add_dependencies(galaxy ${target})
-	#endforeach()
 
 	add_dependencies(galaxy dependencies)
 	add_dependencies(supercluster galaxy)
@@ -394,7 +307,6 @@ else()
 	# Set header directories.
 	set(HEADERS
 		"${GALAXY_EXTERNAL_HEADERS}"
-		#"${PHYSX_INCLUDE_DIRS}"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/assimp-conf"
 		"${CMAKE_SOURCE_DIR}/dependencies/base64"
@@ -409,7 +321,6 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/nvidia/hbaoplus/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
@@ -421,7 +332,6 @@ else()
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
 		"${CMAKE_SOURCE_DIR}/galaxy/src"
 		"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
-		"${CMAKE_SOURCE_DIR}/sandbox_3d_tests/src"
 		"${CMAKE_SOURCE_DIR}/supercluster/src"
 		"${CMAKE_SOURCE_DIR}/tests/src"
 	)
@@ -494,10 +404,6 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
-		#foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-		#	target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
-		#endforeach()
-
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
@@ -521,10 +427,6 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
-		#foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-		#	target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
-		#endforeach()
-
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 	else()
@@ -540,52 +442,29 @@ else()
 	endif()
 
 	if (${GALAXY_BUILD_TESTS})
-		add_subdirectory(sandbox_3d_tests)
 		add_subdirectory(sandbox_tests)
 		add_subdirectory(tests)
 
-		add_dependencies(sandbox_3d_test galaxy)
 		add_dependencies(sandbox_test galaxy)
 		add_dependencies(tests galaxy)
 
-		target_include_directories(sandbox_3d_test PUBLIC ${HEADERS})
 		target_include_directories(sandbox_test PUBLIC ${HEADERS})
 		target_include_directories(tests PUBLIC ${HEADERS})
 
-		target_link_libraries(sandbox_3d_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(sandbox_test PUBLIC "${SYSTEM_LIBS}")
 		target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
-		target_link_libraries(sandbox_3d_test PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 		target_link_libraries(sandbox_test PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 		target_link_libraries(tests PUBLIC "${GALAXY_PRECOMPILED_LIBS}")
 
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-			target_compile_definitions(sandbox_3d_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 			target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 			target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 
-			target_compile_options(sandbox_3d_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 			target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 			target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 
-			target_link_options(sandbox_3d_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-
-			target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
-
-		    foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-				target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
-			endforeach()
-
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
@@ -594,10 +473,6 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
-
-		    #foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-			#	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
-			#endforeach()
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -610,39 +485,17 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
-		    #foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-			#	target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Debug/${target}_static.${LIB_FILE_EXT}")
-			#endforeach()
-
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-			target_compile_definitions(sandbox_3d_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 			target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 			target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 
-			target_compile_options(sandbox_3d_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 			target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 			target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 
-			target_link_options(sandbox_3d_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-
-			target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
-
-		    #foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-			#	target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
-			#endforeach()
-
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_3d_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
@@ -651,10 +504,6 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
-
-			#foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-			#	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
-			#endforeach()
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -667,10 +516,6 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
 			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
-			#foreach (target IN LISTS PHYSX_LIBRARIES_OUTPUTS)
-			#	target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/physx/Release/${target}_static.${LIB_FILE_EXT}")
-			#endforeach()
-
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 		else()
@@ -678,11 +523,9 @@ else()
 		endif()
 
 		if (WIN32)
-			target_compile_options(sandbox_3d_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(sandbox_test PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(tests PUBLIC /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 		else()
-			target_compile_options(sandbox_3d_test PUBLIC -w)
 			target_compile_options(sandbox_test PUBLIC -w)
 			target_compile_options(tests PUBLIC -w)
 		endif()

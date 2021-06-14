@@ -7,19 +7,15 @@
 
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/Model.hpp>
 #include <galaxy/components/OnCollision.hpp>
-#include <galaxy/components/PointLight.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/ShaderID.hpp>
-#include <galaxy/components/SpotLight.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform2D.hpp>
-#include <galaxy/components/Transform3D.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
@@ -234,24 +230,6 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Spot Light");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##11"))
-							{
-								world.disable(entity);
-								world.create_component<components::SpotLight>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##12"))
-							{
-								world.remove<components::SpotLight>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
 							ImGui::Text("Tag");
 							ImGui::TableNextColumn();
 
@@ -318,42 +296,6 @@ namespace sc
 							if (ImGui::Button(" - ##18"))
 							{
 								world.remove<components::BatchSprite>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Model");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##19"))
-							{
-								world.disable(entity);
-								world.create_component<components::Model>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##20"))
-							{
-								world.remove<components::Model>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Point Light");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##21"))
-							{
-								world.disable(entity);
-								world.create_component<components::PointLight>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##22"))
-							{
-								world.remove<components::PointLight>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -432,24 +374,6 @@ namespace sc
 								});
 							}
 
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Transform3D");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##31"))
-							{
-								world.disable(entity);
-								world.create_component<components::Transform3D>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##32"))
-							{
-								world.remove<components::Transform3D>(entity);
-							}
-
 							ImGui::EndTable();
 						}
 
@@ -492,35 +416,27 @@ namespace sc
 			// clang-format off
 			auto [animated,
 				batchsprite,
-				model,
 				oncollision,
-				pointlight,
 				primitive2d,
 				renderable,
 				rigidbody,
 				shaderid,
-				spotlight,
 				sprite,
 				tag,
 				text,
-				transform2d,
-				transform3d
+				transform2d
 			] = m_cur_instance->get_stack().top()->m_world.get_multi<
 				components::Animated,
 				components::BatchSprite,
-				components::Model,
 				components::OnCollision,
-				components::PointLight,
 				components::Primitive2D,
 				components::Renderable,
 				components::RigidBody,
 				components::ShaderID,
-				components::SpotLight,
 				components::Sprite,
 				components::Tag,
 				components::Text,
-				components::Transform2D,
-				components::Transform3D
+				components::Transform2D
 			>(entity);
 			// clang-format on
 
@@ -690,55 +606,11 @@ namespace sc
 					}
 				}
 
-				if (model)
-				{
-					if (ImGui::BeginTabItem("Model"))
-					{
-						if (ImGui::Button("Load"))
-						{
-							const auto file = SL_HANDLE.vfs()->open_with_dialog();
-							gl_operations.push_back([model, &file]() {
-								if (file == std::nullopt)
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to select file to open for model component.");
-								}
-								else
-								{
-									model->load(file.value());
-									model->create();
-								}
-							});
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
 				if (oncollision)
 				{
 					if (ImGui::BeginTabItem("On Collision"))
 					{
 						ImGui::InputText("Script", &oncollision->m_script);
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (pointlight)
-				{
-					if (ImGui::BeginTabItem("Point Light"))
-					{
-						int clicked = 0;
-
-						clicked += ui::im_draw_class(pointlight->get_data().m_ambient_intensity, "Ambient");
-						clicked += ui::im_draw_class(pointlight->get_data().m_diffuse_intensity, "Diffuse");
-						clicked += ui::im_draw_class(pointlight->get_data().m_specular_intensity, "Specular");
-						clicked += ui::im_draw_class(pointlight->get_data().m_pos, "Position");
-
-						if (static_cast<bool>(clicked))
-						{
-							pointlight->set_dirty();
-						}
-
 						ImGui::EndTabItem();
 					}
 				}
@@ -1043,30 +915,6 @@ namespace sc
 					}
 				}
 
-				if (spotlight)
-				{
-					if (ImGui::BeginTabItem("Spot Light"))
-					{
-						int clicked = 0;
-
-						clicked += ui::im_draw_class(spotlight->get_data().m_ambient_intensity, "Ambient");
-						clicked += ui::im_draw_class(spotlight->get_data().m_diffuse_intensity, "Diffuse");
-						clicked += ui::im_draw_class(spotlight->get_data().m_specular_intensity, "Specular");
-						clicked += ui::im_draw_class(spotlight->get_data().m_pos, "Position");
-						clicked += ui::im_draw_class(spotlight->get_data().m_dir, "Direction");
-
-						clicked += ImGui::InputFloat("Inner Cutoff", &spotlight->get_data().m_inner_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
-						clicked += ImGui::InputFloat("Outer Cutoff", &spotlight->get_data().m_outer_cutoff, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
-
-						if (static_cast<bool>(clicked))
-						{
-							pointlight->set_dirty();
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
 				if (sprite)
 				{
 					if (ImGui::BeginTabItem("Sprite"))
@@ -1190,43 +1038,6 @@ namespace sc
 						if (ImGui::SliderAngle("Rotate", &rotation, 0.0f, 360.0f))
 						{
 							transform2d->rotate(rotation);
-						}
-
-						ImGui::EndTabItem();
-					}
-				}
-
-				if (transform3d)
-				{
-					if (ImGui::BeginTabItem("Transform3D"))
-					{
-						static glm::vec3 origin = transform3d->get_origin();
-						ui::im_draw_class(origin, "Origin");
-						transform3d->set_origin(origin.x, origin.y, origin.z);
-
-						static glm::vec3 rot_axis = transform3d->get_rotation_axis();
-						ui::im_draw_class(rot_axis, "Rotation Axis");
-						transform3d->set_rotation_axis(rot_axis.x, rot_axis.y, rot_axis.z);
-
-						static glm::vec3 pos = transform3d->get_pos();
-						ui::im_draw_class(pos, "Position");
-						transform3d->set_pos(pos.x, pos.y, pos.z);
-
-						static float rot = transform3d->get_rotation();
-						if (ImGui::InputFloat("Rotation", &rot, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							transform3d->rotate(rot);
-						}
-
-						static float scale = transform3d->get_scale();
-						if (ImGui::InputFloat("Scale", &scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							transform3d->scale(scale);
-						}
-
-						if (ImGui::Button("Reset"))
-						{
-							transform3d->reset();
 						}
 
 						ImGui::EndTabItem();

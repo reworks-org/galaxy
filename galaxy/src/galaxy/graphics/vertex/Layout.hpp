@@ -70,7 +70,6 @@ namespace galaxy
 			constexpr bool is_prim_vertex   = std::is_same<VertexType, PrimitiveVertex>::value;
 			constexpr bool is_batch_vertex  = std::is_same<VertexType, BatchVertex>::value;
 			constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
-			constexpr bool is_vertex_3d     = std::is_same<VertexType, Vertex3D>::value;
 
 			if constexpr (is_prim_vertex)
 			{
@@ -119,29 +118,6 @@ namespace galaxy
 				else
 				{
 					static_assert(false, "Invalid vertex attribute specificed. Sprite Vertex requires position, or texel.");
-				}
-			}
-			else if constexpr (is_vertex_3d)
-			{
-				if constexpr (va == VertexAttributes::POSITION)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_pos)));
-				}
-				else if constexpr (va == VertexAttributes::NORMAL)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_normal)));
-				}
-				else if constexpr (va == VertexAttributes::TANGENTS)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_tangents)));
-				}
-				else if constexpr (va == VertexAttributes::TEXEL)
-				{
-					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex3D, m_texels)));
-				}
-				else
-				{
-					static_assert(false, "Invalid vertex attribute specificed. Vertex3D requires position or texel.");
 				}
 			}
 		}
