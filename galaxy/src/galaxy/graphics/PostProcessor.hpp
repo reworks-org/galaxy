@@ -10,8 +10,8 @@
 #ifndef GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 #define GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 
-#include "galaxy/graphics/posteffects/SMAA.hpp"
-#include "galaxy/graphics/posteffects/Sharpen.hpp"
+#include "galaxy/graphics/postfx/SMAA.hpp"
+#include "galaxy/graphics/postfx/Sharpen.hpp"
 
 namespace galaxy
 {

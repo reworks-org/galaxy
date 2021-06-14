@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
 #define GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
 
-#include "galaxy/graphics/posteffects/PostEffect.hpp"
+#include "galaxy/graphics/postfx/PostEffect.hpp"
 
 namespace galaxy
 {
