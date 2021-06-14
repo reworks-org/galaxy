@@ -23,60 +23,15 @@ namespace galaxy
 
 		std::array<float, 4> Colour::normalized() noexcept
 		{
-			std::array<float, 4> arr = {0.0f, 0.0f, 0.0f, 0.0f};
-
-			// Avoids floating precision errors.
-			if (m_red == 0)
+			// clang-format off
+			std::array<float, 4> arr = 
 			{
-				arr[0] = 0.0f;
-			}
-			else if (m_red == 255)
-			{
-				arr[0] = 1.0f;
-			}
-			else
-			{
-				arr[0] = static_cast<float>(m_red) / static_cast<float>(0xFF);
-			}
-
-			if (m_green == 0)
-			{
-				arr[1] = 0.0f;
-			}
-			else if (m_green == 255)
-			{
-				arr[1] = 1.0f;
-			}
-			else
-			{
-				arr[1] = static_cast<float>(m_green) / static_cast<float>(0xFF);
-			}
-
-			if (m_blue == 0)
-			{
-				arr[2] = 0.0f;
-			}
-			else if (m_blue == 255)
-			{
-				arr[2] = 1.0f;
-			}
-			else
-			{
-				arr[2] = static_cast<float>(m_blue) / static_cast<float>(0xFF);
-			}
-
-			if (m_alpha == 0)
-			{
-				arr[3] = 0.0f;
-			}
-			else if (m_alpha == 255)
-			{
-				arr[3] = 1.0f;
-			}
-			else
-			{
-				arr[3] = static_cast<float>(m_alpha) / static_cast<float>(0xFF);
-			}
+				r_normal(),
+				g_normal(),
+				b_normal(),
+				a_normal()
+			};
+			// clang-format on
 
 			return arr;
 		}

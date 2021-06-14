@@ -10,7 +10,6 @@
 
 #include <array>
 #include <compare>
-#include <cstdint>
 
 #include "galaxy/meta/Concepts.hpp"
 
