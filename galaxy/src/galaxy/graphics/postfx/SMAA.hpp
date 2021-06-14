@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_POSTEFFECTS_SMAA_HPP_
-#define GALAXY_GRAPHICS_POSTEFFECTS_SMAA_HPP_
+#ifndef GALAXY_GRAPHICS_POSTFX_SMAA_HPP_
+#define GALAXY_GRAPHICS_POSTFX_SMAA_HPP_
 
 #include "galaxy/graphics/Shader.hpp"
 

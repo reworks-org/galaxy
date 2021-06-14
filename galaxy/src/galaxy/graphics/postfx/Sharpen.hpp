@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_POSTEFFECTS_SHARPEN_HPP_
-#define GALAXY_GRAPHICS_POSTEFFECTS_SHARPEN_HPP_
+#ifndef GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
+#define GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
 
 #include "galaxy/graphics/posteffects/PostEffect.hpp"
 
