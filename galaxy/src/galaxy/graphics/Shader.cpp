@@ -8,6 +8,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
 #include "Shader.hpp"

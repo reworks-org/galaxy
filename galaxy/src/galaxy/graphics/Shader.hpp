@@ -16,8 +16,6 @@
 #include <nlohmann/json_fwd.hpp>
 #include <robin_hood.h>
 
-#include "galaxy/error/Log.hpp"
-
 namespace galaxy
 {
 	namespace graphics
@@ -151,7 +149,7 @@ namespace galaxy
 		inline void Shader::set_uniform(std::string_view name, const Uniforms&... args)
 		{
 			// If type does not have specialization, throw error.
-			GALAXY_LOG(GALAXY_FATAL, "Invalid shader uniform type!");
+			static_assert(false, "Invalid shader uniform type!");
 		}
 
 		template<>
