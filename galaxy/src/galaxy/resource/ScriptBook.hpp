@@ -1,50 +1,57 @@
 ///
-/// SoundBook.hpp
+/// ScriptBook.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RES_SOUNDBOOK_HPP_
-#define GALAXY_RES_SOUNDBOOK_HPP_
+#ifndef GALAXY_RESOURCE_SCRIPTBOOK_HPP_
+#define GALAXY_RESOURCE_SCRIPTBOOK_HPP_
 
-#include "galaxy/audio/Sound.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/res/ResourceCache.hpp"
+#include "galaxy/resource/ResourceCache.hpp"
+#include "galaxy/scripting/LoadedScript.hpp"
 
 namespace galaxy
 {
 	namespace res
 	{
 		///
-		/// Resource manager for fonts.
+		/// Resource manager for lua scripts.
 		///
-		class SoundBook final : public ResourceCache<audio::Sound>, public fs::Serializable
+		class ScriptBook final : public ResourceCache<lua::LoadedScript>, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			SoundBook() noexcept = default;
+			ScriptBook() noexcept = default;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param file JSON file to load.
 			///
-			SoundBook(std::string_view file);
+			ScriptBook(std::string_view file);
 
 			///
 			/// Destructor.
 			///
-			virtual ~SoundBook() noexcept;
+			virtual ~ScriptBook() noexcept;
 
 			///
-			/// Create SoundBook from JSON.
+			/// Create ScriptBook from JSON.
 			///
 			/// \param file JSON file to load.
 			///
 			void create_from_json(std::string_view file);
+
+			///
+			/// Run a script.
+			///
+			/// \param script_id ID of the script to run.
+			///
+			void run(std::string_view script_id);
 
 			///
 			/// Clean up.
@@ -69,22 +76,22 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			SoundBook(const SoundBook&) = delete;
+			ScriptBook(const ScriptBook&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			SoundBook(SoundBook&&) = delete;
+			ScriptBook(ScriptBook&&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			SoundBook& operator=(const SoundBook&) = delete;
+			ScriptBook& operator=(const ScriptBook&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			SoundBook& operator=(SoundBook&&) = delete;
+			ScriptBook& operator=(ScriptBook&&) = delete;
 		};
 	} // namespace res
 } // namespace galaxy

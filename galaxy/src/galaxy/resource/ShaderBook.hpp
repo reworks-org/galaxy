@@ -1,46 +1,46 @@
 ///
-/// MusicBook.hpp
+/// ShaderBook.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RES_MUSICBOOK_HPP_
-#define GALAXY_RES_MUSICBOOK_HPP_
+#ifndef GALAXY_RESOURCE_SHADERBOOK_HPP_
+#define GALAXY_RESOURCE_SHADERBOOK_HPP_
 
-#include "galaxy/audio/Music.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/res/ResourceCache.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/resource/ResourceCache.hpp"
 
 namespace galaxy
 {
 	namespace res
 	{
 		///
-		/// Resource manager for music.
+		/// Resource manager for shaders.
 		///
-		class MusicBook final : public ResourceCache<audio::Music>, public fs::Serializable
+		class ShaderBook final : public ResourceCache<graphics::Shader>, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			MusicBook() noexcept = default;
+			ShaderBook();
 
 			///
 			/// JSON constructor.
 			///
 			/// \param file JSON file to load.
 			///
-			MusicBook(std::string_view file);
+			ShaderBook(std::string_view file);
 
 			///
 			/// Destructor.
 			///
-			virtual ~MusicBook() noexcept;
+			virtual ~ShaderBook() noexcept;
 
 			///
-			/// Create MusicBook from JSON.
+			/// Create ShaderBook from JSON.
 			///
 			/// \param file JSON file to load.
 			///
@@ -69,22 +69,38 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			MusicBook(const MusicBook&) = delete;
+			ShaderBook(const ShaderBook&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			MusicBook(MusicBook&&) = delete;
+			ShaderBook(ShaderBook&&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			MusicBook& operator=(const MusicBook&) = delete;
+			ShaderBook& operator=(const ShaderBook&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			MusicBook& operator=(MusicBook&&) = delete;
+			ShaderBook& operator=(ShaderBook&&) = delete;
+
+			///
+			/// Create default shaderbook shaders.
+			///
+			void create_default();
+
+		private:
+			///
+			/// Vertex extension.
+			///
+			std::string m_vert_ext;
+
+			///
+			/// Fragment extension.
+			///
+			std::string m_frag_ext;
 		};
 	} // namespace res
 } // namespace galaxy

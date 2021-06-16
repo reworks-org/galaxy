@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RES_RESOURCECACHE_HPP_
-#define GALAXY_RES_RESOURCECACHE_HPP_
+#ifndef GALAXY_RESOURCE_RESOURCECACHE_HPP_
+#define GALAXY_RESOURCE_RESOURCECACHE_HPP_
 
 #include <robin_hood.h>
 

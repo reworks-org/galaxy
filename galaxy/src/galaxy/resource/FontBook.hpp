@@ -5,12 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RES_FONTBOOK_HPP_
-#define GALAXY_RES_FONTBOOK_HPP_
+#ifndef GALAXY_RESOURCE_FONTBOOK_HPP_
+#define GALAXY_RESOURCE_FONTBOOK_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/text/Font.hpp"
-#include "galaxy/res/ResourceCache.hpp"
+#include "galaxy/resource/ResourceCache.hpp"
 
 namespace galaxy
 {

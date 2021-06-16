@@ -1,46 +1,46 @@
 ///
-/// ShaderBook.hpp
+/// SoundBook.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RES_SHADERBOOK_HPP_
-#define GALAXY_RES_SHADERBOOK_HPP_
+#ifndef GALAXY_RESOURCE_SOUNDBOOK_HPP_
+#define GALAXY_RESOURCE_SOUNDBOOK_HPP_
 
+#include "galaxy/audio/Sound.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Shader.hpp"
-#include "galaxy/res/ResourceCache.hpp"
+#include "galaxy/resource/ResourceCache.hpp"
 
 namespace galaxy
 {
 	namespace res
 	{
 		///
-		/// Resource manager for shaders.
+		/// Resource manager for fonts.
 		///
-		class ShaderBook final : public ResourceCache<graphics::Shader>, public fs::Serializable
+		class SoundBook final : public ResourceCache<audio::Sound>, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			ShaderBook();
+			SoundBook() noexcept = default;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param file JSON file to load.
 			///
-			ShaderBook(std::string_view file);
+			SoundBook(std::string_view file);
 
 			///
 			/// Destructor.
 			///
-			virtual ~ShaderBook() noexcept;
+			virtual ~SoundBook() noexcept;
 
 			///
-			/// Create ShaderBook from JSON.
+			/// Create SoundBook from JSON.
 			///
 			/// \param file JSON file to load.
 			///
@@ -69,38 +69,22 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			ShaderBook(const ShaderBook&) = delete;
+			SoundBook(const SoundBook&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			ShaderBook(ShaderBook&&) = delete;
+			SoundBook(SoundBook&&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			ShaderBook& operator=(const ShaderBook&) = delete;
+			SoundBook& operator=(const SoundBook&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			ShaderBook& operator=(ShaderBook&&) = delete;
-
-			///
-			/// Create default shaderbook shaders.
-			///
-			void create_default();
-
-		private:
-			///
-			/// Vertex extension.
-			///
-			std::string m_vert_ext;
-
-			///
-			/// Fragment extension.
-			///
-			std::string m_frag_ext;
+			SoundBook& operator=(SoundBook&&) = delete;
 		};
 	} // namespace res
 } // namespace galaxy
