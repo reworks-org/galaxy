@@ -9,9 +9,10 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
-#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
 
 #include "Font.hpp"
 
@@ -112,6 +113,7 @@ namespace galaxy
 							glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 							glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 							glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(SL_HANDLE.config()->get<int>("ansio-filter")));
 
 							c_obj.m_size.x    = face->glyph->bitmap.width;
 							c_obj.m_size.y    = face->glyph->bitmap.rows;
