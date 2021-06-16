@@ -12,7 +12,6 @@
 
 #include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
-#include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Primitives.hpp"

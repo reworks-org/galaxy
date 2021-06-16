@@ -5,12 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/text/Font.hpp"
-#include "galaxy/res/FontBook.hpp"
+#include "galaxy/resource/FontBook.hpp"
 
 #include "Text.hpp"
 

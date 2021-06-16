@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
 #include <magic_enum.hpp>
 
 #include "Renderable.hpp"

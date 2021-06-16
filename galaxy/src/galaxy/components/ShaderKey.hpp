@@ -10,8 +10,6 @@
 
 #include <string_view>
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy

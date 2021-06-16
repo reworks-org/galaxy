@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_ANIMATION_FRAME_HPP_
 #define GALAXY_GRAPHICS_ANIMATION_FRAME_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/meta/Concepts.hpp"

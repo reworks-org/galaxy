@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "Animation.hpp"
 
 namespace galaxy

@@ -10,8 +10,6 @@
 
 #include <glm/mat4x4.hpp>
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/physics/AABB.hpp"
 #include "galaxy/physics/BodyType.hpp"

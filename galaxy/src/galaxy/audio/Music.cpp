@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/error/Log.hpp"
 
 #include "Music.hpp"

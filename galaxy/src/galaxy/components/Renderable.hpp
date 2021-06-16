@@ -8,8 +8,6 @@
 #ifndef GALAXY_COMPONENTS_RENDERABLE_HPP_
 #define GALAXY_COMPONENTS_RENDERABLE_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 

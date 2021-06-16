@@ -19,13 +19,13 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/res/FontBook.hpp"
-#include "galaxy/res/Language.hpp"
-#include "galaxy/res/MusicBook.hpp"
-#include "galaxy/res/ScriptBook.hpp"
-#include "galaxy/res/ShaderBook.hpp"
-#include "galaxy/res/SoundBook.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/resource/FontBook.hpp"
+#include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/MusicBook.hpp"
+#include "galaxy/resource/ScriptBook.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
+#include "galaxy/resource/SoundBook.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 namespace galaxy
 {

@@ -7,14 +7,14 @@
 
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/ShaderKey.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
-#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
 
 #include "RenderSystem2D.hpp"
 
@@ -62,7 +62,7 @@ namespace galaxy
 
 			for (const auto& data : m_sorted)
 			{
-				auto* shader = SL_HANDLE.shaderbook()->get(world.get<components::ShaderID>(data.m_entity)->m_shader_id);
+				auto* shader = SL_HANDLE.shaderbook()->get(world.get<components::ShaderKey>(data.m_entity)->m_shader_id);
 				shader->bind();
 				shader->set_uniform("u_cameraProj", camera.get_proj());
 				shader->set_uniform("u_cameraView", camera.get_view());

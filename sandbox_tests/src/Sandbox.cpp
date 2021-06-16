@@ -16,10 +16,10 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/graphics/Renderer2D.hpp>
 #include <galaxy/graphics/Shader.hpp>
-#include <galaxy/res/Language.hpp>
-#include <galaxy/res/MusicBook.hpp>
-#include <galaxy/res/SoundBook.hpp>
-#include <galaxy/res/TextureAtlas.hpp>
+#include <galaxy/resource/Language.hpp>
+#include <galaxy/resource/MusicBook.hpp>
+#include <galaxy/resource/SoundBook.hpp>
+#include <galaxy/resource/TextureAtlas.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 
 #include "Sandbox.hpp"

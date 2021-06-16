@@ -8,8 +8,6 @@
 #ifndef GALAXY_COMPONENTS_BATCHSPRITE_HPP_
 #define GALAXY_COMPONENTS_BATCHSPRITE_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"

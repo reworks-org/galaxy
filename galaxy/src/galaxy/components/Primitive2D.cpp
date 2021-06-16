@@ -6,7 +6,6 @@
 ///
 
 #include <magic_enum.hpp>
-#include <nlohmann/json.hpp>
 
 #include "Primitive2D.hpp"
 

@@ -5,10 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 #include "Frame.hpp"
 

@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/OnCollision.hpp"

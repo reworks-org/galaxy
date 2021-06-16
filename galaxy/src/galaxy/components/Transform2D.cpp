@@ -8,7 +8,6 @@
 #include <algorithm>
 
 #include <glm/gtc/type_ptr.hpp>
-#include <nlohmann/json.hpp>
 
 #include "Transform2D.hpp"
 

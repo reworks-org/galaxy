@@ -8,8 +8,6 @@
 #ifndef GALAXY_COMPONENTS_TAG_HPP_
 #define GALAXY_COMPONENTS_TAG_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy

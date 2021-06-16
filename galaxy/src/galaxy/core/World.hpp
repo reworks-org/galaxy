@@ -12,8 +12,6 @@
 #include <execution>
 #include <optional>
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/fs/Serializable.hpp"

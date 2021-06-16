@@ -14,7 +14,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/physics/SATObject.hpp"
-#include "galaxy/res/ScriptBook.hpp"
+#include "galaxy/resource/ScriptBook.hpp"
 
 #include "CollisionSystem.hpp"
 

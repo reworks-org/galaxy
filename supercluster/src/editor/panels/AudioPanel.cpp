@@ -10,8 +10,8 @@
 #include <galaxy/audio/Context.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/res/MusicBook.hpp>
-#include <galaxy/res/SoundBook.hpp>
+#include <galaxy/resource/MusicBook.hpp>
+#include <galaxy/resource/SoundBook.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 
 #include "AudioPanel.hpp"

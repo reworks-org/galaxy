@@ -9,8 +9,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/res/ScriptBook.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/resource/ScriptBook.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 #include "ToggleButton.hpp"
 

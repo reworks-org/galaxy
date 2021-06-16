@@ -8,8 +8,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/res/FontBook.hpp"
-#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/resource/FontBook.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
 
 #include "TextInput.hpp"
 

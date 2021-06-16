@@ -10,8 +10,6 @@
 
 #include <thread>
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/audio/SourceManipulator.hpp"
 #include "galaxy/fs/Serializable.hpp"
 

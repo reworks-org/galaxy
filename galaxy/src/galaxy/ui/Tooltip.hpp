@@ -11,7 +11,7 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform2D.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/texture/Texture.hpp"
+#include "galaxy/graphics/Texture.hpp"
 #include "galaxy/ui/Theme.hpp"
 
 namespace galaxy

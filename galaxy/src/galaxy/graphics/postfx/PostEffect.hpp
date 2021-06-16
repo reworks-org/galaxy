@@ -9,7 +9,7 @@
 #define GALAXY_GRAPHICS_POSTFX_POSTEFFECT_HPP_
 
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 
 namespace galaxy
 {

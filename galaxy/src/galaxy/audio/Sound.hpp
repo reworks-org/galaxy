@@ -8,8 +8,6 @@
 #ifndef GALAXY_AUDIO_SOUND_HPP_
 #define GALAXY_AUDIO_SOUND_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/audio/SourceManipulator.hpp"
 #include "galaxy/fs/Serializable.hpp"
 

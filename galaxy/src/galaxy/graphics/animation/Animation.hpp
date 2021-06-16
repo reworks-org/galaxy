@@ -9,10 +9,7 @@
 #define GALAXY_GRAPHICS_ANIMATION_ANIMATION_HPP_
 
 #include <span>
-#include <string>
 #include <vector>
-
-#include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/graphics/animation/Frame.hpp"
 

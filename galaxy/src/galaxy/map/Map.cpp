@@ -8,7 +8,7 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/ShaderKey.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -17,8 +17,8 @@
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/res/ShaderBook.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Map.hpp"
@@ -539,7 +539,7 @@ namespace galaxy
 						const auto entity     = world.create();
 						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
 						auto* renderable      = world.create_component<components::Renderable>(entity);
-						auto* shaderid        = world.create_component<components::ShaderID>(entity);
+						auto* shaderkey       = world.create_component<components::ShaderKey>(entity);
 						auto* tag             = world.create_component<components::Tag>(entity);
 						auto* transform       = world.create_component<components::Transform2D>(entity);
 						renderable->m_z_level = layer.get_z_level();
@@ -559,8 +559,8 @@ namespace galaxy
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::LINE_LOOP;
-								shaderid->m_shader_id = "line";
+								renderable->m_type     = graphics::Renderables::LINE_LOOP;
+								shaderkey->m_shader_id = "line";
 							}
 							break;
 
@@ -574,8 +574,8 @@ namespace galaxy
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::POINT;
-								shaderid->m_shader_id = "point";
+								renderable->m_type     = graphics::Renderables::POINT;
+								shaderkey->m_shader_id = "point";
 							}
 							break;
 
@@ -595,8 +595,8 @@ namespace galaxy
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::LINE_LOOP;
-								shaderid->m_shader_id = "line";
+								renderable->m_type     = graphics::Renderables::LINE_LOOP;
+								shaderkey->m_shader_id = "line";
 							}
 							break;
 
@@ -616,8 +616,8 @@ namespace galaxy
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::LINE;
-								shaderid->m_shader_id = "line";
+								renderable->m_type     = graphics::Renderables::LINE;
+								shaderkey->m_shader_id = "line";
 							}
 							break;
 
@@ -637,8 +637,8 @@ namespace galaxy
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type    = graphics::Renderables::LINE_LOOP;
-								shaderid->m_shader_id = "line";
+								renderable->m_type     = graphics::Renderables::LINE_LOOP;
+								shaderkey->m_shader_id = "line";
 							}
 							break;
 						}
@@ -753,14 +753,14 @@ namespace galaxy
 
 				const auto entity = world.create();
 				auto* renderable  = world.create_component<components::Renderable>(entity);
-				auto* shaderid    = world.create_component<components::ShaderID>(entity);
+				auto* shaderkey   = world.create_component<components::ShaderKey>(entity);
 				auto* sprite      = world.create_component<components::Sprite>(entity);
 				auto* tag         = world.create_component<components::Tag>(entity);
 				auto* transform   = world.create_component<components::Transform2D>(entity);
 
-				renderable->m_type    = graphics::Renderables::SPRITE;
-				renderable->m_z_level = level;
-				shaderid->m_shader_id = "sprite";
+				renderable->m_type     = graphics::Renderables::SPRITE;
+				renderable->m_z_level  = level;
+				shaderkey->m_shader_id = "sprite";
 				sprite->load(m_framebuffers[level].gl_texture(), m_framebuffers[level].get_width(), m_framebuffers[level].get_height());
 				sprite->create();
 				sprite->set_opacity(layer.get_opacity());

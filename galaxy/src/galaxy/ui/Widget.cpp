@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/resource/SoundBook.hpp"
 
 #include "Widget.hpp"
 

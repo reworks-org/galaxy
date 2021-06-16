@@ -9,7 +9,6 @@
 #define GALAXY_COMPONENTS_TRANSFORM2D_HPP_
 
 #include <glm/gtc/matrix_transform.hpp>
-#include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/Concepts.hpp"

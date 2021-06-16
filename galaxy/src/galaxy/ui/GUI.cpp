@@ -9,8 +9,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/res/Shaderbook.hpp"
-#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/resource/Shaderbook.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 #include "GUI.hpp"
 
