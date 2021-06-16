@@ -5,27 +5,26 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_TEXTURE_RENDERTEXTURE_HPP_
-#define GALAXY_GRAPHICS_TEXTURE_RENDERTEXTURE_HPP_
+#ifndef GALAXY_GRAPHICS_RENDERTEXTURE_HPP_
+#define GALAXY_GRAPHICS_RENDERTEXTURE_HPP_
 
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "galaxy/graphics/texture/BaseTexture.hpp"
+#include "galaxy/graphics/Framebuffer.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
 		class Window;
-
 	} // namespace core
 
 	namespace graphics
 	{
 		///
-		/// Framebuffer texture. You render to this texture instead of the window.
+		/// Framebuffer + Render Target.
 		///
-		class RenderTexture final : public BaseTexture
+		class RenderTexture final
 		{
 		public:
 			///
@@ -54,7 +53,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~RenderTexture() noexcept;
+			~RenderTexture() noexcept = default;
 
 			///
 			/// Create the RenderTexture.
@@ -62,7 +61,14 @@ namespace galaxy
 			/// \param width Width of the RenderTexture.
 			/// \param height Height of the RenderTexture.
 			///
-			void create(const int width, const int height);
+			void create(int width, int height);
+
+			///
+			/// Saves texture to file on disk.
+			///
+			/// \param file_name Path and filename to save texture to. Does not need extension (it will be ignored).
+			///
+			void save(std::string_view file_name);
 
 			///
 			/// Change RenderTexture size.
@@ -70,29 +76,17 @@ namespace galaxy
 			/// \param width Width of the RenderTexture.
 			/// \param height Height of the RenderTexture.
 			///
-			void resize(const int width, const int height);
-
-			///
-			/// Toggle framebuffer clearing.
-			///
-			/// \param clear Flag to clear framebuffers existing contents.
-			///
-			void toggle_clearing(const bool clear);
-
-			///
-			/// Manually clear framebuffer.
-			///
-			void clear_framebuffer() noexcept;
+			void resize(int width, int height);
 
 			///
 			/// Activate texture context.
 			///
-			void bind() noexcept override;
+			void bind() noexcept;
 
 			///
 			/// Deactivate texture context.
 			///
-			void unbind() noexcept override;
+			void unbind() noexcept;
 
 			///
 			/// Modify projection of render texture.
@@ -111,6 +105,13 @@ namespace galaxy
 			///
 			[[nodiscard]] const glm::mat4& get_proj() noexcept;
 
+			///
+			/// Get texture.
+			///
+			/// \return Const unsigned int. OpenGL texture handle.
+			///
+			[[nodiscard]] const unsigned int get_texture() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -124,24 +125,14 @@ namespace galaxy
 
 		private:
 			///
-			/// Clear flag.
+			/// Framebuffer to draw to.
 			///
-			bool m_clear;
+			Framebuffer m_framebuffer;
 
 			///
 			/// Projection.
 			///
 			glm::mat4 m_projection;
-
-			///
-			/// OpenGL framebuffer handle.
-			///
-			unsigned int m_framebuffer;
-
-			///
-			/// OpenGL renderbuffer handle.
-			///
-			unsigned int m_renderbuffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

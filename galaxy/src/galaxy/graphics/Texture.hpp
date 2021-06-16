@@ -1,55 +1,82 @@
 ///
-/// BaseTexture.hpp
+/// Texture.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_TEXTURE_BASETEXTURE_HPP_
-#define GALAXY_GRAPHICS_TEXTURE_BASETEXTURE_HPP_
+#ifndef GALAXY_GRAPHICS_TEXTURE_HPP_
+#define GALAXY_GRAPHICS_TEXTURE_HPP_
 
+#include <span>
 #include <string_view>
 
-#include "galaxy/graphics/texture/Filters.hpp"
+#include "galaxy/graphics/TextureFilters.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		class BaseTexture
+		///
+		/// Holds an OpenGL texture information and data.
+		///
+		class Texture final
 		{
 		public:
 			///
+			/// Constructor.
+			///
+			Texture() noexcept;
+
+			///
 			/// Move constructor.
 			///
-			BaseTexture(BaseTexture&&) noexcept;
+			Texture(Texture&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			BaseTexture& operator=(BaseTexture&&) noexcept;
+			Texture& operator=(Texture&&) noexcept;
 
 			///
-			/// Virtual destructor.
+			/// Destructor.
 			///
-			virtual ~BaseTexture() noexcept;
+			~Texture() noexcept;
+
+			///
+			/// \brief Loads texture from file.
+			///
+			/// Can throw exceptions.
+			///
+			/// \param file File on disk to load from.
+			///
+			void load(std::string_view file);
+
+			///
+			/// \brief Loads texture from memory.
+			///
+			/// Can throw exceptions.
+			///
+			/// \param buffer Memory buffer to load from. Not freed, you must free after.
+			///
+			void load_mem(std::span<unsigned char> buffer);
 
 			///
 			/// Saves texture to file on disk.
 			///
-			/// \param file Path (including filename) to save file to.
+			/// \param file_name Path and filename to save texture to. Does not need extension (it will be ignored).
 			///
-			void save(std::string_view file);
+			void save(std::string_view file_name);
 
 			///
 			/// Activate texture context.
 			///
-			virtual void bind() noexcept = 0;
+			void bind() noexcept;
 
 			///
 			/// Deactivate texture context.
 			///
-			virtual void unbind() noexcept = 0;
+			void unbind() noexcept;
 
 			///
 			/// \brief Clamps texture to edges.
@@ -96,6 +123,13 @@ namespace galaxy
 			void set_magnify_filter() noexcept;
 
 			///
+			/// Check if texture has been loaded.
+			///
+			/// \return True if load() or load_mem() has been successfully called.
+			///
+			[[nodiscard]] const bool is_loaded() const noexcept;
+
+			///
 			/// \brief Get texture width.
 			///
 			/// Is cached for performance.
@@ -127,17 +161,22 @@ namespace galaxy
 			///
 			[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
-		protected:
+		private:
 			///
-			/// Constructor.
+			/// Copy constructor.
 			///
-			BaseTexture() noexcept;
+			Texture(const Texture&) = delete;
 
-		protected:
 			///
-			/// OpenGL texture handle.
+			/// Copy assignment operator.
 			///
-			unsigned int m_texture;
+			Texture& operator=(const Texture&) = delete;
+
+		private:
+			///
+			/// Is texture loaded flag.
+			///
+			bool m_loaded;
 
 			///
 			/// Cached texture width.
@@ -150,24 +189,13 @@ namespace galaxy
 			int m_height;
 
 			///
-			/// Flag if shared texture.
+			/// OpenGL texture handle.
 			///
-			bool m_shared;
-
-		private:
-			///
-			/// Copy constructor.
-			///
-			BaseTexture(const BaseTexture&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			BaseTexture& operator=(const BaseTexture&) = delete;
+			unsigned int m_texture;
 		};
 
 		template<min_filter Filter>
-		inline void BaseTexture::set_minify_filter() noexcept
+		inline void Texture::set_minify_filter() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filter::value);
@@ -175,7 +203,7 @@ namespace galaxy
 		}
 
 		template<mag_filter Filter>
-		inline void BaseTexture::set_magnify_filter() noexcept
+		inline void Texture::set_magnify_filter() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filter::value);

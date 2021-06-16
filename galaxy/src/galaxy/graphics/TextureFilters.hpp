@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_TEXTURE_FILTERS_HPP_
-#define GALAXY_GRAPHICS_TEXTURE_FILTERS_HPP_
+#ifndef GALAXY_GRAPHICS_TEXTUREFILTERS_HPP_
+#define GALAXY_GRAPHICS_TEXTUREFILTERS_HPP_
 
 #include <type_traits>
 
