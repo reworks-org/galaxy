@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_INDEXBUFFER_HPP_
-#define GALAXY_GRAPHICS_VERTEX_INDEXBUFFER_HPP_
+#ifndef GALAXY_GRAPHICS_INDEXBUFFER_HPP_
+#define GALAXY_GRAPHICS_INDEXBUFFER_HPP_
 
 #include <span>
 
@@ -44,8 +44,9 @@ namespace galaxy
 			/// Create index buffer object.
 			///
 			/// \param indices Index array to use.
+			/// \param single_write Flag to mark that this buffer wont be updated after creation.
 			///
-			void create(std::span<unsigned int> indices);
+			void create(std::span<unsigned int> indices, const bool single_write);
 
 			///
 			/// Bind the current vertex buffer to current GL context.
@@ -56,6 +57,13 @@ namespace galaxy
 			/// Unbind the current vertex buffer to current GL context.
 			///
 			void unbind() noexcept;
+
+			///
+			/// \brief Destroy Index Buffer Object.
+			///
+			/// Also called by destructor, you do not have to call this.
+			///
+			void destroy() noexcept;
 
 			///
 			/// Get the count of indicies in the index buffer.
@@ -79,7 +87,7 @@ namespace galaxy
 			///
 			/// ID returned by OpenGL when generating buffer.
 			///
-			unsigned int m_id;
+			unsigned int m_ibo;
 
 			///
 			/// Count of indicies in array.

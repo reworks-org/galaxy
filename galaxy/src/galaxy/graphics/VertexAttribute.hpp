@@ -1,12 +1,12 @@
 ///
-/// Attribute.hpp
+/// VertexAttribute.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_ATTRIBUTE_HPP_
-#define GALAXY_GRAPHICS_VERTEX_ATTRIBUTE_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEXATTRIBUTE_HPP_
+#define GALAXY_GRAPHICS_VERTEXATTRIBUTE_HPP_
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -25,34 +25,14 @@ namespace galaxy
 			POSITION,
 
 			///
-			/// Specifies "colour" vertex attribute type at compile time.
-			///
-			COLOUR,
-
-			///
 			/// Specifies "texel" vertex attribute type at compile time.
 			///
 			TEXEL,
 
 			///
-			/// Specifies "instance offset" vertex attribute type at compile time.
+			/// Specifies "colour" vertex attribute type at compile time.
 			///
-			INSTANCE_OFFSET,
-
-			///
-			/// Specifies "opacity" vertex attribute type at compile time.
-			///
-			OPACITY,
-
-			///
-			/// Specifies the "normal vector" vertex attribute type at compile time.
-			///
-			NORMAL,
-
-			///
-			/// Specifies the "Tangents vector" vertex attribute type at compile time.
-			///
-			TANGENTS
+			COLOUR
 		};
 
 		///

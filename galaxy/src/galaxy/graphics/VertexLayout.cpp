@@ -1,11 +1,11 @@
 ///
-/// Layout.cpp
+/// VertexLayout.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Layout.hpp"
+#include "VertexLayout.hpp"
 
 namespace galaxy
 {

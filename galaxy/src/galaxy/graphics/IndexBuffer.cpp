@@ -14,17 +14,17 @@ namespace galaxy
 	namespace graphics
 	{
 		IndexBuffer::IndexBuffer() noexcept
-		    : m_id {0}, m_count {0}
+		    : m_ibo {0}, m_count {0}
 		{
-			glGenBuffers(1, &m_id);
+			glGenBuffers(1, &m_ibo);
 		}
 
 		IndexBuffer::IndexBuffer(IndexBuffer&& ib) noexcept
 		{
-			this->m_id    = ib.m_id;
+			this->m_ibo   = ib.m_ibo;
 			this->m_count = ib.m_count;
 
-			ib.m_id    = 0;
+			ib.m_ibo   = 0;
 			ib.m_count = 0;
 		}
 
@@ -32,10 +32,10 @@ namespace galaxy
 		{
 			if (this != &ib)
 			{
-				this->m_id    = ib.m_id;
+				this->m_ibo   = ib.m_ibo;
 				this->m_count = ib.m_count;
 
-				ib.m_id    = 0;
+				ib.m_ibo   = 0;
 				ib.m_count = 0;
 			}
 
@@ -44,27 +44,34 @@ namespace galaxy
 
 		IndexBuffer::~IndexBuffer() noexcept
 		{
-			glDeleteBuffers(1, &m_id);
+			destroy();
 		}
 
-		void IndexBuffer::create(std::span<unsigned int> indices)
+		void IndexBuffer::create(std::span<unsigned int> indices, const bool single_write)
 		{
 			m_count = static_cast<unsigned int>(indices.size());
-			bind();
 
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size_bytes(), indices.data(), GL_DYNAMIC_DRAW);
+			const auto draw_type = (single_write == true) ? GL_STATIC_DRAW : GL_DYNAMIC_DRAW;
 
-			unbind();
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size_bytes(), indices.data(), draw_type);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		}
 
 		void IndexBuffer::bind() noexcept
 		{
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
 		}
 
 		void IndexBuffer::unbind() noexcept
 		{
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		}
+
+		void IndexBuffer::destroy() noexcept
+		{
+			glDeleteBuffers(1, &m_ibo);
+			m_ibo = 0;
 		}
 
 		const unsigned int IndexBuffer::count() const noexcept

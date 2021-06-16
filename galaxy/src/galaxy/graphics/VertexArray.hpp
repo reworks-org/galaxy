@@ -5,12 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_VERTEXARRAY_HPP_
-#define GALAXY_GRAPHICS_VERTEX_VERTEXARRAY_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEXARRAY_HPP_
+#define GALAXY_GRAPHICS_VERTEXARRAY_HPP_
 
-#include "galaxy/graphics/vertex/Layout.hpp"
-#include "galaxy/graphics/vertex/IndexBuffer.hpp"
-#include "galaxy/graphics/vertex/VertexBuffer.hpp"
+#include "galaxy/graphics/IndexBuffer.hpp"
+#include "galaxy/graphics/VertexBuffer.hpp"
 
 namespace galaxy
 {
@@ -45,11 +44,10 @@ namespace galaxy
 			///
 			/// Create vertex array.
 			///
-			/// \param vb VertexBufferObject to specify for VertexArrayObject.
-			/// \param ib IndexBufferObject to specify for VertexArrayObject.
-			/// \param layout VertexLayout to specify for this VertexArrayObject.
+			/// \param vbo VBO to specify for VAO. Is move'd into this structure, the original is discarded.
+			/// \param ibo IBO to specify for VAO. Is move'd into this structure, the original is discarded.
+			/// \param layout VertexLayout to specify for this VAO.
 			///
-			template<meta::is_vertex VertexType>
 			void create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout);
 
 			///
@@ -61,6 +59,13 @@ namespace galaxy
 			/// Unbind the current vertex array to current GL context.
 			///
 			void unbind() noexcept;
+
+			///
+			/// Get the count of indicies in the index buffer.
+			///
+			/// \return Returns a const unsigned int.
+			///
+			[[nodiscard]] const unsigned int count() const noexcept;
 
 		private:
 			///
@@ -77,36 +82,23 @@ namespace galaxy
 			///
 			/// ID returned by OpenGL when generating vertex array.
 			///
-			unsigned int m_id;
+			unsigned int m_vao;
 
 			///
 			/// Keeps track of next free attribute id.
 			///
 			unsigned int m_counter;
+
+			///
+			/// Index Buffer.
+			///
+			IndexBuffer m_ibo;
+
+			///
+			/// Vertex Buffer.
+			///
+			VertexBuffer m_vbo;
 		};
-
-		template<meta::is_vertex VertexType>
-		inline void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout)
-		{
-			bind();
-			vb.bind();
-			ib.bind();
-
-			// Add each attribute in the layout to the vertex array object.
-			// I.e. position attribute, then colour attribute of the verticies.
-			const auto& attributes = layout.get_attributes();
-			for (const auto& attribute : attributes)
-			{
-				glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
-				glEnableVertexAttribArray(m_counter);
-
-				++m_counter;
-			}
-
-			unbind();
-			vb.unbind();
-			ib.unbind();
-		}
 	} // namespace graphics
 } // namespace galaxy
 

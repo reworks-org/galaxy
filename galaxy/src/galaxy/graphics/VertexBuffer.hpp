@@ -5,12 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_VERTEXBUFFER_HPP_
-#define GALAXY_GRAPHICS_VERTEX_VERTEXBUFFER_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEXBUFFER_HPP_
+#define GALAXY_GRAPHICS_VERTEXBUFFER_HPP_
 
-#include <vector>
+#include <span>
 
-#include "galaxy/graphics/vertex/Layout.hpp"
+#include "galaxy/graphics/VertexLayout.hpp"
 
 namespace galaxy
 {
@@ -38,17 +38,26 @@ namespace galaxy
 			VertexBuffer& operator=(VertexBuffer&&) noexcept;
 
 			///
-			/// Create vertex buffer object.
-			///
-			/// \param vertices Vertices to use.
-			///
-			template<meta::is_vertex VertexType>
-			void create(std::vector<VertexType>& vertices);
-
-			///
 			/// Destroys buffer.
 			///
 			~VertexBuffer() noexcept;
+
+			///
+			/// Create vertex buffer object.
+			///
+			/// \param vertices Vertices to assign.
+			/// \param single_write Flag to mark that this buffer wont be updated after creation.
+			/// \param capacity Use this to allocate the buffer if you dont want to supply the vertices at this point. Is ignored if vertices are not empty.
+			///
+			void create(std::span<Vertex> vertices, bool single_write = false, unsigned int capacity = 1);
+
+			///
+			/// Sub-buffer vertex object.
+			///
+			/// \param vertices Vertices to assign.
+			/// \param index Offset to start at from initial vertices. 0 = first element.
+			///
+			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
 
 			///
 			/// Bind the current vertex buffer to current GL context.
@@ -61,12 +70,18 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Get vertex storage.
+			/// \brief Destroy Vertex Buffer Object.
 			///
-			/// \return Vertex storage.
+			/// Also called by destructor, you do not have to call this.
 			///
-			template<meta::is_vertex VertexType>
-			[[nodiscard]] std::vector<VertexType> get();
+			void destroy() noexcept;
+
+			///
+			/// Get vertices.
+			///
+			/// \return Vertex storage as const reference.
+			///
+			[[nodiscard]] const std::vector<Vertex>& get() const noexcept;
 
 			///
 			/// Get OpenGL handle.
@@ -89,43 +104,18 @@ namespace galaxy
 			///
 			/// ID returned by OpenGL when generating buffer.
 			///
-			unsigned int m_id;
+			unsigned int m_vbo;
 
 			///
 			/// Size of vertex buffer.
 			///
 			unsigned int m_size;
+
+			///
+			/// CPU-side cache of vertices.
+			///
+			std::vector<Vertex> m_vertices;
 		};
-
-		template<meta::is_vertex VertexType>
-		inline void VertexBuffer::create(std::vector<VertexType>& vertices)
-		{
-			glBindBuffer(GL_ARRAY_BUFFER, m_id);
-
-			if (!vertices.empty())
-			{
-				m_size = static_cast<unsigned int>(vertices.size());
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
-			}
-			else
-			{
-				m_size = static_cast<unsigned int>(vertices.capacity());
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
-			}
-
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
-		}
-
-		template<meta::is_vertex VertexType>
-		inline std::vector<VertexType> VertexBuffer::get()
-		{
-			std::vector<VertexType> vs;
-			vs.reserve(m_size);
-
-			glGetNamedBufferSubData(m_id, 0, m_size * sizeof(VertexType), &vs[0]);
-
-			return vs;
-		}
 	} // namespace graphics
 } // namespace galaxy
 
