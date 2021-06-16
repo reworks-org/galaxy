@@ -11,7 +11,7 @@
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/ShaderKey.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -324,14 +324,14 @@ namespace sc
 							if (ImGui::Button(" + ##25"))
 							{
 								world.disable(entity);
-								world.create_component<components::ShaderID>(entity);
+								world.create_component<components::ShaderKey>(entity);
 							}
 
 							ImGui::TableNextColumn();
 
 							if (ImGui::Button(" - ##26"))
 							{
-								world.remove<components::ShaderID>(entity);
+								world.remove<components::ShaderKey>(entity);
 							}
 
 							ImGui::TableNextRow();
@@ -420,7 +420,7 @@ namespace sc
 				primitive2d,
 				renderable,
 				rigidbody,
-				shaderid,
+				shaderkey,
 				sprite,
 				tag,
 				text,
@@ -432,7 +432,7 @@ namespace sc
 				components::Primitive2D,
 				components::Renderable,
 				components::RigidBody,
-				components::ShaderID,
+				components::ShaderKey,
 				components::Sprite,
 				components::Tag,
 				components::Text,
@@ -906,11 +906,11 @@ namespace sc
 					}
 				}
 
-				if (shaderid)
+				if (shaderkey)
 				{
 					if (ImGui::BeginTabItem("Shader"))
 					{
-						ImGui::InputText("Shader ID", &shaderid->m_shader_id, ImGuiInputTextFlags_CharsNoBlank);
+						ImGui::InputText("Shader Key", &shaderkey->m_shader_id, ImGuiInputTextFlags_CharsNoBlank);
 						ImGui::EndTabItem();
 					}
 				}

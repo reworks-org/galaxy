@@ -13,7 +13,7 @@
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/ShaderKey.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
@@ -46,7 +46,7 @@ namespace galaxy
 			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::RigidBody>("RigidBody");
-			register_component<components::ShaderID>("ShaderID");
+			register_component<components::ShaderKey>("ShaderKey");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
@@ -225,7 +225,7 @@ namespace galaxy
 						primitive2d,
 						renderable,
 						rigidbody,
-						shaderid,
+						shaderkey,
 						sprite,
 						tag,
 						text,
@@ -237,7 +237,7 @@ namespace galaxy
 						components::Primitive2D,
 						components::Renderable,
 						components::RigidBody,
-						components::ShaderID,
+						components::ShaderKey,
 						components::Sprite,
 						components::Tag,
 						components::Text,
@@ -275,9 +275,9 @@ namespace galaxy
 						entity_json["components"]["RigidBody"] = rigidbody->serialize();
 					}
 
-					if (shaderid)
+					if (shaderkey)
 					{
-						entity_json["components"]["ShaderID"] = shaderid->serialize();
+						entity_json["components"]["ShaderKey"] = shaderkey->serialize();
 					}
 
 					if (sprite)

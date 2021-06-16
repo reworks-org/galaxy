@@ -1,5 +1,5 @@
 ///
-/// ShaderID.hpp
+/// ShaderKey.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -19,44 +19,44 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// Shader id component.
+		/// Shader key component.
 		///
-		class ShaderID final : public fs::Serializable
+		class ShaderKey final : public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			ShaderID();
+			ShaderKey();
 
 			///
 			/// Argument constructor.
 			///
-			/// \param id ID of a shader in the shader resource cache.
+			/// \param key Key (id) of a shader in the shader resource cache.
 			///
-			ShaderID(std::string_view id);
+			ShaderKey(std::string_view key);
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			ShaderID(const nlohmann::json& json);
+			ShaderKey(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			ShaderID(ShaderID&&) noexcept;
+			ShaderKey(ShaderKey&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			ShaderID& operator=(ShaderID&&) noexcept;
+			ShaderKey& operator=(ShaderKey&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~ShaderID() noexcept = default;
+			virtual ~ShaderKey() noexcept = default;
 
 			///
 			/// Serializes object.
@@ -74,20 +74,20 @@ namespace galaxy
 
 		public:
 			///
-			/// ID of a shader in the shader resource cache.
+			/// Key (id) of a shader in the shader resource cache.
 			///
-			std::string m_shader_id;
+			std::string m_key;
 
 		private:
 			///
 			/// Copy assignment operator.
 			///
-			ShaderID& operator=(const ShaderID&) = delete;
+			ShaderKey& operator=(const ShaderKey&) = delete;
 
 			///
 			/// Copy constructor.
 			///
-			ShaderID(const ShaderID&) = delete;
+			ShaderKey(const ShaderKey&) = delete;
 		};
 	} // namespace components
 } // namespace galaxy

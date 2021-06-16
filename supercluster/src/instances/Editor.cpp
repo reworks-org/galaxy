@@ -14,7 +14,7 @@
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/ShaderID.hpp>
+#include <galaxy/components/ShaderKey.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -620,7 +620,7 @@ namespace sc
 								const auto entity = world.create();
 
 								world.create_component<components::Primitive2D>(entity);
-								world.create_component<components::ShaderID>(entity);
+								world.create_component<components::ShaderKey>(entity);
 								world.create_component<components::Tag>(entity);
 								world.create_component<components::Transform2D>(entity);
 								auto* r   = world.create_component<components::Renderable>(entity);
@@ -661,7 +661,7 @@ namespace sc
 								auto& world       = m_scene_stack.top()->m_world;
 								const auto entity = world.create();
 
-								world.create_component<components::ShaderID>(entity);
+								world.create_component<components::ShaderKey>(entity);
 								world.create_component<components::Tag>(entity);
 								world.create_component<components::Text>(entity);
 								world.create_component<components::Transform2D>(entity);
