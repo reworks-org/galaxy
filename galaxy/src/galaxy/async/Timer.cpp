@@ -31,6 +31,7 @@ namespace galaxy
 			if (!m_stopped)
 			{
 				m_time_passed += (dt * 1000.0);
+
 				if (m_time_passed >= m_delay)
 				{
 					m_callback();

@@ -11,7 +11,7 @@
 #include <optional>
 #include <vector>
 
-#include "galaxy/graphics/Rect.hpp"
+#include "galaxy/math/Rect.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -54,7 +54,7 @@ namespace galaxy
 			/// \return Returns the location of the packed rectangle on the master rectangle.
 			///			Otherwise, returns a std::nullopt.
 			///
-			[[nodiscard]] std::optional<graphics::Rect<Type>> pack(const int width, const int height);
+			[[nodiscard]] std::optional<math::Rect<Type>> pack(const int width, const int height);
 
 			///
 			/// Clear all data.
@@ -76,7 +76,7 @@ namespace galaxy
 			///
 			/// \return Const std::vector.
 			///
-			[[nodiscard]] const std::vector<graphics::Rect<Type>>& get_free_space() const noexcept;
+			[[nodiscard]] const std::vector<math::Rect<Type>>& get_free_space() const noexcept;
 
 		private:
 			///
@@ -92,7 +92,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<graphics::Rect<Type>> m_free_rects;
+			std::vector<math::Rect<Type>> m_free_rects;
 		};
 
 		template<meta::is_arithmetic Type>
@@ -117,10 +117,10 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline std::optional<graphics::Rect<Type>> RectPack<Type>::pack(const int width, const int height)
+		inline std::optional<math::Rect<Type>> RectPack<Type>::pack(const int width, const int height)
 		{
 			// Result.
-			std::optional<graphics::Rect<Type>> result = std::nullopt;
+			std::optional<math::Rect<Type>> result = std::nullopt;
 
 			// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
@@ -131,7 +131,7 @@ namespace galaxy
 				if (width <= space.m_width && height <= space.m_height)
 				{
 					// Make the packed area rectangle.
-					result = std::make_optional<graphics::Rect<Type>>(space.m_x, space.m_y, width, height);
+					result = std::make_optional<math::Rect<Type>>(space.m_x, space.m_y, width, height);
 
 					// Check to see if shape fills completely.
 					if (width == space.m_width && height == space.m_height)
@@ -155,11 +155,10 @@ namespace galaxy
 					else
 					{
 						// Otherwise, split up existing space.
-						graphics::Rect<Type> temp = {space.m_x + width, space.m_y, space.m_width - width, height};
+						m_free_rects.emplace_back(space.m_x + width, space.m_y, space.m_width - width, height);
 
 						space.m_y += height;
 						space.m_height -= height;
-						m_free_rects.emplace_back(temp);
 					}
 
 					// If it can fit, no longer need to keep iterating through.
@@ -195,7 +194,7 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const std::vector<graphics::Rect<Type>>& RectPack<Type>::get_free_space() const noexcept
+		inline const std::vector<math::Rect<Type>>& RectPack<Type>::get_free_space() const noexcept
 		{
 			return m_free_rects;
 		}
