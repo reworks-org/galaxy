@@ -8,8 +8,9 @@
 #ifndef GALAXY_GRAPHICS_COLOUR_HPP_
 #define GALAXY_GRAPHICS_COLOUR_HPP_
 
-#include <array>
 #include <compare>
+
+#include <glm/vec4.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -48,9 +49,9 @@ namespace galaxy
 			///
 			/// Floats are in range 0.0f - 1.0f.
 			///
-			/// \return Move invoked fixed size std::array of floats.
+			/// \return Vec4.
 			///
-			[[nodiscard]] std::array<float, 4> normalized() noexcept;
+			[[nodiscard]] glm::vec4 normalized() noexcept;
 
 			///
 			/// \brief Normalizes r colour.

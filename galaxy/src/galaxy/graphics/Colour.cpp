@@ -21,10 +21,10 @@ namespace galaxy
 		{
 		}
 
-		std::array<float, 4> Colour::normalized() noexcept
+		glm::vec4 Colour::normalized() noexcept
 		{
 			// clang-format off
-			std::array<float, 4> arr = 
+			glm::vec4 out = 
 			{
 				r_normal(),
 				g_normal(),
@@ -33,7 +33,7 @@ namespace galaxy
 			};
 			// clang-format on
 
-			return arr;
+			return out;
 		}
 
 		const float Colour::r_normal() noexcept
