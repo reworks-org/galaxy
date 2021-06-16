@@ -17,12 +17,12 @@ namespace galaxy
 	namespace components
 	{
 		Transform2D::Transform2D() noexcept
-		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}, m_origin {0.0f, 0.0f, 0.0f}
+		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f}, m_translation {1.0f}, m_rotation {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_rotate {0.0f}, m_scale_factor {1.0f}, m_model {1.0f}
 		{
 		}
 
 		Transform2D::Transform2D(const nlohmann::json& json)
-		    : Serializable {this}, m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}, m_origin {0.0f, 0.0f, 0.0f}
+		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f}, m_translation {1.0f}, m_rotation {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_rotate {0.0f}, m_scale_factor {1.0f}, m_model {1.0f}
 		{
 			deserialize(json);
 		}
@@ -30,26 +30,30 @@ namespace galaxy
 		Transform2D::Transform2D(Transform2D&& t) noexcept
 		    : Serializable {this}
 		{
-			this->m_dirty       = t.m_dirty;
-			this->m_model       = std::move(t.m_model);
-			this->m_origin      = std::move(t.m_origin);
-			this->m_pos         = std::move(t.m_pos);
-			this->m_rotate      = t.m_rotate;
-			this->m_rotation    = std::move(t.m_rotation);
-			this->m_translation = std::move(t.m_translation);
+			this->m_dirty        = t.m_dirty;
+			this->m_model        = std::move(t.m_model);
+			this->m_origin       = std::move(t.m_origin);
+			this->m_pos          = std::move(t.m_pos);
+			this->m_rotate       = t.m_rotate;
+			this->m_rotation     = std::move(t.m_rotation);
+			this->m_scale        = std::move(t.m_scale);
+			this->m_scale_factor = t.m_scale_factor;
+			this->m_translation  = std::move(t.m_translation);
 		}
 
 		Transform2D& Transform2D::operator=(Transform2D&& t) noexcept
 		{
 			if (this != &t)
 			{
-				this->m_dirty       = t.m_dirty;
-				this->m_model       = std::move(t.m_model);
-				this->m_origin      = std::move(t.m_origin);
-				this->m_pos         = std::move(t.m_pos);
-				this->m_rotate      = t.m_rotate;
-				this->m_rotation    = std::move(t.m_rotation);
-				this->m_translation = std::move(t.m_translation);
+				this->m_dirty        = t.m_dirty;
+				this->m_model        = std::move(t.m_model);
+				this->m_origin       = std::move(t.m_origin);
+				this->m_pos          = std::move(t.m_pos);
+				this->m_rotate       = t.m_rotate;
+				this->m_rotation     = std::move(t.m_rotation);
+				this->m_scale        = std::move(t.m_scale);
+				this->m_scale_factor = t.m_scale_factor;
+				this->m_translation  = std::move(t.m_translation);
 			}
 
 			return *this;
@@ -79,26 +83,41 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform2D::set_rotation_origin(const float x, const float y) noexcept
+		void Transform2D::scale(const float factor) noexcept
+		{
+			m_scale_factor = factor;
+			std::clamp(m_scale_factor, 0.1f, 2.0f);
+
+			m_dirty = true;
+		}
+
+		void Transform2D::set_origin(const float x, const float y) noexcept
 		{
 			m_origin.x = x;
 			m_origin.y = y;
+
+			m_dirty = true;
 		}
 
 		void Transform2D::recalculate()
 		{
-			static constexpr const auto identity_matrix = glm::mat4 {1.0f};
+			constexpr const auto identity_matrix = glm::mat4 {1.0f};
 
 			if (m_dirty)
 			{
 				m_translation = glm::translate(identity_matrix, {m_pos.x, m_pos.y, 0.0f});
 
 				m_rotation = identity_matrix;
-				m_rotation = glm::translate(m_rotation, m_origin);
+				m_rotation = glm::translate(m_rotation, glm::vec3(m_origin, 0.0f));
 				m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
-				m_rotation = glm::translate(m_rotation, -m_origin);
+				m_rotation = glm::translate(m_rotation, -glm::vec3(m_origin, 0.0f));
 
-				m_model = m_translation * m_rotation;
+				m_scale = identity_matrix;
+				m_scale = glm::translate(m_scale, glm::vec3(m_origin, 0.0f));
+				m_scale = glm::scale(m_scale, {m_scale_factor, m_scale_factor, 1.0f});
+				m_scale = glm::translate(m_scale, -glm::vec3(m_origin, 0.0f));
+
+				m_model = m_translation * m_rotation * m_scale;
 				m_dirty = false;
 			}
 		}
@@ -114,25 +133,37 @@ namespace galaxy
 			return m_model;
 		}
 
-		const float Transform2D::get_rotation() const noexcept
-		{
-			return m_rotate;
-		}
-
 		const glm::vec2& Transform2D::get_pos() const noexcept
 		{
 			return m_pos;
 		}
 
+		const float Transform2D::get_rotation() const noexcept
+		{
+			return m_rotate;
+		}
+
+		const float Transform2D::get_scale() const noexcept
+		{
+			return m_scale_factor;
+		}
+
+		const glm::vec2& Transform2D::get_origin() const noexcept
+		{
+			return m_origin;
+		}
+
 		void Transform2D::reset() noexcept
 		{
-			m_dirty       = true;
-			m_origin      = {0.0f, 0.0f, 0.0f};
-			m_rotation    = glm::mat4 {1.0f};
-			m_translation = glm::mat4 {1.0f};
-			m_rotate      = 0.0f;
-			m_pos         = {0.0f, 0.0f};
-			m_model       = glm::mat4 {1.0f};
+			m_dirty        = true;
+			m_origin       = {0.0f, 0.0f};
+			m_translation  = glm::mat4 {1.0f};
+			m_rotation     = glm::mat4 {1.0f};
+			m_scale        = glm::mat4 {1.0f};
+			m_pos          = {0.0f, 0.0f};
+			m_rotate       = 0.0f;
+			m_scale_factor = 1.0f;
+			m_model        = glm::mat4 {1.0f};
 		}
 
 		nlohmann::json Transform2D::serialize()
@@ -141,6 +172,7 @@ namespace galaxy
 			json["x"]           = m_pos.x;
 			json["y"]           = m_pos.y;
 			json["rotation"]    = m_rotate;
+			json["scale"]       = m_scale_factor;
 
 			return json;
 		}
@@ -149,17 +181,9 @@ namespace galaxy
 		{
 			reset();
 
-			if ((json.count("x") > 0) && json.count("y") > 0)
-			{
-				set_pos(json.at("x"), json.at("y"));
-			}
-
-			if (json.count("rotation") > 0)
-			{
-				rotate(json.at("rotation"));
-			}
-
-			recalculate();
+			set_pos(json.at("x"), json.at("y"));
+			rotate(json.at("rotation"));
+			scale(json.at("scale"));
 		}
 	} // namespace components
 } // namespace galaxy

@@ -63,7 +63,7 @@ namespace galaxy
 			/// \brief Translate (move) position.
 			///
 			/// Does not set the position but moves it.
-			/// By adding the parameters to the existing Transform2Dation matrix.
+			/// By adding the parameters to the existing transformation matrix.
 			///
 			/// \param x How far to translate on x axis.
 			/// \param y How far to translate on y axis.
@@ -71,19 +71,26 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// Rotate Transform2Dation in degrees.
+			/// Rotate sprite.
 			///
-			/// \param degrees Max 360, min -360.
+			/// \param degrees Max 360, min 0.
 			///
 			void rotate(const float degrees) noexcept;
 
 			///
-			/// Set the rotation point.
+			/// Scale sprite.
+			///
+			/// \param factor 0.1 to 10.0.
+			///
+			void scale(const float factor) noexcept;
+
+			///
+			/// Set the origin point.
 			///
 			/// \param x X position to set origin to.
 			/// \param y Y position to set origin to.
 			///
-			void set_rotation_origin(const float x, const float y) noexcept;
+			void set_origin(const float x, const float y) noexcept;
 
 			///
 			/// Recalculates the model view matrix.
@@ -98,11 +105,18 @@ namespace galaxy
 			[[nodiscard]] const bool is_dirty() const noexcept;
 
 			///
-			/// Retrieve internal Transform2Dation matrix.
+			/// Retrieve internal transformation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
 			///
 			[[nodiscard]] const glm::mat4& get_transform();
+
+			///
+			/// Get stored pos cache.
+			///
+			/// \return Const glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
 			///
 			/// Get stored rotation cache.
@@ -112,11 +126,18 @@ namespace galaxy
 			[[nodiscard]] const float get_rotation() const noexcept;
 
 			///
-			/// Get stored pos cache.
+			/// Get stored scale factor.
 			///
-			/// \return Const glm::vec2.
+			/// \return Const float.
 			///
-			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
+			[[nodiscard]] const float get_scale() const noexcept;
+
+			///
+			/// Get origin.
+			///
+			/// \return Const glm::vec2 reference.
+			///
+			[[nodiscard]] const glm::vec2& get_origin() const noexcept;
 
 			///
 			/// Reset Transform2D.
@@ -146,12 +167,7 @@ namespace galaxy
 			///
 			/// Transform2D origin point.
 			///
-			glm::vec3 m_origin;
-
-			///
-			/// Rotational matrix.
-			///
-			glm::mat4 m_rotation;
+			glm::vec2 m_origin;
 
 			///
 			/// Translation matrix.
@@ -159,19 +175,35 @@ namespace galaxy
 			glm::mat4 m_translation;
 
 			///
-			/// Cached for easiy retrieval.
-			/// Rotation.
+			/// Rotational matrix.
 			///
-			float m_rotate;
+			glm::mat4 m_rotation;
 
 			///
-			/// Cached for easiy retrieval.
+			/// Scale matrix.
+			///
+			glm::mat4 m_scale;
+
+			///
+			/// Cached for easy retrieval.
 			/// Pos.
 			///
 			glm::vec2 m_pos;
 
 			///
-			/// Combined Transform2Dation matrix.
+			/// Cached for easy retrieval.
+			/// Rotation.
+			///
+			float m_rotate;
+
+			///
+			/// Cached for easy retrieval.
+			/// Scale.
+			///
+			float m_scale_factor;
+
+			///
+			/// Combined transformation matrix.
 			///
 			glm::mat4 m_model;
 

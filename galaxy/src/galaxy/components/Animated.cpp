@@ -105,7 +105,7 @@ namespace galaxy
 			return m_active_anim;
 		}
 
-		auto Animated::get_all() const noexcept -> const robin_hood::unordered_map<std::string, graphics::Animation>&
+		const robin_hood::unordered_map<std::string, graphics::Animation>& Animated::get_all() const noexcept
 		{
 			return m_animations;
 		}
