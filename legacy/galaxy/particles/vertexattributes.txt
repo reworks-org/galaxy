@@ -1,0 +1,25 @@
+///
+		/// Enum of different vertex attribute types.
+		///
+		enum class VertexAttributes : short
+		{
+			///
+			/// Specifies "position" vertex attribute type at compile time.
+			///
+			POSITION,
+
+			///
+			/// Specifies "texel" vertex attribute type at compile time.
+			///
+			TEXEL,
+
+			///
+			/// Specifies "colour" vertex attribute type at compile time.
+			///
+			COLOUR,
+
+			///
+			/// Specifies "instance offset" vertex attribute type at compile time.
+			///
+			INSTANCE_OFFSET
+		};
