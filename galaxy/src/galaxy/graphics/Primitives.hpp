@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Primitive Types.
 		///
-		enum class Primitives : int
+		enum class Primitives : short
 		{
 			CIRCLE   = 0,
 			ELLIPSE  = 1,

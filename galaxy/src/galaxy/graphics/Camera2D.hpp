@@ -31,6 +31,22 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Camera data.
+			///
+			struct Data final
+			{
+				///
+				/// Combined transformation matrix.
+				///
+				alignas(16) glm::mat4 m_model = glm::mat4 {1.0f};
+
+				///
+				/// Camera2D projection matrix.
+				///
+				alignas(16) glm::mat4 m_projection = glm::mat4 {1.0f};
+			};
+
+			///
 			/// Constructor.
 			///
 			Camera2D() noexcept;
@@ -101,9 +117,9 @@ namespace galaxy
 			///
 			/// Update method for Camera2D.
 			///
-			/// \param ts Time-step from update() loop.
+			/// \param dt Time step/delta time from update() loop.
 			///
-			void update(const double ts) noexcept;
+			void update(const double dt) noexcept;
 
 			///
 			/// \brief Translate (move) position.
@@ -139,9 +155,9 @@ namespace galaxy
 			///
 			/// Zoom Camera2D.
 			///
-			/// \param scale Scale. Multiplier. Min 0.2.
+			/// \param scale Scale. Multiplier. Min 0.1.
 			///
-			void zoom(float scale) noexcept;
+			void zoom(const float scale) noexcept;
 
 			///
 			/// Sets position without moving the object.
@@ -243,6 +259,13 @@ namespace galaxy
 			[[nodiscard]] const glm::mat4& get_proj() noexcept;
 
 			///
+			/// Get camera view and proj.
+			///
+			/// \return Const reference to camera data.
+			///
+			[[nodiscard]] const Data& get_data() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -261,13 +284,6 @@ namespace galaxy
 			/// Recalculates the model view matrix.
 			///
 			void recalculate() noexcept;
-
-			///
-			///	Mouse moved function.
-			///
-			/// \param e Mouse moved event.
-			///
-			void on_event(const events::MouseMoved& e) noexcept {};
 
 		public:
 			///
@@ -349,11 +365,6 @@ namespace galaxy
 			glm::vec2 m_pos;
 
 			///
-			/// Combined transformation matrix.
-			///
-			glm::mat4 m_model;
-
-			///
 			/// Width of Camera2D bounds.
 			///
 			int m_width;
@@ -364,9 +375,9 @@ namespace galaxy
 			int m_height;
 
 			///
-			/// Camera2D projection matrix.
+			/// Camera data.
 			///
-			glm::mat4 m_projection;
+			Data m_data;
 		};
 	} // namespace graphics
 } // namespace galaxy

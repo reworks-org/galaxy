@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <galaxy/res/ResourceCache.hpp>
+#include <galaxy/resource/ResourceCache.hpp>
 
 struct DemoRes
 {

@@ -11,7 +11,6 @@
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/ShaderKey.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -318,24 +317,6 @@ namespace sc
 
 							ImGui::TableNextRow();
 							ImGui::TableNextColumn();
-							ImGui::Text("Shader");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##25"))
-							{
-								world.disable(entity);
-								world.create_component<components::ShaderKey>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##26"))
-							{
-								world.remove<components::ShaderKey>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
 							ImGui::Text("Sprite2D");
 							ImGui::TableNextColumn();
 
@@ -420,7 +401,6 @@ namespace sc
 				primitive2d,
 				renderable,
 				rigidbody,
-				shaderkey,
 				sprite,
 				tag,
 				text,
@@ -432,7 +412,6 @@ namespace sc
 				components::Primitive2D,
 				components::Renderable,
 				components::RigidBody,
-				components::ShaderKey,
 				components::Sprite,
 				components::Tag,
 				components::Text,
@@ -574,31 +553,25 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Batch Sprite"))
 					{
-						static float s_cw = static_cast<float>(batchsprite->get_width());
+						static float s_cw = batchsprite->get_clip().x;
 						if (ImGui::InputFloat("Custom Width", &s_cw, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							batchsprite->set_custom_width(s_cw);
+							batchsprite->clip_width(s_cw);
 						}
 
-						static float s_ch = static_cast<float>(batchsprite->get_height());
+						static float s_ch = batchsprite->get_clip().y;
 						if (ImGui::InputFloat("Custom Height", &s_ch, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							batchsprite->set_custom_height(s_ch);
+							batchsprite->clip_height(s_ch);
 						}
 
-						static float opacity = batchsprite->get_opacity();
-						if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
-						{
-							batchsprite->set_opacity(opacity);
-						}
-
-						static std::string s_bs_tex = batchsprite->get_tex_id();
+						static std::string s_bs_tex = batchsprite->get_key();
 						if (ImGui::InputText("Set Region", &s_bs_tex, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							if (!s_bs_tex.empty())
 							{
-								batchsprite->set_region(s_bs_tex);
-								s_bs_tex = batchsprite->get_tex_id();
+								batchsprite->update_region(s_bs_tex);
+								s_bs_tex = batchsprite->get_key();
 							}
 						}
 
@@ -642,6 +615,9 @@ namespace sc
 
 							ImGui::EndCombo();
 						}
+
+						static int depth = primitive2d->get_depth();
+						ImGui::InputInt("Depth", &depth, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
 
 						auto& data             = primitive2d->get_data();
 						static float colour[4] = {data.m_colour.m_red, data.m_colour.m_green, data.m_colour.m_blue, data.m_colour.m_alpha};
@@ -786,37 +762,37 @@ namespace sc
 								{
 									case graphics::Primitives::CIRCLE:
 									{
-										primitive2d->create<graphics::Primitives::CIRCLE>(data);
+										primitive2d->create<graphics::Primitives::CIRCLE>(data, depth);
 									}
 									break;
 
 									case graphics::Primitives::ELLIPSE:
 									{
-										primitive2d->create<graphics::Primitives::ELLIPSE>(data);
+										primitive2d->create<graphics::Primitives::ELLIPSE>(data, depth);
 									}
 									break;
 
 									case graphics::Primitives::LINE:
 									{
-										primitive2d->create<graphics::Primitives::LINE>(data);
+										primitive2d->create<graphics::Primitives::LINE>(data, depth);
 									}
 									break;
 
 									case graphics::Primitives::POINT:
 									{
-										primitive2d->create<graphics::Primitives::POINT>(data);
+										primitive2d->create<graphics::Primitives::POINT>(data, depth);
 									}
 									break;
 
 									case graphics::Primitives::POLYLINE:
 									{
-										primitive2d->create<graphics::Primitives::POLYLINE>(data);
+										primitive2d->create<graphics::Primitives::POLYLINE>(data, depth);
 									}
 									break;
 
 									case graphics::Primitives::POLYGON:
 									{
-										primitive2d->create<graphics::Primitives::POLYGON>(data);
+										primitive2d->create<graphics::Primitives::POLYGON>(data, depth);
 									}
 									break;
 								}
@@ -861,8 +837,6 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						ImGui::InputInt("Z Level", &renderable->m_z_level, 1, 2, ImGuiInputTextFlags_CharsNoBlank);
-
 						ImGui::EndTabItem();
 					}
 				}
@@ -906,19 +880,13 @@ namespace sc
 					}
 				}
 
-				if (shaderkey)
-				{
-					if (ImGui::BeginTabItem("Shader"))
-					{
-						ImGui::InputText("Shader Key", &shaderkey->m_shader_id, ImGuiInputTextFlags_CharsNoBlank);
-						ImGui::EndTabItem();
-					}
-				}
-
 				if (sprite)
 				{
 					if (ImGui::BeginTabItem("Sprite"))
 					{
+						static int depth = sprite->get_depth();
+						ImGui::InputInt("Depth", &depth, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
 						if (ImGui::Button("Load"))
 						{
 							const auto file = SL_HANDLE.vfs()->open_with_dialog();
@@ -930,7 +898,7 @@ namespace sc
 								else
 								{
 									sprite->load(file.value());
-									sprite->create();
+									sprite->create(depth);
 								}
 							});
 						}
@@ -994,6 +962,9 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Text"))
 					{
+						static int depth = text->get_depth();
+						ImGui::InputInt("Depth", &depth, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
 						static std::string s_text_buff = text->get_text();
 						ImGui::InputText("Text", &s_text_buff);
 
@@ -1016,7 +987,7 @@ namespace sc
 						if (ImGui::Button("Update"))
 						{
 							gl_operations.emplace_back([text]() -> void {
-								text->create(s_text_buff);
+								text->create(s_text_buff, depth);
 							});
 						}
 

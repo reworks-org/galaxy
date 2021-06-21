@@ -12,6 +12,7 @@
 
 #include "galaxy/graphics/text/Character.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
 {
@@ -75,9 +76,16 @@ namespace galaxy
 			///
 			/// Get fontmap.
 			///
-			/// \return Pointer to fontmap.
+			/// \return Fontmap GL Texture.
 			///
-			[[nodiscard]] RenderTexture* get_fontmap() noexcept;
+			[[nodiscard]] const unsigned int get_fontmap() const noexcept;
+
+			///
+			/// Get RenderTexture.
+			///
+			/// \return Pointer to RenderTexture.
+			///
+			[[nodiscard]] RenderTexture* get_rendertexture() noexcept;
 
 			///
 			/// Retrieve width of a string of text.
@@ -143,6 +151,11 @@ namespace galaxy
 			/// Font filename.
 			///
 			std::string m_filename;
+
+			///
+			/// Glyph shader.
+			///
+			Shader m_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy

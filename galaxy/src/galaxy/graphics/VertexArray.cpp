@@ -49,7 +49,7 @@ namespace galaxy
 			glDeleteVertexArrays(1, &m_vao);
 		}
 
-		inline void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout)
+		void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout)
 		{
 			// Prepare for new data.
 			m_vbo.destroy();
@@ -88,9 +88,19 @@ namespace galaxy
 			glBindVertexArray(0);
 		}
 
+		const std::vector<graphics::Vertex>& VertexArray::get_vertices() const noexcept
+		{
+			return m_vbo.get_vertices();
+		}
+
 		const unsigned int VertexArray::count() const noexcept
 		{
 			return m_ibo.count();
+		}
+
+		const unsigned int VertexArray::vbo() const noexcept
+		{
+			return m_vbo.id();
 		}
 	} // namespace graphics
 } // namespace galaxy

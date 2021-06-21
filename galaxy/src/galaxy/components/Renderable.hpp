@@ -27,14 +27,6 @@ namespace galaxy
 			Renderable() noexcept;
 
 			///
-			/// Argument constructor.
-			///
-			/// \param type The type of renderable this entity is.
-			/// \param z_level Z-Level to draw entity at.
-			///
-			Renderable(const graphics::Renderables type, const int z_level) noexcept;
-
-			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
@@ -75,11 +67,6 @@ namespace galaxy
 			/// ID of a shader in the shader resource cache.
 			///
 			graphics::Renderables m_type;
-
-			///
-			/// Z level of entity.
-			///
-			int m_z_level;
 
 		private:
 			///

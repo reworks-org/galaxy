@@ -52,9 +52,9 @@ namespace galaxy
 			return m_musicbook;
 		}
 
-		res::TextureAtlas* ServiceLocator::atlas() const noexcept
+		res::TextureBook* ServiceLocator::texturebook() const noexcept
 		{
-			return m_texture_atlas;
+			return m_texturebook;
 		}
 
 		fs::Virtual* ServiceLocator::vfs() const noexcept
@@ -83,7 +83,7 @@ namespace galaxy
 		}
 
 		ServiceLocator::ServiceLocator() noexcept
-		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}, m_openal {nullptr}, m_scriptbook {nullptr}, m_language {nullptr}, m_pool {nullptr}
+		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texturebook {nullptr}, m_vfs {nullptr}, m_openal {nullptr}, m_scriptbook {nullptr}, m_language {nullptr}, m_pool {nullptr}
 		{
 		}
 	} // namespace core

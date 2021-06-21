@@ -27,17 +27,18 @@ namespace galaxy
 
 		void TransformSystem::update(core::World& world, const double dt)
 		{
-			world.operate<components::Transform2D, components::BatchSprite>(std::execution::par_unseq, [&](const ecs::Entity entity, components::Transform2D* transform, components::BatchSprite* batchsprite) {
+			world.operate<components::Transform2D, components::BatchSprite>(std::execution::par, [&](const ecs::Entity entity, components::Transform2D* transform, components::BatchSprite* batchsprite) {
 				if (transform->is_dirty())
 				{
-					transform->set_rotation_origin(batchsprite->get_width() * 0.5f, batchsprite->get_height() * 0.5f);
+					const auto& region = batchsprite->get_region();
+					transform->set_origin(region.m_width * 0.5f, region.m_height * 0.5f);
 				}
 			});
 
-			world.operate<components::Transform2D, components::Sprite>(std::execution::par_unseq, [&](const ecs::Entity entity, components::Transform2D* transform, components::Sprite* sprite) {
+			world.operate<components::Transform2D, components::Sprite>(std::execution::par, [&](const ecs::Entity entity, components::Transform2D* transform, components::Sprite* sprite) {
 				if (transform->is_dirty())
 				{
-					transform->set_rotation_origin(sprite->get_width() * 0.5f, sprite->get_height() * 0.5f);
+					transform->set_origin(sprite->get_width() * 0.5f, sprite->get_height() * 0.5f);
 				}
 			});
 		}

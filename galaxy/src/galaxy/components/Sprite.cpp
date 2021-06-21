@@ -5,10 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
-#include "galaxy/fs/FileSystem.hpp"
-
 #include "Sprite.hpp"
 
 namespace galaxy
@@ -16,106 +12,160 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
+		    : Texture {}, Serializable {this}, m_opacity {1.0f}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-		    : Serializable {this}, VertexData {}, Texture {}, m_opacity {1.0f}, m_texture_str {""}
+		    : Texture {}, Serializable {this}, m_opacity {1.0f}
 		{
 			deserialize(json);
 		}
 
 		Sprite::Sprite(Sprite&& s) noexcept
-		    : Serializable {this}, VertexData {std::move(s)}, Texture {std::move(s)}
+		    : Texture {std::move(s)}, Serializable {this}
 		{
-			this->m_opacity     = s.m_opacity;
-			this->m_texture_str = std::move(s.m_texture_str);
-			this->m_vertexs     = std::move(s.m_vertexs);
+			this->m_vao     = std::move(s.m_vao);
+			this->m_opacity = s.m_opacity;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s) noexcept
 		{
 			if (this != &s)
 			{
-				VertexData::operator=(std::move(s));
-
 				Texture::operator=(std::move(s));
 
-				this->m_opacity     = s.m_opacity;
-				this->m_texture_str = std::move(s.m_texture_str);
-				this->m_vertexs     = std::move(s.m_vertexs);
+				this->m_vao     = std::move(s.m_vao);
+				this->m_opacity = s.m_opacity;
 			}
 
 			return *this;
 		}
 
-		void Sprite::create(const float tex_x, const float tex_y)
+		Sprite::~Sprite() noexcept
 		{
-			m_vertexs.clear();
-			m_vertexs.push_back({0.0f, 0.0f, tex_x, tex_y});
-			m_vertexs.push_back({0.0f + m_width, 0.0f, tex_x + m_width, tex_y});
-			m_vertexs.push_back({0.0f + m_width, 0.0f + m_height, tex_x + m_width, tex_y + m_height});
-			m_vertexs.push_back({0.0f, 0.0f + m_height, tex_x, tex_y + m_height});
-
-			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
-
-			m_vb.create<graphics::SpriteVertex>(m_vertexs);
-			m_ib.create(ib_arr);
-
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
-
-			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Sprite::create_clipped(const float width, const float height)
+		void Sprite::create(const int depth, const float tex_x, const float tex_y)
 		{
-			m_vertexs.clear();
-			m_vertexs.push_back({0.0f, 0.0f, 0.0f, 0.0f});
-			m_vertexs.push_back({0.0f + width, 0.0f, 0.0f + width, 0.0f});
-			m_vertexs.push_back({0.0f + width, 0.0f + height, 0.0f + width, 0.0f + height});
-			m_vertexs.push_back({0.0f, 0.0f + height, 0.0f, 0.0f + height});
+			std::array<graphics::Vertex, 4> vertices;
+			vertices[0].m_pos    = {0.0f, 0.0f};
+			vertices[0].m_texels = {tex_x, tex_y};
+			vertices[0].set_depth(depth);
 
-			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
+			vertices[1].m_pos    = {0.0f + m_width, 0.0f};
+			vertices[1].m_texels = {tex_x + m_width, tex_y};
+			vertices[1].set_depth(depth);
 
-			m_vb.create<graphics::SpriteVertex>(m_vertexs);
-			m_ib.create(ib_arr);
+			vertices[2].m_pos    = {0.0f + m_width, 0.0f + m_height};
+			vertices[2].m_texels = {tex_x + m_width, tex_y + m_height};
+			vertices[2].set_depth(depth);
 
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
+			vertices[3].m_pos    = {0.0f, 0.0f + m_height};
+			vertices[3].m_texels = {tex_x, tex_y + m_height};
+			vertices[3].set_depth(depth);
 
-			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
+			std::array<unsigned int, 6> indices =
+			    {0, 1, 3, 1, 2, 3};
+
+			graphics::VertexBuffer vbo;
+			graphics::IndexBuffer ibo;
+			graphics::VertexLayout layout;
+
+			vbo.create(vertices, false);
+			ibo.create(indices, true);
+
+			layout.add<graphics::VertexAttributes::POSITION>(2);
+			layout.add<graphics::VertexAttributes::TEXEL>(2);
+			layout.add<graphics::VertexAttributes::COLOUR>(3);
+			layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+			m_vao.create(vbo, ibo, layout);
 		}
 
-		void Sprite::create_clipped(const float x, const float y, const float width, const float height)
+		void Sprite::create_clipped(const int depth, const float width, const float height)
 		{
-			m_vertexs.clear();
-			m_vertexs.push_back({0.0f, 0.0f, x, y});
-			m_vertexs.push_back({0.0f + width, 0.0f, x + width, y});
-			m_vertexs.push_back({0.0f + width, 0.0f + height, x + width, y + height});
-			m_vertexs.push_back({0.0f, 0.0f + height, x, y + height});
+			std::array<graphics::Vertex, 4> vertices;
+			vertices[0].m_pos    = {0.0f, 0.0f};
+			vertices[0].m_texels = {0.0f, 0.0f};
+			vertices[0].set_depth(depth);
 
-			std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
+			vertices[1].m_pos    = {0.0f + width, 0.0f};
+			vertices[1].m_texels = {0.0f + width, 0.0f};
+			vertices[1].set_depth(depth);
 
-			m_vb.create<graphics::SpriteVertex>(m_vertexs);
-			m_ib.create(ib_arr);
+			vertices[2].m_pos    = {0.0f + width, 0.0f + height};
+			vertices[2].m_texels = {0.0f + width, 0.0f + height};
+			vertices[2].set_depth(depth);
 
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::POSITION>(2);
-			m_layout.add<graphics::SpriteVertex, graphics::VertexAttributes::TEXEL>(2);
+			vertices[3].m_pos    = {0.0f, 0.0f + height};
+			vertices[3].m_texels = {0.0f, 0.0f + height};
+			vertices[3].set_depth(depth);
 
-			m_va.create<graphics::SpriteVertex>(m_vb, m_ib, m_layout);
+			std::array<unsigned int, 6> indices =
+			    {0, 1, 3, 1, 2, 3};
+
+			graphics::VertexBuffer vbo;
+			graphics::IndexBuffer ibo;
+			graphics::VertexLayout layout;
+
+			vbo.create(vertices, false);
+			ibo.create(indices, true);
+
+			layout.add<graphics::VertexAttributes::POSITION>(2);
+			layout.add<graphics::VertexAttributes::TEXEL>(2);
+			layout.add<graphics::VertexAttributes::COLOUR>(3);
+			layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+			m_vao.create(vbo, ibo, layout);
+		}
+
+		void Sprite::create_clipped(const int depth, const float x, const float y, const float width, const float height)
+		{
+			std::array<graphics::Vertex, 4> vertices;
+			vertices[0].m_pos    = {0.0f, 0.0f};
+			vertices[0].m_texels = {x, y};
+			vertices[0].set_depth(depth);
+
+			vertices[1].m_pos    = {0.0f + width, 0.0f};
+			vertices[1].m_texels = {x + width, y};
+			vertices[1].set_depth(depth);
+
+			vertices[2].m_pos    = {0.0f + width, 0.0f + height};
+			vertices[2].m_texels = {x + width, y + height};
+			vertices[2].set_depth(depth);
+
+			vertices[3].m_pos    = {0.0f, 0.0f + height};
+			vertices[3].m_texels = {x, y + height};
+			vertices[3].set_depth(depth);
+
+			std::array<unsigned int, 6> indices =
+			    {0, 1, 3, 1, 2, 3};
+
+			graphics::VertexBuffer vbo;
+			graphics::IndexBuffer ibo;
+			graphics::VertexLayout layout;
+
+			vbo.create(vertices, false);
+			ibo.create(indices, true);
+
+			layout.add<graphics::VertexAttributes::POSITION>(2);
+			layout.add<graphics::VertexAttributes::TEXEL>(2);
+			layout.add<graphics::VertexAttributes::COLOUR>(3);
+			layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+			m_vao.create(vbo, ibo, layout);
 		}
 
 		void Sprite::bind() noexcept
 		{
-			m_va.bind();
+			m_vao.bind();
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 		}
 
 		void Sprite::unbind() noexcept
 		{
-			m_va.unbind();
+			m_vao.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
@@ -129,25 +179,43 @@ namespace galaxy
 			return m_opacity;
 		}
 
-		const std::vector<graphics::SpriteVertex>& Sprite::get_vertexs() const noexcept
+		const int Sprite::get_depth() const noexcept
 		{
-			return m_vertexs;
+			if (m_vao.get_vertices().empty())
+			{
+				return 0;
+			}
+			else
+			{
+				return m_vao.get_vertices()[0].get_depth();
+			}
+		}
+
+		const std::vector<graphics::Vertex>& Sprite::get_vertices() const noexcept
+		{
+			return m_vao.get_vertices();
+		}
+
+		const unsigned int Sprite::count() const noexcept
+		{
+			return m_vao.count();
 		}
 
 		nlohmann::json Sprite::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["texture"]     = m_texture_str;
+			json["texture"]     = m_path;
 			json["opacity"]     = m_opacity;
+			json["depth"]       = get_depth();
 
 			return json;
 		}
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			m_texture_str = json.at("texture");
-			load(m_texture_str);
-			create();
+			const std::string& texture = json.at("texture");
+			load(texture);
+			create(json.at("depth"));
 
 			set_opacity(json.at("opacity"));
 		}

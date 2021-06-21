@@ -9,7 +9,7 @@
 #define GALAXY_GRAPHICS_ANIMATION_FRAME_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Rect.hpp"
+#include "galaxy/math/Rect.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -33,7 +33,7 @@ namespace galaxy
 			/// \param region Texture region on the texture atlas.
 			/// \param time_per_frame Total time to display this frame for.
 			///
-			Frame(const graphics::fRect& region, const double time_per_frame) noexcept;
+			Frame(const math::Rect<float>& region, const double time_per_frame) noexcept;
 
 			///
 			/// JSON constructor.
@@ -59,7 +59,7 @@ namespace galaxy
 			///
 			/// \return Const float rectangle.
 			///
-			[[nodiscard]] const graphics::fRect& get_region() const noexcept;
+			[[nodiscard]] const math::Rect<float>& get_region() const noexcept;
 
 			///
 			/// Get Region string ID.
@@ -97,7 +97,7 @@ namespace galaxy
 			///
 			/// Region on the texture atlas.
 			///
-			graphics::fRect m_region;
+			math::Rect<float> m_region;
 		};
 	} // namespace graphics
 } // namespace galaxy

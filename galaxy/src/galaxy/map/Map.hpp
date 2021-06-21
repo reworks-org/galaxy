@@ -11,7 +11,6 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/ecs/Entity.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/map/layer/TileLayer.hpp"
 #include "galaxy/map/layer/ObjectLayer.hpp"
 #include "galaxy/map/layer/ImageLayer.hpp"
@@ -447,11 +446,6 @@ namespace galaxy
 			/// Keep track of object entities.
 			///
 			std::vector<ecs::Entity> m_object_entities;
-
-			///
-			/// Framebuffer storage.
-			///
-			std::vector<graphics::RenderTexture> m_framebuffers;
 		};
 
 		template<tiled_property Type>

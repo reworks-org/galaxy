@@ -8,20 +8,18 @@
 #ifndef GALAXY_COMPONENTS_SPRITE_HPP_
 #define GALAXY_COMPONENTS_SPRITE_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/texture/Texture.hpp"
-#include "galaxy/graphics/vertex/VertexData.hpp"
+#include "galaxy/graphics/Texture.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
 		///
-		/// Everything you need to draw a Sprite.
+		/// A sprite is a texture with vertex data.
 		///
-		class Sprite final : public graphics::VertexData, public graphics::Texture, public fs::Serializable
+		class Sprite final : public graphics::Texture, public fs::Serializable
 		{
 		public:
 			///
@@ -49,48 +47,51 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Sprite() noexcept = default;
+			virtual ~Sprite() noexcept;
 
 			///
 			/// Creates the internal vertex array.
 			///
+			/// \param depth Z-Level.
 			/// \param tex_x Optional texture x pos.
 			/// \param tex_y Optional texture y pos.
 			///
-			void create(const float tex_x = 0.0f, const float tex_y = 0.0f);
+			void create(const int depth, const float tex_x = 0.0f, const float tex_y = 0.0f);
 
 			///
 			/// Creates the internal vertex array, with a clipped w/h.
 			///
+			/// \param depth Z-Level.
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
-			void create_clipped(const float width, const float height);
+			void create_clipped(const int depth, const float width, const float height);
 
 			///
 			/// Creates the internal vertex array, with a clipped rect.
 			///
-			/// \param x Optional texture x pos.
-			/// \param y Optional texture y pos.
+			/// \param depth Z-Level.
+			/// \param x Texture x pos.
+			/// \param y Texture y pos.
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
-			void create_clipped(const float x, const float y, const float width, const float height);
+			void create_clipped(const int depth, const float x, const float y, const float width, const float height);
 
 			///
-			/// Activate Sprite context.
+			/// Bind sprite.
 			///
-			void bind() noexcept override;
+			void bind() noexcept;
 
 			///
-			/// Deactivate Sprite context.
+			/// Unbind sprite.
 			///
-			void unbind() noexcept override;
+			void unbind() noexcept;
 
 			///
 			/// Set opacity.
 			///
-			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+			/// \param opacity 0.0f - 1.0f.
 			///
 			void set_opacity(const float opacity) noexcept;
 
@@ -102,11 +103,25 @@ namespace galaxy
 			[[nodiscard]] const float get_opacity() const noexcept;
 
 			///
-			/// Get Sprite vertexs.
+			/// Get depth of sprite.
 			///
-			/// \return Const reference to std::vector of Sprite vertexs.
+			/// \return Const int.
 			///
-			[[nodiscard]] const std::vector<graphics::SpriteVertex>& get_vertexs() const noexcept;
+			[[nodiscard]] const int get_depth() const noexcept;
+
+			///
+			/// Get sprite vertices.
+			///
+			/// \return Const reference to std::vector of sprite vertices.
+			///
+			[[nodiscard]] const std::vector<graphics::Vertex>& get_vertices() const noexcept;
+
+			///
+			/// Gets the index count.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int count() const noexcept;
 
 			///
 			/// Serializes object.
@@ -135,19 +150,14 @@ namespace galaxy
 
 		private:
 			///
-			/// Opacity of Sprite.
+			/// Vertex Array Object.
+			///
+			graphics::VertexArray m_vao;
+
+			///
+			/// Opacity.
 			///
 			float m_opacity;
-
-			///
-			/// Texture ID.
-			///
-			std::string m_texture_str;
-
-			///
-			/// Sprite vertexs.
-			///
-			std::vector<graphics::SpriteVertex> m_vertexs;
 		};
 	} // namespace components
 } // namespace galaxy

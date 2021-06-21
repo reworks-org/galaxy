@@ -20,5 +20,26 @@ namespace galaxy
 		    : m_size {size}, m_type {type}, m_normalized {normalized}, m_offset {offset}
 		{
 		}
+
+		VertexAttribute::VertexAttribute(VertexAttribute&& va) noexcept
+		{
+			this->m_normalized = va.m_normalized;
+			this->m_offset     = va.m_offset;
+			this->m_size       = va.m_size;
+			this->m_type       = va.m_type;
+		}
+
+		VertexAttribute& VertexAttribute::operator=(VertexAttribute&& va) noexcept
+		{
+			if (this != &va)
+			{
+				this->m_normalized = va.m_normalized;
+				this->m_offset     = va.m_offset;
+				this->m_size       = va.m_size;
+				this->m_type       = va.m_type;
+			}
+
+			return *this;
+		}
 	} // namespace graphics
 } // namespace galaxy

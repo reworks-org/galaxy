@@ -32,6 +32,16 @@ namespace galaxy
 			VertexLayout() noexcept = default;
 
 			///
+			/// Move constructor.
+			///
+			VertexLayout(VertexLayout&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			VertexLayout& operator=(VertexLayout&&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~VertexLayout() noexcept;
@@ -53,6 +63,17 @@ namespace galaxy
 			/// \return const reference to std::vector<VertexAttribute>.
 			///
 			[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			VertexLayout(const VertexLayout&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			VertexLayout& operator=(const VertexLayout&) = delete;
 
 		private:
 			///
@@ -79,6 +100,10 @@ namespace galaxy
 			else if constexpr (va == VertexAttributes::COLOUR)
 			{
 				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex, m_colour)));
+			}
+			else if constexpr (va == VertexAttributes::DEPTH)
+			{
+				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex, m_depth)));
 			}
 			else
 			{

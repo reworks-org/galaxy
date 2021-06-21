@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		/// Holds an OpenGL texture information and data.
 		///
-		class Texture final
+		class Texture
 		{
 		public:
 			///
@@ -39,9 +39,9 @@ namespace galaxy
 			Texture& operator=(Texture&&) noexcept;
 
 			///
-			/// Destructor.
+			/// Virtual destructor.
 			///
-			~Texture() noexcept;
+			virtual ~Texture() noexcept;
 
 			///
 			/// \brief Loads texture from file.
@@ -71,12 +71,12 @@ namespace galaxy
 			///
 			/// Activate texture context.
 			///
-			void bind() noexcept;
+			virtual void bind() noexcept;
 
 			///
 			/// Deactivate texture context.
 			///
-			void unbind() noexcept;
+			virtual void unbind() noexcept;
 
 			///
 			/// \brief Clamps texture to edges.
@@ -155,6 +155,13 @@ namespace galaxy
 			[[nodiscard]] const int get_aniso_level() noexcept;
 
 			///
+			/// Returns the filepath if the texture was loaded from disk.
+			///
+			/// \return Const std::string reference.
+			///
+			[[nodiscard]] const std::string& get_filepath() const noexcept;
+
+			///
 			/// Gets internal OpenGL id.
 			///
 			/// \return Const unsigned int.
@@ -172,7 +179,7 @@ namespace galaxy
 			///
 			Texture& operator=(const Texture&) = delete;
 
-		private:
+		protected:
 			///
 			/// Is texture loaded flag.
 			///
@@ -187,6 +194,11 @@ namespace galaxy
 			/// Cached texture height.
 			///
 			int m_height;
+
+			///
+			/// Filepath cache.
+			///
+			std::string m_path;
 
 			///
 			/// OpenGL texture handle.

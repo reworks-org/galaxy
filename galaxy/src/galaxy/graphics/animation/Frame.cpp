@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/TextureBook.hpp"
 
 #include "Frame.hpp"
 
@@ -19,7 +19,7 @@ namespace galaxy
 		{
 		}
 
-		Frame::Frame(const graphics::fRect& region, const double time_per_frame) noexcept
+		Frame::Frame(const math::Rect<float>& region, const double time_per_frame) noexcept
 		    : Serializable {this}, m_time_per_frame {time_per_frame}, m_id {""}, m_region {region}
 		{
 		}
@@ -32,11 +32,19 @@ namespace galaxy
 
 		void Frame::set_region(std::string_view region)
 		{
-			m_id     = region;
-			m_region = SL_HANDLE.atlas()->get_region(m_id);
+			const auto res = SL_HANDLE.texturebook()->search(region);
+			if (res != std::nullopt)
+			{
+				m_id     = static_cast<std::string>(region);
+				m_region = res.value().m_region;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture region for frame: {0}.", region);
+			}
 		}
 
-		const graphics::fRect& Frame::get_region() const noexcept
+		const math::Rect<float>& Frame::get_region() const noexcept
 		{
 			return m_region;
 		}

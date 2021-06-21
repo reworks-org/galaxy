@@ -15124,7 +15124,7 @@ static unsigned char smaa_area_tex[] = {
 ///
 /// SMAA core vertex shader.
 ///
-inline constexpr const char* const smaa_header_vert = R"(
+constexpr const char* const smaa_header_vert = R"(
     #version 450 core
 
     #ifndef SMAA_PIXEL_SIZE
@@ -15139,7 +15139,7 @@ inline constexpr const char* const smaa_header_vert = R"(
 ///
 /// SMAA core fragment shader.
 ///
-inline constexpr const char* const smaa_header_frag = R"(
+constexpr const char* const smaa_header_frag = R"(
     #version 450 core
 
     #ifndef SMAA_PIXEL_SIZE
@@ -15154,8 +15154,8 @@ inline constexpr const char* const smaa_header_frag = R"(
 ///
 /// SMAA edge vertex shader.
 ///
-inline constexpr const char* const smaa_edge_vert = R"(
-    layout (location = 0) in vec3 l_pos;
+constexpr const char* const smaa_edge_vert = R"(
+    layout (location = 0) in vec2 l_pos;
     layout (location = 1) in vec2 l_texels;
 
     out vec2 texcoord;
@@ -15165,7 +15165,7 @@ inline constexpr const char* const smaa_edge_vert = R"(
     void main()
     {
 	    texcoord = l_texels;
-	    gl_Position = vec4(l_pos, 1.0);
+	    gl_Position = vec4(l_pos, 0.0, 1.0);
 	
 	    vec4 dummy1 = vec4(0);
 	    SMAAEdgeDetectionVS(dummy1, dummy2, texcoord, offset);
@@ -15175,7 +15175,7 @@ inline constexpr const char* const smaa_edge_vert = R"(
 ///
 /// SMAA edge frag shader.
 ///
-inline constexpr const char* const smaa_edge_frag = R"(
+constexpr const char* const smaa_edge_frag = R"(
     in vec2 texcoord;
     in vec4 offset[3];
     in vec4 dummy2;
@@ -15194,8 +15194,8 @@ inline constexpr const char* const smaa_edge_frag = R"(
     }
 )";
 
-inline constexpr const char* const smaa_blend_vert = R"(
-    layout (location = 0) in vec3 l_pos;
+constexpr const char* const smaa_blend_vert = R"(
+    layout (location = 0) in vec2 l_pos;
     layout (location = 1) in vec2 l_texels;
 
     out vec2 texcoord;
@@ -15206,14 +15206,14 @@ inline constexpr const char* const smaa_blend_vert = R"(
     void main()
     {
 	    texcoord = l_texels;
-	    gl_Position = vec4(l_pos, 1.0);
+	    gl_Position = vec4(l_pos, 0.0, 1.0);
 	
 	    vec4 dummy1 = vec4(0);
 	    SMAABlendingWeightCalculationVS(dummy1, dummy2, texcoord, pixcoord, offset);
     }
 )";
 
-inline constexpr const char* const smaa_blend_frag = R"(
+constexpr const char* const smaa_blend_frag = R"(
     in vec2 texcoord;
     in vec2 pixcoord;
     in vec4 offset[3];
@@ -15231,8 +15231,8 @@ inline constexpr const char* const smaa_blend_frag = R"(
     }
 )";
 
-inline constexpr const char* const smaa_neighbour_vert = R"(
-    layout (location = 0) in vec3 l_pos;
+constexpr const char* const smaa_neighbour_vert = R"(
+    layout (location = 0) in vec2 l_pos;
     layout (location = 1) in vec2 l_texels;
 
     out vec2 texcoord;
@@ -15242,14 +15242,14 @@ inline constexpr const char* const smaa_neighbour_vert = R"(
     void main()
     {
         texcoord = l_texels;
-        gl_Position = vec4(l_pos, 1.0);
+        gl_Position = vec4(l_pos, 0.0, 1.0);
 
         vec4 dummy1 = vec4(0);
         SMAANeighborhoodBlendingVS(dummy1, dummy2, texcoord, offset);
     }
 )";
 
-inline constexpr const char* const smaa_neighbour_frag = R"(
+constexpr const char* const smaa_neighbour_frag = R"(
     in vec2 texcoord;
     in vec4 offset[2];
     in vec4 dummy2;
@@ -15265,7 +15265,7 @@ inline constexpr const char* const smaa_neighbour_frag = R"(
     }
 )";
 
-inline constexpr const char* const smaa_core_part1 = R"(
+constexpr const char* const smaa_core_part1 = R"(
     #define API_USED
 
     #if SMAA_PRESET_LOW == 1
@@ -15415,7 +15415,7 @@ inline constexpr const char* const smaa_core_part1 = R"(
     #endif
 )";
 
-inline constexpr const char* const smaa_core_part2 = R"(
+constexpr const char* const smaa_core_part2 = R"(
     float3 SMAAGatherNeighbours(float2 texcoord,
         float4 offset[3],
         SMAATexture2D tex) {
@@ -15606,7 +15606,7 @@ inline constexpr const char* const smaa_core_part2 = R"(
     }
 )";
 
-inline constexpr const char* const smaa_core_part3 = R"(
+constexpr const char* const smaa_core_part3 = R"(
     #if SMAA_MAX_SEARCH_STEPS_DIAG > 0 || SMAA_FORCE_DIAGONAL_DETECTION == 1
 
     float SMAASearchDiag1(SMAATexture2D edgesTex, float2 texcoord, float2 dir, float c) {
@@ -15816,7 +15816,7 @@ inline constexpr const char* const smaa_core_part3 = R"(
     }
 )";
 
-inline constexpr const char* const smaa_core_part4 = R"(
+constexpr const char* const smaa_core_part4 = R"(
     float4 SMAABlendingWeightCalculationPS(float2 texcoord,
        float2 pixcoord,
        float4 offset[3],
@@ -15989,14 +15989,7 @@ namespace galaxy
 	namespace graphics
 	{
 		SMAA::SMAA()
-		    : m_neighbour_tex {0},
-		      m_edge_tex {0},
-		      m_blend_tex {0},
-		      m_area_tex {0},
-		      m_search_tex {0},
-		      m_neighbour_fbo {0},
-		      m_edge_fbo {0},
-		      m_blend_fbo {0}
+		    : m_neighbour_tex {0}, m_edge_tex {0}, m_blend_tex {0}, m_area_tex {0}, m_search_tex {0}, m_neighbour_fbo {0}, m_edge_fbo {0}, m_blend_fbo {0}
 		{
 			const auto width  = SL_HANDLE.window()->get_width();
 			const auto height = SL_HANDLE.window()->get_height();
@@ -16160,7 +16153,8 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, 0);
-			// Rest is unbound by the next pass: Sharpening.
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, 0);
 
 			// Return processed input.
 			return m_neighbour_tex;

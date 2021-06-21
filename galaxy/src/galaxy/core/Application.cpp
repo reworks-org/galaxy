@@ -110,7 +110,7 @@ namespace galaxy
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
 				m_config->define<std::string>("shaderbook-json", "shaderbook.json");
 				m_config->define<std::string>("scriptbook-json", "scriptbook.json");
-				m_config->define<std::string>("textureatlas-json", "textureatlas.json");
+				m_config->define<std::string>("texturebook-json", "texturebook.json");
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
 				m_config->define<std::string>("spritebatch-shader", "spritebatch");
@@ -196,9 +196,6 @@ namespace galaxy
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
-				// Set up renderers.
-				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
-
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));
 				SL_HANDLE.m_scriptbook = m_scriptbook.get();
@@ -208,10 +205,8 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<std::string>("textureatlas-json"));
-				m_texture_atlas->create("render_to_texture");
-				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
-				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
+				m_texturebook           = std::make_unique<res::TextureBook>(m_config->get<std::string>("textureatlas-json"));
+				SL_HANDLE.m_texturebook = m_texturebook.get();
 
 				// SoundBook.
 				m_soundbook           = std::make_unique<res::SoundBook>(m_config->get<std::string>("soundbook-json"));
@@ -241,7 +236,7 @@ namespace galaxy
 				m_lua->set("galaxy_vfs", m_vfs.get());
 				m_lua->set("galaxy_shaderboox", m_shaderbook.get());
 				m_lua->set("galaxy_fontbook", m_fontbook.get());
-				m_lua->set("galaxy_tex_atlas", m_texture_atlas.get());
+				m_lua->set("galaxy_texbook", m_texturebook.get());
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
 				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
@@ -263,7 +258,7 @@ namespace galaxy
 
 			m_musicbook.reset();
 			m_soundbook.reset();
-			m_texture_atlas.reset();
+			m_texturebook.reset();
 			m_fontbook.reset();
 			m_shaderbook.reset();
 			m_scriptbook.reset();
@@ -348,7 +343,6 @@ namespace galaxy
 			}
 
 			// Clean up static stuff here since we can't be sure of when the destructor is called.
-			RENDERER_2D().clean_up();
 			FT_HANDLE.close();
 			GALAXY_LOG_FINISH;
 
@@ -454,10 +448,6 @@ namespace galaxy
 				m_shaderbook->clear();
 				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
 
-				// Reconfigure 2D renderer.
-				RENDERER_2D().clean_up();
-				RENDERER_2D().init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"), m_config->get<std::string>("2d-fb-shader"));
-
 				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
 			}
 			else if (dir.find("scripts") != std::string::npos)
@@ -479,10 +469,8 @@ namespace galaxy
 			else if (dir.find("textures") != std::string::npos)
 			{
 				// Texture Atlas.
-				m_texture_atlas->clear();
-				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
-				m_texture_atlas->create("render_to_texture");
-				RENDERER_2D().create_default_batches(m_texture_atlas->get_atlas());
+				m_texturebook->clear();
+				m_texturebook->add_json(m_config->get<std::string>("textureatlas-json"));
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
 			}

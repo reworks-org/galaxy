@@ -9,7 +9,7 @@
 #define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 
 #include <galaxy/core/Instance.hpp>
-#include <galaxy/graphics/texture/Texture.hpp>
+#include <galaxy/graphics/Texture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -18,7 +18,6 @@
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/ScriptEditor.hpp"
 #include "editor/panels/StdConsole.hpp"
-#include "editor/panels/GUIPanel.hpp"
 
 using namespace galaxy;
 
@@ -65,7 +64,6 @@ namespace sc
 		panel::ScriptEditor m_script_panel;
 		panel::StdConsole m_std_console;
 		panel::AudioPanel m_audio_panel;
-		panel::GUIPanel m_gui_panel;
 
 		graphics::Texture m_checkerboard;
 		graphics::RenderTexture m_framebuffer;

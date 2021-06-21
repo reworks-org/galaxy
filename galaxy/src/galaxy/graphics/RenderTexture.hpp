@@ -99,6 +99,20 @@ namespace galaxy
 			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
+			/// Get texture width.
+			///
+			/// \return Const integer.
+			///
+			[[nodiscard]] const int get_width() const noexcept;
+
+			///
+			/// Get texture height.
+			///
+			/// \return Const integer.
+			///
+			[[nodiscard]] const int get_height() const noexcept;
+
+			///
 			/// Get projection.
 			///
 			/// \return Const reference to glm::mat4.

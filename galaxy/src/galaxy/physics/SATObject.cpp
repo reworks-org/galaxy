@@ -48,15 +48,15 @@ namespace galaxy
 				if (renderable->m_type == graphics::Renderables::BATCHED)
 				{
 					auto* b2d = world.get<components::BatchSprite>(entity);
-					for (const auto& vertex : b2d->get_vertexs())
+					for (const auto& vertex : b2d->get_vertices())
 					{
-						m_vertexs.emplace_back(vertex);
+						m_vertexs.emplace_back(vertex.m_pos);
 					}
 				}
 				else if (renderable->m_type == graphics::Renderables::SPRITE)
 				{
 					auto* s2d = world.get<components::Sprite>(entity);
-					for (const auto& vertex : s2d->get_vertexs())
+					for (const auto& vertex : s2d->get_vertices())
 					{
 						m_vertexs.emplace_back(vertex.m_pos);
 					}
@@ -64,7 +64,7 @@ namespace galaxy
 				else
 				{
 					auto* p2d = world.get<components::Primitive2D>(entity);
-					for (const auto& vertex : p2d->get_vertexs())
+					for (const auto& vertex : p2d->get_vertices())
 					{
 						m_vertexs.emplace_back(vertex.m_pos);
 					}

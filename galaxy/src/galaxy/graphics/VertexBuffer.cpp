@@ -45,7 +45,7 @@ namespace galaxy
 			destroy();
 		}
 
-		inline void VertexBuffer::create(std::span<Vertex> vertices, bool single_write, unsigned int capacity)
+		void VertexBuffer::create(std::span<Vertex> vertices, bool single_write, unsigned int capacity)
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
@@ -57,7 +57,7 @@ namespace galaxy
 
 				m_vertices.clear();
 				m_vertices.reserve(m_size);
-				m_vertices.assign(vertices.begin(), vertices.end());
+				m_vertices.assign(std::make_move_iterator(vertices.begin()), std::make_move_iterator(vertices.end()));
 
 				glBufferData(GL_ARRAY_BUFFER, vertices.size_bytes(), vertices.data(), draw_type);
 			}
@@ -102,7 +102,7 @@ namespace galaxy
 			m_vbo = 0;
 		}
 
-		const std::vector<Vertex>& VertexBuffer::get() const noexcept
+		const std::vector<Vertex>& VertexBuffer::get_vertices() const noexcept
 		{
 			return m_vertices;
 		}

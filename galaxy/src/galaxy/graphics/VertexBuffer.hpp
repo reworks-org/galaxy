@@ -81,7 +81,7 @@ namespace galaxy
 			///
 			/// \return Vertex storage as const reference.
 			///
-			[[nodiscard]] const std::vector<Vertex>& get() const noexcept;
+			[[nodiscard]] const std::vector<Vertex>& get_vertices() const noexcept;
 
 			///
 			/// Get OpenGL handle.

@@ -10,7 +10,7 @@
 
 #include <glm/vec2.hpp>
 
-#include "galaxy/graphics/Rect.hpp"
+#include "galaxy/math/Rect.hpp"
 
 namespace galaxy
 {
@@ -85,7 +85,7 @@ namespace galaxy
 			///
 			/// Texture region.
 			///
-			fRect m_region;
+			math::Rect<float> m_region;
 		};
 	} // namespace graphics
 } // namespace galaxy

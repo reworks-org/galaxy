@@ -633,7 +633,7 @@ namespace galaxy
 		{
 			const auto type = SUniqueID::get<System>();
 
-			auto res = std::find_if(std::execution::par_unseq, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
+			auto res = std::find_if(std::execution::par, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
 				return pair.first == type;
 			});
 

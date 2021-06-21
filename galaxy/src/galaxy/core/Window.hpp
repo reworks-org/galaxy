@@ -21,7 +21,7 @@
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/PostProcessor.hpp"
-#include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
 
@@ -206,26 +206,6 @@ namespace galaxy
 			void prevent_native_closing() noexcept;
 
 			///
-			/// Enable front face culling.
-			///
-			void enable_front_cull() noexcept;
-
-			///
-			/// Enable back face culling.
-			///
-			void enable_back_cull() noexcept;
-
-			///
-			/// Enable front and back face culling.
-			///
-			void enable_fandb_cull() noexcept;
-
-			///
-			/// Disable face culling.
-			///
-			void disable_culling() noexcept;
-
-			///
 			/// Prepare renderers to render.
 			///
 			void begin();
@@ -393,7 +373,7 @@ namespace galaxy
 			///
 			/// Window background colour.
 			///
-			std::array<float, 4> m_colour;
+			glm::vec4 m_colour;
 
 			///
 			/// Map of galaxy mouse buttons to GLFW mouse buttons.

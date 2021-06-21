@@ -22,7 +22,7 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/resource/ShaderBook.hpp"
 
 #include "Window.hpp"
 
@@ -273,7 +273,10 @@ namespace galaxy
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);
 						glDepthFunc(GL_LEQUAL);
+						glEnable(GL_BLEND);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+						glEnable(GL_CULL_FACE);
+						glCullFace(GL_BACK);
 
 						// Create Post Processor.
 						m_post_processor = std::make_unique<graphics::PostProcessor>();
@@ -692,8 +695,6 @@ namespace galaxy
 			m_height = height;
 
 			glfwSetWindowSize(m_window, m_width, m_height);
-
-			RENDERER_2D().resize(m_width, m_height);
 			m_post_processor->resize(m_width, m_height);
 
 			if (m_scene_dispatcher)
@@ -719,49 +720,14 @@ namespace galaxy
 			});
 		}
 
-		void Window::enable_front_cull() noexcept
-		{
-			glEnable(GL_CULL_FACE);
-			glCullFace(GL_FRONT);
-		}
-
-		void Window::enable_back_cull() noexcept
-		{
-			glEnable(GL_CULL_FACE);
-			glCullFace(GL_BACK);
-		}
-
-		void Window::enable_fandb_cull() noexcept
-		{
-			glEnable(GL_CULL_FACE);
-			glCullFace(GL_FRONT_AND_BACK);
-		}
-
-		void Window::disable_culling() noexcept
-		{
-			glDisable(GL_CULL_FACE);
-		}
-
 		void Window::begin()
 		{
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			RENDERER_2D().prepare();
+			m_post_processor->bind();
 		}
 
 		void Window::end()
 		{
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, m_width, m_height);
-
-			m_post_processor->bind();
-
-			glEnable(GL_BLEND);
 			m_post_processor->render();
-			RENDERER_2D().render();
-
 			glfwSwapBuffers(m_window);
 		}
 

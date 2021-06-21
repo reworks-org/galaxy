@@ -10,49 +10,36 @@
 
 #include "Camera2D.hpp"
 
+#define ORTHO_NEAR      0.0f
+#define ORTHO_FAR_24BIT 16777215.0f
+
 namespace galaxy
 {
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}
 		{
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}
 		{
-			create(0.0f, json.at("width"), json.at("height"), 0.0f);
-			m_speed = json.at("speed");
+			deserialize(json);
 		}
 
 		Camera2D::Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}, m_projection {1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_translation {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_width {1}, m_height {1}
 		{
 			create(left, right, bottom, top);
 		}
 
 		void Camera2D::create(const float left, const float right, const float bottom, const float top) noexcept
 		{
-			if (right > left)
-			{
-				m_width = right;
-			}
-			else
-			{
-				m_width = left;
-			}
+			m_width  = std::max(right, left);
+			m_height = std::max(bottom, top);
 
-			if (bottom > top)
-			{
-				m_height = bottom;
-			}
-			else
-			{
-				m_height = top;
-			}
-
-			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+			m_data.m_projection = glm::ortho(left, right, bottom, top, ORTHO_NEAR, ORTHO_FAR_24BIT);
 		}
 
 		void Camera2D::on_event(const events::KeyDown& e) noexcept
@@ -120,26 +107,26 @@ namespace galaxy
 			create(0.0f, e.m_width, e.m_height, 0.0f);
 		}
 
-		void Camera2D::update(const double ts) noexcept
+		void Camera2D::update(const double dt) noexcept
 		{
 			if (m_moving_fwd)
 			{
-				move(0.0f, ts * m_speed);
+				move(0.0f, dt * m_speed);
 			}
 
 			if (m_moving_back)
 			{
-				move(0.0f, (ts * m_speed) * -1.0f);
+				move(0.0f, (dt * m_speed) * -1.0f);
 			}
 
 			if (m_moving_left)
 			{
-				move(ts * m_speed, 0.0f);
+				move(dt * m_speed, 0.0f);
 			}
 
 			if (m_moving_right)
 			{
-				move((ts * m_speed) * -1.0f, 0.0f);
+				move((dt * m_speed) * -1.0f, 0.0f);
 			}
 		}
 
@@ -170,12 +157,7 @@ namespace galaxy
 
 		void Camera2D::zoom(float scale) noexcept
 		{
-			if (scale < 0.2f)
-			{
-				scale = 0.2f;
-			}
-
-			m_scale   = scale;
+			m_scale   = std::max(0.1f, scale);
 			m_scaling = m_identity_matrix;
 			m_scaling = glm::translate(m_scaling, {static_cast<float>(m_width) / 2.0f, static_cast<float>(m_height) / 2.0f, 0.0f});
 			m_scaling = glm::scale(m_scaling, {m_scale, m_scale, 1.0f});
@@ -250,7 +232,7 @@ namespace galaxy
 		const glm::mat4& Camera2D::get_view() noexcept
 		{
 			recalculate();
-			return m_model;
+			return m_data.m_model;
 		}
 
 		const float Camera2D::get_scale() const noexcept
@@ -265,7 +247,12 @@ namespace galaxy
 
 		const glm::mat4& Camera2D::get_proj() noexcept
 		{
-			return m_projection;
+			return m_data.m_projection;
+		}
+
+		const Camera2D::Data& Camera2D::get_data() const noexcept
+		{
+			return m_data;
 		}
 
 		nlohmann::json Camera2D::serialize()
@@ -283,17 +270,17 @@ namespace galaxy
 
 		void Camera2D::deserialize(const nlohmann::json& json)
 		{
-			m_dirty        = true;
-			m_scaling      = glm::mat4 {1.0f};
-			m_translation  = glm::mat4 {1.0f};
-			m_model        = glm::mat4 {1.0f};
-			m_moving_fwd   = false;
-			m_moving_back  = false;
-			m_moving_left  = false;
-			m_moving_right = false;
-			m_width        = 0;
-			m_height       = 0;
-			m_projection   = glm::mat4 {1.0f};
+			m_dirty             = true;
+			m_scaling           = glm::mat4 {1.0f};
+			m_translation       = glm::mat4 {1.0f};
+			m_data.m_model      = glm::mat4 {1.0f};
+			m_moving_fwd        = false;
+			m_moving_back       = false;
+			m_moving_left       = false;
+			m_moving_right      = false;
+			m_width             = 0;
+			m_height            = 0;
+			m_data.m_projection = glm::mat4 {1.0f};
 
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			set_pos(json.at("x"), json.at("y"));
@@ -307,8 +294,8 @@ namespace galaxy
 		{
 			if (m_dirty)
 			{
-				m_model = m_translation * m_scaling;
-				m_dirty = false;
+				m_data.m_model = m_translation * m_scaling;
+				m_dirty        = false;
 			}
 		}
 	} // namespace graphics

@@ -8,7 +8,8 @@
 #ifndef GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
 #define GALAXY_GRAPHICS_POSTFX_SHARPEN_HPP_
 
-#include "galaxy/graphics/postfx/PostEffect.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 
 namespace galaxy
 {
@@ -17,7 +18,7 @@ namespace galaxy
 		///
 		/// Sharpening effect.
 		///
-		class Sharpen final : public PostEffect
+		class Sharpen final
 		{
 		public:
 			///
@@ -26,9 +27,9 @@ namespace galaxy
 			Sharpen();
 
 			///
-			/// Virtual destructor.
+			/// Destructor.
 			///
-			virtual ~Sharpen() = default;
+			~Sharpen() noexcept = default;
 
 			///
 			/// Resize framebuffers.
@@ -36,14 +37,25 @@ namespace galaxy
 			/// \param width New width of internal framebuffer.
 			/// \param height New height of internal framebuffer.
 			///
-			void resize(const int width, const int height) override;
+			void resize(const int width, const int height);
 
 			///
 			/// Render effect to input texture.
 			///
 			/// \return Returns output texture of SMAA'd scene.
 			///
-			[[nodiscard]] const unsigned int render(const unsigned int input) override;
+			[[nodiscard]] const unsigned int render(const unsigned int input);
+
+		private:
+			///
+			/// Shader for post processing effect.
+			///
+			Shader m_shader;
+
+			///
+			/// Framebuffer to render effect to.
+			///
+			RenderTexture m_fb;
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -14,7 +14,6 @@
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
 #include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/ShaderKey.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -540,7 +539,7 @@ namespace sc
 				ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
 			}
 
-			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
+			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			if (m_mouse_picked)
 			{
@@ -620,7 +619,6 @@ namespace sc
 								const auto entity = world.create();
 
 								world.create_component<components::Primitive2D>(entity);
-								world.create_component<components::ShaderKey>(entity);
 								world.create_component<components::Tag>(entity);
 								world.create_component<components::Transform2D>(entity);
 								auto* r   = world.create_component<components::Renderable>(entity);
@@ -661,7 +659,6 @@ namespace sc
 								auto& world       = m_scene_stack.top()->m_world;
 								const auto entity = world.create();
 
-								world.create_component<components::ShaderKey>(entity);
 								world.create_component<components::Tag>(entity);
 								world.create_component<components::Text>(entity);
 								world.create_component<components::Transform2D>(entity);
@@ -672,19 +669,6 @@ namespace sc
 
 						ImGui::EndMenu();
 					}
-
-					/*
-					m_gui_panel.gui_context_menu();
-
-					if (ImGui::MenuItem("  Map"))
-					{
-						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.world", "assets/");
-						if (file != std::nullopt)
-						{
-							//m_scene_stack.top()->create_maps(file.value());
-						}
-					}
-					*/
 
 					ImGui::EndMenu();
 				}

@@ -5,87 +5,81 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
-
-#include "galaxy/error/Log.hpp"
-
 #include "SpriteBatch.hpp"
+
+constexpr const auto max_quads = 500000;
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		SpriteBatch::SpriteBatch(const unsigned int max_quads)
-		    : m_offset {0}, m_max_quads {max_quads}, m_max_vertexs {0}, m_max_indexs {0}, m_used_indexs {0}, m_texture {nullptr}
+		SpriteBatch::SpriteBatch() noexcept
+		    : m_texture {0}, m_width {0}, m_height {0}
 		{
-			m_max_vertexs = m_max_quads * 4;
-			m_max_indexs  = m_max_quads * 6;
+			VertexBuffer vbo;
+			IndexBuffer ibo;
+			VertexLayout layout;
 
-			std::vector<unsigned int> is;
-			is.reserve(m_max_indexs);
+			vbo.create({}, false, max_quads * 4);
 
-			unsigned int increment = 0;
-			for (unsigned int counter = 0; counter < m_max_quads; counter++)
+			// Free memory immediately.
 			{
-				is.push_back(0 + increment);
-				is.push_back(1 + increment);
-				is.push_back(3 + increment);
-				is.push_back(1 + increment);
-				is.push_back(2 + increment);
-				is.push_back(3 + increment);
+				std::vector<unsigned int> is;
+				is.reserve(max_quads * 6);
 
-				increment += 4;
+				unsigned int increment = 0;
+				for (unsigned int counter = 0; counter < max_quads; counter++)
+				{
+					is.push_back(0 + increment);
+					is.push_back(1 + increment);
+					is.push_back(3 + increment);
+					is.push_back(1 + increment);
+					is.push_back(2 + increment);
+					is.push_back(3 + increment);
+
+					increment += 4;
+				}
+
+				ibo.create(is, true);
 			}
 
-			m_sprites.reserve(m_max_quads);
-			m_vertexs.reserve(m_max_vertexs);
+			layout.add<VertexAttributes::POSITION>(2);
+			layout.add<VertexAttributes::TEXEL>(2);
+			layout.add<VertexAttributes::COLOUR>(3);
+			layout.add<VertexAttributes::DEPTH>(1);
 
-			m_vb.create<BatchVertex>(m_vertexs);
-			m_ib.create(is);
-
-			m_layout.add<BatchVertex, graphics::VertexAttributes::POSITION>(2);
-			m_layout.add<BatchVertex, graphics::VertexAttributes::TEXEL>(2);
-			m_layout.add<BatchVertex, graphics::VertexAttributes::OPACITY>(1);
-
-			m_va.create<BatchVertex>(m_vb, m_ib, m_layout);
+			m_vao.create(vbo, ibo, layout);
+			m_vertices.reserve(max_quads * 4);
 		}
 
 		SpriteBatch::SpriteBatch(SpriteBatch&& sb) noexcept
 		{
-			this->m_va          = std::move(sb.m_va);
-			this->m_vb          = std::move(sb.m_vb);
-			this->m_ib          = std::move(sb.m_ib);
-			this->m_layout      = std::move(sb.m_layout);
-			this->m_offset      = sb.m_offset;
-			this->m_max_quads   = sb.m_max_quads;
-			this->m_max_vertexs = sb.m_max_vertexs;
-			this->m_max_indexs  = sb.m_max_indexs;
-			this->m_used_indexs = sb.m_used_indexs;
-			this->m_texture     = sb.m_texture;
-			this->m_sprites     = std::move(sb.m_sprites);
-			this->m_vertexs     = std::move(sb.m_vertexs);
+			this->m_vao      = std::move(sb.m_vao);
+			this->m_vertices = std::move(sb.m_vertices);
+			this->m_texture  = sb.m_texture;
+			this->m_width    = sb.m_width;
+			this->m_height   = sb.m_height;
 
-			sb.m_texture = nullptr;
+			sb.m_vertices.clear();
+			sb.m_texture = 0;
+			sb.m_width   = 0;
+			sb.m_height  = 0;
 		}
 
 		SpriteBatch& SpriteBatch::operator=(SpriteBatch&& sb) noexcept
 		{
 			if (this != &sb)
 			{
-				this->m_va          = std::move(sb.m_va);
-				this->m_vb          = std::move(sb.m_vb);
-				this->m_ib          = std::move(sb.m_ib);
-				this->m_layout      = std::move(sb.m_layout);
-				this->m_offset      = sb.m_offset;
-				this->m_max_quads   = sb.m_max_quads;
-				this->m_max_vertexs = sb.m_max_vertexs;
-				this->m_max_indexs  = sb.m_max_indexs;
-				this->m_used_indexs = sb.m_used_indexs;
-				this->m_texture     = sb.m_texture;
-				this->m_sprites     = std::move(sb.m_sprites);
-				this->m_vertexs     = std::move(sb.m_vertexs);
+				this->m_vao      = std::move(sb.m_vao);
+				this->m_vertices = std::move(sb.m_vertices);
+				this->m_texture  = sb.m_texture;
+				this->m_width    = sb.m_width;
+				this->m_height   = sb.m_height;
 
-				sb.m_texture = nullptr;
+				sb.m_vertices.clear();
+				sb.m_texture = 0;
+				sb.m_width   = 0;
+				sb.m_height  = 0;
 			}
 
 			return *this;
@@ -93,220 +87,115 @@ namespace galaxy
 
 		SpriteBatch::~SpriteBatch() noexcept
 		{
-			clear();
+			m_vertices.clear();
+			m_texture = 0;
+			m_width   = 0;
+			m_height  = 0;
 		}
 
-		void SpriteBatch::set_texture(BaseTexture* texture) noexcept
+		void SpriteBatch::add(components::BatchSprite* sprite, components::Transform2D* transform)
 		{
-			if (!texture)
+			if ((m_vertices.size() * 4) > (max_quads * 4))
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to set a nullptr BaseTexture to spritebatch.");
+				GALAXY_LOG(GALAXY_ERROR, "Too many quads in batch. Sprite not added. Max is {0}.", max_quads);
+				return;
 			}
 			else
 			{
-				m_texture = texture;
-			}
-		}
-
-		void SpriteBatch::add(components::BatchSprite* sprite, components::Transform2D* transform, const int z_level)
-		{
-			if (!sprite || !transform)
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to add nullptr to spritebatch.");
-			}
-			else
-			{
-				if (((m_sprites.size() + 1) * 4) > m_max_vertexs)
+				if (!sprite || !transform)
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Too many quads in batch. Sprite not added.");
+					GALAXY_LOG(GALAXY_WARNING, "Attempted to add nullptr to spritebatch.");
 				}
 				else
 				{
-					sprite->m_offset  = m_offset;
-					sprite->m_z_level = z_level;
-					m_offset += 4;
-					m_used_indexs += 6;
+					Vertex vertex;
 
-					m_vertexs.resize(m_offset);
-					m_sprites.emplace_back(std::make_pair(sprite, transform));
+					const auto result1 = transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
+					vertex.m_pos       = {result1.x, result1.y};
+					vertex.m_texels    = {sprite->get_region().m_x, sprite->get_region().m_y};
+					vertex.set_depth(sprite->get_depth());
+
+					m_vertices.push_back(vertex);
+					sprite->get_vertices().push_back(vertex);
+
+					const auto result2 = transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f, 0.0f, 1.0f};
+					vertex.m_pos       = {result2.x, result2.y};
+					vertex.m_texels    = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
+					vertex.set_depth(sprite->get_depth());
+
+					m_vertices.push_back(vertex);
+					sprite->get_vertices().push_back(vertex);
+
+					const auto result3 = transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f};
+					vertex.m_pos       = {result3.x, result3.y};
+					vertex.m_texels    = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
+					vertex.set_depth(sprite->get_depth());
+
+					m_vertices.push_back(vertex);
+					sprite->get_vertices().push_back(vertex);
+
+					const auto result4 = transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f};
+					vertex.m_pos       = {result4.x, result4.y};
+					vertex.m_texels    = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
+					vertex.set_depth(sprite->get_depth());
+
+					m_vertices.push_back(vertex);
+					sprite->get_vertices().push_back(vertex);
 				}
 			}
 		}
 
-		void SpriteBatch::calculate()
+		void SpriteBatch::add_texture(const unsigned int texture)
 		{
-			sort();
+			m_texture = texture;
 
-			for (const auto& [sprite, transform] : m_sprites)
-			{
-				sprite->m_vertexs.clear();
-
-				const auto result1 = transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
-				sprite->m_vertexs.emplace_back(result1.x, result1.y);
-
-				m_vertexs[sprite->m_offset + 0].m_pos[0]    = result1.x;
-				m_vertexs[sprite->m_offset + 0].m_pos[1]    = result1.y;
-				m_vertexs[sprite->m_offset + 0].m_texels[0] = sprite->m_region.m_x;
-				m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
-				m_vertexs[sprite->m_offset + 0].m_opacity   = sprite->m_opacity;
-
-				const auto result2 = transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f};
-				sprite->m_vertexs.emplace_back(result2.x, result2.y);
-
-				m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x;
-				m_vertexs[sprite->m_offset + 1].m_pos[1]    = result2.y;
-				m_vertexs[sprite->m_offset + 1].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
-				m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
-				m_vertexs[sprite->m_offset + 1].m_opacity   = sprite->m_opacity;
-
-				const auto result3 = transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
-				sprite->m_vertexs.emplace_back(result3.x, result3.y);
-
-				m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x;
-				m_vertexs[sprite->m_offset + 2].m_pos[1]    = result3.y;
-				m_vertexs[sprite->m_offset + 2].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
-				m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-				m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
-
-				const auto result4 = transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
-				sprite->m_vertexs.emplace_back(result4.x, result4.y);
-
-				m_vertexs[sprite->m_offset + 3].m_pos[0]    = result4.x;
-				m_vertexs[sprite->m_offset + 3].m_pos[1]    = result4.y;
-				m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
-				m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-				m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
-			}
-
-			glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchVertex) * m_vertexs.size(), m_vertexs.data());
+			glGetTextureLevelParameteriv(m_texture, 0, GL_TEXTURE_WIDTH, &m_width);
+			glGetTextureLevelParameteriv(m_texture, 0, GL_TEXTURE_HEIGHT, &m_height);
 		}
 
-		void SpriteBatch::calculate(components::Transform2D* global_transform)
+		void SpriteBatch::buffer_data()
 		{
-			if (!global_transform)
-			{
-				GALAXY_LOG(GALAXY_FATAL, "SpriteBatch global transform was nullptr.");
-			}
-			else
-			{
-				sort();
-
-				for (const auto& [sprite, transform] : m_sprites)
-				{
-					sprite->m_vertexs.clear();
-
-					const auto result1 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
-					sprite->m_vertexs.emplace_back(result1.x, result1.y);
-
-					m_vertexs[sprite->m_offset + 0].m_pos[0]    = result1.x;
-					m_vertexs[sprite->m_offset + 0].m_pos[1]    = result1.y;
-					m_vertexs[sprite->m_offset + 0].m_texels[0] = sprite->m_region.m_x;
-					m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
-					m_vertexs[sprite->m_offset + 0].m_opacity   = sprite->m_opacity;
-
-					const auto result2 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f, 0.0f, 1.0f};
-					sprite->m_vertexs.emplace_back(result2.x, result2.y);
-
-					m_vertexs[sprite->m_offset + 1].m_pos[0]    = result2.x;
-					m_vertexs[sprite->m_offset + 1].m_pos[1]    = result2.y;
-					m_vertexs[sprite->m_offset + 1].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
-					m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
-					m_vertexs[sprite->m_offset + 1].m_opacity   = sprite->m_opacity;
-
-					const auto result3 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f + sprite->m_region.m_width, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
-					sprite->m_vertexs.emplace_back(result3.x, result3.y);
-
-					m_vertexs[sprite->m_offset + 2].m_pos[0]    = result3.x;
-					m_vertexs[sprite->m_offset + 2].m_pos[1]    = result3.y;
-					m_vertexs[sprite->m_offset + 2].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
-					m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-					m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
-
-					const auto result4 = global_transform->get_transform() * transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->m_region.m_height, 0.0f, 1.0f};
-					sprite->m_vertexs.emplace_back(result4.x, result4.y);
-
-					m_vertexs[sprite->m_offset + 3].m_pos[0]    = result4.x;
-					m_vertexs[sprite->m_offset + 3].m_pos[1]    = result4.y;
-					m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
-					m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-					m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
-				}
-
-				glNamedBufferSubData(m_vb.id(), 0, sizeof(BatchVertex) * m_vertexs.size(), m_vertexs.data());
-			}
-		}
-
-		void SpriteBatch::clear_sprites() noexcept
-		{
-			m_sprites.clear();
-			m_vertexs.clear();
-			m_offset      = 0;
-			m_used_indexs = 0;
-		}
-
-		void SpriteBatch::clear() noexcept
-		{
-			clear_sprites();
-			m_texture = nullptr;
+			glNamedBufferData(m_vao.vbo(), sizeof(Vertex) * m_vertices.size(), m_vertices.data(), GL_DYNAMIC_DRAW);
 		}
 
 		void SpriteBatch::bind() noexcept
 		{
-			m_va.bind();
-			glBindTexture(GL_TEXTURE_2D, m_texture->gl_texture());
+			m_vao.bind();
+			glBindTexture(GL_TEXTURE_2D, m_texture);
 		}
 
 		void SpriteBatch::unbind() noexcept
 		{
-			m_va.unbind();
 			glBindTexture(GL_TEXTURE_2D, 0);
+			m_vao.unbind();
 		}
 
-		const unsigned int SpriteBatch::get_used_index_count() const noexcept
+		void SpriteBatch::clear() noexcept
 		{
-			return m_used_indexs;
+			m_vertices.clear();
 		}
 
-		IndexBuffer& SpriteBatch::get_ibo() noexcept
+		const int SpriteBatch::get_width() const noexcept
 		{
-			return m_ib;
+			return m_width;
 		}
 
-		VertexBuffer& SpriteBatch::get_vbo() noexcept
+		const int SpriteBatch::get_height() const noexcept
 		{
-			return m_vb;
+			return m_height;
 		}
 
-		VertexArray& SpriteBatch::get_vao() noexcept
+		const unsigned int SpriteBatch::count() const noexcept
 		{
-			return m_va;
-		}
+			// Prevents zero division.
+			if (m_vertices.size() == 0)
+			{
+				return 0;
+			}
 
-		const unsigned int SpriteBatch::index_count() const noexcept
-		{
-			return m_ib.count();
-		}
-
-		const unsigned int SpriteBatch::get_width() const noexcept
-		{
-			return m_texture->get_width();
-		}
-
-		const unsigned int SpriteBatch::get_height() const noexcept
-		{
-			return m_texture->get_height();
-		}
-
-		const bool SpriteBatch::empty() const noexcept
-		{
-			return m_sprites.empty();
-		}
-
-		void SpriteBatch::sort() noexcept
-		{
-			std::sort(std::execution::par_unseq, m_sprites.begin(), m_sprites.end(), [](const auto& left, const auto& right) {
-				return left.first->m_z_level < right.first->m_z_level;
-			});
+			// Six indicies per quad. Number of quads is total vertexs / 4.
+			// The size here is always a multiple of 4 so no "uneven" division takes place.
+			return 6 * (m_vertices.size() / 4);
 		}
 	} // namespace graphics
 } // namespace galaxy

@@ -8,10 +8,9 @@
 #ifndef GALAXY_GRAPHICS_RENDERER2D_HPP_
 #define GALAXY_GRAPHICS_RENDERER2D_HPP_
 
-#include <robin_hood.h>
-
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/UniformBuffer.hpp"
 
 ///
 /// Convenience macro.
@@ -22,16 +21,16 @@ namespace galaxy
 {
 	namespace components
 	{
-		class BatchSprite;
 		class Primitive2D;
 		class Sprite;
 		class Text;
+		class Transform2D;
 	} // namespace components
 
 	namespace graphics
 	{
-		class Shader;
 		class RenderTexture;
+		class SpriteBatch;
 
 		///
 		/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -42,7 +41,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Renderer2D() noexcept;
+			~Renderer2D() noexcept = default;
 
 			///
 			/// Retrieve Renderer instance.
@@ -52,145 +51,97 @@ namespace galaxy
 			[[nodiscard]] static Renderer2D& inst() noexcept;
 
 			///
-			/// Initialize Renderer2D.
+			/// Update Camera UBO.
 			///
-			/// \param max_quads Maximum quads per spritebatch.
-			/// \param batch_shader ID of the shader to use for spritebatching.
-			/// \param framebuffer_shader ID of the shader to use when drawing renderer contents to the main window framebuffer.
+			/// \param camera Data to be buffered to UBO.
 			///
-			void init(const unsigned int max_quads, std::string_view batch_shader, std::string_view framebuffer_shader);
+			void buffer_camera(Camera2D& camera);
 
 			///
-			/// Clears all data from renderer, including static data.
+			/// Bind point shader.
 			///
-			void clean_up();
+			void bind_point() noexcept;
 
 			///
-			/// Creates default spritebatches from a base texture.
+			/// Bind line shader.
 			///
-			/// \param texture Usually the textureatlas texture.
-			///
-			void create_default_batches(BaseTexture* texture) noexcept;
+			void bind_line() noexcept;
 
 			///
-			/// Add a batched sprite to be rendered with a spritebatch.
+			/// Bind text shader.
 			///
-			/// \param batchsprite Pointer to batchsprite from an entity.
-			/// \param transform Pointer to transform from an entity.
-			/// \param zlevel Level to render sprite at (depth).
-			///
-			void add_batched_sprite(components::BatchSprite* batchsprite, components::Transform2D* transform, int zlevel);
+			void bind_text() noexcept;
 
 			///
-			/// Calculate spritebatch verticies.
+			/// Bind sprite shader.
 			///
-			void calculate_batches();
+			void bind_sprite() noexcept;
 
 			///
-			/// Clears sprite and batch data.
+			/// Bind Render To Texture shader.
 			///
-			void clear();
+			void bind_rtt() noexcept;
 
 			///
-			/// Prepare framebuffer to recieve render commands.
+			/// Bind SpriteBatch shader.
 			///
-			void prepare() noexcept;
-
-			///
-			/// Bind to take render commands.
-			///
-			void bind() noexcept;
-
-			///
-			/// Unbind and finish rendering.
-			///
-			void unbind() noexcept;
-
-			///
-			/// Render contents to active framebuffer.
-			///
-			void render();
-
-			///
-			/// Resize framebuffer.
-			///
-			/// \param width New framebuffer width. Usually screen width.
-			/// \param height New framebuffer height. Usually screen height.
-			///
-			void resize(const int width, const int height);
+			void bind_sb_shader() noexcept;
 
 			///
 			/// Draw a point primitive.
 			///
 			/// \param data Rendering data.
 			/// \param transform Transform of primitive.
-			/// \param shader Shader to draw primitive with.
 			///
-			void draw_point(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
+			void draw_point(components::Primitive2D* data, components::Transform2D* transform);
 
 			///
 			/// Draw a line primitive.
 			///
 			/// \param data Rendering data.
 			/// \param transform Transform of primitive.
-			/// \param shader Shader to draw primitive with.
 			///
-			void draw_line(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
+			void draw_line(components::Primitive2D* data, components::Transform2D* transform);
 
 			///
 			/// Draw a connecting line primitive.
 			///
 			/// \param data Rendering data.
 			/// \param transform Transform of primitive.
-			/// \param shader Shader to draw primitive with.
 			///
-			void draw_lineloop(components::Primitive2D* data, components::Transform2D* transform, Shader* shader);
-
-			///
-			/// Draw all spritebatches.
-			///
-			/// \param camera Camera projection to draw with.
-			///
-			void draw_spritebatches(Camera2D& camera);
+			void draw_lineloop(components::Primitive2D* data, components::Transform2D* transform);
 
 			///
 			/// Draw text.
 			///
 			/// \param text Text object to draw.
 			/// \param transform Transform of text.
-			/// \param shader Shader to draw text with.
 			///
-			void draw_text(components::Text* text, components::Transform2D* transform, Shader* shader);
+			void draw_text(components::Text* text, components::Transform2D* transform);
 
 			///
 			/// Draw a sprite.
 			///
 			/// \param sprite Sprite to draw, seperate to spritebatches.
 			/// \param transform Transform of sprite.
-			/// \param shader Shader to draw sprite with.
 			///
-			void draw_sprite(components::Sprite* sprite, components::Transform2D* transform, Shader* shader);
-
-			///
-			/// Draw a textured VAO to a framebuffer.
-			///
-			/// \param vertex_data Vertex Array Object to draw.
-			/// \param texture Texture to map to verticies.
-			/// \param transform Transform matrix of VAO.
-			/// \param shader Shader to draw VAO with.
-			/// \param target Target framebuffer to draw VAO to.
-			///
-			void draw_texture_to_target(graphics::VertexData* vertex_data, graphics::BaseTexture* texture, const glm::mat4& transform, Shader* shader, RenderTexture* target);
+			void draw_sprite(components::Sprite* sprite, components::Transform2D* transform);
 
 			///
 			/// Draw a sprite to a framebuffer.
 			///
 			/// \param sprite Sprite to draw.
 			/// \param transform Transform of sprite.
-			/// \param shader Shader to draw sprite with.
 			/// \param target Target framebuffer to draw sprite to.
 			///
-			void draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, Shader* shader, RenderTexture* target);
+			void draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, RenderTexture* target);
+
+			///
+			/// Draw a spritebatch.
+			///
+			/// \param batch Pointer to SpriteBatch to draw.
+			///
+			void draw_spritebatch(SpriteBatch* batch);
 
 		private:
 			///
@@ -198,47 +149,40 @@ namespace galaxy
 			///
 			Renderer2D() noexcept;
 
-		public:
 			///
-			/// Stores spritebatches by zlevel.
+			/// Camera uniform buffer data.
 			///
-			robin_hood::unordered_flat_map<int, std::unique_ptr<SpriteBatch>> m_batches;
-
-		private:
-			///
-			/// Pointer to texture to draw spritebatches with.
-			///
-			BaseTexture* m_texture;
+			UniformBuffer m_camera_ubo;
 
 			///
-			/// Pointer to batch shader.
+			/// Point shader.
 			///
-			Shader* m_batch_shader;
+			Shader m_point_shader;
 
 			///
-			/// Pointer to framebuffer shader.
+			/// Line shader.
 			///
-			Shader* m_fb_shader;
+			Shader m_line_shader;
 
 			///
-			/// Total number of quads per spritebatch allowed.
+			/// Text shader.
 			///
-			unsigned int m_max_quads;
+			Shader m_text_shader;
 
 			///
-			/// Internal framebuffer.
+			/// Sprite shader.
 			///
-			std::unique_ptr<graphics::RenderTexture> m_framebuffer;
+			Shader m_sprite_shader;
 
 			///
-			/// Internal framebuffer VAO.
+			/// Render To Texture shader.
 			///
-			std::unique_ptr<components::Sprite> m_fb_sprite;
+			Shader m_rtt_shader;
 
 			///
-			/// Internal framebuffer transform.
+			/// SpriteBatch shader.
 			///
-			components::Transform2D m_fb_transform;
+			Shader m_spritebatch_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy

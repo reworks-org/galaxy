@@ -11,6 +11,7 @@
 #include <compare>
 
 #include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 
 #include "galaxy/graphics/Colour.hpp"
 
@@ -23,6 +24,8 @@ namespace galaxy
 		///
 		class Vertex final
 		{
+			friend class VertexLayout;
+
 		public:
 			///
 			/// Constructor.
@@ -33,19 +36,21 @@ namespace galaxy
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
+			/// \param depth Z-Level.
 			/// \param texels Vertex texture coordinates.
 			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels = {0.0f, 0.0f}, const graphics::Colour& colour = {0.0f, 0.0f, 0.0f, 1.0f}) noexcept;
+			Vertex(const glm::vec2& pos, const int depth, const glm::vec2& texels = {0.0f, 0.0f}, const graphics::Colour& colour = {0, 0, 0, 1}) noexcept;
 
 			///
 			/// Reverse argument constructor.
 			///
 			/// \param pos Position of vertex.
+			/// \param depth Z-Level.
 			/// \param colour Colour of vertex, and opacity.
 			/// \param texels Vertex texture coordinates.
 			///
-			Vertex(const glm::vec2& pos, const graphics::Colour& colour = {0.0f, 0.0f, 0.0f, 1.0f}, const glm::vec2& texels = {0.0f, 0.0f}) noexcept;
+			Vertex(const glm::vec2& pos, const int depth, const graphics::Colour& colour = {0, 0, 0, 1}, const glm::vec2& texels = {0.0f, 0.0f}) noexcept;
 
 			///
 			/// Move constructor.
@@ -56,6 +61,16 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Vertex& operator=(Vertex&&) noexcept;
+
+			///
+			/// Copy constructor.
+			///
+			Vertex(const Vertex&) noexcept;
+
+			///
+			/// Copy assignment operator.
+			///
+			Vertex& operator=(const Vertex&) noexcept;
 
 			///
 			/// Destructor.
@@ -70,34 +85,30 @@ namespace galaxy
 			void set_colour(const graphics::Colour& colour) noexcept;
 
 			///
-			/// Set opacity.
+			/// Set depth.
 			///
-			/// \param opacity Set alpha value of colour. Clamped between 0.0f and 1.0f.
+			/// \param depth Z-Level.
 			///
-			void set_opacity(const float opacity) noexcept;
+			void set_depth(const int depth) noexcept;
 
 			///
 			/// Get colour.
 			///
-			/// \return Const reference to a glm::vec4.
+			/// \return Const reference to a glm::vec3.
 			///
-			[[nodiscard]] const glm::vec4& get_colour() const noexcept;
+			[[nodiscard]] const glm::vec3& get_colour() const noexcept;
+
+			///
+			/// Get depth.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_depth() const noexcept;
 
 			///
 			/// Spaceship operator.
 			///
 			[[nodiscard]] auto operator<=>(const Vertex&) const = default;
-
-		private:
-			///
-			/// Copy constructor.
-			///
-			Vertex(const Vertex&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Vertex& operator=(const Vertex&) = delete;
 
 		public:
 			///
@@ -114,7 +125,12 @@ namespace galaxy
 			///
 			/// Colour of Vertex.
 			///
-			glm::vec4 m_colour;
+			glm::vec3 m_colour;
+
+			///
+			/// Depth (Z-Level).
+			///
+			int m_depth;
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -8,41 +8,24 @@
 #ifndef GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 #define GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 
-#include "galaxy/ecs/Entity.hpp"
-#include "galaxy/ecs/System.hpp"
+#include <mutex>
+
+#include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy
 {
+	namespace components
+	{
+		class BatchSprite;
+		class Primitive2D;
+		class Sprite;
+		class Text;
+		class Transform2D;
+	} // namespace components
+
 	namespace systems
 	{
-		///
-		/// Contains information needed to render an object with OpenGL.
-		///
-		struct RenderData final
-		{
-			///
-			/// The Entity.
-			///
-			ecs::Entity m_entity;
-
-			///
-			/// The type of renderable.
-			///
-			graphics::Renderables m_type;
-
-			///
-			/// The z level.
-			///
-			int m_z_level = 0;
-
-			///
-			/// Pointer to a transformation.
-			///
-			components::Transform2D* m_transform = nullptr;
-		};
-
 		///
 		/// System that handles rendering of entities with a graphics::Sprite, TransformComponent, etc.
 		///
@@ -79,9 +62,59 @@ namespace galaxy
 
 		private:
 			///
-			/// Stored vector of renderdata to pass to renderer.
+			/// Point cache.
 			///
-			std::vector<RenderData> m_sorted;
+			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_points;
+
+			///
+			/// Line cache.
+			///
+			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_lines;
+
+			///
+			/// LineLoop cache.
+			///
+			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_lineloops;
+
+			///
+			/// Text cache.
+			///
+			std::vector<std::pair<components::Text*, components::Transform2D*>> m_text;
+
+			///
+			/// Sprite cache.
+			///
+			std::vector<std::pair<components::Sprite*, components::Transform2D*>> m_sprites;
+
+			///
+			/// Point lock.
+			///
+			std::mutex m_point_lock;
+
+			///
+			/// Line lock.
+			///
+			std::mutex m_line_lock;
+
+			///
+			/// LineLoop lock.
+			///
+			std::mutex m_lineloop_lock;
+
+			///
+			/// Text lock.
+			///
+			std::mutex m_text_lock;
+
+			///
+			/// Sprite lock.
+			///
+			std::mutex m_sprite_lock;
+
+			///
+			/// Batch Sprite lock.
+			///
+			std::mutex m_batch_lock;
 		};
 	} // namespace systems
 } // namespace galaxy

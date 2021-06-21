@@ -12,9 +12,43 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
-#include "galaxy/resource/ShaderBook.hpp"
 
 #include "Font.hpp"
+
+///
+/// Glyph vertex shader.
+///
+inline constexpr const char* const glyph_vert = R"(
+	#version 450 core
+	layout (location = 0) in vec4 vertex;
+		
+	out vec2 io_texels;
+
+	uniform mat4 u_proj;
+
+	void main()
+	{
+		gl_Position = u_proj * vec4(vertex.xy, 0.0, 1.0);
+		io_texels = vertex.zw;
+	}
+)";
+
+///
+/// Glyph fragment shader.
+///
+inline constexpr const char* const glyph_frag = R"(
+	#version 450 core
+
+	in vec2 io_texels;
+	out vec4 io_frag_colour;
+
+	uniform sampler2D u_text;
+
+	void main()
+	{    
+		io_frag_colour = vec4(1.0, 1.0, 1.0, texture(u_text, io_texels).r);
+	}
+)";
 
 namespace galaxy
 {
@@ -23,6 +57,7 @@ namespace galaxy
 		Font::Font() noexcept
 		    : m_height {0}, m_size {0}, m_filename {""}
 		{
+			m_shader.load_raw(glyph_vert, glyph_frag);
 		}
 
 		Font::Font(std::string_view filepath, const int size)
@@ -144,9 +179,8 @@ namespace galaxy
 						m_fontmap.create(total_width, m_height);
 						m_fontmap.bind();
 
-						auto* shader = SL_HANDLE.shaderbook()->get("glyph");
-						shader->bind();
-						shader->set_uniform("u_proj", m_fontmap.get_proj());
+						m_shader.bind();
+						m_shader.set_uniform("u_proj", m_fontmap.get_proj());
 						glBindVertexArray(char_vao);
 
 						float offset_x = 0.0f;
@@ -206,7 +240,12 @@ namespace galaxy
 			}
 		}
 
-		RenderTexture* Font::get_fontmap() noexcept
+		const unsigned int Font::get_fontmap() const noexcept
+		{
+			return m_fontmap.get_texture();
+		}
+
+		RenderTexture* Font::get_rendertexture() noexcept
 		{
 			return &m_fontmap;
 		}

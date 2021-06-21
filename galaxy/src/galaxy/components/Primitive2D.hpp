@@ -15,7 +15,7 @@
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/graphics/vertex/VertexData.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		/// 2D primitive shape.
 		///
-		class Primitive2D final : public fs::Serializable, public graphics::VertexData
+		class Primitive2D final : public fs::Serializable
 		{
 		public:
 			///
@@ -100,37 +100,34 @@ namespace galaxy
 			/// Create the primitive vertexs.
 			///
 			/// \param data Contains variables to construct vertex's for a primitive.
+			/// \param depth Z-Level.
 			///
 			template<graphics::Primitives type>
-			void create(const PrimitiveData& data);
+			void create(const PrimitiveData& data, const int depth);
 
 			///
-			/// Bind as active VA.
+			/// Bind as active object.
 			///
 			void bind() noexcept;
 
 			///
-			/// Unbind as active VA.
+			/// Unbind as active object.
 			///
 			void unbind() noexcept;
 
 			///
-			/// \brief Set opacity.
-			///
-			/// This modifies internal colour objects opacity.
-			///
-			/// \param opacity Opacity 0 - 255.
-			///
-			void set_opacity(const std::uint8_t opacity) noexcept;
-
-			///
-			/// \brief Set colour.
-			///
-			/// Opacity is shared with set_opacity.
+			/// Set RGB colour.
 			///
 			/// \param col Colour of primitive.
 			///
 			void set_colour(const graphics::Colour& col);
+
+			///
+			/// Set opacity.
+			///
+			/// \param opacity 0.0f - 1.0f.
+			///
+			void set_opacity(const float opacity) noexcept;
 
 			///
 			/// Get opacity.
@@ -158,7 +155,7 @@ namespace galaxy
 			///
 			/// \return Const reference to vertexs.
 			///
-			[[nodiscard]] std::vector<graphics::PrimitiveVertex>& get_vertexs() noexcept;
+			[[nodiscard]] std::vector<graphics::Vertex>& get_vertices() noexcept;
 
 			///
 			/// Get width of primitive.
@@ -173,6 +170,20 @@ namespace galaxy
 			/// \return Const float. 0 if object is not 2D.
 			///
 			[[nodiscard]] const int get_height() const noexcept;
+
+			///
+			/// Get depth of primitive.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_depth() const noexcept;
+
+			///
+			/// Gets the index count.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int count() const noexcept;
 
 			///
 			/// Serializes object.
@@ -221,17 +232,28 @@ namespace galaxy
 			graphics::Primitives m_type;
 
 			///
-			/// Vertex Data
+			/// CPU vertex data.
 			///
-			std::vector<graphics::PrimitiveVertex> m_vertexs;
+			std::vector<graphics::Vertex> m_vertexs;
+
+			///
+			/// GPU vertex data.
+			///
+			graphics::VertexArray m_vao;
+
+			///
+			/// Opacity.
+			///
+			float m_opacity;
 		};
 
 		template<graphics::Primitives type>
-		inline void Primitive2D::create(const PrimitiveData& data)
+		inline void Primitive2D::create(const PrimitiveData& data, const int depth)
 		{
 			m_type = type;
 			m_data = data;
 			m_vertexs.clear();
+
 			std::vector<unsigned int> indices;
 
 			if constexpr (type == graphics::Primitives::CIRCLE)
@@ -244,19 +266,31 @@ namespace galaxy
 				const float increment     = incr_stat / data.m_fragments.value();
 				for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 				{
-					m_vertexs.emplace_back((data.m_radius.value() * glm::cos(angle)) + data.m_radius.value(), (data.m_radius.value() * glm::sin(angle) + data.m_radius.value()), m_data.m_colour);
+					graphics::Vertex vertex;
+					vertex.m_pos.x = (data.m_radius.value() * glm::cos(angle)) + data.m_radius.value();
+					vertex.m_pos.y = (data.m_radius.value() * glm::sin(angle) + data.m_radius.value());
+					vertex.set_colour(m_data.m_colour);
+					vertex.set_depth(depth);
+
+					m_vertexs.emplace_back(vertex);
 					indices.push_back(count);
 
 					count++;
 				}
 
-				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
-				m_ib.create(indices);
+				graphics::VertexBuffer vbo;
+				graphics::IndexBuffer ibo;
+				graphics::VertexLayout layout;
 
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
+				vbo.create(m_vertexs, true);
+				ibo.create(indices, true);
 
-				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
+				layout.add<graphics::VertexAttributes::POSITION>(2);
+				layout.add<graphics::VertexAttributes::TEXEL>(2);
+				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+				m_vao.create(vbo, ibo, layout);
 
 				m_width  = data.m_radius.value() * 2.0f;
 				m_height = data.m_radius.value() * 2.0f;
@@ -277,7 +311,13 @@ namespace galaxy
 				unsigned int count = 0;
 				for (auto i = 0; i < std::floor(m_data.m_fragments.value()); i++)
 				{
-					m_vertexs.emplace_back((x * m_data.m_radii.value().x) + m_data.m_radii.value().x, (y * m_data.m_radii.value().y) + m_data.m_radii.value().y, m_data.m_colour);
+					graphics::Vertex vertex;
+					vertex.m_pos.x = (x * m_data.m_radii.value().x) + m_data.m_radii.value().x;
+					vertex.m_pos.y = (y * m_data.m_radii.value().y) + m_data.m_radii.value().y;
+					vertex.set_colour(m_data.m_colour);
+					vertex.set_depth(depth);
+
+					m_vertexs.emplace_back(vertex);
 					indices.push_back(count);
 					count++;
 
@@ -286,49 +326,83 @@ namespace galaxy
 					y    = sine * temp + cosine * y;
 				}
 
-				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
-				m_ib.create(indices);
+				graphics::VertexBuffer vbo;
+				graphics::IndexBuffer ibo;
+				graphics::VertexLayout layout;
 
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
+				vbo.create(m_vertexs, true);
+				ibo.create(indices, true);
 
-				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
+				layout.add<graphics::VertexAttributes::POSITION>(2);
+				layout.add<graphics::VertexAttributes::TEXEL>(2);
+				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+				m_vao.create(vbo, ibo, layout);
 
 				m_width  = m_data.m_radii.value().x * 2.0f;
 				m_height = m_data.m_radii.value().y * 2.0f;
 			}
 			else if constexpr (type == graphics::Primitives::LINE)
 			{
-				m_vertexs.emplace_back(m_data.m_start_end.value().x, m_data.m_start_end.value().y, m_data.m_colour);
-				m_vertexs.emplace_back(m_data.m_start_end.value().z, m_data.m_start_end.value().w, m_data.m_colour);
+				graphics::Vertex vertex;
 
-				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
+				vertex.m_pos.x = m_data.m_start_end.value().x;
+				vertex.m_pos.y = m_data.m_start_end.value().y;
+				vertex.set_colour(m_data.m_colour);
+				vertex.set_depth(depth);
+				m_vertexs.emplace_back(vertex);
+
+				vertex.m_pos.x = m_data.m_start_end.value().z;
+				vertex.m_pos.y = m_data.m_start_end.value().w;
+				vertex.set_colour(m_data.m_colour);
+				vertex.set_depth(depth);
+				m_vertexs.emplace_back(vertex);
 
 				indices.push_back(0);
 				indices.push_back(1);
-				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
+				graphics::VertexBuffer vbo;
+				graphics::IndexBuffer ibo;
+				graphics::VertexLayout layout;
 
-				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
+				vbo.create(m_vertexs, true);
+				ibo.create(indices, true);
+
+				layout.add<graphics::VertexAttributes::POSITION>(2);
+				layout.add<graphics::VertexAttributes::TEXEL>(2);
+				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+				m_vao.create(vbo, ibo, layout);
 
 				m_width  = 0;
 				m_height = 0;
 			}
 			else if constexpr (type == graphics::Primitives::POINT)
 			{
-				m_vertexs.emplace_back(0.0f, 0.0f, m_data.m_colour);
+				graphics::Vertex vertex;
 
-				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
+				vertex.m_pos = {0.0f, 0.0f};
+				vertex.set_colour(m_data.m_colour);
+				vertex.set_depth(depth);
+				m_vertexs.emplace_back(vertex);
 
 				indices.push_back(0);
-				m_ib.create(indices);
 
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
+				graphics::VertexBuffer vbo;
+				graphics::IndexBuffer ibo;
+				graphics::VertexLayout layout;
 
-				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
+				vbo.create(m_vertexs, true);
+				ibo.create(indices, true);
+
+				layout.add<graphics::VertexAttributes::POSITION>(2);
+				layout.add<graphics::VertexAttributes::TEXEL>(2);
+				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+				m_vao.create(vbo, ibo, layout);
 
 				m_width  = 0;
 				m_height = 0;
@@ -339,7 +413,7 @@ namespace galaxy
 				m_height = 0;
 
 				unsigned int count = 0;
-				for (const auto& point : *m_data.m_points)
+				for (const auto& point : m_data.m_points.value())
 				{
 					if constexpr (type == graphics::Primitives::POLYGON)
 					{
@@ -354,19 +428,32 @@ namespace galaxy
 						}
 					}
 
-					m_vertexs.emplace_back(point.x, point.y, m_data.m_colour);
+					graphics::Vertex vertex;
+
+					vertex.m_pos.x = point.x;
+					vertex.m_pos.y = point.y;
+					vertex.set_colour(m_data.m_colour);
+					vertex.set_depth(depth);
+
+					m_vertexs.emplace_back(vertex);
 					indices.push_back(count);
 
 					count++;
 				}
 
-				m_vb.create<graphics::PrimitiveVertex>(m_vertexs);
-				m_ib.create(indices);
+				graphics::VertexBuffer vbo;
+				graphics::IndexBuffer ibo;
+				graphics::VertexLayout layout;
 
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::POSITION>(2);
-				m_layout.add<graphics::PrimitiveVertex, graphics::VertexAttributes::COLOUR>(4);
+				vbo.create(m_vertexs, true);
+				ibo.create(indices, true);
 
-				m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
+				layout.add<graphics::VertexAttributes::POSITION>(2);
+				layout.add<graphics::VertexAttributes::TEXEL>(2);
+				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::DEPTH>(1);
+
+				m_vao.create(vbo, ibo, layout);
 			}
 		}
 	} // namespace components

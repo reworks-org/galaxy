@@ -25,7 +25,7 @@
 #include "galaxy/resource/ScriptBook.hpp"
 #include "galaxy/resource/ShaderBook.hpp"
 #include "galaxy/resource/SoundBook.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/TextureBook.hpp"
 
 namespace galaxy
 {
@@ -136,9 +136,9 @@ namespace galaxy
 			std::unique_ptr<res::ShaderBook> m_shaderbook;
 
 			///
-			/// Texture atlas for all textures.
+			/// Texture manager for all textures.
 			///
-			std::unique_ptr<res::TextureAtlas> m_texture_atlas;
+			std::unique_ptr<res::TextureBook> m_texturebook;
 
 			///
 			/// Library of all sounds.

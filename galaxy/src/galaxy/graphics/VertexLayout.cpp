@@ -11,6 +11,21 @@ namespace galaxy
 {
 	namespace graphics
 	{
+		VertexLayout::VertexLayout(VertexLayout&& vl) noexcept
+		{
+			this->m_attributes = std::move(vl.m_attributes);
+		}
+
+		VertexLayout& VertexLayout::operator=(VertexLayout&& vl) noexcept
+		{
+			if (this != &vl)
+			{
+				this->m_attributes = std::move(vl.m_attributes);
+			}
+
+			return *this;
+		}
+
 		VertexLayout::~VertexLayout() noexcept
 		{
 			m_attributes.clear();

@@ -16,6 +16,9 @@
 
 #include "RenderTexture.hpp"
 
+#define ORTHO_NEAR      0.0f
+#define ORTHO_FAR_24BIT 16777215.0f
+
 namespace galaxy
 {
 	namespace graphics
@@ -53,7 +56,7 @@ namespace galaxy
 			width  = std::max(1, width);
 			height = std::max(1, height);
 
-			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
+			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, ORTHO_NEAR, ORTHO_FAR_24BIT);
 
 			m_framebuffer.init(width, height);
 			m_framebuffer.add_colour_attachment(GL_RGBA8, false);
@@ -94,7 +97,7 @@ namespace galaxy
 			width  = std::max(1, width);
 			height = std::max(1, height);
 
-			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
+			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, ORTHO_NEAR, ORTHO_FAR_24BIT);
 			m_framebuffer.resize(width, height);
 		}
 
@@ -110,7 +113,17 @@ namespace galaxy
 
 		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept
 		{
-			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+			m_projection = glm::ortho(left, right, bottom, top, ORTHO_NEAR, ORTHO_FAR_24BIT);
+		}
+
+		const int RenderTexture::get_width() const noexcept
+		{
+			return m_framebuffer.get_width();
+		}
+
+		const int RenderTexture::get_height() const noexcept
+		{
+			return m_framebuffer.get_height();
 		}
 
 		const glm::mat4& RenderTexture::get_proj() noexcept

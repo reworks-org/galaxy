@@ -15,7 +15,7 @@ namespace galaxy
 		///
 		/// Defines different types of renderable objects.
 		///
-		enum class Renderables : int
+		enum class Renderables : short
 		{
 			///
 			/// Defines an entity to be rendered as a POINT.
@@ -43,7 +43,7 @@ namespace galaxy
 			TEXT,
 
 			///
-			/// Define an entity to be rendered as QUAD.
+			/// Define an entity to be rendered as a SPRITE.
 			///
 			SPRITE
 		};

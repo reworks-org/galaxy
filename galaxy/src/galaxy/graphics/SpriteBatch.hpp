@@ -10,7 +10,7 @@
 
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/Transform2D.hpp"
-#include "galaxy/graphics/texture/BaseTexture.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
@@ -23,11 +23,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Argument constructor.
+			/// Constructor.
 			///
-			/// \param max_quads Maximum number of quads allowed for this spritebatch.
-			///
-			SpriteBatch(const unsigned int max_quads);
+			SpriteBatch() noexcept;
 
 			///
 			/// Move constructor.
@@ -42,45 +40,27 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~SpriteBatch() noexcept;
+			~SpriteBatch() noexcept;
 
 			///
-			/// Set the texture to use.
+			/// Add a batch sprite and its transform to this spritebatch.
 			///
-			/// \param texture Texture to use when drawing batched sprites. Must not be nullptr.
+			/// \param sprite Pointer to batched sprite component.
+			/// \param transform Pointer to transform component.
 			///
-			void set_texture(BaseTexture* texture) noexcept;
+			void add(components::BatchSprite* sprite, components::Transform2D* transform);
 
 			///
-			/// Add a batched sprite to the spritebatch.
+			/// Set the texture for this spritebatch.
 			///
-			/// \param sprite Sprite to add. Must not be nullptr.
-			/// \param transform Transform for the batched sprite.
-			/// \param z_level Z level of batched sprite for sorting later.
+			/// \param texture OpenGL texture ID.
 			///
-			void add(components::BatchSprite* sprite, components::Transform2D* transform, const int z_level);
+			void add_texture(const unsigned int texture);
 
 			///
-			/// Calculate spritebatch vertexs.
+			/// Copy data from CPU to GPU.
 			///
-			void calculate();
-
-			///
-			/// Calculate spritebatch vertexs.
-			///
-			/// \param global_transform Takes in a transform to apply to all batches.
-			///
-			void calculate(components::Transform2D* global_transform);
-
-			///
-			/// Frees up sprites without clearing texture or other important data.
-			///
-			void clear_sprites() noexcept;
-
-			///
-			/// Clears the spritebatch of data.
-			///
-			void clear() noexcept;
+			void buffer_data();
 
 			///
 			/// Bind to OpenGL.
@@ -93,67 +73,21 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Get IBO.
+			/// Clears the spritebatch of data.
 			///
-			/// \return Reference to IBO.
-			///
-			[[nodiscard]] IndexBuffer& get_ibo() noexcept;
+			void clear() noexcept;
 
-			///
-			/// Get VBO.
-			///
-			/// \return Reference to VBO.
-			///
-			[[nodiscard]] VertexBuffer& get_vbo() noexcept;
-
-			///
-			/// Get VAO.
-			///
-			/// \return Reference to VAO.
-			///
-			[[nodiscard]] VertexArray& get_vao() noexcept;
+			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get index count.
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] const unsigned int index_count() const noexcept;
-
-			///
-			/// Gets the number of actual used indicies in a spritebatch.
-			///
-			/// \return Const uint.
-			///
-			[[nodiscard]] const unsigned int get_used_index_count() const noexcept;
-
-			///
-			/// Get width.
-			///
-			/// \return Const uint.
-			///
-			[[nodiscard]] const unsigned int get_width() const noexcept;
-
-			///
-			/// Get height.
-			///
-			/// \return Const uint.
-			///
-			[[nodiscard]] const unsigned int get_height() const noexcept;
-
-			///
-			/// Is the spritebatch empty.
-			///
-			/// \return Const bool. True if empty.
-			///
-			[[nodiscard]] const bool empty() const noexcept;
+			[[nodiscard]] const unsigned int count() const noexcept;
 
 		private:
-			///
-			/// Constructor.
-			///
-			SpriteBatch() = delete;
-
 			///
 			/// Copy constructor.
 			///
@@ -164,74 +98,31 @@ namespace galaxy
 			///
 			SpriteBatch& operator=(const SpriteBatch&) = delete;
 
-			///
-			/// \brief Sort sprites by z level.
-			///
-			/// Sprites are sorted according to z level.
-			/// Those with same level are left in the order that they are in when they are added with begin().
-			///
-			void sort() noexcept;
-
 		private:
 			///
-			/// OpenGL Vertex Array Object.
+			/// Width cache.
 			///
-			VertexArray m_va;
+			int m_width;
 
 			///
-			/// Vertex buffer.
+			/// Height cache.
 			///
-			VertexBuffer m_vb;
+			int m_height;
 
 			///
-			/// Index (Element) buffer.
+			/// GL texture this spritebatch uses.
 			///
-			IndexBuffer m_ib;
+			unsigned int m_texture;
 
 			///
-			/// Vertex layout.
+			/// Vertex data.
 			///
-			VertexLayout m_layout;
+			VertexArray m_vao;
 
 			///
-			/// Offset tracker.
+			/// Array of vertices.
 			///
-			unsigned int m_offset;
-
-			///
-			/// Max # of quads.
-			///
-			unsigned int m_max_quads;
-
-			///
-			/// Max # of vertexs.
-			///
-			unsigned int m_max_vertexs;
-
-			///
-			/// Max # of indexs.
-			///
-			unsigned int m_max_indexs;
-
-			///
-			/// Index count.
-			///
-			unsigned int m_used_indexs;
-
-			///
-			/// Pointer to texture to use.
-			///
-			BaseTexture* m_texture;
-
-			///
-			/// Array of batched sprites.
-			///
-			std::vector<std::pair<components::BatchSprite*, components::Transform2D*>> m_sprites;
-
-			///
-			/// Vertexs of spritebatch.
-			///
-			std::vector<BatchVertex> m_vertexs;
+			std::vector<Vertex> m_vertices;
 		};
 	} // namespace graphics
 } // namespace galaxy

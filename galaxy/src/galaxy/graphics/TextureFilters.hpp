@@ -1,5 +1,5 @@
 ///
-/// Filters.hpp
+/// TextureFilters.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.

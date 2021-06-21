@@ -14,37 +14,39 @@ namespace galaxy
 	namespace components
 	{
 		Primitive2D::Primitive2D() noexcept
-		    : Serializable {this}, m_width {0}, m_height {0}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_type {graphics::Primitives::CIRCLE}, m_opacity {1.0f}
 		{
 		}
 
 		Primitive2D::Primitive2D(const nlohmann::json& json)
-		    : Serializable {this}, m_width {0}, m_height {0}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_opacity {1.0f}
 		{
 			deserialize(json);
 		}
 
 		Primitive2D::Primitive2D(Primitive2D&& p2d) noexcept
-		    : VertexData {std::move(p2d)}, Serializable {this}
+		    : Serializable {this}
 		{
-			this->m_width   = p2d.m_width;
-			this->m_height  = p2d.m_height;
 			this->m_data    = std::move(p2d.m_data);
+			this->m_height  = p2d.m_height;
 			this->m_type    = p2d.m_type;
+			this->m_vao     = std::move(p2d.m_vao);
 			this->m_vertexs = std::move(p2d.m_vertexs);
+			this->m_width   = p2d.m_width;
+			this->m_opacity = p2d.m_opacity;
 		}
 
 		Primitive2D& Primitive2D::operator=(Primitive2D&& p2d) noexcept
 		{
 			if (this != &p2d)
 			{
-				graphics::VertexData::operator=(std::move(p2d));
-
-				this->m_width   = p2d.m_width;
-				this->m_height  = p2d.m_height;
 				this->m_data    = std::move(p2d.m_data);
+				this->m_height  = p2d.m_height;
 				this->m_type    = p2d.m_type;
+				this->m_vao     = std::move(p2d.m_vao);
 				this->m_vertexs = std::move(p2d.m_vertexs);
+				this->m_width   = p2d.m_width;
+				this->m_opacity = p2d.m_opacity;
 			}
 
 			return *this;
@@ -52,32 +54,34 @@ namespace galaxy
 
 		Primitive2D::~Primitive2D() noexcept
 		{
+			m_data = {};
 			m_vertexs.clear();
 		}
 
 		void Primitive2D::bind() noexcept
 		{
-			m_va.bind();
+			m_vao.bind();
 		}
 
 		void Primitive2D::unbind() noexcept
 		{
-			m_va.unbind();
-		}
-
-		void Primitive2D::set_opacity(const std::uint8_t opacity) noexcept
-		{
-			m_data.m_colour.m_alpha = opacity;
+			m_vao.unbind();
 		}
 
 		void Primitive2D::set_colour(const graphics::Colour& col)
 		{
-			m_data.m_colour = col;
+			m_data.m_colour         = col;
+			m_data.m_colour.m_alpha = 255;
+		}
+
+		void Primitive2D::set_opacity(const float opacity) noexcept
+		{
+			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
 		const float Primitive2D::get_opacity() noexcept
 		{
-			return m_data.m_colour.a_normal();
+			return m_opacity;
 		}
 
 		Primitive2D::PrimitiveData& Primitive2D::get_data() noexcept
@@ -90,7 +94,7 @@ namespace galaxy
 			return m_type;
 		}
 
-		std::vector<graphics::PrimitiveVertex>& Primitive2D::get_vertexs() noexcept
+		std::vector<graphics::Vertex>& Primitive2D::get_vertices() noexcept
 		{
 			return m_vertexs;
 		}
@@ -105,16 +109,34 @@ namespace galaxy
 			return m_height;
 		}
 
+		const int Primitive2D::get_depth() const noexcept
+		{
+			if (m_vao.get_vertices().empty())
+			{
+				return 0;
+			}
+			else
+			{
+				return m_vao.get_vertices()[0].get_depth();
+			}
+		}
+
+		const unsigned int Primitive2D::count() const noexcept
+		{
+			return m_vao.count();
+		}
+
 		nlohmann::json Primitive2D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
 			json["type"]        = static_cast<std::string>(magic_enum::enum_name(m_type));
+			json["depth"]       = get_depth();
+			json["opacity"]     = m_opacity;
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_data.m_colour.m_red;
 			json["colour"]["g"] = m_data.m_colour.m_green;
 			json["colour"]["b"] = m_data.m_colour.m_blue;
-			json["colour"]["a"] = m_data.m_colour.m_alpha;
 
 			if (m_data.m_radius != std::nullopt)
 			{
@@ -166,10 +188,12 @@ namespace galaxy
 		void Primitive2D::deserialize(const nlohmann::json& json)
 		{
 			Primitive2D::PrimitiveData data;
-			m_type = magic_enum::enum_cast<graphics::Primitives>(json.at("type").get<std::string>()).value();
+			m_type          = magic_enum::enum_cast<graphics::Primitives>(json.at("type").get<std::string>()).value();
+			m_opacity       = json.at("opacity");
+			const int depth = json.at("depth");
 
 			const auto& colour = json.at("colour");
-			data.m_colour      = {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")};
+			data.m_colour      = {colour.at("r"), colour.at("g"), colour.at("b"), 255};
 
 			if (json.count("radius") > 0)
 			{
@@ -218,27 +242,27 @@ namespace galaxy
 			switch (m_type)
 			{
 				case graphics::Primitives::CIRCLE:
-					create<graphics::Primitives::CIRCLE>(data);
+					create<graphics::Primitives::CIRCLE>(data, depth);
 					break;
 
 				case graphics::Primitives::ELLIPSE:
-					create<graphics::Primitives::ELLIPSE>(data);
+					create<graphics::Primitives::ELLIPSE>(data, depth);
 					break;
 
 				case graphics::Primitives::LINE:
-					create<graphics::Primitives::LINE>(data);
+					create<graphics::Primitives::LINE>(data, depth);
 					break;
 
 				case graphics::Primitives::POINT:
-					create<graphics::Primitives::POINT>(data);
+					create<graphics::Primitives::POINT>(data, depth);
 					break;
 
 				case graphics::Primitives::POLYGON:
-					create<graphics::Primitives::POLYGON>(data);
+					create<graphics::Primitives::POLYGON>(data, depth);
 					break;
 
 				case graphics::Primitives::POLYLINE:
-					create<graphics::Primitives::POLYLINE>(data);
+					create<graphics::Primitives::POLYLINE>(data, depth);
 					break;
 			}
 		}

@@ -9,8 +9,8 @@
 #define GALAXY_SCENES_SCENE_HPP_
 
 #include "galaxy/core/World.hpp"
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/ui/GUI.hpp"
 
 namespace galaxy
 {
@@ -103,16 +103,6 @@ namespace galaxy
 			/// Event dispatcher.
 			///
 			events::Dispatcher m_dispatcher;
-
-			///
-			/// GUI theme.
-			///
-			ui::Theme m_gui_theme;
-
-			///
-			/// GUI for this scene.
-			///
-			ui::GUI m_gui;
 
 		protected:
 			///

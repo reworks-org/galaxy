@@ -19,7 +19,6 @@
 #include <galaxy/resource/Language.hpp>
 #include <galaxy/resource/MusicBook.hpp>
 #include <galaxy/resource/SoundBook.hpp>
-#include <galaxy/resource/TextureAtlas.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 
 #include "Sandbox.hpp"
@@ -27,7 +26,7 @@
 using namespace galaxy;
 using namespace std::chrono_literals;
 
-ui::Progressbar* progressbar;
+//ui::Progressbar* progressbar;
 
 input::Keys parse_key(const std::string& key)
 {
@@ -58,8 +57,8 @@ namespace sb
 	Sandbox::~Sandbox()
 	{
 		m_timer.stop();
-		m_window    = nullptr;
-		progressbar = nullptr;
+		m_window = nullptr;
+		//progressbar = nullptr;
 	}
 
 	void Sandbox::events()
@@ -94,6 +93,7 @@ namespace sb
 	{
 		m_timer.update(dt);
 
+		/*
 		if (m_scene_stack.top()->m_name == "SandboxScene")
 		{
 			static float progress = 0.0f;
@@ -105,6 +105,7 @@ namespace sb
 
 			progressbar->set_progress(progress);
 		}
+		*/
 
 		m_scene_stack.update(dt);
 	}
@@ -133,6 +134,7 @@ namespace sb
 		sandbox->m_world.create_from_json("animated.json");
 		sandbox->m_world.create_from_json("sprite.json");
 
+		/*
 		sandbox->m_gui_theme.m_font_col = {255, 0, 0, 255};
 
 		auto* image = sandbox->m_gui.create_widget<galaxy::ui::Image>();
@@ -179,6 +181,7 @@ namespace sb
 		textbox->set_text(messages);
 
 		sandbox->m_gui.enable_input();
+		*/
 
 		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>([&](const events::KeyDown& kde) {
 			switch (kde.m_keycode)

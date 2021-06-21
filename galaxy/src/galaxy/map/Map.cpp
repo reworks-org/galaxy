@@ -8,7 +8,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/ShaderKey.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -18,7 +17,7 @@
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/resource/ShaderBook.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/TextureBook.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Map.hpp"
@@ -82,7 +81,6 @@ namespace galaxy
 			this->m_version           = m.m_version;
 			this->m_width             = m.m_width;
 			this->m_object_entities   = std::move(m.m_object_entities);
-			this->m_framebuffers      = std::move(m.m_framebuffers);
 		}
 
 		Map& Map::operator=(Map&& m) noexcept
@@ -114,7 +112,6 @@ namespace galaxy
 				this->m_version           = m.m_version;
 				this->m_width             = m.m_width;
 				this->m_object_entities   = std::move(m.m_object_entities);
-				this->m_framebuffers      = std::move(m.m_framebuffers);
 			}
 
 			return *this;
@@ -128,7 +125,6 @@ namespace galaxy
 			m_object_layers.clear();
 			m_image_layers.clear();
 			m_tilesets.clear();
-			m_framebuffers.clear();
 		}
 
 		const bool Map::load(std::string_view map)
@@ -267,7 +263,6 @@ namespace galaxy
 					{
 						parse_tilesets();
 						parse_layers(m_root, 0);
-						m_framebuffers.resize(m_tile_layers.size());
 
 						return true;
 					}
@@ -434,7 +429,8 @@ namespace galaxy
 			for (auto& tileset : m_tilesets)
 			{
 				const auto tileset_name    = std::filesystem::path(tileset.get_image()).stem().string();
-				const auto& tileset_region = SL_HANDLE.atlas()->get_region(tileset_name);
+				const auto& tileset_info   = SL_HANDLE.texturebook()->search(tileset_name).value();
+				const auto& tileset_region = tileset_info.m_region;
 
 				for (const auto& tile : tileset.get_tiles())
 				{
@@ -452,13 +448,13 @@ namespace galaxy
 					v += tileset_region.m_y;
 
 					const auto name = tileset_name + std::to_string(tile.get_id());
-					graphics::fRect rect;
+					math::Rect<float> rect;
 					rect.m_x      = u;
 					rect.m_y      = v;
 					rect.m_width  = tileset.get_tile_width();
 					rect.m_height = tileset.get_tile_height();
 
-					SL_HANDLE.atlas()->add_custom_region(name, rect);
+					SL_HANDLE.texturebook()->add_custom_region(tileset_info.m_index, name, rect);
 				}
 			}
 		}
@@ -510,10 +506,9 @@ namespace galaxy
 				auto* transform   = world.create_component<components::Transform2D>(entity);
 
 				const auto image = std::filesystem::path(layer.get_image()).stem().string();
-				batchsprite->create(image, layer.get_opacity());
-				renderable->m_type    = graphics::Renderables::BATCHED;
-				renderable->m_z_level = layer.get_z_level();
-				tag->m_tag            = std::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
+				batchsprite->create(image, layer.get_z_level());
+				renderable->m_type = graphics::Renderables::BATCHED;
+				tag->m_tag         = std::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
 				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
 
 				world.enable(entity);
@@ -536,14 +531,12 @@ namespace galaxy
 					}
 					else
 					{
-						const auto entity     = world.create();
-						auto* primitive2d     = world.create_component<components::Primitive2D>(entity);
-						auto* renderable      = world.create_component<components::Renderable>(entity);
-						auto* shaderkey       = world.create_component<components::ShaderKey>(entity);
-						auto* tag             = world.create_component<components::Tag>(entity);
-						auto* transform       = world.create_component<components::Transform2D>(entity);
-						renderable->m_z_level = layer.get_z_level();
-						tag->m_tag            = std::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
+						const auto entity = world.create();
+						auto* primitive2d = world.create_component<components::Primitive2D>(entity);
+						auto* renderable  = world.create_component<components::Renderable>(entity);
+						auto* tag         = world.create_component<components::Tag>(entity);
+						auto* transform   = world.create_component<components::Transform2D>(entity);
+						tag->m_tag        = std::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
 
 						switch (type)
 						{
@@ -554,13 +547,12 @@ namespace galaxy
 								data.m_fragments = std::make_optional(40);
 								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
 
-								primitive2d->create<graphics::Primitives::ELLIPSE>(data);
+								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type     = graphics::Renderables::LINE_LOOP;
-								shaderkey->m_shader_id = "line";
+								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
 							break;
 
@@ -569,13 +561,12 @@ namespace galaxy
 								components::Primitive2D::PrimitiveData data;
 								data.m_colour    = layer.get_colour();
 								data.m_pointsize = 3;
-								primitive2d->create<graphics::Primitives::POINT>(data);
+								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type     = graphics::Renderables::POINT;
-								shaderkey->m_shader_id = "point";
+								renderable->m_type = graphics::Renderables::POINT;
 							}
 							break;
 
@@ -590,13 +581,12 @@ namespace galaxy
 
 								data.m_points = std::make_optional(points);
 								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYGON>(data);
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type     = graphics::Renderables::LINE_LOOP;
-								shaderkey->m_shader_id = "line";
+								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
 							break;
 
@@ -611,13 +601,12 @@ namespace galaxy
 
 								data.m_points = std::make_optional(points);
 								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYLINE>(data);
+								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type     = graphics::Renderables::LINE;
-								shaderkey->m_shader_id = "line";
+								renderable->m_type = graphics::Renderables::LINE;
 							}
 							break;
 
@@ -632,13 +621,12 @@ namespace galaxy
 
 								data.m_points = std::make_optional(points);
 								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYGON>(data);
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
 
-								renderable->m_type     = graphics::Renderables::LINE_LOOP;
-								shaderkey->m_shader_id = "line";
+								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
 							break;
 						}
@@ -669,17 +657,14 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
-				const auto level = layer.get_z_level();
 				const auto& data = layer.get_data();
-
-				m_framebuffers[level].create(m_tile_width * m_width, m_tile_height * m_height);
-				m_framebuffers[level].bind();
 
 				for (int i = 0; i < m_height; i++)
 				{
 					for (int j = 0; j < m_width; j++)
 					{
-						auto flagged_gid = data[(i * m_width) + j];
+						const auto sub_expression = (i * m_width) + j;
+						auto flagged_gid          = data[sub_expression];
 						if (flagged_gid != 0)
 						{
 							// Have to clear flips first.
@@ -689,18 +674,21 @@ namespace galaxy
 							const auto tileset_name = std::filesystem::path(tileset->get_image()).stem().string();
 							const auto tile_name    = tileset_name + std::to_string(tile->get_id());
 
+							const auto entity = world.create();
+							auto* renderable  = world.create_component<components::Renderable>(entity);
+							auto* batch       = world.create_component<components::BatchSprite>(entity);
+							auto* transform   = world.create_component<components::Transform2D>(entity);
+
+							renderable->m_type = graphics::Renderables::BATCHED;
+							batch->create(tile_name, layer.get_z_level());
+							transform->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
+
+							world.enable(entity);
+							world.unset_flag<flags::AllowSerialize>(entity);
+
 							if (!tile->get_animations().empty())
 							{
-								const auto entity = world.create();
-								auto* renderable  = world.create_component<components::Renderable>(entity);
-								auto* batch       = world.create_component<components::BatchSprite>(entity);
-								auto* animated    = world.create_component<components::Animated>(entity);
-								auto* transform   = world.create_component<components::Transform2D>(entity);
-
-								renderable->m_z_level = layer.get_z_level();
-								renderable->m_type    = graphics::Renderables::BATCHED;
-
-								batch->create(tile_name, layer.get_opacity());
+								auto* animated = world.create_component<components::Animated>(entity);
 
 								std::vector<graphics::Frame> frames;
 								frames.reserve(tile->get_animations().size());
@@ -719,56 +707,10 @@ namespace galaxy
 								animated->add_animation("TileAnimation", "TileAnimation", true, 1.0, frames);
 								animated->set_animation("TileAnimation");
 								animated->play();
-
-								transform->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
-
-								world.enable(entity);
-								world.unset_flag<flags::AllowSerialize>(entity);
-							}
-							else
-							{
-								// Load texture.
-								const auto w          = SL_HANDLE.atlas()->get_atlas()->get_width();
-								const auto h          = SL_HANDLE.atlas()->get_atlas()->get_height();
-								const auto& tile_rect = SL_HANDLE.atlas()->get_region(tile_name);
-
-								components::Sprite to_draw;
-								components::Transform2D to_draw_transform;
-								to_draw.load(SL_HANDLE.atlas()->get_atlas()->gl_texture(), w, h);
-								to_draw.create_clipped(tile_rect.m_x, tile_rect.m_y, tile_rect.m_width, tile_rect.m_height);
-								to_draw.set_opacity(layer.get_opacity());
-								to_draw_transform.set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
-
-								RENDERER_2D().draw_sprite_to_target(
-								    &to_draw,
-								    &to_draw_transform,
-								    SL_HANDLE.shaderbook()->get("render_to_texture"),
-								    &m_framebuffers[level]);
 							}
 						}
 					}
 				}
-
-				m_framebuffers[level].unbind();
-
-				const auto entity = world.create();
-				auto* renderable  = world.create_component<components::Renderable>(entity);
-				auto* shaderkey   = world.create_component<components::ShaderKey>(entity);
-				auto* sprite      = world.create_component<components::Sprite>(entity);
-				auto* tag         = world.create_component<components::Tag>(entity);
-				auto* transform   = world.create_component<components::Transform2D>(entity);
-
-				renderable->m_type     = graphics::Renderables::SPRITE;
-				renderable->m_z_level  = level;
-				shaderkey->m_shader_id = "sprite";
-				sprite->load(m_framebuffers[level].gl_texture(), m_framebuffers[level].get_width(), m_framebuffers[level].get_height());
-				sprite->create();
-				sprite->set_opacity(layer.get_opacity());
-				tag->m_tag = std::format("{0}_{1}_{2}{3}", layer.get_id(), layer.get_name(), "TileLayer", layer.get_z_level());
-				transform->set_pos(0.0f, 0.0f);
-
-				world.enable(entity);
-				world.unset_flag<flags::AllowSerialize>(entity);
 			}
 		}
 
@@ -779,7 +721,7 @@ namespace galaxy
 				auto& tiles         = tileset.get_tiles();
 				const auto local_id = gid - tileset.get_first_gid();
 
-				auto res = std::find_if(std::execution::par_unseq, tiles.begin(), tiles.end(), [&](const Tile& tile) {
+				auto res = std::find_if(std::execution::par, tiles.begin(), tiles.end(), [&](const Tile& tile) {
 					return tile.get_id() == local_id;
 				});
 

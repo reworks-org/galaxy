@@ -86,6 +86,11 @@ namespace galaxy
 			/// Simple quad to draw when applying effects (array).
 			///
 			unsigned int m_screen_vao;
+
+			///
+			/// Output cache.
+			///
+			unsigned int m_output_fb;
 		};
 	} // namespace graphics
 } // namespace galaxy

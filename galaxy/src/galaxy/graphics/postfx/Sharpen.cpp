@@ -5,26 +5,29 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
+
 #include "Sharpen.hpp"
 
 ///
 /// Sharpen vertex shader.
 ///
-inline constexpr const char* const sharpen_vert = R"(
+constexpr const char* const sharpen_vert = R"(
 	#version 450 core
-	layout (location = 0) in vec3 l_pos;
+	layout (location = 0) in vec2 l_pos;
 	layout (location = 1) in vec2 l_texels;
 
 	void main()
 	{
-		gl_Position = vec4(l_pos, 1.0);
+		gl_Position = vec4(l_pos, 0.0, 1.0);
 	}
 )";
 
 ///
 /// Sharpen fragment shader.
 ///
-inline constexpr const char* const sharpen_frag = R"(
+constexpr const char* const sharpen_frag = R"(
 	/*
 	  (C) 2019 David Lettier
 	  lettier.com
@@ -71,8 +74,9 @@ namespace galaxy
 	namespace graphics
 	{
 		Sharpen::Sharpen()
-		    : PostEffect {}
 		{
+			m_fb.create(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+
 			m_shader.load_raw(sharpen_vert, sharpen_frag);
 			m_shader.bind();
 			m_shader.set_uniform("colorTexture", 0);
@@ -93,7 +97,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, input);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-			return m_fb.gl_texture();
+			return m_fb.get_texture();
 		}
 	} // namespace graphics
 } // namespace galaxy

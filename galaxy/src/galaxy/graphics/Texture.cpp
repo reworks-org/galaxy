@@ -22,7 +22,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Texture::Texture() noexcept
-		    : m_loaded {false}, m_width {0}, m_height {0}, m_texture {0}
+		    : m_loaded {false}, m_width {0}, m_height {0}, m_path {""}, m_texture {0}
 		{
 			glGenTextures(1, &m_texture);
 		}
@@ -33,6 +33,7 @@ namespace galaxy
 			this->m_loaded  = t.m_loaded;
 			this->m_texture = t.m_texture;
 			this->m_width   = t.m_width;
+			this->m_path    = std::move(t.m_path);
 
 			t.m_texture = 0;
 		}
@@ -45,6 +46,7 @@ namespace galaxy
 				this->m_loaded  = t.m_loaded;
 				this->m_texture = t.m_texture;
 				this->m_width   = t.m_width;
+				this->m_path    = std::move(t.m_path);
 
 				t.m_texture = 0;
 			}
@@ -69,10 +71,12 @@ namespace galaxy
 			}
 			else
 			{
+				m_path = path.value();
+
 				glBindTexture(GL_TEXTURE_2D, m_texture);
 
 				stbi_set_flip_vertically_on_load(true);
-				unsigned char* data = stbi_load(path.value().c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
+				unsigned char* data = stbi_load(m_path.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 				if (data)
 				{
@@ -245,6 +249,11 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 
 			return ansio;
+		}
+
+		const std::string& Texture::get_filepath() const noexcept
+		{
+			return m_path;
 		}
 
 		const unsigned int Texture::gl_texture() const noexcept

@@ -47,7 +47,7 @@
 #include "galaxy/resource/ScriptBook.hpp"
 #include "galaxy/resource/ShaderBook.hpp"
 #include "galaxy/resource/SoundBook.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/TextureBook.hpp"
 
 #include "LuaUtils.hpp"
 
@@ -502,16 +502,17 @@ namespace galaxy
 			soundbook_type["clear"]            = &res::SoundBook::clear;
 			soundbook_type["has"]              = &res::SoundBook::has;
 
-			auto tex_atlas_type                 = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
-			tex_atlas_type["add"]               = &res::TextureAtlas::add;
-			tex_atlas_type["add_from_json"]     = &res::TextureAtlas::add_from_json;
-			tex_atlas_type["create"]            = &res::TextureAtlas::create;
-			tex_atlas_type["update"]            = &res::TextureAtlas::update;
-			tex_atlas_type["save"]              = &res::TextureAtlas::save;
-			tex_atlas_type["add_custom_region"] = &res::TextureAtlas::add_custom_region;
-			tex_atlas_type["clear"]             = &res::TextureAtlas::clear;
-			tex_atlas_type["get_region"]        = &res::TextureAtlas::get_region;
-			tex_atlas_type["get_size"]          = &res::TextureAtlas::get_size;
+			auto tex_book_type                       = lua->new_usertype<res::TextureBook>("gTextureBook", sol::no_constructor);
+			tex_book_type["add"]                     = sol::resolve<const bool(std::string_view)>(&res::TextureBook::add);
+			tex_book_type["add_custom_region"]       = &res::TextureBook::add_custom_region;
+			tex_book_type["add_json"]                = &res::TextureBook::add_json;
+			tex_book_type["add_multi"]               = &res::TextureBook::add_multi;
+			tex_book_type["buffer_spritebatch_data"] = &res::TextureBook::buffer_spritebatch_data;
+			tex_book_type["clear"]                   = &res::TextureBook::clear;
+			tex_book_type["clear_sprites"]           = &res::TextureBook::clear_sprites;
+			tex_book_type["get"]                     = &res::TextureBook::get;
+			tex_book_type["get_spritebatches"]       = &res::TextureBook::get_spritebatches;
+			tex_book_type["search"]                  = &res::TextureBook::search;
 
 			auto lang_type                     = lua->new_usertype<res::Language>("gLanguage", sol::no_constructor);
 			lang_type["parse_language_folder"] = &res::Language::parse_language_folder;

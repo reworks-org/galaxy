@@ -86,11 +86,6 @@ namespace galaxy
 			///
 			ShaderBook& operator=(ShaderBook&&) = delete;
 
-			///
-			/// Create default shaderbook shaders.
-			///
-			void create_default();
-
 		private:
 			///
 			/// Vertex extension.

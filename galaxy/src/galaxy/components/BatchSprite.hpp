@@ -8,9 +8,11 @@
 #ifndef GALAXY_COMPONENTS_BATCHSPRITE_HPP_
 #define GALAXY_COMPONENTS_BATCHSPRITE_HPP_
 
+#include <glm/vec2.hpp>
+
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Rect.hpp"
-#include "galaxy/graphics/vertex/VertexData.hpp"
+#include "galaxy/graphics/Vertex.hpp"
+#include "galaxy/math/Rect.hpp"
 
 namespace galaxy
 {
@@ -22,7 +24,7 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// Quad with a texture ID used for drawing a sprite in a spritebatch.
+		/// Sprite with texture data from a TextureAtlas.
 		///
 		class BatchSprite final : public fs::Serializable
 		{
@@ -60,96 +62,93 @@ namespace galaxy
 			/// Sets the texture region for the batched sprite.
 			///
 			/// \param region Region defined on the texture.
-			/// \param opacity Opacity of the batched sprite.
+			/// \param depth Z-Level.
+			/// \param index Texture Atlas index this batch sprite belongs to. Optional.
 			///
-			void create(const graphics::fRect& region, float opacity = 1.0f);
+			void create(const math::Rect<float>& region, const int depth, unsigned int index = 0) noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite from the texture atlas.
 			///
-			/// \param texture_atlas_id ID of a texture in the texture atlas.
-			/// \param opacity Opacity of the batched sprite.
+			/// \param texture_key ID of a texture in the texture atlas.
+			/// \param depth Z-Level.
 			///
-			void create(std::string_view texture_atlas_id, float opacity = 1.0f);
+			void create(std::string_view texture_key, const int depth) noexcept;
 
 			///
-			/// Set region.
+			/// Update sprite region.
 			///
-			/// \param region Name of region in texture atlas.
+			/// \param texture_key ID of a texture in the texture atlas.
 			///
-			void set_region(std::string_view region);
+			void update_region(std::string_view texture_key) noexcept;
 
 			///
-			/// Set opacity.
+			/// Set depth.
 			///
-			/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+			/// \param depth Z-Level.
 			///
-			void set_opacity(const float opacity) noexcept;
+			void set_depth(const int depth) noexcept;
 
 			///
 			/// Set a custom width.
 			///
 			/// \param width New width to apply to texture.
 			///
-			void set_custom_width(const float width) noexcept;
+			void clip_width(const float width) noexcept;
 
 			///
 			/// Set a custom height.
 			///
 			/// \param height New height to apply to texture.
 			///
-			void set_custom_height(const float height) noexcept;
+			void clip_height(const float height) noexcept;
 
 			///
-			/// Get opacity.
+			/// Get clip.
 			///
-			/// \return Const float.
+			/// \return Const reference to glm::vec2.
 			///
-			[[nodiscard]] const float get_opacity() const noexcept;
+			[[nodiscard]] const glm::vec2& get_clip() const noexcept;
 
 			///
-			/// \brief Get texture width.
+			/// Get depth.
 			///
-			/// Is cached for performance.
+			/// \return Const int.
 			///
-			/// \return Width as int. int over unsigned for compat with float.
-			///
-			[[nodiscard]] const int get_width() const noexcept;
-
-			///
-			/// \brief Get texture height.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Height as int. int over unsigned for compat with float.
-			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] const int get_depth() const noexcept;
 
 			///
 			/// Get region.
 			///
 			/// \return Reference to a rectangle of floats.
 			///
-			[[nodiscard]] const graphics::fRect& get_region() const noexcept;
+			[[nodiscard]] const math::Rect<float>& get_region() const noexcept;
 
 			///
-			/// Get sprite vertexs.
-			///
-			/// \return Const reference to std::vector of sprite position vertexs.
-			///
-			[[nodiscard]] const std::vector<glm::vec2>& get_vertexs() const noexcept;
-
-			///
-			/// Get texture string id.
+			/// Get texture string key.
 			///
 			/// \return Const std::string reference.
 			///
-			[[nodiscard]] const std::string& get_tex_id() const noexcept;
+			[[nodiscard]] const std::string& get_key() const noexcept;
 
 			///
-			/// Get region this frame occupies.
+			/// Get texture atlas this sprite is for.
 			///
-			/// \return Const float rectangle.
+			/// \return Const unsigned int.
+			///
+			[[nodiscard]] const unsigned int get_atlas_index() const noexcept;
+
+			///
+			/// Get sprite vertices.
+			///
+			/// \return Reference to std::vector of vertices.
+			///
+			[[nodiscard]] std::vector<graphics::Vertex>& get_vertices() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
 			///
 			[[nodiscard]] nlohmann::json serialize() override;
 
@@ -175,37 +174,32 @@ namespace galaxy
 			///
 			/// Texture region ID.
 			///
-			std::string m_id;
+			std::string m_key;
 
 			///
-			/// Opacity of BatchSprite.
+			/// TextureAtlas index.
 			///
-			float m_opacity;
+			unsigned int m_index;
 
 			///
 			/// Region of texture used.
 			///
-			graphics::fRect m_region;
+			math::Rect<float> m_region;
 
 			///
-			/// Custom width/height.
+			/// Clipping of region.
 			///
-			glm::vec2 m_custom_wh;
+			glm::vec2 m_clip;
 
 			///
-			/// Set by spritebatch.
+			/// Z-Level.
 			///
-			unsigned int m_offset;
+			int m_depth;
 
 			///
-			/// Set by spritebatch.
+			/// CPU side cache.
 			///
-			int m_z_level;
-
-			///
-			/// Set by spritebatch.
-			///
-			std::vector<glm::vec2> m_vertexs;
+			std::vector<graphics::Vertex> m_vertices;
 		};
 	} // namespace components
 } // namespace galaxy

@@ -69,8 +69,26 @@ namespace galaxy
 			/// Create the text object.
 			///
 			/// \param text Text to display.
+			/// \param depth Z-Level for text.
 			///
-			void create(std::string_view text);
+			void create(std::string_view text, const int depth);
+
+			///
+			/// Updates text.
+			///
+			/// \param text Text to display.
+			///
+			void update(std::string_view text);
+
+			///
+			/// Bind as active VA.
+			///
+			void bind() noexcept;
+
+			///
+			/// Unbind as active VA.
+			///
+			void unbind() noexcept;
 
 			///
 			/// Change colour.
@@ -85,16 +103,6 @@ namespace galaxy
 			/// \param font New font in VFS.
 			///
 			void set_font(std::string_view font);
-
-			///
-			/// Bind as active VA.
-			///
-			void bind() noexcept;
-
-			///
-			/// Unbind as active VA.
-			///
-			void unbind() noexcept;
 
 			///
 			/// Get current colour.
@@ -136,11 +144,18 @@ namespace galaxy
 			[[nodiscard]] const int get_batch_height() const noexcept;
 
 			///
+			/// Get depth of sprite.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_depth() const noexcept;
+
+			///
 			/// Gets the index count.
 			///
 			/// \return Const uint.
 			///
-			[[nodiscard]] const unsigned int index_count() const noexcept;
+			[[nodiscard]] const unsigned int count() const noexcept;
 
 			///
 			/// Get current text.
@@ -192,6 +207,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Depth cache.
+			///
+			int m_depth;
+
+			///
 			/// Width cache.
 			///
 			int m_width;
@@ -200,6 +220,16 @@ namespace galaxy
 			/// Height cache.
 			///
 			int m_height;
+
+			///
+			/// Fontmap width cache.
+			///
+			int m_fontmap_width;
+
+			///
+			/// Fontmap height cache.
+			///
+			int m_fontmap_height;
 
 			///
 			/// Colour of the text.

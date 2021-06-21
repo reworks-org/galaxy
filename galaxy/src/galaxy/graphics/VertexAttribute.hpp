@@ -32,7 +32,12 @@ namespace galaxy
 			///
 			/// Specifies "colour" vertex attribute type at compile time.
 			///
-			COLOUR
+			COLOUR,
+
+			///
+			/// Specifies "depth" vertex attribute type at compile time.
+			///
+			DEPTH
 		};
 
 		///
@@ -59,9 +64,30 @@ namespace galaxy
 			VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept;
 
 			///
+			/// Move constructor.
+			///
+			VertexAttribute(VertexAttribute&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			VertexAttribute& operator=(VertexAttribute&&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~VertexAttribute() noexcept = default;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			VertexAttribute(const VertexAttribute&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			VertexAttribute& operator=(const VertexAttribute&) = delete;
 
 		public:
 			///

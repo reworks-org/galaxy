@@ -42,7 +42,7 @@ namespace galaxy
 	{
 		class FontBook;
 		class ShaderBook;
-		class TextureAtlas;
+		class TextureBook;
 		class SoundBook;
 		class MusicBook;
 		class ScriptBook;
@@ -122,11 +122,11 @@ namespace galaxy
 			[[maybe_unused]] res::MusicBook* musicbook() const noexcept;
 
 			///
-			/// Get TextureAtlas service.
+			/// Get TextureBook service.
 			///
-			/// \return Return pointer to TextureAtlas service.
+			/// \return Return pointer to TextureBook service.
 			///
-			[[maybe_unused]] res::TextureAtlas* atlas() const noexcept;
+			[[maybe_unused]] res::TextureBook* texturebook() const noexcept;
 
 			///
 			/// Get Virtual FileSystem service.
@@ -234,7 +234,7 @@ namespace galaxy
 			///
 			/// Texture Atlas service.
 			///
-			res::TextureAtlas* m_texture_atlas;
+			res::TextureBook* m_texturebook;
 
 			///
 			/// Virtual FileSystem service.

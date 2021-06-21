@@ -45,13 +45,13 @@ namespace galaxy
 			SL_HANDLE.window()->set_scene_dispatcher(&m_dispatcher);
 			m_camera.set_width(SL_HANDLE.window()->get_width());
 			m_camera.set_height(SL_HANDLE.window()->get_height());
-			m_gui.enable_input();
+			//m_gui.enable_input();
 		}
 
 		void Scene2D::on_pop()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(nullptr);
-			m_gui.disable_input();
+			//m_gui.disable_input();
 		}
 
 		void Scene2D::events()
@@ -62,18 +62,18 @@ namespace galaxy
 		{
 			m_camera.update(dt);
 			m_world.update(dt);
-			m_gui.update(dt);
+			//m_gui.update(dt);
 		}
 
 		void Scene2D::pre_render()
 		{
+			RENDERER_2D().buffer_camera(m_camera);
 		}
 
 		void Scene2D::render()
 		{
-			RENDERER_2D().bind();
 			m_world.get_system<systems::RenderSystem2D>()->render(m_world, m_camera);
-			m_gui.render();
+			//m_gui.render();
 		}
 
 		void Scene2D::create_maps(std::string_view path)
@@ -109,8 +109,8 @@ namespace galaxy
 			json["type"]   = "2D";
 			json["camera"] = m_camera.serialize();
 			json["world"]  = m_world.serialize();
-			json["theme"]  = m_gui_theme.serialize();
-			json["gui"]    = m_gui.serialize();
+			//json["theme"]  = m_gui_theme.serialize();
+			//json["gui"]    = m_gui.serialize();
 
 			return json;
 		}
@@ -125,9 +125,9 @@ namespace galaxy
 			m_camera.deserialize(camera_json);
 			m_world.deserialize(world_json);
 
-			m_gui_theme.deserialize(json.at("theme"));
-			m_gui.set_theme(&m_gui_theme);
-			m_gui.deserialize(json.at("gui"));
+			//m_gui_theme.deserialize(json.at("theme"));
+			//m_gui.set_theme(&m_gui_theme);
+			//m_gui.deserialize(json.at("gui"));
 		}
 	} // namespace scene
 } // namespace galaxy

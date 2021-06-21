@@ -300,7 +300,7 @@ namespace galaxy
 
 			for (auto i = m_first_gid; i < (m_first_gid + m_tile_count); ++i)
 			{
-				if (std::count(std::execution::par_unseq, existing.begin(), existing.end(), i) == 0)
+				if (std::count(std::execution::par, existing.begin(), existing.end(), i) == 0)
 				{
 					Tile new_tile;
 					new_tile.m_id           = i;

@@ -1,8 +1,8 @@
 ///
-/// Filters.cpp
+/// TextureFilters.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Filters.hpp"
+#include "TextureFilters.hpp"
