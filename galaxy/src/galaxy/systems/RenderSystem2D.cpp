@@ -26,6 +26,7 @@ namespace galaxy
 			m_lineloops.clear();
 			m_text.clear();
 			m_sprites.clear();
+			m_batchsprites.clear();
 			SL_HANDLE.texturebook()->clear_sprites();
 
 			world.operate<components::Renderable, components::Transform2D>(std::execution::par, [&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
@@ -35,7 +36,7 @@ namespace galaxy
 				{
 					case graphics::Renderables::BATCHED:
 						m_batch_lock.lock();
-						SL_HANDLE.texturebook()->add(world.get<components::BatchSprite>(entity), transform);
+						m_batchsprites.emplace_back(world.get<components::BatchSprite>(entity), transform);
 						m_batch_lock.unlock();
 						break;
 
@@ -70,6 +71,11 @@ namespace galaxy
 						break;
 				}
 			});
+
+			for (const auto& [batch, transform] : m_batchsprites)
+			{
+				SL_HANDLE.texturebook()->add(batch, transform);
+			}
 
 			SL_HANDLE.texturebook()->buffer_spritebatch_data();
 		}

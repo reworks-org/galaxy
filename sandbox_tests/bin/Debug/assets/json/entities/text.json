@@ -6,26 +6,24 @@
             "tag": "TextEntity"
         },
         "Text": {
+            "font":"public16",
+            "text":"Demo",
+            "depth": 5,
             "colour": {
                 "r": 255,
                 "g": 0,
                 "b": 0,
                 "a": 255
-            },
-            "font":"public16",
-            "text":"Demo"
+            }
         },
         "Transform2D": {
             "x": 512,
             "y": 512,
-            "rotation": 45
+            "rotation": 45,
+            "scale": 1
         },
         "Renderable": {
-            "type": "TEXT",
-            "z-level": 5
-        },
-        "ShaderID": {
-            "shader-id": "text"
+            "type": "TEXT"
         }
     }
 }

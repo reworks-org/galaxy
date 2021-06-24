@@ -6,17 +6,17 @@
             "tag": "FramebufferBG"
         },
         "BatchSprite": {
-        	"texture-atlas-id": "bg",
-        	"opacity": 1.0
+        	"texture-key": "bg",
+        	"depth": 0
         },
         "Transform2D": {
             "x": 0,
             "y": 0,
-            "rotation": 0
+            "rotation": 0,
+            "scale": 1
         },
         "Renderable": {
-            "type": "BATCHED",
-            "z-level": 0
+            "type": "BATCHED"
         }
     }
 }

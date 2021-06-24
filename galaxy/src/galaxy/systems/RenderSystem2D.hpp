@@ -87,6 +87,11 @@ namespace galaxy
 			std::vector<std::pair<components::Sprite*, components::Transform2D*>> m_sprites;
 
 			///
+			/// BatchSprite cache.
+			///
+			std::vector<std::pair<components::BatchSprite*, components::Transform2D*>> m_batchsprites;
+
+			///
 			/// Point lock.
 			///
 			std::mutex m_point_lock;

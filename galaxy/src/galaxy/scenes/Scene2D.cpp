@@ -43,6 +43,7 @@ namespace galaxy
 		void Scene2D::on_push()
 		{
 			SL_HANDLE.window()->set_scene_dispatcher(&m_dispatcher);
+
 			m_camera.set_width(SL_HANDLE.window()->get_width());
 			m_camera.set_height(SL_HANDLE.window()->get_height());
 			//m_gui.enable_input();

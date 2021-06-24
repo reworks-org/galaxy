@@ -7,7 +7,7 @@
 
 #include "SpriteBatch.hpp"
 
-constexpr const auto max_quads = 500000;
+constexpr const auto max_quads = 100000;
 
 namespace galaxy
 {

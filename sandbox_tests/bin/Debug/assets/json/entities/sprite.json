@@ -7,19 +7,17 @@
         },
         "Sprite": {
         	"texture": "wall_2.png",
-        	"opacity": 1.0
+        	"opacity": 1.0,
+            "depth": 4
         },
         "Transform2D": {
             "x": 0,
             "y": 512,
-            "rotation": 45
+            "rotation": 45,
+            "scale": 1
         },
         "Renderable": {
-            "type": "SPRITE",
-            "z-level": 4
-        },
-        "ShaderID": {
-            "shader-id": "sprite"
+            "type": "SPRITE"
         }
     }
 }

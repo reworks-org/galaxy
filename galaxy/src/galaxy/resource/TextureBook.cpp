@@ -53,9 +53,9 @@ namespace galaxy
 		{
 			bool result = false;
 
-			for (const auto& atlas : m_atlas)
+			for (auto& [index, atlas] : m_atlas)
 			{
-				result = add(file);
+				result = atlas.add(file);
 				if (result)
 				{
 					break;
@@ -148,7 +148,10 @@ namespace galaxy
 
 		void TextureBook::clear_sprites() noexcept
 		{
-			m_batches.clear();
+			for (auto& [index, batch] : m_batches)
+			{
+				batch.clear();
+			}
 		}
 
 		TextureBook::BatchMap& TextureBook::get_spritebatches() noexcept

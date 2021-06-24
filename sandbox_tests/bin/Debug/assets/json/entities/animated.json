@@ -6,17 +6,17 @@
             "tag": "Animated"
         },
 		"BatchSprite": {
-			"texture-atlas-id": "walk1",
-			"opacity": 1.0
+			"texture-key": "walk1",
+			"depth": 6
 		},
 		"Transform2D": {
 			"x": 500,
 			"y": 500,
-			"rotation": 0
+			"rotation": 0,
+			"scale": 1
 		},
 		"Renderable": {
-			"type": "BATCHED",
-			"z-level": 6
+			"type": "BATCHED"
 		},
 		"Animated": {
 			"play": true,

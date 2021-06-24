@@ -6,17 +6,17 @@
             "tag": "Cube"
         },
         "BatchSprite": {
-        	"texture-atlas-id": "cube",
-        	"opacity": 1.0
+        	"texture-key": "cube",
+        	"depth": 2
         },
         "Transform2D": {
         	"x": 250,
             "y": 10,
-            "rotation": 0
+            "rotation": 0,
+            "scale": 1
         },
         "Renderable": {
-            "type": "BATCHED",
-            "z-level": 2
+            "type": "BATCHED"
         },
         "RigidBody": {
         	"type": "DYNAMIC",

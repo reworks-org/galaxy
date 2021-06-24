@@ -7,6 +7,8 @@
         },
         "Primitive2D": {
         	"type": "LINE",
+            "opacity": 1.0,
+            "depth": 2,
         	"line-points" : {
 	        	"x1": 0,
 	            "y1": 0,
@@ -23,14 +25,11 @@
         "Transform2D": {
             "x": 50,
             "y": 50,
-            "rotation": 0.0
+            "rotation": 0,
+            "scale": 1
         },
         "Renderable": {
-            "type": "LINE",
-            "z-level": 2
-        },
-        "ShaderID": {
-            "shader-id": "line"
+            "type": "LINE"
         }
     }
 }

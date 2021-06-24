@@ -141,7 +141,6 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 
 			json["texture-key"] = m_key;
-			json["index"]       = m_index;
 			json["depth"]       = m_depth;
 
 			json["clip"]      = nlohmann::json::object();
@@ -159,19 +158,23 @@ namespace galaxy
 
 		void BatchSprite::deserialize(const nlohmann::json& json)
 		{
-			m_key   = json.at("texture-atlas-id");
-			m_index = json.at("index");
-			m_depth = json.at("depth");
+			create(json.at("texture-key"), json.at("depth"));
 
-			const auto& clip = json.at("clip");
-			m_clip.x         = clip.at("w");
-			m_clip.y         = clip.at("h");
+			if (json.count("clip") > 0)
+			{
+				const auto& clip = json.at("clip");
+				m_clip.x         = clip.at("w");
+				m_clip.y         = clip.at("h");
+			}
 
-			const auto& region = json.at("region");
-			m_region.m_x       = region.at("x");
-			m_region.m_y       = region.at("y");
-			m_region.m_width   = region.at("w");
-			m_region.m_height  = region.at("h");
+			if (json.count("region") > 0)
+			{
+				const auto& region = json.at("region");
+				m_region.m_x       = region.at("x");
+				m_region.m_y       = region.at("y");
+				m_region.m_width   = region.at("w");
+				m_region.m_height  = region.at("h");
+			}
 		}
 	} // namespace components
 } // namespace galaxy

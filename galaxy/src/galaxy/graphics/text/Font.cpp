@@ -62,6 +62,8 @@ namespace galaxy
 
 		Font::Font(std::string_view filepath, const int size)
 		{
+			m_shader.load_raw(glyph_vert, glyph_frag);
+
 			if (!create(filepath, size))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load font file: {0}.", filepath);

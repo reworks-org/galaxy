@@ -72,7 +72,6 @@ namespace galaxy
 				create_asset_layout(root, "shaders/");
 				create_asset_layout(root, "textures/");
 				create_asset_layout(root, "maps/");
-				create_asset_layout(root, "models/");
 				create_asset_layout(root, "lang/");
 			}
 			SL_HANDLE.m_vfs = m_vfs.get();
@@ -85,11 +84,12 @@ namespace galaxy
 			if (m_config->is_blank())
 			{
 				m_config->define<bool>("anti-aliasing", false);
+				m_config->define<bool>("sharpen", false);
 				m_config->define<int>("ansio-filter", 1);
 				m_config->define<bool>("vsync", true);
 				m_config->define<int>("aspect-ratio-x", -1);
 				m_config->define<int>("aspect-ratio-y", -1);
-				m_config->define<bool>("raw-mouse-input", true);
+				m_config->define<bool>("raw-mouse-input", false);
 				m_config->define<std::string>("window-name", "Title");
 				m_config->define<int>("window-width", 1280);
 				m_config->define<int>("window-height", 720);
@@ -98,13 +98,7 @@ namespace galaxy
 				m_config->define<bool>("trilinear-filtering", false);
 				m_config->define<bool>("maximized", false);
 				m_config->define<bool>("log-perf", false);
-				m_config->define<int>("max-batched-quads", 2048);
 				m_config->define<float>("audio-volume", 0.7f);
-				m_config->define<float>("mouse-sensitivity", 1.0f);
-				m_config->define<float>("camera-near", 0.1f);
-				m_config->define<float>("camera-far", 100.0f);
-				m_config->define<float>("camera-fov", 90.0f);
-				m_config->define<int>("shadow-size", 1024);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
@@ -113,14 +107,10 @@ namespace galaxy
 				m_config->define<std::string>("texturebook-json", "texturebook.json");
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
-				m_config->define<std::string>("spritebatch-shader", "spritebatch");
-				m_config->define<std::string>("2d-fb-shader", "2d_framebuffer");
 				m_config->define<std::string>("key-forward", "W");
 				m_config->define<std::string>("key-back", "S");
 				m_config->define<std::string>("key-left", "A");
 				m_config->define<std::string>("key-right", "D");
-				m_config->define<std::string>("key-freecam-up", "Q");
-				m_config->define<std::string>("key-freecam-down", "E");
 			}
 			m_config->save();
 
@@ -205,7 +195,7 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texturebook           = std::make_unique<res::TextureBook>(m_config->get<std::string>("textureatlas-json"));
+				m_texturebook           = std::make_unique<res::TextureBook>(m_config->get<std::string>("texturebook-json"));
 				SL_HANDLE.m_texturebook = m_texturebook.get();
 
 				// SoundBook.
@@ -236,7 +226,7 @@ namespace galaxy
 				m_lua->set("galaxy_vfs", m_vfs.get());
 				m_lua->set("galaxy_shaderboox", m_shaderbook.get());
 				m_lua->set("galaxy_fontbook", m_fontbook.get());
-				m_lua->set("galaxy_texbook", m_texturebook.get());
+				m_lua->set("galaxy_texturebook", m_texturebook.get());
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
 				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
@@ -424,7 +414,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sfxb_path);
 			}
 
-			const auto ab_path = root + "json/" + m_config->get<std::string>("textureatlas-json");
+			const auto ab_path = root + "json/" + m_config->get<std::string>("texturebook-json");
 			if (!std::filesystem::exists(ab_path))
 			{
 				if (!m_vfs->save(atlas, ab_path))
@@ -470,7 +460,7 @@ namespace galaxy
 			{
 				// Texture Atlas.
 				m_texturebook->clear();
-				m_texturebook->add_json(m_config->get<std::string>("textureatlas-json"));
+				m_texturebook->add_json(m_config->get<std::string>("texturebook-json"));
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
 			}
@@ -491,10 +481,6 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_INFO, "Reloading music due to change in filesystem.");
 			}
 			else if (dir.find("maps") != std::string::npos)
-			{
-				static_assert("Not yet implemented");
-			}
-			else if (dir.find("models") != std::string::npos)
 			{
 				static_assert("Not yet implemented");
 			}

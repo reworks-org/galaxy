@@ -7,6 +7,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/fs/Config.hpp"
 
 #include "PostProcessor.hpp"
 
@@ -61,10 +62,10 @@ namespace galaxy
 			constexpr const std::array<float, 16> verticies =
 			{
 				// First 3 are pos, last 2 are texels.
-				0.0f, 0.0f, 0.0f, 0.0f,
-				1.0f, 0.0f, 1.0f, 0.0f,
-				1.0f, 1.0f, 1.0f, 1.0f,
-				0.0f, 1.0f, 0.0f, 1.0f
+				-1.0f,  1.0f, 0.0f, 1.0f,
+				-1.0f, -1.0f, 0.0f, 0.0f,
+				 1.0f,  1.0f, 1.0f, 1.0f,
+				 1.0f, -1.0f, 1.0f, 0.0f
 			};
 			// clang-format on
 
@@ -110,8 +111,19 @@ namespace galaxy
 			glBindVertexArray(m_screen_vao);
 
 			// Post-processing effects pass.
-			m_output_fb = m_smaa.render(m_fb.get_texture());
-			m_output_fb = m_sharpen.render(m_output_fb);
+			if (SL_HANDLE.config()->get<bool>("anti-aliasing"))
+			{
+				m_output_fb = m_smaa.render(m_fb.get_texture());
+			}
+			else
+			{
+				m_output_fb = m_fb.get_texture();
+			}
+
+			if (SL_HANDLE.config()->get<bool>("sharpen"))
+			{
+				m_output_fb = m_sharpen.render(m_output_fb);
+			}
 
 			// Final Output.
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);

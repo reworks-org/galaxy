@@ -128,7 +128,7 @@ constexpr const char* const text_vert = R"(
 
 	uniform float u_width;
 	uniform float u_height;
-	uniform float u_transform;
+	uniform mat4 u_transform;
 
 	void main()
 	{
@@ -322,6 +322,9 @@ namespace galaxy
 			m_sprite_shader.load_raw(sprite_vert, sprite_frag);
 			m_rtt_shader.load_raw(render_to_texture_vert, render_to_texture_frag);
 			m_spritebatch_shader.load_raw(spritebatch_vert, spritebatch_frag);
+
+			m_camera_ubo.create(0);
+			m_camera_ubo.reserve(sizeof(Camera2D));
 		}
 
 		Renderer2D& Renderer2D::inst() noexcept

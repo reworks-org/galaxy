@@ -6,17 +6,17 @@
             "tag": "Floor"
         },
         "BatchSprite": {
-        	"texture-atlas-id": "floor",
-        	"opacity": 1.0
+        	"texture-key": "floor",
+        	"depth": 1
         },
         "Transform2D": {
         	"x": 0,
             "y": 500,
-            "rotation": 0
+            "rotation": 0,
+            "scale": 1
         },
         "Renderable": {
-            "type": "BATCHED",
-            "z-level": 1
+            "type": "BATCHED"
         },
         "RigidBody": {
         	"type": "STATIC",
