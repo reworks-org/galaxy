@@ -89,7 +89,6 @@ namespace galaxy
 				m_config->define<bool>("vsync", true);
 				m_config->define<int>("aspect-ratio-x", -1);
 				m_config->define<int>("aspect-ratio-y", -1);
-				m_config->define<bool>("raw-mouse-input", false);
 				m_config->define<std::string>("window-name", "Title");
 				m_config->define<int>("window-width", 1280);
 				m_config->define<int>("window-height", 720);
@@ -121,7 +120,6 @@ namespace galaxy
 				.m_vsync = m_config->get<bool>("vsync"),
 				.m_aspect_ratio_x = m_config->get<int>("aspect-ratio-x"),
 				.m_aspect_ratio_y = m_config->get<int>("aspect-ratio-y"),
-				.m_raw_mouse_input = m_config->get<bool>("raw-mouse-input"),
 				.m_gl_debug = m_config->get<bool>("gl-debug"),
 				.m_title = m_config->get<std::string>("window-name"),
 				.m_width = m_config->get<int>("window-width"),
@@ -139,26 +137,16 @@ namespace galaxy
 			else
 			{
 				m_window->request_attention();
+				m_window->set_cursor_visibility(m_config->get<bool>("is-cursor-visible"));
 
-				if (!settings.m_raw_mouse_input)
+				if (!m_config->get<std::string>("cursor-image").empty())
 				{
-					const bool cursor = m_config->get<bool>("is-cursor-visible");
-					m_window->set_cursor_visibility(cursor);
-
-					if (cursor)
-					{
-						const auto cursor_image = m_config->get<std::string>("cursor-image");
-						if (cursor_image != "")
-						{
-							m_window->set_cursor_icon(cursor_image);
-						}
-					}
+					m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
 				}
 
-				const auto icon_file = m_config->get<std::string>("icon-file");
-				if (icon_file != "")
+				if (!m_config->get<std::string>("icon-file").empty())
 				{
-					m_window->set_icon(icon_file);
+					m_window->set_icon(m_config->get<std::string>("icon-file"));
 				}
 
 				// Configure audio context.

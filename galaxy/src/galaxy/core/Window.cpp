@@ -159,15 +159,6 @@ namespace galaxy
 						// Set vsync.
 						glfwSwapInterval(settings.m_vsync);
 
-						// Raw mouse input.
-						if (glfwRawMouseMotionSupported())
-						{
-							if (settings.m_raw_mouse_input)
-							{
-								remove_cursor();
-							}
-						}
-
 						// Key input callback.
 						glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -593,15 +584,21 @@ namespace galaxy
 
 		void Window::set_cursor_visibility(const bool visible) noexcept
 		{
-			glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
-			visible == true ? glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL)
-					: glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-		}
+			if (visible)
+			{
+				glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_FALSE);
+				glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			}
+			else
+			{
+				// Raw mouse input.
+				if (glfwRawMouseMotionSupported())
+				{
+					glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+				}
 
-		void Window::remove_cursor() noexcept
-		{
-			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-			glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+				glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			}
 		}
 
 		void Window::set_cursor_icon(std::string_view icon)

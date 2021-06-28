@@ -37,11 +37,6 @@ namespace galaxy
 			int m_aspect_ratio_y;
 
 			///
-			/// Raw mouse input.
-			///
-			bool m_raw_mouse_input;
-
-			///
 			/// OpenGL debug mode.
 			///
 			bool m_gl_debug;

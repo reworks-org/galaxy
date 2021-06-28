@@ -480,7 +480,8 @@ namespace sc
 			{
 				m_game_mode = true;
 				m_backup    = serialize();
-				SL_HANDLE.window()->remove_cursor();
+
+				SL_HANDLE.window()->set_cursor_visibility(false);
 			}
 
 			static std::string s_pause_resume = " || ##PauseSceneButton";

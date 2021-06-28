@@ -135,13 +135,6 @@ namespace galaxy
 			void set_cursor_visibility(const bool visible) noexcept;
 
 			///
-			/// \brief Restricts cursor to window bounds, and makes invisible.
-			///
-			/// set_cursor_visibility() overrides this.
-			///
-			void remove_cursor() noexcept;
-
-			///
 			/// Set cursor icon.
 			///
 			/// \param icon Icon to load.

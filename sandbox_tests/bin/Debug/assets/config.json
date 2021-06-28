@@ -16,7 +16,6 @@
     "log-perf": true,
     "maximized": false,
     "musicbook-json": "musicbook.json",
-    "raw-mouse-input": false,
     "scriptbook-json": "scriptbook.json",
     "shaderbook-json": "shaderbook.json",
     "sharpen": false,
