@@ -172,7 +172,7 @@ namespace galaxy
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(path_str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			stbi_write_png(full.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
