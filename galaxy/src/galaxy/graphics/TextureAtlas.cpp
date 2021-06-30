@@ -26,6 +26,7 @@ namespace galaxy
 		TextureAtlas::TextureAtlas() noexcept
 		{
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
+			m_size = std::min(m_size, 4096);
 
 			m_id = meta::StaticIDGen<TextureAtlas>::get();
 			m_packer.init(m_size, m_size);
@@ -37,6 +38,7 @@ namespace galaxy
 		TextureAtlas::TextureAtlas(std::string_view file)
 		{
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
+			m_size = std::min(m_size, 4096);
 
 			m_id = meta::StaticIDGen<TextureAtlas>::get();
 			m_packer.init(m_size, m_size);
