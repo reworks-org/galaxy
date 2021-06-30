@@ -113,13 +113,16 @@ else()
 	add_subdirectory(dependencies)
 
 	# Add external libs.
-	set(SFW_WITH_TEST OFF CACHE BOOL "" FORCE)
-	add_subdirectory(dependencies/simplefilewatcher)
-	set_target_properties(sfw_lib PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher"
+	set(VERBOSE OFF CACHE BOOL "" FORCE)
+	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+	set(BUILD_TEST_APP OFF CACHE BOOL "" FORCE)
+	set(EFSW_INSTALL OFF CACHE BOOL "" FORCE)
+	add_subdirectory(dependencies/efsw)
+	set_target_properties(efsw PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/efsw"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/efsw"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/efsw"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/efsw"
 	)
 
 	set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
@@ -180,25 +183,25 @@ else()
 	# Set external project options.
 	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
-			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
-			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
@@ -208,25 +211,25 @@ else()
 		endif()
 	else()
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-				target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 
-				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-				target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 
-				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
@@ -241,7 +244,7 @@ else()
 	add_subdirectory(supercluster)
 
 	# Configure dependencies
-	add_dependencies(galaxy sfw_lib)
+	add_dependencies(galaxy efsw)
 	add_dependencies(galaxy glfw)
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
@@ -267,7 +270,7 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/simplefilewatcher/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/efsw/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
@@ -339,7 +342,7 @@ else()
 		target_link_options(galaxy PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 		target_link_options(supercluster PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 
-		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
+		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Debug/efsw.${LIB_FILE_EXT}")
 		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
@@ -360,7 +363,7 @@ else()
 		target_link_options(galaxy PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 		target_link_options(supercluster PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 
-		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
+		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Release/efsw.${LIB_FILE_EXT}")
 		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
@@ -405,7 +408,7 @@ else()
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 
-			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
+			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Debug/efsw.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
@@ -414,7 +417,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 			
-			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Debug/sfw_lib.${LIB_FILE_EXT}")
+			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Debug/efsw.${LIB_FILE_EXT}")
 			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
@@ -432,7 +435,7 @@ else()
 			target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 
-			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
+			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Release/efsw.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
@@ -441,7 +444,7 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
-		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/simplefilewatcher/Release/sfw_lib.${LIB_FILE_EXT}")
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/efsw/Release/efsw.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
