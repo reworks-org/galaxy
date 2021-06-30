@@ -14,8 +14,6 @@
 #include <span>
 #include <string_view>
 
-#include <FileWatcher/FileWatcher.h>
-
 #define CUR_DIR std::filesystem::current_path().string()
 
 namespace galaxy
@@ -151,40 +149,6 @@ namespace galaxy
 
 		private:
 			///
-			/// Update listener for filesystem changes.
-			///
-			class UpdateListener final : public FW::FileWatchListener
-			{
-			public:
-				///
-				/// Constructor.
-				///
-				UpdateListener() noexcept = default;
-
-				///
-				/// Virtual destructor.
-				///
-				virtual ~UpdateListener() noexcept = default;
-
-				///
-				/// Handles the action file action.
-				///
-				/// \param watch_id The watch id for the directory.
-				/// \param dir The directory.
-				/// \param file_name The filename that was accessed (not full path).
-				/// \param action Action that was performed.
-				///
-				void handleFileAction(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action) override;
-
-			public:
-				///
-				/// Callback set by application.
-				///
-				std::function<void(FW::WatchID, const FW::String&, const FW::String&, FW::Action)> m_on_file_change;
-			};
-
-		private:
-			///
 			/// Mounts a directory to the VFS.
 			///
 			/// \param dir Directory to add.
@@ -198,16 +162,6 @@ namespace galaxy
 			/// Stores mounted directories.
 			///
 			std::vector<std::filesystem::path> m_dirs;
-
-			///
-			/// The listener implementation.
-			///
-			UpdateListener m_listener;
-
-			///
-			/// The filewatcher that listens for changes.
-			///
-			FW::FileWatcher m_watcher;
 		};
 	} // namespace fs
 } // namespace galaxy

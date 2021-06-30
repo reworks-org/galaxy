@@ -17,9 +17,14 @@ namespace galaxy
 {
 	namespace res
 	{
+		Language::Language() noexcept
+		    : m_cur_lang {""}
+		{
+		}
+
 		Language::~Language() noexcept
 		{
-			m_lang_map.clear();
+			clear();
 		}
 
 		void Language::parse_language_folder(std::string_view lang_folder)
@@ -46,10 +51,10 @@ namespace galaxy
 		{
 			m_lang_map.clear();
 
-			const auto lang_key = static_cast<std::string>(lang);
-			if (m_languages.contains(lang_key))
+			m_cur_lang = static_cast<std::string>(lang);
+			if (m_languages.contains(m_cur_lang))
 			{
-				sol::table lua = m_languages[lang_key]["lang"];
+				sol::table lua = m_languages[m_cur_lang]["lang"];
 				for (const auto& [key, value] : lua)
 				{
 					m_lang_map.emplace(key.as<std::string>(), value.as<std::string>());
@@ -73,6 +78,17 @@ namespace galaxy
 			{
 				return str;
 			}
+		}
+
+		void Language::reload()
+		{
+			set_language(m_cur_lang);
+		}
+
+		void Language::clear() noexcept
+		{
+			m_languages.clear();
+			m_lang_map.clear();
 		}
 	} // namespace res
 } // namespace galaxy

@@ -24,7 +24,7 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
-		    : m_instance {nullptr}, m_openal {}
+		    : m_instance {nullptr}, m_openal {}, m_filewatcher {false}, m_filelistener {nullptr}
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -48,6 +48,9 @@ namespace galaxy
 			SL_HANDLE.m_pool = m_pool.get();
 
 			// Virtual filesystem setup.
+			m_filelistener = std::make_unique<fs::FileListener>();
+			m_filelistener->set_action(std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5));
+
 			auto root = static_cast<std::string>(asset_dir);
 			if (root.back() != '/')
 			{
@@ -165,10 +168,10 @@ namespace galaxy
 				generate_default_assets(root);
 
 				// Parse languages.
-				m_language = std::make_unique<res::Language>();
-				m_language->parse_language_folder(root + "lang/");
-				m_language->set_language("en_au");
-				SL_HANDLE.m_language = m_language.get();
+				m_langs = std::make_unique<res::Language>();
+				m_langs->parse_language_folder(root + "lang/");
+				m_langs->set_language("en_au");
+				SL_HANDLE.m_language = m_langs.get();
 
 				// ShaderBook.
 				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
@@ -218,10 +221,10 @@ namespace galaxy
 				m_lua->set("galaxy_soundbook", m_soundbook.get());
 				m_lua->set("galaxy_musicbook", m_musicbook.get());
 				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
-				m_lua->set("galaxy_language", m_language.get());
+				m_lua->set("galaxy_language", m_langs.get());
 
-				// Bind filesystem listener.
-				m_vfs->m_listener.m_on_file_change = std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
+				// Begin watching files now that default asset creation is over.
+				m_filewatcher.watch();
 			}
 		}
 
@@ -240,7 +243,7 @@ namespace galaxy
 			m_fontbook.reset();
 			m_shaderbook.reset();
 			m_scriptbook.reset();
-			m_language.reset();
+			m_langs.reset();
 			m_lua.reset();
 			m_window.reset();
 			m_config.reset();
@@ -290,7 +293,6 @@ namespace galaxy
 					m_window->poll_events();
 					m_instance->events();
 
-					m_vfs->m_watcher.update();
 					m_instance->update(ups_s);
 					accumulator -= ups_as_nano;
 
@@ -330,6 +332,8 @@ namespace galaxy
 		void Application::create_asset_layout(const std::string& root, const std::string& asset_folder)
 		{
 			const auto merged = root + asset_folder;
+
+			m_filewatcher.addWatch(merged, m_filelistener.get(), true);
 
 			if (!std::filesystem::exists(merged))
 			{
@@ -414,63 +418,65 @@ namespace galaxy
 			}
 		}
 
-		void Application::reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action)
+		void Application::reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename)
 		{
 			m_window->request_attention();
 
-			// NOTE: We dont need to reload 3D renderer since it has no static data.
-
-			if (dir.find("shaders") != std::string::npos)
+			if (dir.find("music") != std::string::npos)
 			{
-				// ShaderBook.
-				m_shaderbook->clear();
-				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
-			}
-			else if (dir.find("scripts") != std::string::npos)
-			{
-				// ScriptBook.
-				m_scriptbook->clear();
-				m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading scripts due to change in filesystem.");
-			}
-			else if (dir.find("fonts") != std::string::npos)
-			{
-				// FontBook.
-				m_fontbook->clear();
-				m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading fonts due to change in filesystem.");
-			}
-			else if (dir.find("textures") != std::string::npos)
-			{
-				// Texture Atlas.
-				m_texturebook->clear();
-				m_texturebook->add_json(m_config->get<std::string>("texturebook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
-			}
-			else if (dir.find("sfx") != std::string::npos)
-			{
-				// SoundBook.
-				m_soundbook->clear();
-				m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
-
-				GALAXY_LOG(GALAXY_INFO, "Reloading sfx due to change in filesystem.");
-			}
-			else if (dir.find("music") != std::string::npos)
-			{
-				// MusicBook.
 				m_musicbook->clear();
 				m_musicbook->create_from_json(m_config->get<std::string>("musicbook-json"));
 
 				GALAXY_LOG(GALAXY_INFO, "Reloading music due to change in filesystem.");
 			}
-			else if (dir.find("maps") != std::string::npos)
+
+			else if (dir.find("sfx") != std::string::npos)
 			{
-				static_assert("Not yet implemented");
+				m_soundbook->clear();
+				m_soundbook->create_from_json(m_config->get<std::string>("soundbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading sfx due to change in filesystem.");
+			}
+
+			else if (dir.find("fonts") != std::string::npos)
+			{
+				m_fontbook->clear();
+				m_fontbook->create_from_json(m_config->get<std::string>("fontbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading fonts due to change in filesystem.");
+			}
+
+			else if (dir.find("scripts") != std::string::npos)
+			{
+				m_scriptbook->clear();
+				m_scriptbook->create_from_json(m_config->get<std::string>("scriptbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading scripts due to change in filesystem.");
+			}
+
+			else if (dir.find("shaders") != std::string::npos)
+			{
+				m_shaderbook->clear();
+				m_shaderbook->create_from_json(m_config->get<std::string>("shaderbook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading shaders due to change in filesystem.");
+			}
+
+			else if (dir.find("textures") != std::string::npos)
+			{
+				m_texturebook->clear();
+				m_texturebook->add_json(m_config->get<std::string>("texturebook-json"));
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading textures due to change in filesystem.");
+			}
+
+			else if (dir.find("lang") != std::string::npos)
+			{
+				m_langs->clear();
+				m_langs->parse_language_folder(dir);
+				m_langs->reload();
+
+				GALAXY_LOG(GALAXY_INFO, "Reloading langauges due to change in filesystem.");
 			}
 		}
 	} // namespace core

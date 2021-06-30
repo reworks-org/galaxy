@@ -18,6 +18,7 @@
 #include "galaxy/core/Instance.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
+#include "galaxy/fs/FileListener.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/resource/FontBook.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -72,6 +73,26 @@ namespace galaxy
 
 		private:
 			///
+			/// Copy constructor.
+			///
+			Application(const Application&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Application(Application&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Application& operator=(const Application&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Application& operator=(Application&&) = delete;
+
+			///
 			/// \brief Create default asset layout.
 			///
 			/// This uses a const string reference over string_view since
@@ -94,10 +115,11 @@ namespace galaxy
 			///
 			/// \param watch_id The watch id for the directory.
 			/// \param dir The directory.
-			/// \param file_name The filename that was accessed (not full path).
+			/// \param filename The filename that was accessed (not full path).
 			/// \param action Action that was performed.
+			/// \param old_filename The name of the file or directory moved.
 			///
-			void reload_assets(FW::WatchID watch_id, const FW::String& dir, const FW::String& file_name, FW::Action action);
+			void reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename);
 
 		protected:
 			///
@@ -163,7 +185,7 @@ namespace galaxy
 			///
 			/// Language service.
 			///
-			std::unique_ptr<res::Language> m_language;
+			std::unique_ptr<res::Language> m_langs;
 
 			///
 			/// Threadpool.
@@ -172,24 +194,14 @@ namespace galaxy
 
 		private:
 			///
-			/// Copy constructor.
+			/// Filesystem watcher.
 			///
-			Application(const Application&) = delete;
+			efsw::FileWatcher m_filewatcher;
 
 			///
-			/// Move constructor.
+			/// Filesystem listener.
 			///
-			Application(Application&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Application& operator=(const Application&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Application& operator=(Application&&) = delete;
+			std::unique_ptr<fs::FileListener> m_filelistener;
 		};
 	} // namespace core
 } // namespace galaxy

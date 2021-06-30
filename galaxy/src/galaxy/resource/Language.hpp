@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Language() noexcept = default;
+			Language() noexcept;
 
 			///
 			/// Destructor.
@@ -53,6 +53,16 @@ namespace galaxy
 			///
 			[[nodiscard]] std::string translate(std::string_view key) noexcept;
 
+			///
+			/// Reload current language.
+			///
+			void reload();
+
+			///
+			/// Clear langauge database.
+			///
+			void clear() noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -75,6 +85,11 @@ namespace galaxy
 			Language& operator=(Language&&) = delete;
 
 		private:
+			///
+			/// Current language.
+			///
+			std::string m_cur_lang;
+
 			///
 			/// Language data is stored in a lua table.
 			///
