@@ -1,2 +1,12 @@
 - Further rendersystem improvements and optimizations.
 - For scene push/pop run lua script?
+
+- depth rework
+- opacity rework
+- sort by opacity and depth
+
+some resource managers unique to a scene.
+event handling per scene.
+
+
+map hot reloading

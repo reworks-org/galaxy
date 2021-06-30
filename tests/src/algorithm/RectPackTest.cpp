@@ -7,11 +7,11 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/algorithm/RectPack.hpp>
+#include <galaxy/math/RectPack.hpp>
 
 TEST(RectPack, Init)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 
 	EXPECT_EQ(p.get_width(), 100);
@@ -20,7 +20,7 @@ TEST(RectPack, Init)
 
 TEST(RectPack, NoFit)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 
 	auto res = p.pack(999, 999);
@@ -30,7 +30,7 @@ TEST(RectPack, NoFit)
 
 TEST(RectPack, FillsWidthHeight)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(100, 100);
 
@@ -43,7 +43,7 @@ TEST(RectPack, FillsWidthHeight)
 
 TEST(RectPack, FillsWidth)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(100, 10);
 
@@ -60,7 +60,7 @@ TEST(RectPack, FillsWidth)
 
 TEST(RectPack, FillsHeight)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(10, 100);
 
@@ -77,7 +77,7 @@ TEST(RectPack, FillsHeight)
 
 TEST(RectPack, Fits)
 {
-	galaxy::algorithm::RectPack<int> p;
+	galaxy::math::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(10, 10);
 

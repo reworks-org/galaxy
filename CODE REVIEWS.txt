@@ -1,3 +1,0 @@
-- Fix Code Analysis warnings.
-- Fix Compilation warnings.
-- Fix Doxygen errors.
