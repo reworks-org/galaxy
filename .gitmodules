@@ -39,6 +39,3 @@
 [submodule "dependencies/simplefilewatcher"]
 	path = dependencies/simplefilewatcher
 	url = https://github.com/shadowndacorner/SimpleFileWatcher.git
-[submodule "dependencies/assimp"]
-	path = dependencies/assimp
-	url = https://github.com/DomRe/assimp.git

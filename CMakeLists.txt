@@ -177,33 +177,6 @@ else()
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
 	)
 
-	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-	set(ASSIMP_NO_EXPORT ON CACHE BOOL "" FORCE)
-	set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
-	set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
-	set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-	set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
-	set(ASSIMP_IGNORE_GIT_HASH ON CACHE BOOL "" FORCE)
-	add_subdirectory(dependencies/assimp)
-	set_target_properties(assimp PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/assimp"
-	    PREFIX ""
-	    OUTPUT_NAME "assimp"
-	    SUFFIX ".${LIB_FILE_EXT}"
-	)
-	set_target_properties(IrrXML PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/IrrXML"
-	    PREFIX ""
-	    OUTPUT_NAME "IrrXML"
-	    SUFFIX ".${LIB_FILE_EXT}"
-	)
-
 	# Set external project options.
 	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
@@ -212,36 +185,24 @@ else()
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-			target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-			target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-			target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 			target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
-			target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-			target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-			target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-			target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 		else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
@@ -252,36 +213,24 @@ else()
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
-				target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
-				target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
-				target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 
 				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-				target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-				target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-				target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 				target_compile_options(sfw_lib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
-				target_compile_options(IrrXML PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
-				target_compile_options(assimp PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
-				target_compile_options(assimp_zlibstatic PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 
 				target_link_options(sfw_lib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-				target_link_options(IrrXML PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-				target_link_options(assimp PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-				target_link_options(assimp_zlibstatic PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			else()
 				message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 			endif()
@@ -297,9 +246,6 @@ else()
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
-	add_dependencies(galaxy IrrXML)
-	add_dependencies(galaxy assimp)
-	add_dependencies(galaxy assimp_zlibstatic)
 
 	add_dependencies(galaxy dependencies)
 	add_dependencies(supercluster galaxy)
@@ -307,9 +253,6 @@ else()
 	# Set header directories.
 	set(HEADERS
 		"${GALAXY_EXTERNAL_HEADERS}"
-		"${CMAKE_SOURCE_DIR}/dependencies/assimp/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/assimp-conf"
-		"${CMAKE_SOURCE_DIR}/dependencies/base64"
 		"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 		"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/glm"
@@ -401,8 +344,6 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
-	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -424,8 +365,6 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
-		target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -471,8 +410,6 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -482,8 +419,6 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Debug/IrrXML.${LIB_FILE_EXT}")
-		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Debug/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -502,8 +437,6 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
-			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -513,8 +446,6 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/IrrXML/Release/IrrXML.${LIB_FILE_EXT}")
-			target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/assimp/Release/assimp.${LIB_FILE_EXT}")
 
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
