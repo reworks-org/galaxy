@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ALGORITHM_RANDOM_HPP_
-#define GALAXY_ALGORITHM_RANDOM_HPP_
+#ifndef GALAXY_MATH_RANDOM_HPP_
+#define GALAXY_MATH_RANDOM_HPP_
 
 #include <random>
 
@@ -14,10 +14,10 @@
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		///
-		/// Credits: http://stackoverflow.com/a/32907541.
+		/// Source: http://stackoverflow.com/a/32907541.
 		///
 		template<typename Type>
 		using conditional_distribution = std::conditional_t<
@@ -43,7 +43,7 @@ namespace galaxy
 
 			return dist(mt);
 		}
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #endif

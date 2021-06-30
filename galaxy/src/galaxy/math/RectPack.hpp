@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ALGORITHM_RECTPACK_HPP_
-#define GALAXY_ALGORITHM_RECTPACK_HPP_
+#ifndef GALAXY_MATH_RECTPACK_HPP_
+#define GALAXY_MATH_RECTPACK_HPP_
 
 #include <optional>
 #include <vector>
@@ -16,7 +16,7 @@
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		///
 		///	Rectangle 2D bin packing class.
@@ -200,7 +200,7 @@ namespace galaxy
 		{
 			return m_free_rects;
 		}
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #endif

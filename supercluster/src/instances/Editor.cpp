@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-#include <galaxy/algorithm/Algorithm.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
 #include <galaxy/components/OnCollision.hpp>
@@ -23,6 +22,7 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/graphics/Camera2D.hpp>
+#include <galaxy/math/ZLib.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/systems/CollisionSystem.hpp>
@@ -232,7 +232,7 @@ namespace sc
 			m_gl_operations.clear();
 			m_scene_stack.pre_render();
 
-			m_framebuffer.bind();
+			m_framebuffer.bind(true);
 			m_scene_stack.render();
 			m_framebuffer.unbind();
 
@@ -272,7 +272,7 @@ namespace sc
 			const auto size = compressed.value().size();
 			m_path          = path;
 
-			auto decompressed = algorithm::decode_zlib({compressed.value().begin(), compressed.value().end()});
+			auto decompressed = math::decode_zlib({compressed.value().begin(), compressed.value().end()});
 			const auto json   = json::parse_from_mem(decompressed);
 			if (json != std::nullopt)
 			{
@@ -304,13 +304,13 @@ namespace sc
 				GALAXY_LOG(GALAXY_ERROR, "Failed to create new project file.");
 			}
 
-			auto compressed = algorithm::encode_zlib(serialize().dump(4));
+			auto compressed = math::encode_zlib(serialize().dump(4));
 			SL_HANDLE.vfs()->save_binary(compressed, opt.value());
 			SL_HANDLE.window()->set_title(std::filesystem::path(opt.value()).stem().string() + " - Supercluster Editor");
 		}
 		else
 		{
-			auto compressed = algorithm::encode_zlib(serialize().dump(4));
+			auto compressed = math::encode_zlib(serialize().dump(4));
 			SL_HANDLE.vfs()->save_binary(compressed, m_path);
 			SL_HANDLE.window()->set_title(std::filesystem::path(m_path).stem().string() + " - Supercluster Editor");
 		}

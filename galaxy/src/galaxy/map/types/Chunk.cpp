@@ -7,8 +7,10 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/GZip.hpp"
+#include "galaxy/math/ZLib.hpp"
 
 #include "Chunk.hpp"
 
@@ -61,15 +63,15 @@ namespace galaxy
 				else
 				{
 					std::string data_str = json.at("data");
-					data_str             = algorithm::decode_base64(data_str);
+					data_str             = math::decode_base64(data_str);
 
 					if (compression == "zlib")
 					{
-						data_str = algorithm::decode_zlib(data_str);
+						data_str = math::decode_zlib(data_str);
 					}
 					else if (compression == "gzip")
 					{
-						data_str = algorithm::decode_gzip(data_str);
+						data_str = math::decode_gzip(data_str);
 					}
 					else if (compression == "zstd")
 					{
