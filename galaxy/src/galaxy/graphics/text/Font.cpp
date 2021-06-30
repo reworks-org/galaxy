@@ -115,7 +115,7 @@ namespace galaxy
 						glGenBuffers(1, &char_vbo);
 						glBindVertexArray(char_vao);
 						glBindBuffer(GL_ARRAY_BUFFER, char_vbo);
-						glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+						glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
 						glEnableVertexAttribArray(0);
 						glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
 						glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -179,7 +179,7 @@ namespace galaxy
 						glPixelStorei(GL_UNPACK_ALIGNMENT, orig_alignment);
 
 						m_fontmap.create(total_width, m_height);
-						m_fontmap.bind();
+						m_fontmap.bind(true);
 
 						m_shader.bind();
 						m_shader.set_uniform("u_proj", m_fontmap.get_proj());
@@ -207,14 +207,14 @@ namespace galaxy
 
 							glBindBuffer(GL_ARRAY_BUFFER, char_vbo);
 							glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-							glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 							glDrawArrays(GL_TRIANGLES, 0, 6);
 
 							offset_x += (c_obj.m_advance >> 6);
-							glBindTexture(GL_TEXTURE_2D, 0);
 						}
 
+						glBindBuffer(GL_ARRAY_BUFFER, 0);
+						glBindTexture(GL_TEXTURE_2D, 0);
 						m_fontmap.unbind();
 
 						glBindVertexArray(0);

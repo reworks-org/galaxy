@@ -101,14 +101,19 @@ namespace galaxy
 			m_framebuffer.resize(width, height);
 		}
 
-		void RenderTexture::bind() noexcept
+		void RenderTexture::bind(const bool clear) noexcept
 		{
-			m_framebuffer.bind();
+			m_framebuffer.bind(clear);
 		}
 
 		void RenderTexture::unbind() noexcept
 		{
 			m_framebuffer.unbind();
+		}
+
+		void RenderTexture::clear() noexcept
+		{
+			m_framebuffer.clear();
 		}
 
 		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept

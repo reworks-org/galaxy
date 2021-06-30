@@ -100,12 +100,19 @@ namespace galaxy
 			///
 			/// Bind framebuffer for rendering to.
 			///
-			void bind() noexcept;
+			/// \param clear Should the framebuffer clear attachments.
+			///
+			void bind(const bool clear) noexcept;
 
 			///
 			/// Unbind framebuffer.
 			///
 			void unbind() noexcept;
+
+			///
+			/// Clear framebuffer attachments.
+			///
+			void clear() noexcept;
 
 			///
 			/// Get width.

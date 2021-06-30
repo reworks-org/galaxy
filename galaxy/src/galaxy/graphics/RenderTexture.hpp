@@ -81,12 +81,19 @@ namespace galaxy
 			///
 			/// Activate texture context.
 			///
-			void bind() noexcept;
+			/// \param clear Should the framebuffer clear attachments.
+			///
+			void bind(const bool clear) noexcept;
 
 			///
 			/// Deactivate texture context.
 			///
 			void unbind() noexcept;
+
+			///
+			/// Clear framebuffer attachments.
+			///
+			void clear() noexcept;
 
 			///
 			/// Modify projection of render texture.

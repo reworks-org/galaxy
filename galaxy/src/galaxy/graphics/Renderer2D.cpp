@@ -27,7 +27,7 @@ constexpr const char* const point_vert = R"(
 
 	layout(std140, binding = 0) uniform camera_data
 	{
-		mat4 u_camera_view;
+		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
 
@@ -41,8 +41,8 @@ constexpr const char* const point_vert = R"(
 
 		gl_PointSize = u_point_size;
 
-		gl_Position  = u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		gl_Position  = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -76,7 +76,7 @@ constexpr const char* const line_vert = R"(
 
 	layout(std140, binding = 0) uniform camera_data
 	{
-		mat4 u_camera_view;
+		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
 
@@ -87,8 +87,8 @@ constexpr const char* const line_vert = R"(
 	{
 		io_colour    = vec4(l_colour, u_opacity);
 
-		gl_Position = u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		gl_Position = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -122,7 +122,7 @@ constexpr const char* const text_vert = R"(
 	
 	layout(std140, binding = 0) uniform camera_data
 	{
-		mat4 u_camera_view;
+		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
 
@@ -134,8 +134,8 @@ constexpr const char* const text_vert = R"(
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
-		gl_Position =  u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -172,7 +172,7 @@ constexpr const char* const sprite_vert = R"(
 	
 	layout(std140, binding = 0) uniform camera_data
 	{
-		mat4 u_camera_view;
+		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
 
@@ -180,13 +180,12 @@ constexpr const char* const sprite_vert = R"(
 	uniform float u_width;
 	uniform float u_height;
 	
-
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
-		gl_Position =  u_camera_proj * u_camera_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -224,12 +223,6 @@ constexpr const char* const render_to_texture_vert = R"(
 
 	out vec2 io_texels;
 	
-	layout(std140, binding = 0) uniform camera_data
-	{
-		mat4 u_camera_view;
-		mat4 u_camera_proj;
-	};
-
 	uniform mat4 u_projection;
 	uniform mat4 u_transform;
 	uniform float u_width;
@@ -240,7 +233,7 @@ constexpr const char* const render_to_texture_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -276,7 +269,7 @@ constexpr const char* const spritebatch_vert = R"(
 	
 	layout(std140, binding = 0) uniform camera_data
 	{
-		mat4 u_camera_view;
+		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
 
@@ -287,8 +280,8 @@ constexpr const char* const spritebatch_vert = R"(
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 		
-		gl_Position =  u_camera_proj * u_camera_view * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = float(l_depth);
+		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
+		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -324,7 +317,7 @@ namespace galaxy
 			m_spritebatch_shader.load_raw(spritebatch_vert, spritebatch_frag);
 
 			m_camera_ubo.create(0);
-			m_camera_ubo.reserve(sizeof(Camera2D));
+			m_camera_ubo.reserve(sizeof(Camera2D::Data));
 		}
 
 		Renderer2D& Renderer2D::inst() noexcept
@@ -335,7 +328,7 @@ namespace galaxy
 
 		void Renderer2D::buffer_camera(Camera2D& camera)
 		{
-			m_camera_ubo.sub_buffer<Camera2D>(0, 1, &camera);
+			m_camera_ubo.sub_buffer<Camera2D::Data>(0, 1, &camera.get_data());
 		}
 
 		void Renderer2D::bind_point() noexcept

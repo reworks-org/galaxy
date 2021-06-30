@@ -98,7 +98,7 @@ namespace galaxy
 
 		void PostProcessor::bind() noexcept
 		{
-			m_fb.bind();
+			m_fb.bind(true);
 		}
 
 		void PostProcessor::unbind() noexcept

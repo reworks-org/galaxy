@@ -38,7 +38,7 @@ namespace galaxy
 				///
 				/// Combined transformation matrix.
 				///
-				alignas(16) glm::mat4 m_model = glm::mat4 {1.0f};
+				alignas(16) glm::mat4 m_model_view = glm::mat4 {1.0f};
 
 				///
 				/// Camera2D projection matrix.
@@ -261,9 +261,9 @@ namespace galaxy
 			///
 			/// Get camera view and proj.
 			///
-			/// \return Const reference to camera data.
+			/// \return Reference to camera data.
 			///
-			[[nodiscard]] const Data& get_data() const noexcept;
+			[[nodiscard]] Data& get_data() noexcept;
 
 			///
 			/// Serializes object.

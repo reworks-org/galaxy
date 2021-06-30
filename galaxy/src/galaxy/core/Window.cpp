@@ -88,16 +88,16 @@ namespace galaxy
 				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-				glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
+				glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
 				// Set debug when compiling for debug mode.
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.m_gl_debug);
 
 				// Window related hints.
-				glfwWindowHint(GLFW_RESIZABLE, true);
-				glfwWindowHint(GLFW_VISIBLE, true);
-				glfwWindowHint(GLFW_DECORATED, true);
-				glfwWindowHint(GLFW_FOCUSED, true);
+				glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+				glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
+				glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
+				glfwWindowHint(GLFW_FOCUSED, GLFW_TRUE);
 
 				// Framebuffer stuff.
 				glfwWindowHint(GLFW_RED_BITS, 8);
@@ -107,8 +107,8 @@ namespace galaxy
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_SAMPLES, 0);
-				glfwWindowHint(GLFW_DOUBLEBUFFER, true);
-				glfwWindowHint(GLFW_SRGB_CAPABLE, true);
+				glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
+				glfwWindowHint(GLFW_SRGB_CAPABLE, GLFW_TRUE);
 
 				// Window maximized check.
 				if (settings.m_maximized)
@@ -258,16 +258,19 @@ namespace galaxy
 						}
 
 						// Configure global GL state.
-						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_MULTISAMPLE);
+						glDisable(GL_FRAMEBUFFER_SRGB);
+						glDisable(GL_CULL_FACE);
+
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);
-						glDepthFunc(GL_LEQUAL);
 						glEnable(GL_BLEND);
-						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-						glEnable(GL_CULL_FACE);
+
+						// GL state function configuration.
 						glCullFace(GL_BACK);
+						glDepthFunc(GL_LEQUAL);
+						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						// Create Post Processor.
 						m_post_processor = std::make_unique<graphics::PostProcessor>();

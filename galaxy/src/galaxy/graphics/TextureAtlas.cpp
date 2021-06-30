@@ -25,22 +25,24 @@ namespace galaxy
 	{
 		TextureAtlas::TextureAtlas() noexcept
 		{
-			m_id = meta::StaticIDGen<TextureAtlas>::get();
-
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
+			m_id = meta::StaticIDGen<TextureAtlas>::get();
 			m_packer.init(m_size, m_size);
+
 			m_render_texture.create(m_size, m_size);
+			m_render_texture.clear();
 		}
 
 		TextureAtlas::TextureAtlas(std::string_view file)
 		{
-			m_id = meta::StaticIDGen<TextureAtlas>::get();
-
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
+			m_id = meta::StaticIDGen<TextureAtlas>::get();
 			m_packer.init(m_size, m_size);
+
 			m_render_texture.create(m_size, m_size);
+			m_render_texture.clear();
 
 			add_json(file);
 		}
@@ -91,18 +93,17 @@ namespace galaxy
 				{
 					// Pack into rect then add to hashmap.
 					components::Sprite to_draw_spr;
+					to_draw_spr.load(path.string());
+					to_draw_spr.create(0);
+
 					const auto opt = m_packer.pack(to_draw_spr.get_width(), to_draw_spr.get_height());
 					if (opt != std::nullopt)
 					{
-						m_render_texture.bind();
+						m_render_texture.bind(false);
 
 						// Load texture.
 						components::Transform2D to_draw_tf;
-						to_draw_spr.load(path.string());
-						to_draw_spr.create(0);
-
-						auto rect = opt.value();
-						to_draw_tf.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
+						to_draw_tf.move(static_cast<float>(opt.value().m_x), static_cast<float>(opt.value().m_y));
 
 						RENDERER_2D().bind_rtt();
 						RENDERER_2D().draw_sprite_to_target(&to_draw_spr, &to_draw_tf, &m_render_texture);
@@ -110,12 +111,13 @@ namespace galaxy
 						// clang-format off
 						m_textures[name.string()] =
 						{
-							.m_region = {static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)},
+							.m_region = {static_cast<float>(opt.value().m_x), static_cast<float>(opt.value().m_y), static_cast<float>(opt.value().m_width), static_cast<float>(opt.value().m_height)},
 							.m_path = path.string(),
 							.m_index = m_id
 						};
 						// clang-format on
 
+						to_draw_spr.unbind();
 						m_render_texture.unbind();
 					}
 					else
@@ -184,6 +186,11 @@ namespace galaxy
 
 				m_textures.emplace(static_cast<std::string>(key), info);
 			}
+		}
+
+		void TextureAtlas::save(std::string_view file_name)
+		{
+			m_render_texture.save(file_name);
 		}
 
 		const bool TextureAtlas::contains(std::string_view key) noexcept

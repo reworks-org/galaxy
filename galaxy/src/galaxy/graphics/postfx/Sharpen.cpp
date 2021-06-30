@@ -90,7 +90,7 @@ namespace galaxy
 
 		const unsigned int Sharpen::render(const unsigned int input)
 		{
-			m_fb.bind();
+			m_fb.bind(true);
 			m_shader.bind();
 
 			glActiveTexture(GL_TEXTURE0);

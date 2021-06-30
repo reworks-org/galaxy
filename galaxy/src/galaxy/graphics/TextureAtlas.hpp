@@ -113,6 +113,13 @@ namespace galaxy
 			void add_custom_region(std::string_view key, const math::Rect<float>& region);
 
 			///
+			/// Saves combined atlas to file on disk.
+			///
+			/// \param file_name Path and filename to save texture to. Does not need extension (it will be ignored).
+			///
+			void save(std::string_view file_name);
+
+			///
 			/// Check if atlas contains a texture.
 			///
 			/// \return True if found.

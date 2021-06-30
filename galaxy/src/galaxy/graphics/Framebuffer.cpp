@@ -74,8 +74,11 @@ namespace galaxy
 
 		Framebuffer::~Framebuffer()
 		{
-			glDeleteFramebuffers(1, &m_fbo);
-			m_fbo = 0;
+			if (m_fbo != 0)
+			{
+				glDeleteFramebuffers(1, &m_fbo);
+				m_fbo = 0;
+			}
 
 			if (m_depth_attachment != 0)
 			{
@@ -325,17 +328,30 @@ namespace galaxy
 			create(); // unbinds framebuffer.
 		}
 
-		void Framebuffer::bind() noexcept
+		void Framebuffer::bind(const bool clear) noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 			glViewport(0, 0, m_width, m_height);
 
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			if (clear)
+			{
+				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			}
 		}
 
 		void Framebuffer::unbind() noexcept
 		{
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		}
+
+		void Framebuffer::clear() noexcept
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
+
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 

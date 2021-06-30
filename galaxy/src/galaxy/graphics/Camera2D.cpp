@@ -232,7 +232,7 @@ namespace galaxy
 		const glm::mat4& Camera2D::get_view() noexcept
 		{
 			recalculate();
-			return m_data.m_model;
+			return m_data.m_model_view;
 		}
 
 		const float Camera2D::get_scale() const noexcept
@@ -250,8 +250,9 @@ namespace galaxy
 			return m_data.m_projection;
 		}
 
-		const Camera2D::Data& Camera2D::get_data() const noexcept
+		Camera2D::Data& Camera2D::get_data() noexcept
 		{
+			recalculate();
 			return m_data;
 		}
 
@@ -273,7 +274,7 @@ namespace galaxy
 			m_dirty             = true;
 			m_scaling           = glm::mat4 {1.0f};
 			m_translation       = glm::mat4 {1.0f};
-			m_data.m_model      = glm::mat4 {1.0f};
+			m_data.m_model_view = glm::mat4 {1.0f};
 			m_moving_fwd        = false;
 			m_moving_back       = false;
 			m_moving_left       = false;
@@ -294,8 +295,8 @@ namespace galaxy
 		{
 			if (m_dirty)
 			{
-				m_data.m_model = m_translation * m_scaling;
-				m_dirty        = false;
+				m_data.m_model_view = m_translation * m_scaling;
+				m_dirty             = false;
 			}
 		}
 	} // namespace graphics
