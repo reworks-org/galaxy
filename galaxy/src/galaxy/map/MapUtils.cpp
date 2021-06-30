@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/error/Log.hpp"
 
 #include "MapUtils.hpp"

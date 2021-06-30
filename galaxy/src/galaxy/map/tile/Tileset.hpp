@@ -23,7 +23,7 @@ namespace galaxy
 		/// Based on Tileset Image:
 		///		This tileset defines a fixed size for all tilesand the image from which these tiles are supposed to be cut.In addition it supports a margin around the tilesand a spacing between the tiles, which allows for using tileset images that either happen to have space between or around their tiles or those that have extruded the border pixels of each tile to avoid color bleeding.
 		/// Collection of Images:
-		///		In this type of tileset each tile refers to its own image file.It is useful when the tiles aren’t the same size, or when the packing of tiles into a texture is done later on.
+		///		In this type of tileset each tile refers to its own image file.It is useful when the tiles are not the same size, or when the packing of tiles into a texture is done later on.
 		///
 		class Tileset final
 		{
