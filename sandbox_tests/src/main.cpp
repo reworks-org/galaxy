@@ -5,11 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <portable-file-dialogs.h>
-
-#include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/error/Log.hpp>
 
 #include "Sandbox.hpp"
 
@@ -32,17 +28,15 @@ int main(int argsc, char* argsv[])
 		SL_HANDLE.m_restart = false;
 
 		{
-			SandboxApp sandbox {"assets/", "assets/config.json"};
+			SandboxApp app {"assets/", "assets/config.json"};
 
-			{
-				std::shared_ptr<sb::Sandbox> sandbox_instance = std::make_shared<sb::Sandbox>();
-				sandbox.set_instance(sandbox_instance);
-			}
+			auto sandbox_layer = app.create_layer<sb::Sandbox>();
+			app.push_layer(sandbox_layer);
 
-			restart = sandbox.run();
+			restart = app.run();
 		}
 
 	} while (restart);
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -35,7 +35,8 @@ input::Keys parse_key(const std::string& key)
 
 namespace sb
 {
-	Sandbox::Sandbox()
+	Sandbox::Sandbox(core::Application* app)
+	    : Layer {app}
 	{
 		m_window = SL_HANDLE.window();
 
@@ -122,7 +123,7 @@ namespace sb
 
 	void Sandbox::create_sandbox_scene()
 	{
-		auto sandbox = m_scene_stack.create<scene::Scene2D>("SandboxScene");
+		auto sandbox = m_scene_stack.create("SandboxScene");
 
 		sandbox->m_world.create_from_json("bg.json");
 		sandbox->m_world.create_from_json("point.json");
@@ -221,15 +222,15 @@ namespace sb
 			}
 		});
 
-		sandbox->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		sandbox->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		sandbox->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		sandbox->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		sandbox->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		sandbox->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_physics_scene()
 	{
-		auto physics = m_scene_stack.create<scene::Scene2D>("PhysicsScene");
+		auto physics = m_scene_stack.create("PhysicsScene");
 
 		physics->m_world.create_from_json("bg.json");
 		physics->m_world.create_from_json("floor.json");
@@ -264,15 +265,15 @@ namespace sb
 			}
 		});
 
-		physics->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		physics->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		physics->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		physics->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		physics->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		physics->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 
 	void Sandbox::create_map_scene()
 	{
-		auto map = m_scene_stack.create<scene::Scene2D>("MapScene");
+		auto map = m_scene_stack.create("MapScene");
 
 		map->m_world.create_from_json("bg.json");
 
@@ -292,9 +293,9 @@ namespace sb
 			}
 		});
 
-		map->get_camera().m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
-		map->get_camera().m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
-		map->get_camera().m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
-		map->get_camera().m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
+		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
+		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
+		map->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));
+		map->m_camera.m_right_key   = parse_key(SL_HANDLE.config()->get<std::string>("key-right"));
 	}
 } // namespace sb

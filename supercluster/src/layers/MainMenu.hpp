@@ -9,18 +9,15 @@
 #define SUPERCLUSTER_EDITOR_MAINMENU_HPP_
 
 #include <galaxy/core/Application.hpp>
-#include <galaxy/core/Instance.hpp>
-
-#include "instances/Editor.hpp"
 
 using namespace galaxy;
 
 namespace sc
 {
-	class MainMenu final : public core::Instance
+	class MainMenu final : public core::Layer
 	{
 	public:
-		MainMenu(core::Application* app, std::shared_ptr<Editor> editor) noexcept;
+		MainMenu(core::Application* app) noexcept;
 		virtual ~MainMenu() noexcept;
 
 		void events() override;
@@ -30,10 +27,6 @@ namespace sc
 
 	private:
 		MainMenu() = delete;
-
-	private:
-		core::Application* m_app;
-		std::shared_ptr<Editor> m_editor;
 	};
 } // namespace sc
 

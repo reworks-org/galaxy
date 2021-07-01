@@ -9,7 +9,7 @@
 
 namespace galaxy
 {
-	namespace scene
+	namespace core
 	{
 		SceneStack::SceneStack() noexcept
 		    : Serializable {this}
@@ -21,93 +21,55 @@ namespace galaxy
 			clear();
 		}
 
-		std::shared_ptr<Scene> SceneStack::top()
+		Scene2D* SceneStack::create(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+
+			if (m_scenes.contains(str))
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Scene already exists.");
+				return nullptr;
+			}
+			else
+			{
+				m_scenes[str] = std::make_unique<Scene2D>(str);
+				return m_scenes[str].get();
+			}
+		}
+
+		Scene2D* SceneStack::top()
 		{
 			if (!m_stack.empty())
 			{
 				return m_stack.back();
 			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "No scenes in stack!");
-				return nullptr;
-			}
-		}
 
-		void SceneStack::events()
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->events();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to access empty scene stack.");
-			}
-		}
-
-		void SceneStack::update(const double dt)
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->update(dt);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to access empty scene stack.");
-			}
-		}
-
-		void SceneStack::pre_render()
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->pre_render();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to access empty scene stack.");
-			}
-		}
-
-		void SceneStack::render()
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->render();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to access empty scene stack.");
-			}
+			return nullptr;
 		}
 
 		void SceneStack::push(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
+
 			if (m_scenes.contains(str))
 			{
 				if (!m_stack.empty())
 				{
 					if (m_stack.back()->m_name != str)
 					{
-						m_stack.push_back(m_scenes[str]);
+						m_stack.push_back(m_scenes[str].get());
 						m_stack.back()->on_push();
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Tried to push state that is already on top.");
 					}
 				}
 				else
 				{
-					m_stack.push_back(m_scenes[str]);
+					m_stack.push_back(m_scenes[str].get());
 					m_stack.back()->on_push();
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to push non-existant scene.");
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to push unknown scene to stack.");
 			}
 		}
 
@@ -119,10 +81,6 @@ namespace galaxy
 			{
 				m_stack.back()->on_pop();
 				m_stack.pop_back();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to pop last scene.");
 			}
 		}
 
@@ -137,7 +95,54 @@ namespace galaxy
 			m_scenes.clear();
 		}
 
-		SceneStorage& SceneStack::get_scenes() noexcept
+		void SceneStack::events()
+		{
+			if (!m_stack.empty())
+			{
+				m_stack.back()->events();
+			}
+		}
+
+		void SceneStack::update(const double dt)
+		{
+			if (!m_stack.empty())
+			{
+				m_stack.back()->update(dt);
+			}
+		}
+
+		void SceneStack::pre_render()
+		{
+			if (!m_stack.empty())
+			{
+				m_stack.back()->pre_render();
+			}
+		}
+
+		void SceneStack::render()
+		{
+			if (!m_stack.empty())
+			{
+				m_stack.back()->render();
+			}
+		}
+
+		Scene2D* SceneStack::get(std::string_view name)
+		{
+			const auto str = static_cast<std::string>(name);
+
+			if (m_scenes.contains(str))
+			{
+				return m_scenes[str].get();
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Scene with name: {0} does not exist.", name);
+				return nullptr;
+			}
+		}
+
+		robin_hood::unordered_node_map<std::string, std::unique_ptr<Scene2D>>& SceneStack::get_scenes() noexcept
 		{
 			return m_scenes;
 		}
@@ -182,16 +187,7 @@ namespace galaxy
 			const auto& scenes = json.at("scenes");
 			for (const auto& [key, value] : scenes.items())
 			{
-				const auto type = value.at("type").get<std::string>();
-				if (type == "2D")
-				{
-					create<Scene2D>(key);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Could not deserialize scene, unknown type: {0}.", type);
-				}
-
+				create(key);
 				m_scenes[key]->deserialize(value);
 			}
 
@@ -209,5 +205,5 @@ namespace galaxy
 				push(name);
 			}
 		}
-	} // namespace scene
+	} // namespace core
 } // namespace galaxy

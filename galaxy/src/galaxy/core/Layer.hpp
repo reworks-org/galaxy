@@ -1,32 +1,39 @@
 ///
-/// Instance.hpp
+/// Layer.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_CORE_INSTANCE_HPP_
-#define GALAXY_CORE_INSTANCE_HPP_
+#ifndef GALAXY_CORE_LAYER_HPP_
+#define GALAXY_CORE_LAYER_HPP_
 
-#include "galaxy/scenes/SceneStack.hpp"
+#include "galaxy/core/SceneStack.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
+		class Application;
+
 		///
-		/// Represents an "Instance" of the game, encapsulating things like events and rendering.
+		/// Represents an "Layer" of the game, encapsulating things like events and rendering.
 		///
-		class Instance : public fs::Serializable
+		class Layer : public fs::Serializable
 		{
 		public:
 			///
-			/// Default virtual destructor.
+			/// Constructor.
 			///
-			virtual ~Instance();
+			Layer(Application* app) noexcept;
 
 			///
-			/// Process Instance events.
+			/// Virtual destructor.
+			///
+			virtual ~Layer();
+
+			///
+			/// Process Layer events.
 			///
 			virtual void events() = 0;
 
@@ -43,19 +50,19 @@ namespace galaxy
 			virtual void pre_render() = 0;
 
 			///
-			/// Render instance.
+			/// Render Layer.
 			///
 			virtual void render() = 0;
 
 			///
-			/// Set instance name.
+			/// Set Layer name.
 			///
 			/// \param name String name for debug purposes.
 			///
 			void set_name(std::string_view name) noexcept;
 
 			///
-			/// Get instance name.
+			/// Get Layer name.
 			///
 			/// \return Const std::string reference.
 			///
@@ -66,38 +73,43 @@ namespace galaxy
 			///
 			/// \return Reference to scene stack.
 			///
-			[[nodiscard]] scene::SceneStack& get_stack() noexcept;
+			[[nodiscard]] SceneStack& get_stack() noexcept;
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
 			///
-			[[nodiscard]] virtual nlohmann::json serialize() override;
+			[[nodiscard]] nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
 			///
 			/// \param json Json object to retrieve data from.
 			///
-			virtual void deserialize(const nlohmann::json& json) override;
+			void deserialize(const nlohmann::json& json) override;
+
+		private:
+			///
+			/// Constructor.
+			///
+			Layer() = delete;
 
 		protected:
 			///
-			/// Default constructor.
+			/// Pointer to application.
 			///
-			Instance() noexcept;
+			Application* m_app;
 
-		protected:
 			///
-			/// Instance name for debug purposes.
+			/// Layer name for debug purposes.
 			///
 			std::string m_name;
 
 			///
-			/// Controls current application instance.
+			/// Controls current application layer.
 			///
-			scene::SceneStack m_scene_stack;
+			SceneStack m_scene_stack;
 		};
 	} // namespace core
 } // namespace galaxy

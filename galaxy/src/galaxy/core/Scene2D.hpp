@@ -5,20 +5,23 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SCENES_SCENE2D_HPP_
-#define GALAXY_SCENES_SCENE2D_HPP_
+#ifndef GALAXY_CORE_SCENE2D_HPP_
+#define GALAXY_CORE_SCENE2D_HPP_
 
+#include "galaxy/core/World.hpp"
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/map/TiledWorld.hpp"
-#include "galaxy/scenes/Scene.hpp"
 
 namespace galaxy
 {
-	namespace scene
+	namespace core
 	{
 		///
 		/// 2D scene implementation.
 		///
-		class Scene2D final : public Scene
+		class Scene2D final : public fs::Serializable
 		{
 		public:
 			///
@@ -36,34 +39,34 @@ namespace galaxy
 			///
 			/// On push of Scene2D to stack.
 			///
-			void on_push() override;
+			void on_push();
 
 			///
 			/// On pop of Scene2D off stack.
 			///
-			void on_pop() override;
+			void on_pop();
 
 			///
 			/// Process events.
 			///
-			void events() override;
+			void events();
 
 			///
 			/// Process update (fixed timestep) logic.
 			///
 			/// \param dt Delta-Time from fixed timestep gameloop.
 			///
-			void update(const double dt) override;
+			void update(const double dt);
 
 			///
 			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
 			///
-			void pre_render() override;
+			void pre_render();
 
 			///
 			/// Render to screen.
 			///
-			void render() override;
+			void render();
 
 			///
 			/// Load a tiled world.
@@ -71,6 +74,13 @@ namespace galaxy
 			/// \param path Path to the tiled world.
 			///
 			void create_maps(std::string_view path);
+
+			///
+			/// Set the active map.
+			///
+			/// \param name Name of the map file to set as active.
+			///
+			void set_active_map(std::string_view name);
 
 			///
 			/// Get a map.
@@ -89,13 +99,6 @@ namespace galaxy
 			[[nodiscard]] map::Map* get_active_map();
 
 			///
-			/// Set the active map.
-			///
-			/// \param name Name of the map file to set as active.
-			///
-			void set_active_map(std::string_view name);
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -111,9 +114,30 @@ namespace galaxy
 
 		private:
 			///
-			/// Deleted default constructor.
+			/// Constructor.
 			///
 			Scene2D() = delete;
+
+		public:
+			///
+			/// Scene name.
+			///
+			std::string m_name;
+
+			///
+			/// Camera.
+			///
+			graphics::Camera2D m_camera;
+
+			///
+			/// Entity/System manager.
+			///
+			core::World m_world;
+
+			///
+			/// Event dispatcher.
+			///
+			events::Dispatcher m_dispatcher;
 
 		private:
 			///
@@ -125,8 +149,13 @@ namespace galaxy
 			/// Currently active map.
 			///
 			std::string m_active_map;
+
+			///
+			/// Current map path.
+			///
+			std::string m_maps_path;
 		};
-	} // namespace scene
+	} // namespace core
 } // namespace galaxy
 
 #endif

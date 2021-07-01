@@ -8,16 +8,16 @@
 #ifndef SUPERCLUSTER_INSTANCES_GAME_HPP_
 #define SUPERCLUSTER_INSTANCES_GAME_HPP_
 
-#include <galaxy/core/Instance.hpp>
+#include <galaxy/core/Application.hpp>
 
 using namespace galaxy;
 
 namespace sc
 {
-	class Game final : public core::Instance
+	class Game final : public core::Layer
 	{
 	public:
-		Game();
+		Game(core::Application* app);
 		virtual ~Game();
 
 		void events() override;

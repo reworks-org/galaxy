@@ -17,8 +17,8 @@ using namespace galaxy;
 
 namespace sc
 {
-	MainMenu::MainMenu(core::Application* app, std::shared_ptr<Editor> editor) noexcept
-	    : m_app {app}, m_editor {editor}
+	MainMenu::MainMenu(core::Application* app) noexcept
+	    : Layer {app}
 	{
 		m_name = "Main Menu";
 		//m_scene_stack.create("MainMenu");
@@ -65,8 +65,8 @@ namespace sc
 		ImGui::SetCursorPos({(ImGui::GetWindowWidth() / 2.0f) - 150, (ImGui::GetWindowHeight() / 2.0f) - 50});
 		if (ImGui::Button("New", {100, 50}))
 		{
-			m_editor->new_project();
-			m_app->set_instance(m_editor);
+			//m_editor->new_project();
+			//m_app->set_instance(m_editor);
 		}
 
 		ImGui::SameLine();
@@ -76,8 +76,8 @@ namespace sc
 			auto file = SL_HANDLE.vfs()->show_open_dialog("*.scproj");
 			if (file != std::nullopt)
 			{
-				m_editor->load(file.value());
-				m_app->set_instance(m_editor);
+				//m_editor->load(file.value());
+				//m_app->set_instance(m_editor);
 			}
 			else
 			{
@@ -89,7 +89,7 @@ namespace sc
 
 		if (ImGui::Button("Exit", {100, 50}))
 		{
-			m_editor->exit();
+			//m_editor->exit();
 		}
 
 		ImGui::End();

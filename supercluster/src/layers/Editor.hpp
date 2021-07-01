@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 #define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 
-#include <galaxy/core/Instance.hpp>
+#include <galaxy/core/Application.hpp>
 #include <galaxy/graphics/Texture.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
@@ -23,10 +23,10 @@ using namespace galaxy;
 
 namespace sc
 {
-	class Editor final : public core::Instance
+	class Editor final : public core::Layer
 	{
 	public:
-		Editor();
+		Editor(core::Application* app);
 		virtual ~Editor();
 
 		void events() override;

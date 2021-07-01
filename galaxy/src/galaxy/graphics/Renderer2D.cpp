@@ -21,7 +21,6 @@ constexpr const char* const point_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec4 io_colour;
 
@@ -40,9 +39,7 @@ constexpr const char* const point_vert = R"(
 		io_colour    = vec4(l_colour, u_opacity);
 
 		gl_PointSize = u_point_size;
-
 		gl_Position  = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -53,7 +50,6 @@ constexpr const char* const point_frag = R"(
 	#version 450 core
 
 	in vec4 io_colour;
-
 	out vec4 io_frag_colour;
 
 	void main()
@@ -70,7 +66,6 @@ constexpr const char* const line_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec4 io_colour;
 
@@ -88,7 +83,6 @@ constexpr const char* const line_vert = R"(
 		io_colour    = vec4(l_colour, u_opacity);
 
 		gl_Position = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -99,7 +93,6 @@ constexpr const char* const line_frag = R"(
 	#version 450 core
 
 	in vec4 io_colour;
-
 	out vec4 io_frag_colour;
 
 	void main()
@@ -116,7 +109,6 @@ constexpr const char* const text_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -135,7 +127,6 @@ constexpr const char* const text_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -146,7 +137,6 @@ constexpr const char* const text_frag = R"(
 	#version 450 core
 
 	in vec2 io_texels;
-
 	out vec4 io_frag_colour;
 
 	uniform vec4 u_colour;
@@ -166,7 +156,6 @@ constexpr const char* const sprite_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -185,7 +174,6 @@ constexpr const char* const sprite_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -196,7 +184,6 @@ constexpr const char* const sprite_frag = R"(
 	#version 450 core
 
 	in vec2 io_texels;
-
 	out vec4 io_frag_colour;
 
 	uniform float u_opacity;
@@ -219,7 +206,6 @@ constexpr const char* const render_to_texture_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -233,7 +219,6 @@ constexpr const char* const render_to_texture_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -244,7 +229,6 @@ constexpr const char* const render_to_texture_frag = R"(
 	#version 450 core
 
 	in vec2 io_texels;
-
 	out vec4 io_frag_colour;
 
 	uniform sampler2D u_texture;
@@ -263,7 +247,6 @@ constexpr const char* const spritebatch_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec3 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -281,7 +264,6 @@ constexpr const char* const spritebatch_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 		
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
-		//gl_Position.z = float(l_depth);
 	}
 )";
 
@@ -292,7 +274,6 @@ constexpr const char* const spritebatch_frag = R"(
 	#version 450 core
 
 	in vec2 io_texels;
-
 	out vec4 io_frag_colour;
 
 	uniform sampler2D u_texture;

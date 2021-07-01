@@ -9,18 +9,16 @@
 #define SANDBOXTESTS_SANDBOX_HPP_
 
 #include <galaxy/async/Timer.hpp>
-#include <galaxy/core/Instance.hpp>
-#include <galaxy/core/Window.hpp>
-#include <galaxy/graphics/Camera2D.hpp>
+#include <galaxy/core/Application.hpp>
 
 using namespace galaxy;
 
 namespace sb
 {
-	class Sandbox final : public core::Instance
+	class Sandbox final : public core::Layer
 	{
 	public:
-		Sandbox();
+		Sandbox(core::Application* app);
 		virtual ~Sandbox();
 
 		void events() override;

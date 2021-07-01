@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 
-#include <galaxy/scenes/SceneStack.hpp>
+#include <galaxy/core/SceneStack.hpp>
 
 #include "editor/GLOperation.hpp"
 
@@ -21,7 +21,7 @@ namespace sc
 		class ScenePanel final
 		{
 		public:
-			void render(scene::SceneStack& scene_stack, OpenGLOperationStack& gl_operations);
+			void render(core::SceneStack& scene_stack, OpenGLOperationStack& gl_operations);
 
 		private:
 			std::string m_selected = "";

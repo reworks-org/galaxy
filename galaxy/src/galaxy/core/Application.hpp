@@ -8,14 +8,13 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
-#include <memory>
-#include <span>
+#include <stack>
 
 #include <sol/forward.hpp>
 
 #include "galaxy/async/ThreadPool.hpp"
 #include "galaxy/audio/Context.hpp"
-#include "galaxy/core/Instance.hpp"
+#include "galaxy/core/Layer.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileListener.hpp"
@@ -46,11 +45,24 @@ namespace galaxy
 			virtual ~Application();
 
 			///
-			/// Set current instance to process.
+			/// Create an application layer.
 			///
-			/// \param instance The instance to select.
+			/// \return Shared pointer to layer. Stored internally to preserve lifetime.
 			///
-			void set_instance(std::shared_ptr<Instance> instance);
+			template<std::derived_from<Layer> DerivedLayer>
+			[[nodiscard]] std::shared_ptr<DerivedLayer> create_layer();
+
+			///
+			/// Push a layer to the top of the stack.
+			///
+			/// \param layer Pointer to layer.
+			///
+			void push_layer(std::shared_ptr<Layer> layer);
+
+			///
+			/// Pop topmost layer.
+			///
+			void pop_layer();
 
 			///
 			/// Runs the application.
@@ -123,9 +135,14 @@ namespace galaxy
 
 		protected:
 			///
-			/// Application project instance.
+			/// Layer stack.
 			///
-			std::shared_ptr<Instance> m_instance;
+			std::stack<std::shared_ptr<Layer>> m_layer_stack;
+
+			///
+			/// Layer storage.
+			///
+			std::vector<std::shared_ptr<Layer>> m_layers;
 
 			///
 			/// OpenAL context.
@@ -203,6 +220,15 @@ namespace galaxy
 			///
 			std::unique_ptr<fs::FileListener> m_filelistener;
 		};
+
+		template<std::derived_from<Layer> DerivedLayer>
+		inline std::shared_ptr<DerivedLayer> Application::create_layer()
+		{
+			std::shared_ptr<DerivedLayer> layer = std::make_shared<DerivedLayer>(this);
+			m_layers.emplace_back(std::static_pointer_cast<Layer>(layer));
+
+			return layer;
+		}
 	} // namespace core
 } // namespace galaxy
 

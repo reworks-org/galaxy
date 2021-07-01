@@ -21,7 +21,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(scene::SceneStack& scene_stack, OpenGLOperationStack& gl_operations)
+		void ScenePanel::render(core::SceneStack& scene_stack, OpenGLOperationStack& gl_operations)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -56,7 +56,7 @@ namespace sc
 						}
 						else
 						{
-							scene_stack.create<scene::Scene2D>(s_buff);
+							scene_stack.create(s_buff);
 						}
 
 						s_buff = "";

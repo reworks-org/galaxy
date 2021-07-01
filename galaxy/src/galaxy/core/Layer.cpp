@@ -1,37 +1,42 @@
 ///
-/// Instance.cpp
+/// Layer.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Instance.hpp"
+#include "Layer.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
-		Instance::~Instance()
+		Layer::Layer(Application* app) noexcept
+		    : Serializable {this}, m_app {app}, m_name {"New Layer"}
+		{
+		}
+
+		Layer::~Layer()
 		{
 			m_scene_stack.clear();
 		}
 
-		void Instance::set_name(std::string_view name) noexcept
+		void Layer::set_name(std::string_view name) noexcept
 		{
 			m_name = static_cast<std::string>(name);
 		}
 
-		const std::string& Instance::get_name() const noexcept
+		const std::string& Layer::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		scene::SceneStack& Instance::get_stack() noexcept
+		SceneStack& Layer::get_stack() noexcept
 		{
 			return m_scene_stack;
 		}
 
-		nlohmann::json Instance::serialize()
+		nlohmann::json Layer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
@@ -40,17 +45,12 @@ namespace galaxy
 			return json;
 		}
 
-		void Instance::deserialize(const nlohmann::json& json)
+		void Layer::deserialize(const nlohmann::json& json)
 		{
 			m_scene_stack.clear();
 
 			m_name = json.at("name");
 			m_scene_stack.deserialize(json.at("stack"));
-		}
-
-		Instance::Instance() noexcept
-		    : Serializable {this}, m_name {"default"}
-		{
 		}
 	} // namespace core
 } // namespace galaxy

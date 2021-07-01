@@ -12,7 +12,7 @@
 
 #include <robin_hood.h>
 
-#include <galaxy/core/Instance.hpp>
+#include <galaxy/core/Layer.hpp>
 
 #include "editor/GLOperation.hpp"
 
@@ -30,14 +30,14 @@ namespace sc
 
 			void render(OpenGLOperationStack& gl_operations);
 
-			void set_instance(core::Instance* instance);
+			void set_layer(core::Layer* layer);
 			void set_selected_entity(const std::optional<ecs::Entity>& entity);
 
 		private:
 			void render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations);
 
 		private:
-			core::Instance* m_cur_instance        = nullptr;
+			core::Layer* m_cur_layer              = nullptr;
 			std::optional<ecs::Entity> m_selected = std::nullopt;
 
 			bool m_add_anim_popup = false;

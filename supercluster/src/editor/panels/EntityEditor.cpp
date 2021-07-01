@@ -37,8 +37,8 @@ namespace sc
 
 		EntityEditor::~EntityEditor()
 		{
-			m_cur_instance = nullptr;
-			m_selected     = std::nullopt;
+			m_cur_layer = nullptr;
+			m_selected  = std::nullopt;
 		}
 
 		void EntityEditor::render(OpenGLOperationStack& gl_operations)
@@ -49,7 +49,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Create"))
 					{
-						m_cur_instance->get_stack().top()->m_world.create();
+						m_cur_layer->get_stack().top()->m_world.create();
 					}
 
 					if (ImGui::MenuItem("Create from JSON"))
@@ -62,7 +62,7 @@ namespace sc
 							}
 							else
 							{
-								m_cur_instance->get_stack().top()->m_world.create_from_json(file.value());
+								m_cur_layer->get_stack().top()->m_world.create_from_json(file.value());
 							}
 						});
 					}
@@ -71,7 +71,7 @@ namespace sc
 				}
 
 				static std::string s_entity_label;
-				auto& world = m_cur_instance->get_stack().top()->m_world;
+				auto& world = m_cur_layer->get_stack().top()->m_world;
 				world.each([&](const ecs::Entity entity) {
 					auto* tag = world.get<components::Tag>(entity);
 					if (tag)
@@ -382,9 +382,9 @@ namespace sc
 			ImGui::End();
 		}
 
-		void EntityEditor::set_instance(core::Instance* instance)
+		void EntityEditor::set_layer(core::Layer* layer)
 		{
-			m_cur_instance = instance;
+			m_cur_layer = layer;
 		}
 
 		void EntityEditor::set_selected_entity(const std::optional<ecs::Entity>& entity)
@@ -405,7 +405,7 @@ namespace sc
 				tag,
 				text,
 				transform2d
-			] = m_cur_instance->get_stack().top()->m_world.get_multi<
+			] = m_cur_layer->get_stack().top()->m_world.get_multi<
 				components::Animated,
 				components::BatchSprite,
 				components::OnCollision,

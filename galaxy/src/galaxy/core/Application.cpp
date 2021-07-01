@@ -24,7 +24,7 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
-		    : m_instance {nullptr}, m_openal {}, m_filewatcher {false}, m_filelistener {nullptr}
+		    : m_filewatcher {false}, m_filelistener {nullptr}
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -232,10 +232,20 @@ namespace galaxy
 		{
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
+			while (!m_layer_stack.empty())
+			{
+				m_layer_stack.pop();
+			}
+
+			for (auto& layer : m_layers)
+			{
+				layer.reset();
+			}
+
+			m_layers.clear();
+
 			m_pool->finish();
 			m_window->destroy();
-
-			m_instance = nullptr;
 
 			m_musicbook.reset();
 			m_soundbook.reset();
@@ -251,9 +261,14 @@ namespace galaxy
 			m_pool.reset();
 		}
 
-		void Application::set_instance(std::shared_ptr<Instance> instance)
+		void Application::push_layer(std::shared_ptr<Layer> layer)
 		{
-			m_instance = instance;
+			m_layer_stack.push(layer);
+		}
+
+		void Application::pop_layer()
+		{
+			m_layer_stack.pop();
 		}
 
 		const bool Application::run()
@@ -291,9 +306,9 @@ namespace galaxy
 				while (accumulator >= ups)
 				{
 					m_window->poll_events();
-					m_instance->events();
+					m_layer_stack.top()->events();
 
-					m_instance->update(ups_s);
+					m_layer_stack.top()->update(ups_s);
 					accumulator -= ups_as_nano;
 
 					if (log_perf)
@@ -302,10 +317,10 @@ namespace galaxy
 					}
 				}
 
-				m_instance->pre_render();
+				m_layer_stack.top()->pre_render();
 
 				m_window->begin();
-				m_instance->render();
+				m_layer_stack.top()->render();
 				m_window->end();
 
 				if (log_perf)

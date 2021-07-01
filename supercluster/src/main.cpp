@@ -7,7 +7,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 
-#include "instances/MainMenu.hpp"
+#include "layers/MainMenu.hpp"
 
 class Supercluster : public galaxy::core::Application
 {
@@ -33,10 +33,10 @@ int main(int argsc, char* argsv[])
 			SL_HANDLE.window()->prevent_native_closing();
 
 			{
-				std::shared_ptr<sc::Editor> editor      = std::make_shared<sc::Editor>();
-				std::shared_ptr<sc::MainMenu> main_menu = std::make_shared<sc::MainMenu>(&supercluster, editor);
+				//	std::shared_ptr<sc::Editor> editor      = std::make_shared<sc::Editor>();
+				//std::shared_ptr<sc::MainMenu> main_menu = std::make_shared<sc::MainMenu>(&supercluster, editor);
 
-				supercluster.set_instance(main_menu);
+				//supercluster.set_instance(main_menu);
 			}
 
 			restart = supercluster.run();

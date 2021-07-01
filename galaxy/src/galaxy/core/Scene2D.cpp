@@ -17,10 +17,10 @@
 
 namespace galaxy
 {
-	namespace scene
+	namespace core
 	{
 		Scene2D::Scene2D(std::string_view name) noexcept
-		    : Scene {name, "2D"}, m_active_map {""}
+		    : Serializable {this}, m_name {""}, m_active_map {""}, m_maps_path {""}
 		{
 			m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 			m_camera.set_speed(100.0f);
@@ -34,6 +34,16 @@ namespace galaxy
 			m_world.create_system<systems::TransformSystem>();
 			m_world.create_system<systems::RenderSystem2D>();
 			m_world.create_system<systems::CollisionSystem>();
+
+			/*
+				m_gui_theme.m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
+				m_gui.set_theme(&m_gui_theme);
+
+				m_dispatcher.subscribe<events::MouseMoved>(m_gui);
+				m_dispatcher.subscribe<events::MousePressed>(m_gui);
+				m_dispatcher.subscribe<events::MouseReleased>(m_gui);
+				m_dispatcher.subscribe<events::KeyDown>(m_gui);
+			*/
 		}
 
 		Scene2D::~Scene2D() noexcept
@@ -68,23 +78,30 @@ namespace galaxy
 
 		void Scene2D::pre_render()
 		{
-			RENDERER_2D().buffer_camera(m_camera);
 		}
 
 		void Scene2D::render()
 		{
+			RENDERER_2D().buffer_camera(m_camera);
 			m_world.get_system<systems::RenderSystem2D>()->render(m_world, m_camera);
 			//m_gui.render();
 		}
 
 		void Scene2D::create_maps(std::string_view path)
 		{
+			m_maps_path = static_cast<std::string>(path);
+
 			m_maps.clear();
-			m_maps.load(path);
+			m_maps.load(m_maps_path);
 			if (!m_maps.parse(m_world))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to parse tiled world.");
 			}
+		}
+
+		void Scene2D::set_active_map(std::string_view name)
+		{
+			m_active_map = static_cast<std::string>(name);
 		}
 
 		map::Map* Scene2D::get_map(std::string_view name)
@@ -97,19 +114,15 @@ namespace galaxy
 			return m_maps.get_map(m_active_map);
 		}
 
-		void Scene2D::set_active_map(std::string_view name)
-		{
-			m_active_map = static_cast<std::string>(name);
-		}
-
 		nlohmann::json Scene2D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["name"]   = m_name;
-			json["type"]   = "2D";
-			json["camera"] = m_camera.serialize();
-			json["world"]  = m_world.serialize();
+			json["name"]       = m_name;
+			json["camera"]     = m_camera.serialize();
+			json["world"]      = m_world.serialize();
+			json["active-map"] = m_active_map;
+			json["maps-path"]  = m_maps_path;
 			//json["theme"]  = m_gui_theme.serialize();
 			//json["gui"]    = m_gui.serialize();
 
@@ -120,15 +133,15 @@ namespace galaxy
 		{
 			m_name = json.at("name");
 
-			const auto camera_json = json.at("camera");
-			const auto world_json  = json.at("world");
+			m_camera.deserialize(json.at("camera"));
+			m_world.deserialize(json.at("world"));
 
-			m_camera.deserialize(camera_json);
-			m_world.deserialize(world_json);
+			m_active_map = json.at("active-map");
+			m_maps_path  = json.at("maps-path");
 
 			//m_gui_theme.deserialize(json.at("theme"));
 			//m_gui.set_theme(&m_gui_theme);
 			//m_gui.deserialize(json.at("gui"));
 		}
-	} // namespace scene
+	} // namespace core
 } // namespace galaxy

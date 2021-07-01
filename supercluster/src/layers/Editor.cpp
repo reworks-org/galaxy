@@ -39,7 +39,8 @@
 
 namespace sc
 {
-	Editor::Editor()
+	Editor::Editor(core::Application* app)
+	    : Layer {app}
 	{
 		m_name = "Editor";
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
@@ -66,7 +67,7 @@ namespace sc
 		m_framebuffer.create(1, 1);
 		editor::theme::visual_dark();
 		SL_HANDLE.window()->set_scene_dispatcher(nullptr);
-		m_entity_panel.set_instance(this);
+		m_entity_panel.set_layer(this);
 
 		m_checkerboard.load_mem(tex::checkerboard);
 		m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
@@ -103,7 +104,7 @@ namespace sc
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 				}
 
-				const auto& camera = m_scene_stack.top()->get_camera();
+				const auto& camera = m_scene_stack.top()->m_camera;
 				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
 				{
 					m_imgui_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
@@ -212,8 +213,6 @@ namespace sc
 
 	void Editor::update(const double dt)
 	{
-		m_topscene_type = m_scene_stack.top()->get_type();
-
 		if (!m_paused)
 		{
 			m_scene_stack.update(dt);
@@ -260,7 +259,7 @@ namespace sc
 	{
 		SL_HANDLE.window()->set_title("Untitled Project - Supercluster Editor");
 		m_scene_stack.clear();
-		m_scene_stack.create<scene::Scene2D>("Base");
+		m_scene_stack.create("Base");
 		m_scene_stack.push("Base");
 	}
 
@@ -544,6 +543,7 @@ namespace sc
 
 			if (m_mouse_picked)
 			{
+				/*
 				if (m_topscene_type == "2D")
 				{
 					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
@@ -577,6 +577,7 @@ namespace sc
 				{
 					// TODO: 3D Picking.
 				}
+				*/
 
 				m_mouse_picked = false;
 			}
