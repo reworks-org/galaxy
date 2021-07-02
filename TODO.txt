@@ -11,3 +11,7 @@ event handling per scene.
 
 map hot reloading
 code review
+
+fix collisions pushing each other away
+fix input stuttering
+fix map performance

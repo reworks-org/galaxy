@@ -108,35 +108,37 @@ namespace galaxy
 				}
 				else
 				{
+					sprite->get_vertices().clear();
+
 					Vertex vertex;
 
-					const auto result1 = transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f};
-					vertex.m_pos       = {result1.x, result1.y};
-					vertex.m_texels    = {sprite->get_region().m_x, sprite->get_region().m_y};
+					auto result     = (transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f});
+					vertex.m_pos    = {result.x, result.y};
+					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y};
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.push_back(vertex);
 					sprite->get_vertices().push_back(vertex);
 
-					const auto result2 = transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f, 0.0f, 1.0f};
-					vertex.m_pos       = {result2.x, result2.y};
-					vertex.m_texels    = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
+					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f, 0.0f, 1.0f});
+					vertex.m_pos    = {result.x, result.y};
+					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.push_back(vertex);
 					sprite->get_vertices().push_back(vertex);
 
-					const auto result3 = transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f};
-					vertex.m_pos       = {result3.x, result3.y};
-					vertex.m_texels    = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
+					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
+					vertex.m_pos    = {result.x, result.y};
+					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.push_back(vertex);
 					sprite->get_vertices().push_back(vertex);
 
-					const auto result4 = transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f};
-					vertex.m_pos       = {result4.x, result4.y};
-					vertex.m_texels    = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
+					result          = (transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
+					vertex.m_pos    = {result.x, result.y};
+					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.push_back(vertex);
