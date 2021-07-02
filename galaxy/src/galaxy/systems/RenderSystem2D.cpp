@@ -26,56 +26,38 @@ namespace galaxy
 			m_lineloops.clear();
 			m_text.clear();
 			m_sprites.clear();
-			m_batchsprites.clear();
 			SL_HANDLE.texturebook()->clear_sprites();
 
-			world.operate<components::Renderable, components::Transform2D>(std::execution::par, [&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
+			world.operate<components::Renderable, components::Transform2D>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
 				// Ordered this way for compiler optimizations.
 				// Most-Least common.
 				switch (renderable->m_type)
 				{
 					case graphics::Renderables::BATCHED:
-						m_batch_lock.lock();
-						m_batchsprites.emplace_back(world.get<components::BatchSprite>(entity), transform);
-						m_batch_lock.unlock();
+						SL_HANDLE.texturebook()->add(world.get<components::BatchSprite>(entity), transform);
 						break;
 
 					case graphics::Renderables::SPRITE:
-						m_sprite_lock.lock();
 						m_sprites.emplace_back(world.get<components::Sprite>(entity), transform);
-						m_sprite_lock.unlock();
 						break;
 
 					case graphics::Renderables::TEXT:
-						m_text_lock.lock();
 						m_text.emplace_back(world.get<components::Text>(entity), transform);
-						m_text_lock.unlock();
 						break;
 
 					case graphics::Renderables::LINE_LOOP:
-						m_lineloop_lock.lock();
 						m_lineloops.emplace_back(world.get<components::Primitive2D>(entity), transform);
-						m_lineloop_lock.unlock();
 						break;
 
 					case graphics::Renderables::LINE:
-						m_line_lock.lock();
 						m_lines.emplace_back(world.get<components::Primitive2D>(entity), transform);
-						m_line_lock.unlock();
 						break;
 
 					case graphics::Renderables::POINT:
-						m_point_lock.lock();
 						m_points.emplace_back(world.get<components::Primitive2D>(entity), transform);
-						m_point_lock.unlock();
 						break;
 				}
 			});
-
-			for (const auto& [batch, transform] : m_batchsprites)
-			{
-				SL_HANDLE.texturebook()->add(batch, transform);
-			}
 
 			SL_HANDLE.texturebook()->buffer_spritebatch_data();
 		}

@@ -8,8 +8,6 @@
 #ifndef GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 #define GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 
-#include <mutex>
-
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
 
@@ -85,41 +83,6 @@ namespace galaxy
 			/// Sprite cache.
 			///
 			std::vector<std::pair<components::Sprite*, components::Transform2D*>> m_sprites;
-
-			///
-			/// BatchSprite cache.
-			///
-			std::vector<std::pair<components::BatchSprite*, components::Transform2D*>> m_batchsprites;
-
-			///
-			/// Point lock.
-			///
-			std::mutex m_point_lock;
-
-			///
-			/// Line lock.
-			///
-			std::mutex m_line_lock;
-
-			///
-			/// LineLoop lock.
-			///
-			std::mutex m_lineloop_lock;
-
-			///
-			/// Text lock.
-			///
-			std::mutex m_text_lock;
-
-			///
-			/// Sprite lock.
-			///
-			std::mutex m_sprite_lock;
-
-			///
-			/// Batch Sprite lock.
-			///
-			std::mutex m_batch_lock;
 		};
 	} // namespace systems
 } // namespace galaxy
