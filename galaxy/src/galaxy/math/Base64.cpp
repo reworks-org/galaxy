@@ -47,7 +47,7 @@ namespace galaxy
 			else
 			{
 				// clang-format off
-				static const constexpr char s_encoding_table[] = {
+				static constexpr const char s_encoding_table[] = {
 					'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 					'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b',
 					'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
@@ -109,7 +109,7 @@ namespace galaxy
 				else
 				{
 					// clang-format off
-					static const constexpr unsigned char s_decoding_table[] = {
+					static constexpr const unsigned char s_decoding_table[] = {
 						64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
 						64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
 						64, 64, 64, 64, 64, 64, 64, 62, 64, 64, 64, 63, 52, 53, 54, 55, 56, 57,

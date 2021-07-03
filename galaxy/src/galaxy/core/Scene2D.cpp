@@ -32,8 +32,8 @@ namespace galaxy
 
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::TransformSystem>();
-			m_world.create_system<systems::RenderSystem2D>();
 			m_world.create_system<systems::CollisionSystem>();
+			m_world.create_system<systems::RenderSystem2D>();
 
 			/*
 				m_gui_theme.m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);

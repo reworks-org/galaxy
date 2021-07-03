@@ -50,19 +50,15 @@ namespace galaxy
 
 					if (object_a.intersects(object_b, m_mtv))
 					{
-						m_tree.erase(entity_a);
-						transform->move(m_mtv.x, m_mtv.y);
+						if (body->get_type() == physics::BodyType::DYNAMIC)
+						{
+							transform->move(m_mtv.x, m_mtv.y);
+						}
 
 						auto collision_a = world.get<components::OnCollision>(entity_a);
 						if (collision_a)
 						{
 							SL_HANDLE.scriptbook()->run(collision_a->m_script);
-						}
-
-						auto collision_b = world.get<components::OnCollision>(entity_b);
-						if (collision_b)
-						{
-							SL_HANDLE.scriptbook()->run(collision_b->m_script);
 						}
 					}
 				}
