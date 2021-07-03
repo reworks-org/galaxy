@@ -16,7 +16,7 @@ namespace galaxy
 		{
 		}
 
-		MousePressed::MousePressed(const float x, const float y, const input::MouseButton button) noexcept
+		MousePressed::MousePressed(const float x, const float y, const input::MouseButtons button) noexcept
 		    : m_x {x}, m_y {y}, m_button {button}
 		{
 		}

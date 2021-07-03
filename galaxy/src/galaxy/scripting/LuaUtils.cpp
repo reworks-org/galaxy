@@ -18,7 +18,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/Dispatcher.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -200,20 +200,20 @@ namespace galaxy
 			auto lua = SL_HANDLE.lua();
 
 			// clang-format off
-			lua->new_enum<input::MouseButton>("gMouseButton",
+			lua->new_enum<input::MouseButtons>("gMouseButtons",
 			{
-				{"BUTTON_1", input::MouseButton::BUTTON_1},
-				{"BUTTON_2", input::MouseButton::BUTTON_2},
-				{"BUTTON_3", input::MouseButton::BUTTON_3},
-				{"BUTTON_4", input::MouseButton::BUTTON_4},
-				{"BUTTON_5", input::MouseButton::BUTTON_5},
-				{"BUTTON_6", input::MouseButton::BUTTON_6},
-				{"BUTTON_7", input::MouseButton::BUTTON_7},
-				{"BUTTON_8", input::MouseButton::BUTTON_8},
-				{"BUTTON_LAST", input::MouseButton::BUTTON_LAST},
-				{"BUTTON_LEFT", input::MouseButton::BUTTON_LEFT},
-				{"BUTTON_RIGHT", input::MouseButton::BUTTON_RIGHT},
-				{"BUTTON_MIDDLE", input::MouseButton::BUTTON_MIDDLE}
+				{"BUTTON_1", input::MouseButtons::BUTTON_1},
+				{"BUTTON_2", input::MouseButtons::BUTTON_2},
+				{"BUTTON_3", input::MouseButtons::BUTTON_3},
+				{"BUTTON_4", input::MouseButtons::BUTTON_4},
+				{"BUTTON_5", input::MouseButtons::BUTTON_5},
+				{"BUTTON_6", input::MouseButtons::BUTTON_6},
+				{"BUTTON_7", input::MouseButtons::BUTTON_7},
+				{"BUTTON_8", input::MouseButtons::BUTTON_8},
+				{"BUTTON_LAST", input::MouseButtons::BUTTON_LAST},
+				{"BUTTON_LEFT", input::MouseButtons::BUTTON_LEFT},
+				{"BUTTON_RIGHT", input::MouseButtons::BUTTON_RIGHT},
+				{"BUTTON_MIDDLE", input::MouseButtons::BUTTON_MIDDLE}
 			});
 
 			lua->new_enum<input::Keys>("gKeys",
@@ -359,8 +359,8 @@ namespace galaxy
 			dispatcher_type["trigger_keyrepeat"]      = &events::Dispatcher::trigger<events::KeyRepeat, const input::Keys>;
 			dispatcher_type["trigger_keyup"]          = &events::Dispatcher::trigger<events::KeyUp, const input::Keys>;
 			dispatcher_type["trigger_mouse_moved"]    = &events::Dispatcher::trigger<events::MouseMoved, const double, const double>;
-			dispatcher_type["trigger_mouse_pressed"]  = &events::Dispatcher::trigger<events::MousePressed, const float, const float, const input::MouseButton>;
-			dispatcher_type["trigger_mouse_released"] = &events::Dispatcher::trigger<events::MouseReleased, const float, const float, const input::MouseButton>;
+			dispatcher_type["trigger_mouse_pressed"]  = &events::Dispatcher::trigger<events::MousePressed, const float, const float, const input::MouseButtons>;
+			dispatcher_type["trigger_mouse_released"] = &events::Dispatcher::trigger<events::MouseReleased, const float, const float, const input::MouseButtons>;
 			dispatcher_type["trigger_mouse_wheel"]    = &events::Dispatcher::trigger<events::MouseWheel, const double, const double>;
 			dispatcher_type["tigger_window_resized"]  = &events::Dispatcher::trigger<events::WindowResized, const int, const int>;
 		}

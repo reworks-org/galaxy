@@ -66,7 +66,6 @@ namespace sc
 
 		m_framebuffer.create(1, 1);
 		editor::theme::visual_dark();
-		SL_HANDLE.window()->set_scene_dispatcher(nullptr);
 		m_entity_panel.set_layer(this);
 
 		m_checkerboard.load_mem(tex::checkerboard);
@@ -90,7 +89,6 @@ namespace sc
 	{
 		if (!m_game_mode)
 		{
-			SL_HANDLE.window()->set_scene_dispatcher(nullptr);
 			ImGui::ImplGlfw::g_BlockInput = false;
 
 			if (m_viewport_focused && m_viewport_hovered)

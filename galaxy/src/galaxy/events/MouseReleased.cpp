@@ -16,7 +16,7 @@ namespace galaxy
 		{
 		}
 
-		MouseReleased::MouseReleased(const float x, const float y, const input::MouseButton button) noexcept
+		MouseReleased::MouseReleased(const float x, const float y, const input::MouseButtons button) noexcept
 		    : m_x {x}, m_y {y}, m_button {button}
 		{
 		}

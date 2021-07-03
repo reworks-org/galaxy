@@ -8,7 +8,7 @@
 #ifndef GALAXY_EVENTS_MOUSERELEASED_HPP_
 #define GALAXY_EVENTS_MOUSERELEASED_HPP_
 
-#include "galaxy/input/Mouse.hpp"
+#include "galaxy/input/MouseButtons.hpp"
 
 namespace galaxy
 {
@@ -31,7 +31,7 @@ namespace galaxy
 			/// \param y y-pos of event.
 			/// \param button Button code pressed.
 			///
-			MouseReleased(const float x, const float y, const input::MouseButton button) noexcept;
+			MouseReleased(const float x, const float y, const input::MouseButtons button) noexcept;
 
 			///
 			/// Default destructor.
@@ -51,7 +51,7 @@ namespace galaxy
 			///
 			/// Mouse button released.
 			///
-			input::MouseButton m_button;
+			input::MouseButtons m_button;
 		};
 	} // namespace events
 } // namespace galaxy

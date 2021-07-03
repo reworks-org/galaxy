@@ -236,7 +236,7 @@ namespace sb
 		physics->m_world.create_from_json("floor.json");
 		m_cube = physics->m_world.create_from_json("cube.json").value();
 
-		physics->m_dispatcher.subscribe_callback<events::KeyDown>([physics, this](const events::KeyDown& kde) {
+		physics->m_dispatcher.subscribe_callback<events::KeyRepeat>([physics, this](const events::KeyRepeat& kde) {
 			switch (kde.m_keycode)
 			{
 				case input::Keys::UP:

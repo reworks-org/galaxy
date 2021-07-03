@@ -9,7 +9,7 @@
 #define GALAXY_CORE_SCENE2D_HPP_
 
 #include "galaxy/core/World.hpp"
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/Dispatcher.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/map/TiledWorld.hpp"

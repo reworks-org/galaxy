@@ -8,25 +8,51 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
-#include <span>
-#include <string_view>
+#include <variant>
+#include <queue>
 
 #include <GLFW/glfw3.h>
-#include <glm/vec2.hpp>
-#include <robin_hood.h>
 
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform2D.hpp"
 #include "galaxy/core/WindowSettings.hpp"
-#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/Dispatcher.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/PostProcessor.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/input/Keys.hpp"
+#include "galaxy/input/Cursor.hpp"
+#include "galaxy/input/Keyboard.hpp"
 #include "galaxy/input/Mouse.hpp"
 
 namespace galaxy
 {
+	///
+	/// Event type.
+	///
+	using Event = std::variant<
+	    std::monostate,
+	    events::KeyDown,
+	    events::KeyRepeat,
+	    events::KeyUp,
+	    events::MouseMoved,
+	    events::MousePressed,
+	    events::MouseReleased,
+	    events::MouseWheel,
+	    events::WindowResized>;
+
+	///
+	/// Event queue type.
+	///
+	using EventQueue = std::queue<Event>;
+
 	namespace graphics
 	{
 		class Renderer;
@@ -40,37 +66,6 @@ namespace galaxy
 		class Window final
 		{
 		public:
-			///
-			/// Represents a window cursor.
-			///
-			struct Cursor final
-			{
-				///
-				/// Constructor.
-				///
-				Cursor() noexcept;
-
-				///
-				/// Destructor.
-				///
-				~Cursor() noexcept = default;
-
-				///
-				/// Allows for custom cursor properties.
-				///
-				GLFWcursor* m_glfw;
-
-				///
-				/// Stores current position.
-				///
-				glm::dvec2 m_pos;
-
-				///
-				/// Stores previous position.
-				///
-				glm::dvec2 m_prev_pos;
-			};
-
 			///
 			/// Constructor.
 			///
@@ -98,13 +93,6 @@ namespace galaxy
 			/// \param settings Settings of the window.
 			///
 			[[nodiscard]] const bool create(const WindowSettings& settings);
-
-			///
-			/// Sets the background colour of the window.
-			///
-			/// \param col Colour to use.
-			///
-			void set_window_background(const graphics::Colour& col) noexcept;
 
 			///
 			/// Set window icon.
@@ -234,40 +222,6 @@ namespace galaxy
 			[[nodiscard]] const bool key_pressed(input::Keys key) noexcept;
 
 			///
-			/// Check if a mouse button was pressed.
-			///
-			/// \param mouse_button mouse button keycode.
-			///
-			/// \return True if a press occured.
-			///
-			[[nodiscard]] const bool mouse_button_pressed(input::MouseButton mouse_button) noexcept;
-
-			///
-			/// Check if a mouse button was released.
-			///
-			/// \param mouse_button mouse button keycode.
-			///
-			/// \return True if a release occured.
-			///
-			[[nodiscard]] const bool mouse_button_released(input::MouseButton mouse_button) noexcept;
-
-			///
-			/// Get mouse wheel delta.
-			///
-			/// \return Mouse scroll wheel delta.
-			///
-			[[nodiscard]] const double get_scroll_delta() noexcept;
-
-			///
-			/// \brief Set current scene dispatcher.
-			///
-			/// Best set/unset when scene is pushed/popped.
-			///
-			/// \param dispatcher Pointer to scene dispatcher.
-			///
-			void set_scene_dispatcher(events::Dispatcher* dispatcher) noexcept;
-
-			///
 			/// Starts filling the returned pointer to string with characters as they are typed.
 			///
 			/// \return Pointer to std::string that is updated with characters.
@@ -280,11 +234,48 @@ namespace galaxy
 			void end_text_input() noexcept;
 
 			///
+			/// Check if a mouse button was pressed.
+			///
+			/// \param mouse_button mouse button keycode.
+			///
+			/// \return True if a press occured.
+			///
+			[[nodiscard]] const bool mouse_button_pressed(input::MouseButtons mouse_button) noexcept;
+
+			///
+			/// Check if a mouse button was released.
+			///
+			/// \param mouse_button mouse button keycode.
+			///
+			/// \return True if a release occured.
+			///
+			[[nodiscard]] const bool mouse_button_released(input::MouseButtons mouse_button) noexcept;
+
+			///
+			/// Get mouse wheel delta.
+			///
+			/// \return Mouse scroll wheel delta.
+			///
+			[[nodiscard]] const double get_scroll_delta() noexcept;
+
+			///
 			/// Get current cursor position.
 			///
 			/// \return Returns cursor position as a glm::vec2.
 			///
 			[[nodiscard]] glm::vec2 get_cursor_pos() noexcept;
+
+			///
+			/// Get queued events.
+			///
+			[[nodiscard]] EventQueue& queued_events() noexcept;
+
+			///
+			/// Trigger all queued events for a dispatcher.
+			///
+			/// \param dispatcher An event dispatcher usually belonging to a scene.
+			///
+			void trigger_queued_events(events::Dispatcher& dispatcher);
 
 			///
 			/// Check if windows is in focus.
@@ -349,11 +340,6 @@ namespace galaxy
 			GLFWwindow* m_window;
 
 			///
-			/// Custom cursor.
-			///
-			Cursor m_cursor;
-
-			///
 			/// Window width.
 			///
 			int m_width;
@@ -364,69 +350,29 @@ namespace galaxy
 			int m_height;
 
 			///
-			/// Window background colour.
-			///
-			glm::vec4 m_colour;
-
-			///
-			/// Map of galaxy mouse buttons to GLFW mouse buttons.
-			///
-			robin_hood::unordered_flat_map<input::MouseButton, int> m_mouse_map;
-
-			///
-			/// Map of GLFW mouse buttons to galaxy mouse buttons.
-			///
-			robin_hood::unordered_flat_map<int, input::MouseButton> m_reverse_mouse_map;
-
-			///
-			/// Map of galaxy keys to GLFW key codes.
-			///
-			robin_hood::unordered_flat_map<input::Keys, int> m_keymap;
-
-			///
-			/// Map of GLFW key codes to galaxy keys.
-			///
-			robin_hood::unordered_flat_map<int, input::Keys> m_reverse_keymap;
-
-			///
-			/// Previous key states.
-			///
-			robin_hood::unordered_flat_map<input::Keys, int> m_prev_key_states;
-
-			///
-			/// Previous mouse button states.
-			///
-			std::array<int, 8> m_prev_mouse_btn_states;
-
-			///
-			/// String for text input.
-			///
-			std::string m_text_input;
-
-			///
-			/// Flag to signal to glfw that text is being input.
-			///
-			bool m_inputting_text;
-
-			///
-			/// Scene dispatcher.
-			///
-			events::Dispatcher* m_scene_dispatcher;
-
-			///
-			/// Cursor size.
-			///
-			glm::vec2 m_cursor_size;
-
-			///
-			/// Scroll callback value.
-			///
-			double m_scroll_delta;
-
-			///
 			/// Post processor.
 			///
 			std::unique_ptr<graphics::PostProcessor> m_post_processor;
+
+			///
+			/// Custom cursor.
+			///
+			input::Cursor m_cursor;
+
+			///
+			/// Custom keyboard.
+			///
+			input::Keyboard m_keyboard;
+
+			///
+			/// Custom mouse.
+			///
+			input::Mouse m_mouse;
+
+			///
+			/// Event queue.
+			///
+			EventQueue m_event_queue;
 		};
 	} // namespace core
 } // namespace galaxy
