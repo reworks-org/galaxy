@@ -7,7 +7,7 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/events/dispatcher/Dispatcher.hpp>
+#include <galaxy/events/Dispatcher.hpp>
 
 struct DemoEvent
 {
