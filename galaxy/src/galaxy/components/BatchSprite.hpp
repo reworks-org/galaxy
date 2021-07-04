@@ -139,13 +139,6 @@ namespace galaxy
 			[[nodiscard]] const unsigned int get_atlas_index() const noexcept;
 
 			///
-			/// Get sprite vertices.
-			///
-			/// \return Reference to std::vector of vertices.
-			///
-			[[nodiscard]] std::vector<graphics::Vertex>& get_vertices() noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -195,11 +188,6 @@ namespace galaxy
 			/// Z-Level.
 			///
 			int m_depth;
-
-			///
-			/// CPU side cache.
-			///
-			std::vector<graphics::Vertex> m_vertices;
 		};
 	} // namespace components
 } // namespace galaxy

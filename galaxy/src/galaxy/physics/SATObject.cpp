@@ -12,11 +12,31 @@
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Transform2D.hpp"
 
 #include "SATObject.hpp"
 
 namespace galaxy
 {
+	std::array<glm::vec2, 4> calc_transformed_pos(const float width, const float height, components::Transform2D* transform)
+	{
+		std::array<glm::vec2, 4> positions;
+
+		auto result  = (transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f});
+		positions[0] = {result.x, result.y};
+
+		result       = (transform->get_transform() * glm::vec4 {0.0f + width, 0.0f, 0.0f, 1.0f});
+		positions[1] = {result.x, result.y};
+
+		result       = (transform->get_transform() * glm::vec4 {0.0f + width, 0.0f + height, 0.0f, 1.0f});
+		positions[2] = {result.x, result.y};
+
+		result       = (transform->get_transform() * glm::vec4 {0.0f, 0.0f + height, 0.0f, 1.0f});
+		positions[3] = {result.x, result.y};
+
+		return positions;
+	}
+
 	namespace physics
 	{
 		SATObject::Projection::Projection(float min, float max) noexcept
@@ -43,48 +63,42 @@ namespace galaxy
 		SATObject::SATObject(core::World& world, const ecs::Entity entity)
 		{
 			auto* renderable = world.get<components::Renderable>(entity);
-			if (renderable)
-			{
-				if (renderable->m_type == graphics::Renderables::BATCHED)
-				{
-					auto* b2d = world.get<components::BatchSprite>(entity);
-					for (const auto& vertex : b2d->get_vertices())
-					{
-						m_vertexs.emplace_back(vertex.m_pos);
-					}
-				}
-				else if (renderable->m_type == graphics::Renderables::SPRITE)
-				{
-					auto* s2d = world.get<components::Sprite>(entity);
-					for (const auto& vertex : s2d->get_vertices())
-					{
-						m_vertexs.emplace_back(vertex.m_pos);
-					}
-				}
-				else
-				{
-					auto* p2d = world.get<components::Primitive2D>(entity);
-					for (const auto& vertex : p2d->get_vertices())
-					{
-						m_vertexs.emplace_back(vertex.m_pos);
-					}
-				}
+			auto* transform  = world.get<components::Transform2D>(entity);
 
-				// Calculate the polygon's normals. These are used as the axes to project
-				// upon.
-				const int size = static_cast<int>(m_vertexs.size());
-				m_normals.resize(size);
-				for (int i = 0; i < size; i++)
-				{
-					const int j    = (i + 1) % size;
-					glm::vec2 axis = {(-m_vertexs[j].y + m_vertexs[i].y),
-							  (m_vertexs[j].x - m_vertexs[i].x)};
-					m_normals[i]   = glm::normalize(axis);
-				}
+			if (renderable->m_type == graphics::Renderables::BATCHED)
+			{
+				auto* b2d = world.get<components::BatchSprite>(entity);
+
+				const auto pos = calc_transformed_pos(b2d->get_region().m_width, b2d->get_region().m_height, transform);
+				m_vertexs.assign(pos.begin(), pos.end());
+			}
+			else if (renderable->m_type == graphics::Renderables::SPRITE)
+			{
+				auto* s2d = world.get<components::Sprite>(entity);
+
+				const auto pos = calc_transformed_pos(s2d->get_width(), s2d->get_height(), transform);
+				m_vertexs.assign(pos.begin(), pos.end());
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to check collision with an entity that has no renderble component: {0}.", entity);
+				auto* p2d = world.get<components::Primitive2D>(entity);
+				for (const auto& vertex : p2d->get_vertices())
+				{
+					const auto result = (transform->get_transform() * glm::vec4 {vertex.m_pos.x, vertex.m_pos.y, 0.0f, 1.0f});
+					m_vertexs.emplace_back(result.x, result.y);
+				}
+			}
+
+			// Calculate the polygon's normals. These are used as the axes to project
+			// upon.
+			const int size = static_cast<int>(m_vertexs.size());
+			m_normals.resize(size);
+			for (int i = 0; i < size; i++)
+			{
+				const int j    = (i + 1) % size;
+				glm::vec2 axis = {(-m_vertexs[j].y + m_vertexs[i].y),
+						  (m_vertexs[j].x - m_vertexs[i].x)};
+				m_normals[i]   = glm::normalize(axis);
 			}
 		}
 

@@ -102,11 +102,6 @@ namespace galaxy
 			m_vbo = 0;
 		}
 
-		const std::vector<Vertex>& VertexBuffer::get_vertices() const noexcept
-		{
-			return m_vertices;
-		}
-
 		const unsigned int VertexBuffer::id() const noexcept
 		{
 			return m_vbo;

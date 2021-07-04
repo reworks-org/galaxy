@@ -108,8 +108,6 @@ namespace galaxy
 				}
 				else
 				{
-					sprite->get_vertices().clear();
-
 					Vertex vertex;
 
 					auto result     = (transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f});
@@ -117,32 +115,28 @@ namespace galaxy
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y};
 					vertex.set_depth(sprite->get_depth());
 
-					m_vertices.push_back(vertex);
-					sprite->get_vertices().push_back(vertex);
+					m_vertices.emplace_back(vertex);
 
 					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
 					vertex.set_depth(sprite->get_depth());
 
-					m_vertices.push_back(vertex);
-					sprite->get_vertices().push_back(vertex);
+					m_vertices.emplace_back(vertex);
 
 					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_depth(sprite->get_depth());
 
-					m_vertices.push_back(vertex);
-					sprite->get_vertices().push_back(vertex);
+					m_vertices.emplace_back(vertex);
 
 					result          = (transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_depth(sprite->get_depth());
 
-					m_vertices.push_back(vertex);
-					sprite->get_vertices().push_back(vertex);
+					m_vertices.emplace_back(vertex);
 				}
 			}
 		}

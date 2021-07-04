@@ -77,13 +77,6 @@ namespace galaxy
 			void destroy() noexcept;
 
 			///
-			/// Get vertices.
-			///
-			/// \return Vertex storage as const reference.
-			///
-			[[nodiscard]] const std::vector<Vertex>& get_vertices() const noexcept;
-
-			///
 			/// Get OpenGL handle.
 			///
 			/// \return Const unsigned integer.

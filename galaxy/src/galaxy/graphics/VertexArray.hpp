@@ -61,13 +61,6 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Get vertices.
-			///
-			/// \return Const reference to std::vector of vertices.
-			///
-			[[nodiscard]] const std::vector<graphics::Vertex>& get_vertices() const noexcept;
-
-			///
 			/// Get the count of indicies in the index buffer.
 			///
 			/// \return Returns a const unsigned int.

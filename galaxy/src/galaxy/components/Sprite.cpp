@@ -181,19 +181,7 @@ namespace galaxy
 
 		const int Sprite::get_depth() const noexcept
 		{
-			if (m_vao.get_vertices().empty())
-			{
-				return 0;
-			}
-			else
-			{
-				return m_vao.get_vertices()[0].get_depth();
-			}
-		}
-
-		const std::vector<graphics::Vertex>& Sprite::get_vertices() const noexcept
-		{
-			return m_vao.get_vertices();
+			return 0;
 		}
 
 		const unsigned int Sprite::count() const noexcept

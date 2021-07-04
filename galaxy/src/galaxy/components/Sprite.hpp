@@ -110,13 +110,6 @@ namespace galaxy
 			[[nodiscard]] const int get_depth() const noexcept;
 
 			///
-			/// Get sprite vertices.
-			///
-			/// \return Const reference to std::vector of sprite vertices.
-			///
-			[[nodiscard]] const std::vector<graphics::Vertex>& get_vertices() const noexcept;
-
-			///
 			/// Gets the index count.
 			///
 			/// \return Const uint.

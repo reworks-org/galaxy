@@ -88,11 +88,6 @@ namespace galaxy
 			glBindVertexArray(0);
 		}
 
-		const std::vector<graphics::Vertex>& VertexArray::get_vertices() const noexcept
-		{
-			return m_vbo.get_vertices();
-		}
-
 		const unsigned int VertexArray::count() const noexcept
 		{
 			return m_ibo.count();

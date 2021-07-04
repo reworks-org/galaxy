@@ -111,14 +111,7 @@ namespace galaxy
 
 		const int Primitive2D::get_depth() const noexcept
 		{
-			if (m_vao.get_vertices().empty())
-			{
-				return 0;
-			}
-			else
-			{
-				return m_vao.get_vertices()[0].get_depth();
-			}
+			return 0;
 		}
 
 		const unsigned int Primitive2D::count() const noexcept

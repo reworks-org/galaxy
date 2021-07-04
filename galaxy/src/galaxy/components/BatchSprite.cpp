@@ -54,7 +54,6 @@ namespace galaxy
 
 		BatchSprite::~BatchSprite() noexcept
 		{
-			m_vertices.clear();
 		}
 
 		void BatchSprite::create(const math::Rect<float>& region, const int depth, unsigned int index) noexcept
@@ -129,11 +128,6 @@ namespace galaxy
 		const unsigned int BatchSprite::get_atlas_index() const noexcept
 		{
 			return m_index;
-		}
-
-		std::vector<graphics::Vertex>& BatchSprite::get_vertices() noexcept
-		{
-			return m_vertices;
 		}
 
 		nlohmann::json BatchSprite::serialize()
