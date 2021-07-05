@@ -13,3 +13,9 @@ text has incorrect bg
 scrolling renders some objects transparent?
 map will need to be layered from back-to-front to front-to-back as per opengl
 some kind of conversion?
+
+test culling now proper z sorting
+
+
+have depth values in back-to-front, then convert to front-to-back range, then convert to normalized range.
+this way its compatible with map and wont make brain hurty.
