@@ -14,12 +14,12 @@ namespace galaxy
 	namespace components
 	{
 		Primitive2D::Primitive2D() noexcept
-		    : Serializable {this}, m_width {0}, m_height {0}, m_type {graphics::Primitives::CIRCLE}, m_opacity {1.0f}
+		    : Serializable {this}, m_width {0}, m_height {0}, m_type {graphics::Primitives::CIRCLE}, m_colour {0, 0, 0, 255}
 		{
 		}
 
 		Primitive2D::Primitive2D(const nlohmann::json& json)
-		    : Serializable {this}, m_width {0}, m_height {0}, m_opacity {1.0f}
+		    : Serializable {this}
 		{
 			deserialize(json);
 		}
@@ -27,26 +27,26 @@ namespace galaxy
 		Primitive2D::Primitive2D(Primitive2D&& p2d) noexcept
 		    : Serializable {this}
 		{
+			this->m_colour  = std::move(p2d.m_colour);
 			this->m_data    = std::move(p2d.m_data);
 			this->m_height  = p2d.m_height;
 			this->m_type    = p2d.m_type;
 			this->m_vao     = std::move(p2d.m_vao);
 			this->m_vertexs = std::move(p2d.m_vertexs);
 			this->m_width   = p2d.m_width;
-			this->m_opacity = p2d.m_opacity;
 		}
 
 		Primitive2D& Primitive2D::operator=(Primitive2D&& p2d) noexcept
 		{
 			if (this != &p2d)
 			{
+				this->m_colour  = std::move(p2d.m_colour);
 				this->m_data    = std::move(p2d.m_data);
 				this->m_height  = p2d.m_height;
 				this->m_type    = p2d.m_type;
 				this->m_vao     = std::move(p2d.m_vao);
 				this->m_vertexs = std::move(p2d.m_vertexs);
 				this->m_width   = p2d.m_width;
-				this->m_opacity = p2d.m_opacity;
 			}
 
 			return *this;
@@ -54,7 +54,6 @@ namespace galaxy
 
 		Primitive2D::~Primitive2D() noexcept
 		{
-			m_data = {};
 			m_vertexs.clear();
 		}
 
@@ -70,18 +69,17 @@ namespace galaxy
 
 		void Primitive2D::set_colour(const graphics::Colour& col)
 		{
-			m_data.m_colour         = col;
-			m_data.m_colour.m_alpha = 255;
+			m_colour = col;
 		}
 
-		void Primitive2D::set_opacity(const float opacity) noexcept
+		void Primitive2D::set_opacity(const std::uint8_t opacity) noexcept
 		{
-			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
+			m_colour.m_alpha = std::clamp<std::uint8_t>(opacity, 0, 255);
 		}
 
-		const float Primitive2D::get_opacity() noexcept
+		graphics::Colour& Primitive2D::get_colour() noexcept
 		{
-			return m_opacity;
+			return m_colour;
 		}
 
 		Primitive2D::PrimitiveData& Primitive2D::get_data() noexcept
@@ -111,7 +109,14 @@ namespace galaxy
 
 		const int Primitive2D::get_depth() const noexcept
 		{
-			return 0;
+			if (m_vertexs.size() > 0)
+			{
+				return m_vertexs[0].get_depth();
+			}
+			else
+			{
+				return 0;
+			}
 		}
 
 		const unsigned int Primitive2D::count() const noexcept
@@ -125,11 +130,11 @@ namespace galaxy
 
 			json["type"]        = static_cast<std::string>(magic_enum::enum_name(m_type));
 			json["depth"]       = get_depth();
-			json["opacity"]     = m_opacity;
 			json["colour"]      = nlohmann::json::object();
-			json["colour"]["r"] = m_data.m_colour.m_red;
-			json["colour"]["g"] = m_data.m_colour.m_green;
-			json["colour"]["b"] = m_data.m_colour.m_blue;
+			json["colour"]["r"] = m_colour.m_red;
+			json["colour"]["g"] = m_colour.m_green;
+			json["colour"]["b"] = m_colour.m_blue;
+			json["colour"]["a"] = m_colour.m_alpha;
 
 			if (m_data.m_radius != std::nullopt)
 			{
@@ -182,11 +187,10 @@ namespace galaxy
 		{
 			Primitive2D::PrimitiveData data;
 			m_type          = magic_enum::enum_cast<graphics::Primitives>(json.at("type").get<std::string>()).value();
-			m_opacity       = json.at("opacity");
 			const int depth = json.at("depth");
 
-			const auto& colour = json.at("colour");
-			data.m_colour      = {colour.at("r"), colour.at("g"), colour.at("b"), 255};
+			const auto& col_json    = json.at("colour");
+			graphics::Colour colour = {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
 
 			if (json.count("radius") > 0)
 			{
@@ -235,27 +239,27 @@ namespace galaxy
 			switch (m_type)
 			{
 				case graphics::Primitives::CIRCLE:
-					create<graphics::Primitives::CIRCLE>(data, depth);
+					create<graphics::Primitives::CIRCLE>(data, colour, depth);
 					break;
 
 				case graphics::Primitives::ELLIPSE:
-					create<graphics::Primitives::ELLIPSE>(data, depth);
+					create<graphics::Primitives::ELLIPSE>(data, colour, depth);
 					break;
 
 				case graphics::Primitives::LINE:
-					create<graphics::Primitives::LINE>(data, depth);
+					create<graphics::Primitives::LINE>(data, colour, depth);
 					break;
 
 				case graphics::Primitives::POINT:
-					create<graphics::Primitives::POINT>(data, depth);
+					create<graphics::Primitives::POINT>(data, colour, depth);
 					break;
 
 				case graphics::Primitives::POLYGON:
-					create<graphics::Primitives::POLYGON>(data, depth);
+					create<graphics::Primitives::POLYGON>(data, colour, depth);
 					break;
 
 				case graphics::Primitives::POLYLINE:
-					create<graphics::Primitives::POLYLINE>(data, depth);
+					create<graphics::Primitives::POLYLINE>(data, colour, depth);
 					break;
 			}
 		}

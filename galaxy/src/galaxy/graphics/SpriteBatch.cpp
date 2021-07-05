@@ -45,7 +45,7 @@ namespace galaxy
 
 			layout.add<VertexAttributes::POSITION>(2);
 			layout.add<VertexAttributes::TEXEL>(2);
-			layout.add<VertexAttributes::COLOUR>(3);
+			layout.add<VertexAttributes::COLOUR>(4);
 			layout.add<VertexAttributes::DEPTH>(1);
 
 			m_vao.create(vbo, ibo, layout);
@@ -113,6 +113,7 @@ namespace galaxy
 					auto result     = (transform->get_transform() * glm::vec4 {0.0f, 0.0f, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y};
+					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
@@ -120,6 +121,7 @@ namespace galaxy
 					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
+					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
@@ -127,6 +129,7 @@ namespace galaxy
 					result          = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
+					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
@@ -134,6 +137,7 @@ namespace galaxy
 					result          = (transform->get_transform() * glm::vec4 {0.0f, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
+					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
 					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);

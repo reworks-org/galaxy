@@ -91,11 +91,18 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Change colour.
+			/// Set colour.
 			///
 			/// \param col Colour of line.
 			///
-			void change_colour(const graphics::Colour& col);
+			void set_colour(const graphics::Colour& col) noexcept;
+
+			///
+			/// Set opacity.
+			///
+			/// \param opacity 0 - 255.
+			///
+			void set_opacity(const std::uint8_t opacity) noexcept;
 
 			///
 			/// Set font.

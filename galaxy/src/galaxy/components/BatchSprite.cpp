@@ -18,12 +18,12 @@ namespace galaxy
 	namespace components
 	{
 		BatchSprite::BatchSprite() noexcept
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}
+		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}, m_opacity {255}
 		{
 		}
 
 		BatchSprite::BatchSprite(const nlohmann::json& json)
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}
+		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}, m_opacity {255}
 		{
 			deserialize(json);
 		}
@@ -31,22 +31,24 @@ namespace galaxy
 		BatchSprite::BatchSprite(BatchSprite&& bs) noexcept
 		    : Serializable {this}
 		{
-			this->m_clip   = std::move(bs.m_clip);
-			this->m_key    = std::move(bs.m_key);
-			this->m_region = std::move(bs.m_region);
-			this->m_index  = bs.m_index;
-			this->m_depth  = bs.m_depth;
+			this->m_clip    = std::move(bs.m_clip);
+			this->m_key     = std::move(bs.m_key);
+			this->m_region  = std::move(bs.m_region);
+			this->m_index   = bs.m_index;
+			this->m_depth   = bs.m_depth;
+			this->m_opacity = bs.m_opacity;
 		}
 
 		BatchSprite& BatchSprite::operator=(BatchSprite&& bs) noexcept
 		{
 			if (this != &bs)
 			{
-				this->m_clip   = std::move(bs.m_clip);
-				this->m_key    = std::move(bs.m_key);
-				this->m_region = std::move(bs.m_region);
-				this->m_index  = bs.m_index;
-				this->m_depth  = bs.m_depth;
+				this->m_clip    = std::move(bs.m_clip);
+				this->m_key     = std::move(bs.m_key);
+				this->m_region  = std::move(bs.m_region);
+				this->m_index   = bs.m_index;
+				this->m_depth   = bs.m_depth;
+				this->m_opacity = bs.m_opacity;
 			}
 
 			return *this;
@@ -93,6 +95,11 @@ namespace galaxy
 			m_depth = std::clamp(depth, ORTHO_NEAR, ORTHO_FAR_24BIT);
 		}
 
+		void BatchSprite::set_opacity(const std::uint8_t opacity) noexcept
+		{
+			m_opacity = std::clamp<std::uint8_t>(opacity, 0, 255);
+		}
+
 		void BatchSprite::clip_width(const float width) noexcept
 		{
 			m_clip.x         = width;
@@ -113,6 +120,11 @@ namespace galaxy
 		const int BatchSprite::get_depth() const noexcept
 		{
 			return m_depth;
+		}
+
+		const std::uint8_t BatchSprite::get_opacity() const noexcept
+		{
+			return m_opacity;
 		}
 
 		const math::Rect<float>& BatchSprite::get_region() const noexcept
@@ -136,6 +148,7 @@ namespace galaxy
 
 			json["texture-key"] = m_key;
 			json["depth"]       = m_depth;
+			json["opacity"]     = m_opacity;
 
 			json["clip"]      = nlohmann::json::object();
 			json["clip"]["w"] = m_clip.x;
@@ -152,22 +165,28 @@ namespace galaxy
 
 		void BatchSprite::deserialize(const nlohmann::json& json)
 		{
-			create(json.at("texture-key"), json.at("depth"));
-
-			if (json.count("clip") > 0)
+			if (json.count("texture-key") > 0)
 			{
-				const auto& clip = json.at("clip");
-				m_clip.x         = clip.at("w");
-				m_clip.y         = clip.at("h");
+				create(json.at("texture-key"), json.at("depth"));
 			}
-
-			if (json.count("region") > 0)
+			else if (json.count("region") > 0)
 			{
 				const auto& region = json.at("region");
 				m_region.m_x       = region.at("x");
 				m_region.m_y       = region.at("y");
 				m_region.m_width   = region.at("w");
 				m_region.m_height  = region.at("h");
+
+				create(region, json.at("depth"));
+			}
+
+			set_opacity(json.at("opacity"));
+
+			if (json.count("clip") > 0)
+			{
+				const auto& clip = json.at("clip");
+				m_clip.x         = clip.at("w");
+				m_clip.y         = clip.at("h");
 			}
 		}
 	} // namespace components

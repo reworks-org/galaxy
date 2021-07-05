@@ -138,3 +138,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://github.com/Asmodean-/SMAA-OpenGL/
 * Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
 * Uses PCSS. https://github.com/diharaw/PercentageCloserSoftShadows
+* https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374

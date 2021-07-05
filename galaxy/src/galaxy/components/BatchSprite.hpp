@@ -90,6 +90,13 @@ namespace galaxy
 			void set_depth(const int depth) noexcept;
 
 			///
+			/// Set opacity.
+			///
+			/// \param opacity 0 - 255.
+			///
+			void set_opacity(const std::uint8_t opacity) noexcept;
+
+			///
 			/// Set a custom width.
 			///
 			/// \param width New width to apply to texture.
@@ -116,6 +123,13 @@ namespace galaxy
 			/// \return Const int.
 			///
 			[[nodiscard]] const int get_depth() const noexcept;
+
+			///
+			/// Get opacity.
+			///
+			/// \return Const std::uint8_t.
+			///
+			[[nodiscard]] const std::uint8_t get_opacity() const noexcept;
 
 			///
 			/// Get region.
@@ -188,6 +202,11 @@ namespace galaxy
 			/// Z-Level.
 			///
 			int m_depth;
+
+			///
+			/// Opacity.
+			///
+			std::uint8_t m_opacity;
 		};
 	} // namespace components
 } // namespace galaxy

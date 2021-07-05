@@ -53,11 +53,6 @@ namespace galaxy
 				std::optional<int> m_pointsize = std::nullopt;
 
 				///
-				/// Used by all primitives.
-				///
-				graphics::Colour m_colour = {255, 255, 255, 255};
-
-				///
 				/// Used by line. Contains start and end point.
 				///
 				std::optional<glm::vec4> m_start_end = std::nullopt;
@@ -100,10 +95,11 @@ namespace galaxy
 			/// Create the primitive vertexs.
 			///
 			/// \param data Contains variables to construct vertex's for a primitive.
+			/// \param colour Colour of primitive.
 			/// \param depth Z-Level.
 			///
 			template<graphics::Primitives type>
-			void create(const PrimitiveData& data, const int depth);
+			void create(const PrimitiveData& data, const graphics::Colour& colour, const int depth);
 
 			///
 			/// Bind as active object.
@@ -116,7 +112,7 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Set RGB colour.
+			/// Set RGBA colour.
 			///
 			/// \param col Colour of primitive.
 			///
@@ -125,16 +121,16 @@ namespace galaxy
 			///
 			/// Set opacity.
 			///
-			/// \param opacity 0.0f - 1.0f.
+			/// \param opacity 0 - 255.
 			///
-			void set_opacity(const float opacity) noexcept;
+			void set_opacity(const std::uint8_t opacity) noexcept;
 
 			///
-			/// Get opacity.
+			/// Get colour.
 			///
-			/// \return Get opacity as normalized float.
+			/// \return Reference to Colour object.
 			///
-			[[nodiscard]] const float get_opacity() noexcept;
+			[[nodiscard]] graphics::Colour& get_colour() noexcept;
 
 			///
 			/// Get current primitive data.
@@ -222,19 +218,18 @@ namespace galaxy
 			int m_height;
 
 			///
-			/// Creation data.
-			///
-			PrimitiveData m_data;
-
-			///
 			/// Type of primitive.
 			///
 			graphics::Primitives m_type;
 
 			///
-			/// CPU vertex data.
+			/// Used by all primitives.
 			///
-			std::vector<graphics::Vertex> m_vertexs;
+			graphics::Colour m_colour;
+			///
+			/// Creation data.
+			///
+			PrimitiveData m_data;
 
 			///
 			/// GPU vertex data.
@@ -242,18 +237,19 @@ namespace galaxy
 			graphics::VertexArray m_vao;
 
 			///
-			/// Opacity.
+			/// CPU vertex data.
 			///
-			float m_opacity;
+			std::vector<graphics::Vertex> m_vertexs;
 		};
 
 		template<graphics::Primitives type>
-		inline void Primitive2D::create(const PrimitiveData& data, const int depth)
+		inline void Primitive2D::create(const PrimitiveData& data, const graphics::Colour& colour, const int depth)
 		{
 			m_type = type;
 			m_data = data;
-			m_vertexs.clear();
+			set_colour(colour);
 
+			m_vertexs.clear();
 			std::vector<unsigned int> indices;
 
 			if constexpr (type == graphics::Primitives::CIRCLE)
@@ -269,7 +265,6 @@ namespace galaxy
 					graphics::Vertex vertex;
 					vertex.m_pos.x = (data.m_radius.value() * glm::cos(angle)) + data.m_radius.value();
 					vertex.m_pos.y = (data.m_radius.value() * glm::sin(angle) + data.m_radius.value());
-					vertex.set_colour(m_data.m_colour);
 					vertex.set_depth(depth);
 
 					m_vertexs.emplace_back(vertex);
@@ -287,7 +282,7 @@ namespace galaxy
 
 				layout.add<graphics::VertexAttributes::POSITION>(2);
 				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::COLOUR>(4);
 				layout.add<graphics::VertexAttributes::DEPTH>(1);
 
 				m_vao.create(vbo, ibo, layout);
@@ -314,7 +309,6 @@ namespace galaxy
 					graphics::Vertex vertex;
 					vertex.m_pos.x = (x * m_data.m_radii.value().x) + m_data.m_radii.value().x;
 					vertex.m_pos.y = (y * m_data.m_radii.value().y) + m_data.m_radii.value().y;
-					vertex.set_colour(m_data.m_colour);
 					vertex.set_depth(depth);
 
 					m_vertexs.emplace_back(vertex);
@@ -335,7 +329,7 @@ namespace galaxy
 
 				layout.add<graphics::VertexAttributes::POSITION>(2);
 				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::COLOUR>(4);
 				layout.add<graphics::VertexAttributes::DEPTH>(1);
 
 				m_vao.create(vbo, ibo, layout);
@@ -349,13 +343,11 @@ namespace galaxy
 
 				vertex.m_pos.x = m_data.m_start_end.value().x;
 				vertex.m_pos.y = m_data.m_start_end.value().y;
-				vertex.set_colour(m_data.m_colour);
 				vertex.set_depth(depth);
 				m_vertexs.emplace_back(vertex);
 
 				vertex.m_pos.x = m_data.m_start_end.value().z;
 				vertex.m_pos.y = m_data.m_start_end.value().w;
-				vertex.set_colour(m_data.m_colour);
 				vertex.set_depth(depth);
 				m_vertexs.emplace_back(vertex);
 
@@ -371,7 +363,7 @@ namespace galaxy
 
 				layout.add<graphics::VertexAttributes::POSITION>(2);
 				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::COLOUR>(4);
 				layout.add<graphics::VertexAttributes::DEPTH>(1);
 
 				m_vao.create(vbo, ibo, layout);
@@ -384,7 +376,6 @@ namespace galaxy
 				graphics::Vertex vertex;
 
 				vertex.m_pos = {0.0f, 0.0f};
-				vertex.set_colour(m_data.m_colour);
 				vertex.set_depth(depth);
 				m_vertexs.emplace_back(vertex);
 
@@ -399,7 +390,7 @@ namespace galaxy
 
 				layout.add<graphics::VertexAttributes::POSITION>(2);
 				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::COLOUR>(4);
 				layout.add<graphics::VertexAttributes::DEPTH>(1);
 
 				m_vao.create(vbo, ibo, layout);
@@ -432,7 +423,6 @@ namespace galaxy
 
 					vertex.m_pos.x = point.x;
 					vertex.m_pos.y = point.y;
-					vertex.set_colour(m_data.m_colour);
 					vertex.set_depth(depth);
 
 					m_vertexs.emplace_back(vertex);
@@ -450,7 +440,7 @@ namespace galaxy
 
 				layout.add<graphics::VertexAttributes::POSITION>(2);
 				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(3);
+				layout.add<graphics::VertexAttributes::COLOUR>(4);
 				layout.add<graphics::VertexAttributes::DEPTH>(1);
 
 				m_vao.create(vbo, ibo, layout);

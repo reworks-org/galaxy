@@ -94,9 +94,9 @@ namespace galaxy
 			///
 			/// Get colour.
 			///
-			/// \return Const reference to a glm::vec3.
+			/// \return Const reference to a glm::vec4.
 			///
-			[[nodiscard]] const glm::vec3& get_colour() const noexcept;
+			[[nodiscard]] const glm::vec4& get_colour() const noexcept;
 
 			///
 			/// Get depth.
@@ -123,9 +123,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Colour of Vertex.
+			/// RGBA colour.
 			///
-			glm::vec3 m_colour;
+			glm::vec4 m_colour;
 
 			///
 			/// Depth (Z-Level).

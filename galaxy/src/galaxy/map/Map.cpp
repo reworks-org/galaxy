@@ -543,11 +543,10 @@ namespace galaxy
 							case Object::Type::ELLIPSE:
 							{
 								components::Primitive2D::PrimitiveData data;
-								data.m_colour    = layer.get_colour();
 								data.m_fragments = std::make_optional(40);
 								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
 
-								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_z_level());
+								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_colour(), layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -559,9 +558,8 @@ namespace galaxy
 							case Object::Type::POINT:
 							{
 								components::Primitive2D::PrimitiveData data;
-								data.m_colour    = layer.get_colour();
 								data.m_pointsize = 3;
-								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -580,8 +578,7 @@ namespace galaxy
 								}
 
 								data.m_points = std::make_optional(points);
-								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -600,8 +597,7 @@ namespace galaxy
 								}
 
 								data.m_points = std::make_optional(points);
-								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_colour(), layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -620,8 +616,7 @@ namespace galaxy
 								points.emplace_back(0.0f, 0.0f + object.get_height());
 
 								data.m_points = std::make_optional(points);
-								data.m_colour = layer.get_colour();
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), layer.get_z_level());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());

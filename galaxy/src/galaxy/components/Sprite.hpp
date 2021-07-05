@@ -91,16 +91,16 @@ namespace galaxy
 			///
 			/// Set opacity.
 			///
-			/// \param opacity 0.0f - 1.0f.
+			/// \param opacity 0 - 255.
 			///
-			void set_opacity(const float opacity) noexcept;
+			void set_opacity(const std::uint8_t opacity) noexcept;
 
 			///
 			/// Get opacity.
 			///
-			/// \return Const float.
+			/// \return Const std::uint8_t.
 			///
-			[[nodiscard]] const float get_opacity() const noexcept;
+			[[nodiscard]] const std::uint8_t get_opacity() const noexcept;
 
 			///
 			/// Get depth of sprite.
@@ -151,6 +151,11 @@ namespace galaxy
 			/// Opacity.
 			///
 			float m_opacity;
+
+			///
+			/// Depth.
+			///
+			int m_depth;
 		};
 	} // namespace components
 } // namespace galaxy

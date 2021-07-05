@@ -14,30 +14,31 @@
 #include "Renderer2D.hpp"
 
 ///
+/// Index of camera uniform buffer in shaders.
+///
+#define CAMERA_UBO_INDEX 0
+
+///
 /// Point vertex shader.
 ///
 constexpr const char* const point_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
-
-	out vec4 io_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
 		mat4 u_camera_model_view;
 		mat4 u_camera_proj;
 	};
-
+	
 	uniform mat4 u_transform;
 	uniform int u_point_size;
-	uniform float u_opacity;
 
 	void main()
 	{
-		io_colour    = vec4(l_colour, u_opacity);
-
 		gl_PointSize = u_point_size;
 		gl_Position  = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
 	}
@@ -49,12 +50,13 @@ constexpr const char* const point_vert = R"(
 constexpr const char* const point_frag = R"(
 	#version 450 core
 
-	in vec4 io_colour;
 	out vec4 io_frag_colour;
+	
+	uniform vec4 u_colour;
 
 	void main()
 	{
-		io_frag_colour = io_colour;
+		io_frag_colour = u_colour;
 	}
 )";
 
@@ -65,9 +67,8 @@ constexpr const char* const line_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
-
-	out vec4 io_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -76,12 +77,9 @@ constexpr const char* const line_vert = R"(
 	};
 
 	uniform mat4 u_transform;
-	uniform float u_opacity;
 
 	void main()
 	{
-		io_colour    = vec4(l_colour, u_opacity);
-
 		gl_Position = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
 	}
 )";
@@ -92,12 +90,13 @@ constexpr const char* const line_vert = R"(
 constexpr const char* const line_frag = R"(
 	#version 450 core
 
-	in vec4 io_colour;
 	out vec4 io_frag_colour;
+
+	uniform vec4 u_colour;
 
 	void main()
 	{
-		io_frag_colour = io_colour;
+		io_frag_colour = u_colour;
 	}
 )";
 
@@ -108,7 +107,8 @@ constexpr const char* const text_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -155,7 +155,8 @@ constexpr const char* const sprite_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -191,10 +192,8 @@ constexpr const char* const sprite_frag = R"(
 
 	void main()
 	{
-		vec4 tex = texture(u_texture, io_texels);
-		tex.a *= u_opacity;
-	
-		io_frag_colour = tex;
+		io_frag_colour = texture(u_texture, io_texels);
+		io_frag_colour.a = u_opacity;
 	}
 )";
 
@@ -205,7 +204,8 @@ constexpr const char* const render_to_texture_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -246,9 +246,11 @@ constexpr const char* const spritebatch_vert = R"(
 	#version 450 core
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec3 l_colour;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
+	out float io_opacity;
 	
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -262,7 +264,8 @@ constexpr const char* const spritebatch_vert = R"(
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
-		
+		io_opacity = l_colour.a;		
+
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
 	}
 )";
@@ -274,6 +277,7 @@ constexpr const char* const spritebatch_frag = R"(
 	#version 450 core
 
 	in vec2 io_texels;
+	in float io_opacity;
 	out vec4 io_frag_colour;
 
 	uniform sampler2D u_texture;
@@ -281,6 +285,7 @@ constexpr const char* const spritebatch_frag = R"(
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels);
+		io_frag_colour.a = io_opacity;
 	}
 )";
 
@@ -297,7 +302,7 @@ namespace galaxy
 			m_rtt_shader.load_raw(render_to_texture_vert, render_to_texture_frag);
 			m_spritebatch_shader.load_raw(spritebatch_vert, spritebatch_frag);
 
-			m_camera_ubo.create(0);
+			m_camera_ubo.create(CAMERA_UBO_INDEX);
 			m_camera_ubo.reserve(sizeof(Camera2D::Data));
 		}
 
@@ -346,9 +351,9 @@ namespace galaxy
 		{
 			data->bind();
 
+			m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
 			m_point_shader.set_uniform("u_point_size", data->get_data().m_pointsize.value());
 			m_point_shader.set_uniform("u_transform", transform->get_transform());
-			m_point_shader.set_uniform("u_opacity", data->get_opacity());
 
 			glDrawElements(GL_POINTS, data->count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -357,8 +362,8 @@ namespace galaxy
 		{
 			data->bind();
 
+			m_line_shader.set_uniform("u_colour", data->get_colour().normalized());
 			m_line_shader.set_uniform("u_transform", transform->get_transform());
-			m_line_shader.set_uniform("u_opacity", data->get_opacity());
 
 			glDrawElements(GL_LINES, data->count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -367,9 +372,8 @@ namespace galaxy
 		{
 			data->bind();
 
-			m_line_shader.bind();
+			m_line_shader.set_uniform("u_colour", data->get_colour().normalized());
 			m_line_shader.set_uniform("u_transform", transform->get_transform());
-			m_line_shader.set_uniform("u_opacity", data->get_opacity());
 
 			glDrawElements(GL_LINE_LOOP, data->count(), GL_UNSIGNED_INT, nullptr);
 		}
@@ -391,7 +395,7 @@ namespace galaxy
 			sprite->bind();
 
 			m_sprite_shader.set_uniform("u_transform", transform->get_transform());
-			m_sprite_shader.set_uniform("u_opacity", sprite->get_opacity());
+			m_sprite_shader.set_uniform("u_opacity", static_cast<float>(sprite->get_opacity()) / static_cast<float>(0xFF));
 			m_sprite_shader.set_uniform("u_width", static_cast<float>(sprite->get_width()));
 			m_sprite_shader.set_uniform("u_height", static_cast<float>(sprite->get_height()));
 

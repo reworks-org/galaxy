@@ -1,5 +1,3 @@
-- depth rework
-- opacity rework
 - sort by opacity and depth
 - better renderer sorting
 https://learnopengl.com/Advanced-OpenGL/Blending
@@ -13,3 +11,7 @@ fix input stuttering
 fix map performance
 input needs to be a system update
 and a component?
+
+
+map lag
+text has incorrect Bg

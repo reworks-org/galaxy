@@ -619,12 +619,14 @@ namespace sc
 						static int depth = primitive2d->get_depth();
 						ImGui::InputInt("Depth", &depth, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
 
-						auto& data             = primitive2d->get_data();
-						static float colour[4] = {data.m_colour.m_red, data.m_colour.m_green, data.m_colour.m_blue, data.m_colour.m_alpha};
+						auto& data = primitive2d->get_data();
+						/*
+						static float colour[4] = {m_colour.m_red, m_colour.m_green, data.m_colour.m_blue, data.m_colour.m_alpha};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
 							data.m_colour = {static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])};
 						}
+						*/
 
 						if (data.m_fragments != std::nullopt)
 						{
@@ -755,7 +757,7 @@ namespace sc
 
 						ImGui::SameLine();
 
-						if (ImGui::Button("Update"))
+						/*if (ImGui::Button("Update"))
 						{
 							gl_operations.push_back([&data, primitive2d]() {
 								switch (s_type)
@@ -797,7 +799,7 @@ namespace sc
 									break;
 								}
 							});
-						}
+						}*/
 
 						ImGui::SameLine();
 
@@ -973,7 +975,7 @@ namespace sc
 						    static_cast<float>(text->get_colour().m_alpha)};
 						if (ImGui::ColorEdit4("Colour", colour, ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
 						{
-							text->change_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
+							text->set_colour({static_cast<std::uint8_t>(colour[0]), static_cast<std::uint8_t>(colour[1]), static_cast<std::uint8_t>(colour[2]), static_cast<std::uint8_t>(colour[3])});
 						}
 
 						if (ImGui::Button("Update"))

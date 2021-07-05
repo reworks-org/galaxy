@@ -144,9 +144,14 @@ namespace galaxy
 			m_batch.unbind();
 		}
 
-		void Text::change_colour(const graphics::Colour& col)
+		void Text::set_colour(const graphics::Colour& col) noexcept
 		{
 			m_colour = col;
+		}
+
+		void Text::set_opacity(const std::uint8_t opacity) noexcept
+		{
+			m_colour.m_alpha = std::clamp<std::uint8_t>(opacity, 0, 255);
 		}
 
 		void Text::set_font(std::string_view font)
