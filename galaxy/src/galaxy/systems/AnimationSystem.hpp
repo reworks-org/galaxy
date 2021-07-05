@@ -8,14 +8,10 @@
 #ifndef GALAXY_SYSTEMS_ANIMATIONSYSTEM_HPP_
 #define GALAXY_SYSTEMS_ANIMATIONSYSTEM_HPP_
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/ecs/System.hpp"
-#include "galaxy/graphics/Camera2D.hpp"
+#include "galaxy/core/Scene2D.hpp"
 
 namespace galaxy
 {
-	class core::World;
-
 	namespace systems
 	{
 		///
@@ -37,10 +33,10 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param world Game World containing entities.
+			/// \param scene Currently active scene.
 			/// \param dt DeltaTime from gameloop.
 			///
-			void update(core::World& world, const double dt) override;
+			void update(core::Scene2D* scene, const double dt) override;
 		};
 	} // namespace systems
 } // namespace galaxy

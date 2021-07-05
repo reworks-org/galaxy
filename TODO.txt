@@ -1,17 +1,15 @@
-- Further rendersystem improvements and optimizations.
-- For scene push/pop run lua script?
-
 - depth rework
 - opacity rework
 - sort by opacity and depth
+- better renderer sorting
+https://learnopengl.com/Advanced-OpenGL/Blending
 
-some resource managers unique to a scene.
-event handling per scene.
-
+- some resource managers unique to a scene.
 
 map hot reloading
 code review
 
-fix collisions pushing each other away
 fix input stuttering
 fix map performance
+input needs to be a system update
+and a component?

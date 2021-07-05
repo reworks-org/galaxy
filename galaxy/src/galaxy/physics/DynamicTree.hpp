@@ -47,7 +47,7 @@
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/physics/AABB.hpp"
+#include "galaxy/math/AABB.hpp"
 
 namespace galaxy
 {
@@ -67,7 +67,7 @@ namespace galaxy
 			using key_type = Key;
 
 			std::optional<key_type> id;
-			AABB aabb;
+			math::AABB aabb;
 
 			maybe_index parent;
 			maybe_index left;
@@ -192,7 +192,7 @@ namespace galaxy
 			///
 			/// \return True if an AABB was updated; `false` otherwise.
 			///
-			[[maybe_unused]] inline const bool update(const key_type& key, AABB aabb, bool force_reinsert = false)
+			[[maybe_unused]] inline const bool update(const key_type& key, math::AABB aabb, bool force_reinsert = false)
 			{
 				if (const auto it = m_index_map.find(key); it != m_index_map.end())
 				{
@@ -294,7 +294,7 @@ namespace galaxy
 						for (auto j = (i + 1); j < count; ++j)
 						{
 							const auto snd_aabb = m_nodes.at(node_indices.at(j)).aabb;
-							const auto cost     = AABB::merge(fst_aabb, snd_aabb).area();
+							const auto cost     = math::AABB::merge(fst_aabb, snd_aabb).area();
 
 							if (cost < min_cost)
 							{
@@ -317,7 +317,7 @@ namespace galaxy
 					parent_node.left   = index1;
 					parent_node.right  = index2;
 					parent_node.height = 1 + std::max(index1Node.height, index2Node.height);
-					parent_node.aabb   = AABB::merge(index1Node.aabb, index2Node.aabb);
+					parent_node.aabb   = math::AABB::merge(index1Node.aabb, index2Node.aabb);
 					parent_node.parent = std::nullopt;
 
 					index1Node.parent = parent_index;
@@ -470,7 +470,7 @@ namespace galaxy
 			///
 			/// \return The AABB associated with the specified ID.
 			///
-			[[nodiscard]] inline const AABB& get_aabb(const key_type& key) const
+			[[nodiscard]] inline const math::AABB& get_aabb(const key_type& key) const
 			{
 				return m_nodes.at(m_index_map.at(key)).aabb;
 			}
@@ -606,16 +606,16 @@ namespace galaxy
 			///
 			/// Private internal function.
 			///
-			[[nodiscard]] static inline const double left_cost(const AABB& leaf_aabb, const node_type& left_node, const double minimum_cost)
+			[[nodiscard]] static inline const double left_cost(const math::AABB& leaf_aabb, const node_type& left_node, const double minimum_cost)
 			{
 				if (left_node.is_leaf())
 				{
-					return AABB::merge(leaf_aabb, left_node.aabb).area() + minimum_cost;
+					return math::AABB::merge(leaf_aabb, left_node.aabb).area() + minimum_cost;
 				}
 				else
 				{
 					const auto old_area = left_node.aabb.area();
-					const auto new_area = AABB::merge(leaf_aabb, left_node.aabb).area();
+					const auto new_area = math::AABB::merge(leaf_aabb, left_node.aabb).area();
 					return (new_area - old_area) + minimum_cost;
 				}
 			}
@@ -623,16 +623,16 @@ namespace galaxy
 			///
 			/// Private internal function.
 			///
-			[[nodiscard]] static inline const double right_cost(const AABB& leaf_aabb, const node_type& right_node, const double minimum_cost)
+			[[nodiscard]] static inline const double right_cost(const math::AABB& leaf_aabb, const node_type& right_node, const double minimum_cost)
 			{
 				if (right_node.is_leaf())
 				{
-					const auto aabb = AABB::merge(leaf_aabb, right_node.aabb);
+					const auto aabb = math::AABB::merge(leaf_aabb, right_node.aabb);
 					return aabb.area() + minimum_cost;
 				}
 				else
 				{
-					const auto aabb     = AABB::merge(leaf_aabb, right_node.aabb);
+					const auto aabb     = math::AABB::merge(leaf_aabb, right_node.aabb);
 					const auto old_area = right_node.aabb.area();
 					const auto new_area = aabb.area();
 					return (new_area - old_area) + minimum_cost;
@@ -642,7 +642,7 @@ namespace galaxy
 			///
 			/// Private internal function.
 			///
-			[[nodiscard]] inline const index_type find_best_sibling(const AABB& leaf_aabb) const
+			[[nodiscard]] inline const index_type find_best_sibling(const math::AABB& leaf_aabb) const
 			{
 				auto index = m_root.value();
 
@@ -654,7 +654,7 @@ namespace galaxy
 
 					const auto surface_area = node.aabb.area();
 					const auto combined_surface_area =
-					    AABB::merge(node.aabb, leaf_aabb).area();
+					    math::AABB::merge(node.aabb, leaf_aabb).area();
 
 					// Cost of creating a new parent for this node and the new leaf.
 					const auto cost = 2.0 * combined_surface_area;
@@ -736,7 +736,7 @@ namespace galaxy
 					const auto& right_node = m_nodes.at(right);
 
 					node.height = 1 + std::max(left_node.height, right_node.height);
-					node.aabb   = AABB::merge(left_node.aabb, right_node.aabb);
+					node.aabb   = math::AABB::merge(left_node.aabb, right_node.aabb);
 
 					index = node.parent;
 				}
@@ -764,7 +764,7 @@ namespace galaxy
 
 				auto& new_parent  = m_nodes.at(new_parent_index);
 				new_parent.parent = old_parent_index;
-				new_parent.aabb   = AABB::merge(leaf_aabb, m_nodes.at(sibling_index).aabb);
+				new_parent.aabb   = math::AABB::merge(leaf_aabb, m_nodes.at(sibling_index).aabb);
 
 				new_parent.height = m_nodes.at(sibling_index).height + 1;
 
@@ -813,7 +813,7 @@ namespace galaxy
 					const auto& left_node  = m_nodes.at(left.value());
 					const auto& right_node = m_nodes.at(right.value());
 
-					node.aabb   = AABB::merge(left_node.aabb, right_node.aabb);
+					node.aabb   = math::AABB::merge(left_node.aabb, right_node.aabb);
 					node.height = 1 + std::max(left_node.height, right_node.height);
 
 					index = node.parent;
@@ -911,8 +911,8 @@ namespace galaxy
 
 					right_right_node.parent = node_index;
 
-					node.aabb       = AABB::merge(left_node.aabb, right_right_node.aabb);
-					right_node.aabb = AABB::merge(node.aabb, right_left_node.aabb);
+					node.aabb       = math::AABB::merge(left_node.aabb, right_right_node.aabb);
+					right_node.aabb = math::AABB::merge(node.aabb, right_left_node.aabb);
 
 					node.height       = 1 + std::max(left_node.height, right_right_node.height);
 					right_node.height = 1 + std::max(node.height, right_left_node.height);
@@ -924,8 +924,8 @@ namespace galaxy
 
 					right_left_node.parent = node_index;
 
-					node.aabb       = AABB::merge(left_node.aabb, right_left_node.aabb);
-					right_node.aabb = AABB::merge(node.aabb, right_right_node.aabb);
+					node.aabb       = math::AABB::merge(left_node.aabb, right_left_node.aabb);
+					right_node.aabb = math::AABB::merge(node.aabb, right_right_node.aabb);
 
 					node.height       = 1 + std::max(left_node.height, right_left_node.height);
 					right_node.height = 1 + std::max(node.height, right_right_node.height);
@@ -978,8 +978,8 @@ namespace galaxy
 
 					left_right_node.parent = node_index;
 
-					node.aabb      = AABB::merge(right_node.aabb, left_right_node.aabb);
-					left_node.aabb = AABB::merge(node.aabb, left_left_node.aabb);
+					node.aabb      = math::AABB::merge(right_node.aabb, left_right_node.aabb);
+					left_node.aabb = math::AABB::merge(node.aabb, left_left_node.aabb);
 
 					node.height      = 1 + std::max(right_node.height, left_right_node.height);
 					left_node.height = 1 + std::max(node.height, left_left_node.height);
@@ -991,8 +991,8 @@ namespace galaxy
 
 					left_left_node.parent = node_index;
 
-					node.aabb      = AABB::merge(right_node.aabb, left_left_node.aabb);
-					left_node.aabb = AABB::merge(node.aabb, left_right_node.aabb);
+					node.aabb      = math::AABB::merge(right_node.aabb, left_left_node.aabb);
+					left_node.aabb = math::AABB::merge(node.aabb, left_right_node.aabb);
 
 					node.height      = 1 + std::max(right_node.height, left_left_node.height);
 					left_node.height = 1 + std::max(node.height, left_right_node.height);

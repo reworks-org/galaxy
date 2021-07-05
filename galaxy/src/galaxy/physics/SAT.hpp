@@ -1,12 +1,12 @@
 ///
-/// SATObject.hpp
+/// SAT.hpp
 ///
 /// Based on code from ghost7:
 /// https://github.com/ghost7/collision
 ///
 
-#ifndef GALAXY_PHYSICS_SATOBJECT_HPP_
-#define GALAXY_PHYSICS_SATOBJECT_HPP_
+#ifndef GALAXY_PHYSICS_SAT_HPP_
+#define GALAXY_PHYSICS_SAT_HPP_
 
 #include <vector>
 
@@ -27,7 +27,7 @@ namespace galaxy
 		/// Class used to store data to resolve collisions using the
 		/// separating axis theorem.
 		///
-		class SATObject final
+		class SAT final
 		{
 		public:
 			///
@@ -36,12 +36,12 @@ namespace galaxy
 			/// \param world World object to retrieve components from.
 			/// \param entity Entity to get vertex data from.
 			///
-			SATObject(core::World& world, const ecs::Entity entity);
+			SAT(core::World& world, const ecs::Entity entity);
 
 			///
 			/// Destructor.
 			///
-			~SATObject() noexcept = default;
+			~SAT() noexcept = default;
 
 			///
 			/// \brief Determine if this polygon intersects with another.
@@ -55,7 +55,7 @@ namespace galaxy
 			///
 			/// \return True if the object intersects.
 			///
-			[[nodiscard]] const bool intersects(SATObject& objectb, glm::vec2& mtv);
+			[[nodiscard]] const bool intersects(SAT& objectb, glm::vec2& mtv);
 
 		private:
 			///
@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			SATObject() = delete;
+			SAT() = delete;
 
 			///
 			/// Project the polygon's vertices onto the specified axis.

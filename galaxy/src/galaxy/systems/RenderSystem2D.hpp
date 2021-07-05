@@ -8,8 +8,8 @@
 #ifndef GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 #define GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/graphics/Camera2D.hpp"
+#include "galaxy/core/Scene2D.hpp"
+#include "galaxy/math/QuadTree.hpp"
 
 namespace galaxy
 {
@@ -35,20 +35,20 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RenderSystem2D() noexcept = default;
+			RenderSystem2D() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~RenderSystem2D() noexcept = default;
+			virtual ~RenderSystem2D() noexcept;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param world Game World containing entities.
+			/// \param scene Currently active scene.
 			/// \param dt DeltaTime from gameloop.
 			///
-			void update(core::World& world, const double dt) override;
+			void update(core::Scene2D* scene, const double dt) override;
 
 			///
 			/// Render sprites / textures to screen.
@@ -83,6 +83,16 @@ namespace galaxy
 			/// Sprite cache.
 			///
 			std::vector<std::pair<components::Sprite*, components::Transform2D*>> m_sprites;
+
+			///
+			/// Quadtree for spacial partitioning.
+			///
+			math::Quadtree m_quadtree;
+
+			///
+			/// Output memory cache.
+			///
+			std::vector<math::Quadtree::Object*> m_output;
 		};
 	} // namespace systems
 } // namespace galaxy

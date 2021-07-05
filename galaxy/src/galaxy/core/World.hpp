@@ -22,6 +22,8 @@ namespace galaxy
 {
 	namespace core
 	{
+		class Scene2D;
+
 		///
 		/// Predefinition of unique id structure for components.
 		///
@@ -68,9 +70,10 @@ namespace galaxy
 			///
 			/// Update all registered systems.
 			///
+			/// \param scene Pointer to scene.
 			/// \param dt "Lag" time to pass to systems.
 			///
-			void update(const double dt);
+			void update(core::Scene2D* scene, const double dt);
 
 			///
 			/// Create an entity.

@@ -19,9 +19,7 @@
             "type": "BATCHED"
         },
         "RigidBody": {
-        	"type": "DYNAMIC",
-            "width": 32,
-            "height": 32
+        	"type": "DYNAMIC"
         },
         "OnCollision":{
             "script": "on_collide"

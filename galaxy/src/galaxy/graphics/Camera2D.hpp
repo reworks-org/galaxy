@@ -17,8 +17,8 @@
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
-
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/math/AABB.hpp"
 
 namespace galaxy
 {
@@ -266,6 +266,13 @@ namespace galaxy
 			[[nodiscard]] Data& get_data() noexcept;
 
 			///
+			/// Get camera aabb.
+			///
+			/// \return Reference to camera aabb.
+			///
+			[[nodiscard]] math::AABB& get_aabb() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -378,6 +385,11 @@ namespace galaxy
 			/// Camera data.
 			///
 			Data m_data;
+
+			///
+			/// AABB Cache.
+			///
+			math::AABB m_aabb;
 		};
 	} // namespace graphics
 } // namespace galaxy

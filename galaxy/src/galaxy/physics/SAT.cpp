@@ -1,5 +1,5 @@
 ///
-/// SATObject.cpp
+/// SAT.cpp
 ///
 /// Based on code from ghost7:
 /// https://github.com/ghost7/collision
@@ -14,7 +14,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform2D.hpp"
 
-#include "SATObject.hpp"
+#include "SAT.hpp"
 
 namespace galaxy
 {
@@ -39,12 +39,12 @@ namespace galaxy
 
 	namespace physics
 	{
-		SATObject::Projection::Projection(float min, float max) noexcept
+		SAT::Projection::Projection(float min, float max) noexcept
 		    : m_min {min}, m_max {max}
 		{
 		}
 
-		const float SATObject::Projection::get_overlap(const Projection& other)
+		const float SAT::Projection::get_overlap(const Projection& other)
 		{
 			if (m_min > other.m_max || m_max < other.m_min)
 			{
@@ -60,7 +60,7 @@ namespace galaxy
 			}
 		}
 
-		SATObject::SATObject(core::World& world, const ecs::Entity entity)
+		SAT::SAT(core::World& world, const ecs::Entity entity)
 		{
 			auto* renderable = world.get<components::Renderable>(entity);
 			auto* transform  = world.get<components::Transform2D>(entity);
@@ -102,7 +102,7 @@ namespace galaxy
 			}
 		}
 
-		const bool SATObject::intersects(SATObject& objectb, glm::vec2& mtv)
+		const bool SAT::intersects(SAT& objectb, glm::vec2& mtv)
 		{
 			// Set the mtv to be the float max, so we can find a vector that is
 			// smaller.
@@ -153,7 +153,7 @@ namespace galaxy
 			return true;
 		}
 
-		const SATObject::Projection SATObject::project(const glm::vec2& axis)
+		const SAT::Projection SAT::project(const glm::vec2& axis)
 		{
 			auto min = glm::dot(axis, m_vertexs[0]);
 			auto max = min;

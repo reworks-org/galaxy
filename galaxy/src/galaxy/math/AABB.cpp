@@ -41,7 +41,7 @@
 
 namespace galaxy
 {
-	namespace physics
+	namespace math
 	{
 		AABB::AABB() noexcept
 		    : m_min {0.0f, 0.0f}, m_max {0.0f, 0.0f}, m_area {0.0}
@@ -182,5 +182,5 @@ namespace galaxy
 
 			return {lower, upper};
 		}
-	} // namespace physics
+	} // namespace math
 } // namespace galaxy

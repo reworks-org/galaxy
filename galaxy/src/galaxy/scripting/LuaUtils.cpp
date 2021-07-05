@@ -35,9 +35,10 @@
 
 #include "galaxy/map/TiledWorld.hpp"
 
-#include "galaxy/physics/AABB.hpp"
+#include "galaxy/math/AABB.hpp"
+
 #include "galaxy/physics/BodyType.hpp"
-#include "galaxy/physics/SATObject.hpp"
+#include "galaxy/physics/SAT.hpp"
 
 #include "galaxy/platform/Platform.hpp"
 

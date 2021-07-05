@@ -19,9 +19,7 @@
             "type": "BATCHED"
         },
         "RigidBody": {
-        	"type": "STATIC",
-            "width": 512,
-            "height": 16
+        	"type": "STATIC"
         }
     }
 }

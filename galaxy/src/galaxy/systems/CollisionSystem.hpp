@@ -8,8 +8,8 @@
 #ifndef GALAXY_SYSTEM_COLLISIONSYSTEM_HPP_
 #define GALAXY_SYSTEM_COLLISIONSYSTEM_HPP_
 
-#include "galaxy/ecs/Entity.hpp"
-#include "galaxy/ecs/System.hpp"
+#include "galaxy/core/Scene2D.hpp"
+#include "galaxy/math/QuadTree.hpp"
 #include "galaxy/physics/DynamicTree.hpp"
 
 namespace galaxy
@@ -30,33 +30,41 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~CollisionSystem() noexcept = default;
+			virtual ~CollisionSystem() noexcept;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param world Game World containing entities.
-			/// \param dt "Lag" from gameloop.
+			/// \param scene Currently active scene.
+			/// \param dt DeltaTime from gameloop.
 			///
-			void update(core::World& world, const double dt) override;
-
-			///
-			/// Retrieve dynamic AABB tree.
-			///
-			/// \return Pointer to dynamic tree.
-			///
-			[[nodiscard]] physics::DynamicTree<ecs::Entity>* get_tree() noexcept;
+			void update(core::Scene2D* scene, const double dt) override;
 
 		private:
 			///
 			/// Dynamic Tree for efficient collision detection.
 			///
-			physics::DynamicTree<ecs::Entity> m_tree;
+			physics::DynamicTree<ecs::Entity> m_bvh;
 
 			///
 			/// Offset from collision.
 			///
 			glm::vec2 m_mtv;
+
+			///
+			/// Possible entity memory cache.
+			///
+			std::vector<ecs::Entity> m_possible;
+
+			///
+			/// Quadtree for spacial partitioning.
+			///
+			math::Quadtree m_quadtree;
+
+			///
+			/// Output memory cache.
+			///
+			std::vector<math::Quadtree::Object*> m_output;
 		};
 	} // namespace systems
 } // namespace galaxy

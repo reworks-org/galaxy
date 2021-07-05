@@ -8,6 +8,8 @@
 #ifndef GALAXY_COMPONENTS_RENDERABLE_HPP_
 #define GALAXY_COMPONENTS_RENDERABLE_HPP_
 
+#include "galaxy/math/AABB.hpp"
+#include "galaxy/math/Rect.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 
@@ -49,6 +51,22 @@ namespace galaxy
 			virtual ~Renderable() noexcept = default;
 
 			///
+			/// Update the internal AABB box.
+			///
+			/// \param rect New bounds for AABB.
+			///
+			/// \return Returns internal aabb after updating, for convenience.
+			///
+			[[maybe_unused]] const math::AABB& update_aabb(const math::Rect<float>& bounds);
+
+			///
+			/// Get AABB.
+			///
+			/// \return Reference to body AABB.
+			///
+			[[nodiscard]] math::AABB& get_aabb() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -62,12 +80,6 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		public:
-			///
-			/// ID of a shader in the shader resource cache.
-			///
-			graphics::Renderables m_type;
-
 		private:
 			///
 			/// Copy assignment operator.
@@ -78,6 +90,18 @@ namespace galaxy
 			/// Copy constructor.
 			///
 			Renderable(const Renderable&) = delete;
+
+		public:
+			///
+			/// ID of a shader in the shader resource cache.
+			///
+			graphics::Renderables m_type;
+
+		private:
+			///
+			/// AABB bounding box.
+			///
+			math::AABB m_aabb;
 		};
 	} // namespace components
 } // namespace galaxy

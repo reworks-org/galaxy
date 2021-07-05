@@ -35,8 +35,8 @@
 	 THIS CODEBASE HAS ALSO BEEN EXTENSIVELY MODIFIED FOR USE IN GALAXY.
  */
 
-#ifndef GALAXY_PHYSICS_AABB_HPP_
-#define GALAXY_PHYSICS_AABB_HPP_
+#ifndef GALAXY_MATH_AABB_HPP_
+#define GALAXY_MATH_AABB_HPP_
 
 #include <optional>
 
@@ -44,7 +44,7 @@
 
 namespace galaxy
 {
-	namespace physics
+	namespace math
 	{
 		///
 		/// Represents an AABB (Axis-Aligned Bounding Box).
@@ -55,7 +55,8 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			AABB() noexcept;
+			AABB()
+			noexcept;
 
 			///
 			/// Creates an AABB.
@@ -63,7 +64,8 @@ namespace galaxy
 			/// \param min the lower bounds of the AABB.
 			/// \param max the upper bounds of the AABB.
 			///
-			AABB(const glm::vec2& min, const glm::vec2& max) noexcept;
+			AABB(const glm::vec2& min, const glm::vec2& max)
+			noexcept;
 
 			///
 			/// Updates the stored area.
@@ -172,7 +174,7 @@ namespace galaxy
 		{
 			return !(lhs == rhs);
 		}
-	} // namespace physics
+	} // namespace math
 } // namespace galaxy
 
 #endif

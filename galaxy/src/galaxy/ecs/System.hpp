@@ -12,7 +12,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		class World;
+		class Scene2D;
 	} // namespace core
 
 	namespace ecs
@@ -24,17 +24,17 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default virtual destructor.
+			/// Virtual destructor.
 			///
 			virtual ~System() noexcept = default;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param world Game World containing entities.
+			/// \param scene Currently active scene.
 			/// \param dt "Lag" from gameloop.
 			///
-			virtual void update(core::World& world, const double dt) = 0;
+			virtual void update(core::Scene2D* scene, const double dt) = 0;
 
 		protected:
 			///

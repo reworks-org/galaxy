@@ -70,7 +70,7 @@ namespace galaxy
 		void Scene2D::update(const double dt)
 		{
 			m_camera.update(dt);
-			m_world.update(dt);
+			m_world.update(this, dt);
 			//m_gui.update(dt);
 		}
 

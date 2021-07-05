@@ -847,7 +847,7 @@ namespace sc
 					{
 						static constexpr const auto s_types = magic_enum::enum_names<physics::BodyType>();
 
-						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->get_type()));
+						std::string s_selected = static_cast<std::string>(magic_enum::enum_name(rigidbody->m_type));
 						if (ImGui::BeginCombo("Type", s_selected.c_str()))
 						{
 							for (const auto& name : s_types)
@@ -855,8 +855,8 @@ namespace sc
 								const bool selected = (s_selected == name);
 								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
 								{
-									s_selected = name;
-									rigidbody->set_bodytype(magic_enum::enum_cast<physics::BodyType>(s_selected).value());
+									s_selected        = name;
+									rigidbody->m_type = magic_enum::enum_cast<physics::BodyType>(s_selected).value();
 								}
 
 								if (selected)
@@ -867,14 +867,6 @@ namespace sc
 
 							ImGui::EndCombo();
 						}
-
-						ImGui::Text("AABB Stats:");
-
-						const auto& aabb = rigidbody->get_aabb();
-						ImGui::Text("Area: %d.", aabb.area());
-						ImGui::Text("Min: %f, %f.", aabb.min().x, aabb.min().y);
-						ImGui::Text("Max: %f, %f.", aabb.max().x, aabb.max().y);
-						ImGui::Text("Size: %f, %f.", aabb.size().x, aabb.size().y);
 
 						ImGui::EndTabItem();
 					}

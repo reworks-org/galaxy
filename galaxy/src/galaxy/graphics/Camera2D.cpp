@@ -256,6 +256,23 @@ namespace galaxy
 			return m_data;
 		}
 
+		math::AABB& Camera2D::get_aabb() noexcept
+		{
+			m_aabb = {m_pos, {m_pos.x + m_width, m_pos.y + m_height}};
+			m_aabb.update_area();
+
+			return m_aabb;
+		}
+
+		void Camera2D::recalculate() noexcept
+		{
+			if (m_dirty)
+			{
+				m_data.m_model_view = m_translation * m_scaling;
+				m_dirty             = false;
+			}
+		}
+
 		nlohmann::json Camera2D::serialize()
 		{
 			nlohmann::json json = "{}"_json;
@@ -289,15 +306,6 @@ namespace galaxy
 			set_speed(json.at("speed"));
 
 			recalculate();
-		}
-
-		void Camera2D::recalculate() noexcept
-		{
-			if (m_dirty)
-			{
-				m_data.m_model_view = m_translation * m_scaling;
-				m_dirty             = false;
-			}
 		}
 	} // namespace graphics
 } // namespace galaxy

@@ -8,10 +8,7 @@
 #ifndef GALAXY_COMPONENTS_RIGIDBODY_HPP_
 #define GALAXY_COMPONENTS_RIGIDBODY_HPP_
 
-#include <glm/mat4x4.hpp>
-
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/physics/AABB.hpp"
 #include "galaxy/physics/BodyType.hpp"
 
 namespace galaxy
@@ -52,52 +49,6 @@ namespace galaxy
 			~RigidBody() noexcept = default;
 
 			///
-			/// Update the internal AABB box.
-			///
-			/// \param x New x position.
-			/// \param y New y position.
-			///
-			/// \return Returns internal aabb after updating, for convenience.
-			///
-			[[maybe_unused]] const physics::AABB& update_aabb(const float x, const float y);
-
-			///
-			/// Set body type.
-			///
-			/// \param type New body type.
-			///
-			void set_bodytype(const physics::BodyType type) noexcept;
-
-			///
-			/// Set body size.
-			///
-			/// \param size New body size.
-			///
-			void set_size(const glm::vec2& size) noexcept;
-
-			///
-			/// Set body size.
-			///
-			/// \param width New body width.
-			/// \param height New body height.
-			///
-			void set_size(const float width, const float height) noexcept;
-
-			///
-			/// Get AABB.
-			///
-			/// \return Const reference to body AABB.
-			///
-			[[nodiscard]] const physics::AABB& get_aabb() const noexcept;
-
-			///
-			/// Get rigid body type.
-			///
-			/// \return Const enum body type.
-			///
-			[[nodiscard]] const physics::BodyType get_type() const noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -122,17 +73,7 @@ namespace galaxy
 			///
 			RigidBody& operator=(const RigidBody&) = delete;
 
-		private:
-			///
-			/// Internal size.
-			///
-			glm::vec2 m_size;
-
-			///
-			/// AABB bounding box.
-			///
-			physics::AABB m_aabb;
-
+		public:
 			///
 			/// Body type.
 			///

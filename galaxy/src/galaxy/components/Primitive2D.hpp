@@ -160,14 +160,14 @@ namespace galaxy
 			///
 			/// Get width of primitive.
 			///
-			/// \return Const float. 0 if object is not 2D.
+			/// \return Const float. 0 if object does not have.
 			///
 			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get height of primitive.
 			///
-			/// \return Const float. 0 if object is not 2D.
+			/// \return Const float. 0 if object does not have.
 			///
 			[[nodiscard]] const int get_height() const noexcept;
 

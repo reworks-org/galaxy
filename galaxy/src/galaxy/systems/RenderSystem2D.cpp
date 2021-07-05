@@ -10,6 +10,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/resource/TextureBook.hpp"
 
@@ -19,7 +20,12 @@ namespace galaxy
 {
 	namespace systems
 	{
-		void RenderSystem2D::update(core::World& world, const double dt)
+		RenderSystem2D::RenderSystem2D() noexcept
+		    : m_quadtree {0, {0, 0, 0, 0}}
+		{
+		}
+
+		RenderSystem2D::~RenderSystem2D() noexcept
 		{
 			m_points.clear();
 			m_lines.clear();
@@ -27,37 +33,69 @@ namespace galaxy
 			m_text.clear();
 			m_sprites.clear();
 			SL_HANDLE.texturebook()->clear_sprites();
+			m_quadtree.clear();
+			m_output.clear();
+		}
 
-			world.operate<components::Renderable, components::Transform2D>([&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
+		void RenderSystem2D::update(core::Scene2D* scene, const double dt)
+		{
+			m_points.clear();
+			m_lines.clear();
+			m_lineloops.clear();
+			m_text.clear();
+			m_sprites.clear();
+			SL_HANDLE.texturebook()->clear_sprites();
+			m_quadtree.clear();
+			m_output.clear();
+
+			if (!scene->get_active_map())
+			{
+				m_quadtree.resize(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+			}
+			else
+			{
+				m_quadtree.resize(scene->get_active_map()->get_width(), scene->get_active_map()->get_height());
+			}
+
+			scene->m_world.operate<components::Renderable>([&](const ecs::Entity entity, components::Renderable* renderable) {
+				m_quadtree.insert({.m_aabb = &renderable->get_aabb(), .m_entity = entity});
+			});
+
+			m_quadtree.query({.m_aabb = &scene->m_camera.get_aabb(), .m_entity = 0}, m_output);
+			for (auto* object : m_output)
+			{
+				auto* renderable = scene->m_world.get<components::Renderable>(object->m_entity);
+				auto* transform  = scene->m_world.get<components::Transform2D>(object->m_entity);
+
 				// Ordered this way for compiler optimizations.
 				// Most-Least common.
 				switch (renderable->m_type)
 				{
 					case graphics::Renderables::BATCHED:
-						SL_HANDLE.texturebook()->add(world.get<components::BatchSprite>(entity), transform);
+						SL_HANDLE.texturebook()->add(scene->m_world.get<components::BatchSprite>(object->m_entity), transform);
 						break;
 
 					case graphics::Renderables::SPRITE:
-						m_sprites.emplace_back(world.get<components::Sprite>(entity), transform);
+						m_sprites.emplace_back(scene->m_world.get<components::Sprite>(object->m_entity), transform);
 						break;
 
 					case graphics::Renderables::TEXT:
-						m_text.emplace_back(world.get<components::Text>(entity), transform);
+						m_text.emplace_back(scene->m_world.get<components::Text>(object->m_entity), transform);
 						break;
 
 					case graphics::Renderables::LINE_LOOP:
-						m_lineloops.emplace_back(world.get<components::Primitive2D>(entity), transform);
+						m_lineloops.emplace_back(scene->m_world.get<components::Primitive2D>(object->m_entity), transform);
 						break;
 
 					case graphics::Renderables::LINE:
-						m_lines.emplace_back(world.get<components::Primitive2D>(entity), transform);
+						m_lines.emplace_back(scene->m_world.get<components::Primitive2D>(object->m_entity), transform);
 						break;
 
 					case graphics::Renderables::POINT:
-						m_points.emplace_back(world.get<components::Primitive2D>(entity), transform);
+						m_points.emplace_back(scene->m_world.get<components::Primitive2D>(object->m_entity), transform);
 						break;
 				}
-			});
+			}
 
 			SL_HANDLE.texturebook()->buffer_spritebatch_data();
 		}
