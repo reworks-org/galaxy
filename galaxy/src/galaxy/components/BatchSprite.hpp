@@ -62,7 +62,7 @@ namespace galaxy
 			/// Sets the texture region for the batched sprite.
 			///
 			/// \param region Region defined on the texture.
-			/// \param depth Z-Level.
+			/// \param depth Z-Level.  0 - 1000.
 			/// \param index Texture Atlas index this batch sprite belongs to. Optional.
 			///
 			void create(const math::Rect<float>& region, const int depth, unsigned int index = 0) noexcept;
@@ -71,7 +71,7 @@ namespace galaxy
 			/// Sets the texture region for the batched sprite from the texture atlas.
 			///
 			/// \param texture_key ID of a texture in the texture atlas.
-			/// \param depth Z-Level.
+			/// \param depth Z-Level.  0 - 1000.
 			///
 			void create(std::string_view texture_key, const int depth) noexcept;
 
@@ -85,7 +85,7 @@ namespace galaxy
 			///
 			/// Set depth.
 			///
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			///
 			void set_depth(const int depth) noexcept;
 

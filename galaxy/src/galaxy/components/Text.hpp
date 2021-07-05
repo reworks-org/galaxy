@@ -69,7 +69,7 @@ namespace galaxy
 			/// Create the text object.
 			///
 			/// \param text Text to display.
-			/// \param depth Z-Level for text.
+			/// \param depth Z-Level for text. 0 - 1000.
 			///
 			void create(std::string_view text, const int depth);
 

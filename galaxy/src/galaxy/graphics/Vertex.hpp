@@ -36,7 +36,7 @@ namespace galaxy
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			/// \param texels Vertex texture coordinates.
 			/// \param colour Colour of vertex, and opacity.
 			///
@@ -46,7 +46,7 @@ namespace galaxy
 			/// Reverse argument constructor.
 			///
 			/// \param pos Position of vertex.
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			/// \param colour Colour of vertex, and opacity.
 			/// \param texels Vertex texture coordinates.
 			///
@@ -87,7 +87,7 @@ namespace galaxy
 			///
 			/// Set depth.
 			///
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			///
 			void set_depth(const int depth) noexcept;
 

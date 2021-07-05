@@ -9,9 +9,6 @@
 
 #include "Vertex.hpp"
 
-#define ORTHO_NEAR      0
-#define ORTHO_FAR_24BIT 16777215
-
 namespace galaxy
 {
 	namespace graphics
@@ -86,7 +83,7 @@ namespace galaxy
 
 		void Vertex::set_depth(const int depth) noexcept
 		{
-			m_depth = std::clamp(depth, ORTHO_NEAR, ORTHO_FAR_24BIT);
+			m_depth = std::clamp(depth, 0, 1000);
 		}
 
 		const glm::vec4& Vertex::get_colour() const noexcept

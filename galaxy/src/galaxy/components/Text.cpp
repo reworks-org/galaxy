@@ -74,7 +74,7 @@ namespace galaxy
 
 		void Text::create(std::string_view text, const int depth)
 		{
-			m_depth = depth;
+			m_depth = std::clamp(depth, 0, 1000);
 
 			m_batch.clear();
 			m_batch_data.clear();

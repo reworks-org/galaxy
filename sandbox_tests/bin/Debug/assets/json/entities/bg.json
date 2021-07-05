@@ -7,7 +7,7 @@
         },
         "BatchSprite": {
         	"texture-key": "bg",
-        	"depth": 0,
+        	"depth": 2,
             "opacity": 255
         },
         "Transform2D": {

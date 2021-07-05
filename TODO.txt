@@ -1,17 +1,15 @@
-- sort by opacity and depth
-- better renderer sorting
-https://learnopengl.com/Advanced-OpenGL/Blending
+sort by opacity
+	 - https://learnopengl.com/Advanced-OpenGL/Blending
 
-- some resource managers unique to a scene.
 
+some resource managers unique to a scene?
 map hot reloading
 code review
 
-fix input stuttering
+fix input stuttering (think its a dt thing).
 fix map performance
-input needs to be a system update
-and a component?
-
-
-map lag
-text has incorrect Bg
+input needs to be a system update / component?
+text has incorrect bg
+scrolling renders some objects transparent?
+map will need to be layered from back-to-front to front-to-back as per opengl
+some kind of conversion?

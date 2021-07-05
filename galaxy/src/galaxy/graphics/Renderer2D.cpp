@@ -41,6 +41,7 @@ constexpr const char* const point_vert = R"(
 	{
 		gl_PointSize = u_point_size;
 		gl_Position  = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -81,6 +82,7 @@ constexpr const char* const line_vert = R"(
 	void main()
 	{
 		gl_Position = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -127,6 +129,7 @@ constexpr const char* const text_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -175,6 +178,7 @@ constexpr const char* const sprite_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -219,6 +223,7 @@ constexpr const char* const render_to_texture_vert = R"(
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
 
 		gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -267,6 +272,7 @@ constexpr const char* const spritebatch_vert = R"(
 		io_opacity = l_colour.a;		
 
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
+		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 

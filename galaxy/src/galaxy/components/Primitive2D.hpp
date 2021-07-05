@@ -96,7 +96,7 @@ namespace galaxy
 			///
 			/// \param data Contains variables to construct vertex's for a primitive.
 			/// \param colour Colour of primitive.
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			///
 			template<graphics::Primitives type>
 			void create(const PrimitiveData& data, const graphics::Colour& colour, const int depth);

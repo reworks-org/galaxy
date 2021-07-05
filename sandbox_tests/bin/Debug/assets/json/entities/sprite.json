@@ -8,7 +8,7 @@
         "Sprite": {
         	"texture": "wall_2.png",
         	"opacity": 1.0,
-            "depth": 4
+            "depth": 0
         },
         "Transform2D": {
             "x": 0,

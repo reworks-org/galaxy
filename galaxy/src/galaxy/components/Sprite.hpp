@@ -52,7 +52,7 @@ namespace galaxy
 			///
 			/// Creates the internal vertex array.
 			///
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			/// \param tex_x Optional texture x pos.
 			/// \param tex_y Optional texture y pos.
 			///
@@ -61,7 +61,7 @@ namespace galaxy
 			///
 			/// Creates the internal vertex array, with a clipped w/h.
 			///
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
@@ -70,7 +70,7 @@ namespace galaxy
 			///
 			/// Creates the internal vertex array, with a clipped rect.
 			///
-			/// \param depth Z-Level.
+			/// \param depth Z-Level. 0 - 1000.
 			/// \param x Texture x pos.
 			/// \param y Texture y pos.
 			/// \param width Clipped texture width.
@@ -150,7 +150,7 @@ namespace galaxy
 			///
 			/// Opacity.
 			///
-			float m_opacity;
+			std::uint8_t m_opacity;
 
 			///
 			/// Depth.

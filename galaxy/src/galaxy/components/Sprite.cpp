@@ -50,7 +50,7 @@ namespace galaxy
 
 		void Sprite::create(const int depth, const float tex_x, const float tex_y)
 		{
-			m_depth = depth;
+			m_depth = std::clamp(depth, 0, 1000);
 
 			std::array<graphics::Vertex, 4> vertices;
 			vertices[0].m_pos    = {0.0f, 0.0f};
@@ -89,7 +89,7 @@ namespace galaxy
 
 		void Sprite::create_clipped(const int depth, const float width, const float height)
 		{
-			m_depth = depth;
+			m_depth = std::clamp(depth, 0, 1000);
 
 			std::array<graphics::Vertex, 4> vertices;
 			vertices[0].m_pos    = {0.0f, 0.0f};
@@ -128,7 +128,7 @@ namespace galaxy
 
 		void Sprite::create_clipped(const int depth, const float x, const float y, const float width, const float height)
 		{
-			m_depth = depth;
+			m_depth = std::clamp(depth, 0, 1000);
 
 			std::array<graphics::Vertex, 4> vertices;
 			vertices[0].m_pos    = {0.0f, 0.0f};

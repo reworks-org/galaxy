@@ -10,9 +10,6 @@
 
 #include "BatchSprite.hpp"
 
-#define ORTHO_NEAR      0
-#define ORTHO_FAR_24BIT 16777215
-
 namespace galaxy
 {
 	namespace components
@@ -63,8 +60,8 @@ namespace galaxy
 			m_region = region;
 			m_index  = index;
 
-			m_clip  = {0.0f, 0.0f};
-			m_depth = depth;
+			m_clip = {0.0f, 0.0f};
+			set_depth(depth);
 		}
 
 		void BatchSprite::create(std::string_view texture_key, const int depth) noexcept
@@ -76,8 +73,8 @@ namespace galaxy
 				m_region = info.value().m_region;
 				m_index  = info.value().m_index;
 
-				m_clip  = {0.0f, 0.0f};
-				m_depth = depth;
+				m_clip = {0.0f, 0.0f};
+				set_depth(depth);
 			}
 			else
 			{
@@ -92,7 +89,7 @@ namespace galaxy
 
 		void BatchSprite::set_depth(const int depth) noexcept
 		{
-			m_depth = std::clamp(depth, ORTHO_NEAR, ORTHO_FAR_24BIT);
+			m_depth = std::clamp(depth, 0, 1000);
 		}
 
 		void BatchSprite::set_opacity(const std::uint8_t opacity) noexcept

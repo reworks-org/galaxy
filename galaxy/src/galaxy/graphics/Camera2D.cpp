@@ -10,9 +10,6 @@
 
 #include "Camera2D.hpp"
 
-#define ORTHO_NEAR      0.0f
-#define ORTHO_FAR_24BIT 16777215.0f
-
 namespace galaxy
 {
 	namespace graphics
@@ -39,7 +36,7 @@ namespace galaxy
 			m_width  = std::max(right, left);
 			m_height = std::max(bottom, top);
 
-			m_data.m_projection = glm::ortho(left, right, bottom, top, ORTHO_NEAR, ORTHO_FAR_24BIT);
+			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
 		void Camera2D::on_event(const events::KeyDown& e) noexcept

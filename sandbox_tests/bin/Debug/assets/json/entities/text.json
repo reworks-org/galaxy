@@ -8,7 +8,7 @@
         "Text": {
             "font":"public16",
             "text":"Demo",
-            "depth": 5,
+            "depth": 1,
             "colour": {
                 "r": 255,
                 "g": 0,
