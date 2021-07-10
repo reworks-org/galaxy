@@ -154,7 +154,8 @@ namespace galaxy
 
 		void Camera2D::zoom(float scale) noexcept
 		{
-			m_scale   = std::max(0.1f, scale);
+			m_scale = std::max(0.1f, scale);
+
 			m_scaling = m_identity_matrix;
 			m_scaling = glm::translate(m_scaling, {static_cast<float>(m_width) / 2.0f, static_cast<float>(m_height) / 2.0f, 0.0f});
 			m_scaling = glm::scale(m_scaling, {m_scale, m_scale, 1.0f});

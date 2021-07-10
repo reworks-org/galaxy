@@ -259,7 +259,7 @@ constexpr const char* const spritebatch_vert = R"(
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
-		io_opacity = l_colour.a;		
+		io_opacity = l_colour.a;
 
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
 	}
