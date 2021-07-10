@@ -8,7 +8,8 @@
 #ifndef GALAXY_RESOURCE_TEXTUREATLAS_HPP_
 #define GALAXY_RESOURCE_TEXTUREATLAS_HPP_
 
-#include "galaxy/graphics/SpriteBatch.hpp"
+#include <span>
+
 #include "galaxy/graphics/TextureAtlas.hpp"
 
 namespace galaxy
@@ -21,7 +22,6 @@ namespace galaxy
 		class TextureBook final
 		{
 			using AtlasMap = robin_hood::unordered_flat_map<unsigned int, graphics::TextureAtlas>;
-			using BatchMap = robin_hood::unordered_flat_map<unsigned int, graphics::SpriteBatch>;
 
 		public:
 			///
@@ -59,14 +59,6 @@ namespace galaxy
 			/// \return Const boolean True if add was successful.
 			///
 			[[maybe_unused]] const bool add(std::string_view file);
-
-			///
-			/// Add a sprite to a TextureAtlas SpriteBatch.
-			///
-			/// \param sprite Pointer to a batched sprite.
-			/// \param transform Pointer to batched sprite transform.
-			///
-			void add(components::BatchSprite* sprite, components::Transform2D* transform);
 
 			///
 			/// Adds multiple files at once.
@@ -116,28 +108,16 @@ namespace galaxy
 			[[nodiscard]] std::optional<graphics::TextureInfo> get(unsigned int index, std::string_view key);
 
 			///
-			/// \brief Buffer Spritebatches.
-			///
-			/// Do NOT call on a thread, calls GL code.
-			///
-			void buffer_spritebatch_data();
-
-			///
 			/// Clear all data.
 			///
 			void clear() noexcept;
 
 			///
-			/// Clear only spritebatch data.
-			///
-			void clear_sprites() noexcept;
-
-			///
-			/// Get flat map of all spritebatches.
+			/// Get flat map of all atlas'.
 			///
 			/// \return Const reference to a robin hood flatmap.
 			///
-			[[nodiscard]] BatchMap& get_spritebatches() noexcept;
+			[[nodiscard]] AtlasMap& get_all() noexcept;
 
 		private:
 			///
@@ -155,11 +135,6 @@ namespace galaxy
 			/// Texture storage.
 			///
 			AtlasMap m_atlas;
-
-			///
-			/// Associated SpriteBatch.
-			///
-			BatchMap m_batches;
 		};
 	} // namespace res
 } // namespace galaxy

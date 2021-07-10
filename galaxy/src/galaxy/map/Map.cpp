@@ -499,6 +499,7 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
+				/*
 				const auto entity = world.create();
 				auto* batchsprite = world.create_component<components::BatchSprite>(entity);
 				auto* renderable  = world.create_component<components::Renderable>(entity);
@@ -513,6 +514,7 @@ namespace galaxy
 
 				world.enable(entity);
 				world.unset_flag<flags::AllowSerialize>(entity);
+				*/
 			}
 		}
 
@@ -520,6 +522,7 @@ namespace galaxy
 		{
 			if (layer.get_draworder() == "topdown")
 			{
+				/*
 				const auto& objects = layer.get_objects();
 				for (const auto& object : objects)
 				{
@@ -641,6 +644,7 @@ namespace galaxy
 						m_object_entities.push_back(entity);
 					}
 				}
+			*/
 			}
 			else
 			{
@@ -652,6 +656,7 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
+				/*
 				const auto& data = layer.get_data();
 
 				for (int i = 0; i < m_height; i++)
@@ -706,6 +711,7 @@ namespace galaxy
 						}
 					}
 				}
+				*/
 			}
 		}
 

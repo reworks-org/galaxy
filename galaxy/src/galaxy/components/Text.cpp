@@ -17,12 +17,12 @@ namespace galaxy
 	namespace components
 	{
 		Text::Text() noexcept
-		    : Serializable {this}, m_depth {0}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
+		    : Serializable {this}, m_layer {""}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : Serializable {this}, m_depth {0}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
+		    : Serializable {this}, m_layer {""}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
 		{
 			deserialize(json);
 		}
@@ -37,7 +37,7 @@ namespace galaxy
 			this->m_width          = t.m_width;
 			this->m_fontmap_height = t.m_fontmap_height;
 			this->m_fontmap_width  = t.m_fontmap_width;
-			this->m_depth          = t.m_depth;
+			this->m_layer          = std::move(t.m_layer);
 		}
 
 		Text& Text::operator=(Text&& t) noexcept
@@ -51,7 +51,7 @@ namespace galaxy
 				this->m_width          = t.m_width;
 				this->m_fontmap_height = t.m_fontmap_height;
 				this->m_fontmap_width  = t.m_fontmap_width;
-				this->m_depth          = t.m_depth;
+				this->m_layer          = std::move(t.m_layer);
 			}
 
 			return *this;
@@ -72,9 +72,9 @@ namespace galaxy
 			m_colour = col;
 		}
 
-		void Text::create(std::string_view text, const int depth)
+		void Text::create(std::string_view text, std::string_view layer)
 		{
-			m_depth = std::clamp(depth, 0, 1000);
+			m_layer = static_cast<std::string>(layer);
 
 			m_batch.clear();
 			m_batch_data.clear();
@@ -106,7 +106,7 @@ namespace galaxy
 							m_batch_data.emplace(counter, CharacterBatch {});
 
 							auto* data = &m_batch_data[counter];
-							data->m_sprite.create(c_obj->m_region, depth);
+							data->m_sprite.create(c_obj->m_region, m_layer);
 							data->m_transform.set_pos(x_offset + c_obj->m_bearing.x, y_offset);
 							x_offset += (c_obj->m_advance >> 6);
 
@@ -131,17 +131,7 @@ namespace galaxy
 
 		void Text::update(std::string_view text)
 		{
-			create(text, m_depth);
-		}
-
-		void Text::bind() noexcept
-		{
-			m_batch.bind();
-		}
-
-		void Text::unbind() noexcept
-		{
-			m_batch.unbind();
+			create(text, m_layer);
 		}
 
 		void Text::set_colour(const graphics::Colour& col) noexcept
@@ -184,14 +174,24 @@ namespace galaxy
 			return m_fontmap_height;
 		}
 
-		const int Text::get_depth() const noexcept
+		const std::string& Text::get_layer() const noexcept
 		{
-			return m_depth;
+			return m_layer;
 		}
 
-		const unsigned int Text::count() const noexcept
+		const int Text::count() const noexcept
 		{
 			return m_batch.count();
+		}
+
+		const unsigned int Text::vao() const noexcept
+		{
+			return m_batch.vao();
+		}
+
+		const unsigned int Text::gl_texture() const noexcept
+		{
+			return m_batch.gl_texture();
 		}
 
 		const std::string& Text::get_text() const noexcept
@@ -209,7 +209,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 			json["font"]        = m_font_str;
 			json["text"]        = m_text_str;
-			json["depth"]       = m_depth;
+			json["layer"]       = m_layer;
 
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_colour.m_red;
@@ -224,7 +224,7 @@ namespace galaxy
 		{
 			const auto colour = json.at("colour");
 			load(json.at("font"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
-			create(json.at("text"), json.at("depth"));
+			create(json.at("text"), json.at("layer"));
 		}
 	} // namespace components
 } // namespace galaxy

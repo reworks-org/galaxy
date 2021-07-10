@@ -32,12 +32,7 @@ namespace galaxy
 			///
 			/// Specifies "colour" vertex attribute type at compile time.
 			///
-			COLOUR,
-
-			///
-			/// Specifies "depth" vertex attribute type at compile time.
-			///
-			DEPTH
+			COLOUR
 		};
 
 		///

@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-#include <glad/glad.h>
 #include <stb/stb_image.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -239,10 +238,10 @@ namespace galaxy
 						glDisable(GL_MULTISAMPLE);
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
+						glDisable(GL_DEPTH_TEST);
 
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
-						glEnable(GL_DEPTH_TEST);
 						glEnable(GL_BLEND);
 
 						// GL state function configuration.
@@ -442,11 +441,13 @@ namespace galaxy
 
 		void Window::begin()
 		{
+			RENDERER_2D().prepare();
 			m_post_processor->bind();
 		}
 
 		void Window::end()
 		{
+			RENDERER_2D().draw();
 			m_post_processor->render();
 			glfwSwapBuffers(m_window);
 		}

@@ -13,15 +13,6 @@
 
 namespace galaxy
 {
-	namespace components
-	{
-		class BatchSprite;
-		class Primitive2D;
-		class Sprite;
-		class Text;
-		class Transform2D;
-	} // namespace components
-
 	namespace systems
 	{
 		///
@@ -29,8 +20,6 @@ namespace galaxy
 		///
 		class RenderSystem2D final : public ecs::System
 		{
-			friend class core::World;
-
 		public:
 			///
 			/// Constructor.
@@ -59,31 +48,6 @@ namespace galaxy
 			void render(core::World& world, graphics::Camera2D& camera);
 
 		private:
-			///
-			/// Point cache.
-			///
-			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_points;
-
-			///
-			/// Line cache.
-			///
-			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_lines;
-
-			///
-			/// LineLoop cache.
-			///
-			std::vector<std::pair<components::Primitive2D*, components::Transform2D*>> m_lineloops;
-
-			///
-			/// Text cache.
-			///
-			std::vector<std::pair<components::Text*, components::Transform2D*>> m_text;
-
-			///
-			/// Sprite cache.
-			///
-			std::vector<std::pair<components::Sprite*, components::Transform2D*>> m_sprites;
-
 			///
 			/// Quadtree for spacial partitioning.
 			///

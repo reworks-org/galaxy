@@ -7,8 +7,8 @@
         },
         "Primitive2D": {
         	"type": "LINE",
-            "opacity": 1.0,
-            "depth": 1,
+            "opacity": 255,
+            "layer": "primitives",
         	"line-points" : {
 	        	"x1": 0,
 	            "y1": 0,

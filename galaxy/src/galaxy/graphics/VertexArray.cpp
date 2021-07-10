@@ -88,9 +88,14 @@ namespace galaxy
 			glBindVertexArray(0);
 		}
 
-		const unsigned int VertexArray::count() const noexcept
+		const int VertexArray::count() const noexcept
 		{
 			return m_ibo.count();
+		}
+
+		const unsigned int VertexArray::id() const noexcept
+		{
+			return m_vao;
 		}
 
 		const unsigned int VertexArray::vbo() const noexcept

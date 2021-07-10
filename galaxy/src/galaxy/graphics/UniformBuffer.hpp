@@ -8,6 +8,8 @@
 #ifndef GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 #define GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 
+#include <glad/glad.h>
+
 namespace galaxy
 {
 	namespace graphics

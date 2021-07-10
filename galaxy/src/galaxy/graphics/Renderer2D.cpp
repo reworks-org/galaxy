@@ -5,11 +5,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <execution>
+
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform2D.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/resource/TextureBook.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Renderer2D.hpp"
 
@@ -26,7 +31,6 @@ constexpr const char* const point_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -35,13 +39,11 @@ constexpr const char* const point_vert = R"(
 	};
 	
 	uniform mat4 u_transform;
-	uniform int u_point_size;
 
 	void main()
 	{
-		gl_PointSize = u_point_size;
+		gl_PointSize = 4;
 		gl_Position  = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -69,7 +71,6 @@ constexpr const char* const line_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -82,7 +83,6 @@ constexpr const char* const line_vert = R"(
 	void main()
 	{
 		gl_Position = u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -110,7 +110,6 @@ constexpr const char* const text_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -127,9 +126,7 @@ constexpr const char* const text_vert = R"(
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
-
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -159,7 +156,6 @@ constexpr const char* const sprite_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -176,9 +172,7 @@ constexpr const char* const sprite_vert = R"(
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
-
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -191,13 +185,13 @@ constexpr const char* const sprite_frag = R"(
 	in vec2 io_texels;
 	out vec4 io_frag_colour;
 
-	uniform float u_opacity;
+	uniform int u_opacity;
 	uniform sampler2D u_texture;
 
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels);
-		io_frag_colour.a = u_opacity;
+		io_frag_colour.a *= (float(u_opacity) / 255.0);
 	}
 )";
 
@@ -209,7 +203,6 @@ constexpr const char* const render_to_texture_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	
@@ -221,9 +214,7 @@ constexpr const char* const render_to_texture_vert = R"(
 	void main()
 	{
 		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
-
 		gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -252,7 +243,6 @@ constexpr const char* const spritebatch_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in int l_depth;
 
 	out vec2 io_texels;
 	out float io_opacity;
@@ -272,7 +262,6 @@ constexpr const char* const spritebatch_vert = R"(
 		io_opacity = l_colour.a;		
 
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
-		gl_Position.z = (((float(l_depth) - 0.0) * (1.0 - -1.0)) / (1000.0 - 0.0)) + -1.0;
 	}
 )";
 
@@ -284,6 +273,7 @@ constexpr const char* const spritebatch_frag = R"(
 
 	in vec2 io_texels;
 	in float io_opacity;
+
 	out vec4 io_frag_colour;
 
 	uniform sampler2D u_texture;
@@ -291,7 +281,7 @@ constexpr const char* const spritebatch_frag = R"(
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels);
-		io_frag_colour.a = io_opacity;
+		io_frag_colour.a *= io_opacity;
 	}
 )";
 
@@ -312,10 +302,55 @@ namespace galaxy
 			m_camera_ubo.reserve(sizeof(Camera2D::Data));
 		}
 
+		Renderer2D::~Renderer2D() noexcept
+		{
+			clear();
+		}
+
 		Renderer2D& Renderer2D::inst() noexcept
 		{
 			static Renderer2D s_inst;
 			return s_inst;
+		}
+
+		void Renderer2D::init(std::string_view layers)
+		{
+			const auto opt = json::parse_from_disk(layers);
+			if (opt != std::nullopt)
+			{
+				const auto& root = opt.value().at("layers");
+				for (const auto& [name, layer] : root.items())
+				{
+					m_layer_data.emplace(name, layer.get<int>());
+				}
+
+				// Set pointers to layer data.
+				for (auto& [name, layer] : m_layer_data)
+				{
+					for (const auto& [key, atlas] : SL_HANDLE.texturebook()->get_all())
+					{
+						layer.m_batches.try_emplace(key);
+						layer.m_batches[key].add_texture(atlas.gl_texture());
+					}
+
+					m_layers.push_back(&layer);
+				}
+
+				// Make sure order is correct.
+				std::sort(std::execution::par, m_layers.begin(), m_layers.end(), [&](auto* left, auto* right) {
+					return left->get_layer() < right->get_layer();
+				});
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to create renderlayers from path: {0}.", layers);
+			}
+		}
+
+		void Renderer2D::clear() noexcept
+		{
+			m_layer_data.clear();
+			m_layers.clear();
 		}
 
 		void Renderer2D::buffer_camera(Camera2D& camera)
@@ -353,59 +388,107 @@ namespace galaxy
 			m_spritebatch_shader.bind();
 		}
 
-		void Renderer2D::draw_point(components::Primitive2D* data, components::Transform2D* transform)
+		void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* transform)
 		{
-			data->bind();
+			// clang-format off
+			Renderable renderable = {
+				.m_vao = data->vao(),
+				.m_texture = 0,
+				.m_index_count = data->count(),
+				.m_configure_shader = [this, data, transform]()
+				{
+					this->m_point_shader.bind();
+					this->m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
+					this->m_point_shader.set_uniform("u_transform", transform->get_transform());
+			    }
+			};
+			// clang-format on
 
-			m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
-			m_point_shader.set_uniform("u_point_size", data->get_data().m_pointsize.value());
-			m_point_shader.set_uniform("u_transform", transform->get_transform());
+			switch (data->get_type())
+			{
+				case Primitives::CIRCLE:
+				case Primitives::ELLIPSE:
+				case Primitives::POLYGON:
+				case Primitives::POLYLINE:
+					renderable.m_type = GL_LINE_LOOP;
+					break;
 
-			glDrawElements(GL_POINTS, data->count(), GL_UNSIGNED_INT, nullptr);
+				case Primitives::LINE:
+					renderable.m_type = GL_LINES;
+					break;
+
+				case Primitives::POINT:
+					renderable.m_type = GL_POINTS;
+					break;
+			}
+
+			m_layer_data.at(data->get_layer()).submit(renderable);
 		}
 
-		void Renderer2D::draw_line(components::Primitive2D* data, components::Transform2D* transform)
+		void Renderer2D::submit(components::Text* text, components::Transform2D* transform)
 		{
-			data->bind();
+			// clang-format off
+			Renderable renderable = {
+				.m_vao = text->vao(),
+				.m_texture = text->gl_texture(),
+				.m_index_count = text->count(),
+				.m_type = GL_TRIANGLES,
+				.m_configure_shader = [this, text, transform]()
+				{
+					this->m_text_shader.bind();
+					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
+					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
+					this->m_text_shader.set_uniform<float>("u_width", text->get_batch_width());
+					this->m_text_shader.set_uniform<float>("u_height", text->get_batch_height());
+				}
+			};
+			// clang-format on
 
-			m_line_shader.set_uniform("u_colour", data->get_colour().normalized());
-			m_line_shader.set_uniform("u_transform", transform->get_transform());
-
-			glDrawElements(GL_LINES, data->count(), GL_UNSIGNED_INT, nullptr);
+			m_layer_data.at(text->get_layer()).submit(renderable);
 		}
 
-		void Renderer2D::draw_lineloop(components::Primitive2D* data, components::Transform2D* transform)
+		void Renderer2D::submit(components::Sprite* sprite, components::Transform2D* transform)
 		{
-			data->bind();
+			// clang-format off
+			Renderable renderable = {
+				.m_vao = sprite->vao(),
+				.m_texture = sprite->gl_texture(),
+				.m_index_count = sprite->count(),
+				.m_type =  GL_TRIANGLES,
+				.m_configure_shader = [this, sprite, transform]()
+				{
+					this->m_sprite_shader.bind();
+					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
+					this->m_sprite_shader.set_uniform<int>("u_opacity", sprite->get_opacity());
+					this->m_sprite_shader.set_uniform<float>("u_width", sprite->get_width());
+					this->m_sprite_shader.set_uniform<float>("u_height", sprite->get_height());
+				}
+			};
+			// clang-format on
 
-			m_line_shader.set_uniform("u_colour", data->get_colour().normalized());
-			m_line_shader.set_uniform("u_transform", transform->get_transform());
-
-			glDrawElements(GL_LINE_LOOP, data->count(), GL_UNSIGNED_INT, nullptr);
+			m_layer_data.at(sprite->get_layer()).submit(renderable);
 		}
 
-		void Renderer2D::draw_text(components::Text* text, components::Transform2D* transform)
+		void Renderer2D::submit(components::BatchSprite* batch, components::Transform2D* transform)
 		{
-			text->bind();
-
-			m_text_shader.set_uniform("u_transform", transform->get_transform());
-			m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
-			m_text_shader.set_uniform("u_width", static_cast<float>(text->get_batch_width()));
-			m_text_shader.set_uniform("u_height", static_cast<float>(text->get_batch_height()));
-
-			glDrawElements(GL_TRIANGLES, text->count(), GL_UNSIGNED_INT, nullptr);
+			m_layer_data.at(batch->get_layer()).m_batches[batch->get_atlas_index()].add(batch, transform);
 		}
 
-		void Renderer2D::draw_sprite(components::Sprite* sprite, components::Transform2D* transform)
+		void Renderer2D::prepare()
 		{
-			sprite->bind();
+			for (auto* layer : m_layers)
+			{
+				layer->clear();
+			}
+		}
 
-			m_sprite_shader.set_uniform("u_transform", transform->get_transform());
-			m_sprite_shader.set_uniform("u_opacity", static_cast<float>(sprite->get_opacity()) / static_cast<float>(0xFF));
-			m_sprite_shader.set_uniform("u_width", static_cast<float>(sprite->get_width()));
-			m_sprite_shader.set_uniform("u_height", static_cast<float>(sprite->get_height()));
-
-			glDrawElements(GL_TRIANGLES, sprite->count(), GL_UNSIGNED_INT, nullptr);
+		void Renderer2D::draw()
+		{
+			for (auto* layer : m_layers)
+			{
+				layer->submit_batched_sprites(m_spritebatch_shader);
+				layer->draw();
+			}
 		}
 
 		void Renderer2D::draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, RenderTexture* target)
@@ -414,20 +497,10 @@ namespace galaxy
 
 			m_rtt_shader.set_uniform("u_projection", target->get_proj());
 			m_rtt_shader.set_uniform("u_transform", transform->get_transform());
-			m_rtt_shader.set_uniform("u_width", static_cast<float>(sprite->get_width()));
-			m_rtt_shader.set_uniform("u_height", static_cast<float>(sprite->get_height()));
+			m_rtt_shader.set_uniform<float>("u_width", sprite->get_width());
+			m_rtt_shader.set_uniform<float>("u_height", sprite->get_height());
 
 			glDrawElements(GL_TRIANGLES, sprite->count(), GL_UNSIGNED_INT, nullptr);
-		}
-
-		void Renderer2D::draw_spritebatch(SpriteBatch* batch)
-		{
-			batch->bind();
-
-			m_spritebatch_shader.set_uniform("u_width", static_cast<float>(batch->get_width()));
-			m_spritebatch_shader.set_uniform("u_height", static_cast<float>(batch->get_height()));
-
-			glDrawElements(GL_TRIANGLES, batch->count(), GL_UNSIGNED_INT, nullptr);
 		}
 	} // namespace graphics
 } // namespace galaxy

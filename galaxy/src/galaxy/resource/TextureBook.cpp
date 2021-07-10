@@ -5,16 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
-
 #include <nlohmann/json.hpp>
 
-#include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
-#include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/Texture.hpp"
+#include "galaxy/error/Log.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
-#include "galaxy/resource/ShaderBook.hpp"
 
 #include "TextureBook.hpp"
 
@@ -29,16 +23,14 @@ namespace galaxy
 
 		TextureBook::TextureBook(TextureBook&& tb) noexcept
 		{
-			this->m_atlas   = std::move(tb.m_atlas);
-			this->m_batches = std::move(tb.m_batches);
+			this->m_atlas = std::move(tb.m_atlas);
 		}
 
 		TextureBook& TextureBook::operator=(TextureBook&& tb) noexcept
 		{
 			if (this != &tb)
 			{
-				this->m_atlas   = std::move(tb.m_atlas);
-				this->m_batches = std::move(tb.m_batches);
+				this->m_atlas = std::move(tb.m_atlas);
 			}
 
 			return *this;
@@ -70,18 +62,10 @@ namespace galaxy
 				auto pair = m_atlas.emplace(id, std::move(atlas));
 				pair.first->second.add(file);
 
-				m_batches[id] = {};
-				m_batches[id].add_texture(pair.first->second.gl_texture());
-
 				result = true;
 			}
 
 			return result;
-		}
-
-		void TextureBook::add(components::BatchSprite* sprite, components::Transform2D* transform)
-		{
-			m_batches[sprite->get_atlas_index()].add(sprite, transform);
 		}
 
 		void TextureBook::add_multi(std::span<std::string> files)
@@ -132,31 +116,14 @@ namespace galaxy
 			return m_atlas[index].get_texture_info(key);
 		}
 
-		void TextureBook::buffer_spritebatch_data()
-		{
-			for (auto& [index, batch] : m_batches)
-			{
-				batch.buffer_data();
-			}
-		}
-
 		void TextureBook::clear() noexcept
 		{
 			m_atlas.clear();
-			m_batches.clear();
 		}
 
-		void TextureBook::clear_sprites() noexcept
+		TextureBook::AtlasMap& TextureBook::get_all() noexcept
 		{
-			for (auto& [index, batch] : m_batches)
-			{
-				batch.clear();
-			}
-		}
-
-		TextureBook::BatchMap& TextureBook::get_spritebatches() noexcept
-		{
-			return m_batches;
+			return m_atlas;
 		}
 	} // namespace res
 } // namespace galaxy

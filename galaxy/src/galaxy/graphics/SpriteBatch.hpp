@@ -77,15 +77,40 @@ namespace galaxy
 			///
 			void clear() noexcept;
 
+			///
+			/// Get width.
+			///
+			/// \return Const integer.
+			///
 			[[nodiscard]] const int get_width() const noexcept;
+
+			///
+			/// Get height.
+			///
+			/// \return Const integer.
+			///
 			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get index count.
 			///
-			/// \return Const unsigned integer.
+			/// \return Const integer.
 			///
-			[[nodiscard]] const unsigned int count() const noexcept;
+			[[nodiscard]] const int count() const noexcept;
+
+			///
+			/// Get GL VAO.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int vao() const noexcept;
+
+			///
+			/// Get GL texture.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
 		private:
 			///

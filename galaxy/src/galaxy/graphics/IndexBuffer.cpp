@@ -74,7 +74,7 @@ namespace galaxy
 			m_ibo = 0;
 		}
 
-		const unsigned int IndexBuffer::count() const noexcept
+		const int IndexBuffer::count() const noexcept
 		{
 			return m_count;
 		}

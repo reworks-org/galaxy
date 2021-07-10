@@ -1,21 +1,10 @@
-sort by opacity
-	 - https://learnopengl.com/Advanced-OpenGL/Blending
-
-
 some resource managers unique to a scene?
 map hot reloading
 code review
 
 fix input stuttering (think its a dt thing).
-fix map performance
+fix map
 input needs to be a system update / component?
-text has incorrect bg
-scrolling renders some objects transparent?
-map will need to be layered from back-to-front to front-to-back as per opengl
-some kind of conversion?
+scrolling renders some objects transparent->only batched sprites???
 
-test culling now proper z sorting
-
-
-have depth values in back-to-front, then convert to front-to-back range, then convert to normalized range.
-this way its compatible with map and wont make brain hurty.
+animated sprite has lines around it

@@ -62,18 +62,18 @@ namespace galaxy
 			/// Sets the texture region for the batched sprite.
 			///
 			/// \param region Region defined on the texture.
-			/// \param depth Z-Level.  0 - 1000.
+			/// \param layer Rendering layer.
 			/// \param index Texture Atlas index this batch sprite belongs to. Optional.
 			///
-			void create(const math::Rect<float>& region, const int depth, unsigned int index = 0) noexcept;
+			void create(const math::Rect<float>& region, std::string_view layer, unsigned int index = 0) noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite from the texture atlas.
 			///
 			/// \param texture_key ID of a texture in the texture atlas.
-			/// \param depth Z-Level.  0 - 1000.
+			/// \param layer Rendering layer.
 			///
-			void create(std::string_view texture_key, const int depth) noexcept;
+			void create(std::string_view texture_key, std::string_view layer) noexcept;
 
 			///
 			/// Update sprite region.
@@ -83,11 +83,11 @@ namespace galaxy
 			void update_region(std::string_view texture_key) noexcept;
 
 			///
-			/// Set depth.
+			/// Set layer.
 			///
-			/// \param depth Z-Level. 0 - 1000.
+			/// \param layer Rendering layer.
 			///
-			void set_depth(const int depth) noexcept;
+			void set_layer(std::string_view layer) noexcept;
 
 			///
 			/// Set opacity.
@@ -118,11 +118,11 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& get_clip() const noexcept;
 
 			///
-			/// Get depth.
+			/// Get layer.
 			///
-			/// \return Const int.
+			/// \return Const std::string reference.
 			///
-			[[nodiscard]] const int get_depth() const noexcept;
+			[[nodiscard]] const std::string& get_layer() const noexcept;
 
 			///
 			/// Get opacity.
@@ -199,9 +199,9 @@ namespace galaxy
 			glm::vec2 m_clip;
 
 			///
-			/// Z-Level.
+			/// Rendering Layer.
 			///
-			int m_depth;
+			std::string m_layer;
 
 			///
 			/// Opacity.

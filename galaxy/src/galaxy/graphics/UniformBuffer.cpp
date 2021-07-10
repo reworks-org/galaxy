@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glad/glad.h>
-
 #include "UniformBuffer.hpp"
 
 namespace galaxy

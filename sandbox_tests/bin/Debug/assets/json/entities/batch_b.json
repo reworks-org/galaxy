@@ -7,7 +7,7 @@
         },
         "BatchSprite": {
             "texture-key": "wall_3",
-        	"depth": 1,
+        	"layer": "fore",
             "opacity": 255
         },
         "Transform2D": {

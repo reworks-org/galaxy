@@ -52,41 +52,41 @@ namespace galaxy
 			///
 			/// Creates the internal vertex array.
 			///
-			/// \param depth Z-Level. 0 - 1000.
+			/// \param layer Rendering layer.
 			/// \param tex_x Optional texture x pos.
 			/// \param tex_y Optional texture y pos.
 			///
-			void create(const int depth, const float tex_x = 0.0f, const float tex_y = 0.0f);
+			void create(std::string_view layer, const float tex_x = 0.0f, const float tex_y = 0.0f);
 
 			///
 			/// Creates the internal vertex array, with a clipped w/h.
 			///
-			/// \param depth Z-Level. 0 - 1000.
+			/// \param layer Rendering layer.
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
-			void create_clipped(const int depth, const float width, const float height);
+			void create_clipped(std::string_view layer, const float width, const float height);
 
 			///
 			/// Creates the internal vertex array, with a clipped rect.
 			///
-			/// \param depth Z-Level. 0 - 1000.
+			/// \param layer Rendering layer.
 			/// \param x Texture x pos.
 			/// \param y Texture y pos.
 			/// \param width Clipped texture width.
 			/// \param height Clipped texture height.
 			///
-			void create_clipped(const int depth, const float x, const float y, const float width, const float height);
+			void create_clipped(std::string_view layer, const float x, const float y, const float width, const float height);
 
 			///
 			/// Bind sprite.
 			///
-			void bind() noexcept;
+			void bind() noexcept override;
 
 			///
 			/// Unbind sprite.
 			///
-			void unbind() noexcept;
+			void unbind() noexcept override;
 
 			///
 			/// Set opacity.
@@ -103,18 +103,25 @@ namespace galaxy
 			[[nodiscard]] const std::uint8_t get_opacity() const noexcept;
 
 			///
-			/// Get depth of sprite.
+			/// Get rendering layer.
 			///
-			/// \return Const int.
+			/// \return Const std::string reference.
 			///
-			[[nodiscard]] const int get_depth() const noexcept;
+			[[nodiscard]] const std::string& get_layer() const noexcept;
+
+			///
+			/// Gets GL VAO.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int vao() const noexcept;
 
 			///
 			/// Gets the index count.
 			///
-			/// \return Const uint.
+			/// \return Const int.
 			///
-			[[nodiscard]] const unsigned int count() const noexcept;
+			[[nodiscard]] const int count() const noexcept;
 
 			///
 			/// Serializes object.
@@ -153,9 +160,9 @@ namespace galaxy
 			std::uint8_t m_opacity;
 
 			///
-			/// Depth.
+			/// Rendering Layer.
 			///
-			int m_depth;
+			std::string m_layer;
 		};
 	} // namespace components
 } // namespace galaxy

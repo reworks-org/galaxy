@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glad/glad.h>
 #include <portable-file-dialogs.h>
 #include <sol/sol.hpp>
 
@@ -109,6 +108,7 @@ namespace galaxy
 				m_config->define<std::string>("texturebook-json", "texturebook.json");
 				m_config->define<std::string>("soundbook-json", "soundbook.json");
 				m_config->define<std::string>("musicbook-json", "musicbook.json");
+				m_config->define<std::string>("renderlayers-json", "renderlayers.json");
 				m_config->define<std::string>("key-forward", "W");
 				m_config->define<std::string>("key-back", "S");
 				m_config->define<std::string>("key-left", "A");
@@ -188,6 +188,9 @@ namespace galaxy
 				// Texture Atlas.
 				m_texturebook           = std::make_unique<res::TextureBook>(m_config->get<std::string>("texturebook-json"));
 				SL_HANDLE.m_texturebook = m_texturebook.get();
+
+				// Set up renderer.
+				RENDERER_2D().init(m_config->get<std::string>("renderlayers-json"));
 
 				// SoundBook.
 				m_soundbook           = std::make_unique<res::SoundBook>(m_config->get<std::string>("soundbook-json"));
@@ -338,6 +341,7 @@ namespace galaxy
 			}
 
 			// Clean up static stuff here since we can't be sure of when the destructor is called.
+			RENDERER_2D().clear();
 			FT_HANDLE.close();
 			GALAXY_LOG_FINISH;
 
@@ -359,12 +363,13 @@ namespace galaxy
 
 		void Application::generate_default_assets(const std::string& root)
 		{
-			constexpr const char* const font   = "{\"fontbook\":{}}";
-			constexpr const char* const music  = "{\"musicbook\":{}}";
-			constexpr const char* const script = "{\"scriptbook\":{}}";
-			constexpr const char* const shader = "{\"vertex-extension\":\".vs\",\"fragment-extension\":\".fs\",\"shaderbook\":[]}";
-			constexpr const char* const sound  = "{\"soundbook\":{}}";
-			constexpr const char* const atlas  = "{\"textures\":[]}";
+			constexpr const char* const font          = "{\"fontbook\": {}}";
+			constexpr const char* const music         = "{\"musicbook\": {}}";
+			constexpr const char* const script        = "{\"scriptbook\": {}}";
+			constexpr const char* const shader        = "{\"vertex-extension\": \".vs\",\"fragment-extension\": \".fs\",\"shaderbook\": []}";
+			constexpr const char* const sound         = "{\"soundbook\": {}}";
+			constexpr const char* const atlas         = "{\"textures\": []}";
+			constexpr const char* const render_layers = "{\"layers\":{\"bottom\": 0, \"top\": 1}}";
 
 			const auto fb_path = root + "json/" + m_config->get<std::string>("fontbook-json");
 			if (!std::filesystem::exists(fb_path))
@@ -421,15 +426,26 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sfxb_path);
 			}
 
-			const auto ab_path = root + "json/" + m_config->get<std::string>("texturebook-json");
-			if (!std::filesystem::exists(ab_path))
+			const auto tb_path = root + "json/" + m_config->get<std::string>("texturebook-json");
+			if (!std::filesystem::exists(tb_path))
 			{
-				if (!m_vfs->save(atlas, ab_path))
+				if (!m_vfs->save(atlas, tb_path))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to create default texture assets.");
 				}
 
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", ab_path);
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", tb_path);
+			}
+
+			const auto rl_path = root + "json/" + m_config->get<std::string>("renderlayers-json");
+			if (!std::filesystem::exists(rl_path))
+			{
+				if (!m_vfs->save(render_layers, rl_path))
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to create default texture assets.");
+				}
+
+				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", rl_path);
 			}
 		}
 

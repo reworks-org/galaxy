@@ -16,6 +16,7 @@
     "log-perf": true,
     "maximized": false,
     "musicbook-json": "musicbook.json",
+    "renderlayers-json": "renderlayers.json",
     "scriptbook-json": "scriptbook.json",
     "shaderbook-json": "shaderbook.json",
     "sharpen": false,

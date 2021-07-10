@@ -96,7 +96,7 @@ namespace galaxy
 					// Pack into rect then add to hashmap.
 					components::Sprite to_draw_spr;
 					to_draw_spr.load(path.string());
-					to_draw_spr.create(0);
+					to_draw_spr.create("bg");
 
 					const auto opt = m_packer.pack(to_draw_spr.get_width(), to_draw_spr.get_height());
 					if (opt != std::nullopt)

@@ -7,8 +7,8 @@
         },
         "Primitive2D": {
         	"type": "CIRCLE",
-            "opacity": 1.0,
-            "depth": 1,
+            "opacity": 255,
+            "layer": "primitives",
             "radius": 20,
             "fragments": 50,
             "colour": {

@@ -7,8 +7,8 @@
         },
         "Sprite": {
         	"texture": "wall_2.png",
-        	"opacity": 1.0,
-            "depth": 0
+        	"opacity": 255,
+            "layer": "fore"
         },
         "Transform2D": {
             "x": 0,

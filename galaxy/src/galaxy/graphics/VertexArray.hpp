@@ -63,9 +63,16 @@ namespace galaxy
 			///
 			/// Get the count of indicies in the index buffer.
 			///
-			/// \return Returns a const unsigned int.
+			/// \return Returns a const int.
 			///
-			[[nodiscard]] const unsigned int count() const noexcept;
+			[[nodiscard]] const int count() const noexcept;
+
+			///
+			/// Get VAO GL id.
+			///
+			/// \return Const unsigned int.
+			///
+			[[nodiscard]] const unsigned int id() const noexcept;
 
 			///
 			/// Get VBO.

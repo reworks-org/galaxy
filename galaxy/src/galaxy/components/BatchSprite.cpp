@@ -15,12 +15,12 @@ namespace galaxy
 	namespace components
 	{
 		BatchSprite::BatchSprite() noexcept
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}, m_opacity {255}
+		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_layer {""}, m_opacity {255}
 		{
 		}
 
 		BatchSprite::BatchSprite(const nlohmann::json& json)
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_depth {0}, m_opacity {255}
+		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_layer {""}, m_opacity {255}
 		{
 			deserialize(json);
 		}
@@ -32,7 +32,7 @@ namespace galaxy
 			this->m_key     = std::move(bs.m_key);
 			this->m_region  = std::move(bs.m_region);
 			this->m_index   = bs.m_index;
-			this->m_depth   = bs.m_depth;
+			this->m_layer   = std::move(bs.m_layer);
 			this->m_opacity = bs.m_opacity;
 		}
 
@@ -44,7 +44,7 @@ namespace galaxy
 				this->m_key     = std::move(bs.m_key);
 				this->m_region  = std::move(bs.m_region);
 				this->m_index   = bs.m_index;
-				this->m_depth   = bs.m_depth;
+				this->m_layer   = std::move(bs.m_layer);
 				this->m_opacity = bs.m_opacity;
 			}
 
@@ -55,16 +55,16 @@ namespace galaxy
 		{
 		}
 
-		void BatchSprite::create(const math::Rect<float>& region, const int depth, unsigned int index) noexcept
+		void BatchSprite::create(const math::Rect<float>& region, std::string_view layer, unsigned int index) noexcept
 		{
 			m_region = region;
 			m_index  = index;
 
-			m_clip = {0.0f, 0.0f};
-			set_depth(depth);
+			m_clip  = {0.0f, 0.0f};
+			m_layer = static_cast<std::string>(layer);
 		}
 
-		void BatchSprite::create(std::string_view texture_key, const int depth) noexcept
+		void BatchSprite::create(std::string_view texture_key, std::string_view layer) noexcept
 		{
 			auto info = SL_HANDLE.texturebook()->search(texture_key);
 			if (info != std::nullopt)
@@ -73,8 +73,8 @@ namespace galaxy
 				m_region = info.value().m_region;
 				m_index  = info.value().m_index;
 
-				m_clip = {0.0f, 0.0f};
-				set_depth(depth);
+				m_clip  = {0.0f, 0.0f};
+				m_layer = static_cast<std::string>(layer);
 			}
 			else
 			{
@@ -84,12 +84,12 @@ namespace galaxy
 
 		void BatchSprite::update_region(std::string_view texture_key) noexcept
 		{
-			create(texture_key, m_depth);
+			create(texture_key, m_layer);
 		}
 
-		void BatchSprite::set_depth(const int depth) noexcept
+		void BatchSprite::set_layer(std::string_view layer) noexcept
 		{
-			m_depth = std::clamp(depth, 0, 1000);
+			m_layer = static_cast<std::string>(layer);
 		}
 
 		void BatchSprite::set_opacity(const std::uint8_t opacity) noexcept
@@ -114,9 +114,9 @@ namespace galaxy
 			return m_clip;
 		}
 
-		const int BatchSprite::get_depth() const noexcept
+		const std::string& BatchSprite::get_layer() const noexcept
 		{
-			return m_depth;
+			return m_layer;
 		}
 
 		const std::uint8_t BatchSprite::get_opacity() const noexcept
@@ -144,7 +144,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 
 			json["texture-key"] = m_key;
-			json["depth"]       = m_depth;
+			json["layer"]       = m_layer;
 			json["opacity"]     = m_opacity;
 
 			json["clip"]      = nlohmann::json::object();
@@ -164,7 +164,7 @@ namespace galaxy
 		{
 			if (json.count("texture-key") > 0)
 			{
-				create(json.at("texture-key"), json.at("depth"));
+				create(json.at("texture-key"), json.at("layer"));
 			}
 			else if (json.count("region") > 0)
 			{
@@ -174,7 +174,7 @@ namespace galaxy
 				m_region.m_width   = region.at("w");
 				m_region.m_height  = region.at("h");
 
-				create(region, json.at("depth"));
+				create(region, json.at("layer"));
 			}
 
 			set_opacity(json.at("opacity"));

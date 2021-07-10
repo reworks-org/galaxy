@@ -9,8 +9,8 @@
 #define GALAXY_GRAPHICS_RENDERER2D_HPP_
 
 #include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/UniformBuffer.hpp"
+#include "galaxy/graphics/RenderLayer.hpp"
 
 ///
 /// Convenience macro.
@@ -21,6 +21,7 @@ namespace galaxy
 {
 	namespace components
 	{
+		class BatchSprite;
 		class Primitive2D;
 		class Sprite;
 		class Text;
@@ -30,18 +31,19 @@ namespace galaxy
 	namespace graphics
 	{
 		class RenderTexture;
-		class SpriteBatch;
 
 		///
 		/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
 		///
 		class Renderer2D final
 		{
+			using RenderLayers = robin_hood::unordered_flat_map<std::string, RenderLayer>;
+
 		public:
 			///
 			/// Destructor.
 			///
-			~Renderer2D() noexcept = default;
+			~Renderer2D() noexcept;
 
 			///
 			/// Retrieve Renderer instance.
@@ -49,6 +51,18 @@ namespace galaxy
 			/// \return Reference to renderer.
 			///
 			[[nodiscard]] static Renderer2D& inst() noexcept;
+
+			///
+			/// Initialize render layers.
+			///
+			/// \param layers Path to renderlayers.json.
+			///
+			void init(std::string_view layers);
+
+			///
+			/// Clean up data.
+			///
+			void clear() noexcept;
 
 			///
 			/// Update Camera UBO.
@@ -88,44 +102,46 @@ namespace galaxy
 			void bind_sb_shader() noexcept;
 
 			///
-			/// Draw a point primitive.
+			/// Submit a primitive to the renderer.
 			///
 			/// \param data Rendering data.
 			/// \param transform Transform of primitive.
 			///
-			void draw_point(components::Primitive2D* data, components::Transform2D* transform);
+			void submit(components::Primitive2D* data, components::Transform2D* transform);
 
 			///
-			/// Draw a line primitive.
-			///
-			/// \param data Rendering data.
-			/// \param transform Transform of primitive.
-			///
-			void draw_line(components::Primitive2D* data, components::Transform2D* transform);
-
-			///
-			/// Draw a connecting line primitive.
-			///
-			/// \param data Rendering data.
-			/// \param transform Transform of primitive.
-			///
-			void draw_lineloop(components::Primitive2D* data, components::Transform2D* transform);
-
-			///
-			/// Draw text.
+			/// Submit text to the renderer.
 			///
 			/// \param text Text object to draw.
 			/// \param transform Transform of text.
 			///
-			void draw_text(components::Text* text, components::Transform2D* transform);
+			void submit(components::Text* text, components::Transform2D* transform);
 
 			///
-			/// Draw a sprite.
+			/// Submit a sprite to the renderer.
 			///
 			/// \param sprite Sprite to draw, seperate to spritebatches.
 			/// \param transform Transform of sprite.
 			///
-			void draw_sprite(components::Sprite* sprite, components::Transform2D* transform);
+			void submit(components::Sprite* sprite, components::Transform2D* transform);
+
+			///
+			/// Submit a batched sprite to the renderer.
+			///
+			/// \param batch Batched sprite data.
+			/// \param transform Transform of batch sprite.
+			///
+			void submit(components::BatchSprite* batch, components::Transform2D* transform);
+
+			///
+			/// Prepare renderer for drawing.
+			///
+			void prepare();
+
+			///
+			/// Draw everything.
+			///
+			void draw();
 
 			///
 			/// Draw a sprite to a framebuffer.
@@ -135,13 +151,6 @@ namespace galaxy
 			/// \param target Target framebuffer to draw sprite to.
 			///
 			void draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, RenderTexture* target);
-
-			///
-			/// Draw a spritebatch.
-			///
-			/// \param batch Pointer to SpriteBatch to draw.
-			///
-			void draw_spritebatch(SpriteBatch* batch);
 
 		private:
 			///
@@ -183,6 +192,16 @@ namespace galaxy
 			/// SpriteBatch shader.
 			///
 			Shader m_spritebatch_shader;
+
+			///
+			/// Render layer data.
+			///
+			RenderLayers m_layer_data;
+
+			///
+			/// Sorted renderlayer pointers.
+			///
+			std::vector<RenderLayer*> m_layers;
 		};
 	} // namespace graphics
 } // namespace galaxy

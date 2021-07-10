@@ -36,21 +36,19 @@ namespace galaxy
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
-			/// \param depth Z-Level. 0 - 1000.
 			/// \param texels Vertex texture coordinates.
 			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const int depth, const glm::vec2& texels = {0.0f, 0.0f}, const graphics::Colour& colour = {0, 0, 0, 1}) noexcept;
+			Vertex(const glm::vec2& pos, const glm::vec2& texels = {0.0f, 0.0f}, const graphics::Colour& colour = {0, 0, 0, 1}) noexcept;
 
 			///
 			/// Reverse argument constructor.
 			///
 			/// \param pos Position of vertex.
-			/// \param depth Z-Level. 0 - 1000.
 			/// \param colour Colour of vertex, and opacity.
 			/// \param texels Vertex texture coordinates.
 			///
-			Vertex(const glm::vec2& pos, const int depth, const graphics::Colour& colour = {0, 0, 0, 1}, const glm::vec2& texels = {0.0f, 0.0f}) noexcept;
+			Vertex(const glm::vec2& pos, const graphics::Colour& colour = {0, 0, 0, 1}, const glm::vec2& texels = {0.0f, 0.0f}) noexcept;
 
 			///
 			/// Move constructor.
@@ -85,25 +83,11 @@ namespace galaxy
 			void set_colour(const graphics::Colour& colour) noexcept;
 
 			///
-			/// Set depth.
-			///
-			/// \param depth Z-Level. 0 - 1000.
-			///
-			void set_depth(const int depth) noexcept;
-
-			///
 			/// Get colour.
 			///
 			/// \return Const reference to a glm::vec4.
 			///
 			[[nodiscard]] const glm::vec4& get_colour() const noexcept;
-
-			///
-			/// Get depth.
-			///
-			/// \return Const int.
-			///
-			[[nodiscard]] const int get_depth() const noexcept;
 
 			///
 			/// Spaceship operator.
@@ -126,11 +110,6 @@ namespace galaxy
 			/// RGBA colour.
 			///
 			glm::vec4 m_colour;
-
-			///
-			/// Depth (Z-Level).
-			///
-			int m_depth;
 		};
 	} // namespace graphics
 } // namespace galaxy

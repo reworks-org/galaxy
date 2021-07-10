@@ -35,6 +35,8 @@ namespace galaxy
 			m_world.create_system<systems::CollisionSystem>();
 			m_world.create_system<systems::RenderSystem2D>();
 
+			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
+
 			/*
 				m_gui_theme.m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 				m_gui.set_theme(&m_gui_theme);
@@ -81,7 +83,7 @@ namespace galaxy
 		void Scene2D::render()
 		{
 			RENDERER_2D().buffer_camera(m_camera);
-			m_world.get_system<systems::RenderSystem2D>()->render(m_world, m_camera);
+			m_rendersystem->render(m_world, m_camera);
 			//m_gui.render();
 		}
 

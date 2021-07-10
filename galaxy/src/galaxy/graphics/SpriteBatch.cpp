@@ -46,7 +46,6 @@ namespace galaxy
 			layout.add<VertexAttributes::POSITION>(2);
 			layout.add<VertexAttributes::TEXEL>(2);
 			layout.add<VertexAttributes::COLOUR>(4);
-			layout.add<VertexAttributes::DEPTH>(1);
 
 			m_vao.create(vbo, ibo, layout);
 			m_vertices.reserve(max_quads * 4);
@@ -114,7 +113,6 @@ namespace galaxy
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y};
 					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
-					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
 
@@ -122,7 +120,6 @@ namespace galaxy
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y};
 					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
-					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
 
@@ -130,7 +127,6 @@ namespace galaxy
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x + sprite->get_region().m_width, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
-					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
 
@@ -138,7 +134,6 @@ namespace galaxy
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {sprite->get_region().m_x, sprite->get_region().m_y + sprite->get_region().m_height};
 					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
-					vertex.set_depth(sprite->get_depth());
 
 					m_vertices.emplace_back(vertex);
 				}
@@ -185,7 +180,7 @@ namespace galaxy
 			return m_height;
 		}
 
-		const unsigned int SpriteBatch::count() const noexcept
+		const int SpriteBatch::count() const noexcept
 		{
 			// Prevents zero division.
 			if (m_vertices.size() == 0)
@@ -196,6 +191,16 @@ namespace galaxy
 			// Six indicies per quad. Number of quads is total vertexs / 4.
 			// The size here is always a multiple of 4 so no "uneven" division takes place.
 			return 6 * (m_vertices.size() / 4);
+		}
+
+		const unsigned int SpriteBatch::vao() const noexcept
+		{
+			return m_vao.id();
+		}
+
+		const unsigned int SpriteBatch::gl_texture() const noexcept
+		{
+			return m_texture;
 		}
 	} // namespace graphics
 } // namespace galaxy

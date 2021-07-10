@@ -8,7 +8,7 @@
         "Text": {
             "font":"public16",
             "text":"Demo",
-            "depth": 1,
+            "layer": "fore",
             "colour": {
                 "r": 255,
                 "g": 0,
@@ -17,7 +17,7 @@
             }
         },
         "Transform2D": {
-            "x": 512,
+            "x": 800,
             "y": 512,
             "rotation": 45,
             "scale": 1

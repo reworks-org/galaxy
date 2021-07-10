@@ -69,9 +69,9 @@ namespace galaxy
 			/// Create the text object.
 			///
 			/// \param text Text to display.
-			/// \param depth Z-Level for text. 0 - 1000.
+			/// \param layer Rendering layer.
 			///
-			void create(std::string_view text, const int depth);
+			void create(std::string_view text, std::string_view layer);
 
 			///
 			/// Updates text.
@@ -79,16 +79,6 @@ namespace galaxy
 			/// \param text Text to display.
 			///
 			void update(std::string_view text);
-
-			///
-			/// Bind as active VA.
-			///
-			void bind() noexcept;
-
-			///
-			/// Unbind as active VA.
-			///
-			void unbind() noexcept;
 
 			///
 			/// Set colour.
@@ -151,18 +141,32 @@ namespace galaxy
 			[[nodiscard]] const int get_batch_height() const noexcept;
 
 			///
-			/// Get depth of sprite.
+			/// Get rendering layer.
 			///
-			/// \return Const int.
+			/// \return Const std::string reference.
 			///
-			[[nodiscard]] const int get_depth() const noexcept;
+			[[nodiscard]] const std::string& get_layer() const noexcept;
 
 			///
 			/// Gets the index count.
 			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int count() const noexcept;
+
+			///
+			/// Get the GL VAO.
+			///
 			/// \return Const uint.
 			///
-			[[nodiscard]] const unsigned int count() const noexcept;
+			[[nodiscard]] const unsigned int vao() const noexcept;
+
+			///
+			/// Get the gl texture.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
 			///
 			/// Get current text.
@@ -214,9 +218,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Depth cache.
+			/// Rendering layer.
 			///
-			int m_depth;
+			std::string m_layer;
 
 			///
 			/// Width cache.

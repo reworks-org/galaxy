@@ -16,6 +16,11 @@
 
 namespace galaxy
 {
+	namespace systems
+	{
+		class RenderSystem2D;
+	} // namespace systems
+
 	namespace core
 	{
 		///
@@ -154,6 +159,11 @@ namespace galaxy
 			/// Current map path.
 			///
 			std::string m_maps_path;
+
+			///
+			/// Pointer to rendering system.
+			///
+			systems::RenderSystem2D* m_rendersystem;
 		};
 	} // namespace core
 } // namespace galaxy

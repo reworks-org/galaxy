@@ -528,17 +528,14 @@ namespace galaxy
 			soundbook_type["clear"]            = &res::SoundBook::clear;
 			soundbook_type["has"]              = &res::SoundBook::has;
 
-			auto tex_book_type                       = lua->new_usertype<res::TextureBook>("gTextureBook", sol::no_constructor);
-			tex_book_type["add"]                     = sol::resolve<const bool(std::string_view)>(&res::TextureBook::add);
-			tex_book_type["add_custom_region"]       = &res::TextureBook::add_custom_region;
-			tex_book_type["add_json"]                = &res::TextureBook::add_json;
-			tex_book_type["add_multi"]               = &res::TextureBook::add_multi;
-			tex_book_type["buffer_spritebatch_data"] = &res::TextureBook::buffer_spritebatch_data;
-			tex_book_type["clear"]                   = &res::TextureBook::clear;
-			tex_book_type["clear_sprites"]           = &res::TextureBook::clear_sprites;
-			tex_book_type["get"]                     = &res::TextureBook::get;
-			tex_book_type["get_spritebatches"]       = &res::TextureBook::get_spritebatches;
-			tex_book_type["search"]                  = &res::TextureBook::search;
+			auto tex_book_type                 = lua->new_usertype<res::TextureBook>("gTextureBook", sol::no_constructor);
+			tex_book_type["add"]               = sol::resolve<const bool(std::string_view)>(&res::TextureBook::add);
+			tex_book_type["add_custom_region"] = &res::TextureBook::add_custom_region;
+			tex_book_type["add_json"]          = &res::TextureBook::add_json;
+			tex_book_type["add_multi"]         = &res::TextureBook::add_multi;
+			tex_book_type["clear"]             = &res::TextureBook::clear;
+			tex_book_type["get"]               = &res::TextureBook::get;
+			tex_book_type["search"]            = &res::TextureBook::search;
 
 			auto lang_type                     = lua->new_usertype<res::Language>("gLanguage", sol::no_constructor);
 			lang_type["parse_language_folder"] = &res::Language::parse_language_folder;

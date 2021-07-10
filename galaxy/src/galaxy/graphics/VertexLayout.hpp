@@ -101,10 +101,6 @@ namespace galaxy
 			{
 				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex, m_colour)));
 			}
-			else if constexpr (va == VertexAttributes::DEPTH)
-			{
-				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(Vertex, m_depth)));
-			}
 			else
 			{
 				static_assert(false, "Invalid vertex attribute specificed.");
