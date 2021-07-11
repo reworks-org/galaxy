@@ -5,6 +5,8 @@ code review
 fix input stuttering (think its a dt thing).
 fix map
 input needs to be a system update / component?
-
-camera boundary class - camera cant go past those coords.
 text quality.
+
+
+test active map bounds.
+camera bounds not serialized - might need to be.

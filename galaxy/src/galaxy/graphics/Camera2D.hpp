@@ -169,6 +169,34 @@ namespace galaxy
 			void set_height(const float height) noexcept;
 
 			///
+			/// Set camera lower x bounary.
+			///
+			/// \param x -x coord.
+			///
+			void set_lower_x_boundary(const float x);
+
+			///
+			/// Set camera upper x bounary.
+			///
+			/// \param x +x coord.
+			///
+			void set_upper_x_boundary(const float x);
+
+			///
+			/// Set camera lower y bounary.
+			///
+			/// \param y -y coord.
+			///
+			void set_lower_y_boundary(const float y);
+
+			///
+			/// Set camera upper y bounary.
+			///
+			/// \param y +y coord.
+			///
+			void set_upper_y_boundary(const float y);
+
+			///
 			/// Get Camera2D speed.
 			///
 			/// \return Const float.
@@ -346,6 +374,16 @@ namespace galaxy
 			/// AABB Cache.
 			///
 			math::AABB m_aabb;
+
+			///
+			/// Lower boundary.
+			///
+			glm::vec2 m_lower_bounds;
+
+			///
+			/// Upper boundary.
+			///
+			glm::vec2 m_upper_bounds;
 		};
 	} // namespace graphics
 } // namespace galaxy

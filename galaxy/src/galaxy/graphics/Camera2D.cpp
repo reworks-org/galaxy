@@ -15,18 +15,18 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}, m_lower_bounds {0.0f, 0.0f}, m_upper_bounds {0.0f, 0.0f}
 		{
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}, m_lower_bounds {0.0f, 0.0f}, m_upper_bounds {0.0f, 0.0f}
 		{
 			deserialize(json);
 		}
 
 		Camera2D::Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}
+		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}, m_lower_bounds {0.0f, 0.0f}, m_upper_bounds {0.0f, 0.0f}
 		{
 			create(left, right, bottom, top);
 		}
@@ -37,6 +37,11 @@ namespace galaxy
 			m_size.y = std::max(bottom, top);
 
 			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+
+			set_lower_x_boundary(0.0f);
+			set_upper_x_boundary(m_size.x);
+			set_lower_y_boundary(0.0f);
+			set_upper_y_boundary(m_size.y);
 		}
 
 		void Camera2D::on_event(const events::KeyDown& e) noexcept
@@ -132,6 +137,26 @@ namespace galaxy
 			m_pos.x += x;
 			m_pos.y += y;
 
+			if (m_pos.x > m_lower_bounds.x)
+			{
+				m_pos.x -= x;
+			}
+
+			if (m_pos.x < m_upper_bounds.x)
+			{
+				m_pos.x -= x;
+			}
+
+			if (m_pos.y > m_lower_bounds.y)
+			{
+				m_pos.y -= y;
+			}
+
+			if (m_pos.y < m_upper_bounds.y)
+			{
+				m_pos.y -= y;
+			}
+
 			m_dirty = true;
 		}
 
@@ -168,6 +193,26 @@ namespace galaxy
 		void Camera2D::set_height(const float height) noexcept
 		{
 			create(0.0f, m_size.x, height, 0.0f);
+		}
+
+		void Camera2D::set_lower_x_boundary(const float x)
+		{
+			m_lower_bounds.x = (x * -0.1f);
+		}
+
+		void Camera2D::set_upper_x_boundary(const float x)
+		{
+			m_upper_bounds.x = (x * -0.1f);
+		}
+
+		void Camera2D::set_lower_y_boundary(const float y)
+		{
+			m_lower_bounds.y = (y * -0.1f);
+		}
+
+		void Camera2D::set_upper_y_boundary(const float y)
+		{
+			m_upper_bounds.y = (y * -0.1f);
 		}
 
 		const float Camera2D::get_speed() const noexcept

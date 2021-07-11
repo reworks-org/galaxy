@@ -102,6 +102,11 @@ namespace galaxy
 		void Scene2D::set_active_map(std::string_view name)
 		{
 			m_active_map = static_cast<std::string>(name);
+
+			m_camera.set_lower_x_boundary(0.0f);
+			m_camera.set_upper_x_boundary(get_active_map()->get_width());
+			m_camera.set_upper_y_boundary(0.0f);
+			m_camera.set_upper_y_boundary(get_active_map()->get_height());
 		}
 
 		map::Map* Scene2D::get_map(std::string_view name)
