@@ -36,15 +36,7 @@ namespace galaxy
 			m_quadtree.clear();
 			m_output.clear();
 
-			if (!scene->get_active_map())
-			{
-				m_quadtree.resize(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
-			}
-			else
-			{
-				m_quadtree.resize(scene->get_active_map()->get_width(), scene->get_active_map()->get_height());
-			}
-
+			m_quadtree.resize(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 			scene->m_world.operate<components::Renderable>([&](const ecs::Entity entity, components::Renderable* renderable) {
 				m_quadtree.insert({.m_aabb = &renderable->get_aabb(), .m_entity = entity});
 			});

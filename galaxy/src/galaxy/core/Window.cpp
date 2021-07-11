@@ -238,10 +238,10 @@ namespace galaxy
 						glDisable(GL_MULTISAMPLE);
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
-						glDisable(GL_DEPTH_TEST);
 
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
+						glEnable(GL_DEPTH_TEST);
 						glEnable(GL_BLEND);
 
 						// GL state function configuration.

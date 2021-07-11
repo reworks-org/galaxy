@@ -133,26 +133,6 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// \brief Translate (move) x pos.
-			///
-			/// Does not set the position but moves it.
-			/// By adding the parameters to the existing transformation matrix.
-			///
-			/// \param x How far to translate on x axis.
-			///
-			void move_x(const float x) noexcept;
-
-			///
-			/// \brief Translate (move) y pos.
-			///
-			/// Does not set the position but moves it.
-			/// By adding the parameters to the existing transformation matrix.
-			///
-			/// \param y How far to translate on y axis.
-			///
-			void move_y(const float y) noexcept;
-
-			///
 			/// Zoom Camera2D.
 			///
 			/// \param scale Scale. Multiplier. Min 0.1.
@@ -166,20 +146,6 @@ namespace galaxy
 			/// \param y Y position to set object to.
 			///
 			void set_pos(const float x, const float y) noexcept;
-
-			///
-			/// Set x pos.
-			///
-			/// \param x X position to set object to.
-			///
-			void set_pos_x(const float x) noexcept;
-
-			///
-			/// Set y pos.
-			///
-			/// \param y Y position to set object to.
-			///
-			void set_pos_y(const float y) noexcept;
 
 			///
 			/// Set the speed of the Camera2D.
@@ -214,14 +180,14 @@ namespace galaxy
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] const float get_width() const noexcept;
 
 			///
 			/// Get Camera2D height.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] const float get_height() const noexcept;
 
 			///
 			/// Get flag indicating if transform needs to be applied before rendering.
@@ -345,14 +311,9 @@ namespace galaxy
 			bool m_dirty;
 
 			///
-			/// Scaled matrix.
+			/// Scaling matrix.
 			///
 			glm::mat4 m_scaling;
-
-			///
-			/// Translation matrix.
-			///
-			glm::mat4 m_translation;
 
 			///
 			/// Identity matrix.
@@ -372,14 +333,9 @@ namespace galaxy
 			glm::vec2 m_pos;
 
 			///
-			/// Width of Camera2D bounds.
+			/// Camera size.
 			///
-			int m_width;
-
-			///
-			/// Height of Camera2D bounds.
-			///
-			int m_height;
+			glm::vec2 m_size;
 
 			///
 			/// Camera data.

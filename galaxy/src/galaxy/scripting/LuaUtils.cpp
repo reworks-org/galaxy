@@ -412,12 +412,8 @@ namespace galaxy
 			camera_type_2d["create"]     = &graphics::Camera2D::create;
 			camera_type_2d["update"]     = &graphics::Camera2D::update;
 			camera_type_2d["move"]       = &graphics::Camera2D::move;
-			camera_type_2d["move_x"]     = &graphics::Camera2D::move_x;
-			camera_type_2d["move_y"]     = &graphics::Camera2D::move_y;
 			camera_type_2d["zoom"]       = &graphics::Camera2D::zoom;
 			camera_type_2d["set_pos"]    = &graphics::Camera2D::set_pos;
-			camera_type_2d["set_pos_x"]  = &graphics::Camera2D::set_pos_x;
-			camera_type_2d["set_pos_y"]  = &graphics::Camera2D::set_pos_y;
 			camera_type_2d["set_speed"]  = &graphics::Camera2D::set_speed;
 			camera_type_2d["set_width"]  = &graphics::Camera2D::set_width;
 			camera_type_2d["set_height"] = &graphics::Camera2D::set_height;

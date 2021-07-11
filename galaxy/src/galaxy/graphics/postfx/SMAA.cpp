@@ -16141,6 +16141,9 @@ namespace galaxy
 
 			// SMAA Neighbourhood Pass.
 			glBindFramebuffer(GL_FRAMEBUFFER, m_neighbour_fbo);
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			m_smaa_neighbourhood.bind();
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, input);

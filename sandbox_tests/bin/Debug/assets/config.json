@@ -1,6 +1,6 @@
 {
     "ansio-filter": 16,
-    "anti-aliasing": false,
+    "anti-aliasing": true,
     "aspect-ratio-x": -1,
     "aspect-ratio-y": -1,
     "audio-volume": 0.5,
@@ -22,8 +22,8 @@
     "sharpen": false,
     "soundbook-json": "soundbook.json",
     "texturebook-json": "texturebook.json",
-    "trilinear-filtering": true,
-    "vsync": true,
+    "trilinear-filtering": false,
+    "vsync": false,
     "window-height": 720,
     "window-name": "Sandbox Tests",
     "window-width": 1280

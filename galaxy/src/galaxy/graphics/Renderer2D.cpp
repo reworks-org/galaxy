@@ -125,7 +125,9 @@ constexpr const char* const text_vert = R"(
 
 	void main()
 	{
-		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
+		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+		io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
 	}
 )";
@@ -171,7 +173,9 @@ constexpr const char* const sprite_vert = R"(
 	
 	void main()
 	{
-		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
+		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+		io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+
 		gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
 	}
 )";
@@ -213,7 +217,9 @@ constexpr const char* const render_to_texture_vert = R"(
 
 	void main()
 	{
-		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
+		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+		io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+
 		gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
 	}
 )";
@@ -258,7 +264,8 @@ constexpr const char* const spritebatch_vert = R"(
 
 	void main()
 	{
-		io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
+		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+		io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
 		io_opacity = l_colour.a;
 
 		gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);

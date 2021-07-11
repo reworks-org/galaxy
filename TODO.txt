@@ -5,6 +5,6 @@ code review
 fix input stuttering (think its a dt thing).
 fix map
 input needs to be a system update / component?
-scrolling renders some objects transparent->only batched sprites???
 
-animated sprite has lines around it
+camera boundary class - camera cant go past those coords.
+text quality.
