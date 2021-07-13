@@ -10,6 +10,7 @@
 #include <magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
+#include <galaxy/components/ParticleEffect.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/Config.hpp>
@@ -135,6 +136,12 @@ namespace sb
 		sandbox->m_world.create_from_json("animated.json");
 		sandbox->m_world.create_from_json("sprite.json");
 
+		const auto opt = sandbox->m_world.create_from_json("particles.json");
+		if (opt != std::nullopt)
+		{
+			m_particles = opt.value();
+		}
+
 		/*
 		sandbox->m_gui_theme.m_font_col = {255, 0, 0, 255};
 
@@ -183,6 +190,13 @@ namespace sb
 
 		sandbox->m_gui.enable_input();
 		*/
+
+		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>([sandbox, this](const events::MouseReleased& mre) {
+			if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
+			{
+				sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
+			}
+		});
 
 		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>([&](const events::KeyDown& kde) {
 			switch (kde.m_keycode)

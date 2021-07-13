@@ -171,7 +171,7 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int count() const noexcept;
+			[[nodiscard]] const int index_count() const noexcept;
 
 			///
 			/// Serializes object.
@@ -272,16 +272,10 @@ namespace galaxy
 
 				graphics::VertexBuffer vbo;
 				graphics::IndexBuffer ibo;
-				graphics::VertexLayout layout;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
-
-				layout.add<graphics::VertexAttributes::POSITION>(2);
-				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-				m_vao.create(vbo, ibo, layout);
+				m_vao.create(vbo, ibo);
 
 				m_width  = data.m_radius.value() * 2.0f;
 				m_height = data.m_radius.value() * 2.0f;
@@ -317,16 +311,10 @@ namespace galaxy
 
 				graphics::VertexBuffer vbo;
 				graphics::IndexBuffer ibo;
-				graphics::VertexLayout layout;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
-
-				layout.add<graphics::VertexAttributes::POSITION>(2);
-				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-				m_vao.create(vbo, ibo, layout);
+				m_vao.create(vbo, ibo);
 
 				m_width  = m_data.m_radii.value().x * 2.0f;
 				m_height = m_data.m_radii.value().y * 2.0f;
@@ -348,16 +336,10 @@ namespace galaxy
 
 				graphics::VertexBuffer vbo;
 				graphics::IndexBuffer ibo;
-				graphics::VertexLayout layout;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
-
-				layout.add<graphics::VertexAttributes::POSITION>(2);
-				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-				m_vao.create(vbo, ibo, layout);
+				m_vao.create(vbo, ibo);
 
 				m_width  = 0;
 				m_height = 0;
@@ -373,16 +355,10 @@ namespace galaxy
 
 				graphics::VertexBuffer vbo;
 				graphics::IndexBuffer ibo;
-				graphics::VertexLayout layout;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
-
-				layout.add<graphics::VertexAttributes::POSITION>(2);
-				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-				m_vao.create(vbo, ibo, layout);
+				m_vao.create(vbo, ibo);
 
 				m_width  = 0;
 				m_height = 0;
@@ -421,16 +397,10 @@ namespace galaxy
 
 				graphics::VertexBuffer vbo;
 				graphics::IndexBuffer ibo;
-				graphics::VertexLayout layout;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
-
-				layout.add<graphics::VertexAttributes::POSITION>(2);
-				layout.add<graphics::VertexAttributes::TEXEL>(2);
-				layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-				m_vao.create(vbo, ibo, layout);
+				m_vao.create(vbo, ibo);
 			}
 		}
 	} // namespace components

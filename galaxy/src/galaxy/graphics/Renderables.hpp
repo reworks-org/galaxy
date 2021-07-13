@@ -45,7 +45,12 @@ namespace galaxy
 			///
 			/// Define an entity to be rendered as a SPRITE.
 			///
-			SPRITE
+			SPRITE,
+
+			///
+			/// Define an entity to be rendered as a PARTICLE.
+			///
+			PARTICLE
 		};
 	} // namespace graphics
 } // namespace galaxy

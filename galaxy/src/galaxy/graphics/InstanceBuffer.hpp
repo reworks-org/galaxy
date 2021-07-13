@@ -5,25 +5,25 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_VERTEX_INSTANCEBUFFER_HPP_
-#define GALAXY_GRAPHICS_VERTEX_INSTANCEBUFFER_HPP_
+#ifndef GALAXY_GRAPHICS_INSTANCEBUFFER_HPP_
+#define GALAXY_GRAPHICS_INSTANCEBUFFER_HPP_
 
 #include <span>
 
-#include <glm/vec3.hpp>
+#include <glm/vec2.hpp>
 
 namespace galaxy
 {
 	namespace graphics
 	{
 		///
-		/// Abstraction for OpenGL instance buffers.
+		/// Abstraction for OpenGL instance buffer objects.
 		///
 		class InstanceBuffer final
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
 			InstanceBuffer() noexcept;
 
@@ -45,17 +45,9 @@ namespace galaxy
 			///
 			/// Create instance buffer object.
 			///
-			/// \param offsets Offset for each instance. Size should be total number of instances. Z is opacity.
-			/// \param divisor set to 1 for once per instance.
+			/// \param vertices Vertices to assign.
 			///
-			void create(std::span<glm::vec3> offsets, unsigned int divisor);
-
-			///
-			/// Update internal instance buffer.
-			///
-			/// \param offsets Offset for each instance. Size should be total number of instances. Z is opacity.
-			///
-			void update(std::span<glm::vec3> offsets);
+			void create(std::span<glm::vec2> vertices);
 
 			///
 			/// Bind the current instance buffer to current GL context.
@@ -68,6 +60,13 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
+			/// \brief Destroy Instance Buffer Object.
+			///
+			/// Also called by destructor, you do not have to call this.
+			///
+			void destroy() noexcept;
+
+			///
 			/// Get OpenGL handle.
 			///
 			/// \return Const unsigned integer.
@@ -75,18 +74,17 @@ namespace galaxy
 			[[nodiscard]] const unsigned int id() const noexcept;
 
 			///
-			/// Get Attribute Divisor.
+			/// Get current instance object count.
 			///
-			/// \return Const unsigned integer.
+			/// \return Const unsigned int.
 			///
-			[[nodiscard]] const unsigned int divisor() const noexcept;
+			[[nodiscard]] const unsigned int instance_count() const noexcept;
 
 		private:
 			///
 			/// Copy constructor.
 			///
 			InstanceBuffer(const InstanceBuffer&) = delete;
-
 			///
 			/// Copy assignment operator.
 			///
@@ -96,12 +94,12 @@ namespace galaxy
 			///
 			/// ID returned by OpenGL when generating buffer.
 			///
-			unsigned int m_id;
+			unsigned int m_ibo;
 
 			///
-			/// Divisor.
+			/// Number of instances this buffer has been allocated.
 			///
-			unsigned int m_divisor;
+			unsigned int m_instance_count;
 		};
 	} // namespace graphics
 } // namespace galaxy

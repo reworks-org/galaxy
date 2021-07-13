@@ -9,6 +9,7 @@
 #define GALAXY_GRAPHICS_VERTEXARRAY_HPP_
 
 #include "galaxy/graphics/IndexBuffer.hpp"
+#include "galaxy/graphics/InstanceBuffer.hpp"
 #include "galaxy/graphics/VertexBuffer.hpp"
 
 namespace galaxy
@@ -46,9 +47,8 @@ namespace galaxy
 			///
 			/// \param vbo VBO to specify for VAO. Is move'd into this structure, the original is discarded.
 			/// \param ibo IBO to specify for VAO. Is move'd into this structure, the original is discarded.
-			/// \param layout VertexLayout to specify for this VAO.
 			///
-			void create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout);
+			void create(VertexBuffer& vb, IndexBuffer& ib);
 
 			///
 			/// Bind the current vertex array to current GL context.
@@ -61,11 +61,19 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
+			/// Enable instancing for this vertex array.
+			///
+			/// \param instance_buffer Instance buffer to use when instancing with this VAO.
+			///						   This is not moved into the VAO, you need to keep the instance buffer alive seperately.
+			///
+			void set_instanced(InstanceBuffer& ibo) noexcept;
+
+			///
 			/// Get the count of indicies in the index buffer.
 			///
 			/// \return Returns a const int.
 			///
-			[[nodiscard]] const int count() const noexcept;
+			[[nodiscard]] const int index_count() const noexcept;
 
 			///
 			/// Get VAO GL id.
@@ -112,6 +120,11 @@ namespace galaxy
 			/// Vertex Buffer.
 			///
 			VertexBuffer m_vbo;
+
+			///
+			/// Vertex layout.
+			///
+			VertexLayout m_layout;
 		};
 	} // namespace graphics
 } // namespace galaxy

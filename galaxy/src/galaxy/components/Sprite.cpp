@@ -12,18 +12,18 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-		    : Texture {}, Serializable {this}, m_opacity {255}, m_layer {""}
+		    : Serializable {this}, m_opacity {255}, m_layer {""}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-		    : Texture {}, Serializable {this}, m_opacity {255}, m_layer {""}
+		    : Serializable {this}, m_opacity {255}, m_layer {""}
 		{
 			deserialize(json);
 		}
 
 		Sprite::Sprite(Sprite&& s) noexcept
-		    : Texture {std::move(s)}, Serializable {this}
+		    : Serializable {this}, Texture {std::move(s)}
 		{
 			this->m_vao     = std::move(s.m_vao);
 			this->m_opacity = s.m_opacity;
@@ -70,16 +70,11 @@ namespace galaxy
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
-			graphics::VertexLayout layout;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);
 
-			layout.add<graphics::VertexAttributes::POSITION>(2);
-			layout.add<graphics::VertexAttributes::TEXEL>(2);
-			layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-			m_vao.create(vbo, ibo, layout);
+			m_vao.create(vbo, ibo);
 		}
 
 		void Sprite::create_clipped(std::string_view layer, const float width, const float height)
@@ -104,16 +99,10 @@ namespace galaxy
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
-			graphics::VertexLayout layout;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);
-
-			layout.add<graphics::VertexAttributes::POSITION>(2);
-			layout.add<graphics::VertexAttributes::TEXEL>(2);
-			layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-			m_vao.create(vbo, ibo, layout);
+			m_vao.create(vbo, ibo);
 		}
 
 		void Sprite::create_clipped(std::string_view layer, const float x, const float y, const float width, const float height)
@@ -138,16 +127,10 @@ namespace galaxy
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
-			graphics::VertexLayout layout;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);
-
-			layout.add<graphics::VertexAttributes::POSITION>(2);
-			layout.add<graphics::VertexAttributes::TEXEL>(2);
-			layout.add<graphics::VertexAttributes::COLOUR>(4);
-
-			m_vao.create(vbo, ibo, layout);
+			m_vao.create(vbo, ibo);
 		}
 
 		void Sprite::bind() noexcept
@@ -182,25 +165,25 @@ namespace galaxy
 			return m_vao.id();
 		}
 
-		const int Sprite::count() const noexcept
+		const int Sprite::index_count() const noexcept
 		{
-			return m_vao.count();
+			return m_vao.index_count();
 		}
 
 		nlohmann::json Sprite::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["texture"]     = m_path;
-			json["layer"]       = m_layer;
-			json["opacity"]     = m_opacity;
+
+			json["texture"] = m_path;
+			json["layer"]   = m_layer;
+			json["opacity"] = m_opacity;
 
 			return json;
 		}
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			const std::string& texture = json.at("texture");
-			load(texture);
+			load(json.at("texture").get<std::string>());
 			create(json.at("layer"));
 
 			set_opacity(json.at("opacity"));

@@ -121,7 +121,7 @@ namespace galaxy
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int count() const noexcept;
+			[[nodiscard]] const int index_count() const noexcept;
 
 			///
 			/// Serializes object.

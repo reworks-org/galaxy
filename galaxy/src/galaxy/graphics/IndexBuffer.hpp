@@ -70,7 +70,7 @@ namespace galaxy
 			///
 			/// \return Returns a const int.
 			///
-			[[nodiscard]] const int count() const noexcept;
+			[[nodiscard]] const int index_count() const noexcept;
 
 		private:
 			///

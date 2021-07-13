@@ -8,6 +8,7 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/OnCollision.hpp"
+#include "galaxy/components/ParticleEffect.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -40,6 +41,7 @@ namespace galaxy
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");
 			register_component<components::OnCollision>("OnCollision");
+			register_component<components::ParticleEffect>("ParticleEffect");
 			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::RigidBody>("RigidBody");
@@ -218,6 +220,7 @@ namespace galaxy
 					auto [animated,
 						batchsprite,
 						oncollision,
+						particleffect,
 						primitive2d,
 						renderable,
 						rigidbody,
@@ -229,6 +232,7 @@ namespace galaxy
 						components::Animated,
 						components::BatchSprite,
 						components::OnCollision,
+						components::ParticleEffect,
 						components::Primitive2D,
 						components::Renderable,
 						components::RigidBody,
@@ -252,6 +256,11 @@ namespace galaxy
 					if (oncollision)
 					{
 						entity_json["components"]["OnCollision"] = oncollision->serialize();
+					}
+
+					if (particleffect)
+					{
+						entity_json["components"]["ParticleEffect"] = particleffect->serialize();
 					}
 
 					if (primitive2d)

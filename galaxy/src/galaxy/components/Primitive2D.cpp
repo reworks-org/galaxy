@@ -109,9 +109,9 @@ namespace galaxy
 			return m_vao.id();
 		}
 
-		const int Primitive2D::count() const noexcept
+		const int Primitive2D::index_count() const noexcept
 		{
-			return m_vao.count();
+			return m_vao.index_count();
 		}
 
 		nlohmann::json Primitive2D::serialize()

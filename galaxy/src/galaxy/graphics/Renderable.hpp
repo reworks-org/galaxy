@@ -45,6 +45,11 @@ namespace galaxy
 			/// Function that binds a shader and sets uniform in prep for drawing.
 			///
 			std::function<void(void)> m_configure_shader;
+
+			///
+			/// Instance count. If greater than 0 object is drawn as an instance.
+			///
+			unsigned int m_instance_count = 0;
 		};
 	} // namespace graphics
 } // namespace galaxy

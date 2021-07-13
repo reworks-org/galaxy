@@ -30,6 +30,11 @@ namespace galaxy
 			TEXEL,
 
 			///
+			/// Specifies the "instance offset" vertex attribute type at compile tme.
+			///
+			INSTANCE_OFFSET,
+
+			///
 			/// Specifies "colour" vertex attribute type at compile time.
 			///
 			COLOUR

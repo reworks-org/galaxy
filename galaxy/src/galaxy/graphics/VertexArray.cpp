@@ -15,6 +15,10 @@ namespace galaxy
 		    : m_vao {0}, m_counter {0}
 		{
 			glGenVertexArrays(1, &m_vao);
+
+			m_layout.add<graphics::VertexAttributes::POSITION>(2);
+			m_layout.add<graphics::VertexAttributes::TEXEL>(2);
+			m_layout.add<graphics::VertexAttributes::COLOUR>(4);
 		}
 
 		VertexArray::VertexArray(VertexArray&& va) noexcept
@@ -49,7 +53,7 @@ namespace galaxy
 			glDeleteVertexArrays(1, &m_vao);
 		}
 
-		void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout)
+		void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib)
 		{
 			// Prepare for new data.
 			m_vbo.destroy();
@@ -64,11 +68,10 @@ namespace galaxy
 
 			// Add each attribute in the layout to the vertex array object.
 			// I.e. position attribute, then colour attribute of the verticies.
-			const auto& attributes = layout.get_attributes();
-			for (const auto& attribute : attributes)
+			for (const auto& attribute : m_layout.get_attributes())
 			{
-				glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(Vertex), (GLvoid*)attribute.m_offset);
 				glEnableVertexAttribArray(m_counter);
+				glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(Vertex), (GLvoid*)attribute.m_offset);
 
 				++m_counter;
 			}
@@ -88,9 +91,26 @@ namespace galaxy
 			glBindVertexArray(0);
 		}
 
-		const int VertexArray::count() const noexcept
+		void VertexArray::set_instanced(InstanceBuffer& ibo) noexcept
 		{
-			return m_ibo.count();
+			bind();
+
+			glEnableVertexAttribArray(m_counter);
+			ibo.bind();
+
+			m_layout.add<graphics::VertexAttributes::INSTANCE_OFFSET>(2);
+			const auto& attribute = m_layout.get_attributes().back();
+
+			glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(Vertex), (GLvoid*)attribute.m_offset);
+			glVertexBindingDivisor(m_counter, 1);
+
+			unbind();
+			ibo.unbind();
+		}
+
+		const int VertexArray::index_count() const noexcept
+		{
+			return m_ibo.index_count();
 		}
 
 		const unsigned int VertexArray::id() const noexcept

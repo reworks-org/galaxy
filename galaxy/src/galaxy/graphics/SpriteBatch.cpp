@@ -18,7 +18,6 @@ namespace galaxy
 		{
 			VertexBuffer vbo;
 			IndexBuffer ibo;
-			VertexLayout layout;
 
 			vbo.create({}, false, max_quads * 4);
 
@@ -43,11 +42,7 @@ namespace galaxy
 				ibo.create(is, true);
 			}
 
-			layout.add<VertexAttributes::POSITION>(2);
-			layout.add<VertexAttributes::TEXEL>(2);
-			layout.add<VertexAttributes::COLOUR>(4);
-
-			m_vao.create(vbo, ibo, layout);
+			m_vao.create(vbo, ibo);
 			m_vertices.reserve(max_quads * 4);
 		}
 

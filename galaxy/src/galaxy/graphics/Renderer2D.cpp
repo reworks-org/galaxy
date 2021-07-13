@@ -7,6 +7,7 @@
 
 #include <execution>
 
+#include "galaxy/components/ParticleEffect.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
@@ -31,6 +32,7 @@ constexpr const char* const point_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -71,6 +73,7 @@ constexpr const char* const line_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -110,6 +113,7 @@ constexpr const char* const text_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -158,6 +162,7 @@ constexpr const char* const sprite_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -207,6 +212,7 @@ constexpr const char* const render_to_texture_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -249,6 +255,7 @@ constexpr const char* const spritebatch_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	out float io_opacity;
@@ -292,6 +299,55 @@ constexpr const char* const spritebatch_frag = R"(
 	}
 )";
 
+///
+/// Instance vertex shader.
+///
+constexpr const char* const instance_vert = R"(
+	#version 450 core
+	layout(location = 0) in vec2 l_pos;
+	layout(location = 1) in vec2 l_texels;
+	layout(location = 2) in vec4 l_colour;
+	layout(location = 3) in vec2 l_instance_offset;
+	
+	out vec2 io_texels;
+	
+	layout(std140, binding = 0) uniform camera_data
+	{
+		mat4 u_camera_model_view;
+		mat4 u_camera_proj;
+	};
+	
+	uniform float u_width;
+	uniform float u_height;
+	
+	void main()
+	{
+		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+		io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+		
+		gl_Position = u_camera_proj * u_camera_model_view * vec4(l_pos + l_instance_offset, 0.0, 1.0);
+	}
+)";
+
+///
+/// Instance fragment shader.
+///
+constexpr const char* const instance_frag = R"(
+	#version 450 core
+	
+	in vec2 io_texels;
+	out vec4 io_frag_colour;
+	
+	uniform int u_opacity;
+	uniform sampler2D u_texture;
+	
+	void main()
+	{
+		io_frag_colour = texture(u_texture, io_texels);
+		io_frag_colour.a *= (float(u_opacity) / 255.0);
+	}
+)";
+
 namespace galaxy
 {
 	namespace graphics
@@ -304,6 +360,7 @@ namespace galaxy
 			m_sprite_shader.load_raw(sprite_vert, sprite_frag);
 			m_rtt_shader.load_raw(render_to_texture_vert, render_to_texture_frag);
 			m_spritebatch_shader.load_raw(spritebatch_vert, spritebatch_frag);
+			m_instance_shader.load_raw(instance_vert, instance_frag);
 
 			m_camera_ubo.create(CAMERA_UBO_INDEX);
 			m_camera_ubo.reserve(sizeof(Camera2D::Data));
@@ -395,13 +452,18 @@ namespace galaxy
 			m_spritebatch_shader.bind();
 		}
 
+		void Renderer2D::bind_instance_shader() noexcept
+		{
+			m_instance_shader.bind();
+		}
+
 		void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* transform)
 		{
 			// clang-format off
 			Renderable renderable = {
 				.m_vao = data->vao(),
 				.m_texture = 0,
-				.m_index_count = data->count(),
+				.m_index_count = data->index_count(),
 				.m_configure_shader = [this, data, transform]()
 				{
 					this->m_point_shader.bind();
@@ -460,7 +522,7 @@ namespace galaxy
 			Renderable renderable = {
 				.m_vao = sprite->vao(),
 				.m_texture = sprite->gl_texture(),
-				.m_index_count = sprite->count(),
+				.m_index_count = sprite->index_count(),
 				.m_type =  GL_TRIANGLES,
 				.m_configure_shader = [this, sprite, transform]()
 				{
@@ -480,6 +542,28 @@ namespace galaxy
 		{
 			m_layer_data.at(batch->get_layer()).m_batches[batch->get_atlas_index()].add(batch, transform);
 		}
+
+		void Renderer2D::submit(components::ParticleEffect* particle_effect)
+		{
+			// clang-format off
+			Renderable renderable = {
+				.m_vao = particle_effect->vao(),
+				.m_texture = particle_effect->gl_texture(),
+				.m_index_count = particle_effect->index_count(),
+				.m_type = GL_TRIANGLES,
+				.m_configure_shader = [this, particle_effect]()
+				{
+					this->m_instance_shader.bind();
+					this->m_instance_shader.set_uniform<int>("u_opacity", particle_effect->get_opacity());
+					this->m_instance_shader.set_uniform<float>("u_width", particle_effect->get_width());
+					this->m_instance_shader.set_uniform<float>("u_height", particle_effect->get_height());
+				},
+				.m_instance_count = particle_effect->instance_count()
+			};
+			// clang-format on
+
+			m_layer_data.at(particle_effect->get_layer()).submit(renderable);
+		} // namespace graphics
 
 		void Renderer2D::prepare()
 		{
@@ -507,7 +591,7 @@ namespace galaxy
 			m_rtt_shader.set_uniform<float>("u_width", sprite->get_width());
 			m_rtt_shader.set_uniform<float>("u_height", sprite->get_height());
 
-			glDrawElements(GL_TRIANGLES, sprite->count(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 	} // namespace graphics
 } // namespace galaxy

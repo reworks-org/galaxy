@@ -22,6 +22,7 @@ namespace galaxy
 	namespace components
 	{
 		class BatchSprite;
+		class ParticleEffect;
 		class Primitive2D;
 		class Sprite;
 		class Text;
@@ -102,6 +103,11 @@ namespace galaxy
 			void bind_sb_shader() noexcept;
 
 			///
+			/// Bind instance shader.
+			///
+			void bind_instance_shader() noexcept;
+
+			///
 			/// Submit a primitive to the renderer.
 			///
 			/// \param data Rendering data.
@@ -132,6 +138,13 @@ namespace galaxy
 			/// \param transform Transform of batch sprite.
 			///
 			void submit(components::BatchSprite* batch, components::Transform2D* transform);
+
+			///
+			/// Submit a particle effect to the renderer.
+			///
+			/// \param particle_effect Particle effect data.
+			///
+			void submit(components::ParticleEffect* particle_effect);
 
 			///
 			/// Prepare renderer for drawing.
@@ -192,6 +205,11 @@ namespace galaxy
 			/// SpriteBatch shader.
 			///
 			Shader m_spritebatch_shader;
+
+			///
+			/// Instance shader.
+			///
+			Shader m_instance_shader;
 
 			///
 			/// Render layer data.

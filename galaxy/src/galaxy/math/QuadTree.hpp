@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "galaxy/ecs/Entity.hpp"
+#include "galaxy/graphics/Renderables.hpp"
 #include "galaxy/math/AABB.hpp"
 #include "galaxy/math/Rect.hpp"
 
@@ -40,6 +41,11 @@ namespace galaxy
 				/// Entity AABB belongs to.
 				///
 				ecs::Entity m_entity;
+
+				///
+				/// Renderable type.
+				///
+				graphics::Renderables m_type;
 			};
 
 			///

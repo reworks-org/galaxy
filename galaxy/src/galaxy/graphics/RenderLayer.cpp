@@ -86,7 +86,14 @@ namespace galaxy
 		void RenderLayer::draw()
 		{
 			std::sort(std::execution::par, m_data.begin(), m_data.end(), [&](const auto& left, const auto& right) {
-				return left.m_type < right.m_type;
+				if (left.m_type == right.m_type)
+				{
+					return left.m_texture < right.m_texture;
+				}
+				else
+				{
+					return left.m_type < right.m_type;
+				}
 			});
 
 			for (auto& renderable : m_data)
@@ -94,7 +101,15 @@ namespace galaxy
 				renderable.m_configure_shader();
 				glBindVertexArray(renderable.m_vao);
 				glBindTexture(GL_TEXTURE_2D, renderable.m_texture);
-				glDrawElements(renderable.m_type, renderable.m_index_count, GL_UNSIGNED_INT, nullptr);
+
+				if (renderable.m_instance_count > 0)
+				{
+					glDrawElementsInstanced(renderable.m_type, renderable.m_index_count, GL_UNSIGNED_INT, nullptr, renderable.m_instance_count);
+				}
+				else
+				{
+					glDrawElements(renderable.m_type, renderable.m_index_count, GL_UNSIGNED_INT, nullptr);
+				}
 			}
 
 			glBindTexture(GL_TEXTURE_2D, 0);
