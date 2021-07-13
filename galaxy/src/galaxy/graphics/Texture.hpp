@@ -12,6 +12,7 @@
 #include <string_view>
 
 #include "galaxy/graphics/TextureFilters.hpp"
+#include "galaxy/graphics/TextureModes.hpp"
 
 namespace galaxy
 {
@@ -79,29 +80,12 @@ namespace galaxy
 			virtual void unbind() noexcept;
 
 			///
-			/// \brief Clamps texture to edges.
+			/// \brief Set texture mode.
 			///
-			/// Clamps the coordinates between 0 and 1.
-			/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
+			/// I.e. GL_REPEAT, GL_CLAMP_TO_EDGE, etc.
 			///
-			void clamp_to_edge() noexcept;
-
-			///
-			/// \brief Clamps to the border.
-			///
-			/// Coordinates outside the range are now given a user-specified border color.
-			///
-			void clamp_to_border() noexcept;
-
-			///
-			/// Makes the texture repeat over its verticies.
-			///
-			void set_repeated() noexcept;
-
-			///
-			/// Mirrors the texture.
-			///
-			void set_mirrored() noexcept;
+			template<TextureModes mode>
+			void set_mode() noexcept;
 
 			///
 			/// Set ansiotropic filtering level.
@@ -205,6 +189,35 @@ namespace galaxy
 			///
 			unsigned int m_texture;
 		};
+
+		template<TextureModes mode>
+		inline void Texture::set_mode() noexcept
+		{
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+
+			if constexpr (mode == TextureModes::REPEAT)
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			}
+			else if constexpr (mode == TextureModes::MIRRORED_REPEAT)
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+			}
+			else if constexpr (mode == TextureModes::CLAMP_TO_EDGE)
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			}
+			else if constexpr (mode == TextureModes::CLAMP_TO_BORDER)
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+			}
+
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 
 		template<min_filter Filter>
 		inline void Texture::set_minify_filter() noexcept

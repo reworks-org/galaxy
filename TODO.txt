@@ -11,5 +11,4 @@ text quality.
 test active map bounds.
 fix bounds when zoomed.
 camera bounds not serialized - might need to be.
-
-texturemodes enum and constexpr setter
+fine tune particle randomness
