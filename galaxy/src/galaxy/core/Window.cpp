@@ -11,6 +11,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
@@ -18,6 +19,9 @@
 #include "galaxy/resource/ShaderBook.hpp"
 
 #include "Window.hpp"
+
+#define NK_MAX_VERTEX_BUFFER  512 * 1024
+#define NK_MAX_ELEMENT_BUFFER 128 * 1024
 
 namespace galaxy
 {
@@ -177,6 +181,8 @@ namespace galaxy
 							{
 								this_win->m_keyboard.m_text_input += static_cast<char>(codepoint);
 							}
+
+							nk_glfw3_char_callback(window, codepoint);
 						});
 
 						// Mouse movement callback.
@@ -201,14 +207,18 @@ namespace galaxy
 									this_win->m_event_queue.emplace<events::MouseReleased>({pos.x, pos.y, this_win->m_mouse.m_reverse_mouse_map[button]});
 									break;
 							}
+
+							nk_glfw3_mouse_button_callback(window, button, action, mods);
 						});
 
 						// Set scroll wheel callback.
-						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x, double y) {
+						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xoffset, double yoffset) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
-							this_win->m_event_queue.emplace<events::MouseWheel>({x, y});
-							this_win->m_mouse.m_scroll_delta = y;
+							this_win->m_event_queue.emplace<events::MouseWheel>({xoffset, yoffset});
+							this_win->m_mouse.m_scroll_delta = yoffset;
+
+							nk_gflw3_scroll_callback(window, xoffset, yoffset);
 						});
 
 						if (settings.m_gl_debug)
@@ -247,10 +257,15 @@ namespace galaxy
 						// GL state function configuration.
 						glCullFace(GL_BACK);
 						glDepthFunc(GL_LEQUAL);
+						glBlendEquation(GL_FUNC_ADD);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						// Create Post Processor.
 						m_post_processor = std::make_unique<graphics::PostProcessor>();
+
+						// Create Nuklear Context.
+						m_nuklear.m_context = nk_glfw3_init(SL_HANDLE.window()->gl_window(), NK_GLFW3_DEFAULT, NK_MAX_VERTEX_BUFFER, NK_MAX_ELEMENT_BUFFER);
+						m_nuklear.m_do_aa   = (SL_HANDLE.config()->get<bool>("anti-aliasing") == true) ? NK_ANTI_ALIASING_ON : NK_ANTI_ALIASING_OFF;
 					}
 				}
 			}
@@ -390,6 +405,9 @@ namespace galaxy
 		{
 			end_text_input();
 
+			nk_glfw3_shutdown();
+			m_nuklear.m_context = nullptr;
+
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
@@ -449,6 +467,8 @@ namespace galaxy
 		{
 			RENDERER_2D().draw();
 			m_post_processor->render();
+			nk_glfw3_render(m_nuklear.m_do_aa);
+
 			glfwSwapBuffers(m_window);
 		}
 
@@ -460,6 +480,11 @@ namespace galaxy
 			}
 
 			glfwPollEvents();
+		}
+
+		void Window::pre_render() noexcept
+		{
+			nk_glfw3_new_frame();
 		}
 
 		const bool Window::key_down(input::Keys key) noexcept
@@ -519,6 +544,20 @@ namespace galaxy
 			return false;
 		}
 
+		void Window::trigger_queued_events(events::Dispatcher& dispatcher)
+		{
+			while (!m_event_queue.empty())
+			{
+				// clang-format off
+				std::visit([&](auto&& event)
+					{
+						dispatcher.trigger<std::decay<decltype(event)>::type>(event);
+					}, m_event_queue.front());
+				m_event_queue.pop();
+				// clang-format on
+			}
+		}
+
 		const double Window::get_scroll_delta() noexcept
 		{
 			const double old_delta = m_mouse.m_scroll_delta;
@@ -536,20 +575,6 @@ namespace galaxy
 		EventQueue& Window::queued_events() noexcept
 		{
 			return m_event_queue;
-		}
-
-		void Window::trigger_queued_events(events::Dispatcher& dispatcher)
-		{
-			while (!m_event_queue.empty())
-			{
-				// clang-format off
-				std::visit([&](auto&& event)
-				{
-					dispatcher.trigger<std::decay<decltype(event)>::type>(event);
-				}, m_event_queue.front());
-				m_event_queue.pop();
-				// clang-format on
-			}
 		}
 
 		const bool Window::is_focused() noexcept
@@ -570,6 +595,11 @@ namespace galaxy
 		const glm::vec2& Window::cursor_size() const noexcept
 		{
 			return m_cursor.m_cursor_size;
+		}
+
+		nk_context* const Window::nuklear_context() const noexcept
+		{
+			return m_nuklear.m_context;
 		}
 
 		GLFWwindow* Window::gl_window() noexcept

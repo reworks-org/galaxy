@@ -31,6 +31,7 @@
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
 #include "galaxy/input/Mouse.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 namespace galaxy
 {
@@ -202,6 +203,11 @@ namespace galaxy
 			void poll_events() noexcept;
 
 			///
+			/// Do Pre-Render stage.
+			///
+			void pre_render() noexcept;
+
+			///
 			/// \brief See if a key is being held down.
 			///
 			/// This will pick up repeated events.
@@ -252,6 +258,13 @@ namespace galaxy
 			[[nodiscard]] const bool mouse_button_released(input::MouseButtons mouse_button) noexcept;
 
 			///
+			/// Trigger all queued events for a dispatcher.
+			///
+			/// \param dispatcher An event dispatcher usually belonging to a scene.
+			///
+			void trigger_queued_events(events::Dispatcher& dispatcher);
+
+			///
 			/// Get mouse wheel delta.
 			///
 			/// \return Mouse scroll wheel delta.
@@ -268,14 +281,9 @@ namespace galaxy
 			///
 			/// Get queued events.
 			///
+			/// \return Reference to EventQueue.
+			///
 			[[nodiscard]] EventQueue& queued_events() noexcept;
-
-			///
-			/// Trigger all queued events for a dispatcher.
-			///
-			/// \param dispatcher An event dispatcher usually belonging to a scene.
-			///
-			void trigger_queued_events(events::Dispatcher& dispatcher);
 
 			///
 			/// Check if windows is in focus.
@@ -304,6 +312,13 @@ namespace galaxy
 			/// \return Const glm::vec2.
 			///
 			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
+
+			///
+			/// Get Nuklear context.
+			///
+			/// \return Pointer to nuklear context.
+			///
+			nk_context* const nuklear_context() const noexcept;
 
 			///
 			/// Retrieve pointer to GLFWwindow object.
@@ -373,6 +388,11 @@ namespace galaxy
 			/// Event queue.
 			///
 			EventQueue m_event_queue;
+
+			///
+			/// Nuklear data.
+			///
+			ui::NuklearUI m_nuklear;
 		};
 	} // namespace core
 } // namespace galaxy

@@ -3,17 +3,24 @@
  * no warrenty implied; use at your own risk.
  * authored from 2015-2016 by Micha Mettke
  */
+
+/// PLEASE NOTE THIS FILE HAS BEEN MODIFIED FROM THE ORIGINAL
+/// FOR USE IN GALAXY ENGINE.
+
 /*
- * ==============================================================
- *
- *                              API
- *
- * ===============================================================
- */
+  * ==============================================================
+  *
+  *                              API
+  *
+  * ===============================================================
+  */
+
 #ifndef NK_GLFW_GL4_H_
 #define NK_GLFW_GL4_H_
 
 #include <string.h>
+
+#include <nuklear.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -163,22 +170,7 @@ nk_glfw3_device_create()
 
 	GLint len = 0;
 	glGetShaderiv(dev->vert_shdr, GL_INFO_LOG_LENGTH, &len);
-	if (len > 1)
-	{
-		char* log = (char*)calloc((size_t)len, sizeof(char));
-		glGetShaderInfoLog(dev->vert_shdr, len, NULL, log);
-		fprintf(stdout, "[GL]: failed to compile shader: %s", log);
-		free(log);
-	}
-
 	glGetShaderiv(dev->frag_shdr, GL_INFO_LOG_LENGTH, &len);
-	if (len > 1)
-	{
-		char* log = (char*)calloc((size_t)len, sizeof(char));
-		glGetShaderInfoLog(dev->frag_shdr, len, NULL, log);
-		fprintf(stdout, "[GL]: failed to compile shader: %s", log);
-		free(log);
-	}
 
 	assert(status == GL_TRUE);
 	glGetShaderiv(dev->frag_shdr, GL_COMPILE_STATUS, &status);
@@ -388,10 +380,6 @@ nk_glfw3_render(enum nk_anti_aliasing AA)
 	ortho[1][1] /= (GLfloat)glfw.height;
 
 	/* setup global state */
-	glEnable(GL_BLEND);
-	glBlendEquation(GL_FUNC_ADD);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_CULL_FACE);
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_SCISSOR_TEST);
 
@@ -467,11 +455,13 @@ nk_glfw3_render(enum nk_anti_aliasing AA)
 		nk_clear(&glfw.ctx);
 		nk_buffer_clear(&dev->cmds);
 	}
+
 	/* default OpenGL state */
 	glUseProgram(0);
 	glBindVertexArray(0);
-	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
 	glDisable(GL_SCISSOR_TEST);
+
 	/* Lock buffer until GPU has finished draw command */
 	nk_glfw3_lock_buffer();
 }
