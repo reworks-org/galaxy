@@ -84,8 +84,7 @@ namespace galaxy
 
 		void Transform2D::scale(const float factor) noexcept
 		{
-			m_scale_factor = factor;
-			std::clamp(m_scale_factor, 0.1f, 2.0f);
+			m_scale_factor = std::clamp(factor, 0.1f, 2.0f);
 
 			m_dirty = true;
 		}

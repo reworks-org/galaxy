@@ -21,61 +21,6 @@ namespace galaxy
 		/// Register some of galaxy's loose functions, allowing them to be called from lua.
 		///
 		void register_functions();
-
-		///
-		/// Registers audio classes as lua usertypes.
-		///
-		void register_audio();
-
-		///
-		/// Register ecs with lua.
-		///
-		void register_ecs();
-
-		///
-		/// Register events with lua.
-		///
-		void register_events();
-
-		///
-		/// Registers filesystem with lua.
-		///
-		void register_fs();
-
-		///
-		/// Register graphics related functions.
-		///
-		void register_graphics();
-
-		///
-		/// Register mapping functions.
-		///
-		void register_mapping();
-
-		///
-		/// Register math functions.
-		///
-		void register_math();
-
-		///
-		/// Register physics.
-		///
-		void register_physics();
-
-		///
-		/// Register platform.
-		///
-		void register_platform();
-
-		///
-		/// Register resource functions.
-		///
-		void register_res();
-
-		///
-		/// Register scripting utils with lua.
-		///
-		void register_scripting();
 	} // namespace lua
 } // namespace galaxy
 

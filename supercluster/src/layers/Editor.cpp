@@ -71,8 +71,7 @@ namespace sc
 		m_checkerboard.load_mem(tex::checkerboard);
 		m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
 		m_checkerboard.set_magnify_filter<graphics::NearestTexFilter>();
-		m_checkerboard.clamp_to_border();
-		m_checkerboard.set_repeated();
+		m_checkerboard.set_mode<graphics::TextureModes::REPEAT>();
 	}
 
 	Editor::~Editor()

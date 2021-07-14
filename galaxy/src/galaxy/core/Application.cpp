@@ -202,17 +202,6 @@ namespace galaxy
 
 				// Set up custom lua functions and types.
 				lua::register_functions();
-				lua::register_audio();
-				lua::register_ecs();
-				lua::register_events();
-				lua::register_fs();
-				lua::register_graphics();
-				lua::register_mapping();
-				lua::register_math();
-				lua::register_physics();
-				lua::register_platform();
-				lua::register_res();
-				lua::register_scripting();
 
 				// Register services with Lua.
 				m_lua->set("galaxy_audio_context", &m_openal);
