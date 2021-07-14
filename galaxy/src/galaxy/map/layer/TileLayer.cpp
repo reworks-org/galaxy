@@ -42,7 +42,6 @@ namespace galaxy
 
 			if (json.count("data") > 0)
 			{
-				const auto& data_array = json.at("data");
 				if (m_encoding == "csv")
 				{
 					for (const auto& data : json.at("data"))

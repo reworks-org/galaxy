@@ -186,7 +186,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void Texture::set_anisotropy(const unsigned int level) noexcept
+		void Texture::set_anisotropy(const float level) noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
