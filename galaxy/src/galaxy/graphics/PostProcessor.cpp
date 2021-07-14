@@ -51,7 +51,7 @@ namespace galaxy
 	namespace graphics
 	{
 		PostProcessor::PostProcessor()
-		    : m_screen_vbo {0}, m_screen_vao {0}, m_output_fb {0}
+		    : m_screen_vbo {0}, m_screen_vao {0}, m_output_fb {0}, m_do_smaa {true}, m_do_sharpen {false}
 		{
 			glGenBuffers(1, &m_screen_vbo);
 			glGenVertexArrays(1, &m_screen_vao);
@@ -81,6 +81,9 @@ namespace galaxy
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			m_fb.create(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
+
+			m_do_smaa    = SL_HANDLE.config()->get<bool>("anti-aliasing");
+			m_do_sharpen = SL_HANDLE.config()->get<bool>("sharpen");
 		}
 
 		PostProcessor::~PostProcessor()
@@ -111,7 +114,7 @@ namespace galaxy
 			glBindVertexArray(m_screen_vao);
 
 			// Post-processing effects pass.
-			if (SL_HANDLE.config()->get<bool>("anti-aliasing"))
+			if (m_do_smaa)
 			{
 				m_output_fb = m_smaa.render(m_fb.get_texture());
 			}
@@ -120,7 +123,7 @@ namespace galaxy
 				m_output_fb = m_fb.get_texture();
 			}
 
-			if (SL_HANDLE.config()->get<bool>("sharpen"))
+			if (m_do_sharpen)
 			{
 				m_output_fb = m_sharpen.render(m_output_fb);
 			}

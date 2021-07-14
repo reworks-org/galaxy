@@ -91,6 +91,16 @@ namespace galaxy
 			/// Output cache.
 			///
 			unsigned int m_output_fb;
+
+			///
+			/// Do SMAA pass.
+			///
+			bool m_do_smaa;
+
+			///
+			/// Do sharpening pass.
+			///
+			bool m_do_sharpen;
 		};
 	} // namespace graphics
 } // namespace galaxy
