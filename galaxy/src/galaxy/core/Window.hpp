@@ -31,7 +31,6 @@
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
 #include "galaxy/input/Mouse.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 
 namespace galaxy
 {
@@ -203,11 +202,6 @@ namespace galaxy
 			void poll_events() noexcept;
 
 			///
-			/// Do Pre-Render stage.
-			///
-			void pre_render() noexcept;
-
-			///
 			/// \brief See if a key is being held down.
 			///
 			/// This will pick up repeated events.
@@ -314,13 +308,6 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
 
 			///
-			/// Get Nuklear context.
-			///
-			/// \return Pointer to nuklear context.
-			///
-			nk_context* const nuklear_context() const noexcept;
-
-			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns const pointer to GLFWwindow.
@@ -388,11 +375,6 @@ namespace galaxy
 			/// Event queue.
 			///
 			EventQueue m_event_queue;
-
-			///
-			/// Nuklear data.
-			///
-			ui::NuklearUI m_nuklear;
 		};
 	} // namespace core
 } // namespace galaxy

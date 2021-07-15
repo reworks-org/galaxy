@@ -265,7 +265,6 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest"
 		"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/nuklear"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 		"${CMAKE_SOURCE_DIR}/dependencies/magic_enum/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"

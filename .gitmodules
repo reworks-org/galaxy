@@ -39,3 +39,6 @@
 [submodule "dependencies/efsw"]
 	path = dependencies/efsw
 	url = https://github.com/SpartanJ/efsw.git
+[submodule "dependencies/RMLUI"]
+	path = dependencies/RMLUI
+	url = https://github.com/mikke89/RmlUi.git

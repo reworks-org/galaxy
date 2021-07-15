@@ -309,7 +309,6 @@ namespace galaxy
 					}
 				}
 
-				m_window->pre_render();
 				m_layer_stack.top()->pre_render();
 
 				m_window->begin();
