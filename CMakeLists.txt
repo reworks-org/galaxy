@@ -180,6 +180,26 @@ else()
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib"
 	)
 
+	set(FREETYPE_LIBRARY "${GALAXY_PRECOMPILED_LIBS}")
+	set(FREETYPE_INCLUDE_DIRS "${GALAXY_EXTERNAL_HEADERS}")
+
+	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+	set(BUILD_LUA_BINDINGS OFF CACHE BOOL "" FORCE)
+	set(ENABLE_PRECOMPILED_HEADERS OFF CACHE BOOL "" FORCE)
+	add_subdirectory(dependencies/RMLUI)
+	set_target_properties(RmlCore PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	)
+	set_target_properties(RmlDebugger PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/RMLUI"
+	)
+
 	# Set external project options.
 	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
@@ -188,24 +208,32 @@ else()
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} /MTd /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+			target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 			target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 			target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
+			target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} /MT /WX- /EHsc /W0 /experimental:external /external:anglebrackets /external:I /external:templates- /external:W0)
 
 			target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+			target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 		else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
@@ -216,24 +244,32 @@ else()
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 
 				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 				target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 
 				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 			else()
 				message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 			endif()
@@ -249,6 +285,8 @@ else()
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
+	add_dependencies(galaxy RmlCore)
+	add_dependencies(galaxy RmlDebugger)
 
 	add_dependencies(galaxy dependencies)
 	add_dependencies(supercluster galaxy)
@@ -270,6 +308,7 @@ else()
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
+		"${CMAKE_SOURCE_DIR}/dependencies/RMLUI/Include"
 		"${CMAKE_SOURCE_DIR}/dependencies/efsw/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
@@ -347,7 +386,8 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-
+        target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlCore.${LIB_FILE_EXT}")
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlDebugger.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
@@ -368,7 +408,8 @@ else()
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlCore.${LIB_FILE_EXT}")
+	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlDebugger.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 	else()
@@ -413,7 +454,8 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-
+			target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlCore.${LIB_FILE_EXT}")
+	    	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlDebugger.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 			
@@ -422,7 +464,8 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlCore.${LIB_FILE_EXT}")
+	    	target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Debug/RmlDebugger.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
@@ -440,7 +483,8 @@ else()
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-
+		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlCore.${LIB_FILE_EXT}")
+	    	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlDebugger.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
@@ -449,7 +493,8 @@ else()
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-
+		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlCore.${LIB_FILE_EXT}")
+	    	target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/RMLUI/Release/RmlDebugger.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 		    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 		else()
