@@ -48,7 +48,6 @@ if (WIN32)
     )
 else()
     set(GALAXY_COMPILE_FLAGS_DEBUG
-        -std=c17
         -std=c++20
         -fchar8_t
         -fcoroutines
@@ -89,7 +88,6 @@ else()
     )
 
     set(GALAXY_COMPILE_FLAGS_RELEASE
-        -std=c17
         -std=c++20
         -fchar8_t
         -fcoroutines

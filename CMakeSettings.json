@@ -17,7 +17,7 @@
           "type": "STRING"
         }
       ],
-      "cmakeExecutable": "cmake",
+      "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": true,
       "enableClangTidyCodeAnalysis": true,
@@ -40,7 +40,7 @@
           "type": "STRING"
         }
       ],
-      "cmakeExecutable": "cmake",
+      "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": false,
       "enableClangTidyCodeAnalysis": false

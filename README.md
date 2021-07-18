@@ -25,7 +25,7 @@ Windows 10 and Ubuntu are the only officially supported OS.
 MacOS is not supported.
 
 ### Windows:
-You will need to install at least ```Visual Studio 2019 16.10 Preview 3```, and set the ```Win-SDK``` minimum version to ```10.0.19041.0```.
+You will need to install at least ```Visual Studio 2019 16.11 Preview 3```, and set the ```Win-SDK``` minimum version to ```10.0.19041.0```.
 
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
@@ -131,11 +131,10 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
-* https://github.com/zemasoft/clangformat-cmake
 * https://github.com/ocornut/imgui/issues/707
 * https://github.com/SSBMTonberry/tileson/
 * https://github.com/RandyGaul/cute_headers/
 * https://github.com/Asmodean-/SMAA-OpenGL/
 * Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
-* Uses PCSS. https://github.com/diharaw/PercentageCloserSoftShadows
 * https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
+* https://github.com/couleurs/glsl-sharpen
