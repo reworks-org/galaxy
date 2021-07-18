@@ -40,11 +40,25 @@ namespace galaxy
 			void resize(const int width, const int height);
 
 			///
+			/// Set sharpening amount.
+			///
+			/// amount 0.0 - 2.0.
+			///
+			void set_amount(const float amount) noexcept;
+
+			///
 			/// Render effect to input texture.
 			///
 			/// \return Returns output texture of SMAA'd scene.
 			///
 			[[nodiscard]] const unsigned int render(const unsigned int input);
+
+			///
+			/// Get sharpening amount.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_amount() const noexcept;
 
 		private:
 			///
@@ -56,6 +70,11 @@ namespace galaxy
 			/// Framebuffer to render effect to.
 			///
 			RenderTexture m_fb;
+
+			///
+			/// Sharpening amount.
+			///
+			float m_amount;
 		};
 	} // namespace graphics
 } // namespace galaxy

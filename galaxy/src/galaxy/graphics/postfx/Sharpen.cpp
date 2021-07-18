@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <algorithm>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
@@ -28,44 +30,62 @@ constexpr const char* const sharpen_vert = R"(
 /// Sharpen fragment shader.
 ///
 constexpr const char* const sharpen_frag = R"(
-	/*
-	  (C) 2019 David Lettier
-	  lettier.com
-	*/
+	    /*
+        BSD 3-Clause License
+
+        Copyright (c) 2019, David Lettier
+        All rights reserved.
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+
+        * Redistributions of source code must retain the above copyright notice, this
+        list of conditions and the following disclaimer.
+
+        * Redistributions in binary form must reproduce the above copyright notice,
+        this list of conditions and the following disclaimer in the documentation
+        and/or other materials provided with the distribution.
+
+        * Neither the name of the copyright holder nor the names of its
+        contributors may be used to endorse or promote products derived from
+        this software without specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    */
 
 	#version 450 core
 
-	out vec4 fragColor;
+	out vec4 io_frag_colour;
 
-	uniform sampler2D colorTexture;
+	uniform float u_amount;
+	uniform sampler2D u_texture;
 
 	void main()
 	{
-	  float amount = 0.3;
+		vec2 tex_size = textureSize(u_texture, 0).xy;
+        vec2 frag_coord = gl_FragCoord.xy;
+		vec2 tex_coord = frag_coord / tex_size;
 
-	  vec2 texSize   = textureSize(colorTexture, 0).xy;
-	  vec2 fragCoord = gl_FragCoord.xy;
-	  vec2 texCoord  = fragCoord / texSize;
+        float neighbour = u_amount * -1.0;
+        float center = u_amount * 4.0 + 1.0;
 
-	  float neighbor = amount * -1.0;
-	  float center   = amount *  4.0 + 1.0;
+        vec3 sharpen =
+        texture(u_texture, (frag_coord + vec2( 0,  1)) / tex_size).rgb * neighbour
+        + texture(u_texture, (frag_coord + vec2(-1,  0)) / tex_size).rgb * neighbour
+        + texture(u_texture, (frag_coord + vec2( 0,  0)) / tex_size).rgb * center
+        + texture(u_texture, (frag_coord + vec2( 1,  0)) / tex_size).rgb * neighbour
+        + texture(u_texture, (frag_coord + vec2( 0, -1)) / tex_size).rgb * neighbour;
 
-	  vec3 color =
-			texture(colorTexture, (fragCoord + vec2( 0,  1)) / texSize).rgb
-		  * neighbor
-
-		  + texture(colorTexture, (fragCoord + vec2(-1,  0)) / texSize).rgb
-		  * neighbor
-		  + texture(colorTexture, (fragCoord + vec2( 0,  0)) / texSize).rgb
-		  * center
-		  + texture(colorTexture, (fragCoord + vec2( 1,  0)) / texSize).rgb
-		  * neighbor
-
-		  + texture(colorTexture, (fragCoord + vec2( 0, -1)) / texSize).rgb
-		  * neighbor
-	  ;
-
-	  fragColor = vec4(color, texture(colorTexture, texCoord).a);
+		io_frag_colour = vec4(sharpen, texture(u_texture, tex_coord).a);
 	}
 )";
 
@@ -74,12 +94,13 @@ namespace galaxy
 	namespace graphics
 	{
 		Sharpen::Sharpen()
+		    : m_amount {0.1f}
 		{
 			m_fb.create(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 
 			m_shader.load_raw(sharpen_vert, sharpen_frag);
 			m_shader.bind();
-			m_shader.set_uniform("colorTexture", 0);
+			m_shader.set_uniform("u_texture", 0);
 			m_shader.unbind();
 		}
 
@@ -88,16 +109,27 @@ namespace galaxy
 			m_fb.resize(width, height);
 		}
 
+		void Sharpen::set_amount(const float amount) noexcept
+		{
+			m_amount = std::clamp(amount, 0.0f, 2.0f);
+		}
+
 		const unsigned int Sharpen::render(const unsigned int input)
 		{
 			m_fb.bind(true);
 			m_shader.bind();
+			m_shader.set_uniform("u_amount", m_amount);
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, input);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 			return m_fb.get_texture();
+		}
+
+		const float Sharpen::get_amount() const noexcept
+		{
+			return m_amount;
 		}
 	} // namespace graphics
 } // namespace galaxy
