@@ -12,7 +12,8 @@ namespace galaxy
 	namespace graphics
 	{
 		VertexArray::VertexArray() noexcept
-		    : m_vao {0}, m_counter {0}
+			: m_vao {0}
+			, m_counter {0}
 		{
 			glGenVertexArrays(1, &m_vao);
 

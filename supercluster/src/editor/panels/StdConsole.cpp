@@ -53,7 +53,7 @@ namespace sc
 		}
 
 		StdConsole::StdConsole()
-		    : m_stream {static_cast<std::streambuf*>(&m_streambuf)}
+			: m_stream {static_cast<std::streambuf*>(&m_streambuf)}
 		{
 		}
 

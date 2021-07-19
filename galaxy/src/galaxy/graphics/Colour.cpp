@@ -12,12 +12,18 @@ namespace galaxy
 	namespace graphics
 	{
 		Colour::Colour() noexcept
-		    : m_red {255}, m_green {255}, m_blue {255}, m_alpha {255}
+			: m_red {255}
+			, m_green {255}
+			, m_blue {255}
+			, m_alpha {255}
 		{
 		}
 
 		Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
-		    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {a}
+			: m_red {r}
+			, m_green {g}
+			, m_blue {b}
+			, m_alpha {a}
 		{
 		}
 

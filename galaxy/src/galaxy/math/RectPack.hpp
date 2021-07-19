@@ -97,7 +97,8 @@ namespace galaxy
 
 		template<meta::is_arithmetic Type>
 		inline RectPack<Type>::RectPack() noexcept
-		    : m_width {0}, m_height {0}
+			: m_width {0}
+			, m_height {0}
 		{
 		}
 

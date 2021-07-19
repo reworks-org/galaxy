@@ -15989,7 +15989,14 @@ namespace galaxy
 	namespace graphics
 	{
 		SMAA::SMAA()
-		    : m_neighbour_tex {0}, m_edge_tex {0}, m_blend_tex {0}, m_area_tex {0}, m_search_tex {0}, m_neighbour_fbo {0}, m_edge_fbo {0}, m_blend_fbo {0}
+			: m_neighbour_tex {0}
+			, m_edge_tex {0}
+			, m_blend_tex {0}
+			, m_area_tex {0}
+			, m_search_tex {0}
+			, m_neighbour_fbo {0}
+			, m_edge_fbo {0}
+			, m_blend_fbo {0}
 		{
 			const auto width  = SL_HANDLE.window()->get_width();
 			const auto height = SL_HANDLE.window()->get_height();

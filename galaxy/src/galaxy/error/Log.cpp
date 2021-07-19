@@ -18,7 +18,8 @@ namespace galaxy
 	namespace error
 	{
 		Log::Log()
-		    : m_min_level {Level::INFO}, m_started {false}
+			: m_min_level {Level::INFO}
+			, m_started {false}
 		{
 			m_stream = &std::cout;
 			platform::configure_terminal();

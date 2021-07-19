@@ -14,7 +14,10 @@ namespace galaxy
 	namespace input
 	{
 		Cursor::Cursor() noexcept
-		    : m_data {nullptr}, m_pos {0.0, 0.0}, m_prev_pos {0.0, 0.0}, m_cursor_size {0.0, 0.0}
+			: m_data {nullptr}
+			, m_pos {0.0, 0.0}
+			, m_prev_pos {0.0, 0.0}
+			, m_cursor_size {0.0, 0.0}
 		{
 		}
 

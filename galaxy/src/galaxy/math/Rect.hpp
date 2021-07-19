@@ -115,13 +115,19 @@ namespace galaxy
 
 		template<meta::is_arithmetic Type>
 		inline Rect<Type>::Rect() noexcept
-		    : m_x {0}, m_y {0}, m_width {0}, m_height {0}
+			: m_x {0}
+			, m_y {0}
+			, m_width {0}
+			, m_height {0}
 		{
 		}
 
 		template<meta::is_arithmetic Type>
 		inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
-		    : m_x {x}, m_y {y}, m_width {width}, m_height {height}
+			: m_x {x}
+			, m_y {y}
+			, m_width {width}
+			, m_height {height}
 		{
 		}
 
@@ -136,8 +142,7 @@ namespace galaxy
 		inline const bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 		{
 			// Checks if the rectangle contains another rectangle using math.
-			return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) &&
-				(b.m_y + b.m_height) < (m_y + m_height));
+			return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
 		}
 
 		template<meta::is_arithmetic Type>
@@ -146,8 +151,7 @@ namespace galaxy
 			// Check for overlaps using math.
 			const bool x = value_in_range(m_x, b.m_x, b.m_x + b.m_width) || value_in_range(b.m_x, m_x, m_x + m_width);
 
-			const bool y =
-			    value_in_range(m_y, b.m_y, b.m_y + b.m_height) || value_in_range(b.m_y, m_y, m_y + m_height);
+			const bool y = value_in_range(m_y, b.m_y, b.m_y + b.m_height) || value_in_range(b.m_y, m_y, m_y + m_height);
 
 			return x && y;
 		}

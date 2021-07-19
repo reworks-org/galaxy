@@ -14,12 +14,24 @@ namespace galaxy
 	namespace map
 	{
 		Tile::Tile() noexcept
-		    : m_id {0}, m_image {""}, m_image_height {0}, m_image_width {0}, m_object_group {std::nullopt}, m_probability {-1.0}, m_type {""}
+			: m_id {0}
+			, m_image {""}
+			, m_image_height {0}
+			, m_image_width {0}
+			, m_object_group {std::nullopt}
+			, m_probability {-1.0}
+			, m_type {""}
 		{
 		}
 
 		Tile::Tile(const nlohmann::json& json)
-		    : m_id {0}, m_image {""}, m_image_height {0}, m_image_width {0}, m_object_group {std::nullopt}, m_probability {-1.0}, m_type {""}
+			: m_id {0}
+			, m_image {""}
+			, m_image_height {0}
+			, m_image_width {0}
+			, m_object_group {std::nullopt}
+			, m_probability {-1.0}
+			, m_type {""}
 		{
 			parse(json);
 		}

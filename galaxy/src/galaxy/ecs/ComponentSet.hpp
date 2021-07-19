@@ -116,7 +116,7 @@ namespace galaxy
 
 		template<meta::is_class Component>
 		inline ComponentSet<Component>::ComponentSet() noexcept
-		    : Set {}
+			: Set {}
 		{
 		}
 

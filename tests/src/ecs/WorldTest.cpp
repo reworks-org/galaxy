@@ -12,7 +12,7 @@
 struct Component
 {
 	Component(const int value)
-	    : val {value}
+		: val {value}
 	{
 	}
 
@@ -69,7 +69,7 @@ struct BlankSystem : public galaxy::ecs::System
 struct DemoSystem : public galaxy::ecs::System
 {
 	DemoSystem(const int val)
-	    : galaxy::ecs::System {}
+		: galaxy::ecs::System {}
 	{
 		this->val = val;
 	}

@@ -15,7 +15,8 @@ namespace galaxy
 	namespace audio
 	{
 		Context::Context()
-		    : m_device {nullptr}, m_context {nullptr}
+			: m_device {nullptr}
+			, m_context {nullptr}
 		{
 			m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 			if (!m_device)

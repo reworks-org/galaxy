@@ -19,12 +19,18 @@ namespace galaxy
 	namespace map
 	{
 		Chunk::Chunk() noexcept
-		    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
+			: m_height {0}
+			, m_width {0}
+			, m_x {0}
+			, m_y {0}
 		{
 		}
 
 		Chunk::Chunk(const nlohmann::json& json, std::string_view encoding, std::string_view compression)
-		    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
+			: m_height {0}
+			, m_width {0}
+			, m_x {0}
+			, m_y {0}
 		{
 			parse(json, encoding, compression);
 		}

@@ -22,7 +22,7 @@ namespace galaxy
 	namespace systems
 	{
 		RenderSystem2D::RenderSystem2D() noexcept
-		    : m_quadtree {0, {0, 0, 0, 0}}
+			: m_quadtree {0, {0, 0, 0, 0}}
 		{
 		}
 

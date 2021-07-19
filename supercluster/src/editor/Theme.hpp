@@ -19,7 +19,7 @@ namespace sc
 			void material_dark();
 			void visual_dark();
 		} // namespace theme
-	}         // namespace editor
+	} // namespace editor
 } // namespace sc
 
 #endif

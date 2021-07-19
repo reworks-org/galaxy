@@ -18,7 +18,8 @@ namespace galaxy
 	namespace fs
 	{
 		Config::Config() noexcept
-		    : m_loaded {false}, m_blank {true}
+			: m_loaded {false}
+			, m_blank {true}
 		{
 		}
 

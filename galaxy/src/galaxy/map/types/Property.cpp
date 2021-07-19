@@ -14,12 +14,14 @@ namespace galaxy
 	namespace map
 	{
 		Property::Property() noexcept
-		    : m_name {""}, m_type {""}
+			: m_name {""}
+			, m_type {""}
 		{
 		}
 
 		Property::Property(const nlohmann::json& json)
-		    : m_name {""}, m_type {""}
+			: m_name {""}
+			, m_type {""}
 		{
 			parse(json);
 		}

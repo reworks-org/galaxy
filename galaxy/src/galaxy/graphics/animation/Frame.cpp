@@ -15,17 +15,26 @@ namespace galaxy
 	namespace graphics
 	{
 		Frame::Frame() noexcept
-		    : Serializable {this}, m_time_per_frame {0.0}, m_id {""}, m_region {0.0f, 0.0f, 0.0f, 0.0f}
+			: Serializable {this}
+			, m_time_per_frame {0.0}
+			, m_id {""}
+			, m_region {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 		}
 
 		Frame::Frame(const math::Rect<float>& region, const double time_per_frame) noexcept
-		    : Serializable {this}, m_time_per_frame {time_per_frame}, m_id {""}, m_region {region}
+			: Serializable {this}
+			, m_time_per_frame {time_per_frame}
+			, m_id {""}
+			, m_region {region}
 		{
 		}
 
 		Frame::Frame(const nlohmann::json& json)
-		    : Serializable {this}, m_time_per_frame {0.0}, m_id {""}, m_region {0.0f, 0.0f, 0.0f, 0.0f}
+			: Serializable {this}
+			, m_time_per_frame {0.0}
+			, m_id {""}
+			, m_region {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 			deserialize(json);
 		}

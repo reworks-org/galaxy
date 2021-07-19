@@ -18,12 +18,14 @@ namespace galaxy
 	namespace graphics
 	{
 		Shader::Shader() noexcept
-		    : m_id {0}, m_loaded {false}
+			: m_id {0}
+			, m_loaded {false}
 		{
 		}
 
 		Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
-		    : m_id {0}, m_loaded {false}
+			: m_id {0}
+			, m_loaded {false}
 		{
 			if (!load_path(vertex_file, frag_file))
 			{
@@ -32,7 +34,8 @@ namespace galaxy
 		}
 
 		Shader::Shader(const nlohmann::json& json)
-		    : m_id {0}, m_loaded {false}
+			: m_id {0}
+			, m_loaded {false}
 		{
 			if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))
 			{

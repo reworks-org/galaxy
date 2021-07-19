@@ -14,7 +14,7 @@ namespace galaxy
 	namespace input
 	{
 		Mouse::Mouse() noexcept
-		    : m_scroll_delta {0.0}
+			: m_scroll_delta {0.0}
 		{
 			m_mouse_map.reserve(12);
 			m_mouse_map.emplace(MouseButtons::BUTTON_1, GLFW_MOUSE_BUTTON_1);

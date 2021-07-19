@@ -16,18 +16,36 @@ namespace galaxy
 	namespace components
 	{
 		Transform2D::Transform2D() noexcept
-		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f}, m_translation {1.0f}, m_rotation {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_rotate {0.0f}, m_scale_factor {1.0f}, m_model {1.0f}
+			: Serializable {this}
+			, m_dirty {true}
+			, m_origin {0.0f, 0.0f}
+			, m_translation {1.0f}
+			, m_rotation {1.0f}
+			, m_scale {1.0f}
+			, m_pos {0.0f, 0.0f}
+			, m_rotate {0.0f}
+			, m_scale_factor {1.0f}
+			, m_model {1.0f}
 		{
 		}
 
 		Transform2D::Transform2D(const nlohmann::json& json)
-		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f}, m_translation {1.0f}, m_rotation {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_rotate {0.0f}, m_scale_factor {1.0f}, m_model {1.0f}
+			: Serializable {this}
+			, m_dirty {true}
+			, m_origin {0.0f, 0.0f}
+			, m_translation {1.0f}
+			, m_rotation {1.0f}
+			, m_scale {1.0f}
+			, m_pos {0.0f, 0.0f}
+			, m_rotate {0.0f}
+			, m_scale_factor {1.0f}
+			, m_model {1.0f}
 		{
 			deserialize(json);
 		}
 
 		Transform2D::Transform2D(Transform2D&& t) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_dirty        = t.m_dirty;
 			this->m_model        = std::move(t.m_model);

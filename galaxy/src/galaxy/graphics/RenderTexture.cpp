@@ -21,12 +21,12 @@ namespace galaxy
 	namespace graphics
 	{
 		RenderTexture::RenderTexture() noexcept
-		    : m_projection {1.0f}
+			: m_projection {1.0f}
 		{
 		}
 
 		RenderTexture::RenderTexture(const int width, const int height)
-		    : m_projection {1.0f}
+			: m_projection {1.0f}
 		{
 			create(width, height);
 		}

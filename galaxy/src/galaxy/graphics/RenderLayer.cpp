@@ -15,7 +15,7 @@ namespace galaxy
 	namespace graphics
 	{
 		RenderLayer::RenderLayer(const int layer)
-		    : m_layer {layer}
+			: m_layer {layer}
 		{
 			m_data.reserve(50);
 		}

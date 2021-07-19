@@ -17,18 +17,30 @@ namespace galaxy
 	namespace components
 	{
 		Text::Text() noexcept
-		    : Serializable {this}, m_layer {""}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
+			: Serializable {this}
+			, m_layer {""}
+			, m_width {0}
+			, m_height {0}
+			, m_fontmap_width {0}
+			, m_fontmap_height {0}
+			, m_colour {255, 255, 255, 255}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : Serializable {this}, m_layer {""}, m_width {0}, m_height {0}, m_fontmap_width {0}, m_fontmap_height {0}, m_colour {255, 255, 255, 255}
+			: Serializable {this}
+			, m_layer {""}
+			, m_width {0}
+			, m_height {0}
+			, m_fontmap_width {0}
+			, m_fontmap_height {0}
+			, m_colour {255, 255, 255, 255}
 		{
 			deserialize(json);
 		}
 
 		Text::Text(Text&& t) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_batch          = std::move(t.m_batch);
 			this->m_batch_data     = std::move(t.m_batch_data);

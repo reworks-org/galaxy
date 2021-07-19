@@ -10,7 +10,7 @@
 namespace sc
 {
 	Game::Game(core::Application* app)
-	    : Layer {app}
+		: Layer {app}
 	{
 		m_name = "Game";
 	}

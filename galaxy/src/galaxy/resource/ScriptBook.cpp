@@ -19,7 +19,7 @@ namespace galaxy
 	namespace res
 	{
 		ScriptBook::ScriptBook(std::string_view file)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			create_from_json(file);
 		}

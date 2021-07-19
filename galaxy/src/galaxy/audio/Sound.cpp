@@ -15,12 +15,14 @@ namespace galaxy
 	namespace audio
 	{
 		Sound::Sound() noexcept
-		    : Serializable {this}, Buffer {}, SourceManipulator {}
+			: Serializable {this}
+			, Buffer {}
+			, SourceManipulator {}
 		{
 		}
 
 		Sound::Sound(const nlohmann::json& json)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			deserialize(json);
 		}

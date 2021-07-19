@@ -12,7 +12,7 @@ namespace galaxy
 	namespace core
 	{
 		SceneStack::SceneStack() noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 		}
 

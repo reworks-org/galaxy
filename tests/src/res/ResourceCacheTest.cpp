@@ -21,7 +21,7 @@ struct DemoRes
 struct Cache : public galaxy::res::ResourceCache<DemoRes>
 {
 	Cache()
-	    : ResourceCache()
+		: ResourceCache()
 	{
 	}
 

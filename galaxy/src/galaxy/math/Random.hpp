@@ -20,10 +20,10 @@ namespace galaxy
 		/// Source: http://stackoverflow.com/a/32907541.
 		///
 		template<typename Type>
-		using conditional_distribution = std::conditional_t<
-		    std::is_integral<Type>::value,
-		    std::uniform_int_distribution<Type>,
-		    std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
+		using conditional_distribution =
+			std::conditional_t<std::is_integral<Type>::value,
+							   std::uniform_int_distribution<Type>,
+							   std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
 
 		///
 		/// Generate a random number of type T.

@@ -195,13 +195,17 @@ namespace galaxy
 		}
 
 		template<>
-		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c)
+		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(std::string_view name,
+																				  const unsigned int& a,
+																				  const unsigned int& b,
+																				  const unsigned int& c)
 		{
 			glUniform3ui(get_uniform_location(name), a, b, c);
 		}
 
 		template<>
-		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c, const unsigned int& d)
+		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(
+			std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c, const unsigned int& d)
 		{
 			glUniform4ui(get_uniform_location(name), a, b, c, d);
 		}
@@ -249,7 +253,8 @@ namespace galaxy
 		}
 
 		template<>
-		inline void Shader::set_uniform<double, double, double, double>(std::string_view name, const double& a, const double& b, const double& c, const double& d)
+		inline void
+		Shader::set_uniform<double, double, double, double>(std::string_view name, const double& a, const double& b, const double& c, const double& d)
 		{
 			glUniform4d(get_uniform_location(name), a, b, c, d);
 		}

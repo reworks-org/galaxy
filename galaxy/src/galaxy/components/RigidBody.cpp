@@ -15,18 +15,20 @@ namespace galaxy
 	namespace components
 	{
 		RigidBody::RigidBody() noexcept
-		    : Serializable {this}, m_type {physics::BodyType::STATIC}
+			: Serializable {this}
+			, m_type {physics::BodyType::STATIC}
 		{
 		}
 
 		RigidBody::RigidBody(const nlohmann::json& json)
-		    : Serializable {this}, m_type {physics::BodyType::STATIC}
+			: Serializable {this}
+			, m_type {physics::BodyType::STATIC}
 		{
 			deserialize(json);
 		}
 
 		RigidBody::RigidBody(RigidBody&& rb) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_type = rb.m_type;
 		}

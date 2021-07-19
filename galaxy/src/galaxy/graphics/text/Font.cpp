@@ -55,7 +55,9 @@ namespace galaxy
 	namespace graphics
 	{
 		Font::Font() noexcept
-		    : m_height {0}, m_size {0}, m_filename {""}
+			: m_height {0}
+			, m_size {0}
+			, m_filename {""}
 		{
 			m_shader.load_raw(glyph_vert, glyph_frag);
 		}
@@ -135,16 +137,15 @@ namespace galaxy
 							FT_Load_Char(face, c, FT_LOAD_RENDER);
 
 							glBindTexture(GL_TEXTURE_2D, c_obj.m_gl_texture);
-							glTexImage2D(
-							    GL_TEXTURE_2D,
-							    0,
-							    GL_RED,
-							    face->glyph->bitmap.width,
-							    face->glyph->bitmap.rows,
-							    0,
-							    GL_RED,
-							    GL_UNSIGNED_BYTE,
-							    face->glyph->bitmap.buffer);
+							glTexImage2D(GL_TEXTURE_2D,
+										 0,
+										 GL_RED,
+										 face->glyph->bitmap.width,
+										 face->glyph->bitmap.rows,
+										 0,
+										 GL_RED,
+										 GL_UNSIGNED_BYTE,
+										 face->glyph->bitmap.buffer);
 
 							glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 							glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -193,14 +194,13 @@ namespace galaxy
 							float w = c_obj.m_size.x;
 							float h = c_obj.m_size.y;
 
-							float vertices[6][4] = {
-							    {x, y + h, 0.0f, 1.0f},
-							    {x + w, y, 1.0f, 0.0f},
-							    {x, y, 0.0f, 0.0f},
+							float vertices[6][4] = {{x, y + h, 0.0f, 1.0f},
+													{x + w, y, 1.0f, 0.0f},
+													{x, y, 0.0f, 0.0f},
 
-							    {x, y + h, 0.0f, 1.0f},
-							    {x + w, y + h, 1.0f, 1.0f},
-							    {x + w, y, 1.0f, 0.0f}};
+													{x, y + h, 0.0f, 1.0f},
+													{x + w, y + h, 1.0f, 1.0f},
+													{x + w, y, 1.0f, 0.0f}};
 
 							c_obj.m_region = {x, 0.0f, w, static_cast<float>(m_height)};
 							glBindTexture(GL_TEXTURE_2D, c_obj.m_gl_texture);

@@ -160,7 +160,8 @@ namespace galaxy
 			{
 				for (const auto& mounted_dir : m_dirs)
 				{
-					for (const auto& dir_entry : std::filesystem::recursive_directory_iterator(mounted_dir, std::filesystem::directory_options::skip_permission_denied))
+					for (const auto& dir_entry :
+						 std::filesystem::recursive_directory_iterator(mounted_dir, std::filesystem::directory_options::skip_permission_denied))
 					{
 						const auto& path = dir_entry.path();
 						if (path.filename() == std::filesystem::path(file).filename())

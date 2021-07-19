@@ -18,7 +18,7 @@ using namespace galaxy;
 namespace sc
 {
 	MainMenu::MainMenu(core::Application* app) noexcept
-	    : Layer {app}
+		: Layer {app}
 	{
 		m_name = "Main Menu";
 		//m_scene_stack.create("MainMenu");

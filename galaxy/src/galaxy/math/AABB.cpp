@@ -44,12 +44,16 @@ namespace galaxy
 	namespace math
 	{
 		AABB::AABB() noexcept
-		    : m_min {0.0f, 0.0f}, m_max {0.0f, 0.0f}, m_area {0.0}
+			: m_min {0.0f, 0.0f}
+			, m_max {0.0f, 0.0f}
+			, m_area {0.0}
 		{
 		}
 
 		AABB::AABB(const glm::vec2& min, const glm::vec2& max) noexcept
-		    : m_min {min}, m_max {max}, m_area {compute_area()}
+			: m_min {min}
+			, m_max {max}
+			, m_area {compute_area()}
 		{
 			if ((m_min.x > m_max.x) || (m_min.y > m_max.y))
 			{

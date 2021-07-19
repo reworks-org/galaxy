@@ -14,17 +14,20 @@ namespace galaxy
 	namespace map
 	{
 		Point::Point() noexcept
-		    : m_x {0.0}, m_y {0.0}
+			: m_x {0.0}
+			, m_y {0.0}
 		{
 		}
 
 		Point::Point(const double x, const double y) noexcept
-		    : m_x {x}, m_y {y}
+			: m_x {x}
+			, m_y {y}
 		{
 		}
 
 		Point::Point(const nlohmann::json& json)
-		    : m_x {0.0}, m_y {0.0}
+			: m_x {0.0}
+			, m_y {0.0}
 		{
 			parse(json);
 		}

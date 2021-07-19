@@ -17,7 +17,7 @@ namespace galaxy
 	namespace audio
 	{
 		Source::Source()
-		    : m_source {0}
+			: m_source {0}
 		{
 			// Create source and check for error. Only create 1 source since source is being managed per object.
 			alGenSources(1, &m_source);

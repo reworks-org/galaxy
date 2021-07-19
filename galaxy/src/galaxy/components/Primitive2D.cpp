@@ -14,18 +14,23 @@ namespace galaxy
 	namespace components
 	{
 		Primitive2D::Primitive2D() noexcept
-		    : Serializable {this}, m_width {0}, m_height {0}, m_type {graphics::Primitives::CIRCLE}, m_colour {0, 0, 0, 255}, m_layer {""}
+			: Serializable {this}
+			, m_width {0}
+			, m_height {0}
+			, m_type {graphics::Primitives::CIRCLE}
+			, m_colour {0, 0, 0, 255}
+			, m_layer {""}
 		{
 		}
 
 		Primitive2D::Primitive2D(const nlohmann::json& json)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			deserialize(json);
 		}
 
 		Primitive2D::Primitive2D(Primitive2D&& p2d) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_colour  = std::move(p2d.m_colour);
 			this->m_data    = std::move(p2d.m_data);
@@ -196,11 +201,7 @@ namespace galaxy
 			if (json.count("line-points") > 0)
 			{
 				const auto& points = json.at("line-points");
-				data.m_start_end   = std::make_optional<glm::vec4>(
-                                    points.at("x1"),
-                                    points.at("y1"),
-                                    points.at("x2"),
-                                    points.at("y2"));
+				data.m_start_end   = std::make_optional<glm::vec4>(points.at("x1"), points.at("y1"), points.at("x2"), points.at("y2"));
 			}
 
 			if (json.count("points") > 0)

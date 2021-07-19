@@ -51,7 +51,11 @@ namespace galaxy
 	namespace graphics
 	{
 		PostProcessor::PostProcessor()
-		    : m_screen_vbo {0}, m_screen_vao {0}, m_output_fb {0}, m_do_smaa {true}, m_do_sharpen {false}
+			: m_screen_vbo {0}
+			, m_screen_vao {0}
+			, m_output_fb {0}
+			, m_do_smaa {true}
+			, m_do_sharpen {false}
 		{
 			glGenBuffers(1, &m_screen_vbo);
 			glGenVertexArrays(1, &m_screen_vao);

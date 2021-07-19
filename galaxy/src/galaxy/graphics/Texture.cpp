@@ -22,7 +22,11 @@ namespace galaxy
 	namespace graphics
 	{
 		Texture::Texture() noexcept
-		    : m_loaded {false}, m_width {0}, m_height {0}, m_path {""}, m_texture {0}
+			: m_loaded {false}
+			, m_width {0}
+			, m_height {0}
+			, m_path {""}
+			, m_texture {0}
 		{
 			glGenTextures(1, &m_texture);
 		}

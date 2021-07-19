@@ -16,7 +16,8 @@ namespace galaxy
 	namespace map
 	{
 		ObjectLayer::ObjectLayer(const nlohmann::json& json, const int zlevel)
-		    : Layer {json, zlevel}, m_draw_order {"topdown"}
+			: Layer {json, zlevel}
+			, m_draw_order {"topdown"}
 		{
 			if (json.count("draworder") > 0)
 			{

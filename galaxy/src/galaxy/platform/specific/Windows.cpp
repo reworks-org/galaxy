@@ -7,13 +7,13 @@
 
 #if defined(_WIN32) || defined(_WIN64)
 
-#include <Windows.h>
+	#include <Windows.h>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/error/Log.hpp"
+	#include "galaxy/core/ServiceLocator.hpp"
+	#include "galaxy/core/Window.hpp"
+	#include "galaxy/error/Log.hpp"
 
-#include "Windows.hpp"
+	#include "Windows.hpp"
 
 namespace galaxy
 {

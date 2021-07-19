@@ -12,23 +12,26 @@ namespace galaxy
 	namespace components
 	{
 		Tag::Tag() noexcept
-		    : Serializable {this}, m_tag {"null"}
+			: Serializable {this}
+			, m_tag {"null"}
 		{
 		}
 
 		Tag::Tag(std::string_view tag) noexcept
-		    : Serializable {this}, m_tag {tag}
+			: Serializable {this}
+			, m_tag {tag}
 		{
 		}
 
 		Tag::Tag(const nlohmann::json& json)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			deserialize(json);
 		}
 
 		Tag::Tag(Tag&& t) noexcept
-		    : Serializable {this}, m_tag {"null"}
+			: Serializable {this}
+			, m_tag {"null"}
 		{
 			this->m_tag = std::move(t.m_tag);
 		}

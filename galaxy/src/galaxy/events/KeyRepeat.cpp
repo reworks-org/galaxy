@@ -12,7 +12,7 @@ namespace galaxy
 	namespace events
 	{
 		KeyRepeat::KeyRepeat(const input::Keys keycode) noexcept
-		    : m_keycode {keycode}
+			: m_keycode {keycode}
 		{
 		}
 	} // namespace events

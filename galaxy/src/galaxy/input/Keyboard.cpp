@@ -14,7 +14,8 @@ namespace galaxy
 	namespace input
 	{
 		Keyboard::Keyboard() noexcept
-		    : m_text_input {""}, m_inputting_text {false}
+			: m_text_input {""}
+			, m_inputting_text {false}
 		{
 			m_keymap.reserve(102);
 			m_keymap.emplace(Keys::A, GLFW_KEY_A);

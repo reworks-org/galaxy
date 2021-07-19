@@ -12,7 +12,8 @@ namespace galaxy
 	namespace graphics
 	{
 		VertexBuffer::VertexBuffer() noexcept
-		    : m_vbo {0}, m_size {0}
+			: m_vbo {0}
+			, m_size {0}
 		{
 			glGenBuffers(1, &m_vbo);
 		}

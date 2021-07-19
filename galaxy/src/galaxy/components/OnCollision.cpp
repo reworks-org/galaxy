@@ -12,23 +12,26 @@ namespace galaxy
 	namespace components
 	{
 		OnCollision::OnCollision() noexcept
-		    : Serializable {this}, m_script {""}
+			: Serializable {this}
+			, m_script {""}
 		{
 		}
 
 		OnCollision::OnCollision(std::string_view script_id) noexcept
-		    : Serializable {this}, m_script {script_id}
+			: Serializable {this}
+			, m_script {script_id}
 		{
 		}
 
 		OnCollision::OnCollision(const nlohmann::json& json)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			deserialize(json);
 		}
 
 		OnCollision::OnCollision(OnCollision&& t) noexcept
-		    : Serializable {this}, m_script {""}
+			: Serializable {this}
+			, m_script {""}
 		{
 			this->m_script = std::move(t.m_script);
 		}

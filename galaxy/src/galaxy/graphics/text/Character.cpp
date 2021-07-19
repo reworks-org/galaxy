@@ -14,7 +14,11 @@ namespace galaxy
 	namespace graphics
 	{
 		Character::Character() noexcept
-		    : m_gl_texture {0}, m_size {0, 0}, m_bearing {0, 0}, m_advance {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}
+			: m_gl_texture {0}
+			, m_size {0, 0}
+			, m_bearing {0, 0}
+			, m_advance {0}
+			, m_region {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 			glGenTextures(1, &m_gl_texture);
 		}

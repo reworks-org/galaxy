@@ -17,7 +17,7 @@ namespace galaxy
 	namespace res
 	{
 		SoundBook::SoundBook(std::string_view file)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			create_from_json(file);
 		}

@@ -34,11 +34,8 @@ namespace galaxy
 		/// Concept for tiled property types.
 		///
 		template<typename Type>
-		concept tiled_property = (std::is_same<Type, std::string>::value ||
-					  std::is_same<Type, int>::value ||
-					  std::is_same<Type, float>::value ||
-					  std::is_same<Type, bool>::value ||
-					  std::is_same<Type, graphics::Colour>::value);
+		concept tiled_property = (std::is_same<Type, std::string>::value || std::is_same<Type, int>::value || std::is_same<Type, float>::value ||
+								  std::is_same<Type, bool>::value || std::is_same<Type, graphics::Colour>::value);
 
 		///
 		/// Convert a hex string colour to a graphics colour object.

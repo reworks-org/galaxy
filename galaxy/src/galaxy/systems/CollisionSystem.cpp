@@ -24,7 +24,8 @@ namespace galaxy
 	namespace systems
 	{
 		CollisionSystem::CollisionSystem() noexcept
-		    : m_mtv {0.0f, 0.0f}, m_quadtree {0, {0, 0, 0, 0}}
+			: m_mtv {0.0f, 0.0f}
+			, m_quadtree {0, {0, 0, 0, 0}}
 		{
 		}
 
@@ -50,9 +51,10 @@ namespace galaxy
 				m_quadtree.resize(scene->get_active_map()->get_width(), scene->get_active_map()->get_height());
 			}
 
-			scene->m_world.operate<components::RigidBody, components::Renderable>([&](const ecs::Entity entity, components::RigidBody* body, components::Renderable* renderable) {
-				m_quadtree.insert({.m_aabb = &renderable->get_aabb(), .m_entity = entity});
-			});
+			scene->m_world.operate<components::RigidBody, components::Renderable>(
+				[&](const ecs::Entity entity, components::RigidBody* body, components::Renderable* renderable) {
+					m_quadtree.insert({.m_aabb = &renderable->get_aabb(), .m_entity = entity});
+				});
 
 			m_quadtree.query({.m_aabb = &scene->m_camera.get_aabb(), .m_entity = 0}, m_output);
 
@@ -62,33 +64,34 @@ namespace galaxy
 				m_bvh.insert(object->m_entity, object->m_aabb->min(), object->m_aabb->max());
 			}
 
-			scene->m_world.operate<components::RigidBody, components::Transform2D>([&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform2D* transform) {
-				m_possible.clear();
-				m_bvh.query(entity_a, std::back_inserter(m_possible));
+			scene->m_world.operate<components::RigidBody, components::Transform2D>(
+				[&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform2D* transform) {
+					m_possible.clear();
+					m_bvh.query(entity_a, std::back_inserter(m_possible));
 
-				for (const auto& entity_b : m_possible)
-				{
-					m_mtv.x = 0.0f;
-					m_mtv.y = 0.0f;
-
-					physics::SAT object_a {scene->m_world, entity_a};
-					physics::SAT object_b {scene->m_world, entity_b};
-
-					if (object_a.intersects(object_b, m_mtv))
+					for (const auto& entity_b : m_possible)
 					{
-						if (body->m_type == physics::BodyType::DYNAMIC)
-						{
-							transform->move(m_mtv.x, m_mtv.y);
-						}
+						m_mtv.x = 0.0f;
+						m_mtv.y = 0.0f;
 
-						auto collision_a = scene->m_world.get<components::OnCollision>(entity_a);
-						if (collision_a)
+						physics::SAT object_a {scene->m_world, entity_a};
+						physics::SAT object_b {scene->m_world, entity_b};
+
+						if (object_a.intersects(object_b, m_mtv))
 						{
-							SL_HANDLE.scriptbook()->run(collision_a->m_script);
+							if (body->m_type == physics::BodyType::DYNAMIC)
+							{
+								transform->move(m_mtv.x, m_mtv.y);
+							}
+
+							auto collision_a = scene->m_world.get<components::OnCollision>(entity_a);
+							if (collision_a)
+							{
+								SL_HANDLE.scriptbook()->run(collision_a->m_script);
+							}
 						}
 					}
-				}
-			});
+				});
 		}
 	} // namespace systems
 } // namespace galaxy

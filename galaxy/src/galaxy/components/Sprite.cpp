@@ -12,18 +12,23 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-		    : Serializable {this}, m_opacity {255}, m_layer {""}
+			: Serializable {this}
+			, m_opacity {255}
+			, m_layer {""}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-		    : Serializable {this}, m_opacity {255}, m_layer {""}
+			: Serializable {this}
+			, m_opacity {255}
+			, m_layer {""}
 		{
 			deserialize(json);
 		}
 
 		Sprite::Sprite(Sprite&& s) noexcept
-		    : Serializable {this}, Texture {std::move(s)}
+			: Serializable {this}
+			, Texture {std::move(s)}
 		{
 			this->m_vao     = std::move(s.m_vao);
 			this->m_opacity = s.m_opacity;
@@ -65,8 +70,7 @@ namespace galaxy
 			vertices[3].m_pos    = {0.0f, 0.0f + m_height};
 			vertices[3].m_texels = {tex_x, tex_y + m_height};
 
-			std::array<unsigned int, 6> indices =
-			    {0, 1, 3, 1, 2, 3};
+			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
@@ -94,8 +98,7 @@ namespace galaxy
 			vertices[3].m_pos    = {0.0f, 0.0f + height};
 			vertices[3].m_texels = {0.0f, 0.0f + height};
 
-			std::array<unsigned int, 6> indices =
-			    {0, 1, 3, 1, 2, 3};
+			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
@@ -122,8 +125,7 @@ namespace galaxy
 			vertices[3].m_pos    = {0.0f, 0.0f + height};
 			vertices[3].m_texels = {x, y + height};
 
-			std::array<unsigned int, 6> indices =
-			    {0, 1, 3, 1, 2, 3};
+			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;

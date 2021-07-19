@@ -30,9 +30,7 @@ namespace
 		return 0;
 	}
 
-	const struct luaL_Reg printlib[] = {
-	    {"print", l_my_print},
-	    {NULL, NULL}};
+	const struct luaL_Reg printlib[] = {{"print", l_my_print}, {NULL, NULL}};
 } // namespace
 
 namespace sc
@@ -64,8 +62,7 @@ namespace sc
 							const auto& file = path.value();
 							std::ifstream ifs;
 							ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
-							m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
-									     std::istreambuf_iterator<char>());
+							m_buff = std::string((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
 
 							m_history.push_back("[SCRIPT]: ");
 							m_history.push_back(m_buff);
@@ -127,7 +124,8 @@ namespace sc
 					ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
 					ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
 
-					if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
+					if (ImGui::InputText(
+							"", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 					{
 						m_history.push_back(std::format("[INPUT]:  {0}.", m_buff));
 

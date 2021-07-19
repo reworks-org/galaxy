@@ -40,7 +40,8 @@ namespace galaxy
 	namespace physics
 	{
 		SAT::Projection::Projection(float min, float max) noexcept
-		    : m_min {min}, m_max {max}
+			: m_min {min}
+			, m_max {max}
 		{
 		}
 
@@ -96,8 +97,7 @@ namespace galaxy
 			for (int i = 0; i < size; i++)
 			{
 				const int j    = (i + 1) % size;
-				glm::vec2 axis = {(-m_vertexs[j].y + m_vertexs[i].y),
-						  (m_vertexs[j].x - m_vertexs[i].x)};
+				glm::vec2 axis = {(-m_vertexs[j].y + m_vertexs[i].y), (m_vertexs[j].x - m_vertexs[i].x)};
 				m_normals[i]   = glm::normalize(axis);
 			}
 		}

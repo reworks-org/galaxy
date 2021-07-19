@@ -55,8 +55,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			AABB()
-			noexcept;
+			AABB() noexcept;
 
 			///
 			/// Creates an AABB.
@@ -64,8 +63,7 @@ namespace galaxy
 			/// \param min the lower bounds of the AABB.
 			/// \param max the upper bounds of the AABB.
 			///
-			AABB(const glm::vec2& min, const glm::vec2& max)
-			noexcept;
+			AABB(const glm::vec2& min, const glm::vec2& max) noexcept;
 
 			///
 			/// Updates the stored area.

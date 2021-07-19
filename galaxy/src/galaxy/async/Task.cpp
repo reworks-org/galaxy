@@ -12,7 +12,7 @@ namespace galaxy
 	namespace async
 	{
 		Task::Task() noexcept
-		    : m_done {false}
+			: m_done {false}
 		{
 		}
 

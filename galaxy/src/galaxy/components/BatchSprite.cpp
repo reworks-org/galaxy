@@ -15,18 +15,30 @@ namespace galaxy
 	namespace components
 	{
 		BatchSprite::BatchSprite() noexcept
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_layer {""}, m_opacity {255}
+			: Serializable {this}
+			, m_key {""}
+			, m_index {0}
+			, m_region {0.0f, 0.0f, 0.0f, 0.0f}
+			, m_clip {0.0f, 0.0f}
+			, m_layer {""}
+			, m_opacity {255}
 		{
 		}
 
 		BatchSprite::BatchSprite(const nlohmann::json& json)
-		    : Serializable {this}, m_key {""}, m_index {0}, m_region {0.0f, 0.0f, 0.0f, 0.0f}, m_clip {0.0f, 0.0f}, m_layer {""}, m_opacity {255}
+			: Serializable {this}
+			, m_key {""}
+			, m_index {0}
+			, m_region {0.0f, 0.0f, 0.0f, 0.0f}
+			, m_clip {0.0f, 0.0f}
+			, m_layer {""}
+			, m_opacity {255}
 		{
 			deserialize(json);
 		}
 
 		BatchSprite::BatchSprite(BatchSprite&& bs) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_clip    = std::move(bs.m_clip);
 			this->m_key     = std::move(bs.m_key);

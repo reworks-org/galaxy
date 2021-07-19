@@ -12,7 +12,11 @@ namespace galaxy
 	namespace async
 	{
 		Timer::Timer() noexcept
-		    : m_repeat {false}, m_stopped {true}, m_time_passed {0.0}, m_delay {1000}, m_callback {nullptr}
+			: m_repeat {false}
+			, m_stopped {true}
+			, m_time_passed {0.0}
+			, m_delay {1000}
+			, m_callback {nullptr}
 		{
 		}
 

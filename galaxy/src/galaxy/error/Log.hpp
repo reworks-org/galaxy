@@ -265,7 +265,13 @@ namespace galaxy
 				}
 
 				const auto now       = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
-				const auto final_str = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n", colour, level, std::format("{0:%T}", now), std::format("File: {0}, Func: {1}, Line: {2}", std::filesystem::path(loc.file_name()).filename().string(), loc.function_name(), loc.line()), std::format(message, args...));
+				const auto final_str = std::format(
+					"{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
+					colour,
+					level,
+					std::format("{0:%T}", now),
+					std::format("File: {0}, Func: {1}, Line: {2}", std::filesystem::path(loc.file_name()).filename().string(), loc.function_name(), loc.line()),
+					std::format(message, args...));
 
 				*m_stream << final_str;
 				m_file_stream << final_str;

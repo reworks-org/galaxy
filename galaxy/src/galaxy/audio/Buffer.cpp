@@ -19,7 +19,7 @@ namespace galaxy
 	namespace audio
 	{
 		Buffer::Buffer()
-		    : m_buffer {0}
+			: m_buffer {0}
 		{
 			// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
 			alGenBuffers(1, &m_buffer);

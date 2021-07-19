@@ -16,12 +16,34 @@ namespace galaxy
 	namespace map
 	{
 		Text::Text() noexcept
-		    : m_bold {false}, m_color {255, 255, 255, 255}, m_font_family {"sans-serif"}, m_halign {"left"}, m_italic {false}, m_kerning {true}, m_pixel_size {16}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {"top"}, m_wrap {false}
+			: m_bold {false}
+			, m_color {255, 255, 255, 255}
+			, m_font_family {"sans-serif"}
+			, m_halign {"left"}
+			, m_italic {false}
+			, m_kerning {true}
+			, m_pixel_size {16}
+			, m_strike_out {false}
+			, m_text {""}
+			, m_underline {false}
+			, m_valign {"top"}
+			, m_wrap {false}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-		    : m_bold {false}, m_color {255, 255, 255, 255}, m_font_family {"sans-serif"}, m_halign {"left"}, m_italic {false}, m_kerning {true}, m_pixel_size {16}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {"top"}, m_wrap {false}
+			: m_bold {false}
+			, m_color {255, 255, 255, 255}
+			, m_font_family {"sans-serif"}
+			, m_halign {"left"}
+			, m_italic {false}
+			, m_kerning {true}
+			, m_pixel_size {16}
+			, m_strike_out {false}
+			, m_text {""}
+			, m_underline {false}
+			, m_valign {"top"}
+			, m_wrap {false}
 		{
 			parse(json);
 		}

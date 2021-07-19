@@ -17,12 +17,14 @@ namespace galaxy
 	namespace res
 	{
 		ShaderBook::ShaderBook()
-		    : Serializable {this}, m_vert_ext {".vs"}, m_frag_ext {".fs"}
+			: Serializable {this}
+			, m_vert_ext {".vs"}
+			, m_frag_ext {".fs"}
 		{
 		}
 
 		ShaderBook::ShaderBook(std::string_view file)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			create_from_json(file);
 		}

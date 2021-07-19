@@ -14,12 +14,16 @@ namespace galaxy
 	namespace map
 	{
 		Grid::Grid() noexcept
-		    : m_height {0}, m_orientation {"orthogonal"}, m_width {0}
+			: m_height {0}
+			, m_orientation {"orthogonal"}
+			, m_width {0}
 		{
 		}
 
 		Grid::Grid(const nlohmann::json& json)
-		    : m_height {0}, m_orientation {"orthogonal"}, m_width {0}
+			: m_height {0}
+			, m_orientation {"orthogonal"}
+			, m_width {0}
 		{
 			parse(json);
 		}

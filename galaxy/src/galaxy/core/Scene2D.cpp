@@ -21,7 +21,10 @@ namespace galaxy
 	namespace core
 	{
 		Scene2D::Scene2D(std::string_view name) noexcept
-		    : Serializable {this}, m_name {name}, m_active_map {""}, m_maps_path {""}
+			: Serializable {this}
+			, m_name {name}
+			, m_active_map {""}
+			, m_maps_path {""}
 		{
 			m_camera.set_speed(100.0f);
 

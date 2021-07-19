@@ -12,7 +12,10 @@ namespace galaxy
 	namespace math
 	{
 		Quadtree::Quadtree(const int level, const Rect<float>& bounds, int max_objects, int max_levels) noexcept
-		    : m_level {level}, m_bounds {bounds}, m_max_objects {max_objects}, m_max_levels {max_levels}
+			: m_level {level}
+			, m_bounds {bounds}
+			, m_max_objects {max_objects}
+			, m_max_levels {max_levels}
 		{
 			m_objects.reserve(m_max_objects);
 		}

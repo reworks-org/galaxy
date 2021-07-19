@@ -14,7 +14,8 @@ namespace galaxy
 	namespace async
 	{
 		ThreadPool::ThreadPool()
-		    : m_is_destroyed {true}, m_sync {0}
+			: m_is_destroyed {true}
+			, m_sync {0}
 		{
 			m_running = true;
 

@@ -18,13 +18,43 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera2D::Camera2D() noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}
+			: Serializable {this}
+			, m_forward_key {input::Keys::W}
+			, m_back_key {input::Keys::S}
+			, m_left_key {input::Keys::A}
+			, m_right_key {input::Keys::D}
+			, m_moving_fwd {false}
+			, m_moving_back {false}
+			, m_moving_left {false}
+			, m_moving_right {false}
+			, m_speed {1.0f}
+			, m_dirty {true}
+			, m_scaling {1.0f}
+			, m_identity_matrix {1.0f}
+			, m_scale {1.0f}
+			, m_pos {0.0f, 0.0f}
+			, m_size {1.0f, 1.0f}
 		{
 			create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-		    : Serializable {this}, m_forward_key {input::Keys::W}, m_back_key {input::Keys::S}, m_left_key {input::Keys::A}, m_right_key {input::Keys::D}, m_moving_fwd {false}, m_moving_back {false}, m_moving_left {false}, m_moving_right {false}, m_speed {1.0f}, m_dirty {true}, m_scaling {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_size {1.0f, 1.0f}
+			: Serializable {this}
+			, m_forward_key {input::Keys::W}
+			, m_back_key {input::Keys::S}
+			, m_left_key {input::Keys::A}
+			, m_right_key {input::Keys::D}
+			, m_moving_fwd {false}
+			, m_moving_back {false}
+			, m_moving_left {false}
+			, m_moving_right {false}
+			, m_speed {1.0f}
+			, m_dirty {true}
+			, m_scaling {1.0f}
+			, m_identity_matrix {1.0f}
+			, m_scale {1.0f}
+			, m_pos {0.0f, 0.0f}
+			, m_size {1.0f, 1.0f}
 		{
 			deserialize(json);
 			create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);

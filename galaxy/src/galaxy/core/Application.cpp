@@ -23,7 +23,8 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
-		    : m_filewatcher {false}, m_filelistener {nullptr}
+			: m_filewatcher {false}
+			, m_filelistener {nullptr}
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -48,7 +49,13 @@ namespace galaxy
 
 			// Virtual filesystem setup.
 			m_filelistener = std::make_unique<fs::FileListener>();
-			m_filelistener->set_action(std::bind(&Application::reload_assets, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5));
+			m_filelistener->set_action(std::bind(&Application::reload_assets,
+												 this,
+												 std::placeholders::_1,
+												 std::placeholders::_2,
+												 std::placeholders::_3,
+												 std::placeholders::_4,
+												 std::placeholders::_5));
 
 			auto root = static_cast<std::string>(asset_dir);
 			if (root.back() != '/')
@@ -161,7 +168,15 @@ namespace galaxy
 
 				// Create lua instance and open libraries.
 				m_lua = std::make_unique<sol::state>();
-				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
+				m_lua->open_libraries(sol::lib::base,
+									  sol::lib::package,
+									  sol::lib::coroutine,
+									  sol::lib::string,
+									  sol::lib::os,
+									  sol::lib::math,
+									  sol::lib::table,
+									  sol::lib::io,
+									  sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
 				// Generate default assets specified by config.
@@ -438,7 +453,8 @@ namespace galaxy
 			}
 		}
 
-		void Application::reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename)
+		void
+		Application::reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename)
 		{
 			m_window->request_attention();
 

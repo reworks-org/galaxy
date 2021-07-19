@@ -12,7 +12,9 @@ namespace galaxy
 	namespace core
 	{
 		Layer::Layer(Application* app) noexcept
-		    : Serializable {this}, m_app {app}, m_name {"New Layer"}
+			: Serializable {this}
+			, m_app {app}
+			, m_name {"New Layer"}
 		{
 		}
 

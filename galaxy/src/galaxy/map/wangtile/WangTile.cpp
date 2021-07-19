@@ -14,12 +14,18 @@ namespace galaxy
 	namespace map
 	{
 		WangTile::WangTile() noexcept
-		    : m_diagonal_flip {false}, m_horizontal_flip {false}, m_tile_id {0}, m_vertical_flip {false}
+			: m_diagonal_flip {false}
+			, m_horizontal_flip {false}
+			, m_tile_id {0}
+			, m_vertical_flip {false}
 		{
 		}
 
 		WangTile::WangTile(const nlohmann::json& json)
-		    : m_diagonal_flip {false}, m_horizontal_flip {false}, m_tile_id {0}, m_vertical_flip {false}
+			: m_diagonal_flip {false}
+			, m_horizontal_flip {false}
+			, m_tile_id {0}
+			, m_vertical_flip {false}
 		{
 			parse(json);
 		}

@@ -14,18 +14,22 @@ namespace galaxy
 	namespace graphics
 	{
 		Vertex::Vertex() noexcept
-		    : m_pos {0.0f, 0.0f}, m_texels {0.0f, 0.0f}, m_colour {0.0f, 0.0f, 0.0f, 1.0f}
+			: m_pos {0.0f, 0.0f}
+			, m_texels {0.0f, 0.0f}
+			, m_colour {0.0f, 0.0f, 0.0f, 1.0f}
 		{
 		}
 
 		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour) noexcept
-		    : m_pos {pos}, m_texels {texels}
+			: m_pos {pos}
+			, m_texels {texels}
 		{
 			m_colour = const_cast<graphics::Colour&>(colour).normalized();
 		}
 
 		Vertex::Vertex(const glm::vec2& pos, const graphics::Colour& colour, const glm::vec2& texels) noexcept
-		    : m_pos {pos}, m_texels {texels}
+			: m_pos {pos}
+			, m_texels {texels}
 		{
 			m_colour = const_cast<graphics::Colour&>(colour).normalized();
 		}

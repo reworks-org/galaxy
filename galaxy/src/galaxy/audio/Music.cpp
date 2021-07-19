@@ -14,12 +14,16 @@ namespace galaxy
 	namespace audio
 	{
 		Music::Music() noexcept
-		    : Serializable {this}, m_looping {false}, m_running {false}
+			: Serializable {this}
+			, m_looping {false}
+			, m_running {false}
 		{
 		}
 
 		Music::Music(const nlohmann::json& json)
-		    : Serializable {this}, m_looping {false}, m_running {false}
+			: Serializable {this}
+			, m_looping {false}
+			, m_running {false}
 		{
 			deserialize(json);
 		}

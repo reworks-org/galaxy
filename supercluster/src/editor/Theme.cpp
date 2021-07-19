@@ -286,5 +286,5 @@ namespace sc
 			}
 			// clang-format on
 		} // namespace theme
-	}         // namespace editor
+	}     // namespace editor
 } // namespace sc

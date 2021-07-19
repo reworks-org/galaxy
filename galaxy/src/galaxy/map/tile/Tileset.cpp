@@ -19,12 +19,48 @@ namespace galaxy
 	namespace map
 	{
 		Tileset::Tileset() noexcept
-		    : m_bg_colour {255, 255, 255, 255}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {"unspecified"}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {255, 255, 255, 255}, m_type {"tileset"}, m_version {0.0}
+			: m_bg_colour {255, 255, 255, 255}
+			, m_columns {0}
+			, m_first_gid {0}
+			, m_grid {std::nullopt}
+			, m_image {""}
+			, m_image_height {0}
+			, m_image_width {0}
+			, m_margin {0}
+			, m_name {""}
+			, m_object_alignment {"unspecified"}
+			, m_spacing {0}
+			, m_tile_count {0}
+			, m_tiled_version {""}
+			, m_tile_height {0}
+			, m_tile_offset {std::nullopt}
+			, m_tile_width {0}
+			, m_transparent_colour {255, 255, 255, 255}
+			, m_type {"tileset"}
+			, m_version {0.0}
 		{
 		}
 
 		Tileset::Tileset(const nlohmann::json& json)
-		    : m_bg_colour {255, 255, 255, 255}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {"unspecified"}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {255, 255, 255, 255}, m_type {"tileset"}, m_version {0.0}
+			: m_bg_colour {255, 255, 255, 255}
+			, m_columns {0}
+			, m_first_gid {0}
+			, m_grid {std::nullopt}
+			, m_image {""}
+			, m_image_height {0}
+			, m_image_width {0}
+			, m_margin {0}
+			, m_name {""}
+			, m_object_alignment {"unspecified"}
+			, m_spacing {0}
+			, m_tile_count {0}
+			, m_tiled_version {""}
+			, m_tile_height {0}
+			, m_tile_offset {std::nullopt}
+			, m_tile_width {0}
+			, m_transparent_colour {255, 255, 255, 255}
+			, m_type {"tileset"}
+			, m_version {0.0}
 		{
 			parse(json);
 		}

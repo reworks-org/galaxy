@@ -19,7 +19,10 @@ namespace galaxy
 	namespace audio
 	{
 		BufferStream::BufferStream()
-		    : m_buffers {0, 0}, m_data {nullptr}, m_stream {nullptr}, m_format {0}
+			: m_buffers {0, 0}
+			, m_data {nullptr}
+			, m_stream {nullptr}
+			, m_format {0}
 		{
 			alGenBuffers(2, &m_buffers[0]);
 

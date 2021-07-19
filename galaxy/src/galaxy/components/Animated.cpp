@@ -16,18 +16,24 @@ namespace galaxy
 	namespace components
 	{
 		Animated::Animated() noexcept
-		    : Serializable {this}, m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
+			: Serializable {this}
+			, m_active_anim {nullptr}
+			, m_paused {true}
+			, m_time_spent_on_frame {0.0}
 		{
 		}
 
 		Animated::Animated(const nlohmann::json& json)
-		    : Serializable {this}, m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
+			: Serializable {this}
+			, m_active_anim {nullptr}
+			, m_paused {true}
+			, m_time_spent_on_frame {0.0}
 		{
 			deserialize(json);
 		}
 
 		Animated::Animated(Animated&& a) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_active_anim         = a.m_active_anim;
 			this->m_animations          = std::move(a.m_animations);

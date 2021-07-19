@@ -12,7 +12,7 @@ namespace galaxy
 	namespace fs
 	{
 		SerializableWrapper::SerializableWrapper() noexcept
-		    : m_obj {nullptr}
+			: m_obj {nullptr}
 		{
 		}
 

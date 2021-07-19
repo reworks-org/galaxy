@@ -14,18 +14,19 @@ namespace galaxy
 	namespace components
 	{
 		Renderable::Renderable() noexcept
-		    : Serializable {this}, m_type {graphics::Renderables::SPRITE}
+			: Serializable {this}
+			, m_type {graphics::Renderables::SPRITE}
 		{
 		}
 
 		Renderable::Renderable(const nlohmann::json& json)
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			deserialize(json);
 		}
 
 		Renderable::Renderable(Renderable&& r) noexcept
-		    : Serializable {this}
+			: Serializable {this}
 		{
 			this->m_type = r.m_type;
 			this->m_aabb = std::move(r.m_aabb);

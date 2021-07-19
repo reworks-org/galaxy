@@ -36,7 +36,8 @@ namespace galaxy
 	namespace core
 	{
 		World::World()
-		    : Serializable {this}, m_next_id {0}
+			: Serializable {this}
+			, m_next_id {0}
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");

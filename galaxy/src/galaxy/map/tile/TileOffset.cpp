@@ -14,12 +14,14 @@ namespace galaxy
 	namespace map
 	{
 		TileOffset::TileOffset() noexcept
-		    : m_x {0}, m_y {0}
+			: m_x {0}
+			, m_y {0}
 		{
 		}
 
 		TileOffset::TileOffset(const nlohmann::json& json)
-		    : m_x {0}, m_y {0}
+			: m_x {0}
+			, m_y {0}
 		{
 			parse(json);
 		}

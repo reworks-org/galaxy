@@ -94,7 +94,7 @@ namespace galaxy
 	namespace graphics
 	{
 		Sharpen::Sharpen()
-		    : m_amount {0.1f}
+			: m_amount {0.1f}
 		{
 			m_fb.create(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 

@@ -12,17 +12,31 @@ namespace galaxy
 	namespace graphics
 	{
 		Animation::Animation() noexcept
-		    : Serializable {this}, m_active_frame {nullptr}, m_name {"null"}, m_looping {false}, m_speed {0.0}, m_total_frames {0}, m_current_frame_index {0}
+			: Serializable {this}
+			, m_active_frame {nullptr}
+			, m_name {"null"}
+			, m_looping {false}
+			, m_speed {0.0}
+			, m_total_frames {0}
+			, m_current_frame_index {0}
 		{
 		}
 
 		Animation::Animation(std::string_view name, bool looping, const double speed, std::span<Frame> frames) noexcept
-		    : Serializable {this}, m_active_frame {nullptr}, m_name {name}, m_looping {looping}, m_speed {speed}, m_total_frames {frames.size()}, m_current_frame_index {0}, m_frames {frames.begin(), frames.end()}
+			: Serializable {this}
+			, m_active_frame {nullptr}
+			, m_name {name}
+			, m_looping {looping}
+			, m_speed {speed}
+			, m_total_frames {frames.size()}
+			, m_current_frame_index {0}
+			, m_frames {frames.begin(), frames.end()}
 		{
 		}
 
 		Animation::Animation(std::string_view name, const nlohmann::json& json)
-		    : Serializable {this}, m_name {name}
+			: Serializable {this}
+			, m_name {name}
 		{
 			deserialize(json);
 		}

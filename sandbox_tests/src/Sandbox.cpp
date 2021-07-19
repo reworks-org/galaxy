@@ -37,7 +37,7 @@ input::Keys parse_key(const std::string& key)
 namespace sb
 {
 	Sandbox::Sandbox(core::Application* app)
-	    : Layer {app}
+		: Layer {app}
 	{
 		m_window = SL_HANDLE.window();
 

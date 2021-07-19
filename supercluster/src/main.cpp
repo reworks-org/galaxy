@@ -13,7 +13,7 @@ class Supercluster : public galaxy::core::Application
 {
 public:
 	Supercluster(std::string_view asset_dir, std::string_view config_file)
-	    : Application {asset_dir, config_file}
+		: Application {asset_dir, config_file}
 	{
 	}
 };

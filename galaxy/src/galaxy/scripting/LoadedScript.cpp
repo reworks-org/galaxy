@@ -16,7 +16,8 @@ namespace galaxy
 	namespace lua
 	{
 		LoadedScript::LoadedScript() noexcept
-		    : m_filename {""}, m_code {""}
+			: m_filename {""}
+			, m_code {""}
 		{
 		}
 

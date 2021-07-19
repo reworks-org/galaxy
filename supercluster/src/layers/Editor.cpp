@@ -40,7 +40,7 @@
 namespace sc
 {
 	Editor::Editor(core::Application* app)
-	    : Layer {app}
+		: Layer {app}
 	{
 		m_name = "Editor";
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());

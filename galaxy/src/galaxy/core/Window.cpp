@@ -24,12 +24,18 @@ namespace galaxy
 	namespace core
 	{
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {1280}, m_height {720}, m_post_processor {nullptr}
+			: m_window {nullptr}
+			, m_width {1280}
+			, m_height {720}
+			, m_post_processor {nullptr}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {1280}, m_height {720}, m_post_processor {nullptr}
+			: m_window {nullptr}
+			, m_width {1280}
+			, m_height {720}
+			, m_post_processor {nullptr}
 		{
 			if (!create(settings))
 			{

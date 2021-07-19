@@ -14,12 +14,14 @@ namespace galaxy
 	namespace map
 	{
 		Frame::Frame() noexcept
-		    : m_duration {0}, m_tile_id {0}
+			: m_duration {0}
+			, m_tile_id {0}
 		{
 		}
 
 		Frame::Frame(const nlohmann::json& json)
-		    : m_duration {0}, m_tile_id {0}
+			: m_duration {0}
+			, m_tile_id {0}
 		{
 			parse(json);
 		}

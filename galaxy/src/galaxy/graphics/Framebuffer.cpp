@@ -17,12 +17,20 @@ namespace galaxy
 	namespace graphics
 	{
 		Framebuffer::Framebuffer() noexcept
-		    : m_width {1}, m_height {1}, m_fbo {0}, m_depth_attachment {0}, m_depth_renderbuffer {0}, m_max_attachments {0}
+			: m_width {1}
+			, m_height {1}
+			, m_fbo {0}
+			, m_depth_attachment {0}
+			, m_depth_renderbuffer {0}
+			, m_max_attachments {0}
 		{
 		}
 
 		Framebuffer::Framebuffer(const int width, const int height) noexcept
-		    : m_fbo {0}, m_depth_attachment {0}, m_depth_renderbuffer {0}, m_max_attachments {0}
+			: m_fbo {0}
+			, m_depth_attachment {0}
+			, m_depth_renderbuffer {0}
+			, m_max_attachments {0}
 		{
 			init(width, height);
 		}

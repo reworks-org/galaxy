@@ -16,7 +16,7 @@ namespace galaxy
 	namespace graphics
 	{
 		InstanceBuffer::InstanceBuffer() noexcept
-		    : m_ibo {0}
+			: m_ibo {0}
 		{
 			glGenBuffers(1, &m_ibo);
 		}

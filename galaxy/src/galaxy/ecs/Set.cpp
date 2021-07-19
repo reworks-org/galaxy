@@ -17,7 +17,7 @@ namespace galaxy
 		}
 
 		Set::Set() noexcept
-		    : m_count {0}
+			: m_count {0}
 		{
 		}
 	} // namespace ecs

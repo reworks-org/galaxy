@@ -24,7 +24,9 @@ namespace sc
 	namespace panel
 	{
 		JSONEditor::JSONEditor()
-		    : m_counter {0}, m_loaded {false}, m_external {nullptr}
+			: m_counter {0}
+			, m_loaded {false}
+			, m_external {nullptr}
 		{
 		}
 
@@ -344,7 +346,8 @@ namespace sc
 
 		void JSONEditor::new_object(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
+			if (ImGui::BeginPopup("New Object",
+								  ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
 				static std::string s_key_str = "";
 				static std::string s_val_str = "";
@@ -458,7 +461,8 @@ namespace sc
 
 		void JSONEditor::add_to_array(nlohmann::json& json)
 		{
-			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
+			if (ImGui::BeginPopup("New Element",
+								  ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
 				static std::string s_val_str = "";
 				static std::string s_err_str = "";

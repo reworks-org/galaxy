@@ -103,7 +103,7 @@ namespace galaxy
 			/// \param capacity The initial node capacity of the tree.
 			///
 			inline explicit DynamicTree(const size_type capacity = 16)
-			    : m_node_capacity {capacity}
+				: m_node_capacity {capacity}
 			{
 				resize_to_match_node_capacity(0);
 			}
@@ -224,7 +224,8 @@ namespace galaxy
 			///
 			/// Alternate Update Function.
 			///
-			[[maybe_unused]] inline const bool update(const key_type& key, const glm::vec2& lower_bound, const glm::vec2& upper_bound, bool force_reinsert = false)
+			[[maybe_unused]] inline const bool
+			update(const key_type& key, const glm::vec2& lower_bound, const glm::vec2& upper_bound, bool force_reinsert = false)
 			{
 				return update(key, {lower_bound, upper_bound}, force_reinsert);
 			}
@@ -652,9 +653,8 @@ namespace galaxy
 					const auto left  = node.left.value();
 					const auto right = node.right.value();
 
-					const auto surface_area = node.aabb.area();
-					const auto combined_surface_area =
-					    math::AABB::merge(node.aabb, leaf_aabb).area();
+					const auto surface_area          = node.aabb.area();
+					const auto combined_surface_area = math::AABB::merge(node.aabb, leaf_aabb).area();
 
 					// Cost of creating a new parent for this node and the new leaf.
 					const auto cost = 2.0 * combined_surface_area;
@@ -662,9 +662,8 @@ namespace galaxy
 					// Minimum cost of pushing the leaf further down the tree.
 					const auto minimum_cost = 2.0 * (combined_surface_area - surface_area);
 
-					const auto cost_left = left_cost(leaf_aabb, m_nodes.at(left), minimum_cost);
-					const auto cost_right =
-					    right_cost(leaf_aabb, m_nodes.at(right), minimum_cost);
+					const auto cost_left  = left_cost(leaf_aabb, m_nodes.at(left), minimum_cost);
+					const auto cost_right = right_cost(leaf_aabb, m_nodes.at(right), minimum_cost);
 
 					// Descend according to the minimum cost.
 					if ((cost < cost_left) && (cost < cost_right))
@@ -835,9 +834,7 @@ namespace galaxy
 				const auto grand_parent_index = m_nodes.at(parent_index.value()).parent;
 
 				const auto sibling_index =
-				    (m_nodes.at(parent_index.value()).left == leaf_index)
-				    ? m_nodes.at(parent_index.value()).right
-				    : m_nodes.at(parent_index.value()).left;
+					(m_nodes.at(parent_index.value()).left == leaf_index) ? m_nodes.at(parent_index.value()).right : m_nodes.at(parent_index.value()).left;
 
 				// Destroy the parent and connect the sibling to the grandparent.
 				if (grand_parent_index != std::nullopt)

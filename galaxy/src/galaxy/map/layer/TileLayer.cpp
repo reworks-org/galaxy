@@ -19,7 +19,9 @@ namespace galaxy
 	namespace map
 	{
 		TileLayer::TileLayer(const nlohmann::json& json, const int zlevel)
-		    : Layer {json, zlevel}, m_compression {""}, m_encoding {"csv"}
+			: Layer {json, zlevel}
+			, m_compression {""}
+			, m_encoding {"csv"}
 		{
 			if (json.count("compression") > 0)
 			{
