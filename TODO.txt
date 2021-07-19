@@ -7,10 +7,6 @@ fix map
 input needs to be a system update / component?
 text quality.
 
-
-test active map bounds.
-fix bounds when zoomed.
-camera bounds not serialized - might need to be.
 fine tune particle randomness
 
 https://github.com/HankiDesign/awesome-dear-imgui

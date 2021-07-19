@@ -191,6 +191,7 @@ namespace sb
 		sandbox->m_gui.enable_input();
 		*/
 
+		// clang-format off
 		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>([sandbox, this](const events::MouseReleased& mre) {
 			if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
 			{
@@ -235,6 +236,7 @@ namespace sb
 					break;
 			}
 		});
+		// clang-format on
 
 		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
@@ -250,6 +252,7 @@ namespace sb
 		physics->m_world.create_from_json("floor.json");
 		m_cube = physics->m_world.create_from_json("cube.json").value();
 
+		// clang-format off
 		physics->m_dispatcher.subscribe_callback<events::KeyRepeat>([physics, this](const events::KeyRepeat& kde) {
 			switch (kde.m_keycode)
 			{
@@ -278,6 +281,7 @@ namespace sb
 					break;
 			}
 		});
+		// clang-format on
 
 		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
@@ -294,6 +298,7 @@ namespace sb
 		map->create_maps("assets/maps/maps.world");
 		map->set_active_map("desert");
 
+		// clang-format off
 		map->m_dispatcher.subscribe_callback<events::KeyDown>([map, this](const events::KeyDown& kde) {
 			switch (kde.m_keycode)
 			{
@@ -306,6 +311,7 @@ namespace sb
 					break;
 			}
 		});
+		// clang-format on
 
 		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));

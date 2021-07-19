@@ -23,7 +23,6 @@ namespace galaxy
 		Scene2D::Scene2D(std::string_view name) noexcept
 		    : Serializable {this}, m_name {name}, m_active_map {""}, m_maps_path {""}
 		{
-			m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 			m_camera.set_speed(100.0f);
 
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
@@ -56,8 +55,6 @@ namespace galaxy
 
 		void Scene2D::on_push()
 		{
-			m_camera.set_width(SL_HANDLE.window()->get_width());
-			m_camera.set_height(SL_HANDLE.window()->get_height());
 			//m_gui.enable_input();
 		}
 
@@ -104,11 +101,6 @@ namespace galaxy
 		void Scene2D::set_active_map(std::string_view name)
 		{
 			m_active_map = static_cast<std::string>(name);
-
-			m_camera.set_lower_x_boundary(0.0f);
-			m_camera.set_upper_x_boundary(get_active_map()->get_width());
-			m_camera.set_upper_y_boundary(0.0f);
-			m_camera.set_upper_y_boundary(get_active_map()->get_height());
 		}
 
 		map::Map* Scene2D::get_map(std::string_view name)

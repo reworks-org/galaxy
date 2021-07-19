@@ -59,32 +59,9 @@ namespace galaxy
 			Camera2D(const nlohmann::json& json) noexcept;
 
 			///
-			/// \brief Argument constructor.
-			///
-			/// Calls configure() and setSpeed().
-			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
-			/// \param speed Speed of the Camera2D. Multiplicative float.
-			///
-			Camera2D(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
-
-			///
 			/// Destructor.
 			///
 			virtual ~Camera2D() noexcept = default;
-
-			///
-			/// Configures Camera2D for window model view projection.
-			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
-			///
-			void create(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
 			///	Event processing method for key down for Camera2D.
@@ -135,7 +112,7 @@ namespace galaxy
 			///
 			/// Zoom Camera2D.
 			///
-			/// \param scale Scale. Multiplier. Min 0.1.
+			/// \param scale Scale. Multiplier. 1.0f - 10.0f.
 			///
 			void zoom(const float scale) noexcept;
 
@@ -153,48 +130,6 @@ namespace galaxy
 			/// \param speed Speed of the Camera2D. Multiplicative float.
 			///
 			void set_speed(const float speed) noexcept;
-
-			///
-			/// Set width of projection.
-			///
-			/// \param width New width.
-			///
-			void set_width(const float width) noexcept;
-
-			///
-			/// Set height of projection.
-			///
-			/// \param height New height.
-			///
-			void set_height(const float height) noexcept;
-
-			///
-			/// Set camera lower x bounary.
-			///
-			/// \param x -x coord.
-			///
-			void set_lower_x_boundary(const float x);
-
-			///
-			/// Set camera upper x bounary.
-			///
-			/// \param x +x coord.
-			///
-			void set_upper_x_boundary(const float x);
-
-			///
-			/// Set camera lower y bounary.
-			///
-			/// \param y -y coord.
-			///
-			void set_lower_y_boundary(const float y);
-
-			///
-			/// Set camera upper y bounary.
-			///
-			/// \param y +y coord.
-			///
-			void set_upper_y_boundary(const float y);
 
 			///
 			/// Get Camera2D speed.
@@ -281,6 +216,16 @@ namespace galaxy
 			void deserialize(const nlohmann::json& json) override;
 
 		private:
+			///
+			/// Configures Camera2D for window model view projection.
+			///
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			///
+			void create(const float left, const float right, const float bottom, const float top) noexcept;
+
 			///
 			/// Recalculates the model view matrix.
 			///
@@ -374,16 +319,6 @@ namespace galaxy
 			/// AABB Cache.
 			///
 			math::AABB m_aabb;
-
-			///
-			/// Lower boundary.
-			///
-			glm::vec2 m_lower_bounds;
-
-			///
-			/// Upper boundary.
-			///
-			glm::vec2 m_upper_bounds;
 		};
 	} // namespace graphics
 } // namespace galaxy
