@@ -99,11 +99,11 @@ namespace galaxy
 				glDeleteRenderbuffers(1, &m_depth_renderbuffer);
 			}
 
-			if (m_attachments.size() > 0)
+			for (auto& pair : m_attachments)
 			{
-				glDeleteTextures(m_attachments.size(), m_attachments.data());
-				m_attachments.clear();
+				glDeleteTextures(1, &pair.first);
 			}
+			m_attachments.clear();
 
 			if (m_renderbuffers.size() > 0)
 			{
@@ -129,7 +129,7 @@ namespace galaxy
 			m_max_attachments = static_cast<unsigned int>(std::min(max_attachments, max_drawn_attachments));
 		}
 
-		void Framebuffer::add_colour_attachment(const int format, const bool high_precision)
+		void Framebuffer::add_colour_attachment(const bool high_precision)
 		{
 			if (m_used_attachments.size() >= m_max_attachments)
 			{
@@ -144,7 +144,7 @@ namespace galaxy
 
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
-				glTexImage2D(GL_TEXTURE_2D, 0, format, m_width, m_height, 0, GL_RGBA, gl_type, nullptr);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, gl_type, nullptr);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
 				if (SL_HANDLE.config()->get<bool>("trilinear-filtering"))
@@ -160,11 +160,11 @@ namespace galaxy
 
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(SL_HANDLE.config()->get<int>("ansio-filter")));
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
 
 				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + m_used_attachments.size(), GL_TEXTURE_2D, texture, 0);
 				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + m_used_attachments.size());
-				m_attachments.push_back(texture);
+				m_attachments.push_back(std::make_pair(texture, gl_type));
 
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
 				glBindTexture(GL_TEXTURE_2D, 0);
@@ -292,17 +292,11 @@ namespace galaxy
 
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
-			for (const auto& attachment : m_attachments)
+			for (const auto& pair : m_attachments)
 			{
-				glBindTexture(GL_TEXTURE_2D, attachment);
-
-				GLint internal_format = 0;
-				glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_INTERNAL_FORMAT, &internal_format);
-
-				GLint type = 0;
-				glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_RED_TYPE, &type);
-
-				glTexImage2D(GL_TEXTURE_2D, 0, internal_format, m_width, m_height, 0, GL_RGBA, type, nullptr);
+				glBindTexture(GL_TEXTURE_2D, pair.first);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, pair.second, nullptr);
+				glGenerateMipmap(GL_TEXTURE_2D);
 			}
 
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -383,9 +377,17 @@ namespace galaxy
 			return m_depth_renderbuffer;
 		}
 
-		const std::vector<unsigned int>& Framebuffer::get_attachments() const noexcept
+		std::vector<unsigned int> Framebuffer::get_attachments() const noexcept
 		{
-			return m_attachments;
+			std::vector<unsigned int> attachments;
+			attachments.reserve(m_attachments.size());
+
+			for (const auto& pair : m_attachments)
+			{
+				attachments.push_back(pair.first);
+			}
+
+			return attachments;
 		}
 
 		const std::vector<unsigned int>& Framebuffer::get_renderbuffers() const noexcept

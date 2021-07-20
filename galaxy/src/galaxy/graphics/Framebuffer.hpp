@@ -62,10 +62,9 @@ namespace galaxy
 			///
 			/// Add a colour attachment to the framebuffer.
 			///
-			/// \param format Texture format. Usually GL_RGBA8.
 			/// \param high_precision Is this storing positions or pixels. If just using plain textures, set at false. True is for geometry buffers.
 			///
-			void add_colour_attachment(const int format, const bool high_precision);
+			void add_colour_attachment(const bool high_precision);
 
 			///
 			/// Add a colour renderbuffer to the framebuffer.
@@ -151,7 +150,7 @@ namespace galaxy
 			///
 			/// \return Reference to const vector of OpenGL texture ids.
 			///
-			[[nodiscard]] const std::vector<unsigned int>& get_attachments() const noexcept;
+			[[nodiscard]] std::vector<unsigned int> get_attachments() const noexcept;
 
 			///
 			/// Get all renderbuffer attachments.
@@ -212,7 +211,7 @@ namespace galaxy
 			///
 			/// Array of colour attachemnts.
 			///
-			std::vector<unsigned int> m_attachments;
+			std::vector<std::pair<unsigned int, unsigned int>> m_attachments;
 
 			///
 			/// Array of colour renderbuffers.

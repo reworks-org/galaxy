@@ -56,7 +56,7 @@ namespace galaxy
 			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 
 			m_framebuffer.init(width, height);
-			m_framebuffer.add_colour_attachment(GL_RGBA8, false);
+			m_framebuffer.add_colour_attachment(false);
 			m_framebuffer.add_depth_renderbuffer();
 			m_framebuffer.create();
 		}
