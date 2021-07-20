@@ -196,6 +196,7 @@ namespace sb
 			if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
 			{
 				sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
+				sandbox->m_world.enable(m_particles);
 			}
 		});
 

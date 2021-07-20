@@ -54,7 +54,8 @@ namespace galaxy
 				m_instance_count = vertices.size();
 
 				glBindBuffer(GL_ARRAY_BUFFER, m_ibo);
-				glBufferData(GL_ARRAY_BUFFER, vertices.size_bytes(), vertices.data(), GL_DYNAMIC_DRAW);
+				// Static draw since we are recreating rather than updating the buffer.
+				glBufferData(GL_ARRAY_BUFFER, vertices.size_bytes(), vertices.data(), GL_STATIC_DRAW);
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 			}
 			else

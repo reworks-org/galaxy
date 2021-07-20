@@ -59,12 +59,12 @@ namespace galaxy
 
 		public:
 			///
-			/// Lifespan of particle. (i.e. opacity). 0.0f - 1.0f.
+			/// Lifespan of particle.
 			///
 			float m_life;
 
 			///
-			/// Angle of particle.
+			/// Angle of particle. In radians.
 			///
 			float m_angle;
 

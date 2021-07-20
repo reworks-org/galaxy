@@ -7,8 +7,6 @@
 
 #include <glm/trigonometric.hpp>
 
-#include "galaxy/math/Random.hpp"
-
 #include "Particle.hpp"
 
 namespace galaxy
@@ -16,9 +14,11 @@ namespace galaxy
 	namespace graphics
 	{
 		Particle::Particle() noexcept
-		    : m_life {1.0f}, m_offset {0.0f, 0.0f}, m_velocity {1.0f, 1.0f}
+			: m_life {1.0f}
+			, m_offset {0.0f, 0.0f}
+			, m_velocity {1.0f, 1.0f}
+			, m_angle {0.0f}
 		{
-			m_angle = glm::radians(math::random(0.0f, 360.0f));
 		}
 
 		Particle::Particle(Particle&& p) noexcept

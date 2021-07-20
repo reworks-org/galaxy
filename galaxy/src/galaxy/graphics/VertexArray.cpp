@@ -29,8 +29,7 @@ namespace galaxy
 			this->m_vbo     = std::move(va.m_vbo);
 			this->m_ibo     = std::move(va.m_ibo);
 
-			va.m_vao     = 0;
-			va.m_counter = 0;
+			va.m_vao = 0;
 		}
 
 		VertexArray& VertexArray::operator=(VertexArray&& va) noexcept
@@ -42,8 +41,7 @@ namespace galaxy
 				this->m_vbo     = std::move(va.m_vbo);
 				this->m_ibo     = std::move(va.m_ibo);
 
-				va.m_vao     = 0;
-				va.m_counter = 0;
+				va.m_vao = 0;
 			}
 
 			return *this;
@@ -78,8 +76,8 @@ namespace galaxy
 			}
 
 			unbind();
-			vb.unbind();
-			ib.unbind();
+			m_vbo.unbind();
+			m_ibo.unbind();
 		}
 
 		void VertexArray::bind() noexcept
@@ -95,15 +93,13 @@ namespace galaxy
 		void VertexArray::set_instanced(InstanceBuffer& ibo) noexcept
 		{
 			bind();
-
-			glEnableVertexAttribArray(m_counter);
 			ibo.bind();
 
-			m_layout.add<graphics::VertexAttributes::INSTANCE_OFFSET>(2);
-			const auto& attribute = m_layout.get_attributes().back();
+			glEnableVertexAttribArray(m_counter);
+			glVertexAttribPointer(m_counter, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), nullptr);
+			glVertexAttribDivisor(m_counter, 1);
 
-			glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(Vertex), (GLvoid*)attribute.m_offset);
-			glVertexBindingDivisor(m_counter, 1);
+			m_counter++;
 
 			unbind();
 			ibo.unbind();

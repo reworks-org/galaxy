@@ -98,9 +98,9 @@ namespace galaxy
 
 			for (auto& renderable : m_data)
 			{
-				renderable.m_configure_shader();
 				glBindVertexArray(renderable.m_vao);
 				glBindTexture(GL_TEXTURE_2D, renderable.m_texture);
+				renderable.m_configure_shader();
 
 				if (renderable.m_instance_count > 0)
 				{

@@ -32,7 +32,6 @@ constexpr const char* const point_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -73,7 +72,6 @@ constexpr const char* const line_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	layout(std140, binding = 0) uniform camera_data
 	{
@@ -113,7 +111,6 @@ constexpr const char* const text_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -163,7 +160,6 @@ constexpr const char* const sprite_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -195,13 +191,13 @@ constexpr const char* const sprite_frag = R"(
 	in vec2 io_texels;
 	out vec4 io_frag_colour;
 
-	uniform int u_opacity;
+	uniform float u_opacity;
 	uniform sampler2D u_texture;
 
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels);
-		io_frag_colour.a *= (float(u_opacity) / 255.0);
+		io_frag_colour.a *= u_opacity;
 	}
 )";
 
@@ -213,7 +209,6 @@ constexpr const char* const render_to_texture_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	
@@ -256,7 +251,6 @@ constexpr const char* const spritebatch_vert = R"(
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
-	layout(location = 3) in vec2 l_instance_offset;
 
 	out vec2 io_texels;
 	out float io_opacity;
@@ -339,13 +333,13 @@ constexpr const char* const instance_frag = R"(
 	in vec2 io_texels;
 	out vec4 io_frag_colour;
 	
-	uniform int u_opacity;
+	uniform float u_opacity;
 	uniform sampler2D u_texture;
 	
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels);
-		io_frag_colour.a *= (float(u_opacity) / 255.0);
+		io_frag_colour.a *= u_opacity;
 	}
 )";
 
@@ -527,9 +521,20 @@ namespace galaxy
 				.m_type =  GL_TRIANGLES,
 				.m_configure_shader = [this, sprite, transform]()
 				{
+                    int opacity = sprite->get_opacity();
+					float norm_opacity = 0.0f;
+					if (opacity == 255)
+					{
+						norm_opacity = 1.0f;
+					}
+					else if (opacity != 0)
+					{
+						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+					}
+
 					this->m_sprite_shader.bind();
 					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
-					this->m_sprite_shader.set_uniform<int>("u_opacity", sprite->get_opacity());
+					this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
 					this->m_sprite_shader.set_uniform<float>("u_width", sprite->get_width());
 					this->m_sprite_shader.set_uniform<float>("u_height", sprite->get_height());
 				}
@@ -554,8 +559,19 @@ namespace galaxy
 				.m_type = GL_TRIANGLES,
 				.m_configure_shader = [this, particle_effect]()
 				{
+				    int opacity = particle_effect->get_opacity();
+					float norm_opacity = 0.0f;
+					if (opacity == 255)
+					{
+						norm_opacity = 1.0f;
+					}
+					else if (opacity != 0)
+					{
+						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+					}
+
 					this->m_instance_shader.bind();
-					this->m_instance_shader.set_uniform<int>("u_opacity", particle_effect->get_opacity());
+					this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
 					this->m_instance_shader.set_uniform<float>("u_width", particle_effect->get_width());
 					this->m_instance_shader.set_uniform<float>("u_height", particle_effect->get_height());
 				},

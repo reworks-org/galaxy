@@ -7,7 +7,7 @@
 
 #include <execution>
 
-#include <glm/gtc/constants.hpp>
+#include <glm/trigonometric.hpp>
 
 #include "galaxy/math/Random.hpp"
 
@@ -18,18 +18,31 @@ namespace galaxy
 	namespace components
 	{
 		ParticleEffect::ParticleEffect() noexcept
-		    : Serializable {this}, m_opacity {255}, m_layer {""}, m_count {0}, m_radius {1.0f}, m_starting_pos {0.0f, 0.0f}, m_velocity {1.0f, 1.0f}
+			: Serializable {this}
+			, m_opacity {255}
+			, m_layer {""}
+			, m_count {0}
+			, m_radius {1.0f}
+			, m_starting_pos {0.0f, 0.0f}
+			, m_velocity {1.0f, 1.0f}
 		{
 		}
 
 		ParticleEffect::ParticleEffect(const nlohmann::json& json)
-		    : Serializable {this}, m_opacity {255}, m_layer {""}, m_count {0}, m_radius {1.0f}, m_starting_pos {0.0f, 0.0f}, m_velocity {1.0f, 1.0f}
+			: Serializable {this}
+			, m_opacity {255}
+			, m_layer {""}
+			, m_count {0}
+			, m_radius {1.0f}
+			, m_starting_pos {0.0f, 0.0f}
+			, m_velocity {1.0f, 1.0f}
 		{
 			deserialize(json);
 		}
 
 		ParticleEffect::ParticleEffect(ParticleEffect&& pe) noexcept
-		    : Serializable {this}, Texture {std::move(pe)}
+			: Serializable {this}
+			, Texture {std::move(pe)}
 		{
 			this->m_vao          = std::move(pe.m_vao);
 			this->m_ibo          = std::move(pe.m_ibo);
@@ -91,8 +104,7 @@ namespace galaxy
 			vertices[3].m_pos    = {0.0f, 0.0f + m_height};
 			vertices[3].m_texels = {0.0f, 0.0f + m_height};
 
-			std::array<unsigned int, 6> indices =
-			    {0, 1, 3, 1, 2, 3};
+			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
@@ -102,14 +114,14 @@ namespace galaxy
 			m_vao.create(vbo, ibo);
 
 			// 70% - 130% of count.
-			const auto random_count = static_cast<int>(math::random(0.7f, 1.5f) * m_count);
+			const auto random_count = static_cast<int>(m_count * math::random(0.7f, 1.3f));
 			m_instances.resize(random_count);
 
 			std::for_each(std::execution::par, m_instances.begin(), m_instances.end(), [&](auto& particle) {
 				const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
-				const auto angle         = math::random(0.0f, 1.0f) * 2.0f * glm::pi<float>();
-				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * std::cos(angle), random_radius * std::sin(angle)};
-				const auto random_vel    = m_velocity *= math::random(0.5f, 1.5f);
+				const auto angle         = glm::radians(math::random(0.0f, 360.0f));
+				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
+				const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
 
 				particle.m_angle    = angle;
 				particle.m_offset   = random_start;
@@ -131,14 +143,14 @@ namespace galaxy
 			}
 
 			// 70% - 130% of count.
-			const auto random_count = static_cast<int>(math::random(0.7f, 1.5f) * m_count);
+			const auto random_count = static_cast<int>(m_count * math::random(0.7f, 1.3f));
 			m_instances.resize(random_count);
 
 			std::for_each(std::execution::par, m_instances.begin(), m_instances.end(), [&](auto& particle) {
 				const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
-				const auto angle         = math::random(0.0f, 1.0f) * 2.0f * glm::pi<float>();
-				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * std::cos(angle), random_radius * std::sin(angle)};
-				const auto random_vel    = m_velocity *= math::random(0.5f, 1.5f);
+				const auto angle         = glm::radians(math::random(0.0f, 360.0f));
+				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
+				const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
 
 				particle.m_angle    = angle;
 				particle.m_offset   = random_start;
@@ -152,6 +164,7 @@ namespace galaxy
 		void ParticleEffect::buffer()
 		{
 			m_offsets.clear();
+
 			if (m_instances.size() > m_offsets.capacity())
 			{
 				m_offsets.reserve(m_instances.size());

@@ -105,11 +105,6 @@ namespace galaxy
 			///
 			glm::vec2 m_texels;
 
-			///
-			/// Instance offset.
-			///
-			glm::vec2 m_instance_offset;
-
 		private:
 			///
 			/// RGBA colour.

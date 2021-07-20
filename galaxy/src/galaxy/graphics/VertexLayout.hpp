@@ -97,10 +97,6 @@ namespace galaxy
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
 			}
-			else if constexpr (va == VertexAttributes::INSTANCE_OFFSET)
-			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_instance_offset));
-			}
 			else if constexpr (va == VertexAttributes::COLOUR)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_colour));

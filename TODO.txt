@@ -6,6 +6,4 @@ fix input stuttering (think its a dt thing).
 fix map
 input needs to be a system update / component?
 
-fine tune particle randomness
-
 https://github.com/HankiDesign/awesome-dear-imgui

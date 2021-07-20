@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/components/ParticleEffect.hpp"
+#include "galaxy/components/Transform2D.hpp"
 #include "galaxy/math/Random.hpp"
 
 #include "ParticleSystem.hpp"
@@ -30,7 +30,7 @@ namespace galaxy
 
 				for (auto particle = particles.begin(); particle != particles.end();)
 				{
-					particle->m_life -= static_cast<float>(math::random(0.01, 0.1) * dt);
+					particle->m_life -= static_cast<float>(math::random(0.1, 0.3) * dt);
 
 					if (particle->m_life < 0.0f)
 					{
@@ -50,6 +50,10 @@ namespace galaxy
 				if (!particles.empty())
 				{
 					particle_effect->buffer();
+				}
+				else
+				{
+					scene->m_world.disable(entity);
 				}
 			});
 		}
