@@ -11,6 +11,25 @@ namespace galaxy
 {
 	namespace core
 	{
+		ServiceLocator::ServiceLocator() noexcept
+			: m_restart {false}
+			, m_app_start_time_point {}
+			, m_config {nullptr}
+			, m_window {nullptr}
+			, m_lua {nullptr}
+			, m_fontbook {nullptr}
+			, m_shaderbook {nullptr}
+			, m_soundbook {nullptr}
+			, m_musicbook {nullptr}
+			, m_texturebook {nullptr}
+			, m_vfs {nullptr}
+			, m_openal {nullptr}
+			, m_scriptbook {nullptr}
+			, m_language {nullptr}
+			, m_pool {nullptr}
+		{
+		}
+
 		ServiceLocator& ServiceLocator::get() noexcept
 		{
 			static ServiceLocator s_service_locator;
@@ -80,11 +99,6 @@ namespace galaxy
 		async::ThreadPool* ServiceLocator::pool() const noexcept
 		{
 			return m_pool;
-		}
-
-		ServiceLocator::ServiceLocator() noexcept
-		    : m_restart {false}, m_config {nullptr}, m_window {nullptr}, m_lua {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_soundbook {nullptr}, m_musicbook {nullptr}, m_texturebook {nullptr}, m_vfs {nullptr}, m_openal {nullptr}, m_scriptbook {nullptr}, m_language {nullptr}, m_pool {nullptr}
-		{
 		}
 	} // namespace core
 } // namespace galaxy

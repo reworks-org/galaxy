@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_SERVICELOCATOR_HPP_
 #define GALAXY_CORE_SERVICELOCATOR_HPP_
 
+#include <chrono>
+
 #include <sol/forward.hpp>
 
 ///
@@ -168,6 +170,11 @@ namespace galaxy
 			/// Restart flag.
 			///
 			bool m_restart;
+
+			///
+			/// Time point for application start.
+			///
+			std::chrono::high_resolution_clock::time_point m_app_start_time_point;
 
 		private:
 			///

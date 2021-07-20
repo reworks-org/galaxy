@@ -13,7 +13,7 @@ class SandboxApp : public galaxy::core::Application
 {
 public:
 	SandboxApp(std::string_view asset_dir, std::string_view config_file)
-	    : Application {asset_dir, config_file}
+		: Application {asset_dir, config_file}
 	{
 	}
 };
@@ -24,8 +24,9 @@ int main(int argsc, char* argsv[])
 
 	do
 	{
-		restart             = false;
-		SL_HANDLE.m_restart = false;
+		restart                          = false;
+		SL_HANDLE.m_restart              = false;
+		SL_HANDLE.m_app_start_time_point = std::chrono::high_resolution_clock::now();
 
 		{
 			SandboxApp app {"assets/", "assets/config.json"};
