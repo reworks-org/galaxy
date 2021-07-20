@@ -11,8 +11,6 @@
 #include <robin_hood.h>
 
 #include "galaxy/graphics/text/Character.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
 {
@@ -23,6 +21,8 @@ namespace galaxy
 		///
 		class Font final
 		{
+			using CharMap = robin_hood::unordered_node_map<char, Character>;
+
 		public:
 			///
 			/// Constructor.
@@ -42,12 +42,12 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Font(Font&&) noexcept = default;
+			Font(Font&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Font& operator=(Font&&) noexcept = default;
+			Font& operator=(Font&&) noexcept;
 
 			///
 			/// Destructor.
@@ -72,20 +72,6 @@ namespace galaxy
 			/// \return Pointer to character object.
 			///
 			[[nodiscard]] Character* get_char(char c) noexcept;
-
-			///
-			/// Get fontmap.
-			///
-			/// \return Fontmap GL Texture.
-			///
-			[[nodiscard]] const unsigned int get_fontmap() const noexcept;
-
-			///
-			/// Get RenderTexture.
-			///
-			/// \return Pointer to RenderTexture.
-			///
-			[[nodiscard]] RenderTexture* get_rendertexture() noexcept;
 
 			///
 			/// Retrieve width of a string of text.
@@ -128,19 +114,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Get the height of the font.
+			/// Font height cache.
 			///
 			int m_height;
-
-			///
-			/// Character map to lookup characters.
-			///
-			robin_hood::unordered_map<char, Character> m_characters;
-
-			///
-			/// Render Texture.
-			///
-			RenderTexture m_fontmap;
 
 			///
 			/// Pixel size.
@@ -153,9 +129,9 @@ namespace galaxy
 			std::string m_filename;
 
 			///
-			/// Glyph shader.
+			/// Character map to lookup characters.
 			///
-			Shader m_shader;
+			CharMap m_characters;
 		};
 	} // namespace graphics
 } // namespace galaxy

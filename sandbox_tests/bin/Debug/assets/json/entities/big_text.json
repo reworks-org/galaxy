@@ -3,11 +3,11 @@
     "allow-serialize": true,
     "components": {
     	"Tag": {
-            "tag": "TextEntity"
+            "tag": "BigTextEntity"
         },
         "Text": {
             "font":"public20",
-            "text":"Demo",
+            "text":"Big Text",
             "layer": "fore",
             "colour": {
                 "r": 255,
@@ -18,8 +18,8 @@
         },
         "Transform2D": {
             "x": 800,
-            "y": 512,
-            "rotation": 45,
+            "y": 700,
+            "rotation": 0,
             "scale": 1
         },
         "Renderable": {

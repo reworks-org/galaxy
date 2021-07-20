@@ -8,18 +8,12 @@
 #ifndef GALAXY_COMPONENTS_TEXT_HPP_
 #define GALAXY_COMPONENTS_TEXT_HPP_
 
-#include <robin_hood.h>
-
-#include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
-	namespace graphics
-	{
-		class Renderer2D;
-	} // namespace graphics
-
 	namespace components
 	{
 		///
@@ -27,8 +21,6 @@ namespace galaxy
 		///
 		class Text final : public fs::Serializable
 		{
-			friend class graphics::Renderer2D;
-
 		public:
 			///
 			/// Constructor.
@@ -58,20 +50,14 @@ namespace galaxy
 			virtual ~Text() noexcept;
 
 			///
-			/// Load all data into text to prep for creation.
+			/// Create the text object.
 			///
 			/// \param font Font to render text with.
 			/// \param col Colour of the text.
-			///
-			void load(std::string_view font, const graphics::Colour& col);
-
-			///
-			/// Create the text object.
-			///
 			/// \param text Text to display.
 			/// \param layer Rendering layer.
 			///
-			void create(std::string_view text, std::string_view layer);
+			void create(std::string_view font, const graphics::Colour& col, std::string_view text, std::string_view layer);
 
 			///
 			/// Updates text.
@@ -83,9 +69,11 @@ namespace galaxy
 			///
 			/// Set colour.
 			///
-			/// \param col Colour of line.
+			/// \param r Red colour. 0 - 255.
+			/// \param g Green colour. 0 - 255.
+			/// \param b Blue colour. 0 - 255.
 			///
-			void set_colour(const graphics::Colour& col) noexcept;
+			void set_colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b) noexcept;
 
 			///
 			/// Set opacity.
@@ -95,50 +83,11 @@ namespace galaxy
 			void set_opacity(const std::uint8_t opacity) noexcept;
 
 			///
-			/// Set font.
-			///
-			/// \param font New font in VFS.
-			///
-			void set_font(std::string_view font);
-
-			///
 			/// Get current colour.
 			///
 			/// \return Const reference to the current line colour.
 			///
 			[[nodiscard]] graphics::Colour& get_colour() noexcept;
-
-			///
-			/// \brief Get texture width.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Width as int. int over unsigned for compat with float.
-			///
-			[[nodiscard]] const int get_width() const noexcept;
-
-			///
-			/// \brief Get texture height.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Height as int. int over unsigned for compat with float.
-			///
-			[[nodiscard]] const int get_height() const noexcept;
-
-			///
-			/// Get batch width.
-			///
-			/// \return Width as int.
-			///
-			[[nodiscard]] const int get_batch_width() const noexcept;
-
-			///
-			/// Get batch height.
-			///
-			/// \return Height as int.
-			///
-			[[nodiscard]] const int get_batch_height() const noexcept;
 
 			///
 			/// Get rendering layer.
@@ -148,11 +97,25 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_layer() const noexcept;
 
 			///
+			/// Get text width.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_width() const noexcept;
+
+			///
+			/// Get text height.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_height() const noexcept;
+
+			///
 			/// Gets the index count.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int count() const noexcept;
+			[[nodiscard]] const int index_count() const noexcept;
 
 			///
 			/// Get the GL VAO.
@@ -167,20 +130,6 @@ namespace galaxy
 			/// \return Const uint.
 			///
 			[[nodiscard]] const unsigned int gl_texture() const noexcept;
-
-			///
-			/// Get current text.
-			///
-			/// \return Const std::string reference.
-			///
-			[[nodiscard]] const std::string& get_text() const noexcept;
-
-			///
-			/// Get font id string.
-			///
-			/// \return Const std::string reference.
-			///
-			[[nodiscard]] const std::string& get_font_id() const noexcept;
 
 			///
 			/// Serializes object.
@@ -207,20 +156,51 @@ namespace galaxy
 			///
 			Text& operator=(const Text&) = delete;
 
-			///
-			/// Character batch.
-			///
-			struct CharacterBatch final
-			{
-				BatchSprite m_sprite;
-				Transform2D m_transform;
-			};
-
 		private:
+			///
+			/// Font ID.
+			///
+			std::string m_font_id;
+
+			///
+			/// Colour of the text.
+			///
+			graphics::Colour m_colour;
+
+			///
+			/// Text.
+			///
+			std::string m_text;
+
 			///
 			/// Rendering layer.
 			///
 			std::string m_layer;
+
+			///
+			/// Glyph shader.
+			///
+			graphics::Shader m_shader;
+
+			///
+			/// Glyph VBO.
+			///
+			unsigned int m_glyph_vbo;
+
+			///
+			/// Glyph VAO.
+			///
+			unsigned int m_glyph_vao;
+
+			///
+			/// Text Texture.
+			///
+			graphics::RenderTexture m_text_texture;
+
+			///
+			/// Vertex Array Object.
+			///
+			graphics::VertexArray m_text_vao;
 
 			///
 			/// Width cache.
@@ -231,41 +211,6 @@ namespace galaxy
 			/// Height cache.
 			///
 			int m_height;
-
-			///
-			/// Fontmap width cache.
-			///
-			int m_fontmap_width;
-
-			///
-			/// Fontmap height cache.
-			///
-			int m_fontmap_height;
-
-			///
-			/// Colour of the text.
-			///
-			graphics::Colour m_colour;
-
-			///
-			/// Spritebatch.
-			///
-			graphics::SpriteBatch m_batch;
-
-			///
-			/// Character <-> batched sprite hashmap.
-			///
-			robin_hood::unordered_map<unsigned int, CharacterBatch> m_batch_data;
-
-			///
-			/// Font ID.
-			///
-			std::string m_font_str;
-
-			///
-			/// Text ID.
-			///
-			std::string m_text_str;
 		};
 	} // namespace components
 } // namespace galaxy

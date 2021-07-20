@@ -10,15 +10,8 @@
 
 #include <glm/vec2.hpp>
 
-#include "galaxy/math/Rect.hpp"
-
 namespace galaxy
 {
-	namespace components
-	{
-		class Text;
-	} // namespace components
-
 	namespace graphics
 	{
 		///
@@ -26,9 +19,6 @@ namespace galaxy
 		///
 		class Character final
 		{
-			friend class components::Text;
-			friend class Font;
-
 		public:
 			///
 			/// Constructor.
@@ -61,11 +51,11 @@ namespace galaxy
 			///
 			Character& operator=(const Character&) = delete;
 
-		private:
+		public:
 			///
 			/// OpenGL texture.
 			///
-			unsigned int m_gl_texture;
+			unsigned int m_texture;
 
 			///
 			/// Character size.
@@ -81,11 +71,6 @@ namespace galaxy
 			/// Character advance.
 			///
 			unsigned int m_advance;
-
-			///
-			/// Texture region.
-			///
-			math::Rect<float> m_region;
 		};
 	} // namespace graphics
 } // namespace galaxy

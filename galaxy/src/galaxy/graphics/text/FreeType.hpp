@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~FreeTypeLib() noexcept = default;
+			~FreeTypeLib() noexcept;
 
 			///
 			/// Get handle to library.
@@ -64,7 +64,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			FreeTypeLib() noexcept = default;
+			FreeTypeLib() noexcept;
 
 			///
 			/// Copy constructor.

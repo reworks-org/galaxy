@@ -22,7 +22,7 @@
     "sharpen": false,
     "soundbook-json": "soundbook.json",
     "texturebook-json": "texturebook.json",
-    "trilinear-filtering": false,
+    "trilinear-filtering": true,
     "vsync": false,
     "window-height": 720,
     "window-name": "Sandbox Tests",

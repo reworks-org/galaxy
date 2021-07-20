@@ -123,10 +123,10 @@ constexpr const char* const text_vert = R"(
 		mat4 u_camera_proj;
 	};
 
+	uniform mat4 u_transform;
 	uniform float u_width;
 	uniform float u_height;
-	uniform mat4 u_transform;
-
+	
 	void main()
 	{
 		io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
@@ -150,7 +150,8 @@ constexpr const char* const text_frag = R"(
 
 	void main()
 	{
-		io_frag_colour = texture(u_texture, io_texels) * u_colour;
+		io_frag_colour.rgb = u_colour.rgb;
+		io_frag_colour.a = texture(u_texture, io_texels).a * u_colour.a;
 	}
 )";
 
@@ -500,15 +501,15 @@ namespace galaxy
 			Renderable renderable = {
 				.m_vao = text->vao(),
 				.m_texture = text->gl_texture(),
-				.m_index_count = text->count(),
+				.m_index_count = text->index_count(),
 				.m_type = GL_TRIANGLES,
 				.m_configure_shader = [this, text, transform]()
 				{
 					this->m_text_shader.bind();
 					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
 					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
-					this->m_text_shader.set_uniform<float>("u_width", text->get_batch_width());
-					this->m_text_shader.set_uniform<float>("u_height", text->get_batch_height());
+					this->m_text_shader.set_uniform<float>("u_width", text->get_width());
+					this->m_text_shader.set_uniform<float>("u_height", text->get_height());
 				}
 			};
 			// clang-format on

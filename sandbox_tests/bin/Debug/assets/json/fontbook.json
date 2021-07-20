@@ -1,12 +1,8 @@
 {
 	"fontbook": {
-		"public16": {
+		"public20": {
 			"file": "public.ttf",
-			"size": 16
-		},
-		"public8": {
-			"file": "public.ttf",
-			"size": 8
+			"size": 20
 		}
 	}
 }
