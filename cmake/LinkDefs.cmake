@@ -15,6 +15,7 @@ if (WIN32)
 		/OPT:ICF
 		/SUBSYSTEM:WINDOWS
 		/ENTRY:mainCRTStartup
+		/LTCG
 	)
 else()
 	set(GALAXY_LINK_FLAGS_DEBUG

@@ -43,7 +43,6 @@ if (WIN32)
         /Gy
         /GR-
         /Zc:preprocessor
-        /LTCG
         /utf-8
     )
 else()
