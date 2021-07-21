@@ -499,22 +499,22 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
-				/*
 				const auto entity = world.create();
 				auto* batchsprite = world.create_component<components::BatchSprite>(entity);
 				auto* renderable  = world.create_component<components::Renderable>(entity);
 				auto* tag         = world.create_component<components::Tag>(entity);
 				auto* transform   = world.create_component<components::Transform2D>(entity);
 
-				const auto image = std::filesystem::path(layer.get_image()).stem().string();
-				batchsprite->create(image, layer.get_z_level());
+				const auto image          = std::filesystem::path {layer.get_image()}.stem().string();
+				const auto& render_layers = RENDERER_2D().get_sorted_layers();
+				batchsprite->create(image, render_layers[layer.get_z_level()]->get_name());
+
 				renderable->m_type = graphics::Renderables::BATCHED;
-				tag->m_tag         = std::format("{0}_{1}_{2}", layer.get_id(), layer.get_name(), image);
+				tag->m_tag         = std::format("[{0}] {1}/{2}", layer.get_id(), layer.get_name(), image);
 				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
 
 				world.enable(entity);
 				world.unset_flag<flags::AllowSerialize>(entity);
-				*/
 			}
 		}
 
@@ -522,15 +522,15 @@ namespace galaxy
 		{
 			if (layer.get_draworder() == "topdown")
 			{
-				/*
-				const auto& objects = layer.get_objects();
+				const auto& render_layers = RENDERER_2D().get_sorted_layers();
+				const auto& objects       = layer.get_objects();
 				for (const auto& object : objects)
 				{
 					const auto type = object.get_type_enum();
 
 					if (type == Object::Type::TEXT)
 					{
-						GALAXY_LOG(GALAXY_WARNING, "Text objects are not supported.");
+						GALAXY_LOG(GALAXY_ERROR, "Text objects are not supported.");
 					}
 					else
 					{
@@ -539,17 +539,18 @@ namespace galaxy
 						auto* renderable  = world.create_component<components::Renderable>(entity);
 						auto* tag         = world.create_component<components::Tag>(entity);
 						auto* transform   = world.create_component<components::Transform2D>(entity);
-						tag->m_tag        = std::format("{0}_{1}_{2}", object.get_id(), object.get_type(), object.get_name());
+						tag->m_tag        = std::format("[{0}] {1}/{2}", object.get_id(), object.get_type(), object.get_name());
 
 						switch (type)
 						{
 							case Object::Type::ELLIPSE:
 							{
 								components::Primitive2D::PrimitiveData data;
-								data.m_fragments = std::make_optional(40);
-								data.m_radii     = std::make_optional<glm::vec2>(object.get_width() / 2.0, object.get_height() / 2.0);
+								data.m_fragments = 40;
+								data.m_radii.x   = object.get_width() / 2.0;
+								data.m_radii.y   = object.get_height() / 2.0;
 
-								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_colour(), layer.get_z_level());
+								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -561,8 +562,7 @@ namespace galaxy
 							case Object::Type::POINT:
 							{
 								components::Primitive2D::PrimitiveData data;
-								data.m_pointsize = 3;
-								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -574,14 +574,12 @@ namespace galaxy
 							case Object::Type::POLYGON:
 							{
 								components::Primitive2D::PrimitiveData data;
-								std::vector<glm::vec2> points;
 								for (const auto& point : object.get_points())
 								{
-									points.emplace_back(point.get_x(), point.get_y());
+									data.m_points.emplace_back(point.get_x(), point.get_y());
 								}
 
-								data.m_points = std::make_optional(points);
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -593,14 +591,12 @@ namespace galaxy
 							case Object::Type::POLYLINE:
 							{
 								components::Primitive2D::PrimitiveData data;
-								std::vector<glm::vec2> points;
 								for (const auto& point : object.get_points())
 								{
-									points.emplace_back(point.get_x(), point.get_y());
+									data.m_points.emplace_back(point.get_x(), point.get_y());
 								}
 
-								data.m_points = std::make_optional(points);
-								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_colour(), layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -612,14 +608,12 @@ namespace galaxy
 							case Object::Type::RECT:
 							{
 								components::Primitive2D::PrimitiveData data;
-								std::vector<glm::vec2> points;
-								points.emplace_back(0.0f, 0.0f);
-								points.emplace_back(0.0f + object.get_width(), 0.0f);
-								points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
-								points.emplace_back(0.0f, 0.0f + object.get_height());
+								data.m_points.emplace_back(0.0f, 0.0f);
+								data.m_points.emplace_back(0.0f + object.get_width(), 0.0f);
+								data.m_points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
+								data.m_points.emplace_back(0.0f, 0.0f + object.get_height());
 
-								data.m_points = std::make_optional(points);
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), layer.get_z_level());
+								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
 								transform->set_pos(object.get_x(), object.get_y());
 								transform->rotate(object.get_rotation());
@@ -627,12 +621,6 @@ namespace galaxy
 								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
 							break;
-						}
-
-						if (!object.get_name().empty())
-						{
-							auto* tag_component  = world.create_component<components::Tag>(entity);
-							tag_component->m_tag = object.get_name();
 						}
 
 						if (object.is_visible())
@@ -644,11 +632,10 @@ namespace galaxy
 						m_object_entities.push_back(entity);
 					}
 				}
-			*/
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Only topdown object layers are supported.");
+				GALAXY_LOG(GALAXY_ERROR, "Only topdown object layers are supported.");
 			}
 		}
 
@@ -656,8 +643,8 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
-				/*
-				const auto& data = layer.get_data();
+				const auto& data          = layer.get_data();
+				const auto& render_layers = RENDERER_2D().get_sorted_layers();
 
 				for (int i = 0; i < m_height; i++)
 				{
@@ -680,7 +667,7 @@ namespace galaxy
 							auto* transform   = world.create_component<components::Transform2D>(entity);
 
 							renderable->m_type = graphics::Renderables::BATCHED;
-							batch->create(tile_name, layer.get_z_level());
+							batch->create(tile_name, render_layers[layer.get_z_level()]->get_name());
 							transform->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
 
 							world.enable(entity);
@@ -711,7 +698,6 @@ namespace galaxy
 						}
 					}
 				}
-				*/
 			}
 		}
 

@@ -1,6 +1,5 @@
 - fix input stuttering (think its a dt thing).
-- fix map
-	- map hot reloading
+- fix map hot reloading
 - input needs to be a system update / component?
 - some resource managers unique to a scene?
 - https://github.com/HankiDesign/awesome-dear-imgui
