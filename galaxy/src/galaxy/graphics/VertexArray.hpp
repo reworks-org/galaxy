@@ -45,8 +45,8 @@ namespace galaxy
 			///
 			/// Create vertex array.
 			///
-			/// \param vbo VBO to specify for VAO. Is move'd into this structure, the original is discarded.
-			/// \param ibo IBO to specify for VAO. Is move'd into this structure, the original is discarded.
+			/// \param vb VBO to specify for VAO. Is move'd into this structure, the original is discarded.
+			/// \param ib IBO to specify for VAO. Is move'd into this structure, the original is discarded.
 			///
 			void create(VertexBuffer& vb, IndexBuffer& ib);
 
@@ -63,7 +63,7 @@ namespace galaxy
 			///
 			/// Enable instancing for this vertex array.
 			///
-			/// \param instance_buffer Instance buffer to use when instancing with this VAO.
+			/// \param ibo Instance buffer to use when instancing with this VAO.
 			///						   This is not moved into the VAO, you need to keep the instance buffer alive seperately.
 			///
 			void set_instanced(InstanceBuffer& ibo) noexcept;

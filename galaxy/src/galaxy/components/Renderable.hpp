@@ -53,7 +53,7 @@ namespace galaxy
 			///
 			/// Update the internal AABB box.
 			///
-			/// \param rect New bounds for AABB.
+			/// \param bounds New bounds for AABB.
 			///
 			/// \return Returns internal aabb after updating, for convenience.
 			///
