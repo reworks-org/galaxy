@@ -18,16 +18,7 @@ supercluster/bin/Debug/*.idb
 supercluster/bin/Debug/*.dll
 supercluster/bin/Debug/logs/
 supercluster/bin/Debug/tools
-supercluster/bin/Release/*.exp
-supercluster/bin/Release/*.lib
-supercluster/bin/Release/*.exe
-supercluster/bin/Release/*.ilk
-supercluster/bin/Release/*.pdb
-supercluster/bin/Release/*.obj
-supercluster/bin/Release/*.idb
-supercluster/bin/Release/*.dll
-supercluster/bin/Release/logs/
-supercluster/bin/Release/tools
+supercluster/bin/Release/
 
 sandbox_tests/bin/Debug/*.exp
 sandbox_tests/bin/Debug/*.lib
@@ -38,15 +29,7 @@ sandbox_tests/bin/Debug/*.obj
 sandbox_tests/bin/Debug/*.idb
 sandbox_tests/bin/Debug/*.dll
 sandbox_tests/bin/Debug/logs/
-sandbox_tests/bin/Release/*.exp
-sandbox_tests/bin/Release/*.lib
-sandbox_tests/bin/Release/*.exe
-sandbox_tests/bin/Release/*.ilk
-sandbox_tests/bin/Release/*.pdb
-sandbox_tests/bin/Release/*.obj
-sandbox_tests/bin/Release/*.idb
-sandbox_tests/bin/Release/*.dll
-sandbox_tests/bin/Release/logs/
+sandbox_tests/bin/Release/
 
 sandbox_3d_tests/bin/Debug/*.exp
 sandbox_3d_tests/bin/Debug/*.lib
@@ -57,14 +40,6 @@ sandbox_3d_tests/bin/Debug/*.obj
 sandbox_3d_tests/bin/Debug/*.idb
 sandbox_3d_tests/bin/Debug/*.dll
 sandbox_3d_tests/bin/Debug/logs/
-sandbox_3d_tests/bin/Release/*.exp
-sandbox_3d_tests/bin/Release/*.lib
-sandbox_3d_tests/bin/Release/*.exe
-sandbox_3d_tests/bin/Release/*.ilk
-sandbox_3d_tests/bin/Release/*.pdb
-sandbox_3d_tests/bin/Release/*.obj
-sandbox_3d_tests/bin/Release/*.idb
-sandbox_3d_tests/bin/Release/*.dll
-sandbox_3d_tests/bin/Release/logs/
+sandbox_3d_tests/bin/Release/
 
 tests/bin/
