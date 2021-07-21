@@ -9,7 +9,6 @@
 #define GALAXY_SYSTEMS_RENDERSYSTEM2D_HPP_
 
 #include "galaxy/core/Scene2D.hpp"
-#include "galaxy/math/QuadTree.hpp"
 
 namespace galaxy
 {
@@ -46,17 +45,6 @@ namespace galaxy
 			/// \param camera Camera used for rendering.
 			///
 			void render(core::World& world, graphics::Camera2D& camera);
-
-		private:
-			///
-			/// Quadtree for spacial partitioning.
-			///
-			math::Quadtree m_quadtree;
-
-			///
-			/// Output memory cache.
-			///
-			std::vector<math::Quadtree::Object*> m_output;
 		};
 	} // namespace systems
 } // namespace galaxy

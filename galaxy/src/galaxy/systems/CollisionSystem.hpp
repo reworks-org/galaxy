@@ -9,7 +9,6 @@
 #define GALAXY_SYSTEM_COLLISIONSYSTEM_HPP_
 
 #include "galaxy/core/Scene2D.hpp"
-#include "galaxy/math/QuadTree.hpp"
 #include "galaxy/physics/DynamicTree.hpp"
 
 namespace galaxy
@@ -55,16 +54,6 @@ namespace galaxy
 			/// Possible entity memory cache.
 			///
 			std::vector<ecs::Entity> m_possible;
-
-			///
-			/// Quadtree for spacial partitioning.
-			///
-			math::Quadtree m_quadtree;
-
-			///
-			/// Output memory cache.
-			///
-			std::vector<math::Quadtree::Object*> m_output;
 		};
 	} // namespace systems
 } // namespace galaxy

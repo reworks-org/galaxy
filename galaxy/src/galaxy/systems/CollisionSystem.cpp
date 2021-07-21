@@ -25,7 +25,6 @@ namespace galaxy
 	{
 		CollisionSystem::CollisionSystem() noexcept
 			: m_mtv {0.0f, 0.0f}
-			, m_quadtree {0, {0, 0, 0, 0}}
 		{
 		}
 
@@ -33,36 +32,16 @@ namespace galaxy
 		{
 			m_bvh.clear();
 			m_possible.clear();
-			m_quadtree.clear();
-			m_output.clear();
 		}
 
 		void CollisionSystem::update(core::Scene2D* scene, const double dt)
 		{
-			m_quadtree.clear();
-			m_output.clear();
-
-			if (!scene->get_active_map())
-			{
-				m_quadtree.resize(SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
-			}
-			else
-			{
-				m_quadtree.resize(scene->get_active_map()->get_width(), scene->get_active_map()->get_height());
-			}
+			m_bvh.clear();
 
 			scene->m_world.operate<components::RigidBody, components::Renderable>(
 				[&](const ecs::Entity entity, components::RigidBody* body, components::Renderable* renderable) {
-					m_quadtree.insert({.m_aabb = &renderable->get_aabb(), .m_entity = entity});
+					m_bvh.insert(entity, renderable->get_aabb().min(), renderable->get_aabb().max());
 				});
-
-			m_quadtree.query({.m_aabb = &scene->m_camera.get_aabb(), .m_entity = 0}, m_output);
-
-			m_bvh.clear();
-			for (auto* object : m_output)
-			{
-				m_bvh.insert(object->m_entity, object->m_aabb->min(), object->m_aabb->max());
-			}
 
 			scene->m_world.operate<components::RigidBody, components::Transform2D>(
 				[&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform2D* transform) {
