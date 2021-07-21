@@ -8,8 +8,6 @@
 #ifndef GALAXY_COMPONENTS_PRIMITIVE2D_HPP_
 #define GALAXY_COMPONENTS_PRIMITIVE2D_HPP_
 
-#include <optional>
-
 #include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
 
@@ -35,27 +33,27 @@ namespace galaxy
 				///
 				/// Used for Circle.
 				///
-				std::optional<float> m_radius = std::nullopt;
+				float m_radius = 1.0f;
 
 				///
 				/// Used for Ellipse.
 				///
-				std::optional<glm::vec2> m_radii = std::nullopt;
+				glm::vec2 m_radii = {1.0f, 1.0f};
 
 				///
 				/// Used for Circle and Ellipse.
 				///
-				std::optional<float> m_fragments = std::nullopt;
+				float m_fragments = 1.0f;
 
 				///
 				/// Used by line. Contains start and end point.
 				///
-				std::optional<glm::vec4> m_start_end = std::nullopt;
+				glm::vec4 m_start_end = {0.0f, 0.0f, 1.0f, 1.0f};
 
 				///
 				/// Used by Polyline and Polygon.
 				///
-				std::optional<std::vector<glm::vec2>> m_points = std::nullopt;
+				std::vector<glm::vec2> m_points;
 			};
 
 		public:
@@ -257,12 +255,12 @@ namespace galaxy
 
 				unsigned int count        = 0;
 				constexpr float incr_stat = 2.0f * glm::pi<float>();
-				const float increment     = incr_stat / data.m_fragments.value();
+				const float increment     = incr_stat / data.m_fragments;
 				for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 				{
 					graphics::Vertex vertex;
-					vertex.m_pos.x = (data.m_radius.value() * glm::cos(angle)) + data.m_radius.value();
-					vertex.m_pos.y = (data.m_radius.value() * glm::sin(angle) + data.m_radius.value());
+					vertex.m_pos.x = (data.m_radius * glm::cos(angle)) + data.m_radius;
+					vertex.m_pos.y = (data.m_radius * glm::sin(angle) + data.m_radius);
 
 					m_vertexs.emplace_back(vertex);
 					indices.push_back(count);
@@ -277,15 +275,15 @@ namespace galaxy
 				ibo.create(indices, true);
 				m_vao.create(vbo, ibo);
 
-				m_width  = data.m_radius.value() * 2.0f;
-				m_height = data.m_radius.value() * 2.0f;
+				m_width  = data.m_radius * 2.0f;
+				m_height = data.m_radius * 2.0f;
 			}
 			else if constexpr (type == graphics::Primitives::ELLIPSE)
 			{
 				// Thanks to https://stackoverflow.com/a/34735255
 				// For help with maths.
 
-				const float theta  = 2.0f * glm::pi<float>() / m_data.m_fragments.value();
+				const float theta  = 2.0f * glm::pi<float>() / m_data.m_fragments;
 				const float cosine = std::cosf(theta);
 				const float sine   = std::sinf(theta);
 
@@ -294,11 +292,11 @@ namespace galaxy
 				float y    = 0.0f;
 
 				unsigned int count = 0;
-				for (auto i = 0; i < std::floor(m_data.m_fragments.value()); i++)
+				for (auto i = 0; i < std::floor(m_data.m_fragments); i++)
 				{
 					graphics::Vertex vertex;
-					vertex.m_pos.x = (x * m_data.m_radii.value().x) + m_data.m_radii.value().x;
-					vertex.m_pos.y = (y * m_data.m_radii.value().y) + m_data.m_radii.value().y;
+					vertex.m_pos.x = (x * m_data.m_radii.x) + m_data.m_radii.x;
+					vertex.m_pos.y = (y * m_data.m_radii.y) + m_data.m_radii.y;
 
 					m_vertexs.emplace_back(vertex);
 					indices.push_back(count);
@@ -316,19 +314,19 @@ namespace galaxy
 				ibo.create(indices, true);
 				m_vao.create(vbo, ibo);
 
-				m_width  = m_data.m_radii.value().x * 2.0f;
-				m_height = m_data.m_radii.value().y * 2.0f;
+				m_width  = m_data.m_radii.x * 2.0f;
+				m_height = m_data.m_radii.y * 2.0f;
 			}
 			else if constexpr (type == graphics::Primitives::LINE)
 			{
 				graphics::Vertex vertex;
 
-				vertex.m_pos.x = m_data.m_start_end.value().x;
-				vertex.m_pos.y = m_data.m_start_end.value().y;
+				vertex.m_pos.x = m_data.m_start_end.x;
+				vertex.m_pos.y = m_data.m_start_end.y;
 				m_vertexs.emplace_back(vertex);
 
-				vertex.m_pos.x = m_data.m_start_end.value().z;
-				vertex.m_pos.y = m_data.m_start_end.value().w;
+				vertex.m_pos.x = m_data.m_start_end.z;
+				vertex.m_pos.y = m_data.m_start_end.w;
 				m_vertexs.emplace_back(vertex);
 
 				indices.push_back(0);
@@ -369,7 +367,7 @@ namespace galaxy
 				m_height = 0;
 
 				unsigned int count = 0;
-				for (const auto& point : m_data.m_points.value())
+				for (const auto& point : m_data.m_points)
 				{
 					if constexpr (type == graphics::Primitives::POLYGON)
 					{
