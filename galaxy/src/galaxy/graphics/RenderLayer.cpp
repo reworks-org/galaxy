@@ -14,10 +14,10 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		RenderLayer::RenderLayer(const int layer)
+		RenderLayer::RenderLayer(std::string_view name, const int layer)
 			: m_layer {layer}
+			, m_name {name}
 		{
-			m_data.reserve(50);
 		}
 
 		RenderLayer::RenderLayer(RenderLayer&& rl) noexcept
@@ -25,6 +25,7 @@ namespace galaxy
 			this->m_batches = std::move(rl.m_batches);
 			this->m_data    = std::move(rl.m_data);
 			this->m_layer   = rl.m_layer;
+			this->m_name    = std::move(rl.m_name);
 		}
 
 		RenderLayer& RenderLayer::operator=(RenderLayer&& rl) noexcept
@@ -34,6 +35,7 @@ namespace galaxy
 				this->m_batches = std::move(rl.m_batches);
 				this->m_data    = std::move(rl.m_data);
 				this->m_layer   = rl.m_layer;
+				this->m_name    = std::move(rl.m_name);
 			}
 
 			return *this;
@@ -115,6 +117,11 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glBindVertexArray(0);
 			glUseProgram(0);
+		}
+
+		const std::string& RenderLayer::get_name() const noexcept
+		{
+			return m_name;
 		}
 
 		const int RenderLayer::get_layer() const noexcept

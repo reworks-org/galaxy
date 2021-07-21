@@ -372,15 +372,15 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Renderer2D::init(std::string_view layers)
+		void Renderer2D::init(std::string_view layer_file)
 		{
-			const auto opt = json::parse_from_disk(layers);
+			const auto opt = json::parse_from_disk(layer_file);
 			if (opt != std::nullopt)
 			{
 				const auto& root = opt.value().at("layers");
 				for (const auto& [name, layer] : root.items())
 				{
-					m_layer_data.emplace(name, layer.get<int>());
+					m_layer_data.emplace(name, RenderLayer {name, layer.get<int>()});
 				}
 
 				// Set pointers to layer data.
@@ -402,7 +402,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to create renderlayers from path: {0}.", layers);
+				GALAXY_LOG(GALAXY_FATAL, "Failed to create renderlayers from path: {0}.", layer_file);
 			}
 		}
 
@@ -609,6 +609,11 @@ namespace galaxy
 			m_rtt_shader.set_uniform<float>("u_height", sprite->get_height());
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		const std::vector<RenderLayer*>& Renderer2D::get_sorted_layers() const noexcept
+		{
+			return m_layers;
 		}
 	} // namespace graphics
 } // namespace galaxy

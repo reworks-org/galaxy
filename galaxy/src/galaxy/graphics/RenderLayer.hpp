@@ -29,9 +29,10 @@ namespace galaxy
 			///
 			/// Argument constructor.
 			///
+			/// \param name String identifier for this layer.
 			/// \param layer Numeric depth of this layer. Back-To-Front ordering.
 			///
-			RenderLayer(const int layer);
+			RenderLayer(std::string_view name, const int layer);
 
 			///
 			/// Move constructor.
@@ -73,6 +74,13 @@ namespace galaxy
 			void draw();
 
 			///
+			/// Get layer id.
+			///
+			/// \return Const reference to a string.
+			///
+			[[nodiscard]] const std::string& get_name() const noexcept;
+
+			///
 			/// Get numeric layer (depth).
 			///
 			/// \return Const integer. Back-To-Front ordering.
@@ -96,6 +104,11 @@ namespace galaxy
 			RenderLayer& operator=(const RenderLayer&) = delete;
 
 		private:
+			///
+			/// Layer string id.
+			///
+			std::string m_name;
+
 			///
 			/// Layer depth.
 			///

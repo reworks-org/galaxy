@@ -56,9 +56,9 @@ namespace galaxy
 			///
 			/// Initialize render layers.
 			///
-			/// \param layers Path to renderlayers.json.
+			/// \param layer_file Path to renderlayers.json.
 			///
-			void init(std::string_view layers);
+			void init(std::string_view layer_file);
 
 			///
 			/// Clean up data.
@@ -164,6 +164,13 @@ namespace galaxy
 			/// \param target Target framebuffer to draw sprite to.
 			///
 			void draw_sprite_to_target(components::Sprite* sprite, components::Transform2D* transform, RenderTexture* target);
+
+			///
+			/// Get sorted rendering layers.
+			///
+			/// \return Const reference to a vector of layer pointers.
+			///
+			[[nodiscard]] const std::vector<RenderLayer*>& get_sorted_layers() const noexcept;
 
 		private:
 			///
