@@ -24,25 +24,11 @@ namespace galaxy
 	{
 		class Scene2D;
 
-		///
-		/// Predefinition of unique id structure for components.
-		///
-		using CUniqueID = meta::UniqueID<struct ComponentUniqueID>;
-
-		///
-		/// Predefinition of unique id structure for systems.
-		///
-		using SUniqueID = meta::UniqueID<struct SystemUniqueID>;
-
-		///
-		/// Container for retrieval of entities in operate() function.
-		///
+		using CUniqueID           = meta::UniqueID<struct ComponentUniqueID>;
+		using SUniqueID           = meta::UniqueID<struct SystemUniqueID>;
 		using EntitysWithCounters = robin_hood::unordered_flat_map<ecs::Entity, int>;
-
-		///
-		/// Shorthand for component factory map.
-		///
-		using ComponentFactory = robin_hood::unordered_node_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
+		using ComponentFactory    = robin_hood::unordered_node_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
+		using Relationships       = robin_hood::unordered_flat_map<ecs::Entity, std::vector<ecs::Entity>>;
 
 		///
 		/// Concept to ensure a system is actually derived from a System.
@@ -160,6 +146,57 @@ namespace galaxy
 			[[nodiscard]] Component* get(const ecs::Entity entity);
 
 			///
+			/// Set an entity as the parent of a relationship.
+			///
+			/// \param entity Entity to make a parent.
+			///
+			void make_parent(const ecs::Entity entity) noexcept;
+
+			///
+			/// Check if an entity is a parent.
+			///
+			/// \return True if entity is a parent.
+			///
+			[[nodiscard]] const bool is_parent(const ecs::Entity entity) noexcept;
+
+			///
+			/// Removes a parent and all its children.
+			///
+			/// \param parent Parent entity of a relationship.
+			///
+			void remove_parent(const ecs::Entity parent) noexcept;
+
+			///
+			/// Destroy a parent entity and all its children.
+			///
+			/// \param parent Parent entity of a relationship.
+			///
+			void destroy_parent(const ecs::Entity parent) noexcept;
+
+			///
+			/// Assign an entity to a parent as a child.
+			///
+			/// \param parent Parent entity of a relationship.
+			/// \param child Child entity to form a relationship with a parent.
+			///
+			void assign_child(const ecs::Entity parent, const ecs::Entity child) noexcept;
+
+			///
+			/// Remove a child entity from a parent entity.
+			///
+			/// \param parent Parent entity of a relationship.
+			/// \param child Child entity to remove.
+			///
+			void remove_child(const ecs::Entity parent, const ecs::Entity child) noexcept;
+
+			///
+			/// Get all children of a parent entity.
+			///
+			/// \return Pointer to vector of childen, or nullptr if not parent. Will be empty if no children, not nullptr.
+			///
+			[[nodiscard]] std::vector<ecs::Entity>* const get_children(const ecs::Entity parent) noexcept;
+
+			///
 			/// Remove a component assosiated with an entity.
 			/// Template type is type of component to remove.
 			///
@@ -169,7 +206,9 @@ namespace galaxy
 			void remove(const ecs::Entity entity);
 
 			///
-			/// Destroys an entity and all associated components.
+			/// \brief Destroys an entity and all associated components.
+			///
+			/// If the entity is a parent this will destroy the relationship but not the children.
 			///
 			/// \param entity Entity to destroy.
 			///
@@ -374,6 +413,11 @@ namespace galaxy
 			/// Used to allow for component creation without having to know the compile time type.
 			///
 			ComponentFactory m_component_factory;
+
+			///
+			/// Holds relationships between "parent" and "child" entities.
+			///
+			Relationships m_relationships;
 		};
 
 		template<meta::is_bitset_flag Flag>

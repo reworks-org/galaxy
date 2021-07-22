@@ -137,9 +137,86 @@ namespace galaxy
 			return entity;
 		}
 
+		void World::make_parent(const ecs::Entity entity) noexcept
+		{
+			if (!is_parent(entity))
+			{
+				m_relationships[entity] = {};
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to add duplicate parent entity: {0}.", entity);
+			}
+		}
+
+		const bool World::is_parent(const ecs::Entity entity) noexcept
+		{
+			return m_relationships.contains(entity);
+		}
+
+		void World::remove_parent(const ecs::Entity parent) noexcept
+		{
+			if (is_parent(parent))
+			{
+				m_relationships.erase(parent);
+			}
+		}
+
+		void World::destroy_parent(const ecs::Entity parent) noexcept
+		{
+			if (is_parent(parent))
+			{
+				for (const auto& entity : m_relationships[parent])
+				{
+					destroy(entity);
+				}
+
+				destroy(parent);
+				m_relationships.erase(parent);
+			}
+		}
+
+		void World::assign_child(const ecs::Entity parent, const ecs::Entity child) noexcept
+		{
+			if (is_parent(parent))
+			{
+				m_relationships[parent].push_back(child);
+			}
+		}
+
+		void World::remove_child(const ecs::Entity parent, const ecs::Entity child) noexcept
+		{
+			if (is_parent(parent))
+			{
+				m_relationships[parent].erase(std::remove(std::execution::par, m_relationships[parent].begin(), m_relationships[parent].end(), child),
+											  m_relationships[parent].end());
+			}
+		}
+
+		std::vector<ecs::Entity>* const World::get_children(const ecs::Entity parent) noexcept
+		{
+			if (is_parent(parent))
+			{
+				return &m_relationships[parent];
+			}
+			else
+			{
+				return nullptr;
+			}
+		}
+
 		void World::destroy(const ecs::Entity entity)
 		{
-			m_entities.erase(std::remove(m_entities.begin(), m_entities.end(), entity), m_entities.end());
+			remove_parent(entity);
+
+			// clang-format off
+			std::for_each(std::execution::par, m_relationships.begin(), m_relationships.end(), [entity](auto& pair) {
+				// Does nothing if it does not exist.
+				pair.second.erase(std::remove(pair.second.begin(), pair.second.end(), entity), pair.second.end());
+			});
+			// clang-format on
+
+			m_entities.erase(std::remove(std::execution::par, m_entities.begin(), m_entities.end(), entity), m_entities.end());
 
 			for (const auto& ptr : m_data)
 			{

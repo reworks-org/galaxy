@@ -108,6 +108,7 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 
 
 ### Credits
+* Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
 * [sercode.ttf](http://www.dafont.com/secret-code.font).
 	* Used in logo.png & logo_docs.png.
@@ -123,11 +124,12 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * Resources used in sandbox:
 	* Various from [OpenGameArt](https://opengameart.org/). No copyright infringement intended.
 * https://learnopengl.com/
-* https://skypjack.github.io/2019-02-14-ecs-baf-part-1/.
-* https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/.
-* https://skypjack.github.io/2019-09-25-ecs-baf-part-5/.
-* https://www.computist.xyz/2018/06/sparse-sets.html.
-* https://www.geeksforgeeks.org/sparse-set/.
+* https://skypjack.github.io/2019-02-14-ecs-baf-part-1/
+* https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/
+* https://skypjack.github.io/2019-06-25-ecs-baf-part-4/
+* https://skypjack.github.io/2019-09-25-ecs-baf-part-5/
+* https://www.computist.xyz/2018/06/sparse-sets.html
+* https://www.geeksforgeeks.org/sparse-set/
 * https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
@@ -135,6 +137,5 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://github.com/SSBMTonberry/tileson/
 * https://github.com/RandyGaul/cute_headers/
 * https://github.com/Asmodean-/SMAA-OpenGL/
-* Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
 * https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 * https://github.com/lettier/3d-game-shaders-for-beginners
