@@ -113,7 +113,7 @@ namespace galaxy
 			m_fb.unbind();
 		}
 
-		void PostProcessor::render()
+		void PostProcessor::render_effects()
 		{
 			glBindVertexArray(m_screen_vao);
 
@@ -131,14 +131,10 @@ namespace galaxy
 			{
 				m_output_fb = m_sharpen.render(m_output_fb);
 			}
+		}
 
-			// Final Output.
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
-
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+		void PostProcessor::render_output()
+		{
 			m_output.bind();
 
 			glBindTexture(GL_TEXTURE_2D, m_output_fb);

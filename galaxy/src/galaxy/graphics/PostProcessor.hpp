@@ -52,9 +52,14 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Draw post effects to stored framebuffer and render to screen.
+			/// Draw post effects to stored framebuffer.
 			///
-			void render();
+			void render_effects();
+
+			///
+			/// Draw finished post effects to default framebuffer (screen).
+			///
+			void render_output();
 
 		private:
 			///

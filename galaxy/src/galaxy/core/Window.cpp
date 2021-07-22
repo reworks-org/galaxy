@@ -67,9 +67,11 @@ namespace galaxy
 			}
 
 			// Error callbacks.
+			// clang-format off
 			glfwSetErrorCallback([](int error, const char* description) {
 				GALAXY_LOG(GALAXY_ERROR, "[GLFW] Code: {0}. Desc: {1}.", error, description);
 			});
+			// clang-format on
 
 			// Init glfw.
 			if (!glfwInit())
@@ -145,6 +147,7 @@ namespace galaxy
 						glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
 
 						// Set resize callback.
+						// clang-format off
 						glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
@@ -216,6 +219,7 @@ namespace galaxy
 							this_win->m_event_queue.emplace<events::MouseWheel>({xoffset, yoffset});
 							this_win->m_mouse.m_scroll_delta = yoffset;
 						});
+						// clang-format on
 
 						if (settings.m_gl_debug)
 						{
@@ -441,9 +445,11 @@ namespace galaxy
 
 		void Window::prevent_native_closing() noexcept
 		{
+			// clang-format off
 			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
 				glfwSetWindowShouldClose(window, GLFW_FALSE);
 			});
+			// clang-format on
 		}
 
 		void Window::begin()
@@ -455,7 +461,16 @@ namespace galaxy
 		void Window::end()
 		{
 			RENDERER_2D().draw();
-			m_post_processor->render();
+			m_post_processor->render_effects();
+
+			// Final Output.
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glViewport(0, 0, m_width, m_height);
+
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			m_post_processor->render_output();
 
 			glfwSwapBuffers(m_window);
 		}
