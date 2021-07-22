@@ -77,13 +77,12 @@ namespace galaxy
 			{
 				m_path = path.value();
 
-				glBindTexture(GL_TEXTURE_2D, m_texture);
-
 				stbi_set_flip_vertically_on_load(true);
 				unsigned char* data = stbi_load(m_path.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 				if (data)
 				{
+					glBindTexture(GL_TEXTURE_2D, m_texture);
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 					glGenerateMipmap(GL_TEXTURE_2D);
 
@@ -102,6 +101,7 @@ namespace galaxy
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 					glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
 
+					glBindTexture(GL_TEXTURE_2D, 0);
 					m_loaded = true;
 				}
 				else
@@ -110,19 +110,17 @@ namespace galaxy
 				}
 
 				stbi_image_free(data);
-				glBindTexture(GL_TEXTURE_2D, 0);
 			}
 		}
 
 		void Texture::load_mem(std::span<unsigned char> buffer)
 		{
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-
 			stbi_set_flip_vertically_on_load(true);
 			unsigned char* data = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 			if (data)
 			{
+				glBindTexture(GL_TEXTURE_2D, m_texture);
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
@@ -141,6 +139,7 @@ namespace galaxy
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
 
+				glBindTexture(GL_TEXTURE_2D, 0);
 				m_loaded = true;
 			}
 			else
@@ -149,7 +148,6 @@ namespace galaxy
 			}
 
 			stbi_image_free(data);
-			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		void Texture::save(std::string_view file)
