@@ -5,8 +5,6 @@
 /// See LICENSE.txt.
 ///
 
-#include <execution>
-
 #include "Set.hpp"
 
 namespace galaxy
