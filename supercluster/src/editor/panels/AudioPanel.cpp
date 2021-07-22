@@ -30,19 +30,19 @@ namespace sc
 			ImGui::Spacing();
 
 			static float s_listener_factor = openal->get_dopper_factor();
-			if (ImGui::SliderFloat("Doppler Factor", &s_listener_factor, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Doppler Factor", &s_listener_factor, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_doppler_factor(s_listener_factor);
 			}
 
 			static float s_listener_gain = openal->get_listener_gain();
-			if (ImGui::SliderFloat("Global Volume", &s_listener_gain, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Global Volume", &s_listener_gain, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_gain(s_listener_gain);
 			}
 
 			static float s_listener_sos = openal->get_speed_of_sound();
-			if (ImGui::SliderFloat("Speed of Sound", &s_listener_sos, 0.1f, 1000.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Speed of Sound", &s_listener_sos, 0.1f, 1000.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_speed_of_sound(s_listener_sos);
 			}
@@ -50,17 +50,17 @@ namespace sc
 			static glm::vec3 s_listener_pos = openal->get_listener_position();
 			ImGui::Text("Listener Position");
 
-			if (ImGui::SliderFloat("X##VEC301", &s_listener_pos.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("X##VEC301", &s_listener_pos.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_position(s_listener_pos);
 			}
 
-			if (ImGui::SliderFloat("Y##VEC301", &s_listener_pos.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Y##VEC301", &s_listener_pos.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_position(s_listener_pos);
 			}
 
-			if (ImGui::SliderFloat("Z##VEC301", &s_listener_pos.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Z##VEC301", &s_listener_pos.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_position(s_listener_pos);
 			}
@@ -70,17 +70,17 @@ namespace sc
 			static glm::vec3 s_listener_vel = openal->get_listener_velocity();
 			ImGui::Text("Listener Velocity");
 
-			if (ImGui::SliderFloat("X##VEC302", &s_listener_vel.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("X##VEC302", &s_listener_vel.x, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_velocity(s_listener_vel);
 			}
 
-			if (ImGui::SliderFloat("Y##VEC302", &s_listener_vel.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Y##VEC302", &s_listener_vel.y, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_velocity(s_listener_vel);
 			}
 
-			if (ImGui::SliderFloat("Z##VEC302", &s_listener_vel.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+			if (ImGui::SliderFloat("Z##VEC302", &s_listener_vel.z, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 			{
 				openal->set_listener_velocity(s_listener_vel);
 			}
@@ -234,19 +234,19 @@ namespace sc
 						}
 
 						static float s_pitch = s_selected_music->get_pitch();
-						if (ImGui::SliderFloat("Pitch", &s_pitch, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Pitch", &s_pitch, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_pitch(s_pitch);
 						}
 
 						static float s_gain = s_selected_music->get_gain();
-						if (ImGui::SliderFloat("Gain", &s_gain, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Gain", &s_gain, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_gain(s_gain);
 						}
 
 						static float s_rolloff_factor = s_selected_music->get_rolloff_factor();
-						if (ImGui::SliderFloat("Rolloff", &s_rolloff_factor, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Rolloff", &s_rolloff_factor, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_rolloff_factor(s_rolloff_factor);
 						}
@@ -259,17 +259,17 @@ namespace sc
 						}
 
 						static glm::vec3 s_cone = s_selected_music->get_cone();
-						if (ImGui::SliderFloat("Outer Gain", &s_cone.x, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Outer Gain", &s_cone.x, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}
 
-						if (ImGui::SliderFloat("Inner Gain", &s_cone.y, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Inner Gain", &s_cone.y, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}
 
-						if (ImGui::SliderFloat("Outer Angle", &s_cone.z, 0.0f, 360.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Outer Angle", &s_cone.z, 0.0f, 360.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_music->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}
@@ -368,19 +368,19 @@ namespace sc
 						}
 
 						static float s_pitch = s_selected_sfx->get_pitch();
-						if (ImGui::SliderFloat("Pitch", &s_pitch, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Pitch", &s_pitch, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_pitch(s_pitch);
 						}
 
 						static float s_gain = s_selected_sfx->get_gain();
-						if (ImGui::SliderFloat("Gain", &s_gain, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Gain", &s_gain, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_gain(s_gain);
 						}
 
 						static float s_rolloff_factor = s_selected_sfx->get_rolloff_factor();
-						if (ImGui::SliderFloat("Rolloff", &s_rolloff_factor, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Rolloff", &s_rolloff_factor, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_rolloff_factor(s_rolloff_factor);
 						}
@@ -393,17 +393,17 @@ namespace sc
 						}
 
 						static glm::vec3 s_cone = s_selected_sfx->get_cone();
-						if (ImGui::SliderFloat("Outer Gain", &s_cone.x, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Outer Gain", &s_cone.x, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}
 
-						if (ImGui::SliderFloat("Inner Gain", &s_cone.y, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Inner Gain", &s_cone.y, 0.0f, 1.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}
 
-						if (ImGui::SliderFloat("Outer Angle", &s_cone.z, 0.0f, 360.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						if (ImGui::SliderFloat("Outer Angle", &s_cone.z, 0.0f, 360.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
 							s_selected_sfx->set_cone(s_cone.x, s_cone.y, s_cone.z);
 						}

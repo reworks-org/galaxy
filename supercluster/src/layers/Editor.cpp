@@ -51,7 +51,6 @@ namespace sc
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigDockingAlwaysTabBar = true;
-		io.ConfigDockingWithShift = true;
 		io.IniFilename = "assets/sclayout.ini";
 
 		ImFontConfig font_config = {};
@@ -88,7 +87,7 @@ namespace sc
 	{
 		if (!m_game_mode)
 		{
-			ImGui::ImplGlfw::g_BlockInput = false;
+			//	ImGui::ImplGlfw::g_BlockInput = false;
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
@@ -194,7 +193,7 @@ namespace sc
 		}
 		else
 		{
-			ImGui::ImplGlfw::g_BlockInput = true;
+			//ImGui::ImplGlfw::g_BlockInput = true;
 			m_scene_stack.top()->on_push();
 
 			if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
