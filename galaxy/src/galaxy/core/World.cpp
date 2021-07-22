@@ -59,9 +59,9 @@ namespace galaxy
 
 		void World::update(core::Scene2D* scene, const double dt)
 		{
-			for (const auto& pair : m_systems)
+			for (const auto& [type, system] : m_systems)
 			{
-				pair.second->update(scene, dt);
+				system->update(scene, dt);
 			}
 		}
 
@@ -165,7 +165,7 @@ namespace galaxy
 
 		const bool World::has(const ecs::Entity entity) noexcept
 		{
-			return (std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end());
+			return (std::find(std::execution::par, m_entities.begin(), m_entities.end(), entity) != m_entities.end());
 		}
 
 		const bool World::is_enabled(const ecs::Entity entity)
@@ -212,38 +212,23 @@ namespace galaxy
 					nlohmann::json entity_json = nlohmann::json::object();
 
 					// Data
-					// clang-format off
-
 					entity_json["allow-serialize"] = allow_serialize;
-					entity_json["enabled"] = is_enabled(entity);
-					entity_json["components"] = nlohmann::json::object();
+					entity_json["enabled"]         = is_enabled(entity);
+					entity_json["components"]      = nlohmann::json::object();
 
-					auto [animated,
-						batchsprite,
-						oncollision,
-						particleffect,
-						primitive2d,
-						renderable,
-						rigidbody,
-						sprite,
-						tag,
-						text,
-						transform2d
-					] = get_multi<
-						components::Animated,
-						components::BatchSprite,
-						components::OnCollision,
-						components::ParticleEffect,
-						components::Primitive2D,
-						components::Renderable,
-						components::RigidBody,
-						components::Sprite,
-						components::Tag,
-						components::Text,
-						components::Transform2D
-					>(entity);
+					auto [animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
+						get_multi<components::Animated,
+								  components::BatchSprite,
+								  components::OnCollision,
+								  components::ParticleEffect,
+								  components::Primitive2D,
+								  components::Renderable,
+								  components::RigidBody,
+								  components::Sprite,
+								  components::Tag,
+								  components::Text,
+								  components::Transform2D>(entity);
 
-					// clang-format on
 					if (animated)
 					{
 						entity_json["components"]["Animated"] = animated->serialize();

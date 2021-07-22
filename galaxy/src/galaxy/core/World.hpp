@@ -37,12 +37,12 @@ namespace galaxy
 		///
 		/// Container for retrieval of entities in operate() function.
 		///
-		using EntitysWithCounters = robin_hood::unordered_map<ecs::Entity, int>;
+		using EntitysWithCounters = robin_hood::unordered_flat_map<ecs::Entity, int>;
 
 		///
 		/// Shorthand for component factory map.
 		///
-		using ComponentFactory = robin_hood::unordered_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
+		using ComponentFactory = robin_hood::unordered_node_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
 
 		///
 		/// Concept to ensure a system is actually derived from a System.
@@ -332,7 +332,7 @@ namespace galaxy
 			/// Called by operate().
 			///
 			template<meta::is_class Component>
-			void internal_operate(EntitysWithCounters& entities, bool& terminate);
+			void internal_operate(EntitysWithCounters& entities);
 
 		private:
 			///
@@ -368,7 +368,7 @@ namespace galaxy
 			///
 			/// Stores systems.
 			///
-			std::vector<std::pair<std::size_t, std::unique_ptr<ecs::System>>> m_systems;
+			robin_hood::unordered_flat_map<std::size_t, std::unique_ptr<ecs::System>> m_systems;
 
 			///
 			/// Used to allow for component creation without having to know the compile time type.
@@ -379,7 +379,7 @@ namespace galaxy
 		template<meta::is_bitset_flag Flag>
 		inline void World::set_flag(const ecs::Entity entity)
 		{
-			if (has(entity))
+			if (m_flags.contains(entity))
 			{
 				m_flags[entity].set(Flag::value);
 			}
@@ -392,7 +392,7 @@ namespace galaxy
 		template<meta::is_bitset_flag Flag>
 		inline const bool World::is_flag_set(const ecs::Entity entity)
 		{
-			if (has(entity))
+			if (m_flags.contains(entity))
 			{
 				return m_flags[entity].test(Flag::value);
 			}
@@ -406,7 +406,7 @@ namespace galaxy
 		template<meta::is_bitset_flag Flag>
 		inline void World::unset_flag(const ecs::Entity entity)
 		{
-			if (has(entity))
+			if (m_flags.contains(entity))
 			{
 				m_flags[entity].reset(Flag::value);
 			}
@@ -427,9 +427,11 @@ namespace galaxy
 			}
 			else
 			{
+				// clang-format off
 				m_component_factory.emplace(name, [&](const ecs::Entity e, const nlohmann::json& json) {
 					create_component<Component>(e, json);
 				});
+				// clang-format on
 			}
 		}
 
@@ -485,24 +487,16 @@ namespace galaxy
 		{
 			Component* res = nullptr;
 
-			if (!has(entity))
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to get a component of an invalid entity.");
-				res = nullptr;
-			}
-			else
-			{
-				const auto type = CUniqueID::get<Component>();
+			const auto type = CUniqueID::get<Component>();
 
-				if (!(type >= m_data.size() || m_data.size() == 0))
+			if (!(type >= m_data.size() || m_data.size() == 0))
+			{
+				if (m_data[type] != nullptr)
 				{
-					if (m_data[type] != nullptr)
+					auto* derived = static_cast<ecs::ComponentSet<Component>*>(m_data[type].get());
+					if (derived->has(entity))
 					{
-						auto* derived = static_cast<ecs::ComponentSet<Component>*>(m_data[type].get());
-						if (derived->has(entity))
-						{
-							res = derived->get(entity);
-						}
+						res = derived->get(entity);
 					}
 				}
 			}
@@ -513,25 +507,18 @@ namespace galaxy
 		template<meta::is_class Component>
 		inline void World::remove(const ecs::Entity entity)
 		{
-			if (!has(entity))
+			const auto type = CUniqueID::get<Component>();
+
+			if (type >= m_data.size() || m_data.size() == 0)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to get a component of an invalid entity.");
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to remove a component that doesnt exist.");
 			}
 			else
 			{
-				const auto type = CUniqueID::get<Component>();
-
-				if (type >= m_data.size() || m_data.size() == 0)
+				if (m_data[type] != nullptr)
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Attempted to remove a component that doesnt exist.");
-				}
-				else
-				{
-					if (m_data[type] != nullptr)
-					{
-						auto* derived = static_cast<ecs::ComponentSet<Component>*>(m_data[type].get());
-						derived->remove(entity);
-					}
+					auto* derived = static_cast<ecs::ComponentSet<Component>*>(m_data[type].get());
+					derived->remove(entity);
 				}
 			}
 		}
@@ -561,26 +548,19 @@ namespace galaxy
 		template<meta::is_class... Components, typename Lambda>
 		inline void World::operate(Lambda&& func)
 		{
-			if (!m_data.empty())
+			constexpr const auto length = sizeof...(Components);
+			EntitysWithCounters entities;
+
+			(internal_operate<Components>(entities), ...);
+
+			for (const auto& [entity, count] : entities)
 			{
-				constexpr const auto length = sizeof...(Components);
-				EntitysWithCounters entities;
-
-				bool error = false;
-				(internal_operate<Components>(entities, error), ...);
-
-				if (!error)
+				// Ensures that only entities that have all components are used.
+				if (!(count < length))
 				{
-					for (const auto& [entity, count] : entities)
+					if (is_enabled(entity))
 					{
-						// Ensures that only entities that have all components are used.
-						if (!(count < length))
-						{
-							if (is_enabled(entity))
-							{
-								func(entity, get<Components>(entity)...);
-							}
-						}
+						func(entity, get<Components>(entity)...);
 					}
 				}
 			}
@@ -589,30 +569,25 @@ namespace galaxy
 		template<meta::is_class... Components, typename Policy, typename Lambda>
 		inline void World::operate(Policy&& policy, Lambda&& func)
 		{
-			if (!m_data.empty())
-			{
-				constexpr const auto length = sizeof...(Components);
-				EntitysWithCounters entities;
+			constexpr const auto length = sizeof...(Components);
+			EntitysWithCounters entities;
 
-				bool error = false;
-				(internal_operate<Components>(entities, error), ...);
+			(internal_operate<Components>(entities), ...);
 
-				if (!error)
+			// pair.first = entity
+			// pair.second = count
+			// clang-format off
+			std::for_each(policy, entities.begin(), entities.end(), [&](const auto& pair) {
+				// Ensures that only entities that have all components are used.
+				if (!(pair.second < length))
 				{
-					// pair.first = entity
-					// pair.second = count
-					std::for_each(policy, entities.begin(), entities.end(), [&](const auto& pair) {
-						// Ensures that only entities that have all components are used.
-						if (!(pair.second < length))
-						{
-							if (is_enabled(pair.first))
-							{
-								func(pair.first, get<Components>(pair.first)...);
-							}
-						}
-					});
+					if (is_enabled(pair.first))
+					{
+						func(pair.first, get<Components>(pair.first)...);
+					}
 				}
-			}
+			});
+			// clang-format on
 		}
 
 		template<typename Lambda>
@@ -628,7 +603,7 @@ namespace galaxy
 		inline void World::create_system(Args&&... args)
 		{
 			const auto type = SUniqueID::get<System>();
-			m_systems.emplace_back(std::make_pair(type, std::make_unique<System>(std::forward<Args>(args)...)));
+			m_systems.emplace(type, std::make_unique<System>(std::forward<Args>(args)...));
 		}
 
 		template<is_system System>
@@ -636,41 +611,26 @@ namespace galaxy
 		{
 			const auto type = SUniqueID::get<System>();
 
-			auto res = std::find_if(std::execution::par, m_systems.begin(), m_systems.end(), [&](const auto& pair) {
-				return pair.first == type;
-			});
-
-			if (res == m_systems.end())
+			if (m_systems.contains(type))
+			{
+				return static_cast<System*>(m_systems[type].get());
+			}
+			else
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access a system type that doesnt exist!");
 				return nullptr;
 			}
-			else
-			{
-				return static_cast<System*>(res->second.get());
-			}
 		}
 
 		template<meta::is_class Component>
-		inline void World::internal_operate(EntitysWithCounters& entities, bool& terminate)
+		inline void World::internal_operate(EntitysWithCounters& entities)
 		{
-			if (!terminate)
+			const auto type = CUniqueID::get<Component>();
+			if (!(type >= m_data.size()))
 			{
-				const auto type = CUniqueID::get<Component>();
-				if (type >= m_data.size())
+				for (const auto& entity : m_data[type].get()->m_entities)
 				{
-					terminate = true;
-				}
-				else
-				{
-					auto ptr = m_data[type].get();
-					if (ptr != nullptr)
-					{
-						for (const auto& entity : ptr->m_entities)
-						{
-							entities[entity]++;
-						}
-					}
+					entities[entity]++;
 				}
 			}
 		}

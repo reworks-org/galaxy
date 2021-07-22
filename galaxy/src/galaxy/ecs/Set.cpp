@@ -5,6 +5,8 @@
 /// See LICENSE.txt.
 ///
 
+#include <execution>
+
 #include "Set.hpp"
 
 namespace galaxy
@@ -13,7 +15,7 @@ namespace galaxy
 	{
 		const bool Set::has(const Entity entity) noexcept
 		{
-			return (std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end());
+			return m_keymap.contains(entity);
 		}
 
 		Set::Set() noexcept
