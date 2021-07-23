@@ -43,7 +43,8 @@ namespace sb
 
 		m_timer.set_repeating(true);
 		m_timer.set(
-			[]() {
+			[]()
+			{
 				std::cout << "Timer Ping" << std::endl;
 			},
 			1000);
@@ -70,19 +71,19 @@ namespace sb
 			m_window->close();
 		}
 
-		if (m_window->key_pressed(input::Keys::NUM_1))
+		if (m_window->key_pressed(input::Keys::KEY_1))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("SandboxScene");
 		}
 
-		if (m_window->key_pressed(input::Keys::NUM_2))
+		if (m_window->key_pressed(input::Keys::KEY_2))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("PhysicsScene");
 		}
 
-		if (m_window->key_pressed(input::Keys::NUM_3))
+		if (m_window->key_pressed(input::Keys::KEY_3))
 		{
 			m_scene_stack.pop();
 			m_scene_stack.push("MapScene");
@@ -192,51 +193,55 @@ namespace sb
 		sandbox->m_gui.enable_input();
 		*/
 
-		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>([sandbox, this](const events::MouseReleased& mre) {
-			if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
+		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>(
+			[sandbox, this](const events::MouseReleased& mre)
 			{
-				sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
-				sandbox->m_world.enable(m_particles);
-			}
-		});
-
-		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>([&](const events::KeyDown& kde) {
-			switch (kde.m_keycode)
-			{
-				case input::Keys::Z:
+				if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
 				{
-					nlohmann::json json = serialize();
-					json::save_to_disk("assets/saves/test.json", json);
+					sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
+					sandbox->m_world.enable(m_particles);
 				}
-				break;
+			});
 
-				case input::Keys::X:
+		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>(
+			[&](const events::KeyDown& kde)
+			{
+				switch (kde.m_keycode)
 				{
-					const auto json = json::parse_from_disk("assets/saves/test.json");
-					if (json != std::nullopt)
+					case input::Keys::Z:
 					{
-						deserialize(json.value());
+						nlohmann::json json = serialize();
+						json::save_to_disk("assets/saves/test.json", json);
 					}
+					break;
+
+					case input::Keys::X:
+					{
+						const auto json = json::parse_from_disk("assets/saves/test.json");
+						if (json != std::nullopt)
+						{
+							deserialize(json.value());
+						}
+					}
+					break;
+
+					case input::Keys::M:
+						SL_HANDLE.musicbook()->get("PleasingGuns")->play();
+						break;
+
+					case input::Keys::P:
+						SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
+						break;
+
+					case input::Keys::N:
+						SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
+						break;
+
+					case input::Keys::B:
+						SL_HANDLE.soundbook()->get("button")->play();
+						break;
 				}
-				break;
-
-				case input::Keys::M:
-					SL_HANDLE.musicbook()->get("PleasingGuns")->play();
-					break;
-
-				case input::Keys::P:
-					SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
-					break;
-
-				case input::Keys::N:
-					SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
-					break;
-
-				case input::Keys::B:
-					SL_HANDLE.soundbook()->get("button")->play();
-					break;
-			}
-		});
+			});
 
 		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
@@ -252,34 +257,36 @@ namespace sb
 		physics->m_world.create_from_json("floor.json");
 		m_cube = physics->m_world.create_from_json("cube.json").value();
 
-		physics->m_dispatcher.subscribe_callback<events::KeyRepeat>([physics, this](const events::KeyRepeat& kde) {
-			switch (kde.m_keycode)
+		physics->m_dispatcher.subscribe_callback<events::KeyRepeat>(
+			[physics, this](const events::KeyRepeat& kde)
 			{
-				case input::Keys::UP:
-					physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, -10.0f);
-					break;
+				switch (kde.m_keycode)
+				{
+					case input::Keys::UP:
+						physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, -10.0f);
+						break;
 
-				case input::Keys::DOWN:
-					physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, 10.0f);
-					break;
+					case input::Keys::DOWN:
+						physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, 10.0f);
+						break;
 
-				case input::Keys::LEFT:
-					physics->m_world.get<components::Transform2D>(m_cube)->move(-10.0f, 0.0f);
-					break;
+					case input::Keys::LEFT:
+						physics->m_world.get<components::Transform2D>(m_cube)->move(-10.0f, 0.0f);
+						break;
 
-				case input::Keys::RIGHT:
-					physics->m_world.get<components::Transform2D>(m_cube)->move(10.0f, 0.0f);
-					break;
+					case input::Keys::RIGHT:
+						physics->m_world.get<components::Transform2D>(m_cube)->move(10.0f, 0.0f);
+						break;
 
-				case input::Keys::Q:
-					physics->m_world.get<components::Transform2D>(m_cube)->rotate(-1.0f);
-					break;
+					case input::Keys::Q:
+						physics->m_world.get<components::Transform2D>(m_cube)->rotate(-1.0f);
+						break;
 
-				case input::Keys::E:
-					physics->m_world.get<components::Transform2D>(m_cube)->rotate(1.0f);
-					break;
-			}
-		});
+					case input::Keys::E:
+						physics->m_world.get<components::Transform2D>(m_cube)->rotate(1.0f);
+						break;
+				}
+			});
 
 		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
@@ -296,18 +303,20 @@ namespace sb
 		map->create_maps("assets/maps/maps.world");
 		map->set_active_map("desert");
 
-		map->m_dispatcher.subscribe_callback<events::KeyDown>([map, this](const events::KeyDown& kde) {
-			switch (kde.m_keycode)
+		map->m_dispatcher.subscribe_callback<events::KeyDown>(
+			[map, this](const events::KeyDown& kde)
 			{
-				case input::Keys::Z:
-					map->get_active_map()->enable_objects(map->m_world);
-					break;
+				switch (kde.m_keycode)
+				{
+					case input::Keys::Z:
+						map->get_active_map()->enable_objects(map->m_world);
+						break;
 
-				case input::Keys::X:
-					map->get_active_map()->disable_objects(map->m_world);
-					break;
-			}
-		});
+					case input::Keys::X:
+						map->get_active_map()->disable_objects(map->m_world);
+						break;
+				}
+			});
 
 		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));

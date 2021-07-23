@@ -28,8 +28,9 @@ namespace galaxy
 			/// Constructor.
 			///
 			/// \param keycode Keycode for the key that is repeating.
+			/// \param mod Modifier code.
 			///
-			KeyRepeat(const input::Keys keycode) noexcept;
+			KeyRepeat(const input::Keys keycode, const input::KeyMod mod) noexcept;
 
 			///
 			/// Default destructor.
@@ -40,6 +41,11 @@ namespace galaxy
 			/// Keycode for the key that is repeating.
 			///
 			input::Keys m_keycode;
+
+			///
+			/// Modifier Key.
+			///
+			input::KeyMod m_mod;
 		};
 	} // namespace events
 } // namespace galaxy

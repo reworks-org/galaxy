@@ -11,8 +11,9 @@ namespace galaxy
 {
 	namespace events
 	{
-		KeyRepeat::KeyRepeat(const input::Keys keycode) noexcept
+		KeyRepeat::KeyRepeat(const input::Keys keycode, const input::KeyMod mod) noexcept
 			: m_keycode {keycode}
+			, m_mod {mod}
 		{
 		}
 	} // namespace events

@@ -27,9 +27,10 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			/// \param keycode Keycode of key released.
+			/// \param keycode Keycode for released key.
+			/// \param mod Modifier code.
 			///
-			KeyUp(const input::Keys keycode) noexcept;
+			KeyUp(const input::Keys keycode, const input::KeyMod mod) noexcept;
 
 			///
 			/// Default destructor.
@@ -40,6 +41,11 @@ namespace galaxy
 			/// Keycode for the key that was released.
 			///
 			input::Keys m_keycode;
+
+			///
+			/// Modifier Key.
+			///
+			input::KeyMod m_mod;
 		};
 	} // namespace events
 } // namespace galaxy

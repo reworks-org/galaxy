@@ -157,7 +157,7 @@ namespace galaxy
 
 						// Set vsync.
 						glfwSwapInterval(settings.m_vsync);
-
+						
 						// Key input callback.
 						glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -165,15 +165,15 @@ namespace galaxy
 							switch (action)
 							{
 								case GLFW_PRESS:
-									this_win->m_event_queue.emplace<events::KeyDown>({this_win->m_keyboard.m_reverse_keymap[key]});
+									this_win->m_event_queue.emplace<events::KeyDown>({this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 
 								case GLFW_REPEAT:
-									this_win->m_event_queue.emplace<events::KeyRepeat>({this_win->m_keyboard.m_reverse_keymap[key]});
+									this_win->m_event_queue.emplace<events::KeyRepeat>({this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 
 								case GLFW_RELEASE:
-									this_win->m_event_queue.emplace<events::KeyUp>({this_win->m_keyboard.m_reverse_keymap[key]});
+									this_win->m_event_queue.emplace<events::KeyUp>({this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 							}
 						});
@@ -548,11 +548,12 @@ namespace galaxy
 			{
 				// clang-format off
 				std::visit([&](auto&& event)
-					{
-						dispatcher.trigger<std::decay<decltype(event)>::type>(event);
-					}, m_event_queue.front());
-				m_event_queue.pop();
+				{
+					dispatcher.trigger<std::decay<decltype(event)>::type>(event);
+				}, m_event_queue.front());
 				// clang-format on
+
+				m_event_queue.pop();
 			}
 		}
 

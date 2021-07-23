@@ -43,16 +43,16 @@ namespace galaxy
 			X,
 			Y,
 			Z,
-			NUM_1,
-			NUM_2,
-			NUM_3,
-			NUM_4,
-			NUM_5,
-			NUM_6,
-			NUM_7,
-			NUM_8,
-			NUM_9,
-			NUM_0,
+			KEY_1,
+			KEY_2,
+			KEY_3,
+			KEY_4,
+			KEY_5,
+			KEY_6,
+			KEY_7,
+			KEY_8,
+			KEY_9,
+			KEY_0,
 			MINUS,
 			EQUALS,
 			BACKSPACE,
@@ -120,6 +120,44 @@ namespace galaxy
 			NUMPAD_7,
 			NUMPAD_8,
 			NUMPAD_9
+		};
+
+		///
+		/// \brief Modifier key mappings.
+		///
+		/// Values taken from GLFW source code.
+		///
+		enum class KeyMod : int
+		{
+			///
+			/// If this bit is set one or more Shift keys were held down.
+			///
+			SHIFT = 0x0001,
+
+			///
+			/// If this bit is set one or more Control keys were held down.
+			///
+			CONTROL = 0x0002,
+
+			///
+			/// If this bit is set one or more Alt keys were held down.
+			///
+			ALT = 0x0004,
+
+			///
+			/// If this bit is set one or more Super keys were held down.
+			///
+			SUPER = 0x0008,
+
+			///
+			/// If this bit is set then the Caps Lock key is enabled.
+			///
+			CAPS_LOCK = 0x0010,
+
+			///
+			/// If this bit is set then the Num Lock key is enabled.
+			///
+			NUM_LOCK = 0x0020
 		};
 	} // namespace input
 } // namespace galaxy

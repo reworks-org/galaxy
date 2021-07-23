@@ -28,8 +28,9 @@ namespace galaxy
 			/// Constructor.
 			///
 			/// \param keycode Keycode for the key that was pressed.
+			/// \param mod Modifier code.
 			///
-			KeyDown(const input::Keys keycode) noexcept;
+			KeyDown(const input::Keys keycode, const input::KeyMod mod) noexcept;
 
 			///
 			/// Default destructor.
@@ -40,6 +41,11 @@ namespace galaxy
 			/// Keycode for the key that was pressed.
 			///
 			input::Keys m_keycode;
+
+			///
+			/// Modifier Key.
+			///
+			input::KeyMod m_mod;
 		};
 	} // namespace events
 } // namespace galaxy
