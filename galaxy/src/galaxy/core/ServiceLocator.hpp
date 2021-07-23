@@ -63,7 +63,7 @@ namespace galaxy
 
 		public:
 			///
-			/// Default Destructor.
+			/// Destructor.
 			///
 			~ServiceLocator() noexcept = default;
 
@@ -77,91 +77,91 @@ namespace galaxy
 			///
 			/// Get config service.
 			///
-			/// \return Return pointer to config service.
+			/// \return Pointer to config service.
 			///
 			[[maybe_unused]] fs::Config* config() const noexcept;
 
 			///
 			/// Get window service.
 			///
-			/// \return Return pointer to window service.
+			/// \return Pointer to window service.
 			///
 			[[maybe_unused]] core::Window* window() const noexcept;
 
 			///
 			/// Get Lua service.
 			///
-			/// \return Return pointer to Lua service.
+			/// \return Pointer to Lua service.
 			///
 			[[maybe_unused]] sol::state* lua() const noexcept;
 
 			///
 			/// Get FontBook service.
 			///
-			/// \return Return pointer to FontBook service.
+			/// \return Pointer to FontBook service.
 			///
 			[[maybe_unused]] res::FontBook* fontbook() const noexcept;
 
 			///
 			/// Get ShaderBook service.
 			///
-			/// \return Return pointer to ShaderBook service.
+			/// \return Pointer to ShaderBook service.
 			///
 			[[maybe_unused]] res::ShaderBook* shaderbook() const noexcept;
 
 			///
 			/// Get SoundBook service.
 			///
-			/// \return Return pointer to SoundBook service.
+			/// \return Pointer to SoundBook service.
 			///
 			[[maybe_unused]] res::SoundBook* soundbook() const noexcept;
 
 			///
 			/// Get MusicBook service.
 			///
-			/// \return Return pointer to MusicBook service.
+			/// \return Pointer to MusicBook service.
 			///
 			[[maybe_unused]] res::MusicBook* musicbook() const noexcept;
 
 			///
 			/// Get TextureBook service.
 			///
-			/// \return Return pointer to TextureBook service.
+			/// \return Pointer to TextureBook service.
 			///
 			[[maybe_unused]] res::TextureBook* texturebook() const noexcept;
 
 			///
 			/// Get Virtual FileSystem service.
 			///
-			/// \return Return pointer to Virtual FileSystem service.
+			/// \return Pointer to Virtual FileSystem service.
 			///
 			[[maybe_unused]] fs::Virtual* vfs() const noexcept;
 
 			///
 			/// Get OpenAL context service.
 			///
-			/// \return Return pointer to OpenAL context.
+			/// \return Pointer to OpenAL context.
 			///
 			[[maybe_unused]] audio::Context* openal() const noexcept;
 
 			///
 			/// Get ScriptBook service.
 			///
-			/// \return Return pointer to ScriptBook service.
+			/// \return Pointer to ScriptBook service.
 			///
 			[[maybe_unused]] res::ScriptBook* scriptbook() const noexcept;
 
 			///
 			/// Get Language service.
 			///
-			/// \return Return pointer to Language service.
+			/// \return Pointer to Language service.
 			///
 			[[maybe_unused]] res::Language* lang() const noexcept;
 
 			///
 			/// Get ThreadPool service.
 			///
-			/// \return Return pointer to ThreadPool service.
+			/// \return Pointer to ThreadPool service.
 			///
 			[[maybe_unused]] async::ThreadPool* pool() const noexcept;
 
