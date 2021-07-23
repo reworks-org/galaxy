@@ -20,6 +20,7 @@
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
@@ -41,6 +42,7 @@ namespace galaxy
 							   events::KeyDown,
 							   events::KeyRepeat,
 							   events::KeyUp,
+							   events::KeyChar,
 							   events::MouseMoved,
 							   events::MousePressed,
 							   events::MouseReleased,
@@ -219,18 +221,6 @@ namespace galaxy
 			/// \return True if key was pressed once.
 			///
 			[[nodiscard]] const bool key_pressed(input::Keys key) noexcept;
-
-			///
-			/// Starts filling the returned pointer to string with characters as they are typed.
-			///
-			/// \return Pointer to std::string that is updated with characters.
-			///
-			[[nodiscard]] std::string* begin_text_input() noexcept;
-
-			///
-			/// Stop updating strings with text input.
-			///
-			void end_text_input() noexcept;
 
 			///
 			/// Check if a mouse button was pressed.

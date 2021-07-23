@@ -143,6 +143,9 @@ namespace galaxy
 					}
 					else
 					{
+						// Set vsync.
+						glfwSwapInterval(settings.m_vsync);
+
 						// Set internal pointer references.
 						glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
 
@@ -154,14 +157,11 @@ namespace galaxy
 							this_win->m_event_queue.emplace<events::WindowResized>({width, height});
 							this_win->resize(width, height);
 						});
-
-						// Set vsync.
-						glfwSwapInterval(settings.m_vsync);
 						
 						// Key input callback.
 						glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-
+							
 							switch (action)
 							{
 								case GLFW_PRESS:
@@ -181,17 +181,12 @@ namespace galaxy
 						// Text input callback.
 						glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-
-							if (this_win->m_keyboard.m_inputting_text)
-							{
-								this_win->m_keyboard.m_text_input += static_cast<char>(codepoint);
-							}
+							this_win->m_event_queue.emplace<events::KeyChar>(static_cast<char>(codepoint));
 						});
 
 						// Mouse movement callback.
 						glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-
 							this_win->m_event_queue.emplace<events::MouseMoved>({xpos, ypos});
 						});
 
@@ -399,8 +394,6 @@ namespace galaxy
 
 		void Window::destroy()
 		{
-			end_text_input();
-
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
@@ -501,19 +494,6 @@ namespace galaxy
 
 			m_keyboard.m_prev_key_states[key] = state;
 			return res;
-		}
-
-		std::string* Window::begin_text_input() noexcept
-		{
-			m_keyboard.m_text_input     = "";
-			m_keyboard.m_inputting_text = true;
-
-			return &m_keyboard.m_text_input;
-		}
-
-		void Window::end_text_input() noexcept
-		{
-			m_keyboard.m_inputting_text = false;
 		}
 
 		const bool Window::mouse_button_pressed(input::MouseButtons mouse_button) noexcept

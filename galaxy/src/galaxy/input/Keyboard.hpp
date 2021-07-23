@@ -67,16 +67,6 @@ namespace galaxy
 			/// Previous key states.
 			///
 			robin_hood::unordered_flat_map<Keys, int> m_prev_key_states;
-
-			///
-			/// String for text input.
-			///
-			std::string m_text_input;
-
-			///
-			/// Flag to signal to glfw that text is being input.
-			///
-			bool m_inputting_text;
 		};
 	} // namespace input
 } // namespace galaxy

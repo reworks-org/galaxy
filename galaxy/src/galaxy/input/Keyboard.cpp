@@ -14,8 +14,6 @@ namespace galaxy
 	namespace input
 	{
 		Keyboard::Keyboard() noexcept
-			: m_text_input {""}
-			, m_inputting_text {false}
 		{
 			m_keymap.reserve(102);
 			m_keymap.emplace(Keys::A, GLFW_KEY_A);
@@ -236,26 +234,18 @@ namespace galaxy
 
 		Keyboard::Keyboard(Keyboard&& k) noexcept
 		{
-			this->m_inputting_text  = std::move(k.m_inputting_text);
 			this->m_keymap          = std::move(k.m_keymap);
 			this->m_prev_key_states = std::move(k.m_prev_key_states);
 			this->m_reverse_keymap  = std::move(k.m_reverse_keymap);
-			this->m_text_input      = std::move(k.m_text_input);
-
-			k.m_text_input.clear();
 		}
 
 		Keyboard& Keyboard::operator=(Keyboard&& k) noexcept
 		{
 			if (this != &k)
 			{
-				this->m_inputting_text  = std::move(k.m_inputting_text);
 				this->m_keymap          = std::move(k.m_keymap);
 				this->m_prev_key_states = std::move(k.m_prev_key_states);
 				this->m_reverse_keymap  = std::move(k.m_reverse_keymap);
-				this->m_text_input      = std::move(k.m_text_input);
-
-				k.m_text_input.clear();
 			}
 
 			return *this;
@@ -263,22 +253,18 @@ namespace galaxy
 
 		Keyboard::Keyboard(const Keyboard& k) noexcept
 		{
-			this->m_inputting_text  = k.m_inputting_text;
 			this->m_keymap          = k.m_keymap;
 			this->m_prev_key_states = k.m_prev_key_states;
 			this->m_reverse_keymap  = k.m_reverse_keymap;
-			this->m_text_input      = k.m_text_input;
 		}
 
 		Keyboard& Keyboard::operator=(const Keyboard& k) noexcept
 		{
 			if (this != &k)
 			{
-				this->m_inputting_text  = k.m_inputting_text;
 				this->m_keymap          = k.m_keymap;
 				this->m_prev_key_states = k.m_prev_key_states;
 				this->m_reverse_keymap  = k.m_reverse_keymap;
-				this->m_text_input      = k.m_text_input;
 			}
 
 			return *this;
@@ -289,7 +275,6 @@ namespace galaxy
 			m_keymap.clear();
 			m_reverse_keymap.clear();
 			m_prev_key_states.clear();
-			m_text_input.clear();
 		}
 	} // namespace input
 } // namespace galaxy
