@@ -221,11 +221,6 @@ namespace ImGui
 
 	void TextEditor::DeleteRange(const Coordinates & aStart, const Coordinates & aEnd)
 	{
-		assert(aEnd >= aStart);
-		assert(!mReadOnly);
-
-		//printf("D(%d.%d)-(%d.%d)\n", aStart.mLine, aStart.mColumn, aEnd.mLine, aEnd.mColumn);
-
 		if (aEnd == aStart)
 			return;
 
@@ -261,14 +256,10 @@ namespace ImGui
 
 	int TextEditor::InsertTextAt(Coordinates& /* inout */ aWhere, const char * aValue)
 	{
-		assert(!mReadOnly);
-
 		int cindex = GetCharacterIndex(aWhere);
 		int totalLines = 0;
 		while (*aValue != '\0')
 		{
-			assert(!mLines.empty());
-
 			if (*aValue == '\r')
 			{
 				// skip
@@ -310,14 +301,6 @@ namespace ImGui
 
 	void TextEditor::AddUndo(UndoRecord& aValue)
 	{
-		assert(!mReadOnly);
-		//printf("AddUndo: (@%d.%d) +\'%s' [%d.%d .. %d.%d], -\'%s', [%d.%d .. %d.%d] (@%d.%d)\n",
-		//	aValue.mBefore.mCursorPosition.mLine, aValue.mBefore.mCursorPosition.mColumn,
-		//	aValue.mAdded.c_str(), aValue.mAddedStart.mLine, aValue.mAddedStart.mColumn, aValue.mAddedEnd.mLine, aValue.mAddedEnd.mColumn,
-		//	aValue.mRemoved.c_str(), aValue.mRemovedStart.mLine, aValue.mRemovedStart.mColumn, aValue.mRemovedEnd.mLine, aValue.mRemovedEnd.mColumn,
-		//	aValue.mAfter.mCursorPosition.mLine, aValue.mAfter.mCursorPosition.mColumn
-		//	);
-
 		mUndoBuffer.resize((size_t)(mUndoIndex + 1));
 		mUndoBuffer.back() = aValue;
 		++mUndoIndex;
@@ -576,10 +559,6 @@ namespace ImGui
 
 	void TextEditor::RemoveLine(int aStart, int aEnd)
 	{
-		assert(!mReadOnly);
-		assert(aEnd >= aStart);
-		assert(mLines.size() > (size_t)(aEnd - aStart));
-
 		ErrorMarkers etmp;
 		for (auto& i : mErrorMarkers)
 		{
@@ -600,16 +579,11 @@ namespace ImGui
 		mBreakpoints = std::move(btmp);
 
 		mLines.erase(mLines.begin() + aStart, mLines.begin() + aEnd);
-		assert(!mLines.empty());
-
 		mTextChanged = true;
 	}
 
 	void TextEditor::RemoveLine(int aIndex)
 	{
-		assert(!mReadOnly);
-		assert(mLines.size() > 1);
-
 		ErrorMarkers etmp;
 		for (auto& i : mErrorMarkers)
 		{
@@ -630,15 +604,12 @@ namespace ImGui
 		mBreakpoints = std::move(btmp);
 
 		mLines.erase(mLines.begin() + aIndex);
-		assert(!mLines.empty());
 
 		mTextChanged = true;
 	}
 
 	TextEditor::Line& TextEditor::InsertLine(int aIndex)
 	{
-		assert(!mReadOnly);
-
 		auto& result = *mLines.insert(mLines.begin() + aIndex, Line());
 
 		ErrorMarkers etmp;
@@ -867,8 +838,6 @@ namespace ImGui
 			mPalette[i] = ImGui::ColorConvertFloat4ToU32(color);
 		}
 
-		assert(mLineBuffer.empty());
-
 		auto contentSize = ImGui::GetWindowContentRegionMax();
 		auto drawList = ImGui::GetWindowDrawList();
 		float longest(mTextStart);
@@ -911,7 +880,6 @@ namespace ImGui
 				float sstart = -1.0f;
 				float ssend = -1.0f;
 
-				assert(mState.mSelectionStart <= mState.mSelectionEnd);
 				if (mState.mSelectionStart <= lineEndCoord)
 					sstart = mState.mSelectionStart > lineStartCoord ? TextDistanceToLineStart(mState.mSelectionStart) : 0.0f;
 				if (mState.mSelectionEnd > lineStartCoord)
@@ -1215,8 +1183,6 @@ namespace ImGui
 
 	void TextEditor::EnterCharacter(ImWchar aChar, bool aShift)
 	{
-		assert(!mReadOnly);
-
 		UndoRecord u;
 
 		u.mBefore = mState;
@@ -1321,8 +1287,6 @@ namespace ImGui
 
 		auto coord = GetActualCursorCoordinates();
 		u.mAddedStart = coord;
-
-		assert(!mLines.empty());
 
 		if (aChar == '\n')
 		{
@@ -1486,8 +1450,6 @@ namespace ImGui
 
 	void TextEditor::DeleteSelection()
 	{
-		assert(mState.mSelectionEnd >= mState.mSelectionStart);
-
 		if (mState.mSelectionEnd == mState.mSelectionStart)
 			return;
 
@@ -1526,7 +1488,6 @@ namespace ImGui
 
 	void TextEditor::MoveDown(int aAmount, bool aSelect)
 	{
-		assert(mState.mCursorPosition.mColumn >= 0);
 		auto oldPos = mState.mCursorPosition;
 		mState.mCursorPosition.mLine = std::max(0, std::min((int)mLines.size() - 1, mState.mCursorPosition.mLine + aAmount));
 
@@ -1603,7 +1564,6 @@ namespace ImGui
 
 		mState.mCursorPosition = Coordinates(line, GetCharacterColumn(line, cindex));
 
-		assert(mState.mCursorPosition.mColumn >= 0);
 		if (aSelect)
 		{
 			if (oldPos == mInteractiveStart)
@@ -1759,8 +1719,6 @@ namespace ImGui
 
 	void TextEditor::Delete()
 	{
-		assert(!mReadOnly);
-
 		if (mLines.empty())
 			return;
 
@@ -1817,8 +1775,6 @@ namespace ImGui
 
 	void TextEditor::Backspace()
 	{
-		assert(!mReadOnly);
-
 		if (mLines.empty())
 			return;
 
@@ -2477,8 +2433,6 @@ namespace ImGui
 		, mBefore(aBefore)
 		, mAfter(aAfter)
 	{
-		assert(mAddedStart <= mAddedEnd);
-		assert(mRemovedStart <= mRemovedEnd);
 	}
 
 	void TextEditor::UndoRecord::Undo(TextEditor * aEditor)
