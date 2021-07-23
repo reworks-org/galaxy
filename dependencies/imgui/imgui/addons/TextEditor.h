@@ -73,8 +73,6 @@ namespace ImGui
 			Coordinates() : mLine(0), mColumn(0) {}
 			Coordinates(int aLine, int aColumn) : mLine(aLine), mColumn(aColumn)
 			{
-				assert(aLine >= 0);
-				assert(aColumn >= 0);
 			}
 			static Coordinates Invalid() { static Coordinates invalid(-1, -1); return invalid; }
 
