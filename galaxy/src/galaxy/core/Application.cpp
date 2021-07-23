@@ -7,6 +7,7 @@
 
 #include <portable-file-dialogs.h>
 #include <sol/sol.hpp>
+#include <RmlUi/Core.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
@@ -232,11 +233,32 @@ namespace galaxy
 
 				// Begin watching files now that default asset creation is over.
 				m_filewatcher.watch();
+
+				// Set up RMLUI.
+				Rml::SetSystemInterface(&m_rml_system_interface);
+				Rml::SetFileInterface(&m_rml_file_interface);
+				Rml::SetRenderInterface(&m_rml_rendering_interface);
+				if (!Rml::Initialise())
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
+				}
+				else
+				{
+					for (auto& [key, font] : m_fontbook->cache())
+					{
+						if (!Rml::LoadFontFace(font->get_filename()))
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to load RML font: {0}.", key);
+						}
+					}
+				}
 			}
 		}
 
 		Application::~Application()
 		{
+			Rml::Shutdown();
+
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
 			while (!m_layer_stack.empty())

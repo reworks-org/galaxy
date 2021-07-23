@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <RmlUi/Core.h>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
@@ -13,6 +15,7 @@
 #include "galaxy/systems/ParticleSystem.hpp"
 #include "galaxy/systems/RenderSystem2D.hpp"
 #include "galaxy/systems/TransformSystem.hpp"
+#include "galaxy/ui/RMLInput.hpp"
 
 #include "Scene2D.hpp"
 
@@ -41,15 +44,48 @@ namespace galaxy
 
 			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
 
-			/*
-				m_gui_theme.m_camera.create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
-				m_gui.set_theme(&m_gui_theme);
+			m_rml = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height()});
 
-				m_dispatcher.subscribe<events::MouseMoved>(m_gui);
-				m_dispatcher.subscribe<events::MousePressed>(m_gui);
-				m_dispatcher.subscribe<events::MouseReleased>(m_gui);
-				m_dispatcher.subscribe<events::KeyDown>(m_gui);
-			*/
+			// clang-format off
+			m_dispatcher.subscribe_callback<events::MouseMoved>([this](const events::MouseMoved& mme) {
+				this->m_rml->ProcessMouseMove(mme.m_x, mme.m_y, 0);
+			});
+
+			m_dispatcher.subscribe_callback<events::MousePressed>([this](const events::MousePressed& mpe) {
+				this->m_rml->ProcessMouseButtonDown(static_cast<int>(mpe.m_button), 0);
+			});
+
+			m_dispatcher.subscribe_callback<events::MouseReleased>([this](const events::MouseReleased& mre) {
+				this->m_rml->ProcessMouseButtonUp(static_cast<int>(mre.m_button), 0);
+			});
+
+			m_dispatcher.subscribe_callback<events::MouseWheel>([this](const events::MouseWheel& mwe) {
+				this->m_rml->ProcessMouseWheel(mwe.m_y_offset, 0);
+			});
+
+			m_dispatcher.subscribe_callback<events::KeyDown>([this](const events::KeyDown& kde) {
+				this->m_rml->ProcessKeyDown(ui::RMLInput::handle().m_keymap[kde.m_keycode], ui::RMLInput::handle().m_modmap[kde.m_mod]);
+			});
+
+			m_dispatcher.subscribe_callback<events::KeyUp>([this](const events::KeyUp& kue) {
+				this->m_rml->ProcessKeyUp(ui::RMLInput::handle().m_keymap[kue.m_keycode], ui::RMLInput::handle().m_modmap[kue.m_mod]);
+			});
+
+			m_dispatcher.subscribe_callback<events::KeyChar>([this](const events::KeyChar& kce) {
+				if (Rml::Element* element = this->m_rml->GetFocusElement())
+				{
+					const auto& tag = element->GetTagName();
+					if(tag == "input" || tag == "textarea" || tag == "select")
+					{
+						this->m_rml->ProcessTextInput(kce.m_character);
+					}
+				}
+			});
+
+			m_dispatcher.subscribe_callback<events::WindowResized>([this](const events::WindowResized& wre) {
+				this->m_rml->SetDimensions({wre.m_width, wre.m_height});
+			});
+			// clang-format on
 		}
 
 		Scene2D::~Scene2D() noexcept
@@ -58,12 +94,10 @@ namespace galaxy
 
 		void Scene2D::on_push()
 		{
-			//m_gui.enable_input();
 		}
 
 		void Scene2D::on_pop()
 		{
-			//m_gui.disable_input();
 		}
 
 		void Scene2D::events()
@@ -75,7 +109,7 @@ namespace galaxy
 		{
 			m_camera.update(dt);
 			m_world.update(this, dt);
-			//m_gui.update(dt);
+			m_rml->Update();
 		}
 
 		void Scene2D::pre_render()
@@ -86,7 +120,20 @@ namespace galaxy
 		{
 			RENDERER_2D().buffer_camera(m_camera);
 			m_rendersystem->render(m_world, m_camera);
-			//m_gui.render();
+			m_rml->Render();
+		}
+
+		void Scene2D::load_rml_doc(std::string_view document)
+		{
+			auto* doc = m_rml->LoadDocument(static_cast<std::string>(document));
+			if (!doc)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load RML document: {0}.", document);
+			}
+			else
+			{
+				doc->Show();
+			}
 		}
 
 		void Scene2D::create_maps(std::string_view path)

@@ -14,6 +14,11 @@
 #include "galaxy/graphics/Camera2D.hpp"
 #include "galaxy/map/TiledWorld.hpp"
 
+namespace Rml
+{
+	class Context;
+} // namespace Rml
+
 namespace galaxy
 {
 	namespace systems
@@ -72,6 +77,13 @@ namespace galaxy
 			/// Render to screen.
 			///
 			void render();
+
+			///
+			/// Load an RML document.
+			///
+			/// \param document File, including path.
+			///
+			void load_rml_doc(std::string_view document);
 
 			///
 			/// Load a tiled world.
@@ -164,6 +176,11 @@ namespace galaxy
 			/// Pointer to rendering system.
 			///
 			systems::RenderSystem2D* m_rendersystem;
+
+			///
+			/// RML context.
+			///
+			Rml::Context* m_rml;
 		};
 	} // namespace core
 } // namespace galaxy
