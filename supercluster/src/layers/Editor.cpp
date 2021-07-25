@@ -67,10 +67,10 @@ namespace sc
 		editor::theme::visual_dark();
 		m_entity_panel.set_layer(this);
 
-		m_checkerboard.load_mem(tex::checkerboard);
-		m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
-		m_checkerboard.set_magnify_filter<graphics::NearestTexFilter>();
-		m_checkerboard.set_mode<graphics::TextureModes::REPEAT>();
+		//m_checkerboard.load_mem(tex::checkerboard);
+		//m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
+		//m_checkerboard.set_magnify_filter<graphics::NearestTexFilter>();
+		//m_checkerboard.set_mode<graphics::TextureModes::REPEAT>();
 	}
 
 	Editor::~Editor()

@@ -95,16 +95,10 @@ namespace galaxy
 			void set_anisotropy(const float level) noexcept;
 
 			///
-			/// Set filter when texture is downscaled in OpenGL.
+			/// Set filter when texture is (up/down)scaled in OpenGL.
 			///
-			template<min_filter Filter>
-			void set_minify_filter() noexcept;
-
-			///
-			/// Set filter when texture would be scaled up in OpenGL.
-			///
-			template<mag_filter Filter>
-			void set_magnify_filter() noexcept;
+			template<Filters filter>
+			void set_filter() noexcept;
 
 			///
 			/// Check if texture has been loaded.
@@ -219,19 +213,20 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		template<min_filter Filter>
-		inline void Texture::set_minify_filter() noexcept
+		template<Filters filter>
+		inline void Texture::set_filter() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filter::value);
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
 
-		template<mag_filter Filter>
-		inline void Texture::set_magnify_filter() noexcept
-		{
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filter::value);
+			if constexpr ((filter == Filters::MIN_BILINEAR_MIPMAP) || (filter == Filters::MIN_TRILINEAR_MIPMAP))
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, static_cast<GLint>(filter));
+			}
+			else if constexpr ((filter == Filters::MAG_NEAREST) || (filter == Filters::MAG_LINEAR))
+			{
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, static_cast<GLint>(filter));
+			}
+
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 	} // namespace graphics
