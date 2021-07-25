@@ -16,7 +16,7 @@ namespace galaxy
 		{
 		}
 
-		KeyChar::KeyChar(const char character) noexcept
+		KeyChar::KeyChar(char character) noexcept
 		{
 			m_character = character;
 		}

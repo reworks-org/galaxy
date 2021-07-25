@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// \param character UTF-8 character input.
 			///
-			KeyChar(const char character) noexcept;
+			KeyChar(char character) noexcept;
 
 			///
 			/// Default destructor.
