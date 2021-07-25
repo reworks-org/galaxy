@@ -51,6 +51,8 @@ constexpr const char* const rml_frag = R"(
 	in vec2 io_texels;
 	in vec4 io_colour;	
 
+	uniform sampler2D u_texture;
+
 	void main()
 	{
 		io_frag_colour = texture(u_texture, io_texels) * io_colour;

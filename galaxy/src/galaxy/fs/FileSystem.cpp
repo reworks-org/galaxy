@@ -152,14 +152,13 @@ namespace galaxy
 
 		std::optional<std::string> Virtual::absolute(std::string_view file)
 		{
-			if (std::filesystem::path(file).is_absolute())
+			const auto to_check = std::filesystem::path(file);
+			if (to_check.is_absolute())
 			{
 				return std::make_optional<std::string>(file);
 			}
 			else
 			{
-				const auto to_check = std::filesystem::path(file);
-
 				for (const auto& mounted_dir : m_dirs)
 				{
 					for (const auto& dir_entry :
