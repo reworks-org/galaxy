@@ -9,6 +9,7 @@
 #include <sol/sol.hpp>
 #include <RmlUi/Core.h>
 
+#include "galaxy/core/AppLogo.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
@@ -108,6 +109,7 @@ namespace galaxy
 				m_config->define<bool>("maximized", false);
 				m_config->define<bool>("log-perf", false);
 				m_config->define<float>("audio-volume", 0.7f);
+				m_config->define<std::string>("logo", "logo.png");
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
@@ -147,6 +149,10 @@ namespace galaxy
 			}
 			else
 			{
+				//AppLogo logo;
+				//logo.load(m_config->get<std::string>("logo"));
+				//logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
+
 				m_window->request_attention();
 				m_window->set_cursor_visibility(m_config->get<bool>("is-cursor-visible"));
 
@@ -235,9 +241,13 @@ namespace galaxy
 				m_filewatcher.watch();
 
 				// Set up RMLUI.
-				Rml::SetSystemInterface(&m_rml_system_interface);
-				Rml::SetFileInterface(&m_rml_file_interface);
-				Rml::SetRenderInterface(&m_rml_rendering_interface);
+				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
+				m_rml_file_interface      = std::make_unique<ui::RMLFile>();
+				m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
+
+				Rml::SetSystemInterface(m_rml_system_interface.get());
+				Rml::SetFileInterface(m_rml_file_interface.get());
+				Rml::SetRenderInterface(m_rml_rendering_interface.get());
 				if (!Rml::Initialise())
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
@@ -252,12 +262,17 @@ namespace galaxy
 						}
 					}
 				}
+
+				//logo.wait();
 			}
 		}
 
 		Application::~Application()
 		{
 			Rml::Shutdown();
+			m_rml_rendering_interface.reset();
+			m_rml_file_interface.reset();
+			m_rml_system_interface.reset();
 
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.

@@ -15,7 +15,6 @@ namespace galaxy
 	{
 		Keyboard::Keyboard() noexcept
 		{
-			m_keymap.reserve(102);
 			m_keymap.emplace(Keys::A, GLFW_KEY_A);
 			m_keymap.emplace(Keys::B, GLFW_KEY_B);
 			m_keymap.emplace(Keys::C, GLFW_KEY_C);
@@ -120,13 +119,11 @@ namespace galaxy
 			m_keymap.emplace(Keys::NUMPAD_8, GLFW_KEY_KP_8);
 			m_keymap.emplace(Keys::NUMPAD_9, GLFW_KEY_KP_9);
 
-			m_reverse_keymap.reserve(102);
 			for (const auto& [key, value] : m_keymap)
 			{
 				m_reverse_keymap.emplace(value, key);
 			}
 
-			m_prev_key_states.reserve(102);
 			m_prev_key_states.emplace(Keys::A, GLFW_RELEASE);
 			m_prev_key_states.emplace(Keys::B, GLFW_RELEASE);
 			m_prev_key_states.emplace(Keys::C, GLFW_RELEASE);
@@ -235,8 +232,8 @@ namespace galaxy
 		Keyboard::Keyboard(Keyboard&& k) noexcept
 		{
 			this->m_keymap          = std::move(k.m_keymap);
-			this->m_prev_key_states = std::move(k.m_prev_key_states);
 			this->m_reverse_keymap  = std::move(k.m_reverse_keymap);
+			this->m_prev_key_states = std::move(k.m_prev_key_states);
 		}
 
 		Keyboard& Keyboard::operator=(Keyboard&& k) noexcept
@@ -244,8 +241,8 @@ namespace galaxy
 			if (this != &k)
 			{
 				this->m_keymap          = std::move(k.m_keymap);
-				this->m_prev_key_states = std::move(k.m_prev_key_states);
 				this->m_reverse_keymap  = std::move(k.m_reverse_keymap);
+				this->m_prev_key_states = std::move(k.m_prev_key_states);
 			}
 
 			return *this;
@@ -254,8 +251,8 @@ namespace galaxy
 		Keyboard::Keyboard(const Keyboard& k) noexcept
 		{
 			this->m_keymap          = k.m_keymap;
-			this->m_prev_key_states = k.m_prev_key_states;
 			this->m_reverse_keymap  = k.m_reverse_keymap;
+			this->m_prev_key_states = k.m_prev_key_states;
 		}
 
 		Keyboard& Keyboard::operator=(const Keyboard& k) noexcept
@@ -263,8 +260,8 @@ namespace galaxy
 			if (this != &k)
 			{
 				this->m_keymap          = k.m_keymap;
-				this->m_prev_key_states = k.m_prev_key_states;
 				this->m_reverse_keymap  = k.m_reverse_keymap;
+				this->m_prev_key_states = k.m_prev_key_states;
 			}
 
 			return *this;

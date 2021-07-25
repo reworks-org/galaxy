@@ -14,6 +14,7 @@
     "key-left": "A",
     "key-right": "D",
     "log-perf": true,
+    "logo": "logo.png",
     "maximized": false,
     "musicbook-json": "musicbook.json",
     "renderlayers-json": "renderlayers.json",

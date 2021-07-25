@@ -226,17 +226,17 @@ namespace galaxy
 			///
 			/// RML System interface.
 			///
-			ui::RMLSystem m_rml_system_interface;
+			std::unique_ptr<ui::RMLSystem> m_rml_system_interface;
 
 			///
 			/// RML File interface.
 			///
-			ui::RMLFile m_rml_file_interface;
+			std::unique_ptr<ui::RMLFile> m_rml_file_interface;
 
 			///
 			/// RML Rendering interface.
 			///
-			ui::RMLRenderer m_rml_rendering_interface;
+			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
 		};
 
 		template<std::derived_from<Layer> DerivedLayer>
