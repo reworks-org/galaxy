@@ -66,6 +66,7 @@ else()
 	set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
 	set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
 	set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
+	set(CMAKE_CXX_CLANG_TIDY clang-tidy)
 
 	# Configure properties.
 	set(CMAKE_CONFIGURATION_TYPES
@@ -273,7 +274,7 @@ else()
 	add_subdirectory(galaxy)
 	add_subdirectory(supercluster)
 
-	# Configure dependencies
+	# Configure dependencies.
 	add_dependencies(galaxy efsw)
 	add_dependencies(galaxy glfw)
 	add_dependencies(galaxy OpenAL)
@@ -418,9 +419,17 @@ else()
 		target_compile_options(dependencies PUBLIC -w)
 	endif()
 
+	# Configure clang-format.
+	include(cmake/ClangFormat.cmake)
+	target_clangformat_setup(galaxy)
+	target_clangformat_setup(supercluster)
+
 	if (${GALAXY_BUILD_TESTS})
 		add_subdirectory(sandbox_tests)
 		add_subdirectory(tests)
+
+		target_clangformat_setup(sandbox_test)
+		target_clangformat_setup(tests)
 
 		add_dependencies(sandbox_test galaxy)
 		add_dependencies(tests galaxy)
