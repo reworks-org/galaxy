@@ -60,10 +60,6 @@ namespace galaxy
 			m_shader.load_raw(logo_vert, logo_frag);
 		}
 
-		AppLogo::~AppLogo() noexcept
-		{
-		}
-
 		void AppLogo::load(std::string_view texture)
 		{
 			m_texture.load(texture);
@@ -99,9 +95,9 @@ namespace galaxy
 		void AppLogo::display(const float width, const float height, GLFWwindow* window)
 		{
 			m_shader.bind();
-			m_shader.set_uniform("u_proj", glm::ortho(0.0f, width, height, 0.0f, -1.0f, 1.0f));
-			m_shader.set_uniform("u_width", m_texture.get_width());
-			m_shader.set_uniform("u_height", m_texture.get_height());
+			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, width, height, 0.0f, -1.0f, 1.0f));
+			m_shader.set_uniform<float>("u_width", m_texture.get_width());
+			m_shader.set_uniform<float>("u_height", m_texture.get_height());
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, width, height);

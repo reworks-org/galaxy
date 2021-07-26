@@ -149,9 +149,9 @@ namespace galaxy
 			}
 			else
 			{
-				//AppLogo logo;
-				//logo.load(m_config->get<std::string>("logo"));
-				//logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
+				AppLogo logo;
+				logo.load(m_config->get<std::string>("logo"));
+				logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
 
 				m_window->request_attention();
 				m_window->set_cursor_visibility(m_config->get<bool>("is-cursor-visible"));
@@ -263,7 +263,7 @@ namespace galaxy
 					}
 				}
 
-				//logo.wait();
+				logo.wait();
 			}
 		}
 
