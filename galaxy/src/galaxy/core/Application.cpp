@@ -9,7 +9,7 @@
 #include <sol/sol.hpp>
 #include <RmlUi/Core.h>
 
-#include "galaxy/core/AppLogo.hpp"
+#include "galaxy/core/LoadingScreen.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
@@ -149,7 +149,7 @@ namespace galaxy
 			}
 			else
 			{
-				AppLogo logo;
+				LoadingScreen logo;
 				logo.load(m_config->get<std::string>("logo"));
 				logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
 

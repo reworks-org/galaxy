@@ -1,5 +1,5 @@
 ///
-/// AppLogo.cpp
+/// LoadingScreen.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -9,7 +9,7 @@
 
 #include <glfw/glfw3.h>
 
-#include "AppLogo.hpp"
+#include "LoadingScreen.hpp"
 
 ///
 /// Logo vertex shader.
@@ -55,12 +55,12 @@ namespace galaxy
 {
 	namespace core
 	{
-		AppLogo::AppLogo() noexcept
+		LoadingScreen::LoadingScreen() noexcept
 		{
 			m_shader.load_raw(logo_vert, logo_frag);
 		}
 
-		void AppLogo::load(std::string_view texture)
+		void LoadingScreen::load(std::string_view texture)
 		{
 			m_texture.load(texture);
 			m_texture.set_anisotropy(16.0f);
@@ -86,13 +86,13 @@ namespace galaxy
 			graphics::VertexBuffer vbo;
 			graphics::IndexBuffer ibo;
 
-			vbo.create(vertices, false);
+			vbo.create(vertices, true);
 			ibo.create(indices, true);
 
 			m_vao.create(vbo, ibo);
 		}
 
-		void AppLogo::display(const float width, const float height, GLFWwindow* window)
+		void LoadingScreen::display(const float width, const float height, GLFWwindow* window)
 		{
 			m_shader.bind();
 			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, width, height, 0.0f, -1.0f, 1.0f));
@@ -116,7 +116,7 @@ namespace galaxy
 			m_displayed_at = std::chrono::high_resolution_clock::now();
 		}
 
-		void AppLogo::wait(const float milliseconds) noexcept
+		void LoadingScreen::wait(const float milliseconds) noexcept
 		{
 			const auto time_to_wait = std::chrono::duration<float, std::milli>(milliseconds);
 			const auto time_passed  = m_displayed_at - std::chrono::high_resolution_clock::now();

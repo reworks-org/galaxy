@@ -1,12 +1,12 @@
 ///
-/// AppLogo.hpp
+/// LoadingScreen.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_CORE_APPLOGO_HPP_
-#define GALAXY_CORE_APPLOGO_HPP_
+#ifndef GALAXY_CORE_LOADINGSCREEN_HPP_
+#define GALAXY_CORE_LOADINGSCREEN_HPP_
 
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/Texture.hpp"
@@ -21,28 +21,28 @@ namespace galaxy
 		///
 		/// Displays an image during app startup.
 		///
-		class AppLogo final
+		class LoadingScreen final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			AppLogo() noexcept;
+			LoadingScreen() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~AppLogo() noexcept = default;
+			~LoadingScreen() noexcept = default;
 
 			///
-			/// Load logo.
+			/// Load an image.
 			///
 			/// \param texture Texture file in the VFS.
 			///
 			void load(std::string_view texture);
 
 			///
-			/// Display app logo to screen.
+			/// Display loading screen.
 			///
 			/// \param width Screen width.
 			/// \param height Screen height.
