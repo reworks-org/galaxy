@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
 
@@ -22,13 +23,17 @@ namespace galaxy
 		{
 		}
 
-		void AnimationSystem::update(core::Scene2D* scene, const double dt)
+		void AnimationSystem::update(core::Scene2D* scene)
 		{
 			scene->m_world.operate<components::Animated, components::BatchSprite>(
-				std::execution::par, [&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite) {
+				std::execution::par,
+				[&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite)
+				{
+					GALAXY_UNUSED(entity);
+
 					if (!animated->m_paused)
 					{
-						animated->m_time_spent_on_frame += (dt * animated->m_active_anim->get_speed());
+						animated->m_time_spent_on_frame += (GALAXY_DT * animated->m_active_anim->get_speed());
 						if (animated->m_time_spent_on_frame >= animated->m_active_anim->get_current_frame()->m_time_per_frame)
 						{
 							animated->m_time_spent_on_frame = 0;

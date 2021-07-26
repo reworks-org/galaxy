@@ -22,7 +22,7 @@ namespace sb
 		virtual ~Sandbox();
 
 		void events() override;
-		void update(const double dt) override;
+		void update() override;
 		void pre_render() override;
 		void render() override;
 

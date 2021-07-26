@@ -444,15 +444,15 @@ namespace galaxy
 					u += ((column * tileset.get_spacing()) + tileset.get_margin());
 					v += ((row * tileset.get_spacing()) + tileset.get_margin());
 
-					u += tileset_region.m_x;
-					v += tileset_region.m_y;
+					u += static_cast<int>(std::floor(tileset_region.m_x));
+					v += static_cast<int>(std::floor(tileset_region.m_y));
 
 					const auto name = tileset_name + std::to_string(tile.get_id());
 					math::Rect<float> rect;
-					rect.m_x      = u;
-					rect.m_y      = v;
-					rect.m_width  = tileset.get_tile_width();
-					rect.m_height = tileset.get_tile_height();
+					rect.m_x      = static_cast<float>(u);
+					rect.m_y      = static_cast<float>(v);
+					rect.m_width  = static_cast<float>(tileset.get_tile_width());
+					rect.m_height = static_cast<float>(tileset.get_tile_height());
 
 					SL_HANDLE.texturebook()->add_custom_region(tileset_info.m_index, name, rect);
 				}
@@ -511,7 +511,7 @@ namespace galaxy
 
 				renderable->m_type = graphics::Renderables::BATCHED;
 				tag->m_tag         = std::format("[{0}] {1}/{2}", layer.get_id(), layer.get_name(), image);
-				transform->set_pos(layer.get_offset_x(), layer.get_offset_y());
+				transform->set_pos(static_cast<float>(layer.get_offset_x()), static_cast<float>(layer.get_offset_y()));
 
 				world.enable(entity);
 				world.unset_flag<flags::AllowSerialize>(entity);
@@ -547,13 +547,13 @@ namespace galaxy
 							{
 								components::Primitive2D::PrimitiveData data;
 								data.m_fragments = 40;
-								data.m_radii.x   = object.get_width() / 2.0;
-								data.m_radii.y   = object.get_height() / 2.0;
+								data.m_radii.x   = static_cast<float>(object.get_width() / 2.0);
+								data.m_radii.y   = static_cast<float>(object.get_height() / 2.0);
 
 								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
+								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+								transform->rotate(static_cast<float>(object.get_rotation()));
 
 								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
@@ -564,8 +564,8 @@ namespace galaxy
 								components::Primitive2D::PrimitiveData data;
 								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
+								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+								transform->rotate(static_cast<float>(object.get_rotation()));
 
 								renderable->m_type = graphics::Renderables::POINT;
 							}
@@ -581,8 +581,8 @@ namespace galaxy
 
 								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
+								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+								transform->rotate(static_cast<float>(object.get_rotation()));
 
 								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
@@ -598,8 +598,8 @@ namespace galaxy
 
 								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
+								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+								transform->rotate(static_cast<float>(object.get_rotation()));
 
 								renderable->m_type = graphics::Renderables::LINE;
 							}
@@ -615,8 +615,8 @@ namespace galaxy
 
 								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(object.get_x(), object.get_y());
-								transform->rotate(object.get_rotation());
+								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+								transform->rotate(static_cast<float>(object.get_rotation()));
 
 								renderable->m_type = graphics::Renderables::LINE_LOOP;
 							}
@@ -668,7 +668,8 @@ namespace galaxy
 
 							renderable->m_type = graphics::Renderables::BATCHED;
 							batch->create(tile_name, render_layers[layer.get_z_level()]->get_name());
-							transform->set_pos(layer.get_offset_x() + (j * tileset->get_tile_width()), layer.get_offset_y() + (i * tileset->get_tile_height()));
+							transform->set_pos(static_cast<float>(layer.get_offset_x() + (j * tileset->get_tile_width())),
+											   static_cast<float>(layer.get_offset_y() + (i * tileset->get_tile_height())));
 
 							world.enable(entity);
 							world.unset_flag<flags::AllowSerialize>(entity);
@@ -708,9 +709,13 @@ namespace galaxy
 				auto& tiles         = tileset.get_tiles();
 				const auto local_id = gid - tileset.get_first_gid();
 
-				auto res = std::find_if(std::execution::par, tiles.begin(), tiles.end(), [&](const Tile& tile) {
-					return tile.get_id() == local_id;
-				});
+				auto res = std::find_if(std::execution::par,
+										tiles.begin(),
+										tiles.end(),
+										[&](const Tile& tile)
+										{
+											return tile.get_id() == local_id;
+										});
 
 				if (res != tiles.end())
 				{

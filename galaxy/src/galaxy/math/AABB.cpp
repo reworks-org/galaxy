@@ -46,7 +46,7 @@ namespace galaxy
 		AABB::AABB() noexcept
 			: m_min {0.0f, 0.0f}
 			, m_max {0.0f, 0.0f}
-			, m_area {0.0}
+			, m_area {0.0f}
 		{
 		}
 
@@ -66,7 +66,7 @@ namespace galaxy
 			m_area = compute_area();
 		}
 
-		void AABB::fatten(const std::optional<double>& factor) noexcept
+		void AABB::fatten(const std::optional<float>& factor) noexcept
 		{
 			if (!factor)
 			{
@@ -128,15 +128,15 @@ namespace galaxy
 			return true;
 		}
 
-		const double AABB::compute_area() const noexcept
+		const float AABB::compute_area() const noexcept
 		{
 			// Sum of "area" of all the sides.
-			auto sum = 0.0;
+			float sum = 0.0f;
 
 			// hold one dimension constant and multiply by all the other ones.
 			for (auto d1 = 0; d1 < 2; ++d1)
 			{
-				auto product = 1.0; // "Area" of current side.
+				float product = 1.0f; // "Area" of current side.
 
 				for (auto d2 = 0; d2 < 2; ++d2)
 				{
@@ -150,10 +150,10 @@ namespace galaxy
 				sum += product;
 			}
 
-			return 2.0 * sum;
+			return 2.0f * sum;
 		}
 
-		const double AABB::area() const noexcept
+		const float AABB::area() const noexcept
 		{
 			return m_area;
 		}

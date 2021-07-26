@@ -159,9 +159,12 @@ namespace galaxy
 			{
 				const auto& json     = json_opt.value();
 				const auto& textures = json.at("textures");
-				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
-					add(texture.get<std::string>());
-				});
+				std::for_each(textures.begin(),
+							  textures.end(),
+							  [&](const nlohmann::json& texture)
+							  {
+								  add(texture.get<std::string>());
+							  });
 			}
 			else
 			{
@@ -217,7 +220,7 @@ namespace galaxy
 			return m_size;
 		}
 
-		const unsigned int TextureAtlas::get_id() const noexcept
+		const std::size_t TextureAtlas::get_id() const noexcept
 		{
 			return m_id;
 		}

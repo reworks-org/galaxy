@@ -26,8 +26,9 @@ namespace galaxy
 		{
 		}
 
-		void TransformSystem::update(core::Scene2D* scene, const double dt)
+		void TransformSystem::update(core::Scene2D* scene)
 		{
+			// clang-format off
 			scene->m_world.operate<components::Transform2D, components::Renderable>(
 				std::execution::par, [&](const ecs::Entity entity, components::Transform2D* transform, components::Renderable* renderable) {
 					if (transform->is_dirty())
@@ -89,6 +90,7 @@ namespace galaxy
 						}
 					}
 				});
+			// clang-format on
 		}
 	} // namespace systems
 } // namespace galaxy

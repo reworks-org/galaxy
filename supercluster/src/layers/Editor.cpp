@@ -207,11 +207,11 @@ namespace sc
 		}
 	}
 
-	void Editor::update(const double dt)
+	void Editor::update()
 	{
 		if (!m_paused)
 		{
-			m_scene_stack.update(dt);
+			m_scene_stack.update();
 		}
 	}
 

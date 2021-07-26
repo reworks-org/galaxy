@@ -188,7 +188,7 @@ namespace galaxy
 
 			// Six indicies per quad. Number of quads is total vertexs / 4.
 			// The size here is always a multiple of 4 so no "uneven" division takes place.
-			return 6 * (m_vertices.size() / 4);
+			return 6 * (static_cast<int>(m_vertices.size()) / 4);
 		}
 
 		const unsigned int SpriteBatch::vao() const noexcept

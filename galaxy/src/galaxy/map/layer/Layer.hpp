@@ -51,23 +51,23 @@ namespace galaxy
 			///
 			/// Horizontal layer offset.
 			///
-			/// \return Const float.
+			/// \return Const double.
 			///
-			[[nodiscard]] const float get_offset_x() const noexcept;
+			[[nodiscard]] const double get_offset_x() const noexcept;
 
 			///
 			/// Vertical layer offset.
 			///
-			/// \return Const float.
+			/// \return Const double.
 			///
-			[[nodiscard]] const float get_offset_y() const noexcept;
+			[[nodiscard]] const double get_offset_y() const noexcept;
 
 			///
 			/// Opacity of layer.
 			///
-			/// \return Const float between 0 and 1.
+			/// \return Const double between 0.0 and 1.0.
 			///
-			[[nodiscard]] const float get_opacity() const noexcept;
+			[[nodiscard]] const double get_opacity() const noexcept;
 
 			///
 			/// \brief Retrieve property.

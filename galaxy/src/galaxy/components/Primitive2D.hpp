@@ -141,14 +141,14 @@ namespace galaxy
 			///
 			/// \return Const float. 0 if object does not have.
 			///
-			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] const float get_width() const noexcept;
 
 			///
 			/// Get height of primitive.
 			///
 			/// \return Const float. 0 if object does not have.
 			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] const float get_height() const noexcept;
 
 			///
 			/// Get rendering layer.
@@ -200,12 +200,12 @@ namespace galaxy
 			///
 			/// Width.
 			///
-			int m_width;
+			float m_width;
 
 			///
 			/// Height.
 			///
-			int m_height;
+			float m_height;
 
 			///
 			/// Type of primitive.
@@ -339,8 +339,8 @@ namespace galaxy
 				ibo.create(indices, true);
 				m_vao.create(vbo, ibo);
 
-				m_width  = 0;
-				m_height = 0;
+				m_width  = 0.0f;
+				m_height = 0.0f;
 			}
 			else if constexpr (type == graphics::Primitives::POINT)
 			{
@@ -358,13 +358,13 @@ namespace galaxy
 				ibo.create(indices, true);
 				m_vao.create(vbo, ibo);
 
-				m_width  = 0;
-				m_height = 0;
+				m_width  = 0.0f;
+				m_height = 0.0f;
 			}
 			else if constexpr ((type == graphics::Primitives::POLYLINE) || (type == graphics::Primitives::POLYGON))
 			{
-				m_width  = 0;
-				m_height = 0;
+				m_width  = 0.0f;
+				m_height = 0.0f;
 
 				unsigned int count = 0;
 				for (const auto& point : m_data.m_points)

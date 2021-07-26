@@ -8,7 +8,7 @@
 #ifndef GALAXY_ECS_ENTITY_HPP_
 #define GALAXY_ECS_ENTITY_HPP_
 
-#include <cstdint>
+#include "galaxy/core/GalaxyConfig.hpp"
 
 namespace galaxy
 {
@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Entity typedef.
 		///
-		using Entity = std::uint64_t;
+		using Entity = GALAXY_ENTITY_SIZE;
 	} // namespace ecs
 } // namespace galaxy
 

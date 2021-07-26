@@ -94,12 +94,12 @@ namespace galaxy
 			return m_vertexs;
 		}
 
-		const int Primitive2D::get_width() const noexcept
+		const float Primitive2D::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int Primitive2D::get_height() const noexcept
+		const float Primitive2D::get_height() const noexcept
 		{
 			return m_height;
 		}

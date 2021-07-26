@@ -284,7 +284,7 @@ namespace galaxy
 
 				while (count > 1)
 				{
-					auto min_cost = std::numeric_limits<double>::max();
+					auto min_cost = std::numeric_limits<float>::max();
 					int iMin {-1};
 					int jMin {-1};
 
@@ -337,11 +337,11 @@ namespace galaxy
 			///
 			/// \param thickness_factor Skin thickness factor.
 			///
-			inline void set_thickness_factor(std::optional<double> thickness_factor)
+			inline void set_thickness_factor(std::optional<float> thickness_factor)
 			{
 				if (thickness_factor)
 				{
-					m_skin_thickness = std::clamp(*thickness_factor, 0.0, *thickness_factor);
+					m_skin_thickness = std::clamp(*thickness_factor, 0.0f, *thickness_factor);
 				}
 				else
 				{
@@ -437,17 +437,17 @@ namespace galaxy
 			///
 			/// Compute surface area.
 			///
-			/// \return Surface area ratio as const double.
+			/// \return Surface area ratio as const float.
 			///
-			[[nodiscard]] inline const double compute_surface_area_ratio() const
+			[[nodiscard]] inline const float compute_surface_area_ratio() const
 			{
 				if (m_root == std::nullopt)
 				{
-					return 0;
+					return 0.0f;
 				}
 
 				const auto root_area = m_nodes.at(*m_root).aabb.compute_area();
-				double total_area    = 0.0;
+				float total_area     = 0.0f;
 
 				for (auto i = 0; i < m_node_capacity; ++i)
 				{
@@ -528,9 +528,9 @@ namespace galaxy
 			///
 			/// Get thickness factor.
 			///
-			/// \return Returns thickness factor as a std::optional<double>.
+			/// \return Returns thickness factor as a std::optional<float>.
 			///
-			[[nodiscard]] inline const std::optional<double> thickness_factor() const noexcept
+			[[nodiscard]] inline const std::optional<float> thickness_factor() const noexcept
 			{
 				return m_skin_thickness;
 			}
@@ -607,7 +607,7 @@ namespace galaxy
 			///
 			/// Private internal function.
 			///
-			[[nodiscard]] static inline const double left_cost(const math::AABB& leaf_aabb, const node_type& left_node, const double minimum_cost)
+			[[nodiscard]] static inline const float left_cost(const math::AABB& leaf_aabb, const node_type& left_node, const float minimum_cost)
 			{
 				if (left_node.is_leaf())
 				{
@@ -624,7 +624,7 @@ namespace galaxy
 			///
 			/// Private internal function.
 			///
-			[[nodiscard]] static inline const double right_cost(const math::AABB& leaf_aabb, const node_type& right_node, const double minimum_cost)
+			[[nodiscard]] static inline const float right_cost(const math::AABB& leaf_aabb, const node_type& right_node, const float minimum_cost)
 			{
 				if (right_node.is_leaf())
 				{
@@ -657,10 +657,10 @@ namespace galaxy
 					const auto combined_surface_area = math::AABB::merge(node.aabb, leaf_aabb).area();
 
 					// Cost of creating a new parent for this node and the new leaf.
-					const auto cost = 2.0 * combined_surface_area;
+					const auto cost = 2.0f * combined_surface_area;
 
 					// Minimum cost of pushing the leaf further down the tree.
-					const auto minimum_cost = 2.0 * (combined_surface_area - surface_area);
+					const auto minimum_cost = 2.0f * (combined_surface_area - surface_area);
 
 					const auto cost_left  = left_cost(leaf_aabb, m_nodes.at(left), minimum_cost);
 					const auto cost_right = right_cost(leaf_aabb, m_nodes.at(right), minimum_cost);
@@ -1037,7 +1037,7 @@ namespace galaxy
 			size_type m_node_count = 0;
 			size_type m_node_capacity;
 
-			std::optional<double> m_skin_thickness = 0.05;
+			std::optional<float> m_skin_thickness = 0.05f;
 
 			bool m_touch_is_overlap = true;
 		};

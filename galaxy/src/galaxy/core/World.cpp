@@ -57,11 +57,11 @@ namespace galaxy
 			clear();
 		}
 
-		void World::update(core::Scene2D* scene, const double dt)
+		void World::update(core::Scene2D* scene)
 		{
 			for (const auto& [type, system] : m_systems)
 			{
-				system->update(scene, dt);
+				system->update(scene);
 			}
 		}
 

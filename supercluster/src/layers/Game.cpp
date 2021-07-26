@@ -25,9 +25,9 @@ namespace sc
 		m_scene_stack.events();
 	}
 
-	void Game::update(const double dt)
+	void Game::update()
 	{
-		m_scene_stack.update(dt);
+		m_scene_stack.update();
 	}
 
 	void Game::pre_render()

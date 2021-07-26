@@ -40,9 +40,7 @@ namespace galaxy
 			///
 			/// Process update (fixed timestep) logic.
 			///
-			/// \param dt Delta-Time from fixed timestep gameloop.
-			///
-			virtual void update(const double dt) = 0;
+			virtual void update() = 0;
 
 			///
 			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...

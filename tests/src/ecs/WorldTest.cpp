@@ -61,7 +61,7 @@ struct BB
 
 struct BlankSystem : public galaxy::ecs::System
 {
-	void update(galaxy::core::Scene2D* scene, const double dt) override
+	void update(galaxy::core::Scene2D* scene) override
 	{
 	}
 };
@@ -76,7 +76,7 @@ struct DemoSystem : public galaxy::ecs::System
 
 	~DemoSystem() override {};
 
-	void update(galaxy::core::Scene2D* scene, const double dt) override
+	void update(galaxy::core::Scene2D* scene) override
 	{
 		val = 10;
 	}
@@ -388,7 +388,7 @@ TEST(ECS, Updates)
 	galaxy::core::World w;
 	w.create_system<DemoSystem>(5);
 
-	w.update(nullptr, 0.0);
+	w.update(nullptr);
 
 	auto* sys = w.get_system<DemoSystem>();
 

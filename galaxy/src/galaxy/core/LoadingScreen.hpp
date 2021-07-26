@@ -48,7 +48,7 @@ namespace galaxy
 			/// \param height Screen height.
 			/// \param window Pointer to GLFW window.
 			///
-			void display(const float width, const float height, GLFWwindow* window);
+			void display(const int width, const int height, GLFWwindow* window);
 
 			///
 			/// Sleeps thread from the difference between display() and wait().

@@ -19,7 +19,7 @@ namespace galaxy
 		{
 		}
 
-		VertexAttribute::VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept
+		VertexAttribute::VertexAttribute(const int size, const unsigned int type, unsigned char normalized, const std::size_t offset) noexcept
 			: m_size {size}
 			, m_type {type}
 			, m_normalized {normalized}

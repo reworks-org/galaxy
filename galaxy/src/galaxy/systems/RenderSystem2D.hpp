@@ -34,17 +34,15 @@ namespace galaxy
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
 			/// \param scene Currently active scene.
-			/// \param dt DeltaTime from gameloop.
 			///
-			void update(core::Scene2D* scene, const double dt) override;
+			void update(core::Scene2D* scene) override;
 
 			///
 			/// Render sprites / textures to screen.
 			///
 			/// \param world Game World containing entities.
-			/// \param camera Camera used for rendering.
 			///
-			void render(core::World& world, graphics::Camera2D& camera);
+			void render(core::World& world);
 		};
 	} // namespace systems
 } // namespace galaxy

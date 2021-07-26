@@ -107,7 +107,7 @@ namespace galaxy
 
 			if (m_renderbuffers.size() > 0)
 			{
-				glDeleteRenderbuffers(m_renderbuffers.size(), m_renderbuffers.data());
+				glDeleteRenderbuffers(static_cast<GLsizei>(m_renderbuffers.size()), m_renderbuffers.data());
 				m_renderbuffers.clear();
 			}
 
@@ -160,10 +160,10 @@ namespace galaxy
 
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<float>("ansio-filter"));
 
-				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + m_used_attachments.size(), GL_TEXTURE_2D, texture, 0);
-				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + m_used_attachments.size());
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()), GL_TEXTURE_2D, texture, 0);
+				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()));
 				m_attachments.push_back(std::make_pair(texture, gl_type));
 
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -186,8 +186,8 @@ namespace galaxy
 				glBindRenderbuffer(GL_RENDERBUFFER, renderbuffer);
 				glRenderbufferStorage(GL_RENDERBUFFER, format, m_width, m_height);
 
-				glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + m_used_attachments.size(), GL_RENDERBUFFER, renderbuffer);
-				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + m_used_attachments.size());
+				glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()), GL_RENDERBUFFER, renderbuffer);
+				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()));
 				m_renderbuffers.push_back(renderbuffer);
 
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -245,7 +245,7 @@ namespace galaxy
 		void Framebuffer::create()
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-			glDrawBuffers(m_used_attachments.size(), m_used_attachments.data());
+			glDrawBuffers(static_cast<GLsizei>(m_used_attachments.size()), m_used_attachments.data());
 
 			const auto status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 			if (status != GL_FRAMEBUFFER_COMPLETE)

@@ -9,6 +9,7 @@
 #include <sol/sol.hpp>
 #include <RmlUi/Core.h>
 
+#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/LoadingScreen.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
@@ -321,23 +322,18 @@ namespace galaxy
 			unsigned int frames  = 0;
 			unsigned int updates = 0;
 
-			using clock     = std::chrono::high_resolution_clock;
-			using ups_ratio = std::chrono::duration<double, std::ratio<1, 60>>;
-
-			constexpr const ups_ratio ups {1};
-			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(ups);
-			constexpr const auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
+			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
 			constexpr const auto one_second  = std::chrono::seconds {1};
 
 			std::chrono::nanoseconds accumulator {0};
 			std::chrono::nanoseconds perf_counter {0};
 			std::chrono::nanoseconds elapsed {0};
-			auto previous = clock::now();
-			auto current  = clock::now();
+			auto previous = std::chrono::high_resolution_clock::now();
+			auto current  = std::chrono::high_resolution_clock::now();
 
 			while (m_window->is_open())
 			{
-				current  = clock::now();
+				current  = std::chrono::high_resolution_clock::now();
 				elapsed  = current - previous;
 				previous = current;
 				accumulator += elapsed;
@@ -347,12 +343,12 @@ namespace galaxy
 					perf_counter += elapsed;
 				}
 
-				while (accumulator >= ups)
+				while (accumulator >= GALAXY_UPS)
 				{
 					m_window->poll_events();
 					m_layer_stack.top()->events();
 
-					m_layer_stack.top()->update(ups_s);
+					m_layer_stack.top()->update();
 					accumulator -= ups_as_nano;
 
 					if (log_perf)
@@ -493,6 +489,10 @@ namespace galaxy
 		void
 		Application::reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename)
 		{
+			GALAXY_UNUSED(filename);
+			GALAXY_UNUSED(action);
+			GALAXY_UNUSED(watch_id);
+
 			m_window->request_attention();
 
 			if (dir.find("music") != std::string::npos)

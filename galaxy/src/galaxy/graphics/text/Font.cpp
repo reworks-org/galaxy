@@ -97,7 +97,7 @@ namespace galaxy
 						glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 						FT_UInt ft_index = 0;
-						char ft_char     = FT_Get_First_Char(ft_face, &ft_index);
+						FT_ULong ft_char = FT_Get_First_Char(ft_face, &ft_index);
 						while (ft_index)
 						{
 							if (FT_Load_Char(ft_face, ft_char, FT_LOAD_RENDER) != FT_OK)
@@ -121,7 +121,7 @@ namespace galaxy
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-								glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
+								glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<float>("ansio-filter"));
 
 								character.m_size.x    = ft_face->glyph->bitmap.width;
 								character.m_size.y    = ft_face->glyph->bitmap.rows;
@@ -129,7 +129,7 @@ namespace galaxy
 								character.m_bearing.y = ft_face->glyph->bitmap_top;
 								character.m_advance   = ft_face->glyph->advance.x;
 
-								m_characters[ft_char] = std::move(character);
+								m_characters[static_cast<char>(ft_char)] = std::move(character);
 							}
 
 							ft_char = FT_Get_Next_Char(ft_face, ft_char, &ft_index);
@@ -160,9 +160,13 @@ namespace galaxy
 
 		const int Font::get_width(std::string_view text) noexcept
 		{
-			return std::accumulate(text.begin(), text.end(), 0, [this](int width, const char c) {
-				return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
-			});
+			return std::accumulate(text.begin(),
+								   text.end(),
+								   0,
+								   [this](int width, const char c)
+								   {
+									   return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
+								   });
 		}
 
 		const int Font::get_height() const noexcept

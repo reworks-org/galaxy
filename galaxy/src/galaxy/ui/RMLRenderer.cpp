@@ -7,6 +7,7 @@
 
 #include <stb/stb_image.h>
 
+#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/Config.hpp"
@@ -85,6 +86,13 @@ namespace galaxy
 		void RMLRenderer::RenderGeometry(
 			Rml::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::TextureHandle texture, const Rml::Vector2f& translation)
 		{
+			GALAXY_UNUSED(vertices);
+			GALAXY_UNUSED(num_vertices);
+			GALAXY_UNUSED(indices);
+			GALAXY_UNUSED(num_indices);
+			GALAXY_UNUSED(texture);
+			GALAXY_UNUSED(translation);
+
 			GALAXY_LOG(GALAXY_FATAL, "RenderGeometry() should not be called. Ensure RMLGeometry can be compiled instead.");
 		}
 
@@ -235,7 +243,7 @@ namespace galaxy
 
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<int>("ansio-filter"));
+			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, SL_HANDLE.config()->get<float>("ansio-filter"));
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 			texture_handle = static_cast<Rml::TextureHandle>(texture);
@@ -257,10 +265,16 @@ namespace galaxy
 			}
 			else
 			{
-				const auto matrix = glm::make_mat4(transform->data());
-
+				const auto matrix              = glm::make_mat4(transform->data());
 				const glm::vec2 scissor_transf = matrix * glm::vec4 {m_scissor_region.x, m_scissor_region.y, 0.0f, 1.0f};
-				SetScissorRegion(scissor_transf.x, scissor_transf.y, m_scissor_region.z, m_scissor_region.w);
+
+				// clang-format off
+				SetScissorRegion(
+					static_cast<int>(std::floor(scissor_transf.x)), 
+					static_cast<int>(std::floor(scissor_transf.y)), 
+					static_cast<int>(std::floor(m_scissor_region.z)), 
+					static_cast<int>(std::floor(m_scissor_region.w)));
+				// clang-format on
 
 				m_shader.bind();
 				m_shader.set_uniform("u_transform", matrix);

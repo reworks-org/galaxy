@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			/// \param factor Fattening factor.
 			///
-			void fatten(const std::optional<double>& factor) noexcept;
+			void fatten(const std::optional<float>& factor) noexcept;
 
 			///
 			/// Indicates whether or not the supplied AABB is contained within the invoked AABB.
@@ -106,14 +106,14 @@ namespace galaxy
 			///
 			/// \return the computed area of the AABB.
 			///
-			[[nodiscard]] const double compute_area() const noexcept;
+			[[nodiscard]] const float compute_area() const noexcept;
 
 			///
 			/// Returns the stored area of the AABB.
 			///
 			/// \return the stored area of the AABB.
 			///
-			[[nodiscard]] const double area() const noexcept;
+			[[nodiscard]] const float area() const noexcept;
 
 			///
 			/// Returns the size of the AABB.
@@ -160,7 +160,7 @@ namespace galaxy
 			///
 			/// AABB area.
 			///
-			double m_area;
+			float m_area;
 		};
 
 		[[nodiscard]] inline const bool operator==(const AABB& lhs, const AABB& rhs) noexcept

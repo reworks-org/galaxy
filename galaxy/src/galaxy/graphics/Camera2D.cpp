@@ -8,6 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json.hpp>
 
+#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
@@ -23,10 +24,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
 			, m_scaling {1.0f}
@@ -35,7 +32,7 @@ namespace galaxy
 			, m_pos {0.0f, 0.0f}
 			, m_size {1.0f, 1.0f}
 		{
-			create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+			create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 		}
 
 		Camera2D::Camera2D(const nlohmann::json& json) noexcept
@@ -44,10 +41,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
 			, m_scaling {1.0f}
@@ -57,52 +50,52 @@ namespace galaxy
 			, m_size {1.0f, 1.0f}
 		{
 			deserialize(json);
-			create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+			create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
 		}
 
 		void Camera2D::on_event(const events::KeyDown& e) noexcept
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				m_moving_fwd = true;
+				move(0.0f, GALAXY_DT * m_speed);
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				m_moving_back = true;
+				move(0.0f, -(GALAXY_DT * m_speed));
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				m_moving_left = true;
+				move(GALAXY_DT * m_speed, 0.0f);
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				m_moving_right = true;
+				move(-(GALAXY_DT * m_speed), 0.0f);
 			}
 		}
 
-		void Camera2D::on_event(const events::KeyUp& e) noexcept
+		void Camera2D::on_event(const events::KeyRepeat& e) noexcept
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				m_moving_fwd = false;
+				move(0.0f, GALAXY_DT * m_speed);
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				m_moving_back = false;
+				move(0.0f, -(GALAXY_DT * m_speed));
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				m_moving_left = false;
+				move(GALAXY_DT * m_speed, 0.0f);
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				m_moving_right = false;
+				move(-(GALAXY_DT * m_speed), 0.0f);
 			}
 		}
 
@@ -122,30 +115,7 @@ namespace galaxy
 
 		void Camera2D::on_event(const events::WindowResized& e) noexcept
 		{
-			create(0.0f, e.m_width, e.m_height, 0.0f);
-		}
-
-		void Camera2D::update(const double dt) noexcept
-		{
-			if (m_moving_fwd)
-			{
-				move(0.0f, dt * m_speed);
-			}
-
-			if (m_moving_back)
-			{
-				move(0.0f, -(dt * m_speed));
-			}
-
-			if (m_moving_left)
-			{
-				move(dt * m_speed, 0.0f);
-			}
-
-			if (m_moving_right)
-			{
-				move(-(dt * m_speed), 0.0f);
-			}
+			create(0.0f, static_cast<float>(e.m_width), static_cast<float>(e.m_height), 0.0f);
 		}
 
 		void Camera2D::move(const float x, const float y) noexcept
@@ -269,10 +239,6 @@ namespace galaxy
 			m_dirty             = true;
 			m_scaling           = glm::mat4 {1.0f};
 			m_data.m_model_view = glm::mat4 {1.0f};
-			m_moving_fwd        = false;
-			m_moving_back       = false;
-			m_moving_left       = false;
-			m_moving_right      = false;
 			m_data.m_projection = glm::mat4 {1.0f};
 
 			set_pos(json.at("x"), json.at("y"));

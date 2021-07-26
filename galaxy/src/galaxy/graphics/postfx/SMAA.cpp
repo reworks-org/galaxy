@@ -16023,7 +16023,7 @@ namespace galaxy
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_FLOAT, 0);
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_neighbour_tex, 0);
-			glDrawBuffers(attachment.size(), attachment.data());
+			glDrawBuffers(static_cast<GLsizei>(attachment.size()), attachment.data());
 
 			glBindFramebuffer(GL_FRAMEBUFFER, m_edge_fbo);
 
@@ -16035,7 +16035,7 @@ namespace galaxy
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_FLOAT, nullptr);
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_edge_tex, 0);
-			glDrawBuffers(attachment.size(), attachment.data());
+			glDrawBuffers(static_cast<GLsizei>(attachment.size()), attachment.data());
 
 			glBindFramebuffer(GL_FRAMEBUFFER, m_blend_fbo);
 
@@ -16047,7 +16047,7 @@ namespace galaxy
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_FLOAT, nullptr);
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_blend_tex, 0);
-			glDrawBuffers(attachment.size(), attachment.data());
+			glDrawBuffers(static_cast<GLsizei>(attachment.size()), attachment.data());
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 

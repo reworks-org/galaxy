@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// Index of which atlas this sprite belongs to.
 			///
-			unsigned int m_index;
+			std::size_t m_index;
 		};
 
 		///
@@ -147,9 +147,9 @@ namespace galaxy
 			///
 			/// Get altas ID.
 			///
-			/// \return Const unsigned integer.
+			/// \return Const std::size_t.
 			///
-			[[nodiscard]] const unsigned int get_id() const noexcept;
+			[[nodiscard]] const std::size_t get_id() const noexcept;
 
 			///
 			/// Get OpenGL texture id.
@@ -173,7 +173,7 @@ namespace galaxy
 			///
 			/// Unique ID assigned to this texture atlas instance.
 			///
-			unsigned int m_id;
+			std::size_t m_id;
 
 			///
 			/// Get pixel dimension of atlas.

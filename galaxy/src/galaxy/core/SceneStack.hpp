@@ -71,9 +71,7 @@ namespace galaxy
 			///
 			/// Update scene stack.
 			///
-			/// \param dt Delta time from gameloop.
-			///
-			void update(const double dt);
+			void update();
 
 			///
 			/// Perform pre-rendering operations outside of opengl begin/end of rendering.

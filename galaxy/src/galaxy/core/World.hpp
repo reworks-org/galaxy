@@ -57,9 +57,8 @@ namespace galaxy
 			/// Update all registered systems.
 			///
 			/// \param scene Pointer to scene.
-			/// \param dt "Lag" time to pass to systems.
 			///
-			void update(core::Scene2D* scene, const double dt);
+			void update(core::Scene2D* scene);
 
 			///
 			/// Create an entity.
@@ -377,7 +376,7 @@ namespace galaxy
 			///
 			/// Counter for free entity ids.
 			///
-			std::uint64_t m_next_id;
+			GALAXY_ENTITY_SIZE m_next_id;
 
 			///
 			/// Stores entitys.

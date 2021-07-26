@@ -55,7 +55,7 @@ namespace galaxy
 			/// \param size Number of components for each vertex attribute.
 			///
 			template<VertexAttributes va>
-			void add(const unsigned int size) noexcept;
+			void add(const int size) noexcept;
 
 			///
 			/// Retrieve all attributes.
@@ -83,7 +83,7 @@ namespace galaxy
 		};
 
 		template<VertexAttributes va>
-		inline void VertexLayout::add(const unsigned int size) noexcept
+		inline void VertexLayout::add(const int size) noexcept
 		{
 			// Now to use constexpr to check on compile time the buffer type.
 			// This is faster since we dont need to bother checking at runtime.
@@ -91,15 +91,15 @@ namespace galaxy
 
 			if constexpr (va == VertexAttributes::POSITION)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_pos));
+				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), offsetof(Vertex, m_pos));
 			}
 			else if constexpr (va == VertexAttributes::TEXEL)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
+				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), offsetof(Vertex, m_texels));
 			}
 			else if constexpr (va == VertexAttributes::COLOUR)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_colour));
+				m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), offsetof(Vertex, m_colour));
 			}
 			else
 			{

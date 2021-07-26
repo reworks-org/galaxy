@@ -51,7 +51,7 @@ namespace galaxy
 		{
 			if (!vertices.empty())
 			{
-				m_instance_count = vertices.size();
+				m_instance_count = static_cast<unsigned int>(vertices.size());
 
 				glBindBuffer(GL_ARRAY_BUFFER, m_ibo);
 				// Static draw since we are recreating rather than updating the buffer.

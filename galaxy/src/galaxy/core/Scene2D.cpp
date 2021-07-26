@@ -32,7 +32,7 @@ namespace galaxy
 			m_camera.set_speed(100.0f);
 
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
-			m_dispatcher.subscribe<events::KeyUp>(m_camera);
+			m_dispatcher.subscribe<events::KeyRepeat>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
 
@@ -48,7 +48,7 @@ namespace galaxy
 
 			// clang-format off
 			m_dispatcher.subscribe_callback<events::MouseMoved>([this](const events::MouseMoved& mme) {
-				this->m_rml->ProcessMouseMove(mme.m_x, mme.m_y, 0);
+				this->m_rml->ProcessMouseMove(static_cast<int>(std::floor(mme.m_x)), static_cast<int>(std::floor(mme.m_y)), 0);
 			});
 
 			m_dispatcher.subscribe_callback<events::MousePressed>([this](const events::MousePressed& mpe) {
@@ -60,7 +60,7 @@ namespace galaxy
 			});
 
 			m_dispatcher.subscribe_callback<events::MouseWheel>([this](const events::MouseWheel& mwe) {
-				this->m_rml->ProcessMouseWheel(mwe.m_y_offset, 0);
+				this->m_rml->ProcessMouseWheel(static_cast<float>(mwe.m_y_offset), 0);
 			});
 
 			m_dispatcher.subscribe_callback<events::KeyDown>([this](const events::KeyDown& kde) {
@@ -105,10 +105,9 @@ namespace galaxy
 			SL_HANDLE.window()->trigger_queued_events(m_dispatcher);
 		}
 
-		void Scene2D::update(const double dt)
+		void Scene2D::update()
 		{
-			m_camera.update(dt);
-			m_world.update(this, dt);
+			m_world.update(this);
 			m_rml->Update();
 		}
 
@@ -119,7 +118,7 @@ namespace galaxy
 		void Scene2D::render()
 		{
 			RENDERER_2D().buffer_camera(m_camera);
-			m_rendersystem->render(m_world, m_camera);
+			m_rendersystem->render(m_world);
 			m_rml->Render();
 		}
 

@@ -51,9 +51,7 @@ namespace galaxy
 			///
 			/// Call to update timer count.
 			///
-			/// \param dt Total time to accumulate every time update() is called.
-			///
-			void update(const double dt);
+			void update();
 
 			///
 			/// Start timer.

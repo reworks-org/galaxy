@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class TextureBook final
 		{
-			using AtlasMap = robin_hood::unordered_flat_map<unsigned int, graphics::TextureAtlas>;
+			using AtlasMap = robin_hood::unordered_flat_map<std::size_t, graphics::TextureAtlas>;
 
 		public:
 			///
@@ -86,7 +86,7 @@ namespace galaxy
 			/// \param key Key for this new sub region.
 			/// \param region New bounds for this sub region.
 			///
-			void add_custom_region(unsigned int index, std::string_view key, const math::Rect<float>& region);
+			void add_custom_region(const std::size_t index, std::string_view key, const math::Rect<float>& region);
 
 			///
 			/// Search for a texture from an atlas.

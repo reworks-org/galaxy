@@ -179,7 +179,7 @@ namespace galaxy
 					auto* const font_char = fontmap->get_char(character);
 
 					const float x = x_offset + font_char->m_bearing.x;
-					const float y = (X_height - font_char->m_bearing.y);
+					const float y = static_cast<float>(X_height - font_char->m_bearing.y);
 
 					const float vertices[6][4] = {{x, y + font_char->m_size.y, 0.0f, 1.0f},
 												  {x + font_char->m_size.x, y, 1.0f, 0.0f},

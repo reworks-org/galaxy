@@ -91,9 +91,9 @@ namespace sb
 		m_scene_stack.events();
 	}
 
-	void Sandbox::update(const double dt)
+	void Sandbox::update()
 	{
-		m_timer.update(dt);
+		m_timer.update();
 
 		/*
 		if (m_scene_stack.top()->m_name == "SandboxScene")
@@ -109,7 +109,7 @@ namespace sb
 		}
 		*/
 
-		m_scene_stack.update(dt);
+		m_scene_stack.update();
 	}
 
 	void Sandbox::pre_render()

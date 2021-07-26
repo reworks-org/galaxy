@@ -20,6 +20,9 @@ public:
 
 int main(int argsc, char* argsv[])
 {
+	GALAXY_UNUSED(argsc);
+	GALAXY_UNUSED(argsv);
+
 	bool restart = false;
 
 	do

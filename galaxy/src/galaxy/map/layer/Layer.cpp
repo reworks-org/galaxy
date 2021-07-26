@@ -33,17 +33,17 @@ namespace galaxy
 			return m_name;
 		}
 
-		const float Layer::get_offset_x() const noexcept
+		const double Layer::get_offset_x() const noexcept
 		{
 			return m_offset_x;
 		}
 
-		const float Layer::get_offset_y() const noexcept
+		const double Layer::get_offset_y() const noexcept
 		{
 			return m_offset_y;
 		}
 
-		const float Layer::get_opacity() const noexcept
+		const double Layer::get_opacity() const noexcept
 		{
 			return m_opacity;
 		}

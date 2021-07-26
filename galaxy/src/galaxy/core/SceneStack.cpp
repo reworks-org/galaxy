@@ -103,11 +103,11 @@ namespace galaxy
 			}
 		}
 
-		void SceneStack::update(const double dt)
+		void SceneStack::update()
 		{
 			if (!m_stack.empty())
 			{
-				m_stack.back()->update(dt);
+				m_stack.back()->update();
 			}
 		}
 

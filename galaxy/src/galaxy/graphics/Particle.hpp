@@ -53,9 +53,7 @@ namespace galaxy
 			///
 			/// Move particle across screen.
 			///
-			/// \param dt Gameloop delta time.
-			///
-			void move(const float dt) noexcept;
+			void move() noexcept;
 
 		public:
 			///

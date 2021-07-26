@@ -65,7 +65,7 @@ namespace galaxy
 			/// \param layer Rendering layer.
 			/// \param index Texture Atlas index this batch sprite belongs to. Optional.
 			///
-			void create(const math::Rect<float>& region, std::string_view layer, unsigned int index = 0) noexcept;
+			void create(const math::Rect<float>& region, std::string_view layer, std::size_t index = 0) noexcept;
 
 			///
 			/// Sets the texture region for the batched sprite from the texture atlas.
@@ -148,9 +148,9 @@ namespace galaxy
 			///
 			/// Get texture atlas this sprite is for.
 			///
-			/// \return Const unsigned int.
+			/// \return Const std::size_t.
 			///
-			[[nodiscard]] const unsigned int get_atlas_index() const noexcept;
+			[[nodiscard]] const std::size_t get_atlas_index() const noexcept;
 
 			///
 			/// Serializes object.
@@ -186,7 +186,7 @@ namespace galaxy
 			///
 			/// TextureAtlas index.
 			///
-			unsigned int m_index;
+			std::size_t m_index;
 
 			///
 			/// Region of texture used.

@@ -32,9 +32,8 @@ namespace galaxy
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
 			/// \param scene Currently active scene.
-			/// \param dt "Lag" from gameloop.
 			///
-			virtual void update(core::Scene2D* scene, const double dt) = 0;
+			virtual void update(core::Scene2D* scene) = 0;
 
 		protected:
 			///

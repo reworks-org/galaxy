@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/core/GalaxyConfig.hpp"
+
 #include "Timer.hpp"
 
 namespace galaxy
@@ -30,11 +32,11 @@ namespace galaxy
 			m_repeat = repeat;
 		}
 
-		void Timer::update(const double dt)
+		void Timer::update()
 		{
 			if (!m_stopped)
 			{
-				m_time_passed += (dt * 1000.0);
+				m_time_passed += (GALAXY_DT * 1000.0);
 
 				if (m_time_passed >= m_delay)
 				{

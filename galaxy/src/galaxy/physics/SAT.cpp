@@ -77,7 +77,7 @@ namespace galaxy
 			{
 				auto* s2d = world.get<components::Sprite>(entity);
 
-				const auto pos = calc_transformed_pos(s2d->get_width(), s2d->get_height(), transform);
+				const auto pos = calc_transformed_pos(static_cast<float>(s2d->get_width()), static_cast<float>(s2d->get_height()), transform);
 				m_vertexs.assign(pos.begin(), pos.end());
 			}
 			else

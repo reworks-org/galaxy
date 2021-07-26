@@ -9,6 +9,7 @@
 
 #include <stb/stb_image.h>
 
+#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
@@ -160,6 +161,7 @@ namespace galaxy
 
 						// Key input callback.
 						glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+							GALAXY_UNUSED(scancode);
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 							switch (action)
@@ -192,6 +194,7 @@ namespace galaxy
 
 						// Mouse button callback.
 						glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
+							GALAXY_UNUSED(mods);
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 							const auto pos = this_win->get_cursor_pos();
@@ -224,6 +227,12 @@ namespace galaxy
 							// clang-format off
 							glDebugMessageCallback(
 							[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
+								GALAXY_UNUSED(source);
+								GALAXY_UNUSED(type);
+								GALAXY_UNUSED(id);
+								GALAXY_UNUSED(length);
+								GALAXY_UNUSED(userParam);
+
 								switch (severity)
 								{
 									case GL_DEBUG_SEVERITY_HIGH: GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message); break;

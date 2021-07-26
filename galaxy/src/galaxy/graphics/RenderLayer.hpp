@@ -23,7 +23,7 @@ namespace galaxy
 		class RenderLayer final
 		{
 			friend class Renderer2D;
-			using BatchMap = robin_hood::unordered_flat_map<unsigned int, SpriteBatch>;
+			using BatchMap = robin_hood::unordered_flat_map<std::size_t, SpriteBatch>;
 
 		public:
 			///

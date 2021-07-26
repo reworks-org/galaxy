@@ -92,12 +92,12 @@ namespace galaxy
 			m_vao.create(vbo, ibo);
 		}
 
-		void LoadingScreen::display(const float width, const float height, GLFWwindow* window)
+		void LoadingScreen::display(const int width, const int height, GLFWwindow* window)
 		{
 			m_shader.bind();
-			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, width, height, 0.0f, -1.0f, 1.0f));
-			m_shader.set_uniform<float>("u_width", m_texture.get_width());
-			m_shader.set_uniform<float>("u_height", m_texture.get_height());
+			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f));
+			m_shader.set_uniform<float>("u_width", static_cast<float>(m_texture.get_width()));
+			m_shader.set_uniform<float>("u_height", static_cast<float>(m_texture.get_height()));
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, width, height);

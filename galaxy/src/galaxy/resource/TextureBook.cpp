@@ -83,9 +83,12 @@ namespace galaxy
 			{
 				const auto& json     = json_opt.value();
 				const auto& textures = json.at("textures");
+
+				// clang-format off
 				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
 					add(texture.get<std::string>());
 				});
+				// clang-format on
 			}
 			else
 			{
@@ -93,7 +96,7 @@ namespace galaxy
 			}
 		}
 
-		void TextureBook::add_custom_region(const unsigned int index, std::string_view key, const math::Rect<float>& region)
+		void TextureBook::add_custom_region(const std::size_t index, std::string_view key, const math::Rect<float>& region)
 		{
 			m_atlas[index].add_custom_region(key, region);
 		}

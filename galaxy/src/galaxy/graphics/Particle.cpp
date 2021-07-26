@@ -7,6 +7,8 @@
 
 #include <glm/trigonometric.hpp>
 
+#include "galaxy/core/GalaxyConfig.hpp"
+
 #include "Particle.hpp"
 
 namespace galaxy
@@ -63,10 +65,10 @@ namespace galaxy
 			return *this;
 		}
 
-		void Particle::move(const float dt) noexcept
+		void Particle::move() noexcept
 		{
-			m_offset.x += (m_velocity.x * dt) * glm::cos(m_angle);
-			m_offset.y += (m_velocity.y * dt) * glm::sin(m_angle);
+			m_offset.x += (m_velocity.x * GALAXY_DT) * glm::cos(m_angle);
+			m_offset.y += (m_velocity.y * GALAXY_DT) * glm::sin(m_angle);
 		}
 	} // namespace graphics
 } // namespace galaxy

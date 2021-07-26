@@ -67,7 +67,7 @@ namespace galaxy
 		{
 		}
 
-		void BatchSprite::create(const math::Rect<float>& region, std::string_view layer, unsigned int index) noexcept
+		void BatchSprite::create(const math::Rect<float>& region, std::string_view layer, std::size_t index) noexcept
 		{
 			m_region = region;
 			m_index  = index;
@@ -146,7 +146,7 @@ namespace galaxy
 			return m_key;
 		}
 
-		const unsigned int BatchSprite::get_atlas_index() const noexcept
+		const std::size_t BatchSprite::get_atlas_index() const noexcept
 		{
 			return m_index;
 		}

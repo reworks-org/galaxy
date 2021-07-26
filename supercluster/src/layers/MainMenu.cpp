@@ -36,9 +36,9 @@ namespace sc
 		//m_scene_stack.events();
 	}
 
-	void MainMenu::update(const double dt)
+	void MainMenu::update()
 	{
-		//m_scene_stack.update(dt);
+		//m_scene_stack.update();
 	}
 
 	void MainMenu::pre_render()

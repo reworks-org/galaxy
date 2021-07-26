@@ -29,14 +29,16 @@ namespace galaxy
 		{
 		}
 
-		void RenderSystem2D::update(core::Scene2D* scene, const double dt)
+		void RenderSystem2D::update(core::Scene2D* scene)
 		{
+			GALAXY_UNUSED(scene);
 		}
 
-		void RenderSystem2D::render(core::World& world, graphics::Camera2D& camera)
+		void RenderSystem2D::render(core::World& world)
 		{
 			world.operate<components::Renderable, components::Transform2D>(
-				[&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
+				[&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform)
+				{
 					// Ordered this way for compiler optimizations.
 					// Most-Least common.
 					switch (renderable->m_type)

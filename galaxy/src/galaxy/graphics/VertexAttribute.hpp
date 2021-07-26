@@ -56,7 +56,7 @@ namespace galaxy
 			/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 			/// \param offset The offset of this attribute in the verticies.
 			///
-			VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept;
+			VertexAttribute(const int size, const unsigned int type, unsigned char normalized, const std::size_t offset) noexcept;
 
 			///
 			/// Move constructor.
@@ -88,7 +88,7 @@ namespace galaxy
 			///
 			/// Components for each vertex attribute.
 			///
-			unsigned int m_size;
+			int m_size;
 
 			///
 			/// Data type. I.e. GL_FLOAT or GL_INT.

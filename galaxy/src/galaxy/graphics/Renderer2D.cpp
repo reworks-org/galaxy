@@ -396,9 +396,13 @@ namespace galaxy
 				}
 
 				// Make sure order is correct.
-				std::sort(std::execution::par, m_layers.begin(), m_layers.end(), [&](auto* left, auto* right) {
-					return left->get_layer() < right->get_layer();
-				});
+				std::sort(std::execution::par,
+						  m_layers.begin(),
+						  m_layers.end(),
+						  [&](auto* left, auto* right)
+						  {
+							  return left->get_layer() < right->get_layer();
+						  });
 			}
 			else
 			{
@@ -502,8 +506,8 @@ namespace galaxy
 					this->m_text_shader.bind();
 					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
 					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
-					this->m_text_shader.set_uniform<float>("u_width", text->get_width());
-					this->m_text_shader.set_uniform<float>("u_height", text->get_height());
+					this->m_text_shader.set_uniform<float>("u_width", static_cast<float>(text->get_width()));
+					this->m_text_shader.set_uniform<float>("u_height", static_cast<float>(text->get_height()));
 				}
 			};
 			// clang-format on
@@ -535,8 +539,8 @@ namespace galaxy
 					this->m_sprite_shader.bind();
 					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
 					this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
-					this->m_sprite_shader.set_uniform<float>("u_width", sprite->get_width());
-					this->m_sprite_shader.set_uniform<float>("u_height", sprite->get_height());
+					this->m_sprite_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
+					this->m_sprite_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
 				}
 			};
 			// clang-format on
@@ -572,8 +576,8 @@ namespace galaxy
 
 					this->m_instance_shader.bind();
 					this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
-					this->m_instance_shader.set_uniform<float>("u_width", particle_effect->get_width());
-					this->m_instance_shader.set_uniform<float>("u_height", particle_effect->get_height());
+					this->m_instance_shader.set_uniform<float>("u_width", static_cast<float>(particle_effect->get_width()));
+					this->m_instance_shader.set_uniform<float>("u_height", static_cast<float>(particle_effect->get_height()));
 				},
 				.m_instance_count = particle_effect->instance_count()
 			};
@@ -605,8 +609,8 @@ namespace galaxy
 
 			m_rtt_shader.set_uniform("u_projection", target->get_proj());
 			m_rtt_shader.set_uniform("u_transform", transform->get_transform());
-			m_rtt_shader.set_uniform<float>("u_width", sprite->get_width());
-			m_rtt_shader.set_uniform<float>("u_height", sprite->get_height());
+			m_rtt_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
+			m_rtt_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
 
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
