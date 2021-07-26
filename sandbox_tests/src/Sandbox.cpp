@@ -41,14 +41,13 @@ namespace sb
 	{
 		m_window = SL_HANDLE.window();
 
+		// clang-format off
 		m_timer.set_repeating(true);
-		m_timer.set(
-			[]()
-			{
-				std::cout << "Timer Ping" << std::endl;
-			},
-			1000);
+		m_timer.set([]() {
+			std::cout << "Timer Ping" << std::endl;
+		}, 1000);
 		m_timer.start();
+		// clang-format on
 
 		create_sandbox_scene();
 		create_physics_scene();
