@@ -80,7 +80,8 @@ namespace galaxy
 				create_asset_layout(root, "audio/sfx/");
 				create_asset_layout(root, "fonts/");
 				create_asset_layout(root, "json/");
-				create_asset_layout(root, "scripts/");
+				create_asset_layout(root, "scripts/actions/");
+				create_asset_layout(root, "scripts/definitions/");
 				create_asset_layout(root, "shaders/");
 				create_asset_layout(root, "textures/");
 				create_asset_layout(root, "maps/");
@@ -402,7 +403,7 @@ namespace galaxy
 		{
 			constexpr const char* const font          = "{\"fontbook\": {}}";
 			constexpr const char* const music         = "{\"musicbook\": {}}";
-			constexpr const char* const script        = "{\"scriptbook\": {}}";
+			constexpr const char* const script        = "{\"scriptbook\": {},\"definitions\":[]}";
 			constexpr const char* const shader        = "{\"vertex-extension\": \".vs\",\"fragment-extension\": \".fs\",\"shaderbook\": []}";
 			constexpr const char* const sound         = "{\"soundbook\": {}}";
 			constexpr const char* const atlas         = "{\"textures\": []}";

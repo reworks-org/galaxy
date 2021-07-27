@@ -54,6 +54,20 @@ namespace galaxy
 			void run(std::string_view script_id);
 
 			///
+			/// Add a definition script.
+			///
+			/// \param script Name of the script, including extension.
+			///
+			void add_definition_script(std::string_view script);
+
+			///
+			/// Remove a definition script.
+			///
+			/// \param script Name of the script, including extension.
+			///
+			void remove_definition_script(std::string_view script);
+
+			///
 			/// Clean up.
 			///
 			void clear() noexcept override;
@@ -92,6 +106,11 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			ScriptBook& operator=(ScriptBook&&) = delete;
+
+			///
+			/// Definition Scripts.
+			///
+			std::vector<std::string> m_definition_scripts;
 		};
 	} // namespace res
 } // namespace galaxy
