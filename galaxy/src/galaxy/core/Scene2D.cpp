@@ -32,14 +32,14 @@ namespace galaxy
 			m_camera.set_speed(100.0f);
 
 			m_dispatcher.subscribe<events::KeyDown>(m_camera);
-			m_dispatcher.subscribe<events::KeyRepeat>(m_camera);
+			m_dispatcher.subscribe<events::KeyUp>(m_camera);
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
 
-			m_world.create_system<systems::ParticleSystem>();
-			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::TransformSystem>();
+			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::CollisionSystem>();
+			m_world.create_system<systems::ParticleSystem>();
 			m_world.create_system<systems::RenderSystem2D>();
 
 			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
@@ -48,7 +48,7 @@ namespace galaxy
 
 			// clang-format off
 			m_dispatcher.subscribe_callback<events::MouseMoved>([this](const events::MouseMoved& mme) {
-				this->m_rml->ProcessMouseMove(static_cast<int>(std::floor(mme.m_x)), static_cast<int>(std::floor(mme.m_y)), 0);
+				this->m_rml->ProcessMouseMove(static_cast<int>(std::trunc(mme.m_x)), static_cast<int>(std::trunc(mme.m_y)), 0);
 			});
 
 			m_dispatcher.subscribe_callback<events::MousePressed>([this](const events::MousePressed& mpe) {
@@ -107,6 +107,7 @@ namespace galaxy
 
 		void Scene2D::update()
 		{
+			m_camera.update();
 			m_world.update(this);
 			m_rml->Update();
 		}

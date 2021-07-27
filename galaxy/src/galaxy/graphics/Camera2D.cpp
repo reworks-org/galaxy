@@ -24,6 +24,10 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
+			, m_moving_fwd {false}
+			, m_moving_back {false}
+			, m_moving_left {false}
+			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
 			, m_scaling {1.0f}
@@ -41,6 +45,10 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
+			, m_moving_fwd {false}
+			, m_moving_back {false}
+			, m_moving_left {false}
+			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
 			, m_scaling {1.0f}
@@ -57,45 +65,45 @@ namespace galaxy
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				move(0.0f, GALAXY_DT * m_speed);
+				m_moving_fwd = true;
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				move(0.0f, -(GALAXY_DT * m_speed));
+				m_moving_back = true;
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				move(GALAXY_DT * m_speed, 0.0f);
+				m_moving_left = true;
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				move(-(GALAXY_DT * m_speed), 0.0f);
+				m_moving_right = true;
 			}
 		}
 
-		void Camera2D::on_event(const events::KeyRepeat& e) noexcept
+		void Camera2D::on_event(const events::KeyUp& e) noexcept
 		{
 			if (e.m_keycode == m_forward_key)
 			{
-				move(0.0f, GALAXY_DT * m_speed);
+				m_moving_fwd = false;
 			}
 
 			if (e.m_keycode == m_back_key)
 			{
-				move(0.0f, -(GALAXY_DT * m_speed));
+				m_moving_back = false;
 			}
 
 			if (e.m_keycode == m_left_key)
 			{
-				move(GALAXY_DT * m_speed, 0.0f);
+				m_moving_left = false;
 			}
 
 			if (e.m_keycode == m_right_key)
 			{
-				move(-(GALAXY_DT * m_speed), 0.0f);
+				m_moving_right = false;
 			}
 		}
 
@@ -116,6 +124,29 @@ namespace galaxy
 		void Camera2D::on_event(const events::WindowResized& e) noexcept
 		{
 			create(0.0f, static_cast<float>(e.m_width), static_cast<float>(e.m_height), 0.0f);
+		}
+
+		void Camera2D::update() noexcept
+		{
+			if (m_moving_fwd)
+			{
+				move(0.0f, m_speed * GALAXY_DT);
+			}
+
+			if (m_moving_back)
+			{
+				move(0.0f, -(m_speed * GALAXY_DT));
+			}
+
+			if (m_moving_left)
+			{
+				move(m_speed * GALAXY_DT, 0.0f);
+			}
+
+			if (m_moving_right)
+			{
+				move(-(m_speed * GALAXY_DT), 0.0f);
+			}
 		}
 
 		void Camera2D::move(const float x, const float y) noexcept
@@ -239,6 +270,10 @@ namespace galaxy
 			m_dirty             = true;
 			m_scaling           = glm::mat4 {1.0f};
 			m_data.m_model_view = glm::mat4 {1.0f};
+			m_moving_fwd        = false;
+			m_moving_back       = false;
+			m_moving_left       = false;
+			m_moving_right      = false;
 			m_data.m_projection = glm::mat4 {1.0f};
 
 			set_pos(json.at("x"), json.at("y"));

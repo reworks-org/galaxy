@@ -396,13 +396,11 @@ namespace galaxy
 				}
 
 				// Make sure order is correct.
-				std::sort(std::execution::par,
-						  m_layers.begin(),
-						  m_layers.end(),
-						  [&](auto* left, auto* right)
-						  {
-							  return left->get_layer() < right->get_layer();
-						  });
+				// clang-format off
+				std::sort(std::execution::par, m_layers.begin(), m_layers.end(), [&](auto* left, auto* right) {
+					return left->get_layer() < right->get_layer();
+				});
+				// clang-format on
 			}
 			else
 			{

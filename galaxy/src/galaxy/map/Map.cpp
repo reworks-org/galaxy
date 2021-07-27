@@ -444,8 +444,8 @@ namespace galaxy
 					u += ((column * tileset.get_spacing()) + tileset.get_margin());
 					v += ((row * tileset.get_spacing()) + tileset.get_margin());
 
-					u += static_cast<int>(std::floor(tileset_region.m_x));
-					v += static_cast<int>(std::floor(tileset_region.m_y));
+					u += static_cast<int>(std::trunc(tileset_region.m_x));
+					v += static_cast<int>(std::trunc(tileset_region.m_y));
 
 					const auto name = tileset_name + std::to_string(tile.get_id());
 					math::Rect<float> rect;

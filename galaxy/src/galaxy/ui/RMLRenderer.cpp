@@ -270,10 +270,10 @@ namespace galaxy
 
 				// clang-format off
 				SetScissorRegion(
-					static_cast<int>(std::floor(scissor_transf.x)), 
-					static_cast<int>(std::floor(scissor_transf.y)), 
-					static_cast<int>(std::floor(m_scissor_region.z)), 
-					static_cast<int>(std::floor(m_scissor_region.w)));
+					static_cast<int>(std::trunc(scissor_transf.x)), 
+					static_cast<int>(std::trunc(scissor_transf.y)), 
+					static_cast<int>(std::trunc(m_scissor_region.z)), 
+					static_cast<int>(std::trunc(m_scissor_region.w)));
 				// clang-format on
 
 				m_shader.bind();

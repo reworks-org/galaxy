@@ -671,9 +671,12 @@ namespace galaxy
 			const auto type = CUniqueID::get<Component>();
 			if (!(type >= m_data.size()))
 			{
-				for (const auto& entity : m_data[type].get()->m_entities)
+				if (m_data[type].get())
 				{
-					entities[entity]++;
+					for (const auto& entity : m_data[type].get()->m_entities)
+					{
+						entities[entity]++;
+					}
 				}
 			}
 		}

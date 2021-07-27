@@ -159,12 +159,12 @@ namespace galaxy
 			{
 				const auto& json     = json_opt.value();
 				const auto& textures = json.at("textures");
-				std::for_each(textures.begin(),
-							  textures.end(),
-							  [&](const nlohmann::json& texture)
-							  {
-								  add(texture.get<std::string>());
-							  });
+
+				// clang-format off
+				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
+					add(texture.get<std::string>());
+				});
+				// clang-format on
 			}
 			else
 			{

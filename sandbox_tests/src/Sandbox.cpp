@@ -278,11 +278,11 @@ namespace sb
 						break;
 
 					case input::Keys::Q:
-						physics->m_world.get<components::Transform2D>(m_cube)->rotate(-1.0f);
+						physics->m_world.get<components::Transform2D>(m_cube)->rotate(-2.0f);
 						break;
 
 					case input::Keys::E:
-						physics->m_world.get<components::Transform2D>(m_cube)->rotate(1.0f);
+						physics->m_world.get<components::Transform2D>(m_cube)->rotate(2.0f);
 						break;
 				}
 			});

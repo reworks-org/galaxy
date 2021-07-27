@@ -13,7 +13,6 @@
 #include <glm/vec3.hpp>
 
 #include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MouseWheel.hpp"
@@ -72,11 +71,11 @@ namespace galaxy
 			void on_event(const events::KeyDown& e) noexcept;
 
 			///
-			///	Event processing method for key repeat for Camera2D.
+			/// Event processing method for key up for Camera2D.
 			///
-			/// \param e Takes in a shared galaxy event defining a key repeat.
+			/// \param e Takes in a shared galaxy event defining a key release.
 			///
-			void on_event(const events::KeyRepeat& e) noexcept;
+			void on_event(const events::KeyUp& e) noexcept;
 
 			///
 			/// Event processing method for scroll event for Camera2D.
@@ -91,6 +90,11 @@ namespace galaxy
 			/// \param e Window resized event.
 			///
 			void on_event(const events::WindowResized& e) noexcept;
+
+			///
+			/// Update method for Camera2D.
+			///
+			void update() noexcept;
 
 			///
 			/// \brief Translate (move) position.
@@ -247,6 +251,26 @@ namespace galaxy
 			input::Keys m_right_key;
 
 		private:
+			///
+			/// Moving forward flag.
+			///
+			bool m_moving_fwd;
+
+			///
+			/// Moving back flag.
+			///
+			bool m_moving_back;
+
+			///
+			/// Moving left flag.
+			///
+			bool m_moving_left;
+
+			///
+			/// Moving right flag.
+			///
+			bool m_moving_right;
+
 			///
 			/// Camera movement speed.
 			///

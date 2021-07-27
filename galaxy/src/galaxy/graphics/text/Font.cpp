@@ -5,6 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+// Silence pointless conversion warnings.
+#if defined(_WIN32) || defined(_WIN64)
+	#pragma warning(disable : 4244)
+#endif
+
 #include <glad/glad.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -97,7 +102,7 @@ namespace galaxy
 						glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 						FT_UInt ft_index = 0;
-						FT_ULong ft_char = FT_Get_First_Char(ft_face, &ft_index);
+						char ft_char     = FT_Get_First_Char(ft_face, &ft_index);
 						while (ft_index)
 						{
 							if (FT_Load_Char(ft_face, ft_char, FT_LOAD_RENDER) != FT_OK)
@@ -129,7 +134,7 @@ namespace galaxy
 								character.m_bearing.y = ft_face->glyph->bitmap_top;
 								character.m_advance   = ft_face->glyph->advance.x;
 
-								m_characters[static_cast<char>(ft_char)] = std::move(character);
+								m_characters[ft_char] = std::move(character);
 							}
 
 							ft_char = FT_Get_Next_Char(ft_face, ft_char, &ft_index);
@@ -160,13 +165,11 @@ namespace galaxy
 
 		const int Font::get_width(std::string_view text) noexcept
 		{
-			return std::accumulate(text.begin(),
-								   text.end(),
-								   0,
-								   [this](int width, const char c)
-								   {
-									   return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
-								   });
+			// clang-format off
+			return std::accumulate(text.begin(), text.end(), 0, [this](int width, const char c) {
+				return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
+			});
+			// clang-format on
 		}
 
 		const int Font::get_height() const noexcept
@@ -185,3 +188,7 @@ namespace galaxy
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+#if defined(_WIN32) || defined(_WIN64)
+	#pragma warning(default : 4244)
+#endif

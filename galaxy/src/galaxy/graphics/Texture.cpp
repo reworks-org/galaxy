@@ -217,7 +217,7 @@ namespace galaxy
 			glGetTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, &ansio);
 			glBindTexture(GL_TEXTURE_2D, 0);
 
-			return static_cast<int>(std::floor(ansio));
+			return static_cast<int>(std::trunc(ansio));
 		}
 
 		const std::string& Texture::get_filepath() const noexcept
