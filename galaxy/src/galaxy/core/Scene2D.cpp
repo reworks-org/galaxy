@@ -6,10 +6,12 @@
 ///
 
 #include <RmlUi/Core.h>
+#include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/systems/ActionSystem.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/CollisionSystem.hpp"
 #include "galaxy/systems/ParticleSystem.hpp"
@@ -36,6 +38,7 @@ namespace galaxy
 			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
 			m_dispatcher.subscribe<events::WindowResized>(m_camera);
 
+			m_world.create_system<systems::ActionSystem>();
 			m_world.create_system<systems::TransformSystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::CollisionSystem>();
@@ -94,6 +97,7 @@ namespace galaxy
 
 		void Scene2D::on_push()
 		{
+			SL_HANDLE.lua()->set("galaxy_current_world", &m_world);
 		}
 
 		void Scene2D::on_pop()

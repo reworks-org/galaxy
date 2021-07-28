@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/components/Actions.hpp"
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchSprite.hpp"
 #include "galaxy/components/OnCollision.hpp"
@@ -39,6 +40,7 @@ namespace galaxy
 			: Serializable {this}
 			, m_next_id {0}
 		{
+			register_component<components::Actions>("Actions");
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchSprite>("BatchSprite");
 			register_component<components::OnCollision>("OnCollision");
@@ -293,8 +295,9 @@ namespace galaxy
 					entity_json["enabled"]         = is_enabled(entity);
 					entity_json["components"]      = nlohmann::json::object();
 
-					auto [animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
-						get_multi<components::Animated,
+					auto [actions, animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
+						get_multi<components::Actions,
+								  components::Animated,
 								  components::BatchSprite,
 								  components::OnCollision,
 								  components::ParticleEffect,
@@ -305,6 +308,11 @@ namespace galaxy
 								  components::Tag,
 								  components::Text,
 								  components::Transform2D>(entity);
+
+					if (actions)
+					{
+						entity_json["components"]["Actions"] = actions->serialize();
+					}
 
 					if (animated)
 					{

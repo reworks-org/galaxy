@@ -1,1 +1,1 @@
-galaxy_log(2, "Collision detected.")
+galaxy_log(gLogLevels.WARNING, "Collision detected.")

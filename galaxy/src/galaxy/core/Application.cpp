@@ -225,19 +225,19 @@ namespace galaxy
 				SL_HANDLE.m_musicbook = m_musicbook.get();
 
 				// Set up custom lua functions and types.
-				lua::register_functions();
+				scripting::register_lua();
 
 				// Register services with Lua.
-				m_lua->set("galaxy_audio_context", &m_openal);
-				m_lua->set("galaxy_config", m_config.get());
-				m_lua->set("galaxy_vfs", m_vfs.get());
-				m_lua->set("galaxy_shaderboox", m_shaderbook.get());
-				m_lua->set("galaxy_fontbook", m_fontbook.get());
-				m_lua->set("galaxy_texturebook", m_texturebook.get());
-				m_lua->set("galaxy_soundbook", m_soundbook.get());
-				m_lua->set("galaxy_musicbook", m_musicbook.get());
-				m_lua->set("galaxy_scriptbook", m_scriptbook.get());
-				m_lua->set("galaxy_language", m_langs.get());
+				//m_lua->set("galaxy_audio_context", &m_openal);
+				//m_lua->set("galaxy_config", m_config.get());
+				//m_lua->set("galaxy_vfs", m_vfs.get());
+				//m_lua->set("galaxy_shaderboox", m_shaderbook.get());
+				//m_lua->set("galaxy_fontbook", m_fontbook.get());
+				//m_lua->set("galaxy_texturebook", m_texturebook.get());
+				//m_lua->set("galaxy_soundbook", m_soundbook.get());
+				//m_lua->set("galaxy_musicbook", m_musicbook.get());
+				//m_lua->set("galaxy_scriptbook", m_scriptbook.get());
+				//m_lua->set("galaxy_language", m_langs.get());
 
 				// Begin watching files now that default asset creation is over.
 				m_filewatcher.watch();

@@ -1,14 +1,14 @@
 ///
-/// InputSystem.hpp
+/// ActionSystem.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SYSTEM_INPUTSYSTEM_HPP_
-#define GALAXY_SYSTEM_INPUTSYSTEM_HPP_
+#ifndef GALAXY_SYSTEM_ACTIONSYSTEM_HPP_
+#define GALAXY_SYSTEM_ACTIONSYSTEM_HPP_
 
-#include "galaxy/ecs/System.hpp"
+#include "galaxy/core/Scene2D.hpp"
 
 namespace galaxy
 {
@@ -17,26 +17,25 @@ namespace galaxy
 		///
 		/// Handles transformations being applied to entities.
 		///
-		class InputSystem final : public ecs::System
+		class ActionSystem final : public ecs::System
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			InputSystem() noexcept;
+			ActionSystem() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~InputSystem() noexcept;
+			virtual ~ActionSystem() noexcept;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param world Game World containing entities.
-			/// \param dt "Lag" from gameloop.
+			/// \param scene Currently active scene.
 			///
-			void update(core::World& world, const double dt) override;
+			void update(core::Scene2D* scene) override;
 		};
 	} // namespace systems
 } // namespace galaxy

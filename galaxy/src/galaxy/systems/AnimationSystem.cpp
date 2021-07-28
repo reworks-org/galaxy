@@ -25,24 +25,25 @@ namespace galaxy
 
 		void AnimationSystem::update(core::Scene2D* scene)
 		{
-			scene->m_world.operate<components::Animated, components::BatchSprite>(
-				std::execution::par,
-				[&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite)
+			// clang-format off
+			scene->m_world.operate<components::Animated, components::BatchSprite>(std::execution::par,
+			[&](const ecs::Entity entity, components::Animated* animated, components::BatchSprite* sprite)
+			{
+				GALAXY_UNUSED(entity);
+
+				if (!animated->m_paused)
 				{
-					GALAXY_UNUSED(entity);
-
-					if (!animated->m_paused)
+					animated->m_time_spent_on_frame += (GALAXY_DT * animated->m_active_anim->get_speed());
+					if (animated->m_time_spent_on_frame >= animated->m_active_anim->get_current_frame()->m_time_per_frame)
 					{
-						animated->m_time_spent_on_frame += (GALAXY_DT * animated->m_active_anim->get_speed());
-						if (animated->m_time_spent_on_frame >= animated->m_active_anim->get_current_frame()->m_time_per_frame)
-						{
-							animated->m_time_spent_on_frame = 0;
+						animated->m_time_spent_on_frame = 0;
 
-							const auto* new_frame = animated->m_active_anim->next_frame();
-							sprite->update_region(new_frame->get_region_id());
-						}
+						const auto* new_frame = animated->m_active_anim->next_frame();
+						sprite->update_region(new_frame->get_region_id());
 					}
-				});
+				}
+			});
+			// clang-format on
 		}
 	} // namespace systems
 } // namespace galaxy

@@ -256,37 +256,6 @@ namespace sb
 		physics->m_world.create_from_json("floor.json");
 		m_cube = physics->m_world.create_from_json("cube.json").value();
 
-		physics->m_dispatcher.subscribe_callback<events::KeyRepeat>(
-			[physics, this](const events::KeyRepeat& kde)
-			{
-				switch (kde.m_keycode)
-				{
-					case input::Keys::UP:
-						physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, -10.0f);
-						break;
-
-					case input::Keys::DOWN:
-						physics->m_world.get<components::Transform2D>(m_cube)->move(0.0f, 10.0f);
-						break;
-
-					case input::Keys::LEFT:
-						physics->m_world.get<components::Transform2D>(m_cube)->move(-10.0f, 0.0f);
-						break;
-
-					case input::Keys::RIGHT:
-						physics->m_world.get<components::Transform2D>(m_cube)->move(10.0f, 0.0f);
-						break;
-
-					case input::Keys::Q:
-						physics->m_world.get<components::Transform2D>(m_cube)->rotate(-2.0f);
-						break;
-
-					case input::Keys::E:
-						physics->m_world.get<components::Transform2D>(m_cube)->rotate(2.0f);
-						break;
-				}
-			});
-
 		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
 		physics->m_camera.m_left_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-left"));

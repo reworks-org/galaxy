@@ -1,1 +1,0 @@
-galaxy_log(2, "Onclick Triggered.")

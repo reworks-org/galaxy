@@ -8,20 +8,15 @@
 #ifndef GALAXY_SCRIPTING_LUAUTILS_HPP_
 #define GALAXY_SCRIPTING_LUAUTILS_HPP_
 
-#include <functional>
-
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/meta/Concepts.hpp"
-
 namespace galaxy
 {
-	namespace lua
+	namespace scripting
 	{
 		///
-		/// Register some of galaxy's loose functions, allowing them to be called from lua.
+		/// Registers galaxy_engine into Lua.
 		///
-		void register_functions();
-	} // namespace lua
+		void register_lua();
+	} // namespace scripting
 } // namespace galaxy
 
 #endif

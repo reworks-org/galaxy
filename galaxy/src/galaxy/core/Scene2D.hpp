@@ -23,6 +23,7 @@ namespace galaxy
 {
 	namespace systems
 	{
+		class ActionSystem;
 		class RenderSystem2D;
 	} // namespace systems
 

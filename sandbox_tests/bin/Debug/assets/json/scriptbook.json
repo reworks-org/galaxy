@@ -1,6 +1,5 @@
 {
 	"scriptbook": {
-		"on_click": "on_click.lua",
 		"on_collide": "on_collide.lua"
 	},
 	"definitions": [
