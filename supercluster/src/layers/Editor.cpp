@@ -7,65 +7,25 @@
 
 #include <iostream>
 
-#include <galaxy/components/Animated.hpp>
-#include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/OnCollision.hpp>
-#include <galaxy/components/Primitive2D.hpp>
-#include <galaxy/components/Renderable.hpp>
-#include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/Sprite.hpp>
-#include <galaxy/components/Tag.hpp>
-#include <galaxy/components/Text.hpp>
-#include <galaxy/components/Transform2D.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/flags/AllowSerialize.hpp>
-#include <galaxy/graphics/Camera2D.hpp>
 #include <galaxy/math/ZLib.hpp>
-#include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
-#include <galaxy/systems/CollisionSystem.hpp>
-#include <imgui/imgui_impl_glfw.h>
-#include <imgui/imgui_impl_opengl3.h>
-#include <imgui/imgui_stdlib.h>
-#include <portable-file-dialogs.h>
-
-#include "editor/Theme.hpp"
-#include "resources/Checkerboard.hpp"
-#include "resources/Roboto-Light.hpp"
+#include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "Editor.hpp"
 
 namespace sc
 {
-	Editor::Editor(core::Application* app)
-		: Layer {app}
+	Editor::Editor() noexcept
+		: m_current_project_path {""}
 	{
-		m_name = "Editor";
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		set_name("Editor");
 
-		// clang-format off
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-		io.ConfigDockingAlwaysTabBar = true;
-		io.IniFilename = "assets/sclayout.ini";
-
-		ImFontConfig font_config = {};
-		font_config.FontDataOwnedByAtlas = false;
-		font_config.RasterizerMultiply = 1.5f;
-		font_config.OversampleH = 4;
-		io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
-		// clang-format on
-
-		ImGui_ImplGlfw_InitForOpenGL(SL_HANDLE.window()->gl_window(), true);
-		ImGui_ImplOpenGL3_Init("#version 450 core");
-
-		m_framebuffer.create(1, 1);
-		editor::theme::visual_dark();
-		m_entity_panel.set_layer(this);
+		//m_framebuffer.create(1, 1);
+		//editor::theme::visual_dark();
+		//m_entity_panel.set_layer(this);
 
 		//m_checkerboard.load_mem(tex::checkerboard);
 		//m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
@@ -75,16 +35,13 @@ namespace sc
 
 	Editor::~Editor()
 	{
-		ImGui_ImplOpenGL3_Shutdown();
-		ImGui_ImplGlfw_Shutdown();
-		ImGui::DestroyContext();
-
 		GALAXY_LOG_CAPTURE_CUSTOM(std::cout);
 		m_scene_stack.clear();
 	}
 
 	void Editor::events()
 	{
+		/*
 		if (!m_game_mode)
 		{
 			//	ImGui::ImplGlfw::g_BlockInput = false;
@@ -205,18 +162,22 @@ namespace sc
 
 			m_scene_stack.events();
 		}
+		*/
 	}
 
 	void Editor::update()
 	{
+		/*
 		if (!m_paused)
 		{
 			m_scene_stack.update();
 		}
+		*/
 	}
 
 	void Editor::pre_render()
 	{
+		/*
 		if (!m_game_mode)
 		{
 			for (const auto& gl_operation : m_gl_operations)
@@ -237,10 +198,12 @@ namespace sc
 		{
 			m_scene_stack.pre_render();
 		}
+		*/
 	}
 
 	void Editor::render()
 	{
+		/*
 		if (!m_game_mode)
 		{
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -249,68 +212,78 @@ namespace sc
 		{
 			m_scene_stack.render();
 		}
+		*/
 	}
 
 	void Editor::new_project()
 	{
 		SL_HANDLE.window()->set_title("Untitled Project - Supercluster Editor");
 		m_scene_stack.clear();
-		m_scene_stack.create("Base");
-		m_scene_stack.push("Base");
+		m_scene_stack.create("New Scene");
+		m_scene_stack.push("New Scene");
 	}
 
-	void Editor::load(std::string_view path)
+	void Editor::load_project(std::string_view path)
 	{
 		const auto compressed = SL_HANDLE.vfs()->open_binary(path);
 		if (compressed != std::nullopt)
 		{
-			const auto size = compressed.value().size();
-			m_path          = path;
+			const auto fs_path     = std::filesystem::path(path);
+			m_current_project_path = fs_path.string();
 
 			auto decompressed = math::decode_zlib({compressed.value().begin(), compressed.value().end()});
-			const auto json   = json::parse_from_mem(decompressed);
+			auto json         = json::parse_from_mem(decompressed);
 			if (json != std::nullopt)
 			{
 				deserialize(json.value());
-				SL_HANDLE.window()->set_title(std::filesystem::path(path).stem().string() + " - Supercluster Editor");
+				SL_HANDLE.window()->set_title(std::format("{0} - Supercluster Editor", fs_path.stem().string()));
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", path);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", fs_path.string());
 			}
 		}
 		else
 		{
-			GALAXY_LOG(GALAXY_ERROR, "Failed to open project file.");
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load project file.");
 		}
 	}
 
-	void Editor::save()
+	void Editor::save_project()
 	{
-		if (m_path.empty())
+		if (m_current_project_path.empty())
 		{
-			auto opt = SL_HANDLE.vfs()->show_save_dialog("*.scproj");
-			if (opt != std::nullopt)
+			const auto sp_opt = SL_HANDLE.vfs()->show_save_dialog("*.scproj", "projects/");
+			if (sp_opt != std::nullopt)
 			{
-				SL_HANDLE.vfs()->create_file(opt.value());
+				SL_HANDLE.vfs()->create_file(sp_opt.value());
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to create new project file.");
+				GALAXY_LOG(GALAXY_ERROR, "Project file was not created on disk.");
 			}
 
 			auto compressed = math::encode_zlib(serialize().dump(4));
-			SL_HANDLE.vfs()->save_binary(compressed, opt.value());
-			SL_HANDLE.window()->set_title(std::filesystem::path(opt.value()).stem().string() + " - Supercluster Editor");
+			if (!SL_HANDLE.vfs()->save_binary(compressed, sp_opt.value()))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save file: {0}.", sp_opt.value());
+			}
+
+			SL_HANDLE.window()->set_title(std::format("{0} - Supercluster Editor", std::filesystem::path(sp_opt.value()).stem().string()));
 		}
 		else
 		{
 			auto compressed = math::encode_zlib(serialize().dump(4));
-			SL_HANDLE.vfs()->save_binary(compressed, m_path);
-			SL_HANDLE.window()->set_title(std::filesystem::path(m_path).stem().string() + " - Supercluster Editor");
+			if (!SL_HANDLE.vfs()->save_binary(compressed, m_current_project_path))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save file: {0}.", m_current_project_path);
+			}
+
+			SL_HANDLE.window()->set_title(std::format("{0} - Supercluster Editor", std::filesystem::path(m_current_project_path).stem().string()));
 		}
 	}
 
+	/*
 	void Editor::exit()
 	{
 		for (auto* process : m_processes)
@@ -321,32 +294,28 @@ namespace sc
 
 		SL_HANDLE.window()->close();
 	}
+	*/
 
 	void Editor::imgui_render()
 	{
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
+		ui::imgui_new_frame();
 
-		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
-		ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
-		ImGuiViewport* imgui_viewport      = ImGui::GetMainViewport();
-		ImGui::SetNextWindowPos(imgui_viewport->WorkPos);
-		ImGui::SetNextWindowSize(imgui_viewport->WorkSize);
-		ImGui::SetNextWindowViewport(imgui_viewport->ID);
+		// clang-format off
+		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | 
+			ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
+			ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
+		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
+		// clang-format on
+
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-		window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
-		window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
-		dockspace_flags |= ImGuiDockNodeFlags_PassthruCentralNode;
-		window_flags |= ImGuiWindowFlags_NoBackground;
-
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Supercluster", NULL, window_flags);
+		ImGui::Begin("Main Viewport", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::DockSpace(ImGui::GetID("EditorScene_Dockspace_1"), {0.0f, 0.0f}, dockspace_flags);
+		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), {0.0f, 0.0f}, dockspace_flags);
 
+		/*
 		if (ImGui::BeginMenuBar())
 		{
 			if (ImGui::BeginMenu("Menu"))
@@ -511,13 +480,14 @@ namespace sc
 		{
 			ImGui::ShowDemoWindow(&m_render_demo);
 		}
+		*/
 
 		ImGui::End();
-		ImGui::Render();
 	}
 
 	void Editor::viewport()
 	{
+		/*
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
@@ -539,7 +509,6 @@ namespace sc
 
 			if (m_mouse_picked)
 			{
-				/*
 				if (m_topscene_type == "2D")
 				{
 					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
@@ -573,109 +542,109 @@ namespace sc
 				{
 					// TODO: 3D Picking.
 				}
-				*/
 
-				m_mouse_picked = false;
-			}
+		m_mouse_picked = false;
+	}
 
-			if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
+	if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
+	{
+		if (ImGui::BeginMenu("  Create"))
+		{
+			if (ImGui::BeginMenu("  Entity"))
 			{
-				if (ImGui::BeginMenu("  Create"))
+				if (m_topscene_type == "2D")
 				{
-					if (ImGui::BeginMenu("  Entity"))
+					if (ImGui::MenuItem("  Sprite"))
 					{
-						if (m_topscene_type == "2D")
-						{
-							if (ImGui::MenuItem("  Sprite"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
 
-								world.create_component<components::BatchSprite>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::BATCHED;
-							}
-
-							if (ImGui::MenuItem("  Animated Sprite"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::Animated>(entity);
-								world.create_component<components::BatchSprite>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::BATCHED;
-							}
-
-							if (ImGui::MenuItem("  Primitive2D"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::Primitive2D>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::LINE_LOOP;
-							}
-
-							if (ImGui::MenuItem("  Rigid Body"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::BatchSprite>(entity);
-								world.create_component<components::OnCollision>(entity);
-								world.create_component<components::RigidBody>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::BATCHED;
-							}
-
-							if (ImGui::MenuItem("  Animated Body"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::Animated>(entity);
-								world.create_component<components::BatchSprite>(entity);
-								world.create_component<components::OnCollision>(entity);
-								world.create_component<components::RigidBody>(entity);
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::BATCHED;
-							}
-
-							if (ImGui::MenuItem("  Text"))
-							{
-								auto& world       = m_scene_stack.top()->m_world;
-								const auto entity = world.create();
-
-								world.create_component<components::Tag>(entity);
-								world.create_component<components::Text>(entity);
-								world.create_component<components::Transform2D>(entity);
-								auto* r   = world.create_component<components::Renderable>(entity);
-								r->m_type = graphics::Renderables::TEXT;
-							}
-						}
-
-						ImGui::EndMenu();
+						world.create_component<components::BatchSprite>(entity);
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::BATCHED;
 					}
 
-					ImGui::EndMenu();
+					if (ImGui::MenuItem("  Animated Sprite"))
+					{
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
+
+						world.create_component<components::Animated>(entity);
+						world.create_component<components::BatchSprite>(entity);
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::BATCHED;
+					}
+
+					if (ImGui::MenuItem("  Primitive2D"))
+					{
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
+
+						world.create_component<components::Primitive2D>(entity);
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::LINE_LOOP;
+					}
+
+					if (ImGui::MenuItem("  Rigid Body"))
+					{
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
+
+						world.create_component<components::BatchSprite>(entity);
+						world.create_component<components::OnCollision>(entity);
+						world.create_component<components::RigidBody>(entity);
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::BATCHED;
+					}
+
+					if (ImGui::MenuItem("  Animated Body"))
+					{
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
+
+						world.create_component<components::Animated>(entity);
+						world.create_component<components::BatchSprite>(entity);
+						world.create_component<components::OnCollision>(entity);
+						world.create_component<components::RigidBody>(entity);
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::BATCHED;
+					}
+
+					if (ImGui::MenuItem("  Text"))
+					{
+						auto& world       = m_scene_stack.top()->m_world;
+						const auto entity = world.create();
+
+						world.create_component<components::Tag>(entity);
+						world.create_component<components::Text>(entity);
+						world.create_component<components::Transform2D>(entity);
+						auto* r   = world.create_component<components::Renderable>(entity);
+						r->m_type = graphics::Renderables::TEXT;
+					}
 				}
 
-				ImGui::EndPopup();
+				ImGui::EndMenu();
 			}
+
+			ImGui::EndMenu();
+		}
+
+		ImGui::EndPopup();
+	}
 		}
 
 		ImGui::End();
 		ImGui::PopStyleVar(1);
+		*/
 	}
 } // namespace sc

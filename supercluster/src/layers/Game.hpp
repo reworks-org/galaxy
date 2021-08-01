@@ -17,7 +17,7 @@ namespace sc
 	class Game final : public core::Layer
 	{
 	public:
-		Game(core::Application* app);
+		Game();
 		virtual ~Game();
 
 		void events() override;

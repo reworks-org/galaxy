@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_EDITOR_MAINMENU_HPP_
-#define SUPERCLUSTER_EDITOR_MAINMENU_HPP_
+#ifndef SUPERCLUSTER_LAYERS_MAINMENU_HPP_
+#define SUPERCLUSTER_LAYERS_MAINMENU_HPP_
 
 #include <galaxy/core/Application.hpp>
 
@@ -14,10 +14,12 @@ using namespace galaxy;
 
 namespace sc
 {
+	class Editor;
+
 	class MainMenu final : public core::Layer
 	{
 	public:
-		MainMenu(core::Application* app) noexcept;
+		MainMenu() noexcept;
 		virtual ~MainMenu() noexcept;
 
 		void events() override;
@@ -25,8 +27,9 @@ namespace sc
 		void pre_render() override;
 		void render() override;
 
-	private:
-		MainMenu() = delete;
+	public:
+		std::shared_ptr<Editor> m_editor;
+		core::Application* m_app;
 	};
 } // namespace sc
 
