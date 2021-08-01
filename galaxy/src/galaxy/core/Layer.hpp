@@ -14,19 +14,12 @@ namespace galaxy
 {
 	namespace core
 	{
-		class Application;
-
 		///
 		/// Represents an "Layer" of the game, encapsulating things like events and rendering.
 		///
 		class Layer : public fs::Serializable
 		{
 		public:
-			///
-			/// Constructor.
-			///
-			Layer(Application* app) noexcept;
-
 			///
 			/// Virtual destructor.
 			///
@@ -87,18 +80,13 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		protected:
 			///
 			/// Constructor.
 			///
-			Layer() = delete;
+			Layer() noexcept;
 
 		protected:
-			///
-			/// Pointer to application.
-			///
-			Application* m_app;
-
 			///
 			/// Layer name for debug purposes.
 			///

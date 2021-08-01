@@ -18,7 +18,7 @@ namespace sb
 	class Sandbox final : public core::Layer
 	{
 	public:
-		Sandbox(core::Application* app);
+		Sandbox() noexcept;
 		virtual ~Sandbox();
 
 		void events() override;
@@ -34,8 +34,6 @@ namespace sb
 	private:
 		core::Window* m_window;
 		async::Timer m_timer;
-
-		ecs::Entity m_cube;
 		ecs::Entity m_particles;
 	};
 } // namespace sb

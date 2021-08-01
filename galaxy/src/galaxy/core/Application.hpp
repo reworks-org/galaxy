@@ -242,7 +242,7 @@ namespace galaxy
 		template<std::derived_from<Layer> DerivedLayer>
 		inline std::shared_ptr<DerivedLayer> Application::create_layer()
 		{
-			std::shared_ptr<DerivedLayer> layer = std::make_shared<DerivedLayer>(this);
+			std::shared_ptr<DerivedLayer> layer = std::make_shared<DerivedLayer>();
 			m_layers.emplace_back(std::static_pointer_cast<Layer>(layer));
 
 			return layer;

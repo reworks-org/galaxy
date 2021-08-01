@@ -36,8 +36,7 @@ input::Keys parse_key(const std::string& key)
 
 namespace sb
 {
-	Sandbox::Sandbox(core::Application* app)
-		: Layer {app}
+	Sandbox::Sandbox() noexcept
 	{
 		m_window = SL_HANDLE.window();
 
@@ -254,7 +253,7 @@ namespace sb
 
 		physics->m_world.create_from_json("bg.json");
 		physics->m_world.create_from_json("floor.json");
-		m_cube = physics->m_world.create_from_json("cube.json").value();
+		physics->m_world.create_from_json("cube.json");
 
 		physics->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		physics->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
