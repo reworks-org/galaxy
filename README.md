@@ -111,12 +111,12 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
 * [sercode.ttf](http://www.dafont.com/secret-code.font).
-	* Used in logo.png & logo_docs.png.
+	* Used in various icons and logos.
 * [galaxy image](https://www.nasa.gov/image-feature/goddard/2020/hubble-probes-colorful-galaxy).
 	* Image Credit: ESA/Hubble & NASA, A. Filippenko.
 	* See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
 	* Used for non-commerical purposes.
-* [supercluster icon.png](https://images.nasa.gov/details-PIA17241).
+* [Supercluster Icon and Logo](https://images.nasa.gov/details-PIA17241).
     * Image Credit: NASA/JPL-Caltech/University of Wisconsin
     * See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
 	* Used for non-commerical purposes.
