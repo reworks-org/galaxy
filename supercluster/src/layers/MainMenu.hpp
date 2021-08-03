@@ -12,6 +12,8 @@
 
 using namespace galaxy;
 
+struct ImFont;
+
 namespace sc
 {
 	class Editor;
@@ -30,6 +32,7 @@ namespace sc
 	public:
 		std::shared_ptr<Editor> m_editor;
 		core::Application* m_app;
+		ImFont* m_bigger_default_font;
 	};
 } // namespace sc
 

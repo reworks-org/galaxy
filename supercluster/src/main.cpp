@@ -7,6 +7,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/ui/ImGuiTheme.hpp>
 
 #include "layers/Editor.hpp"
 #include "layers/Game.hpp"
@@ -52,6 +53,10 @@ int main(int argsc, char* argsv[])
 			font_config.RasterizerMultiply   = 1.5f;
 			font_config.OversampleH          = 4;
 			io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
+
+			// The default Supercluster theme.
+			// Can be changed in the editor menus.
+			ui::imgui_theme_visual_dark();
 
 			auto editor    = app.create_layer<sc::Editor>();
 			auto game      = app.create_layer<sc::Game>();

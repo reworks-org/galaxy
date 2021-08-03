@@ -10,6 +10,7 @@
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "../layers/Editor.hpp"
+#include "../resources/Roboto-Light.hpp"
 
 #include "MainMenu.hpp"
 
@@ -21,6 +22,14 @@ namespace sc
 		: m_editor {nullptr}
 	{
 		set_name("Main Menu");
+
+		ImGuiIO& io = ImGui::GetIO();
+
+		ImFontConfig font_config         = {};
+		font_config.FontDataOwnedByAtlas = false;
+		font_config.RasterizerMultiply   = 1.5f;
+		font_config.OversampleH          = 4;
+		m_bigger_default_font = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 144.0f, &font_config);
 
 		//m_scene_stack.create("MainMenu");
 		//m_scene_stack.push("MainMenu");
@@ -58,15 +67,27 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::SetCursorPos({(ImGui::GetWindowWidth() / 2.0f) - 150, (ImGui::GetWindowHeight() / 2.0f) - 50});
+		const float window_calc             = ImGui::GetWindowWidth() / 2.0f;
+		constexpr const float button_width  = 200.0f;
+		constexpr const float button_height = 40.0f;
 
-		if (ImGui::Button("New", {100, 50}))
+		ImGui::PushFont(m_bigger_default_font);
+		ImGui::SetCursorPos({window_calc - (ImGui::CalcTextSize("Supercluster Editor").x / 2.0f), 100.0f});
+		ImGui::Text("Supercluster Editor");
+		ImGui::PopFont();
+
+		ImGui::SetCursorPos({window_calc - (button_width / 2.0f), (ImGui::GetWindowHeight() / 2.0f) - ((button_height * 3) / 2.0f)});
+
+		if (ImGui::Button("New", {button_width, button_height}))
 		{
 			m_editor->new_project();
 			m_app->push_layer(m_editor);
 		}
 
-		if (ImGui::Button("Load", {100, 50}))
+		ImGui::Spacing();
+		ImGui::SetCursorPosX(window_calc - (button_width / 2.0f));
+
+		if (ImGui::Button("Load", {button_width, button_height}))
 		{
 			auto file = SL_HANDLE.vfs()->show_open_dialog("*.scproj", "projects/");
 			if (file != std::nullopt)
@@ -80,7 +101,10 @@ namespace sc
 			}
 		}
 
-		if (ImGui::Button("Exit", {100, 50}))
+		ImGui::Spacing();
+		ImGui::SetCursorPosX(window_calc - (button_width / 2.0f));
+
+		if (ImGui::Button("Exit", {button_width, button_height}))
 		{
 			SL_HANDLE.window()->close();
 		}
