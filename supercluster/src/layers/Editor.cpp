@@ -7,11 +7,14 @@
 
 #include <iostream>
 
+#include <portable-file-dialogs.h>
+
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/math/ZLib.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/ui/ImGuiTheme.hpp>
 
 #include "Editor.hpp"
 
@@ -19,12 +22,13 @@ namespace sc
 {
 	Editor::Editor() noexcept
 		: m_current_project_path {""}
+		, m_paused {false}
 	{
-		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		//GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		set_name("Editor");
 
 		//m_framebuffer.create(1, 1);
-		//editor::theme::visual_dark();
+		//ui::imgui_theme_visual_dark();
 		//m_entity_panel.set_layer(this);
 
 		//m_checkerboard.load_mem(tex::checkerboard);
@@ -41,6 +45,11 @@ namespace sc
 
 	void Editor::events()
 	{
+		if (!m_paused)
+		{
+			m_scene_stack.events();
+		}
+
 		/*
 		if (!m_game_mode)
 		{
@@ -167,16 +176,191 @@ namespace sc
 
 	void Editor::update()
 	{
-		/*
 		if (!m_paused)
 		{
 			m_scene_stack.update();
 		}
-		*/
 	}
 
 	void Editor::pre_render()
 	{
+		m_scene_stack.pre_render();
+
+		ui::imgui_new_frame();
+
+		// clang-format off
+		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | 
+			ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
+			ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
+		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
+		// clang-format on
+
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::Begin("Main Viewport", NULL, window_flags);
+		ImGui::PopStyleVar(3);
+
+		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), {0.0f, 0.0f}, dockspace_flags);
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("Menu"))
+			{
+				if (ImGui::MenuItem("New"))
+				{
+					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
+					if (msg.result() == pfd::button::yes)
+					{
+						//save();
+					}
+
+					new_project();
+				}
+
+				if (ImGui::MenuItem("Load"))
+				{
+					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
+					if (msg.result() == pfd::button::yes)
+					{
+						//save();
+					}
+
+					auto file = SL_HANDLE.vfs()->show_open_dialog("*.scproj");
+					if (file != std::nullopt)
+					{
+						//	load(file.value());
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to open project file.");
+					}
+				}
+
+				if (ImGui::MenuItem("Save"))
+				{
+					//save();
+				}
+
+				if (ImGui::MenuItem("Restart"))
+				{
+					SL_HANDLE.m_restart = true;
+					//exit();
+				}
+
+				if (ImGui::MenuItem("Exit"))
+				{
+					//exit();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Editor"))
+			{
+				if (ImGui::BeginMenu("Theme"))
+				{
+					if (ImGui::MenuItem("Light"))
+					{
+						ImGui::StyleColorsLight();
+					}
+
+					if (ImGui::MenuItem("Dark"))
+					{
+						ImGui::StyleColorsDark();
+					}
+
+					if (ImGui::MenuItem("Classic"))
+					{
+						ImGui::StyleColorsClassic();
+					}
+
+					if (ImGui::MenuItem("Enhanced Light"))
+					{
+						ui::imgui_theme_enhanced_light();
+					}
+
+					if (ImGui::MenuItem("Enhanced Dark"))
+					{
+						ui::imgui_theme_enhanced_dark();
+					}
+
+					if (ImGui::MenuItem("Material Dark"))
+					{
+						ui::imgui_theme_material_dark();
+					}
+
+					if (ImGui::MenuItem("Visual Dark"))
+					{
+						ui::imgui_theme_visual_dark();
+					}
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::MenuItem("Open Tiled"))
+				{
+					//m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
+				}
+
+				if (ImGui::MenuItem("Open Blender"))
+				{
+					//m_processes.push_back(platform::run_process("tools/blender/blender.exe"));
+				}
+
+				ImGui::EndMenu();
+			}
+
+			ImGui::Text("( ? )");
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted("[SHIFT] for docking.\n[RMB] to drag viewport.");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
+			}
+
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
+			if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+			{
+				//m_game_mode = true;
+				//m_backup    = serialize();
+
+				SL_HANDLE.window()->set_cursor_visibility(false);
+			}
+
+			static std::string s_pause_resume = " | | ##PauseSceneButton";
+			if (ImGui::Button(s_pause_resume.c_str()))
+			{
+				if (!m_paused)
+				{
+					m_paused       = true;
+					s_pause_resume = " >> ##ResumeSceneButton";
+				}
+				else
+				{
+					m_paused       = false;
+					s_pause_resume = " || ##PauseSceneButton";
+				}
+			}
+
+			ImGui::EndMenuBar();
+		}
+
+		/*
+		m_entity_panel.render(m_gl_operations);
+		m_json_panel.parse_and_display();
+		m_console.render();
+		m_scene_panel.render(m_scene_stack, m_gl_operations);
+		m_script_panel.render();
+		m_std_console.render();
+		m_audio_panel.render();
+
+		viewport();
+		*/
+
+		ImGui::End();
+
 		/*
 		if (!m_game_mode)
 		{
@@ -203,6 +387,9 @@ namespace sc
 
 	void Editor::render()
 	{
+		m_scene_stack.render();
+		ui::imgui_render();
+
 		/*
 		if (!m_game_mode)
 		{
@@ -233,6 +420,7 @@ namespace sc
 
 			auto decompressed = math::decode_zlib({compressed.value().begin(), compressed.value().end()});
 			auto json         = json::parse_from_mem(decompressed);
+
 			if (json != std::nullopt)
 			{
 				deserialize(json.value());
@@ -295,195 +483,6 @@ namespace sc
 		SL_HANDLE.window()->close();
 	}
 	*/
-
-	void Editor::imgui_render()
-	{
-		ui::imgui_new_frame();
-
-		// clang-format off
-		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | 
-			ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
-			ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
-		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
-		// clang-format on
-
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Main Viewport", NULL, window_flags);
-		ImGui::PopStyleVar(3);
-
-		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), {0.0f, 0.0f}, dockspace_flags);
-
-		/*
-		if (ImGui::BeginMenuBar())
-		{
-			if (ImGui::BeginMenu("Menu"))
-			{
-				if (ImGui::MenuItem("New"))
-				{
-					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
-					if (msg.result() == pfd::button::yes)
-					{
-						save();
-					}
-
-					new_project();
-				}
-
-				if (ImGui::MenuItem("Load"))
-				{
-					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
-					if (msg.result() == pfd::button::yes)
-					{
-						save();
-					}
-
-					auto file = SL_HANDLE.vfs()->show_open_dialog("*.scproj");
-					if (file != std::nullopt)
-					{
-						load(file.value());
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to open project file.");
-					}
-				}
-
-				if (ImGui::MenuItem("Save"))
-				{
-					save();
-				}
-
-				if (ImGui::MenuItem("Restart"))
-				{
-					SL_HANDLE.m_restart = true;
-					exit();
-				}
-
-				if (ImGui::MenuItem("Exit"))
-				{
-					exit();
-				}
-
-				ImGui::EndMenu();
-			}
-
-			if (ImGui::BeginMenu("Editor"))
-			{
-				if (ImGui::BeginMenu("Theme"))
-				{
-					if (ImGui::MenuItem("Light"))
-					{
-						ImGui::StyleColorsLight();
-					}
-
-					if (ImGui::MenuItem("Dark"))
-					{
-						ImGui::StyleColorsDark();
-					}
-
-					if (ImGui::MenuItem("Classic"))
-					{
-						ImGui::StyleColorsClassic();
-					}
-
-					if (ImGui::MenuItem("Enhanced Light"))
-					{
-						editor::theme::enhanced_light();
-					}
-
-					if (ImGui::MenuItem("Enhanced Dark"))
-					{
-						editor::theme::enhanced_dark();
-					}
-
-					if (ImGui::MenuItem("Material Dark"))
-					{
-						editor::theme::material_dark();
-					}
-
-					if (ImGui::MenuItem("Visual Dark"))
-					{
-						editor::theme::visual_dark();
-					}
-
-					ImGui::EndMenu();
-				}
-
-				if (ImGui::MenuItem("Open Tiled"))
-				{
-					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
-				}
-
-				if (ImGui::MenuItem("Open Blender"))
-				{
-					m_processes.push_back(platform::run_process("tools/blender/blender.exe"));
-				}
-
-				if (ImGui::MenuItem("Show ImGui::Demo"))
-				{
-					m_render_demo = !m_render_demo;
-				}
-
-				ImGui::EndMenu();
-			}
-
-			ImGui::Text("( ? )");
-			if (ImGui::IsItemHovered())
-			{
-				ImGui::BeginTooltip();
-				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-				ImGui::TextUnformatted("[SHIFT] for docking.\n[RMB] to drag viewport.");
-				ImGui::PopTextWrapPos();
-				ImGui::EndTooltip();
-			}
-
-			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
-			if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
-			{
-				m_game_mode = true;
-				m_backup    = serialize();
-
-				SL_HANDLE.window()->set_cursor_visibility(false);
-			}
-
-			static std::string s_pause_resume = " || ##PauseSceneButton";
-			if (ImGui::Button(s_pause_resume.c_str()))
-			{
-				if (!m_paused)
-				{
-					m_paused       = true;
-					s_pause_resume = " >> ##ResumeSceneButton";
-				}
-				else
-				{
-					m_paused       = false;
-					s_pause_resume = " || ##PauseSceneButton";
-				}
-			}
-
-			ImGui::EndMenuBar();
-		}
-
-		m_entity_panel.render(m_gl_operations);
-		m_json_panel.parse_and_display();
-		m_console.render();
-		m_scene_panel.render(m_scene_stack, m_gl_operations);
-		m_script_panel.render();
-		m_std_console.render();
-		m_audio_panel.render();
-
-		viewport();
-
-		if (m_render_demo)
-		{
-			ImGui::ShowDemoWindow(&m_render_demo);
-		}
-		*/
-
-		ImGui::End();
-	}
 
 	void Editor::viewport()
 	{

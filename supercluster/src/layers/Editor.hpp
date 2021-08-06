@@ -38,19 +38,20 @@ namespace sc
 		void save_project();
 
 	private:
-		void imgui_render();
 		void viewport();
 
 	private:
-		panel::EntityEditor m_entity_panel;
-		panel::JSONEditor m_json_panel;
-		panel::LuaConsole m_console;
-		panel::ScenePanel m_scene_panel;
-		panel::ScriptEditor m_script_panel;
-		panel::StdConsole m_std_console;
-		panel::AudioPanel m_audio_panel;
+		//panel::EntityEditor m_entity_panel;
+		//panel::JSONEditor m_json_panel;
+		//panel::LuaConsole m_console;
+		//panel::ScenePanel m_scene_panel;
+		//panel::ScriptEditor m_script_panel;
+		//panel::StdConsole m_std_console;
+		//panel::AudioPanel m_audio_panel;
 
 		std::string m_current_project_path;
+
+		bool m_paused;
 
 		/*
 		std::vector<void*> m_processes;
@@ -58,11 +59,9 @@ namespace sc
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;
-		bool m_render_demo      = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
 		bool m_mouse_picked     = false;
-		bool m_paused           = false;
 
 		
 
