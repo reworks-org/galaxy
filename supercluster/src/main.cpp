@@ -45,27 +45,32 @@ int main(int argsc, char* argsv[])
 			Supercluster app {"assets/", "assets/config.json"};
 			SL_HANDLE.window()->prevent_native_closing();
 
-			ImGuiIO& io    = ui::imgui_init_context();
-			io.IniFilename = "assets/sclayout.ini";
+			{
+				ImGuiIO& io    = ui::imgui_init_context();
+				io.IniFilename = "assets/sclayout.ini";
 
-			ImFontConfig font_config         = {};
-			font_config.FontDataOwnedByAtlas = false;
-			font_config.RasterizerMultiply   = 1.5f;
-			font_config.OversampleH          = 4;
-			io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
+				ImFontConfig font_config         = {};
+				font_config.FontDataOwnedByAtlas = false;
+				font_config.RasterizerMultiply   = 1.5f;
+				font_config.OversampleH          = 4;
+				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
+			}
 
 			// The default Supercluster theme.
 			// Can be changed in the editor menus.
 			ui::imgui_theme_visual_dark();
 
-			auto editor    = app.create_layer<sc::Editor>();
-			auto game      = app.create_layer<sc::Game>();
-			auto main_menu = app.create_layer<sc::MainMenu>();
+			{
+				auto editor    = app.create_layer<sc::Editor>();
+				auto game      = app.create_layer<sc::Game>();
+				auto main_menu = app.create_layer<sc::MainMenu>();
 
-			main_menu->m_editor = editor;
-			main_menu->m_app    = static_cast<core::Application*>(&app);
+				main_menu->m_editor = editor;
+				main_menu->m_app    = static_cast<core::Application*>(&app);
 
-			app.push_layer(main_menu);
+				app.push_layer(main_menu);
+			}
+
 			restart = app.run();
 
 			ui::imgui_destroy_context();
