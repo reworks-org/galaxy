@@ -15,7 +15,7 @@ namespace sc
 {
 	namespace panel
 	{
-		ScriptEditor::ScriptEditor()
+		ScriptEditor::ScriptEditor() noexcept
 		{
 			m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 		}

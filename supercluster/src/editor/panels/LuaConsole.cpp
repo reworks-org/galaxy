@@ -37,38 +37,43 @@ namespace sc
 {
 	namespace panel
 	{
-		LuaConsole::LuaConsole()
+		LuaConsole::LuaConsole() noexcept
 		{
 			lua_getglobal(SL_HANDLE.lua()->lua_state(), "_G");
 			luaL_setfuncs(SL_HANDLE.lua()->lua_state(), printlib, 0);
 			lua_pop(SL_HANDLE.lua()->lua_state(), 1);
 		}
 
+		LuaConsole::~LuaConsole() noexcept
+		{
+			m_buff.clear();
+			m_history.clear();
+		}
+
 		void LuaConsole::render()
 		{
-			if (ImGui::Begin("Lua Console", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
+			if (ImGui::Begin("Lua Terminal", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
 				if (ImGui::BeginMenuBar())
 				{
 					if (ImGui::MenuItem("Open & Run Script"))
 					{
-						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.lua");
+						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.lua", "assets/scripts/");
 						if (path == std::nullopt)
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
 						}
 						else
 						{
-							const auto& file = path.value();
 							std::ifstream ifs;
-							ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
+							ifs.open(std::filesystem::path(path.value()).string(), std::ifstream::in);
 							m_buff = std::string((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
 
 							m_history.push_back("[SCRIPT]: ");
-							m_history.push_back(m_buff);
+							m_history.push_back(m_buff + '\n');
+							auto res = SL_HANDLE.lua()->script(m_buff);
 
-							auto res        = SL_HANDLE.lua()->script(m_buff);
-							auto type       = res.get_type();
+							const auto type = res.get_type();
 							std::string out = "";
 							if (type == sol::type::string)
 							{

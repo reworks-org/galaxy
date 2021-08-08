@@ -36,25 +36,28 @@ namespace sc
 		void new_project();
 		void load_project(std::string_view path);
 		void save_project();
+		void exit();
 
 	private:
 		void viewport();
 
 	private:
-		//panel::EntityEditor m_entity_panel;
-		//panel::JSONEditor m_json_panel;
-		//panel::LuaConsole m_console;
-		//panel::ScenePanel m_scene_panel;
-		//panel::ScriptEditor m_script_panel;
-		//panel::StdConsole m_std_console;
-		//panel::AudioPanel m_audio_panel;
+		panel::LuaConsole m_lua_console;
+		panel::StdConsole m_std_console;
+		panel::ScriptEditor m_script_editor;
+		panel::JSONEditor m_json_panel;
+		panel::EntityEditor m_entity_panel;
+		panel::AudioPanel m_audio_panel;
+		panel::ScenePanel m_scene_panel;
 
 		std::string m_current_project_path;
 
 		bool m_paused;
 
-		/*
 		std::vector<void*> m_processes;
+		OpenGLOperationStack m_gl_operations;
+
+		/*
 
 		nlohmann::json m_backup;
 
@@ -66,7 +69,6 @@ namespace sc
 		
 
 		graphics::RenderTexture m_framebuffer;
-		OpenGLOperationStack m_gl_operations;
 
 		ImVec2 m_imgui_delta;
 		events::MouseMoved m_mousemoved_event;

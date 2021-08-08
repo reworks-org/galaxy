@@ -21,10 +21,13 @@ namespace sc
 		class ScenePanel final
 		{
 		public:
-			void render(core::SceneStack& scene_stack, OpenGLOperationStack& gl_operations);
+			ScenePanel() noexcept;
+			~ScenePanel() noexcept;
+
+			void render(core::SceneStack& scene_stack);
 
 		private:
-			std::string m_selected = "";
+			std::string m_selected;
 		};
 	} // namespace panel
 } // namespace sc

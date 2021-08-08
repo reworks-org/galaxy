@@ -5,23 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/components/Animated.hpp>
-#include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/OnCollision.hpp>
-#include <galaxy/components/Primitive2D.hpp>
-#include <galaxy/components/Renderable.hpp>
-#include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/Sprite.hpp>
-#include <galaxy/components/Tag.hpp>
-#include <galaxy/components/Text.hpp>
-#include <galaxy/components/Transform2D.hpp>
-
 #include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
-
-#include <magic_enum.hpp>
 
 #include "EntityEditor.hpp"
 
@@ -31,17 +17,15 @@ namespace sc
 {
 	namespace panel
 	{
-		EntityEditor::EntityEditor()
+		EntityEditor::EntityEditor() noexcept
 		{
 		}
 
-		EntityEditor::~EntityEditor()
+		EntityEditor::~EntityEditor() noexcept
 		{
-			m_cur_layer = nullptr;
-			m_selected  = std::nullopt;
 		}
 
-		void EntityEditor::render(OpenGLOperationStack& gl_operations)
+		void EntityEditor::render(core::Scene2D* top_scene, OpenGLOperationStack& gl_operations)
 		{
 			if (ImGui::Begin("Entity Manager", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize))
 			{
@@ -49,319 +33,331 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Create"))
 					{
-						m_cur_layer->get_stack().top()->m_world.create();
+						//m_cur_layer->get_stack().top()->m_world.create();
 					}
 
 					if (ImGui::MenuItem("Create from JSON"))
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
-						gl_operations.push_back([this, file]() -> void {
-							if (file == std::nullopt)
+						gl_operations.push_back(
+							[this, file]()
 							{
-								GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
-							}
-							else
-							{
-								m_cur_layer->get_stack().top()->m_world.create_from_json(file.value());
-							}
-						});
+								if (file == std::nullopt)
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
+								}
+								else
+								{
+									//m_cur_layer->get_stack().top()->m_world.create_from_json(file.value());
+								}
+							});
 					}
 
 					ImGui::EndMenuBar();
 				}
 
 				static std::string s_entity_label;
+				/*
 				auto& world = m_cur_layer->get_stack().top()->m_world;
-				world.each([&](const ecs::Entity entity) {
-					auto* tag = world.get<components::Tag>(entity);
-					if (tag)
+				world.each(
+					[&](const ecs::Entity entity)
 					{
-						s_entity_label = tag->m_tag;
-					}
-					else
-					{
-						s_entity_label = "Unknown";
-					}
-
-					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-					if (m_selected != std::nullopt)
-					{
-						if (m_selected.value() == entity)
+						auto* tag = world.get<components::Tag>(entity);
+						if (tag)
 						{
-							flags |= ImGuiTreeNodeFlags_Selected;
+							s_entity_label = tag->m_tag;
 						}
-					}
-
-					if (!m_selected || m_selected.value() != entity)
-					{
-						ImGui::SetNextItemOpen(false);
-					}
-
-					const bool is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(entity), flags, s_entity_label.c_str());
-					if (ImGui::IsItemClicked())
-					{
-						m_selected = std::make_optional(entity);
-					}
-
-					if (is_open)
-					{
-						ImGui::Text(std::format("ID: {0}.", entity).c_str());
-
-						ImGui::Spacing();
-						ImGui::Separator();
-						ImGui::Spacing();
-
-						bool enabled = world.is_enabled(entity);
-						if (ImGui::Checkbox("Enabled?", &enabled))
+						else
 						{
-							if (enabled)
+							s_entity_label = "Unknown";
+						}
+
+						ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+						if (m_selected != std::nullopt)
+						{
+							if (m_selected.value() == entity)
 							{
-								world.enable(entity);
-							}
-							else
-							{
-								world.disable(entity);
+								flags |= ImGuiTreeNodeFlags_Selected;
 							}
 						}
 
-						ImGui::SameLine();
-						ImGui::Spacing();
-						ImGui::SameLine();
-
-						bool allow_serialize = world.is_flag_set<flags::AllowSerialize>(entity);
-						if (ImGui::Checkbox("Serialize?", &allow_serialize))
+						if (!m_selected || m_selected.value() != entity)
 						{
-							if (allow_serialize)
-							{
-								world.set_flag<flags::AllowSerialize>(entity);
-							}
-							else
-							{
-								world.unset_flag<flags::AllowSerialize>(entity);
-							}
+							ImGui::SetNextItemOpen(false);
 						}
 
-						ImGui::Spacing();
-						ImGui::Separator();
-						ImGui::Spacing();
-
-						if (ImGui::BeginTable("AddRemoveTable1", 4, ImGuiTableFlags_NoBordersInBody))
+						const bool is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(entity), flags, s_entity_label.c_str());
+						if (ImGui::IsItemClicked())
 						{
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Name");
-							ImGui::TableNextColumn();
-							ImGui::Text("Add");
-							ImGui::TableNextColumn();
-							ImGui::Text("Remove");
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Animated");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##1"))
-							{
-								world.disable(entity);
-								world.create_component<components::Animated>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##2"))
-							{
-								world.remove<components::Animated>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("On Collision");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##5"))
-							{
-								world.disable(entity);
-								world.create_component<components::OnCollision>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##6"))
-							{
-								world.remove<components::OnCollision>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("2D Primitive");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##7"))
-							{
-								world.disable(entity);
-								world.create_component<components::Primitive2D>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##8"))
-							{
-								world.remove<components::Primitive2D>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Rigid Body");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##9"))
-							{
-								world.disable(entity);
-								world.create_component<components::RigidBody>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##10"))
-							{
-								world.remove<components::RigidBody>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Tag");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##13"))
-							{
-								world.disable(entity);
-								world.create_component<components::Tag>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##14"))
-							{
-								world.remove<components::Tag>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Transform2D");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##15"))
-							{
-								world.disable(entity);
-								world.create_component<components::Transform2D>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##16"))
-							{
-								world.remove<components::Transform2D>(entity);
-							}
-
-							ImGui::EndTable();
+							m_selected = std::make_optional(entity);
 						}
 
-						ImGui::SetCursorPosX(230.0f);
-						ImGui::SetCursorPosY(143.0f);
-
-						if (ImGui::BeginTable("AddRemoveTable2", 4, ImGuiTableFlags_NoBordersInBody))
+						if (is_open)
 						{
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Name");
-							ImGui::TableNextColumn();
-							ImGui::Text("Add");
-							ImGui::TableNextColumn();
-							ImGui::Text("Remove");
+							ImGui::Text(std::format("ID: {0}.", entity).c_str());
 
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Batch Sprite");
-							ImGui::TableNextColumn();
+							ImGui::Spacing();
+							ImGui::Separator();
+							ImGui::Spacing();
 
-							if (ImGui::Button(" + ##17"))
+							bool enabled = world.is_enabled(entity);
+							if (ImGui::Checkbox("Enabled?", &enabled))
 							{
-								world.disable(entity);
-								world.create_component<components::BatchSprite>(entity);
+								if (enabled)
+								{
+									world.enable(entity);
+								}
+								else
+								{
+									world.disable(entity);
+								}
 							}
 
-							ImGui::TableNextColumn();
+							ImGui::SameLine();
+							ImGui::Spacing();
+							ImGui::SameLine();
 
-							if (ImGui::Button(" - ##18"))
+							bool allow_serialize = world.is_flag_set<flags::AllowSerialize>(entity);
+							if (ImGui::Checkbox("Serialize?", &allow_serialize))
 							{
-								world.remove<components::BatchSprite>(entity);
+								if (allow_serialize)
+								{
+									world.set_flag<flags::AllowSerialize>(entity);
+								}
+								else
+								{
+									world.unset_flag<flags::AllowSerialize>(entity);
+								}
 							}
 
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Renderable");
-							ImGui::TableNextColumn();
+							ImGui::Spacing();
+							ImGui::Separator();
+							ImGui::Spacing();
 
-							if (ImGui::Button(" + ##23"))
+							if (ImGui::BeginTable("AddRemoveTable1", 4, ImGuiTableFlags_NoBordersInBody))
 							{
-								world.disable(entity);
-								world.create_component<components::Renderable>(entity);
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Name");
+								ImGui::TableNextColumn();
+								ImGui::Text("Add");
+								ImGui::TableNextColumn();
+								ImGui::Text("Remove");
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Animated");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##1"))
+								{
+									world.disable(entity);
+									world.create_component<components::Animated>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##2"))
+								{
+									world.remove<components::Animated>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("On Collision");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##5"))
+								{
+									world.disable(entity);
+									world.create_component<components::OnCollision>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##6"))
+								{
+									world.remove<components::OnCollision>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("2D Primitive");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##7"))
+								{
+									world.disable(entity);
+									world.create_component<components::Primitive2D>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##8"))
+								{
+									world.remove<components::Primitive2D>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Rigid Body");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##9"))
+								{
+									world.disable(entity);
+									world.create_component<components::RigidBody>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##10"))
+								{
+									world.remove<components::RigidBody>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Tag");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##13"))
+								{
+									world.disable(entity);
+									world.create_component<components::Tag>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##14"))
+								{
+									world.remove<components::Tag>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Transform2D");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##15"))
+								{
+									world.disable(entity);
+									world.create_component<components::Transform2D>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##16"))
+								{
+									world.remove<components::Transform2D>(entity);
+								}
+
+								ImGui::EndTable();
 							}
 
-							ImGui::TableNextColumn();
+							ImGui::SetCursorPosX(230.0f);
+							ImGui::SetCursorPosY(143.0f);
 
-							if (ImGui::Button(" - ##24"))
+							if (ImGui::BeginTable("AddRemoveTable2", 4, ImGuiTableFlags_NoBordersInBody))
 							{
-								world.remove<components::Renderable>(entity);
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Name");
+								ImGui::TableNextColumn();
+								ImGui::Text("Add");
+								ImGui::TableNextColumn();
+								ImGui::Text("Remove");
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Batch Sprite");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##17"))
+								{
+									world.disable(entity);
+									world.create_component<components::BatchSprite>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##18"))
+								{
+									world.remove<components::BatchSprite>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Renderable");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##23"))
+								{
+									world.disable(entity);
+									world.create_component<components::Renderable>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##24"))
+								{
+									world.remove<components::Renderable>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Sprite2D");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##27"))
+								{
+									world.disable(entity);
+									world.create_component<components::Sprite>(entity);
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##28"))
+								{
+									world.remove<components::Sprite>(entity);
+								}
+
+								ImGui::TableNextRow();
+								ImGui::TableNextColumn();
+								ImGui::Text("Text");
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" + ##29"))
+								{
+									world.disable(entity);
+									gl_operations.emplace_back(
+										[&world, entity]() -> void
+										{
+											world.create_component<components::Text>(entity);
+										});
+								}
+
+								ImGui::TableNextColumn();
+
+								if (ImGui::Button(" - ##30"))
+								{
+									gl_operations.emplace_back(
+										[&world, entity]() -> void
+										{
+											world.remove<components::Text>(entity);
+										});
+								}
+
+								ImGui::EndTable();
 							}
 
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Sprite2D");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##27"))
-							{
-								world.disable(entity);
-								world.create_component<components::Sprite>(entity);
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##28"))
-							{
-								world.remove<components::Sprite>(entity);
-							}
-
-							ImGui::TableNextRow();
-							ImGui::TableNextColumn();
-							ImGui::Text("Text");
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" + ##29"))
-							{
-								world.disable(entity);
-								gl_operations.emplace_back([&world, entity]() -> void {
-									world.create_component<components::Text>(entity);
-								});
-							}
-
-							ImGui::TableNextColumn();
-
-							if (ImGui::Button(" - ##30"))
-							{
-								gl_operations.emplace_back([&world, entity]() -> void {
-									world.remove<components::Text>(entity);
-								});
-							}
-
-							ImGui::EndTable();
+							ImGui::TreePop();
 						}
+					});
 
-						ImGui::TreePop();
-					}
-				});
+				*/
 
+				/*
 				if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 				{
 					m_selected = std::nullopt;
@@ -377,23 +373,15 @@ namespace sc
 				}
 
 				ImGui::End();
+				*/
 			}
 
 			ImGui::End();
 		}
 
-		void EntityEditor::set_layer(core::Layer* layer)
-		{
-			m_cur_layer = layer;
-		}
-
-		void EntityEditor::set_selected_entity(const std::optional<ecs::Entity>& entity)
-		{
-			m_selected = entity;
-		}
-
 		void EntityEditor::render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
+			/*
 			// clang-format off
 			auto [animated,
 				batchsprite,
@@ -503,6 +491,7 @@ namespace sc
 
 				ImGui::EndTabBar();
 			}
+			*/
 		}
 	} // namespace panel
 } // namespace sc

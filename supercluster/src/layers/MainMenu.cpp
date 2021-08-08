@@ -106,7 +106,7 @@ namespace sc
 
 		if (ImGui::Button("Exit", {button_width, button_height}))
 		{
-			SL_HANDLE.window()->close();
+			m_editor->exit();
 		}
 
 		ImGui::End();

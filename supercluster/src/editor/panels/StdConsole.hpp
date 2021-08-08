@@ -19,9 +19,9 @@ namespace sc
 		class StdConsoleStream final : public std::stringbuf
 		{
 		protected:
-			virtual std::streamsize xsputn(const char* s, std::streamsize n) override;
-			virtual int overflow(int c) override;
-			virtual int sync() override;
+			[[maybe_unused]] std::streamsize xsputn(const char* s, std::streamsize n) override;
+			[[maybe_unused]] int overflow(int c) override;
+			[[maybe_unused]] int sync() override;
 
 		public:
 			std::vector<std::string> m_history;
@@ -33,7 +33,8 @@ namespace sc
 		class StdConsole final
 		{
 		public:
-			StdConsole();
+			StdConsole() noexcept;
+			~StdConsole() noexcept = default;
 
 			void render();
 

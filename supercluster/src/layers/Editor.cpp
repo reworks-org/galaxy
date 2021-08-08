@@ -12,6 +12,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/math/ZLib.hpp>
+#include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
@@ -24,11 +25,10 @@ namespace sc
 		: m_current_project_path {""}
 		, m_paused {false}
 	{
-		//GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		set_name("Editor");
 
 		//m_framebuffer.create(1, 1);
-		//ui::imgui_theme_visual_dark();
 		//m_entity_panel.set_layer(this);
 
 		//m_checkerboard.load_mem(tex::checkerboard);
@@ -244,12 +244,12 @@ namespace sc
 				if (ImGui::MenuItem("Restart"))
 				{
 					SL_HANDLE.m_restart = true;
-					//exit();
+					exit();
 				}
 
 				if (ImGui::MenuItem("Exit"))
 				{
-					//exit();
+					exit();
 				}
 
 				ImGui::EndMenu();
@@ -335,41 +335,47 @@ namespace sc
 				if (!m_paused)
 				{
 					m_paused       = true;
-					s_pause_resume = " >> ##ResumeSceneButton";
+					s_pause_resume = " > > ##ResumeSceneButton";
 				}
 				else
 				{
 					m_paused       = false;
-					s_pause_resume = " || ##PauseSceneButton";
+					s_pause_resume = " | | ##PauseSceneButton";
 				}
 			}
 
 			ImGui::EndMenuBar();
 		}
 
-		/*
-		m_entity_panel.render(m_gl_operations);
-		m_json_panel.parse_and_display();
-		m_console.render();
-		m_scene_panel.render(m_scene_stack, m_gl_operations);
-		m_script_panel.render();
+		// Bottom:
+		m_lua_console.render();
 		m_std_console.render();
-		m_audio_panel.render();
 
+		// Center:
+		m_script_editor.render();
+		m_json_panel.render();
 		viewport();
-		*/
+
+		// Left:
+		m_entity_panel.render(m_scene_stack.top(), m_gl_operations);
+
+		// Right:
+		m_audio_panel.render();
+		m_scene_panel.render(m_scene_stack);
 
 		ImGui::End();
+
+		for (const auto& gl_operation : m_gl_operations)
+		{
+			gl_operation();
+		}
+		m_gl_operations.clear();
 
 		/*
 		if (!m_game_mode)
 		{
-			for (const auto& gl_operation : m_gl_operations)
-			{
-				gl_operation();
-			}
+			
 
-			m_gl_operations.clear();
 			m_scene_stack.pre_render();
 
 			m_framebuffer.bind(true);
@@ -471,7 +477,6 @@ namespace sc
 		}
 	}
 
-	/*
 	void Editor::exit()
 	{
 		for (auto* process : m_processes)
@@ -482,14 +487,13 @@ namespace sc
 
 		SL_HANDLE.window()->close();
 	}
-	*/
 
 	void Editor::viewport()
 	{
-		/*
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
+			/*
 			m_viewport_focused    = ImGui::IsWindowFocused();
 			m_viewport_hovered    = ImGui::IsWindowHovered();
 			const auto size_avail = ImGui::GetContentRegionAvail();
@@ -542,108 +546,107 @@ namespace sc
 					// TODO: 3D Picking.
 				}
 
-		m_mouse_picked = false;
-	}
+				m_mouse_picked = false;
 
-	if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
-	{
-		if (ImGui::BeginMenu("  Create"))
-		{
-			if (ImGui::BeginMenu("  Entity"))
-			{
-				if (m_topscene_type == "2D")
+				if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
 				{
-					if (ImGui::MenuItem("  Sprite"))
+					if (ImGui::BeginMenu("  Create"))
 					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
+						if (ImGui::BeginMenu("  Entity"))
+						{
+							if (m_topscene_type == "2D")
+							{
+								if (ImGui::MenuItem("  Sprite"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
 
-						world.create_component<components::BatchSprite>(entity);
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::BATCHED;
+									world.create_component<components::BatchSprite>(entity);
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::BATCHED;
+								}
+
+								if (ImGui::MenuItem("  Animated Sprite"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
+
+									world.create_component<components::Animated>(entity);
+									world.create_component<components::BatchSprite>(entity);
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::BATCHED;
+								}
+
+								if (ImGui::MenuItem("  Primitive2D"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
+
+									world.create_component<components::Primitive2D>(entity);
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::LINE_LOOP;
+								}
+
+								if (ImGui::MenuItem("  Rigid Body"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
+
+									world.create_component<components::BatchSprite>(entity);
+									world.create_component<components::OnCollision>(entity);
+									world.create_component<components::RigidBody>(entity);
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::BATCHED;
+								}
+
+								if (ImGui::MenuItem("  Animated Body"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
+
+									world.create_component<components::Animated>(entity);
+									world.create_component<components::BatchSprite>(entity);
+									world.create_component<components::OnCollision>(entity);
+									world.create_component<components::RigidBody>(entity);
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::BATCHED;
+								}
+
+								if (ImGui::MenuItem("  Text"))
+								{
+									auto& world       = m_scene_stack.top()->m_world;
+									const auto entity = world.create();
+
+									world.create_component<components::Tag>(entity);
+									world.create_component<components::Text>(entity);
+									world.create_component<components::Transform2D>(entity);
+									auto* r   = world.create_component<components::Renderable>(entity);
+									r->m_type = graphics::Renderables::TEXT;
+								}
+							}
+
+							ImGui::EndMenu();
+						}
+
+						ImGui::EndMenu();
 					}
 
-					if (ImGui::MenuItem("  Animated Sprite"))
-					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
-
-						world.create_component<components::Animated>(entity);
-						world.create_component<components::BatchSprite>(entity);
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::BATCHED;
-					}
-
-					if (ImGui::MenuItem("  Primitive2D"))
-					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
-
-						world.create_component<components::Primitive2D>(entity);
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::LINE_LOOP;
-					}
-
-					if (ImGui::MenuItem("  Rigid Body"))
-					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
-
-						world.create_component<components::BatchSprite>(entity);
-						world.create_component<components::OnCollision>(entity);
-						world.create_component<components::RigidBody>(entity);
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::BATCHED;
-					}
-
-					if (ImGui::MenuItem("  Animated Body"))
-					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
-
-						world.create_component<components::Animated>(entity);
-						world.create_component<components::BatchSprite>(entity);
-						world.create_component<components::OnCollision>(entity);
-						world.create_component<components::RigidBody>(entity);
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::BATCHED;
-					}
-
-					if (ImGui::MenuItem("  Text"))
-					{
-						auto& world       = m_scene_stack.top()->m_world;
-						const auto entity = world.create();
-
-						world.create_component<components::Tag>(entity);
-						world.create_component<components::Text>(entity);
-						world.create_component<components::Transform2D>(entity);
-						auto* r   = world.create_component<components::Renderable>(entity);
-						r->m_type = graphics::Renderables::TEXT;
-					}
+					ImGui::EndPopup();
 				}
-
-				ImGui::EndMenu();
-			}
-
-			ImGui::EndMenu();
-		}
-
-		ImGui::EndPopup();
-	}
+		*/
 		}
 
 		ImGui::End();
 		ImGui::PopStyleVar(1);
-		*/
 	}
 } // namespace sc

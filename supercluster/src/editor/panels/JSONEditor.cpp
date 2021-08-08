@@ -23,11 +23,16 @@ namespace sc
 {
 	namespace panel
 	{
-		JSONEditor::JSONEditor()
+		JSONEditor::JSONEditor() noexcept
 			: m_counter {0}
 			, m_loaded {false}
 			, m_external {nullptr}
 		{
+		}
+
+		JSONEditor::~JSONEditor() noexcept
+		{
+			m_external = nullptr;
 		}
 
 		void JSONEditor::create_new()
@@ -126,15 +131,17 @@ namespace sc
 			}
 		}
 
-		void JSONEditor::parse_and_display()
+		void JSONEditor::render()
 		{
+			bool popup_create_new = false;
+
 			if (ImGui::Begin("JSON Editor", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar))
 			{
 				if (ImGui::BeginMenuBar())
 				{
 					if (ImGui::MenuItem("New"))
 					{
-						ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
+						popup_create_new = true;
 					}
 
 					if (ImGui::MenuItem("Open"))
@@ -167,6 +174,11 @@ namespace sc
 					}
 
 					ImGui::EndMenuBar();
+				}
+
+				if (popup_create_new)
+				{
+					ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
 				}
 
 				create_new();
@@ -356,7 +368,7 @@ namespace sc
 				static bool s_show_error     = false;
 
 				// clang-format off
-				static const std::vector<const char*> s_types =
+				static constexpr const std::array<const char*, 8> s_types =
 				{
 					"...",
 					"bool",
@@ -372,7 +384,7 @@ namespace sc
 				ImGui::InputText("Key", &s_key_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
 				ImGui::SameLine();
 				ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
-				ImGui::Combo("Type", &s_index, s_types.data(), s_types.size());
+				ImGui::Combo("Type", &s_index, s_types.data(), static_cast<int>(s_types.size()));
 
 				if (ImGui::Button("Add"))
 				{
@@ -383,7 +395,7 @@ namespace sc
 					}
 					else
 					{
-						if (s_types[s_index] == "bool")
+						if (std::strcmp(s_types[s_index], "bool"))
 						{
 							if (s_val_str == "true")
 							{
@@ -401,32 +413,32 @@ namespace sc
 								s_show_error = true;
 							}
 						}
-						else if (s_types[s_index] == "integer")
+						else if (std::strcmp(s_types[s_index], "integer"))
 						{
 							json[s_key_str] = std::stoi(s_val_str);
 							s_show_error    = false;
 						}
-						else if (s_types[s_index] == "unsigned")
+						else if (std::strcmp(s_types[s_index], "unsigned"))
 						{
 							json[s_key_str] = static_cast<unsigned int>(std::stoi(s_val_str));
 							s_show_error    = false;
 						}
-						else if (s_types[s_index] == "float")
+						else if (std::strcmp(s_types[s_index], "float"))
 						{
 							json[s_key_str] = std::stof(s_val_str);
 							s_show_error    = false;
 						}
-						else if (s_types[s_index] == "string")
+						else if (std::strcmp(s_types[s_index], "string"))
 						{
 							json[s_key_str] = s_val_str;
 							s_show_error    = false;
 						}
-						else if (s_types[s_index] == "object")
+						else if (std::strcmp(s_types[s_index], "object"))
 						{
 							json[s_key_str] = nlohmann::json::object();
 							s_show_error    = false;
 						}
-						else if (s_types[s_index] == "array")
+						else if (std::strcmp(s_types[s_index], "array"))
 						{
 							json.push_back(nlohmann::json::array());
 							s_show_error = false;
@@ -484,7 +496,7 @@ namespace sc
 				// clang-format on
 
 				ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
-				ImGui::Combo("Type", &s_index, s_types.data(), s_types.size());
+				ImGui::Combo("Type", &s_index, s_types.data(), static_cast<int>(s_types.size()));
 
 				if (ImGui::Button("Add"))
 				{
@@ -495,7 +507,7 @@ namespace sc
 					}
 					else
 					{
-						if (s_types[s_index] == "bool")
+						if (std::strcmp(s_types[s_index], "bool"))
 						{
 							if (s_val_str == "true")
 							{
@@ -513,32 +525,32 @@ namespace sc
 								s_show_error = true;
 							}
 						}
-						else if (s_types[s_index] == "integer")
+						else if (std::strcmp(s_types[s_index], "integer"))
 						{
 							json.push_back(std::stoi(s_val_str));
 							s_show_error = false;
 						}
-						else if (s_types[s_index] == "unsigned")
+						else if (std::strcmp(s_types[s_index], "unsigned"))
 						{
 							json.push_back(static_cast<unsigned int>(std::stoi(s_val_str)));
 							s_show_error = false;
 						}
-						else if (s_types[s_index] == "float")
+						else if (std::strcmp(s_types[s_index], "float"))
 						{
 							json.push_back(std::stof(s_val_str));
 							s_show_error = false;
 						}
-						else if (s_types[s_index] == "string")
+						else if (std::strcmp(s_types[s_index], "string"))
 						{
 							json.push_back(s_val_str);
 							s_show_error = false;
 						}
-						else if (s_types[s_index] == "object")
+						else if (std::strcmp(s_types[s_index], "object"))
 						{
 							json.push_back(nlohmann::json::object());
 							s_show_error = false;
 						}
-						else if (s_types[s_index] == "array")
+						else if (std::strcmp(s_types[s_index], "array"))
 						{
 							json.push_back(nlohmann::json::array());
 							s_show_error = false;

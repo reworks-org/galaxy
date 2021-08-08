@@ -20,8 +20,8 @@ namespace sc
 		class JSONEditor final
 		{
 		public:
-			JSONEditor();
-			~JSONEditor() = default;
+			JSONEditor() noexcept;
+			~JSONEditor() noexcept;
 
 			void create_new();
 
@@ -31,7 +31,7 @@ namespace sc
 
 			void save(std::string_view path);
 
-			void parse_and_display();
+			void render();
 
 			[[nodiscard]] const bool is_loaded() const;
 
@@ -42,7 +42,7 @@ namespace sc
 			void add_to_array(nlohmann::json& json);
 
 		private:
-			unsigned long long m_counter;
+			int m_counter;
 			bool m_loaded;
 			nlohmann::json m_root;
 			nlohmann::json* m_external;

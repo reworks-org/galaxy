@@ -52,7 +52,7 @@ namespace sc
 			return 0;
 		}
 
-		StdConsole::StdConsole()
+		StdConsole::StdConsole() noexcept
 			: m_stream {static_cast<std::streambuf*>(&m_streambuf)}
 		{
 		}

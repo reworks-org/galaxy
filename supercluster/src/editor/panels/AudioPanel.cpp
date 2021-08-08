@@ -22,6 +22,14 @@ namespace sc
 {
 	namespace panel
 	{
+		AudioPanel::AudioPanel() noexcept
+		{
+		}
+
+		AudioPanel::~AudioPanel() noexcept
+		{
+		}
+
 		void AudioPanel::render()
 		{
 			auto* openal = SL_HANDLE.openal();

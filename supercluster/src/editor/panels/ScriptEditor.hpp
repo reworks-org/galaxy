@@ -17,7 +17,8 @@ namespace sc
 		class ScriptEditor final
 		{
 		public:
-			ScriptEditor();
+			ScriptEditor() noexcept;
+			~ScriptEditor() noexcept = default;
 
 			void render();
 

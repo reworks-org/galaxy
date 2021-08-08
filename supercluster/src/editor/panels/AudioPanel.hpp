@@ -15,6 +15,9 @@ namespace sc
 		class AudioPanel final
 		{
 		public:
+			AudioPanel() noexcept;
+			~AudioPanel() noexcept;
+
 			void render();
 		};
 	} // namespace panel

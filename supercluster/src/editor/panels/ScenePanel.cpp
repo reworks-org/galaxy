@@ -5,15 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-#include <imgui/addons/ToggleButton.h>
 #include <imgui/imgui_stdlib.h>
-#include <magic_enum.hpp>
 
 #include "ScenePanel.hpp"
-
-#define INPUT_WIDTH 150
 
 using namespace galaxy;
 
@@ -21,49 +15,49 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(core::SceneStack& scene_stack, OpenGLOperationStack& gl_operations)
+		ScenePanel::ScenePanel() noexcept
+			: m_selected {""}
+		{
+		}
+
+		ScenePanel::~ScenePanel() noexcept
+		{
+		}
+
+		void ScenePanel::render(core::SceneStack& scene_stack)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
 				if (ImGui::Button("New Scene"))
 				{
-					ImGui::OpenPopup("NewScenePopup");
-				}
-
-				if (ImGui::Button("Pop"))
-				{
-					scene_stack.pop();
+					ImGui::OpenPopup("NewScenePopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
 				}
 
 				if (ImGui::BeginPopup("NewScenePopup"))
 				{
-					ImGui::Text("2D");
-					ImGui::SameLine();
-
-					// False = 2D, True = 3D.
-					static bool s_type = true;
-					ImGui::ToggleButton("2D3DToggleButton", &s_type);
-
-					ImGui::SameLine();
-					ImGui::Text("NYI");
-
 					static std::string s_buff = "";
 					if (ImGui::InputText("New Scene", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
 					{
-						if (s_type)
+						if (s_buff.empty())
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Alternate scene structures not yet implemented.");
+							GALAXY_LOG(GALAXY_ERROR, "Scene name cannot be empty.");
 						}
 						else
 						{
 							scene_stack.create(s_buff);
+							s_buff = "";
 						}
-
-						s_buff = "";
 					}
 
 					ImGui::EndPopup();
 				}
+
+				ImGui::Spacing();
+				if (ImGui::Button("Pop"))
+				{
+					scene_stack.pop();
+				}
+				ImGui::Spacing();
 
 				for (const auto& [name, scene] : scene_stack.get_scenes())
 				{
@@ -82,65 +76,41 @@ namespace sc
 					if (is_open)
 					{
 						ImGui::Spacing();
-
 						if (ImGui::Button("Push"))
 						{
 							scene_stack.push(name);
 						}
 
-						/*
 						ImGui::Spacing();
+						ImGui::InputText("Name", &scene->m_name, ImGuiInputTextFlags_EnterReturnsTrue);
+						ImGui::Spacing();
+
 						ImGui::Text("Camera:");
-						ImGui::Spacing();
-
-						ImGui::Text("Move");
-
-						float s_move_x = scene->m_camera.get_pos().x;
-						ImGui::SetNextItemWidth(INPUT_WIDTH);
-						if (ImGui::InputFloat("X##01", &s_move_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						// clang-format off
+						float camera_x = scene->m_camera.get_pos().x;
+						if (ImGui::InputFloat("X##01", &camera_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							scene->m_camera.move_x(s_move_x);
+							scene->m_camera.move(camera_x, 0.0f);
 						}
 
-						ImGui::SameLine();
-
-						float s_move_y = scene->m_camera.get_pos().y;
-						ImGui::SetNextItemWidth(INPUT_WIDTH);
-						if (ImGui::InputFloat("Y##02", &s_move_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						float camera_y = scene->m_camera.get_pos().y;
+						if (ImGui::InputFloat("Y##02", &camera_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							scene->m_camera.move_y(s_move_y);
+							scene->m_camera.move(0.0f, camera_y);
 						}
 
-						int s_speed = static_cast<int>(scene->m_camera.get_speed());
-						if (ImGui::InputInt("Speed##03", &s_speed, 1, 10, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						float camera_speed = scene->m_camera.get_speed();
+						if (ImGui::InputFloat("Speed##03", &camera_speed, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							scene->m_camera.set_speed(s_speed);
+							scene->m_camera.set_speed(camera_speed);
 						}
 
-						float s_zoom = scene->m_camera.get_scale();
-						if (ImGui::SliderFloat("Scale##04", &s_zoom, 0.2, 10.0, "%.1f", ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_ClampOnInput))
+						float camera_zoom = scene->m_camera.get_scale();
+						if (ImGui::SliderFloat("Zoom##04", &camera_zoom, 1.0f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
 						{
-							scene->m_camera.zoom(s_zoom);
+							scene->m_camera.zoom(camera_zoom);
 						}
-
-						ImGui::Text("Projection");
-
-						float s_proj_x = scene->m_camera.get_width();
-						ImGui::SetNextItemWidth(INPUT_WIDTH);
-						if (ImGui::InputFloat("X##05", &s_proj_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							scene->m_camera.set_width(s_proj_x);
-						}
-
-						ImGui::SameLine();
-
-						float s_proj_y = scene->m_camera.get_height();
-						ImGui::SetNextItemWidth(INPUT_WIDTH);
-						if (ImGui::InputFloat("Y##06", &s_proj_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							scene->m_camera.set_height(s_proj_y);
-						}
-						*/
+						// clang-format on
 
 						ImGui::Spacing();
 						ImGui::TreePop();
