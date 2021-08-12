@@ -30,11 +30,6 @@ namespace sc
 
 		//m_framebuffer.create(1, 1);
 		//m_entity_panel.set_layer(this);
-
-		//m_checkerboard.load_mem(tex::checkerboard);
-		//m_checkerboard.set_minify_filter<graphics::NearestMipmapFilter>();
-		//m_checkerboard.set_magnify_filter<graphics::NearestTexFilter>();
-		//m_checkerboard.set_mode<graphics::TextureModes::REPEAT>();
 	}
 
 	Editor::~Editor()
@@ -211,7 +206,7 @@ namespace sc
 					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
 					if (msg.result() == pfd::button::yes)
 					{
-						//save();
+						save_project();
 					}
 
 					new_project();
@@ -222,13 +217,13 @@ namespace sc
 					pfd::message msg("WARNING", "Save?\nUnsaved work will be lost.", pfd::choice::yes_no, pfd::icon::warning);
 					if (msg.result() == pfd::button::yes)
 					{
-						//save();
+						save_project();
 					}
 
 					auto file = SL_HANDLE.vfs()->show_open_dialog("*.scproj");
 					if (file != std::nullopt)
 					{
-						//	load(file.value());
+						load_project(file.value());
 					}
 					else
 					{
@@ -238,7 +233,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Save"))
 				{
-					//save();
+					save_project();
 				}
 
 				if (ImGui::MenuItem("Restart"))
@@ -299,12 +294,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Open Tiled"))
 				{
-					//m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
-				}
-
-				if (ImGui::MenuItem("Open Blender"))
-				{
-					//m_processes.push_back(platform::run_process("tools/blender/blender.exe"));
+					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
 				}
 
 				ImGui::EndMenu();
