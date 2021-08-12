@@ -5,9 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/Log.hpp"
-
-#include "Music.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/MusicBook.hpp"
 
 namespace galaxy
 {
@@ -41,11 +40,14 @@ namespace galaxy
 
 			alSourceStop(m_source.handle());
 			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
+
+			SL_HANDLE.musicbook()->m_playing.erase(this);
 		}
 
 		void Music::play()
 		{
 			alSourcePlay(m_source.handle());
+			SL_HANDLE.musicbook()->m_playing.emplace(this, this);
 		}
 
 		void Music::pause()

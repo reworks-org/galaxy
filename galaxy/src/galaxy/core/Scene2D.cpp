@@ -11,6 +11,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
+#include "galaxy/resource/MusicBook.hpp"
 #include "galaxy/systems/ActionSystem.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/CollisionSystem.hpp"
@@ -97,11 +98,13 @@ namespace galaxy
 
 		void Scene2D::on_push()
 		{
+			SL_HANDLE.musicbook()->stop_all();
 			SL_HANDLE.lua()->set("galaxy_current_world", &m_world);
 		}
 
 		void Scene2D::on_pop()
 		{
+			SL_HANDLE.musicbook()->stop_all();
 		}
 
 		void Scene2D::events()

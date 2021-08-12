@@ -21,6 +21,8 @@ namespace galaxy
 		///
 		class MusicBook final : public ResourceCache<audio::Music>, public fs::Serializable
 		{
+			friend audio::Music;
+
 		public:
 			///
 			/// Constructor.
@@ -50,6 +52,11 @@ namespace galaxy
 			/// Clean up.
 			///
 			void clear() noexcept override;
+
+			///
+			/// Stop all active music.
+			///
+			void stop_all() noexcept;
 
 			///
 			/// Serializes object.
@@ -85,6 +92,12 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			MusicBook& operator=(MusicBook&&) = delete;
+
+		private:
+			///
+			/// Stores pointers to playing music.
+			///
+			robin_hood::unordered_flat_map<audio::Music*, audio::Music*> m_playing;
 		};
 	} // namespace res
 } // namespace galaxy

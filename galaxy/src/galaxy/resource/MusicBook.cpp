@@ -43,6 +43,17 @@ namespace galaxy
 		void MusicBook::clear() noexcept
 		{
 			m_resources.clear();
+			m_playing.clear();
+		}
+
+		void MusicBook::stop_all() noexcept
+		{
+			for (auto& [key, value] : m_playing)
+			{
+				value->stop();
+			}
+
+			m_playing.clear();
 		}
 
 		nlohmann::json MusicBook::serialize()
