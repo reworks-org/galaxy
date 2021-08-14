@@ -28,7 +28,7 @@ namespace sc
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		set_name("Editor");
 
-		//m_framebuffer.create(1, 1);
+		m_framebuffer.create(1, 1);
 		//m_entity_panel.set_layer(this);
 	}
 
@@ -368,9 +368,6 @@ namespace sc
 
 			m_scene_stack.pre_render();
 
-			m_framebuffer.bind(true);
-			m_scene_stack.render();
-			m_framebuffer.unbind();
 
 			imgui_render();
 		}
@@ -383,7 +380,18 @@ namespace sc
 
 	void Editor::render()
 	{
+		static GLint s_cur_fbo = 0;
+		glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
+
+		static GLint s_viewport[4] = {0, 0, 0, 0};
+		glGetIntegerv(GL_VIEWPORT, s_viewport);
+
+		m_framebuffer.bind(true);
 		m_scene_stack.render();
+
+		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
+		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
+
 		ui::imgui_render();
 
 		/*
@@ -483,9 +491,6 @@ namespace sc
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
-			/*
-			m_viewport_focused    = ImGui::IsWindowFocused();
-			m_viewport_hovered    = ImGui::IsWindowHovered();
 			const auto size_avail = ImGui::GetContentRegionAvail();
 			if (size_avail != m_viewport_size)
 			{
@@ -493,12 +498,11 @@ namespace sc
 				m_framebuffer.resize(m_viewport_size.x, m_viewport_size.y);
 			}
 
-			if (m_topscene_type == "2D")
-			{
-				ImGui::Image(reinterpret_cast<void*>(m_checkerboard.gl_texture()), m_viewport_size, {0, 1}, {1, 0});
-			}
-
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
+
+			/*
+			m_viewport_focused    = ImGui::IsWindowFocused();
+			m_viewport_hovered    = ImGui::IsWindowHovered();
 
 			if (m_mouse_picked)
 			{

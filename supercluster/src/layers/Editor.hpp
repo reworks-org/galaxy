@@ -57,6 +57,9 @@ namespace sc
 		std::vector<void*> m_processes;
 		OpenGLOperationStack m_gl_operations;
 
+		graphics::RenderTexture m_framebuffer;
+		ImVec2 m_viewport_size = {0.0f, 0.0f};
+
 		/*
 
 		nlohmann::json m_backup;
@@ -67,9 +70,6 @@ namespace sc
 		bool m_mouse_picked     = false;
 
 		
-
-		graphics::RenderTexture m_framebuffer;
-
 		ImVec2 m_imgui_delta;
 		events::MouseMoved m_mousemoved_event;
 		events::MouseWheel m_scroll_delta;
