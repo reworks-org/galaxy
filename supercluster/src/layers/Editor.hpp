@@ -50,27 +50,26 @@ namespace sc
 		panel::AudioPanel m_audio_panel;
 		panel::ScenePanel m_scene_panel;
 
-		std::string m_current_project_path;
-
-		bool m_paused;
+		bool m_paused                      = false;
+		std::string m_current_project_path = "";
 
 		std::vector<void*> m_processes;
 		OpenGLOperationStack m_gl_operations;
-
 		graphics::RenderTexture m_framebuffer;
-		ImVec2 m_viewport_size = {0.0f, 0.0f};
+
+		bool m_viewport_focused    = false;
+		bool m_viewport_hovered    = false;
+		ImVec2 m_viewport_size     = {0.0f, 0.0f};
+		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 
 		/*
 
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;
-		bool m_viewport_focused = false;
-		bool m_viewport_hovered = false;
 		bool m_mouse_picked     = false;
 
 		
-		ImVec2 m_imgui_delta;
 		events::MouseMoved m_mousemoved_event;
 		events::MouseWheel m_scroll_delta;
 		events::KeyDown m_keydown_event;

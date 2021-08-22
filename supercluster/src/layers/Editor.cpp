@@ -11,6 +11,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/graphics/Renderer2D.hpp>
 #include <galaxy/math/ZLib.hpp>
 #include <galaxy/platform/Platform.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
@@ -22,14 +23,11 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		: m_current_project_path {""}
-		, m_paused {false}
 	{
 		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
 		set_name("Editor");
 
 		m_framebuffer.create(1, 1);
-		//m_entity_panel.set_layer(this);
 	}
 
 	Editor::~Editor()
@@ -40,9 +38,31 @@ namespace sc
 
 	void Editor::events()
 	{
-		if (!m_paused)
+		if (m_viewport_focused && m_viewport_hovered)
 		{
-			m_scene_stack.events();
+			if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
+			{
+				ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+			}
+			else
+			{
+				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+			}
+
+			auto& camera = m_scene_stack.top()->m_camera;
+			if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
+			{
+				m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+
+				camera.move(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
+
+				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
+			}
+
+			if (!m_paused)
+			{
+				m_scene_stack.events();
+			}
 		}
 
 		/*
@@ -52,26 +72,9 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
-				{
-					ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-				}
-				else
-				{
-					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
-				}
+				
 
-				const auto& camera = m_scene_stack.top()->m_camera;
-				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
-				{
-					m_imgui_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-
-					m_mousemoved_event.m_x += m_imgui_delta.x;
-					m_mousemoved_event.m_y += m_imgui_delta.y;
-
-					//camera.on_event(m_mousemoved_event);
-					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-				}
+				
 
 				m_scroll_delta.m_x_offset = 0.0;
 				m_scroll_delta.m_y_offset = SL_HANDLE.window()->get_scroll_delta();
@@ -325,7 +328,7 @@ namespace sc
 				if (!m_paused)
 				{
 					m_paused       = true;
-					s_pause_resume = " > > ##ResumeSceneButton";
+					s_pause_resume = " >> ##ResumeSceneButton";
 				}
 				else
 				{
@@ -388,6 +391,9 @@ namespace sc
 
 		m_framebuffer.bind(true);
 		m_scene_stack.render();
+
+		RENDERER_2D().draw();
+		RENDERER_2D().prepare();
 
 		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
@@ -491,6 +497,9 @@ namespace sc
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
+			m_viewport_focused = ImGui::IsWindowFocused();
+			m_viewport_hovered = ImGui::IsWindowHovered();
+
 			const auto size_avail = ImGui::GetContentRegionAvail();
 			if (size_avail != m_viewport_size)
 			{
@@ -501,14 +510,9 @@ namespace sc
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			/*
-			m_viewport_focused    = ImGui::IsWindowFocused();
-			m_viewport_hovered    = ImGui::IsWindowHovered();
-
 			if (m_mouse_picked)
 			{
-				if (m_topscene_type == "2D")
-				{
-					static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
+				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
 
 					scene::Scene2D* const s2d = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
 					const auto& c2d           = s2d->get_camera();
@@ -534,11 +538,6 @@ namespace sc
 					}
 
 					possible.clear();
-				}
-				else
-				{
-					// TODO: 3D Picking.
-				}
 
 				m_mouse_picked = false;
 

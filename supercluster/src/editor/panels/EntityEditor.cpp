@@ -40,7 +40,7 @@ namespace sc
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
 						gl_operations.push_back(
-							[this, file]()
+							[file, top_scene]()
 							{
 								if (file == std::nullopt)
 								{
@@ -48,7 +48,7 @@ namespace sc
 								}
 								else
 								{
-									//m_cur_layer->get_stack().top()->m_world.create_from_json(file.value());
+									top_scene->m_world.create_from_json(file.value());
 								}
 							});
 					}
