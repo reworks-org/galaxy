@@ -271,6 +271,7 @@ namespace galaxy
 
 		Application::~Application()
 		{
+			Rml::Debugger::Shutdown();
 			Rml::Shutdown();
 			m_rml_rendering_interface.reset();
 			m_rml_file_interface.reset();
