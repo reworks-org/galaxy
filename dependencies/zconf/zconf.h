@@ -102,6 +102,18 @@
 #  define Z_EXPORTVA
 #endif
 
+/* For backwards compatibility */
+
+#ifndef ZEXTERN
+#  define ZEXTERN Z_EXTERN
+#endif
+#ifndef ZEXPORT
+#  define ZEXPORT Z_EXPORT
+#endif
+#ifndef ZEXPORTVA
+#  define ZEXPORTVA Z_EXPORTVA
+#endif
+
 /* Fallback for something that includes us. */
 typedef unsigned char Byte;
 typedef Byte Bytef;
@@ -118,7 +130,7 @@ typedef void const *voidpc;
 typedef void       *voidpf;
 typedef void       *voidp;
 
-#ifdef HAVE_UNISTD_H    /* may be set to #if 1 by configure/cmake/etc */
+#if 0    /* was set to #if 0 by configure/cmake/etc */
 #  define Z_HAVE_UNISTD_H
 #endif
 

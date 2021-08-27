@@ -1,4 +1,4 @@
-// dear imgui, v1.84 WIP
+// dear imgui, v1.84
 // (drawing and font code)
 
 /*
@@ -26,14 +26,14 @@ Index of this file:
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "imgui/imgui.h"
+#include "imgui.h"
 #ifndef IMGUI_DISABLE
 
 #ifndef IMGUI_DEFINE_MATH_OPERATORS
 #define IMGUI_DEFINE_MATH_OPERATORS
 #endif
 
-#include "imgui/imgui_internal.h"
+#include "imgui_internal.h"
 #ifdef IMGUI_ENABLE_FREETYPE
 #include "misc/freetype/imgui_freetype.h"
 #endif
@@ -137,7 +137,7 @@ namespace IMGUI_STB_NAMESPACE
 #ifdef IMGUI_STB_RECT_PACK_FILENAME
 #include IMGUI_STB_RECT_PACK_FILENAME
 #else
-#include "imgui/imstb_rectpack.h"
+#include "imstb_rectpack.h"
 #endif
 #endif
 
@@ -161,7 +161,7 @@ namespace IMGUI_STB_NAMESPACE
 #ifdef IMGUI_STB_TRUETYPE_FILENAME
 #include IMGUI_STB_TRUETYPE_FILENAME
 #else
-#include "imgui/imstb_truetype.h"
+#include "imstb_truetype.h"
 #endif
 #endif
 #endif // IMGUI_ENABLE_STB_TRUETYPE
@@ -1485,24 +1485,22 @@ void ImDrawList::AddCircle(const ImVec2& center, float radius, ImU32 col, int nu
     if ((col & IM_COL32_A_MASK) == 0 || radius <= 0.0f)
         return;
 
-    // Obtain segment count
     if (num_segments <= 0)
     {
-        // Automatic segment count
-        num_segments = _CalcCircleAutoSegmentCount(radius);
+        // Use arc with automatic segment count
+        _PathArcToFastEx(center, radius - 0.5f, 0, IM_DRAWLIST_ARCFAST_SAMPLE_MAX, 0);
+        _Path.Size--;
     }
     else
     {
         // Explicit segment count (still clamp to avoid drawing insanely tessellated shapes)
         num_segments = ImClamp(num_segments, 3, IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_MAX);
+
+        // Because we are filling a closed shape we remove 1 from the count of segments/points
+        const float a_max = (IM_PI * 2.0f) * ((float)num_segments - 1.0f) / (float)num_segments;
+        PathArcTo(center, radius - 0.5f, 0.0f, a_max, num_segments - 1);
     }
 
-    // Because we are filling a closed shape we remove 1 from the count of segments/points
-    const float a_max = (IM_PI * 2.0f) * ((float)num_segments - 1.0f) / (float)num_segments;
-    if (num_segments == 12)
-        PathArcToFast(center, radius - 0.5f, 0, 12 - 1);
-    else
-        PathArcTo(center, radius - 0.5f, 0.0f, a_max, num_segments - 1);
     PathStroke(col, ImDrawFlags_Closed, thickness);
 }
 
@@ -1511,24 +1509,22 @@ void ImDrawList::AddCircleFilled(const ImVec2& center, float radius, ImU32 col, 
     if ((col & IM_COL32_A_MASK) == 0 || radius <= 0.0f)
         return;
 
-    // Obtain segment count
     if (num_segments <= 0)
     {
-        // Automatic segment count
-        num_segments = _CalcCircleAutoSegmentCount(radius);
+        // Use arc with automatic segment count
+        _PathArcToFastEx(center, radius, 0, IM_DRAWLIST_ARCFAST_SAMPLE_MAX, 0);
+        _Path.Size--;
     }
     else
     {
         // Explicit segment count (still clamp to avoid drawing insanely tessellated shapes)
         num_segments = ImClamp(num_segments, 3, IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_MAX);
+
+        // Because we are filling a closed shape we remove 1 from the count of segments/points
+        const float a_max = (IM_PI * 2.0f) * ((float)num_segments - 1.0f) / (float)num_segments;
+        PathArcTo(center, radius, 0.0f, a_max, num_segments - 1);
     }
 
-    // Because we are filling a closed shape we remove 1 from the count of segments/points
-    const float a_max = (IM_PI * 2.0f) * ((float)num_segments - 1.0f) / (float)num_segments;
-    if (num_segments == 12)
-        PathArcToFast(center, radius, 0, 12 - 1);
-    else
-        PathArcTo(center, radius, 0.0f, a_max, num_segments - 1);
     PathFillConvex(col);
 }
 
