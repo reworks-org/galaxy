@@ -85,7 +85,7 @@ else()
 		)
 		
 		set(GALAXY_PRECOMPILED_LIBS
-			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/vs2015-2019/win64/freetype.${LIB_FILE_EXT}"
+			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/win64/freetype.${LIB_FILE_EXT}"
 		)
 	else()
 		set(LIB_FILE_EXT "a")
