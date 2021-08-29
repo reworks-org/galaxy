@@ -9,6 +9,7 @@
 
 #include <portable-file-dialogs.h>
 
+#include <galaxy/components/Renderable.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/graphics/Renderer2D.hpp>
@@ -40,6 +41,11 @@ namespace sc
 	{
 		if (m_viewport_focused && m_viewport_hovered)
 		{
+			if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+			{
+				m_mouse_picked = true;
+			}
+
 			if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
 			{
 				ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
@@ -72,9 +78,9 @@ namespace sc
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				
 
-				
+
+
 
 				m_scroll_delta.m_x_offset = 0.0;
 				m_scroll_delta.m_y_offset = SL_HANDLE.window()->get_scroll_delta();
@@ -83,10 +89,7 @@ namespace sc
 					//camera.on_event(m_scroll_delta);
 				}
 
-				if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
-				{
-					m_mouse_picked = true;
-				}
+				
 
 				if (SL_HANDLE.window()->key_down(input::Keys::W))
 				{
@@ -187,7 +190,7 @@ namespace sc
 		ui::imgui_new_frame();
 
 		// clang-format off
-		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | 
+		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
 			ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
 			ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
 		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
@@ -367,7 +370,7 @@ namespace sc
 		/*
 		if (!m_game_mode)
 		{
-			
+
 
 			m_scene_stack.pre_render();
 
@@ -509,137 +512,125 @@ namespace sc
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
 
-			/*
 			if (m_mouse_picked)
 			{
-				static constexpr const auto mp_id = std::numeric_limits<ecs::Entity>::max();
+				auto scene = m_scene_stack.top();
 
-					scene::Scene2D* const s2d = static_cast<scene::Scene2D*>(m_scene_stack.top().get());
-					const auto& c2d           = s2d->get_camera();
+				m_clicked_pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - scene->m_camera.get_pos().x;
+				m_clicked_pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - scene->m_camera.get_pos().y;
+				m_cursor_aabb.set(m_clicked_pos, {m_clicked_pos + m_cursor_size});
 
-					glm::vec2 pos;
-					pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - c2d.get_pos().x;
-					pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - c2d.get_pos().y;
-
-					// Will be erased by collision system, as this is after update().
-					auto* const tree = s2d->m_world.get_system<systems::CollisionSystem>()->get_tree();
-					tree->insert(mp_id, {pos.x, pos.y}, {pos.x + 4, pos.y + 4});
-
-					static std::vector<ecs::Entity> possible = {};
-					tree->query(mp_id, std::back_inserter(possible));
-
-					if (possible.size() > 0)
+				// clang-format off
+				scene->m_world.operate<components::Renderable>(std::execution::par, [&](const ecs::Entity entity, components::Renderable* renderable) {
+					if (renderable->get_aabb().overlaps(m_cursor_aabb, true))
 					{
-						m_entity_panel.set_selected_entity(std::make_optional(possible[0]));
+						m_entity_panel.set_selected_entity(std::make_optional(entity));
 					}
-					else
-					{
-						m_entity_panel.set_selected_entity(std::nullopt);
-					}
-
-					possible.clear();
+				});
+				// clang-format on
 
 				m_mouse_picked = false;
+			}
 
-				if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
-				{
-					if (ImGui::BeginMenu("  Create"))
-					{
-						if (ImGui::BeginMenu("  Entity"))
-						{
-							if (m_topscene_type == "2D")
-							{
-								if (ImGui::MenuItem("  Sprite"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::BatchSprite>(entity);
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::BATCHED;
-								}
-
-								if (ImGui::MenuItem("  Animated Sprite"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::Animated>(entity);
-									world.create_component<components::BatchSprite>(entity);
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::BATCHED;
-								}
-
-								if (ImGui::MenuItem("  Primitive2D"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::Primitive2D>(entity);
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::LINE_LOOP;
-								}
-
-								if (ImGui::MenuItem("  Rigid Body"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::BatchSprite>(entity);
-									world.create_component<components::OnCollision>(entity);
-									world.create_component<components::RigidBody>(entity);
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::BATCHED;
-								}
-
-								if (ImGui::MenuItem("  Animated Body"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::Animated>(entity);
-									world.create_component<components::BatchSprite>(entity);
-									world.create_component<components::OnCollision>(entity);
-									world.create_component<components::RigidBody>(entity);
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::BATCHED;
-								}
-
-								if (ImGui::MenuItem("  Text"))
-								{
-									auto& world       = m_scene_stack.top()->m_world;
-									const auto entity = world.create();
-
-									world.create_component<components::Tag>(entity);
-									world.create_component<components::Text>(entity);
-									world.create_component<components::Transform2D>(entity);
-									auto* r   = world.create_component<components::Renderable>(entity);
-									r->m_type = graphics::Renderables::TEXT;
-								}
-							}
-
-							ImGui::EndMenu();
-						}
-
-						ImGui::EndMenu();
-					}
-
-					ImGui::EndPopup();
-				}
-		*/
+			ImGui::End();
+			ImGui::PopStyleVar(1);
 		}
-
-		ImGui::End();
-		ImGui::PopStyleVar(1);
 	}
 } // namespace sc
+
+/*
+if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
+{
+if (ImGui::BeginMenu("  Create"))
+{
+if (ImGui::BeginMenu("  Entity"))
+{
+if (m_topscene_type == "2D")
+{
+if (ImGui::MenuItem("  Sprite"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Animated Sprite"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Animated>(entity);
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Primitive2D"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Primitive2D>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::LINE_LOOP;
+}
+
+if (ImGui::MenuItem("  Rigid Body"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::OnCollision>(entity);
+world.create_component<components::RigidBody>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Animated Body"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Animated>(entity);
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::OnCollision>(entity);
+world.create_component<components::RigidBody>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Text"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Tag>(entity);
+world.create_component<components::Text>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::TEXT;
+}
+}
+
+ImGui::EndMenu();
+}
+
+ImGui::EndMenu();
+}
+
+ImGui::EndPopup();
+}*/

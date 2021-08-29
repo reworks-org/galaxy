@@ -14,6 +14,11 @@
 
 namespace galaxy
 {
+	namespace core
+	{
+		class World;
+	} // namespace core
+
 	namespace ui
 	{
 		[[maybe_unused]] ImGuiIO& imgui_init_context() noexcept;

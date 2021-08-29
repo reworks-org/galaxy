@@ -57,6 +57,11 @@ namespace sc
 		OpenGLOperationStack m_gl_operations;
 		graphics::RenderTexture m_framebuffer;
 
+		glm::vec2 m_clicked_pos;
+		glm::vec2 m_cursor_size = {4.0f, 4.0f};
+		math::AABB m_cursor_aabb;
+		bool m_mouse_picked = false;
+
 		bool m_viewport_focused    = false;
 		bool m_viewport_hovered    = false;
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
@@ -67,7 +72,6 @@ namespace sc
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;
-		bool m_mouse_picked     = false;
 
 		
 		events::MouseMoved m_mousemoved_event;

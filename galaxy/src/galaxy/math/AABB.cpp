@@ -51,10 +51,16 @@ namespace galaxy
 		}
 
 		AABB::AABB(const glm::vec2& min, const glm::vec2& max) noexcept
-			: m_min {min}
-			, m_max {max}
-			, m_area {compute_area()}
 		{
+			set(min, max);
+		}
+
+		void AABB::set(const glm::vec2& min, const glm::vec2& max) noexcept
+		{
+			m_min = min;
+			m_max = max;
+			update_area();
+
 			if ((m_min.x > m_max.x) || (m_min.y > m_max.y))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "AABB min is less than max.");

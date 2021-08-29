@@ -66,6 +66,14 @@ namespace galaxy
 			AABB(const glm::vec2& min, const glm::vec2& max) noexcept;
 
 			///
+			/// Set AABB min and max.
+			///
+			/// \param min the lower bounds of the AABB.
+			/// \param max the upper bounds of the AABB.
+			///
+			void set(const glm::vec2& min, const glm::vec2& max) noexcept;
+
+			///
 			/// Updates the stored area.
 			///
 			void update_area() noexcept;

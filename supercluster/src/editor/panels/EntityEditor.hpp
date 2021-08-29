@@ -24,10 +24,15 @@ namespace sc
 			EntityEditor() noexcept;
 			~EntityEditor() noexcept;
 
-			void render(core::Scene2D* top_scene, OpenGLOperationStack& gl_operations);
+			void render(core::Scene2D* top, OpenGLOperationStack& gl_operations);
+			void set_selected_entity(std::optional<ecs::Entity> entity);
 
 		private:
-			void render_components(const ecs::Entity entity, OpenGLOperationStack& gl_operations);
+			void render_components(core::Scene2D* top, const ecs::Entity entity, OpenGLOperationStack& gl_operations);
+
+		private:
+			std::optional<ecs::Entity> m_selected;
+			std::string m_label;
 		};
 	} // namespace panel
 } // namespace sc

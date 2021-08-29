@@ -161,6 +161,11 @@ namespace galaxy
 			return keys;
 		}
 
+		std::vector<Scene2D*>& SceneStack::get_stack() noexcept
+		{
+			return m_stack;
+		}
+
 		nlohmann::json SceneStack::serialize()
 		{
 			nlohmann::json json = "{\"scenes\":{},\"scene-stack\":{}}"_json;

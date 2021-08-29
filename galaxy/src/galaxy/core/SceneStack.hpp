@@ -107,6 +107,13 @@ namespace galaxy
 			[[nodiscard]] std::vector<std::string> get_scene_keys() noexcept;
 
 			///
+			/// Get scene stack.
+			///
+			/// \return Array of pointers to scenes.
+			///
+			[[nodiscard]] std::vector<Scene2D*>& get_stack() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
