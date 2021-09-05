@@ -42,12 +42,12 @@ namespace galaxy
 			return *this;
 		}
 
-		void Actions::set_key_action(const input::Keys key, std::string_view func) noexcept
+		void Actions::add_key_action(const input::Keys key, std::string_view func) noexcept
 		{
 			m_key_actions.emplace(key, func);
 		}
 
-		void Actions::set_mouse_action(const input::MouseButtons mouse_button, std::string_view func) noexcept
+		void Actions::add_mouse_action(const input::MouseButtons mouse_button, std::string_view func) noexcept
 		{
 			m_mouse_actions.emplace(mouse_button, func);
 		}

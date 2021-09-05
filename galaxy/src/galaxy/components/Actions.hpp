@@ -55,24 +55,24 @@ namespace galaxy
 			virtual ~Actions() noexcept = default;
 
 			///
-			/// \brief Helper function to set key action.
+			/// \brief Helper function to add key action.
 			///
 			/// Mainly for Lua, not required.
 			///
 			/// \param key Key to bind lua function to.
 			/// \param func Lua function to call.
 			///
-			void set_key_action(const input::Keys key, std::string_view func) noexcept;
+			void add_key_action(const input::Keys key, std::string_view func) noexcept;
 
 			///
-			/// \brief Helper function to set mouse button action.
+			/// \brief Helper function to add mouse button action.
 			///
 			/// Mainly for Lua, not required.
 			///
 			/// \param mouse_button Mouse button to bind lua function to.
 			/// \param func Lua function to call.
 			///
-			void set_mouse_action(const input::MouseButtons mouse_button, std::string_view func) noexcept;
+			void add_mouse_action(const input::MouseButtons mouse_button, std::string_view func) noexcept;
 
 			///
 			/// Serializes object.
