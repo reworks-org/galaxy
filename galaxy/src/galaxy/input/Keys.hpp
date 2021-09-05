@@ -17,6 +17,7 @@ namespace galaxy
 		///
 		enum class Keys : int
 		{
+			UNDEFINED = -1,
 			A,
 			B,
 			C,

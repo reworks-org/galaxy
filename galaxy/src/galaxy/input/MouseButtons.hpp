@@ -17,6 +17,7 @@ namespace galaxy
 		///
 		enum class MouseButtons : int
 		{
+			UNDEFINED = -1,
 			BUTTON_1,
 			BUTTON_2,
 			BUTTON_3,
