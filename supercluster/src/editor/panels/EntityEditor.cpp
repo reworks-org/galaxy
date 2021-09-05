@@ -5,6 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <magic_enum.hpp>
+#include <imgui/addons/ToggleButton.h>
+#include <imgui/imgui_stdlib.h>
+
 #include <galaxy/components/Actions.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/BatchSprite.hpp>
@@ -441,6 +445,169 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Actions"))
 					{
+						if (ImGui::Button("New"))
+						{
+							ImGui::OpenPopup("NewActionsPopup");
+						}
+
+						if (ImGui::BeginPopup("NewActionsPopup", ImGuiWindowFlags_AlwaysAutoResize))
+						{
+							static std::string s_func = "";
+							ImGui::InputText("Lua Function", &s_func, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+
+							static bool s_mode = false;
+
+							// Key = false, MouseButton = true.
+							ImGui::Text("Key Action");
+							ImGui::SameLine();
+							ImGui::ToggleButton("##NewActionsPopupMode", &s_mode);
+							ImGui::SameLine();
+							ImGui::Text("MouseButton Action");
+
+							if (!s_mode)
+							{
+								static constexpr auto& keys  = magic_enum::enum_names<input::Keys>();
+								static const char* s_current = "...";
+								if (ImGui::BeginCombo("Keys", s_current))
+								{
+									for (const auto& key : keys)
+									{
+										bool is_selected = std::strcmp(s_current, key.data());
+										if (ImGui::Selectable(key.data(), is_selected))
+										{
+											s_current = key.data();
+										}
+
+										if (is_selected)
+										{
+											ImGui::SetItemDefaultFocus();
+										}
+									}
+
+									ImGui::EndCombo();
+								}
+
+								if (ImGui::Button("Create"))
+								{
+									const auto& input = magic_enum::enum_cast<input::Keys>(s_current);
+									if (input.has_value())
+									{
+										actions->add_key_action(input.value(), s_func);
+										ImGui::CloseCurrentPopup();
+									}
+									else
+									{
+										GALAXY_LOG(GALAXY_ERROR, "Failed to convert key string to key enum.");
+									}
+								}
+							}
+							else
+							{
+								constexpr auto& mouse_buttons = magic_enum::enum_names<input::MouseButtons>();
+								static const char* s_current  = "...";
+								if (ImGui::BeginCombo("Mouse Buttons", s_current))
+								{
+									for (const auto& mb : mouse_buttons)
+									{
+										bool is_selected = std::strcmp(s_current, mb.data());
+										if (ImGui::Selectable(mb.data(), is_selected))
+										{
+											s_current = mb.data();
+										}
+
+										if (is_selected)
+										{
+											ImGui::SetItemDefaultFocus();
+										}
+									}
+
+									ImGui::EndCombo();
+								}
+
+								if (ImGui::Button("Create"))
+								{
+									const auto& input = magic_enum::enum_cast<input::MouseButtons>(s_current);
+									if (input.has_value())
+									{
+										actions->add_mouse_action(input.value(), s_func);
+										ImGui::CloseCurrentPopup();
+									}
+									else
+									{
+										GALAXY_LOG(GALAXY_ERROR, "Failed to convert key string to key enum.");
+									}
+								}
+							}
+
+							ImGui::EndPopup();
+						}
+
+						static auto s_selected_key = input::Keys::UNDEFINED;
+						for (const auto& [key, func] : actions->m_key_actions)
+						{
+							ImGuiTreeNodeFlags flags =
+								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+							if (s_selected_key == key)
+							{
+								flags |= ImGuiTreeNodeFlags_Selected;
+							}
+							else
+							{
+								ImGui::SetNextItemOpen(false);
+							}
+
+							const char* key_name = magic_enum::enum_name(key).data();
+							const bool is_open   = ImGui::TreeNodeEx(reinterpret_cast<void*>(key), flags, key_name);
+							if (ImGui::IsItemClicked())
+							{
+								s_selected_key = key;
+							}
+
+							if (is_open)
+							{
+								ImGui::Text(std::format("Key: {0}, Lua Function: {1}.", key_name, func).c_str());
+
+								if (ImGui::Button("Delete"))
+								{
+									actions->m_key_actions.erase(key);
+								}
+							}
+						}
+
+						ImGui::Spacing();
+
+						static auto s_selected_mb = input::MouseButtons::UNDEFINED;
+						for (const auto& [mb, func] : actions->m_mouse_actions)
+						{
+							ImGuiTreeNodeFlags flags =
+								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+							if (s_selected_mb == mb)
+							{
+								flags |= ImGuiTreeNodeFlags_Selected;
+							}
+							else
+							{
+								ImGui::SetNextItemOpen(false);
+							}
+
+							const char* mb_name = magic_enum::enum_name(mb).data();
+							const bool is_open  = ImGui::TreeNodeEx(reinterpret_cast<void*>(mb), flags, mb_name);
+							if (ImGui::IsItemClicked())
+							{
+								s_selected_mb = mb;
+							}
+
+							if (is_open)
+							{
+								ImGui::Text(std::format("Mouse Button: {0}, Lua Function: {1}.", mb_name, func).c_str());
+
+								if (ImGui::Button("Delete"))
+								{
+									actions->m_mouse_actions.erase(mb);
+								}
+							}
+						}
+
 						ImGui::EndTabItem();
 					}
 				}
@@ -449,6 +616,130 @@ namespace sc
 				{
 					if (ImGui::BeginTabItem("Animated"))
 					{
+						static bool s_add = false;
+						if (ImGui::Button("Add"))
+						{
+							s_add = !s_add;
+							ImGui::OpenPopup("AddAnimation");
+						}
+
+						if (s_add)
+						{
+							static std::string s_id                      = "";
+							static bool s_loop                           = false;
+							static float s_speed                         = 1.0f;
+							static std::vector<graphics::Frame> s_frames = {};
+
+							if (ImGui::BeginPopup("AddAnimation", ImGuiWindowFlags_AlwaysAutoResize))
+							{
+								ImGui::InputText(
+									"ID", &s_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
+								ImGui::Checkbox("Is Looping?", &s_loop);
+								ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+								static bool s_add_frame = false;
+								if (ImGui::Button("Add Frame"))
+								{
+									s_add_frame = !s_add_frame;
+								}
+
+								if (s_add_frame)
+								{
+									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
+									{
+										static graphics::Frame s_frame;
+										static std::string s_tex_id = "";
+										static double s_tpf         = 0.1;
+
+										ImGui::InputText("Texture Atlas ID",
+														 &s_tex_id,
+														 ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank |
+															 ImGuiInputTextFlags_EnterReturnsTrue);
+
+										const static double s_min = 0.1;
+										const static double s_max = 10.0;
+										ImGui::SliderScalar("Time Per Frame", ImGuiDataType_Double, &s_tpf, &s_min, &s_max, "%.1f");
+
+										if (ImGui::Button("Add##frameaddbutton01"))
+										{
+											s_frame.set_region(s_tex_id);
+											s_frame.m_time_per_frame = s_tpf;
+											s_frames.push_back(s_frame);
+
+											s_frame  = {};
+											s_tex_id = "";
+											s_tpf    = 0.1;
+
+											ImGui::CloseCurrentPopup();
+										}
+
+										ImGui::EndPopup();
+									}
+								}
+
+								if (ImGui::Button("Add"))
+								{
+									animated->add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
+
+									s_id    = "";
+									s_loop  = false;
+									s_speed = 1.0f;
+									s_frames.clear();
+
+									ImGui::CloseCurrentPopup();
+								}
+
+								ImGui::EndPopup();
+							}
+						}
+
+						static std::string s_selected = "None";
+						if (animated->get_cur_animation())
+						{
+							s_selected = animated->get_cur_animation()->get_name();
+						}
+
+						if (ImGui::BeginCombo("Animation", s_selected.c_str()))
+						{
+							for (const auto& [name, anim] : animated->get_all())
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(name.c_str(), selected))
+								{
+									s_selected = name;
+									animated->set_animation(s_selected);
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						ImGui::LabelText("Current Animation", s_selected.c_str());
+
+						if (ImGui::Button("Play"))
+						{
+							animated->play();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Pause"))
+						{
+							animated->pause();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Stop"))
+						{
+							animated->stop();
+						}
+
 						ImGui::EndTabItem();
 					}
 				}
