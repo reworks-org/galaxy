@@ -298,8 +298,8 @@ namespace galaxy
 			// ---------------------------------------------------------------------
 
 			auto actions_type                = lua->new_usertype<components::Actions>("gActionsComponent", sol::no_constructor);
-			actions_type["set_key_action"]   = &components::Actions::set_key_action;
-			actions_type["set_mouse_action"] = &components::Actions::set_mouse_action;
+			actions_type["set_key_action"]   = &components::Actions::add_key_action;
+			actions_type["set_mouse_action"] = &components::Actions::add_mouse_action;
 
 			auto animated_type             = lua->new_usertype<components::Animated>("gAnimatedComponent", sol::no_constructor);
 			animated_type["is_paused"]     = &components::Animated::is_paused;

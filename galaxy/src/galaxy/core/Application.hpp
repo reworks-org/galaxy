@@ -26,9 +26,6 @@
 #include "galaxy/resource/ShaderBook.hpp"
 #include "galaxy/resource/SoundBook.hpp"
 #include "galaxy/resource/TextureBook.hpp"
-#include "galaxy/ui/RMLFile.hpp"
-#include "galaxy/ui/RMLRenderer.hpp"
-#include "galaxy/ui/RMLSystem.hpp"
 
 namespace galaxy
 {
@@ -222,21 +219,6 @@ namespace galaxy
 			/// Filesystem listener.
 			///
 			std::unique_ptr<fs::FileListener> m_filelistener;
-
-			///
-			/// RML System interface.
-			///
-			std::unique_ptr<ui::RMLSystem> m_rml_system_interface;
-
-			///
-			/// RML File interface.
-			///
-			std::unique_ptr<ui::RMLFile> m_rml_file_interface;
-
-			///
-			/// RML Rendering interface.
-			///
-			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
 		};
 
 		template<std::derived_from<Layer> DerivedLayer>
