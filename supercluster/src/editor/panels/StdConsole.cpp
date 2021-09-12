@@ -13,55 +13,21 @@ namespace sc
 {
 	namespace panel
 	{
-		std::streamsize StdConsoleStream::xsputn(const char* s, std::streamsize n)
+		StdConsole::~StdConsole() noexcept
 		{
-			std::streamsize start = 0;
-			for (std::streamsize i = 0; i < n; i++)
-			{
-				if (s[i] == '\n')
-				{
-					m_buffer.append(s + start, s + i);
-					sync();
-					start = i + 1;
-				}
-			}
-			m_buffer.append(s + start, s + n);
-			return n;
+			m_sink = nullptr;
 		}
 
-		int StdConsoleStream::overflow(int c)
+		void StdConsole::set_sink(EditorSink* sink) noexcept
 		{
-			char ch = traits_type::to_char_type(c);
-			if (ch == '\n')
-			{
-				sync();
-			}
-			else
-			{
-				m_buffer.append(1, c);
-			}
-			return c;
-		}
-
-		int StdConsoleStream::sync()
-		{
-			m_buffer.erase(0, 5);
-			m_history.push_back(m_buffer);
-			m_buffer.clear();
-
-			return 0;
-		}
-
-		StdConsole::StdConsole() noexcept
-			: m_stream {static_cast<std::streambuf*>(&m_streambuf)}
-		{
+			m_sink = sink;
 		}
 
 		void StdConsole::render()
 		{
 			if (ImGui::Begin("Console", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
-				for (const auto& str : m_streambuf.m_history)
+				for (const auto& str : m_sink->get_messages())
 				{
 					ImGui::TextWrapped(str.c_str());
 				}
@@ -70,11 +36,6 @@ namespace sc
 			}
 
 			ImGui::End();
-		}
-
-		std::ostream& StdConsole::get_stream() noexcept
-		{
-			return m_stream;
 		}
 	} // namespace panel
 } // namespace sc

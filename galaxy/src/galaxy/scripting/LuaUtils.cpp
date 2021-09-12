@@ -31,27 +31,27 @@
 
 namespace galaxy
 {
-	void log_wrapper(error::Level error_level, std::string_view message)
+	void log_wrapper(error::LogLevel error_level, std::string_view message)
 	{
 		switch (error_level)
 		{
-			case error::Level::INFO:
+			case error::LogLevel::INFO:
 				GALAXY_LOG(GALAXY_INFO, "{0}", message);
 				break;
 
-			case error::Level::DEBUG:
+			case error::LogLevel::DEBUG:
 				GALAXY_LOG(GALAXY_DEBUG, "{0}", message);
 				break;
 
-			case error::Level::WARNING:
+			case error::LogLevel::WARNING:
 				GALAXY_LOG(GALAXY_WARNING, "{0}", message);
 				break;
 
-			case error::Level::ERROR_:
+			case error::LogLevel::ERROR_:
 				GALAXY_LOG(GALAXY_ERROR, "{0}", message);
 				break;
 
-			case error::Level::FATAL:
+			case error::LogLevel::FATAL:
 				GALAXY_LOG(GALAXY_FATAL, "{0}", message);
 				break;
 		}
@@ -74,13 +74,13 @@ namespace galaxy
 			// ---------------------------------------------------------------------
 
 			// clang-format off
-			lua->new_enum<error::Level>("gLogLevels",
+			lua->new_enum<error::LogLevel>("gLogLevels",
 			{
-				{"INFO", error::Level::INFO},
-				{"DEBUG", error::Level::DEBUG},
-				{"WARNING", error::Level::WARNING},
-				{"ERROR", error::Level::ERROR_},
-				{"FATAL", error::Level::FATAL}
+				{"INFO", error::LogLevel::INFO},
+				{"DEBUG", error::LogLevel::DEBUG},
+				{"WARNING", error::LogLevel::WARNING},
+				{"ERROR", error::LogLevel::ERROR_},
+				{"FATAL", error::LogLevel::FATAL}
 			});
 			// clang-format on
 

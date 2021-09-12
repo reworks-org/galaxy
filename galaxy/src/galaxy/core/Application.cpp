@@ -11,11 +11,14 @@
 #include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/LoadingScreen.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/error/ConsoleSink.hpp"
+#include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
 #include "galaxy/graphics/Renderer2D.hpp"
 #include "galaxy/graphics/SpriteBatch.hpp"
+#include "galaxy/platform/Platform.hpp"
 #include "galaxy/scripting/LuaUtils.hpp"
 
 #include "Application.hpp"
@@ -28,6 +31,8 @@ namespace galaxy
 			: m_filewatcher {false}
 			, m_filelistener {nullptr}
 		{
+			platform::configure_terminal();
+
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
@@ -35,7 +40,7 @@ namespace galaxy
 			// The services are configured based off of the config file.
 			// Services are created in dependency order.
 
-			// Log.
+			// Configure Logging.
 			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 			const std::string log_path = std::format("{0}{1}{2}", "logs/", std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists("logs/"))
@@ -43,7 +48,9 @@ namespace galaxy
 				std::filesystem::create_directory("logs");
 			}
 
-			GALAXY_LOG_START(log_path);
+			GALAXY_LOG_START();
+			GALAXY_ADD_SINK(error::FileSink, log_path);
+			GALAXY_ADD_SINK(error::ConsoleSink);
 
 			// Threadpool setup.
 			m_pool           = std::make_unique<async::ThreadPool>();
@@ -353,7 +360,7 @@ namespace galaxy
 			// Clean up static stuff here since we can't be sure of when the destructor is called.
 			RENDERER_2D().clear();
 			FT_HANDLE.close();
-			GALAXY_LOG_FINISH;
+			GALAXY_LOG_END();
 
 			return SL_HANDLE.m_restart;
 		}

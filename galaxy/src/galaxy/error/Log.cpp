@@ -5,9 +5,7 @@
 /// See LICENSE.txt.
 ///
 
-#include <iostream>
-
-#include "galaxy/platform/Platform.hpp"
+#include <chrono>
 
 #include "Log.hpp"
 
@@ -18,11 +16,8 @@ namespace galaxy
 	namespace error
 	{
 		Log::Log()
-			: m_min_level {Level::INFO}
-			, m_started {false}
+			: m_min_level {LogLevel::INFO}
 		{
-			m_stream = &std::cout;
-			platform::configure_terminal();
 		}
 
 		Log& Log::handle() noexcept
@@ -31,23 +26,43 @@ namespace galaxy
 			return s_inst;
 		}
 
-		void Log::start(std::string_view log_file)
+		void Log::start() noexcept
 		{
-			const auto path = std::filesystem::path(log_file);
+			m_run_thread = true;
 
-			m_file_stream.open(path.string(), std::ofstream::out);
-			m_started = true;
+			// clang-format off
+			m_async = std::async(std::launch::async, [&]()
+			{
+				while (m_run_thread)
+				{
+					std::this_thread::sleep_for(5s);
+
+					{
+						std::lock_guard<std::mutex> lock { m_log_lock };
+
+						while (!m_messages.empty())
+						{
+							for (const auto& sink : m_sinks)
+							{
+								sink->sink_message(m_messages.front());
+							}
+
+							m_messages.pop();
+						}
+					}
+				}
+			});
+			// clang-format on
 		}
 
-		void Log::finish()
+		void Log::cleanup() noexcept
 		{
-			m_file_stream.close();
-			m_started = false;
-		}
+			m_min_level  = LogLevel::INFO;
+			m_run_thread = false;
+			m_async.get();
 
-		void Log::change_stream(std::ostream& ostream) noexcept
-		{
-			m_stream = &ostream;
+			m_sinks.clear();
+			m_messages = {};
 		}
 	} // namespace error
 } // namespace galaxy

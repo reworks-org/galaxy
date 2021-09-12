@@ -25,7 +25,8 @@ namespace sc
 {
 	Editor::Editor() noexcept
 	{
-		GALAXY_LOG_CAPTURE_CUSTOM(m_std_console.get_stream());
+		m_std_console.set_sink(GALAXY_ADD_SINK(EditorSink));
+
 		set_name("Editor");
 
 		m_framebuffer.create(1, 1);
@@ -33,7 +34,6 @@ namespace sc
 
 	Editor::~Editor()
 	{
-		GALAXY_LOG_CAPTURE_CUSTOM(std::cout);
 		m_scene_stack.clear();
 	}
 

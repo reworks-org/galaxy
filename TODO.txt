@@ -3,3 +3,5 @@
 - some resource managers unique to a scene?
     - audio encapsulation / scene integration
     - since its threaded
+- move loglevel to config file
+- test new logging impl

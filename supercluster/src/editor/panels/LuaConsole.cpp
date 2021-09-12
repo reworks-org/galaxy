@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <fstream>
+
 #include <imgui/imgui_stdlib.h>
 #include <sol/sol.hpp>
 
