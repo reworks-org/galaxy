@@ -22,7 +22,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			LoadedScript() noexcept;
+			LoadedScript() noexcept = default;
 
 			///
 			/// \brief Argument constructor.

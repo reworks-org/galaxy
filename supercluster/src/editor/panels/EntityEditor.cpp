@@ -452,7 +452,7 @@ namespace sc
 
 						if (ImGui::BeginPopup("NewActionsPopup", ImGuiWindowFlags_AlwaysAutoResize))
 						{
-							static std::string s_func = "";
+							static std::string s_func;
 							ImGui::InputText("Lua Function", &s_func, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
 
 							static bool s_mode = false;
@@ -625,7 +625,7 @@ namespace sc
 
 						if (s_add)
 						{
-							static std::string s_id                      = "";
+							static std::string s_id;
 							static bool s_loop                           = false;
 							static float s_speed                         = 1.0f;
 							static std::vector<graphics::Frame> s_frames = {};
@@ -648,8 +648,8 @@ namespace sc
 									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
 									{
 										static graphics::Frame s_frame;
-										static std::string s_tex_id = "";
-										static double s_tpf         = 0.1;
+										static std::string s_tex_id;
+										static double s_tpf = 0.1;
 
 										ImGui::InputText("Texture Atlas ID",
 														 &s_tex_id,

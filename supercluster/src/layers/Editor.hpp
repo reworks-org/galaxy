@@ -50,8 +50,8 @@ namespace sc
 		panel::AudioPanel m_audio_panel;
 		panel::ScenePanel m_scene_panel;
 
-		bool m_paused                      = false;
-		std::string m_current_project_path = "";
+		bool m_paused = false;
+		std::string m_current_project_path;
 
 		std::vector<void*> m_processes;
 		OpenGLOperationStack m_gl_operations;

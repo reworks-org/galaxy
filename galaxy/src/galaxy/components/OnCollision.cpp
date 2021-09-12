@@ -13,7 +13,6 @@ namespace galaxy
 	{
 		OnCollision::OnCollision() noexcept
 			: Serializable {this}
-			, m_script {""}
 		{
 		}
 
@@ -31,7 +30,6 @@ namespace galaxy
 
 		OnCollision::OnCollision(OnCollision&& t) noexcept
 			: Serializable {this}
-			, m_script {""}
 		{
 			this->m_script = std::move(t.m_script);
 		}

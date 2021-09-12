@@ -14,14 +14,12 @@ namespace galaxy
 	namespace map
 	{
 		Terrain::Terrain() noexcept
-			: m_name {""}
-			, m_tile {0}
+			: m_tile {0}
 		{
 		}
 
 		Terrain::Terrain(const nlohmann::json& json)
-			: m_name {""}
-			, m_tile {0}
+			: m_tile {0}
 		{
 			parse(json);
 		}

@@ -24,7 +24,6 @@ namespace galaxy
 			, m_kerning {true}
 			, m_pixel_size {16}
 			, m_strike_out {false}
-			, m_text {""}
 			, m_underline {false}
 			, m_valign {"top"}
 			, m_wrap {false}
@@ -40,7 +39,6 @@ namespace galaxy
 			, m_kerning {true}
 			, m_pixel_size {16}
 			, m_strike_out {false}
-			, m_text {""}
 			, m_underline {false}
 			, m_valign {"top"}
 			, m_wrap {false}

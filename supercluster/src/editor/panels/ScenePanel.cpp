@@ -15,15 +15,6 @@ namespace sc
 {
 	namespace panel
 	{
-		ScenePanel::ScenePanel() noexcept
-			: m_selected {""}
-		{
-		}
-
-		ScenePanel::~ScenePanel() noexcept
-		{
-		}
-
 		void ScenePanel::render(core::SceneStack& scene_stack)
 		{
 			if (ImGui::Begin("Scenes"))
@@ -35,7 +26,7 @@ namespace sc
 
 				if (ImGui::BeginPopup("NewScenePopup"))
 				{
-					static std::string s_buff = "";
+					static std::string s_buff;
 					if (ImGui::InputText("New Scene", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
 					{
 						if (s_buff.empty())

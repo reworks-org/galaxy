@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Property() noexcept;
+			Property() noexcept = default;
 
 			///
 			/// Parse constructor.

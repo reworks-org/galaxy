@@ -51,10 +51,7 @@ namespace galaxy
 	{
 		Text::Text() noexcept
 			: Serializable {this}
-			, m_font_id {""}
 			, m_colour {255, 255, 255, 255}
-			, m_text {""}
-			, m_layer {""}
 			, m_width {0}
 			, m_height {0}
 		{

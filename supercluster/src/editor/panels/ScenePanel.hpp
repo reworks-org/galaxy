@@ -21,8 +21,8 @@ namespace sc
 		class ScenePanel final
 		{
 		public:
-			ScenePanel() noexcept;
-			~ScenePanel() noexcept;
+			ScenePanel() noexcept  = default;
+			~ScenePanel() noexcept = default;
 
 			void render(core::SceneStack& scene_stack);
 

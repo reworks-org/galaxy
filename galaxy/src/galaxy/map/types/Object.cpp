@@ -18,10 +18,7 @@ namespace galaxy
 			, m_gid {0}
 			, m_height {0.0}
 			, m_id {0}
-			, m_name {""}
 			, m_rotation {0.0}
-			, m_template {""}
-			, m_type {""}
 			, m_visible {true}
 			, m_width {0.0}
 			, m_x {0.0}
@@ -34,10 +31,7 @@ namespace galaxy
 			, m_gid {0}
 			, m_height {0.0}
 			, m_id {0}
-			, m_name {""}
 			, m_rotation {0.0}
-			, m_template {""}
-			, m_type {""}
 			, m_visible {true}
 			, m_width {0.0}
 			, m_x {0.0}

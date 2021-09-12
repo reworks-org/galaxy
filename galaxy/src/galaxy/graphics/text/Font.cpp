@@ -26,7 +26,6 @@ namespace galaxy
 		Font::Font() noexcept
 			: m_height {0}
 			, m_size {0}
-			, m_filename {""}
 		{
 		}
 

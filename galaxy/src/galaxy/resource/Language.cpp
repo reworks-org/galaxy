@@ -17,11 +17,6 @@ namespace galaxy
 {
 	namespace res
 	{
-		Language::Language() noexcept
-			: m_cur_lang {""}
-		{
-		}
-
 		Language::~Language() noexcept
 		{
 			clear();

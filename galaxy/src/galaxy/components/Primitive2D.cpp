@@ -19,7 +19,6 @@ namespace galaxy
 			, m_height {0}
 			, m_type {graphics::Primitives::CIRCLE}
 			, m_colour {0, 0, 0, 255}
-			, m_layer {""}
 		{
 		}
 

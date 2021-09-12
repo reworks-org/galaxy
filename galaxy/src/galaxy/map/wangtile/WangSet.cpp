@@ -14,14 +14,12 @@ namespace galaxy
 	namespace map
 	{
 		WangSet::WangSet() noexcept
-			: m_name {""}
-			, m_tile_id {0}
+			: m_tile_id {0}
 		{
 		}
 
 		WangSet::WangSet(const nlohmann::json& json)
-			: m_name {""}
-			, m_tile_id {0}
+			: m_tile_id {0}
 		{
 			parse(json);
 		}

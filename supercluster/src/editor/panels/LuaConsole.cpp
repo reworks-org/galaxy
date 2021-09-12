@@ -74,7 +74,7 @@ namespace sc
 							auto res = SL_HANDLE.lua()->script(m_buff);
 
 							const auto type = res.get_type();
-							std::string out = "";
+							std::string out;
 							if (type == sol::type::string)
 							{
 								out = res.get<std::string>();

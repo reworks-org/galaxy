@@ -20,7 +20,6 @@ namespace galaxy
 		ParticleEffect::ParticleEffect() noexcept
 			: Serializable {this}
 			, m_opacity {255}
-			, m_layer {""}
 			, m_count {0}
 			, m_radius {1.0f}
 			, m_starting_pos {0.0f, 0.0f}
@@ -31,7 +30,6 @@ namespace galaxy
 		ParticleEffect::ParticleEffect(const nlohmann::json& json)
 			: Serializable {this}
 			, m_opacity {255}
-			, m_layer {""}
 			, m_count {0}
 			, m_radius {1.0f}
 			, m_starting_pos {0.0f, 0.0f}
@@ -117,17 +115,21 @@ namespace galaxy
 			const auto random_count = static_cast<int>(m_count * math::random(0.7f, 1.3f));
 			m_instances.resize(random_count);
 
-			std::for_each(std::execution::par, m_instances.begin(), m_instances.end(), [&](auto& particle) {
-				const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
-				const auto angle         = glm::radians(math::random(0.0f, 360.0f));
-				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
-				const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
+			std::for_each(std::execution::par,
+						  m_instances.begin(),
+						  m_instances.end(),
+						  [&](auto& particle)
+						  {
+							  const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
+							  const auto angle         = glm::radians(math::random(0.0f, 360.0f));
+							  const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
+							  const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
 
-				particle.m_angle    = angle;
-				particle.m_offset   = random_start;
-				particle.m_velocity = random_vel;
-				particle.m_life     = 1.0f;
-			});
+							  particle.m_angle    = angle;
+							  particle.m_offset   = random_start;
+							  particle.m_velocity = random_vel;
+							  particle.m_life     = 1.0f;
+						  });
 
 			buffer();
 			m_vao.set_instanced(m_ibo);
@@ -146,17 +148,21 @@ namespace galaxy
 			const auto random_count = static_cast<int>(m_count * math::random(0.7f, 1.3f));
 			m_instances.resize(random_count);
 
-			std::for_each(std::execution::par, m_instances.begin(), m_instances.end(), [&](auto& particle) {
-				const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
-				const auto angle         = glm::radians(math::random(0.0f, 360.0f));
-				const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
-				const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
+			std::for_each(std::execution::par,
+						  m_instances.begin(),
+						  m_instances.end(),
+						  [&](auto& particle)
+						  {
+							  const auto random_radius = m_radius * std::sqrt(math::random(0.0f, 1.0f));
+							  const auto angle         = glm::radians(math::random(0.0f, 360.0f));
+							  const auto random_start  = m_starting_pos + glm::vec2 {random_radius * glm::cos(angle), random_radius * glm::sin(angle)};
+							  const auto random_vel    = m_velocity * math::random(0.7f, 1.3f);
 
-				particle.m_angle    = angle;
-				particle.m_offset   = random_start;
-				particle.m_velocity = random_vel;
-				particle.m_life     = 1.0f;
-			});
+							  particle.m_angle    = angle;
+							  particle.m_offset   = random_start;
+							  particle.m_velocity = random_vel;
+							  particle.m_life     = 1.0f;
+						  });
 
 			buffer();
 		}

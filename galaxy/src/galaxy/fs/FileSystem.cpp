@@ -94,8 +94,8 @@ namespace galaxy
 
 		const bool Virtual::save(const std::string& data, std::string_view file)
 		{
-			const auto path      = absolute(file);
-			std::string path_str = "";
+			const auto path = absolute(file);
+			std::string path_str;
 			if (path == std::nullopt)
 			{
 				path_str = std::filesystem::path(file).string();
@@ -123,8 +123,8 @@ namespace galaxy
 
 		const bool Virtual::save_binary(std::span<char> data, std::string_view file)
 		{
-			const auto path      = absolute(file);
-			std::string path_str = "";
+			const auto path = absolute(file);
+			std::string path_str;
 			if (path == std::nullopt)
 			{
 				path_str = std::filesystem::path(file).string();

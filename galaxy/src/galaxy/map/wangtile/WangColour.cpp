@@ -17,7 +17,6 @@ namespace galaxy
 	{
 		WangColour::WangColour() noexcept
 			: m_colour {255, 255, 255, 255}
-			, m_name {""}
 			, m_probability {0.0}
 			, m_tile {0}
 		{
@@ -25,7 +24,6 @@ namespace galaxy
 
 		WangColour::WangColour(const nlohmann::json& json)
 			: m_colour {255, 255, 255, 255}
-			, m_name {""}
 			, m_probability {0.0}
 			, m_tile {0}
 		{

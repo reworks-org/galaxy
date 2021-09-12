@@ -14,14 +14,12 @@ namespace galaxy
 		Sprite::Sprite() noexcept
 			: Serializable {this}
 			, m_opacity {255}
-			, m_layer {""}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
 			: Serializable {this}
 			, m_opacity {255}
-			, m_layer {""}
 		{
 			deserialize(json);
 		}

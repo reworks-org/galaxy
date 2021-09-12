@@ -309,7 +309,7 @@ namespace sc
 			add_to_array(json);
 
 			unsigned int counter = 0;
-			std::string name     = "";
+			std::string name;
 			for (auto& elem : json)
 			{
 				name = std::format("[{0}]", counter);
@@ -361,11 +361,11 @@ namespace sc
 			if (ImGui::BeginPopup("New Object",
 								  ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
-				static std::string s_key_str = "";
-				static std::string s_val_str = "";
-				static std::string s_err_str = "";
-				static int s_index           = 0;
-				static bool s_show_error     = false;
+				static std::string s_key_str;
+				static std::string s_val_str;
+				static std::string s_err_str;
+				static int s_index       = 0;
+				static bool s_show_error = false;
 
 				// clang-format off
 				static constexpr const std::array<const char*, 8> s_types =
@@ -476,10 +476,10 @@ namespace sc
 			if (ImGui::BeginPopup("New Element",
 								  ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
 			{
-				static std::string s_val_str = "";
-				static std::string s_err_str = "";
-				static int s_index           = 0;
-				static bool s_show_error     = false;
+				static std::string s_val_str;
+				static std::string s_err_str;
+				static int s_index       = 0;
+				static bool s_show_error = false;
 
 				// clang-format off
 				static const std::vector<const char*> s_types =

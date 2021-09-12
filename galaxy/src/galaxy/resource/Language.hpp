@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Language() noexcept;
+			Language() noexcept = default;
 
 			///
 			/// Destructor.

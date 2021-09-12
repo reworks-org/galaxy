@@ -15,12 +15,6 @@ namespace galaxy
 {
 	namespace lua
 	{
-		LoadedScript::LoadedScript() noexcept
-			: m_filename {""}
-			, m_code {""}
-		{
-		}
-
 		LoadedScript::LoadedScript(std::string_view filename) noexcept
 		{
 			m_filename = static_cast<std::string>(filename);

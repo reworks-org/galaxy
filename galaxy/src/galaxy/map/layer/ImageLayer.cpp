@@ -17,7 +17,6 @@ namespace galaxy
 	{
 		ImageLayer::ImageLayer(const nlohmann::json& json, const int zlevel)
 			: Layer {json, zlevel}
-			, m_image {""}
 			, m_transparent_colour {255, 255, 255, 255}
 		{
 			if (json.count("image") > 0)

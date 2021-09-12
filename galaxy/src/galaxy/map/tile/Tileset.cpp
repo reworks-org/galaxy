@@ -23,15 +23,12 @@ namespace galaxy
 			, m_columns {0}
 			, m_first_gid {0}
 			, m_grid {std::nullopt}
-			, m_image {""}
 			, m_image_height {0}
 			, m_image_width {0}
 			, m_margin {0}
-			, m_name {""}
 			, m_object_alignment {"unspecified"}
 			, m_spacing {0}
 			, m_tile_count {0}
-			, m_tiled_version {""}
 			, m_tile_height {0}
 			, m_tile_offset {std::nullopt}
 			, m_tile_width {0}
@@ -46,15 +43,12 @@ namespace galaxy
 			, m_columns {0}
 			, m_first_gid {0}
 			, m_grid {std::nullopt}
-			, m_image {""}
 			, m_image_height {0}
 			, m_image_width {0}
 			, m_margin {0}
-			, m_name {""}
 			, m_object_alignment {"unspecified"}
 			, m_spacing {0}
 			, m_tile_count {0}
-			, m_tiled_version {""}
 			, m_tile_height {0}
 			, m_tile_offset {std::nullopt}
 			, m_tile_width {0}
