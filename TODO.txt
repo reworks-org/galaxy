@@ -1,4 +1,3 @@
-- may need to disable scissor test??? / fix event modifier handling for rml.
 - Fix hot-reloading bugs
     - Including maps.
 - some resource managers unique to a scene?
