@@ -9,6 +9,7 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <filesystem>
+#include <format>
 #include <future>
 #include <queue>
 #include <source_location>
