@@ -1,2 +1,1 @@
 Checks: '-clang-diagnostic-*'
-HeaderFilterRegex='.'
