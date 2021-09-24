@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6A4E12C1-07F8-38C0-B91F-4920D896223F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>common</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\OpenAL\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">common.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">common</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\OpenAL\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">common.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">common</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4065;4268;4324;5030</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4065;4268;4324;5030</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\galaxy\dependencies\openal\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/git/galaxy/dependencies/openal/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/openal/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckStructHasMember.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;D:\git\galaxy\dependencies\openal\cmake\FindALSA.cmake;D:\git\galaxy\dependencies\openal\cmake\FindAudioIO.cmake;D:\git\galaxy\dependencies\openal\cmake\FindJACK.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOSS.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOpenSL.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPortAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPulseAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSDL2.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSoundIO.cmake;D:\git\galaxy\dependencies\openal\config.h.in;D:\git\galaxy\dependencies\openal\openal.pc.in;D:\git\galaxy\dependencies\openal\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\build\dependencies\openal\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/git/galaxy/dependencies/openal/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/openal/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckStructHasMember.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;D:\git\galaxy\dependencies\openal\cmake\FindALSA.cmake;D:\git\galaxy\dependencies\openal\cmake\FindAudioIO.cmake;D:\git\galaxy\dependencies\openal\cmake\FindJACK.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOSS.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOpenSL.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPortAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPulseAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSDL2.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSoundIO.cmake;D:\git\galaxy\dependencies\openal\config.h.in;D:\git\galaxy\dependencies\openal\openal.pc.in;D:\git\galaxy\dependencies\openal\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\build\dependencies\openal\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\albit.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\albyte.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alcomplex.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alcomplex.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\aldeque.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alfstream.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alfstream.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\almalloc.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\almalloc.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alnumeric.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\aloptional.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alspan.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alstring.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alstring.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\atomic.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\dynload.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\dynload.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\intrusive_ptr.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\math_defs.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\opthelpers.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\polyphase_resampler.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\polyphase_resampler.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\pragmadefs.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\ringbuffer.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\ringbuffer.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\strutils.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\strutils.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\threads.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\threads.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\vecmat.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\git\galaxy\build\ZERO_CHECK.vcxproj">
+      <Project>{55465541-7112-386D-9527-FD524F9BE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

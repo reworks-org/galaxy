@@ -21,3 +21,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
 )
+
+# Copy zlib header.
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/build/dependencies/zlib-ng/zconf.h" "${CMAKE_SOURCE_DIR}/dependencies/zconf/zconf.h")

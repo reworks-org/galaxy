@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Sandbox.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Sandbox.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f339e843-d927-48f0-b7d7-21931085acf4}</ProjectGuid>
+    <RootNamespace>SandboxTests</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\sandbox_tests\$(Configuration)\</IntDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <CopyCppRuntimeToOutputDir>false</CopyCppRuntimeToOutputDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <ClangTidyChecks>
+    </ClangTidyChecks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\sandbox_tests\$(Configuration)\</IntDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <CopyCppRuntimeToOutputDir>false</CopyCppRuntimeToOutputDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <ClangTidyChecks>
+    </ClangTidyChecks>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;AL_LIBTYPE_STATIC;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <OpenMPSupport>false</OpenMPSupport>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <EnablePREfast>true</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkStatus>false</LinkStatus>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(SolutionDir)output\galaxy\Debug\galaxy.lib;</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LargeAddressAware>true</LargeAddressAware>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <VerboseOutput>false</VerboseOutput>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>call "$(SolutionDir)scripts\copy-openal-win.cmd" $(SolutionDir) $(Configuration) $(MSBuildProjectDirectory)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy OpenAL.</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;AL_LIBTYPE_STATIC;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <OpenMPSupport>false</OpenMPSupport>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <EnablePREfast>true</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkStatus>false</LinkStatus>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(SolutionDir)output\galaxy\Release\galaxy.lib;</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ProgramDatabaseFile />
+      <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <VerboseOutput>false</VerboseOutput>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>call "$(SolutionDir)scripts\copy-openal-win.cmd" $(SolutionDir) $(Configuration) $(MSBuildProjectDirectory)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy OpenAL.</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -2,9 +2,39 @@
 .DS_Store
 Thumbs.db
 
-# Project stuff.
+# IDE stuff.
 .vs/
-build/
+
+# Project stuff.
+build/CMakeFiles/
+build/galaxy/
+build/supercluster/
+build/sandbox_tests/
+build/tests/
+build/*.*
+
+# External lib project files are required to be kept.
+build/dependencies/*
+
+!build/dependencies/efsw/
+!build/dependencies/glfw3/
+!build/dependencies/openal/
+!build/dependencies/zlib-ng/
+
+build/dependencies/efsw/*
+build/dependencies/glfw3/*
+build/dependencies/openal/*
+build/dependencies/zlib-ng/*
+
+!build/dependencies/efsw/efsw.vcxproj
+!build/dependencies/openal/common.vcxproj
+!build/dependencies/openal/OpenAL.vcxproj
+!build/dependencies/zlib-ng/zlib.vcxproj
+
+!build/dependencies/glfw3/src
+build/dependencies/glfw3/src/*
+!build/dependencies/glfw3/src/glfw.vcxproj
+
 output/
 
 # Build junk.
@@ -30,16 +60,5 @@ sandbox_tests/bin/Debug/*.idb
 sandbox_tests/bin/Debug/*.dll
 sandbox_tests/bin/Debug/logs/
 sandbox_tests/bin/Release/
-
-sandbox_3d_tests/bin/Debug/*.exp
-sandbox_3d_tests/bin/Debug/*.lib
-sandbox_3d_tests/bin/Debug/*.exe
-sandbox_3d_tests/bin/Debug/*.ilk
-sandbox_3d_tests/bin/Debug/*.pdb
-sandbox_3d_tests/bin/Debug/*.obj
-sandbox_3d_tests/bin/Debug/*.idb
-sandbox_3d_tests/bin/Debug/*.dll
-sandbox_3d_tests/bin/Debug/logs/
-sandbox_3d_tests/bin/Release/
 
 tests/bin/

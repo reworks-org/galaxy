@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7E415E3D-DEC1-3E77-B55C-0CF2F97B94F4}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>OpenAL</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\OpenAL\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">OpenAL.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">OpenAL32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\OpenAL\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OpenAL.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OpenAL32</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4065;4268;4324;5030</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Debug";OpenAL_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Debug\";OpenAL_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd D:\git\galaxy\build\dependencies\openal
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E __create_def D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Debug/exports.def D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Debug//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\output\OpenAL\Debug\common.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/git/galaxy/output/OpenAL/Debug/OpenAL32.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Debug/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/git/galaxy/output/OpenAL/Debug/OpenAL32.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4065;4268;4324;5030</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Release";OpenAL_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Release\";OpenAL_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\openal\include;D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal;D:\git\galaxy\dependencies\openal\alc;D:\git\galaxy\dependencies\openal\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd D:\git\galaxy\build\dependencies\openal
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E __create_def D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Release/exports.def D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Release//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\output\OpenAL\Release\common.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/git/galaxy/output/OpenAL/Release/OpenAL32.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/git/galaxy/build/dependencies/openal/OpenAL.dir/Release/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/git/galaxy/output/OpenAL/Release/OpenAL32.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\galaxy\build\CMakeFiles\a3b10da9ea6e7158dd84f0a9f657da2e\hrtf_default.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating hrtf_default.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\git\galaxy\dependencies\openal
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -D "INPUT_FILE=D:/git/galaxy/dependencies/openal/hrtf/Default HRTF.mhr" -D OUTPUT_FILE=D:/git/galaxy/build/dependencies/openal/hrtf_default.h -D VARIABLE_NAME=hrtf_default -P D:/git/galaxy/dependencies/openal/cmake/bin2h.script.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\dependencies\openal\hrtf\Default HRTF.mhr;D:\git\galaxy\dependencies\openal\cmake\bin2h.script.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\build\dependencies\openal\hrtf_default.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating hrtf_default.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\git\galaxy\dependencies\openal
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -D "INPUT_FILE=D:/git/galaxy/dependencies/openal/hrtf/Default HRTF.mhr" -D OUTPUT_FILE=D:/git/galaxy/build/dependencies/openal/hrtf_default.h -D VARIABLE_NAME=hrtf_default -P D:/git/galaxy/dependencies/openal/cmake/bin2h.script.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\dependencies\openal\hrtf\Default HRTF.mhr;D:\git\galaxy\dependencies\openal\cmake\bin2h.script.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\build\dependencies\openal\hrtf_default.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\galaxy\dependencies\openal\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/git/galaxy/dependencies/openal/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/openal/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckStructHasMember.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;D:\git\galaxy\dependencies\openal\cmake\FindALSA.cmake;D:\git\galaxy\dependencies\openal\cmake\FindAudioIO.cmake;D:\git\galaxy\dependencies\openal\cmake\FindJACK.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOSS.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOpenSL.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPortAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPulseAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSDL2.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSoundIO.cmake;D:\git\galaxy\dependencies\openal\config.h.in;D:\git\galaxy\dependencies\openal\openal.pc.in;D:\git\galaxy\dependencies\openal\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\build\dependencies\openal\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/git/galaxy/dependencies/openal/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/openal/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckStructHasMember.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;D:\git\galaxy\dependencies\openal\cmake\FindALSA.cmake;D:\git\galaxy\dependencies\openal\cmake\FindAudioIO.cmake;D:\git\galaxy\dependencies\openal\cmake\FindJACK.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOSS.cmake;D:\git\galaxy\dependencies\openal\cmake\FindOpenSL.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPortAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindPulseAudio.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSDL2.cmake;D:\git\galaxy\dependencies\openal\cmake\FindSoundIO.cmake;D:\git\galaxy\dependencies\openal\config.h.in;D:\git\galaxy\dependencies\openal\openal.pc.in;D:\git\galaxy\dependencies\openal\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\build\dependencies\openal\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\auxeffectslot.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\auxeffectslot.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\buffer.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\buffer.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effect.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\effect.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\autowah.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/autowah.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\chorus.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/chorus.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\compressor.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/compressor.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\convolution.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/convolution.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\dedicated.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/dedicated.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\distortion.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/distortion.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\echo.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/echo.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\effects\effects.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\equalizer.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/equalizer.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\fshifter.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/fshifter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\modulator.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/modulator.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\null.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/null.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\pshifter.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/pshifter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\reverb.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/reverb.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\effects\vmorpher.cpp">
+      <ObjectFileName>$(IntDir)/al/effects/vmorpher.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\error.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\event.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\event.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\extension.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\filter.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\filter.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\listener.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\listener.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\source.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\al\source.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\al\state.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\alc.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\alcmain.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\alu.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\alu.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\alconfig.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\alconfig.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\alcontext.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\async_event.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\bformatdec.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\bformatdec.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\buffer_storage.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\buffer_storage.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\compat.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\converter.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\converter.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effectslot.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\effectslot.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\effects\base.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\autowah.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/autowah.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\chorus.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/chorus.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\compressor.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/compressor.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\convolution.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/convolution.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\dedicated.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/dedicated.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\distortion.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/distortion.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\echo.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/echo.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\equalizer.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/equalizer.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\fshifter.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/fshifter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\modulator.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/modulator.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\null.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/null.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\pshifter.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/pshifter.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\reverb.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/reverb.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\effects\vmorpher.cpp">
+      <ObjectFileName>$(IntDir)/alc/effects/vmorpher.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\front_stablizer.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\helpers.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\hrtf.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\hrtf.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\inprogext.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\panning.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\uiddefs.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\voice.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\voice.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\voice_change.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\base.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\base.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\loopback.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\loopback.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\null.cpp">
+      <ObjectFileName>$(IntDir)/alc/backends/null.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\null.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\winmm.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\winmm.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\dsound.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\dsound.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\wasapi.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\wasapi.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\alc\backends\wave.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\alc\backends\wave.h" />
+    <ClInclude Include="D:\git\galaxy\build\dependencies\openal\hrtf_default.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\ambdec.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\ambdec.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\ambidefs.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\bs2b.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\bs2b.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\bsinc_defs.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\bsinc_tables.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\bsinc_tables.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\bufferline.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\cpu_caps.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\cpu_caps.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\devformat.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\devformat.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\except.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\except.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\filters\biquad.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\filters\biquad.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\filters\nfc.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\filters\nfc.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\filters\splitter.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\filters\splitter.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\fmt_traits.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\fmt_traits.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\fpu_ctrl.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\fpu_ctrl.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\logging.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\logging.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mastering.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\mastering.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\uhjfilter.cpp" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\uhjfilter.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\mixer\defs.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\mixer\hrtfbase.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\core\mixer\hrtfdefs.h" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mixer\mixer_c.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mixer\mixer_sse.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mixer\mixer_sse2.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mixer\mixer_sse3.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\openal\core\mixer\mixer_sse41.cpp" />
+    <ResourceCompile Include="D:\git\galaxy\dependencies\openal\resources\openal32.rc" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\include\AL\al.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\include\AL\alc.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\include\AL\alext.h" />
+    <ClInclude Include="D:\git\galaxy\dependencies\openal\include\AL\efx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\git\galaxy\build\ZERO_CHECK.vcxproj">
+      <Project>{55465541-7112-386D-9527-FD524F9BE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\git\galaxy\build\dependencies\openal\common.vcxproj">
+      <Project>{6A4E12C1-07F8-38C0-B91F-4920D896223F}</Project>
+      <Name>common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

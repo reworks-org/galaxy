@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8C51809B-7C8D-3EB6-99D6-959DE3BF36EA}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>efsw</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\efsw\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">efsw.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">efsw</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\efsw\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">efsw.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">efsw</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\git\galaxy\dependencies\efsw\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/git/galaxy/dependencies/efsw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/efsw/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\WriteBasicConfigVersionFile.cmake;D:\git\galaxy\dependencies\efsw\efswConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\build\dependencies\efsw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/git/galaxy/dependencies/efsw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/efsw/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\WriteBasicConfigVersionFile.cmake;D:\git\galaxy\dependencies\efsw\efswConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\build\dependencies\efsw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Debug.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshot.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshotDiff.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirWatcherGeneric.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileInfo.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileSystem.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcher.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherCWrapper.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherGeneric.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherImpl.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Log.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Mutex.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\String.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\System.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Thread.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Watcher.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\WatcherGeneric.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\FileSystemImpl.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\MutexImpl.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\SystemImpl.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\ThreadImpl.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherWin32.cpp" />
+    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\WatcherWin32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\git\galaxy\build\ZERO_CHECK.vcxproj">
+      <Project>{55465541-7112-386D-9527-FD524F9BE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

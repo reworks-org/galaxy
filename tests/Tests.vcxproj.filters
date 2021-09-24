@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\algorithm\AlgorithmTest.cpp" />
+    <ClCompile Include="src\algorithm\RandomTest.cpp" />
+    <ClCompile Include="src\algorithm\RectPackTest.cpp" />
+    <ClCompile Include="src\async\TaskTest.cpp" />
+    <ClCompile Include="src\async\ThreadPoolTest.cpp" />
+    <ClCompile Include="src\ecs\WorldTest.cpp" />
+    <ClCompile Include="src\events\DispatcherTest.cpp" />
+    <ClCompile Include="src\meta\UniqueIDTest.cpp" />
+    <ClCompile Include="src\res\ResourceCacheTest.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+</Project>

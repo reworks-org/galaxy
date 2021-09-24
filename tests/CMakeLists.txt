@@ -14,6 +14,3 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/tests/bin"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/tests/bin"
 )
-
-# Postbuild OpenAL DLL copy.
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/${CMAKE_BUILD_TYPE}/OpenAL32.dll" "${CMAKE_SOURCE_DIR}/tests/bin/${CMAKE_BUILD_TYPE}/OpenAL32.dll")
