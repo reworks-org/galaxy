@@ -21,7 +21,6 @@ before_script:
   - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - mkdir build
   - mkdir -p output/docs
   - cmake -G "Unix Makefiles" -DGALAXY_ENABLE_DOXYGEN=ON -DGALAXY_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
   - make -C build doxygen

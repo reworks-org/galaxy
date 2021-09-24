@@ -21,8 +21,8 @@ install:
 matrix:
   fast_finish: false
 
-build_script:
-  - cmd: msbuild galaxy.sln
+build:
+  project: galaxy.sln
 
 after_build:
   - cmd: cd ../
