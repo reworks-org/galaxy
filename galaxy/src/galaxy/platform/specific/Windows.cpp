@@ -5,15 +5,15 @@
 /// See LICENSE.txt.
 ///
 
-#if defined(_WIN32) || defined(_WIN64)
+#include "Windows.hpp"
 
-	#include <Windows.h>
+#ifdef GALAXY_WIN_PLATFORM
 
-	#include "galaxy/core/ServiceLocator.hpp"
-	#include "galaxy/core/Window.hpp"
-	#include "galaxy/error/Log.hpp"
+#include <Windows.h>
 
-	#include "Windows.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
+#include "galaxy/error/Log.hpp"
 
 namespace galaxy
 {
