@@ -56,17 +56,17 @@
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_SCL_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -84,17 +84,17 @@
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_SCL_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -106,37 +106,6 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <CustomBuild Include="D:\git\galaxy\dependencies\efsw\CMakeLists.txt">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/git/galaxy/dependencies/efsw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/efsw/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\WriteBasicConfigVersionFile.cmake;D:\git\galaxy\dependencies\efsw\efswConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\build\dependencies\efsw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/git/galaxy/dependencies/efsw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -SD:/git/galaxy -BD:/git/galaxy/build --check-stamp-file D:/git/galaxy/build/dependencies/efsw/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.c.in;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.21\Modules\WriteBasicConfigVersionFile.cmake;D:\git\galaxy\dependencies\efsw\efswConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\build\dependencies\efsw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Debug.cpp" />
     <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshot.cpp" />
@@ -163,12 +132,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\WatcherWin32.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\git\galaxy\build\ZERO_CHECK.vcxproj">
-      <Project>{55465541-7112-386D-9527-FD524F9BE71E}</Project>
-      <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
