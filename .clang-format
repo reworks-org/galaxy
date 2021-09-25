@@ -41,7 +41,6 @@ ExperimentalAutoDetectBinPacking: 'false'
 FixNamespaceComments: 'true'
 IncludeBlocks: Regroup
 IndentCaseLabels: 'true'
-IndentPPDirectives: BeforeHash
 IndentWidth: '4'
 IndentWrappedFunctionNames: 'false'
 KeepEmptyLinesAtTheStartOfBlocks: 'false'
