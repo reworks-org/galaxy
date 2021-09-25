@@ -252,6 +252,7 @@
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <Manifest>
       <VerboseOutput>false</VerboseOutput>

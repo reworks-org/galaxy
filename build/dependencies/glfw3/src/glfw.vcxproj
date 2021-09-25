@@ -56,7 +56,7 @@
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
@@ -84,7 +84,7 @@
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
