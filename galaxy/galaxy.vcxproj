@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\async\Task.cpp" />
     <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
@@ -167,8 +168,10 @@
     <ClCompile Include="src\galaxy\ui\Theme.cpp" />
     <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
     <ClCompile Include="src\galaxy\ui\Widget.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\core\Guid.hpp" />
     <ClInclude Include="src\galaxy\async\Task.hpp" />
     <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -325,6 +328,7 @@
     <ClInclude Include="src\galaxy\ui\Theme.hpp" />
     <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
