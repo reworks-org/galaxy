@@ -214,11 +214,11 @@ namespace galaxy
 		{
 			if (level >= m_min_level)
 			{
-				constexpr auto level_str = magic_enum::enum_name(level);
+				constexpr static const auto level_str = magic_enum::enum_name(level);
 
-				constexpr auto low_error_colour  = "\x1B[37m";
-				constexpr auto mid_error_colour  = "\x1B[33m";
-				constexpr auto high_error_colour = "\x1B[31m";
+				constexpr static const auto low_error_colour  = "\x1B[37m";
+				constexpr static const auto mid_error_colour  = "\x1B[33m";
+				constexpr static const auto high_error_colour = "\x1B[31m";
 
 				static std::string colour;
 
