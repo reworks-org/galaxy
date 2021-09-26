@@ -26,4 +26,4 @@ build:
   project: galaxy.sln
 
 after_build:
-  - cmd: "tests/bin/$(configuration)/Tests.exe"
+  - cmd: tests\\bin\\%CONFIGURATION%\\Tests.exe
