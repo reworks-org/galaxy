@@ -15,7 +15,6 @@
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
-#include "editor/panels/ScriptEditor.hpp"
 #include "editor/panels/StdConsole.hpp"
 
 using namespace galaxy;
@@ -44,7 +43,6 @@ namespace sc
 	private:
 		panel::LuaConsole m_lua_console;
 		panel::StdConsole m_std_console;
-		panel::ScriptEditor m_script_editor;
 		panel::JSONEditor m_json_panel;
 		panel::EntityEditor m_entity_panel;
 		panel::AudioPanel m_audio_panel;

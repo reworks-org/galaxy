@@ -308,9 +308,9 @@ namespace sc
 					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
 				}
 
-				if (ImGui::MenuItem("Lua IDE"))
+				if (ImGui::MenuItem("Notepad++"))
 				{
-					m_processes.push_back(platform::run_process("tools/zbstudio/zbstudio.exe"));
+					m_processes.push_back(platform::run_process("tools/notepad++/notepad++.exe"));
 				}
 
 				ImGui::EndMenu();
@@ -358,7 +358,6 @@ namespace sc
 		m_std_console.render();
 
 		// Center:
-		m_script_editor.render();
 		m_json_panel.render();
 		viewport();
 

@@ -5,3 +5,4 @@
     - since its threaded
 - move loglevel to config file
 - test new logging impl
+- ensure hotreload / filerefresh is working when editing scripts.

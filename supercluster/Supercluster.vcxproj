@@ -26,7 +26,6 @@
     <ClCompile Include="src\editor\panels\JSONEditor.cpp" />
     <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
     <ClCompile Include="src\editor\panels\ScenePanel.cpp" />
-    <ClCompile Include="src\editor\panels\ScriptEditor.cpp" />
     <ClCompile Include="src\editor\panels\StdConsole.cpp" />
     <ClCompile Include="src\layers\Editor.cpp" />
     <ClCompile Include="src\layers\Game.cpp" />
@@ -41,7 +40,6 @@
     <ClInclude Include="src\editor\panels\JSONEditor.hpp" />
     <ClInclude Include="src\editor\panels\LuaConsole.hpp" />
     <ClInclude Include="src\editor\panels\ScenePanel.hpp" />
-    <ClInclude Include="src\editor\panels\ScriptEditor.hpp" />
     <ClInclude Include="src\editor\panels\StdConsole.hpp" />
     <ClInclude Include="src\layers\Editor.hpp" />
     <ClInclude Include="src\layers\Game.hpp" />

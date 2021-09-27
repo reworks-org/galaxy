@@ -396,7 +396,6 @@
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="imgui\imgui\addons\ItemRowsBackground.h" />
     <ClInclude Include="imgui\imgui\addons\Markdown.h" />
-    <ClInclude Include="imgui\imgui\addons\TextEditor.h" />
     <ClInclude Include="imgui\imgui\addons\ToggleButton.h" />
     <ClInclude Include="imgui\imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui\imgui.h" />
@@ -529,7 +528,6 @@
     <ClCompile Include="googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="imgui\imgui\addons\ItemRowsBackground.cpp" />
-    <ClCompile Include="imgui\imgui\addons\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui\addons\ToggleButton.cpp" />
     <ClCompile Include="imgui\imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui\imgui_demo.cpp" />
