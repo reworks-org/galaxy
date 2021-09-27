@@ -511,6 +511,9 @@
     <ClInclude Include="zlib-ng\zlib.h" />
     <ClInclude Include="zlib-ng\zutil.h" />
     <ClInclude Include="zlib-ng\zutil_p.h" />
+    <ClInclude Include="sqlite\include\sqlite3.h" />
+    <ClInclude Include="sqlite\include\sqlite3ext.h" />
+    <ClInclude Include="sqlite-orm\include\sqlite_orm\sqlite_orm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad\glad\glad.c" />
@@ -565,6 +568,7 @@
     <ClCompile Include="zlc\lib\raw.cpp" />
     <ClCompile Include="zlc\lib\zlibmisc.cpp" />
     <ClCompile Include="zlc\lib\zlibtop.cpp" />
+    <ClCompile Include="sqlite\src\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

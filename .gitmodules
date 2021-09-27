@@ -39,3 +39,6 @@
 [submodule "dependencies/efsw"]
 	path = dependencies/efsw
 	url = https://github.com/SpartanJ/efsw.git
+[submodule "dependencies/sqlite-orm"]
+	path = dependencies/sqlite-orm
+	url = https://github.com/fnc12/sqlite_orm.git

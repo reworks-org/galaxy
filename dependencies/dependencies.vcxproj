@@ -486,6 +486,9 @@
     <ClInclude Include="sol3\single\include\sol\config.hpp" />
     <ClInclude Include="sol3\single\include\sol\forward.hpp" />
     <ClInclude Include="sol3\single\include\sol\sol.hpp" />
+    <ClInclude Include="sqlite-orm\include\sqlite_orm\sqlite_orm.h" />
+    <ClInclude Include="sqlite\include\sqlite3.h" />
+    <ClInclude Include="sqlite\include\sqlite3ext.h" />
     <ClInclude Include="stb\include\stb\stb_image.h" />
     <ClInclude Include="stb\include\stb\stb_image_resize.h" />
     <ClInclude Include="stb\include\stb\stb_image_write.h" />
@@ -569,6 +572,7 @@
     <ClCompile Include="lua\src\lutf8lib.c" />
     <ClCompile Include="lua\src\lvm.c" />
     <ClCompile Include="lua\src\lzio.c" />
+    <ClCompile Include="sqlite\src\sqlite3.c" />
     <ClCompile Include="stb\stb_vorbis.c" />
     <ClCompile Include="zlc\lib\gzipcomplete.cpp" />
     <ClCompile Include="zlc\lib\mainpage.cpp" />
@@ -805,7 +809,7 @@
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -867,7 +871,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

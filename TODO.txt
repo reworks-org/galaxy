@@ -6,3 +6,6 @@
 - move loglevel to config file
 - test new logging impl
 - ensure hotreload / filerefresh is working when editing scripts.
+https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-notepad-functionlist-xml
+    notepadd++ opens scripts folder
+    double click script to auto open
