@@ -1,0 +1,8 @@
+{
+	"scriptbook": {
+		"on_collide": "on_collide.lua"
+	},
+	"definitions": [
+		"input.lua"
+	]
+}

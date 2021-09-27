@@ -41,18 +41,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\efsw\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\git\galaxy\output\efsw\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">efsw.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">efsw</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\efsw\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\git\galaxy\output\efsw\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">efsw.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">efsw</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -67,10 +67,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -80,7 +80,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_SCL_SECURE_NO_WARNINGS;DEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\efsw\src;D:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\efsw\src;E:\git\galaxy\dependencies\efsw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -107,29 +107,29 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Debug.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshot.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshotDiff.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\DirWatcherGeneric.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileInfo.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileSystem.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcher.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherCWrapper.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherGeneric.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherImpl.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Log.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Mutex.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\String.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\System.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Thread.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\Watcher.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\WatcherGeneric.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\FileSystemImpl.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\MutexImpl.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\SystemImpl.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\platform\win\ThreadImpl.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherWin32.cpp" />
-    <ClCompile Include="D:\git\galaxy\dependencies\efsw\src\efsw\WatcherWin32.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\Debug.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshot.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\DirectorySnapshotDiff.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\DirWatcherGeneric.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileInfo.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileSystem.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileWatcher.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherCWrapper.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherGeneric.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherImpl.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\Log.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\Mutex.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\String.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\System.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\Thread.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\Watcher.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\WatcherGeneric.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\platform\win\FileSystemImpl.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\platform\win\MutexImpl.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\platform\win\SystemImpl.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\platform\win\ThreadImpl.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\FileWatcherWin32.cpp" />
+    <ClCompile Include="E:\git\galaxy\dependencies\efsw\src\efsw\WatcherWin32.cpp" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

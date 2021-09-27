@@ -1,0 +1,26 @@
+{
+    "enabled": true,
+    "allow-serialize": true,
+    "components": {
+        "Tag": {
+            "tag": "Floor"
+        },
+        "BatchSprite": {
+        	"texture-key": "floor",
+        	"layer": "fore",
+            "opacity": 255
+        },
+        "Transform2D": {
+        	"x": 0,
+            "y": 500,
+            "rotation": 0,
+            "scale": 1
+        },
+        "Renderable": {
+            "type": "BATCHED"
+        },
+        "RigidBody": {
+        	"type": "STATIC"
+        }
+    }
+}

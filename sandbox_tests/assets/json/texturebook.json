@@ -1,0 +1,30 @@
+{
+	"textures": [
+		"wall.png",
+		"wall_2.png",
+		"wall_3.png",
+		"arrow.png",
+		"bar.png",
+		"button_default.png",
+		"button_hover.png",
+		"button_pressed.png",
+		"container.png",
+		"image.png",
+		"input_field.png",
+		"slider.png",
+		"slider_marker.png",
+		"tb_off.png",
+		"tb_off_hover.png",
+		"tb_on.png",
+		"tb_on_hover.png",
+		"textbox.png",
+		"walk1.png",
+		"walk2.png",
+		"walk3.png",
+		"walk4.png",
+		"floor.png",
+		"cube.png",
+		"tmw_desert_spacing.png",
+		"bg.png"
+	]
+}

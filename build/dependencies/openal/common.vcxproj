@@ -41,18 +41,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\OpenAL\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\git\galaxy\output\OpenAL\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">common.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">common</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\OpenAL\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\git\galaxy\output\OpenAL\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">common.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">common</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ConformanceMode>true</ConformanceMode>
@@ -71,10 +71,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -84,7 +84,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ConformanceMode>true</ConformanceMode>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WIN32;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\openal;D:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\openal;E:\git\galaxy\dependencies\openal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -115,37 +115,37 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\albit.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\albyte.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alcomplex.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alcomplex.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\aldeque.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alfstream.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alfstream.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\almalloc.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\almalloc.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alnumeric.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\aloptional.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alspan.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\alstring.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\alstring.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\atomic.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\dynload.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\dynload.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\intrusive_ptr.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\math_defs.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\opthelpers.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\polyphase_resampler.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\polyphase_resampler.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\pragmadefs.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\ringbuffer.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\ringbuffer.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\strutils.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\strutils.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\openal\common\threads.cpp" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\threads.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\vecmat.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\openal\common\vector.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\albit.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\albyte.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\alcomplex.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\alcomplex.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\aldeque.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\alfstream.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\alfstream.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\almalloc.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\almalloc.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\alnumeric.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\aloptional.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\alspan.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\alstring.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\alstring.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\atomic.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\dynload.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\dynload.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\intrusive_ptr.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\math_defs.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\opthelpers.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\polyphase_resampler.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\polyphase_resampler.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\pragmadefs.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\ringbuffer.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\ringbuffer.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\strutils.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\strutils.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\openal\common\threads.cpp" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\threads.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\vecmat.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\openal\common\vector.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

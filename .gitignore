@@ -38,27 +38,14 @@ build/dependencies/glfw3/src/*
 output/
 
 # Build junk.
-supercluster/bin/Debug/*.exp
-supercluster/bin/Debug/*.lib
-supercluster/bin/Debug/*.exe
-supercluster/bin/Debug/*.ilk
-supercluster/bin/Debug/*.pdb
-supercluster/bin/Debug/*.obj
-supercluster/bin/Debug/*.idb
-supercluster/bin/Debug/*.dll
-supercluster/bin/Debug/logs/
-supercluster/bin/Debug/tools
-supercluster/bin/Release/
+supercluster/bin/
+supercluster/logs/
+supercluster/projects/
+supercluster/tools/
 
-sandbox_tests/bin/Debug/*.exp
-sandbox_tests/bin/Debug/*.lib
-sandbox_tests/bin/Debug/*.exe
-sandbox_tests/bin/Debug/*.ilk
-sandbox_tests/bin/Debug/*.pdb
-sandbox_tests/bin/Debug/*.obj
-sandbox_tests/bin/Debug/*.idb
-sandbox_tests/bin/Debug/*.dll
-sandbox_tests/bin/Debug/logs/
-sandbox_tests/bin/Release/
+sandbox_tests/bin/
+sandbox_tests/logs/
+sandbox_tests/projects/
+sandbox_tests/tools/
 
 tests/bin/

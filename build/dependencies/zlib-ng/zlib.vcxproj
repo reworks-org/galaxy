@@ -41,18 +41,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\zlib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\git\galaxy\output\zlib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlib.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlibstaticd</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\zlib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\git\galaxy\output\zlib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlib.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlibstatic</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -67,10 +67,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;ZLIB_DEBUG;ZLIB_COMPAT;WITH_GZFILEOP;UNALIGNED_OK;UNALIGNED64_OK;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;X86_FEATURES;X86_AVX2;X86_AVX2_ADLER32;X86_AVX_CHUNKSET;X86_SSE42_CRC_HASH;X86_SSE42_CRC_INTRIN;X86_SSE42_CMP_STR;X86_SSE2;X86_SSE2_CHUNKSET;X86_SSE2_SLIDEHASH;X86_SSSE3;X86_SSSE3_ADLER32;X86_PCLMULQDQ_CRC;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -80,7 +80,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ZLIB_COMPAT;WITH_GZFILEOP;UNALIGNED_OK;UNALIGNED64_OK;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;X86_FEATURES;X86_AVX2;X86_AVX2_ADLER32;X86_AVX_CHUNKSET;X86_SSE42_CRC_HASH;X86_SSE42_CRC_INTRIN;X86_SSE42_CMP_STR;X86_SSE2;X86_SSE2_CHUNKSET;X86_SSE2_SLIDEHASH;X86_SSSE3;X86_SSSE3_ADLER32;X86_PCLMULQDQ_CRC;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\build\dependencies\zlib-ng;D:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\build\dependencies\zlib-ng;E:\git\galaxy\dependencies\zlib-ng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -107,67 +107,67 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\adler32.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\chunkset.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\compare258.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\compress.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\crc32.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\crc32_comb.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\deflate.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\deflate_fast.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\deflate_medium.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\deflate_quick.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\deflate_slow.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\functable.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\infback.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\inffast.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\inflate.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\inftrees.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\insert_string.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\trees.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\uncompr.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\zutil.c" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\x86.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\fallback_builtins.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\x86.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\slide_avx.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\chunkset_avx.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\compare258_avx.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\adler32_avx.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\insert_string_sse.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\compare258_sse.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\chunkset_sse.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\slide_sse.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\adler32_ssse3.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\arch\x86\crc_folding.c" />
-    <ResourceCompile Include="D:\git\galaxy\dependencies\zlib-ng\win32\zlib1.rc" />
-    <ClInclude Include="D:\git\galaxy\build\dependencies\zlib-ng\zconf.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\zlib.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\adler32_p.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\chunkset_tpl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\crc32_p.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\crc32_tbl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\crc32_comb_tbl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\deflate.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\deflate_p.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\functable.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\inffast.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\inffixed_tbl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\inflate.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\inflate_p.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\inftrees.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\insert_string_tpl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\match_tpl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\trees.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\trees_emit.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\trees_tbl.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\zbuild.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\zendian.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\zutil.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\zlib-ng\gzguts.h" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\gzlib.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\gzread.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\zlib-ng\gzwrite.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\adler32.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\chunkset.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\compare258.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\compress.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\crc32.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\crc32_comb.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\deflate.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\deflate_fast.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\deflate_medium.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\deflate_quick.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\deflate_slow.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\functable.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\infback.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\inffast.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\inflate.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\inftrees.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\insert_string.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\trees.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\uncompr.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\zutil.c" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\x86.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\fallback_builtins.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\x86.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\slide_avx.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\chunkset_avx.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\compare258_avx.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\adler32_avx.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\insert_string_sse.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\compare258_sse.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\chunkset_sse.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\slide_sse.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\adler32_ssse3.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\arch\x86\crc_folding.c" />
+    <ResourceCompile Include="E:\git\galaxy\dependencies\zlib-ng\win32\zlib1.rc" />
+    <ClInclude Include="E:\git\galaxy\build\dependencies\zlib-ng\zconf.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\zlib.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\adler32_p.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\chunkset_tpl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\crc32_p.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\crc32_tbl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\crc32_comb_tbl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\deflate.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\deflate_p.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\functable.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\inffast.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\inffixed_tbl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\inflate.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\inflate_p.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\inftrees.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\insert_string_tpl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\match_tpl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\trees.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\trees_emit.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\trees_tbl.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\zbuild.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\zendian.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\zutil.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\zlib-ng\gzguts.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\gzlib.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\gzread.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\zlib-ng\gzwrite.c" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

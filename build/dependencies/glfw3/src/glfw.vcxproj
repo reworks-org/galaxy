@@ -41,18 +41,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\git\galaxy\output\glfw\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\git\galaxy\output\glfw\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">glfw.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\git\galaxy\output\glfw\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\git\galaxy\output\glfw\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">glfw.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -67,10 +67,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -80,7 +80,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\git\galaxy\dependencies\glfw3\include;D:\git\galaxy\dependencies\glfw3\src;D:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\git\galaxy\dependencies\glfw3\include;E:\git\galaxy\dependencies\glfw3\src;E:\git\galaxy\build\dependencies\glfw3\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -107,31 +107,31 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\context.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\init.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\input.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\monitor.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\vulkan.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\window.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_init.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_joystick.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_monitor.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_time.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_thread.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\win32_window.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\wgl_context.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\egl_context.c" />
-    <ClCompile Include="D:\git\galaxy\dependencies\glfw3\src\osmesa_context.c" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\internal.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\mappings.h" />
-    <ClInclude Include="D:\git\galaxy\build\dependencies\glfw3\src\glfw_config.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\include\GLFW\glfw3.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\include\GLFW\glfw3native.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\win32_platform.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\win32_joystick.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\wgl_context.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\egl_context.h" />
-    <ClInclude Include="D:\git\galaxy\dependencies\glfw3\src\osmesa_context.h" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\context.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\init.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\input.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\monitor.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\vulkan.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\window.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_init.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_joystick.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_monitor.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_time.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_thread.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\win32_window.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\wgl_context.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\egl_context.c" />
+    <ClCompile Include="E:\git\galaxy\dependencies\glfw3\src\osmesa_context.c" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\internal.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\mappings.h" />
+    <ClInclude Include="E:\git\galaxy\build\dependencies\glfw3\src\glfw_config.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\include\GLFW\glfw3.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\include\GLFW\glfw3native.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\win32_platform.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\win32_joystick.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\wgl_context.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\egl_context.h" />
+    <ClInclude Include="E:\git\galaxy\dependencies\glfw3\src\osmesa_context.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

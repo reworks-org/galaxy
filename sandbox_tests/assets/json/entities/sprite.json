@@ -1,0 +1,23 @@
+{
+    "enabled": true,
+    "allow-serialize": true,
+    "components": {
+    	"Tag": {
+            "tag": "SpriteEntity"
+        },
+        "Sprite": {
+        	"texture": "wall_2.png",
+        	"opacity": 255,
+            "layer": "fore"
+        },
+        "Transform2D": {
+            "x": 0,
+            "y": 512,
+            "rotation": 45,
+            "scale": 1
+        },
+        "Renderable": {
+            "type": "SPRITE"
+        }
+    }
+}

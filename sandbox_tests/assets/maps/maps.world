@@ -1,0 +1,13 @@
+{
+    "maps": [
+        {
+            "fileName": "desert.json",
+            "height": 1280,
+            "width": 1280,
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}

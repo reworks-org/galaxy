@@ -1,0 +1,52 @@
+{
+	"enabled": true,
+	"allow-serialize": true,
+	"components": {
+		"Tag": {
+            "tag": "Animated"
+        },
+		"BatchSprite": {
+			"texture-key": "walk1",
+			"layer": "fore",
+            "opacity": 255
+		},
+		"Transform2D": {
+			"x": 500,
+			"y": 500,
+			"rotation": 0,
+			"scale": 1
+		},
+		"Renderable": {
+			"type": "BATCHED"
+		},
+		"Animated": {
+			"play": true,
+			"starting-animation": "walk",
+			"animations": {
+				"walk": {
+					"loop": true,
+					"speed": 10.0,
+					"total-frames": 4,
+					"frames": {
+						"0": {
+							"name": "walk1",
+							"time-per-frame": 1.0
+						},
+						"1": {
+							"name": "walk2",
+							"time-per-frame": 1.0
+						},
+						"2": {
+							"name": "walk3",
+							"time-per-frame": 1.0
+						},
+						"3": {
+							"name": "walk4",
+							"time-per-frame": 1.0
+						}
+					}
+				}
+			}
+		}
+	}
+}
