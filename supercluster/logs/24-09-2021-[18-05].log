@@ -1,4 +1,0 @@
-[31m[ERROR_] - [18:05:33.7714092] - [File: Texture.cpp, Func: load, Line: 73] - "Failed to find texture: logo.png."
-[31m[ERROR_] - [18:05:33.7859922] - [File: Window.cpp, Func: set_cursor_icon, Line: 353] - "Failed to find cursor icon: cursor.png."
-[31m[ERROR_] - [18:05:33.7873064] - [File: Window.cpp, Func: set_icon, Line: 280] - "Failed to find window icon: icon.png."
-[31m[ERROR_] - [18:05:33.7881943] - [File: Language.cpp, Func: set_language, Line: 60] - "Language not found: en_au."

@@ -312,6 +312,8 @@ namespace sc
 				{
 					m_processes.push_back(platform::run_process("tools/zbstudio/zbstudio.exe"));
 				}
+
+				ImGui::EndMenu();
 			}
 
 			ImGui::Text("( ? )");
