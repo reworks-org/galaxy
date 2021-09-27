@@ -1,0 +1,7 @@
+<project>
+ <properties scaleMode="0" logicalHeight="480" logicalWidth="320" orientation="0">
+  <imageScales/>
+ </properties>
+ <file file="zbstudio.png"/>
+ <file file="main.lua"/>
+</project>

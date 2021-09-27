@@ -1,1 +1,9 @@
-{"layers":{"bottom": 0, "top": 1}}
+{
+	"layers":
+	{
+		"bg": 0, 
+		"fore": 1,
+		"primitives": 2,
+		"ui": 3
+	}
+}

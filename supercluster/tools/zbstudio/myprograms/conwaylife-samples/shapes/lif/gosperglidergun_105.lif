@@ -1,0 +1,16 @@
+#Life 1.05
+#D Name: Gosper glider gun
+#D Author: Bill Gosper
+#D The first known gun and the first known finite pattern with unbounded growth.
+#D www.conwaylife.com/wiki/index.php?title=Gosper_glider_gun
+#N
+#P -18 -4
+........................*
+......................*.*
+............**......**............**
+...........*...*....**............**
+**........*.....*...**
+**........*...*.**....*.*
+..........*.....*.......*
+...........*...*
+............**

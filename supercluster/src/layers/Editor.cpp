@@ -298,12 +298,20 @@ namespace sc
 					ImGui::EndMenu();
 				}
 
-				if (ImGui::MenuItem("Open Tiled"))
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Tools"))
+			{
+				if (ImGui::MenuItem("Tiled"))
 				{
 					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
 				}
 
-				ImGui::EndMenu();
+				if (ImGui::MenuItem("Lua IDE"))
+				{
+					m_processes.push_back(platform::run_process("tools/zbstudio/zbstudio.exe"));
+				}
 			}
 
 			ImGui::Text("( ? )");
