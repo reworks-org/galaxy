@@ -380,13 +380,13 @@ namespace galaxy
 
 		void Application::generate_default_assets(const std::string& root)
 		{
-			constexpr const char* const font          = "{\"fontbook\": {}}";
-			constexpr const char* const music         = "{\"musicbook\": {}}";
-			constexpr const char* const script        = "{\"scriptbook\": {},\"definitions\":[]}";
-			constexpr const char* const shader        = "{\"vertex-extension\": \".vs\",\"fragment-extension\": \".fs\",\"shaderbook\": []}";
-			constexpr const char* const sound         = "{\"soundbook\": {}}";
-			constexpr const char* const atlas         = "{\"textures\": []}";
-			constexpr const char* const render_layers = "{\"layers\":{\"bottom\": 0, \"top\": 1}}";
+			constexpr const auto font          = "{\"fontbook\": {}}";
+			constexpr const auto music         = "{\"musicbook\": {}}";
+			constexpr const auto script        = "{\"scriptbook\": {},\"definitions\":[]}";
+			constexpr const auto shader        = "{\"vertex-extension\": \".vs\",\"fragment-extension\": \".fs\",\"shaderbook\": []}";
+			constexpr const auto sound         = "{\"soundbook\": {}}";
+			constexpr const auto atlas         = "{\"textures\": []}";
+			constexpr const auto render_layers = "{\"layers\":{\"bottom\": 0, \"top\": 1}}";
 
 			const auto fb_path = root + "json/" + m_config->get<std::string>("fontbook-json");
 			if (!std::filesystem::exists(fb_path))

@@ -142,7 +142,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Log();
+			Log() noexcept = default;
 
 			///
 			/// Copy constructor.
