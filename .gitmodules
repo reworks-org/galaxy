@@ -42,3 +42,6 @@
 [submodule "dependencies/sqlite-orm"]
 	path = dependencies/sqlite-orm
 	url = https://github.com/fnc12/sqlite_orm.git
+[submodule "dependencies/subprocess"]
+	path = dependencies/subprocess
+	url = https://github.com/sheredom/subprocess.h.git
