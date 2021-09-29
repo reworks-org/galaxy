@@ -433,7 +433,7 @@
     </Lib>
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
-      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
       <AdditionalDependencies>$(SolutionDir)output\dependencies\Debug\dependencies.lib;$(SolutionDir)output\efsw\Debug\efsw.lib;$(SolutionDir)output\glfw\Debug\glfw3.lib;$(SolutionDir)output\OpenAL\Debug\common.lib;$(SolutionDir)output\OpenAL\Debug\OpenAL32.lib;$(SolutionDir)output\zlib\Debug\zlibstaticd.lib</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>

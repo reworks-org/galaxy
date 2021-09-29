@@ -827,7 +827,7 @@
     </Lib>
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
-      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
       <AdditionalDependencies>$(SolutionDir)dependencies\freetype2-win\win64\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
