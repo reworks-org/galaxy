@@ -1,5 +1,5 @@
 ///
-/// Windows.cpp
+/// Platform.cpp
 /// galaxy
 ///
 /// See LICENSE.txt.

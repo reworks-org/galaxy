@@ -8,7 +8,5 @@
 https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-notepad-functionlist-xml
     notepadd++ opens scripts folder
     double click script to auto open
-C:\Windows>notepad d:\mytext.txt
-https://stackoverflow.com/questions/1135784/createprocess-doesnt-pass-command-line-arguments
 
 dbhelper?

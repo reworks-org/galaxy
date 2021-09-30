@@ -9,6 +9,7 @@
 #define SUPERCLUSTER_INSTANCES_EDITOR_HPP_
 
 #include <galaxy/core/Application.hpp>
+#include <galaxy/platform/Subprocess.hpp>
 
 #include "editor/panels/AudioPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -51,7 +52,9 @@ namespace sc
 		bool m_paused = false;
 		std::string m_current_project_path;
 
-		std::vector<void*> m_processes;
+		platform::Subprocess m_tiled_process;
+		platform::Subprocess m_notepad_process;
+
 		OpenGLOperationStack m_gl_operations;
 		graphics::RenderTexture m_framebuffer;
 

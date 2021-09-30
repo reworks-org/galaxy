@@ -44,7 +44,7 @@ inline static constexpr const auto GALAXY_DT_VAR = static_cast<float>(std::chron
 /// Macro for unix platform detection.
 ///
 #if defined(__APPLE__) || defined (__linux__) || defined(__unix) || defined (_POISX_VERSION) || defined(TARGET_OS_MAC)
-    #define GAlAXY_UNIX_PLATFORM
+    #define GALAXY_UNIX_PLATFORM
 #endif
 
 #endif

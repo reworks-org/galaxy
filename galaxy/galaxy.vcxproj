@@ -169,6 +169,7 @@
     <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
     <ClCompile Include="src\galaxy\ui\Widget.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Guid.hpp" />
@@ -329,6 +330,7 @@
     <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

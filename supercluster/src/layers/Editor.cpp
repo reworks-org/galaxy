@@ -305,12 +305,12 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Tiled"))
 				{
-					m_processes.push_back(platform::run_process("tools/tiled/tiled.exe"));
+					m_tiled_process.create("tools/tiled/tiled.exe");
 				}
 
 				if (ImGui::MenuItem("Notepad++"))
 				{
-					m_processes.push_back(platform::run_process("tools/notepad++/notepad++.exe"));
+					m_notepad_process.create("tools/notepad++/notepad++.exe");
 				}
 
 				ImGui::EndMenu();
@@ -495,12 +495,6 @@ namespace sc
 
 	void Editor::exit()
 	{
-		for (auto* process : m_processes)
-		{
-			platform::close_process(process);
-			process = nullptr;
-		}
-
 		SL_HANDLE.window()->close();
 	}
 
