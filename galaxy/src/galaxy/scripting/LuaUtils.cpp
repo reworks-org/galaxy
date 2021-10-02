@@ -17,7 +17,6 @@
 #include "galaxy/components/ParticleEffect.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
@@ -230,12 +229,6 @@ namespace galaxy
 				{"SPRITE", graphics::Renderables::SPRITE},
 				{"TEXT", graphics::Renderables::TEXT}
 			});
-
-			lua->new_enum<physics::BodyType>("gRigidBodyType",
-			{
-				{"DYNAMIC", physics::BodyType::DYNAMIC},
-				{"STATIC",  physics::BodyType::STATIC}
-			});
 			// clang-format on
 
 			auto vec2_type = lua->new_usertype<glm::vec2>("gVec2f", sol::constructors<glm::vec2()>());
@@ -360,9 +353,6 @@ namespace galaxy
 			renderable_type["type"]        = &components::Renderable::m_type;
 			renderable_type["update_aabb"] = &components::Renderable::update_aabb;
 
-			auto rigid_body_type    = lua->new_usertype<components::RigidBody>("gRigidBodyComponent", sol::no_constructor);
-			rigid_body_type["type"] = &components::RigidBody::m_type;
-
 			auto sprite_type                 = lua->new_usertype<components::Sprite>("gSpriteComponent", sol::no_constructor);
 			sprite_type["create"]            = &components::Sprite::create;
 			sprite_type["create_clipped_xy"] = sol::resolve<void(std::string_view, const float, const float)>(&components::Sprite::create_clipped);
@@ -433,7 +423,6 @@ namespace galaxy
 			world_type["create_particleeffect"] = &core::World::create_component<components::ParticleEffect>;
 			world_type["create_primitive"]      = &core::World::create_component<components::Primitive2D>;
 			world_type["create_renderable"]     = &core::World::create_component<components::Renderable>;
-			world_type["create_rigidbody"]      = &core::World::create_component<components::RigidBody>;
 			world_type["create_sprite"]         = &core::World::create_component<components::Sprite>;
 			world_type["create_tag"]            = &core::World::create_component<components::Tag>;
 			world_type["create_text"]           = &core::World::create_component<components::Text>;
@@ -446,7 +435,6 @@ namespace galaxy
 			world_type["remove_particleeffect"] = &core::World::remove<components::ParticleEffect>;
 			world_type["remove_primitive"]      = &core::World::remove<components::Primitive2D>;
 			world_type["remove_renderable"]     = &core::World::remove<components::Renderable>;
-			world_type["remove_rigidbody"]      = &core::World::remove<components::RigidBody>;
 			world_type["remove_sprite"]         = &core::World::remove<components::Sprite>;
 			world_type["remove_tag"]            = &core::World::remove<components::Tag>;
 			world_type["remove_text"]           = &core::World::remove<components::Text>;
@@ -459,7 +447,6 @@ namespace galaxy
 			world_type["get_particleeffect"] = &core::World::get<components::ParticleEffect>;
 			world_type["get_primitive"]      = &core::World::get<components::Primitive2D>;
 			world_type["get_renderable"]     = &core::World::get<components::Renderable>;
-			world_type["get_rigidbody"]      = &core::World::get<components::RigidBody>;
 			world_type["get_sprite"]         = &core::World::get<components::Sprite>;
 			world_type["get_tag"]            = &core::World::get<components::Tag>;
 			world_type["get_text"]           = &core::World::get<components::Text>;

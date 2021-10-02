@@ -14,7 +14,6 @@
 #include "galaxy/resource/MusicBook.hpp"
 #include "galaxy/systems/ActionSystem.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
-#include "galaxy/systems/CollisionSystem.hpp"
 #include "galaxy/systems/ParticleSystem.hpp"
 #include "galaxy/systems/RenderSystem2D.hpp"
 #include "galaxy/systems/TransformSystem.hpp"
@@ -40,7 +39,6 @@ namespace galaxy
 			m_world.create_system<systems::ActionSystem>();
 			m_world.create_system<systems::TransformSystem>();
 			m_world.create_system<systems::AnimationSystem>();
-			m_world.create_system<systems::CollisionSystem>();
 			m_world.create_system<systems::ParticleSystem>();
 			m_world.create_system<systems::RenderSystem2D>();
 

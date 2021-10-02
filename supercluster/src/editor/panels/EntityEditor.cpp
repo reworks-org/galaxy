@@ -16,7 +16,6 @@
 #include <galaxy/components/ParticleEffect.hpp>
 #include <galaxy/components/Primitive2D.hpp>
 #include <galaxy/components/Renderable.hpp>
-#include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -214,7 +213,7 @@ namespace sc
 								{
 									top->m_world.remove<components::Primitive2D>(entity);
 								}
-
+								/*
 								ImGui::TableNextRow();
 								ImGui::TableNextColumn();
 								ImGui::Text("Rigid Body");
@@ -232,7 +231,7 @@ namespace sc
 								{
 									top->m_world.remove<components::RigidBody>(entity);
 								}
-
+								*/
 								ImGui::TableNextRow();
 								ImGui::TableNextColumn();
 								ImGui::Text("Tag");
@@ -422,7 +421,7 @@ namespace sc
 			// clang-format off
 			auto [actions, animated, batchsprite,
 				oncollision, particleffect, primitive2d,
-				renderable, rigidbody, sprite, tag,
+				renderable, sprite, tag,
 				text, transform2d] =
 				top->m_world.get_multi<
 				components::Actions,
@@ -432,7 +431,6 @@ namespace sc
 				components::ParticleEffect,
 				components::Primitive2D,
 				components::Renderable,
-				components::RigidBody,
 				components::Sprite,
 				components::Tag,
 				components::Text,
@@ -784,6 +782,7 @@ namespace sc
 					}
 				}
 
+				/*
 				if (rigidbody)
 				{
 					if (ImGui::BeginTabItem("Rigid Body"))
@@ -791,6 +790,7 @@ namespace sc
 						ImGui::EndTabItem();
 					}
 				}
+				*/
 
 				if (sprite)
 				{
