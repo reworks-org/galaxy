@@ -151,15 +151,15 @@
     <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem2D.cpp" />
     <ClCompile Include="src\galaxy\systems\TransformSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\GUI.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
-    <ClCompile Include="src\galaxy\ui\Theme.cpp" />
-    <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
-    <ClCompile Include="src\galaxy\ui\Widget.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Task.hpp" />
@@ -312,14 +312,14 @@
     <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem2D.hpp" />
     <ClInclude Include="src\galaxy\systems\TransformSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\GUI.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
-    <ClInclude Include="src\galaxy\ui\Theme.hpp" />
-    <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
-    <ClInclude Include="src\galaxy\ui\Widget.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\core\Guid.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
   </ItemGroup>
 </Project>

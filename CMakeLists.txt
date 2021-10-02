@@ -80,7 +80,15 @@ else()
 
 	set(LIB_FILE_EXT "a")
 		
-	if(NOT WIN32)
+	if (WIN32)
+		set(GALAXY_EXTERNAL_HEADERS
+			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include"
+		)
+			
+		set(GALAXY_PRECOMPILED_LIBS
+			"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/win64/freetype.lib"
+		)
+	else()
 		find_package(Threads REQUIRED)
 		find_package(Freetype REQUIRED)
 		add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
@@ -89,7 +97,7 @@ else()
 			"${FREETYPE_INCLUDE_DIRS}"
 			"/usr/include"
 		)
-			
+				
 		set(GALAXY_PRECOMPILED_LIBS
 			"${FREETYPE_LIBRARIES}"
 		)
@@ -166,23 +174,63 @@ else()
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/zlib"
 	)
 
-	set(FREETYPE_LIBRARY "${GALAXY_PRECOMPILED_LIBS}")
-	set(FREETYPE_INCLUDE_DIRS "${GALAXY_EXTERNAL_HEADERS}")
+	if (WIN32)
+		set(FREETYPE_LIBRARY "${GALAXY_PRECOMPILED_LIBS}")
+		set(FREETYPE_INCLUDE_DIRS "${GALAXY_EXTERNAL_HEADERS}")
+	
+		set(LUA_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/dependencies/lua/src")	
+		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+			set(LUA_LIBRARIES "${CMAKE_SOURCE_DIR}/output/dependencies/Debug/dependencies.lib")
+		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+			set(LUA_LIBRARIES "${CMAKE_SOURCE_DIR}/output/dependencies/Release/dependencies.lib")
+		endif()
+	endif()
+
+	set(BUILD_SAMPLES OFF CACHE BOOL "" FORCE)
+	set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+	set(BUILD_LUA_BINDINGS ON CACHE BOOL "" FORCE)
+	set(ENABLE_PRECOMPILED_HEADERS OFF CACHE BOOL "" FORCE)
+	set(ENABLE_TRACY_PROFILING OFF CACHE BOOL "" FORCE)
+	add_subdirectory(dependencies/RmlUi)
+	set_target_properties(RmlCore PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	)
+	set_target_properties(RmlDebugger PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	)
+	set_target_properties(RmlLua PROPERTIES
+	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/RmlUi"
+	)
 
 	# Set external project options.
 	if (WIN32)
 		if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-			target_compile_options(efsw PUBLIC /MTd /WX- /EHsc /W0 /MTd)
-			target_compile_options(glfw PUBLIC /MTd /WX- /EHsc /W0 /MTd)
-			target_compile_options(OpenAL PUBLIC /MTd /WX- /EHsc /W0 /MTd)
-			target_compile_options(common PUBLIC /MTd /WX- /EHsc /W0 /MTd)
-			target_compile_options(zlib PUBLIC /MTd /WX- /EHsc /W0 /MTd)
+			target_compile_options(efsw PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(glfw PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(OpenAL PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(common PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(zlib PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(RmlCore PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(RmlDebugger PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(RmlLua PUBLIC /MT /WX- /EHsc /W0 /MTd)
 		elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-			target_compile_options(efsw PUBLIC /MTd /WX- /EHsc /W0 /MT)
-			target_compile_options(glfw PUBLIC /MTd /WX- /EHsc /W0 /MT)
-			target_compile_options(OpenAL PUBLIC /MTd /WX- /EHsc /W0 /MT)
-			target_compile_options(common PUBLIC /MTd /WX- /EHsc /W0 /MT)
-			target_compile_options(zlib PUBLIC /MTd /WX- /EHsc /W0 /MT)
+			target_compile_options(efsw PUBLIC /MT /WX- /EHsc /W0 /MT)
+			target_compile_options(glfw PUBLIC /MT /WX- /EHsc /W0 /MT)
+			target_compile_options(OpenAL PUBLIC /MT /WX- /EHsc /W0 /MT)
+			target_compile_options(common PUBLIC /MT /WX- /EHsc /W0 /MT)
+			target_compile_options(zlib PUBLIC /MT /WX- /EHsc /W0 /MT)
+			target_compile_options(RmlCore PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(RmlDebugger PUBLIC /MT /WX- /EHsc /W0 /MTd)
+			target_compile_options(RmlLua PUBLIC /MT /WX- /EHsc /W0 /MTd)
 		else()
 			message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 		endif()
@@ -194,24 +242,36 @@ else()
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
+				target_compile_options(RmlLua PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG} -w)
 
 				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+				target_link_options(RmlLua PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 			elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 				target_compile_options(efsw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(glfw PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(OpenAL PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(common PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 				target_compile_options(zlib PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(RmlCore PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(RmlDebugger PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
+				target_compile_options(RmlLua PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE} -w)
 
 				target_link_options(efsw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(glfw PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(OpenAL PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(common PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 				target_link_options(zlib PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+				target_link_options(RmlCore PUBLIC ${GALAXY_LINK_FLAGS_RELEASE} -w)
+				target_link_options(RmlDebugger PUBLIC ${GALAXY_LINK_FLAGS_RELEASE} -w)
+				target_link_options(RmlLua PUBLIC ${GALAXY_LINK_FLAGS_RELEASE} -w)
 			else()
 				message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 			endif()
@@ -228,6 +288,9 @@ else()
 		add_dependencies(galaxy OpenAL)
 		add_dependencies(galaxy common)
 		add_dependencies(galaxy zlib)
+		add_dependencies(galaxy RmlCore)
+		add_dependencies(galaxy RmlDebugger)
+		add_dependencies(galaxy RmlLua)
 
 		add_dependencies(galaxy dependencies)
 		add_dependencies(supercluster galaxy)
@@ -235,6 +298,7 @@ else()
 		# Set header directories.
 		set(HEADERS
 			"${GALAXY_EXTERNAL_HEADERS}"
+			"${CMAKE_SOURCE_DIR}/dependencies/efsw/include"
 			"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 			"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 			"${CMAKE_SOURCE_DIR}/dependencies/glm"
@@ -249,9 +313,12 @@ else()
 			"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 			"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 			"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
-			"${CMAKE_SOURCE_DIR}/dependencies/efsw/include"
+			"${CMAKE_SOURCE_DIR}/dependencies/RmlUi/Include"
 		    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
+		    "${CMAKE_SOURCE_DIR}/dependencies/sqlite/include"
+			"${CMAKE_SOURCE_DIR}/dependencies/sqlite-orm/include"
 			"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
+			"${CMAKE_SOURCE_DIR}/dependencies/subprocess"
 		    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 		    "${CMAKE_SOURCE_DIR}/dependencies/zlc/lib"
 		    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"

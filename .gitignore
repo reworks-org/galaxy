@@ -20,16 +20,21 @@ build/dependencies/*
 !build/dependencies/glfw3/
 !build/dependencies/openal/
 !build/dependencies/zlib-ng/
+!build/dependencies/RmlUi/
 
 build/dependencies/efsw/*
 build/dependencies/glfw3/*
 build/dependencies/openal/*
 build/dependencies/zlib-ng/*
+build/dependencies/RmlUi/*
 
 !build/dependencies/efsw/efsw.vcxproj
 !build/dependencies/openal/common.vcxproj
 !build/dependencies/openal/OpenAL.vcxproj
 !build/dependencies/zlib-ng/zlib.vcxproj
+!build/dependencies/RmlUi/RmlCore.vcxproj
+!build/dependencies/RmlUi/RmlDebugger.vcxproj
+!build/dependencies/RmlUi/RmlLua.vcxproj
 
 !build/dependencies/glfw3/src
 build/dependencies/glfw3/src/*

@@ -7,6 +7,8 @@
 
 #include <portable-file-dialogs.h>
 #include <sol/sol.hpp>
+#include <RmlUi/Core.h>
+#include <RmlUi/Lua.h>
 
 #include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/LoadingScreen.hpp"
@@ -245,6 +247,31 @@ namespace galaxy
 				//m_lua->set("galaxy_scriptbook", m_scriptbook.get());
 				//m_lua->set("galaxy_language", m_langs.get());
 
+				// Set up RMLUI.
+				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
+				m_rml_file_interface      = std::make_unique<ui::RMLFile>();
+				m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
+
+				Rml::SetSystemInterface(m_rml_system_interface.get());
+				Rml::SetFileInterface(m_rml_file_interface.get());
+				Rml::SetRenderInterface(m_rml_rendering_interface.get());
+				if (!Rml::Initialise())
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
+				}
+				else
+				{
+					Rml::Lua::Initialise(m_lua->lua_state());
+
+					for (auto& [key, font] : m_fontbook->cache())
+					{
+						if (!Rml::LoadFontFace(font->get_filename()))
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to load RML font: {0}.", key);
+						}
+					}
+				}
+
 				// Begin watching files now that default asset creation is over.
 				m_filewatcher.watch();
 
@@ -255,6 +282,11 @@ namespace galaxy
 
 		Application::~Application()
 		{
+			Rml::Shutdown();
+			m_rml_rendering_interface.reset();
+			m_rml_file_interface.reset();
+			m_rml_system_interface.reset();
+
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
 			while (!m_layer_stack.empty())
