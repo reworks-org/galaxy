@@ -12,6 +12,7 @@
 #include "galaxy/components/ParticleEffect.hpp"
 #include "galaxy/components/Primitive2D.hpp"
 #include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
@@ -46,6 +47,7 @@ namespace galaxy
 			register_component<components::ParticleEffect>("ParticleEffect");
 			register_component<components::Primitive2D>("Primitive2D");
 			register_component<components::Renderable>("Renderable");
+			register_component<components::RigidBody>("RigidBody");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Text>("Text");
@@ -293,7 +295,7 @@ namespace galaxy
 					entity_json["enabled"]         = is_enabled(entity);
 					entity_json["components"]      = nlohmann::json::object();
 
-					auto [actions, animated, batchsprite, oncollision, particleffect, primitive2d, renderable, sprite, tag, text, transform2d] =
+					auto [actions, animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
 						get_multi<components::Actions,
 								  components::Animated,
 								  components::BatchSprite,
@@ -301,6 +303,7 @@ namespace galaxy
 								  components::ParticleEffect,
 								  components::Primitive2D,
 								  components::Renderable,
+								  components::RigidBody,
 								  components::Sprite,
 								  components::Tag,
 								  components::Text,
@@ -339,6 +342,11 @@ namespace galaxy
 					if (renderable)
 					{
 						entity_json["components"]["Renderable"] = renderable->serialize();
+					}
+
+					if (rigidbody)
+					{
+						entity_json["components"]["RigidBody"] = rigidbody->serialize();
 					}
 
 					if (sprite)

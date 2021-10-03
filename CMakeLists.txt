@@ -298,8 +298,6 @@ else()
 		# Set header directories.
 		set(HEADERS
 			"${GALAXY_EXTERNAL_HEADERS}"
-			"${CMAKE_SOURCE_DIR}/dependencies/box2d/include"
-			"${CMAKE_SOURCE_DIR}/dependencies/box2d/src"
 			"${CMAKE_SOURCE_DIR}/dependencies/efsw/include"
 			"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 			"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"

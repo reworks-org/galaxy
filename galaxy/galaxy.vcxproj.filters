@@ -18,6 +18,7 @@
     <ClCompile Include="src\galaxy\components\ParticleEffect.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive2D.cpp" />
     <ClCompile Include="src\galaxy\components\Renderable.cpp" />
+    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
@@ -128,6 +129,9 @@
     <ClCompile Include="src\galaxy\meta\EventMeta.cpp" />
     <ClCompile Include="src\galaxy\meta\StaticIDGen.cpp" />
     <ClCompile Include="src\galaxy\meta\UniqueID.cpp" />
+    <ClCompile Include="src\galaxy\physics\BodyType.cpp" />
+    <ClCompile Include="src\galaxy\physics\DynamicTree.cpp" />
+    <ClCompile Include="src\galaxy\physics\SAT.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\resource\FontBook.cpp" />
@@ -143,6 +147,7 @@
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\systems\ActionSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
+    <ClCompile Include="src\galaxy\systems\CollisionSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem2D.cpp" />
     <ClCompile Include="src\galaxy\systems\TransformSystem.cpp" />
@@ -175,6 +180,7 @@
     <ClInclude Include="src\galaxy\components\ParticleEffect.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive2D.hpp" />
     <ClInclude Include="src\galaxy\components\Renderable.hpp" />
+    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
@@ -285,6 +291,9 @@
     <ClInclude Include="src\galaxy\meta\EventMeta.hpp" />
     <ClInclude Include="src\galaxy\meta\StaticIDGen.hpp" />
     <ClInclude Include="src\galaxy\meta\UniqueID.hpp" />
+    <ClInclude Include="src\galaxy\physics\BodyType.hpp" />
+    <ClInclude Include="src\galaxy\physics\DynamicTree.hpp" />
+    <ClInclude Include="src\galaxy\physics\SAT.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\resource\FontBook.hpp" />
@@ -300,6 +309,7 @@
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\systems\ActionSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
+    <ClInclude Include="src\galaxy\systems\CollisionSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem2D.hpp" />
     <ClInclude Include="src\galaxy\systems\TransformSystem.hpp" />

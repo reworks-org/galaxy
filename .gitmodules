@@ -48,6 +48,3 @@
 [submodule "dependencies/RmlUi"]
 	path = dependencies/RmlUi
 	url = https://github.com/mikke89/RmlUi.git
-[submodule "dependencies/box2d"]
-	path = dependencies/box2d
-	url = https://github.com/erincatto/box2d.git

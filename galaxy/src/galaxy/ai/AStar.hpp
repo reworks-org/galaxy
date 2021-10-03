@@ -8,8 +8,6 @@
 #ifndef GALAXY_AI_ASTAR_HPP_
 #define GALAXY_AI_ASTAR_HPP_
 
-#include <vector>
-
 // https://www.redblobgames.com/pathfinding/a-star/introduction.html
 
 namespace galaxy

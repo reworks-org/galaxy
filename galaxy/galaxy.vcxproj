@@ -30,6 +30,7 @@
     <ClCompile Include="src\galaxy\components\ParticleEffect.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive2D.cpp" />
     <ClCompile Include="src\galaxy\components\Renderable.cpp" />
+    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
@@ -140,6 +141,9 @@
     <ClCompile Include="src\galaxy\meta\EventMeta.cpp" />
     <ClCompile Include="src\galaxy\meta\StaticIDGen.cpp" />
     <ClCompile Include="src\galaxy\meta\UniqueID.cpp" />
+    <ClCompile Include="src\galaxy\physics\BodyType.cpp" />
+    <ClCompile Include="src\galaxy\physics\DynamicTree.cpp" />
+    <ClCompile Include="src\galaxy\physics\SAT.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\resource\FontBook.cpp" />
@@ -155,6 +159,7 @@
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\systems\ActionSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
+    <ClCompile Include="src\galaxy\systems\CollisionSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem2D.cpp" />
     <ClCompile Include="src\galaxy\systems\TransformSystem.cpp" />
@@ -187,6 +192,7 @@
     <ClInclude Include="src\galaxy\components\ParticleEffect.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive2D.hpp" />
     <ClInclude Include="src\galaxy\components\Renderable.hpp" />
+    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
@@ -297,6 +303,9 @@
     <ClInclude Include="src\galaxy\meta\EventMeta.hpp" />
     <ClInclude Include="src\galaxy\meta\StaticIDGen.hpp" />
     <ClInclude Include="src\galaxy\meta\UniqueID.hpp" />
+    <ClInclude Include="src\galaxy\physics\BodyType.hpp" />
+    <ClInclude Include="src\galaxy\physics\DynamicTree.hpp" />
+    <ClInclude Include="src\galaxy\physics\SAT.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\resource\FontBook.hpp" />
@@ -312,6 +321,7 @@
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\systems\ActionSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
+    <ClInclude Include="src\galaxy\systems\CollisionSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem2D.hpp" />
     <ClInclude Include="src\galaxy\systems\TransformSystem.hpp" />
@@ -408,7 +418,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -469,7 +479,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

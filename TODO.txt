@@ -8,8 +8,6 @@
 https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-notepad-functionlist-xml
     notepadd++ opens scripts folder
     double click script to auto open
-
-dbhelper?
- may need to disable scissor test??? / fix event modifier handling for rml.
- https://youtu.be/B1nO5wbPbwg?t=1766
- build freetype2 from source.
+- dbhelper?
+- may need to disable scissor test??? / fix event modifier handling for rml.
+- astar

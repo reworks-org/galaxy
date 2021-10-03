@@ -11,55 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="box2d\include\box2d\b2_api.h" />
-    <ClInclude Include="box2d\include\box2d\b2_block_allocator.h" />
-    <ClInclude Include="box2d\include\box2d\b2_body.h" />
-    <ClInclude Include="box2d\include\box2d\b2_broad_phase.h" />
-    <ClInclude Include="box2d\include\box2d\b2_chain_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_circle_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_collision.h" />
-    <ClInclude Include="box2d\include\box2d\b2_common.h" />
-    <ClInclude Include="box2d\include\box2d\b2_contact.h" />
-    <ClInclude Include="box2d\include\box2d\b2_contact_manager.h" />
-    <ClInclude Include="box2d\include\box2d\b2_distance.h" />
-    <ClInclude Include="box2d\include\box2d\b2_distance_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_draw.h" />
-    <ClInclude Include="box2d\include\box2d\b2_dynamic_tree.h" />
-    <ClInclude Include="box2d\include\box2d\b2_edge_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_fixture.h" />
-    <ClInclude Include="box2d\include\box2d\b2_friction_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_gear_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_growable_stack.h" />
-    <ClInclude Include="box2d\include\box2d\b2_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_math.h" />
-    <ClInclude Include="box2d\include\box2d\b2_motor_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_mouse_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_polygon_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_prismatic_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_pulley_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_revolute_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_rope.h" />
-    <ClInclude Include="box2d\include\box2d\b2_settings.h" />
-    <ClInclude Include="box2d\include\box2d\b2_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_stack_allocator.h" />
-    <ClInclude Include="box2d\include\box2d\b2_timer.h" />
-    <ClInclude Include="box2d\include\box2d\b2_time_of_impact.h" />
-    <ClInclude Include="box2d\include\box2d\b2_time_step.h" />
-    <ClInclude Include="box2d\include\box2d\b2_types.h" />
-    <ClInclude Include="box2d\include\box2d\b2_weld_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_wheel_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_world.h" />
-    <ClInclude Include="box2d\include\box2d\b2_world_callbacks.h" />
-    <ClInclude Include="box2d\include\box2d\box2d.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_chain_polygon_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_contact_solver.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_edge_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_edge_polygon_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_island.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_polygon_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_polygon_contact.h" />
     <ClInclude Include="efsw\include\efsw\efsw.h" />
     <ClInclude Include="efsw\include\efsw\efsw.hpp" />
     <ClInclude Include="freetype2-win\include\freetype\config\ftconfig.h" />
@@ -575,51 +526,6 @@
     <ClInclude Include="zlib-ng\zutil_p.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="box2d\src\collision\b2_broad_phase.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_chain_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_circle_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_circle.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_edge.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_polygon.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collision.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_distance.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_dynamic_tree.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_edge_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_polygon_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_time_of_impact.cpp" />
-    <ClCompile Include="box2d\src\common\b2_block_allocator.cpp" />
-    <ClCompile Include="box2d\src\common\b2_draw.cpp" />
-    <ClCompile Include="box2d\src\common\b2_math.cpp" />
-    <ClCompile Include="box2d\src\common\b2_settings.cpp" />
-    <ClCompile Include="box2d\src\common\b2_stack_allocator.cpp" />
-    <ClCompile Include="box2d\src\common\b2_timer.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_body.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_chain_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_chain_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact_manager.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact_solver.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_distance_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_edge_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_edge_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_fixture.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_friction_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_gear_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_island.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_motor_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_mouse_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_polygon_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_prismatic_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_pulley_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_revolute_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_weld_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_wheel_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_world.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
-    <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
     <ClCompile Include="glad\glad\glad.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
     <ClCompile Include="googletest\googlemock\src\gmock-all.cc" />
@@ -903,7 +809,7 @@
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -965,7 +871,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
