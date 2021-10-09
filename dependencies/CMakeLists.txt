@@ -1,6 +1,7 @@
 project(dependencies C CXX)
 
 file(GLOB_RECURSE dependencies_src
+    "${CMAKE_SOURCE_DIR}/dependencies/box2d/src/*.cpp"
     "${CMAKE_SOURCE_DIR}/dependencies/glad/glad/glad.c"
     "${CMAKE_SOURCE_DIR}/dependencies/googletest/googlemock/src/gmock-all.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-all.cc"

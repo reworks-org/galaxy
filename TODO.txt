@@ -12,4 +12,4 @@ https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-not
 - may need to disable scissor test??? / fix event modifier handling for rml.
 - astar
 
-https://www.google.com/search?client=firefox-b-d&q=things+a+game+engine+needs
+ https://youtu.be/B1nO5wbPbwg
