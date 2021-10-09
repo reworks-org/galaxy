@@ -54,6 +54,6 @@
 [submodule "dependencies/assimp"]
 	path = dependencies/assimp
 	url = https://github.com/DomRe/assimp.git
-[submodule "box2d"]
-	path = box2d
+[submodule "dependencies/box2d"]
+	path = dependencies/box2d
 	url = https://github.com/erincatto/box2d.git
