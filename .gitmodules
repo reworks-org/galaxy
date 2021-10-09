@@ -51,3 +51,9 @@
 [submodule "dependencies/physx"]
 	path = dependencies/physx
 	url = https://github.com/NVIDIAGameWorks/PhysX.git
+[submodule "dependencies/assimp"]
+	path = dependencies/assimp
+	url = https://github.com/DomRe/assimp.git
+[submodule "box2d"]
+	path = box2d
+	url = https://github.com/erincatto/box2d.git
