@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\Languages\File Extensions\.cg]
+@="{B2F072B0-ABC1-11D0-9D62-00C04FD9DFD9}"
+
