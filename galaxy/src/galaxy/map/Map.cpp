@@ -26,33 +26,55 @@ namespace galaxy
 {
 	namespace map
 	{
-		// clang-format off
 		Map::Map() noexcept
-			: m_loaded{ false }, m_root{}, m_bg_colour{ 255, 255, 255, 255 },
-			m_compression_level{ -1 }, m_height{ 0 }, m_hex_side_length{ 0 },
-			m_infinite{ false }, m_next_layer_id{ 0 }, m_next_object_id{ 0 },
-			m_orientation{ "orthogonal" }, m_render_order{ "right-down" },
-			m_stagger_axis{ "" }, m_stagger_index{ "" }, m_tiled_version{ "" },
-			m_tile_height{ 0 }, m_tile_width{ 0 }, m_type{ "map" }, m_version{ 0.0 },
-			m_width{ 0 }
+			: m_loaded {false}
+			, m_root {}
+			, m_bg_colour {255, 255, 255, 255}
+			, m_compression_level {-1}
+			, m_height {0}
+			, m_hex_side_length {0}
+			, m_infinite {false}
+			, m_next_layer_id {0}
+			, m_next_object_id {0}
+			, m_orientation {"orthogonal"}
+			, m_render_order {"right-down"}
+			, m_stagger_axis {""}
+			, m_stagger_index {""}
+			, m_tiled_version {""}
+			, m_tile_height {0}
+			, m_tile_width {0}
+			, m_type {"map"}
+			, m_version {0.0}
+			, m_width {0}
 		{
 		}
-		
+
 		Map::Map(std::string_view map) noexcept
-			: m_loaded{ false }, m_root{}, m_bg_colour{ 255, 255, 255, 255 },
-			m_compression_level{ -1 }, m_height{ 0 }, m_hex_side_length{ 0 },
-			m_infinite{ false }, m_next_layer_id{ 0 }, m_next_object_id{ 0 },
-			m_orientation{ "orthogonal" }, m_render_order{ "right-down" },
-			m_stagger_axis{ "" }, m_stagger_index{ "" }, m_tiled_version{ "" },
-			m_tile_height{ 0 }, m_tile_width{ 0 }, m_type{ "map" }, m_version{ 0.0 },
-			m_width{ 0 }
+			: m_loaded {false}
+			, m_root {}
+			, m_bg_colour {255, 255, 255, 255}
+			, m_compression_level {-1}
+			, m_height {0}
+			, m_hex_side_length {0}
+			, m_infinite {false}
+			, m_next_layer_id {0}
+			, m_next_object_id {0}
+			, m_orientation {"orthogonal"}
+			, m_render_order {"right-down"}
+			, m_stagger_axis {""}
+			, m_stagger_index {""}
+			, m_tiled_version {""}
+			, m_tile_height {0}
+			, m_tile_width {0}
+			, m_type {"map"}
+			, m_version {0.0}
+			, m_width {0}
 		{
 			if (!load(map))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to load map from constructor: {0}.", map);
 			}
 		}
-		// clang-format on
 
 		Map::Map(Map&& m) noexcept
 		{
@@ -428,7 +450,7 @@ namespace galaxy
 		{
 			for (auto& tileset : m_tilesets)
 			{
-				const auto tileset_name    = std::filesystem::path(tileset.get_image()).stem().string();
+				const auto  tileset_name   = std::filesystem::path(tileset.get_image()).stem().string();
 				const auto& tileset_info   = SL_HANDLE.texturebook()->search(tileset_name).value();
 				const auto& tileset_region = tileset_info.m_region;
 
@@ -447,7 +469,7 @@ namespace galaxy
 					u += static_cast<int>(std::trunc(tileset_region.m_x));
 					v += static_cast<int>(std::trunc(tileset_region.m_y));
 
-					const auto name = tileset_name + std::to_string(tile.get_id());
+					const auto        name = tileset_name + std::to_string(tile.get_id());
 					math::Rect<float> rect;
 					rect.m_x      = static_cast<float>(u);
 					rect.m_y      = static_cast<float>(v);
@@ -499,13 +521,13 @@ namespace galaxy
 		{
 			if (layer.is_visible())
 			{
-				const auto entity = world.create();
-				auto* batchsprite = world.create_component<components::BatchSprite>(entity);
-				auto* renderable  = world.create_component<components::Renderable>(entity);
-				auto* tag         = world.create_component<components::Tag>(entity);
-				auto* transform   = world.create_component<components::Transform2D>(entity);
+				const auto entity      = world.create();
+				auto*      batchsprite = world.create_component<components::BatchSprite>(entity);
+				auto*      renderable  = world.create_component<components::Renderable>(entity);
+				auto*      tag         = world.create_component<components::Tag>(entity);
+				auto*      transform   = world.create_component<components::Transform2D>(entity);
 
-				const auto image          = std::filesystem::path {layer.get_image()}.stem().string();
+				const auto  image         = std::filesystem::path {layer.get_image()}.stem().string();
 				const auto& render_layers = RENDERER_2D().get_sorted_layers();
 				batchsprite->create(image, render_layers[layer.get_z_level()]->get_name());
 
@@ -534,93 +556,101 @@ namespace galaxy
 					}
 					else
 					{
-						const auto entity = world.create();
-						auto* primitive2d = world.create_component<components::Primitive2D>(entity);
-						auto* renderable  = world.create_component<components::Renderable>(entity);
-						auto* tag         = world.create_component<components::Tag>(entity);
-						auto* transform   = world.create_component<components::Transform2D>(entity);
-						tag->m_tag        = std::format("[{0}] {1}/{2}", object.get_id(), object.get_type(), object.get_name());
+						const auto entity      = world.create();
+						auto*      primitive2d = world.create_component<components::Primitive2D>(entity);
+						auto*      renderable  = world.create_component<components::Renderable>(entity);
+						auto*      tag         = world.create_component<components::Tag>(entity);
+						auto*      transform   = world.create_component<components::Transform2D>(entity);
+						tag->m_tag             = std::format("[{0}] {1}/{2}", object.get_id(), object.get_type(), object.get_name());
 
 						switch (type)
 						{
 							case Object::Type::ELLIPSE:
-							{
-								components::Primitive2D::PrimitiveData data;
-								data.m_fragments = 40;
-								data.m_radii.x   = static_cast<float>(object.get_width() / 2.0);
-								data.m_radii.y   = static_cast<float>(object.get_height() / 2.0);
+								{
+									components::Primitive2D::PrimitiveData data;
+									data.m_fragments = 40;
+									data.m_radii.x   = static_cast<float>(object.get_width() / 2.0);
+									data.m_radii.y   = static_cast<float>(object.get_height() / 2.0);
 
-								primitive2d->create<graphics::Primitives::ELLIPSE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
+									primitive2d->create<graphics::Primitives::ELLIPSE>(data,
+										layer.get_colour(),
+										render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
-								transform->rotate(static_cast<float>(object.get_rotation()));
+									transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+									transform->rotate(static_cast<float>(object.get_rotation()));
 
-								renderable->m_type = graphics::Renderables::LINE_LOOP;
-							}
-							break;
+									renderable->m_type = graphics::Renderables::LINE_LOOP;
+								}
+								break;
 
 							case Object::Type::POINT:
-							{
-								components::Primitive2D::PrimitiveData data;
-								primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
+								{
+									components::Primitive2D::PrimitiveData data;
+									primitive2d->create<graphics::Primitives::POINT>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
-								transform->rotate(static_cast<float>(object.get_rotation()));
+									transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+									transform->rotate(static_cast<float>(object.get_rotation()));
 
-								renderable->m_type = graphics::Renderables::POINT;
-							}
-							break;
+									renderable->m_type = graphics::Renderables::POINT;
+								}
+								break;
 
 							case Object::Type::POLYGON:
-							{
-								components::Primitive2D::PrimitiveData data;
-								for (const auto& point : object.get_points())
 								{
-									data.m_points.emplace_back(point.get_x(), point.get_y());
+									components::Primitive2D::PrimitiveData data;
+									for (const auto& point : object.get_points())
+									{
+										data.m_points.emplace_back(point.get_x(), point.get_y());
+									}
+
+									primitive2d->create<graphics::Primitives::POLYGON>(data,
+										layer.get_colour(),
+										render_layers[layer.get_z_level()]->get_name());
+
+									transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+									transform->rotate(static_cast<float>(object.get_rotation()));
+
+									renderable->m_type = graphics::Renderables::LINE_LOOP;
 								}
-
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
-
-								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
-								transform->rotate(static_cast<float>(object.get_rotation()));
-
-								renderable->m_type = graphics::Renderables::LINE_LOOP;
-							}
-							break;
+								break;
 
 							case Object::Type::POLYLINE:
-							{
-								components::Primitive2D::PrimitiveData data;
-								for (const auto& point : object.get_points())
 								{
-									data.m_points.emplace_back(point.get_x(), point.get_y());
+									components::Primitive2D::PrimitiveData data;
+									for (const auto& point : object.get_points())
+									{
+										data.m_points.emplace_back(point.get_x(), point.get_y());
+									}
+
+									primitive2d->create<graphics::Primitives::POLYLINE>(data,
+										layer.get_colour(),
+										render_layers[layer.get_z_level()]->get_name());
+
+									transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+									transform->rotate(static_cast<float>(object.get_rotation()));
+
+									renderable->m_type = graphics::Renderables::LINE;
 								}
-
-								primitive2d->create<graphics::Primitives::POLYLINE>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
-
-								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
-								transform->rotate(static_cast<float>(object.get_rotation()));
-
-								renderable->m_type = graphics::Renderables::LINE;
-							}
-							break;
+								break;
 
 							case Object::Type::RECT:
-							{
-								components::Primitive2D::PrimitiveData data;
-								data.m_points.emplace_back(0.0f, 0.0f);
-								data.m_points.emplace_back(0.0f + object.get_width(), 0.0f);
-								data.m_points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
-								data.m_points.emplace_back(0.0f, 0.0f + object.get_height());
+								{
+									components::Primitive2D::PrimitiveData data;
+									data.m_points.emplace_back(0.0f, 0.0f);
+									data.m_points.emplace_back(0.0f + object.get_width(), 0.0f);
+									data.m_points.emplace_back(0.0f + object.get_width(), 0.0f + object.get_height());
+									data.m_points.emplace_back(0.0f, 0.0f + object.get_height());
 
-								primitive2d->create<graphics::Primitives::POLYGON>(data, layer.get_colour(), render_layers[layer.get_z_level()]->get_name());
+									primitive2d->create<graphics::Primitives::POLYGON>(data,
+										layer.get_colour(),
+										render_layers[layer.get_z_level()]->get_name());
 
-								transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
-								transform->rotate(static_cast<float>(object.get_rotation()));
+									transform->set_pos(static_cast<float>(object.get_x()), static_cast<float>(object.get_y()));
+									transform->rotate(static_cast<float>(object.get_rotation()));
 
-								renderable->m_type = graphics::Renderables::LINE_LOOP;
-							}
-							break;
+									renderable->m_type = graphics::Renderables::LINE_LOOP;
+								}
+								break;
 						}
 
 						if (object.is_visible())
@@ -651,7 +681,7 @@ namespace galaxy
 					for (int j = 0; j < m_width; j++)
 					{
 						const auto sub_expression = (i * m_width) + j;
-						auto flagged_gid          = data[sub_expression];
+						auto       flagged_gid    = data[sub_expression];
 						if (flagged_gid != 0)
 						{
 							// Have to clear flips first.
@@ -661,15 +691,15 @@ namespace galaxy
 							const auto tileset_name = std::filesystem::path(tileset->get_image()).stem().string();
 							const auto tile_name    = tileset_name + std::to_string(tile->get_id());
 
-							const auto entity = world.create();
-							auto* renderable  = world.create_component<components::Renderable>(entity);
-							auto* batch       = world.create_component<components::BatchSprite>(entity);
-							auto* transform   = world.create_component<components::Transform2D>(entity);
+							const auto entity     = world.create();
+							auto*      renderable = world.create_component<components::Renderable>(entity);
+							auto*      batch      = world.create_component<components::BatchSprite>(entity);
+							auto*      transform  = world.create_component<components::Transform2D>(entity);
 
 							renderable->m_type = graphics::Renderables::BATCHED;
 							batch->create(tile_name, render_layers[layer.get_z_level()]->get_name());
 							transform->set_pos(static_cast<float>(layer.get_offset_x() + (j * tileset->get_tile_width())),
-											   static_cast<float>(layer.get_offset_y() + (i * tileset->get_tile_height())));
+								static_cast<float>(layer.get_offset_y() + (i * tileset->get_tile_height())));
 
 							world.enable(entity);
 							world.unset_flag<flags::AllowSerialize>(entity);
@@ -706,16 +736,12 @@ namespace galaxy
 		{
 			for (auto& tileset : m_tilesets)
 			{
-				auto& tiles         = tileset.get_tiles();
+				auto&      tiles    = tileset.get_tiles();
 				const auto local_id = gid - tileset.get_first_gid();
 
-				auto res = std::find_if(std::execution::par,
-										tiles.begin(),
-										tiles.end(),
-										[&](const Tile& tile)
-										{
-											return tile.get_id() == local_id;
-										});
+				auto res = std::find_if(std::execution::par, tiles.begin(), tiles.end(), [&](const Tile& tile) {
+					return tile.get_id() == local_id;
+				});
 
 				if (res != tiles.end())
 				{

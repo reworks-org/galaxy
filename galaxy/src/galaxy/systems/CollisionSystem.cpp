@@ -38,13 +38,12 @@ namespace galaxy
 		{
 			m_bvh.clear();
 
-			// clang-format off
 			scene->m_world.operate<components::RigidBody, components::Renderable>(
-			[&](const ecs::Entity entity, components::RigidBody* body, components::Renderable* renderable) {
-			    GALAXY_UNUSED(body);
+				[&](const ecs::Entity entity, components::RigidBody* body, components::Renderable* renderable) {
+					GALAXY_UNUSED(body);
 
-				m_bvh.insert(entity, renderable->get_aabb().min(), renderable->get_aabb().max());
-			});
+					m_bvh.insert(entity, renderable->get_aabb().min(), renderable->get_aabb().max());
+				});
 
 			scene->m_world.operate<components::RigidBody, components::Transform2D>(
 				[&](const ecs::Entity entity_a, components::RigidBody* body, components::Transform2D* transform) {
@@ -73,8 +72,7 @@ namespace galaxy
 							}
 						}
 					}
-			});
-			// clang-format on
+				});
 		}
 	} // namespace systems
 } // namespace galaxy

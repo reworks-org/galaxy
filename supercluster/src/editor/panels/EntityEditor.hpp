@@ -32,7 +32,7 @@ namespace sc
 
 		private:
 			std::optional<ecs::Entity> m_selected;
-			std::string m_label;
+			std::string                m_label;
 		};
 	} // namespace panel
 } // namespace sc

@@ -11,9 +11,9 @@
 
 TEST(Async, ThreadPool)
 {
-	std::atomic<int> count = 0;
+	std::atomic<int>          count = 0;
 	galaxy::async::ThreadPool pool;
-	galaxy::async::Task task;
+	galaxy::async::Task       task;
 	task.set([&]() {
 		count = 2;
 	});

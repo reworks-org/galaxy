@@ -57,7 +57,7 @@ namespace galaxy
 			if (!result)
 			{
 				graphics::TextureAtlas atlas;
-				auto id = atlas.get_id();
+				auto                   id = atlas.get_id();
 
 				auto pair = m_atlas.emplace(id, std::move(atlas));
 				pair.first->second.add(file);
@@ -84,11 +84,9 @@ namespace galaxy
 				const auto& json     = json_opt.value();
 				const auto& textures = json.at("textures");
 
-				// clang-format off
 				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
 					add(texture.get<std::string>());
 				});
-				// clang-format on
 			}
 			else
 			{

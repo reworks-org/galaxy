@@ -16,7 +16,7 @@ namespace galaxy
 		graphics::Colour map::parse_hex_colour(std::string_view hex_colour)
 		{
 			graphics::Colour colour;
-			auto str = static_cast<std::string>(hex_colour);
+			auto             str = static_cast<std::string>(hex_colour);
 
 			if (str[0] == '#')
 			{

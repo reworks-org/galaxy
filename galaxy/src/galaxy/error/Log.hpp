@@ -236,8 +236,7 @@ namespace galaxy
 				}
 
 				const auto now       = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
-				const auto final_str = std::format(
-					"{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
+				const auto final_str = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
 					colour,
 					level_str,
 					std::format("{0:%T}", now),

@@ -68,11 +68,9 @@ namespace galaxy
 			}
 
 			// Error callbacks.
-			// clang-format off
 			glfwSetErrorCallback([](int error, const char* description) {
 				GALAXY_LOG(GALAXY_ERROR, "[GLFW] Code: {0}. Desc: {1}.", error, description);
 			});
-			// clang-format on
 
 			// Init glfw.
 			if (!glfwInit())
@@ -151,11 +149,10 @@ namespace galaxy
 						glfwSwapInterval(settings.m_vsync);
 
 						// Set resize callback.
-						// clang-format off
 						glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
-							this_win->m_event_queue.emplace<events::WindowResized>({ width, height });
+							this_win->m_event_queue.emplace<events::WindowResized>({width, height});
 							this_win->resize(width, height);
 						});
 
@@ -167,15 +164,18 @@ namespace galaxy
 							switch (action)
 							{
 								case GLFW_PRESS:
-									this_win->m_event_queue.emplace<events::KeyDown>({ this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods) });
+									this_win->m_event_queue.emplace<events::KeyDown>(
+										{this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 
 								case GLFW_REPEAT:
-									this_win->m_event_queue.emplace<events::KeyRepeat>({ this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods) });
+									this_win->m_event_queue.emplace<events::KeyRepeat>(
+										{this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 
 								case GLFW_RELEASE:
-									this_win->m_event_queue.emplace<events::KeyUp>({ this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods) });
+									this_win->m_event_queue.emplace<events::KeyUp>(
+										{this_win->m_keyboard.m_reverse_keymap[key], static_cast<input::KeyMod>(mods)});
 									break;
 							}
 						});
@@ -189,7 +189,7 @@ namespace galaxy
 						// Mouse movement callback.
 						glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
-							this_win->m_event_queue.emplace<events::MouseMoved>({ xpos, ypos });
+							this_win->m_event_queue.emplace<events::MouseMoved>({xpos, ypos});
 						});
 
 						// Mouse button callback.
@@ -201,11 +201,11 @@ namespace galaxy
 							switch (action)
 							{
 								case GLFW_PRESS:
-									this_win->m_event_queue.emplace<events::MousePressed>({ pos.x, pos.y, this_win->m_mouse.m_reverse_mouse_map[button] });
+									this_win->m_event_queue.emplace<events::MousePressed>({pos.x, pos.y, this_win->m_mouse.m_reverse_mouse_map[button]});
 									break;
 
 								case GLFW_RELEASE:
-									this_win->m_event_queue.emplace<events::MouseReleased>({ pos.x, pos.y, this_win->m_mouse.m_reverse_mouse_map[button] });
+									this_win->m_event_queue.emplace<events::MouseReleased>({pos.x, pos.y, this_win->m_mouse.m_reverse_mouse_map[button]});
 									break;
 							}
 						});
@@ -214,35 +214,40 @@ namespace galaxy
 						glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xoffset, double yoffset) {
 							Window* this_win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
-							this_win->m_event_queue.emplace<events::MouseWheel>({ xoffset, yoffset });
+							this_win->m_event_queue.emplace<events::MouseWheel>({xoffset, yoffset});
 							this_win->m_mouse.m_scroll_delta = yoffset;
 						});
-						// clang-format on
 
 						if (settings.m_gl_debug)
 						{
 							glEnable(GL_DEBUG_OUTPUT);
 							glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
 
-							// clang-format off
 							glDebugMessageCallback(
-							[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
-								GALAXY_UNUSED(source);
-								GALAXY_UNUSED(type);
-								GALAXY_UNUSED(id);
-								GALAXY_UNUSED(length);
-								GALAXY_UNUSED(userParam);
+								[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
+									GALAXY_UNUSED(source);
+									GALAXY_UNUSED(type);
+									GALAXY_UNUSED(id);
+									GALAXY_UNUSED(length);
+									GALAXY_UNUSED(userParam);
 
-								switch (severity)
-								{
-									case GL_DEBUG_SEVERITY_HIGH: GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message); break;
-									case GL_DEBUG_SEVERITY_MEDIUM: GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - {0}", message); break;
-									case GL_DEBUG_SEVERITY_LOW: GALAXY_LOG(GALAXY_DEBUG, "[OpenGL] - {0}", message); break;
-									case GL_DEBUG_SEVERITY_NOTIFICATION: GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message); break;
-								};
-							},
-							nullptr);
-							// clang-format on
+									switch (severity)
+									{
+										case GL_DEBUG_SEVERITY_HIGH:
+											GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message);
+											break;
+										case GL_DEBUG_SEVERITY_MEDIUM:
+											GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - {0}", message);
+											break;
+										case GL_DEBUG_SEVERITY_LOW:
+											GALAXY_LOG(GALAXY_DEBUG, "[OpenGL] - {0}", message);
+											break;
+										case GL_DEBUG_SEVERITY_NOTIFICATION:
+											GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message);
+											break;
+									};
+								},
+								nullptr);
 
 							glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
 						}
@@ -446,11 +451,9 @@ namespace galaxy
 
 		void Window::prevent_native_closing() noexcept
 		{
-			// clang-format off
 			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
 				glfwSetWindowShouldClose(window, GLFW_FALSE);
 			});
-			// clang-format on
 		}
 
 		void Window::begin()
@@ -493,7 +496,7 @@ namespace galaxy
 
 		const bool Window::key_pressed(input::Keys key) noexcept
 		{
-			bool res        = false;
+			bool      res   = false;
 			const int state = glfwGetKey(m_window, m_keyboard.m_keymap[key]);
 			if (m_keyboard.m_prev_key_states[key] == GLFW_RELEASE && state == GLFW_PRESS)
 			{
@@ -534,11 +537,11 @@ namespace galaxy
 		{
 			while (!m_event_queue.empty())
 			{
-				// clang-format off
-				std::visit([&](auto&& event) {
-					dispatcher.trigger<std::decay<decltype(event)>::type>(event);
-				}, m_event_queue.front());
-				// clang-format on
+				std::visit(
+					[&](auto&& event) {
+						dispatcher.trigger<std::decay<decltype(event)>::type>(event);
+					},
+					m_event_queue.front());
 
 				m_event_queue.pop();
 			}

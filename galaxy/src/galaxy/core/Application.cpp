@@ -43,7 +43,7 @@ namespace galaxy
 			// Services are created in dependency order.
 
 			// Configure Logging.
-			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
+			const auto        now      = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 			const std::string log_path = std::format("{0}{1}{2}", "logs/", std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists("logs/"))
 			{
@@ -61,12 +61,12 @@ namespace galaxy
 			// Virtual filesystem setup.
 			m_filelistener = std::make_unique<fs::FileListener>();
 			m_filelistener->set_action(std::bind(&Application::reload_assets,
-												 this,
-												 std::placeholders::_1,
-												 std::placeholders::_2,
-												 std::placeholders::_3,
-												 std::placeholders::_4,
-												 std::placeholders::_5));
+				this,
+				std::placeholders::_1,
+				std::placeholders::_2,
+				std::placeholders::_3,
+				std::placeholders::_4,
+				std::placeholders::_5));
 
 			auto root = static_cast<std::string>(asset_dir);
 			if (root.back() != '/')
@@ -137,19 +137,14 @@ namespace galaxy
 			m_config->save();
 
 			// Window.
-			// clang-format off
-			core::WindowSettings settings
-			{
-				.m_vsync = m_config->get<bool>("vsync"),
-				.m_aspect_ratio_x = m_config->get<int>("aspect-ratio-x"),
-				.m_aspect_ratio_y = m_config->get<int>("aspect-ratio-y"),
-				.m_gl_debug = m_config->get<bool>("gl-debug"),
-				.m_title = m_config->get<std::string>("window-name"),
-				.m_width = m_config->get<int>("window-width"),
-				.m_height = m_config->get<int>("window-height"),
-				.m_maximized = m_config->get<bool>("maximized")
-			};
-			// clang-format on
+			core::WindowSettings settings {.m_vsync = m_config->get<bool>("vsync"),
+				.m_aspect_ratio_x                   = m_config->get<int>("aspect-ratio-x"),
+				.m_aspect_ratio_y                   = m_config->get<int>("aspect-ratio-y"),
+				.m_gl_debug                         = m_config->get<bool>("gl-debug"),
+				.m_title                            = m_config->get<std::string>("window-name"),
+				.m_width                            = m_config->get<int>("window-width"),
+				.m_height                           = m_config->get<int>("window-height"),
+				.m_maximized                        = m_config->get<bool>("maximized")};
 
 			m_window           = std::make_unique<core::Window>();
 			SL_HANDLE.m_window = m_window.get();
@@ -186,14 +181,14 @@ namespace galaxy
 				// Create lua instance and open libraries.
 				m_lua = std::make_unique<sol::state>();
 				m_lua->open_libraries(sol::lib::base,
-									  sol::lib::package,
-									  sol::lib::coroutine,
-									  sol::lib::string,
-									  sol::lib::os,
-									  sol::lib::math,
-									  sol::lib::table,
-									  sol::lib::io,
-									  sol::lib::utf8);
+					sol::lib::package,
+					sol::lib::coroutine,
+					sol::lib::string,
+					sol::lib::os,
+					sol::lib::math,
+					sol::lib::table,
+					sol::lib::io,
+					sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
 				// Generate default assets specified by config.
@@ -236,16 +231,16 @@ namespace galaxy
 				scripting::register_lua();
 
 				// Register services with Lua.
-				//m_lua->set("galaxy_audio_context", &m_openal);
-				//m_lua->set("galaxy_config", m_config.get());
-				//m_lua->set("galaxy_vfs", m_vfs.get());
-				//m_lua->set("galaxy_shaderboox", m_shaderbook.get());
-				//m_lua->set("galaxy_fontbook", m_fontbook.get());
-				//m_lua->set("galaxy_texturebook", m_texturebook.get());
-				//m_lua->set("galaxy_soundbook", m_soundbook.get());
-				//m_lua->set("galaxy_musicbook", m_musicbook.get());
-				//m_lua->set("galaxy_scriptbook", m_scriptbook.get());
-				//m_lua->set("galaxy_language", m_langs.get());
+				// m_lua->set("galaxy_audio_context", &m_openal);
+				// m_lua->set("galaxy_config", m_config.get());
+				// m_lua->set("galaxy_vfs", m_vfs.get());
+				// m_lua->set("galaxy_shaderboox", m_shaderbook.get());
+				// m_lua->set("galaxy_fontbook", m_fontbook.get());
+				// m_lua->set("galaxy_texturebook", m_texturebook.get());
+				// m_lua->set("galaxy_soundbook", m_soundbook.get());
+				// m_lua->set("galaxy_musicbook", m_musicbook.get());
+				// m_lua->set("galaxy_scriptbook", m_scriptbook.get());
+				// m_lua->set("galaxy_language", m_langs.get());
 
 				// Set up RMLUI.
 				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
@@ -330,9 +325,9 @@ namespace galaxy
 
 		const bool Application::run()
 		{
-			const bool log_perf  = m_config->get<bool>("log-perf");
-			unsigned int frames  = 0;
-			unsigned int updates = 0;
+			const bool   log_perf = m_config->get<bool>("log-perf");
+			unsigned int frames   = 0;
+			unsigned int updates  = 0;
 
 			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
 			constexpr const auto one_second  = std::chrono::seconds {1};
@@ -340,8 +335,8 @@ namespace galaxy
 			std::chrono::nanoseconds accumulator {0};
 			std::chrono::nanoseconds perf_counter {0};
 			std::chrono::nanoseconds elapsed {0};
-			auto previous = std::chrono::high_resolution_clock::now();
-			auto current  = std::chrono::high_resolution_clock::now();
+			auto                     previous = std::chrono::high_resolution_clock::now();
+			auto                     current  = std::chrono::high_resolution_clock::now();
 
 			while (m_window->is_open())
 			{

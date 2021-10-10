@@ -15,7 +15,8 @@ namespace galaxy
 	namespace map
 	{
 		///
-		/// This element is used to specify an offset in pixels, to be applied when drawing a tile from the related tileset. When not present, no offset is applied.
+		/// This element is used to specify an offset in pixels, to be applied when drawing a tile from the related tileset. When not present, no offset is
+		/// applied.
 		///
 		class TileOffset final
 		{

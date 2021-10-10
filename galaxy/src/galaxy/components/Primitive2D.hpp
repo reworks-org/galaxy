@@ -253,9 +253,9 @@ namespace galaxy
 				// Thanks to https://stackoverflow.com/a/33859443
 				// For help with maths.
 
-				unsigned int count        = 0;
+				unsigned int    count     = 0;
 				constexpr float incr_stat = 2.0f * glm::pi<float>();
-				const float increment     = incr_stat / data.m_fragments;
+				const float     increment = incr_stat / data.m_fragments;
 				for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 				{
 					graphics::Vertex vertex;
@@ -269,7 +269,7 @@ namespace galaxy
 				}
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
@@ -308,7 +308,7 @@ namespace galaxy
 				}
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
@@ -333,7 +333,7 @@ namespace galaxy
 				indices.push_back(1);
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
@@ -352,7 +352,7 @@ namespace galaxy
 				indices.push_back(0);
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);
@@ -394,7 +394,7 @@ namespace galaxy
 				}
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(m_vertexs, true);
 				ibo.create(indices, true);

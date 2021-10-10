@@ -39,15 +39,15 @@ namespace galaxy
 	/// Event type.
 	///
 	using Event = std::variant<std::monostate,
-							   events::KeyDown,
-							   events::KeyRepeat,
-							   events::KeyUp,
-							   events::KeyChar,
-							   events::MouseMoved,
-							   events::MousePressed,
-							   events::MouseReleased,
-							   events::MouseWheel,
-							   events::WindowResized>;
+		events::KeyDown,
+		events::KeyRepeat,
+		events::KeyUp,
+		events::KeyChar,
+		events::MouseMoved,
+		events::MousePressed,
+		events::MouseReleased,
+		events::MouseWheel,
+		events::WindowResized>;
 
 	///
 	/// Event queue type.

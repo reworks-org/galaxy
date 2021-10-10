@@ -77,7 +77,6 @@ namespace sc
 						ImGui::Spacing();
 
 						ImGui::Text("Camera:");
-						// clang-format off
 						float camera_x = scene->m_camera.get_pos().x;
 						if (ImGui::InputFloat("X##01", &camera_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
@@ -91,7 +90,12 @@ namespace sc
 						}
 
 						float camera_speed = scene->m_camera.get_speed();
-						if (ImGui::InputFloat("Speed##03", &camera_speed, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						if (ImGui::InputFloat("Speed##03",
+								&camera_speed,
+								1.0f,
+								10.0f,
+								"%.1f",
+								ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 						{
 							scene->m_camera.set_speed(camera_speed);
 						}
@@ -101,7 +105,6 @@ namespace sc
 						{
 							scene->m_camera.zoom(camera_zoom);
 						}
-						// clang-format on
 
 						ImGui::Spacing();
 						ImGui::TreePop();

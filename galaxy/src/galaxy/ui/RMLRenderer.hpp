@@ -45,8 +45,12 @@ namespace galaxy
 			/// \param texture The texture to be applied to the geometry. This may be nullptr, in which case the geometry is untextured.
 			/// \param translation The translation to apply to the geometry.
 			///
-			void RenderGeometry(
-				Rml::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::TextureHandle texture, const Rml::Vector2f& translation) override;
+			void RenderGeometry(Rml::Vertex* vertices,
+				int                          num_vertices,
+				int*                         indices,
+				int                          num_indices,
+				Rml::TextureHandle           texture,
+				const Rml::Vector2f&         translation) override;
 
 			///
 			/// Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable future.
@@ -60,7 +64,8 @@ namespace galaxy
 			/// \param num_indices The number of indices passed to the function. This will always be a multiple of three.
 			/// \param texture The texture to be applied to the geometry. This may be nullptr, in which case the geometry is untextured.
 			///
-			/// \return The application-specific compiled geometry. Compiled geometry will be stored and rendered using RenderCompiledGeometry() in future calls, and released with ReleaseCompiledGeometry() when it is no longer needed.
+			/// \return The application-specific compiled geometry. Compiled geometry will be stored and rendered using RenderCompiledGeometry() in future
+			/// calls, and released with ReleaseCompiledGeometry() when it is no longer needed.
 			///
 			Rml::CompiledGeometryHandle
 			CompileGeometry(Rml::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::TextureHandle texture) override;

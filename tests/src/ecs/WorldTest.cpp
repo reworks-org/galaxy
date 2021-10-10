@@ -87,7 +87,7 @@ struct DemoSystem : public galaxy::ecs::System
 TEST(ECS, CreateHasEntity)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	EXPECT_TRUE(w.has(e));
 }
@@ -95,7 +95,7 @@ TEST(ECS, CreateHasEntity)
 TEST(ECS, DoesNotHaveEntity)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	EXPECT_FALSE(w.has(59));
 }
@@ -110,7 +110,7 @@ TEST(ECS, HasWithEmptyManager)
 TEST(ECS, ComponentAddGet)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	auto* comp = w.create_component<Component>(e, 2);
 
@@ -127,8 +127,8 @@ TEST(ECS, ComponentAddGet)
 TEST(ECS, ComponentRemove)
 {
 	galaxy::core::World w;
-	auto e     = w.create();
-	auto* comp = w.create_component<Component>(e, 1);
+	auto                e    = w.create();
+	auto*               comp = w.create_component<Component>(e, 1);
 
 	w.remove<Component>(e);
 }
@@ -136,7 +136,7 @@ TEST(ECS, ComponentRemove)
 TEST(ECS, ComponentRemoveEmpty)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	// empty because we did not call create_component().
 	w.remove<Component>(e);
@@ -153,7 +153,7 @@ TEST(ECS, ComponentAddRemoveAdd)
 	// Remove component then readd it.
 
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	auto* comp = w.create_component<Component>(e, 10);
 	ASSERT_TRUE(comp != nullptr);
@@ -169,7 +169,7 @@ TEST(ECS, ComponentAddRemoveAdd)
 TEST(ECS, ComponentRemoveGet)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	w.create_component<Component>(e, 1);
 	w.remove<Component>(e);
@@ -181,7 +181,7 @@ TEST(ECS, ComponentRemoveGet)
 TEST(ECS, RemoveNonExistingComponent)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	w.remove<Component>(e);
 }
@@ -195,7 +195,7 @@ TEST(ECS, RemoveNonExistingComponentWithInvalidEntity)
 TEST(ECS, GetNonExistingComponent)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	auto* comp = w.get<Component>(e);
 	EXPECT_EQ(comp, nullptr);
@@ -212,7 +212,7 @@ TEST(ECS, GetNonExistingComponentWithInvalidEntity)
 TEST(ECS, CreateFromInvalid)
 {
 	galaxy::core::World w;
-	auto entity = w.create();
+	auto                entity = w.create();
 	w.destroy(entity);
 
 	auto* comp = w.create_component<Component>(entity, 1);
@@ -223,17 +223,15 @@ TEST(ECS, CreateFromInvalid)
 TEST(ECS, Operate)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 	w.enable(e);
 	w.create_component<AA>(e);
 	w.create_component<BB>(e);
 
-	w.operate<AA, BB>(
-		[](const galaxy::ecs::Entity entity, AA* a, BB* b)
-		{
-			a->val = 1;
-			b->val = 2;
-		});
+	w.operate<AA, BB>([](const galaxy::ecs::Entity entity, AA* a, BB* b) {
+		a->val = 1;
+		b->val = 2;
+	});
 
 	auto* a = w.get<AA>(e);
 	auto* b = w.get<BB>(e);
@@ -248,7 +246,7 @@ TEST(ECS, Operate)
 TEST(ECS, OperateMissing)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 	w.enable(e);
 	w.create_component<AA>(e);
 
@@ -256,19 +254,17 @@ TEST(ECS, OperateMissing)
 	a->val  = 5;
 
 	ASSERT_TRUE(a != nullptr);
-	w.operate<AA, BB>(
-		[](const galaxy::ecs::Entity entity, AA* a, BB* b)
+	w.operate<AA, BB>([](const galaxy::ecs::Entity entity, AA* a, BB* b) {
+		if (a != nullptr)
 		{
-			if (a != nullptr)
-			{
-				a->val = 1;
-			}
+			a->val = 1;
+		}
 
-			if (b != nullptr)
-			{
-				b->val = 1;
-			}
-		});
+		if (b != nullptr)
+		{
+			b->val = 1;
+		}
+	});
 
 	// I.e. operate() should not have been called.
 	EXPECT_EQ(a->val, 5);
@@ -277,18 +273,16 @@ TEST(ECS, OperateMissing)
 TEST(ECS, OperateAddRemove)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 	w.enable(e);
 
 	w.create_component<AA>(e);
 	w.create_component<BB>(e);
 
-	w.operate<AA, BB>(
-		[](const galaxy::ecs::Entity entity, AA* a, BB* b)
-		{
-			a->val = 1;
-			b->val = 2;
-		});
+	w.operate<AA, BB>([](const galaxy::ecs::Entity entity, AA* a, BB* b) {
+		a->val = 1;
+		b->val = 2;
+	});
 
 	auto* a = w.get<AA>(e);
 	auto* b = w.get<BB>(e);
@@ -302,19 +296,17 @@ TEST(ECS, OperateAddRemove)
 	w.remove<AA>(e);
 
 	// Should NOT be called.
-	w.operate<AA, BB>(
-		[](const galaxy::ecs::Entity entity, AA* a, BB* b)
+	w.operate<AA, BB>([](const galaxy::ecs::Entity entity, AA* a, BB* b) {
+		if (a != nullptr)
 		{
-			if (a != nullptr)
-			{
-				a->val = 5;
-			}
+			a->val = 5;
+		}
 
-			if (b != nullptr)
-			{
-				b->val = 5;
-			}
-		});
+		if (b != nullptr)
+		{
+			b->val = 5;
+		}
+	});
 
 	auto* a2 = w.get<AA>(e);
 	auto* b2 = w.get<BB>(e);
@@ -328,8 +320,8 @@ TEST(ECS, OperateAddRemove)
 TEST(ECS, Destroy)
 {
 	galaxy::core::World w;
-	auto e1 = w.create();
-	auto e2 = w.create();
+	auto                e1 = w.create();
+	auto                e2 = w.create();
 
 	w.create_component<Component>(e1, 10);
 	w.create_component<Component>(e2, 20);
@@ -352,7 +344,7 @@ TEST(ECS, DestroyInvalid)
 TEST(ECS, DestroyEmpty)
 {
 	galaxy::core::World w;
-	auto e = w.create();
+	auto                e = w.create();
 
 	w.destroy(e);
 	EXPECT_EQ(w.has(e), false);
@@ -399,8 +391,8 @@ TEST(ECS, Updates)
 TEST(ECS, Clear)
 {
 	galaxy::core::World w;
-	auto e1 = w.create();
-	auto e2 = w.create();
+	auto                e1 = w.create();
+	auto                e2 = w.create();
 
 	w.create_component<Component>(e1, 10);
 	w.create_component<Component>(e2, 20);
@@ -411,7 +403,7 @@ TEST(ECS, Clear)
 TEST(ECS, Add_Is_Get_Parent)
 {
 	galaxy::core::World w;
-	auto entity = w.create();
+	auto                entity = w.create();
 
 	w.make_parent(entity);
 
@@ -422,7 +414,7 @@ TEST(ECS, Add_Is_Get_Parent)
 TEST(ECS, Remove_Is_Get_Parent)
 {
 	galaxy::core::World w;
-	auto entity = w.create();
+	auto                entity = w.create();
 
 	w.make_parent(entity);
 	w.remove_parent(entity);
@@ -434,8 +426,8 @@ TEST(ECS, Remove_Is_Get_Parent)
 TEST(ECS, AssignChild)
 {
 	galaxy::core::World w;
-	auto p = w.create();
-	auto c = w.create();
+	auto                p = w.create();
+	auto                c = w.create();
 
 	w.make_parent(p);
 	w.assign_child(p, c);
@@ -450,8 +442,8 @@ TEST(ECS, AssignChild)
 TEST(ECS, RemoveChild)
 {
 	galaxy::core::World w;
-	auto p = w.create();
-	auto c = w.create();
+	auto                p = w.create();
+	auto                c = w.create();
 
 	w.make_parent(p);
 	w.assign_child(p, c);
@@ -469,7 +461,7 @@ TEST(ECS, RemoveChild)
 TEST(ECS, Destroy_Is_Get_Parent)
 {
 	galaxy::core::World w;
-	auto entity = w.create();
+	auto                entity = w.create();
 
 	w.make_parent(entity);
 	w.create_component<Component>(entity, 0);
@@ -487,7 +479,7 @@ TEST(ECS, Destroy_Is_Get_Parent)
 TEST(ECS, DestroyParentNotChildren)
 {
 	galaxy::core::World w;
-	auto e1 = w.create();
+	auto                e1 = w.create();
 
 	w.make_parent(e1);
 	w.create_component<Component>(e1, 0);
@@ -504,8 +496,8 @@ TEST(ECS, DestroyParentNotChildren)
 TEST(ECS, DestroyChildNotParent)
 {
 	galaxy::core::World w;
-	auto p = w.create();
-	auto c = w.create();
+	auto                p = w.create();
+	auto                c = w.create();
 
 	w.make_parent(p);
 	w.assign_child(p, c);

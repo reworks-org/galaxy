@@ -66,8 +66,8 @@ namespace galaxy
 
 		const bool BufferStream::internal_load(std::string_view file)
 		{
-			bool result     = true;
-			const auto path = SL_HANDLE.vfs()->absolute(file);
+			bool       result = true;
+			const auto path   = SL_HANDLE.vfs()->absolute(file);
 
 			if (path == std::nullopt)
 			{

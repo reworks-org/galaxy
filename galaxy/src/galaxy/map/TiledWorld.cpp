@@ -43,8 +43,8 @@ namespace galaxy
 			for (const auto& obj : map_array)
 			{
 				std::string file = obj.at("fileName");
-				const auto id    = std::filesystem::path(file).stem().string();
-				Map map;
+				const auto  id   = std::filesystem::path(file).stem().string();
+				Map         map;
 
 				if (!map.load(file))
 				{

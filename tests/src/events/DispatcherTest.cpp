@@ -37,7 +37,7 @@ struct DemoObject
 TEST(Dispatcher, SubscribeAndTrigger)
 {
 	galaxy::events::Dispatcher dispatch;
-	DemoObject obj;
+	DemoObject                 obj;
 
 	dispatch.subscribe<DemoEvent>(obj);
 	dispatch.trigger<DemoEvent>(100);

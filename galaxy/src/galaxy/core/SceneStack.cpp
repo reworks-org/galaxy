@@ -152,11 +152,9 @@ namespace galaxy
 			std::vector<std::string> keys;
 			keys.reserve(m_scenes.size());
 
-			// clang-format off
 			std::transform(m_scenes.begin(), m_scenes.end(), std::back_inserter(keys), [](const auto& pair) {
 				return pair.first;
 			});
-			// clang-format on
 
 			return keys;
 		}

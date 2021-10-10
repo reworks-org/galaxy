@@ -37,8 +37,7 @@ namespace galaxy
 		void RenderSystem2D::render(core::World& world)
 		{
 			world.operate<components::Renderable, components::Transform2D>(
-				[&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform)
-				{
+				[&](const ecs::Entity entity, components::Renderable* renderable, components::Transform2D* transform) {
 					// Ordered this way for compiler optimizations.
 					// Most-Least common.
 					switch (renderable->m_type)

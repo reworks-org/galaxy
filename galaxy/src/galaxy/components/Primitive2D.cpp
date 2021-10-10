@@ -178,8 +178,8 @@ namespace galaxy
 			m_type            = magic_enum::enum_cast<graphics::Primitives>(json.at("type").get<std::string>()).value();
 			std::string layer = json.at("layer");
 
-			const auto& col_json    = json.at("colour");
-			graphics::Colour colour = {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
+			const auto&      col_json = json.at("colour");
+			graphics::Colour colour   = {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
 
 			if (json.count("radius") > 0)
 			{

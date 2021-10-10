@@ -47,7 +47,6 @@ namespace galaxy
 			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
 			m_rml          = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height()});
 
-			// clang-format off
 			m_dispatcher.subscribe_callback<events::MouseMoved>([this](const events::MouseMoved& mme) {
 				this->m_rml->ProcessMouseMove(static_cast<int>(std::trunc(mme.m_x)), static_cast<int>(std::trunc(mme.m_y)), 0);
 			});
@@ -76,7 +75,7 @@ namespace galaxy
 				if (Rml::Element* element = this->m_rml->GetFocusElement())
 				{
 					const auto& tag = element->GetTagName();
-					if(tag == "input" || tag == "textarea" || tag == "select")
+					if (tag == "input" || tag == "textarea" || tag == "select")
 					{
 						this->m_rml->ProcessTextInput(kce.m_character);
 					}
@@ -86,7 +85,6 @@ namespace galaxy
 			m_dispatcher.subscribe_callback<events::WindowResized>([this](const events::WindowResized& wre) {
 				this->m_rml->SetDimensions({wre.m_width, wre.m_height});
 			});
-			// clang-format on
 		}
 
 		Scene2D::~Scene2D() noexcept
@@ -175,8 +173,8 @@ namespace galaxy
 			json["world"]      = m_world.serialize();
 			json["active-map"] = m_active_map;
 			json["maps-path"]  = m_maps_path;
-			//json["theme"]  = m_gui_theme.serialize();
-			//json["gui"]    = m_gui.serialize();
+			// json["theme"]  = m_gui_theme.serialize();
+			// json["gui"]    = m_gui.serialize();
 
 			return json;
 		}
@@ -191,9 +189,9 @@ namespace galaxy
 			m_active_map = json.at("active-map");
 			m_maps_path  = json.at("maps-path");
 
-			//m_gui_theme.deserialize(json.at("theme"));
-			//m_gui.set_theme(&m_gui_theme);
-			//m_gui.deserialize(json.at("gui"));
+			// m_gui_theme.deserialize(json.at("theme"));
+			// m_gui.set_theme(&m_gui_theme);
+			// m_gui.deserialize(json.at("gui"));
 		}
 	} // namespace core
 } // namespace galaxy

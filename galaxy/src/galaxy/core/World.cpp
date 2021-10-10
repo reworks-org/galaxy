@@ -191,7 +191,7 @@ namespace galaxy
 			if (is_parent(parent))
 			{
 				m_relationships[parent].erase(std::remove(std::execution::par, m_relationships[parent].begin(), m_relationships[parent].end(), child),
-											  m_relationships[parent].end());
+					m_relationships[parent].end());
 			}
 		}
 
@@ -211,12 +211,10 @@ namespace galaxy
 		{
 			remove_parent(entity);
 
-			// clang-format off
 			std::for_each(std::execution::par, m_relationships.begin(), m_relationships.end(), [entity](auto& pair) {
 				// Does nothing if it does not exist.
 				pair.second.erase(std::remove(pair.second.begin(), pair.second.end(), entity), pair.second.end());
 			});
-			// clang-format on
 
 			m_entities.erase(std::remove(std::execution::par, m_entities.begin(), m_entities.end(), entity), m_entities.end());
 
@@ -297,17 +295,17 @@ namespace galaxy
 
 					auto [actions, animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
 						get_multi<components::Actions,
-								  components::Animated,
-								  components::BatchSprite,
-								  components::OnCollision,
-								  components::ParticleEffect,
-								  components::Primitive2D,
-								  components::Renderable,
-								  components::RigidBody,
-								  components::Sprite,
-								  components::Tag,
-								  components::Text,
-								  components::Transform2D>(entity);
+							components::Animated,
+							components::BatchSprite,
+							components::OnCollision,
+							components::ParticleEffect,
+							components::Primitive2D,
+							components::Renderable,
+							components::RigidBody,
+							components::Sprite,
+							components::Tag,
+							components::Text,
+							components::Transform2D>(entity);
 
 					if (actions)
 					{

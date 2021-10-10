@@ -59,339 +59,331 @@ namespace sc
 					if (ImGui::MenuItem("Create from JSON"))
 					{
 						const auto file = SL_HANDLE.vfs()->show_open_dialog("*.json");
-						gl_operations.push_back(
-							[file, top]()
+						gl_operations.push_back([file, top]() {
+							if (file == std::nullopt)
 							{
-								if (file == std::nullopt)
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
-								}
-								else
-								{
-									top->m_world.create_from_json(file.value());
-								}
-							});
+								GALAXY_LOG(GALAXY_ERROR, "Failed to open json for creating an entity.");
+							}
+							else
+							{
+								top->m_world.create_from_json(file.value());
+							}
+						});
 					}
 
 					ImGui::EndMenuBar();
 				}
 
-				top->m_world.each(
-					[&](const ecs::Entity entity)
+				top->m_world.each([&](const ecs::Entity entity) {
+					auto* tag = top->m_world.get<components::Tag>(entity);
+					if (tag)
 					{
-						auto* tag = top->m_world.get<components::Tag>(entity);
-						if (tag)
-						{
-							m_label = tag->m_tag;
-						}
-						else
-						{
-							m_label = "Unnamed";
-						}
+						m_label = tag->m_tag;
+					}
+					else
+					{
+						m_label = "Unnamed";
+					}
 
-						ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-						if (m_selected != std::nullopt)
+					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+					if (m_selected != std::nullopt)
+					{
+						if (m_selected.value() == entity)
 						{
-							if (m_selected.value() == entity)
+							flags |= ImGuiTreeNodeFlags_Selected;
+						}
+					}
+
+					if (!m_selected || m_selected.value() != entity)
+					{
+						ImGui::SetNextItemOpen(false);
+					}
+
+					const bool is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(entity), flags, m_label.c_str());
+					if (ImGui::IsItemClicked())
+					{
+						m_selected = std::make_optional(entity);
+					}
+
+					if (is_open)
+					{
+						ImGui::Text(std::format("ID: {0}.", entity).c_str());
+
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
+						bool enabled = top->m_world.is_enabled(entity);
+						if (ImGui::Checkbox("Enabled?", &enabled))
+						{
+							if (enabled)
 							{
-								flags |= ImGuiTreeNodeFlags_Selected;
+								top->m_world.enable(entity);
+							}
+							else
+							{
+								top->m_world.disable(entity);
 							}
 						}
 
-						if (!m_selected || m_selected.value() != entity)
+						ImGui::SameLine();
+						ImGui::Spacing();
+						ImGui::SameLine();
+
+						bool allow_serialize = top->m_world.is_flag_set<flags::AllowSerialize>(entity);
+						if (ImGui::Checkbox("Serialize?", &allow_serialize))
 						{
-							ImGui::SetNextItemOpen(false);
+							if (allow_serialize)
+							{
+								top->m_world.set_flag<flags::AllowSerialize>(entity);
+							}
+							else
+							{
+								top->m_world.unset_flag<flags::AllowSerialize>(entity);
+							}
 						}
 
-						const bool is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(entity), flags, m_label.c_str());
-						if (ImGui::IsItemClicked())
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
+						if (ImGui::BeginTable("AddRemoveTable1", 4, ImGuiTableFlags_NoBordersInBody))
 						{
-							m_selected = std::make_optional(entity);
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Name");
+							ImGui::TableNextColumn();
+							ImGui::Text("Add");
+							ImGui::TableNextColumn();
+							ImGui::Text("Remove");
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Animated");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##1"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Animated>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##2"))
+							{
+								top->m_world.remove<components::Animated>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("On Collision");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##3"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::OnCollision>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##4"))
+							{
+								top->m_world.remove<components::OnCollision>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("2D Primitive");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##5"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Primitive2D>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##6"))
+							{
+								top->m_world.remove<components::Primitive2D>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Rigid Body");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##7"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::RigidBody>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##8"))
+							{
+								top->m_world.remove<components::RigidBody>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Tag");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##9"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Tag>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##10"))
+							{
+								top->m_world.remove<components::Tag>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Transform2D");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##11"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Transform2D>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##12"))
+							{
+								top->m_world.remove<components::Transform2D>(entity);
+							}
+
+							ImGui::EndTable();
 						}
 
-						if (is_open)
+						ImGui::SetCursorPosX(230.0f);
+						ImGui::SetCursorPosY(143.0f);
+
+						if (ImGui::BeginTable("AddRemoveTable2", 4, ImGuiTableFlags_NoBordersInBody))
 						{
-							ImGui::Text(std::format("ID: {0}.", entity).c_str());
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Name");
+							ImGui::TableNextColumn();
+							ImGui::Text("Add");
+							ImGui::TableNextColumn();
+							ImGui::Text("Remove");
 
-							ImGui::Spacing();
-							ImGui::Separator();
-							ImGui::Spacing();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Action");
+							ImGui::TableNextColumn();
 
-							bool enabled = top->m_world.is_enabled(entity);
-							if (ImGui::Checkbox("Enabled?", &enabled))
+							if (ImGui::Button(" + ##13"))
 							{
-								if (enabled)
-								{
-									top->m_world.enable(entity);
-								}
-								else
-								{
-									top->m_world.disable(entity);
-								}
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Actions>(entity);
 							}
 
-							ImGui::SameLine();
-							ImGui::Spacing();
-							ImGui::SameLine();
+							ImGui::TableNextColumn();
 
-							bool allow_serialize = top->m_world.is_flag_set<flags::AllowSerialize>(entity);
-							if (ImGui::Checkbox("Serialize?", &allow_serialize))
+							if (ImGui::Button(" - ##14"))
 							{
-								if (allow_serialize)
-								{
-									top->m_world.set_flag<flags::AllowSerialize>(entity);
-								}
-								else
-								{
-									top->m_world.unset_flag<flags::AllowSerialize>(entity);
-								}
+								top->m_world.remove<components::Actions>(entity);
 							}
 
-							ImGui::Spacing();
-							ImGui::Separator();
-							ImGui::Spacing();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Batch Sprite");
+							ImGui::TableNextColumn();
 
-							if (ImGui::BeginTable("AddRemoveTable1", 4, ImGuiTableFlags_NoBordersInBody))
+							if (ImGui::Button(" + ##15"))
 							{
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Name");
-								ImGui::TableNextColumn();
-								ImGui::Text("Add");
-								ImGui::TableNextColumn();
-								ImGui::Text("Remove");
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Animated");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##1"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Animated>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##2"))
-								{
-									top->m_world.remove<components::Animated>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("On Collision");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##3"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::OnCollision>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##4"))
-								{
-									top->m_world.remove<components::OnCollision>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("2D Primitive");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##5"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Primitive2D>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##6"))
-								{
-									top->m_world.remove<components::Primitive2D>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Rigid Body");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##7"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::RigidBody>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##8"))
-								{
-									top->m_world.remove<components::RigidBody>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Tag");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##9"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Tag>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##10"))
-								{
-									top->m_world.remove<components::Tag>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Transform2D");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##11"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Transform2D>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##12"))
-								{
-									top->m_world.remove<components::Transform2D>(entity);
-								}
-
-								ImGui::EndTable();
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::BatchSprite>(entity);
 							}
 
-							ImGui::SetCursorPosX(230.0f);
-							ImGui::SetCursorPosY(143.0f);
+							ImGui::TableNextColumn();
 
-							if (ImGui::BeginTable("AddRemoveTable2", 4, ImGuiTableFlags_NoBordersInBody))
+							if (ImGui::Button(" - ##16"))
 							{
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Name");
-								ImGui::TableNextColumn();
-								ImGui::Text("Add");
-								ImGui::TableNextColumn();
-								ImGui::Text("Remove");
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Action");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##13"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Actions>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##14"))
-								{
-									top->m_world.remove<components::Actions>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Batch Sprite");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##15"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::BatchSprite>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##16"))
-								{
-									top->m_world.remove<components::BatchSprite>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Renderable");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##17"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Renderable>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##18"))
-								{
-									top->m_world.remove<components::Renderable>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Sprite2D");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##19"))
-								{
-									top->m_world.disable(entity);
-									top->m_world.create_component<components::Sprite>(entity);
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##20"))
-								{
-									top->m_world.remove<components::Sprite>(entity);
-								}
-
-								ImGui::TableNextRow();
-								ImGui::TableNextColumn();
-								ImGui::Text("Text");
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" + ##21"))
-								{
-									top->m_world.disable(entity);
-
-									// clang-format off
-									auto* world = &top->m_world;
-									gl_operations.emplace_back([world, entity]() {
-										world->create_component<components::Text>(entity);
-									});
-									// clang-format on
-								}
-
-								ImGui::TableNextColumn();
-
-								if (ImGui::Button(" - ##22"))
-								{
-									// clang-format off
-									auto* world = &top->m_world;
-									gl_operations.emplace_back([world, entity]() {
-										world->remove<components::Text>(entity);
-									});
-									// clang-format on
-								}
-
-								ImGui::EndTable();
+								top->m_world.remove<components::BatchSprite>(entity);
 							}
 
-							ImGui::TreePop();
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Renderable");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##17"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Renderable>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##18"))
+							{
+								top->m_world.remove<components::Renderable>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Sprite2D");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##19"))
+							{
+								top->m_world.disable(entity);
+								top->m_world.create_component<components::Sprite>(entity);
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##20"))
+							{
+								top->m_world.remove<components::Sprite>(entity);
+							}
+
+							ImGui::TableNextRow();
+							ImGui::TableNextColumn();
+							ImGui::Text("Text");
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" + ##21"))
+							{
+								top->m_world.disable(entity);
+
+								auto* world = &top->m_world;
+								gl_operations.emplace_back([world, entity]() {
+									world->create_component<components::Text>(entity);
+								});
+							}
+
+							ImGui::TableNextColumn();
+
+							if (ImGui::Button(" - ##22"))
+							{
+								auto* world = &top->m_world;
+								gl_operations.emplace_back([world, entity]() {
+									world->remove<components::Text>(entity);
+								});
+							}
+
+							ImGui::EndTable();
 						}
-					});
+
+						ImGui::TreePop();
+					}
+				});
 
 				if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 				{
@@ -419,25 +411,19 @@ namespace sc
 
 		void EntityEditor::render_components(core::Scene2D* top, const ecs::Entity entity, OpenGLOperationStack& gl_operations)
 		{
-			// clang-format off
-			auto [actions, animated, batchsprite,
-				oncollision, particleffect, primitive2d,
-				renderable, rigidbody, sprite, tag,
-				text, transform2d] =
-				top->m_world.get_multi<
-				components::Actions,
-				components::Animated,
-				components::BatchSprite,
-				components::OnCollision,
-				components::ParticleEffect,
-				components::Primitive2D,
-				components::Renderable,
-				components::RigidBody,
-				components::Sprite,
-				components::Tag,
-				components::Text,
-				components::Transform2D>(entity);
-			// clang-format on
+			auto [actions, animated, batchsprite, oncollision, particleffect, primitive2d, renderable, rigidbody, sprite, tag, text, transform2d] =
+				top->m_world.get_multi<components::Actions,
+					components::Animated,
+					components::BatchSprite,
+					components::OnCollision,
+					components::ParticleEffect,
+					components::Primitive2D,
+					components::Renderable,
+					components::RigidBody,
+					components::Sprite,
+					components::Tag,
+					components::Text,
+					components::Transform2D>(entity);
 
 			if (ImGui::BeginTabBar("EntityComponentsTabBar", ImGuiTabBarFlags_NoCloseWithMiddleMouseButton | ImGuiTabBarFlags_Reorderable))
 			{
@@ -466,8 +452,8 @@ namespace sc
 
 							if (!s_mode)
 							{
-								static constexpr auto& keys  = magic_enum::enum_names<input::Keys>();
-								static const char* s_current = "...";
+								static constexpr auto& keys      = magic_enum::enum_names<input::Keys>();
+								static const char*     s_current = "...";
 								if (ImGui::BeginCombo("Keys", s_current))
 								{
 									for (const auto& key : keys)
@@ -503,8 +489,8 @@ namespace sc
 							}
 							else
 							{
-								constexpr auto& mouse_buttons = magic_enum::enum_names<input::MouseButtons>();
-								static const char* s_current  = "...";
+								constexpr auto&    mouse_buttons = magic_enum::enum_names<input::MouseButtons>();
+								static const char* s_current     = "...";
 								if (ImGui::BeginCombo("Mouse Buttons", s_current))
 								{
 									for (const auto& mb : mouse_buttons)
@@ -557,7 +543,7 @@ namespace sc
 							}
 
 							const char* key_name = magic_enum::enum_name(key).data();
-							const bool is_open   = ImGui::TreeNodeEx(reinterpret_cast<void*>(key), flags, key_name);
+							const bool  is_open  = ImGui::TreeNodeEx(reinterpret_cast<void*>(key), flags, key_name);
 							if (ImGui::IsItemClicked())
 							{
 								s_selected_key = key;
@@ -591,7 +577,7 @@ namespace sc
 							}
 
 							const char* mb_name = magic_enum::enum_name(mb).data();
-							const bool is_open  = ImGui::TreeNodeEx(reinterpret_cast<void*>(mb), flags, mb_name);
+							const bool  is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(mb), flags, mb_name);
 							if (ImGui::IsItemClicked())
 							{
 								s_selected_mb = mb;
@@ -625,15 +611,16 @@ namespace sc
 
 						if (s_add)
 						{
-							static std::string s_id;
-							static bool s_loop                           = false;
-							static float s_speed                         = 1.0f;
+							static std::string                  s_id;
+							static bool                         s_loop   = false;
+							static float                        s_speed  = 1.0f;
 							static std::vector<graphics::Frame> s_frames = {};
 
 							if (ImGui::BeginPopup("AddAnimation", ImGuiWindowFlags_AlwaysAutoResize))
 							{
-								ImGui::InputText(
-									"ID", &s_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
+								ImGui::InputText("ID",
+									&s_id,
+									ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
 								ImGui::Checkbox("Is Looping?", &s_loop);
 								ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
 
@@ -648,13 +635,12 @@ namespace sc
 									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
 									{
 										static graphics::Frame s_frame;
-										static std::string s_tex_id;
-										static double s_tpf = 0.1;
+										static std::string     s_tex_id;
+										static double          s_tpf = 0.1;
 
 										ImGui::InputText("Texture Atlas ID",
-														 &s_tex_id,
-														 ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank |
-															 ImGuiInputTextFlags_EnterReturnsTrue);
+											&s_tex_id,
+											ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
 
 										const static double s_min = 0.1;
 										const static double s_max = 10.0;

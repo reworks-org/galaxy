@@ -23,10 +23,10 @@ namespace galaxy
 
 			try
 			{
-				char in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read      = 0;
+				char         in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read              = 0;
 
-				std::string result;
+				std::string       result;
 				std::stringstream sstream;
 				sstream.str(input);
 
@@ -61,10 +61,10 @@ namespace galaxy
 
 			try
 			{
-				char in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read      = 0;
+				char         in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read              = 0;
 
-				std::string result;
+				std::string       result;
 				std::stringstream sstream;
 				sstream.str(input);
 

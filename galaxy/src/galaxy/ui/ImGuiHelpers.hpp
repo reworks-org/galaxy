@@ -22,9 +22,9 @@ namespace galaxy
 	namespace ui
 	{
 		[[maybe_unused]] ImGuiIO& imgui_init_context() noexcept;
-		void imgui_new_frame() noexcept;
-		void imgui_render() noexcept;
-		void imgui_destroy_context() noexcept;
+		void                      imgui_new_frame() noexcept;
+		void                      imgui_render() noexcept;
+		void                      imgui_destroy_context() noexcept;
 	} // namespace ui
 } // namespace galaxy
 

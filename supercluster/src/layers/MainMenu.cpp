@@ -31,35 +31,33 @@ namespace sc
 		font_config.OversampleH          = 4;
 		m_bigger_default_font = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 144.0f, &font_config);
 
-		//m_scene_stack.create("MainMenu");
-		//m_scene_stack.push("MainMenu");
+		// m_scene_stack.create("MainMenu");
+		// m_scene_stack.push("MainMenu");
 	}
 
 	MainMenu::~MainMenu() noexcept
 	{
 		m_editor = nullptr;
 
-		//m_scene_stack.clear();
+		// m_scene_stack.clear();
 	}
 
 	void MainMenu::events()
 	{
-		//m_scene_stack.events();
+		// m_scene_stack.events();
 	}
 
 	void MainMenu::update()
 	{
-		//m_scene_stack.update();
+		// m_scene_stack.update();
 	}
 
 	void MainMenu::pre_render()
 	{
 		ui::imgui_new_frame();
 
-		// clang-format off
-		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | 
-			ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
-		// clang-format on
+		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
+															   ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
@@ -67,7 +65,7 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		const float window_calc             = ImGui::GetWindowWidth() / 2.0f;
+		const float           window_calc   = ImGui::GetWindowWidth() / 2.0f;
 		constexpr const float button_width  = 200.0f;
 		constexpr const float button_height = 40.0f;
 
@@ -111,13 +109,13 @@ namespace sc
 
 		ImGui::End();
 
-		//m_scene_stack.pre_render();
+		// m_scene_stack.pre_render();
 	}
 
 	void MainMenu::render()
 	{
 		ui::imgui_render();
 
-		//m_scene_stack.render();
+		// m_scene_stack.render();
 	}
 } // namespace sc

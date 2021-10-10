@@ -45,7 +45,7 @@ namespace galaxy
 		/// \return Const bool. True if file successfully saved to disk.
 		///
 		[[nodiscard]] const bool save_to_disk(std::string_view path, const nlohmann::json& json);
-	} //namespace json
+	} // namespace json
 } // namespace galaxy
 
 #endif

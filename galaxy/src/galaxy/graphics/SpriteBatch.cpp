@@ -19,7 +19,7 @@ namespace galaxy
 			, m_height {0}
 		{
 			VertexBuffer vbo;
-			IndexBuffer ibo;
+			IndexBuffer  ibo;
 
 			vbo.create({}, false, max_quads * 4);
 
@@ -123,7 +123,7 @@ namespace galaxy
 					result = (transform->get_transform() * glm::vec4 {0.0f + sprite->get_region().m_width, 0.0f + sprite->get_region().m_height, 0.0f, 1.0f});
 					vertex.m_pos    = {result.x, result.y};
 					vertex.m_texels = {(sprite->get_region().m_x + sprite->get_region().m_width) - 0.5f,
-									   (sprite->get_region().m_y + sprite->get_region().m_height) - 0.5f};
+						(sprite->get_region().m_y + sprite->get_region().m_height) - 0.5f};
 					vertex.set_colour({0, 0, 0, sprite->get_opacity()});
 
 					m_vertices.emplace_back(vertex);

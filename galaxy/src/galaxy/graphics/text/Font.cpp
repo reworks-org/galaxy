@@ -7,7 +7,7 @@
 
 // Silence pointless conversion warnings.
 #if defined(_WIN32) || defined(_WIN64)
-	#pragma warning(disable : 4244)
+#pragma warning(disable : 4244)
 #endif
 
 #include <glad/glad.h>
@@ -101,7 +101,7 @@ namespace galaxy
 						glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 						FT_UInt ft_index = 0;
-						char ft_char     = FT_Get_First_Char(ft_face, &ft_index);
+						char    ft_char  = FT_Get_First_Char(ft_face, &ft_index);
 						while (ft_index)
 						{
 							if (FT_Load_Char(ft_face, ft_char, FT_LOAD_RENDER) != FT_OK)
@@ -113,14 +113,14 @@ namespace galaxy
 								Character character;
 								glBindTexture(GL_TEXTURE_2D, character.m_texture);
 								glTexImage2D(GL_TEXTURE_2D,
-											 0,
-											 GL_RED,
-											 ft_face->glyph->bitmap.width,
-											 ft_face->glyph->bitmap.rows,
-											 0,
-											 GL_RED,
-											 GL_UNSIGNED_BYTE,
-											 ft_face->glyph->bitmap.buffer);
+									0,
+									GL_RED,
+									ft_face->glyph->bitmap.width,
+									ft_face->glyph->bitmap.rows,
+									0,
+									GL_RED,
+									GL_UNSIGNED_BYTE,
+									ft_face->glyph->bitmap.buffer);
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 								glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -164,11 +164,9 @@ namespace galaxy
 
 		const int Font::get_width(std::string_view text) noexcept
 		{
-			// clang-format off
 			return std::accumulate(text.begin(), text.end(), 0, [this](int width, const char c) {
 				return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
 			});
-			// clang-format on
 		}
 
 		const int Font::get_height() const noexcept
@@ -189,5 +187,5 @@ namespace galaxy
 } // namespace galaxy
 
 #if defined(_WIN32) || defined(_WIN64)
-	#pragma warning(default : 4244)
+#pragma warning(default : 4244)
 #endif

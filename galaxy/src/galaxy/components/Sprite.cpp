@@ -71,7 +71,7 @@ namespace galaxy
 			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
-			graphics::IndexBuffer ibo;
+			graphics::IndexBuffer  ibo;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);
@@ -99,7 +99,7 @@ namespace galaxy
 			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
-			graphics::IndexBuffer ibo;
+			graphics::IndexBuffer  ibo;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);
@@ -126,7 +126,7 @@ namespace galaxy
 			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 			graphics::VertexBuffer vbo;
-			graphics::IndexBuffer ibo;
+			graphics::IndexBuffer  ibo;
 
 			vbo.create(vertices, false);
 			ibo.create(indices, true);

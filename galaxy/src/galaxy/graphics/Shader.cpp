@@ -121,10 +121,10 @@ namespace galaxy
 			if (result)
 			{
 				// Error reporting for OpenGL.
-				char info[1024];
-				int success       = 0;
-				unsigned int v_id = 0;
-				unsigned int f_id = 0;
+				char         info[1024];
+				int          success = 0;
+				unsigned int v_id    = 0;
+				unsigned int f_id    = 0;
 
 				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string.
 				const char* v_src = vertex_str.c_str();

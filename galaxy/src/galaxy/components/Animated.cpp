@@ -143,7 +143,7 @@ namespace galaxy
 			m_time_spent_on_frame = 0.0;
 			m_animations.clear();
 
-			const bool _play                = json.at("play");
+			const bool        _play         = json.at("play");
 			const std::string starting_anim = json.at("starting-animation");
 
 			const auto anim_objs = json.at("animations");

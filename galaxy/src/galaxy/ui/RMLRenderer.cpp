@@ -65,7 +65,7 @@ namespace galaxy
 	struct RMLVAO final
 	{
 		graphics::VertexArray m_vao;
-		GLuint m_texture;
+		GLuint                m_texture;
 	};
 
 	namespace ui
@@ -83,8 +83,12 @@ namespace galaxy
 			m_shader.unbind();
 		}
 
-		void RMLRenderer::RenderGeometry(
-			Rml::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::TextureHandle texture, const Rml::Vector2f& translation)
+		void RMLRenderer::RenderGeometry(Rml::Vertex* vertices,
+			int                                       num_vertices,
+			int*                                      indices,
+			int                                       num_indices,
+			Rml::TextureHandle                        texture,
+			const Rml::Vector2f&                      translation)
 		{
 			GALAXY_UNUSED(vertices);
 			GALAXY_UNUSED(num_vertices);
@@ -102,7 +106,7 @@ namespace galaxy
 			const auto rml_verts = std::span<Rml::Vertex> {vertices, static_cast<std::size_t>(num_vertices)};
 			const auto rml_index = std::span<int> {indices, static_cast<std::size_t>(num_indices)};
 
-			graphics::VertexBuffer vbo;
+			graphics::VertexBuffer        vbo;
 			std::vector<graphics::Vertex> vertex_array;
 
 			vertex_array.reserve(rml_verts.size());
@@ -119,7 +123,7 @@ namespace galaxy
 			}
 			vbo.create(vertex_array, true);
 
-			graphics::IndexBuffer ibo;
+			graphics::IndexBuffer     ibo;
 			std::vector<unsigned int> index_array;
 
 			index_array.reserve(rml_index.size());
@@ -140,18 +144,10 @@ namespace galaxy
 		{
 			auto rml_vao = reinterpret_cast<RMLVAO*>(geometry);
 
-			// clang-format off
 			m_shader.bind();
-			m_shader.set_uniform("u_translation", glm::vec2 { translation.x, translation.y });
-			m_shader.set_uniform(
-				"u_proj",
-				glm::ortho(0.0f, 
-				static_cast<float>(SL_HANDLE.window()->get_width()), 
-				static_cast<float>(SL_HANDLE.window()->get_height()), 
-				0.0f, 
-				-1.0f, 1.0f)
-			);
-			// clang-format on
+			m_shader.set_uniform("u_translation", glm::vec2 {translation.x, translation.y});
+			m_shader.set_uniform("u_proj",
+				glm::ortho(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f, -1.0f, 1.0f));
 
 			glViewport(0, 0, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height());
 			glBindTexture(GL_TEXTURE_2D, rml_vao->m_texture);
@@ -265,16 +261,13 @@ namespace galaxy
 			}
 			else
 			{
-				const auto matrix              = glm::make_mat4(transform->data());
+				const auto      matrix         = glm::make_mat4(transform->data());
 				const glm::vec2 scissor_transf = matrix * glm::vec4 {m_scissor_region.x, m_scissor_region.y, 0.0f, 1.0f};
 
-				// clang-format off
-				SetScissorRegion(
-					static_cast<int>(std::trunc(scissor_transf.x)), 
-					static_cast<int>(std::trunc(scissor_transf.y)), 
-					static_cast<int>(std::trunc(m_scissor_region.z)), 
+				SetScissorRegion(static_cast<int>(std::trunc(scissor_transf.x)),
+					static_cast<int>(std::trunc(scissor_transf.y)),
+					static_cast<int>(std::trunc(m_scissor_region.z)),
 					static_cast<int>(std::trunc(m_scissor_region.w)));
-				// clang-format on
 
 				m_shader.bind();
 				m_shader.set_uniform("u_transform", matrix);

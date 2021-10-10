@@ -42,9 +42,9 @@ namespace sc
 			void add_to_array(nlohmann::json& json);
 
 		private:
-			int m_counter;
-			bool m_loaded;
-			nlohmann::json m_root;
+			int             m_counter;
+			bool            m_loaded;
+			nlohmann::json  m_root;
 			nlohmann::json* m_external;
 		};
 	} // namespace panel

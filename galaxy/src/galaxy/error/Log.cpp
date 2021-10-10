@@ -50,7 +50,7 @@ namespace galaxy
 			else
 			{
 				nlohmann::json json;
-				std::ifstream input;
+				std::ifstream  input;
 
 				input.open(path, std::ifstream::in);
 				if (!input.good())
@@ -77,15 +77,13 @@ namespace galaxy
 
 			m_run_thread = true;
 
-			// clang-format off
-			m_async = std::async(std::launch::async, [&]()
-			{
+			m_async = std::async(std::launch::async, [&]() {
 				while (m_run_thread)
 				{
 					std::this_thread::sleep_for(5s);
 
 					{
-						std::lock_guard<std::mutex> lock { m_log_lock };
+						std::lock_guard<std::mutex> lock {m_log_lock};
 
 						while (!m_messages.empty())
 						{
@@ -99,7 +97,6 @@ namespace galaxy
 					}
 				}
 			});
-			// clang-format on
 		}
 
 		void Log::cleanup() noexcept

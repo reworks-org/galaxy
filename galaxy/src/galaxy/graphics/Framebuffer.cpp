@@ -139,7 +139,7 @@ namespace galaxy
 			{
 				glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
-				GLuint texture       = 0;
+				GLuint       texture = 0;
 				const GLenum gl_type = (high_precision == true) ? GL_FLOAT : GL_UNSIGNED_BYTE;
 
 				glGenTextures(1, &texture);

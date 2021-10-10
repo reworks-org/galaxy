@@ -89,7 +89,7 @@ namespace sc
 					//camera.on_event(m_scroll_delta);
 				}
 
-				
+
 
 				if (SL_HANDLE.window()->key_down(input::Keys::W))
 				{
@@ -189,12 +189,10 @@ namespace sc
 
 		ui::imgui_new_frame();
 
-		// clang-format off
-		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar |
-			ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
-			ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
+		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
+															   ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
+															   ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
 		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
-		// clang-format on
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
@@ -329,8 +327,8 @@ namespace sc
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
 			if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
 			{
-				//m_game_mode = true;
-				//m_backup    = serialize();
+				// m_game_mode = true;
+				// m_backup    = serialize();
 
 				SL_HANDLE.window()->set_cursor_visibility(false);
 			}
@@ -523,14 +521,12 @@ namespace sc
 				m_clicked_pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - scene->m_camera.get_pos().y;
 				m_cursor_aabb.set(m_clicked_pos, {m_clicked_pos + m_cursor_size});
 
-				// clang-format off
 				scene->m_world.operate<components::Renderable>(std::execution::par, [&](const ecs::Entity entity, components::Renderable* renderable) {
 					if (renderable->get_aabb().overlaps(m_cursor_aabb, true))
 					{
 						m_entity_panel.set_selected_entity(std::make_optional(entity));
 					}
 				});
-				// clang-format on
 
 				m_mouse_picked = false;
 			}

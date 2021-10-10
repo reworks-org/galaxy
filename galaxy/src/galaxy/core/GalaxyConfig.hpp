@@ -7,7 +7,6 @@
 
 #include <chrono>
 
-// clang-format off
 #ifndef GALAXY_CORE_GALAXYCONFIG_HPP_
 #define GALAXY_CORE_GALAXYCONFIG_HPP_
 
@@ -37,15 +36,14 @@ inline static constexpr const auto GALAXY_DT_VAR = static_cast<float>(std::chron
 /// Macro for windows platform detection.
 ///
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64)
-    #define  GALAXY_WIN_PLATFORM
+#define GALAXY_WIN_PLATFORM
 #endif
 
 ///
 /// Macro for unix platform detection.
 ///
-#if defined(__APPLE__) || defined (__linux__) || defined(__unix) || defined (_POISX_VERSION) || defined(TARGET_OS_MAC)
-    #define GALAXY_UNIX_PLATFORM
+#if defined(__APPLE__) || defined(__linux__) || defined(__unix) || defined(_POISX_VERSION) || defined(TARGET_OS_MAC)
+#define GALAXY_UNIX_PLATFORM
 #endif
 
 #endif
-// clang-format on

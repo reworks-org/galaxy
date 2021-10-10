@@ -470,11 +470,9 @@ namespace galaxy
 			}
 			else
 			{
-				// clang-format off
 				m_component_factory.emplace(name, [&](const ecs::Entity e, const nlohmann::json& json) {
 					create_component<Component>(e, json);
 				});
-				// clang-format on
 			}
 		}
 
@@ -592,7 +590,7 @@ namespace galaxy
 		inline void World::operate(Lambda&& func)
 		{
 			constexpr const auto length = sizeof...(Components);
-			EntitysWithCounters entities;
+			EntitysWithCounters  entities;
 
 			(internal_operate<Components>(entities), ...);
 
@@ -613,13 +611,12 @@ namespace galaxy
 		inline void World::operate(Policy&& policy, Lambda&& func)
 		{
 			constexpr const auto length = sizeof...(Components);
-			EntitysWithCounters entities;
+			EntitysWithCounters  entities;
 
 			(internal_operate<Components>(entities), ...);
 
 			// pair.first = entity
 			// pair.second = count
-			// clang-format off
 			std::for_each(policy, entities.begin(), entities.end(), [&](const auto& pair) {
 				// Ensures that only entities that have all components are used.
 				if (!(pair.second < length))
@@ -630,7 +627,6 @@ namespace galaxy
 					}
 				}
 			});
-			// clang-format on
 		}
 
 		template<typename Lambda>

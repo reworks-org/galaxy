@@ -24,7 +24,7 @@ namespace sc
 			void render();
 
 		private:
-			std::string m_buff;
+			std::string              m_buff;
 			std::vector<std::string> m_history;
 		};
 	} // namespace panel

@@ -75,7 +75,7 @@ namespace sc
 							m_history.push_back(m_buff + '\n');
 							auto res = SL_HANDLE.lua()->script(m_buff);
 
-							const auto type = res.get_type();
+							const auto  type = res.get_type();
 							std::string out;
 							if (type == sol::type::string)
 							{
@@ -131,13 +131,14 @@ namespace sc
 					ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
 					ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
 
-					if (ImGui::InputText(
-							"", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
+					if (ImGui::InputText("",
+							&m_buff,
+							ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 					{
 						m_history.push_back(std::format("[INPUT]:  {0}.", m_buff));
 
-						auto res  = SL_HANDLE.lua()->script(m_buff);
-						auto type = res.get_type();
+						auto        res  = SL_HANDLE.lua()->script(m_buff);
+						auto        type = res.get_type();
 						std::string out;
 						if (type == sol::type::string)
 						{

@@ -21,7 +21,7 @@ TEST(Algorithm, Normalize)
 
 TEST(Algorithm, VectorContains)
 {
-	constexpr auto value          = 42;
+	constexpr auto         value  = 42;
 	const std::vector<int> values = {20, 42, 100};
 	const std::vector<int> empty  = {};
 

@@ -62,7 +62,8 @@ namespace galaxy
 			///
 			/// \param file The handle of the file to seek.
 			/// \param offset The number of bytes to seek.
-			/// \param origin One of either SEEK_SET (seek from the beginning of the file), SEEK_END (seek from the end of the file) or SEEK_CUR (seek from the current file position).
+			/// \param origin One of either SEEK_SET (seek from the beginning of the file), SEEK_END (seek from the end of the file) or SEEK_CUR (seek from the
+			/// current file position).
 			///
 			/// \return True if the operation completed successfully, false otherwise.
 			///

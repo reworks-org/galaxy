@@ -396,11 +396,9 @@ namespace galaxy
 				}
 
 				// Make sure order is correct.
-				// clang-format off
 				std::sort(std::execution::par, m_layers.begin(), m_layers.end(), [&](auto* left, auto* right) {
 					return left->get_layer() < right->get_layer();
 				});
-				// clang-format on
 			}
 			else
 			{
@@ -456,19 +454,14 @@ namespace galaxy
 
 		void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* transform)
 		{
-			// clang-format off
-			Renderable renderable = {
-				.m_vao = data->vao(),
-				.m_texture = 0,
-				.m_index_count = data->index_count(),
-				.m_configure_shader = [this, data, transform]()
-				{
-					this->m_point_shader.bind();
-					this->m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
-					this->m_point_shader.set_uniform("u_transform", transform->get_transform());
-			    }
-			};
-			// clang-format on
+			Renderable renderable = {.m_vao = data->vao(),
+				.m_texture                  = 0,
+				.m_index_count              = data->index_count(),
+				.m_configure_shader         = [this, data, transform]() {
+                    this->m_point_shader.bind();
+                    this->m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
+                    this->m_point_shader.set_uniform("u_transform", transform->get_transform());
+				}};
 
 			switch (data->get_type())
 			{
@@ -493,55 +486,45 @@ namespace galaxy
 
 		void Renderer2D::submit(components::Text* text, components::Transform2D* transform)
 		{
-			// clang-format off
-			Renderable renderable = {
-				.m_vao = text->vao(),
-				.m_texture = text->gl_texture(),
-				.m_index_count = text->index_count(),
-				.m_type = GL_TRIANGLES,
-				.m_configure_shader = [this, text, transform]()
-				{
-					this->m_text_shader.bind();
-					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
-					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
-					this->m_text_shader.set_uniform<float>("u_width", static_cast<float>(text->get_width()));
-					this->m_text_shader.set_uniform<float>("u_height", static_cast<float>(text->get_height()));
-				}
-			};
-			// clang-format on
+			Renderable renderable = {.m_vao = text->vao(),
+				.m_texture                  = text->gl_texture(),
+				.m_index_count              = text->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader         = [this, text, transform]() {
+                    this->m_text_shader.bind();
+                    this->m_text_shader.set_uniform("u_transform", transform->get_transform());
+                    this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
+                    this->m_text_shader.set_uniform<float>("u_width", static_cast<float>(text->get_width()));
+                    this->m_text_shader.set_uniform<float>("u_height", static_cast<float>(text->get_height()));
+				}};
 
 			m_layer_data.at(text->get_layer()).submit(renderable);
 		}
 
 		void Renderer2D::submit(components::Sprite* sprite, components::Transform2D* transform)
 		{
-			// clang-format off
-			Renderable renderable = {
-				.m_vao = sprite->vao(),
-				.m_texture = sprite->gl_texture(),
-				.m_index_count = sprite->index_count(),
-				.m_type =  GL_TRIANGLES,
-				.m_configure_shader = [this, sprite, transform]()
-				{
-                    int opacity = sprite->get_opacity();
-					float norm_opacity = 0.0f;
-					if (opacity == 255)
-					{
-						norm_opacity = 1.0f;
-					}
-					else if (opacity != 0)
-					{
-						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
-					}
+			Renderable renderable = {.m_vao = sprite->vao(),
+				.m_texture                  = sprite->gl_texture(),
+				.m_index_count              = sprite->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader         = [this, sprite, transform]() {
+                    int   opacity      = sprite->get_opacity();
+                    float norm_opacity = 0.0f;
+                    if (opacity == 255)
+                    {
+                        norm_opacity = 1.0f;
+                    }
+                    else if (opacity != 0)
+                    {
+                        norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+                    }
 
-					this->m_sprite_shader.bind();
-					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
-					this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
-					this->m_sprite_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
-					this->m_sprite_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
-				}
-			};
-			// clang-format on
+                    this->m_sprite_shader.bind();
+                    this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
+                    this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
+                    this->m_sprite_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
+                    this->m_sprite_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
+				}};
 
 			m_layer_data.at(sprite->get_layer()).submit(renderable);
 		}
@@ -553,33 +536,29 @@ namespace galaxy
 
 		void Renderer2D::submit(components::ParticleEffect* particle_effect)
 		{
-			// clang-format off
-			Renderable renderable = {
-				.m_vao = particle_effect->vao(),
-				.m_texture = particle_effect->gl_texture(),
-				.m_index_count = particle_effect->index_count(),
-				.m_type = GL_TRIANGLES,
-				.m_configure_shader = [this, particle_effect]()
-				{
-				    int opacity = particle_effect->get_opacity();
-					float norm_opacity = 0.0f;
-					if (opacity == 255)
-					{
-						norm_opacity = 1.0f;
-					}
-					else if (opacity != 0)
-					{
-						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
-					}
+			Renderable renderable = {.m_vao = particle_effect->vao(),
+				.m_texture                  = particle_effect->gl_texture(),
+				.m_index_count              = particle_effect->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader =
+					[this, particle_effect]() {
+						int   opacity      = particle_effect->get_opacity();
+						float norm_opacity = 0.0f;
+						if (opacity == 255)
+						{
+							norm_opacity = 1.0f;
+						}
+						else if (opacity != 0)
+						{
+							norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+						}
 
-					this->m_instance_shader.bind();
-					this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
-					this->m_instance_shader.set_uniform<float>("u_width", static_cast<float>(particle_effect->get_width()));
-					this->m_instance_shader.set_uniform<float>("u_height", static_cast<float>(particle_effect->get_height()));
-				},
-				.m_instance_count = particle_effect->instance_count()
-			};
-			// clang-format on
+						this->m_instance_shader.bind();
+						this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
+						this->m_instance_shader.set_uniform<float>("u_width", static_cast<float>(particle_effect->get_width()));
+						this->m_instance_shader.set_uniform<float>("u_height", static_cast<float>(particle_effect->get_height()));
+					},
+				.m_instance_count = particle_effect->instance_count()};
 
 			m_layer_data.at(particle_effect->get_layer()).submit(renderable);
 		} // namespace graphics

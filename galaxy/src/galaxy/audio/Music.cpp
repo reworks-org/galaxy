@@ -83,15 +83,12 @@ namespace galaxy
 				m_source.queue(this);
 				m_running = true;
 
-				// clang-format off
-				m_thread = std::jthread([this]()
-				{
+				m_thread = std::jthread([this]() {
 					while (this->m_running)
 					{
 						this->update();
 					}
 				});
-				// clang-format on
 			}
 
 			return res;
@@ -162,15 +159,15 @@ namespace galaxy
 				set_cone(cone_json.at("outer-gain"), cone_json.at("inner-gain"), cone_json.at("inner-angle"));
 
 				const auto& pos_json = json.at("pos");
-				glm::vec3 pos        = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
+				glm::vec3   pos      = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
 				set_position(pos);
 
 				const auto& vel_json = json.at("vel");
-				glm::vec3 vel        = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
+				glm::vec3   vel      = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
 				set_velocity(vel);
 
 				const auto& dir_json = json.at("dir");
-				glm::vec3 dir        = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
+				glm::vec3   dir      = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
 				set_direction(dir);
 
 				const bool is_playing = json.at("is-playing");
@@ -187,9 +184,9 @@ namespace galaxy
 
 		void Music::update()
 		{
-			int processed = 0;
-			int amount    = 0;
-			ALuint which  = 0;
+			int    processed = 0;
+			int    amount    = 0;
+			ALuint which     = 0;
 
 			while (get_state() == AL_PLAYING)
 			{

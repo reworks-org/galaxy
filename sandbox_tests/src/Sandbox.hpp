@@ -33,8 +33,8 @@ namespace sb
 
 	private:
 		core::Window* m_window;
-		async::Timer m_timer;
-		ecs::Entity m_particles;
+		async::Timer  m_timer;
+		ecs::Entity   m_particles;
 	};
 } // namespace sb
 

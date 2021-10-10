@@ -12,7 +12,7 @@
 TEST(Async, TaskSetAndExec)
 {
 	galaxy::async::Task task;
-	int counter = 0;
+	int                 counter = 0;
 
 	task.set([&]() {
 		counter++;
@@ -27,7 +27,7 @@ TEST(Async, TaskSetAndExec)
 TEST(Async, TaskSetExecAndWait)
 {
 	galaxy::async::Task task;
-	int counter = 0;
+	int                 counter = 0;
 
 	task.set([&]() {
 		counter++;

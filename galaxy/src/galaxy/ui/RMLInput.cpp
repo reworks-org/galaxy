@@ -68,10 +68,10 @@ namespace galaxy
 			m_keymap.emplace(input::Keys::LCNTRL, Rml::Input::KeyIdentifier::KI_LCONTROL);
 			m_keymap.emplace(input::Keys::RCNTRL, Rml::Input::KeyIdentifier::KI_RCONTROL);
 			m_keymap.emplace(input::Keys::RSHIFT, Rml::Input::KeyIdentifier::KI_RSHIFT);
-			//m_keymap.emplace(input::Keys::LALT, Rml::Input::KeyIdentifier::);
-			//m_keymap.emplace(input::Keys::RALT, Rml::Input::KeyIdentifier::);
-			//m_keymap.emplace(input::Keys::LSTART, Rml::Input::KeyIdentifier::);
-			//m_keymap.emplace(input::Keys::RSTART, Rml::Input::KeyIdentifier::);
+			// m_keymap.emplace(input::Keys::LALT, Rml::Input::KeyIdentifier::);
+			// m_keymap.emplace(input::Keys::RALT, Rml::Input::KeyIdentifier::);
+			// m_keymap.emplace(input::Keys::LSTART, Rml::Input::KeyIdentifier::);
+			// m_keymap.emplace(input::Keys::RSTART, Rml::Input::KeyIdentifier::);
 			m_keymap.emplace(input::Keys::ENTER, Rml::Input::KeyIdentifier::KI_RETURN);
 			m_keymap.emplace(input::Keys::SEMICOLON, Rml::Input::KeyIdentifier::KI_OEM_1);
 			m_keymap.emplace(input::Keys::APOSTROPHE, Rml::Input::KeyIdentifier::KI_OEM_7);

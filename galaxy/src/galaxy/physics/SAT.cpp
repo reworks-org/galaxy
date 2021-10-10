@@ -106,15 +106,15 @@ namespace galaxy
 		{
 			// Set the mtv to be the float max, so we can find a vector that is
 			// smaller.
-			float min_overlap  = FLT_MAX;
-			glm::vec2 min_axis = {0.0f, 0.0f};
+			float     min_overlap = FLT_MAX;
+			glm::vec2 min_axis    = {0.0f, 0.0f};
 
 			// First test against this polygon's normals.
 			for (const auto& axis : m_normals)
 			{
-				Projection p1       = project(axis);
-				const Projection p2 = objectb.project(axis);
-				const auto overlap  = p1.get_overlap(p2);
+				Projection       p1      = project(axis);
+				const Projection p2      = objectb.project(axis);
+				const auto       overlap = p1.get_overlap(p2);
 
 				if (overlap == 0)
 				{
@@ -132,9 +132,9 @@ namespace galaxy
 			// Now test against the other polygon's normals.
 			for (const auto& axis : objectb.m_normals)
 			{
-				Projection p1       = project(axis);
-				const Projection p2 = objectb.project(axis);
-				const auto overlap  = p1.get_overlap(p2);
+				Projection       p1      = project(axis);
+				const Projection p2      = objectb.project(axis);
+				const auto       overlap = p1.get_overlap(p2);
 				if (overlap == 0)
 				{
 					mtv.x = 0.0f;

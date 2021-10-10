@@ -62,16 +62,23 @@ namespace galaxy
 
 			m_output.load_raw(vao_vert, vao_frag);
 
-			// clang-format off
-			constexpr const std::array<float, 16> verticies =
-			{
-				// First 3 are pos, last 2 are texels.
-				-1.0f,  1.0f, 0.0f, 1.0f,
-				-1.0f, -1.0f, 0.0f, 0.0f,
-				 1.0f,  1.0f, 1.0f, 1.0f,
-				 1.0f, -1.0f, 1.0f, 0.0f
-			};
-			// clang-format on
+			constexpr const std::array<float, 16> verticies = {// First 3 are pos, last 2 are texels.
+				-1.0f,
+				1.0f,
+				0.0f,
+				1.0f,
+				-1.0f,
+				-1.0f,
+				0.0f,
+				0.0f,
+				1.0f,
+				1.0f,
+				1.0f,
+				1.0f,
+				1.0f,
+				-1.0f,
+				1.0f,
+				0.0f};
 
 			glBindVertexArray(m_screen_vao);
 			glBindBuffer(GL_ARRAY_BUFFER, m_screen_vbo);

@@ -27,7 +27,6 @@ namespace galaxy
 
 		void ActionSystem::update(core::Scene2D* scene)
 		{
-			// clang-format off
 			scene->m_world.operate<components::Actions>([&](const ecs::Entity entity, components::Actions* actions) {
 				for (const auto& [key, func] : actions->m_key_actions)
 				{
@@ -45,7 +44,6 @@ namespace galaxy
 					}
 				}
 			});
-			// clang-format on
 		}
 	} // namespace systems
 } // namespace galaxy

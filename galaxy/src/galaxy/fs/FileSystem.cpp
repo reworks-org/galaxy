@@ -94,7 +94,7 @@ namespace galaxy
 
 		const bool Virtual::save(const std::string& data, std::string_view file)
 		{
-			const auto path = absolute(file);
+			const auto  path = absolute(file);
 			std::string path_str;
 			if (path == std::nullopt)
 			{
@@ -123,7 +123,7 @@ namespace galaxy
 
 		const bool Virtual::save_binary(std::span<char> data, std::string_view file)
 		{
-			const auto path = absolute(file);
+			const auto  path = absolute(file);
 			std::string path_str;
 			if (path == std::nullopt)
 			{
@@ -162,7 +162,7 @@ namespace galaxy
 				for (const auto& mounted_dir : m_dirs)
 				{
 					for (const auto& dir_entry :
-						 std::filesystem::recursive_directory_iterator(mounted_dir, std::filesystem::directory_options::skip_permission_denied))
+						std::filesystem::recursive_directory_iterator(mounted_dir, std::filesystem::directory_options::skip_permission_denied))
 					{
 						const auto& path = dir_entry.path();
 
@@ -180,7 +180,7 @@ namespace galaxy
 		std::optional<std::string> Virtual::show_open_dialog(const std::string& filter, const std::string& def_path)
 		{
 			pfd::open_file dialog {"Open file.", def_path, {"Files", filter}};
-			auto result = dialog.result();
+			auto           result = dialog.result();
 
 			if (!result.empty())
 			{
@@ -195,7 +195,7 @@ namespace galaxy
 		std::optional<std::string> Virtual::show_save_dialog(const std::string& filter, const std::string& def_path)
 		{
 			pfd::save_file dialog {"Save file.", def_path, {"Files", filter}};
-			auto result = dialog.result();
+			auto           result = dialog.result();
 
 			if (!result.empty())
 			{
@@ -210,7 +210,7 @@ namespace galaxy
 		std::optional<std::string> Virtual::show_folder_dialog(const std::string& def_path)
 		{
 			pfd::select_folder dialog {"Select folder.", def_path, pfd::opt::force_path};
-			auto result = dialog.result();
+			auto               result = dialog.result();
 
 			if (!result.empty())
 			{

@@ -25,7 +25,7 @@ namespace galaxy
 			if (path != std::nullopt)
 			{
 				nlohmann::json json;
-				std::ifstream input;
+				std::ifstream  input;
 
 				input.open(path.value(), std::ifstream::in);
 				if (!input.good())

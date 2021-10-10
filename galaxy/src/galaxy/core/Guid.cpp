@@ -16,8 +16,8 @@ namespace galaxy
 	{
 		Guid Guid::make() noexcept
 		{
-			thread_local std::random_device s_device;
-			thread_local std::mt19937_64 s_engine(s_device());
+			thread_local std::random_device                           s_device;
+			thread_local std::mt19937_64                              s_engine(s_device());
 			thread_local std::uniform_int_distribution<std::uint64_t> s_64dist;
 			thread_local std::uniform_int_distribution<std::uint32_t> s_32dist;
 			thread_local std::uniform_int_distribution<std::uint16_t> s_16dist;
@@ -88,13 +88,7 @@ namespace galaxy
 
 		bool Guid::operator==(const Guid& rhs) noexcept
 		{
-			// clang-format off
-			return (m_first == rhs.m_first) &&
-				(m_second == rhs.m_second) &&
-				(m_third == rhs.m_third) && 
-				(m_fourth == rhs.m_fourth) && 
-				(m_fifth == rhs.m_fifth);
-			// clang-format on
+			return (m_first == rhs.m_first) && (m_second == rhs.m_second) && (m_third == rhs.m_third) && (m_fourth == rhs.m_fourth) && (m_fifth == rhs.m_fifth);
 		}
 
 		bool Guid::operator!=(const Guid& rhs) noexcept

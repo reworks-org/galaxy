@@ -169,7 +169,7 @@ namespace galaxy
 				glActiveTexture(GL_TEXTURE0);
 				glBindVertexArray(m_glyph_vao);
 
-				float x_offset      = 0.0f;
+				float      x_offset = 0.0f;
 				const auto X_height = fontmap->get_char('X')->m_bearing.y;
 				for (const auto& character : m_text)
 				{
@@ -179,12 +179,12 @@ namespace galaxy
 					const float y = static_cast<float>(X_height - font_char->m_bearing.y);
 
 					const float vertices[6][4] = {{x, y + font_char->m_size.y, 0.0f, 1.0f},
-												  {x + font_char->m_size.x, y, 1.0f, 0.0f},
-												  {x, y, 0.0f, 0.0f},
+						{x + font_char->m_size.x, y, 1.0f, 0.0f},
+						{x, y, 0.0f, 0.0f},
 
-												  {x, y + font_char->m_size.y, 0.0f, 1.0f},
-												  {x + font_char->m_size.x, y + font_char->m_size.y, 1.0f, 1.0f},
-												  {x + font_char->m_size.x, y, 1.0f, 0.0f}};
+						{x, y + font_char->m_size.y, 0.0f, 1.0f},
+						{x + font_char->m_size.x, y + font_char->m_size.y, 1.0f, 1.0f},
+						{x + font_char->m_size.x, y, 1.0f, 0.0f}};
 
 					glBindTexture(GL_TEXTURE_2D, font_char->m_texture);
 					glBindBuffer(GL_ARRAY_BUFFER, m_glyph_vbo);
@@ -216,7 +216,7 @@ namespace galaxy
 				std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
 				graphics::VertexBuffer vbo;
-				graphics::IndexBuffer ibo;
+				graphics::IndexBuffer  ibo;
 
 				vbo.create(vertices, false);
 				ibo.create(indices, true);

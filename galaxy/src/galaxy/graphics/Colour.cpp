@@ -29,15 +29,7 @@ namespace galaxy
 
 		glm::vec4 Colour::normalized() noexcept
 		{
-			// clang-format off
-			glm::vec4 out = 
-			{
-				r_normal(),
-				g_normal(),
-				b_normal(),
-				a_normal()
-			};
-			// clang-format on
+			glm::vec4 out = {r_normal(), g_normal(), b_normal(), a_normal()};
 
 			return out;
 		}

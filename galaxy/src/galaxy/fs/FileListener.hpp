@@ -52,8 +52,11 @@ namespace galaxy
 			/// \param action Action that was performed.
 			/// \param oldFilename The name of the file or directory moved.
 			///
-			void handleFileAction(
-				efsw::WatchID watchid, const std::string& dir, const std::string& filename, efsw::Action action, std::string oldFilename = "") override;
+			void handleFileAction(efsw::WatchID watchid,
+				const std::string&              dir,
+				const std::string&              filename,
+				efsw::Action                    action,
+				std::string                     oldFilename = "") override;
 
 		private:
 			///

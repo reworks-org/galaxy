@@ -67,13 +67,13 @@ namespace galaxy
 			using key_type = Key;
 
 			std::optional<key_type> id;
-			math::AABB aabb;
+			math::AABB              aabb;
 
 			maybe_index parent;
 			maybe_index left;
 			maybe_index right;
 			maybe_index next;
-			int height = -1;
+			int         height = -1;
 
 			[[nodiscard]] inline const bool is_leaf() const noexcept
 			{
@@ -121,7 +121,7 @@ namespace galaxy
 				{
 					// Allocate a new node for the particle
 					const auto node_index = allocate_node();
-					auto& node            = m_nodes.at(node_index);
+					auto&      node       = m_nodes.at(node_index);
 					node.id               = key;
 					node.aabb             = {lower_bound, upper_bound};
 					node.aabb.fatten(m_skin_thickness);
@@ -260,7 +260,7 @@ namespace galaxy
 			inline void rebuild()
 			{
 				std::vector<index_type> node_indices(m_node_count);
-				int count {0};
+				int                     count {0};
 
 				for (auto index = 0; index < m_node_capacity; ++index)
 				{
@@ -285,8 +285,8 @@ namespace galaxy
 				while (count > 1)
 				{
 					auto min_cost = std::numeric_limits<float>::max();
-					int iMin {-1};
-					int jMin {-1};
+					int  iMin {-1};
+					int  jMin {-1};
 
 					for (auto i = 0; i < count; ++i)
 					{
@@ -310,7 +310,7 @@ namespace galaxy
 					const auto index2 = node_indices.at(jMin);
 
 					const auto parent_index = allocate_node();
-					auto& parent_node       = m_nodes.at(parent_index);
+					auto&      parent_node  = m_nodes.at(parent_index);
 
 					auto& index1Node = m_nodes.at(index1);
 					auto& index2Node = m_nodes.at(index2);
@@ -375,7 +375,7 @@ namespace galaxy
 					const auto& source_node = m_nodes.at(it->second);
 
 					std::array<std::byte, sizeof(maybe_index) * buffer_size> buffer;
-					std::pmr::monotonic_buffer_resource resource {buffer.data(), sizeof buffer};
+					std::pmr::monotonic_buffer_resource                      resource {buffer.data(), sizeof buffer};
 
 					pmr_stack<maybe_index> stack {&resource};
 					stack.push(m_root);
@@ -446,8 +446,8 @@ namespace galaxy
 					return 0.0f;
 				}
 
-				const auto root_area = m_nodes.at(*m_root).aabb.compute_area();
-				float total_area     = 0.0f;
+				const auto root_area  = m_nodes.at(*m_root).aabb.compute_area();
+				float      total_area = 0.0f;
 
 				for (auto i = 0; i < m_node_capacity; ++i)
 				{
@@ -579,7 +579,7 @@ namespace galaxy
 
 				// Peel a node off the free list.
 				const auto node_index = m_next_free_index.value();
-				auto& node            = m_nodes.at(node_index);
+				auto&      node       = m_nodes.at(node_index);
 
 				m_next_free_index = node.next;
 				node.parent       = std::nullopt;
@@ -649,9 +649,9 @@ namespace galaxy
 
 				while (!m_nodes.at(index).is_leaf())
 				{
-					const auto& node = m_nodes.at(index);
-					const auto left  = node.left.value();
-					const auto right = node.right.value();
+					const auto& node  = m_nodes.at(index);
+					const auto  left  = node.left.value();
+					const auto  right = node.right.value();
 
 					const auto surface_area          = node.aabb.area();
 					const auto combined_surface_area = math::AABB::merge(node.aabb, leaf_aabb).area();
@@ -807,8 +807,8 @@ namespace galaxy
 
 					auto& node = m_nodes.at(*index);
 
-					const auto left        = node.left;
-					const auto right       = node.right;
+					const auto  left       = node.left;
+					const auto  right      = node.right;
 					const auto& left_node  = m_nodes.at(left.value());
 					const auto& right_node = m_nodes.at(right.value());
 
@@ -1028,7 +1028,7 @@ namespace galaxy
 			}
 
 		private:
-			std::vector<node_type> m_nodes;
+			std::vector<node_type>                          m_nodes;
 			robin_hood::unordered_map<key_type, index_type> m_index_map;
 
 			maybe_index m_root;

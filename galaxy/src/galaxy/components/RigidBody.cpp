@@ -45,10 +45,8 @@ namespace galaxy
 
 		nlohmann::json RigidBody::serialize()
 		{
-			// clang-format off
 			nlohmann::json json = "{}"_json;
-			json["type"] = magic_enum::enum_name(m_type);
-			// clang-format on
+			json["type"]        = magic_enum::enum_name(m_type);
 
 			return json;
 		}

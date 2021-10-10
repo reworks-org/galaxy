@@ -26,7 +26,6 @@ namespace galaxy
 
 		void ParticleSystem::update(core::Scene2D* scene)
 		{
-			// clang-format off
 			scene->m_world.operate<components::ParticleEffect>([&](const ecs::Entity entity, components::ParticleEffect* particle_effect) {
 				auto& particles = particle_effect->get_particles();
 
@@ -58,7 +57,6 @@ namespace galaxy
 					scene->m_world.disable(entity);
 				}
 			});
-			// clang-format on
 		}
 	} // namespace systems
 } // namespace galaxy

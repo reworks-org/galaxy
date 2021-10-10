@@ -22,7 +22,7 @@ namespace galaxy
 		void configure_terminal() noexcept
 		{
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-			DWORD mode    = 0;
+			DWORD  mode   = 0;
 
 			GetConsoleMode(handle, &mode);
 			mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;

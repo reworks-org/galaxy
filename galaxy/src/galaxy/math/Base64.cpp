@@ -60,7 +60,7 @@ namespace galaxy
 				const std::size_t out_len = 4 * ((in_len + 2) / 3);
 
 				std::string output(out_len, '\0');
-				char* p = &output[0];
+				char*       p = &output[0];
 
 				std::size_t i;
 				for (i = 0; i < in_len - 2; i += 3)

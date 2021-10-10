@@ -172,7 +172,7 @@ namespace sc
 			{
 				if (ImGui::BeginTabItem("Music", NULL, ImGuiTabItemFlags_NoCloseWithMiddleMouseButton))
 				{
-					static std::string s_selected         = "Select Music...";
+					static std::string   s_selected       = "Select Music...";
 					static audio::Music* s_selected_music = nullptr;
 					if (ImGui::BeginCombo("Music", s_selected.c_str()))
 					{
@@ -260,8 +260,12 @@ namespace sc
 						}
 
 						static float s_max = s_selected_music->get_max_distance();
-						if (ImGui::InputFloat(
-								"Max Distance", &s_max, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
+						if (ImGui::InputFloat("Max Distance",
+								&s_max,
+								1.0f,
+								10.0f,
+								"%.1f",
+								ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
 						{
 							s_selected_music->set_max_distance(s_max);
 						}
@@ -306,7 +310,7 @@ namespace sc
 
 				if (ImGui::BeginTabItem("Sounds", NULL, ImGuiTabItemFlags_NoCloseWithMiddleMouseButton))
 				{
-					static std::string s_selected       = "Select Sound...";
+					static std::string   s_selected     = "Select Sound...";
 					static audio::Sound* s_selected_sfx = nullptr;
 					if (ImGui::BeginCombo("Sounds", s_selected.c_str()))
 					{
@@ -394,8 +398,12 @@ namespace sc
 						}
 
 						static float s_max = s_selected_sfx->get_max_distance();
-						if (ImGui::InputFloat(
-								"Max Distance", &s_max, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
+						if (ImGui::InputFloat("Max Distance",
+								&s_max,
+								1.0f,
+								10.0f,
+								"%.1f",
+								ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
 						{
 							s_selected_sfx->set_max_distance(s_max);
 						}

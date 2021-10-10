@@ -55,20 +55,15 @@ namespace galaxy
 		{
 			for (auto& [index, batch] : m_batches)
 			{
-				// clang-format off
-				Renderable renderable = {
-					.m_vao = batch.vao(),
-					.m_texture = batch.gl_texture(),
-					.m_index_count = batch.count(),
-					.m_type = GL_TRIANGLES,
-					.m_configure_shader = [&]()
-					{
-						batch_shader.bind();
-						batch_shader.set_uniform("u_width", static_cast<float>(batch.get_width()));
-						batch_shader.set_uniform("u_height", static_cast<float>(batch.get_height()));
-					}
-				};
-				// clang-format on
+				Renderable renderable = {.m_vao = batch.vao(),
+					.m_texture                  = batch.gl_texture(),
+					.m_index_count              = batch.count(),
+					.m_type                     = GL_TRIANGLES,
+					.m_configure_shader         = [&]() {
+                        batch_shader.bind();
+                        batch_shader.set_uniform("u_width", static_cast<float>(batch.get_width()));
+                        batch_shader.set_uniform("u_height", static_cast<float>(batch.get_height()));
+					}};
 
 				submit(renderable);
 				batch.buffer_data();

@@ -110,14 +110,12 @@ namespace galaxy
 						RENDERER_2D().bind_rtt();
 						RENDERER_2D().draw_sprite_to_target(&to_draw_spr, &to_draw_tf, &m_render_texture);
 
-						// clang-format off
-						m_textures[name.string()] =
-						{
-							.m_region = {static_cast<float>(opt.value().m_x), static_cast<float>(opt.value().m_y), static_cast<float>(opt.value().m_width), static_cast<float>(opt.value().m_height)},
-							.m_path = path.string(),
-							.m_index = m_id
-						};
-						// clang-format on
+						m_textures[name.string()] = {.m_region = {static_cast<float>(opt.value().m_x),
+														 static_cast<float>(opt.value().m_y),
+														 static_cast<float>(opt.value().m_width),
+														 static_cast<float>(opt.value().m_height)},
+							.m_path                            = path.string(),
+							.m_index                           = m_id};
 
 						to_draw_spr.unbind();
 						m_render_texture.unbind();
@@ -160,11 +158,9 @@ namespace galaxy
 				const auto& json     = json_opt.value();
 				const auto& textures = json.at("textures");
 
-				// clang-format off
 				std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
 					add(texture.get<std::string>());
 				});
-				// clang-format on
 			}
 			else
 			{
@@ -180,14 +176,7 @@ namespace galaxy
 			}
 			else
 			{
-				// clang-format off
-				graphics::TextureInfo info
-				{
-					.m_region = region,
-					.m_path = "",
-					.m_index = m_id
-				};
-				// clang-format on
+				graphics::TextureInfo info {.m_region = region, .m_path = "", .m_index = m_id};
 
 				m_textures.emplace(static_cast<std::string>(key), info);
 			}

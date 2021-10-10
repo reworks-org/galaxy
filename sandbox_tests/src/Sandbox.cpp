@@ -27,7 +27,7 @@
 using namespace galaxy;
 using namespace std::chrono_literals;
 
-//ui::Progressbar* progressbar;
+// ui::Progressbar* progressbar;
 
 input::Keys parse_key(const std::string& key)
 {
@@ -40,13 +40,13 @@ namespace sb
 	{
 		m_window = SL_HANDLE.window();
 
-		// clang-format off
 		m_timer.set_repeating(true);
-		m_timer.set([]() {
-			std::cout << "Timer Ping" << std::endl;
-		}, 1000);
+		m_timer.set(
+			[]() {
+				std::cout << "Timer Ping" << std::endl;
+			},
+			1000);
 		m_timer.start();
-		// clang-format on
 
 		create_sandbox_scene();
 		create_physics_scene();
@@ -59,7 +59,7 @@ namespace sb
 	{
 		m_timer.stop();
 		m_window = nullptr;
-		//progressbar = nullptr;
+		// progressbar = nullptr;
 	}
 
 	void Sandbox::events()
@@ -191,29 +191,25 @@ namespace sb
 		sandbox->m_gui.enable_input();
 		*/
 
-		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>(
-			[sandbox, this](const events::MouseReleased& mre)
+		sandbox->m_dispatcher.subscribe_callback<events::MouseReleased>([sandbox, this](const events::MouseReleased& mre) {
+			if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
 			{
-				if (mre.m_button == input::MouseButtons::BUTTON_RIGHT)
-				{
-					sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
-					sandbox->m_world.enable(m_particles);
-				}
-			});
+				sandbox->m_world.get<components::ParticleEffect>(m_particles)->regen(std::make_optional<glm::vec2>(mre.m_x, mre.m_y));
+				sandbox->m_world.enable(m_particles);
+			}
+		});
 
-		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>(
-			[&](const events::KeyDown& kde)
+		sandbox->m_dispatcher.subscribe_callback<events::KeyDown>([&](const events::KeyDown& kde) {
+			switch (kde.m_keycode)
 			{
-				switch (kde.m_keycode)
-				{
-					case input::Keys::Z:
+				case input::Keys::Z:
 					{
 						nlohmann::json json = serialize();
 						json::save_to_disk("assets/saves/test.json", json);
 					}
 					break;
 
-					case input::Keys::X:
+				case input::Keys::X:
 					{
 						const auto json = json::parse_from_disk("assets/saves/test.json");
 						if (json != std::nullopt)
@@ -223,23 +219,23 @@ namespace sb
 					}
 					break;
 
-					case input::Keys::M:
-						SL_HANDLE.musicbook()->get("PleasingGuns")->play();
-						break;
+				case input::Keys::M:
+					SL_HANDLE.musicbook()->get("PleasingGuns")->play();
+					break;
 
-					case input::Keys::P:
-						SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
-						break;
+				case input::Keys::P:
+					SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
+					break;
 
-					case input::Keys::N:
-						SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
-						break;
+				case input::Keys::N:
+					SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
+					break;
 
-					case input::Keys::B:
-						SL_HANDLE.soundbook()->get("button")->play();
-						break;
-				}
-			});
+				case input::Keys::B:
+					SL_HANDLE.soundbook()->get("button")->play();
+					break;
+			}
+		});
 
 		sandbox->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		sandbox->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
@@ -270,20 +266,18 @@ namespace sb
 		map->create_maps("assets/maps/maps.world");
 		map->set_active_map("desert");
 
-		map->m_dispatcher.subscribe_callback<events::KeyDown>(
-			[map, this](const events::KeyDown& kde)
+		map->m_dispatcher.subscribe_callback<events::KeyDown>([map, this](const events::KeyDown& kde) {
+			switch (kde.m_keycode)
 			{
-				switch (kde.m_keycode)
-				{
-					case input::Keys::Z:
-						map->get_active_map()->enable_objects(map->m_world);
-						break;
+				case input::Keys::Z:
+					map->get_active_map()->enable_objects(map->m_world);
+					break;
 
-					case input::Keys::X:
-						map->get_active_map()->disable_objects(map->m_world);
-						break;
-				}
-			});
+				case input::Keys::X:
+					map->get_active_map()->disable_objects(map->m_world);
+					break;
+			}
+		});
 
 		map->m_camera.m_forward_key = parse_key(SL_HANDLE.config()->get<std::string>("key-forward"));
 		map->m_camera.m_back_key    = parse_key(SL_HANDLE.config()->get<std::string>("key-back"));
