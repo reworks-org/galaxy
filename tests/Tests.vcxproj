@@ -149,10 +149,6 @@
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
-      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
-      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <EnablePREfast>true</EnablePREfast>
       <SupportJustMyCode>true</SupportJustMyCode>
       <DisableSpecificWarnings>6326;</DisableSpecificWarnings>
@@ -211,10 +207,6 @@
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
-      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
-      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <EnablePREfast>true</EnablePREfast>
       <SupportJustMyCode>true</SupportJustMyCode>
       <DisableSpecificWarnings>6326;</DisableSpecificWarnings>

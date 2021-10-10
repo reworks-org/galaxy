@@ -1,4 +1,4 @@
-sudo: false 
+sudo: false
 dist: focal
 
 branches:
@@ -21,14 +21,13 @@ before_script:
   - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - mkdir -p output/docs
-  - cmake -G "Unix Makefiles" -DGALAXY_ENABLE_DOXYGEN=ON -DGALAXY_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
-  - make -C build doxygen
+  - mkdir -p docs
+  - doxygen Doxyfile
 
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: output/docs/html
+  local_dir: docs/html
   github_token: $GH_REPO_TOKEN
   on:
     branch: master
