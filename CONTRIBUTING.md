@@ -1,8 +1,8 @@
 Use github issues and pull requests.
 
-Templates are provided.
+Make sure your issues / pull requests decribe the problem you are having/trying to solve.
 
-Use clang-tidy and clang-format before opening a pull request. Default configs are in repository root.
+Use clang-format and some form of static code analysis before opening a pull request. CA configs are in repository root.
 
 Open an issue that is correctly labelled and link it to your pull request, which is also correctly labelled.
 

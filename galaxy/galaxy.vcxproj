@@ -406,14 +406,14 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <ControlFlowGuard>false</ControlFlowGuard>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <FloatingPointModel>Fast</FloatingPointModel>
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
-      <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <OpenMPSupport>false</OpenMPSupport>
@@ -426,6 +426,7 @@
       <EnablePREfast>true</EnablePREfast>
       <SupportJustMyCode>false</SupportJustMyCode>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -443,7 +444,7 @@
     </Lib>
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
-      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalDependencies>$(SolutionDir)output\dependencies\Debug\dependencies.lib;$(SolutionDir)output\efsw\Debug\efsw.lib;$(SolutionDir)output\glfw\Debug\glfw3.lib;$(SolutionDir)output\OpenAL\Debug\common.lib;$(SolutionDir)output\OpenAL\Debug\OpenAL32.lib;$(SolutionDir)output\zlib\Debug\zlibstaticd.lib;</AdditionalDependencies>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -466,7 +467,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -485,6 +486,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
       <EnablePREfast>true</EnablePREfast>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -505,7 +507,7 @@
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
-      <AdditionalDependencies>$(SolutionDir)output\dependencies\Release\dependencies.lib;$(SolutionDir)output\RmlUi\Release\RmlLua.lib;$(SolutionDir)output\RmlUi\Release\RmlDebugger.lib;$(SolutionDir)output\RmlUi\Release\RmlCore.lib;$(SolutionDir)output\efsw\Release\efsw.lib;$(SolutionDir)output\glfw\Release\glfw3.lib;$(SolutionDir)output\OpenAL\Release\common.lib;$(SolutionDir)output\OpenAL\Release\OpenAL32.lib;$(SolutionDir)output\zlib\Release\zlibstatic.lib;</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)output\dependencies\Release\dependencies.lib;$(SolutionDir)output\efsw\Release\efsw.lib;$(SolutionDir)output\glfw\Release\glfw3.lib;$(SolutionDir)output\OpenAL\Release\common.lib;$(SolutionDir)output\OpenAL\Release\OpenAL32.lib;$(SolutionDir)output\zlib\Release\zlibstatic.lib;</AdditionalDependencies>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
