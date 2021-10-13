@@ -19,32 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\editor\EditorSink.cpp" />
-    <ClCompile Include="src\editor\GLOperation.cpp" />
-    <ClCompile Include="src\editor\panels\AudioPanel.cpp" />
-    <ClCompile Include="src\editor\panels\EntityEditor.cpp" />
-    <ClCompile Include="src\editor\panels\JSONEditor.cpp" />
-    <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
-    <ClCompile Include="src\editor\panels\ScenePanel.cpp" />
-    <ClCompile Include="src\editor\panels\StdConsole.cpp" />
-    <ClCompile Include="src\layers\Editor.cpp" />
-    <ClCompile Include="src\layers\Game.cpp" />
-    <ClCompile Include="src\layers\MainMenu.cpp" />
     <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\editor\EditorSink.hpp" />
-    <ClInclude Include="src\editor\GLOperation.hpp" />
-    <ClInclude Include="src\editor\panels\AudioPanel.hpp" />
-    <ClInclude Include="src\editor\panels\EntityEditor.hpp" />
-    <ClInclude Include="src\editor\panels\JSONEditor.hpp" />
-    <ClInclude Include="src\editor\panels\LuaConsole.hpp" />
-    <ClInclude Include="src\editor\panels\ScenePanel.hpp" />
-    <ClInclude Include="src\editor\panels\StdConsole.hpp" />
-    <ClInclude Include="src\layers\Editor.hpp" />
-    <ClInclude Include="src\layers\Game.hpp" />
-    <ClInclude Include="src\layers\MainMenu.hpp" />
-    <ClInclude Include="src\resources\Roboto-Light.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
