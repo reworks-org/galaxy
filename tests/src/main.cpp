@@ -17,7 +17,7 @@ int main(int argsc, char* argsv[])
 	testing::InitGoogleTest(&argsc, argsv);
 	const auto result = RUN_ALL_TESTS();
 
-	// Let us look at the results before closing.
+	// Leaves window open long enough to look at the results.
 	std::this_thread::sleep_for(8s);
 	return result;
 }

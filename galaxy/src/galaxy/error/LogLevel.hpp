@@ -13,9 +13,9 @@ namespace galaxy
 	namespace error
 	{
 		///
-		/// Different levels of error messaging.
+		/// Used to determine filtering and colouring of log messages.
 		///
-		enum class LogLevel : short
+		enum class LogLevel : int
 		{
 			///
 			/// Info Log Level.
@@ -33,7 +33,9 @@ namespace galaxy
 			WARNING = 2,
 
 			///
-			/// Error Log Level.
+			/// \brief Error Log Level.
+			///
+			/// Has an underscore to prevent conflicts with some macro definitions in Windows.
 			///
 			ERROR_ = 3,
 

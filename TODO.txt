@@ -22,3 +22,9 @@ https://github.com/domre/galaxy
 need to rebuild code from scratch?
 
 https://gameprogrammingpatterns.com/
+
+
+TO TEST:
+- core/Config
+- error/Log
+- meta/Concepts
