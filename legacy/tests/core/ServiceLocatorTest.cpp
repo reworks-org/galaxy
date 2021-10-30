@@ -113,7 +113,7 @@ TEST(ServiceLocator, GetEmptyRef)
 			}
 			catch (const std::runtime_error& e)
 			{
-				ASSERT_TRUE(std::strcmp(e.what(), ""));
+				ASSERT_FALSE(std::strcmp(e.what(), ""));
 				throw;
 			}
 		},

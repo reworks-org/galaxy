@@ -1,1 +1,6 @@
-{"vertex-extension":".vs","fragment-extension":".fs","shaderbook":[]}
+{
+	"vertex-extension": ".vs",
+	"fragment-extension": ".fs",
+	"shaderbook": [
+	]
+}
