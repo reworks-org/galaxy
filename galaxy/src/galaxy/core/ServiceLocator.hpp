@@ -37,14 +37,7 @@ namespace galaxy
 			/// \return Pointer to new service.
 			///
 			template<typename... Args>
-			[[maybe_unused]] static std::shared_ptr<Service> make(Args&&... args) noexcept;
-
-			///
-			/// Get a pointer to the service.
-			///
-			/// \return Shared pointer to service.
-			///
-			[[nodiscard]] static std::shared_ptr<Service> ptr() noexcept;
+			[[maybe_unused]] static Service& make(Args&&... args) noexcept;
 
 			///
 			/// Get a reference to the service.
@@ -95,39 +88,34 @@ namespace galaxy
 			///
 			/// Main service pointer.
 			///
-			inline static std::shared_ptr<Service> sm_service = nullptr;
+			inline static std::unique_ptr<Service> m_service = nullptr;
 		};
 
 		template<meta::is_class Service>
 		template<typename... Args>
-		inline std::shared_ptr<Service> ServiceLocator<Service>::make(Args&&... args) noexcept
+		inline Service& ServiceLocator<Service>::make(Args&&... args) noexcept
 		{
-			sm_service = std::make_shared<Service>(std::forward<Args>(args)...);
-			return sm_service;
-		}
+			m_service = std::make_unique<Service>(std::forward<Args>(args)...);
 
-		template<meta::is_class Service>
-		inline std::shared_ptr<Service> ServiceLocator<Service>::ptr() noexcept
-		{
-			return sm_service;
+			return ref();
 		}
 
 		template<meta::is_class Service>
 		inline Service& ServiceLocator<Service>::ref()
 		{
-			if (!sm_service)
+			if (!m_service)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
 			}
 
-			return *sm_service;
+			return *m_service;
 		}
 
 		template<meta::is_class Service>
 		inline void ServiceLocator<Service>::del()
 		{
-			sm_service.reset();
-			sm_service = nullptr;
+			m_service.reset();
+			m_service = nullptr;
 		}
 	} // namespace core
 } // namespace galaxy

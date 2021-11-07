@@ -9,6 +9,7 @@
 #define GALAXY_META_GLOBALS_HPP_
 
 #include <chrono>
+#include <filesystem>
 
 namespace
 {
@@ -51,6 +52,11 @@ namespace
 /// Galaxy Delta-Time.
 ///
 #define GALAXY_DT GALAXY_DT_VAR
+
+///
+/// Current root directory of application, unless it has been manipulated.
+///
+#define GALAXY_ROOT_DIR std::filesystem::current_path().string()
 
 ///
 /// Macro for windows platform detection.

@@ -8,6 +8,9 @@
     <ClCompile Include="src\galaxy\error\Log.cpp" />
     <ClCompile Include="src\galaxy\error\LogLevel.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
+    <ClCompile Include="src\galaxy\scripting\JSONUtils.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
@@ -17,5 +20,8 @@
     <ClInclude Include="src\galaxy\error\Log.hpp" />
     <ClInclude Include="src\galaxy\error\LogLevel.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
+    <ClInclude Include="src\galaxy\scripting\JSONUtils.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
   </ItemGroup>
 </Project>

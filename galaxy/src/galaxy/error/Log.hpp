@@ -188,42 +188,39 @@ namespace galaxy
 
 				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
 				{
-					constexpr const auto colour = "\x1B[37m";
-					final_str                   = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
-                        colour,
-                        level_str,
-                        std::format("{0:%T}", now),
-                        std::format("File: {0}, Func: {1}, Line: {2}",
-                            std::filesystem::path(loc.file_name()).filename().string(),
-                            loc.function_name(),
-                            loc.line()),
-                        std::format(message, args...));
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[37m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
 				else if constexpr (level == LogLevel::WARNING)
 				{
-					constexpr const auto colour = "\x1B[33m";
-					final_str                   = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
-                        colour,
-                        level_str,
-                        std::format("{0:%T}", now),
-                        std::format("File: {0}, Func: {1}, Line: {2}",
-                            std::filesystem::path(loc.file_name()).filename().string(),
-                            loc.function_name(),
-                            loc.line()),
-                        std::format(message, args...));
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[33m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
 				else if constexpr (level == LogLevel::ERROR_ || level == LogLevel::FATAL)
 				{
-					constexpr const auto colour = "\x1B[31m";
-					final_str                   = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
-                        colour,
-                        level_str,
-                        std::format("{0:%T}", now),
-                        std::format("File: {0}, Func: {1}, Line: {2}",
-                            std::filesystem::path(loc.file_name()).filename().string(),
-                            loc.function_name(),
-                            loc.line()),
-                        std::format(message, args...));
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[31m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
 
 				{

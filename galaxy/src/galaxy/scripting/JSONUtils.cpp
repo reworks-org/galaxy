@@ -11,7 +11,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "JSONUtils.hpp"
 
@@ -21,22 +21,24 @@ namespace galaxy
 	{
 		std::optional<nlohmann::json> parse_from_disk(std::string_view file)
 		{
-			const auto path = SL_HANDLE.vfs()->absolute(file);
-			if (path != std::nullopt)
-			{
-				nlohmann::json json;
-				std::ifstream  input;
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-				input.open(path.value(), std::ifstream::in);
+			auto path = fs.find(file);
+			if (path.m_code == fs::FileInfo::Code::FOUND)
+			{
+				std::ifstream input {path.m_string, std::ifstream::in};
+
 				if (!input.good())
 				{
 					input.close();
-					GALAXY_LOG(GALAXY_ERROR, "Failed to open: {0}.", path.value());
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read: {0}.", path.m_string);
 
 					return std::nullopt;
 				}
 				else
 				{
+					nlohmann::json json;
+
 					input >> json;
 					input.close();
 
@@ -53,7 +55,7 @@ namespace galaxy
 		{
 			if (memory.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty buffer to json::parse_from_mem().");
+				GALAXY_LOG(GALAXY_ERROR, "Tried to parse empty memory buffer for json data.");
 				return std::nullopt;
 			}
 			else
@@ -63,9 +65,9 @@ namespace galaxy
 			}
 		}
 
-		const bool save_to_disk(std::string_view path, const nlohmann::json& json)
+		bool save_to_disk(std::string_view path, const nlohmann::json& json)
 		{
-			return SL_HANDLE.vfs()->save(json.dump(4), path);
+			return core::ServiceLocator<fs::VirtualFileSystem>::ref().save(json.dump(4), path);
 		}
 	} // namespace json
 } // namespace galaxy

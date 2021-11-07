@@ -42,9 +42,9 @@ namespace galaxy
 		/// \param path Path to the file to save.
 		/// \param json Json to write to file.
 		///
-		/// \return Const bool. True if file successfully saved to disk.
+		/// \return True if file successfully saved to disk.
 		///
-		[[nodiscard]] const bool save_to_disk(std::string_view path, const nlohmann::json& json);
+		[[nodiscard]] bool save_to_disk(std::string_view path, const nlohmann::json& json);
 	} // namespace json
 } // namespace galaxy
 
