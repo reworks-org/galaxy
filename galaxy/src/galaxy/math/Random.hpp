@@ -27,6 +27,8 @@ namespace galaxy
 		///
 		/// Generate a random number of type T.
 		///
+		/// \param Type The type of number to return. Must be arithmetic.
+		///
 		/// \param min Minimum number inclusive.
 		/// \param max Maximum number inclusive.
 		///

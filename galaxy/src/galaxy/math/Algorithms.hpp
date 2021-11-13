@@ -8,6 +8,8 @@
 #ifndef GALAXY_MATH_ALGORITHMS_HPP_
 #define GALAXY_MATH_ALGORITHMS_HPP_
 
+#include <algorithm>
+#include <execution>
 #include <vector>
 
 #include "galaxy/meta/Concepts.hpp"
@@ -33,18 +35,26 @@ namespace galaxy
 		///
 		/// See if a vector contains a value.
 		///
+		/// \tparam Type Vector type. Must have an overloaded '==' operator.
+		///
 		/// \param cont Container to check.
 		/// \param val Value to look for.
 		///
 		/// \return Either iterator pointing to the end or to the value.
 		///
 		template<typename Type>
-		[[nodiscard]] inline auto contains(const std::vector<Type>& cont, const Type val)
+		[[nodiscard]] inline bool contains(const std::vector<Type>& cont, const Type& val) noexcept
 		{
-			return std::find(cont.begin(), cont.end(), val);
+			std::for_each(std::execution::par, cont.begin(), cont.end(), [&](const Type& var) {
+				if (val == var)
+				{
+					return true;
+				}
+			});
+
+			return false;
 		}
 	} // namespace math
-
 } // namespace galaxy
 
 #endif

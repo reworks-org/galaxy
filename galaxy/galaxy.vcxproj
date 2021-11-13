@@ -20,6 +20,11 @@
     <ClCompile Include="src\galaxy\error\LogLevel.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\math\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\GZip.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\meta\Globals.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONUtils.cpp" />
@@ -35,6 +40,11 @@
     <ClInclude Include="src\galaxy\error\LogLevel.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\math\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\GZip.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\meta\Globals.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONUtils.hpp" />
