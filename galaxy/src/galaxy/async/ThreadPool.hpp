@@ -8,15 +8,10 @@
 #ifndef GALAXY_ASYNC_THREADPOOL_HPP_
 #define GALAXY_ASYNC_THREADPOOL_HPP_
 
-#include <mutex>
-#include <queue>
 #include <semaphore>
-#include <thread>
-#include <vector>
 
 #include "galaxy/async/Task.hpp"
-
-#define MAX_THREADS_ALLOWED_TOTAL 16
+#include "galaxy/meta/Globals.hpp"
 
 namespace galaxy
 {
@@ -31,24 +26,36 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ThreadPool();
+			ThreadPool() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~ThreadPool();
+			~ThreadPool() noexcept;
+
+			///
+			/// Make task and queue.
+			///
+			/// \tparam Lambda Function Type. Not required.
+			///
+			/// \param func Lambda or function to call when task is executed. Is moved.
+			///
+			template<typename Lambda>
+			void queue(Lambda&& func) noexcept;
 
 			///
 			/// Queue a task for the thread pool to execute.
 			///
 			/// \param task Pointer to task to queue.
 			///
-			void queue(Task* task) noexcept;
+			void queue(std::shared_ptr<Task> task) noexcept;
 
 			///
-			/// Finish all threads.
+			/// \brief Stop all threads.
 			///
-			void finish();
+			/// Lets threads finish first.
+			///
+			void stop() noexcept;
 
 		private:
 			///
@@ -65,7 +72,7 @@ namespace galaxy
 			///
 			/// Keeps track if threadpool has been destroyed.
 			///
-			bool m_is_destroyed;
+			bool m_destroyed;
 
 			///
 			/// Worker threads to do a task on.
@@ -75,12 +82,12 @@ namespace galaxy
 			///
 			/// Task queue.
 			///
-			std::queue<Task*> m_tasks;
+			std::queue<std::shared_ptr<Task>> m_tasks;
 
 			///
 			/// Controls thread synchronization.
 			///
-			std::counting_semaphore<MAX_THREADS_ALLOWED_TOTAL> m_sync;
+			std::counting_semaphore<GALAXY_DEFAULT_THREAD_COUNT> m_sync;
 
 			///
 			/// Mutex to protect queue.
@@ -91,12 +98,16 @@ namespace galaxy
 			/// Control thread activity.
 			///
 			std::atomic<bool> m_running;
-
-			///
-			/// Max threads allocated.
-			///
-			unsigned int m_max_threads;
 		};
+
+		template<typename Lambda>
+		inline void ThreadPool::queue(Lambda&& func) noexcept
+		{
+			std::shared_ptr task = std::make_shared<Task>();
+			task->set(func);
+
+			queue(task);
+		}
 	} // namespace async
 } // namespace galaxy
 

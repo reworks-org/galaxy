@@ -11,6 +11,9 @@
     <ClCompile Include="src\galaxy\scripting\JSONUtils.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
+    <ClCompile Include="src\galaxy\async\Task.cpp" />
+    <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
+    <ClCompile Include="src\galaxy\async\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
@@ -23,5 +26,8 @@
     <ClInclude Include="src\galaxy\scripting\JSONUtils.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
+    <ClInclude Include="src\galaxy\async\Task.hpp" />
+    <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
+    <ClInclude Include="src\galaxy\async\Timer.hpp" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
 
 #include <chrono>
 #include <filesystem>
+#include <thread>
 
 namespace
 {
@@ -22,6 +23,16 @@ namespace
 
 	inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
 } // namespace
+
+///
+/// Defines number of threads allowed for galaxy.
+///
+#define GALAXY_MAX_THREADS std::thread::hardware_concurrency()
+
+///
+/// Default number of threads to use.
+///
+#define GALAXY_DEFAULT_THREAD_COUNT 4
 
 ///
 /// Prevents compiler warnings when applied to unused parameters.

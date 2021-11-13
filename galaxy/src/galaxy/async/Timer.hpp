@@ -26,19 +26,32 @@ namespace galaxy
 			Timer() noexcept;
 
 			///
+			/// Set constructor.
+			///
+			/// \tparam Lambda Function type. Not required.
+			///
+			/// \param func Function to call on thread.
+			/// \param delay Delay until function is called. In milliseconds.
+			///
+			template<typename Lambda>
+			Timer(Lambda&& func, const std::uint32_t delay) noexcept;
+
+			///
 			/// Destructor.
 			///
-			~Timer();
+			~Timer() noexcept;
 
 			///
 			/// Make function repeat itself instead of running once.
 			///
 			/// \param repeat True to repeat.
 			///
-			void set_repeating(const bool repeat) noexcept;
+			void repeat(const bool repeat) noexcept;
 
 			///
 			/// \brief Run a function on a precision timer.
+			///
+			/// \tparam Lambda Function type. Not required.
 			///
 			/// The function runs on a thread so do not run any thread dependent code.
 			///
@@ -51,17 +64,17 @@ namespace galaxy
 			///
 			/// Call to update timer count.
 			///
-			void update();
+			void update() noexcept;
 
 			///
 			/// Start timer.
 			///
-			void start();
+			void start() noexcept;
 
 			///
 			/// Stop timer.
 			///
-			void stop();
+			void stop() noexcept;
 
 		private:
 			///
@@ -100,6 +113,12 @@ namespace galaxy
 			///
 			std::function<void(void)> m_callback;
 		};
+
+		template<typename Lambda>
+		inline Timer::Timer(Lambda&& func, const std::uint32_t delay) noexcept
+		{
+			set(func, delay);
+		}
 
 		template<typename Lambda>
 		inline void Timer::set(Lambda&& func, const std::uint32_t delay) noexcept
