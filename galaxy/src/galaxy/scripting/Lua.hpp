@@ -8,15 +8,17 @@
 #ifndef GALAXY_SCRIPTING_LUAUTILS_HPP_
 #define GALAXY_SCRIPTING_LUAUTILS_HPP_
 
+#include <sol/forward.hpp>
+
 namespace galaxy
 {
-	namespace scripting
+	namespace lua
 	{
 		///
 		/// Registers galaxy_engine into Lua.
 		///
-		void register_lua();
-	} // namespace scripting
+		void inject_galaxy_into_lua();
+	} // namespace lua
 } // namespace galaxy
 
 #endif

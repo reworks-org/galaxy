@@ -16,6 +16,8 @@
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
+    <ClCompile Include="src\galaxy\error\ConsoleSink.cpp" />
+    <ClCompile Include="src\galaxy\error\FileSink.cpp" />
     <ClCompile Include="src\galaxy\error\Log.cpp" />
     <ClCompile Include="src\galaxy\error\LogLevel.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
@@ -27,8 +29,9 @@
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\meta\Globals.cpp" />
-    <ClCompile Include="src\galaxy\scripting\JSONUtils.cpp" />
     <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
+    <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Task.hpp" />
@@ -36,6 +39,8 @@
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
+    <ClInclude Include="src\galaxy\error\ConsoleSink.hpp" />
+    <ClInclude Include="src\galaxy\error\FileSink.hpp" />
     <ClInclude Include="src\galaxy\error\Log.hpp" />
     <ClInclude Include="src\galaxy\error\LogLevel.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
@@ -47,8 +52,9 @@
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\meta\Globals.hpp" />
-    <ClInclude Include="src\galaxy\scripting\JSONUtils.hpp" />
     <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
+    <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
+    <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
