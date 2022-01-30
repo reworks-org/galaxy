@@ -1,0 +1,33 @@
+///
+/// Windows.cpp
+/// galaxy
+///
+/// Refer to LICENSE.txt for more details.
+///
+
+#include "Windows.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+
+#include <Windows.h>
+
+namespace galaxy
+{
+	namespace platform
+	{
+		void configure_terminal() noexcept
+		{
+			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+			DWORD  mode   = 0;
+
+			if (handle != nullptr)
+			{
+				GetConsoleMode(handle, &mode);
+				mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+				SetConsoleMode(handle, mode);
+			}
+		}
+	} // namespace platform
+} // namespace galaxy
+
+#endif

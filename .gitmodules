@@ -36,9 +36,6 @@
 [submodule "dependencies/zlc"]
 	path = dependencies/zlc
 	url = https://github.com/rudi-cilibrasi/zlibcomplete.git
-[submodule "dependencies/efsw"]
-	path = dependencies/efsw
-	url = https://github.com/SpartanJ/efsw.git
 [submodule "dependencies/sqlite-orm"]
 	path = dependencies/sqlite-orm
 	url = https://github.com/fnc12/sqlite_orm.git
@@ -51,3 +48,6 @@
 [submodule "dependencies/box2d"]
 	path = dependencies/box2d
 	url = https://github.com/erincatto/box2d.git
+[submodule "dependencies/entt"]
+	path = dependencies/entt
+	url = https://github.com/skypjack/entt.git
