@@ -26,7 +26,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Config();
+			Config() noexcept;
 
 			///
 			/// \brief Argument constructor.
@@ -82,13 +82,11 @@ namespace galaxy
 			[[nodiscard]] std::optional<Value> get(std::string_view key);
 
 			///
-			/// Get a section as JSON.
+			/// Is the config file blank.
 			///
-			/// \param key Name of the section to retrieve.
+			/// \return True if blank.
 			///
-			/// \return Json object. Could also be a value if not a section.
-			///
-			[[nodiscard]] nlohmann::json get_section(std::string_view key);
+			[[nodiscard]] bool empty() noexcept;
 
 		private:
 			///
@@ -133,7 +131,7 @@ namespace galaxy
 		{
 			if (m_loaded)
 			{
-				m_config[key] = value;
+				m_config["config"][key] = value;
 			}
 			else
 			{
@@ -146,9 +144,11 @@ namespace galaxy
 		{
 			if (m_loaded)
 			{
-				if (m_config.count(key) > 0)
+				const auto& section = m_config.at("config");
+
+				if (section.count(key) > 0)
 				{
-					return std::make_optional(m_config[key].get<Value>());
+					return std::make_optional(section[key].get<Value>());
 				}
 				else
 				{

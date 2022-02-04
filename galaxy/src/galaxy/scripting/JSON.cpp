@@ -13,7 +13,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
-#include "JSONUtils.hpp"
+#include "JSON.hpp"
 
 namespace galaxy
 {

@@ -7,7 +7,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/scripting/JSON.hpp"
 
 #include "Config.hpp"
 
@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Config::Config()
+		Config::Config() noexcept
 			: m_loaded {false}
 		{
 			m_config = "{\"config\":{}}"_json;
@@ -29,7 +29,7 @@ namespace galaxy
 			load(file);
 		}
 
-		Config::~Config()
+		Config::~Config() noexcept
 		{
 			m_loaded = false;
 			m_config.clear();
@@ -76,25 +76,14 @@ namespace galaxy
 			}
 		}
 
-		nlohmann::json galaxy::core::Config::get_section(std::string_view key)
+		bool Config::empty() noexcept
 		{
 			if (m_loaded)
 			{
-				const auto str = static_cast<std::string>(key);
+				return m_config.at("config").empty();
+			}
 
-				if (m_config.contains(str))
-				{
-					return m_config.at(str);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Tried to get section in config that does not exist: {0}.", key);
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to get section for config that is not loaded: {0}.", key);
-			}
+			return true;
 		}
 	} // namespace core
 } // namespace galaxy
