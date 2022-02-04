@@ -1,12 +1,12 @@
 ///
-/// Timer.hpp
+/// TimerAsync.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ASYNC_TIMER_HPP_
-#define GALAXY_ASYNC_TIMER_HPP_
+#ifndef GALAXY_ASYNC_TIMERASYNC_HPP_
+#define GALAXY_ASYNC_TIMERASYNC_HPP_
 
 #include <functional>
 
@@ -15,15 +15,15 @@ namespace galaxy
 	namespace async
 	{
 		///
-		/// Synchronous timer class.
+		/// Asynchronous timer class.
 		///
-		class Timer final
+		class TimerAsync final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Timer() noexcept;
+			TimerAsync() noexcept;
 
 			///
 			/// Set constructor.
@@ -34,12 +34,12 @@ namespace galaxy
 			/// \param delay Delay until function is called. In milliseconds.
 			///
 			template<typename Lambda>
-			Timer(Lambda&& func, const std::uint32_t delay) noexcept;
+			TimerAsync(Lambda&& func, const std::uint32_t delay) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Timer() noexcept;
+			~TimerAsync() noexcept;
 
 			///
 			/// Make function repeat itself instead of running once.
@@ -62,17 +62,14 @@ namespace galaxy
 			void set(Lambda&& func, const std::uint32_t delay) noexcept;
 
 			///
-			/// Call to update timer count.
-			///
-			void update() noexcept;
-
-			///
 			/// Start timer.
 			///
 			void start() noexcept;
 
 			///
-			/// Stop timer.
+			/// \brief Stop a repeating timer.
+			///
+			/// Does nothing if timer is not set to repeat.
 			///
 			void stop() noexcept;
 
@@ -80,28 +77,18 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			Timer(const Timer&) = delete;
+			TimerAsync(const TimerAsync&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Timer& operator=(const Timer&) = delete;
+			TimerAsync& operator=(const TimerAsync&) = delete;
 
 		private:
 			///
 			/// Is function repeating?
 			///
-			bool m_repeat;
-
-			///
-			/// Is timer stopped.
-			///
-			bool m_stopped;
-
-			///
-			/// Time passed.
-			///
-			double m_time_passed;
+			std::atomic_bool m_repeat;
 
 			///
 			/// Current delay on timer.
@@ -115,13 +102,13 @@ namespace galaxy
 		};
 
 		template<typename Lambda>
-		inline Timer::Timer(Lambda&& func, const std::uint32_t delay) noexcept
+		inline TimerAsync::TimerAsync(Lambda&& func, const std::uint32_t delay) noexcept
 		{
 			set(func, delay);
 		}
 
 		template<typename Lambda>
-		inline void Timer::set(Lambda&& func, const std::uint32_t delay) noexcept
+		inline void TimerAsync::set(Lambda&& func, const std::uint32_t delay) noexcept
 		{
 			m_callback = func;
 			m_delay    = delay;

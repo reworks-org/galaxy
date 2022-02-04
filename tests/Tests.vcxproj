@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\async\TaskTest.cpp" />
+    <ClCompile Include="src\async\ThreadPoolTest.cpp" />
+    <ClCompile Include="src\async\TimerTest.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

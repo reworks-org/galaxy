@@ -14,6 +14,7 @@
     <ClCompile Include="src\galaxy\async\Task.cpp" />
     <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
+    <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="src\galaxy\async\Task.hpp" />
     <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
+    <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Guid.hpp" />

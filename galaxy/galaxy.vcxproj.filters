@@ -29,6 +29,7 @@
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Window.cpp" />
     <ClCompile Include="src\galaxy\graphics\WindowSettings.cpp" />
+    <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
@@ -61,5 +62,6 @@
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Window.hpp" />
     <ClInclude Include="src\galaxy\graphics\WindowSettings.hpp" />
+    <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
   </ItemGroup>
 </Project>
