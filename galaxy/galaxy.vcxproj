@@ -77,7 +77,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{51012bcd-3ab4-404a-9fdc-70505c0e390e}</ProjectGuid>
     <RootNamespace>galaxy</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
