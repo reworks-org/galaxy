@@ -27,3 +27,14 @@ INIT ORDER:
 LOGGING
 FILESYSTEM
 CONFIG
+
+3D:
+- Ogre-Next
+
+- custom 2d solution using vulkan or opengl. probably opengl.
+- think aboot switching to sdl2
+- use entt
+- use librocket
+- use imgui
+
+switch to vulkan and rename to vulkano?

@@ -48,3 +48,6 @@
 [submodule "dependencies/sqlite_orm"]
 	path = dependencies/sqlite_orm
 	url = https://github.com/fnc12/sqlite_orm.git
+[submodule "dependencies/bgfx"]
+	path = dependencies/bgfx
+	url = https://github.com/bkaradzic/bgfx.cmake
