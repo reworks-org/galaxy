@@ -5,5 +5,12 @@
     <ClCompile Include="src\async\TaskTest.cpp" />
     <ClCompile Include="src\async\ThreadPoolTest.cpp" />
     <ClCompile Include="src\async\TimerTest.cpp" />
+    <ClCompile Include="src\core\GuidTest.cpp" />
+    <ClCompile Include="src\core\ServiceLocatorTest.cpp" />
+    <ClCompile Include="src\math\AlgorithmTest.cpp" />
+    <ClCompile Include="src\math\Base64Test.cpp" />
+    <ClCompile Include="src\math\GZipTest.cpp" />
+    <ClCompile Include="src\math\RandomTest.cpp" />
+    <ClCompile Include="src\math\ZLibTest.cpp" />
   </ItemGroup>
 </Project>

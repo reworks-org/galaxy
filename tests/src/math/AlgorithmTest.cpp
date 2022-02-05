@@ -9,7 +9,7 @@
 
 #include <galaxy/math/Algorithms.hpp>
 
-TEST(Algorithm, Normalize)
+TEST(Math, Normalize)
 {
 	constexpr auto max      = 100;
 	constexpr auto value    = 50;
@@ -19,16 +19,15 @@ TEST(Algorithm, Normalize)
 	EXPECT_EQ(expected, result);
 }
 
-TEST(Algorithm, VectorContains)
+TEST(Math, VectorContains)
 {
-	constexpr auto         value  = 42;
+	constexpr auto value          = 42;
 	const std::vector<int> values = {20, 42, 100};
 	const std::vector<int> empty  = {};
 
 	const auto result1 = galaxy::math::contains(values, value);
-	EXPECT_TRUE(result1 != values.end());
-	EXPECT_TRUE(*result1 == value);
+	EXPECT_TRUE(result1 == value);
 
 	const auto result2 = galaxy::math::contains(empty, value);
-	EXPECT_TRUE(result2 == empty.end());
+	EXPECT_TRUE(result2 == false);
 }

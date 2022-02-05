@@ -9,7 +9,7 @@
 
 #include <galaxy/math/Random.hpp>
 
-TEST(Algorithm, RandomLargeMinMax)
+TEST(Math, RandomLargeMinMax)
 {
 	constexpr auto min = 10;
 	constexpr auto max = 20;
@@ -18,7 +18,7 @@ TEST(Algorithm, RandomLargeMinMax)
 	EXPECT_TRUE(result >= 10 && result <= 20);
 }
 
-TEST(Algorithm, RandomSmallMinMax)
+TEST(Math, RandomSmallMinMax)
 {
 	constexpr auto min = 10;
 	constexpr auto max = 12;
@@ -27,7 +27,7 @@ TEST(Algorithm, RandomSmallMinMax)
 	EXPECT_TRUE(result >= 10 && result <= 12);
 }
 
-TEST(Algorithm, RandomTinyMinMax)
+TEST(Math, RandomTinyMinMax)
 {
 	constexpr auto min = 10;
 	constexpr auto max = 11;
@@ -36,7 +36,7 @@ TEST(Algorithm, RandomTinyMinMax)
 	EXPECT_TRUE(result >= 10 && result <= 11);
 }
 
-TEST(Algorithm, RandomSameMinMax)
+TEST(Math, RandomSameMinMax)
 {
 	constexpr auto min = 10;
 	constexpr auto max = 10;
