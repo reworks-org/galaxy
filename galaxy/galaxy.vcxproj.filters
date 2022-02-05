@@ -30,6 +30,11 @@
     <ClCompile Include="src\galaxy\graphics\Window.cpp" />
     <ClCompile Include="src\galaxy\graphics\WindowSettings.cpp" />
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\GZip.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
@@ -63,5 +68,10 @@
     <ClInclude Include="src\galaxy\graphics\Window.hpp" />
     <ClInclude Include="src\galaxy\graphics\WindowSettings.hpp" />
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\GZip.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
   </ItemGroup>
 </Project>

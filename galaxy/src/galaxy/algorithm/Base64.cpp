@@ -35,7 +35,7 @@
 
 namespace galaxy
 {
-	namespace math
+	namespace algorithm
 	{
 		std::string encode_base64(const std::string& input)
 		{
@@ -60,7 +60,7 @@ namespace galaxy
 				const std::size_t out_len = 4 * ((in_len + 2) / 3);
 
 				std::string output(out_len, '\0');
-				char*       p = &output[0];
+				char* p = &output[0];
 
 				std::size_t i;
 				for (i = 0; i < in_len - 2; i += 3)
@@ -171,5 +171,5 @@ namespace galaxy
 				}
 			}
 		}
-	} // namespace math
+	} // namespace algorithm
 } // namespace galaxy

@@ -11,6 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\GZip.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Task.cpp" />
     <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
@@ -42,6 +47,11 @@
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\GZip.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Task.hpp" />
     <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />

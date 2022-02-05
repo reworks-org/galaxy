@@ -1,5 +1,5 @@
 ///
-/// GZip.cpp
+/// ZLib.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,26 +7,26 @@
 
 #include <sstream>
 
-#include <zlc/gzipcomplete.hpp>
+#include <zlc/zlibcomplete.hpp>
 
 #include "galaxy/error/Log.hpp"
 
-#include "GZip.hpp"
+#include "ZLib.hpp"
 
 namespace galaxy
 {
-	namespace math
+	namespace algorithm
 	{
-		std::string encode_gzip(const std::string& input)
+		std::string encode_zlib(const std::string& input)
 		{
-			zlibcomplete::GZipCompressor compressor;
+			zlibcomplete::ZLibCompressor compressor;
 
 			try
 			{
-				char         in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read              = 0;
+				char in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read      = 0;
 
-				std::string       result;
+				std::string result;
 				std::stringstream sstream;
 				sstream.str(input);
 
@@ -55,16 +55,16 @@ namespace galaxy
 			}
 		}
 
-		std::string decode_gzip(const std::string& input)
+		std::string decode_zlib(const std::string& input)
 		{
-			zlibcomplete::GZipDecompressor decompressor;
+			zlibcomplete::ZLibDecompressor decompressor;
 
 			try
 			{
-				char         in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read              = 0;
+				char in[ZLIB_COMPLETE_CHUNK] = {0};
+				unsigned int total_read      = 0;
 
-				std::string       result;
+				std::string result;
 				std::stringstream sstream;
 				sstream.str(input);
 
@@ -85,11 +85,11 @@ namespace galaxy
 
 				return result;
 			}
-			catch (std::exception& e)
+			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
 				return {};
 			}
 		}
-	} // namespace math
+	} // namespace algorithm
 } // namespace galaxy

@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_MATH_RANDOM_HPP_
-#define GALAXY_MATH_RANDOM_HPP_
+#ifndef GALAXY_ALGORITHM_RANDOM_HPP_
+#define GALAXY_ALGORITHM_RANDOM_HPP_
 
 #include <random>
 
@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace math
+	namespace algorithm
 	{
 		///
 		/// Source: http://stackoverflow.com/a/32907541.
@@ -38,13 +38,13 @@ namespace galaxy
 		[[nodiscard]] inline Type random(const Type min, const Type max) noexcept
 		{
 			std::random_device rd;
-			std::mt19937_64    mt {rd()};
+			std::mt19937_64 mt {rd()};
 
 			conditional_distribution<Type> dist {min, max};
 
 			return dist(mt);
 		}
-	} // namespace math
+	} // namespace algorithm
 } // namespace galaxy
 
 #endif

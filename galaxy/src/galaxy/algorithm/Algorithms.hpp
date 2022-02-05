@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_MATH_ALGORITHMS_HPP_
-#define GALAXY_MATH_ALGORITHMS_HPP_
+#ifndef GALAXY_ALGORITHM_ALGORITHMS_HPP_
+#define GALAXY_ALGORITHM_ALGORITHMS_HPP_
 
 #include <algorithm>
 #include <execution>
@@ -16,7 +16,7 @@
 
 namespace galaxy
 {
-	namespace math
+	namespace algorithm
 	{
 		///
 		/// Calc normalized value from range.
@@ -54,7 +54,7 @@ namespace galaxy
 
 			return false;
 		}
-	} // namespace math
+	} // namespace algorithm
 } // namespace galaxy
 
 #endif
