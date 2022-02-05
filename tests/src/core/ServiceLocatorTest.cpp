@@ -54,18 +54,6 @@ TEST(ServiceLocator, MakeConstructor)
 	core::ServiceLocator<Blank>::del();
 }
 
-TEST(ServiceLocator, GetPtr)
-{
-	var = 0;
-
-	core::ServiceLocator<Blank>::make();
-	auto ptr = core::ServiceLocator<Blank>::ptr();
-
-	ASSERT_TRUE(ptr != nullptr);
-
-	core::ServiceLocator<Blank>::del();
-}
-
 TEST(ServiceLocator, GetRef)
 {
 	var = 0;
@@ -87,16 +75,6 @@ TEST(ServiceLocator, Delete)
 	core::ServiceLocator<Blank>::del();
 
 	ASSERT_TRUE(var == 2);
-
-	core::ServiceLocator<Blank>::del();
-}
-
-TEST(ServiceLocator, GetEmptyPtr)
-{
-	var = 0;
-
-	auto ptr = core::ServiceLocator<Blank>::ptr();
-	ASSERT_TRUE(ptr == nullptr);
 
 	core::ServiceLocator<Blank>::del();
 }
