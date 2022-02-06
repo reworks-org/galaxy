@@ -47,6 +47,13 @@ namespace galaxy
 			[[nodiscard]] static Service& ref();
 
 			///
+			/// Check if service exists.
+			///
+			/// \return True if service has been created.
+			///
+			[[nodiscard]] static bool empty() noexcept;
+
+			///
 			/// \brief Delete the service and frees up the memory.
 			///
 			/// Sets the service to nullptr.
@@ -103,12 +110,18 @@ namespace galaxy
 		template<meta::is_class Service>
 		inline Service& ServiceLocator<Service>::ref()
 		{
-			if (!m_service)
+			if (empty())
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
 			}
 
 			return *m_service;
+		}
+
+		template<meta::is_class Service>
+		inline bool ServiceLocator<Service>::empty() noexcept
+		{
+			return !m_service;
 		}
 
 		template<meta::is_class Service>
