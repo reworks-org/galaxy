@@ -68,34 +68,6 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Constructor.
-			///
-			Window() noexcept;
-
-			///
-			/// \brief Window creation constructor.
-			///
-			/// Calls create().
-			///
-			/// \param settings Settings of the window.
-			///
-			Window(const WindowSettings& settings);
-
-			///
-			/// \brief Destroys SDL Window and OpenGL context.
-			///
-			/// Shortcut of calling destroy(). Make sure SDL_Quit has not been called yet.
-			///
-			~Window();
-
-			///
-			/// Construct a Window.
-			///
-			/// \param settings Settings of the window.
-			///
-			[[nodiscard]] const bool create(const WindowSettings& settings);
-
-			///
 			/// Set window icon.
 			///
 			/// \param icon Icon to load.
@@ -109,12 +81,7 @@ namespace galaxy
 			///
 			void set_icon(std::span<unsigned char> buffer);
 
-			///
-			/// Set window title.
-			///
-			/// \param title New title to set window to.
-			///
-			void set_title(std::string_view title);
+			
 
 			///
 			/// Set cursor visibility.
@@ -137,26 +104,7 @@ namespace galaxy
 			///
 			void set_cursor_icon(std::span<unsigned char> buffer);
 
-			///
-			/// \brief Destroys SDL Window and OpenGL context.
-			///
-			/// Make sure SDL_Quit has not been called yet.
-			///
-			void destroy();
-
-			///
-			/// Checks if window is currently open or not.
-			///
-			/// \return Returns true if window is currently open, false if not.
-			///
-			[[nodiscard]] const bool is_open() const noexcept;
-
-			///
-			/// \brief Closes the current window.
-			///
-			/// Internally, sets isOpen to false.
-			///
-			void close() noexcept;
+			
 
 			///
 			/// Resizes window.
@@ -166,26 +114,7 @@ namespace galaxy
 			///
 			void resize(const int width, const int height);
 
-			///
-			/// \brief Notify's user of an event without interrupting.
-			///
-			/// Think like windows flashing tray icon.
-			///
-			void request_attention() noexcept;
-
-			///
-			/// \brief Allow the window to be closed by the OS.
-			///
-			/// I.E from ALT+F4 or the close button in the window frame.
-			///
-			void allow_native_closing() noexcept;
-
-			///
-			/// \brief Prevent the window from being closed by the OS.
-			///
-			/// I.E from ALT+F4 or the close button in the window frame.
-			///
-			void prevent_native_closing() noexcept;
+			
 
 			///
 			/// Prepare renderers to render.
@@ -268,26 +197,7 @@ namespace galaxy
 			///
 			[[nodiscard]] EventQueue& queued_events() noexcept;
 
-			///
-			/// Check if windows is in focus.
-			///
-			/// \return True if window is in input focus.
-			///
-			[[nodiscard]] const bool is_focused() noexcept;
-
-			///
-			/// Get window width.
-			///
-			/// \return Const integer.
-			///
-			[[nodiscard]] const int get_width() const noexcept;
-
-			///
-			/// Get window height.
-			///
-			/// \return Const integer.
-			///
-			[[nodiscard]] const int get_height() const noexcept;
+			
 
 			///
 			/// Get cursor size.
@@ -296,50 +206,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
 
-			///
-			/// Retrieve pointer to GLFWwindow object.
-			///
-			/// \return Returns const pointer to GLFWwindow.
-			///
-			[[nodiscard]] GLFWwindow* gl_window() noexcept;
-
 		private:
-			///
-			/// Copy constructor.
-			///
-			Window(const Window&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Window(Window&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Window& operator=(const Window&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Window& operator=(Window&&) = delete;
-
-		private:
-			///
-			/// GLFW window data.
-			///
-			GLFWwindow* m_window;
-
-			///
-			/// Window width.
-			///
-			int m_width;
-
-			///
-			/// Window height.
-			///
-			int m_height;
-
 			///
 			/// Post processor.
 			///

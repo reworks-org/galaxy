@@ -24,33 +24,6 @@ namespace galaxy
 {
 	namespace core
 	{
-		Window::Window() noexcept
-			: m_window {nullptr}
-			, m_width {1280}
-			, m_height {720}
-			, m_post_processor {nullptr}
-		{
-		}
-
-		Window::Window(const WindowSettings& settings)
-			: m_window {nullptr}
-			, m_width {1280}
-			, m_height {720}
-			, m_post_processor {nullptr}
-		{
-			if (!create(settings))
-			{
-				GALAXY_LOG(GALAXY_FATAL, "GLFW window creation failed.");
-			}
-		}
-
-		Window::~Window()
-		{
-			// Call again to ensure everything is cleaned up.
-			// Has checks to ensure no null data is destroyed.
-			destroy();
-		}
-
 		const bool Window::create(const WindowSettings& settings)
 		{
 			// Function result.
@@ -116,7 +89,7 @@ namespace galaxy
 				if (settings.m_maximized)
 				{
 					glfwGetWindowSize(m_window, &m_width, &m_height);
-				}
+				}	
 
 				// Then if the window failed to create:
 				if (!m_window)
@@ -326,11 +299,6 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
-		void Window::set_title(std::string_view title)
-		{
-			glfwSetWindowTitle(m_window, static_cast<std::string>(title).c_str());
-		}
-
 		void Window::set_cursor_visibility(const bool visible) noexcept
 		{
 			if (visible)
@@ -405,30 +373,7 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
-		void Window::destroy()
-		{
-			// Clean up window data, checking to make sure its not already been destroyed.
-			if (m_window != nullptr)
-			{
-				glfwDestroyWindow(m_window);
-				m_window = nullptr;
-			}
-
-			// Cursor.
-			m_cursor.destroy();
-
-			glfwTerminate();
-		}
-
-		const bool Window::is_open() const noexcept
-		{
-			return (!glfwWindowShouldClose(m_window));
-		}
-
-		void Window::close() noexcept
-		{
-			glfwSetWindowShouldClose(m_window, true);
-		}
+		
 
 		void Window::resize(const int width, const int height)
 		{
@@ -439,22 +384,7 @@ namespace galaxy
 			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 
-		void Window::request_attention() noexcept
-		{
-			glfwRequestWindowAttention(m_window);
-		}
-
-		void Window::allow_native_closing() noexcept
-		{
-			glfwSetWindowCloseCallback(m_window, nullptr);
-		}
-
-		void Window::prevent_native_closing() noexcept
-		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
-				glfwSetWindowShouldClose(window, GLFW_FALSE);
-			});
-		}
+		
 
 		void Window::begin()
 		{
@@ -566,29 +496,9 @@ namespace galaxy
 			return m_event_queue;
 		}
 
-		const bool Window::is_focused() noexcept
-		{
-			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
-		}
-
-		const int Window::get_width() const noexcept
-		{
-			return m_width;
-		}
-
-		const int Window::get_height() const noexcept
-		{
-			return m_height;
-		}
-
 		const glm::vec2& Window::cursor_size() const noexcept
 		{
 			return m_cursor.m_cursor_size;
-		}
-
-		GLFWwindow* Window::gl_window() noexcept
-		{
-			return m_window;
 		}
 	} // namespace core
 } // namespace galaxy
