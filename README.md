@@ -13,13 +13,13 @@ Real-time full featured Game/App/Software Engine using C++20, featuring data-dri
 
 Hard Requirements:
 64-bit OS.
-[CMake](https://cmake.org/) 3.20 - Minimum.
+[CMake](https://cmake.org/) 3.22
 
 Soft Requirements:
 [Doxygen](https://www.doxygen.nl/index.html) 1.9.2 and [Doxygen Dark Theme](https://github.com/MaJerle/doxygen-dark-theme) - Only if you want to build locally. Clone the dark theme into a folder named ```ddt``` in the root of the repo (i.e. next to Doxyfile).
 
 ### Windows:
-You will need to install at least ```Visual Studio 2019 16.11.4 Preview 1.0```, and install the following:
+You will need to install at least ```Visual Studio 2022 17.0```, and install the following:
 
 Major Components:
 ```
@@ -32,7 +32,7 @@ Minor Components:
 C++ CMake tools for Windows
 C++ CMake tools for Linux
 Windows Universal CRT SDK
-Windows SDK 10.0.19041.0
+Windows SDK 10.0.20348.0
 Windows Universal C Runtime
 ```
 Building Instructions:
@@ -46,7 +46,6 @@ Open galaxy.sln and go Build -> Rebuild Solution.
 ### Linux:
 ```
 Coming Soon.
-
 ```
 
 ### MacOS:
