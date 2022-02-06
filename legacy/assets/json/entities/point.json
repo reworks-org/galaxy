@@ -2,27 +2,29 @@
     "enabled": true,
     "allow-serialize": true,
     "components": {
-        "PointLight": {
-            "ambient": {
-                "r": 0.05,
-                "g": 0.05,
-                "b": 0.05
-            },
-            "diffuse": {
-                "r": 0.4,
-                "g": 0.4,
-                "b": 0.4
-            },
-            "specular": {
-                "r": 0.5,
-                "g": 0.5,
-                "b": 0.5
-            },
-            "position": {
-                "x": 0.7,
-                "y": 0.2,
-                "z": 2.0
+    	"Tag": {
+            "tag": "PointEntity"
+        },
+        "Primitive2D": {
+        	"type": "POINT",
+            "opacity": 255,
+            "layer": "primitives",
+            "point-size": 20,
+            "colour": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 255
             }
+        },
+        "Transform2D": {
+            "x": 10,
+            "y": 10,
+            "rotation": 0,
+            "scale": 1
+        },
+        "Renderable": {
+            "type": "POINT"
         }
     }
 }

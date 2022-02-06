@@ -2,7 +2,7 @@
 /// Platform.cpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "Platform.hpp"

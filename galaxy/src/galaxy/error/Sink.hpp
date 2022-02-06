@@ -15,27 +15,50 @@ namespace galaxy
 	namespace error
 	{
 		///
-		/// A sink to log messages to.
+		/// \brief A source for log messages to be recorded to.
+		///
+		/// I.e. Console, File, Database...
 		///
 		class Sink
 		{
 		public:
+			///
+			/// Virtual Destructor.
+			///
+			virtual ~Sink() noexcept = default;
+
+			///
+			/// Record the message.
+			///
+			/// \param message The actual message to record.
+			///
+			virtual void sink_message(std::string_view message) noexcept = 0;
+
+		protected:
 			///
 			/// Constructor.
 			///
 			Sink() noexcept = default;
 
 			///
-			/// Destructor.
+			/// Copy constructor.
 			///
-			virtual ~Sink() noexcept = default;
+			Sink(const Sink&) noexcept = default;
 
 			///
-			/// Sink the message.
+			/// Move constructor.
 			///
-			/// \param message String to sink.
+			Sink(Sink&&) noexcept = default;
+
 			///
-			virtual void sink_message(std::string_view message) noexcept = 0;
+			/// Copy assignment operator.
+			///
+			Sink& operator=(const Sink&) noexcept = default;
+
+			///
+			/// Move assignment operator.
+			///
+			Sink& operator=(Sink&&) noexcept = default;
 		};
 	} // namespace error
 } // namespace galaxy

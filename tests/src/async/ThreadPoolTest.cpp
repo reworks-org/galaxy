@@ -11,16 +11,30 @@
 
 TEST(Async, ThreadPool)
 {
-	std::atomic<int>          count = 0;
 	galaxy::async::ThreadPool pool;
-	galaxy::async::Task       task;
-	task.set([&]() {
-		count = 2;
+
+	galaxy::async::Task taskA;
+	galaxy::async::Task taskB;
+
+	std::atomic<int> count     = 0;
+	std::atomic<bool> is_false = true;
+
+	taskA.set([&]() {
+		count = 1;
 	});
 
-	pool.queue(&task);
-	task.wait_until_done();
-	pool.finish();
+	taskB.set([&]() {
+		is_false = false;
+	});
 
-	EXPECT_EQ(count.load(), 2);
+	pool.queue(&taskA);
+	pool.queue(&taskB);
+
+	taskA.wait_until_done();
+	taskB.wait_until_done();
+
+	pool.stop();
+
+	EXPECT_EQ(count.load(), 1);
+	EXPECT_EQ(is_false.load(), false);
 }

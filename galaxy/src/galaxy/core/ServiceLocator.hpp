@@ -8,179 +8,68 @@
 #ifndef GALAXY_CORE_SERVICELOCATOR_HPP_
 #define GALAXY_CORE_SERVICELOCATOR_HPP_
 
-#include <chrono>
+#include <memory>
 
-#include <sol/forward.hpp>
-
-///
-/// Shortcut macro.
-///
-#define SL_HANDLE galaxy::core::ServiceLocator::get()
+#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/error/Log.hpp"
 
 namespace galaxy
 {
-	namespace async
-	{
-		class ThreadPool;
-	} // namespace async
-
-	namespace audio
-	{
-		class Context;
-	} // namespace audio
-
-	namespace core
-	{
-		class Window;
-	} // namespace core
-
-	namespace fs
-	{
-		class Config;
-		class Virtual;
-	} // namespace fs
-
-	namespace res
-	{
-		class FontBook;
-		class ShaderBook;
-		class TextureBook;
-		class SoundBook;
-		class MusicBook;
-		class ScriptBook;
-		class Language;
-	} // namespace res
-
 	namespace core
 	{
 		///
-		/// Provides pointer access to services in the framework.
+		/// Provides access to registered services.
 		/// Cannot be created, copied or moved.
 		///
+		/// \tparam Service A class to be stored as a service for use across the engine.
+		///
+		template<meta::is_class Service>
 		class ServiceLocator final
 		{
-			friend class Application;
-
 		public:
 			///
-			/// Destructor.
+			/// Construct a new service.
 			///
-			~ServiceLocator() noexcept = default;
+			/// \tparam Args Packed cnstructor argument types.
+			///
+			/// \param args Packed constructor argument values.
+			///
+			/// \return Pointer to new service.
+			///
+			template<typename... Args>
+			[[maybe_unused]] static Service& make(Args&&... args) noexcept;
 
 			///
-			/// Get singleton instance.
+			/// Get a reference to the service.
 			///
-			/// \return Returns a reference to the internal singleton of this class.
+			/// \return Reference to service.
 			///
-			[[nodiscard]] static ServiceLocator& get() noexcept;
+			[[nodiscard]] static Service& ref();
 
 			///
-			/// Get config service.
+			/// Check if service exists.
 			///
-			/// \return Pointer to config service.
+			/// \return True if service has been created.
 			///
-			[[maybe_unused]] fs::Config* config() const noexcept;
+			[[nodiscard]] static bool empty() noexcept;
 
 			///
-			/// Get window service.
+			/// \brief Delete the service and frees up the memory.
 			///
-			/// \return Pointer to window service.
+			/// Sets the service to nullptr.
 			///
-			[[maybe_unused]] core::Window* window() const noexcept;
-
-			///
-			/// Get Lua service.
-			///
-			/// \return Pointer to Lua service.
-			///
-			[[maybe_unused]] sol::state* lua() const noexcept;
-
-			///
-			/// Get FontBook service.
-			///
-			/// \return Pointer to FontBook service.
-			///
-			[[maybe_unused]] res::FontBook* fontbook() const noexcept;
-
-			///
-			/// Get ShaderBook service.
-			///
-			/// \return Pointer to ShaderBook service.
-			///
-			[[maybe_unused]] res::ShaderBook* shaderbook() const noexcept;
-
-			///
-			/// Get SoundBook service.
-			///
-			/// \return Pointer to SoundBook service.
-			///
-			[[maybe_unused]] res::SoundBook* soundbook() const noexcept;
-
-			///
-			/// Get MusicBook service.
-			///
-			/// \return Pointer to MusicBook service.
-			///
-			[[maybe_unused]] res::MusicBook* musicbook() const noexcept;
-
-			///
-			/// Get TextureBook service.
-			///
-			/// \return Pointer to TextureBook service.
-			///
-			[[maybe_unused]] res::TextureBook* texturebook() const noexcept;
-
-			///
-			/// Get Virtual FileSystem service.
-			///
-			/// \return Pointer to Virtual FileSystem service.
-			///
-			[[maybe_unused]] fs::Virtual* vfs() const noexcept;
-
-			///
-			/// Get OpenAL context service.
-			///
-			/// \return Pointer to OpenAL context.
-			///
-			[[maybe_unused]] audio::Context* openal() const noexcept;
-
-			///
-			/// Get ScriptBook service.
-			///
-			/// \return Pointer to ScriptBook service.
-			///
-			[[maybe_unused]] res::ScriptBook* scriptbook() const noexcept;
-
-			///
-			/// Get Language service.
-			///
-			/// \return Pointer to Language service.
-			///
-			[[maybe_unused]] res::Language* lang() const noexcept;
-
-			///
-			/// Get ThreadPool service.
-			///
-			/// \return Pointer to ThreadPool service.
-			///
-			[[maybe_unused]] async::ThreadPool* pool() const noexcept;
-
-		public:
-			///
-			/// Restart flag.
-			///
-			bool m_restart;
-
-			///
-			/// Time point for application start.
-			///
-			std::chrono::high_resolution_clock::time_point m_app_start_time_point;
+			static void del();
 
 		private:
 			///
 			/// Constructor.
 			///
-			ServiceLocator() noexcept;
+			ServiceLocator() = delete;
+
+			///
+			/// Destructor.
+			///
+			~ServiceLocator() = delete;
 
 			///
 			/// Copy constructor.
@@ -204,70 +93,43 @@ namespace galaxy
 
 		private:
 			///
-			/// Config service.
+			/// Main service pointer.
 			///
-			fs::Config* m_config;
-
-			///
-			/// Window service.
-			///
-			core::Window* m_window;
-
-			///
-			/// Lua service. Main instance of Lua.
-			///
-			sol::state* m_lua;
-
-			///
-			/// FontBook service.
-			///
-			res::FontBook* m_fontbook;
-
-			///
-			/// ShaderBook service.
-			///
-			res::ShaderBook* m_shaderbook;
-
-			///
-			/// SoundBook service.
-			///
-			res::SoundBook* m_soundbook;
-
-			///
-			/// MusicBook service.
-			///
-			res::MusicBook* m_musicbook;
-
-			///
-			/// Texture Atlas service.
-			///
-			res::TextureBook* m_texturebook;
-
-			///
-			/// Virtual FileSystem service.
-			///
-			fs::Virtual* m_vfs;
-
-			///
-			/// Audio Context service.
-			///
-			audio::Context* m_openal;
-
-			///
-			/// ScriptBook service.
-			///
-			res::ScriptBook* m_scriptbook;
-
-			///
-			/// Language service.
-			///
-			res::Language* m_language;
-
-			///
-			/// ThreadPool service.
-			///
-			async::ThreadPool* m_pool;
+			inline static std::unique_ptr<Service> m_service = nullptr;
 		};
+
+		template<meta::is_class Service>
+		template<typename... Args>
+		inline Service& ServiceLocator<Service>::make(Args&&... args) noexcept
+		{
+			m_service = std::make_unique<Service>(std::forward<Args>(args)...);
+
+			return ref();
+		}
+
+		template<meta::is_class Service>
+		inline Service& ServiceLocator<Service>::ref()
+		{
+			if (empty())
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
+			}
+
+			return *m_service;
+		}
+
+		template<meta::is_class Service>
+		inline bool ServiceLocator<Service>::empty() noexcept
+		{
+			return !m_service;
+		}
+
+		template<meta::is_class Service>
+		inline void ServiceLocator<Service>::del()
+		{
+			m_service.reset();
+			m_service = nullptr;
+		}
 	} // namespace core
 } // namespace galaxy
 

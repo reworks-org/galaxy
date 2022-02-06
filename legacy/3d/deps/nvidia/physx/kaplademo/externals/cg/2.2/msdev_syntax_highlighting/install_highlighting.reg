@@ -1,5 +1,0 @@
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\DevStudio\6.0\Text Editor\Tabs/Language Settings\C/C++]
-"FileExtensions"="cpp;cxx;c;h;hxx;hpp;inl;tlh;tli;rc;rc2;cg"
-

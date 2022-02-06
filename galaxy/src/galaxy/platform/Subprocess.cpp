@@ -2,7 +2,7 @@
 /// Subprocess.cpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "galaxy/error/Log.hpp"
@@ -13,6 +13,17 @@ namespace galaxy
 {
 	namespace platform
 	{
+		Subprocess::Subprocess() noexcept
+			: m_process {nullptr}
+		{
+		}
+
+		Subprocess::Subprocess(std::string_view process, std::span<std::string> args) noexcept
+			: m_process {nullptr}
+		{
+			create(process, args);
+		}
+
 		Subprocess::~Subprocess() noexcept
 		{
 			terminate();

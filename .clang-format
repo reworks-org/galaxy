@@ -4,7 +4,7 @@ AccessModifierOffset: '-4'
 AlignAfterOpenBracket: DontAlign
 AlignConsecutiveAssignments: Consecutive
 AlignConsecutiveBitFields: Consecutive
-AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Left
 AlignOperands: Align

@@ -11,351 +11,103 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\ai\AStar.cpp" />
-    <ClCompile Include="src\galaxy\core\Guid.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\GZip.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Task.cpp" />
     <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
-    <ClCompile Include="src\galaxy\audio\Buffer.cpp" />
-    <ClCompile Include="src\galaxy\audio\BufferStream.cpp" />
-    <ClCompile Include="src\galaxy\audio\Context.cpp" />
-    <ClCompile Include="src\galaxy\audio\Music.cpp" />
-    <ClCompile Include="src\galaxy\audio\Sound.cpp" />
-    <ClCompile Include="src\galaxy\audio\Source.cpp" />
-    <ClCompile Include="src\galaxy\audio\SourceManipulator.cpp" />
-    <ClCompile Include="src\galaxy\components\Actions.cpp" />
-    <ClCompile Include="src\galaxy\components\Animated.cpp" />
-    <ClCompile Include="src\galaxy\components\BatchSprite.cpp" />
-    <ClCompile Include="src\galaxy\components\OnCollision.cpp" />
-    <ClCompile Include="src\galaxy\components\ParticleEffect.cpp" />
-    <ClCompile Include="src\galaxy\components\Primitive2D.cpp" />
-    <ClCompile Include="src\galaxy\components\Renderable.cpp" />
-    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
-    <ClCompile Include="src\galaxy\components\Sprite.cpp" />
-    <ClCompile Include="src\galaxy\components\Tag.cpp" />
-    <ClCompile Include="src\galaxy\components\Text.cpp" />
-    <ClCompile Include="src\galaxy\components\Transform2D.cpp" />
-    <ClCompile Include="src\galaxy\core\Application.cpp" />
-    <ClCompile Include="src\galaxy\core\GalaxyConfig.cpp" />
-    <ClCompile Include="src\galaxy\core\Layer.cpp" />
-    <ClCompile Include="src\galaxy\core\LoadingScreen.cpp" />
-    <ClCompile Include="src\galaxy\core\Scene2D.cpp" />
-    <ClCompile Include="src\galaxy\core\SceneStack.cpp" />
+    <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
+    <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
-    <ClCompile Include="src\galaxy\core\Window.cpp" />
-    <ClCompile Include="src\galaxy\core\WindowSettings.cpp" />
-    <ClCompile Include="src\galaxy\core\World.cpp" />
-    <ClCompile Include="src\galaxy\ecs\ComponentSet.cpp" />
-    <ClCompile Include="src\galaxy\ecs\Entity.cpp" />
-    <ClCompile Include="src\galaxy\ecs\Set.cpp" />
-    <ClCompile Include="src\galaxy\ecs\System.cpp" />
-    <ClCompile Include="src\galaxy\error\ALError.cpp" />
     <ClCompile Include="src\galaxy\error\ConsoleSink.cpp" />
     <ClCompile Include="src\galaxy\error\FileSink.cpp" />
     <ClCompile Include="src\galaxy\error\Log.cpp" />
     <ClCompile Include="src\galaxy\error\LogLevel.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
-    <ClCompile Include="src\galaxy\events\Dispatcher.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyChar.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyDown.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyUp.cpp" />
-    <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
-    <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
-    <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
-    <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
-    <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
-    <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
-    <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
-    <ClCompile Include="src\galaxy\fs\Config.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileListener.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
-    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
-    <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
-    <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Framebuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\IndexBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\InstanceBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Particle.cpp" />
-    <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
-    <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
-    <ClCompile Include="src\galaxy\graphics\PostProcessor.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Renderables.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Renderer2D.cpp" />
-    <ClCompile Include="src\galaxy\graphics\RenderLayer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
-    <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
-    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
-    <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
-    <ClCompile Include="src\galaxy\graphics\text\Character.cpp" />
-    <ClCompile Include="src\galaxy\graphics\text\Font.cpp" />
-    <ClCompile Include="src\galaxy\graphics\text\FreeType.cpp" />
-    <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Vertex.cpp" />
-    <ClCompile Include="src\galaxy\graphics\VertexArray.cpp" />
-    <ClCompile Include="src\galaxy\graphics\VertexAttribute.cpp" />
-    <ClCompile Include="src\galaxy\graphics\VertexBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\VertexLayout.cpp" />
-    <ClCompile Include="src\galaxy\input\Cursor.cpp" />
-    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
-    <ClCompile Include="src\galaxy\input\Keys.cpp" />
-    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
-    <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
-    <ClCompile Include="src\galaxy\map\layer\ImageLayer.cpp" />
-    <ClCompile Include="src\galaxy\map\layer\Layer.cpp" />
-    <ClCompile Include="src\galaxy\map\layer\ObjectLayer.cpp" />
-    <ClCompile Include="src\galaxy\map\layer\TileLayer.cpp" />
-    <ClCompile Include="src\galaxy\map\Map.cpp" />
-    <ClCompile Include="src\galaxy\map\MapUtils.cpp" />
-    <ClCompile Include="src\galaxy\map\TiledWorld.cpp" />
-    <ClCompile Include="src\galaxy\map\tile\Tile.cpp" />
-    <ClCompile Include="src\galaxy\map\tile\TileOffset.cpp" />
-    <ClCompile Include="src\galaxy\map\tile\Tileset.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Chunk.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Frame.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Grid.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Object.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Point.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Property.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Terrain.cpp" />
-    <ClCompile Include="src\galaxy\map\types\Text.cpp" />
-    <ClCompile Include="src\galaxy\map\wangtile\WangColour.cpp" />
-    <ClCompile Include="src\galaxy\map\wangtile\WangSet.cpp" />
-    <ClCompile Include="src\galaxy\map\wangtile\WangTile.cpp" />
-    <ClCompile Include="src\galaxy\math\AABB.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Window.cpp" />
+    <ClCompile Include="src\galaxy\graphics\WindowSettings.cpp" />
     <ClCompile Include="src\galaxy\math\Algorithms.cpp" />
     <ClCompile Include="src\galaxy\math\Base64.cpp" />
     <ClCompile Include="src\galaxy\math\GZip.cpp" />
     <ClCompile Include="src\galaxy\math\Random.cpp" />
-    <ClCompile Include="src\galaxy\math\Rect.cpp" />
-    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
-    <ClCompile Include="src\galaxy\meta\EventMeta.cpp" />
-    <ClCompile Include="src\galaxy\meta\StaticIDGen.cpp" />
-    <ClCompile Include="src\galaxy\meta\UniqueID.cpp" />
-    <ClCompile Include="src\galaxy\physics\BodyType.cpp" />
-    <ClCompile Include="src\galaxy\physics\DynamicTree.cpp" />
-    <ClCompile Include="src\galaxy\physics\SAT.cpp" />
+    <ClCompile Include="src\galaxy\meta\Globals.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
-    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
-    <ClCompile Include="src\galaxy\resource\FontBook.cpp" />
-    <ClCompile Include="src\galaxy\resource\Language.cpp" />
-    <ClCompile Include="src\galaxy\resource\MusicBook.cpp" />
-    <ClCompile Include="src\galaxy\resource\ResourceCache.cpp" />
-    <ClCompile Include="src\galaxy\resource\ScriptBook.cpp" />
-    <ClCompile Include="src\galaxy\resource\ShaderBook.cpp" />
-    <ClCompile Include="src\galaxy\resource\SoundBook.cpp" />
-    <ClCompile Include="src\galaxy\resource\TextureBook.cpp" />
-    <ClCompile Include="src\galaxy\scripting\JSONUtils.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LoadedScript.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
-    <ClCompile Include="src\galaxy\systems\ActionSystem.cpp" />
-    <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
-    <ClCompile Include="src\galaxy\systems\CollisionSystem.cpp" />
-    <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
-    <ClCompile Include="src\galaxy\systems\RenderSystem2D.cpp" />
-    <ClCompile Include="src\galaxy\systems\TransformSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
-    <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
+    <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\ai\AStar.hpp" />
-    <ClInclude Include="src\galaxy\core\Guid.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\GZip.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Task.hpp" />
     <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
-    <ClInclude Include="src\galaxy\audio\Buffer.hpp" />
-    <ClInclude Include="src\galaxy\audio\BufferStream.hpp" />
-    <ClInclude Include="src\galaxy\audio\Context.hpp" />
-    <ClInclude Include="src\galaxy\audio\Music.hpp" />
-    <ClInclude Include="src\galaxy\audio\Sound.hpp" />
-    <ClInclude Include="src\galaxy\audio\Source.hpp" />
-    <ClInclude Include="src\galaxy\audio\SourceManipulator.hpp" />
-    <ClInclude Include="src\galaxy\components\Actions.hpp" />
-    <ClInclude Include="src\galaxy\components\Animated.hpp" />
-    <ClInclude Include="src\galaxy\components\BatchSprite.hpp" />
-    <ClInclude Include="src\galaxy\components\OnCollision.hpp" />
-    <ClInclude Include="src\galaxy\components\ParticleEffect.hpp" />
-    <ClInclude Include="src\galaxy\components\Primitive2D.hpp" />
-    <ClInclude Include="src\galaxy\components\Renderable.hpp" />
-    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
-    <ClInclude Include="src\galaxy\components\Sprite.hpp" />
-    <ClInclude Include="src\galaxy\components\Tag.hpp" />
-    <ClInclude Include="src\galaxy\components\Text.hpp" />
-    <ClInclude Include="src\galaxy\components\Transform2D.hpp" />
+    <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\core\GalaxyConfig.hpp" />
-    <ClInclude Include="src\galaxy\core\Layer.hpp" />
-    <ClInclude Include="src\galaxy\core\LoadingScreen.hpp" />
-    <ClInclude Include="src\galaxy\core\Scene2D.hpp" />
-    <ClInclude Include="src\galaxy\core\SceneStack.hpp" />
+    <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\core\Guid.hpp" />
+    <ClInclude Include="src\galaxy\core\Application.cpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
-    <ClInclude Include="src\galaxy\core\Window.hpp" />
-    <ClInclude Include="src\galaxy\core\WindowSettings.hpp" />
-    <ClInclude Include="src\galaxy\core\World.hpp" />
-    <ClInclude Include="src\galaxy\ecs\ComponentSet.hpp" />
-    <ClInclude Include="src\galaxy\ecs\Entity.hpp" />
-    <ClInclude Include="src\galaxy\ecs\Set.hpp" />
-    <ClInclude Include="src\galaxy\ecs\System.hpp" />
-    <ClInclude Include="src\galaxy\error\ALError.hpp" />
     <ClInclude Include="src\galaxy\error\ConsoleSink.hpp" />
     <ClInclude Include="src\galaxy\error\FileSink.hpp" />
     <ClInclude Include="src\galaxy\error\Log.hpp" />
     <ClInclude Include="src\galaxy\error\LogLevel.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
-    <ClInclude Include="src\galaxy\events\Dispatcher.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyChar.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyDown.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyUp.hpp" />
-    <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
-    <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
-    <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
-    <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
-    <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
-    <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
-    <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
-    <ClInclude Include="src\galaxy\fs\Config.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileListener.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
-    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
-    <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
-    <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Camera2D.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Framebuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\IndexBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\InstanceBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Particle.hpp" />
-    <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
-    <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />
-    <ClInclude Include="src\galaxy\graphics\PostProcessor.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Renderables.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Renderer2D.hpp" />
-    <ClInclude Include="src\galaxy\graphics\RenderLayer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
-    <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
-    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
-    <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
-    <ClInclude Include="src\galaxy\graphics\text\Character.hpp" />
-    <ClInclude Include="src\galaxy\graphics\text\Font.hpp" />
-    <ClInclude Include="src\galaxy\graphics\text\FreeType.hpp" />
-    <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Vertex.hpp" />
-    <ClInclude Include="src\galaxy\graphics\VertexArray.hpp" />
-    <ClInclude Include="src\galaxy\graphics\VertexAttribute.hpp" />
-    <ClInclude Include="src\galaxy\graphics\VertexBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\VertexLayout.hpp" />
-    <ClInclude Include="src\galaxy\input\Cursor.hpp" />
-    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
-    <ClInclude Include="src\galaxy\input\Keys.hpp" />
-    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
-    <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
-    <ClInclude Include="src\galaxy\map\layer\ImageLayer.hpp" />
-    <ClInclude Include="src\galaxy\map\layer\Layer.hpp" />
-    <ClInclude Include="src\galaxy\map\layer\ObjectLayer.hpp" />
-    <ClInclude Include="src\galaxy\map\layer\TileLayer.hpp" />
-    <ClInclude Include="src\galaxy\map\Map.hpp" />
-    <ClInclude Include="src\galaxy\map\MapUtils.hpp" />
-    <ClInclude Include="src\galaxy\map\TiledWorld.hpp" />
-    <ClInclude Include="src\galaxy\map\tile\Tile.hpp" />
-    <ClInclude Include="src\galaxy\map\tile\TileOffset.hpp" />
-    <ClInclude Include="src\galaxy\map\tile\Tileset.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Chunk.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Frame.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Grid.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Object.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Point.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Property.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Terrain.hpp" />
-    <ClInclude Include="src\galaxy\map\types\Text.hpp" />
-    <ClInclude Include="src\galaxy\map\wangtile\WangColour.hpp" />
-    <ClInclude Include="src\galaxy\map\wangtile\WangSet.hpp" />
-    <ClInclude Include="src\galaxy\map\wangtile\WangTile.hpp" />
-    <ClInclude Include="src\galaxy\math\AABB.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Window.hpp" />
+    <ClInclude Include="src\galaxy\graphics\WindowSettings.hpp" />
     <ClInclude Include="src\galaxy\math\Algorithms.hpp" />
     <ClInclude Include="src\galaxy\math\Base64.hpp" />
     <ClInclude Include="src\galaxy\math\GZip.hpp" />
     <ClInclude Include="src\galaxy\math\Random.hpp" />
-    <ClInclude Include="src\galaxy\math\Rect.hpp" />
-    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
-    <ClInclude Include="src\galaxy\meta\EventMeta.hpp" />
-    <ClInclude Include="src\galaxy\meta\StaticIDGen.hpp" />
-    <ClInclude Include="src\galaxy\meta\UniqueID.hpp" />
-    <ClInclude Include="src\galaxy\physics\BodyType.hpp" />
-    <ClInclude Include="src\galaxy\physics\DynamicTree.hpp" />
-    <ClInclude Include="src\galaxy\physics\SAT.hpp" />
+    <ClInclude Include="src\galaxy\meta\Globals.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
-    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
-    <ClInclude Include="src\galaxy\resource\FontBook.hpp" />
-    <ClInclude Include="src\galaxy\resource\Language.hpp" />
-    <ClInclude Include="src\galaxy\resource\MusicBook.hpp" />
-    <ClInclude Include="src\galaxy\resource\ResourceCache.hpp" />
-    <ClInclude Include="src\galaxy\resource\ScriptBook.hpp" />
-    <ClInclude Include="src\galaxy\resource\ShaderBook.hpp" />
-    <ClInclude Include="src\galaxy\resource\SoundBook.hpp" />
-    <ClInclude Include="src\galaxy\resource\TextureBook.hpp" />
-    <ClInclude Include="src\galaxy\scripting\JSONUtils.hpp" />
-    <ClInclude Include="src\galaxy\scripting\LoadedScript.hpp" />
-    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
-    <ClInclude Include="src\galaxy\systems\ActionSystem.hpp" />
-    <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
-    <ClInclude Include="src\galaxy\systems\CollisionSystem.hpp" />
-    <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
-    <ClInclude Include="src\galaxy\systems\RenderSystem2D.hpp" />
-    <ClInclude Include="src\galaxy\systems\TransformSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
-    <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
+    <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
+    <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{51012bcd-3ab4-404a-9fdc-70505c0e390e}</ProjectGuid>
     <RootNamespace>galaxy</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -420,7 +172,7 @@
       <PrecompiledHeaderOutputFile />
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <EnablePREfast>true</EnablePREfast>
       <SupportJustMyCode>false</SupportJustMyCode>
@@ -431,6 +183,7 @@
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -449,7 +202,7 @@
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
-      <AdditionalDependencies>$(SolutionDir)output\dependencies\Debug\dependencies.lib;$(SolutionDir)output\efsw\Debug\efsw.lib;$(SolutionDir)output\glfw\Debug\glfw3.lib;$(SolutionDir)output\OpenAL\Debug\common.lib;$(SolutionDir)output\OpenAL\Debug\OpenAL32.lib;$(SolutionDir)output\zlib\Debug\zlibstaticd.lib;</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)output\dependencies\Debug\dependencies.lib;$(SolutionDir)output\glfw\Debug\glfw3.lib;$(SolutionDir)output\OpenAL\Debug\common.lib;$(SolutionDir)output\OpenAL\Debug\OpenAL32.lib;$(SolutionDir)output\zlib\Debug\zlibstaticd.lib</AdditionalDependencies>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
@@ -487,7 +240,7 @@
       <PrecompiledHeaderOutputFile />
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <EnablePREfast>true</EnablePREfast>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <StringPooling>true</StringPooling>
@@ -495,6 +248,7 @@
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -515,7 +269,7 @@
     <Lib>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
-      <AdditionalDependencies>$(SolutionDir)output\dependencies\Release\dependencies.lib;$(SolutionDir)output\efsw\Release\efsw.lib;$(SolutionDir)output\glfw\Release\glfw3.lib;$(SolutionDir)output\OpenAL\Release\common.lib;$(SolutionDir)output\OpenAL\Release\OpenAL32.lib;$(SolutionDir)output\zlib\Release\zlibstatic.lib;</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)output\dependencies\Release\dependencies.lib;$(SolutionDir)output\glfw\Release\glfw3.lib;$(SolutionDir)output\OpenAL\Release\common.lib;$(SolutionDir)output\OpenAL\Release\OpenAL32.lib;$(SolutionDir)output\zlib\Release\zlibstatic.lib</AdditionalDependencies>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>

@@ -17,31 +17,51 @@ namespace galaxy
 	namespace meta
 	{
 		///
-		/// Only class concept.
+		/// \brief Only class concept.
+		///
+		/// Type must be a class or struct.
+		///
+		/// \tparam Type Type to test.
 		///
 		template<typename Type>
 		concept is_class = std::is_class<Type>::value;
 
 		///
-		/// Concept to restrict templates to non pointers.
+		/// \brief Concept to restrict templates to not pointers and not references.
+		///
+		/// Type must not be a pointer or reference.
+		///
+		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept not_pointer_or_ref = (!std::is_pointer<Type>::value) && (!std::is_reference<Type>::value);
+		concept not_memory = !std::is_pointer<Type>::value && !std::is_reference<Type>::value;
 
 		///
 		/// Arithmetic concept.
+		///
+		/// Type must be arithmetic. See: std::is_arithmetic.
+		///
+		/// \tparam Type Type to test.
 		///
 		template<typename Type>
 		concept is_arithmetic = std::is_arithmetic<Type>::value;
 
 		///
-		/// Ensures a type is arithmetic or a std::string.
+		/// \brief Ensures a type is arithmetic or a std::string.
+		///
+		/// Must be an arithmetic type or a std::string. See: std::is_arithmetic.
+		///
+		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept standard_type = (std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
+		concept standard_type = is_arithmetic<Type> || std::is_same<std::string, Type>::value;
 
 		///
-		/// Makes sure a value is a flag for a std::bitset.
+		/// Makes sure a value is a valid value for a std::bitset.
+		///
+		/// Must be an unsigned short between 0 and 7. i.e. 8 values.
+		///
+		/// \tparam Type Type to test.
 		///
 		template<typename Type>
 		concept is_bitset_flag = requires(Type type)

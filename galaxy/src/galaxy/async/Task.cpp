@@ -19,12 +19,14 @@ namespace galaxy
 		Task::~Task() noexcept
 		{
 			m_done = true;
+
 			std::atomic_notify_one(&m_done);
 		}
 
 		void Task::exec() noexcept
 		{
 			m_task();
+
 			m_done = true;
 			std::atomic_notify_one(&m_done);
 		}

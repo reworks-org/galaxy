@@ -14,10 +14,10 @@ namespace galaxy
 {
 	namespace core
 	{
-		Guid Guid::make() noexcept
+		Guid&& Guid::make() noexcept
 		{
-			thread_local std::random_device                           s_device;
-			thread_local std::mt19937_64                              s_engine(s_device());
+			thread_local std::random_device s_device;
+			thread_local std::mt19937_64 s_engine(s_device());
 			thread_local std::uniform_int_distribution<std::uint64_t> s_64dist;
 			thread_local std::uniform_int_distribution<std::uint32_t> s_32dist;
 			thread_local std::uniform_int_distribution<std::uint16_t> s_16dist;
@@ -31,7 +31,7 @@ namespace galaxy
 			guid.m_fifth  = s_64dist(s_engine);
 			guid.m_string = std::format("{0}-{1}-{2}-{3}-{4}", guid.m_first, guid.m_second, guid.m_third, guid.m_fourth, guid.m_fifth);
 
-			return guid;
+			return std::move(guid);
 		}
 
 		Guid::Guid() noexcept
@@ -71,7 +71,7 @@ namespace galaxy
 			return *this;
 		}
 
-		const std::string& Guid::as_string() const noexcept
+		const std::string& Guid::to_string() const noexcept
 		{
 			return m_string;
 		}

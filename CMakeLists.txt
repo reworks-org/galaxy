@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.22)
 
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
 	message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
@@ -6,8 +6,8 @@ endif()
 
 # Force set cmake vars
 if (WIN32)
-	set(CMAKE_SYSTEM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
-	set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0 CACHE STRING INTERNAL FORCE)
+	set(CMAKE_SYSTEM_VERSION 10.0.20348.0 CACHE STRING INTERNAL FORCE)
+	set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.20348.0 CACHE STRING INTERNAL FORCE)
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL INTERNAL FORCE)
 	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" CACHE STRING INTERNAL FORCE)
 	set(CMAKE_SHARED_LINKER_FLAGS_CHECKED ON CACHE BOOL INTERNAL FORCE)
@@ -69,35 +69,9 @@ if (WIN32)
 	set(GALAXY_PRECOMPILED_LIBS
 		"${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/win64/freetype.lib"
 	)
-else()
-	set(LIB_FILE_EXT "a")
-	find_package(Threads REQUIRED)
-	find_package(Freetype REQUIRED)
-	add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
-
-	set(GALAXY_EXTERNAL_HEADERS
-		"${FREETYPE_INCLUDE_DIRS}"
-		"/usr/include"
-	)
-
-	set(GALAXY_PRECOMPILED_LIBS
-		"${FREETYPE_LIBRARIES}"
-	)
 endif()
 
 # Add external libs.
-set(VERBOSE OFF CACHE BOOL "" FORCE)
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-set(BUILD_TEST_APP OFF CACHE BOOL "" FORCE)
-set(EFSW_INSTALL OFF CACHE BOOL "" FORCE)
-add_subdirectory(dependencies/efsw)
-set_target_properties(efsw PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/efsw"
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/efsw"
-    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/efsw"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/efsw"
-)
-
 set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -161,13 +135,17 @@ endif()
 # Set external project options.
 if (WIN32)
 	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-		target_compile_options(efsw PUBLIC /MTd /WX- /EHsc /W0)
+		target_compile_options(bx PUBLIC /MTd /WX- /EHsc /W0)
+		target_compile_options(bimg PUBLIC /MTd /WX- /EHsc /W0)
+		target_compile_options(bgfx PUBLIC /MTd /WX- /EHsc /W0)
 		target_compile_options(glfw PUBLIC /MTd /WX- /EHsc /W0)
 		target_compile_options(OpenAL PUBLIC /MTd /WX- /EHsc /W0)
 		target_compile_options(common PUBLIC /MTd /WX- /EHsc /W0)
 		target_compile_options(zlib PUBLIC /MTd /WX- /EHsc /W0)
 	elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-		target_compile_options(efsw PUBLIC /MT /WX- /EHsc /W0)
+		target_compile_options(bx PUBLIC /MT /WX- /EHsc /W0)
+		target_compile_options(bimg PUBLIC /MT /WX- /EHsc /W0)
+		target_compile_options(bgfx PUBLIC /MT /WX- /EHsc /W0)
 		target_compile_options(glfw PUBLIC /MT /WX- /EHsc /W0)
 		target_compile_options(OpenAL PUBLIC /MT /WX- /EHsc /W0)
 		target_compile_options(common PUBLIC /MT /WX- /EHsc /W0)

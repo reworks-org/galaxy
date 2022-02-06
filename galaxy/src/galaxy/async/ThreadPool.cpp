@@ -13,23 +13,17 @@ namespace galaxy
 {
 	namespace async
 	{
-		ThreadPool::ThreadPool()
-			: m_is_destroyed {true}
+		ThreadPool::ThreadPool() noexcept
+			: m_destroyed {true}
 			, m_sync {0}
 		{
 			m_running = true;
 
-			m_max_threads = std::thread::hardware_concurrency();
-			if (m_max_threads > MAX_THREADS_ALLOWED_TOTAL)
-			{
-				m_max_threads = MAX_THREADS_ALLOWED_TOTAL;
-			}
-
-			for (std::size_t i = 0; i < m_max_threads; i++)
+			for (std::size_t i = 0; i < GALAXY_MAX_THREADS; i++)
 			{
 				// This is just storing the thread.
 				m_workers.emplace_back([&]() {
-					Task* task = nullptr;
+					std::shared_ptr<Task> task = nullptr;
 
 					while (m_running)
 					{
@@ -56,15 +50,15 @@ namespace galaxy
 			}
 		}
 
-		ThreadPool::~ThreadPool()
+		ThreadPool::~ThreadPool() noexcept
 		{
-			if (!m_is_destroyed)
+			if (!m_destroyed)
 			{
-				finish();
+				stop();
 			}
 		}
 
-		void ThreadPool::queue(Task* task) noexcept
+		void ThreadPool::queue(std::shared_ptr<Task> task) noexcept
 		{
 			m_mutex.lock();
 			m_tasks.emplace(task);
@@ -73,7 +67,7 @@ namespace galaxy
 			m_sync.release();
 		}
 
-		void ThreadPool::finish()
+		void ThreadPool::stop() noexcept
 		{
 			m_running = false;
 
@@ -86,7 +80,7 @@ namespace galaxy
 			}
 			m_mutex.unlock();
 
-			m_sync.release(m_max_threads);
+			m_sync.release(GALAXY_MAX_THREADS);
 
 			// Destroy all threads.
 			for (auto& worker : m_workers)
@@ -96,7 +90,7 @@ namespace galaxy
 			}
 
 			m_workers.clear();
-			m_is_destroyed = true;
+			m_destroyed = true;
 		}
 	} // namespace async
 } // namespace galaxy

@@ -9,7 +9,6 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <filesystem>
-#include <format>
 #include <future>
 #include <queue>
 #include <source_location>
@@ -19,71 +18,25 @@
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
 
-// clang-format off
-
-///
-/// INFO log level macro shortcut.
-///
-#define GALAXY_INFO galaxy::error::LogLevel::INFO
-
-///
-/// DEBUG log level macro shortcut.
-///
-#define GALAXY_DEBUG galaxy::error::LogLevel::DEBUG
-
-///
-/// WARNING log level macro shortcut.
-///
-#define GALAXY_WARNING galaxy::error::LogLevel::WARNING
-
-///
-/// ERROR log level macro shortcut.
-///
-#define GALAXY_ERROR galaxy::error::LogLevel::ERROR_
-
-///
-/// FATAL log level macro shortcut.
-///
-#define GALAXY_FATAL galaxy::error::LogLevel::FATAL
-
-///
-/// Start logging thread.
-///
-#define GALAXY_LOG_START galaxy::error::Log::handle().start
-
-///
-/// Cleanup static logging resources.
-///
-#define GALAXY_LOG_END galaxy::error::Log::handle().cleanup
-
-///
-/// Set the minimum level of logging.
-///
+#define GALAXY_INFO                     galaxy::error::LogLevel::INFO
+#define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
+#define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
+#define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR_
+#define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
+#define GALAXY_LOG_START                galaxy::error::Log::handle().start
+#define GALAXY_LOG_FINISH               galaxy::error::Log::handle().finish
 #define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
-
-///
-/// Configure a logging sink.
-///
-#define GALAXY_ADD_SINK(sink, ...) galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
-
-///
-/// Macro shortcut with variadic arguments.
-///
-/// \param level Log error level.
-/// \param msg Error message.
-/// \param ... Message and arguments to format and log.
-///
-#define GALAXY_LOG(level, msg, ...) galaxy::error::Log::handle().log<level>(std::source_location::current(), msg __VA_OPT__(,) __VA_ARGS__)
-
-// clang-format on
+#define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::handle().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
 
 namespace galaxy
 {
 	namespace error
 	{
 		///
-		/// Log logging class.
-		/// Uses multithreading.
+		/// \brief Log singleton.
+		///
+		/// Use macros to access.
 		///
 		class Log final
 		{
@@ -108,15 +61,20 @@ namespace galaxy
 			///
 			/// Add a sink to log to.
 			///
+			/// \tparam SinkTo The derived type of the sink.
+			/// \tparam Args Variadic arguments for sink constructor.
+			///
 			/// \param args Constructor arguments for a sink. Can be blank.
 			///
-			/// \return A pointer to the newly created sink.
+			/// \return A reference to the newly created sink.
 			///
 			template<std::derived_from<Sink> SinkTo, typename... Args>
-			[[maybe_unused]] SinkTo* add_sink(Args&&... args);
+			[[maybe_unused]] SinkTo& add_sink(Args&&... args);
 
 			///
 			/// \brief Set a minimum log level.
+			///
+			/// \tparam level Must be a LogLevel enum value.
 			///
 			/// In order to only print and log levels greater than or equal to the current log message level.
 			///
@@ -126,8 +84,11 @@ namespace galaxy
 			///
 			/// Log a message.
 			///
+			/// \tparam level Must be a LogLevel enum value.
+			/// \tparam MsgInputs Variadic arguments for std::format string.
+			///
 			/// \param loc Source location argument.
-			/// \param message Message to log.
+			/// \param message Message template to log.
 			/// \param args std::format supported arguments to be formatted into a string.
 			///
 			template<LogLevel level, typename... MsgInputs>
@@ -136,13 +97,13 @@ namespace galaxy
 			///
 			/// Cleanup any static resources.
 			///
-			void cleanup() noexcept;
+			void finish();
 
 		private:
 			///
 			/// Constructor.
 			///
-			Log() noexcept = default;
+			Log() noexcept;
 
 			///
 			/// Copy constructor.
@@ -166,7 +127,7 @@ namespace galaxy
 
 		private:
 			///
-			/// Minimum level of messages required to be logged.
+			/// Minimum level for a message to be logged.
 			///
 			LogLevel m_min_level;
 
@@ -178,7 +139,7 @@ namespace galaxy
 			///
 			/// List of sinks.
 			///
-			std::vector<std::unique_ptr<Sink>> m_sinks;
+			std::vector<std::shared_ptr<Sink>> m_sinks;
 
 			///
 			/// Message queue.
@@ -197,10 +158,12 @@ namespace galaxy
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>
-		inline SinkTo* Log::add_sink(Args&&... args)
+		inline SinkTo& Log::add_sink(Args&&... args)
 		{
-			m_sinks.push_back(std::make_unique<SinkTo>(std::forward<Args>(args)...));
-			return static_cast<SinkTo*>(m_sinks.back().get());
+			auto ptr = std::make_shared<SinkTo>(std::forward<Args>(args)...);
+			m_sinks.push_back(std::static_pointer_cast<Sink>(ptr));
+
+			return *ptr;
 		}
 
 		template<LogLevel level>
@@ -214,34 +177,51 @@ namespace galaxy
 		{
 			if (level >= m_min_level)
 			{
-				constexpr static const auto level_str = magic_enum::enum_name(level);
+				constexpr const auto level_str = magic_enum::enum_name(level);
 
-				constexpr static const auto low_error_colour  = "\x1B[37m";
-				constexpr static const auto mid_error_colour  = "\x1B[33m";
-				constexpr static const auto high_error_colour = "\x1B[31m";
+				// Prevents needless memory reallocation.
+				// One copy per thread.
+				thread_local std::string final_str;
+				final_str.clear();
 
-				static std::string colour;
+				const auto now = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 
 				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
 				{
-					colour = low_error_colour;
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[37m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
 				else if constexpr (level == LogLevel::WARNING)
 				{
-					colour = mid_error_colour;
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[33m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
 				else if constexpr (level == LogLevel::ERROR_ || level == LogLevel::FATAL)
 				{
-					colour = high_error_colour;
+					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
+						"\x1B[31m",
+						std::format("{0:%T}", now),
+						level_str,
+						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
+							std::filesystem::path(loc.file_name()).filename().string(),
+							loc.function_name(),
+							loc.line()),
+						std::format(message, args...));
 				}
-
-				const auto now       = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
-				const auto final_str = std::format("{0}[{1}] - [{2}] - [{3}] - \"{4}\"\n",
-					colour,
-					level_str,
-					std::format("{0:%T}", now),
-					std::format("File: {0}, Func: {1}, Line: {2}", std::filesystem::path(loc.file_name()).filename().string(), loc.function_name(), loc.line()),
-					std::format(message, args...));
 
 				{
 					std::lock_guard<std::mutex> lock {m_log_lock};

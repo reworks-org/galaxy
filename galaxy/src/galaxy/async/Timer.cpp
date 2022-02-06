@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/GalaxyConfig.hpp"
+#include "galaxy/meta/Globals.hpp"
 
 #include "Timer.hpp"
 
@@ -22,17 +22,17 @@ namespace galaxy
 		{
 		}
 
-		Timer::~Timer()
+		Timer::~Timer() noexcept
 		{
 			stop();
 		}
 
-		void Timer::set_repeating(const bool repeat) noexcept
+		void Timer::repeat(const bool repeat) noexcept
 		{
 			m_repeat = repeat;
 		}
 
-		void Timer::update()
+		void Timer::update() noexcept
 		{
 			if (!m_stopped)
 			{
@@ -41,6 +41,7 @@ namespace galaxy
 				if (m_time_passed >= m_delay)
 				{
 					m_callback();
+
 					if (m_repeat)
 					{
 						m_time_passed = 0.0;
@@ -53,12 +54,12 @@ namespace galaxy
 			}
 		}
 
-		void Timer::start()
+		void Timer::start() noexcept
 		{
 			m_stopped = false;
 		}
 
-		void Timer::stop()
+		void Timer::stop() noexcept
 		{
 			m_stopped     = true;
 			m_time_passed = 0.0;

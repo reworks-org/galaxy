@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// \return RVO object.
 			///
-			[[nodiscard]] static Guid make() noexcept;
+			[[nodiscard]] static Guid&& make() noexcept;
 
 			///
 			/// Constructor.
@@ -55,7 +55,7 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& as_string() const noexcept;
+			[[nodiscard]] const std::string& to_string() const noexcept;
 
 			///
 			/// Check to make sure GUID is not empty.

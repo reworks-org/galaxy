@@ -9,25 +9,10 @@
 
 #include <galaxy/async/Task.hpp>
 
-TEST(Async, TaskSetAndExec)
+TEST(Async, Task)
 {
 	galaxy::async::Task task;
-	int                 counter = 0;
-
-	task.set([&]() {
-		counter++;
-	});
-
-	task.exec();
-
-	ASSERT_TRUE(task.is_done());
-	EXPECT_EQ(counter, 1);
-}
-
-TEST(Async, TaskSetExecAndWait)
-{
-	galaxy::async::Task task;
-	int                 counter = 0;
+	int counter = 0;
 
 	task.set([&]() {
 		counter++;

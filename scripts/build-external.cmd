@@ -1,5 +1,4 @@
-cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=%2 -DGALAXY_BUILD_TESTS=OFF -B%1build -H%1
-msbuild %1build\dependencies\efsw\efsw.sln /p:Configuration=%2
+cmake -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=%2 -DGALAXY_BUILD_TESTS=OFF -B%1build -H%1
 msbuild %1build\dependencies\glfw3\GLFW.sln /p:Configuration=%2
 msbuild %1build\dependencies\openal\OpenAL.sln /p:Configuration=%2
 msbuild %1build\dependencies\zlib-ng\zlib.sln /p:Configuration=%2

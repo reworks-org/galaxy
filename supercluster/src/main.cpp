@@ -4,7 +4,7 @@
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-
+/*
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
@@ -22,9 +22,10 @@ public:
 	{
 	}
 };
-
+*/
 int main(int argsc, char* argsv[])
 {
+	/*
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
 
@@ -77,6 +78,7 @@ int main(int argsc, char* argsv[])
 		}
 
 	} while (restart);
-
 	return EXIT_SUCCESS;
+	*/
+	return 0;
 }

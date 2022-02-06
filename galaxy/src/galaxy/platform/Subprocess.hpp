@@ -2,7 +2,7 @@
 /// Subprocess.hpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_PLATFORM_SUBPROCESS_HPP_
@@ -28,9 +28,17 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			Subprocess() noexcept = default;
+			Subprocess() noexcept;
+
+			///
+			/// Create constructor.
+			///
+			/// \param process Subprocess to launch. Can include a path.
+			/// \param args Command-line args to set for process. Optional.
+			///
+			Subprocess(std::string_view process, std::span<std::string> args = {}) noexcept;
 
 			///
 			/// \brief Destructor.

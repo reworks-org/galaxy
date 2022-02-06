@@ -2,13 +2,13 @@
 /// Unix.hpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_PLATFORM_SPECIFIC_UNIX_HPP_
 #define GALAXY_PLATFORM_SPECIFIC_UNIX_HPP_
 
-#include "galaxy/core/GalaxyConfig.hpp"
+#include "galaxy/meta/Globals.hpp"
 
 #ifdef GALAXY_UNIX_PLATFORM
 

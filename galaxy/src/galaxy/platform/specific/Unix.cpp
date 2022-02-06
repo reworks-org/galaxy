@@ -2,7 +2,7 @@
 /// Unix.cpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "Unix.hpp"
@@ -15,7 +15,8 @@ namespace galaxy
 	{
 		void configure_terminal() noexcept
 		{
-			// Not needed on Unix.
+			// This function is stubbed on unix systems.
+			return;
 		}
 	} // namespace platform
 } // namespace galaxy

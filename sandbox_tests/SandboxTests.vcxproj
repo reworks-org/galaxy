@@ -20,33 +20,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Sandbox.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Sandbox.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{f339e843-d927-48f0-b7d7-21931085acf4}</ProjectGuid>
     <RootNamespace>SandboxTests</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <EnableUnitySupport>true</EnableUnitySupport>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -125,7 +129,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -190,7 +194,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies/freetype2-win/include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua\src;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\efsw\include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>

@@ -5,11 +5,6 @@
 /// See LICENSE.txt.
 ///
 
-#include <chrono>
-#include <fstream>
-
-#include <nlohmann/json.hpp>
-
 #include "Log.hpp"
 
 using namespace std::chrono_literals;
@@ -18,6 +13,11 @@ namespace galaxy
 {
 	namespace error
 	{
+		Log::Log() noexcept
+			: m_min_level {LogLevel::INFO}
+		{
+		}
+
 		Log& Log::handle() noexcept
 		{
 			static Log s_inst;
@@ -26,55 +26,6 @@ namespace galaxy
 
 		void Log::start() noexcept
 		{
-			static constexpr const auto path = "assets/log_settings.json";
-
-			if (!std::filesystem::exists(path))
-			{
-				GALAXY_LOG(GALAXY_INFO, "Missing default logging config, recreating...");
-
-				std::ofstream ofs;
-				ofs.open(path, std::ofstream::out | std::ofstream::trunc);
-				if (ofs.good())
-				{
-					ofs << nlohmann::json::parse("{\"min-level\": \"INFO\"}").dump(4);
-					ofs.close();
-				}
-				else
-				{
-					ofs.close();
-					GALAXY_LOG(GALAXY_FATAL, "Failed to save default logging config to disk.");
-				}
-
-				m_min_level = LogLevel::INFO;
-			}
-			else
-			{
-				nlohmann::json json;
-				std::ifstream  input;
-
-				input.open(path, std::ifstream::in);
-				if (!input.good())
-				{
-					input.close();
-					GALAXY_LOG(GALAXY_FATAL, "Failed to open: logging config.");
-				}
-				else
-				{
-					input >> json;
-					input.close();
-
-					auto opt = magic_enum::enum_cast<LogLevel>(json.at("min-level").get<std::string>());
-					if (!opt.has_value())
-					{
-						GALAXY_LOG(GALAXY_FATAL, "Failed to parse min log level. Must be an enum name.");
-					}
-					else
-					{
-						m_min_level = opt.value();
-					}
-				}
-			}
-
 			m_run_thread = true;
 
 			m_async = std::async(std::launch::async, [&]() {
@@ -99,7 +50,7 @@ namespace galaxy
 			});
 		}
 
-		void Log::cleanup() noexcept
+		void Log::finish()
 		{
 			m_min_level  = LogLevel::INFO;
 			m_run_thread = false;
