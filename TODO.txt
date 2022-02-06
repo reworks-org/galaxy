@@ -22,7 +22,7 @@ https://github.com/domre/galaxy
 need to rebuild code from scratch?
 
 https://gameprogrammingpatterns.com/
-
+https://www.minecraft.net/zh-hant/attribution
 INIT ORDER:
 LOGGING
 FILESYSTEM
