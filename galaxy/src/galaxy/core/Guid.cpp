@@ -14,7 +14,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Guid&& Guid::make() noexcept
+		Guid Guid::make() noexcept
 		{
 			thread_local std::random_device s_device;
 			thread_local std::mt19937_64 s_engine(s_device());
@@ -31,7 +31,7 @@ namespace galaxy
 			guid.m_fifth  = s_64dist(s_engine);
 			guid.m_string = std::format("{0}-{1}-{2}-{3}-{4}", guid.m_first, guid.m_second, guid.m_third, guid.m_fourth, guid.m_fifth);
 
-			return std::move(guid);
+			return guid;
 		}
 
 		Guid::Guid() noexcept

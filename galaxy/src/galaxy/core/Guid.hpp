@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// \return RVO object.
 			///
-			[[nodiscard]] static Guid&& make() noexcept;
+			[[nodiscard]] static Guid make() noexcept;
 
 			///
 			/// Constructor.
@@ -145,7 +145,7 @@ namespace std
 		///
 		std::size_t operator()(const galaxy::core::Guid& guid) const
 		{
-			return hash<std::string>()(guid.as_string());
+			return hash<std::string>()(guid.to_string());
 		}
 	};
 } // namespace std
