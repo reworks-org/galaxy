@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_META_GLOBALS_HPP_
-#define GALAXY_META_GLOBALS_HPP_
+#ifndef GALAXY_UTILS_GLOBALS_HPP_
+#define GALAXY_UTILS_GLOBALS_HPP_
 
 #include <chrono>
 #include <filesystem>
