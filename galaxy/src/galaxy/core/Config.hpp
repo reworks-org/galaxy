@@ -12,6 +12,7 @@
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/meta/Concepts.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 namespace galaxy
 {
@@ -70,7 +71,22 @@ namespace galaxy
 			void set(std::string_view key, const Value& value);
 
 			///
-			/// Retrieve a config value.
+			/// \brief Sets a new key-value pair in a section. Can use a delimiter to seperate sections.
+			///
+			/// Will create if not exist, otherwise update.
+			///
+			/// \tparam Value Standard JSON type to use.
+			///
+			/// \param key Name of the variable.
+			/// \param value The variable value to set.
+			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
+			/// \param delim Delimiter to seperate sections with. Optional.
+			///
+			template<meta::standard_type Value>
+			void set(std::string_view key, const Value& value, std::string_view section, std::string_view delim = ".");
+
+			///
+			/// Retrieve a root config value.
 			///
 			/// \tparam Value Standard JSON type to use.
 			///
@@ -80,6 +96,20 @@ namespace galaxy
 			///
 			template<meta::standard_type Value>
 			[[nodiscard]] std::optional<Value> get(std::string_view key);
+
+			///
+			/// Retrieve a config value in a section.
+			///
+			/// \tparam Value Standard JSON type to use.
+			///
+			/// \param key Key to lookup value.
+			/// \param sections Delimiter seperated sections.
+			/// \param delim Delimiter to use. Optional.
+			///
+			/// \return Returns the value retrieved from the key.
+			///
+			template<meta::standard_type Value>
+			[[nodiscard]] std::optional<Value> get(std::string_view key, std::string_view section, std::string_view delim = ".");
 
 			///
 			/// Is the config file blank.
@@ -140,19 +170,113 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
+		inline void Config::set(std::string_view key, const Value& value, std::string_view section, std::string_view delim)
+		{
+			if (m_loaded)
+			{
+				const auto sections = strutils::split(section, delim);
+				if (sections.empty())
+				{
+					// Single section.
+					m_config["config"][section][key] = value;
+				}
+				else
+				{
+					// Multiple sections.
+					nlohmann::json* leaf = &m_config["config"];
+					for (const auto& section : sections)
+					{
+						if (!leaf->contains(section))
+						{
+							*leaf[section] = nlohmann::json::object();
+						}
+
+						leaf = &leaf->at(section);
+					}
+
+					*leaf[key] = value;
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to set value of an unloaded config file.");
+			}
+		}
+
+		template<meta::standard_type Value>
 		inline std::optional<Value> Config::get(std::string_view key)
 		{
 			if (m_loaded)
 			{
-				const auto& section = m_config.at("config");
+				const auto& section = m_config["config"];
 
-				if (section.count(key) > 0)
+				if (section.contains(key))
 				{
 					return std::make_optional(section[key].get<Value>());
 				}
 				else
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve value from key: '{0}' that does not exist.", key);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
+			}
+
+			return std::nullopt;
+		}
+
+		template<meta::standard_type Value>
+		inline std::optional<Value> Config::get(std::string_view key, std::string_view section, std::string_view delim)
+		{
+			if (m_loaded)
+			{
+				const auto sections = strutils::split(section, delim);
+				if (sections.empty())
+				{
+					// Single section.
+					const auto& root = m_config["config"];
+					if (root.contains(section))
+					{
+						const auto& obj = root[section];
+						if (obj.contains(key))
+						{
+							if constexpr (std::is_same<Value, std::string>::value)
+							{
+								auto res = obj[key].get<std::string>();
+								if (res.empty())
+								{
+									return std::nullopt;
+								}
+
+								return std::make_optional(res);
+							}
+
+							return std::make_optional(obj[key].get<Value>());
+						}
+					}
+
+					return std::nullopt;
+				}
+				else
+				{
+					// Multiple sections.
+					nlohmann::json* leaf = &m_config["config"];
+					for (const auto& section : sections)
+					{
+						if (leaf->contains(section))
+						{
+							leaf = &leaf->at(section);
+						}
+					}
+
+					if (leaf->contains(key))
+					{
+						return std::make_optional(*leaf[key].get<Value>());
+					}
+
+					return std::nullopt;
 				}
 			}
 			else

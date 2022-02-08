@@ -37,7 +37,7 @@ namespace galaxy
 
 		void Config::load(std::string_view file)
 		{
-			auto&      fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			const auto path = fs.find(file);
 
 			if (path.m_code == fs::FileInfo::Code::NOT_FOUND)
