@@ -7,6 +7,7 @@
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/error/Log.hpp"
@@ -30,7 +31,7 @@ namespace galaxy
 			// The services are configured based off of the config file.
 			// Services are created in dependency order.
 
-			const auto        now      = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
+			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 			const std::string log_path = std::format("{0}{1}{2}", log_dir, std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists(log_dir))
 			{
@@ -44,21 +45,23 @@ namespace galaxy
 			auto& config = ServiceLocator<Config>::make(config_file);
 			if (config.empty())
 			{
-				config.set<std::string>("asset-dir", "assets/");
+				config.set<std::string>("asset_dir", "assets/");
+				config.set<std::string>("title", "Title", "window");
+				config.set<std::string>("icon", "", "window");
+				config.set<std::string>("cursor_icon", "", "window");
+				config.set<bool>("vsync", true, "window");
+				config.set<bool>("maximized", false, "window");
+				config.set<bool>("debug", false, "window");
+				config.set<bool>("visible_cursor", true, "window");
+				config.set<bool>("allow_native_closing", true, "window");
+				config.set<bool>("scale_to_monitor", false, "window");
+				config.set<int>("width", 1280, "window");
+				config.set<int>("height", 720, "window");
 
 				// config.set<bool>("anti-aliasing", false);
 				// config.set<bool>("sharpen", false);
 				// config.set<int>("ansio-filter", 1);
-				// config.set<bool>("vsync", true);
-				// config.set<int>("aspect-ratio-x", -1);
-				// config.set<int>("aspect-ratio-y", -1);
-				// config.set<std::string>("window-name", "Title");
-				// config.set<int>("window-width", 1280);
-				// config.set<int>("window-height", 720);
-				// config.set<bool>("is-cursor-visible", true);
-				// config.set<bool>("gl-debug", false);
 				// config.set<bool>("trilinear-filtering", false);
-				// config.set<bool>("maximized", false);
 				// config.set<bool>("log-perf", false);
 				// config.set<float>("audio-volume", 0.7f);
 				// config.set<std::string>("logo", "logo.png");
@@ -107,6 +110,42 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
+			}
+
+			// clang-format off
+			const auto window_settings = WindowSettings
+			{
+				.m_title = config.get<std::string>("title", "window").value(),
+				.m_width = config.get<int>("width", "window").value(),
+				.m_height = config.get<int>("width", "window").value(),
+				.m_vsync = config.get<bool>("vsync", "window").value(),
+				.m_maximized = config.get<bool>("maximized", "window").value(),
+				.m_debug = config.get<bool>("debug", "window").value(),
+				.m_scale_to_monitor = config.get<bool>("scale_to_monitor", "window").value()
+			};
+			// clang-format on
+
+			auto& window = ServiceLocator<Window>::make(window_settings);
+
+			auto allow_native_closing = config.get<bool>("allow_native_closing", "window").value();
+			if (!allow_native_closing)
+			{
+				window.prevent_native_closing();
+			}
+
+			auto icon = config.get<std::string>("icon", "window");
+			if (icon != std::nullopt)
+			{
+				window.set_icon(icon.value());
+			}
+
+			auto& cursor = window.get_input<input::Cursor>();
+			cursor.toggle(config.get<bool>("visible_cursor", "window").value());
+
+			auto cursor_icon = config.get<std::string>("cursor_icon", "window");
+			if (cursor_icon != std::nullopt)
+			{
+				cursor.set_cursor_icon(cursor_icon.value());
 			}
 		}
 
