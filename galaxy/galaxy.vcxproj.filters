@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
-    <ClCompile Include="src\galaxy\meta\Globals.cpp" />
+    <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\error\Log.cpp" />
@@ -27,18 +27,36 @@
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Window.cpp" />
-    <ClCompile Include="src\galaxy\graphics\WindowSettings.cpp" />
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
     <ClCompile Include="src\galaxy\algorithm\GZip.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
     <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
+    <ClCompile Include="src\galaxy\events\EventQueue.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyDown.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyUp.cpp" />
+    <ClCompile Include="src\galaxy\input\Keys.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyChar.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
+    <ClCompile Include="src\galaxy\input\InputDevice.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
+    <ClCompile Include="src\galaxy\input\Cursor.cpp" />
+    <ClCompile Include="src\galaxy\input\InputMods.cpp" />
+    <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\core\WindowSettings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
-    <ClInclude Include="src\galaxy\meta\Globals.hpp" />
+    <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\error\Log.hpp" />
@@ -65,13 +83,31 @@
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Window.hpp" />
-    <ClInclude Include="src\galaxy\graphics\WindowSettings.hpp" />
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
     <ClInclude Include="src\galaxy\algorithm\GZip.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
     <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
+    <ClInclude Include="src\galaxy\events\EventQueue.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyDown.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyUp.hpp" />
+    <ClInclude Include="src\galaxy\input\Keys.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyChar.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
+    <ClInclude Include="src\galaxy\input\InputDevice.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
+    <ClInclude Include="src\galaxy\input\Cursor.hpp" />
+    <ClInclude Include="src\galaxy\input\InputMods.hpp" />
+    <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\core\Window.hpp" />
+    <ClInclude Include="src\galaxy\core\WindowSettings.hpp" />
   </ItemGroup>
 </Project>

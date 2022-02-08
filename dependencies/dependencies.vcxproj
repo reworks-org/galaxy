@@ -60,6 +60,45 @@
     <ClInclude Include="box2d\src\dynamics\b2_island.h" />
     <ClInclude Include="box2d\src\dynamics\b2_polygon_circle_contact.h" />
     <ClInclude Include="box2d\src\dynamics\b2_polygon_contact.h" />
+    <ClInclude Include="entt\entt\config\config.h" />
+    <ClInclude Include="entt\entt\config\version.h" />
+    <ClInclude Include="entt\entt\container\dense_hash_map.hpp" />
+    <ClInclude Include="entt\entt\container\dense_hash_set.hpp" />
+    <ClInclude Include="entt\entt\container\fwd.hpp" />
+    <ClInclude Include="entt\entt\core\algorithm.hpp" />
+    <ClInclude Include="entt\entt\core\any.hpp" />
+    <ClInclude Include="entt\entt\core\attribute.h" />
+    <ClInclude Include="entt\entt\core\compressed_pair.hpp" />
+    <ClInclude Include="entt\entt\core\fwd.hpp" />
+    <ClInclude Include="entt\entt\core\hashed_string.hpp" />
+    <ClInclude Include="entt\entt\core\iterator.hpp" />
+    <ClInclude Include="entt\entt\core\memory.hpp" />
+    <ClInclude Include="entt\entt\core\type_info.hpp" />
+    <ClInclude Include="entt\entt\core\type_traits.hpp" />
+    <ClInclude Include="entt\entt\core\utility.hpp" />
+    <ClInclude Include="entt\entt\entity\component.hpp" />
+    <ClInclude Include="entt\entt\entity\entity.hpp" />
+    <ClInclude Include="entt\entt\entity\fwd.hpp" />
+    <ClInclude Include="entt\entt\entity\group.hpp" />
+    <ClInclude Include="entt\entt\entity\handle.hpp" />
+    <ClInclude Include="entt\entt\entity\helper.hpp" />
+    <ClInclude Include="entt\entt\entity\observer.hpp" />
+    <ClInclude Include="entt\entt\entity\organizer.hpp" />
+    <ClInclude Include="entt\entt\entity\registry.hpp" />
+    <ClInclude Include="entt\entt\entity\runtime_view.hpp" />
+    <ClInclude Include="entt\entt\entity\snapshot.hpp" />
+    <ClInclude Include="entt\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="entt\entt\entity\storage.hpp" />
+    <ClInclude Include="entt\entt\entity\utility.hpp" />
+    <ClInclude Include="entt\entt\entity\view.hpp" />
+    <ClInclude Include="entt\entt\resource\cache.hpp" />
+    <ClInclude Include="entt\entt\resource\fwd.hpp" />
+    <ClInclude Include="entt\entt\resource\handle.hpp" />
+    <ClInclude Include="entt\entt\resource\loader.hpp" />
+    <ClInclude Include="entt\entt\signal\delegate.hpp" />
+    <ClInclude Include="entt\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="entt\entt\signal\fwd.hpp" />
+    <ClInclude Include="entt\entt\signal\sigh.hpp" />
     <ClInclude Include="freetype2-win\include\freetype\config\ftconfig.h" />
     <ClInclude Include="freetype2-win\include\freetype\config\ftheader.h" />
     <ClInclude Include="freetype2-win\include\freetype\config\ftmodule.h" />
@@ -1413,7 +1452,7 @@
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\entt;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -1482,7 +1521,7 @@
       <PrecompiledHeaderOutputFile />
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\box2d\src;$(SolutionDir)dependencies\box2d\include;$(SolutionDir)dependencies\entt;$(SolutionDir)dependencies\freetype2-win\include;$(SolutionDir)dependencies\glad\glad;$(SolutionDir)dependencies\glfw3\include;$(SolutionDir)dependencies\glm;$(SolutionDir)dependencies\googletest\googlemock\include;$(SolutionDir)dependencies\googletest\googlemock;$(SolutionDir)dependencies\googletest\googletest\include;$(SolutionDir)dependencies\googletest\googletest;$(SolutionDir)dependencies\imgui;$(SolutionDir)dependencies\json\include;$(SolutionDir)dependencies\lua;$(SolutionDir)dependencies\magic_enum\include;$(SolutionDir)dependencies\openal\include;$(SolutionDir)dependencies\pfd;$(SolutionDir)dependencies\rh-hash\src\include;$(SolutionDir)dependencies\RmlUi\Include;$(SolutionDir)dependencies\sol3\single\include;$(SolutionDir)dependencies\sqlite\include;$(SolutionDir)dependencies\sqlite-orm\include;$(SolutionDir)dependencies\stb\include;$(SolutionDir)dependencies\subprocess;$(SolutionDir)dependencies\zconf;$(SolutionDir)dependencies\zlc\lib;$(SolutionDir)dependencies\zlib-ng;$(SolutionDir)galaxy\src;$(SolutionDir)sandbox_tests\src;$(SolutionDir)supercluster\src;$(SolutionDir)tests\src</AdditionalIncludeDirectories>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <StringPooling>true</StringPooling>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
