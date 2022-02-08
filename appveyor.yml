@@ -23,3 +23,6 @@ matrix:
 
 build:
   project: galaxy.sln
+
+after_build:
+  - cmd: call "tests\\bin\\Release\\Tests.exe"
