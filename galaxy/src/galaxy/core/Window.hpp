@@ -59,7 +59,7 @@ namespace galaxy
 			///
 			/// \param settings Settings of the window.
 			///
-			[[nodiscard]] bool open(const WindowSettings& settings);
+			void open(const WindowSettings& settings);
 
 			///
 			/// Checks if window is currently open or not.

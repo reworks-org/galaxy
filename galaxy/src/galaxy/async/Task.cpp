@@ -16,11 +16,21 @@ namespace galaxy
 		{
 		}
 
+		Task::Task(const std::function<void(void)>& func) noexcept
+		{
+			set(func);
+		}
+
 		Task::~Task() noexcept
 		{
 			m_done = true;
 
 			std::atomic_notify_one(&m_done);
+		}
+
+		void Task::set(const std::function<void(void)>& func) noexcept
+		{
+			m_task = func;
 		}
 
 		void Task::exec() noexcept

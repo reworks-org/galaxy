@@ -5,11 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_TEXT_FREETYPE_HPP_
-#define GALAXY_GRAPHICS_TEXT_FREETYPE_HPP_
+#ifndef GALAXY_GRAPHICS_FREETYPE_HPP_
+#define GALAXY_GRAPHICS_FREETYPE_HPP_
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Shortcut Macro.
@@ -26,32 +28,22 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Wraps around freetype library initialization.
+		/// \brief Wraps around freetype library initialization.
+		///
+		/// Automatically added to the service locator for you.
 		///
 		class FreeTypeLib final
 		{
 		public:
 			///
+			/// Constructor.
+			///
+			FreeTypeLib();
+
+			///
 			/// Destructor.
 			///
 			~FreeTypeLib() noexcept;
-
-			///
-			/// Get handle to library.
-			///
-			/// \return Refernce to this static instance.
-			///
-			static FreeTypeLib& handle() noexcept;
-
-			///
-			/// Open library.
-			///
-			void open();
-
-			///
-			/// Close library.
-			///
-			void close() noexcept;
 
 			///
 			/// Handle to FT library.
@@ -61,11 +53,6 @@ namespace galaxy
 			[[nodiscard]] FT_Library& lib() noexcept;
 
 		private:
-			///
-			/// Constructor.
-			///
-			FreeTypeLib() noexcept;
-
 			///
 			/// Copy constructor.
 			///
@@ -90,7 +77,7 @@ namespace galaxy
 			///
 			/// FreeType library structure.
 			///
-			FT_Library m_freetype_lib;
+			FT_Library m_library;
 		};
 	} // namespace graphics
 } // namespace galaxy

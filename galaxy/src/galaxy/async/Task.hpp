@@ -29,12 +29,9 @@ namespace galaxy
 			///
 			/// Set constructor.
 			///
-			/// \tparam Lambda Function Type. Not required.
+			/// \param func Lambda or function to call when task is executed.
 			///
-			/// \param func Lambda or function to call when task is executed. Is moved.
-			///
-			template<typename Lambda>
-			Task(Lambda&& func) noexcept;
+			Task(const std::function<void(void)>& func) noexcept;
 
 			///
 			/// Destructor.
@@ -44,12 +41,9 @@ namespace galaxy
 			///
 			/// Set the task to be done.
 			///
-			/// \tparam Lambda Function Type. Not required.
+			/// \param func Lambda or function to call when task is executed.
 			///
-			/// \param func Lambda or function to call when task is executed. Is moved.
-			///
-			template<typename Lambda>
-			void set(Lambda&& func) noexcept;
+			void set(const std::function<void(void)>& func) noexcept;
 
 			///
 			/// Run the task on the thread.
@@ -90,18 +84,6 @@ namespace galaxy
 			///
 			std::function<void(void)> m_task;
 		};
-
-		template<typename Lambda>
-		inline Task::Task(Lambda&& func) noexcept
-		{
-			set(func);
-		}
-
-		template<typename Lambda>
-		inline void Task::set(Lambda&& func) noexcept
-		{
-			m_task = func;
-		}
 	} // namespace async
 } // namespace galaxy
 

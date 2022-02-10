@@ -8,6 +8,7 @@
 #ifndef GALAXY_EVENTS_KEYDOWN_HPP_
 #define GALAXY_EVENTS_KEYDOWN_HPP_
 
+#include "galaxy/input/InputMods.hpp"
 #include "galaxy/input/Keys.hpp"
 
 namespace galaxy

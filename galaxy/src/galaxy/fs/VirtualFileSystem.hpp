@@ -11,7 +11,7 @@
 #include <span>
 
 #include "galaxy/fs/FileInfo.hpp"
-#include "galaxy/meta/Globals.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 namespace galaxy
 {

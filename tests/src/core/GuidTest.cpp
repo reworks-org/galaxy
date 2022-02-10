@@ -11,8 +11,8 @@
 
 TEST(Guid, Make)
 {
-	galaxy::core::Guid a = galaxy::core::Guid::make();
-	galaxy::core::Guid b = galaxy::core::Guid::make();
+	galaxy::core::Guid a;
+	galaxy::core::Guid b;
 
 	ASSERT_TRUE(!a.is_empty());
 	ASSERT_TRUE(!b.is_empty());

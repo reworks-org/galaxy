@@ -35,7 +35,7 @@ namespace galaxy
 
 		FileInfo VirtualFileSystem::find(std::string_view file)
 		{
-			FileInfo   info;
+			FileInfo info;
 			const auto path = std::filesystem::path(file);
 
 			if (path.has_extension())
@@ -107,6 +107,8 @@ namespace galaxy
 
 				std::ofstream ofs {fs_path.string(), flags};
 				ofs.close();
+
+				return true;
 			}
 			else if (found.m_code == FileInfo::Code::FOUND)
 			{
@@ -119,7 +121,7 @@ namespace galaxy
 		{
 			bool result = true;
 
-			const auto fs_path = std::filesystem::path(path);
+			auto fs_path = std::filesystem::path(path);
 
 			if (!fs_path.has_extension())
 			{
@@ -146,7 +148,7 @@ namespace galaxy
 				}
 				else
 				{
-					const auto fs_path = m_root / std::filesystem::path(path);
+					fs_path = m_root / std::filesystem::path(path);
 					if (!std::filesystem::exists(fs_path))
 					{
 						// Create folders.
@@ -377,7 +379,7 @@ namespace galaxy
 			}
 			else
 			{
-				save(data, path.value());
+				return save(data, path.value());
 			}
 		}
 

@@ -34,10 +34,7 @@ namespace galaxy
 			, m_width {1}
 			, m_height {1}
 		{
-			if (!open(settings))
-			{
-				GALAXY_LOG(GALAXY_FATAL, "GLFW window failed to open.");
-			}
+			open(settings);
 		}
 
 		Window::~Window()
@@ -47,7 +44,7 @@ namespace galaxy
 			destroy();
 		}
 
-		bool Window::open(const WindowSettings& settings)
+		void Window::open(const WindowSettings& settings)
 		{
 			// Set error handling callback.
 			glfwSetErrorCallback([](int error, const char* description) {
@@ -122,7 +119,7 @@ namespace galaxy
 						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
-						auto wr = events::WindowResized
+						events::WindowResized wr
 						{
 							.m_width = width,
 							.m_height = height
@@ -143,7 +140,7 @@ namespace galaxy
 							{
 								case GLFW_PRESS:
 								{
-									auto kd = events::KeyDown
+									events::KeyDown kd
 									{
 										.m_keycode = static_cast<input::Keys>(key),
 										.m_mod = static_cast<input::InputMods>(mods),
@@ -156,7 +153,7 @@ namespace galaxy
 
 								case GLFW_REPEAT:
 								{
-									auto kr = events::KeyRepeat
+									events::KeyRepeat kr
 									{
 										.m_keycode = static_cast<input::Keys>(key),
 										.m_mod = static_cast<input::InputMods>(mods),
@@ -169,7 +166,7 @@ namespace galaxy
 
 								case GLFW_RELEASE:
 								{
-									auto ku = events::KeyUp
+									events::KeyUp ku
 									{
 										.m_keycode = static_cast<input::Keys>(key),
 										.m_mod = static_cast<input::InputMods>(mods),
@@ -194,7 +191,7 @@ namespace galaxy
 						if (win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
-							auto kc = events::KeyChar
+							events::KeyChar kc
 							{
 								.m_uichar = codepoint,
 								.m_char = strutils::parse_codepoint(codepoint)
@@ -210,7 +207,7 @@ namespace galaxy
 						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
-						auto mm = events::MouseMoved
+						events::MouseMoved mm
 						{
 							.m_xpos = xpos,
 							.m_ypos = ypos
@@ -230,7 +227,7 @@ namespace galaxy
 						{
 							case GLFW_PRESS:
 							{
-								auto mp = events::MousePressed
+								events::MousePressed mp
 								{
 									.m_xpos = pos.x,
 									.m_ypos = pos.y,
@@ -244,7 +241,7 @@ namespace galaxy
 
 							case GLFW_RELEASE:
 							{
-								auto mr = events::MouseReleased
+								events::MouseReleased mr
 								{
 									.m_xpos = pos.x,
 									.m_ypos = pos.y,
@@ -264,7 +261,7 @@ namespace galaxy
 						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
-						auto mw = events::MouseWheel
+						events::MouseWheel mw
 						{
 							.m_xoff = xoffset,
 							.m_yoff = yoffset
@@ -361,7 +358,7 @@ namespace galaxy
 			glfwSetWindowTitle(m_window, title);
 		}
 
-		void Window::set_icon(std::string_view icon)
+		void Window::set_icon(std::string_view icon) noexcept
 		{
 			auto& fs  = ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto info = fs.find(icon);
@@ -392,7 +389,7 @@ namespace galaxy
 			}
 		}
 
-		void Window::set_icon(std::span<unsigned char> buffer)
+		void Window::set_icon(std::span<unsigned char> buffer) noexcept
 		{
 			// Fill glfw-compatible struct.
 			stbi_set_flip_vertically_on_load(true);
@@ -501,7 +498,7 @@ namespace galaxy
 
 		const std::vector<std::string>& Window::get_drop_paths() const noexcept
 		{
-			// TODO: insert return statement here
+			return m_drop_paths;
 		}
 
 		int Window::get_width() const noexcept

@@ -14,7 +14,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Guid Guid::make() noexcept
+		Guid::Guid() noexcept
 		{
 			thread_local std::random_device s_device;
 			thread_local std::mt19937_64 s_engine(s_device());
@@ -23,25 +23,12 @@ namespace galaxy
 			thread_local std::uniform_int_distribution<std::uint16_t> s_16dist;
 			thread_local std::uniform_int_distribution<std::uint16_t> s_8dist(0, 255);
 
-			Guid guid;
-			guid.m_first  = s_32dist(s_engine);
-			guid.m_second = s_16dist(s_engine);
-			guid.m_third  = static_cast<std::uint8_t>(s_8dist(s_engine));
-			guid.m_fourth = static_cast<std::uint8_t>(s_8dist(s_engine));
-			guid.m_fifth  = s_64dist(s_engine);
-			guid.m_string = std::format("{0}-{1}-{2}-{3}-{4}", guid.m_first, guid.m_second, guid.m_third, guid.m_fourth, guid.m_fifth);
-
-			return guid;
-		}
-
-		Guid::Guid() noexcept
-			: m_first {0}
-			, m_second {0}
-			, m_third {0}
-			, m_fourth {0}
-			, m_fifth {0}
-			, m_string {"0-0-0-0-0"}
-		{
+			m_first  = s_32dist(s_engine);
+			m_second = s_16dist(s_engine);
+			m_third  = static_cast<std::uint8_t>(s_8dist(s_engine));
+			m_fourth = static_cast<std::uint8_t>(s_8dist(s_engine));
+			m_fifth  = s_64dist(s_engine);
+			m_string = std::format("{0}-{1}-{2}-{3}-{4}", m_first, m_second, m_third, m_fourth, m_fifth);
 		}
 
 		Guid::Guid(Guid&& g) noexcept

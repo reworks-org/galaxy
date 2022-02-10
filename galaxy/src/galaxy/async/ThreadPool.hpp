@@ -8,10 +8,12 @@
 #ifndef GALAXY_ASYNC_THREADPOOL_HPP_
 #define GALAXY_ASYNC_THREADPOOL_HPP_
 
+#include <mutex>
+#include <queue>
 #include <semaphore>
 
 #include "galaxy/async/Task.hpp"
-#include "galaxy/meta/Globals.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 namespace galaxy
 {
@@ -36,12 +38,9 @@ namespace galaxy
 			///
 			/// Make task and queue.
 			///
-			/// \tparam Lambda Function Type. Not required.
-			///
 			/// \param func Lambda or function to call when task is executed. Is moved.
 			///
-			template<typename Lambda>
-			void queue(Lambda&& func) noexcept;
+			void queue(const std::function<void(void)>& func) noexcept;
 
 			///
 			/// Queue a task for the thread pool to execute.
@@ -99,15 +98,6 @@ namespace galaxy
 			///
 			std::atomic<bool> m_running;
 		};
-
-		template<typename Lambda>
-		inline void ThreadPool::queue(Lambda&& func) noexcept
-		{
-			std::shared_ptr task = std::make_shared<Task>();
-			task->set(func);
-
-			queue(task);
-		}
 	} // namespace async
 } // namespace galaxy
 

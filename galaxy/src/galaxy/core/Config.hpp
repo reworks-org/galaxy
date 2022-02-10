@@ -68,7 +68,7 @@ namespace galaxy
 			/// \param value The variable value to set.
 			///
 			template<meta::standard_type Value>
-			void set(std::string_view key, const Value& value);
+			void set(const std::string& key, const Value& value);
 
 			///
 			/// \brief Sets a new key-value pair in a section. Can use a delimiter to seperate sections.
@@ -83,7 +83,7 @@ namespace galaxy
 			/// \param delim Delimiter to seperate sections with. Optional.
 			///
 			template<meta::standard_type Value>
-			void set(std::string_view key, const Value& value, std::string_view section, std::string_view delim = ".");
+			void set(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Retrieve a root config value.
@@ -95,7 +95,7 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] std::optional<Value> get(std::string_view key);
+			[[nodiscard]] std::optional<Value> get(const std::string& key);
 
 			///
 			/// Retrieve a config value in a section.
@@ -109,7 +109,7 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] std::optional<Value> get(std::string_view key, std::string_view section, std::string_view delim = ".");
+			[[nodiscard]] std::optional<Value> get(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Is the config file blank.
@@ -157,7 +157,7 @@ namespace galaxy
 		};
 
 		template<meta::standard_type Value>
-		inline void Config::set(std::string_view key, const Value& value)
+		inline void Config::set(const std::string& key, const Value& value)
 		{
 			if (m_loaded)
 			{
@@ -170,7 +170,7 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
-		inline void Config::set(std::string_view key, const Value& value, std::string_view section, std::string_view delim)
+		inline void Config::set(const std::string& key, const Value& value, const std::string& section, const std::string& delim)
 		{
 			if (m_loaded)
 			{
@@ -184,17 +184,17 @@ namespace galaxy
 				{
 					// Multiple sections.
 					nlohmann::json* leaf = &m_config["config"];
-					for (const auto& section : sections)
+					for (const auto& sec : sections)
 					{
-						if (!leaf->contains(section))
+						if (!leaf->contains(sec))
 						{
-							*leaf[section] = nlohmann::json::object();
+							(*leaf)[sec] = nlohmann::json::object();
 						}
 
-						leaf = &leaf->at(section);
+						leaf = &leaf->at(sec);
 					}
 
-					*leaf[key] = value;
+					(*leaf)[key] = value;
 				}
 			}
 			else
@@ -204,7 +204,7 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
-		inline std::optional<Value> Config::get(std::string_view key)
+		inline std::optional<Value> Config::get(const std::string& key)
 		{
 			if (m_loaded)
 			{
@@ -228,7 +228,7 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
-		inline std::optional<Value> Config::get(std::string_view key, std::string_view section, std::string_view delim)
+		inline std::optional<Value> Config::get(const std::string& key, const std::string& section, const std::string& delim)
 		{
 			if (m_loaded)
 			{
@@ -252,8 +252,10 @@ namespace galaxy
 
 								return std::make_optional(res);
 							}
-
-							return std::make_optional(obj[key].get<Value>());
+							else
+							{
+								return std::make_optional(obj[key].get<Value>());
+							}
 						}
 					}
 
@@ -263,17 +265,17 @@ namespace galaxy
 				{
 					// Multiple sections.
 					nlohmann::json* leaf = &m_config["config"];
-					for (const auto& section : sections)
+					for (const auto& sec : sections)
 					{
-						if (leaf->contains(section))
+						if (leaf->contains(sec))
 						{
-							leaf = &leaf->at(section);
+							leaf = &leaf->at(sec);
 						}
 					}
 
 					if (leaf->contains(key))
 					{
-						return std::make_optional(*leaf[key].get<Value>());
+						return std::make_optional((*leaf)[key].get<Value>());
 					}
 
 					return std::nullopt;

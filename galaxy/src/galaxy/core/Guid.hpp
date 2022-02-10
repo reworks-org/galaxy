@@ -24,13 +24,6 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Create a new GUID.
-			///
-			/// \return RVO object.
-			///
-			[[nodiscard]] static Guid make() noexcept;
-
-			///
 			/// Constructor.
 			///
 			Guid() noexcept;

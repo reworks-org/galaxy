@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/meta/Globals.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "Timer.hpp"
 
@@ -22,9 +22,20 @@ namespace galaxy
 		{
 		}
 
+		Timer::Timer(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		{
+			set(func, delay);
+		}
+
 		Timer::~Timer() noexcept
 		{
 			stop();
+		}
+
+		void Timer::set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		{
+			m_callback = std::move(func);
+			m_delay    = delay;
 		}
 
 		void Timer::repeat(const bool repeat) noexcept

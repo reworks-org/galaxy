@@ -8,6 +8,7 @@
 #ifndef GALAXY_EVENTS_KEYUP_HPP_
 #define GALAXY_EVENTS_KEYUP_HPP_
 
+#include "galaxy/input/InputMods.hpp"
 #include "galaxy/input/Keys.hpp"
 
 namespace galaxy
@@ -27,7 +28,7 @@ namespace galaxy
 			///
 			/// Modifier Key.
 			///
-			input::KeyMod m_mod;
+			input::InputMods m_mod;
 
 			///
 			/// Platform scancode.

@@ -58,6 +58,14 @@ namespace galaxy
 			}
 		}
 
+		void ThreadPool::queue(const std::function<void(void)>& func) noexcept
+		{
+			std::shared_ptr task = std::make_shared<Task>();
+			task->set(func);
+
+			queue(task);
+		}
+
 		void ThreadPool::queue(std::shared_ptr<Task> task) noexcept
 		{
 			m_mutex.lock();

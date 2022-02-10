@@ -13,25 +13,25 @@ TEST(Async, ThreadPool)
 {
 	galaxy::async::ThreadPool pool;
 
-	galaxy::async::Task taskA;
-	galaxy::async::Task taskB;
+	std::shared_ptr<galaxy::async::Task> taskA;
+	std::shared_ptr<galaxy::async::Task> taskB;
 
 	std::atomic<int> count     = 0;
 	std::atomic<bool> is_false = true;
 
-	taskA.set([&]() {
+	taskA->set([&]() {
 		count = 1;
 	});
 
-	taskB.set([&]() {
+	taskB->set([&]() {
 		is_false = false;
 	});
 
-	pool.queue(&taskA);
-	pool.queue(&taskB);
+	pool.queue(taskA);
+	pool.queue(taskB);
 
-	taskA.wait_until_done();
-	taskB.wait_until_done();
+	taskA->wait_until_done();
+	taskB->wait_until_done();
 
 	pool.stop();
 

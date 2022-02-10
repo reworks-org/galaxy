@@ -9,6 +9,7 @@
 #define GALAXY_PLATFORM_SUBPROCESS_HPP_
 
 #include <span>
+#include <string_view>
 
 #include <subprocess.h>
 

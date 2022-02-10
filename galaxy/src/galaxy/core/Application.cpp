@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <sol/sol.hpp>
+
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -12,7 +14,9 @@
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/FreeType.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/scripting/Lua.hpp"
 
 #include "Application.hpp"
 
@@ -25,12 +29,15 @@ namespace galaxy
 			platform::configure_terminal();
 
 			// Seed pseudo-random algorithms.
-			std::srand(std::time(nullptr));
+			std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
 			// Set up all of the difference services.
 			// The services are configured based off of the config file.
 			// Services are created in dependency order.
 
+			//
+			// LOGGING.
+			//
 			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 			const std::string log_path = std::format("{0}{1}{2}", log_dir, std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists(log_dir))
@@ -42,6 +49,9 @@ namespace galaxy
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
 
+			//
+			// CONFIG.
+			//
 			auto& config = ServiceLocator<Config>::make(config_file);
 			if (config.empty())
 			{
@@ -82,6 +92,9 @@ namespace galaxy
 				config.save();
 			}
 
+			//
+			// VIRTUAL FILE SYSTEM.
+			//
 			auto root_opt = config.get<std::string>("asset-dir");
 			if (root_opt != std::nullopt)
 			{
@@ -93,7 +106,7 @@ namespace galaxy
 
 				create_asset_layout(root, "");
 
-				auto& vfs = ServiceLocator<fs::VirtualFileSystem>::make(root);
+				ServiceLocator<fs::VirtualFileSystem>::make(root);
 				create_asset_layout(root, "audio/music/");
 				create_asset_layout(root, "audio/sfx/");
 				create_asset_layout(root, "fonts/");
@@ -111,6 +124,10 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
 			}
+
+			//
+			// WINDOW
+			//
 
 			// clang-format off
 			const auto window_settings = WindowSettings
@@ -147,10 +164,41 @@ namespace galaxy
 			{
 				cursor.set_cursor_icon(cursor_icon.value());
 			}
+
+			//
+			// FREETYPE.
+			//
+			ServiceLocator<graphics::FreeTypeLib>::make();
+
+			//
+			// LUA.
+			//
+			auto& lua = ServiceLocator<sol::state>::make();
+
+			// clang-format off
+			lua.open_libraries(
+				sol::lib::base,
+				sol::lib::package,
+				sol::lib::coroutine,
+				sol::lib::string,
+				sol::lib::os,
+				sol::lib::math,
+				sol::lib::table,
+				sol::lib::io,
+				sol::lib::utf8
+			);
+			// clang-format on
+
+			lua::inject_galaxy_into_lua();
 		}
 
 		Application::~Application()
 		{
+			ServiceLocator<sol::state>::del();
+			ServiceLocator<graphics::FreeTypeLib>::del();
+			ServiceLocator<Window>::del();
+			ServiceLocator<fs::VirtualFileSystem>::del();
+			ServiceLocator<Config>::del();
 		}
 
 		const bool Application::run()

@@ -28,13 +28,10 @@ namespace galaxy
 			///
 			/// Set constructor.
 			///
-			/// \tparam Lambda Function type. Not required.
-			///
 			/// \param func Function to call on thread.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			template<typename Lambda>
-			TimerAsync(Lambda&& func, const std::uint32_t delay) noexcept;
+			TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
 
 			///
 			/// Destructor.
@@ -51,15 +48,12 @@ namespace galaxy
 			///
 			/// \brief Run a function on a precision timer.
 			///
-			/// \tparam Lambda Function type. Not required.
-			///
 			/// The function runs on a thread so do not run any thread dependent code.
 			///
 			/// \param func Function to call on thread.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			template<typename Lambda>
-			void set(Lambda&& func, const std::uint32_t delay) noexcept;
+			void set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
 
 			///
 			/// Start timer.
@@ -96,23 +90,15 @@ namespace galaxy
 			std::uint32_t m_delay;
 
 			///
+			/// Thread running task.
+			///
+			std::jthread m_thread;
+
+			///
 			/// Callback function.
 			///
 			std::function<void(void)> m_callback;
 		};
-
-		template<typename Lambda>
-		inline TimerAsync::TimerAsync(Lambda&& func, const std::uint32_t delay) noexcept
-		{
-			set(func, delay);
-		}
-
-		template<typename Lambda>
-		inline void TimerAsync::set(Lambda&& func, const std::uint32_t delay) noexcept
-		{
-			m_callback = func;
-			m_delay    = delay;
-		}
 	} // namespace async
 } // namespace galaxy
 

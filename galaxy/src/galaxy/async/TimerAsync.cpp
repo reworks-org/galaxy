@@ -7,7 +7,7 @@
 
 #include <future>
 
-#include "galaxy/meta/Globals.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "TimerAsync.hpp"
 
@@ -22,9 +22,20 @@ namespace galaxy
 		{
 		}
 
+		TimerAsync::TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		{
+			set(func, delay);
+		}
+
 		TimerAsync::~TimerAsync() noexcept
 		{
 			stop();
+		}
+
+		void TimerAsync::set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		{
+			m_callback = func;
+			m_delay    = delay;
 		}
 
 		void TimerAsync::repeat(const bool repeat) noexcept
@@ -34,18 +45,20 @@ namespace galaxy
 
 		void TimerAsync::start() noexcept
 		{
-			std::async(std::launch::async, [this]() {
-				while (!m_repeat)
+			m_thread = std::jthread([&]() {
+				do
 				{
 					std::this_thread::sleep_for(std::chrono::milliseconds(m_delay));
 					m_callback();
-				}
+				} while (m_repeat);
 			});
 		}
 
 		void TimerAsync::stop() noexcept
 		{
 			m_repeat = false;
+			m_thread.request_stop();
+			m_thread.join();
 		}
 	} // namespace async
 } // namespace galaxy
