@@ -23,12 +23,12 @@ TEST(Async, Timer)
 		[&]() {
 			is_false = false;
 		},
-		500);
+		100);
 
 	timer.repeat(false);
 	timer.start();
 
-	while (is_false == true)
+	while (!timer.stopped())
 	{
 		timer.update();
 	}
@@ -50,7 +50,7 @@ TEST(Async, TimerAsync)
 	timer.start();
 
 	// Give thread plenty of time to finish.
-	std::this_thread::sleep_for(1s);
+	std::this_thread::sleep_for(0.5s);
 
 	EXPECT_EQ(is_false.load(), false);
 }

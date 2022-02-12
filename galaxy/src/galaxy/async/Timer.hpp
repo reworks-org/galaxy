@@ -70,6 +70,13 @@ namespace galaxy
 			///
 			void stop() noexcept;
 
+			///
+			/// Is the timer finished?
+			///
+			/// \return True if timer is stopped (finished).
+			///
+			[[nodiscard]] bool stopped() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.

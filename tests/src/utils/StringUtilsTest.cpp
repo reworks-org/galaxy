@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <iostream>
+
 #include <gtest/gtest.h>
 
 #include <galaxy/utils/StringUtils.hpp>
@@ -22,8 +24,5 @@ TEST(Utils, StringSplit)
 
 TEST(Utils, CodePointToString)
 {
-	unsigned int input = 00000022;
-
-	const auto out = galaxy::strutils::parse_codepoint(input);
-	EXPECT_EQ(out, "!");
+	EXPECT_EQ(galaxy::strutils::parse_codepoint(0x00000021), "!");
 }

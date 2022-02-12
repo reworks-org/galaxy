@@ -110,7 +110,8 @@ namespace galaxy
 		template<meta::is_class Service>
 		inline Service& ServiceLocator<Service>::ref()
 		{
-			if (empty())
+			// Avoid static shenanigans.
+			if (!static_cast<bool>(m_service))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
 			}
@@ -121,14 +122,14 @@ namespace galaxy
 		template<meta::is_class Service>
 		inline bool ServiceLocator<Service>::empty() noexcept
 		{
-			return !m_service;
+			return !static_cast<bool>(m_service);
 		}
 
 		template<meta::is_class Service>
 		inline void ServiceLocator<Service>::del()
 		{
+			// Sets to nullptr.
 			m_service.reset();
-			m_service = nullptr;
 		}
 	} // namespace core
 } // namespace galaxy

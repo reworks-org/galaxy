@@ -23,6 +23,11 @@ namespace galaxy
 		}
 
 		Timer::Timer(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+			: m_repeat {false}
+			, m_stopped {true}
+			, m_time_passed {0.0}
+			, m_delay {1000}
+			, m_callback {nullptr}
 		{
 			set(func, delay);
 		}
@@ -74,6 +79,11 @@ namespace galaxy
 		{
 			m_stopped     = true;
 			m_time_passed = 0.0;
+		}
+
+		bool Timer::stopped() const noexcept
+		{
+			return m_stopped;
 		}
 	} // namespace async
 } // namespace galaxy

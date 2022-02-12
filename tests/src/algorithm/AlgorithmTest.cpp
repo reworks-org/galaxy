@@ -26,8 +26,8 @@ TEST(Algorithm, VectorContains)
 	const std::vector<int> empty  = {};
 
 	const auto result1 = galaxy::algorithm::contains(values, value);
-	EXPECT_TRUE(result1 == value);
+	EXPECT_TRUE(result1);
 
 	const auto result2 = galaxy::algorithm::contains(empty, value);
-	EXPECT_TRUE(result2 == false);
+	EXPECT_FALSE(result2);
 }

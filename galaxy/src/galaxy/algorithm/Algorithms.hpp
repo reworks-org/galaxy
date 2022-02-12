@@ -40,19 +40,20 @@ namespace galaxy
 		/// \param cont Container to check.
 		/// \param val Value to look for.
 		///
-		/// \return Either iterator pointing to the end or to the value.
+		/// \return True if found.
 		///
 		template<typename Type>
 		[[nodiscard]] inline bool contains(const std::vector<Type>& cont, const Type& val) noexcept
 		{
+			auto out = false;
 			std::for_each(std::execution::par, cont.begin(), cont.end(), [&](const Type& var) {
 				if (val == var)
 				{
-					return true;
+					out = true;
 				}
 			});
 
-			return false;
+			return out;
 		}
 	} // namespace algorithm
 } // namespace galaxy

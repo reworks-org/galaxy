@@ -13,8 +13,8 @@ TEST(Async, ThreadPool)
 {
 	galaxy::async::ThreadPool pool;
 
-	std::shared_ptr<galaxy::async::Task> taskA;
-	std::shared_ptr<galaxy::async::Task> taskB;
+	auto taskA = std::make_shared<galaxy::async::Task>();
+	auto taskB = std::make_shared<galaxy::async::Task>();
 
 	std::atomic<int> count     = 0;
 	std::atomic<bool> is_false = true;

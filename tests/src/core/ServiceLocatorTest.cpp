@@ -34,11 +34,17 @@ public:
 	int inter;
 };
 
+struct Blank2
+{
+	Blank2()  = default;
+	~Blank2() = default;
+};
+
 TEST(ServiceLocator, Make)
 {
 	var = 0;
 
-	auto test = core::ServiceLocator<Blank>::make();
+	auto& test = core::ServiceLocator<Blank>::make();
 	ASSERT_TRUE(var == 1);
 
 	core::ServiceLocator<Blank>::del();
@@ -48,7 +54,7 @@ TEST(ServiceLocator, MakeConstructor)
 {
 	var = 0;
 
-	auto test = core::ServiceLocator<Blank>::make(3);
+	auto& test = core::ServiceLocator<Blank>::make(3);
 	ASSERT_TRUE(var == 3);
 
 	core::ServiceLocator<Blank>::del();
@@ -75,27 +81,9 @@ TEST(ServiceLocator, Delete)
 	core::ServiceLocator<Blank>::del();
 
 	ASSERT_TRUE(var == 2);
-
-	core::ServiceLocator<Blank>::del();
 }
 
 TEST(ServiceLocator, GetEmptyRef)
 {
-	var = 0;
-
-	EXPECT_THROW(
-		{
-			try
-			{
-				auto& ref = core::ServiceLocator<Blank>::ref();
-			}
-			catch (const std::runtime_error& e)
-			{
-				ASSERT_FALSE(std::strcmp(e.what(), ""));
-				throw;
-			}
-		},
-		std::runtime_error);
-
-	core::ServiceLocator<Blank>::del();
+	EXPECT_THROW({ auto& ref = core::ServiceLocator<Blank2>::ref(); }, std::runtime_error);
 }

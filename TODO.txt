@@ -38,3 +38,6 @@ CONFIG
 - use imgui
 
 switch to vulkan and rename to vulkano?
+
+
+replace contains with C++23 contains OR use ranges
