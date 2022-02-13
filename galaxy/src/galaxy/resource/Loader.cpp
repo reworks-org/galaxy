@@ -1,8 +1,8 @@
 ///
-/// ResourceCache.cpp
+/// Loader.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "ResourceCache.hpp"
+#include "Loader.hpp"

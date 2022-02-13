@@ -56,6 +56,8 @@
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\resource\Cache.cpp" />
+    <ClCompile Include="src\galaxy\resource\Loader.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
@@ -107,6 +109,8 @@
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\resource\Cache.hpp" />
+    <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />

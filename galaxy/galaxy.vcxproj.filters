@@ -50,6 +50,8 @@
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\resource\Cache.cpp" />
+    <ClCompile Include="src\galaxy\resource\Loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -101,5 +103,7 @@
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\resource\Cache.hpp" />
+    <ClInclude Include="src\galaxy\resource\Loader.hpp" />
   </ItemGroup>
 </Project>
