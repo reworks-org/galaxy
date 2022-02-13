@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace fs
 	{
-		Serializer::Serializer()
+		Serializer::Serializer() noexcept
 		{
 			// Reserve some initial memory.
 			m_data.reserve(100);
