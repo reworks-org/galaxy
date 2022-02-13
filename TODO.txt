@@ -1,10 +1,6 @@
-- Fix hot-reloading bugs
-    - Including maps.
 - some resource managers unique to a scene?
     - audio encapsulation / scene integration
     - since its threaded
-- test new logging impl
-- ensure hotreload / filerefresh is working when editing scripts.
 https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-notepad-functionlist-xml
     notepadd++ opens scripts folder
     double click script to auto open
@@ -18,8 +14,6 @@ https://learnopengl.com/
 https://learnopengl.com/Getting-started/Camera
 https://learnopengl.com/Getting-started/Coordinate-Systems
 https://github.com/domre/galaxy
-
-need to rebuild code from scratch?
 
 https://gameprogrammingpatterns.com/
 https://www.minecraft.net/zh-hant/attribution
@@ -36,8 +30,5 @@ CONFIG
 - use entt
 - use librocket
 - use imgui
-
-switch to vulkan and rename to vulkano?
-
 
 replace contains with C++23 contains OR use ranges
