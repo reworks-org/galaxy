@@ -23,6 +23,8 @@ namespace galaxy
 		///
 		/// Checks if the input is an input device for a window.
 		///
+		/// \tparam T Parent type to test.
+		///
 		template<typename T>
 		concept is_input_device = std::derived_from<T, input::InputDevice>;
 	} // namespace meta
@@ -163,6 +165,8 @@ namespace galaxy
 
 			///
 			/// Get a window input device.
+			///
+			/// \tparam Device The type of input device to get. Constrained to a derived InputDevice.
 			///
 			/// \return Reference to the input device.
 			///

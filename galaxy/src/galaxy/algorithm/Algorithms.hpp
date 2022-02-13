@@ -21,6 +21,8 @@ namespace galaxy
 		///
 		/// Calc normalized value from range.
 		///
+		/// \tparam Arithmetic type to normalize.
+		///
 		/// \param val Value to divide by max.
 		/// \param max Value representing 1.0f.
 		///
