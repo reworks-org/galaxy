@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// \return Pointer to created resource. Null if creation failed.
 			///
-			[[no_discard]] virtual std::shared_ptr<Resource> create(std::string_view file) = 0;
+			[[nodiscard]] virtual std::shared_ptr<Resource> create(std::string_view file) = 0;
 
 			///
 			/// Load a set of resources as defined in a json file.
@@ -52,7 +52,7 @@ namespace galaxy
 			///
 			/// \return Resource holder containing created resources.
 			///
-			[[no_discard]] virtual Holder create_from_json(std::string_view json_file) = 0;
+			[[nodiscard]] virtual Holder<Resource> create_from_json(std::string_view json_file) = 0;
 
 		protected:
 			///

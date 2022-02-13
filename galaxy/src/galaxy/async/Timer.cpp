@@ -39,7 +39,7 @@ namespace galaxy
 
 		void Timer::set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
 		{
-			m_callback = std::move(func);
+			m_callback = func;
 			m_delay    = delay;
 		}
 

@@ -36,6 +36,11 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Constructor.
+			///
+			Cache() noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Cache();
@@ -48,7 +53,7 @@ namespace galaxy
 			///
 			/// \return Pointer to created resource. Null if creation failed.
 			///
-			[[maybe_unused]] std::shared_ptr<Resource> create(std::string_view key, std::string_view file);
+			[[maybe_unused]] std::shared_ptr<Resource> create(const std::string& key, std::string_view file);
 
 			///
 			/// Load a set of resources as defined in a json file.
@@ -69,7 +74,7 @@ namespace galaxy
 			///
 			/// \return True if resource was found.
 			///
-			[[nodiscard]] bool has(std::string_view key) noexcept;
+			[[nodiscard]] bool has(const std::string& key) noexcept;
 
 			///
 			/// Retrieve a resource.
@@ -78,7 +83,7 @@ namespace galaxy
 			///
 			/// \return Returns a pointer to the resource.
 			///
-			[[nodiscard]] std::shared_ptr<Resource> get(std::string_view key) noexcept;
+			[[nodiscard]] std::shared_ptr<Resource> get(const std::string& key) noexcept;
 
 			///
 			/// Check if the cache has any resources in it.
@@ -93,23 +98,6 @@ namespace galaxy
 			/// \return Reference to the resource holders cache.
 			///
 			[[nodiscard]] Holder<Resource>& cache() noexcept;
-
-		protected:
-			///
-			/// Constructor.
-			///
-			Cache() noexcept;
-
-		protected:
-			///
-			/// Used to load the resource into the cache.
-			///
-			Loader m_loader;
-
-			///
-			/// Contiguous resource array.
-			///
-			Holder<Resource> m_cache;
 
 		private:
 			///
@@ -131,6 +119,17 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Cache& operator=(Cache&&) = delete;
+
+		private:
+			///
+			/// Used to load the resource into the cache.
+			///
+			Loader m_loader;
+
+			///
+			/// Contiguous resource array.
+			///
+			Holder<Resource> m_cache;
 		};
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
@@ -146,38 +145,38 @@ namespace galaxy
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline std::shared_ptr<Resource> Cache<Resource, Loader>::create(std::string_view key, std::string_view file)
+		inline std::shared_ptr<Resource> Cache<Resource, Loader>::create(const std::string& key, std::string_view file)
 		{
 			auto resource = m_loader.create(file);
 
-			m_holder[key] = resource;
+			m_cache[key] = resource;
 			return resource;
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
 		inline void Cache<Resource, Loader>::create_from_json(std::string_view json_file)
 		{
-			m_holder = m_loader.create_from_json(json_file);
+			m_cache = m_loader.create_from_json(json_file);
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
 		inline void Cache<Resource, Loader>::clear()
 		{
-			m_holder.clear();
+			m_cache.clear();
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline bool Cache<Resource, Loader>::has(std::string_view key) noexcept
+		inline bool Cache<Resource, Loader>::has(const std::string& key) noexcept
 		{
-			return m_holder.contains(key);
+			return m_cache.contains(key);
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline std::shared_ptr<Resource> Cache<Resource, Loader>::get(std::string_view key) noexcept
+		inline std::shared_ptr<Resource> Cache<Resource, Loader>::get(const std::string& key) noexcept
 		{
 			if (has(key))
 			{
-				return m_holder[key];
+				return m_cache[key];
 			}
 
 			return nullptr;
@@ -186,13 +185,13 @@ namespace galaxy
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
 		inline bool Cache<Resource, Loader>::empty() const noexcept
 		{
-			return m_holder.empty();
+			return m_cache.empty();
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
 		inline Holder<Resource>& Cache<Resource, Loader>::cache() noexcept
 		{
-			return m_holder;
+			return m_cache;
 		}
 	} // namespace resource
 } // namespace galaxy

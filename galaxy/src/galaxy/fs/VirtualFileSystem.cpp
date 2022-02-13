@@ -115,6 +115,10 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Tried to create file that already exists: {0}.", path);
 				return false;
 			}
+			else
+			{
+				return false;
+			}
 		}
 
 		bool VirtualFileSystem::create_folder(std::string_view path)
@@ -256,6 +260,10 @@ namespace galaxy
 					return false;
 				}
 			}
+			else
+			{
+				return false;
+			}
 		}
 
 		bool VirtualFileSystem::save_binary(std::span<char> data, std::string_view file)
@@ -280,6 +288,10 @@ namespace galaxy
 
 					return false;
 				}
+			}
+			else
+			{
+				return false;
 			}
 		}
 
