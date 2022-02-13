@@ -176,10 +176,31 @@ namespace galaxy
 
 		private:
 			///
-			/// Default Constructor.
+			/// Constructor.
 			///
 			VirtualFileSystem() = delete;
 
+			///
+			/// Copy constructor.
+			///
+			VirtualFileSystem(const VirtualFileSystem&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			VirtualFileSystem(VirtualFileSystem&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			VirtualFileSystem& operator=(const VirtualFileSystem&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			VirtualFileSystem& operator=(VirtualFileSystem&&) = delete;
+
+		private:
 			///
 			/// Root asset path location.
 			///

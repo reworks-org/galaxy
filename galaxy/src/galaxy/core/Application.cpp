@@ -13,6 +13,7 @@
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Serializer.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FreeType.hpp"
 #include "galaxy/platform/Platform.hpp"
@@ -48,6 +49,11 @@ namespace galaxy
 			GALAXY_LOG_START();
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
+
+			//
+			// SERIALIZER.
+			//
+			ServiceLocator<fs::Serializer>::make();
 
 			//
 			// CONFIG.
@@ -96,7 +102,7 @@ namespace galaxy
 			// VIRTUAL FILE SYSTEM.
 			//
 			auto root_opt = config.get<std::string>("asset-dir");
-			if (root_opt != std::nullopt)
+			if (root_opt.has_value())
 			{
 				auto& root = root_opt.value();
 				if (root.back() != '/')
@@ -151,7 +157,7 @@ namespace galaxy
 			}
 
 			auto icon = config.get<std::string>("icon", "window");
-			if (icon != std::nullopt)
+			if (icon.has_value())
 			{
 				window.set_icon(icon.value());
 			}
@@ -160,7 +166,7 @@ namespace galaxy
 			cursor.toggle(config.get<bool>("visible_cursor", "window").value());
 
 			auto cursor_icon = config.get<std::string>("cursor_icon", "window");
-			if (cursor_icon != std::nullopt)
+			if (cursor_icon.has_value())
 			{
 				cursor.set_cursor_icon(cursor_icon.value());
 			}
@@ -199,6 +205,9 @@ namespace galaxy
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
+			ServiceLocator<fs::Serializer>::del();
+
+			GALAXY_LOG_FINISH();
 		}
 
 		const bool Application::run()

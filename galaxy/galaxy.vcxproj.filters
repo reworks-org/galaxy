@@ -52,6 +52,8 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\galaxy\resource\Cache.cpp" />
     <ClCompile Include="src\galaxy\resource\Loader.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -105,5 +107,7 @@
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
     <ClInclude Include="src\galaxy\resource\Cache.hpp" />
     <ClInclude Include="src\galaxy\resource\Loader.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
   </ItemGroup>
 </Project>

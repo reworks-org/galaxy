@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
     <ClCompile Include="src\galaxy\algorithm\GZip.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
     <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
     <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\FreeType.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
@@ -64,6 +66,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
     <ClInclude Include="src\galaxy\algorithm\GZip.hpp" />
@@ -95,6 +98,7 @@
     <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
     <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
     <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\FreeType.hpp" />
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />

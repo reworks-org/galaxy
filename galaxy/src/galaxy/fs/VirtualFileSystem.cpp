@@ -370,28 +370,28 @@ namespace galaxy
 		std::optional<std::string> VirtualFileSystem::open_with_dialog(const std::string& filter, const std::string& def_path)
 		{
 			const auto path = show_open_dialog(filter, def_path);
-			if (path == std::nullopt)
+			if (path.has_value())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file.");
-				return std::nullopt;
+				return open(path.value());
 			}
 			else
 			{
-				return open(path.value());
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file.");
+				return std::nullopt;
 			}
 		}
 
 		bool VirtualFileSystem::save_with_dialog(const std::string& data, const std::string& def_path)
 		{
 			const auto path = show_save_dialog(def_path);
-			if (path == std::nullopt)
+			if (path.has_value())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to save a file to an empty path.");
-				return false;
+				return save(data, path.value());
 			}
 			else
 			{
-				return save(data, path.value());
+				GALAXY_LOG(GALAXY_ERROR, "Tried to save a file to an empty path.");
+				return false;
 			}
 		}
 

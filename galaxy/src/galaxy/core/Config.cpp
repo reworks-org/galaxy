@@ -50,7 +50,7 @@ namespace galaxy
 
 			const auto result = json::parse_from_disk(path.m_string);
 
-			if (result != std::nullopt)
+			if (result.has_value())
 			{
 				m_config = result.value();
 				m_loaded = true;
