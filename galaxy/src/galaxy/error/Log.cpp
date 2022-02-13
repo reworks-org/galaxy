@@ -20,8 +20,8 @@ namespace galaxy
 
 		Log& Log::handle() noexcept
 		{
-			static Log s_inst;
-			return s_inst;
+			static Log s_instance;
+			return s_instance;
 		}
 
 		void Log::start() noexcept
