@@ -91,10 +91,6 @@
     <ClInclude Include="entt\entt\entity\storage.hpp" />
     <ClInclude Include="entt\entt\entity\utility.hpp" />
     <ClInclude Include="entt\entt\entity\view.hpp" />
-    <ClInclude Include="entt\entt\resource\cache.hpp" />
-    <ClInclude Include="entt\entt\resource\fwd.hpp" />
-    <ClInclude Include="entt\entt\resource\handle.hpp" />
-    <ClInclude Include="entt\entt\resource\loader.hpp" />
     <ClInclude Include="entt\entt\signal\delegate.hpp" />
     <ClInclude Include="entt\entt\signal\dispatcher.hpp" />
     <ClInclude Include="entt\entt\signal\fwd.hpp" />
