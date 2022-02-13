@@ -31,6 +31,9 @@ namespace galaxy
 		/// Similar to the default Visual Studio dark theme.
 		///
 		void imgui_theme_visual_dark();
+
+		void imgui_theme_fancy_dark();
+		void imgui_theme_dark_embrace();
 	} // namespace ui
 } // namespace galaxy
 
