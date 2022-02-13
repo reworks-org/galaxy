@@ -13,5 +13,6 @@
     <ClCompile Include="src\algorithm\RandomTest.cpp" />
     <ClCompile Include="src\algorithm\ZLibTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
+    <ClCompile Include="src\resource\CacheTest.cpp" />
   </ItemGroup>
 </Project>

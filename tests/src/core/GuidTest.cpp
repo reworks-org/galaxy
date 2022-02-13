@@ -9,7 +9,7 @@
 
 #include <galaxy/core/Guid.hpp>
 
-TEST(Guid, Make)
+TEST(Core, Guid)
 {
 	galaxy::core::Guid a;
 	galaxy::core::Guid b;

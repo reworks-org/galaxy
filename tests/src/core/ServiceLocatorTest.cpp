@@ -40,7 +40,7 @@ struct Blank2
 	~Blank2() = default;
 };
 
-TEST(ServiceLocator, Make)
+TEST(Core, ServiceLocatorMake)
 {
 	var = 0;
 
@@ -50,7 +50,7 @@ TEST(ServiceLocator, Make)
 	core::ServiceLocator<Blank>::del();
 }
 
-TEST(ServiceLocator, MakeConstructor)
+TEST(Core, ServiceLocatorMakeConstructor)
 {
 	var = 0;
 
@@ -60,7 +60,7 @@ TEST(ServiceLocator, MakeConstructor)
 	core::ServiceLocator<Blank>::del();
 }
 
-TEST(ServiceLocator, GetRef)
+TEST(Core, ServiceLocatorGetRef)
 {
 	var = 0;
 
@@ -73,7 +73,7 @@ TEST(ServiceLocator, GetRef)
 	core::ServiceLocator<Blank>::del();
 }
 
-TEST(ServiceLocator, Delete)
+TEST(Core, ServiceLocatorDelete)
 {
 	var = 0;
 
@@ -83,7 +83,7 @@ TEST(ServiceLocator, Delete)
 	ASSERT_TRUE(var == 2);
 }
 
-TEST(ServiceLocator, GetEmptyRef)
+TEST(Core, ServiceLocatorGetEmptyRef)
 {
 	EXPECT_THROW({ auto& ref = core::ServiceLocator<Blank2>::ref(); }, std::runtime_error);
 }
