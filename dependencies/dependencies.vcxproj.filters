@@ -438,10 +438,8 @@
     <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="imgui\imgui_internal.h" />
     <ClInclude Include="imgui\imgui_stdlib.h" />
-    <ClInclude Include="imgui\imgui_togglebutton.h" />
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
-    <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\from_json.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\to_chars.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\to_json.hpp" />
@@ -860,6 +858,8 @@
     <ClInclude Include="RmlUi\Include\RmlUi\Core.h" />
     <ClInclude Include="RmlUi\Include\RmlUi\Debugger.h" />
     <ClInclude Include="RmlUi\Include\RmlUi\Lua.h" />
+    <ClInclude Include="imgui\imgui_freetype.h" />
+    <ClInclude Include="stb\include\stb\stb_sprintf.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="box2d\src\collision\b2_broad_phase.cpp" />
@@ -918,7 +918,6 @@
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="imgui\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
-    <ClCompile Include="imgui\imgui_togglebutton.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
@@ -1199,6 +1198,7 @@
     <ClCompile Include="RmlUi\Source\Core\XMLNodeHandlerTemplate.cpp" />
     <ClCompile Include="RmlUi\Source\Core\XMLParser.cpp" />
     <ClCompile Include="RmlUi\Source\Core\XMLParseTools.cpp" />
+    <ClCompile Include="imgui\imgui_freetype.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
