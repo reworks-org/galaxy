@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
@@ -66,6 +67,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
