@@ -34,3 +34,5 @@ CONFIG
 replace contains with C++23 contains OR use ranges
 
 https://github.com/fowlmouth/entt-box2d
+https://github.com/skaarj1989/entt-meets-sol2
+https://github.com/Green-Sky/imgui_entt_entity_editor
