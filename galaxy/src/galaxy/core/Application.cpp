@@ -7,6 +7,7 @@
 
 #include <sol/sol.hpp>
 
+#include "galaxy/core/AudioContext.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -73,6 +74,10 @@ namespace galaxy
 				config.set<bool>("scale_to_monitor", false, "window");
 				config.set<int>("width", 1280, "window");
 				config.set<int>("height", 720, "window");
+				config.set<float>("volume", 1.0f, "audio");
+				config.set<float>("doppler_factor", 1.0f, "audio");
+				config.set<float>("speed_of_sound", 1.0f, "audio");
+				config.set<std::string>("distance_model", "NONE", "audio");
 
 				// config.set<bool>("anti-aliasing", false);
 				// config.set<bool>("sharpen", false);
@@ -175,6 +180,24 @@ namespace galaxy
 			// FREETYPE.
 			//
 			ServiceLocator<graphics::FreeTypeLib>::make();
+
+			//
+			// OpenAL.
+			//
+			auto& al = ServiceLocator<AudioContext>::make();
+			al.set_listener_gain(config.get<float>("volume", "audio").value());
+			al.set_doppler_factor(config.get<float>("doppler_factor", "audio").value());
+			al.set_speed_of_sound(config.get<float>("speed_of_sound", "audio").value());
+
+			auto distance_model = magic_enum::enum_cast<AudioContext::DistanceModel>(config.get<std::string>("distance_model", "audio").value());
+			if (distance_model.has_value())
+			{
+				al.set_distance_model(distance_model.value());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to set invalid distance model from config.");
+			}
 
 			//
 			// LUA.
