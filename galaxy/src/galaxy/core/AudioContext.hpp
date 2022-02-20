@@ -157,7 +157,7 @@ namespace galaxy
 			///
 			/// \return True if extension is present.
 			///
-			[[nodiscard]] bool has_extension(ALchar* name) noexcept;
+			[[nodiscard]] bool has_extension(const ALchar* name) noexcept;
 
 			///
 			/// Check if an OpenAL contextg extension is present.
@@ -166,7 +166,7 @@ namespace galaxy
 			///
 			/// \return True if extension is present.
 			///
-			[[nodiscard]] bool has_context_extension(ALchar* name) noexcept;
+			[[nodiscard]] bool has_context_extension(const ALchar* name) noexcept;
 
 			///
 			/// Get doppler factor.
@@ -241,6 +241,11 @@ namespace galaxy
 			/// OpenAL context.
 			///
 			ALCcontext* m_context;
+
+			///
+			/// Recording Device.
+			///
+			ALCdevice* m_capture_device;
 		};
 	} // namespace core
 } // namespace galaxy

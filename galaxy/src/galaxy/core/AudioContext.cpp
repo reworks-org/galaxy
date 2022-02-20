@@ -40,11 +40,18 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to make OpenAL context current."));
 			}
+
+			m_capture_device = alcCaptureOpenDevice(alcGetString(nullptr, ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER), 44100, AL_FORMAT_STEREO16, 1024);
+			if (!m_capture_device)
+			{
+				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to open OpenAL capture device."));
+			}
 		}
 
 		AudioContext::~AudioContext()
 		{
 			// Cleanup.
+			alcCaptureCloseDevice(m_capture_device);
 			alcMakeContextCurrent(nullptr);
 			alcDestroyContext(m_context);
 			alcCloseDevice(m_device);
@@ -123,12 +130,12 @@ namespace galaxy
 			alListenerfv(AL_ORIENTATION, arr);
 		}
 
-		bool AudioContext::has_extension(ALchar* name) noexcept
+		bool AudioContext::has_extension(const ALchar* name) noexcept
 		{
 			return alIsExtensionPresent(name);
 		}
 
-		bool AudioContext::has_context_extension(ALchar* name) noexcept
+		bool AudioContext::has_context_extension(const ALchar* name) noexcept
 		{
 			return alcIsExtensionPresent(m_device, name);
 		}
