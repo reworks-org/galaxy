@@ -87,18 +87,18 @@ namespace galaxy
 			~AudioContext();
 
 			///
-			/// Resume context processing.
-			///
-			void process();
-
-			///
 			/// \brief Suspend context processing.
 			///
 			/// When a context is suspended, changes in OpenAL state will be accepted but will not be processed.
 			/// A typical use of alcSuspendContext would be to suspend a context, apply all the OpenAL state
 			/// changes at once, and then call process() to apply all the state changes at once.
 			///
-			void suspend();
+			void suspend() noexcept;
+
+			///
+			/// Resume context processing.
+			///
+			void resume() noexcept;
 
 			///
 			/// Change doppler factor.

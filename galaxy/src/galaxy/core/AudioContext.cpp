@@ -24,7 +24,7 @@ namespace galaxy
 			m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 			if (!m_device)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_handle_error("Failed to create OpenAL device."));
+				GALAXY_LOG(GALAXY_FATAL, error::al_handle_error("Failed to create OpenAL device.", alGetError()));
 			}
 
 			// Set up initial flags for device and context.
@@ -33,18 +33,18 @@ namespace galaxy
 			m_context = alcCreateContext(m_device, nullptr);
 			if (!m_context)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to create OpenAL context."));
+				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to create OpenAL context.", alcGetError(m_device)));
 			}
 
 			if (!alcMakeContextCurrent(m_context))
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to make OpenAL context current."));
+				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to make OpenAL context current.", alcGetError(m_device)));
 			}
 
 			m_capture_device = alcCaptureOpenDevice(alcGetString(nullptr, ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER), 44100, AL_FORMAT_STEREO16, 1024);
 			if (!m_capture_device)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to open OpenAL capture device."));
+				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to open OpenAL capture device.", alcGetError(m_device)));
 			}
 		}
 
@@ -60,14 +60,14 @@ namespace galaxy
 			m_device  = nullptr;
 		}
 
-		void AudioContext::process()
-		{
-			alcProcessContext(m_context);
-		}
-
-		void AudioContext::suspend()
+		void AudioContext::suspend() noexcept
 		{
 			alcSuspendContext(m_context);
+		}
+
+		void AudioContext::resume() noexcept
+		{
+			alcProcessContext(m_context);
 		}
 
 		void AudioContext::set_doppler_factor(const float factor)
