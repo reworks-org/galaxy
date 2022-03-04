@@ -1,6 +1,6 @@
 ///
 /// BufferStream.hpp
-/// context
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// \brief Destructor.
 			///
-			/// Destroys BufferStream BufferStream(s).
+			/// Destroys BufferStream buffer(s).
 			///
 			virtual ~BufferStream();
 
@@ -52,7 +52,7 @@ namespace galaxy
 			///
 			/// \return False if load failed.
 			///
-			[[maybe_unused]] const bool internal_load(std::string_view file);
+			[[maybe_unused]] bool internal_load(std::string_view file);
 
 		protected:
 			///

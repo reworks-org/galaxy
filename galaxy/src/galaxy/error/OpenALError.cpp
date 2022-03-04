@@ -16,10 +16,10 @@ namespace galaxy
 {
 	namespace error
 	{
-		std::string al_handle_error(std::string_view message)
+		std::string al_handle_error(std::string_view message, const int err)
 		{
 			// Generate a proper openal formatted message.
-			auto formatted = std::format("OpenAL: {0} | {1}.", message, al_errcode_as_string(alGetError()));
+			auto formatted = std::format("OpenAL: {0} | {1}.", message, al_errcode_as_string(err));
 
 			// Reset openal error state.
 			alGetError();
@@ -61,10 +61,10 @@ namespace galaxy
 			}
 		}
 
-		std::string alc_handle_error(ALCdevice* device, std::string_view message)
+		std::string alc_handle_error(ALCdevice* device, std::string_view message, const int err)
 		{
 			// Generate a proper openal formatted message.
-			auto formatted = std::format("OpenAL: {0} | {1}.", message, alc_errcode_as_string(alcGetError(device)));
+			auto formatted = std::format("OpenAL: {0} | {1}.", message, alc_errcode_as_string(err));
 
 			// Reset openal error state.
 			alcGetError(device);

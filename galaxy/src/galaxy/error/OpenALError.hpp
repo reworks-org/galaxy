@@ -20,10 +20,11 @@ namespace galaxy
 		/// Processess for an OpenAL error.
 		///
 		/// \param message Message to print alongside OpenAL error.
+		/// \param err Error code from alGetError().
 		///
 		/// \return String containing full error message.
 		///
-		[[nodiscard]] std::string al_handle_error(std::string_view message);
+		[[nodiscard]] std::string al_handle_error(std::string_view message, const int err);
 
 		///
 		/// Retrieve error code value as string.
@@ -39,10 +40,11 @@ namespace galaxy
 		///
 		/// \param device Context device error occured in.
 		/// \param message Message to print alongside OpenAL context error.
+		/// \param err Error code from alcGetError().
 		///
 		/// \return String containing full error message.
 		///
-		[[nodiscard]] std::string alc_handle_error(ALCdevice* device, std::string_view message);
+		[[nodiscard]] std::string alc_handle_error(ALCdevice* device, std::string_view message, const int err);
 
 		///
 		/// Retrieve error code value as string.

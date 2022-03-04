@@ -26,7 +26,7 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Virtual destructor.
+			/// Destructor.
 			///
 			virtual ~SourceManipulator() = default;
 
@@ -54,28 +54,28 @@ namespace galaxy
 			///
 			/// \param pitch Multiplier value. I.e. 0.5f is a *0.5 multiplier. 0.0f - 10.0f.
 			///
-			void set_pitch(const float pitch);
+			void set_pitch(const float pitch) noexcept;
 
 			///
 			/// Audio gain.
 			///
 			/// \param gain Multiplier value. I.e. 0.5f is a *0.5 multiplier. 0.0f - 10.0f.
 			///
-			void set_gain(const float gain);
+			void set_gain(const float gain) noexcept;
 
 			///
 			/// \brief Set RollOff factor for source.
 			///
 			/// \param factor Floating point factor value. 0.0f - 10.0f.
 			///
-			void set_rolloff_factor(const float factor);
+			void set_rolloff_factor(const float factor) noexcept;
 
 			///
 			/// \brief Set maximum distance from which there is no attenuation afterwards.
 			///
 			/// \param distance Floating point distance value.
 			///
-			void set_max_distance(const float distance);
+			void set_max_distance(const float distance) noexcept;
 
 			///
 			/// \brief Configure audio cone.
@@ -84,28 +84,28 @@ namespace galaxy
 			/// \param inner_gain The gain when inside the oriented cone.
 			/// \param outer_angle Outer angle of the sound cone, in degrees. Defaults to 360.
 			///
-			void set_cone(const float outer_gain, const float inner_gain, const float outer_angle = 360.0f);
+			void set_cone(const float outer_gain, const float inner_gain, const float outer_angle = 360.0f) noexcept;
 
 			///
 			/// \brief Specifies the current location of the object in the world coordinate system.
 			///
 			/// \param pos Position in world.
 			///
-			void set_position(const glm::vec3& pos);
+			void set_position(const glm::vec3& pos) noexcept;
 
 			///
 			/// \brief Specifies the current velocity (speed and direction) of the object, in theworld coordinate system
 			///
 			/// \param vel Velocity of sound.
 			///
-			void set_velocity(const glm::vec3& vel);
+			void set_velocity(const glm::vec3& vel) noexcept;
 
 			///
 			/// \brief Source is directional. The sound emission is presumed to be symmetric around the direction vector.
 			///
 			/// \param dir Direction of sound.
 			///
-			void set_direction(const glm::vec3& dir);
+			void set_direction(const glm::vec3& dir) noexcept;
 
 			///
 			/// \brief Should the source repeat upon reaching the end.
@@ -119,74 +119,74 @@ namespace galaxy
 			///
 			/// \return Integer of enum AL_SOURCE_STATE.
 			///
-			[[nodiscard]] const ALint get_state();
+			[[nodiscard]] ALint get_state() noexcept;
 
 			///
 			/// Get audio pitch.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_pitch();
+			[[nodiscard]] float get_pitch() noexcept;
 
 			///
 			/// Get audio gain.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_gain();
+			[[nodiscard]] float get_gain() noexcept;
 
 			///
 			/// Get audio rolloff factor.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_rolloff_factor();
+			[[nodiscard]] float get_rolloff_factor() noexcept;
 
 			///
 			/// Get audio max distance.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_max_distance();
+			[[nodiscard]] float get_max_distance() noexcept;
 
 			///
 			/// Get audio cone.
 			///
 			/// \return Vector3. x = outer_gain, y =  inner_gain, z = outer_angle.
 			///
-			[[nodiscard]] glm::vec3 get_cone();
+			[[nodiscard]] glm::vec3 get_cone() noexcept;
 
 			///
 			/// Get audio pitch.
 			///
 			/// \return Vector3.
 			///
-			[[nodiscard]] glm::vec3 get_position();
+			[[nodiscard]] glm::vec3 get_position() noexcept;
 
 			///
 			/// Get audio velocity.
 			///
 			/// \return Vector3.
 			///
-			[[nodiscard]] glm::vec3 get_velocity();
+			[[nodiscard]] glm::vec3 get_velocity() noexcept;
 
 			///
 			/// Get audio direction.
 			///
 			/// \return Vector3.
 			///
-			[[nodiscard]] glm::vec3 get_direction();
+			[[nodiscard]] glm::vec3 get_direction() noexcept;
 
 			///
 			/// Get audio looping state.
 			///
 			/// \return Const bool.
 			///
-			[[nodiscard]] virtual const bool get_looping() = 0;
+			[[nodiscard]] virtual bool get_looping() = 0;
 
 		protected:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
 			SourceManipulator() = default;
 

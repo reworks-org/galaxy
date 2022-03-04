@@ -5,7 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/ALError.hpp"
+#include <nlohmann/json.hpp>
+
 #include "galaxy/error/Log.hpp"
 
 #include "Sound.hpp"
@@ -15,14 +16,12 @@ namespace galaxy
 	namespace audio
 	{
 		Sound::Sound() noexcept
-			: Serializable {this}
-			, Buffer {}
+			: Buffer {}
 			, SourceManipulator {}
 		{
 		}
 
 		Sound::Sound(const nlohmann::json& json)
-			: Serializable {this}
 		{
 			deserialize(json);
 		}
@@ -49,41 +48,30 @@ namespace galaxy
 			alSourceRewind(m_source.handle());
 		}
 
-		const bool Sound::load(std::string_view file)
+		bool Sound::load(std::string_view file)
 		{
-			const auto res = internal_load(file);
-			if (res)
+			if (internal_load(file))
 			{
 				m_filename = static_cast<std::string>(file);
 
 				set_max_distance(100.0f);
 				m_source.queue(this);
+
+				return true;
 			}
 
-			return res;
+			return false;
 		}
 
 		void Sound::set_looping(const bool looping)
 		{
 			alSourcei(m_source.handle(), AL_LOOPING, looping);
-
-			const auto error = alGetError();
-			if (error != AL_NO_ERROR)
-			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source looping.", error));
-			}
 		}
 
-		const bool Sound::get_looping()
+		bool Sound::get_looping()
 		{
-			int looping = 0;
+			int looping;
 			alGetSourcei(m_source.handle(), AL_LOOPING, &looping);
-
-			const auto error = alGetError();
-			if (error != AL_NO_ERROR)
-			{
-				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get source looping.", error));
-			}
 
 			return static_cast<bool>(looping);
 		}
@@ -143,15 +131,15 @@ namespace galaxy
 				set_cone(cone_json.at("outer-gain"), cone_json.at("inner-gain"), cone_json.at("inner-angle"));
 
 				const auto& pos_json = json.at("pos");
-				glm::vec3   pos      = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
+				glm::vec3 pos        = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
 				set_position(pos);
 
 				const auto& vel_json = json.at("vel");
-				glm::vec3   vel      = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
+				glm::vec3 vel        = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
 				set_velocity(vel);
 
 				const auto& dir_json = json.at("dir");
-				glm::vec3   dir      = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
+				glm::vec3 dir        = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
 				set_direction(dir);
 
 				const bool is_playing = json.at("is-playing");
@@ -162,7 +150,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Unable to load sound effect: {0}.", std::string {json.at("file")});
+				GALAXY_LOG(GALAXY_ERROR, "Unable to load sfx '{0}'.", json.at("file").get<std::string>());
 			}
 		}
 	} // namespace audio

@@ -1,6 +1,6 @@
 ///
 /// Buffer.cpp
-/// frb
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -8,9 +8,9 @@
 #include <stb/stb_vorbis.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/error/OpenALError.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "Buffer.hpp"
 
@@ -21,13 +21,13 @@ namespace galaxy
 		Buffer::Buffer()
 			: m_buffer {0}
 		{
-			// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
+			// Create buffer and check for error. Only create 1 since buffer is being managed per object.
 			alGenBuffers(1, &m_buffer);
 
 			const auto error = alGetError();
 			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer.", error));
+				GALAXY_LOG(GALAXY_FATAL, error::al_handle_error("Unable to gen audio buffer.", error));
 			}
 		}
 
@@ -36,83 +36,70 @@ namespace galaxy
 			if (m_buffer > 0)
 			{
 				alDeleteBuffers(1, &m_buffer);
+				m_buffer = 0;
 
 				const auto error = alGetError();
 				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s).", error));
+					GALAXY_LOG(GALAXY_ERROR, error::al_handle_error("Unable to delete audio buffer(s).", error));
 				}
-
-				m_buffer = 0;
 			}
 		}
 
-		const ALint Buffer::get_frequency()
+		ALint Buffer::get_frequency() noexcept
 		{
-			ALint freq = 0;
+			ALint freq;
 			alGetBufferi(m_buffer, AL_FREQUENCY, &freq);
 
 			return freq;
 		}
 
-		const ALint Buffer::get_bits()
+		ALint Buffer::get_bits() noexcept
 		{
-			ALint bits = 0;
+			ALint bits;
 			alGetBufferi(m_buffer, AL_BITS, &bits);
 
 			return bits;
 		}
 
-		const ALint Buffer::get_channels()
+		ALint Buffer::get_channels() noexcept
 		{
-			ALint channels = 0;
+			ALint channels;
 			alGetBufferi(m_buffer, AL_CHANNELS, &channels);
 
 			return channels;
 		}
 
-		const ALint Buffer::get_size()
+		ALint Buffer::get_size() noexcept
 		{
-			ALint size = 0;
+			ALint size;
 			alGetBufferi(m_buffer, AL_SIZE, &size);
 
 			return size;
 		}
 
-		const ALuint Buffer::handle() const noexcept
+		ALuint Buffer::handle() const noexcept
 		{
 			return m_buffer;
 		}
 
-		const bool Buffer::internal_load(std::string_view file)
+		bool Buffer::internal_load(std::string_view file)
 		{
-			bool       result = true;
-			const auto path   = SL_HANDLE.vfs()->absolute(file);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			if (path == std::nullopt)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find file to load into audio buffer: {0}.", file);
-				result = false;
-			}
-			else
-			{
-				const auto path_str = path.value();
-				if (std::filesystem::path(path_str).extension() != ".ogg")
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Sound must be ogg vorbis and have extension of .ogg!");
-					result = false;
-				}
-				else
-				{
-					int    channels = 0;
-					int    samples  = 0;
-					short* data     = nullptr;
+			const auto file_info = fs.find(file);
 
-					const auto length = stb_vorbis_decode_filename(path_str.c_str(), &channels, &samples, &data);
+			if (file_info.m_code == fs::FileInfo::Code::FOUND)
+			{
+				if (file_info.m_path.extension() == ".ogg")
+				{
+					int channels = 0;
+					int samples  = 0;
+					short* data  = nullptr;
+
+					const auto length = stb_vorbis_decode_filename(file_info.m_string.c_str(), &channels, &samples, &data);
 					if (length < 1)
 					{
-						result = false;
-
 						// Make sure data is freed.
 						if (data != nullptr)
 						{
@@ -131,6 +118,8 @@ namespace galaxy
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Failed due to unknown error. Error code returned: {0}.", length);
 						}
+
+						return false;
 					}
 					else
 					{
@@ -140,9 +129,17 @@ namespace galaxy
 						std::free(data);
 					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Audio file must be ogg vorbis and have extension of .ogg!");
+					return false;
+				}
 			}
-
-			return result;
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' because '{1}'.", file, magic_enum::enum_name<fs::FileInfo::Code>(file_info.m_code));
+				return false;
+			}
 		}
 	} // namespace audio
 } // namespace galaxy

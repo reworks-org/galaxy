@@ -1,12 +1,14 @@
 ///
-/// Sound.hpp
+/// Music.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_SOUND_HPP_
-#define GALAXY_AUDIO_SOUND_HPP_
+#ifndef GALAXY_AUDIO_MUSIC_HPP_
+#define GALAXY_AUDIO_MUSIC_HPP_
+
+#include <thread>
 
 #include "galaxy/audio/SourceManipulator.hpp"
 #include "galaxy/fs/Serializable.hpp"
@@ -16,60 +18,58 @@ namespace galaxy
 	namespace audio
 	{
 		///
-		/// \brief Short length ogg-vorbis audio.
+		/// Streamed audio source.
 		///
-		/// Contains a Buffer and Source.
-		///
-		class Sound final : public Buffer, public SourceManipulator, public fs::Serializable
+		class Music final : public BufferStream, public SourceManipulator, public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Sound() noexcept;
+			Music() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Sound(const nlohmann::json& json);
+			Music(const nlohmann::json& json);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sound();
+			virtual ~Music();
 
 			///
-			/// \brief Play sound.
+			/// \brief Play music.
 			///
 			/// Plays music from beginning or pause point.
 			///
 			void play() override;
 
 			///
-			/// Pause sound.
+			/// Pause music.
 			///
 			void pause() override;
 
 			///
-			/// \brief Stop sound.
+			/// \brief Stop music.
 			///
 			/// Starts again from beginning.
 			///
 			void stop() override;
 
 			///
-			/// Load a file from disk.
+			/// Load a file to stream from disk.
 			///
 			/// \param file File to load from disk. Can only load ogg vorbis.
 			///
 			/// \return False if load failed.
 			///
-			[[maybe_unused]] const bool load(std::string_view file);
+			[[maybe_unused]] bool load(std::string_view file);
 
 			///
-			/// \brief Should the sound repeat upon reaching the end.
+			/// \brief Should the music repeat upon reaching the end.
 			///
 			/// \param looping True to repeat.
 			///
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			/// \return Const bool.
 			///
-			[[nodiscard]] const bool get_looping() override;
+			[[nodiscard]] bool get_looping() override;
 
 			///
 			/// Serializes object.
@@ -100,22 +100,45 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Sound(Sound&&) = delete;
+			Music(Music&&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			Sound& operator=(Sound&&) = delete;
+			Music& operator=(Music&&) = delete;
 
 			///
 			/// Copy constructor.
 			///
-			Sound(const Sound&) = delete;
+			Music(const Music&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Sound& operator=(const Sound&) = delete;
+			Music& operator=(const Music&) = delete;
+
+			///
+			/// \brief Update stream buffers as it plays.
+			///
+			/// Internal use only.
+			///
+			void update();
+
+		private:
+			///
+			/// Looping flag.
+			///
+			bool m_looping;
+
+			///
+			/// Thread to process music updates on.
+			///
+			std::jthread m_thread;
+
+			///
+			/// Thread control.
+			///
+			std::atomic_bool m_running;
 		};
 	} // namespace audio
 } // namespace galaxy

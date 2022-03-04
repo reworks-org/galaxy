@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// \return ALuint handle integer.
 			///
-			[[nodiscard]] const ALuint handle() const noexcept;
+			[[nodiscard]] ALuint handle() const noexcept;
 
 		private:
 			///

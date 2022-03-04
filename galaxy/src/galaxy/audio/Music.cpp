@@ -5,23 +5,24 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/resource/MusicBook.hpp"
+#include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
+
+#include "Music.hpp"
 
 namespace galaxy
 {
 	namespace audio
 	{
 		Music::Music() noexcept
-			: Serializable {this}
-			, m_looping {false}
+			: m_looping {false}
 			, m_running {false}
 		{
 		}
 
 		Music::Music(const nlohmann::json& json)
-			: Serializable {this}
-			, m_looping {false}
+			: m_looping {false}
 			, m_running {false}
 		{
 			deserialize(json);
@@ -40,14 +41,11 @@ namespace galaxy
 
 			alSourceStop(m_source.handle());
 			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
-
-			SL_HANDLE.musicbook()->m_playing.erase(this);
 		}
 
 		void Music::play()
 		{
 			alSourcePlay(m_source.handle());
-			SL_HANDLE.musicbook()->m_playing.emplace(this, this);
 		}
 
 		void Music::pause()
@@ -72,10 +70,9 @@ namespace galaxy
 			m_source.queue(this);
 		}
 
-		const bool Music::load(std::string_view file)
+		bool Music::load(std::string_view file)
 		{
-			const auto res = internal_load(file);
-			if (res)
+			if (internal_load(file))
 			{
 				m_filename = static_cast<std::string>(file);
 				set_max_distance(100.0f);
@@ -89,9 +86,11 @@ namespace galaxy
 						this->update();
 					}
 				});
+
+				return true;
 			}
 
-			return res;
+			return false;
 		}
 
 		void Music::set_looping(const bool looping)
@@ -99,7 +98,7 @@ namespace galaxy
 			m_looping = looping;
 		}
 
-		const bool Music::get_looping()
+		bool Music::get_looping()
 		{
 			return m_looping;
 		}
@@ -159,15 +158,15 @@ namespace galaxy
 				set_cone(cone_json.at("outer-gain"), cone_json.at("inner-gain"), cone_json.at("inner-angle"));
 
 				const auto& pos_json = json.at("pos");
-				glm::vec3   pos      = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
+				glm::vec3 pos        = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
 				set_position(pos);
 
 				const auto& vel_json = json.at("vel");
-				glm::vec3   vel      = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
+				glm::vec3 vel        = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
 				set_velocity(vel);
 
 				const auto& dir_json = json.at("dir");
-				glm::vec3   dir      = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
+				glm::vec3 dir        = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
 				set_direction(dir);
 
 				const bool is_playing = json.at("is-playing");
@@ -178,15 +177,15 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Unable to load music: {0}.", json.at("file").get<std::string>());
+				GALAXY_LOG(GALAXY_ERROR, "Unable to load music file '{0}'.", json.at("file").get<std::string>());
 			}
 		}
 
 		void Music::update()
 		{
-			int    processed = 0;
-			int    amount    = 0;
-			ALuint which     = 0;
+			int processed = 0;
+			int amount    = 0;
+			ALuint which  = 0;
 
 			while (get_state() == AL_PLAYING)
 			{

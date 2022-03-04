@@ -1,6 +1,6 @@
 ///
 /// BufferStream.cpp
-/// context
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -8,9 +8,9 @@
 #include <AL/alext.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/error/OpenALError.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "BufferStream.hpp"
 
@@ -29,7 +29,7 @@ namespace galaxy
 			const auto error = alGetError();
 			if (error != AL_NO_ERROR)
 			{
-				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Unable to gen audio buffer(s).", error));
+				GALAXY_LOG(GALAXY_FATAL, error::al_handle_error("Unable to gen audio buffer(s).", error));
 			}
 		}
 
@@ -57,38 +57,28 @@ namespace galaxy
 				const auto error = alGetError();
 				if (error != AL_NO_ERROR)
 				{
-					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to delete audio buffer(s).", error));
+					GALAXY_LOG(GALAXY_ERROR, error::al_handle_error("Unable to delete audio buffer(s).", error));
 				}
 
 				m_buffers = {0, 0};
 			}
 		}
 
-		const bool BufferStream::internal_load(std::string_view file)
+		bool BufferStream::internal_load(std::string_view file)
 		{
-			bool       result = true;
-			const auto path   = SL_HANDLE.vfs()->absolute(file);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			if (path == std::nullopt)
+			const auto file_info = fs.find(file);
+
+			if (file_info.m_code == fs::FileInfo::Code::FOUND)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find file to load into bufferstream: {0}.", file);
-				result = false;
-			}
-			else
-			{
-				const auto path_str = path.value();
-				if (std::filesystem::path(path_str).extension() != ".ogg")
+				if (file_info.m_path.extension() == ".ogg")
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Music must be ogg vorbis and have extension of .ogg!");
-					result = false;
-				}
-				else
-				{
-					m_stream = stb_vorbis_open_filename(path_str.c_str(), nullptr, nullptr);
+					m_stream = stb_vorbis_open_filename(file_info.m_string.c_str(), nullptr, nullptr);
+
 					if (!m_stream)
 					{
-						GALAXY_LOG(GALAXY_ERROR, "STB failed to load: {0}.", file);
-						result = false;
+						GALAXY_LOG(GALAXY_ERROR, "STB failed to load '{0}'.", file);
 					}
 					else
 					{
@@ -104,9 +94,17 @@ namespace galaxy
 						alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
 					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Audio file must be ogg vorbis and have extension of .ogg!");
+					return false;
+				}
 			}
-
-			return result;
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' because '{1}'.", file, magic_enum::enum_name<fs::FileInfo::Code>(file_info.m_code));
+				return false;
+			}
 		}
 	} // namespace audio
 } // namespace galaxy

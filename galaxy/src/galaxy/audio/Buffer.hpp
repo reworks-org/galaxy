@@ -42,35 +42,35 @@ namespace galaxy
 			///
 			/// \return Frequency as integer.
 			///
-			[[nodiscard]] const ALint get_frequency();
+			[[nodiscard]] ALint get_frequency() noexcept;
 
 			///
 			/// Get bits of buffer.
 			///
 			/// \return Bits as integer.
 			///
-			[[nodiscard]] const ALint get_bits();
+			[[nodiscard]] ALint get_bits() noexcept;
 
 			///
 			/// Get channels of buffer.
 			///
 			/// \return Channels as integer.
 			///
-			[[nodiscard]] const ALint get_channels();
+			[[nodiscard]] ALint get_channels() noexcept;
 
 			///
 			/// Get size of buffer.
 			///
 			/// \return Size as integer.
 			///
-			[[nodiscard]] const ALint get_size();
+			[[nodiscard]] ALint get_size() noexcept;
 
 			///
 			/// Get the OpenAL internal int id / handle.
 			///
 			/// \return Const ALuint handle integer.
 			///
-			[[nodiscard]] const ALuint handle() const noexcept;
+			[[nodiscard]] ALuint handle() const noexcept;
 
 		protected:
 			///
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			/// \return False if load failed.
 			///
-			[[maybe_unused]] const bool internal_load(std::string_view file);
+			[[maybe_unused]] bool internal_load(std::string_view file);
 
 		protected:
 			///
