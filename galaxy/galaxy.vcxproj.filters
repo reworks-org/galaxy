@@ -48,7 +48,6 @@
     <ClCompile Include="src\galaxy\resource\Cache.cpp" />
     <ClCompile Include="src\galaxy\resource\Loader.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
-    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
     <ClCompile Include="src\galaxy\core\AudioContext.cpp" />
     <ClCompile Include="src\galaxy\error\OpenALError.cpp" />
@@ -57,6 +56,16 @@
     <ClCompile Include="src\galaxy\error\Log.cpp" />
     <ClCompile Include="src\galaxy\error\LogLevel.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
+    <ClCompile Include="src\galaxy\state\Scene.cpp" />
+    <ClCompile Include="src\galaxy\state\LayerStack.cpp" />
+    <ClCompile Include="src\galaxy\state\Layer.cpp" />
+    <ClCompile Include="src\galaxy\systems\System.cpp" />
+    <ClCompile Include="src\galaxy\audio\Buffer.cpp" />
+    <ClCompile Include="src\galaxy\audio\BufferStream.cpp" />
+    <ClCompile Include="src\galaxy\audio\Source.cpp" />
+    <ClCompile Include="src\galaxy\audio\SourceManipulator.cpp" />
+    <ClCompile Include="src\galaxy\audio\Sound.cpp" />
+    <ClCompile Include="src\galaxy\audio\Music.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -106,7 +115,6 @@
     <ClInclude Include="src\galaxy\resource\Cache.hpp" />
     <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
-    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
     <ClInclude Include="src\galaxy\core\AudioContext.hpp" />
     <ClInclude Include="src\galaxy\error\OpenALError.hpp" />
@@ -115,5 +123,19 @@
     <ClInclude Include="src\galaxy\error\Log.hpp" />
     <ClInclude Include="src\galaxy\error\LogLevel.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
+    <ClInclude Include="src\galaxy\state\Scene.hpp" />
+    <ClInclude Include="src\galaxy\state\LayerStack.hpp" />
+    <ClInclude Include="src\galaxy\state\Layer.hpp" />
+    <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
+    <ClInclude Include="src\galaxy\systems\System.hpp" />
+    <ClInclude Include="src\galaxy\audio\Buffer.hpp" />
+    <ClInclude Include="src\galaxy\audio\BufferStream.hpp" />
+    <ClInclude Include="src\galaxy\audio\Source.hpp" />
+    <ClInclude Include="src\galaxy\audio\SourceManipulator.hpp" />
+    <ClInclude Include="src\galaxy\audio\Sound.hpp" />
+    <ClInclude Include="src\galaxy\audio\Music.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\galaxy\state\SceneManager.cpp" />
   </ItemGroup>
 </Project>

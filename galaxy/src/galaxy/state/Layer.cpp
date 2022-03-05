@@ -1,10 +1,74 @@
 ///
-/// Scene2D.cpp
+/// Layer.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
+#include "Layer.hpp"
+
+namespace galaxy
+{
+	namespace state
+	{
+		Layer::Layer(std::string_view name)
+			: m_name {name}
+		{
+		}
+
+		Layer::~Layer() noexcept
+		{
+		}
+
+		void Layer::on_push()
+		{
+		}
+
+		void Layer::on_pop()
+		{
+		}
+
+		void Layer::events()
+		{
+		}
+
+		void Layer::update()
+		{
+		}
+
+		void Layer::pre_render()
+		{
+		}
+
+		void Layer::render()
+		{
+		}
+
+		void Layer::set_name(std::string_view name) noexcept
+		{
+			m_name = name;
+		}
+
+		const std::string& Layer::get_name() const noexcept
+		{
+			return m_name;
+		}
+
+		nlohmann::json Layer::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			return json;
+		}
+
+		void Layer::deserialize(const nlohmann::json& json)
+		{
+		}
+	} // namespace state
+} // namespace galaxy
+
+/*
 #include <RmlUi/Core.h>
 #include <sol/sol.hpp>
 
@@ -20,13 +84,11 @@
 #include "galaxy/systems/TransformSystem.hpp"
 #include "galaxy/ui/RMLInput.hpp"
 
-#include "Scene2D.hpp"
-
 namespace galaxy
 {
 	namespace core
 	{
-		Scene2D::Scene2D(std::string_view name) noexcept
+		Layer::Layer(std::string_view name) noexcept
 			: Serializable {this}
 			, m_name {name}
 		{
@@ -87,44 +149,44 @@ namespace galaxy
 			});
 		}
 
-		Scene2D::~Scene2D() noexcept
+		Layer::~Layer() noexcept
 		{
 		}
 
-		void Scene2D::on_push()
+		void Layer::on_push()
 		{
 			SL_HANDLE.musicbook()->stop_all();
 			SL_HANDLE.lua()->set("galaxy_current_world", &m_world);
 		}
 
-		void Scene2D::on_pop()
+		void Layer::on_pop()
 		{
 			SL_HANDLE.musicbook()->stop_all();
 		}
 
-		void Scene2D::events()
+		void Layer::events()
 		{
 			SL_HANDLE.window()->trigger_queued_events(m_dispatcher);
 		}
 
-		void Scene2D::update()
+		void Layer::update()
 		{
 			m_camera.update();
 			m_world.update(this);
 			m_rml->Update();
 		}
 
-		void Scene2D::pre_render()
+		void Layer::pre_render()
 		{
 		}
 
-		void Scene2D::render()
+		void Layer::render()
 		{
 			RENDERER_2D().buffer_camera(m_camera);
 			m_rendersystem->render(m_world);
 		}
 
-		void Scene2D::load_rml_doc(std::string_view document)
+		void Layer::load_rml_doc(std::string_view document)
 		{
 			auto* doc = m_rml->LoadDocument(static_cast<std::string>(document));
 			if (!doc)
@@ -137,7 +199,7 @@ namespace galaxy
 			}
 		}
 
-		void Scene2D::create_maps(std::string_view path)
+		void Layer::create_maps(std::string_view path)
 		{
 			m_maps_path = static_cast<std::string>(path);
 
@@ -149,22 +211,22 @@ namespace galaxy
 			}
 		}
 
-		void Scene2D::set_active_map(std::string_view name)
+		void Layer::set_active_map(std::string_view name)
 		{
 			m_active_map = static_cast<std::string>(name);
 		}
 
-		map::Map* Scene2D::get_map(std::string_view name)
+		map::Map* Layer::get_map(std::string_view name)
 		{
 			return m_maps.get_map(name);
 		}
 
-		map::Map* Scene2D::get_active_map()
+		map::Map* Layer::get_active_map()
 		{
 			return m_maps.get_map(m_active_map);
 		}
 
-		nlohmann::json Scene2D::serialize()
+		nlohmann::json Layer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
@@ -179,7 +241,7 @@ namespace galaxy
 			return json;
 		}
 
-		void Scene2D::deserialize(const nlohmann::json& json)
+		void Layer::deserialize(const nlohmann::json& json)
 		{
 			m_name = json.at("name");
 
@@ -195,3 +257,4 @@ namespace galaxy
 		}
 	} // namespace core
 } // namespace galaxy
+*/

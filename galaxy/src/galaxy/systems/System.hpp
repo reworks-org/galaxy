@@ -2,20 +2,17 @@
 /// System.hpp
 /// galaxy
 ///
-/// See LICENSE.txt.
+/// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ECS_SYSTEM_HPP_
-#define GALAXY_ECS_SYSTEM_HPP_
+#ifndef GALAXY_SYSTEMS_SYSTEM_HPP_
+#define GALAXY_SYSTEMS_SYSTEM_HPP_
+
+#include "galaxy/state/Scene.hpp"
 
 namespace galaxy
 {
-	namespace core
-	{
-		class Scene2D;
-	} // namespace core
-
-	namespace ecs
+	namespace systems
 	{
 		///
 		/// Represents a system that operates on sets of components.
@@ -24,7 +21,7 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Virtual destructor.
+			/// Destructor.
 			///
 			virtual ~System() noexcept = default;
 
@@ -33,15 +30,15 @@ namespace galaxy
 			///
 			/// \param scene Currently active scene.
 			///
-			virtual void update(core::Scene2D* scene) = 0;
+			virtual void update(std::shared_ptr<state::Scene> scene) = 0;
 
 		protected:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
 			System() noexcept = default;
 		};
-	} // namespace ecs
+	} // namespace systems
 } // namespace galaxy
 
 #endif

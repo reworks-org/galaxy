@@ -1,59 +1,44 @@
 ///
-/// Scene2D.hpp
+/// Layer.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_CORE_SCENE2D_HPP_
-#define GALAXY_CORE_SCENE2D_HPP_
+#ifndef GALAXY_STATE_LAYER_HPP_
+#define GALAXY_STATE_LAYER_HPP_
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/events/Dispatcher.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/map/TiledWorld.hpp"
-
-namespace Rml
-{
-	class Context;
-} // namespace Rml
 
 namespace galaxy
 {
-	namespace systems
-	{
-		class ActionSystem;
-		class RenderSystem2D;
-	} // namespace systems
-
-	namespace core
+	namespace state
 	{
 		///
-		/// 2D scene implementation.
+		/// Rendering/event layer within a scene.
 		///
-		class Scene2D final : public fs::Serializable
+		class Layer final : public fs::Serializable
 		{
 		public:
 			///
 			/// Argument Constructor.
 			///
-			/// \param name Name of the Scene2D.
+			/// \param name Name of the Layer.
 			///
-			Scene2D(std::string_view name) noexcept;
+			Layer(std::string_view name);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Scene2D() noexcept;
+			virtual ~Layer() noexcept;
 
 			///
-			/// On push of Scene2D to stack.
+			/// On push of Layer to stack.
 			///
 			void on_push();
 
 			///
-			/// On pop of Scene2D off stack.
+			/// On pop of Layer off stack.
 			///
 			void on_pop();
 
@@ -78,6 +63,67 @@ namespace galaxy
 			void render();
 
 			///
+			/// Set layer name.
+			///
+			/// \param name String name for debug purposes.
+			///
+			void set_name(std::string_view name) noexcept;
+
+			///
+			/// Get layer name.
+			///
+			/// \return Const string reference.
+			///
+			[[nodiscard]] const std::string& get_name() const noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
+		private:
+			///
+			/// Constructor.
+			///
+			Layer() = delete;
+
+		private:
+			///
+			/// Layer name.
+			///
+			std::string m_name;
+		};
+	} // namespace state
+} // namespace galaxy
+
+#endif
+
+/*
+#include "galaxy/core/World.hpp"
+#include "galaxy/events/Dispatcher.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
+#include "galaxy/map/TiledWorld.hpp"
+
+namespace Rml
+{
+	class Context;
+} // namespace Rml
+	namespace systems
+	{
+		class ActionSystem;
+		class RenderSystem2D;
+	} // namespace systems
+
+	///
 			/// Load an RML document.
 			///
 			/// \param document File, including path.
@@ -114,31 +160,6 @@ namespace galaxy
 			///
 			[[nodiscard]] map::Map* get_active_map();
 
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to write out.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
-
-		private:
-			///
-			/// Constructor.
-			///
-			Scene2D() = delete;
-
-		public:
-			///
-			/// Scene name.
-			///
-			std::string m_name;
 
 			///
 			/// Camera.
@@ -180,8 +201,4 @@ namespace galaxy
 			/// RML context.
 			///
 			Rml::Context* m_rml;
-		};
-	} // namespace core
-} // namespace galaxy
-
-#endif
+*/

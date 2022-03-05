@@ -40,6 +40,8 @@
 
 #include "galaxy/platform/Subprocess.hpp"
 
+#include "galaxy/state/SceneManager.hpp"
+
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
@@ -367,6 +369,15 @@ namespace galaxy
 			subprocess_type["destroy"]   = &platform::Subprocess::destroy;
 			subprocess_type["join"]      = &platform::Subprocess::join;
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
+
+			/* STATE */
+			auto scenemanager_type      = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["change"] = &state::SceneManager::change;
+			scenemanager_type["clear"]  = &state::SceneManager::clear;
+			scenemanager_type["load"]   = &state::SceneManager::load;
+			scenemanager_type["save"]   = &state::SceneManager::save;
+
+			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());
 
 			/* UTILS */
 			lua.set("GALAXY_MAX_THREADS", GALAXY_MAX_THREADS);
