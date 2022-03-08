@@ -34,11 +34,15 @@
 #include "galaxy/fs/FileInfo.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
+#include "galaxy/graphics/Rect.hpp"
+
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
 
 #include "galaxy/platform/Subprocess.hpp"
+
+#include "galaxy/state/SceneManager.hpp"
 
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/StringUtils.hpp"
@@ -182,7 +186,7 @@ namespace galaxy
 			});
 			// clang-format on
 
-			auto fileinfo_type      = lua.new_usertype<fs::FileInfo>("FileInfo", sol::default_constructor);
+			auto fileinfo_type      = lua.new_usertype<fs::FileInfo>("FileInfo", sol::constructors<fs::FileInfo()>());
 			fileinfo_type["code"]   = &fs::FileInfo::m_code;
 			fileinfo_type["string"] = &fs::FileInfo::m_string;
 			// fileinfo_type["path"]   = &fs::FileInfo::m_path; // <-- Not Yet Supported.
@@ -199,6 +203,25 @@ namespace galaxy
 			vfs_type["root"]          = &fs::VirtualFileSystem::root;
 
 			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
+
+			/* GRAPHICS */
+			auto frect_type = lua.new_usertype<graphics::fRect>("fRect", sol::constructors<graphics::fRect(), graphics::fRect(float, float, float, float)>());
+			frect_type["x"] = &graphics::fRect::m_x;
+			frect_type["y"] = &graphics::fRect::m_y;
+			frect_type["width"]          = &graphics::fRect::m_width;
+			frect_type["height"]         = &graphics::fRect::m_height;
+			frect_type["contains_point"] = sol::resolve<bool(float, float)>(&graphics::fRect::contains);
+			frect_type["contains_rect"]  = sol::resolve<bool(const graphics::fRect&)>(&graphics::fRect::contains);
+			frect_type["overlaps"]       = &graphics::fRect::overlaps;
+
+			auto irect_type      = lua.new_usertype<graphics::iRect>("iRect", sol::constructors<graphics::iRect(), graphics::iRect(int, int, int, int)>());
+			irect_type["x"]      = &graphics::iRect::m_x;
+			irect_type["y"]      = &graphics::iRect::m_y;
+			irect_type["width"]  = &graphics::iRect::m_width;
+			irect_type["height"] = &graphics::iRect::m_height;
+			irect_type["contains_point"] = sol::resolve<bool(int, int)>(&graphics::iRect::contains);
+			irect_type["contains_rect"]  = sol::resolve<bool(const graphics::iRect&)>(&graphics::iRect::contains);
+			irect_type["overlaps"]       = &graphics::iRect::overlaps;
 
 			/* INPUT */
 			// clang-format off
@@ -367,6 +390,15 @@ namespace galaxy
 			subprocess_type["destroy"]   = &platform::Subprocess::destroy;
 			subprocess_type["join"]      = &platform::Subprocess::join;
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
+
+			/* STATE */
+			auto scenemanager_type      = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["change"] = &state::SceneManager::change;
+			scenemanager_type["clear"]  = &state::SceneManager::clear;
+			scenemanager_type["load"]   = &state::SceneManager::load;
+			scenemanager_type["save"]   = &state::SceneManager::save;
+
+			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());
 
 			/* UTILS */
 			lua.set("GALAXY_MAX_THREADS", GALAXY_MAX_THREADS);
