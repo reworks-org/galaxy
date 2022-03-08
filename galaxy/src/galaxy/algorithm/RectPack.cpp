@@ -30,10 +30,10 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		std::optional<glm::vec4> RectPack::pack(const int width, const int height) noexcept
+		std::optional<graphics::iRect> RectPack::pack(const int width, const int height) noexcept
 		{
 			// Result.
-			std::optional<glm::vec4> result = std::nullopt;
+			std::optional<graphics::iRect> result = std::nullopt;
 
 			// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
@@ -41,37 +41,37 @@ namespace galaxy
 				auto& space = *rit;
 
 				// Check if rect can fit into space.
-				if (width <= space.z && height <= space.w)
+				if (width <= space.m_width && height <= space.m_height)
 				{
 					// Make the packed area rectangle.
-					result = std::make_optional<glm::vec4>(space.x, space.y, width, height);
+					result = std::make_optional<graphics::iRect>(space.m_x, space.m_y, width, height);
 
 					// Check to see if shape fills completely.
-					if (width == space.z && height == space.w)
+					if (width == space.m_width && height == space.m_height)
 					{
 						// Destroy since not free space anymore.
 						std::advance(rit, 1);
 						m_free_rects.erase(rit.base());
 					}
-					else if (width == space.z)
+					else if (width == space.m_width)
 					{
 						// If just width fits, shrink new space.
-						space.y += height;
-						space.w -= height;
+						space.m_y += height;
+						space.m_height -= height;
 					}
-					else if (height == space.w)
+					else if (height == space.m_height)
 					{
 						// Same as width, for height.
-						space.x += width;
-						space.z -= width;
+						space.m_x += width;
+						space.m_width -= width;
 					}
 					else
 					{
 						// Otherwise, split up existing space.
-						glm::vec4 temp = {space.x + width, space.y, space.z - width, height};
+						graphics::iRect temp = {space.m_x + width, space.m_y, space.m_width - width, height};
 
-						space.y += height;
-						space.w -= height;
+						space.m_y += height;
+						space.m_height -= height;
 
 						m_free_rects.emplace_back(temp);
 					}
@@ -105,7 +105,7 @@ namespace galaxy
 			return m_height;
 		}
 
-		const std::vector<glm::vec4>& RectPack::get_free_space() const noexcept
+		const std::vector<graphics::iRect>& RectPack::get_free_space() const noexcept
 		{
 			return m_free_rects;
 		}

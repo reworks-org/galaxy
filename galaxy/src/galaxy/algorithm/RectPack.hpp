@@ -11,7 +11,7 @@
 #include <optional>
 #include <vector>
 
-#include <glm/vec4.hpp>
+#include "galaxy/graphics/Rect.hpp"
 
 namespace galaxy
 {
@@ -52,7 +52,7 @@ namespace galaxy
 			/// \return Returns the location of the packed rectangle on the master rectangle.
 			///			Otherwise, returns a std::nullopt.
 			///
-			[[nodiscard]] std::optional<glm::vec4> pack(const int width, const int height) noexcept;
+			[[nodiscard]] std::optional<graphics::iRect> pack(const int width, const int height) noexcept;
 
 			///
 			/// Clear all data.
@@ -74,7 +74,7 @@ namespace galaxy
 			///
 			/// \return Const std::vector.
 			///
-			[[nodiscard]] const std::vector<glm::vec4>& get_free_space() const noexcept;
+			[[nodiscard]] const std::vector<graphics::iRect>& get_free_space() const noexcept;
 
 		private:
 			///
@@ -90,7 +90,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<glm::vec4> m_free_rects;
+			std::vector<graphics::iRect> m_free_rects;
 		};
 	} // namespace algorithm
 } // namespace galaxy
