@@ -56,4 +56,5 @@ namespace galaxy
 		[[nodiscard]] std::string alc_errcode_as_string(const int err) noexcept;
 	} // namespace error
 } // namespace galaxy
+
 #endif
