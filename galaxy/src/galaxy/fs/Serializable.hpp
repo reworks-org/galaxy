@@ -25,9 +25,9 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Serializable() = default;
+			virtual ~Serializable() noexcept = default;
 
-			//
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -41,20 +41,11 @@ namespace galaxy
 			///
 			virtual void deserialize(const nlohmann::json& json) = 0;
 
-			///
-			/// Get key identifying this data section.
-			///
-			/// \return Needs to return a key to identify what data this is when (de)serializing.
-			///
-			[[nodiscard]] virtual std::string& get_key() noexcept = 0;
-
 		protected:
 			///
-			/// Arugment constructor.
+			/// Constructor.
 			///
-			/// \param obj Should be a 'this' pointer.
-			///
-			Serializable(Serializable* obj);
+			Serializable() = default;
 
 			///
 			/// Copy constructor.
@@ -75,12 +66,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Serializable& operator=(Serializable&&) = default;
-
-		private:
-			///
-			/// Constructor.
-			///
-			Serializable() = delete;
 		};
 	} // namespace fs
 } // namespace galaxy
