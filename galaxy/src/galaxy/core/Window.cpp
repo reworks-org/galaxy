@@ -89,12 +89,6 @@ namespace galaxy
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.m_debug);
 				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-				// Set the OpenGL flags.
-
-				// Set debug when compiling for debug mode.
-
-				// Window related hints.
-
 				// Window maximized check.
 				if (settings.m_maximized)
 				{
