@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_MATH_RECT_HPP_
-#define GALAXY_MATH_RECT_HPP_
+#ifndef GALAXY_GRAPHICS_RECT_HPP_
+#define GALAXY_GRAPHICS_RECT_HPP_
 
 #include <compare>
 
@@ -14,17 +14,19 @@
 
 namespace galaxy
 {
-	namespace math
+	namespace graphics
 	{
 		///
 		/// Represents a rectangle object.
+		///
+		/// \tparam Type Arithmetic type to use for a rectangle.
 		///
 		template<meta::is_arithmetic Type>
 		class Rect final
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
 			Rect() noexcept;
 
@@ -39,7 +41,7 @@ namespace galaxy
 			Rect(const Type x, const Type y, const Type width, const Type height) noexcept;
 
 			///
-			/// Default destructor.
+			/// Destructor.
 			///
 			~Rect() noexcept = default;
 
@@ -51,7 +53,7 @@ namespace galaxy
 			///
 			/// \return True if contains the point.
 			///
-			[[nodiscard]] const bool contains(const Type x, const Type y) noexcept;
+			[[nodiscard]] bool contains(const Type x, const Type y) noexcept;
 
 			///
 			/// Does the rectangle contain another rectangle.
@@ -60,7 +62,7 @@ namespace galaxy
 			///
 			/// \return Returns true if the rectangle is completely inside, not on the edge.
 			///
-			[[nodiscard]] const bool contains(const Rect<Type>& b) noexcept;
+			[[nodiscard]] bool contains(const Rect<Type>& b) noexcept;
 
 			///
 			/// \brief Do the rectangles a and b overlap.
@@ -71,7 +73,7 @@ namespace galaxy
 			///
 			/// \return Returns true if there is an overlap.
 			///
-			[[nodiscard]] const bool overlaps(const Rect<Type>& b) noexcept;
+			[[nodiscard]] bool overlaps(const Rect<Type>& b) noexcept;
 
 			///
 			/// Spaceship operator.
@@ -110,8 +112,18 @@ namespace galaxy
 			///
 			/// \return True if value is inbetween min and max. Inclusive.
 			///
-			[[nodiscard]] const bool value_in_range(const Type value, const Type min, const Type max) noexcept;
+			[[nodiscard]] bool value_in_range(const Type value, const Type min, const Type max) noexcept;
 		};
+
+		///
+		/// Type definition for an int rectangle.
+		///
+		typedef Rect<int> iRect;
+
+		///
+		/// Type definition for a floating point rectangle.
+		///
+		typedef Rect<float> fRect;
 
 		template<meta::is_arithmetic Type>
 		inline Rect<Type>::Rect() noexcept
@@ -132,37 +144,36 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const bool Rect<Type>::contains(const Type x, const Type y) noexcept
+		inline bool Rect<Type>::contains(const Type x, const Type y) noexcept
 		{
 			// Checks if the rectangle contains the point (x, y) using some basic math.
 			return ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height)));
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const bool Rect<Type>::contains(const Rect<Type>& b) noexcept
+		inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 		{
 			// Checks if the rectangle contains another rectangle using math.
 			return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
+		inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 		{
 			// Check for overlaps using math.
-			const bool x = value_in_range(m_x, b.m_x, b.m_x + b.m_width) || value_in_range(b.m_x, m_x, m_x + m_width);
-
-			const bool y = value_in_range(m_y, b.m_y, b.m_y + b.m_height) || value_in_range(b.m_y, m_y, m_y + m_height);
+			const auto x = value_in_range(m_x, b.m_x, b.m_x + b.m_width) || value_in_range(b.m_x, m_x, m_x + m_width);
+			const auto y = value_in_range(m_y, b.m_y, b.m_y + b.m_height) || value_in_range(b.m_y, m_y, m_y + m_height);
 
 			return x && y;
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const bool Rect<Type>::value_in_range(const Type value, const Type min, const Type max) noexcept
+		inline bool Rect<Type>::value_in_range(const Type value, const Type min, const Type max) noexcept
 		{
 			// Check if a value is between min and max - i.e. in range.
 			return (value >= min) && (value <= max);
 		}
-	} // namespace math
+	} // namespace graphics
 } // namespace galaxy
 
 #endif
