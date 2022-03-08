@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
+#include "galaxy/state/Scene.hpp"
+
 namespace galaxy
 {
 	namespace core
@@ -27,7 +29,7 @@ namespace galaxy
 			///
 			/// \return Returns true if the program should restart.
 			///
-			[[maybe_unused]] const bool run();
+			[[maybe_unused]] bool run();
 
 		protected:
 			///
@@ -79,6 +81,12 @@ namespace galaxy
 			/// \param root Root directory. Is not a string_view because we need to merge it.
 			///
 			void generate_default_assets(const std::string& root);
+
+		private:
+			///
+			/// Current scene.
+			///
+			std::shared_ptr<state::Scene> m_scene;
 		};
 	} // namespace core
 } // namespace galaxy

@@ -14,11 +14,11 @@
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/Serializer.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FreeType.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/scripting/Lua.hpp"
+#include "galaxy/state/SceneManager.hpp"
 
 #include "Application.hpp"
 
@@ -27,6 +27,7 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view log_dir, std::string_view config_file)
+			: m_scene {nullptr}
 		{
 			platform::configure_terminal();
 
@@ -50,11 +51,6 @@ namespace galaxy
 			GALAXY_LOG_START();
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
-
-			//
-			// SERIALIZER.
-			//
-			ServiceLocator<fs::Serializer>::make();
 
 			//
 			// CONFIG.
@@ -200,6 +196,11 @@ namespace galaxy
 			}
 
 			//
+			// SCENEMANAGER.
+			//
+			ServiceLocator<state::SceneManager>::make();
+
+			//
 			// LUA.
 			//
 			auto& lua = ServiceLocator<sol::state>::make();
@@ -228,12 +229,11 @@ namespace galaxy
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
-			ServiceLocator<fs::Serializer>::del();
 
 			GALAXY_LOG_FINISH();
 		}
 
-		const bool Application::run()
+		bool Application::run()
 		{
 			return false;
 		}
