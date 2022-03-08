@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\algorithm\RectPackTest.cpp" />
     <ClCompile Include="src\async\TaskTest.cpp" />
     <ClCompile Include="src\async\ThreadPoolTest.cpp" />
     <ClCompile Include="src\async\TimerTest.cpp" />
