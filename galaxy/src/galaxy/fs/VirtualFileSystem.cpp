@@ -440,5 +440,10 @@ namespace galaxy
 		{
 			return m_root.string();
 		}
+
+		std::filesystem::path& VirtualFileSystem::root_path() noexcept
+		{
+			return m_root;
+		}
 	} // namespace fs
 } // namespace galaxy

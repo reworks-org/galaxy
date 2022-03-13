@@ -40,7 +40,7 @@ namespace galaxy
 			///
 			/// \param file File to get the absolute path of within the VFS.
 			///
-			/// \return Absolute path of a file. nullopt if folder, not in vfs, does not exist.
+			/// \return Path as a filesystem, string and a code to process what happened.
 			///
 			[[nodiscard]] FileInfo find(std::string_view file);
 
@@ -170,9 +170,16 @@ namespace galaxy
 			///
 			/// Get root path.
 			///
-			/// \return Absolute root path.
+			/// \return Absolute root path as a string.
 			///
 			[[nodiscard]] std::string root() noexcept;
+
+			///
+			/// Get root path.
+			///
+			/// \return Absolute root path as a filesystem path.
+			///
+			[[nodiscard]] std::filesystem::path& root_path() noexcept;
 
 		private:
 			///
