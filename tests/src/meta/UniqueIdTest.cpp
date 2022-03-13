@@ -1,5 +1,5 @@
 ///
-/// UniqueIDTest.cpp
+/// UniqueIdTest.cpp
 /// tests
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,10 +7,10 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/meta/UniqueID.hpp>
+#include <galaxy/meta/UniqueId.hpp>
 
-using TestUID1 = galaxy::meta::UniqueID<struct Test_>;
-using TestUID2 = galaxy::meta::UniqueID<struct _Test>;
+using TestUID1 = galaxy::meta::UniqueId<struct Test_>;
+using TestUID2 = galaxy::meta::UniqueId<struct _Test>;
 
 struct TestA
 {
@@ -22,7 +22,7 @@ struct TestB
 	TestB() = default;
 };
 
-TEST(UniqueID, Get)
+TEST(UniqueId, Get)
 {
 	const auto a = TestUID1::get<TestA>();
 	const auto b = TestUID1::get<TestB>();

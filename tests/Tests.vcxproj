@@ -31,6 +31,8 @@
     <ClCompile Include="src\algorithm\GZipTest.cpp" />
     <ClCompile Include="src\algorithm\RandomTest.cpp" />
     <ClCompile Include="src\algorithm\ZLibTest.cpp" />
+    <ClCompile Include="src\meta\StaticIdTest.cpp" />
+    <ClCompile Include="src\meta\UniqueIdTest.cpp" />
     <ClCompile Include="src\resource\CacheTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
   </ItemGroup>

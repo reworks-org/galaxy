@@ -15,5 +15,7 @@
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\resource\CacheTest.cpp" />
     <ClCompile Include="src\algorithm\RectPackTest.cpp" />
+    <ClCompile Include="src\meta\StaticIdTest.cpp" />
+    <ClCompile Include="src\meta\UniqueIdTest.cpp" />
   </ItemGroup>
 </Project>
