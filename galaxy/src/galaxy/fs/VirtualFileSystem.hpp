@@ -159,7 +159,7 @@ namespace galaxy
 			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& def_path = GALAXY_ROOT_DIR);
 
 			///
-			/// List contents of a directory in the VFS.
+			/// List contents of a directory in the VFS recursively.
 			///
 			/// \param directory Directory in the VFS.
 			///

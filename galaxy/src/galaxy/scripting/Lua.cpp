@@ -42,6 +42,8 @@
 
 #include "galaxy/platform/Subprocess.hpp"
 
+#include "galaxy/resource/Language.hpp"
+
 #include "galaxy/state/SceneManager.hpp"
 
 #include "galaxy/utils/Globals.hpp"
@@ -390,6 +392,15 @@ namespace galaxy
 			subprocess_type["destroy"]   = &platform::Subprocess::destroy;
 			subprocess_type["join"]      = &platform::Subprocess::join;
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
+
+			/* RESOURCE */
+			auto lang_type         = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
+			lang_type["load"]      = &resource::Language::load;
+			lang_type["set"]       = &resource::Language::set;
+			lang_type["translate"] = &resource::Language::translate;
+			lang_type["clear"]     = &resource::Language::clear;
+
+			lua["galaxy_language"] = std::ref(core::ServiceLocator<resource::Language>::ref());
 
 			/* STATE */
 			auto scenemanager_type      = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);

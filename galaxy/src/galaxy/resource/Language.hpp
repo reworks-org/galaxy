@@ -12,10 +12,10 @@
 
 namespace galaxy
 {
-	namespace res
+	namespace resource
 	{
 		///
-		/// Class to allow app to easily switch languages.
+		/// Handle different languages as a resource.
 		///
 		class Language final
 		{
@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Language() noexcept = default;
+			Language() noexcept;
 
 			///
 			/// Destructor.
@@ -33,33 +33,28 @@ namespace galaxy
 			///
 			/// Loads all language files in a folder into galaxy.
 			///
-			/// \param lang_folder Folder that contains lua language files.
+			/// \param folder Folder that contains lua language files.
 			///
-			void parse_language_folder(std::string_view lang_folder);
+			void load(std::string_view folder);
 
 			///
 			/// Sets the currently active language.
 			///
-			/// \param lang Language to set. I.e. "en_au".
+			/// \param lang Language to set. I.e. "en_au". No extension required.
 			///
-			void set_language(std::string_view lang);
+			void set(const std::string& lang);
 
 			///
 			/// Translates a key into the active language's text.
 			///
 			/// \param key Language key to retrieve translation from.
 			///
-			/// \return String. RVO will automatically optimize this into a reference.
+			/// \return Const string reference. If not found, returns key.
 			///
-			[[nodiscard]] std::string translate(std::string_view key) noexcept;
+			[[nodiscard]] const std::string& translate(const std::string& key) noexcept;
 
 			///
-			/// Reload current language.
-			///
-			void reload();
-
-			///
-			/// Clear langauge database.
+			/// Clear all language data.
 			///
 			void clear() noexcept;
 
@@ -100,7 +95,7 @@ namespace galaxy
 			///
 			robin_hood::unordered_flat_map<std::string, std::string> m_lang_map;
 		};
-	} // namespace res
+	} // namespace resource
 } // namespace galaxy
 
 #endif
