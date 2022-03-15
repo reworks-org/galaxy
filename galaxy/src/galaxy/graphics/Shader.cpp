@@ -9,7 +9,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "Shader.hpp"
 
@@ -19,15 +19,13 @@ namespace galaxy
 	{
 		Shader::Shader() noexcept
 			: m_id {0}
-			, m_loaded {false}
 		{
 		}
 
 		Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
 			: m_id {0}
-			, m_loaded {false}
 		{
-			if (!load_path(vertex_file, frag_file))
+			if (!load_file(vertex_file, frag_file))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to construct shader with files: {0} | {1}.", vertex_file, frag_file);
 			}
@@ -35,18 +33,17 @@ namespace galaxy
 
 		Shader::Shader(const nlohmann::json& json)
 			: m_id {0}
-			, m_loaded {false}
 		{
-			if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))
+			if ((json.count("vertex_file") > 0) && (json.count("fragment_file") > 0))
 			{
-				std::string vert = json.at("vertex-file");
-				std::string frag = json.at("frag-file");
-				load_path(vert, frag);
+				std::string vert = json.at("vertex_file");
+				std::string frag = json.at("fragment_file");
+				load_file(vert, frag);
 			}
-			else if ((json.count("vertex-string") > 0) && (json.count("frag-string") > 0))
+			else if ((json.count("vertex_raw") > 0) && (json.count("fragment_raw") > 0))
 			{
-				std::string vert = json.at("vertex-string");
-				std::string frag = json.at("frag-string");
+				std::string vert = json.at("vertex_raw");
+				std::string frag = json.at("fragment_raw");
 				load_raw(vert, frag);
 			}
 			else
@@ -57,9 +54,8 @@ namespace galaxy
 
 		Shader::Shader(Shader&& s) noexcept
 		{
-			this->m_id     = s.m_id;
-			this->m_cache  = std::move(s.m_cache);
-			this->m_loaded = s.m_loaded;
+			this->m_id    = s.m_id;
+			this->m_cache = std::move(s.m_cache);
 
 			s.m_id = 0;
 		}
@@ -68,9 +64,8 @@ namespace galaxy
 		{
 			if (this != &s)
 			{
-				this->m_id     = s.m_id;
-				this->m_cache  = std::move(s.m_cache);
-				this->m_loaded = s.m_loaded;
+				this->m_id    = s.m_id;
+				this->m_cache = std::move(s.m_cache);
 
 				s.m_id = 0;
 			}
@@ -83,48 +78,50 @@ namespace galaxy
 			glDeleteProgram(m_id);
 		}
 
-		const bool Shader::load_path(std::string_view vertex_file, std::string_view frag_file)
+		bool Shader::load_file(std::string_view vertex_file, std::string_view frag_file)
 		{
-			const auto vertex = SL_HANDLE.vfs()->open(vertex_file);
-			if (vertex == std::nullopt)
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto vertex = fs.open(vertex_file);
+			if (!vertex.has_value())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load vertex shader: {0}.", vertex_file);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load vertex shader '{0}'.", vertex_file);
 				return false;
 			}
 
-			const auto fragment = SL_HANDLE.vfs()->open(frag_file);
-			if (fragment == std::nullopt)
+			const auto fragment = fs.open(frag_file);
+			if (!fragment.has_value())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load fragment shader: {0}.", frag_file);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load fragment shader '{0}'.", frag_file);
 				return false;
 			}
 
 			return load_raw(vertex.value(), fragment.value());
 		}
 
-		const bool Shader::load_raw(const std::string& vertex_str, const std::string& fragment_str)
+		bool Shader::load_raw(const std::string& vertex_str, const std::string& fragment_str)
 		{
 			bool result = true;
 
 			if (vertex_str.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to read empty vert shader: {0}.", vertex_str);
+				GALAXY_LOG(GALAXY_ERROR, "Shader was passed an empty vertex shader.");
 				result = false;
 			}
 
 			if (fragment_str.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to read empty frag shader: {0}.", fragment_str);
+				GALAXY_LOG(GALAXY_ERROR, "Shader was passed an empty fragment shader.");
 				result = false;
 			}
 
 			if (result)
 			{
 				// Error reporting for OpenGL.
-				char         info[1024];
-				int          success = 0;
-				unsigned int v_id    = 0;
-				unsigned int f_id    = 0;
+				char info[1024];
+				int success       = 0;
+				unsigned int v_id = 0;
+				unsigned int f_id = 0;
 
 				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string.
 				const char* v_src = vertex_str.c_str();
@@ -175,6 +172,34 @@ namespace galaxy
 						GALAXY_LOG(GALAXY_ERROR, "Failed to attach shaders: {0}.", info);
 						result = false;
 					}
+
+					GLint uniform_count = 0;
+					glGetProgramiv(m_id, GL_ACTIVE_UNIFORMS, &uniform_count);
+
+					if (uniform_count != 0)
+					{
+						GLint max_name_len = 0;
+						glGetProgramiv(m_id, GL_ACTIVE_UNIFORM_MAX_LENGTH, &max_name_len);
+
+						GLsizei length = 0;
+						GLsizei count  = 0;
+						GLenum type    = GL_NONE;
+						for (GLint i = 0; i < uniform_count; ++i)
+						{
+							auto uniform_name = std::make_unique<char[]>(max_name_len);
+							glGetActiveUniform(m_id, i, max_name_len, &length, &count, &type, uniform_name.get());
+
+							// clang-format off
+							auto uniform_info = UniformInfo
+							{
+								.m_location = glGetUniformLocation(m_id, uniform_name.get()),
+								.m_count = count
+							};
+							// clang-format on
+
+							m_cache.emplace(std::string(uniform_name.get(), length), uniform_info);
+						}
+					}
 				}
 
 				// Cleanup shaders.
@@ -182,9 +207,7 @@ namespace galaxy
 				glDeleteShader(f_id);
 			}
 
-			m_loaded = result;
-
-			return m_loaded;
+			return result;
 		}
 
 		void Shader::bind() noexcept
@@ -197,35 +220,42 @@ namespace galaxy
 			glUseProgram(0);
 		}
 
-		const bool Shader::is_loaded() const noexcept
+		GLint Shader::get_uniform_location(const std::string& name)
 		{
-			return m_loaded;
-		}
-
-		const GLint Shader::get_uniform_location(std::string_view name)
-		{
-			const auto str = static_cast<std::string>(name);
-
-			// If uniform already exists return it from cache to avoid querying OpenGL, which is slow.
-			if (m_cache.contains(str))
+			if (m_cache.contains(name))
 			{
-				return m_cache[str];
+				return m_cache[name].m_location;
 			}
 			else
 			{
-				// Otherwise, for the first time, retrieve location.
-				const auto location = glGetUniformLocation(m_id, str.c_str());
-				if (location != -1)
-				{
-					// Then if not error, add to hash map.
-					m_cache.emplace(name, location);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Failed to get uniform: {0}.", name);
-				}
+				GALAXY_LOG(GALAXY_WARNING, "Failed to get uniform location for '{0}'.", name);
+				return -1;
+			}
+		}
 
-				return location;
+		GLint Shader::get_uniform_count(const std::string& name)
+		{
+			if (m_cache.contains(name))
+			{
+				return m_cache[name].m_count;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to get uniform count for '{0}'.", name);
+				return -1;
+			}
+		}
+
+		std::optional<UniformInfo> Shader::get_uniform_info(const std::string& name)
+		{
+			if (m_cache.contains(name))
+			{
+				return m_cache[name];
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to get uniform info for '{0}'.", name);
+				return std::nullopt;
 			}
 		}
 	} // namespace graphics

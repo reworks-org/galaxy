@@ -10,6 +10,8 @@
 
 #include <span>
 
+#include "galaxy/graphics/StorageFlags.hpp"
+
 namespace galaxy
 {
 	namespace graphics
@@ -26,6 +28,16 @@ namespace galaxy
 			IndexBuffer() noexcept;
 
 			///
+			/// Argument Constructor.
+			///
+			/// \brief Initialize buffer with capacity.
+			///
+			/// \param capacity Capacity to assign to this buffer.
+			/// \param flag Static or dynamic data buffer.
+			///
+			IndexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept;
+
+			///
 			/// Move constructor.
 			///
 			IndexBuffer(IndexBuffer&&) noexcept;
@@ -36,27 +48,22 @@ namespace galaxy
 			IndexBuffer& operator=(IndexBuffer&&) noexcept;
 
 			///
-			/// Destroys buffer.
+			/// Destructor.
 			///
 			~IndexBuffer() noexcept;
 
 			///
 			/// Create index buffer object.
 			///
-			/// \param indices Index array to use.
-			/// \param single_write Flag to mark that this buffer wont be updated after creation.
+			/// \param indices Indices to assign.
+			/// \param flag Static or dynamic data buffer.
 			///
-			void create(std::span<unsigned int> indices, const bool single_write);
+			void create(std::span<unsigned int> indices, const StorageFlag flag);
 
 			///
-			/// Bind the current vertex buffer to current GL context.
+			/// Clear all data from IBO.
 			///
-			void bind() noexcept;
-
-			///
-			/// Unbind the current vertex buffer to current GL context.
-			///
-			void unbind() noexcept;
+			void clear() noexcept;
 
 			///
 			/// \brief Destroy Index Buffer Object.
@@ -68,9 +75,16 @@ namespace galaxy
 			///
 			/// Get the count of indicies in the index buffer.
 			///
-			/// \return Returns a const int.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int index_count() const noexcept;
+			[[nodiscard]] int index_count() const noexcept;
+
+			///
+			/// Get OpenGL handle.
+			///
+			/// \return Unsigned integer.
+			///
+			[[nodiscard]] unsigned int id() const noexcept;
 
 		private:
 			///
@@ -90,7 +104,7 @@ namespace galaxy
 			unsigned int m_ibo;
 
 			///
-			/// Count of indicies in array.
+			/// Count of indices in array.
 			///
 			unsigned int m_count;
 		};

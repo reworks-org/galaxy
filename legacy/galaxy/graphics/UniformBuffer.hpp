@@ -8,14 +8,12 @@
 #ifndef GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 #define GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 
-#include <glad/glad.h>
-
 namespace galaxy
 {
 	namespace graphics
 	{
 		///
-		/// Abstraction for OpenGL vertex buffer objects.
+		/// Abstraction for OpenGL uniform buffer objects.
 		///
 		class UniformBuffer final
 		{
@@ -36,7 +34,7 @@ namespace galaxy
 			UniformBuffer& operator=(UniformBuffer&&) noexcept;
 
 			///
-			/// Destroys buffer.
+			/// Destructor.
 			///
 			~UniformBuffer() noexcept;
 
@@ -77,9 +75,9 @@ namespace galaxy
 			///
 			/// Get OpenGL handle.
 			///
-			/// \return Const unsigned integer.
+			/// \return Unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const noexcept;
 
 		private:
 			///

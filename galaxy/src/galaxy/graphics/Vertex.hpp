@@ -20,12 +20,10 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Represents a single vertex.
+		/// Represents a single vertex point.
 		///
 		class Vertex final
 		{
-			friend class VertexLayout;
-
 		public:
 			///
 			/// Constructor.
@@ -36,19 +34,33 @@ namespace galaxy
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
-			/// \param texels Vertex texture coordinates.
-			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels = {0.0f, 0.0f}, const graphics::Colour& colour = {0, 0, 0, 1}) noexcept;
+			Vertex(const glm::vec2& pos) noexcept;
+
+			///
+			/// Reverse argument constructor.
+			///
+			/// \param pos Position of vertex.
+			/// \param texels Vertex texture coordinates.
+			///
+			Vertex(const glm::vec2& pos, const glm::vec2& texels) noexcept;
 
 			///
 			/// Reverse argument constructor.
 			///
 			/// \param pos Position of vertex.
 			/// \param colour Colour of vertex, and opacity.
-			/// \param texels Vertex texture coordinates.
 			///
-			Vertex(const glm::vec2& pos, const graphics::Colour& colour = {0, 0, 0, 1}, const glm::vec2& texels = {0.0f, 0.0f}) noexcept;
+			Vertex(const glm::vec2& pos, const graphics::Colour& colour) noexcept;
+
+			///
+			/// Reverse argument constructor.
+			///
+			/// \param pos Position of vertex.
+			/// \param texels Vertex texture coordinates.
+			/// \param colour Colour of vertex, and opacity.
+			///
+			Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour) noexcept;
 
 			///
 			/// Move constructor.
@@ -76,20 +88,6 @@ namespace galaxy
 			~Vertex() noexcept = default;
 
 			///
-			/// Set colour.
-			///
-			/// \param colour Colour of vertex, and opacity.
-			///
-			void set_colour(const graphics::Colour& colour) noexcept;
-
-			///
-			/// Get colour.
-			///
-			/// \return Const reference to a glm::vec4.
-			///
-			[[nodiscard]] const glm::vec4& get_colour() const noexcept;
-
-			///
 			/// Spaceship operator.
 			///
 			[[nodiscard]] auto operator<=>(const Vertex&) const = default;
@@ -105,11 +103,10 @@ namespace galaxy
 			///
 			glm::vec2 m_texels;
 
-		private:
 			///
 			/// RGBA colour.
 			///
-			glm::vec4 m_colour;
+			graphics::Colour m_colour;
 		};
 	} // namespace graphics
 } // namespace galaxy

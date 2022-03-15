@@ -17,8 +17,9 @@ namespace galaxy
 	{
 		InstanceBuffer::InstanceBuffer() noexcept
 			: m_ibo {0}
+			, m_instance_count {0}
 		{
-			glGenBuffers(1, &m_ibo);
+			glCreateBuffers(1, &m_ibo);
 		}
 
 		InstanceBuffer::InstanceBuffer(InstanceBuffer&& ib) noexcept
@@ -52,26 +53,17 @@ namespace galaxy
 			if (!vertices.empty())
 			{
 				m_instance_count = static_cast<unsigned int>(vertices.size());
-
-				glBindBuffer(GL_ARRAY_BUFFER, m_ibo);
-				// Static draw since we are recreating rather than updating the buffer.
-				glBufferData(GL_ARRAY_BUFFER, vertices.size_bytes(), vertices.data(), GL_STATIC_DRAW);
-				glBindBuffer(GL_ARRAY_BUFFER, 0);
+				glNamedBufferData(m_ibo, vertices.size_bytes(), vertices.data(), GL_STATIC_DRAW);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to create instance buffer with no instance data.");
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to upload empty instance buffer.");
 			}
 		}
 
-		void InstanceBuffer::bind() noexcept
+		void InstanceBuffer::clear() noexcept
 		{
-			glBindBuffer(GL_ARRAY_BUFFER, m_ibo);
-		}
-
-		void InstanceBuffer::unbind() noexcept
-		{
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			glInvalidateBufferData(m_ibo);
 		}
 
 		void InstanceBuffer::destroy() noexcept
@@ -80,12 +72,12 @@ namespace galaxy
 			m_ibo = 0;
 		}
 
-		const unsigned int InstanceBuffer::id() const noexcept
+		unsigned int InstanceBuffer::id() const noexcept
 		{
 			return m_ibo;
 		}
 
-		const unsigned int InstanceBuffer::instance_count() const noexcept
+		unsigned int InstanceBuffer::instance_count() const noexcept
 		{
 			return m_instance_count;
 		}

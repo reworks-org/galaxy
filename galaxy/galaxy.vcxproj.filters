@@ -69,6 +69,26 @@
     <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
     <ClCompile Include="src\galaxy\error\OpenGLError.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
+    <ClCompile Include="src\galaxy\core\SceneGraph.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Vertex.cpp" />
+    <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
+    <ClCompile Include="src\galaxy\graphics\VertexBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\StorageFlags.cpp" />
+    <ClCompile Include="src\galaxy\graphics\IndexBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\VertexArray.cpp" />
+    <ClCompile Include="src\galaxy\graphics\InstanceBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\AttributeBindings.cpp" />
+    <ClCompile Include="src\galaxy\graphics\BufferBindings.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Framebuffer.cpp" />
+    <ClCompile Include="src\galaxy\meta\StaticId.cpp" />
+    <ClCompile Include="src\galaxy\meta\UniqueId.cpp" />
+    <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
+    <ClCompile Include="src\galaxy\resource\Language.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -140,6 +160,26 @@
     <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
     <ClInclude Include="src\galaxy\error\OpenGLError.hpp" />
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="src\galaxy\core\SceneGraph.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Vertex.hpp" />
+    <ClInclude Include="src\galaxy\graphics\UniformInfo.hpp" />
+    <ClInclude Include="src\galaxy\graphics\VertexBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\StorageFlags.hpp" />
+    <ClInclude Include="src\galaxy\graphics\IndexBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\VertexArray.hpp" />
+    <ClInclude Include="src\galaxy\graphics\InstanceBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\AttributeBindings.hpp" />
+    <ClInclude Include="src\galaxy\graphics\BufferBindings.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Framebuffer.hpp" />
+    <ClInclude Include="src\galaxy\meta\StaticId.hpp" />
+    <ClInclude Include="src\galaxy\meta\UniqueId.hpp" />
+    <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
+    <ClInclude Include="src\galaxy\resource\Language.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\galaxy\state\SceneManager.cpp" />

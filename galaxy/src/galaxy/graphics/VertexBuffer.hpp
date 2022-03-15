@@ -9,8 +9,10 @@
 #define GALAXY_GRAPHICS_VERTEXBUFFER_HPP_
 
 #include <span>
+#include <vector>
 
-#include "galaxy/graphics/VertexLayout.hpp"
+#include "galaxy/graphics/StorageFlags.hpp"
+#include "galaxy/graphics/Vertex.hpp"
 
 namespace galaxy
 {
@@ -28,6 +30,16 @@ namespace galaxy
 			VertexBuffer() noexcept;
 
 			///
+			/// Argument Constructor.
+			///
+			/// \brief Initialize buffer with capacity.
+			///
+			/// \param capacity Capacity to assign to this buffer.
+			/// \param flag Static or dynamic data buffer.
+			///
+			VertexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept;
+
+			///
 			/// Move constructor.
 			///
 			VertexBuffer(VertexBuffer&&) noexcept;
@@ -38,7 +50,7 @@ namespace galaxy
 			VertexBuffer& operator=(VertexBuffer&&) noexcept;
 
 			///
-			/// Destroys buffer.
+			/// Destructor.
 			///
 			~VertexBuffer() noexcept;
 
@@ -46,28 +58,22 @@ namespace galaxy
 			/// Create vertex buffer object.
 			///
 			/// \param vertices Vertices to assign.
-			/// \param single_write Flag to mark that this buffer wont be updated after creation.
-			/// \param capacity Use this to allocate the buffer if you dont want to supply the vertices at this point. Is ignored if vertices are not empty.
+			/// \param flag Static or dynamic data buffer.
 			///
-			void create(std::span<Vertex> vertices, bool single_write = false, unsigned int capacity = 1);
+			void create(std::span<Vertex> vertices, const StorageFlag flag);
 
 			///
 			/// Sub-buffer vertex object.
 			///
-			/// \param vertices Vertices to assign.
 			/// \param index Offset to start at from initial vertices. 0 = first element.
+			/// \param vertices Vertices to assign.
 			///
 			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
 
 			///
-			/// Bind the current vertex buffer to current GL context.
+			/// Clear all data from VBO.
 			///
-			void bind() noexcept;
-
-			///
-			/// Unbind the current vertex buffer to current GL context.
-			///
-			void unbind() noexcept;
+			void clear() noexcept;
 
 			///
 			/// \brief Destroy Vertex Buffer Object.
@@ -79,9 +85,9 @@ namespace galaxy
 			///
 			/// Get OpenGL handle.
 			///
-			/// \return Const unsigned integer.
+			/// \return Unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const noexcept;
 
 		private:
 			///
@@ -105,7 +111,7 @@ namespace galaxy
 			unsigned int m_size;
 
 			///
-			/// CPU-side cache of vertices.
+			/// CPU side cache of vertex data.
 			///
 			std::vector<Vertex> m_vertices;
 		};

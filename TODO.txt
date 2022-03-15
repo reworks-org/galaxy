@@ -22,6 +22,11 @@ LOGGING
 FILESYSTEM
 CONFIG
 
+https://scan.coverity.com/
+https://lgtm.com/help/lgtm/code-analysis
+
+rename of spaceship operator to comparsion operator.
+
 3D:
 - Ogre-Next
 

@@ -29,8 +29,8 @@ namespace galaxy
 			///
 			/// You do not need to call init() if you use this constructor.
 			///
-			/// \param width Usually screen width.
-			/// \param height Usually screen height.
+			/// \param width Usually screen width or size of render texture.
+			/// \param height Usually screen height or size of render texture.
 			///
 			Framebuffer(const int width, const int height) noexcept;
 
@@ -54,8 +54,8 @@ namespace galaxy
 			///
 			/// Only call if you used the default constructor.
 			///
-			/// \param width Usually screen width.
-			/// \param height Usually screen height.
+			/// \param width Usually screen width or size of render texture.
+			/// \param height Usually screen height or size of render texture.
 			///
 			void init(const int width, const int height) noexcept;
 
@@ -64,7 +64,7 @@ namespace galaxy
 			///
 			/// \param high_precision Is this storing positions or pixels. If just using plain textures, set at false. True is for geometry buffers.
 			///
-			void add_colour_attachment(const bool high_precision);
+			void add_colour_attachment(const bool high_precision = false);
 
 			///
 			/// Add a colour renderbuffer to the framebuffer.
@@ -84,7 +84,7 @@ namespace galaxy
 			void add_depth_renderbuffer();
 
 			///
-			/// Construct framebuffer.
+			/// Construct framebuffer from attachments and renderbuffers.
 			///
 			void create();
 
@@ -116,34 +116,34 @@ namespace galaxy
 			///
 			/// Get width.
 			///
-			/// \return Const int.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] int get_width() const noexcept;
 
 			///
 			/// Get height.
 			///
-			/// \return Const int.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] int get_height() const noexcept;
 
 			///
 			/// \brief Get depth attachment.
 			///
 			/// Can only have depth attachment OR renderbuffer, not both.
 			///
-			/// \return Const unsigned int. 0 if invalid.
+			/// \return Unsigned int. 0 if invalid.
 			///
-			[[nodiscard]] const unsigned int get_depth_attachment() const noexcept;
+			[[nodiscard]] unsigned int get_depth_attachment() const noexcept;
 
 			///
 			/// \brief Get depth renderbuffer.
 			///
 			/// Can only have depth renderbuffer OR attachment, not both.
 			///
-			/// \return Const unsigned int. 0 if invalid.
+			/// \return Unsigned int. 0 if invalid.
 			///
-			[[nodiscard]] const unsigned int get_depth_renderbuffer() const noexcept;
+			[[nodiscard]] unsigned int get_depth_renderbuffer() const noexcept;
 
 			///
 			/// Get all attachments.
@@ -162,9 +162,9 @@ namespace galaxy
 			///
 			/// Get OpenGL framebuffer object.
 			///
-			/// \return Const unsigned int.
+			/// \return Unsigned int.
 			///
-			[[nodiscard]] const unsigned int get_fbo() const noexcept;
+			[[nodiscard]] unsigned int id() const noexcept;
 
 		private:
 			///

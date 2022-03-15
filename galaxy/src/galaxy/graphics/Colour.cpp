@@ -29,73 +29,63 @@ namespace galaxy
 
 		glm::vec4 Colour::normalized() noexcept
 		{
-			glm::vec4 out = {r_normal(), g_normal(), b_normal(), a_normal()};
+			static const constexpr auto DIVIDER = static_cast<float>(0xFF);
 
-			return out;
-		}
+			float r, g, b, a;
 
-		const float Colour::r_normal() noexcept
-		{
 			if (m_red == 0)
 			{
-				return 0.0f;
+				r = 0.0f;
 			}
 			else if (m_red == 255)
 			{
-				return 1.0f;
+				r = 1.0f;
 			}
 			else
 			{
-				return static_cast<float>(m_red) / static_cast<float>(0xFF);
+				r = static_cast<float>(m_red) / DIVIDER;
 			}
-		}
 
-		const float Colour::g_normal() noexcept
-		{
 			if (m_green == 0)
 			{
-				return 0.0f;
+				g = 0.0f;
 			}
 			else if (m_green == 255)
 			{
-				return 1.0f;
+				g = 1.0f;
 			}
 			else
 			{
-				return static_cast<float>(m_green) / static_cast<float>(0xFF);
+				g = static_cast<float>(m_green) / DIVIDER;
 			}
-		}
 
-		const float Colour::b_normal() noexcept
-		{
 			if (m_blue == 0)
 			{
-				return 0.0f;
+				b = 0.0f;
 			}
 			else if (m_blue == 255)
 			{
-				return 1.0f;
+				b = 1.0f;
 			}
 			else
 			{
-				return static_cast<float>(m_blue) / static_cast<float>(0xFF);
+				b = static_cast<float>(m_blue) / DIVIDER;
 			}
-		}
 
-		const float Colour::a_normal() noexcept
-		{
 			if (m_alpha == 0)
 			{
-				return 0.0f;
+				a = 0.0f;
 			}
 			else if (m_alpha == 255)
 			{
-				return 1.0f;
+				a = 1.0f;
 			}
 			else
 			{
-				return static_cast<float>(m_alpha) / static_cast<float>(0xFF);
+				a = static_cast<float>(m_alpha) / DIVIDER;
 			}
+
+			return {r, g, b, a};
 		}
 	} // namespace graphics
 } // namespace galaxy

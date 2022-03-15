@@ -8,6 +8,8 @@
 #ifndef GALAXY_GRAPHICS_VERTEXARRAY_HPP_
 #define GALAXY_GRAPHICS_VERTEXARRAY_HPP_
 
+#include <memory>
+
 #include "galaxy/graphics/IndexBuffer.hpp"
 #include "galaxy/graphics/InstanceBuffer.hpp"
 #include "galaxy/graphics/VertexBuffer.hpp"
@@ -45,49 +47,55 @@ namespace galaxy
 			///
 			/// Create vertex array.
 			///
-			/// \param vb VBO to specify for VAO. Is move'd into this structure, the original is discarded.
-			/// \param ib IBO to specify for VAO. Is move'd into this structure, the original is discarded.
+			/// \param vb VBO to specify for VAO. Takes ownership.
+			/// \param ib IBO to specify for VAO. Takes ownership.
 			///
-			void create(VertexBuffer& vb, IndexBuffer& ib);
-
-			///
-			/// Bind the current vertex array to current GL context.
-			///
-			void bind() noexcept;
-
-			///
-			/// Unbind the current vertex array to current GL context.
-			///
-			void unbind() noexcept;
+			void create(std::unique_ptr<VertexBuffer> vb, std::unique_ptr<IndexBuffer> ib) noexcept;
 
 			///
 			/// Enable instancing for this vertex array.
 			///
-			/// \param ibo Instance buffer to use when instancing with this VAO.
-			///						   This is not moved into the VAO, you need to keep the instance buffer alive seperately.
+			/// \param instancing Instance buffer to use when instancing with this VAO. Takes ownership.
 			///
-			void set_instanced(InstanceBuffer& ibo) noexcept;
+			void set_instanced(std::unique_ptr<InstanceBuffer> instancing) noexcept;
+
+			///
+			/// Bind this vertex array to current GL context.
+			///
+			void bind() noexcept;
+
+			///
+			/// Unbind this vertex array to current GL context.
+			///
+			void unbind() noexcept;
 
 			///
 			/// Get the count of indicies in the index buffer.
 			///
-			/// \return Returns a const int.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int index_count() const noexcept;
+			[[nodiscard]] int index_count() const noexcept;
 
 			///
 			/// Get VAO GL id.
 			///
-			/// \return Const unsigned int.
+			/// \return Unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const noexcept;
 
 			///
 			/// Get VBO.
 			///
-			/// \return Const unsigned int.
+			/// \return Unsigned integer.
 			///
-			[[nodiscard]] const unsigned int vbo() const noexcept;
+			[[nodiscard]] unsigned int vbo() const noexcept;
+
+			///
+			/// Get IBO.
+			///
+			/// \return Unsigned integer.
+			///
+			[[nodiscard]] unsigned int ibo() const noexcept;
 
 		private:
 			///
@@ -102,29 +110,24 @@ namespace galaxy
 
 		private:
 			///
-			/// ID returned by OpenGL when generating vertex array.
+			/// OpenGL id.
 			///
 			unsigned int m_vao;
 
 			///
-			/// Keeps track of next free attribute id.
+			/// Vertex buffer.
 			///
-			unsigned int m_counter;
+			std::unique_ptr<VertexBuffer> m_vbo;
 
 			///
-			/// Index Buffer.
+			/// Index buffer.
 			///
-			IndexBuffer m_ibo;
+			std::unique_ptr<IndexBuffer> m_ibo;
 
 			///
-			/// Vertex Buffer.
+			/// Instance buffer.
 			///
-			VertexBuffer m_vbo;
-
-			///
-			/// Vertex layout.
-			///
-			VertexLayout m_layout;
+			std::unique_ptr<InstanceBuffer> m_instance_buffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

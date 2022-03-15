@@ -38,26 +38,21 @@ namespace galaxy
 			InstanceBuffer& operator=(InstanceBuffer&&) noexcept;
 
 			///
-			/// Destroys buffer.
+			/// Destructor.
 			///
 			~InstanceBuffer() noexcept;
 
 			///
 			/// Create instance buffer object.
 			///
-			/// \param vertices Vertices to assign.
+			/// \param offsets Offset position for each vertex.
 			///
-			void create(std::span<glm::vec2> vertices);
+			void create(std::span<glm::vec2> offsets);
 
 			///
-			/// Bind the current instance buffer to current GL context.
+			/// Clear all data from buffer.
 			///
-			void bind() noexcept;
-
-			///
-			/// Unbind the current instance buffer to current GL context.
-			///
-			void unbind() noexcept;
+			void clear() noexcept;
 
 			///
 			/// \brief Destroy Instance Buffer Object.
@@ -71,14 +66,14 @@ namespace galaxy
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const noexcept;
 
 			///
 			/// Get current instance object count.
 			///
 			/// \return Const unsigned int.
 			///
-			[[nodiscard]] const unsigned int instance_count() const noexcept;
+			[[nodiscard]] unsigned int instance_count() const noexcept;
 
 		private:
 			///
