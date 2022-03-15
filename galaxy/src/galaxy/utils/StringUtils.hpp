@@ -33,6 +33,32 @@ namespace galaxy
 		/// \return UTF8 string.
 		///
 		[[nodiscard]] std::string parse_codepoint(const unsigned int codepoint) noexcept;
+
+		///
+		/// \brief Replace first occurance of a string.
+		///
+		/// Returns input string if to_replace not found.
+		///
+		/// \param input String to modify.
+		/// \param to_replace Substring to be replaced.
+		/// \param replace_with String to be inserted.
+		///
+		/// \return Modified string.
+		///
+		[[bnodiscard]] std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with);
+
+		///
+		/// \brief Replaces all occurances of a string.
+		///
+		/// Returns input string if to_replace not found.
+		///
+		/// \param input String to modify.
+		/// \param to_replace Substring to be replaced.
+		/// \param replace_with String to be inserted.
+		///
+		/// \return Modified string.
+		///
+		[[bnodiscard]] std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with);
 	} // namespace strutils
 } // namespace galaxy
 

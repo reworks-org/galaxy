@@ -26,3 +26,19 @@ TEST(Utils, CodePointToString)
 {
 	EXPECT_EQ(galaxy::strutils::parse_codepoint(0x00000021), "!");
 }
+
+TEST(Utils, ReplaceFirst)
+{
+	std::string test = "123.456";
+
+	EXPECT_EQ(galaxy::strutils::replace_first(test, "123", "456"), "456.456");
+	EXPECT_EQ(galaxy::strutils::replace_first(test, "456", "123"), "123.456");
+	EXPECT_EQ(galaxy::strutils::replace_first(test, "456", "123"), "123.123");
+}
+
+TEST(Utils, ReplaceAll)
+{
+	std::string test = "123.456.123";
+	EXPECT_EQ(galaxy::strutils::replace_all(test, "123", "456"), "456.456.456");
+	EXPECT_EQ(galaxy::strutils::replace_all(test, "456", "123"), "123.123.123");
+}

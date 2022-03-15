@@ -62,5 +62,34 @@ namespace galaxy
 
 			return out;
 		}
+
+		std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		{
+			const auto pos = input.find(to_replace);
+
+			if (pos != std::string::npos)
+			{
+				input.replace(pos, to_replace.length(), replace_with);
+			}
+
+			return input;
+		}
+
+		std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		{
+			std::size_t pos = 0;
+
+			while (pos != std::string::npos)
+			{
+				pos = input.find(to_replace, pos);
+
+				if (pos != std::string::npos)
+				{
+					input.replace(pos, to_replace.length(), replace_with);
+				}
+			}
+
+			return input;
+		}
 	} // namespace strutils
 } // namespace galaxy
