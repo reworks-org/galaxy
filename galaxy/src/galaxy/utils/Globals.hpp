@@ -12,7 +12,7 @@
 #include <filesystem>
 #include <thread>
 
-namespace
+namespace DoNotUseReferToConfigForMacroNames
 {
 	inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
 
@@ -21,8 +21,11 @@ namespace
 
 	inline static auto GALAXY_RESTART_FLAG = false;
 
+	inline static constexpr const char* VERTEX_EXT_VAR = ".vs";
+	inline static constexpr const char* FRAG_EXT_VAR   = ".fs";
+
 	inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
-} // namespace
+} // namespace DoNotUseReferToConfigForMacroNames
 
 ///
 /// Defines number of threads allowed for galaxy.
@@ -47,22 +50,32 @@ namespace
 ///
 /// Restart flag.
 ///
-#define GALAXY_RESTART GALAXY_RESTART_FLAG
+#define GALAXY_RESTART DoNotUseReferToConfigForMacroNames::GALAXY_RESTART_FLAG
 
 ///
 /// Time point for application start.
 ///
-#define GALAXY_START_TP GALAXY_APP_START_TIME_POINT
+#define GALAXY_START_TP DoNotUseReferToConfigForMacroNames::GALAXY_APP_START_TIME_POINT
 
 ///
 /// Updates per second.
 ///
-#define GALAXY_UPS GALAXY_UPS_VAR
+#define GALAXY_UPS DoNotUseReferToConfigForMacroNames::GALAXY_UPS_VAR
 
 ///
 /// Galaxy Delta-Time.
 ///
-#define GALAXY_DT GALAXY_DT_VAR
+#define GALAXY_DT DoNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
+
+///
+/// Extension to use when loading vertex shaders.
+///
+#define GALAXY_VERTEX_EXT DoNotUseReferToConfigForMacroNames::VERTEX_EXT_VAR
+
+///
+/// Extension to use when loading fragment shaders.
+///
+#define GALAXY_FRAGMENT_EXT DoNotUseReferToConfigForMacroNames::FRAG_EXT_VAR
 
 ///
 /// Current root directory of application, unless it has been manipulated.
