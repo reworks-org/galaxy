@@ -12,8 +12,16 @@ namespace galaxy
 	namespace graphics
 	{
 		UniformBuffer::UniformBuffer() noexcept
+			: m_ubo {0}
 		{
 			glGenBuffers(1, &m_ubo);
+		}
+
+		UniformBuffer::UniformBuffer(const unsigned int index) noexcept
+			: m_ubo {0}
+		{
+			glGenBuffers(1, &m_ubo);
+			create(index);
 		}
 
 		UniformBuffer::UniformBuffer(UniformBuffer&& ub) noexcept
@@ -38,14 +46,14 @@ namespace galaxy
 			glDeleteBuffers(1, &m_ubo);
 		}
 
-		void UniformBuffer::create(const unsigned int index)
+		void UniformBuffer::create(const unsigned int index) noexcept
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 			glBindBufferBase(GL_UNIFORM_BUFFER, index, m_ubo);
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void UniformBuffer::reserve(const unsigned int size)
+		void UniformBuffer::reserve(const unsigned int size) noexcept
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 
@@ -71,7 +79,7 @@ namespace galaxy
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		const unsigned int UniformBuffer::id() const noexcept
+		unsigned int UniformBuffer::id() const noexcept
 		{
 			return m_ubo;
 		}

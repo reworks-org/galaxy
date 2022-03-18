@@ -91,6 +91,7 @@
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
     <ClCompile Include="src\galaxy\resource\Musical.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
     <ClInclude Include="src\galaxy\resource\Musical.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\galaxy\state\SceneManager.cpp" />

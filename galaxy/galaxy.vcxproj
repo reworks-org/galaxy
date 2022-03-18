@@ -68,6 +68,7 @@
     <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
+    <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\Vertex.cpp" />
     <ClCompile Include="src\galaxy\graphics\VertexArray.cpp" />
     <ClCompile Include="src\galaxy\graphics\VertexBuffer.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
+    <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\Vertex.hpp" />
     <ClInclude Include="src\galaxy\graphics\VertexArray.hpp" />
     <ClInclude Include="src\galaxy\graphics\VertexBuffer.hpp" />

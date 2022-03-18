@@ -8,6 +8,10 @@
 #ifndef GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 #define GALAXY_GRAPHICS_UNIFORMBUFFER_HPP_
 
+#include <glad/glad.h>
+
+#include "galaxy/meta/Concepts.hpp"
+
 namespace galaxy
 {
 	namespace graphics
@@ -22,6 +26,15 @@ namespace galaxy
 			/// Constructor.
 			///
 			UniformBuffer() noexcept;
+
+			///
+			/// \brief Argument Constructor.
+			///
+			/// Calls create().
+			///
+			/// \param index Index of UBO in shader.
+			///
+			UniformBuffer(const unsigned int index) noexcept;
 
 			///
 			/// Move constructor.
@@ -43,14 +56,14 @@ namespace galaxy
 			///
 			/// \param index Index of UBO in shader.
 			///
-			void create(const unsigned int index);
+			void create(const unsigned int index) noexcept;
 
 			///
 			/// Reserve the buffer space.
 			///
 			/// \param size Size in bytes to reserve.
 			///
-			void reserve(const unsigned int size);
+			void reserve(const unsigned int size) noexcept;
 
 			///
 			/// Sub buffer data into UBO.
@@ -59,16 +72,16 @@ namespace galaxy
 			/// \param count Number of objects in data.
 			/// \param data Pointer to the data to buffer.
 			///
-			template<typename Type>
-			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data);
+			template<meta::is_arithmetic Type>
+			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data) noexcept;
 
 			///
-			/// Bind the uniform buffer object.
+			/// Bind UBO.
 			///
 			void bind() noexcept;
 
 			///
-			/// Unbind the uniform buffer object.
+			/// Unbind UBO.
 			///
 			void unbind() noexcept;
 
@@ -96,7 +109,7 @@ namespace galaxy
 			unsigned int m_ubo;
 		};
 
-		template<typename Type>
+		template<meta::is_arithmetic Type>
 		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data)
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
