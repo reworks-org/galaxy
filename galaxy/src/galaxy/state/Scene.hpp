@@ -8,14 +8,31 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
-#include <future>
-
+#include "galaxy/resource/Cache.hpp"
+#include "galaxy/resource/Musical.hpp"
+#include "galaxy/resource/Shaders.hpp"
+#include "galaxy/resource/Sounds.hpp"
 #include "galaxy/state/LayerStack.hpp"
 
 namespace galaxy
 {
 	namespace state
 	{
+		///
+		/// Typedef for shader cache.
+		///
+		using ShaderCache = resource::Cache<graphics::Shader, resource::Shaders>;
+
+		///
+		/// Typedef for sound cache.
+		///
+		using SoundCache = resource::Cache<audio::Sound, resource::Sounds>;
+
+		///
+		/// Typedef for music cache.
+		///
+		using MusicCache = resource::Cache<audio::Music, resource::Musical>;
+
 		///
 		/// Represents a scene in a game. Like the menu, game, etc.
 		///
@@ -33,13 +50,11 @@ namespace galaxy
 			virtual ~Scene() noexcept;
 
 			///
-			/// Load data required by this scene.
+			/// \brief Load data required by this scene.
 			///
-			/// \param text Populates string with data about what is loading.
+			/// Displays a loading screen overriding whatever is currently rendering.
 			///
-			/// \return Future from launched async thread that loads data.
-			///
-			[[nodiscard]] std::future<void> load(std::string* text);
+			void load();
 
 			///
 			/// Unload scene data.
@@ -88,6 +103,13 @@ namespace galaxy
 			[[nodiscard]] LayerStack& get_stack() noexcept;
 
 			///
+			/// Get shader cache.
+			///
+			/// \return Ref to shader cache.
+			///
+			[[nodiscard]] ShaderCache& shader_cache() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -111,6 +133,26 @@ namespace galaxy
 			/// Controls current application layer.
 			///
 			LayerStack m_layer_stack;
+
+			///
+			/// Shader cache.
+			///
+			ShaderCache m_shaders;
+
+			///
+			/// Sound cache.
+			///
+			SoundCache m_sounds;
+
+			///
+			/// Music cache.
+			///
+			MusicCache m_music;
+
+			///
+			/// Backup of deserialization JSON.
+			///
+			nlohmann::json m_deserialization_json;
 		};
 	} // namespace state
 } // namespace galaxy

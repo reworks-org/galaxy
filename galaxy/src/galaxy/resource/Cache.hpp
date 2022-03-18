@@ -9,21 +9,13 @@
 #define GALAXY_RESOURCE_CACHE_HPP_
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/resource/Loader.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
-		///
-		/// Validates template input is derived from a loader.
-		///
-		/// \tparam T Parent Class to check.
-		/// \tparam R Resource Loader is using.
-		///
-		template<typename T, typename R>
-		concept is_loader = std::derived_from<T, Loader<R>>;
-
 		///
 		/// Stores a cache of resources in order to make effective use of memory.
 		/// resources can be a texture, sound, script, shader, etc...
@@ -32,7 +24,7 @@ namespace galaxy
 		/// \tparam Loader Loader to use when creating resources.
 		///
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		class Cache final
+		class Cache final : public fs::Serializable
 		{
 		public:
 			///
@@ -56,11 +48,11 @@ namespace galaxy
 			[[maybe_unused]] std::shared_ptr<Resource> create(const std::string& key, std::string_view file);
 
 			///
-			/// Load a set of resources as defined in a json file.
+			/// Load a set of resources recursively from a root folder.
 			///
-			/// \param json_file Path, including filename, to file in the VFS.
+			/// \param folder Folder to recursively search for files.
 			///
-			void create_from_json(std::string_view json_file);
+			void create_from_folder(std::string_view folder);
 
 			///
 			/// Clean up resources.
@@ -98,6 +90,20 @@ namespace galaxy
 			/// \return Reference to the resource holders cache.
 			///
 			[[nodiscard]] Holder<Resource>& cache() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
@@ -154,9 +160,9 @@ namespace galaxy
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline void Cache<Resource, Loader>::create_from_json(std::string_view json_file)
+		inline void Cache<Resource, Loader>::create_from_folder(std::string_view folder)
 		{
-			m_cache = m_loader.create_from_json(json_file);
+			m_cache = std::move(m_loader.create_from_folder(folder));
 		}
 
 		template<meta::not_memory Resource, is_loader<Resource> Loader>
@@ -192,6 +198,18 @@ namespace galaxy
 		inline Holder<Resource>& Cache<Resource, Loader>::cache() noexcept
 		{
 			return m_cache;
+		}
+
+		template<meta::not_memory Resource, is_loader<Resource> Loader>
+		inline nlohmann::json Cache<Resource, Loader>::serialize()
+		{
+			return m_loader.internal_serialize(m_cache);
+		}
+
+		template<meta::not_memory Resource, is_loader<Resource> Loader>
+		inline void Cache<Resource, Loader>::deserialize(const nlohmann::json& json)
+		{
+			m_cache = m_loader.internal_deserialize(json);
 		}
 	} // namespace resource
 } // namespace galaxy

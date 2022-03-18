@@ -46,13 +46,13 @@ namespace galaxy
 			[[nodiscard]] virtual std::shared_ptr<Resource> create(std::string_view file) = 0;
 
 			///
-			/// Load a set of resources as defined in a json file.
+			/// Load a set of resources recursively from a root folder.
 			///
-			/// \param json_file Path, including filename, to file in the VFS.
+			/// \param folder Folder to recursively search for files.
 			///
-			/// \return Resource holder containing created resources.
+			/// \return Resource holder containing loaded resources.
 			///
-			[[nodiscard]] virtual Holder<Resource> create_from_json(std::string_view json_file) = 0;
+			[[nodiscard]] virtual Holder<Resource> create_from_folder(std::string_view folder) = 0;
 
 		protected:
 			///
@@ -79,7 +79,34 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Loader& operator=(Loader&&) = default;
+
+			///
+			/// Serializes object.
+			///
+			/// \param holder Reference to the cache holder.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] virtual nlohmann::json internal_serialize(Holder<Resource>& holder) = 0;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			/// \return Resource holder containing loaded resources.
+			///
+			[[nodiscard]] virtual Holder<Resource> internal_deserialize(const nlohmann::json& json) = 0;
 		};
+
+		///
+		/// Validates template input is derived from a loader.
+		///
+		/// \tparam T Parent Class to check.
+		/// \tparam R Resource Loader is using.
+		///
+		template<typename T, typename R>
+		concept is_loader = std::derived_from<T, Loader<R>>;
 	} // namespace resource
 } // namespace galaxy
 

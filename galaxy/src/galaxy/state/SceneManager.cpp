@@ -14,6 +14,8 @@
 
 using namespace std::chrono_literals;
 
+// todo encode output
+
 namespace galaxy
 {
 	namespace state
@@ -50,36 +52,7 @@ namespace galaxy
 			{
 				m_current->unload();
 				m_current = m_scenes[name];
-
-				// Show load screen while loading new state.
-
-				std::string load_str;
-				auto future = m_current->load(&load_str);
-
-				auto status = std::future_status::deferred;
-				do
-				{
-					status = future.wait_for(50ms);
-
-					if (load_str.ends_with("..."))
-					{
-						// Remove all 3 ending characters.
-						load_str.pop_back();
-						load_str.pop_back();
-						load_str.pop_back();
-					}
-					else
-					{
-						load_str += ".";
-					}
-
-					// TODO
-
-					/*
-					DISPLAY IMAGE, UPDATE TEXT.
-					*/
-
-				} while (status != std::future_status::ready);
+				m_current->load();
 			}
 			else
 			{

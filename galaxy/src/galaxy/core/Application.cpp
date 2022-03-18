@@ -17,6 +17,7 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FreeType.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/resource/Language.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/state/SceneManager.hpp"
 
@@ -59,6 +60,7 @@ namespace galaxy
 			if (config.empty())
 			{
 				config.set<std::string>("asset_dir", "assets/");
+				config.set<std::string>("default_lang", "en_au");
 				config.set<std::string>("title", "Title", "window");
 				config.set<std::string>("icon", "", "window");
 				config.set<std::string>("cursor_icon", "", "window");
@@ -74,18 +76,18 @@ namespace galaxy
 				config.set<float>("doppler_factor", 1.0f, "audio");
 				config.set<float>("speed_of_sound", 1.0f, "audio");
 				config.set<std::string>("distance_model", "NONE", "audio");
+				config.set<bool>("trilinear_filtering", false, "graphics");
+				config.set<int>("ansiotrophic_filtering", 2, "graphics");
+				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
+				config.set<std::string>("lang_folder", "lang/", "resource_folders");
 
 				// config.set<bool>("anti-aliasing", false);
 				// config.set<bool>("sharpen", false);
-				// config.set<int>("ansio-filter", 1);
-				// config.set<bool>("trilinear-filtering", false);
-				// config.set<bool>("log-perf", false);
 				// config.set<float>("audio-volume", 0.7f);
 				// config.set<std::string>("logo", "logo.png");
 				// config.set<std::string>("cursor-image", "cursor.png");
 				// config.set<std::string>("icon-file", "icon.png");
 				// config.set<std::string>("fontbook-json", "fontbook.json");
-				// config.set<std::string>("shaderbook-json", "shaderbook.json");
 				// config.set<std::string>("scriptbook-json", "scriptbook.json");
 				// config.set<std::string>("texturebook-json", "texturebook.json");
 				// config.set<std::string>("soundbook-json", "soundbook.json");
@@ -113,24 +115,32 @@ namespace galaxy
 
 				create_asset_layout(root, "");
 
-				ServiceLocator<fs::VirtualFileSystem>::make(root);
-				create_asset_layout(root, "audio/music/");
-				create_asset_layout(root, "audio/sfx/");
-				create_asset_layout(root, "fonts/");
-				create_asset_layout(root, "json/");
-				create_asset_layout(root, "scripts/actions/");
-				create_asset_layout(root, "scripts/definitions/");
-				create_asset_layout(root, "shaders/");
-				create_asset_layout(root, "textures/");
-				create_asset_layout(root, "maps/");
-				create_asset_layout(root, "lang/");
+				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
+				// create_asset_layout(root, "audio/music/");
+				// create_asset_layout(root, "audio/sfx/");
+				// create_asset_layout(root, "fonts/");
+				// create_asset_layout(root, "json/");
+				// create_asset_layout(root, "scripts/actions/");
+				// create_asset_layout(root, "scripts/definitions/");
+				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders").value());
+				// create_asset_layout(root, "textures/");
+				// create_asset_layout(root, "maps/");
+				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders").value());
 
-				generate_default_assets(root);
+				// Generate default language file.
+				fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders").value() + "en_au.lua");
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
 			}
+
+			//
+			// LANGUAGES.
+			//
+			auto& lang = ServiceLocator<resource::Language>::make();
+			lang.load(config.get<std::string>("lang_folder", "resource_folders").value());
+			lang.set(config.get<std::string>("default_lang").value());
 
 			//
 			// WINDOW
@@ -227,6 +237,7 @@ namespace galaxy
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<graphics::FreeTypeLib>::del();
 			ServiceLocator<Window>::del();
+			ServiceLocator<resource::Language>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
 
@@ -247,254 +258,19 @@ namespace galaxy
 				std::filesystem::create_directories(merged);
 			}
 		}
-
-		void Application::generate_default_assets(const std::string& root)
-		{
-			constexpr const auto font          = "{\"fonts\": {}}";
-			constexpr const auto music         = "{\"music\": {}}";
-			constexpr const auto script        = "{\"scripts\": {},\"definitions\":[]}";
-			constexpr const auto shader        = "{\"vertex-extension\": \".vs\",\"fragment-extension\": \".fs\",\"shaders\": []}";
-			constexpr const auto sound         = "{\"sounds\": {}}";
-			constexpr const auto atlas         = "{\"textures\": []}";
-			constexpr const auto render_layers = "{\"layers\":{\"bottom\": 0, \"top\": 1}}";
-
-			auto& vfs = ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			const auto fb_path = root + "json/fonts.json";
-			if (!std::filesystem::exists(fb_path))
-			{
-				if (!vfs.save(font, fb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default font assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", fb_path);
-			}
-
-			const auto mb_path = root + "json/music.json";
-			if (!std::filesystem::exists(mb_path))
-			{
-				if (!vfs.save(music, mb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default music assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", mb_path);
-			}
-
-			const auto sb_path = root + "json/scripts.json";
-			if (!std::filesystem::exists(sb_path))
-			{
-				if (!vfs.save(script, sb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default script assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sb_path);
-			}
-
-			const auto shb_path = root + "json/shaders.json";
-			if (!std::filesystem::exists(shb_path))
-			{
-				if (!vfs.save(shader, shb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default shader assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", shb_path);
-			}
-
-			const auto sfxb_path = root + "json/sounds.json";
-			if (!std::filesystem::exists(sfxb_path))
-			{
-				if (!vfs.save(sound, sfxb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default sound assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", sfxb_path);
-			}
-
-			const auto tb_path = root + "json/textures.json";
-			if (!std::filesystem::exists(tb_path))
-			{
-				if (!vfs.save(atlas, tb_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default texture assets.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", tb_path);
-			}
-
-			const auto rl_path = root + "json/render-layers.json";
-			if (!std::filesystem::exists(rl_path))
-			{
-				if (!vfs.save(render_layers, rl_path))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create default rendering layers.");
-				}
-
-				GALAXY_LOG(GALAXY_INFO, "Missing default asset, creating: {0}.", rl_path);
-			}
-		}
 	} // namespace core
 } // namespace galaxy
 
 /*
-* ///
-/// Application.cpp
-/// galaxy
-///
-/// Refer to LICENSE.txt for more details.
-///
-
-#include <portable-file-dialogs.h>
-#include <sol/sol.hpp>
-#include <RmlUi/Core.h>
-#include <RmlUi/Lua.h>
-
-#include "galaxy/core/GalaxyConfig.hpp"
-#include "galaxy/core/LoadingScreen.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/ConsoleSink.hpp"
-#include "galaxy/error/FileSink.hpp"
-#include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/text/FreeType.hpp"
-#include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/graphics/SpriteBatch.hpp"
-#include "galaxy/platform/Platform.hpp"
-#include "galaxy/scripting/LuaUtils.hpp"
-
-#include "Application.hpp"
-
-namespace galaxy
-{
-	namespace core
-	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
 			: m_filewatcher {false}
 			, m_filelistener {nullptr}
 		{
-			platform::configure_terminal();
-
-			// Seed pseudo-random algorithms.
-			std::srand(static_cast<unsigned int>(std::time(nullptr)));
-
-			// Set up all of the difference services.
-			// The services are configured based off of the config file.
-			// Services are created in dependency order.
-
-			// Configure Logging.
-			const auto        now      = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
-			const std::string log_path = std::format("{0}{1}{2}", "logs/", std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
-			if (!std::filesystem::exists("logs/"))
-			{
-				std::filesystem::create_directory("logs");
-			}
-
-			GALAXY_LOG_START();
-			GALAXY_ADD_SINK(error::FileSink, log_path);
-			GALAXY_ADD_SINK(error::ConsoleSink);
-
 			// Threadpool setup.
 			m_pool           = std::make_unique<async::ThreadPool>();
 			SL_HANDLE.m_pool = m_pool.get();
 
-			// Virtual filesystem setup.
-			m_filelistener = std::make_unique<fs::FileListener>();
-			m_filelistener->set_action(std::bind(&Application::reload_assets,
-				this,
-				std::placeholders::_1,
-				std::placeholders::_2,
-				std::placeholders::_3,
-				std::placeholders::_4,
-				std::placeholders::_5));
-
-			auto root = static_cast<std::string>(asset_dir);
-			if (root.back() != '/')
-			{
-				root += '/';
-			}
-
-			m_vfs = std::make_unique<fs::Virtual>();
-			create_asset_layout(root, "");
-
-			if (!m_vfs->mount(root))
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to mount VFS.");
-			}
-			else
-			{
-				// Generate default asset folder layout.
-				create_asset_layout(root, "audio/music/");
-				create_asset_layout(root, "audio/sfx/");
-				create_asset_layout(root, "fonts/");
-				create_asset_layout(root, "json/");
-				create_asset_layout(root, "scripts/actions/");
-				create_asset_layout(root, "scripts/definitions/");
-				create_asset_layout(root, "shaders/");
-				create_asset_layout(root, "textures/");
-				create_asset_layout(root, "maps/");
-				create_asset_layout(root, "lang/");
-			}
-			SL_HANDLE.m_vfs = m_vfs.get();
-
-			// Config reader.
-			m_config           = std::make_unique<fs::Config>();
-			SL_HANDLE.m_config = m_config.get();
-
-			m_config->init(config_file);
-			if (m_config->is_blank())
-			{
-				m_config->define<bool>("anti-aliasing", false);
-				m_config->define<bool>("sharpen", false);
-				m_config->define<int>("ansio-filter", 1);
-				m_config->define<bool>("vsync", true);
-				m_config->define<int>("aspect-ratio-x", -1);
-				m_config->define<int>("aspect-ratio-y", -1);
-				m_config->define<std::string>("window-name", "Title");
-				m_config->define<int>("window-width", 1280);
-				m_config->define<int>("window-height", 720);
-				m_config->define<bool>("is-cursor-visible", true);
-				m_config->define<bool>("gl-debug", false);
-				m_config->define<bool>("trilinear-filtering", false);
-				m_config->define<bool>("maximized", false);
-				m_config->define<bool>("log-perf", false);
-				m_config->define<float>("audio-volume", 0.7f);
-				m_config->define<std::string>("logo", "logo.png");
-				m_config->define<std::string>("cursor-image", "cursor.png");
-				m_config->define<std::string>("icon-file", "icon.png");
-				m_config->define<std::string>("fontbook-json", "fontbook.json");
-				m_config->define<std::string>("shaderbook-json", "shaderbook.json");
-				m_config->define<std::string>("scriptbook-json", "scriptbook.json");
-				m_config->define<std::string>("texturebook-json", "texturebook.json");
-				m_config->define<std::string>("soundbook-json", "soundbook.json");
-				m_config->define<std::string>("musicbook-json", "musicbook.json");
-				m_config->define<std::string>("renderlayers-json", "renderlayers.json");
-				m_config->define<std::string>("key-forward", "W");
-				m_config->define<std::string>("key-back", "S");
-				m_config->define<std::string>("key-left", "A");
-				m_config->define<std::string>("key-right", "D");
-			}
-			m_config->save();
-
-			// Window.
-			core::WindowSettings settings {.m_vsync = m_config->get<bool>("vsync"),
-				.m_aspect_ratio_x                   = m_config->get<int>("aspect-ratio-x"),
-				.m_aspect_ratio_y                   = m_config->get<int>("aspect-ratio-y"),
-				.m_gl_debug                         = m_config->get<bool>("gl-debug"),
-				.m_title                            = m_config->get<std::string>("window-name"),
-				.m_width                            = m_config->get<int>("window-width"),
-				.m_height                           = m_config->get<int>("window-height"),
-				.m_maximized                        = m_config->get<bool>("maximized")};
-
-			m_window           = std::make_unique<core::Window>();
-			SL_HANDLE.m_window = m_window.get();
-			if (!m_window->create(settings))
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to create window! Aborting...");
-			}
+			// window
 			else
 			{
 				LoadingScreen logo;
@@ -542,10 +318,6 @@ namespace galaxy
 				m_langs->parse_language_folder(root + "lang/");
 				m_langs->set_language("en_au");
 				SL_HANDLE.m_language = m_langs.get();
-
-				// ShaderBook.
-				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
-				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// ScriptBook.
 				m_scriptbook           = std::make_unique<res::ScriptBook>(m_config->get<std::string>("scriptbook-json"));

@@ -75,13 +75,6 @@ namespace galaxy
 			///
 			void create_asset_layout(const std::string& root, const std::string& asset_folder);
 
-			///
-			/// Generate default required files in asset folders.
-			///
-			/// \param root Root directory. Is not a string_view because we need to merge it.
-			///
-			void generate_default_assets(const std::string& root);
-
 		private:
 			///
 			/// Current scene.
@@ -94,55 +87,6 @@ namespace galaxy
 #endif
 
 /*
-///
-/// Application.hpp
-/// galaxy
-///
-/// Refer to LICENSE.txt for more details.
-///
-
-#ifndef GALAXY_CORE_APPLICATION_HPP_
-#define GALAXY_CORE_APPLICATION_HPP_
-
-#include <stack>
-
-#include <sol/forward.hpp>
-
-#include "galaxy/async/ThreadPool.hpp"
-#include "galaxy/audio/Context.hpp"
-#include "galaxy/core/Layer.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/fs/Config.hpp"
-#include "galaxy/fs/FileListener.hpp"
-#include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/resource/FontBook.hpp"
-#include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/MusicBook.hpp"
-#include "galaxy/resource/ScriptBook.hpp"
-#include "galaxy/resource/ShaderBook.hpp"
-#include "galaxy/resource/SoundBook.hpp"
-#include "galaxy/resource/TextureBook.hpp"
-#include "galaxy/ui/RMLFile.hpp"
-#include "galaxy/ui/RMLRenderer.hpp"
-#include "galaxy/ui/RMLSystem.hpp"
-
-namespace galaxy
-{
-	namespace core
-	{
-		///
-		/// Application superclass. Entry point to run application / game.
-		///
-		class Application
-		{
-		public:
-			///
-			/// \brief Virtual destructor.
-			///
-			/// Cleans up engine related memory usage.
-			///
-			virtual ~Application();
-
 			///
 			/// Create an application layer.
 			///
@@ -163,64 +107,7 @@ namespace galaxy
 			///
 			void pop_layer();
 
-			///
-			/// Runs the application.
-			///
-			/// \return Returns true if the program should restart.
-			///
-			[[maybe_unused]] const bool run();
-
-		protected:
-			///
-			/// \brief Default constructor.
-			///
-			/// Sets up the engine. You need to inherit this and call it from a subclass.
-			/// Also calls std::srand(std::time(nullptr)) for you.
-			///
-			/// \param asset_dir Specify the base directory to mount to the Virtual File System.
-			/// \param config_file Name of the config file in the VFS. Can also include a path.
-			///
-			explicit Application(std::string_view asset_dir, std::string_view config_file);
-
 		private:
-			///
-			/// Copy constructor.
-			///
-			Application(const Application&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Application(Application&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Application& operator=(const Application&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Application& operator=(Application&&) = delete;
-
-			///
-			/// \brief Create default asset layout.
-			///
-			/// This uses a const string reference over string_view since
-			/// we need to combine the strings into a new string.
-			///
-			/// \param root Root asset folder.
-			/// \param asset_folder Path to the asset folder to create.
-			///
-			void create_asset_layout(const std::string& root, const std::string& asset_folder);
-
-			///
-			/// Generate default required files in asset folders.
-			///
-			/// \param root Root directory. Is not a string_view because we need to merge it.
-			///
-			void generate_default_assets(const std::string& root);
-
 			///
 			/// Reload assets from disk.
 			///

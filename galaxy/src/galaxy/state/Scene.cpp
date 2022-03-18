@@ -23,18 +23,18 @@ namespace galaxy
 			unload();
 		}
 
-		std::future<void> Scene::load(std::string* text)
+		void Scene::load()
 		{
-			auto future = std::async(std::launch::async, [text]() {
-				// TODO
-			});
-
-			return future;
+			// Need to only load shaders for this scene.
+			m_shaders.deserialize(m_deserialization_json["resource_shaders"]);
+			m_sounds.deserialize(m_deserialization_json["resource_sounds"]);
+			m_music.deserialize(m_deserialization_json["resource_music"]);
 		}
 
 		void Scene::unload()
 		{
 			m_layer_stack.clear();
+			m_shaders.clear();
 		}
 
 		void Scene::events()
@@ -72,11 +72,20 @@ namespace galaxy
 			return m_layer_stack;
 		}
 
+		ShaderCache& Scene::shader_cache() noexcept
+		{
+			return m_shaders;
+		}
+
 		nlohmann::json Scene::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["stack"]       = m_layer_stack.serialize();
+
+			json["resource_shaders"] = m_shaders.serialize();
+			json["resource_sounds"]  = m_sounds.serialize();
+			json["resource_music"]   = m_music.serialize();
 
 			return json;
 		}
@@ -87,6 +96,9 @@ namespace galaxy
 
 			m_name = json.at("name");
 			m_layer_stack.deserialize(json.at("stack"));
+
+			// We dont load resources here, we backup the json and load later on call.
+			m_deserialization_json = json;
 		}
 	} // namespace state
 } // namespace galaxy
