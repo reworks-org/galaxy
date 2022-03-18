@@ -8,17 +8,14 @@
 #ifndef GALAXY_GRAPHICS_RENDERTEXTURE_HPP_
 #define GALAXY_GRAPHICS_RENDERTEXTURE_HPP_
 
-#include <glm/gtc/matrix_transform.hpp>
+#include <string_view>
+
+#include <glm/mat4x4.hpp>
 
 #include "galaxy/graphics/Framebuffer.hpp"
 
 namespace galaxy
 {
-	namespace core
-	{
-		class Window;
-	} // namespace core
-
 	namespace graphics
 	{
 		///
@@ -33,10 +30,12 @@ namespace galaxy
 			RenderTexture() noexcept;
 
 			///
-			/// Argument constructor.
+			/// \brief Argument constructor.
 			///
-			/// \param width Width of the RenderTexture.
-			/// \param height Height of the RenderTexture.
+			/// Calls create().
+			///
+			/// \param width Width of the render target. Must be greater than 0.
+			/// \param height Height of the render target. Must be greater than 0.
 			///
 			RenderTexture(const int width, const int height);
 
@@ -58,17 +57,10 @@ namespace galaxy
 			///
 			/// Create the RenderTexture.
 			///
-			/// \param width Width of the RenderTexture.
-			/// \param height Height of the RenderTexture.
+			/// \param width Width of the render target. Must be greater than 0.
+			/// \param height Height of the render target. Must be greater than 0.
 			///
 			void create(int width, int height);
-
-			///
-			/// Saves texture to file on disk.
-			///
-			/// \param file_name Path and filename to save texture to. Does not need extension (it will be ignored).
-			///
-			void save(std::string_view file_name);
 
 			///
 			/// Change RenderTexture size.
@@ -79,14 +71,23 @@ namespace galaxy
 			void resize(int width, int height);
 
 			///
-			/// Activate texture context.
+			/// \brief Saves texture to file on disk.
+			///
+			/// Depending on the size of the buffer this can be quite slow.
+			///
+			/// \param filepath Path and filename to save texture to. Can only save .PNG.
+			///
+			void save(std::string_view filepath);
+
+			///
+			/// Bind framebuffer and texture.
 			///
 			/// \param clear Should the framebuffer clear attachments.
 			///
 			void bind(const bool clear) noexcept;
 
 			///
-			/// Deactivate texture context.
+			/// Unbind framebuffer and texture.
 			///
 			void unbind() noexcept;
 
@@ -108,16 +109,16 @@ namespace galaxy
 			///
 			/// Get texture width.
 			///
-			/// \return Const integer.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] int get_width() const noexcept;
 
 			///
 			/// Get texture height.
 			///
-			/// \return Const integer.
+			/// \return Integer.
 			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] int get_height() const noexcept;
 
 			///
 			/// Get projection.
@@ -129,9 +130,9 @@ namespace galaxy
 			///
 			/// Get texture.
 			///
-			/// \return Const unsigned int. OpenGL texture handle.
+			/// \return OpenGL texture handle.
 			///
-			[[nodiscard]] const unsigned int get_texture() const noexcept;
+			[[nodiscard]] unsigned int get_texture() const noexcept;
 
 		private:
 			///

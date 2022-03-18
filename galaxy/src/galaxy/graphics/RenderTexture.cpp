@@ -5,14 +5,15 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glad/glad.h>
+
+#include <glm/gtc/matrix_transform.hpp>
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/fs/Config.hpp"
-#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -21,12 +22,12 @@ namespace galaxy
 	namespace graphics
 	{
 		RenderTexture::RenderTexture() noexcept
-			: m_projection {1.0f}
+			: m_projection {GALAXY_IDENTITY_MATRIX}
 		{
 		}
 
 		RenderTexture::RenderTexture(const int width, const int height)
-			: m_projection {1.0f}
+			: m_projection {GALAXY_IDENTITY_MATRIX}
 		{
 			create(width, height);
 		}
@@ -61,34 +62,6 @@ namespace galaxy
 			m_framebuffer.create();
 		}
 
-		void RenderTexture::save(std::string_view file)
-		{
-			const auto abs = SL_HANDLE.vfs()->absolute(file);
-
-			std::string path_str;
-			if (abs == std::nullopt)
-			{
-				path_str = static_cast<std::string>(file);
-			}
-			else
-			{
-				path_str = abs.value();
-			}
-
-			const auto path = std::filesystem::path(path_str);
-			const auto full = (path.parent_path() / path.stem()) += ".png";
-
-			std::vector<unsigned int> pixels(m_framebuffer.get_width() * m_framebuffer.get_height() * 4, 0);
-
-			glBindTexture(GL_TEXTURE_2D, get_texture());
-			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
-
-			stbi_flip_vertically_on_write(true);
-			stbi_write_png(full.string().c_str(), m_framebuffer.get_width(), m_framebuffer.get_height(), 4, pixels.data(), m_framebuffer.get_width() * 4);
-
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
 		void RenderTexture::resize(int width, int height)
 		{
 			width  = std::max(1, width);
@@ -96,6 +69,26 @@ namespace galaxy
 
 			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 			m_framebuffer.resize(width, height);
+		}
+
+		void RenderTexture::save(std::string_view filepath)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto path = std::filesystem::path(filepath);
+			auto full = (fs.root_path() / path.parent_path() / path.stem()).string();
+			full += ".png";
+
+			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
+			{
+				full += ".png";
+			}
+
+			std::vector<unsigned int> pixels(get_width() * get_height() * 4, 0);
+
+			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.size(), pixels.data());
+
+			stbi_write_png(full.c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
 		}
 
 		void RenderTexture::bind(const bool clear) noexcept
@@ -118,12 +111,12 @@ namespace galaxy
 			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		const int RenderTexture::get_width() const noexcept
+		int RenderTexture::get_width() const noexcept
 		{
 			return m_framebuffer.get_width();
 		}
 
-		const int RenderTexture::get_height() const noexcept
+		int RenderTexture::get_height() const noexcept
 		{
 			return m_framebuffer.get_height();
 		}
@@ -133,7 +126,7 @@ namespace galaxy
 			return m_projection;
 		}
 
-		const unsigned int RenderTexture::get_texture() const noexcept
+		unsigned int RenderTexture::get_texture() const noexcept
 		{
 			// This works since the rendertexture will only ever have 1 attachment.
 			return m_framebuffer.get_attachments()[0];

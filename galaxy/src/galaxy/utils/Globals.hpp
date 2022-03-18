@@ -21,8 +21,9 @@ namespace DoNotUseReferToConfigForMacroNames
 
 	inline static auto GALAXY_RESTART_FLAG = false;
 
-	inline static constexpr const char* VERTEX_EXT_VAR = ".vs";
-	inline static constexpr const char* FRAG_EXT_VAR   = ".fs";
+	inline static constexpr const char* VERTEX_EXT_VAR          = ".vs";
+	inline static constexpr const char* FRAG_EXT_VAR            = ".fs";
+	inline static constexpr const auto IDENTITY_MATRIX_INIT_VAL = 1.0f;
 
 	inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
 } // namespace DoNotUseReferToConfigForMacroNames
@@ -78,7 +79,12 @@ namespace DoNotUseReferToConfigForMacroNames
 #define GALAXY_FRAGMENT_EXT DoNotUseReferToConfigForMacroNames::FRAG_EXT_VAR
 
 ///
-/// Current root directory of application, unless it has been manipulated.
+/// Value used for identity matrix initialization.
+///
+#define GALAXY_IDENTITY_MATRIX DoNotUseReferToConfigForMacroNames::IDENTITY_MATRIX_INIT_VAL
+
+///
+/// Current root directory of application, unless it has been changed.
 ///
 #define GALAXY_ROOT_DIR std::filesystem::current_path().string()
 

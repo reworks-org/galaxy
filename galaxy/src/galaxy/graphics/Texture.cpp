@@ -147,13 +147,17 @@ namespace galaxy
 			stbi_image_free(data);
 		}
 
-		void Texture::save(const std::string& filepath)
+		void Texture::save(std::string_view filepath)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = std::filesystem::path(filepath);
 			auto full = (fs.root_path() / path.parent_path() / path.stem()).string();
-			full += ".png";
+
+			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
+			{
+				full += ".png";
+			}
 
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 

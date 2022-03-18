@@ -71,7 +71,6 @@
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
-    <ClCompile Include="src\galaxy\core\SceneGraph.cpp" />
     <ClCompile Include="src\galaxy\graphics\Vertex.cpp" />
     <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
     <ClCompile Include="src\galaxy\graphics\VertexBuffer.cpp" />
@@ -91,6 +90,7 @@
     <ClCompile Include="src\galaxy\resource\Language.cpp" />
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
     <ClCompile Include="src\galaxy\resource\Musical.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -164,7 +164,6 @@
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />
     <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
-    <ClInclude Include="src\galaxy\core\SceneGraph.hpp" />
     <ClInclude Include="src\galaxy\graphics\Vertex.hpp" />
     <ClInclude Include="src\galaxy\graphics\UniformInfo.hpp" />
     <ClInclude Include="src\galaxy\graphics\VertexBuffer.hpp" />
@@ -184,6 +183,7 @@
     <ClInclude Include="src\galaxy\resource\Language.hpp" />
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
     <ClInclude Include="src\galaxy\resource\Musical.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\galaxy\state\SceneManager.cpp" />

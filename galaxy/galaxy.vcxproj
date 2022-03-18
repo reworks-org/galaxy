@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\core\SceneGraph.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
     <ClCompile Include="src\galaxy\audio\Buffer.cpp" />
     <ClCompile Include="src\galaxy\audio\BufferStream.cpp" />
@@ -63,6 +62,7 @@
     <ClCompile Include="src\galaxy\graphics\IndexBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\InstanceBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\graphics\StorageFlags.cpp" />
     <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
@@ -103,7 +103,6 @@
     <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\core\SceneGraph.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
     <ClInclude Include="src\galaxy\audio\Buffer.hpp" />
     <ClInclude Include="src\galaxy\audio\BufferStream.hpp" />
@@ -155,6 +154,7 @@
     <ClInclude Include="src\galaxy\graphics\IndexBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\InstanceBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
     <ClInclude Include="src\galaxy\graphics\StorageFlags.hpp" />
     <ClInclude Include="src\galaxy\graphics\Texture.hpp" />

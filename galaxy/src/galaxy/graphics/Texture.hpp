@@ -70,7 +70,7 @@ namespace galaxy
 			///
 			/// \param filepath Path and filename to save texture to. Does not need extension (it will be ignored).
 			///
-			void save(const std::string& filepath);
+			void save(std::string_view filepath);
 
 			///
 			/// Activate texture context.
