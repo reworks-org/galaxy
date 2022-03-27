@@ -30,20 +30,6 @@ namespace galaxy
 			Musical() noexcept;
 
 			///
-			/// Argument Constructor.
-			///
-			/// \param folder Folder to recursively search for files.
-			///
-			Musical(std::string_view folder);
-
-			///
-			/// Deserialization Constructor.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			Musical(const nlohmann::json& json);
-
-			///
 			/// Destructor.
 			///
 			virtual ~Musical() noexcept = default;

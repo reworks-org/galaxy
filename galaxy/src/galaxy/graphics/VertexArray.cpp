@@ -53,7 +53,7 @@ namespace galaxy
 			glDeleteVertexArrays(1, &m_vao);
 		}
 
-		void VertexArray::create(std::unique_ptr<VertexBuffer> vb, std::unique_ptr<IndexBuffer> ib) noexcept
+		void VertexArray::create(std::unique_ptr<VertexBuffer>& vb, std::unique_ptr<IndexBuffer>& ib) noexcept
 		{
 			m_vbo.reset();
 			m_ibo.reset();

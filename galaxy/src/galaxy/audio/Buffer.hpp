@@ -5,10 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GAlAXY_AUDIO_BUFFER_HPP_
-#define GAlAXY_AUDIO_BUFFER_HPP_
+#ifndef GALAXY_AUDIO_BUFFER_HPP_
+#define GALAXY_AUDIO_BUFFER_HPP_
 
 #include <span>
+#include <string_view>
 
 #include <AL/al.h>
 #include <AL/alc.h>

@@ -68,11 +68,13 @@ namespace galaxy
 			///
 			/// Sub buffer data into UBO.
 			///
+			/// \tparam Type Is a class, union, array, scalar or integral constant.
+			///
 			/// \param offset Offset to start adding buffer from.
 			/// \param count Number of objects in data.
 			/// \param data Pointer to the data to buffer.
 			///
-			template<meta::is_arithmetic Type>
+			template<meta::is_object Type>
 			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data) noexcept;
 
 			///
@@ -84,6 +86,13 @@ namespace galaxy
 			/// Unbind UBO.
 			///
 			void unbind() noexcept;
+
+			///
+			/// \brief Reset all UBO data.
+			///
+			/// You will need to call create() and reserve() again.
+			///
+			void reset() noexcept;
 
 			///
 			/// Get OpenGL handle.
@@ -109,8 +118,8 @@ namespace galaxy
 			unsigned int m_ubo;
 		};
 
-		template<meta::is_arithmetic Type>
-		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data)
+		template<meta::is_object Type>
+		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data) noexcept
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 			glBufferSubData(GL_UNIFORM_BUFFER, offset, count * sizeof(Type), data);

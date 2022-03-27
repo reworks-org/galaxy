@@ -127,6 +127,7 @@ namespace galaxy
 						alBufferData(m_buffer, format, data, channels * length * sizeof(short), samples);
 
 						std::free(data);
+						return true;
 					}
 				}
 				else

@@ -79,6 +79,13 @@ namespace galaxy
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
+		void UniformBuffer::reset() noexcept
+		{
+			glInvalidateBufferData(m_ubo);
+			glDeleteBuffers(1, &m_ubo);
+			glGenBuffers(1, &m_ubo);
+		}
+
 		unsigned int UniformBuffer::id() const noexcept
 		{
 			return m_ubo;

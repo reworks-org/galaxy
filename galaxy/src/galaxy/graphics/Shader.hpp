@@ -10,6 +10,7 @@
 
 #include <array>
 #include <string_view>
+#include <optional>
 
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
@@ -155,13 +156,6 @@ namespace galaxy
 			///
 			robin_hood::unordered_flat_map<std::string, UniformInfo> m_cache;
 		};
-
-		template<typename... Uniforms>
-		inline void Shader::set_uniform(const std::string& name, const Uniforms&... args)
-		{
-			// If type does not have specialization, throw error.
-			static_assert(false, "Invalid shader uniform type!");
-		}
 
 		template<>
 		inline void Shader::set_uniform<bool>(const std::string& name, const bool& a)

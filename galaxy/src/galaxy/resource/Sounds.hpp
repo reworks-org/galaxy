@@ -30,20 +30,6 @@ namespace galaxy
 			Sounds() noexcept;
 
 			///
-			/// Argument Constructor.
-			///
-			/// \param folder Folder to recursively search for files.
-			///
-			Sounds(std::string_view folder);
-
-			///
-			/// Deserialization Constructor.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			Sounds(const nlohmann::json& json);
-
-			///
 			/// Destructor.
 			///
 			virtual ~Sounds() noexcept = default;

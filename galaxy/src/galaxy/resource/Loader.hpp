@@ -8,6 +8,7 @@
 #ifndef GALAXY_RESOURCE_LOADER_HPP_
 #define GALAXY_RESOURCE_LOADER_HPP_
 
+#include <nlohmann/json.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/meta/Concepts.hpp"

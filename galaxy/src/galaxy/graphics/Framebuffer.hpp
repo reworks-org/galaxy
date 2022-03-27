@@ -8,7 +8,10 @@
 #ifndef GALAXY_GRAPHICS_FRAMEBUFFER_HPP_
 #define GALAXY_GRAPHICS_FRAMEBUFFER_HPP_
 
+#include <array>
 #include <vector>
+
+#include "galaxy/graphics/Colour.hpp"
 
 namespace galaxy
 {
@@ -112,6 +115,13 @@ namespace galaxy
 			/// Clear framebuffer attachments.
 			///
 			void clear() noexcept;
+
+			///
+			/// Set clear colour.
+			///
+			/// \param col Colour to clear framebuffer to.
+			///
+			void set_clear_colour(graphics::Colour& col) noexcept;
 
 			///
 			/// Get width.
@@ -222,6 +232,11 @@ namespace galaxy
 			/// Used colour attachments / renderbuffers.
 			///
 			std::vector<unsigned int> m_used_attachments;
+
+			///
+			/// Clear colour.
+			///
+			std::array<float, 4> m_clear_colour;
 		};
 	} // namespace graphics
 } // namespace galaxy

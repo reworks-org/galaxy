@@ -24,16 +24,6 @@ namespace galaxy
 		{
 		}
 
-		Shaders::Shaders(std::string_view folder)
-		{
-			create_from_folder(folder);
-		}
-
-		Shaders::Shaders(const nlohmann::json& json)
-		{
-			internal_deserialize(json);
-		}
-
 		std::shared_ptr<graphics::Shader> Shaders::create(std::string_view file)
 		{
 			auto file_str = static_cast<std::string>(file);

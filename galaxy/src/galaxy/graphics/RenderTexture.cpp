@@ -86,7 +86,7 @@ namespace galaxy
 
 			std::vector<unsigned int> pixels(get_width() * get_height() * 4, 0);
 
-			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.size(), pixels.data());
+			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_write_png(full.c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
 		}

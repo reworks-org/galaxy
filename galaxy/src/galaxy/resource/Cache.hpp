@@ -21,9 +21,9 @@ namespace galaxy
 		/// resources can be a texture, sound, script, shader, etc...
 		///
 		/// \tparam Resource A resource can be anything that is not a pointer or a reference.
-		/// \tparam Loader Loader to use when creating resources.
+		/// \tparam ResourceLoader Loader to use when creating resources.
 		///
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
 		class Cache final : public fs::Serializable
 		{
 		public:
@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Cache();
+			virtual ~Cache();
 
 			///
 			/// Load a resource from a file.
@@ -130,7 +130,7 @@ namespace galaxy
 			///
 			/// Used to load the resource into the cache.
 			///
-			Loader m_loader;
+			ResourceLoader m_loader;
 
 			///
 			/// Contiguous resource array.
@@ -138,20 +138,20 @@ namespace galaxy
 			Holder<Resource> m_cache;
 		};
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline Cache<Resource, Loader>::Cache() noexcept
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline Cache<Resource, ResourceLoader>::Cache() noexcept
 			: m_loader {}
 		{
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline Cache<Resource, Loader>::~Cache()
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline Cache<Resource, ResourceLoader>::~Cache()
 		{
 			clear();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline std::shared_ptr<Resource> Cache<Resource, Loader>::create(const std::string& key, std::string_view file)
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline std::shared_ptr<Resource> Cache<Resource, ResourceLoader>::create(const std::string& key, std::string_view file)
 		{
 			auto resource = m_loader.create(file);
 
@@ -159,26 +159,26 @@ namespace galaxy
 			return resource;
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline void Cache<Resource, Loader>::create_from_folder(std::string_view folder)
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline void Cache<Resource, ResourceLoader>::create_from_folder(std::string_view folder)
 		{
 			m_cache = std::move(m_loader.create_from_folder(folder));
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline void Cache<Resource, Loader>::clear()
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline void Cache<Resource, ResourceLoader>::clear()
 		{
 			m_cache.clear();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline bool Cache<Resource, Loader>::has(const std::string& key) noexcept
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline bool Cache<Resource, ResourceLoader>::has(const std::string& key) noexcept
 		{
 			return m_cache.contains(key);
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline std::shared_ptr<Resource> Cache<Resource, Loader>::get(const std::string& key) noexcept
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline std::shared_ptr<Resource> Cache<Resource, ResourceLoader>::get(const std::string& key) noexcept
 		{
 			if (has(key))
 			{
@@ -188,26 +188,26 @@ namespace galaxy
 			return nullptr;
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline bool Cache<Resource, Loader>::empty() const noexcept
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline bool Cache<Resource, ResourceLoader>::empty() const noexcept
 		{
 			return m_cache.empty();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline Holder<Resource>& Cache<Resource, Loader>::cache() noexcept
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline Holder<Resource>& Cache<Resource, ResourceLoader>::cache() noexcept
 		{
 			return m_cache;
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline nlohmann::json Cache<Resource, Loader>::serialize()
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline nlohmann::json Cache<Resource, ResourceLoader>::serialize()
 		{
 			return m_loader.internal_serialize(m_cache);
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> Loader>
-		inline void Cache<Resource, Loader>::deserialize(const nlohmann::json& json)
+		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
+		inline void Cache<Resource, ResourceLoader>::deserialize(const nlohmann::json& json)
 		{
 			m_cache = m_loader.internal_deserialize(json);
 		}

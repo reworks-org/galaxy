@@ -8,6 +8,8 @@
 #ifndef GALAXY_STATE_LAYERSTACK_HPP_
 #define GALAXY_STATE_LAYERSTACK_HPP_
 
+#include <stack>
+
 #include <robin_hood.h>
 
 #include "galaxy/state/Layer.hpp"

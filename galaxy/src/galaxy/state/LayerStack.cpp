@@ -17,7 +17,6 @@ namespace galaxy
 	{
 		LayerStack::LayerStack() noexcept
 		{
-			m_stack.reserve(1);
 		}
 
 		LayerStack::~LayerStack() noexcept
@@ -58,10 +57,8 @@ namespace galaxy
 			{
 				return m_stack.back();
 			}
-			else
-			{
-				return nullptr;
-			}
+
+			return nullptr;
 		}
 
 		void LayerStack::push(const std::string& name)
@@ -196,7 +193,8 @@ namespace galaxy
 				ptr->deserialize(value);
 			}
 
-			std::vector<std::string> names(json.at("stack_size"));
+			std::vector<std::string> names;
+			names.resize(json.at("stack-size"));
 
 			const auto& layer_stack = json.at("layer_stack");
 			for (const auto& [key, value] : layer_stack.items())

@@ -1,3 +1,37 @@
+Batch Rendering:
+https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1
+https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/
+https://gamedev.stackexchange.com/questions/30362/drawing-lots-of-tiles-with-opengl-the-modern-way
+https://gamedev.stackexchange.com/questions/166048/animate-some-tiles-of-tile-map
+https://gamedev.stackexchange.com/questions/53716/optimal-opengl-2d-sprite-batching-best-practice
+
+texture atlas':
+https://stackoverflow.com/questions/25252512/how-can-i-pass-multiple-textures-to-a-single-shader
+https://www.khronos.org/opengl/wiki/Bindless_Texture
+
+bind all as different slots, max 16 i guess
+texture atlas max size is gl max texture size -> customizable
+texture index inrenderable is not texture ID rather texture SLOT.
+
+this way avoid having to rebind different atlas', can keep same atlas.
+- pass texture coord animated data to GPU as uniform?
+
+encode output of json
+- helps limit file size.
+- convert to base64 then zlib.
+
+Layers -> Game, Interiors, Pause, etc.
+    -> Share Resources, in a stack with only whats on top being processed.
+
+Scenes ->
+Game Menu, Game Itself, etc.
+    -> Do not share resources.
+
+BLOOM:
+https://github.com/lettier/3d-game-shaders-for-beginners/blob/master/sections/bloom.md
+https://learnopengl.com/Advanced-Lighting/Bloom
+https://github.com/kiwipxl/GLSL-shaders/blob/master/bloom.glsl
+
 - some resource managers unique to a scene?
     - audio encapsulation / scene integration
     - since its threaded
@@ -13,15 +47,8 @@ https://www.google.com/search?client=firefox-b-d&q=writing+a+2d+rendering+engine
 https://learnopengl.com/
 https://learnopengl.com/Getting-started/Camera
 https://learnopengl.com/Getting-started/Coordinate-Systems
-https://github.com/domre/galaxy
 
-https://gameprogrammingpatterns.com/
 https://www.minecraft.net/zh-hant/attribution
-INIT ORDER:
-LOGGING
-FILESYSTEM
-CONFIG
-
 https://scan.coverity.com/
 https://lgtm.com/help/lgtm/code-analysis
 

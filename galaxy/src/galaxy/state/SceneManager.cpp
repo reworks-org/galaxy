@@ -14,8 +14,6 @@
 
 using namespace std::chrono_literals;
 
-// todo encode output
-
 namespace galaxy
 {
 	namespace state
@@ -50,6 +48,8 @@ namespace galaxy
 		{
 			if (m_scenes.contains(name))
 			{
+				// need to draw loading screen?
+
 				m_current->unload();
 				m_current = m_scenes[name];
 				m_current->load();

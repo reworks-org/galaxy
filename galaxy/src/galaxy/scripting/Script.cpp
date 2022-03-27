@@ -25,8 +25,7 @@ namespace galaxy
 		{
 			m_file = static_cast<std::string>(file);
 
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto code_opt = fs.open(file);
 			if (code_opt.has_value())

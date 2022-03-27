@@ -57,6 +57,16 @@ namespace galaxy
 		concept standard_type = is_arithmetic<Type> || std::is_same<std::string, Type>::value;
 
 		///
+		/// \brief Tests for a type being a class, union, array, scalar or integral constant.
+		///
+		/// "Object" refers to any possibly cv-qualified type other than function, reference, or void types.
+		///
+		/// \tparam Type Type to test.
+		///
+		template<typename Type>
+		concept is_object = std::is_object<Type>::value;
+
+		///
 		/// Makes sure a value is a valid value for a std::bitset.
 		///
 		/// Must be an unsigned short between 0 and 7. i.e. 8 values.

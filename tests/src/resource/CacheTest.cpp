@@ -27,12 +27,22 @@ struct Loader final : public galaxy::resource::Loader<TestRes>
 		return ptr;
 	}
 
-	galaxy::resource::Holder<TestRes> create_from_json(std::string_view json_file) override
+	galaxy::resource::Holder<TestRes> create_from_folder(std::string_view json_file) override
 	{
 		galaxy::resource::Holder<TestRes> h;
 		h["test"] = std::make_shared<TestRes>(2);
 
 		return h;
+	}
+
+	nlohmann::json internal_serialize(galaxy::resource::Holder<TestRes>& holder) override
+	{
+		return {};
+	}
+
+	galaxy::resource::Holder<TestRes> internal_deserialize(const nlohmann::json& json) override
+	{
+		return {};
 	}
 };
 
@@ -63,7 +73,7 @@ TEST(Resource, CacheBatchCreate)
 	using TestCache = galaxy::resource::Cache<TestRes, Loader>;
 	TestCache cache;
 
-	cache.create_from_json("notneeded");
+	cache.create_from_folder("notneeded");
 
 	auto res = cache.get("test");
 	ASSERT_TRUE(res != nullptr);
@@ -77,7 +87,7 @@ TEST(Resource, CacheClear)
 	using TestCache = galaxy::resource::Cache<TestRes, Loader>;
 	TestCache cache;
 
-	cache.create_from_json("notneeded");
+	cache.create_from_folder("notneeded");
 
 	cache.clear();
 

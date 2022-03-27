@@ -36,6 +36,7 @@ namespace galaxy
 
 		void Layer::update()
 		{
+			m_camera.update();
 		}
 
 		void Layer::pre_render()
@@ -59,11 +60,14 @@ namespace galaxy
 		nlohmann::json Layer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
+			json["camera"]      = m_camera.serialize();
+
 			return json;
 		}
 
 		void Layer::deserialize(const nlohmann::json& json)
 		{
+			m_camera.deserialize(json.at("camera"));
 		}
 	} // namespace state
 } // namespace galaxy
@@ -171,7 +175,7 @@ namespace galaxy
 
 		void Layer::update()
 		{
-			m_camera.update();
+
 			m_world.update(this);
 			m_rml->Update();
 		}
@@ -231,7 +235,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 
 			json["name"]       = m_name;
-			json["camera"]     = m_camera.serialize();
+
 			json["world"]      = m_world.serialize();
 			json["active-map"] = m_active_map;
 			json["maps-path"]  = m_maps_path;
@@ -245,7 +249,7 @@ namespace galaxy
 		{
 			m_name = json.at("name");
 
-			m_camera.deserialize(json.at("camera"));
+
 			m_world.deserialize(json.at("world"));
 
 			m_active_map = json.at("active-map");

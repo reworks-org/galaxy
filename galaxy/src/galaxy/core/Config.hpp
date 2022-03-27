@@ -95,7 +95,7 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] std::optional<Value> get(const std::string& key);
+			[[nodiscard]] Value get(const std::string& key);
 
 			///
 			/// Retrieve a config value in a section.
@@ -109,7 +109,7 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] std::optional<Value> get(const std::string& key, const std::string& section, const std::string& delim = ".");
+			[[nodiscard]] Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Is the config file blank.
@@ -204,7 +204,7 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
-		inline std::optional<Value> Config::get(const std::string& key)
+		inline Value Config::get(const std::string& key)
 		{
 			if (m_loaded)
 			{
@@ -212,11 +212,7 @@ namespace galaxy
 
 				if (section.contains(key))
 				{
-					return std::make_optional(section[key].get<Value>());
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve value from key: '{0}' that does not exist.", key);
+					return section[key].get<Value>();
 				}
 			}
 			else
@@ -224,11 +220,12 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
 			}
 
-			return std::nullopt;
+			GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
+			return Value {};
 		}
 
 		template<meta::standard_type Value>
-		inline std::optional<Value> Config::get(const std::string& key, const std::string& section, const std::string& delim)
+		inline Value Config::get(const std::string& key, const std::string& section, const std::string& delim)
 		{
 			if (m_loaded)
 			{
@@ -242,24 +239,12 @@ namespace galaxy
 						const auto& obj = root[section];
 						if (obj.contains(key))
 						{
-							if constexpr (std::is_same<Value, std::string>::value)
-							{
-								auto res = obj[key].get<std::string>();
-								if (res.empty())
-								{
-									return std::nullopt;
-								}
-
-								return std::make_optional(res);
-							}
-							else
-							{
-								return std::make_optional(obj[key].get<Value>());
-							}
+							return obj[key].get<Value>();
 						}
 					}
 
-					return std::nullopt;
+					GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
+					return Value {};
 				}
 				else
 				{
@@ -275,10 +260,11 @@ namespace galaxy
 
 					if (leaf->contains(key))
 					{
-						return std::make_optional((*leaf)[key].get<Value>());
+						return (*leaf)[key].get<Value>();
 					}
 
-					return std::nullopt;
+					GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
+					return Value {};
 				}
 			}
 			else
@@ -286,7 +272,8 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
 			}
 
-			return std::nullopt;
+			GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
+			return Value {};
 		}
 	} // namespace core
 } // namespace galaxy

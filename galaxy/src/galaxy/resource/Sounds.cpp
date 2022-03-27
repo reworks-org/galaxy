@@ -20,16 +20,6 @@ namespace galaxy
 		{
 		}
 
-		Sounds::Sounds(std::string_view folder)
-		{
-			create_from_folder(folder);
-		}
-
-		Sounds::Sounds(const nlohmann::json& json)
-		{
-			internal_deserialize(json);
-		}
-
 		std::shared_ptr<audio::Sound> Sounds::create(std::string_view file)
 		{
 			auto sound = std::make_shared<audio::Sound>();

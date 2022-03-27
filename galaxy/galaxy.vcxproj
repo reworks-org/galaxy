@@ -11,6 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Camera.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
+    <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
     <ClCompile Include="src\galaxy\audio\Buffer.cpp" />
     <ClCompile Include="src\galaxy\audio\BufferStream.cpp" />
@@ -80,6 +88,7 @@
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\meta\Memory.cpp" />
     <ClCompile Include="src\galaxy\meta\StaticId.cpp" />
     <ClCompile Include="src\galaxy\meta\UniqueId.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
@@ -90,6 +99,7 @@
     <ClCompile Include="src\galaxy\resource\Language.cpp" />
     <ClCompile Include="src\galaxy\resource\Loader.cpp" />
     <ClCompile Include="src\galaxy\resource\Musical.cpp" />
+    <ClCompile Include="src\galaxy\resource\Resources.cpp" />
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
@@ -104,6 +114,14 @@
     <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Camera.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />
+    <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
     <ClInclude Include="src\galaxy\audio\Buffer.hpp" />
     <ClInclude Include="src\galaxy\audio\BufferStream.hpp" />
@@ -173,6 +191,7 @@
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\meta\Memory.hpp" />
     <ClInclude Include="src\galaxy\meta\StaticId.hpp" />
     <ClInclude Include="src\galaxy\meta\UniqueId.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
@@ -183,6 +202,7 @@
     <ClInclude Include="src\galaxy\resource\Language.hpp" />
     <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\resource\Musical.hpp" />
+    <ClInclude Include="src\galaxy\resource\Resources.hpp" />
     <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />

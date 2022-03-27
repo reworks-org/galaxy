@@ -23,6 +23,7 @@ namespace galaxy
 			, m_depth_attachment {0}
 			, m_depth_renderbuffer {0}
 			, m_max_attachments {0}
+			, m_clear_colour {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 		}
 
@@ -33,6 +34,7 @@ namespace galaxy
 			, m_depth_attachment {0}
 			, m_depth_renderbuffer {0}
 			, m_max_attachments {0}
+			, m_clear_colour {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 			init(width, height);
 		}
@@ -49,6 +51,7 @@ namespace galaxy
 			this->m_attachments      = std::move(f.m_attachments);
 			this->m_renderbuffers    = std::move(f.m_renderbuffers);
 			this->m_used_attachments = std::move(f.m_used_attachments);
+			this->m_clear_colour     = std::move(f.m_clear_colour);
 
 			f.m_fbo                = 0;
 			f.m_depth_attachment   = 0;
@@ -73,6 +76,7 @@ namespace galaxy
 				this->m_attachments      = std::move(f.m_attachments);
 				this->m_renderbuffers    = std::move(f.m_renderbuffers);
 				this->m_used_attachments = std::move(f.m_used_attachments);
+				this->m_clear_colour     = std::move(f.m_clear_colour);
 
 				f.m_fbo                = 0;
 				f.m_depth_attachment   = 0;
@@ -152,7 +156,7 @@ namespace galaxy
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, gl_type, nullptr);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
-				if (config.get<int>("trilinear_filtering", "graphics").value())
+				if (config.get<int>("trilinear_filtering", "graphics"))
 				{
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -165,7 +169,7 @@ namespace galaxy
 
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, config.get<float>("ansiotrophic_filtering", "graphics").value());
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
 
 				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()), GL_TEXTURE_2D, texture, 0);
 				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + static_cast<GLenum>(m_used_attachments.size()));
@@ -347,7 +351,7 @@ namespace galaxy
 
 			if (clear)
 			{
-				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+				glClearColor(m_clear_colour[0], m_clear_colour[1], m_clear_colour[2], m_clear_colour[3]);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			}
 		}
@@ -359,15 +363,22 @@ namespace galaxy
 
 		void Framebuffer::clear() noexcept
 		{
-			thread_local constexpr const std::array<float, 4> CLEAR_COL = {0.0f, 0.0f, 0.0f, 0.0f};
-			thread_local constexpr const float CLEAR_DEPTH              = 1.0f;
-
 			for (const auto& index : m_used_attachments)
 			{
-				glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, CLEAR_COL.data());
+				glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 			}
 
+			static const constexpr auto CLEAR_DEPTH = 1.0f;
 			glClearNamedFramebufferfv(m_fbo, GL_DEPTH, 0, &CLEAR_DEPTH);
+		}
+
+		void Framebuffer::set_clear_colour(graphics::Colour& col) noexcept
+		{
+			auto vec4         = col.normalized();
+			m_clear_colour[0] = vec4.x;
+			m_clear_colour[1] = vec4.y;
+			m_clear_colour[2] = vec4.z;
+			m_clear_colour[3] = vec4.w;
 		}
 
 		int Framebuffer::get_width() const noexcept

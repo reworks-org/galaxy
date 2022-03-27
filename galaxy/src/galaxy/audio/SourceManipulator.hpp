@@ -35,19 +35,19 @@ namespace galaxy
 			///
 			/// Plays source from beginning or pause point.
 			///
-			virtual void play() = 0;
+			virtual void play() noexcept = 0;
 
 			///
 			/// Pause source.
 			///
-			virtual void pause() = 0;
+			virtual void pause() noexcept = 0;
 
 			///
 			/// \brief Stop source.
 			///
 			/// Starts again from beginning.
 			///
-			virtual void stop() = 0;
+			virtual void stop() noexcept = 0;
 
 			///
 			/// Audio pitch.
@@ -112,7 +112,7 @@ namespace galaxy
 			///
 			/// \param looping True to repeat.
 			///
-			virtual void set_looping(const bool looping) = 0;
+			virtual void set_looping(const bool looping) noexcept = 0;
 
 			///
 			/// Retrieve OpenAL source state.
@@ -182,7 +182,7 @@ namespace galaxy
 			///
 			/// \return Const bool.
 			///
-			[[nodiscard]] virtual bool get_looping() = 0;
+			[[nodiscard]] virtual bool get_looping() noexcept = 0;
 
 		protected:
 			///

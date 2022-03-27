@@ -9,6 +9,7 @@
 #define GALAXY_STATE_LAYER_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/Camera.hpp"
 
 namespace galaxy
 {
@@ -101,6 +102,11 @@ namespace galaxy
 			/// Layer name.
 			///
 			std::string m_name;
+
+			///
+			/// Camera.
+			///
+			graphics::Camera m_camera;
 		};
 	} // namespace state
 } // namespace galaxy
@@ -161,10 +167,7 @@ namespace Rml
 			[[nodiscard]] map::Map* get_active_map();
 
 
-			///
-			/// Camera.
-			///
-			graphics::Camera2D m_camera;
+
 
 			///
 			/// Entity/System manager.

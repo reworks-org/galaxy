@@ -97,21 +97,18 @@ namespace galaxy
 			lua.set_function("decode_zlib", &algorithm::decode_zlib);
 
 			/* CORE */
-			auto config_type          = lua.new_usertype<core::Config>("Config", sol::no_constructor);
-			config_type["load"]       = &core::Config::load;
-			config_type["save"]       = &core::Config::save;
-			config_type["get_bool"]   = sol::resolve<std::optional<bool>(const std::string&)>(&core::Config::get<bool>);
-			config_type["get_int"]    = sol::resolve<std::optional<int>(const std::string&)>(&core::Config::get<int>);
-			config_type["get_float"]  = sol::resolve<std::optional<float>(const std::string&)>(&core::Config::get<float>);
-			config_type["get_string"] = sol::resolve<std::optional<std::string>(const std::string&)>(&core::Config::get<std::string>);
-			config_type["get_section_bool"] =
-				sol::resolve<std::optional<bool>(const std::string&, const std::string&, const std::string&)>(&core::Config::get<bool>);
-			config_type["get_section_int"] =
-				sol::resolve<std::optional<int>(const std::string&, const std::string&, const std::string&)>(&core::Config::get<int>);
-			config_type["get_section_float"] =
-				sol::resolve<std::optional<float>(const std::string&, const std::string&, const std::string&)>(&core::Config::get<float>);
+			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
+			config_type["load"]              = &core::Config::load;
+			config_type["save"]              = &core::Config::save;
+			config_type["get_bool"]          = sol::resolve<bool(const std::string&)>(&core::Config::get<bool>);
+			config_type["get_int"]           = sol::resolve<int(const std::string&)>(&core::Config::get<int>);
+			config_type["get_float"]         = sol::resolve<float(const std::string&)>(&core::Config::get<float>);
+			config_type["get_string"]        = sol::resolve<std::string(const std::string&)>(&core::Config::get<std::string>);
+			config_type["get_section_bool"]  = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&core::Config::get<bool>);
+			config_type["get_section_int"]   = sol::resolve<int(const std::string&, const std::string&, const std::string&)>(&core::Config::get<int>);
+			config_type["get_section_float"] = sol::resolve<float(const std::string&, const std::string&, const std::string&)>(&core::Config::get<float>);
 			config_type["get_section_string"] =
-				sol::resolve<std::optional<std::string>(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
+				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
 			lua["service_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
 

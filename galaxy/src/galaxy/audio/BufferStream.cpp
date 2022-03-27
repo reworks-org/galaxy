@@ -23,6 +23,7 @@ namespace galaxy
 			, m_data {nullptr}
 			, m_stream {nullptr}
 			, m_format {0}
+			, m_info {}
 		{
 			alGenBuffers(2, &m_buffers[0]);
 
@@ -79,6 +80,7 @@ namespace galaxy
 					if (!m_stream)
 					{
 						GALAXY_LOG(GALAXY_ERROR, "STB failed to load '{0}'.", file);
+						return false;
 					}
 					else
 					{
@@ -92,6 +94,8 @@ namespace galaxy
 
 						stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
 						alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+
+						return true;
 					}
 				}
 				else

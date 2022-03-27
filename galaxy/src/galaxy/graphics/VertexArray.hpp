@@ -50,7 +50,7 @@ namespace galaxy
 			/// \param vb VBO to specify for VAO. Takes ownership.
 			/// \param ib IBO to specify for VAO. Takes ownership.
 			///
-			void create(std::unique_ptr<VertexBuffer> vb, std::unique_ptr<IndexBuffer> ib) noexcept;
+			void create(std::unique_ptr<VertexBuffer>& vb, std::unique_ptr<IndexBuffer>& ib) noexcept;
 
 			///
 			/// Enable instancing for this vertex array.

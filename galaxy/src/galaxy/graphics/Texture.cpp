@@ -83,7 +83,7 @@ namespace galaxy
 					glTextureSubImage2D(m_texture, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, data);
 					glGenerateTextureMipmap(m_texture);
 
-					if (config.get<int>("trilinear_filtering", "graphics").value())
+					if (config.get<int>("trilinear_filtering", "graphics"))
 					{
 						glTextureParameteri(m_texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 						glTextureParameteri(m_texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -96,7 +96,7 @@ namespace galaxy
 
 					glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 					glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-					glTextureParameteri(m_texture, GL_TEXTURE_MAX_ANISOTROPY, config.get<float>("ansiotrophic_filtering", "graphics").value());
+					glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
 				}
 				else
 				{
@@ -124,7 +124,7 @@ namespace galaxy
 				glTextureSubImage2D(m_texture, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, data);
 				glGenerateTextureMipmap(m_texture);
 
-				if (config.get<int>("trilinear_filtering", "graphics").value())
+				if (config.get<int>("trilinear_filtering", "graphics"))
 				{
 					glTextureParameteri(m_texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 					glTextureParameteri(m_texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -137,7 +137,7 @@ namespace galaxy
 
 				glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-				glTextureParameteri(m_texture, GL_TEXTURE_MAX_ANISOTROPY, config.get<float>("ansiotrophic_filtering", "graphics").value());
+				glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
 			}
 			else
 			{
@@ -161,7 +161,7 @@ namespace galaxy
 
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
-			glGetTextureImage(m_texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.size(), pixels.data());
+			glGetTextureImage(m_texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
 			stbi_write_png(full.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
@@ -207,7 +207,7 @@ namespace galaxy
 
 		void Texture::set_anisotropy(const int level) noexcept
 		{
-			glTextureParameteri(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(level));
+			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(level));
 		}
 
 		int Texture::get_width() const noexcept

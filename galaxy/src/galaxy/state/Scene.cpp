@@ -26,15 +26,17 @@ namespace galaxy
 		void Scene::load()
 		{
 			// Need to only load shaders for this scene.
-			m_shaders.deserialize(m_deserialization_json["resource_shaders"]);
-			m_sounds.deserialize(m_deserialization_json["resource_sounds"]);
-			m_music.deserialize(m_deserialization_json["resource_music"]);
+			m_resources.m_shaders.deserialize(m_deserialization_json["resource_shaders"]);
+			m_resources.m_sounds.deserialize(m_deserialization_json["resource_sounds"]);
+			m_resources.m_music.deserialize(m_deserialization_json["resource_music"]);
 		}
 
 		void Scene::unload()
 		{
 			m_layer_stack.clear();
-			m_shaders.clear();
+			m_resources.m_shaders.clear();
+			m_resources.m_sounds.clear();
+			m_resources.m_music.clear();
 		}
 
 		void Scene::events()
@@ -72,20 +74,15 @@ namespace galaxy
 			return m_layer_stack;
 		}
 
-		ShaderCache& Scene::shader_cache() noexcept
-		{
-			return m_shaders;
-		}
-
 		nlohmann::json Scene::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["stack"]       = m_layer_stack.serialize();
 
-			json["resource_shaders"] = m_shaders.serialize();
-			json["resource_sounds"]  = m_sounds.serialize();
-			json["resource_music"]   = m_music.serialize();
+			json["resource_shaders"] = m_resources.m_shaders.serialize();
+			json["resource_sounds"]  = m_resources.m_sounds.serialize();
+			json["resource_music"]   = m_resources.m_music.serialize();
 
 			return json;
 		}

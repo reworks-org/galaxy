@@ -45,19 +45,19 @@ namespace galaxy
 			///
 			/// Plays music from beginning or pause point.
 			///
-			void play() override;
+			void play() noexcept override;
 
 			///
 			/// Pause music.
 			///
-			void pause() override;
+			void pause() noexcept override;
 
 			///
 			/// \brief Stop music.
 			///
 			/// Starts again from beginning.
 			///
-			void stop() override;
+			void stop() noexcept override;
 
 			///
 			/// Load a file to stream from disk.
@@ -73,14 +73,14 @@ namespace galaxy
 			///
 			/// \param looping True to repeat.
 			///
-			void set_looping(const bool looping) override;
+			void set_looping(const bool looping) noexcept override;
 
 			///
 			/// Get audio looping state.
 			///
 			/// \return Const bool.
 			///
-			[[nodiscard]] bool get_looping() override;
+			[[nodiscard]] bool get_looping() noexcept override;
 
 			///
 			/// Serializes object.

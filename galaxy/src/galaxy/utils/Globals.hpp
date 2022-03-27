@@ -21,10 +21,6 @@ namespace DoNotUseReferToConfigForMacroNames
 
 	inline static auto GALAXY_RESTART_FLAG = false;
 
-	inline static constexpr const char* VERTEX_EXT_VAR          = ".vs";
-	inline static constexpr const char* FRAG_EXT_VAR            = ".fs";
-	inline static constexpr const auto IDENTITY_MATRIX_INIT_VAL = 1.0f;
-
 	inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
 } // namespace DoNotUseReferToConfigForMacroNames
 
@@ -71,17 +67,28 @@ namespace DoNotUseReferToConfigForMacroNames
 ///
 /// Extension to use when loading vertex shaders.
 ///
-#define GALAXY_VERTEX_EXT DoNotUseReferToConfigForMacroNames::VERTEX_EXT_VAR
+#define GALAXY_VERTEX_EXT ".vs"
 
 ///
 /// Extension to use when loading fragment shaders.
 ///
-#define GALAXY_FRAGMENT_EXT DoNotUseReferToConfigForMacroNames::FRAG_EXT_VAR
+#define GALAXY_FRAGMENT_EXT ".fs"
 
 ///
 /// Value used for identity matrix initialization.
 ///
-#define GALAXY_IDENTITY_MATRIX DoNotUseReferToConfigForMacroNames::IDENTITY_MATRIX_INIT_VAL
+#define GALAXY_IDENTITY_MATRIX 1.0f
+
+///
+/// Index of camera uniform buffer in shaders.
+///
+#define GAlAXY_CAMERA_UBO_INDEX 0
+
+///
+/// Amount of items in a std::vector to initially reserve for the renderer
+/// This is to help prevent needless reallocations.
+///
+#define GALAXY_DEFAULT_RENDERER_RESERVED 1000
 
 ///
 /// Current root directory of application, unless it has been changed.

@@ -43,17 +43,17 @@ namespace galaxy
 			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
 		}
 
-		void Music::play()
+		void Music::play() noexcept
 		{
 			alSourcePlay(m_source.handle());
 		}
 
-		void Music::pause()
+		void Music::pause() noexcept
 		{
 			alSourcePause(m_source.handle());
 		}
 
-		void Music::stop()
+		void Music::stop() noexcept
 		{
 			alSourceStop(m_source.handle());
 
@@ -93,12 +93,12 @@ namespace galaxy
 			return false;
 		}
 
-		void Music::set_looping(const bool looping)
+		void Music::set_looping(const bool looping) noexcept
 		{
 			m_looping = looping;
 		}
 
-		bool Music::get_looping()
+		bool Music::get_looping() noexcept
 		{
 			return m_looping;
 		}
@@ -158,15 +158,15 @@ namespace galaxy
 				set_cone(cone_json.at("outer-gain"), cone_json.at("inner-gain"), cone_json.at("inner-angle"));
 
 				const auto& pos_json = json.at("pos");
-				glm::vec3 pos        = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
+				const glm::vec3 pos  = {pos_json.at("x"), pos_json.at("y"), pos_json.at("z")};
 				set_position(pos);
 
 				const auto& vel_json = json.at("vel");
-				glm::vec3 vel        = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
+				const glm::vec3 vel  = {vel_json.at("x"), vel_json.at("y"), vel_json.at("z")};
 				set_velocity(vel);
 
 				const auto& dir_json = json.at("dir");
-				glm::vec3 dir        = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
+				const glm::vec3 dir  = {dir_json.at("x"), dir_json.at("y"), dir_json.at("z")};
 				set_direction(dir);
 
 				const bool is_playing = json.at("is-playing");

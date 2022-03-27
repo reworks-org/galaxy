@@ -20,16 +20,6 @@ namespace galaxy
 		{
 		}
 
-		Musical::Musical(std::string_view folder)
-		{
-			create_from_folder(folder);
-		}
-
-		Musical::Musical(const nlohmann::json& json)
-		{
-			internal_deserialize(json);
-		}
-
 		std::shared_ptr<audio::Music> Musical::create(std::string_view file)
 		{
 			auto sound = std::make_shared<audio::Music>();

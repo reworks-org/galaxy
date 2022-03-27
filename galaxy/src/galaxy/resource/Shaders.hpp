@@ -34,20 +34,6 @@ namespace galaxy
 			Shaders() noexcept;
 
 			///
-			/// Argument Constructor.
-			///
-			/// \param folder Folder to recursively search for files.
-			///
-			Shaders(std::string_view folder);
-
-			///
-			/// Deserialization Constructor.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			Shaders(const nlohmann::json& json);
-
-			///
 			/// Destructor.
 			///
 			virtual ~Shaders() noexcept = default;

@@ -8,30 +8,13 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
-#include "galaxy/resource/Cache.hpp"
-#include "galaxy/resource/Musical.hpp"
-#include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/Sounds.hpp"
+#include "galaxy/resource/Resources.hpp"
 #include "galaxy/state/LayerStack.hpp"
 
 namespace galaxy
 {
 	namespace state
 	{
-		///
-		/// Typedef for shader cache.
-		///
-		using ShaderCache = resource::Cache<graphics::Shader, resource::Shaders>;
-
-		///
-		/// Typedef for sound cache.
-		///
-		using SoundCache = resource::Cache<audio::Sound, resource::Sounds>;
-
-		///
-		/// Typedef for music cache.
-		///
-		using MusicCache = resource::Cache<audio::Music, resource::Musical>;
 
 		///
 		/// Represents a scene in a game. Like the menu, game, etc.
@@ -103,13 +86,6 @@ namespace galaxy
 			[[nodiscard]] LayerStack& get_stack() noexcept;
 
 			///
-			/// Get shader cache.
-			///
-			/// \return Ref to shader cache.
-			///
-			[[nodiscard]] ShaderCache& shader_cache() noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -135,19 +111,9 @@ namespace galaxy
 			LayerStack m_layer_stack;
 
 			///
-			/// Shader cache.
+			/// Resources used by scene.
 			///
-			ShaderCache m_shaders;
-
-			///
-			/// Sound cache.
-			///
-			SoundCache m_sounds;
-
-			///
-			/// Music cache.
-			///
-			MusicCache m_music;
+			resource::Resources m_resources;
 
 			///
 			/// Backup of deserialization JSON.
