@@ -1,33 +1,30 @@
 ///
-/// Camera2D.hpp
+/// Camera.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_CAMERA2D_HPP_
-#define GALAXY_GRAPHICS_CAMERA2D_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA_HPP_
+#define GALAXY_GRAPHICS_CAMERA_HPP_
 
-#include <glm/matrix.hpp>
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
+#include <glm/mat4x4.hpp>
 
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/math/AABB.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
 		///
-		/// Defines a Camera2D (view) of an OpenGL 2D space.
+		/// Orthographic 2D camera.
 		///
-		class Camera2D final : public fs::Serializable
+		class Camera final : public fs::Serializable
 		{
 		public:
 			///
@@ -38,47 +35,47 @@ namespace galaxy
 				///
 				/// Combined transformation matrix.
 				///
-				alignas(16) glm::mat4 m_model_view = glm::mat4 {1.0f};
+				alignas(16) glm::mat4 m_model_view = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 
 				///
-				/// Camera2D projection matrix.
+				/// Camera projection matrix.
 				///
-				alignas(16) glm::mat4 m_projection = glm::mat4 {1.0f};
+				alignas(16) glm::mat4 m_projection = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 			};
 
 			///
 			/// Constructor.
 			///
-			Camera2D() noexcept;
+			Camera() noexcept;
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON object.
 			///
-			Camera2D(const nlohmann::json& json) noexcept;
+			Camera(const nlohmann::json& json) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Camera2D() noexcept = default;
+			virtual ~Camera() noexcept = default;
 
 			///
-			///	Event processing method for key down for Camera2D.
+			///	Event processing method for key down for Camera.
 			///
 			/// \param e Takes in a shared galaxy event defining a key press down.
 			///
 			void on_event(const events::KeyDown& e) noexcept;
 
 			///
-			/// Event processing method for key up for Camera2D.
+			/// Event processing method for key up for Camera.
 			///
 			/// \param e Takes in a shared galaxy event defining a key release.
 			///
 			void on_event(const events::KeyUp& e) noexcept;
 
 			///
-			/// Event processing method for scroll event for Camera2D.
+			/// Event processing method for scroll event for Camera.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
@@ -92,7 +89,7 @@ namespace galaxy
 			void on_event(const events::WindowResized& e) noexcept;
 
 			///
-			/// Update method for Camera2D.
+			/// Update method for Camera.
 			///
 			void update() noexcept;
 
@@ -108,7 +105,7 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// Zoom Camera2D.
+			/// Zoom Camera.
 			///
 			/// \param scale Scale. Multiplier. 1.0f - 10.0f.
 			///
@@ -123,53 +120,46 @@ namespace galaxy
 			void set_pos(const float x, const float y) noexcept;
 
 			///
-			/// Set the speed of the Camera2D.
+			/// Set the speed of the Camera.
 			///
-			/// \param speed Speed of the Camera2D. Multiplicative float.
+			/// \param speed Speed of the Camera. Multiplicative float.
 			///
 			void set_speed(const float speed) noexcept;
 
 			///
-			/// Get Camera2D speed.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_speed() const noexcept;
-
-			///
-			/// Get Camera2D width.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_width() const noexcept;
-
-			///
-			/// Get Camera2D height.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_height() const noexcept;
-
-			///
 			/// Get flag indicating if transform needs to be applied before rendering.
 			///
-			/// \return Const boolean.
+			/// \return Boolean.
 			///
-			[[nodiscard]] const bool is_dirty() const noexcept;
+			[[nodiscard]] bool is_dirty() const noexcept;
 
 			///
-			/// Retrieve internal transformation matrix.
+			/// Get Camera speed.
 			///
-			/// \return Reference to internal glm::mat4.
+			/// \return Const float.
 			///
-			[[nodiscard]] const glm::mat4& get_view() noexcept;
+			[[nodiscard]] float get_speed() const noexcept;
+
+			///
+			/// Get Camera width.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_width() const noexcept;
+
+			///
+			/// Get Camera height.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_height() const noexcept;
 
 			///
 			/// Get stored scale cache.
 			///
-			/// \return Const float.
+			/// \return Float.
 			///
-			[[nodiscard]] const float get_scale() const noexcept;
+			[[nodiscard]] float get_scale() const noexcept;
 
 			///
 			/// Get stored pos cache.
@@ -179,7 +169,14 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
 			///
-			/// Get the Camera2D projection.
+			/// Retrieve internal transformation matrix.
+			///
+			/// \return Reference to internal glm::mat4.
+			///
+			[[nodiscard]] const glm::mat4& get_view() noexcept;
+
+			///
+			/// Get the Camera projection.
 			///
 			/// \return Const glm::mat4 reference.
 			///
@@ -191,13 +188,6 @@ namespace galaxy
 			/// \return Reference to camera data.
 			///
 			[[nodiscard]] Data& get_data() noexcept;
-
-			///
-			/// Get camera aabb.
-			///
-			/// \return Reference to camera aabb.
-			///
-			[[nodiscard]] math::AABB& get_aabb() noexcept;
 
 			///
 			/// Serializes object.
@@ -215,7 +205,7 @@ namespace galaxy
 
 		private:
 			///
-			/// Configures Camera2D for window model view projection.
+			/// Configures Camera for window model view projection.
 			///
 			/// \param left Left point of ortho perspective.
 			/// \param right Right point of ortho perspective.
@@ -312,11 +302,6 @@ namespace galaxy
 			/// Camera data.
 			///
 			Data m_data;
-
-			///
-			/// AABB Cache.
-			///
-			math::AABB m_aabb;
 		};
 	} // namespace graphics
 } // namespace galaxy

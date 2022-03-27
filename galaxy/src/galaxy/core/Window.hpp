@@ -12,6 +12,7 @@
 
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/EventQueue.hpp"
+#include "galaxy/graphics/PostProcess.hpp"
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
@@ -86,6 +87,16 @@ namespace galaxy
 			/// Poll for events.
 			///
 			void poll_events() noexcept;
+
+			///
+			/// Prepare window for rendering.
+			///
+			void begin();
+
+			///
+			/// Finalize rendering.
+			///
+			void end();
 
 			///
 			/// Resizes window.
@@ -239,6 +250,11 @@ namespace galaxy
 			int m_height;
 
 			///
+			/// Post processor.
+			///
+			std::unique_ptr<graphics::PostProcess> m_postprocess;
+
+			///
 			/// Event queue.
 			///
 			events::Queue m_event_queue;
@@ -295,18 +311,6 @@ namespace galaxy
 #endif
 
 /*
-///
-			/// Prepare renderers to render.
-			///
-			void begin();
-
-			///
-			/// Draw renderer contents to screen.
-			///
-			void end();
-
-
-
 			///
 			/// \brief See if a key is being held down.
 			///
@@ -345,8 +349,6 @@ namespace galaxy
 			///
 			[[nodiscard]] const bool mouse_button_released(input::MouseButtons mouse_button) noexcept;
 
-
-
 			///
 			/// Get mouse wheel delta.
 			///
@@ -361,10 +363,6 @@ namespace galaxy
 			///
 			[[nodiscard]] glm::vec2 get_cursor_pos() noexcept;
 
-
-
-
-
 			///
 			/// Get cursor size.
 			///
@@ -373,8 +371,5 @@ namespace galaxy
 			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
 
 		private:
-			///
-			/// Post processor.
-			///
-			std::unique_ptr<graphics::PostProcessor> m_post_processor;
+
 */

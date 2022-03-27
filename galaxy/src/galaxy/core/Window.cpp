@@ -12,6 +12,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/StringUtils.hpp"
@@ -342,6 +343,20 @@ namespace galaxy
 						glDepthFunc(GL_LEQUAL);
 						glBlendEquation(GL_FUNC_ADD);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+						// Configure renderer and post processing.
+						graphics::Renderer::init();
+						m_postprocess = std::make_unique<graphics::PostProcess>(m_width, m_height);
+
+						if (settings.m_enable_aa)
+						{
+							m_postprocess->add<graphics::SMAA>(m_width, m_height);
+						}
+
+						if (settings.m_enable_sharpen)
+						{
+							m_postprocess->add<graphics::Sharpen>(m_width, m_height);
+						}
 					}
 				}
 			}
@@ -416,6 +431,8 @@ namespace galaxy
 
 		void Window::destroy()
 		{
+			graphics::Renderer::destroy();
+
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
@@ -436,11 +453,38 @@ namespace galaxy
 			glfwPollEvents();
 		}
 
+		void Window::begin()
+		{
+			m_postprocess->bind();
+		}
+
+		void Window::end()
+		{
+			graphics::Renderer::draw();
+			m_postprocess->render_effects();
+
+			// Final Output.
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glViewport(0, 0, m_width, m_height);
+
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			m_postprocess->render_output();
+
+			glfwSwapBuffers(m_window);
+
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glBindVertexArray(0);
+			glUseProgram(0);
+		}
+
 		void Window::resize(const int width, const int height) noexcept
 		{
 			m_width  = width;
 			m_height = height;
 
+			m_postprocess->resize(width, height);
 			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 
@@ -513,28 +557,7 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-void Window::begin()
-		{
-			RENDERER_2D().prepare();
-			m_post_processor->bind();
-		}
 
-		void Window::end()
-		{
-			RENDERER_2D().draw();
-			m_post_processor->render_effects();
-
-			// Final Output.
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, m_width, m_height);
-
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			m_post_processor->render_output();
-
-			glfwSwapBuffers(m_window);
-		}
 
 
 

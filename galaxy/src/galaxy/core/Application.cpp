@@ -80,23 +80,10 @@ namespace galaxy
 				config.set<int>("ansiotrophic_filtering", 2, "graphics");
 				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
 				config.set<std::string>("lang_folder", "lang/", "resource_folders");
+				config.set<bool>("enable_aa", true, "graphics");
+				config.set<bool>("enable_sharpen", false, "graphics");
 
-				// config.set<bool>("anti-aliasing", false);
-				// config.set<bool>("sharpen", false);
-				// config.set<float>("audio-volume", 0.7f);
 				// config.set<std::string>("logo", "logo.png");
-				// config.set<std::string>("cursor-image", "cursor.png");
-				// config.set<std::string>("icon-file", "icon.png");
-				// config.set<std::string>("fontbook-json", "fontbook.json");
-				// config.set<std::string>("scriptbook-json", "scriptbook.json");
-				// config.set<std::string>("texturebook-json", "texturebook.json");
-				// config.set<std::string>("soundbook-json", "soundbook.json");
-				// config.set<std::string>("musicbook-json", "musicbook.json");
-				// config.set<std::string>("renderlayers-json", "renderlayers.json");
-				// config.set<std::string>("key-forward", "W");
-				// config.set<std::string>("key-back", "S");
-				// config.set<std::string>("key-left", "A");
-				// config.set<std::string>("key-right", "D");
 
 				config.save();
 			}
@@ -105,9 +92,9 @@ namespace galaxy
 			// VIRTUAL FILE SYSTEM.
 			//
 			auto root_opt = config.get<std::string>("asset-dir");
-			if (root_opt.has_value())
+			if (!root_opt.empty())
 			{
-				auto& root = root_opt.value();
+				auto& root = root_opt;
 				if (root.back() != '/')
 				{
 					root += '/';
@@ -122,13 +109,16 @@ namespace galaxy
 				// create_asset_layout(root, "json/");
 				// create_asset_layout(root, "scripts/actions/");
 				// create_asset_layout(root, "scripts/definitions/");
-				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders").value());
+				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));
 				// create_asset_layout(root, "textures/");
 				// create_asset_layout(root, "maps/");
-				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders").value());
+				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 
 				// Generate default language file.
-				fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders").value() + "en_au.lua");
+				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lua"))
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
+				}
 			}
 			else
 			{
@@ -139,8 +129,8 @@ namespace galaxy
 			// LANGUAGES.
 			//
 			auto& lang = ServiceLocator<resource::Language>::make();
-			lang.load(config.get<std::string>("lang_folder", "resource_folders").value());
-			lang.set(config.get<std::string>("default_lang").value());
+			lang.load(config.get<std::string>("lang_folder", "resource_folders"));
+			lang.set(config.get<std::string>("default_lang"));
 
 			//
 			// WINDOW
@@ -149,37 +139,39 @@ namespace galaxy
 			// clang-format off
 			const auto window_settings = WindowSettings
 			{
-				.m_title = config.get<std::string>("title", "window").value(),
-				.m_width = config.get<int>("width", "window").value(),
-				.m_height = config.get<int>("width", "window").value(),
-				.m_vsync = config.get<bool>("vsync", "window").value(),
-				.m_maximized = config.get<bool>("maximized", "window").value(),
-				.m_debug = config.get<bool>("debug", "window").value(),
-				.m_scale_to_monitor = config.get<bool>("scale_to_monitor", "window").value()
+				.m_title = config.get<std::string>("title", "window"),
+				.m_width = config.get<int>("width", "window"),
+				.m_height = config.get<int>("width", "window"),
+				.m_vsync = config.get<bool>("vsync", "window"),
+				.m_maximized = config.get<bool>("maximized", "window"),
+				.m_debug = config.get<bool>("debug", "window"),
+				.m_scale_to_monitor = config.get<bool>("scale_to_monitor", "window"),
+				.m_enable_aa = config.get<bool>("enable_aa", "graphics"),
+				.m_enable_sharpen= config.get<bool>("enable_sharpen", "graphics")
 			};
 			// clang-format on
 
 			auto& window = ServiceLocator<Window>::make(window_settings);
 
-			auto allow_native_closing = config.get<bool>("allow_native_closing", "window").value();
+			auto allow_native_closing = config.get<bool>("allow_native_closing", "window");
 			if (!allow_native_closing)
 			{
 				window.prevent_native_closing();
 			}
 
 			auto icon = config.get<std::string>("icon", "window");
-			if (icon.has_value())
+			if (!icon.empty())
 			{
-				window.set_icon(icon.value());
+				window.set_icon(icon);
 			}
 
 			auto& cursor = window.get_input<input::Cursor>();
-			cursor.toggle(config.get<bool>("visible_cursor", "window").value());
+			cursor.toggle(config.get<bool>("visible_cursor", "window"));
 
 			auto cursor_icon = config.get<std::string>("cursor_icon", "window");
-			if (cursor_icon.has_value())
+			if (!cursor_icon.empty())
 			{
-				cursor.set_cursor_icon(cursor_icon.value());
+				cursor.set_cursor_icon(cursor_icon);
 			}
 
 			//
@@ -191,11 +183,11 @@ namespace galaxy
 			// OpenAL.
 			//
 			auto& al = ServiceLocator<AudioContext>::make();
-			al.set_listener_gain(config.get<float>("volume", "audio").value());
-			al.set_doppler_factor(config.get<float>("doppler_factor", "audio").value());
-			al.set_speed_of_sound(config.get<float>("speed_of_sound", "audio").value());
+			al.set_listener_gain(config.get<float>("volume", "audio"));
+			al.set_doppler_factor(config.get<float>("doppler_factor", "audio"));
+			al.set_speed_of_sound(config.get<float>("speed_of_sound", "audio"));
 
-			auto distance_model = magic_enum::enum_cast<AudioContext::DistanceModel>(config.get<std::string>("distance_model", "audio").value());
+			auto distance_model = magic_enum::enum_cast<AudioContext::DistanceModel>(config.get<std::string>("distance_model", "audio"));
 			if (distance_model.has_value())
 			{
 				al.set_distance_model(distance_model.value());

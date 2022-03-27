@@ -8,6 +8,7 @@
 #ifndef GALAXY_GRAPHICS_POSTFX_SMAA_HPP_
 #define GALAXY_GRAPHICS_POSTFX_SMAA_HPP_
 
+#include "galaxy/graphics/PostEffect.hpp"
 #include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
@@ -15,20 +16,25 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Submorphological Anti Aliasing.
+		/// \brief Submorphological Anti Aliasing.
 		///
-		class SMAA final
+		/// This is the first post effect you should run.
+		///
+		class SMAA final : public PostEffect
 		{
 		public:
 			///
-			/// Constructor.
+			/// Argument constructor.
 			///
-			SMAA();
+			/// \param width Width of internal framebuffer.
+			/// \param height Height of internal framebuffer.
+			///
+			SMAA(const int width, const int height) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~SMAA();
+			virtual ~SMAA() noexcept;
 
 			///
 			/// Resize framebuffers.
@@ -36,14 +42,22 @@ namespace galaxy
 			/// \param width New width of internal framebuffer.
 			/// \param height New height of internal framebuffer.
 			///
-			void resize(const int width, const int height);
+			void resize(const int width, const int height) override;
 
 			///
 			/// Render effect to input texture.
 			///
-			/// \return Returns output texture of SMAA'd scene.
+			/// \param input Input texture from previous effect or window framebuffer.
 			///
-			[[nodiscard]] const unsigned int render(const unsigned int input);
+			/// \return Returns output texture for next effect or final framebuffer.
+			///
+			[[nodiscard]] unsigned int render(const unsigned int input) override;
+
+		private:
+			///
+			/// Constructor.
+			///
+			SMAA() = delete;
 
 		private:
 			///

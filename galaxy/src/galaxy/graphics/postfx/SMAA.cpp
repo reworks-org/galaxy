@@ -5,41 +5,53 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
+#include <format>
 
 #include "SMAA.hpp"
 
-/**
-	Copyright (C) 2013 Jorge Jimenez (jorge@iryoku.com)
-	Copyright (C) 2013 Jose I. Echevarria (joseignacioechevarria@gmail.com)
-	Copyright (C) 2013 Belen Masia (bmasia@unizar.es)
-	Copyright (C) 2013 Fernando Navarro (fernandn@microsoft.com)
-	Copyright (C) 2013 Diego Gutierrez (diegog@unizar.es)
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	this software and associated documentation files (the "Software"), to deal in
-	the Software without restriction, including without limitation the rights to
-	use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-	of the Software, and to permit persons to whom the Software is furnished to
-	do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software. As clarification, there
-	is no requirement that the copyright notice and permission be included in
-	binary distributions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-
+/*
 	Stored in R8G8 format. Load it in the following format:
 		- DX9:  D3DFMT_A8L8
 		- DX10: DXGI_FORMAT_R8G8_UNORM
+
+	GLSL PORT: https://github.com/Asmodean-/SMAA-OpenGL
+
+	SMAA LICENSE: https://github.com/iryoku/smaa
+	Copyright (C) 2011 Jorge Jimenez (jorge@iryoku.com)
+	Copyright (C) 2011 Belen Masia (bmasia@unizar.es)
+	Copyright (C) 2011 Jose I. Echevarria (joseignacioechevarria@gmail.com)
+	Copyright (C) 2011 Fernando Navarro (fernandn@microsoft.com)
+	Copyright (C) 2011 Diego Gutierrez (diegog@unizar.es)
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:
+
+	   1. Redistributions of source code must retain the above copyright notice,
+		  this list of conditions and the following disclaimer.
+
+	   2. Redistributions in binary form must reproduce the following disclaimer
+		  in the documentation and/or other materials provided with the
+		  distribution:
+
+		 "Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,
+		  Belen Masia, Fernando Navarro and Diego Gutierrez."
+
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
+	IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+	THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+	PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS
+	BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+	CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+	SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+	INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+	CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+	POSSIBILITY OF SUCH DAMAGE.
+
+	The views and conclusions contained in the software and documentation are
+	those of the authors and should not be interpreted as representing official
+	policies, either expressed or implied, of the copyright holders.
 */
 
 #define AREATEX_WIDTH  160
@@ -15080,47 +15092,6 @@ static unsigned char smaa_area_tex[] = {
 };
 // clang-format on
 
-/**
-	GLSL PORT: https://github.com/Asmodean-/SMAA-OpenGL
-
-	SMAA LICENSE: https://github.com/iryoku/smaa
-	Copyright (C) 2011 Jorge Jimenez (jorge@iryoku.com)
-	Copyright (C) 2011 Belen Masia (bmasia@unizar.es)
-	Copyright (C) 2011 Jose I. Echevarria (joseignacioechevarria@gmail.com)
-	Copyright (C) 2011 Fernando Navarro (fernandn@microsoft.com)
-	Copyright (C) 2011 Diego Gutierrez (diegog@unizar.es)
-	All rights reserved.
-
-	Redistribution and use in source and binary forms, with or without
-	modification, are permitted provided that the following conditions are met:
-
-	   1. Redistributions of source code must retain the above copyright notice,
-		  this list of conditions and the following disclaimer.
-
-	   2. Redistributions in binary form must reproduce the following disclaimer
-		  in the documentation and/or other materials provided with the
-		  distribution:
-
-		 "Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,
-		  Belen Masia, Fernando Navarro and Diego Gutierrez."
-
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
-	IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-	THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-	PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS
-	BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-	CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-	SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-	INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-	CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-	POSSIBILITY OF SUCH DAMAGE.
-
-	The views and conclusions contained in the software and documentation are
-	those of the authors and should not be interpreted as representing official
-	policies, either expressed or implied, of the copyright holders.
-*/
-
 ///
 /// SMAA core vertex shader.
 ///
@@ -15988,7 +15959,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		SMAA::SMAA()
+		SMAA::SMAA(const int width, const int height) noexcept
 			: m_neighbour_tex {0}
 			, m_edge_tex {0}
 			, m_blend_tex {0}
@@ -15998,9 +15969,6 @@ namespace galaxy
 			, m_edge_fbo {0}
 			, m_blend_fbo {0}
 		{
-			const auto width  = SL_HANDLE.window()->get_width();
-			const auto height = SL_HANDLE.window()->get_height();
-
 			glGenFramebuffers(1, &m_neighbour_fbo);
 			glGenFramebuffers(1, &m_edge_fbo);
 			glGenFramebuffers(1, &m_blend_fbo);
@@ -16020,7 +15988,7 @@ namespace galaxy
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_FLOAT, 0);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_FLOAT, nullptr);
 
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_neighbour_tex, 0);
 			glDrawBuffers(static_cast<GLsizei>(attachment.size()), attachment.data());
@@ -16073,27 +16041,27 @@ namespace galaxy
 			const auto edge_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_edge_frag);
 			m_smaa_edge.load_raw(edge_vert, edge_frag);
 			m_smaa_edge.bind();
-			m_smaa_edge.set_uniform("neighbour_tex", 0);
+			m_smaa_edge.set_uniform<int>("neighbour_tex", 0);
 
 			const auto blend_vert = std::format("{0}{1}{2}", smaa_header_vert, smaa_full, smaa_blend_vert);
 			const auto blend_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_blend_frag);
 			m_smaa_blend.load_raw(blend_vert, blend_frag);
 			m_smaa_blend.bind();
-			m_smaa_blend.set_uniform("edge_tex", 0);
-			m_smaa_blend.set_uniform("area_tex", 1);
-			m_smaa_blend.set_uniform("search_tex", 2);
+			m_smaa_blend.set_uniform<int>("edge_tex", 0);
+			m_smaa_blend.set_uniform<int>("area_tex", 1);
+			m_smaa_blend.set_uniform<int>("search_tex", 2);
 
 			const auto neighbourhood_vert = std::format("{0}{1}{2}", smaa_header_vert, smaa_full, smaa_neighbour_vert);
 			const auto neighbourhood_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_neighbour_frag);
 			m_smaa_neighbourhood.load_raw(neighbourhood_vert, neighbourhood_frag);
 			m_smaa_neighbourhood.bind();
-			m_smaa_neighbourhood.set_uniform("neighbour_tex", 0);
-			m_smaa_neighbourhood.set_uniform("blend_tex", 1);
+			m_smaa_neighbourhood.set_uniform<int>("neighbour_tex", 0);
+			m_smaa_neighbourhood.set_uniform<int>("blend_tex", 1);
 
 			glUseProgram(0);
 		}
 
-		SMAA::~SMAA()
+		SMAA::~SMAA() noexcept
 		{
 			glDeleteFramebuffers(1, &m_blend_fbo);
 			glDeleteFramebuffers(1, &m_edge_fbo);
@@ -16120,7 +16088,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		const unsigned int SMAA::render(const unsigned int input)
+		unsigned int SMAA::render(const unsigned int input)
 		{
 			// SMAA Edge Pass.
 			glBindFramebuffer(GL_FRAMEBUFFER, m_edge_fbo);

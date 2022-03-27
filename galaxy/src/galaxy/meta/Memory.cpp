@@ -1,8 +1,8 @@
 ///
-/// Renderables.cpp
+/// Memory.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Renderables.hpp"
+#include "Memory.hpp"

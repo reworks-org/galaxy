@@ -1,5 +1,5 @@
 ///
-/// Camera2D.cpp
+/// Camera.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -8,18 +8,17 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json.hpp>
 
-#include "galaxy/core/GalaxyConfig.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
-#include "Camera2D.hpp"
+#include "Camera.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		Camera2D::Camera2D() noexcept
-			: Serializable {this}
+		Camera::Camera() noexcept
+			: Serializable {}
 			, m_forward_key {input::Keys::W}
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
@@ -30,17 +29,18 @@ namespace galaxy
 			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
-			, m_scaling {1.0f}
-			, m_identity_matrix {1.0f}
+			, m_scaling {GALAXY_IDENTITY_MATRIX}
+			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_scale {1.0f}
 			, m_pos {0.0f, 0.0f}
 			, m_size {1.0f, 1.0f}
 		{
-			create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
+			auto& win = core::ServiceLocator<core::Window>::ref();
+			create(0.0f, static_cast<float>(win.get_width()), static_cast<float>(win.get_height()), 0.0f);
 		}
 
-		Camera2D::Camera2D(const nlohmann::json& json) noexcept
-			: Serializable {this}
+		Camera::Camera(const nlohmann::json& json) noexcept
+			: Serializable {}
 			, m_forward_key {input::Keys::W}
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
@@ -51,17 +51,19 @@ namespace galaxy
 			, m_moving_right {false}
 			, m_speed {1.0f}
 			, m_dirty {true}
-			, m_scaling {1.0f}
-			, m_identity_matrix {1.0f}
+			, m_scaling {GALAXY_IDENTITY_MATRIX}
+			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_scale {1.0f}
 			, m_pos {0.0f, 0.0f}
 			, m_size {1.0f, 1.0f}
 		{
 			deserialize(json);
-			create(0.0f, static_cast<float>(SL_HANDLE.window()->get_width()), static_cast<float>(SL_HANDLE.window()->get_height()), 0.0f);
+
+			auto& win = core::ServiceLocator<core::Window>::ref();
+			create(0.0f, static_cast<float>(win.get_width()), static_cast<float>(win.get_height()), 0.0f);
 		}
 
-		void Camera2D::on_event(const events::KeyDown& e) noexcept
+		void Camera::on_event(const events::KeyDown& e) noexcept
 		{
 			if (e.m_keycode == m_forward_key)
 			{
@@ -84,7 +86,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera2D::on_event(const events::KeyUp& e) noexcept
+		void Camera::on_event(const events::KeyUp& e) noexcept
 		{
 			if (e.m_keycode == m_forward_key)
 			{
@@ -107,9 +109,9 @@ namespace galaxy
 			}
 		}
 
-		void Camera2D::on_event(const events::MouseWheel& e) noexcept
+		void Camera::on_event(const events::MouseWheel& e) noexcept
 		{
-			if (e.m_y_offset < 0)
+			if (e.m_yoff < 0)
 			{
 				m_scale -= 0.1f;
 			}
@@ -121,12 +123,12 @@ namespace galaxy
 			zoom(m_scale);
 		}
 
-		void Camera2D::on_event(const events::WindowResized& e) noexcept
+		void Camera::on_event(const events::WindowResized& e) noexcept
 		{
 			create(0.0f, static_cast<float>(e.m_width), static_cast<float>(e.m_height), 0.0f);
 		}
 
-		void Camera2D::update() noexcept
+		void Camera::update() noexcept
 		{
 			if (m_moving_fwd)
 			{
@@ -149,7 +151,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera2D::move(const float x, const float y) noexcept
+		void Camera::move(const float x, const float y) noexcept
 		{
 			m_pos.x += x;
 			m_pos.y += y;
@@ -157,14 +159,13 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Camera2D::zoom(float scale) noexcept
+		void Camera::zoom(float scale) noexcept
 		{
 			m_scale = std::clamp(scale, 1.0f, 10.0f);
-
 			m_dirty = true;
 		}
 
-		void Camera2D::set_pos(const float x, const float y) noexcept
+		void Camera::set_pos(const float x, const float y) noexcept
 		{
 			m_pos.x = x;
 			m_pos.y = y;
@@ -172,67 +173,59 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Camera2D::set_speed(const float speed) noexcept
+		void Camera::set_speed(const float speed) noexcept
 		{
 			m_speed = speed;
 		}
 
-		const float Camera2D::get_speed() const noexcept
-		{
-			return m_speed;
-		}
-
-		const float Camera2D::get_width() const noexcept
-		{
-			return m_size.x;
-		}
-
-		const float Camera2D::get_height() const noexcept
-		{
-			return m_size.y;
-		}
-
-		const bool Camera2D::is_dirty() const noexcept
+		bool Camera::is_dirty() const noexcept
 		{
 			return m_dirty;
 		}
 
-		const glm::mat4& Camera2D::get_view() noexcept
+		float Camera::get_speed() const noexcept
+		{
+			return m_speed;
+		}
+
+		float Camera::get_width() const noexcept
+		{
+			return m_size.x;
+		}
+
+		float Camera::get_height() const noexcept
+		{
+			return m_size.y;
+		}
+
+		float Camera::get_scale() const noexcept
+		{
+			return m_scale;
+		}
+
+		const glm::vec2& Camera::get_pos() const noexcept
+		{
+			return m_pos;
+		}
+
+		const glm::mat4& Camera::get_view() noexcept
 		{
 			recalculate();
 			return m_data.m_model_view;
 		}
 
-		const float Camera2D::get_scale() const noexcept
-		{
-			return m_scale;
-		}
-
-		const glm::vec2& Camera2D::get_pos() const noexcept
-		{
-			return m_pos;
-		}
-
-		const glm::mat4& Camera2D::get_proj() noexcept
+		const glm::mat4& Camera::get_proj() noexcept
 		{
 			return m_data.m_projection;
 		}
 
-		Camera2D::Data& Camera2D::get_data() noexcept
+		Camera::Data& Camera::get_data() noexcept
 		{
 			recalculate();
 			return m_data;
 		}
 
-		math::AABB& Camera2D::get_aabb() noexcept
-		{
-			m_aabb = {m_pos, m_pos + m_size};
-			m_aabb.update_area();
-
-			return m_aabb;
-		}
-
-		void Camera2D::create(const float left, const float right, const float bottom, const float top) noexcept
+		void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
 		{
 			m_size.x = std::max(right, left);
 			m_size.y = std::max(bottom, top);
@@ -240,7 +233,7 @@ namespace galaxy
 			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		void Camera2D::recalculate() noexcept
+		void Camera::recalculate() noexcept
 		{
 			if (m_dirty)
 			{
@@ -254,31 +247,41 @@ namespace galaxy
 			}
 		}
 
-		nlohmann::json Camera2D::serialize()
+		nlohmann::json Camera::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["x"]           = m_pos.x;
-			json["y"]           = m_pos.y;
+			json["pos"]["x"]    = m_pos.x;
+			json["pos"]["y"]    = m_pos.y;
+			json["size"]["x"]   = m_size.x;
+			json["size"]["y"]   = m_size.y;
 			json["zoom"]        = m_scale;
 			json["speed"]       = m_speed;
 
 			return json;
 		}
 
-		void Camera2D::deserialize(const nlohmann::json& json)
+		void Camera::deserialize(const nlohmann::json& json)
 		{
-			m_dirty             = true;
-			m_scaling           = glm::mat4 {1.0f};
-			m_data.m_model_view = glm::mat4 {1.0f};
-			m_moving_fwd        = false;
-			m_moving_back       = false;
-			m_moving_left       = false;
-			m_moving_right      = false;
-			m_data.m_projection = glm::mat4 {1.0f};
+			m_moving_fwd   = false;
+			m_moving_back  = false;
+			m_moving_left  = false;
+			m_moving_right = false;
+			m_dirty        = true;
+			m_scaling      = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 
-			set_pos(json.at("x"), json.at("y"));
-			zoom(json.at("zoom"));
-			set_speed(json.at("speed"));
+			m_data.m_model_view = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+			m_data.m_projection = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+
+			const auto& pos = json.at("pos");
+			m_pos.x         = pos.at("x");
+			m_pos.y         = pos.at("y");
+
+			const auto& size = json.at("size");
+			m_size.x         = size.at("x");
+			m_size.y         = size.at("y");
+
+			m_scale = std::clamp(json.at("zoom").get<float>(), 1.0f, 10.0f);
+			m_speed = json.at("speed");
 		}
 	} // namespace graphics
 } // namespace galaxy

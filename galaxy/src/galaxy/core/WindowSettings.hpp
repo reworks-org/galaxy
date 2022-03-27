@@ -53,6 +53,16 @@ namespace galaxy
 			/// Window content area should be resized based on the monitor content scale.
 			///
 			bool m_scale_to_monitor;
+
+			///
+			/// Enable SMAA.
+			///
+			bool m_enable_aa;
+
+			///
+			/// Enable sharpening.
+			///
+			bool m_enable_sharpen;
 		};
 	} // namespace core
 } // namespace galaxy
