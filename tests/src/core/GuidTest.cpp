@@ -7,12 +7,12 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/core/Guid.hpp>
+#include <galaxy/meta/Guid.hpp>
 
 TEST(Core, Guid)
 {
-	galaxy::core::Guid a;
-	galaxy::core::Guid b;
+	galaxy::meta::Guid a;
+	galaxy::meta::Guid b;
 
 	ASSERT_TRUE(!a.is_empty());
 	ASSERT_TRUE(!b.is_empty());

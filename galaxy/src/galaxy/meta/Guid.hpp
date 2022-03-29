@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace core
+	namespace meta
 	{
 		///
 		/// Contains a 128bit randomly generated GUID,
@@ -122,7 +122,7 @@ namespace galaxy
 			///
 			std::string m_string;
 		};
-	} // namespace core
+	} // namespace meta
 } // namespace galaxy
 
 namespace std
@@ -131,12 +131,12 @@ namespace std
 	/// Hash specialization template overload for Guid.
 	///
 	template<>
-	struct hash<galaxy::core::Guid>
+	struct hash<galaxy::meta::Guid>
 	{
 		///
 		/// Hash specialization function for Guid.
 		///
-		std::size_t operator()(const galaxy::core::Guid& guid) const
+		std::size_t operator()(const galaxy::meta::Guid& guid) const
 		{
 			return hash<std::string>()(guid.to_string());
 		}

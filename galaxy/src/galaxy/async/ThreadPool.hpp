@@ -86,7 +86,7 @@ namespace galaxy
 			///
 			/// Controls thread synchronization.
 			///
-			std::counting_semaphore<GALAXY_DEFAULT_THREAD_COUNT> m_sync;
+			std::counting_semaphore<GALAXY_THREADPOOL_COUNT> m_sync;
 
 			///
 			/// Mutex to protect queue.

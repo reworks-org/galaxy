@@ -45,7 +45,6 @@
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
-    <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\core\WindowSettings.cpp" />
@@ -88,9 +87,8 @@
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\meta\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
-    <ClCompile Include="src\galaxy\meta\StaticId.cpp" />
-    <ClCompile Include="src\galaxy\meta\UniqueId.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
@@ -148,7 +146,6 @@
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
-    <ClInclude Include="src\galaxy\core\Guid.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\core\WindowSettings.hpp" />
@@ -191,9 +188,8 @@
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\meta\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />
-    <ClInclude Include="src\galaxy\meta\StaticId.hpp" />
-    <ClInclude Include="src\galaxy\meta\UniqueId.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />

@@ -12,7 +12,6 @@
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
-    <ClCompile Include="src\galaxy\core\Guid.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\core\WindowSettings.cpp" />
@@ -84,8 +83,6 @@
     <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
     <ClCompile Include="src\galaxy\graphics\Framebuffer.cpp" />
-    <ClCompile Include="src\galaxy\meta\StaticId.cpp" />
-    <ClCompile Include="src\galaxy\meta\UniqueId.cpp" />
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\resource\Language.cpp" />
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
@@ -102,6 +99,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
+    <ClCompile Include="src\galaxy\meta\Guid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -115,7 +113,6 @@
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
-    <ClInclude Include="src\galaxy\core\Guid.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\core\WindowSettings.hpp" />
@@ -188,8 +185,6 @@
     <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
     <ClInclude Include="src\galaxy\graphics\Framebuffer.hpp" />
-    <ClInclude Include="src\galaxy\meta\StaticId.hpp" />
-    <ClInclude Include="src\galaxy\meta\UniqueId.hpp" />
     <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\resource\Language.hpp" />
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
@@ -206,6 +201,7 @@
     <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
+    <ClInclude Include="src\galaxy\meta\Guid.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\galaxy\state\SceneManager.cpp" />

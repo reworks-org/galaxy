@@ -19,7 +19,7 @@ namespace galaxy
 		{
 			m_running = true;
 
-			for (std::size_t i = 0; i < GALAXY_MAX_THREADS; i++)
+			for (std::size_t i = 0; i < GALAXY_THREADPOOL_COUNT; i++)
 			{
 				// This is just storing the thread.
 				m_workers.emplace_back([&]() {
@@ -88,7 +88,7 @@ namespace galaxy
 			}
 			m_mutex.unlock();
 
-			m_sync.release(GALAXY_MAX_THREADS);
+			m_sync.release(GALAXY_THREADPOOL_COUNT);
 
 			// Destroy all threads.
 			for (auto& worker : m_workers)

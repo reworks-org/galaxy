@@ -12,7 +12,7 @@
 
 namespace galaxy
 {
-	namespace core
+	namespace meta
 	{
 		Guid::Guid() noexcept
 		{
@@ -82,5 +82,5 @@ namespace galaxy
 		{
 			return !operator==(rhs);
 		}
-	} // namespace core
+	} // namespace meta
 } // namespace galaxy

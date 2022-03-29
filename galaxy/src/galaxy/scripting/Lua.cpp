@@ -16,7 +16,6 @@
 #include "galaxy/algorithm/ZLib.hpp"
 
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/Guid.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
 #include "galaxy/error/Log.hpp"
@@ -35,6 +34,8 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "galaxy/graphics/Rect.hpp"
+
+#include "galaxy/meta/Guid.hpp"
 
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/input/Keys.hpp"
@@ -111,10 +112,6 @@ namespace galaxy
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
 			lua["service_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
-
-			auto guid_type         = lua.new_usertype<core::Guid>("Guid", sol::constructors<core::Guid()>());
-			guid_type["as_string"] = &core::Guid::to_string;
-			guid_type["is_empty"]  = &core::Guid::is_empty;
 
 			/* ERROR */
 			// clang-format off
@@ -381,6 +378,11 @@ namespace galaxy
 			});
 			// clang-format on
 
+			/* META */
+			auto guid_type         = lua.new_usertype<meta::Guid>("Guid", sol::constructors<meta::Guid()>());
+			guid_type["as_string"] = &meta::Guid::to_string;
+			guid_type["is_empty"]  = &meta::Guid::is_empty;
+
 			/* PLATFORM */
 			auto subprocess_type         = lua.new_usertype<platform::Subprocess>("Subprocess",
                 sol::constructors<platform::Subprocess(), platform::Subprocess(std::string_view, std::span<std::string> args)>());
@@ -410,7 +412,7 @@ namespace galaxy
 
 			/* UTILS */
 			lua.set("GALAXY_MAX_THREADS", GALAXY_MAX_THREADS);
-			lua.set("GALAXY_DEFAULT_THREAD_COUNT", GALAXY_DEFAULT_THREAD_COUNT);
+			lua.set("GALAXY_THREADPOOL_COUNT", GALAXY_THREADPOOL_COUNT);
 			lua.set("GALAXY_DT", GALAXY_DT);
 			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR);
 

@@ -30,9 +30,9 @@ namespace DoNotUseReferToConfigForMacroNames
 #define GALAXY_MAX_THREADS std::thread::hardware_concurrency()
 
 ///
-/// Default number of threads to use.
+/// Defines the number of threads allowed in the threadpool.
 ///
-#define GALAXY_DEFAULT_THREAD_COUNT 4
+#define GALAXY_THREADPOOL_COUNT 4
 
 ///
 /// Prevents compiler warnings when applied to unused parameters.
