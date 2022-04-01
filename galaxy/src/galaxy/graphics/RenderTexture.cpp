@@ -77,7 +77,6 @@ namespace galaxy
 
 			auto path = std::filesystem::path(filepath);
 			auto full = (fs.root_path() / path.parent_path() / path.stem()).string();
-			full += ".png";
 
 			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
 			{
