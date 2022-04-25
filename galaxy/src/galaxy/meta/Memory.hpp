@@ -9,6 +9,7 @@
 #define GALAXY_META_MEMORY_HPP_
 
 #include <memory>
+#include <optional>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -25,6 +26,14 @@ namespace galaxy
 		///
 		template<meta::is_object T>
 		using Ref = std::reference_wrapper<T>;
+
+		///
+		/// Optional reference.
+		///
+		/// \tparam T Any type that can be a reference.
+		///
+		template<typename T>
+		using OptionalRef = std::optional<std::reference_wrapper<T>>;
 	} // namespace meta
 } // namespace galaxy
 
