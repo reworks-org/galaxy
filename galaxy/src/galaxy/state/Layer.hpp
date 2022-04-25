@@ -17,6 +17,8 @@ namespace galaxy
 	{
 		///
 		/// Rendering/event layer within a scene.
+		/// Layers -> Game, Interiors, Pause, etc.
+		/// Share Resources, in a stack with only whats on top being processed.
 		///
 		class Layer final : public fs::Serializable
 		{

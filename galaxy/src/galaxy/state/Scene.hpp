@@ -15,9 +15,9 @@ namespace galaxy
 {
 	namespace state
 	{
-
 		///
 		/// Represents a scene in a game. Like the menu, game, etc.
+		///	Does not share resources.
 		///
 		class Scene final : public fs::Serializable
 		{
