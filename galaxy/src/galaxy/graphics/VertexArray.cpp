@@ -100,6 +100,11 @@ namespace galaxy
 			glVertexArrayBindingDivisor(m_vao, static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT), 1);
 		}
 
+		void VertexArray::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
+		{
+			m_vbo->sub_buffer(index, vertices);
+		}
+
 		void VertexArray::bind() noexcept
 		{
 			glBindVertexArray(m_vao);

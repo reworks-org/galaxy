@@ -63,11 +63,14 @@ namespace galaxy
 			if (m_texture != 0)
 			{
 				glDeleteTextures(1, &m_texture);
+				m_texture = 0;
 			}
 		}
 
-		void Texture::load(std::string_view file)
+		bool Texture::load(std::string_view file)
 		{
+			bool result = false;
+
 			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto& config = core::ServiceLocator<core::Config>::ref();
 
@@ -97,6 +100,8 @@ namespace galaxy
 					glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 					glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 					glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
+
+					result = true;
 				}
 				else
 				{
@@ -109,10 +114,14 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture from file '{0}'.");
 			}
+
+			return result;
 		}
 
-		void Texture::load_mem(std::span<unsigned char> buffer)
+		bool Texture::load_mem(std::span<unsigned char> buffer)
 		{
+			bool result = false;
+
 			auto& config = core::ServiceLocator<core::Config>::ref();
 
 			stbi_set_flip_vertically_on_load(true);
@@ -138,6 +147,8 @@ namespace galaxy
 				glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 				glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
+
+				result = true;
 			}
 			else
 			{
@@ -145,6 +156,7 @@ namespace galaxy
 			}
 
 			stbi_image_free(data);
+			return result;
 		}
 
 		void Texture::save(std::string_view filepath)

@@ -10,9 +10,6 @@
 
 #include <glm/mat4x4.hpp>
 
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/utils/Globals.hpp"
@@ -49,6 +46,23 @@ namespace galaxy
 			Camera() noexcept;
 
 			///
+			/// Projection constructor.
+			///
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			///
+			Camera(const float left, const float right, const float bottom, const float top) noexcept;
+
+			///
+			/// Aspect Ratio constructor.
+			///
+			/// \param aspect_ratio Camera view aspect ratio.
+			///
+			Camera(const float aspect_ratio) noexcept;
+
+			///
 			/// JSON constructor.
 			///
 			/// \param json JSON object.
@@ -63,14 +77,14 @@ namespace galaxy
 			///
 			///	Event processing method for key down for Camera.
 			///
-			/// \param e Takes in a shared galaxy event defining a key press down.
+			/// \param e Takes in an event defining a key press down.
 			///
 			void on_event(const events::KeyDown& e) noexcept;
 
 			///
 			/// Event processing method for key up for Camera.
 			///
-			/// \param e Takes in a shared galaxy event defining a key release.
+			/// \param e Takes in an event defining a key release.
 			///
 			void on_event(const events::KeyUp& e) noexcept;
 
@@ -94,79 +108,50 @@ namespace galaxy
 			void update() noexcept;
 
 			///
-			/// \brief Translate (move) position.
+			/// Sets position without moving the entity.
 			///
-			/// Does not set the position but moves it.
-			/// By adding the parameters to the existing transformation matrix.
-			///
-			/// \param x How far to translate on x axis.
-			/// \param y How far to translate on y axis.
-			///
-			void move(const float x, const float y) noexcept;
-
-			///
-			/// Zoom Camera.
-			///
-			/// \param scale Scale. Multiplier. 1.0f - 10.0f.
-			///
-			void zoom(const float scale) noexcept;
-
-			///
-			/// Sets position without moving the object.
-			///
-			/// \param x X position to set object to.
-			/// \param y Y position to set object to.
+			/// \param x X position to set.
+			/// \param y Y position to set.
 			///
 			void set_pos(const float x, const float y) noexcept;
 
 			///
-			/// Set the speed of the Camera.
+			/// Set the entity rotation.
 			///
-			/// \param speed Speed of the Camera. Multiplicative float.
+			/// \param degrees Min 0, max 360.
 			///
-			void set_speed(const float speed) noexcept;
+			void set_rotation(const float degrees) noexcept;
 
 			///
-			/// Get flag indicating if transform needs to be applied before rendering.
+			/// Zoom camera view.
 			///
-			/// \return Boolean.
+			/// \param offset Camera view scroll offset.
 			///
-			[[nodiscard]] bool is_dirty() const noexcept;
+			void set_zoom(const float offset) noexcept;
 
 			///
-			/// Get Camera speed.
+			/// Set camera projection.
 			///
-			/// \return Const float.
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
 			///
-			[[nodiscard]] float get_speed() const noexcept;
+			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
-			/// Get Camera width.
+			/// Camera translation speed.
 			///
-			/// \return Float.
+			/// \param speed Speed value.
 			///
-			[[nodiscard]] float get_width() const noexcept;
+			void set_translation_speed(const float speed) noexcept;
 
 			///
-			/// Get Camera height.
+			/// Camera rotation speed.
 			///
-			/// \return Float.
+			/// \param speed Speed value.
 			///
-			[[nodiscard]] float get_height() const noexcept;
-
-			///
-			/// Get stored scale cache.
-			///
-			/// \return Float.
-			///
-			[[nodiscard]] float get_scale() const noexcept;
-
-			///
-			/// Get stored pos cache.
-			///
-			/// \return Const glm::vec2.
-			///
-			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
+			void set_rotation_speed(const float speed) noexcept;
 
 			///
 			/// Retrieve internal transformation matrix.
@@ -192,7 +177,7 @@ namespace galaxy
 			///
 			/// Serializes object.
 			///
-			/// \return JSON object containing data to write out.
+			/// \return JSON object containing data to be serialized.
 			///
 			[[nodiscard]] nlohmann::json serialize() override;
 
@@ -242,6 +227,46 @@ namespace galaxy
 
 		private:
 			///
+			/// Update flag.
+			///
+			bool m_dirty;
+
+			///
+			/// Camera data.
+			///
+			Data m_data;
+
+			///
+			/// Camera position.
+			///
+			glm::vec3 m_pos;
+
+			///
+			/// Camera rotation.
+			///
+			float m_rotation;
+
+			///
+			/// Camera zoom.
+			///
+			float m_zoom;
+
+			///
+			/// Movement speed.
+			///
+			float m_translation_speed;
+
+			///
+			/// Rotational speed.
+			///
+			float m_rotation_speed;
+
+			///
+			/// Camera aspect ratio.
+			///
+			float m_aspect_ratio;
+
+			///
 			/// Moving forward flag.
 			///
 			bool m_moving_fwd;
@@ -262,46 +287,19 @@ namespace galaxy
 			bool m_moving_right;
 
 			///
-			/// Camera movement speed.
+			/// Camera transform matrix.
 			///
-			float m_speed;
+			glm::mat4 m_transform_matrix;
 
 			///
-			/// Update flag.
-			///
-			bool m_dirty;
-
-			///
-			/// Scaling matrix.
-			///
-			glm::mat4 m_scaling;
-
-			///
-			/// Identity matrix.
+			/// Transform identity matrix.
 			///
 			glm::mat4 m_identity_matrix;
 
 			///
-			/// Cached for easiy retrieval.
-			/// Scale.
+			/// Camera rotation origin.
 			///
-			float m_scale;
-
-			///
-			/// Cached for easiy retrieval.
-			/// Pos.
-			///
-			glm::vec2 m_pos;
-
-			///
-			/// Camera size.
-			///
-			glm::vec2 m_size;
-
-			///
-			/// Camera data.
-			///
-			Data m_data;
+			glm::vec3 m_rotation_origin;
 		};
 	} // namespace graphics
 } // namespace galaxy

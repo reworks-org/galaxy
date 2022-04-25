@@ -56,14 +56,18 @@ namespace galaxy
 			///
 			/// \param file File on disk to load from.
 			///
-			void load(std::string_view file);
+			/// \return True if texture loaded successfully.
+			///
+			[[maybe_unused]] bool load(std::string_view file);
 
 			///
 			/// Loads texture from memory.
 			///
 			/// \param buffer Memory buffer to load from.
 			///
-			void load_mem(std::span<unsigned char> buffer);
+			/// \return True if texture loaded successfully.
+			///
+			[[maybe_unused]] bool load_mem(std::span<unsigned char> buffer);
 
 			///
 			/// Saves texture to file on disk.

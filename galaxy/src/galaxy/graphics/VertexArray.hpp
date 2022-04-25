@@ -60,6 +60,14 @@ namespace galaxy
 			void set_instanced(std::unique_ptr<InstanceBuffer> instancing) noexcept;
 
 			///
+			/// Sub-buffer vertex object.
+			///
+			/// \param index Offset to start at from initial vertices. 0 = first element.
+			/// \param vertices Vertices to assign.
+			///
+			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
+
+			///
 			/// Bind this vertex array to current GL context.
 			///
 			void bind() noexcept;

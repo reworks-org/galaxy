@@ -10,7 +10,6 @@
 
 #include <array>
 #include <string_view>
-#include <optional>
 
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
@@ -19,6 +18,7 @@
 
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/UniformInfo.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -130,9 +130,9 @@ namespace galaxy
 			///
 			/// \param name Shader uniform name.
 			///
-			/// \return Uniform info.
+			/// \return Uniform info as an optional reference.
 			///
-			[[nodiscard]] std::optional<UniformInfo> get_uniform_info(const std::string& name);
+			[[nodiscard]] meta::OptionalRef<UniformInfo> get_uniform_info(const std::string& name);
 
 		private:
 			///

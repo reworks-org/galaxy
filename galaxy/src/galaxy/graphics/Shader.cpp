@@ -246,11 +246,11 @@ namespace galaxy
 			}
 		}
 
-		std::optional<UniformInfo> Shader::get_uniform_info(const std::string& name)
+		meta::OptionalRef<UniformInfo> Shader::get_uniform_info(const std::string& name)
 		{
 			if (m_cache.contains(name))
 			{
-				return m_cache[name];
+				return std::make_optional(std::ref(m_cache[name]));
 			}
 			else
 			{

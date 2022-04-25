@@ -10,9 +10,12 @@
 
 #include <string>
 
+#include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Renderable.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/UniformBuffer.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
@@ -38,10 +41,11 @@ namespace galaxy
 			///
 			~Renderer() noexcept = default;
 
-			static void buffer_camera(Camera& camera);
+			static void buffer_camera(Camera& camera) noexcept;
 
 			static void submit(Renderable* renderable);
 			static void draw();
+			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 
 		private:
 			///
@@ -71,6 +75,11 @@ namespace galaxy
 			/// Storage for renderables submitted.
 			///
 			static std::vector<Renderable*> m_data;
+
+			///
+			/// Internal shader for rendering to a texture.
+			///
+			static std::unique_ptr<Shader> m_rtt_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy
