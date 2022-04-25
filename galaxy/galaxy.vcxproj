@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\components\Transform.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
@@ -51,7 +52,6 @@
     <ClCompile Include="src\galaxy\events\EventQueue.cpp" />
     <ClCompile Include="src\galaxy\events\KeyChar.cpp" />
     <ClCompile Include="src\galaxy\events\KeyDown.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
     <ClCompile Include="src\galaxy\events\KeyUp.cpp" />
     <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
     <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
@@ -73,6 +73,7 @@
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\graphics\StorageFlags.cpp" />
     <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
     <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
@@ -81,6 +82,7 @@
     <ClCompile Include="src\galaxy\graphics\VertexBuffer.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\input\Cursor.cpp" />
+    <ClCompile Include="src\galaxy\input\Input.cpp" />
     <ClCompile Include="src\galaxy\input\InputDevice.cpp" />
     <ClCompile Include="src\galaxy\input\InputMods.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
@@ -112,6 +114,7 @@
     <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\components\Transform.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
@@ -152,7 +155,6 @@
     <ClInclude Include="src\galaxy\events\EventQueue.hpp" />
     <ClInclude Include="src\galaxy\events\KeyChar.hpp" />
     <ClInclude Include="src\galaxy\events\KeyDown.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
     <ClInclude Include="src\galaxy\events\KeyUp.hpp" />
     <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
     <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
     <ClInclude Include="src\galaxy\graphics\StorageFlags.hpp" />
     <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
     <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
@@ -182,6 +185,7 @@
     <ClInclude Include="src\galaxy\graphics\VertexBuffer.hpp" />
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
+    <ClInclude Include="src\galaxy\input\Input.hpp" />
     <ClInclude Include="src\galaxy\input\InputDevice.hpp" />
     <ClInclude Include="src\galaxy\input\InputMods.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />

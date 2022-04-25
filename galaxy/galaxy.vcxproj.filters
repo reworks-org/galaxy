@@ -18,7 +18,6 @@
     <ClCompile Include="src\galaxy\events\EventQueue.cpp" />
     <ClCompile Include="src\galaxy\events\KeyChar.cpp" />
     <ClCompile Include="src\galaxy\events\KeyDown.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
     <ClCompile Include="src\galaxy\events\KeyUp.cpp" />
     <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
     <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
@@ -100,6 +99,9 @@
     <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\meta\Guid.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="src\galaxy\components\Transform.cpp" />
+    <ClCompile Include="src\galaxy\input\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -119,7 +121,6 @@
     <ClInclude Include="src\galaxy\events\EventQueue.hpp" />
     <ClInclude Include="src\galaxy\events\KeyChar.hpp" />
     <ClInclude Include="src\galaxy\events\KeyDown.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
     <ClInclude Include="src\galaxy\events\KeyUp.hpp" />
     <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
     <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
@@ -202,6 +203,9 @@
     <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\meta\Guid.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="src\galaxy\components\Transform.hpp" />
+    <ClInclude Include="src\galaxy\input\Input.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\galaxy\state\SceneManager.cpp" />
