@@ -1,5 +1,5 @@
 ///
-/// DispatcherTest.cpp
+/// RandomTest.cpp
 /// tests
 ///
 /// Refer to LICENSE.txt for more details.
