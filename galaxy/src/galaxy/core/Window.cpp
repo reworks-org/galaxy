@@ -146,19 +146,6 @@ namespace galaxy
 								}
 								break;
 
-								case GLFW_REPEAT:
-								{
-									events::KeyRepeat kr
-									{
-										.m_keycode = static_cast<input::Keys>(key),
-										.m_mod = static_cast<input::InputMods>(mods),
-										.m_scancode = scancode
-									};
-								
-									win->m_event_queue.emplace<events::KeyRepeat>(std::move(kr));
-								}
-								break;
-
 								case GLFW_RELEASE:
 								{
 									events::KeyUp ku
@@ -171,10 +158,6 @@ namespace galaxy
 									win->m_event_queue.emplace<events::KeyUp>(std::move(ku));
 								}
 								break;
-
-								default:
-									GALAXY_LOG(GALAXY_WARNING, "Unknown key entered.");
-									break;
 							}
 							// clang-format on
 						}

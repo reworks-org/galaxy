@@ -95,8 +95,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Mouse& operator=(const Mouse&) = delete;
-
-		private:
 		};
 	} // namespace input
 } // namespace galaxy
