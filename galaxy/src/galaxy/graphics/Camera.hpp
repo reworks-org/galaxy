@@ -10,7 +10,11 @@
 
 #include <glm/mat4x4.hpp>
 
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
+
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/utils/Globals.hpp"
 

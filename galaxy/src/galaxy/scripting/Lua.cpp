@@ -21,7 +21,6 @@
 #include "galaxy/error/Log.hpp"
 
 #include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MouseMoved.hpp"
@@ -141,11 +140,6 @@ namespace galaxy
 			keyup_type["keycode"]  = &events::KeyUp::m_keycode;
 			keyup_type["mod"]      = &events::KeyUp::m_mod;
 			keyup_type["scancode"] = &events::KeyUp::m_scancode;
-
-			auto keyrepeat_type        = lua.new_usertype<events::KeyRepeat>("KeyRepeat", sol::constructors<events::KeyRepeat()>());
-			keyrepeat_type["keycode"]  = &events::KeyRepeat::m_keycode;
-			keyrepeat_type["mod"]      = &events::KeyRepeat::m_mod;
-			keyrepeat_type["scancode"] = &events::KeyRepeat::m_scancode;
 
 			auto mousemoved_type    = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
 			mousemoved_type["xpos"] = &events::MouseMoved::m_xpos;
