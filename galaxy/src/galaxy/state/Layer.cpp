@@ -30,17 +30,9 @@ namespace galaxy
 		{
 		}
 
-		void Layer::events()
-		{
-		}
-
 		void Layer::update()
 		{
 			m_camera.update();
-		}
-
-		void Layer::pre_render()
-		{
 		}
 
 		void Layer::render()

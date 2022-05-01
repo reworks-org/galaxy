@@ -46,22 +46,12 @@ namespace galaxy
 			void on_pop();
 
 			///
-			/// Process events.
-			///
-			void events();
-
-			///
-			/// Process update (fixed timestep) logic.
+			/// Process events/updates and prepare for rendering.
 			///
 			void update();
 
 			///
-			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
-			///
-			void pre_render();
-
-			///
-			/// Render to screen.
+			/// Render layer.
 			///
 			void render();
 

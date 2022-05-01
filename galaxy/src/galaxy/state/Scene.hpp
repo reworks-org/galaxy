@@ -45,19 +45,9 @@ namespace galaxy
 			void unload();
 
 			///
-			/// Process Scene events.
-			///
-			void events();
-
-			///
-			/// Process update (fixed timestep) logic.
+			/// Process events/updates and prepare for rendering.
 			///
 			void update();
-
-			///
-			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
-			///
-			void pre_render();
 
 			///
 			/// Render Scene.

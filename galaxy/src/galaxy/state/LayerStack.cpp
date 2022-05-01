@@ -97,27 +97,11 @@ namespace galaxy
 			}
 		}
 
-		void LayerStack::events()
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->events();
-			}
-		}
-
 		void LayerStack::update()
 		{
 			if (!m_stack.empty())
 			{
 				m_stack.back()->update();
-			}
-		}
-
-		void LayerStack::pre_render()
-		{
-			if (!m_stack.empty())
-			{
-				m_stack.back()->pre_render();
 			}
 		}
 

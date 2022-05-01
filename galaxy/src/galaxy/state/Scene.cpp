@@ -29,6 +29,7 @@ namespace galaxy
 			m_resources.m_shaders.deserialize(m_deserialization_json["resource_shaders"]);
 			m_resources.m_sounds.deserialize(m_deserialization_json["resource_sounds"]);
 			m_resources.m_music.deserialize(m_deserialization_json["resource_music"]);
+			m_resources.m_atlas.deserialize(m_deserialization_json["resource_textures"]);
 		}
 
 		void Scene::unload()
@@ -37,21 +38,12 @@ namespace galaxy
 			m_resources.m_shaders.clear();
 			m_resources.m_sounds.clear();
 			m_resources.m_music.clear();
-		}
-
-		void Scene::events()
-		{
-			m_layer_stack.events();
+			m_resources.m_atlas.clear();
 		}
 
 		void Scene::update()
 		{
 			m_layer_stack.update();
-		}
-
-		void Scene::pre_render()
-		{
-			m_layer_stack.pre_render();
 		}
 
 		void Scene::render()
@@ -80,9 +72,10 @@ namespace galaxy
 			json["name"]        = m_name;
 			json["stack"]       = m_layer_stack.serialize();
 
-			json["resource_shaders"] = m_resources.m_shaders.serialize();
-			json["resource_sounds"]  = m_resources.m_sounds.serialize();
-			json["resource_music"]   = m_resources.m_music.serialize();
+			json["resource_shaders"]  = m_resources.m_shaders.serialize();
+			json["resource_sounds"]   = m_resources.m_sounds.serialize();
+			json["resource_music"]    = m_resources.m_music.serialize();
+			json["resource_textures"] = m_resources.m_atlas.serialize();
 
 			return json;
 		}

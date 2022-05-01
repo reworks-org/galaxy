@@ -77,19 +77,9 @@ namespace galaxy
 			void pop();
 
 			///
-			/// Process layer stack.
-			///
-			void events();
-
-			///
-			/// Update layer stack.
+			/// Process events/updates and prepare for rendering.
 			///
 			void update();
-
-			///
-			/// Perform pre-rendering operations outside of opengl begin/end of rendering.
-			///
-			void pre_render();
 
 			///
 			/// Render all layers.
