@@ -12,6 +12,7 @@
 #include <variant>
 
 #include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MouseMoved.hpp"
@@ -29,6 +30,7 @@ namespace galaxy
 		///
 		using Variant = std::variant<std::monostate,
 			events::KeyDown,
+			events::KeyRepeat,
 			events::KeyUp,
 			events::KeyChar,
 			events::MouseMoved,
