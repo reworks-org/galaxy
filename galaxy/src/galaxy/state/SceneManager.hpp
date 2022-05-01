@@ -45,6 +45,16 @@ namespace galaxy
 			[[maybe_unused]] std::shared_ptr<Scene> make(const std::string& name);
 
 			///
+			/// \brief Set a scene.
+			///
+			/// DOES NOT UNLOAD PREVIOUS SCENE.
+			/// Usually used for initial scene setup.
+			///
+			/// \param name Name id for scene.
+			///
+			void set(const std::string& name);
+
+			///
 			/// Change the current scene.
 			///
 			/// \param name Name id for scene.

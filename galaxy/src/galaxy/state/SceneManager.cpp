@@ -44,6 +44,21 @@ namespace galaxy
 			}
 		}
 
+		void SceneManager::set(const std::string& name)
+		{
+			if (m_scenes.contains(name))
+			{
+				// need to draw loading screen?
+
+				m_current = m_scenes[name];
+				m_current->load();
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to set a non-existent scene '{0}'.", name);
+			}
+		}
+
 		void SceneManager::change(const std::string& name)
 		{
 			if (m_scenes.contains(name))
