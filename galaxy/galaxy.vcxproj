@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
@@ -115,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />

@@ -101,6 +101,7 @@
     <ClCompile Include="src\galaxy\meta\Guid.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
     <ClCompile Include="src\galaxy\input\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +206,7 @@
     <ClInclude Include="src\galaxy\meta\Guid.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
     <ClInclude Include="src\galaxy\input\Input.hpp" />
   </ItemGroup>
   <ItemGroup>
