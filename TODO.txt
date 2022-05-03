@@ -9,6 +9,11 @@ encode output of json
 - helps limit file size.
 - convert to base64 then zlib.
 
+- sort out multithreading - use of async / thread / jthread
+- update loading screen - should be aniumated / have tips / something to give feddback 2 usr
+
+- set camera keys
+
 BLOOM:
 https://github.com/lettier/3d-game-shaders-for-beginners/blob/master/sections/bloom.md
 https://learnopengl.com/Advanced-Lighting/Bloom
