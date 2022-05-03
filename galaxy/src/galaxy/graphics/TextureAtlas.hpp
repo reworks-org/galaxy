@@ -17,6 +17,7 @@
 #include "galaxy/algorithm/RectPack.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 #include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
@@ -26,7 +27,7 @@ namespace galaxy
 		///
 		/// Parses raw texture files and stiches them into a large altas.
 		///
-		class TextureAtlas final
+		class TextureAtlas final : public fs::Serializable
 		{
 		public:
 			///
@@ -74,13 +75,6 @@ namespace galaxy
 			TextureAtlas(std::span<std::string> files);
 
 			///
-			/// JSON constructor.
-			///
-			/// \param json JSON data to load from.
-			///
-			TextureAtlas(const nlohmann::json& json);
-
-			///
 			/// Move constructor.
 			///
 			TextureAtlas(TextureAtlas&&) noexcept;
@@ -93,7 +87,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~TextureAtlas();
+			virtual ~TextureAtlas();
 
 			///
 			/// Add a single file.
@@ -108,13 +102,6 @@ namespace galaxy
 			/// \param files List of files to load.
 			///
 			void add(std::span<std::string> files);
-
-			///
-			/// Add from a JSON definition.
-			///
-			/// \param json JSON data to load from.
-			///
-			void add_from_json(const nlohmann::json& json);
 
 			///
 			/// \brief Save all created atlas' to disk.
@@ -134,6 +121,11 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
+			/// Clear all data.
+			///
+			void clear();
+
+			///
 			/// Check if atlas contains a texture.
 			///
 			/// \param key Identifier of texture to look for.
@@ -150,6 +142,20 @@ namespace galaxy
 			/// \return TextureAtlas::Info, as an optional reference.
 			///
 			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key) noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///

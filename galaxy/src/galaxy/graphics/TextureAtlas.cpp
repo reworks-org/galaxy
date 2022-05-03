@@ -31,12 +31,6 @@ namespace galaxy
 			add(files);
 		}
 
-		TextureAtlas::TextureAtlas(const nlohmann::json& json)
-		{
-			init();
-			add_from_json(json);
-		}
-
 		TextureAtlas::TextureAtlas(TextureAtlas&& ta) noexcept
 		{
 			if (this != &ta)
@@ -67,8 +61,7 @@ namespace galaxy
 
 		TextureAtlas::~TextureAtlas()
 		{
-			m_sheets.clear();
-			m_data.clear();
+			clear();
 		}
 
 		void TextureAtlas::add(std::string_view file)
@@ -144,14 +137,6 @@ namespace galaxy
 			}
 		}
 
-		void TextureAtlas::add_from_json(const nlohmann::json& json)
-		{
-			for (const auto& path : json.at("textures"))
-			{
-				add(path.get<std::string>());
-			}
-		}
-
 		void TextureAtlas::save()
 		{
 			for (auto i = 0; i < m_sheets.size(); i++)
@@ -178,6 +163,15 @@ namespace galaxy
 			}
 		}
 
+		void TextureAtlas::clear()
+		{
+			m_sheets.clear();
+			m_data.clear();
+			m_transform.reset();
+
+			init();
+		}
+
 		bool TextureAtlas::contains(const std::string& key) noexcept
 		{
 			return m_data.contains(key);
@@ -195,10 +189,36 @@ namespace galaxy
 			}
 		}
 
+		nlohmann::json TextureAtlas::serialize()
+		{
+			auto json = nlohmann::json::array();
+			for (const auto& [key, info] : m_data)
+			{
+				json.push_back(key + ".png");
+			}
+
+			return json;
+		}
+
+		void TextureAtlas::deserialize(const nlohmann::json& json)
+		{
+			clear();
+			for (const auto& path : json)
+			{
+				add(path.get<std::string>());
+			}
+		}
+
 		void TextureAtlas::init()
 		{
 			glGetIntegerv(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, &m_max_bindings);
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
+
+			// Hard limit size to support older hardware.
+			if (m_size > 4096)
+			{
+				m_size = 4096;
+			}
 
 			m_sheets.resize(m_max_bindings);
 			for (auto& sheet : m_sheets)
@@ -230,6 +250,5 @@ namespace galaxy
 
 			m_va.create(vb, ib);
 		}
-
 	} // namespace graphics
 } // namespace galaxy

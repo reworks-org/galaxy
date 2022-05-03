@@ -58,38 +58,46 @@ namespace galaxy
 {
 	namespace graphics
 	{
+		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
+		std::vector<Renderable*> Renderer::s_data;
+		std::unique_ptr<Shader> Renderer::s_rtt_shader = nullptr;
+
 		void Renderer::init() noexcept
 		{
-			m_ubo.create(GAlAXY_CAMERA_UBO_INDEX);
-			m_ubo.reserve(sizeof(Camera::Data));
+			s_ubo = std::make_unique<UniformBuffer>();
+			s_ubo->create(GAlAXY_CAMERA_UBO_INDEX);
+			s_ubo->reserve(sizeof(Camera::Data));
 
-			m_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
+			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 
-			m_rtt_shader = std::make_unique<Shader>();
-			m_rtt_shader->load_raw(render_to_texture_frag, render_to_texture_frag);
+			s_rtt_shader = std::make_unique<Shader>();
+			s_rtt_shader->load_raw(render_to_texture_frag, render_to_texture_frag);
 		}
 
 		void Renderer::destroy() noexcept
 		{
-			m_ubo.reset();
-			m_data.clear();
+			s_data.clear();
 
-			m_rtt_shader.reset();
+			s_ubo.reset();
+			s_rtt_shader.reset();
+
+			s_ubo        = nullptr;
+			s_rtt_shader = nullptr;
 		}
 
 		void Renderer::buffer_camera(Camera& camera) noexcept
 		{
-			m_ubo.sub_buffer<Camera::Data>(0, 1, &camera.get_data());
+			s_ubo->sub_buffer<Camera::Data>(0, 1, &camera.get_data());
 		}
 
 		void Renderer::submit(Renderable* renderable)
 		{
-			m_data.push_back(renderable);
+			s_data.push_back(renderable);
 		}
 
 		void Renderer::draw()
 		{
-			std::sort(m_data.begin(), m_data.end(), [](Renderable* left, Renderable* right) {
+			std::sort(s_data.begin(), s_data.end(), [](Renderable* left, Renderable* right) {
 				if (left->m_layer == right->m_layer)
 				{
 					if (left->m_type == right->m_type)
@@ -107,9 +115,9 @@ namespace galaxy
 				}
 			});
 
-			for (auto i = 0; i < m_data.size(); i++)
+			for (auto i = 0; i < s_data.size(); i++)
 			{
-				auto renderable = m_data[i];
+				auto renderable = s_data[i];
 
 				glBindVertexArray(renderable->m_vao);
 				glBindTexture(GL_TEXTURE_2D, renderable->m_texture);
@@ -125,9 +133,9 @@ namespace galaxy
 			va.bind();
 			texture.bind();
 
-			m_rtt_shader->bind();
-			m_rtt_shader->set_uniform("u_projection", target.get_proj());
-			m_rtt_shader->set_uniform("u_transform", transform.get_transform());
+			s_rtt_shader->bind();
+			s_rtt_shader->set_uniform("u_projection", target.get_proj());
+			s_rtt_shader->set_uniform("u_transform", transform.get_transform());
 
 			glDrawElements(GL_TRIANGLES, va.index_count(), GL_UNSIGNED_INT, nullptr);
 		}

@@ -8,6 +8,7 @@
 #ifndef GALAXY_RESOURCE_RESOURCES_HPP_
 #define GALAXY_RESOURCE_RESOURCES_HPP_
 
+#include "galaxy/graphics/TextureAtlas.hpp"
 #include "galaxy/resource/Cache.hpp"
 #include "galaxy/resource/Musical.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -51,6 +52,11 @@ namespace galaxy
 			/// Music cache.
 			///
 			MusicCache m_music;
+
+			///
+			/// Texture Atlas.
+			///
+			graphics::TextureAtlas m_atlas;
 		};
 	} // namespace resource
 } // namespace galaxy

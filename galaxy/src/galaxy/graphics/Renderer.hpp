@@ -14,7 +14,6 @@
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/UniformBuffer.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
@@ -69,17 +68,17 @@ namespace galaxy
 			///
 			/// Uniform buffer for camera and other general shader data.
 			///
-			static UniformBuffer m_ubo;
+			static std::unique_ptr<UniformBuffer> s_ubo;
 
 			///
 			/// Storage for renderables submitted.
 			///
-			static std::vector<Renderable*> m_data;
+			static std::vector<Renderable*> s_data;
 
 			///
 			/// Internal shader for rendering to a texture.
 			///
-			static std::unique_ptr<Shader> m_rtt_shader;
+			static std::unique_ptr<Shader> s_rtt_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy
