@@ -45,10 +45,10 @@ namespace galaxy
 			///
 			/// \param args Constructor arguments.
 			///
-			/// \return Reference to newly created effect.
+			/// \return Pointer to newly created effect.
 			///
 			template<is_posteffect Effect, typename... Args>
-			[[maybe_unused]] Effect& add(Args&&... args);
+			[[maybe_unused]] std::shared_ptr<Effect> add(Args&&... args);
 
 			///
 			/// Bind to draw to post processor framebuffer.
@@ -117,12 +117,12 @@ namespace galaxy
 		};
 
 		template<is_posteffect Effect, typename... Args>
-		inline Effect& PostProcess::add(Args&&... args)
+		inline std::shared_ptr<Effect> PostProcess::add(Args&&... args)
 		{
 			auto effect = std::make_shared<Effect>(std::forward<Args>(args)...);
-
 			m_effects.push_back(std::static_pointer_cast<PostEffect>(effect));
-			return *effect;
+
+			return effect;
 		}
 	} // namespace graphics
 } // namespace galaxy

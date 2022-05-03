@@ -122,7 +122,7 @@ namespace galaxy
 
 		void Transform::set_rotation(const float degrees) noexcept
 		{
-			m_rotation = std::clamp(m_rotation, 0.0f, 360.0f);
+			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
 
 			m_dirty = true;
 		}

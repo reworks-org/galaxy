@@ -36,7 +36,7 @@ namespace galaxy
 			///
 			/// \return True if key is currently down.
 			///
-			[[nodiscard]] bool key_down(input::Keys key) noexcept;
+			[[nodiscard]] static bool key_down(input::Keys key) noexcept;
 
 			///
 			/// Check if a mouse button was pressed.
@@ -45,14 +45,14 @@ namespace galaxy
 			///
 			/// \return True if button was pressed.
 			///
-			[[nodiscard]] bool mouse_button_down(input::Mouse::Buttons button) noexcept;
+			[[nodiscard]] static bool mouse_button_down(input::Mouse::Buttons button) noexcept;
 
 			///
 			/// Get current cursor position.
 			///
 			/// \return Returns position as a const vec2 reference.
 			///
-			[[nodiscard]] const glm::dvec2& get_cursor_pos() noexcept;
+			[[nodiscard]] static const glm::dvec2& get_cursor_pos() noexcept;
 
 		private:
 			///

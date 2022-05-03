@@ -71,7 +71,7 @@ namespace galaxy
 			///
 			/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
 			///
-			[[nodiscard]] ALint get_state();
+			[[nodiscard]] ALint get_state() noexcept;
 
 			///
 			/// Get the OpenAL internal int id / handle.

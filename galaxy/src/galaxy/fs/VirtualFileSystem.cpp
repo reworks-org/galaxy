@@ -77,7 +77,10 @@ namespace galaxy
 						}
 					}
 
-					info.m_code = FileInfo::Code::NOT_FOUND;
+					info.m_code   = FileInfo::Code::NOT_FOUND;
+					info.m_path   = m_root / path;
+					info.m_string = info.m_path.string();
+
 					return info;
 				}
 			}
@@ -399,15 +402,14 @@ namespace galaxy
 		{
 			std::vector<std::string> output;
 
-			if (std::filesystem::is_directory(path))
+			auto fs_path = std::filesystem::path(path);
+			if (!fs_path.is_absolute())
 			{
-				auto fs_path = std::filesystem::path(path);
+				fs_path = m_root / fs_path;
+			}
 
-				if (!fs_path.is_absolute())
-				{
-					fs_path = m_root / fs_path;
-				}
-
+			if (std::filesystem::is_directory(fs_path))
+			{
 				if (fs_path.string().find(m_root.string()) != std::string::npos)
 				{
 					if (std::filesystem::exists(fs_path))
@@ -420,17 +422,17 @@ namespace galaxy
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_ERROR, "Attempted to list a folder that does not exist: {0}.", path);
+						GALAXY_LOG(GALAXY_ERROR, "Attempted to list a folder that does not exist: '{0}'", path);
 					}
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Path to list is not located in the vfs: {0}.", path);
+					GALAXY_LOG(GALAXY_ERROR, "Path to list is not located in the vfs: '{0}'", path);
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to list the contents of a non-directory: {0}.", path);
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to list the contents of a non-directory: '{0}'", path);
 			}
 
 			return output;

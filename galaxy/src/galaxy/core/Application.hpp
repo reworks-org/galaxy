@@ -8,7 +8,7 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
-#include "galaxy/state/Scene.hpp"
+#include <string_view>
 
 namespace galaxy
 {
@@ -25,11 +25,16 @@ namespace galaxy
 			virtual ~Application();
 
 			///
+			/// Load scenes into app.
+			///
+			/// \param json_file Zlib + BAse64 encoded json data file.
+			///
+			void load(std::string_view json_file);
+
+			///
 			/// Runs the application.
 			///
-			/// \return Returns true if the program should restart.
-			///
-			[[maybe_unused]] bool run();
+			void run();
 
 		protected:
 			///
@@ -74,12 +79,6 @@ namespace galaxy
 			/// \param asset_folder Path to the asset folder to create.
 			///
 			void create_asset_layout(const std::string& root, const std::string& asset_folder);
-
-		private:
-			///
-			/// Current scene.
-			///
-			std::shared_ptr<state::Scene> m_scene;
 		};
 	} // namespace core
 } // namespace galaxy
@@ -87,26 +86,6 @@ namespace galaxy
 #endif
 
 /*
-			///
-			/// Create an application layer.
-			///
-			/// \return Shared pointer to layer. Stored internally to preserve lifetime.
-			///
-			template<std::derived_from<Layer> DerivedLayer>
-			[[nodiscard]] std::shared_ptr<DerivedLayer> create_layer();
-
-			///
-			/// Push a layer to the top of the stack.
-			///
-			/// \param layer Pointer to layer.
-			///
-			void push_layer(std::shared_ptr<Layer> layer);
-
-			///
-			/// Pop topmost layer.
-			///
-			void pop_layer();
-
 		private:
 			///
 			/// Reload assets from disk.
@@ -129,66 +108,6 @@ namespace galaxy
 			/// Layer storage.
 			///
 			std::vector<std::shared_ptr<Layer>> m_layers;
-
-			///
-			/// OpenAL context.
-			///
-			audio::Context m_openal;
-
-			///
-			/// Instance of a config reader to parse library config.
-			///
-			std::unique_ptr<fs::Config> m_config;
-
-			///
-			/// Main app window.
-			///
-			std::unique_ptr<Window> m_window;
-
-			///
-			/// Master Lua state for application.
-			///
-			std::unique_ptr<sol::state> m_lua;
-
-			///
-			/// Library of all fonts.
-			///
-			std::unique_ptr<res::FontBook> m_fontbook;
-
-			///
-			/// Library of all shaders.
-			///
-			std::unique_ptr<res::ShaderBook> m_shaderbook;
-
-			///
-			/// Texture manager for all textures.
-			///
-			std::unique_ptr<res::TextureBook> m_texturebook;
-
-			///
-			/// Library of all sounds.
-			///
-			std::unique_ptr<res::SoundBook> m_soundbook;
-
-			///
-			/// Library of all music.
-			///
-			std::unique_ptr<res::MusicBook> m_musicbook;
-
-			///
-			/// Virtual File System.
-			///
-			std::unique_ptr<fs::Virtual> m_vfs;
-
-			///
-			/// Script library.
-			///
-			std::unique_ptr<res::ScriptBook> m_scriptbook;
-
-			///
-			/// Language service.
-			///
-			std::unique_ptr<res::Language> m_langs;
 
 			///
 			/// Threadpool.
@@ -221,15 +140,6 @@ namespace galaxy
 			///
 			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
 		};
-
-		template<std::derived_from<Layer> DerivedLayer>
-		inline std::shared_ptr<DerivedLayer> Application::create_layer()
-		{
-			std::shared_ptr<DerivedLayer> layer = std::make_shared<DerivedLayer>();
-			m_layers.emplace_back(std::static_pointer_cast<Layer>(layer));
-
-			return layer;
-		}
 	} // namespace core
 } // namespace galaxy
 

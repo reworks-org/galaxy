@@ -116,7 +116,7 @@ namespace galaxy
 			}
 		}
 
-		ALint Source::get_state()
+		ALint Source::get_state() noexcept
 		{
 			ALint val;
 			alGetSourcei(m_source, AL_SOURCE_STATE, &val);

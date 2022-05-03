@@ -66,10 +66,10 @@ namespace galaxy
 			///
 			/// \param args Constructor arguments for a sink. Can be blank.
 			///
-			/// \return A reference to the newly created sink.
+			/// \return A pointer to the newly created sink.
 			///
 			template<std::derived_from<Sink> SinkTo, typename... Args>
-			[[maybe_unused]] SinkTo& add_sink(Args&&... args);
+			[[maybe_unused]] std::shared_ptr<SinkTo> add_sink(Args&&... args);
 
 			///
 			/// \brief Set a minimum log level.
@@ -158,12 +158,12 @@ namespace galaxy
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>
-		inline SinkTo& Log::add_sink(Args&&... args)
+		inline std::shared_ptr<SinkTo> Log::add_sink(Args&&... args)
 		{
 			auto ptr = std::make_shared<SinkTo>(std::forward<Args>(args)...);
 			m_sinks.push_back(std::static_pointer_cast<Sink>(ptr));
 
-			return *ptr;
+			return ptr;
 		}
 
 		template<LogLevel level>
@@ -230,7 +230,7 @@ namespace galaxy
 
 				if constexpr (level == LogLevel::FATAL)
 				{
-					throw std::runtime_error {final_str};
+					throw std::runtime_error {std::format(message, args...)};
 				}
 			}
 		}

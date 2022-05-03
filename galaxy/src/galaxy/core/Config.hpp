@@ -220,8 +220,16 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
 			}
 
-			GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
-			return Value {};
+			GALAXY_LOG(GALAXY_ERROR, "Failed to retrieve '{0}' from config.", key);
+
+			if constexpr (std::is_arithmetic_v<Value>)
+			{
+				return 0;
+			}
+			else
+			{
+				return Value {};
+			}
 		}
 
 		template<meta::standard_type Value>

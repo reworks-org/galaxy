@@ -136,7 +136,7 @@ namespace std
 		///
 		/// Hash specialization function for Guid.
 		///
-		std::size_t operator()(const galaxy::meta::Guid& guid) const
+		std::size_t operator()(const galaxy::meta::Guid& guid) const noexcept
 		{
 			return hash<std::string>()(guid.to_string());
 		}

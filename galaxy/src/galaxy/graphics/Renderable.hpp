@@ -9,27 +9,22 @@
 #define GALAXY_GRAPHICS_RENDERABLE_HPP_
 
 #include "galaxy/graphics/Primitives.hpp"
+#include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		class Shader;
 		class Renderer;
 
 		///
 		/// Data to submit to renderer.
 		///
-		class Renderable final
+		class Renderable
 		{
 			friend class Renderer;
 
 		public:
-			///
-			/// Constructor.
-			///
-			Renderable() noexcept;
-
 			///
 			/// Destructor.
 			///
@@ -43,6 +38,11 @@ namespace galaxy
 			[[maybe_unused]] virtual graphics::Shader& configure_shader() noexcept = 0;
 
 		protected:
+			///
+			/// Constructor.
+			///
+			Renderable() noexcept;
+
 			///
 			/// Set Vertex Array Object to draw with.
 			///

@@ -79,32 +79,18 @@ namespace galaxy
 			virtual ~Camera() noexcept = default;
 
 			///
-			///	Event processing method for key down for Camera.
-			///
-			/// \param e Takes in an event defining a key press down.
-			///
-			void on_event(const events::KeyDown& e) noexcept;
-
-			///
-			/// Event processing method for key up for Camera.
-			///
-			/// \param e Takes in an event defining a key release.
-			///
-			void on_event(const events::KeyUp& e) noexcept;
-
-			///
 			/// Event processing method for scroll event for Camera.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
-			void on_event(const events::MouseWheel& e) noexcept;
+			void on_mouse_wheel(const events::MouseWheel& e) noexcept;
 
 			///
 			/// Event window resizing.
 			///
 			/// \param e Window resized event.
 			///
-			void on_event(const events::WindowResized& e) noexcept;
+			void on_window_resized(const events::WindowResized& e) noexcept;
 
 			///
 			/// Update method for Camera.
@@ -269,26 +255,6 @@ namespace galaxy
 			/// Camera aspect ratio.
 			///
 			float m_aspect_ratio;
-
-			///
-			/// Moving forward flag.
-			///
-			bool m_moving_fwd;
-
-			///
-			/// Moving back flag.
-			///
-			bool m_moving_back;
-
-			///
-			/// Moving left flag.
-			///
-			bool m_moving_left;
-
-			///
-			/// Moving right flag.
-			///
-			bool m_moving_right;
 
 			///
 			/// Camera transform matrix.

@@ -10,8 +10,11 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/input/Input.hpp"
 
 #include "Camera.hpp"
+
+using namespace galaxy::input;
 
 namespace galaxy
 {
@@ -29,10 +32,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -53,10 +52,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -80,10 +75,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -97,10 +88,6 @@ namespace galaxy
 			, m_back_key {input::Keys::S}
 			, m_left_key {input::Keys::A}
 			, m_right_key {input::Keys::D}
-			, m_moving_fwd {false}
-			, m_moving_back {false}
-			, m_moving_left {false}
-			, m_moving_right {false}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -108,53 +95,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		void Camera::on_event(const events::KeyDown& e) noexcept
-		{
-			if (e.m_keycode == m_forward_key)
-			{
-				m_moving_fwd = true;
-			}
-
-			if (e.m_keycode == m_back_key)
-			{
-				m_moving_back = true;
-			}
-
-			if (e.m_keycode == m_left_key)
-			{
-				m_moving_left = true;
-			}
-
-			if (e.m_keycode == m_right_key)
-			{
-				m_moving_right = true;
-			}
-		}
-
-		void Camera::on_event(const events::KeyUp& e) noexcept
-		{
-			if (e.m_keycode == m_forward_key)
-			{
-				m_moving_fwd = false;
-			}
-
-			if (e.m_keycode == m_back_key)
-			{
-				m_moving_back = false;
-			}
-
-			if (e.m_keycode == m_left_key)
-			{
-				m_moving_left = false;
-			}
-
-			if (e.m_keycode == m_right_key)
-			{
-				m_moving_right = false;
-			}
-		}
-
-		void Camera::on_event(const events::MouseWheel& e) noexcept
+		void Camera::on_mouse_wheel(const events::MouseWheel& e) noexcept
 		{
 			m_dirty = true;
 
@@ -164,7 +105,7 @@ namespace galaxy
 			set_projection(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
 		}
 
-		void Camera::on_event(const events::WindowResized& e) noexcept
+		void Camera::on_window_resized(const events::WindowResized& e) noexcept
 		{
 			m_aspect_ratio = static_cast<float>(e.m_width) / static_cast<float>(e.m_height);
 			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
@@ -172,25 +113,25 @@ namespace galaxy
 
 		void Camera::update() noexcept
 		{
-			if (m_moving_fwd)
+			if (Input::key_down(m_forward_key))
 			{
 				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (m_moving_back)
+			if (Input::key_down(m_back_key))
 			{
 				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (m_moving_left)
+			if (Input::key_down(m_left_key))
 			{
 				m_pos.x -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (m_moving_right)
+			if (Input::key_down(m_right_key))
 			{
 				m_pos.x += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
@@ -207,7 +148,7 @@ namespace galaxy
 
 		void Camera::set_rotation(const float degrees) noexcept
 		{
-			m_rotation = std::clamp(m_rotation, 0.0f, 360.0f);
+			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
 
 			m_dirty = true;
 		}

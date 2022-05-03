@@ -13,6 +13,9 @@ namespace galaxy
 {
 	namespace input
 	{
+		GLFWwindow* Input::s_window    = nullptr;
+		glm::dvec2 Input::s_cursor_pos = {0.0, 0.0};
+
 		bool Input::key_down(input::Keys key) noexcept
 		{
 			return glfwGetKey(s_window, static_cast<int>(key)) == GLFW_PRESS;

@@ -13,6 +13,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/StringUtils.hpp"
@@ -104,10 +105,12 @@ namespace galaxy
 				}
 				else
 				{
+					// Set input devices.
 					m_keyboard.set_window(m_window);
 					m_mouse.set_window(m_window);
 					m_cursor.set_window(m_window);
 					m_clipboard.set_window(m_window);
+					input::Input::s_window = m_window;
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
@@ -341,7 +344,6 @@ namespace galaxy
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						// Configure renderer and post processing.
-						graphics::Renderer::init();
 						m_postprocess = std::make_unique<graphics::PostProcess>(m_width, m_height);
 
 						if (settings.m_enable_aa)
@@ -353,6 +355,8 @@ namespace galaxy
 						{
 							m_postprocess->add<graphics::Sharpen>(m_width, m_height);
 						}
+
+						graphics::Renderer::init();
 					}
 				}
 			}
@@ -433,7 +437,9 @@ namespace galaxy
 			if (m_window != nullptr)
 			{
 				glfwDestroyWindow(m_window);
-				m_window = nullptr;
+
+				m_window               = nullptr;
+				input::Input::s_window = nullptr;
 			}
 
 			glfwTerminate();

@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Serializable() noexcept = default;
+			virtual ~Serializable() noexcept;
 
 			///
 			/// Serializes object.
@@ -45,27 +45,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Serializable() = default;
-
-			///
-			/// Copy constructor.
-			///
-			Serializable(const Serializable&) = default;
-
-			///
-			/// Move constructor.
-			///
-			Serializable(Serializable&&) = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Serializable& operator=(const Serializable&) = default;
-
-			///
-			/// Move assignment operator.
-			///
-			Serializable& operator=(Serializable&&) = default;
+			Serializable() noexcept;
 		};
 	} // namespace fs
 } // namespace galaxy

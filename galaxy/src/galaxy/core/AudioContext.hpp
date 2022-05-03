@@ -241,11 +241,6 @@ namespace galaxy
 			/// OpenAL context.
 			///
 			ALCcontext* m_context;
-
-			///
-			/// Recording Device.
-			///
-			ALCdevice* m_capture_device;
 		};
 	} // namespace core
 } // namespace galaxy

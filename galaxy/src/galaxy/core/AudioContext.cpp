@@ -18,17 +18,11 @@ namespace galaxy
 			: m_device {nullptr}
 			, m_context {nullptr}
 		{
-			// Set up initial error flags.
-			alGetError();
-
 			m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 			if (!m_device)
 			{
 				GALAXY_LOG(GALAXY_FATAL, error::al_handle_error("Failed to create OpenAL device.", alGetError()));
 			}
-
-			// Set up initial flags for device and context.
-			alcGetError(m_device);
 
 			m_context = alcCreateContext(m_device, nullptr);
 			if (!m_context)
@@ -40,18 +34,11 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to make OpenAL context current.", alcGetError(m_device)));
 			}
-
-			m_capture_device = alcCaptureOpenDevice(alcGetString(nullptr, ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER), 44100, AL_FORMAT_STEREO16, 1024);
-			if (!m_capture_device)
-			{
-				GALAXY_LOG(GALAXY_FATAL, error::alc_handle_error(m_device, "Failed to open OpenAL capture device.", alcGetError(m_device)));
-			}
 		}
 
 		AudioContext::~AudioContext()
 		{
 			// Cleanup.
-			alcCaptureCloseDevice(m_capture_device);
 			alcMakeContextCurrent(nullptr);
 			alcDestroyContext(m_context);
 			alcCloseDevice(m_device);
