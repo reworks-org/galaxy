@@ -8,14 +8,17 @@
 #ifndef GALAXY_STATE_LAYERSTACK_HPP_
 #define GALAXY_STATE_LAYERSTACK_HPP_
 
-#include <stack>
-
 #include <robin_hood.h>
 
 #include "galaxy/state/Layer.hpp"
 
 namespace galaxy
 {
+	namespace resource
+	{
+		struct Resources;
+	} // namespace resource
+
 	namespace state
 	{
 		///
@@ -62,7 +65,7 @@ namespace galaxy
 			///
 			/// \return Pointer to layer.
 			///
-			[[nodiscard]] std::shared_ptr<Layer> top();
+			[[nodiscard]] std::shared_ptr<Layer> top() noexcept;
 
 			///
 			/// Push a layer based on name.
@@ -90,6 +93,13 @@ namespace galaxy
 			/// Destroy all layers.
 			///
 			void clear();
+
+			///
+			/// Set layer resources.
+			///
+			/// \param resources Scene resources.
+			///
+			void set_resources(resource::Resources* resources) noexcept;
 
 			///
 			/// Get layer stack.
@@ -152,6 +162,11 @@ namespace galaxy
 			/// Holds layer data.
 			///
 			LayerContainer m_layers;
+
+			///
+			/// Pointer to scene resources.
+			///
+			resource::Resources* m_resources;
 
 			///
 			/// Simulate a stack using a std::vector.

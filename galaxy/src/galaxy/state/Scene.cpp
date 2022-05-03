@@ -30,6 +30,8 @@ namespace galaxy
 			m_resources.m_sounds.deserialize(m_deserialization_json["resource_sounds"]);
 			m_resources.m_music.deserialize(m_deserialization_json["resource_music"]);
 			m_resources.m_atlas.deserialize(m_deserialization_json["resource_textures"]);
+
+			m_layer_stack.set_resources(&m_resources);
 		}
 
 		void Scene::unload()

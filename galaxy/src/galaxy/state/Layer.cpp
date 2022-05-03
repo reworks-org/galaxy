@@ -5,6 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/resource/Resources.hpp"
+
 #include <nlohmann/json.hpp>
 
 #include "Layer.hpp"
@@ -15,11 +20,18 @@ namespace galaxy
 	{
 		Layer::Layer(std::string_view name)
 			: m_name {name}
+			, m_resources {nullptr}
+			, m_window {nullptr}
 		{
+			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
+			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
+			m_window = &core::ServiceLocator<core::Window>::ref();
 		}
 
 		Layer::~Layer() noexcept
 		{
+			m_resources = nullptr;
+			m_window    = nullptr;
 		}
 
 		void Layer::on_push()
@@ -32,7 +44,10 @@ namespace galaxy
 
 		void Layer::update()
 		{
+			m_window->trigger_queued_events(m_dispatcher);
+
 			m_camera.update();
+			graphics::Renderer::buffer_camera(m_camera);
 		}
 
 		void Layer::render()
@@ -44,6 +59,11 @@ namespace galaxy
 			m_name = name;
 		}
 
+		void Layer::set_resources(resource::Resources* resources) noexcept
+		{
+			m_resources = resources;
+		}
+
 		const std::string& Layer::get_name() const noexcept
 		{
 			return m_name;
@@ -52,6 +72,7 @@ namespace galaxy
 		nlohmann::json Layer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
+			json["name"]        = m_name;
 			json["camera"]      = m_camera.serialize();
 
 			return json;
@@ -59,42 +80,17 @@ namespace galaxy
 
 		void Layer::deserialize(const nlohmann::json& json)
 		{
+			m_name = json.at("name");
 			m_camera.deserialize(json.at("camera"));
 		}
 	} // namespace state
 } // namespace galaxy
 
 /*
-#include <RmlUi/Core.h>
-#include <sol/sol.hpp>
-
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/graphics/Renderer2D.hpp"
-#include "galaxy/resource/MusicBook.hpp"
-#include "galaxy/systems/ActionSystem.hpp"
-#include "galaxy/systems/AnimationSystem.hpp"
-#include "galaxy/systems/CollisionSystem.hpp"
-#include "galaxy/systems/ParticleSystem.hpp"
-#include "galaxy/systems/RenderSystem2D.hpp"
-#include "galaxy/systems/TransformSystem.hpp"
-#include "galaxy/ui/RMLInput.hpp"
-
-namespace galaxy
-{
-	namespace core
-	{
 		Layer::Layer(std::string_view name) noexcept
 			: Serializable {this}
 			, m_name {name}
 		{
-			m_camera.set_speed(100.0f);
-
-			m_dispatcher.subscribe<events::KeyDown>(m_camera);
-			m_dispatcher.subscribe<events::KeyUp>(m_camera);
-			m_dispatcher.subscribe<events::MouseWheel>(m_camera);
-			m_dispatcher.subscribe<events::WindowResized>(m_camera);
-
 			m_world.create_system<systems::ActionSystem>();
 			m_world.create_system<systems::TransformSystem>();
 			m_world.create_system<systems::AnimationSystem>();
@@ -178,7 +174,7 @@ namespace galaxy
 
 		void Layer::render()
 		{
-			RENDERER_2D().buffer_camera(m_camera);
+
 			m_rendersystem->render(m_world);
 		}
 
@@ -251,6 +247,4 @@ namespace galaxy
 			// m_gui.set_theme(&m_gui_theme);
 			// m_gui.deserialize(json.at("gui"));
 		}
-	} // namespace core
-} // namespace galaxy
 */

@@ -16,12 +16,15 @@ namespace galaxy
 	namespace state
 	{
 		LayerStack::LayerStack() noexcept
+			: m_resources {nullptr}
 		{
 		}
 
 		LayerStack::~LayerStack() noexcept
 		{
 			clear();
+
+			m_resources = nullptr;
 		}
 
 		std::shared_ptr<Layer> LayerStack::make(const std::string& name)
@@ -29,6 +32,8 @@ namespace galaxy
 			if (!m_layers.contains(name))
 			{
 				m_layers[name] = std::make_shared<Layer>(name);
+				m_layers[name]->set_resources(m_resources);
+
 				return m_layers[name];
 			}
 			else
@@ -51,7 +56,7 @@ namespace galaxy
 			}
 		}
 
-		std::shared_ptr<Layer> LayerStack::top()
+		std::shared_ptr<Layer> LayerStack::top() noexcept
 		{
 			if (!m_stack.empty())
 			{
@@ -124,6 +129,11 @@ namespace galaxy
 			m_layers.clear();
 		}
 
+		void LayerStack::set_resources(resource::Resources* resources) noexcept
+		{
+			m_resources = resources;
+		}
+
 		std::vector<std::shared_ptr<Layer>>& LayerStack::get_stack() noexcept
 		{
 			return m_stack;
@@ -178,7 +188,7 @@ namespace galaxy
 			}
 
 			std::vector<std::string> names;
-			names.resize(json.at("stack-size"));
+			names.resize(json.at("stack_size"));
 
 			const auto& layer_stack = json.at("layer_stack");
 			for (const auto& [key, value] : layer_stack.items())

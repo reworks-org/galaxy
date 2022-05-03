@@ -78,18 +78,18 @@ namespace galaxy
 			[[nodiscard]] std::shared_ptr<Scene> get(const std::string& name) noexcept;
 
 			///
+			/// Load data from memory into scenes.
+			///
+			/// \param data JSON data to parse.
+			///
+			void load(const std::string& data);
+
+			///
 			/// Save all active scenes and sub data within those scenes.
 			///
 			/// \param file File to save data to.
 			///
 			void save(std::string_view file);
-
-			///
-			/// Load data from file into scenes.
-			///
-			/// \param file File to load data from.
-			///
-			void load(std::string_view file);
 
 			///
 			/// \brief Remove all scenes.

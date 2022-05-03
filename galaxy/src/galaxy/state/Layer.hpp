@@ -8,11 +8,23 @@
 #ifndef GALAXY_STATE_LAYER_HPP_
 #define GALAXY_STATE_LAYER_HPP_
 
+#include <entt/signal/dispatcher.hpp>
+
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Camera.hpp"
 
 namespace galaxy
 {
+	namespace core
+	{
+		class Window;
+	} // namespace core
+
+	namespace resource
+	{
+		struct Resources;
+	} // namespace resource
+
 	namespace state
 	{
 		///
@@ -63,6 +75,13 @@ namespace galaxy
 			void set_name(std::string_view name) noexcept;
 
 			///
+			/// Set layer resources.
+			///
+			/// \param resources Scene resources.
+			///
+			void set_resources(resource::Resources* resources) noexcept;
+
+			///
 			/// Get layer name.
 			///
 			/// \return Const string reference.
@@ -96,9 +115,24 @@ namespace galaxy
 			std::string m_name;
 
 			///
+			/// Pointer to scene resources.
+			///
+			resource::Resources* m_resources;
+
+			///
+			/// Pointer to window.
+			///
+			core::Window* m_window;
+
+			///
 			/// Camera.
 			///
 			graphics::Camera m_camera;
+
+			///
+			/// Event dispatcher.
+			///
+			entt::dispatcher m_dispatcher;
 		};
 	} // namespace state
 } // namespace galaxy
@@ -166,10 +200,6 @@ namespace Rml
 			///
 			core::World m_world;
 
-			///
-			/// Event dispatcher.
-			///
-			events::Dispatcher m_dispatcher;
 
 		private:
 			///

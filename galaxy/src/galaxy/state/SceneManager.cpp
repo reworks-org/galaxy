@@ -93,6 +93,31 @@ namespace galaxy
 			}
 		}
 
+		void SceneManager::load(const std::string& data)
+		{
+			const auto parsed = nlohmann::json::parse(data);
+
+			if (!parsed.empty())
+			{
+				// Only clear if read from disk was successful.
+				clear();
+
+				const auto& scenes = parsed.at("scenes");
+
+				for (const auto& [key, value] : scenes.items())
+				{
+					auto scene = make(key);
+					scene->deserialize(value);
+				}
+
+				change(parsed.at("current_scene"));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
+			}
+		}
+
 		void SceneManager::save(std::string_view file)
 		{
 			nlohmann::json json   = "{\"current_scene\": \"\", \"scenes\": {}}"_json;
@@ -106,32 +131,6 @@ namespace galaxy
 			if (!json::save_to_disk(file, json))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
-			}
-		}
-
-		void SceneManager::load(std::string_view file)
-		{
-			const auto load_opt = json::parse_from_disk(file);
-
-			if (load_opt.has_value())
-			{
-				// Only clear if read from disk was successful.
-				clear();
-
-				const auto& load   = load_opt.value();
-				const auto& scenes = load.at("scenes");
-
-				for (const auto& [key, value] : scenes.items())
-				{
-					auto scene = make(key);
-					scene->deserialize(value);
-				}
-
-				change(load.at("current_scene"));
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load save file '{0}' from disk.", file);
 			}
 		}
 

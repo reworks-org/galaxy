@@ -8,8 +8,8 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
-#include "galaxy/resource/Resources.hpp"
 #include "galaxy/state/LayerStack.hpp"
+#include "galaxy/resource/Resources.hpp"
 
 namespace galaxy
 {
