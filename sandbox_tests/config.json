@@ -1,0 +1,37 @@
+{
+    "config": {
+        "app_data": "default.galaxy",
+        "asset_dir": "assets/",
+        "audio": {
+            "distance_model": "NONE",
+            "doppler_factor": 1.0,
+            "speed_of_sound": 1.0,
+            "volume": 1.0
+        },
+        "default_lang": "en_au",
+        "graphics": {
+            "ansiotrophic_filtering": 2,
+            "enable_aa": true,
+            "enable_sharpen": false,
+            "trilinear_filtering": false
+        },
+        "log_performance": true,
+        "resource_folders": {
+            "lang_folder": "lang/",
+            "shader_folder": "shaders/"
+        },
+        "window": {
+            "allow_native_closing": true,
+            "cursor_icon": "",
+            "debug": false,
+            "height": 720,
+            "icon": "",
+            "maximized": false,
+            "scale_to_monitor": false,
+            "title": "Title",
+            "visible_cursor": true,
+            "vsync": true,
+            "width": 1280
+        }
+    }
+}
