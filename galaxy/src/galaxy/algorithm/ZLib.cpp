@@ -20,11 +20,13 @@ namespace galaxy
 		std::string encode_zlib(const std::string& input)
 		{
 			zlibcomplete::ZLibCompressor compressor;
+			char* in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{
-				char in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read      = 0;
+				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
+				
+				unsigned int total_read = 0;
 
 				std::string result;
 				std::stringstream sstream;
@@ -46,11 +48,15 @@ namespace galaxy
 				}
 
 				result += compressor.finish();
+
+				delete[] in;
 				return result;
 			}
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+
+				delete[] in;
 				return {};
 			}
 		}
@@ -58,11 +64,13 @@ namespace galaxy
 		std::string decode_zlib(const std::string& input)
 		{
 			zlibcomplete::ZLibDecompressor decompressor;
+			char* in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{
-				char in[ZLIB_COMPLETE_CHUNK] = {0};
-				unsigned int total_read      = 0;
+				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
+
+				unsigned int total_read = 0;
 
 				std::string result;
 				std::stringstream sstream;
@@ -83,11 +91,14 @@ namespace galaxy
 					}
 				}
 
+				delete[] in;
 				return result;
 			}
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+
+				delete[] in;
 				return {};
 			}
 		}
