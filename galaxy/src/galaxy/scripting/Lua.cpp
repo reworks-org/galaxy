@@ -36,6 +36,7 @@
 
 #include "galaxy/meta/Guid.hpp"
 
+#include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
@@ -84,6 +85,26 @@ namespace galaxy
 		void inject_galaxy_into_lua()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			/* GLM */
+			auto vec2_type = lua.new_usertype<glm::vec2>("glm_vec2", sol::constructors<glm::vec2()>());
+			vec2_type["x"] = &glm::vec2::x;
+			vec2_type["y"] = &glm::vec2::y;
+
+			auto dvec2_type = lua.new_usertype<glm::dvec2>("glm_dvec2", sol::constructors<glm::dvec2()>());
+			dvec2_type["x"] = &glm::dvec2::x;
+			dvec2_type["y"] = &glm::dvec2::y;
+
+			auto vec3_type = lua.new_usertype<glm::vec3>("glm_vec3", sol::constructors<glm::vec3()>());
+			vec3_type["x"] = &glm::vec3::x;
+			vec3_type["y"] = &glm::vec3::y;
+			vec3_type["z"] = &glm::vec3::z;
+
+			auto vec4_type = lua.new_usertype<glm::vec4>("glm_vec4", sol::constructors<glm::vec4()>());
+			vec4_type["x"] = &glm::vec4::x;
+			vec4_type["y"] = &glm::vec4::y;
+			vec4_type["z"] = &glm::vec4::z;
+			vec4_type["w"] = &glm::vec4::w;
 
 			/* ALGORITHM */
 			lua.set_function("normalize", &algorithm::normalize<float>);
@@ -371,6 +392,10 @@ namespace galaxy
 				{"BTN_MIDDLE", input::Mouse::Buttons::BTN_MIDDLE}
 			});
 			// clang-format on
+
+			lua.set_function("galaxy_key_down", &input::Input::key_down);
+			lua.set_function("galaxy_mouse_down", &input::Input::mouse_button_down);
+			lua.set_function("galaxy_cursor_pos", &input::Input::get_cursor_pos);
 
 			/* META */
 			auto guid_type         = lua.new_usertype<meta::Guid>("Guid", sol::constructors<meta::Guid()>());
