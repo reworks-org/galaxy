@@ -19,7 +19,7 @@ namespace galaxy
 	namespace core
 	{
 		///
-		/// Displays an image during app startup.
+		/// Simple customizable loading screen.
 		///
 		class LoadingScreen final
 		{
