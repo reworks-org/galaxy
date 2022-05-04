@@ -84,6 +84,9 @@ namespace galaxy
 				config.set<int>("ansiotrophic_filtering", 2, "graphics");
 				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
 				config.set<std::string>("lang_folder", "lang/", "resource_folders");
+				config.set<std::string>("texture_folder", "textures/", "resource_folders");
+				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
+				config.set<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
 				config.set<bool>("enable_aa", true, "graphics");
 				config.set<bool>("enable_sharpen", false, "graphics");
 
@@ -108,14 +111,14 @@ namespace galaxy
 
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
 				// todo
-				// create_asset_layout(root, "audio/music/");
-				// create_asset_layout(root, "audio/sfx/");
+				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("sfx_folder", "resource_folders"));
 				// create_asset_layout(root, "fonts/");
 				// create_asset_layout(root, "json/");
 				// create_asset_layout(root, "scripts/actions/");
 				// create_asset_layout(root, "scripts/definitions/");
 				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));
-				// create_asset_layout(root, "textures/");
+				create_asset_layout(root, config.get<std::string>("texture_folder", "resource_folders"));
 				// create_asset_layout(root, "maps/");
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 
@@ -177,14 +180,13 @@ namespace galaxy
 
 			auto& window = ServiceLocator<Window>::make(window_settings);
 
-			auto allow_native_closing = config.get<bool>("allow_native_closing", "window");
-			if (!allow_native_closing)
+			if (config.get<bool>("allow_native_closing", "window"))
 			{
-				window.prevent_native_closing();
+				window.allow_native_closing();
 			}
 			else
 			{
-				window.allow_native_closing();
+				window.prevent_native_closing();
 			}
 
 			auto icon = config.get<std::string>("icon", "window");
