@@ -15096,7 +15096,7 @@ static unsigned char smaa_area_tex[] = {
 /// SMAA core vertex shader.
 ///
 constexpr const char* const smaa_header_vert = R"(
-    #version 450 core
+    #version 460 core
 
     #ifndef SMAA_PIXEL_SIZE
 	    #define SMAA_PIXEL_SIZE vec2(1.0 / 800.0, 1.0 / 600.0)
@@ -15111,7 +15111,7 @@ constexpr const char* const smaa_header_vert = R"(
 /// SMAA core fragment shader.
 ///
 constexpr const char* const smaa_header_frag = R"(
-    #version 450 core
+    #version 460 core
 
     #ifndef SMAA_PIXEL_SIZE
         #define SMAA_PIXEL_SIZE vec2(1.0 / 800.0, 1.0 / 600.0)

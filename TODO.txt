@@ -14,6 +14,9 @@ encode output of json
 
 - set camera keys
 
+- optimize texture atlas mem usage - its really high!
+- fix delayed logging.
+
 BLOOM:
 https://github.com/lettier/3d-game-shaders-for-beginners/blob/master/sections/bloom.md
 https://learnopengl.com/Advanced-Lighting/Bloom

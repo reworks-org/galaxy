@@ -71,7 +71,7 @@ namespace galaxy
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 
 			s_rtt_shader = std::make_unique<Shader>();
-			s_rtt_shader->load_raw(render_to_texture_frag, render_to_texture_frag);
+			s_rtt_shader->load_raw(render_to_texture_vert, render_to_texture_frag);
 		}
 
 		void Renderer::destroy() noexcept

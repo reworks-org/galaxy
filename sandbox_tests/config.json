@@ -15,7 +15,7 @@
             "enable_sharpen": false,
             "trilinear_filtering": false
         },
-        "log_performance": true,
+        "log_performance": false,
         "resource_folders": {
             "lang_folder": "lang/",
             "shader_folder": "shaders/"
@@ -23,14 +23,14 @@
         "window": {
             "allow_native_closing": true,
             "cursor_icon": "",
-            "debug": false,
+            "debug": true,
             "height": 720,
             "icon": "",
             "maximized": false,
             "scale_to_monitor": false,
             "title": "Title",
             "visible_cursor": true,
-            "vsync": true,
+            "vsync": false,
             "width": 1280
         }
     }

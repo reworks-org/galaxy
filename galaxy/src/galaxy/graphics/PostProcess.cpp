@@ -54,9 +54,6 @@ namespace galaxy
 			, m_screen_vao {0}
 			, m_output_fb {0}
 		{
-			glCreateBuffers(1, &m_screen_vbo);
-			glCreateVertexArrays(1, &m_screen_vao);
-
 			m_output.load_raw(vao_vert, vao_frag);
 
 			// clang-format off
@@ -68,6 +65,11 @@ namespace galaxy
 				1.0f,  -1.0f, 1.0f, 0.0f
 			};
 			// clang-format on
+
+			glCreateBuffers(1, &m_screen_vbo);
+			glCreateVertexArrays(1, &m_screen_vao);
+
+			glNamedBufferStorage(m_screen_vbo, verticies.size(), verticies.data(), GL_DYNAMIC_STORAGE_BIT);
 
 			glVertexArrayVertexBuffer(m_screen_vao, static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT), m_screen_vbo, 0, 4 * sizeof(float));
 

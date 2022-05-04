@@ -68,9 +68,9 @@ namespace galaxy
 				config.set<std::string>("title", "Title", "window");
 				config.set<std::string>("icon", "", "window");
 				config.set<std::string>("cursor_icon", "", "window");
-				config.set<bool>("vsync", true, "window");
+				config.set<bool>("vsync", false, "window");
 				config.set<bool>("maximized", false, "window");
-				config.set<bool>("debug", false, "window");
+				config.set<bool>("debug", true, "window");
 				config.set<bool>("visible_cursor", true, "window");
 				config.set<bool>("allow_native_closing", true, "window");
 				config.set<bool>("scale_to_monitor", false, "window");
@@ -165,7 +165,7 @@ namespace galaxy
 			{
 				.m_title = config.get<std::string>("title", "window"),
 				.m_width = config.get<int>("width", "window"),
-				.m_height = config.get<int>("width", "window"),
+				.m_height = config.get<int>("height", "window"),
 				.m_vsync = config.get<bool>("vsync", "window"),
 				.m_maximized = config.get<bool>("maximized", "window"),
 				.m_debug = config.get<bool>("debug", "window"),
@@ -181,6 +181,10 @@ namespace galaxy
 			if (!allow_native_closing)
 			{
 				window.prevent_native_closing();
+			}
+			else
+			{
+				window.allow_native_closing();
 			}
 
 			auto icon = config.get<std::string>("icon", "window");

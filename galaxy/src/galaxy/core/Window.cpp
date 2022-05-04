@@ -516,12 +516,14 @@ namespace galaxy
 
 		void Window::allow_native_closing() noexcept
 		{
-			glfwSetWindowCloseCallback(m_window, nullptr);
+			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) noexcept {
+				glfwSetWindowShouldClose(window, GLFW_TRUE);
+			});
 		}
 
 		void Window::prevent_native_closing() noexcept
 		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
+			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) noexcept {
 				glfwSetWindowShouldClose(window, GLFW_FALSE);
 			});
 		}
