@@ -65,10 +65,10 @@ namespace galaxy
 				{
 					input >> m_config;
 					input.close();
-
-					m_loaded = true;
 				}
 			}
+
+			m_loaded = true;
 		}
 
 		void Config::save()

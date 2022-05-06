@@ -87,7 +87,7 @@ namespace galaxy
 				config.set<std::string>("texture_folder", "textures/", "resource_folders");
 				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
 				config.set<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
-				config.set<bool>("enable_aa", true, "graphics");
+				config.set<bool>("enable_aa", false, "graphics");
 				config.set<bool>("enable_sharpen", false, "graphics");
 
 				// config.set<std::string>("logo", "logo.png");
@@ -110,7 +110,7 @@ namespace galaxy
 				create_asset_layout(root, "");
 
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
-				// todo
+
 				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("sfx_folder", "resource_folders"));
 				// create_asset_layout(root, "fonts/");
@@ -349,10 +349,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-		Application::Application(std::string_view asset_dir, std::string_view config_file)
-			: m_filewatcher {false}
-			, m_filelistener {nullptr}
-		{
 			// Threadpool setup.
 			m_pool           = std::make_unique<async::ThreadPool>();
 			SL_HANDLE.m_pool = m_pool.get();
@@ -363,34 +359,6 @@ namespace galaxy
 				LoadingScreen logo;
 				logo.load(m_config->get<std::string>("logo"));
 				logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
-
-				m_window->request_attention();
-				m_window->set_cursor_visibility(m_config->get<bool>("is-cursor-visible"));
-
-				if (!m_config->get<std::string>("cursor-image").empty())
-				{
-					m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
-				}
-
-				if (!m_config->get<std::string>("icon-file").empty())
-				{
-					m_window->set_icon(m_config->get<std::string>("icon-file"));
-				}
-
-				// Generate default assets specified by config.
-				generate_default_assets(root);
-
-				// Register services with Lua.
-				// m_lua->set("galaxy_audio_context", &m_openal);
-				// m_lua->set("galaxy_config", m_config.get());
-				// m_lua->set("galaxy_vfs", m_vfs.get());
-				// m_lua->set("galaxy_shaderboox", m_shaderbook.get());
-				// m_lua->set("galaxy_fontbook", m_fontbook.get());
-				// m_lua->set("galaxy_texturebook", m_texturebook.get());
-				// m_lua->set("galaxy_soundbook", m_soundbook.get());
-				// m_lua->set("galaxy_musicbook", m_musicbook.get());
-				// m_lua->set("galaxy_scriptbook", m_scriptbook.get());
-				// m_lua->set("galaxy_language", m_langs.get());
 
 				// Set up RMLUI.
 				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
@@ -416,9 +384,6 @@ namespace galaxy
 						}
 					}
 				}
-
-				// Begin watching files now that default asset creation is over.
-				m_filewatcher.watch();
 
 				// Ensure minimum amount of time has passed.
 				logo.wait();

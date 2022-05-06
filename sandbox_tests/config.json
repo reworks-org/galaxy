@@ -11,14 +11,17 @@
         "default_lang": "en_au",
         "graphics": {
             "ansiotrophic_filtering": 2,
-            "enable_aa": true,
+            "enable_aa": false,
             "enable_sharpen": false,
             "trilinear_filtering": false
         },
-        "log_performance": false,
+        "log_performance": true,
         "resource_folders": {
             "lang_folder": "lang/",
-            "shader_folder": "shaders/"
+            "music_folder": "audio/music/",
+            "sfx_folder": "audio/sfx/",
+            "shader_folder": "shaders/",
+            "texture_folder": "textures/"
         },
         "window": {
             "allow_native_closing": true,
