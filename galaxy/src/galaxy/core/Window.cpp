@@ -426,7 +426,7 @@ namespace galaxy
 
 		void Window::close() noexcept
 		{
-			glfwSetWindowShouldClose(m_window, true);
+			glfwSetWindowShouldClose(m_window, GLFW_TRUE);
 		}
 
 		void Window::destroy()

@@ -15,6 +15,7 @@ namespace galaxy
 	{
 		Log::Log() noexcept
 			: m_min_level {LogLevel::INFO}
+			, m_sync {0}
 		{
 		}
 
@@ -31,20 +32,16 @@ namespace galaxy
 			m_async = std::async(std::launch::async, [&]() {
 				while (m_run_thread)
 				{
-					std::this_thread::sleep_for(5s);
+					m_sync.acquire();
 
+					while (!m_messages.empty())
 					{
-						std::lock_guard<std::mutex> lock {m_log_lock};
-
-						while (!m_messages.empty())
+						for (const auto& sink : m_sinks)
 						{
-							for (const auto& sink : m_sinks)
-							{
-								sink->sink_message(m_messages.front());
-							}
-
-							m_messages.pop();
+							sink->sink_message(m_messages.front());
 						}
+
+						m_messages.pop();
 					}
 				}
 			});

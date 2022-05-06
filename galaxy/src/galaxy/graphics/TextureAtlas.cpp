@@ -79,6 +79,13 @@ namespace galaxy
 
 					for (auto i = 0; i < m_sheets.size(); i++)
 					{
+						if (!m_sheets[i].m_sheet_created)
+						{
+							m_sheets[i].m_packer.init(m_size, m_size);
+							m_sheets[i].m_render_texture.create(m_size, m_size);
+							m_sheets[i].m_sheet_created = true;
+						}
+
 						packed = m_sheets[i].m_packer.pack(texture.get_width(), texture.get_height());
 						if (packed.has_value())
 						{
@@ -215,17 +222,10 @@ namespace galaxy
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
 			// Hard limit size to support older hardware.
-			if (m_size > 4096)
-			{
-				m_size = 4096;
-			}
+			m_max_bindings = std::min(m_max_bindings, 32);
+			m_size         = std::min(m_size, 4096);
 
 			m_sheets.resize(m_max_bindings);
-			for (auto& sheet : m_sheets)
-			{
-				sheet.m_packer.init(m_size, m_size);
-				sheet.m_render_texture.create(m_size, m_size);
-			}
 
 			auto vb = std::make_unique<VertexBuffer>();
 			auto ib = std::make_unique<IndexBuffer>();

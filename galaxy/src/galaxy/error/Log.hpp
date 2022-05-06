@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <future>
 #include <queue>
+#include <semaphore>
 #include <source_location>
 
 #include <magic_enum.hpp>
@@ -152,9 +153,9 @@ namespace galaxy
 			std::atomic_bool m_run_thread;
 
 			///
-			/// Protects queue from data races.
+			/// Controls thread synchronization.
 			///
-			std::mutex m_log_lock;
+			std::binary_semaphore m_sync;
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>
@@ -223,10 +224,8 @@ namespace galaxy
 						std::format(message, args...));
 				}
 
-				{
-					std::lock_guard<std::mutex> lock {m_log_lock};
-					m_messages.push(final_str);
-				}
+				m_messages.push(final_str);
+				m_sync.release();
 
 				if constexpr (level == LogLevel::FATAL)
 				{

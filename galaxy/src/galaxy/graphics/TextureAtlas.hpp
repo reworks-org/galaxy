@@ -44,6 +44,11 @@ namespace galaxy
 				/// Texture to combine to.
 				///
 				RenderTexture m_render_texture;
+
+				///
+				/// Flag to determine if this sheet has been created.
+				///
+				bool m_sheet_created = false;
 			};
 
 			///
