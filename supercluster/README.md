@@ -1,3 +1,0 @@
-# supercluster
-
-Game Engine Editor.

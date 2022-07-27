@@ -1,5 +1,0 @@
-Author: Blarumyrran
-Link: http://opengameart.org/content/treasure-chests-32x32-and-16x16
-License: Public Domain CC0
-
-Resized (and edited transparency) to 48x48 by reworks.
