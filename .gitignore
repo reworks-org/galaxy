@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+
+.vs/
+
+build/
+output/
