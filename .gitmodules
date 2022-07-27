@@ -31,3 +31,6 @@
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest.git
+[submodule "lib/rmlui"]
+	path = lib/rmlui
+	url = https://github.com/mikke89/RmlUi.git
