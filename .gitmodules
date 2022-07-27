@@ -10,3 +10,24 @@
 [submodule "lib/sol3"]
 	path = lib/sol3
 	url = https://github.com/ThePhD/sol2.git
+[submodule "lib/pfd"]
+	path = lib/pfd
+	url = https://github.com/samhocevar/portable-file-dialogs.git
+[submodule "lib/magic_enum"]
+	path = lib/magic_enum
+	url = https://github.com/Neargye/magic_enum.git
+[submodule "lib/json"]
+	path = lib/json
+	url = https://github.com/nlohmann/json.git
+[submodule "lib/unordered_dense"]
+	path = lib/unordered_dense
+	url = https://github.com/martinus/unordered_dense.git
+[submodule "lib/zlibcomplete"]
+	path = lib/zlibcomplete
+	url = https://github.com/rudi-cilibrasi/zlibcomplete
+[submodule "lib/zlib_ng"]
+	path = lib/zlib_ng
+	url = https://github.com/zlib-ng/zlib-ng.git
+[submodule "lib/googletest"]
+	path = lib/googletest
+	url = https://github.com/google/googletest.git
