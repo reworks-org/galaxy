@@ -34,3 +34,9 @@
 [submodule "lib/rmlui"]
 	path = lib/rmlui
 	url = https://github.com/mikke89/RmlUi.git
+[submodule "lib/msdfgen"]
+	path = lib/msdfgen
+	url = https://github.com/Chlumsky/msdf-atlas-gen.git
+[submodule "lib/freetype2_win"]
+	path = lib/freetype2_win
+	url = https://github.com/ubawurinna/freetype-windows-binaries.git
