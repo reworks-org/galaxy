@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="CodeAnalysis" ToolsVersion="17.0">
+  <Include Path="allrules.ruleset" Action="Default" />
+  <Include Path="concurrencycheckrules.ruleset" Action="Default" />
+  <Include Path="concurrencyrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckarithmeticrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckboundsrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckclassrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckconcurrencyrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckconstrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckdeclrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckenumrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckexperimentalrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckfuncrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckgslrules.ruleset" Action="Default" />
+  <Include Path="cppcorechecklifetimerules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckownerpointerrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckrawpointerrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckrules.ruleset" Action="Default" />
+  <Include Path="cppcorechecksharedpointerrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckstlrules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckstylerules.ruleset" Action="Default" />
+  <Include Path="cppcorechecktyperules.ruleset" Action="Default" />
+  <Include Path="cppcorecheckuniquepointerrules.ruleset" Action="Default" />
+  <Include Path="nativeminimumrules.ruleset" Action="Default" />
+  <Include Path="nativerecommendedrules.ruleset" Action="Default" />
+  <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
+    <Rule Id="C26408" Action="None" />
+    <Rule Id="C26429" Action="None" />
+    <Rule Id="C26431" Action="None" />
+    <Rule Id="C26432" Action="None" />
+    <Rule Id="C26445" Action="None" />
+    <Rule Id="C26446" Action="None" />
+    <Rule Id="C26447" Action="None" />
+    <Rule Id="C26448" Action="None" />
+    <Rule Id="C26449" Action="None" />
+    <Rule Id="C26455" Action="None" />
+    <Rule Id="C26458" Action="None" />
+    <Rule Id="C26459" Action="None" />
+    <Rule Id="C26472" Action="None" />
+    <Rule Id="C26481" Action="None" />
+    <Rule Id="C26482" Action="None" />
+    <Rule Id="C26485" Action="None" />
+    <Rule Id="C26486" Action="None" />
+    <Rule Id="C26489" Action="None" />
+    <Rule Id="C26821" Action="None" />
+    <Rule Id="C26823" Action="None" />
+  </Rules>
+</RuleSet>
