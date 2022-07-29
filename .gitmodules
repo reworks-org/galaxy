@@ -43,6 +43,3 @@
 [submodule "lib/box2d"]
 	path = lib/box2d
 	url = https://github.com/erincatto/box2d.git
-[submodule "lib/openal"]
-	path = lib/openal
-	url = https://github.com/kcat/openal-soft.git
