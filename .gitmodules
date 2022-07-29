@@ -25,9 +25,6 @@
 [submodule "lib/zlibcomplete"]
 	path = lib/zlibcomplete
 	url = https://github.com/rudi-cilibrasi/zlibcomplete
-[submodule "lib/zlib_ng"]
-	path = lib/zlib_ng
-	url = https://github.com/zlib-ng/zlib-ng.git
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest.git
