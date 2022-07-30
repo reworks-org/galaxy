@@ -6,3 +6,7 @@ Thumbs.db
 build/
 legacy/
 output/
+
+sandbox/bin
+supercluster/bin
+tests/bin
