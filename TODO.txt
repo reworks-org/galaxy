@@ -1,0 +1,92 @@
+Batch Rendering:
+https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1
+https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/
+https://gamedev.stackexchange.com/questions/30362/drawing-lots-of-tiles-with-opengl-the-modern-way
+https://gamedev.stackexchange.com/questions/166048/animate-some-tiles-of-tile-map
+https://gamedev.stackexchange.com/questions/53716/optimal-opengl-2d-sprite-batching-best-practice
+
+encode output of json
+- helps limit file size.
+- convert to base64 then zlib.
+
+- sort out multithreading - use of async / thread / jthread
+- update loading screen - should be aniumated / have tips / something to give feddback 2 usr
+
+- set camera keys
+- ensure tests are up to date.
+
+BLOOM:
+https://github.com/lettier/3d-game-shaders-for-beginners/blob/master/sections/bloom.md
+https://learnopengl.com/Advanced-Lighting/Bloom
+https://github.com/kiwipxl/GLSL-shaders/blob/master/bloom.glsl
+
+- some resource managers unique to a scene?
+    - audio encapsulation / scene integration
+    - since its threaded
+https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-notepad-functionlist-xml
+    notepadd++ opens scripts folder
+    double click script to auto open
+- dbhelper?
+- may need to disable scissor test??? / fix event modifier handling for rml.
+- astar
+
+https://youtu.be/B1nO5wbPbwg
+https://www.google.com/search?client=firefox-b-d&q=writing+a+2d+rendering+engine
+https://learnopengl.com/
+https://learnopengl.com/Getting-started/Camera
+https://learnopengl.com/Getting-started/Coordinate-Systems
+
+https://www.minecraft.net/zh-hant/attribution
+https://scan.coverity.com/
+https://lgtm.com/help/lgtm/code-analysis
+
+3D:
+- Ogre-Next
+
+- custom 2d solution using vulkan or opengl. probably opengl.
+- think aboot switching to sdl2
+- use entt
+- use librocket
+- use imgui
+
+replace contains with C++23 contains OR use ranges
+
+https://github.com/skaarj1989/entt-meets-sol2
+https://github.com/Green-Sky/imgui_entt_entity_editor
+https://github.com/slembcke/Chipmunk2D
+https://www.google.com/search?client=firefox-b-d&q=entt+chipmunk+2d
+entt imgui
+entt sol2
+gsl?
+bullet/chimpmunk / entt?
+https://github.com/CedricGuillemet/ImGuizmo
+
+    -  in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
+    -  about objects and physics in tmxmap docs with name of object being script name.
+    -  about entt destroying components and to not allocate memory using components
+    -  in docs that when making text objects in map, text fontfamily and size must be in fontbook in format: fontfamilySize and that parse code will remove spaces first.
+        - and size is pixelsize not pointsize
+    - and about the layer for objects being explictitly specified in properites of layer.
+    -  that the engine operates on degrees, but allegro draws in radians.
+    -  about layerrs and tmx mpa
+    -  aboutt physics objects only being created if layreri s named collision, also note that it doesnt matter where textrues and stuff in tmx path too because only the last file name in the path is used.
+        - i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"
+    - only embedded tilesets supported for now.
+    - tile rendeirng issues, refer to original code ?
+    - ensure tmx layer names are unique for ALL maps.
+    - when serializing, you have to serialize engine components and tags, engine does not do it for you and then manually update physicscomponents parent entity.
+    - talk about nulltexture and nullsound and nullanimation, etc which is used on defaultconstructed components.
+    -  that first state is automatically loaded and last state is automatically unloaded
+    -  abouit registering tags and components
+    - when creating widgets from lua, the theme needs to be the same as one from that script file.
+    - Classes with seralization:
+                - animationcomponent
+                    - animation
+                    - animationframe
+                - enabledcomponent
+                - physicscomponent
+                    - may need to update internal entity during deserialization
+                - rendercomponent
+                - transformcomponent
+                - cameratag
+            - statemachine  

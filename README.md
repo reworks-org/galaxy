@@ -55,6 +55,10 @@ Coming Soon.
 Unsupported, due to terrible support of Modern C++ and OpenGL.
 ```
 
+### Scripts:
+There are additional helper scripts located in the [scripts folder](https://github.com/DomRe/galaxy/tree/master/scripts).
+In order to run these, you require a ```MSYS2 installation``` installed on your ```PATH```.
+
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
 
