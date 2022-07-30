@@ -5,7 +5,6 @@
 [![LGTM]()]()
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4377/badge)](https://bestpractices.coreinfrastructure.org/projects/4377)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
-[![GitHub Releases](https://img.shields.io/github/release/nlohmann/json.svg)](https://github.com/domre/galaxy/releases)
 
 Real-Time C++20 Game/App Engine. Built on data-driven design principles and agile software engineering. 
 

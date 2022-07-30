@@ -1,10 +1,10 @@
 extraction:
   cpp:
     index:
-      all_solutions: false
+      all_solutions: true
       msbuild:
         configuration: Release
         platform: x64
         target: rebuild
       nuget_restore: false
-      solution: galaxy.sln
+      solution: $LGTM_SRC/galaxy.sln
