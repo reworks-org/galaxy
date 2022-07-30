@@ -66,8 +66,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;AL_LIBTYPE_STATIC;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -102,6 +102,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <ErrorReporting>None</ErrorReporting>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,7 +116,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
-      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -124,13 +125,13 @@
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;AL_LIBTYPE_STATIC;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;GLFW_INCLUDE_NONE;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/unordered_dense/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
@@ -157,6 +158,7 @@
       <ErrorReporting>None</ErrorReporting>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
+      <SupportJustMyCode>true</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -169,7 +171,7 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
-      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
