@@ -19,9 +19,6 @@
 [submodule "lib/json"]
 	path = lib/json
 	url = https://github.com/nlohmann/json.git
-[submodule "lib/unordered_dense"]
-	path = lib/unordered_dense
-	url = https://github.com/martinus/unordered_dense.git
 [submodule "lib/zlibcomplete"]
 	path = lib/zlibcomplete
 	url = https://github.com/rudi-cilibrasi/zlibcomplete
@@ -40,3 +37,6 @@
 [submodule "lib/box2d"]
 	path = lib/box2d
 	url = https://github.com/erincatto/box2d.git
+[submodule "lib/robin_hood"]
+	path = lib/robin_hood
+	url = https://github.com/martinus/robin-hood-hashing.git
