@@ -1,19 +1,16 @@
-int main(int argsc, char* argsv[])
-{
-	return 0;
-}
-/*
 ///
 /// main.cpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-
+/*
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
-
+*/
+#include <galaxy/utils/Globals.hpp>
+/*
 #include "layers/Editor.hpp"
 #include "layers/Game.hpp"
 #include "layers/MainMenu.hpp"
@@ -27,12 +24,12 @@ public:
 	{
 	}
 };
-
+*/
 int main(int argsc, char* argsv[])
 {
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
-
+	/*
 	bool restart = false;
 
 	do
@@ -82,6 +79,6 @@ int main(int argsc, char* argsv[])
 		}
 
 	} while (restart);
-	return EXIT_SUCCESS;
+	*/
+	return GALAXY_EXIT_SUCCESS;
 }
-*/

@@ -1,3 +1,19 @@
+Sandbox tests to do:
+- Audio
+- Components
+- Core
+- Error
+- Events
+- FS
+- Graphics
+- Input
+- Platform
+- Resource
+- Scripting
+- State
+
+
+
 Batch Rendering:
 https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1
 https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/

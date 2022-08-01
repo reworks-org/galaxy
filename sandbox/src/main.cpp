@@ -1,22 +1,18 @@
-int main(int argsc, char* argsv[])
-{
-	return 0;
-}
-
-/*
 ///
 /// main.cpp
-/// SandboxTests
+/// sandbox
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-
+/*
 #include <iostream>
 
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/state/SceneManager.hpp>
-
+*/
+#include <galaxy/utils/Globals.hpp>
+/*
 using namespace galaxy;
 
 class Sandbox : public core::Application
@@ -31,12 +27,12 @@ public:
 	{
 	}
 };
-
+*/
 int main(int argsc, char* argsv[])
 {
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
-
+	/*
 	do
 	{
 		GALAXY_RESTART  = false;
@@ -67,7 +63,6 @@ int main(int argsc, char* argsv[])
 		}
 
 	} while (GALAXY_RESTART);
-
+	*/
 	return EXIT_SUCCESS;
 }
-*/

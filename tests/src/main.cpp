@@ -1,9 +1,3 @@
-int main(int argsc, char* argsv[])
-{
-	return 0;
-}
-
-/*
 ///
 /// main.cpp
 /// tests
@@ -16,15 +10,17 @@ int main(int argsc, char* argsv[])
 
 #include <gtest/gtest.h>
 
+#include <galaxy/utils/Globals.hpp>
+
 using namespace std::chrono_literals;
 
 int main(int argsc, char* argsv[])
 {
 	testing::InitGoogleTest(&argsc, argsv);
-	const auto result = RUN_ALL_TESTS();
+	RUN_ALL_TESTS();
 
 	// Leaves window open long enough to look at the results, without blocking automated builds.
 	std::this_thread::sleep_for(8s);
-	return result;
+
+	return GALAXY_EXIT_SUCCESS;
 }
-*/
