@@ -40,3 +40,6 @@
 [submodule "lib/robin_hood"]
 	path = lib/robin_hood
 	url = https://github.com/martinus/robin-hood-hashing.git
+[submodule "lib/threadpool"]
+	path = lib/threadpool
+	url = https://github.com/bshoshany/thread-pool.git

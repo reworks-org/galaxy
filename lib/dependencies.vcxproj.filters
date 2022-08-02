@@ -1490,6 +1490,7 @@
     <ClInclude Include="msdfgen\msdfgen\include\lodepng.h" />
     <ClInclude Include="msdfgen\msdfgen\include\tinyxml2.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
+    <ClInclude Include="threadpool\BS_thread_pool.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
