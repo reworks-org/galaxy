@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			/// \param paused True to pause all, false to unpause all.
 			///
-			void toggle_pause_all(bool paused) noexcept;
+			void toggle_pause_all(const bool paused) noexcept;
 
 			///
 			/// Stops all currently playing sounds.

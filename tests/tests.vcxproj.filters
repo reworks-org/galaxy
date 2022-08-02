@@ -7,8 +7,6 @@
     <ClCompile Include="src\algorithm\RandomTest.cpp" />
     <ClCompile Include="src\algorithm\RectPackTest.cpp" />
     <ClCompile Include="src\algorithm\ZLibTest.cpp" />
-    <ClCompile Include="src\async\TaskTest.cpp" />
-    <ClCompile Include="src\async\ThreadPoolTest.cpp" />
     <ClCompile Include="src\async\TimerTest.cpp" />
     <ClCompile Include="src\utils\GuidTest.cpp" />
     <ClCompile Include="src\core\ServiceLocatorTest.cpp" />

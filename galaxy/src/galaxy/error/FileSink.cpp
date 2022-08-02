@@ -15,9 +15,7 @@ namespace galaxy
 	{
 		FileSink::FileSink(std::string_view file) noexcept
 		{
-			const auto path = std::filesystem::path(file);
-
-			m_file_stream.open(path.string(), std::ofstream::out);
+			m_file_stream.open(std::filesystem::path(file).string(), std::ofstream::out);
 		}
 
 		FileSink::~FileSink() noexcept

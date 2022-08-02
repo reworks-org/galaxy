@@ -372,7 +372,7 @@ namespace galaxy
 			auto& fs  = ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto info = fs.find(icon);
 
-			if (info.m_code == fs::FileInfo::Code::FOUND)
+			if (info.m_code == fs::FileCode::FOUND)
 			{
 				// Fill glfw-compatible struct.
 				stbi_set_flip_vertically_on_load(true);

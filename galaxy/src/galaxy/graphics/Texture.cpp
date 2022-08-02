@@ -75,7 +75,7 @@ namespace galaxy
 			auto& config = core::ServiceLocator<core::Config>::ref();
 
 			auto file_info = fs.find(file);
-			if (file_info.m_code == fs::FileInfo::Code::FOUND)
+			if (file_info.m_code == fs::FileCode::FOUND)
 			{
 				if (file_info.m_path.extension() == "png")
 				{

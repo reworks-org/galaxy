@@ -17,8 +17,6 @@
     <ClCompile Include="src\algorithm\RandomTest.cpp" />
     <ClCompile Include="src\algorithm\RectPackTest.cpp" />
     <ClCompile Include="src\algorithm\ZLibTest.cpp" />
-    <ClCompile Include="src\async\TaskTest.cpp" />
-    <ClCompile Include="src\async\ThreadPoolTest.cpp" />
     <ClCompile Include="src\async\TimerTest.cpp" />
     <ClCompile Include="src\resource\LanguageTest.cpp" />
     <ClCompile Include="src\utils\GuidTest.cpp" />
@@ -90,7 +88,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -148,7 +146,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>

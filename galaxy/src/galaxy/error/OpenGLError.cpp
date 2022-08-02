@@ -64,7 +64,12 @@ namespace galaxy
 			return errors;
 		}
 
-		void gl_add_error(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* buf) noexcept
+		void gl_add_error(const unsigned int source,
+			const unsigned int type,
+			const unsigned int id,
+			const unsigned int severity,
+			const int length,
+			const char* buf) noexcept
 		{
 			glDebugMessageInsert(source, type, id, severity, length, buf);
 		}

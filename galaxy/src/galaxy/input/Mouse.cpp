@@ -18,12 +18,12 @@ namespace galaxy
 		{
 		}
 
-		void Mouse::enable_sticky_mouse() noexcept
+		void Mouse::enable_sticky_mouse() const noexcept
 		{
 			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);
 		}
 
-		void Mouse::disable_sticky_mouse() noexcept
+		void Mouse::disable_sticky_mouse() const noexcept
 		{
 			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_FALSE);
 		}

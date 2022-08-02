@@ -57,7 +57,7 @@ namespace galaxy
 			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto info = fs.find(icon);
 
-			if (info.m_code == fs::FileInfo::Code::FOUND)
+			if (info.m_code == fs::FileCode::FOUND)
 			{
 				// Fill glfw-compatible struct.
 				stbi_set_flip_vertically_on_load(false);
@@ -106,7 +106,7 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
-		bool Cursor::within_window() noexcept
+		bool Cursor::within_window() const noexcept
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_HOVERED);
 		}

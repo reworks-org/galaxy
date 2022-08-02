@@ -20,7 +20,7 @@ namespace galaxy
 		std::string encode_gzip(const std::string& input)
 		{
 			zlibcomplete::GZipCompressor compressor;
-			char* in = new char[ZLIB_COMPLETE_CHUNK];
+			auto in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{
@@ -64,7 +64,7 @@ namespace galaxy
 		std::string decode_gzip(const std::string& input)
 		{
 			zlibcomplete::GZipDecompressor decompressor;
-			char* in = new char[ZLIB_COMPLETE_CHUNK];
+			auto in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{

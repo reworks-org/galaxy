@@ -9,7 +9,6 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <filesystem>
-#include <future>
 #include <queue>
 #include <semaphore>
 #include <source_location>
@@ -22,7 +21,7 @@
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
 #define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
 #define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
-#define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR_
+#define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
 #define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
 #define GALAXY_LOG_START                galaxy::error::Log::handle().start
 #define GALAXY_LOG_FINISH               galaxy::error::Log::handle().finish
@@ -133,11 +132,6 @@ namespace galaxy
 			LogLevel m_min_level;
 
 			///
-			/// Logging thread handle.
-			///
-			std::future<void> m_async;
-
-			///
 			/// List of sinks.
 			///
 			std::vector<std::shared_ptr<Sink>> m_sinks;
@@ -211,7 +205,7 @@ namespace galaxy
 							loc.line()),
 						std::vformat(message, std::make_format_args(args...)));
 				}
-				else if constexpr (level == LogLevel::ERROR_ || level == LogLevel::FATAL)
+				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
 				{
 					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
 						"\x1B[31m",

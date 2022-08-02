@@ -11,7 +11,6 @@
 #include <glm/vec2.hpp>
 
 #include "galaxy/input/InputDevice.hpp"
-#include "galaxy/input/MouseButtons.hpp"
 
 namespace galaxy
 {
@@ -35,12 +34,12 @@ namespace galaxy
 			///
 			/// The pollable state of a nouse button will remain pressed until the state of that button is polled.
 			///
-			void enable_sticky_mouse() noexcept;
+			void enable_sticky_mouse() const noexcept;
 
 			///
 			/// Disable sticky mouse.
 			///
-			void disable_sticky_mouse() noexcept;
+			void disable_sticky_mouse() const noexcept;
 
 			///
 			/// Get last recorded mouse position.

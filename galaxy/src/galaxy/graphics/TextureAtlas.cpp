@@ -102,7 +102,7 @@ namespace galaxy
 						sheet.m_render_texture.bind(false);
 
 						// Update transform.
-						m_transform.set_pos(info.m_region.m_x, info.m_region.m_y);
+						m_transform.set_pos(static_cast<float>(info.m_region.m_x), static_cast<float>(info.m_region.m_y));
 
 						// Redefine vertices.
 						std::array<graphics::Vertex, 4> vertices;

@@ -16,6 +16,7 @@
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
+#include "galaxy/input/Mouse.hpp"
 
 namespace galaxy
 {

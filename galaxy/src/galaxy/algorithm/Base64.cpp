@@ -39,12 +39,7 @@ namespace galaxy
 	{
 		std::string encode_base64(const std::string& input)
 		{
-			if (input.empty())
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Cannot encode an empty string.");
-				return {};
-			}
-			else
+			if (!input.empty())
 			{
 				// clang-format off
 				static constexpr const char s_encoding_table[] = {
@@ -56,13 +51,13 @@ namespace galaxy
 				};
 				// clang-format on
 
-				const std::size_t in_len  = input.size();
-				const std::size_t out_len = 4 * ((in_len + 2) / 3);
+				const auto in_len  = input.size();
+				const auto out_len = static_cast<std::size_t>(4 * ((in_len + 2) / 3));
 
-				std::string output(out_len, '\0');
-				char* p = &output[0];
+				auto output = std::string(out_len, '\0');
+				char* p     = &output[0];
 
-				std::size_t i;
+				std::size_t i = 0;
 				for (i = 0; i < in_len - 2; i += 3)
 				{
 					*p++ = s_encoding_table[(input[i] >> 2) & 0x3F];
@@ -74,6 +69,7 @@ namespace galaxy
 				if (i < in_len)
 				{
 					*p++ = s_encoding_table[(input[i] >> 2) & 0x3F];
+
 					if (i == (in_len - 1))
 					{
 						*p++ = s_encoding_table[((input[i] & 0x3) << 4)];
@@ -84,10 +80,16 @@ namespace galaxy
 						*p++ = s_encoding_table[((input[i] & 0x3) << 4) | (static_cast<int>(input[i + 1] & 0xF0) >> 4)];
 						*p++ = s_encoding_table[((input[i + 1] & 0xF) << 2)];
 					}
+
 					*p++ = '=';
 				}
 
 				return output;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to encode an empty string.");
+				return {};
 			}
 		}
 
@@ -95,12 +97,8 @@ namespace galaxy
 		{
 			if (input.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Cannot encode an empty string.");
-				return {};
-			}
-			else
-			{
-				const std::size_t in_len = input.size();
+				const auto in_len = input.size();
+
 				if (in_len % 4 != 0)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Input data size is not a multiple of 4");
@@ -128,7 +126,7 @@ namespace galaxy
 					};
 					// clang-format on
 
-					std::size_t out_len = in_len / 4 * 3;
+					auto out_len = static_cast<std::size_t>(in_len / 4 * 3);
 
 					if (input[in_len - 1] == '=')
 					{
@@ -140,7 +138,7 @@ namespace galaxy
 						out_len--;
 					}
 
-					std::string output(out_len, '\0');
+					auto output = std::string(out_len, '\0');
 
 					for (std::size_t i = 0, j = 0; i < in_len;)
 					{
@@ -169,6 +167,11 @@ namespace galaxy
 
 					return output;
 				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to decode an empty string.");
+				return {};
 			}
 		}
 	} // namespace algorithm

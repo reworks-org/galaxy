@@ -45,7 +45,7 @@ namespace galaxy
 		///
 		/// \return Modified string.
 		///
-		[[nodiscard]] std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with);
+		[[nodiscard]] std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 
 		///
 		/// \brief Replaces all occurances of a string.
@@ -58,7 +58,7 @@ namespace galaxy
 		///
 		/// \return Modified string.
 		///
-		[[nodiscard]] std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with);
+		[[nodiscard]] std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 	} // namespace strutils
 } // namespace galaxy
 

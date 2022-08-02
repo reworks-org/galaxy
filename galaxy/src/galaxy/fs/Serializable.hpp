@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Serializable() noexcept;
+			virtual ~Serializable() noexcept = default;
 
 			///
 			/// Serializes object.
@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Serializable() noexcept;
+			Serializable() noexcept = default;
 		};
 	} // namespace fs
 } // namespace galaxy

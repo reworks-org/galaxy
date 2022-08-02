@@ -58,7 +58,7 @@ namespace galaxy
 			///
 			/// \return True if cursor is within the content area of the window.
 			///
-			[[nodiscard]] bool within_window() noexcept;
+			[[nodiscard]] bool within_window() const noexcept;
 
 		private:
 			///

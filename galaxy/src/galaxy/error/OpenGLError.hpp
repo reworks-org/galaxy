@@ -41,7 +41,12 @@ namespace galaxy
 		/// \param length The length string contained in the character array whose address is given by message.
 		/// \param buf The address of a character array containing the message to insert.
 		///
-		void gl_add_error(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* buf) noexcept;
+		void gl_add_error(const unsigned int source,
+			const unsigned int type,
+			const unsigned int id,
+			const unsigned int severity,
+			const int length,
+			const char* buf) noexcept;
 	} // namespace error
 } // namespace galaxy
 

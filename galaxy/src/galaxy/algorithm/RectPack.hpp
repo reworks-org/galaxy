@@ -62,12 +62,12 @@ namespace galaxy
 			///
 			/// Get total width.
 			///
-			[[nodiscard]] const int get_width() const noexcept;
+			[[nodiscard]] int get_width() const noexcept;
 
 			///
 			/// Get total height.
 			///
-			[[nodiscard]] const int get_height() const noexcept;
+			[[nodiscard]] int get_height() const noexcept;
 
 			///
 			/// Get free rectangles.

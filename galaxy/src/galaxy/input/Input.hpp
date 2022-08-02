@@ -10,8 +10,10 @@
 
 struct GLFWwindow;
 
+#include <glm/vec2.hpp>
+
 #include "galaxy/input/Keys.hpp"
-#include "galaxy/input/Mouse.hpp"
+#include "galaxy/input/MouseButtons.hpp"
 
 namespace galaxy
 {

@@ -24,7 +24,7 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = fs.find(file);
-			if (path.m_code == fs::FileInfo::Code::FOUND)
+			if (path.m_code == fs::FileCode::FOUND)
 			{
 				std::ifstream input {path.m_string, std::ifstream::in};
 
@@ -53,15 +53,15 @@ namespace galaxy
 
 		std::optional<nlohmann::json> parse_from_mem(std::span<char> memory)
 		{
-			if (memory.empty())
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to parse empty memory buffer for json data.");
-				return std::nullopt;
-			}
-			else
+			if (!memory.empty())
 			{
 				nlohmann::json json = nlohmann::json::parse(memory);
 				return std::make_optional(json);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to parse empty memory buffer for json data.");
+				return std::nullopt;
 			}
 		}
 

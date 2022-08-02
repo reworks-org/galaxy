@@ -8,6 +8,8 @@
 #ifndef GALAXY_ERROR_LOGLEVEL_HPP_
 #define GALAXY_ERROR_LOGLEVEL_HPP_
 
+#undef ERROR
+
 namespace galaxy
 {
 	namespace error
@@ -33,11 +35,9 @@ namespace galaxy
 			WARNING = 2,
 
 			///
-			/// \brief Error Log Level.
+			/// Error Log Level.
 			///
-			/// Has an underscore to prevent conflicts with some macro definitions in Windows.
-			///
-			ERROR_ = 3,
+			ERROR = 3,
 
 			///
 			/// Fatal Log Level.

@@ -117,7 +117,7 @@ namespace galaxy
 			return audio;
 		}
 
-		void AudioEngine::toggle_pause_all(bool paused) noexcept
+		void AudioEngine::toggle_pause_all(const bool paused) noexcept
 		{
 			m_sfx_engine->setAllSoundsPaused(paused);
 			m_music_engine->setAllSoundsPaused(paused);

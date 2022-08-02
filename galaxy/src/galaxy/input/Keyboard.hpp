@@ -48,12 +48,12 @@ namespace galaxy
 			/// The pollable state of a key will remain pressed until the state of that key is polled.
 			/// This applies to modifer keys aswell, such as CAPS LOCK.
 			///
-			void enable_sticky_keys() noexcept;
+			void enable_sticky_keys() const noexcept;
 
 			///
 			/// Disable sticky keys.
 			///
-			void disable_sticky_keys() noexcept;
+			void disable_sticky_keys() const noexcept;
 
 			///
 			/// Check if window is in text input mode.
@@ -69,25 +69,25 @@ namespace galaxy
 			///
 			/// \return Platform-specific scancode of a key.
 			///
-			[[nodiscard]] int get_scancode(const input::Keys key) noexcept;
+			[[nodiscard]] int get_scancode(const input::Keys key) const noexcept;
 
 			///
 			/// Get key name.
 			///
 			/// \param key Key to query.
 			///
-			/// \return Name of key, empty if error.
+			/// \return Name of key, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_key_name(const input::Keys key);
+			[[nodiscard]] std::string get_key_name(const input::Keys key) const noexcept;
 
 			///
 			/// Get key name.
 			///
-			/// \param key Key to query.
+			/// \param scancode Scancode to query.
 			///
-			/// \return Name of key, empty if error.
+			/// \return Name of scancode, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_scancode_name(const int scancode);
+			[[nodiscard]] std::string get_scancode_name(const int scancode) const noexcept;
 
 		private:
 			///

@@ -161,7 +161,7 @@ namespace galaxy
 			///
 			/// List contents of a directory in the VFS recursively.
 			///
-			/// \param directory Directory in the VFS.
+			/// \param path Path, including directory, in the VFS.
 			///
 			/// \return List of files / folders in directory. Empty if there is an error / nothing found.
 			///

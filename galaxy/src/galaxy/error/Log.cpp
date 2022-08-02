@@ -5,6 +5,10 @@
 /// See LICENSE.txt.
 ///
 
+#include <BS_thread_pool.hpp>
+
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "Log.hpp"
 
 using namespace std::chrono_literals;
@@ -29,7 +33,8 @@ namespace galaxy
 		{
 			m_run_thread = true;
 
-			m_async = std::async(std::launch::async, [&]() {
+			auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
+			tp.push_task([this]() {
 				while (m_run_thread)
 				{
 					m_sync.acquire();
@@ -51,7 +56,6 @@ namespace galaxy
 		{
 			m_min_level  = LogLevel::INFO;
 			m_run_thread = false;
-			m_async.get();
 
 			m_sinks.clear();
 			m_messages = {};

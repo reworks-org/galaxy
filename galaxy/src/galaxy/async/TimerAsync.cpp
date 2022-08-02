@@ -7,8 +7,6 @@
 
 #include <future>
 
-#include "galaxy/utils/Globals.hpp"
-
 #include "TimerAsync.hpp"
 
 namespace galaxy

@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\audio\Audio.cpp" />
     <ClCompile Include="src\galaxy\audio\AudioFileReader.cpp" />
@@ -20,8 +21,6 @@
     <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
     <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
-    <ClCompile Include="src\galaxy\async\Task.cpp" />
-    <ClCompile Include="src\galaxy\async\ThreadPool.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
@@ -110,6 +109,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\audio\Audio.hpp" />
     <ClInclude Include="src\galaxy\audio\AudioFileReader.hpp" />
@@ -119,13 +119,10 @@
     <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
     <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
-    <ClInclude Include="src\galaxy\async\Task.hpp" />
-    <ClInclude Include="src\galaxy\async\ThreadPool.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\audio\AudioFileFactory.hpp" />
-    <ClInclude Include="src\galaxy\audio\AudioSource.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
@@ -300,7 +297,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -360,7 +357,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

@@ -78,7 +78,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "{0}", message);
 				break;
 
-			case error::LogLevel::ERROR_:
+			case error::LogLevel::ERROR:
 				GALAXY_LOG(GALAXY_ERROR, "{0}", message);
 				break;
 
@@ -184,7 +184,7 @@ namespace galaxy
 				{"INFO", error::LogLevel::INFO},
 				{"DEBUG", error::LogLevel::DEBUG},
 				{"WARNING", error::LogLevel::WARNING},
-				{"ERROR", error::LogLevel::ERROR_},
+				{"ERROR", error::LogLevel::ERROR},
 				{"FATAL", error::LogLevel::FATAL}
 			});
 			// clang-format on
@@ -232,12 +232,12 @@ namespace galaxy
 
 			/* FS */
 			// clang-format off
-			lua.new_enum<fs::FileInfo::Code>("FileInfoCodes",
+			lua.new_enum<fs::FileCode>("FileInfoCodes",
 			{
-				{"FOUND", fs::FileInfo::Code::FOUND},
-				{"NOT_FOUND", fs::FileInfo::Code::NOT_FOUND},
-				{"NOT_IN_VFS", fs::FileInfo::Code::NOT_IN_VFS},
-				{"NO_EXTENSION", fs::FileInfo::Code::NO_EXTENSION}
+				{"FOUND", fs::FileCode::FOUND},
+				{"NOT_FOUND", fs::FileCode::NOT_FOUND},
+				{"NOT_IN_VFS", fs::FileCode::NOT_IN_VFS},
+				{"NO_EXTENSION", fs::FileCode::NO_EXTENSION}
 			});
 			// clang-format on
 
@@ -486,8 +486,6 @@ namespace galaxy
 			guid_type["as_string"] = &utils::Guid::to_string;
 			guid_type["is_empty"]  = &utils::Guid::is_empty;
 
-			lua.set("GALAXY_MAX_THREADS", GALAXY_MAX_THREADS);
-			lua.set("GALAXY_THREADPOOL_COUNT", GALAXY_THREADPOOL_COUNT);
 			lua.set("GALAXY_DT", GALAXY_DT);
 			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR);
 

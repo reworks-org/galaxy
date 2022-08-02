@@ -20,12 +20,12 @@ namespace galaxy
 		std::string encode_zlib(const std::string& input)
 		{
 			zlibcomplete::ZLibCompressor compressor;
-			char* in = new char[ZLIB_COMPLETE_CHUNK];
+			auto in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{
 				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
-				
+
 				unsigned int total_read = 0;
 
 				std::string result;
@@ -64,7 +64,7 @@ namespace galaxy
 		std::string decode_zlib(const std::string& input)
 		{
 			zlibcomplete::ZLibDecompressor decompressor;
-			char* in = new char[ZLIB_COMPLETE_CHUNK];
+			auto in = new char[ZLIB_COMPLETE_CHUNK];
 
 			try
 			{

@@ -23,7 +23,7 @@ namespace galaxy
 			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto info = fs.find(filename);
 
-			if (info.m_code == fs::FileInfo::Code::FOUND)
+			if (info.m_code == fs::FileCode::FOUND)
 			{
 				auto* file = std::fopen(filename, "rb");
 				if (!file)
@@ -37,10 +37,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR,
-					"Failed to find '{0}' in vfs, returned error '{1}'.",
-					filename,
-					magic_enum::enum_name<fs::FileInfo::Code>(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' in vfs, returned error '{1}'.", filename, magic_enum::enum_name<fs::FileCode>(info.m_code));
 			}
 
 			return nullptr;

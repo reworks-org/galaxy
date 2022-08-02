@@ -10,6 +10,8 @@
 
 #include <filesystem>
 
+#include "galaxy/fs/FileCode.hpp"
+
 namespace galaxy
 {
 	namespace fs
@@ -17,35 +19,9 @@ namespace galaxy
 		struct FileInfo final
 		{
 			///
-			/// Used to determine type of filesystem error.
-			///
-			enum class Code : int
-			{
-				///
-				/// File was found in VFS.
-				///
-				FOUND,
-
-				///
-				/// File not found.
-				///
-				NOT_FOUND,
-
-				///
-				/// Absolute path is not in the filesystem.
-				///
-				NOT_IN_VFS,
-
-				///
-				/// Is not a file.
-				///
-				NO_EXTENSION
-			};
-
-			///
 			/// The error code returned.
 			///
-			Code m_code;
+			FileCode m_code;
 
 			///
 			/// A string formatted absolute path to the file.

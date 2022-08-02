@@ -1,3 +1,5 @@
+audio resources + cache + scene + factory
+
 Sandbox tests to do:
 - Audio
 - Components
@@ -11,8 +13,22 @@ Sandbox tests to do:
 - Resource
 - Scripting
 - State
+- Systems
+
+CODE REVIEW TODO:
+- GRAPHICS ENGINE.
+- RESOURCE
+- STATE
+
+TODO: PORT REMAINING LEGACY CODE.
 
 
+
+
+
+
+
+-- LEGACY TODO BELOW --
 
 Batch Rendering:
 https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1

@@ -63,7 +63,7 @@ namespace galaxy
 			return out;
 		}
 
-		std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			const auto pos = input.find(to_replace);
 
@@ -75,7 +75,7 @@ namespace galaxy
 			return input;
 		}
 
-		std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			std::size_t pos = 0;
 

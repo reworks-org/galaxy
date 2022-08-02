@@ -10,29 +10,21 @@
 
 #include <chrono>
 #include <filesystem>
-#include <thread>
 
-namespace DoNotUseReferToConfigForMacroNames
+namespace galaxy
 {
-	inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
+	namespace doNotUseReferToConfigForMacroNames
+	{
+		inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
 
-	inline static constexpr const auto GALAXY_DT_VAR =
-		static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
+		inline static constexpr const auto GALAXY_DT_VAR =
+			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
-	inline static auto GALAXY_RESTART_FLAG = false;
+		inline static auto GALAXY_RESTART_FLAG = false;
 
-	inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
-} // namespace DoNotUseReferToConfigForMacroNames
-
-///
-/// Defines number of threads allowed for galaxy.
-///
-#define GALAXY_MAX_THREADS std::thread::hardware_concurrency()
-
-///
-/// Defines the number of threads allowed in the threadpool.
-///
-#define GALAXY_THREADPOOL_COUNT 4
+		inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
+	} // namespace doNotUseReferToConfigForMacroNames
+} // namespace galaxy
 
 ///
 /// Prevents compiler warnings when applied to unused parameters.
@@ -47,22 +39,22 @@ namespace DoNotUseReferToConfigForMacroNames
 ///
 /// Restart flag.
 ///
-#define GALAXY_RESTART DoNotUseReferToConfigForMacroNames::GALAXY_RESTART_FLAG
+#define GALAXY_RESTART galaxy::doNotUseReferToConfigForMacroNames::GALAXY_RESTART_FLAG
 
 ///
 /// Time point for application start.
 ///
-#define GALAXY_START_TP DoNotUseReferToConfigForMacroNames::GALAXY_APP_START_TIME_POINT
+#define GALAXY_START_TP galaxy::doNotUseReferToConfigForMacroNames::GALAXY_APP_START_TIME_POINT
 
 ///
 /// Updates per second.
 ///
-#define GALAXY_UPS DoNotUseReferToConfigForMacroNames::GALAXY_UPS_VAR
+#define GALAXY_UPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_UPS_VAR
 
 ///
 /// Galaxy Delta-Time.
 ///
-#define GALAXY_DT DoNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
+#define GALAXY_DT galaxy::doNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
 
 ///
 /// Extension to use when loading vertex shaders.

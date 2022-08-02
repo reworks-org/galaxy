@@ -9,7 +9,7 @@
 #define GALAXY_EVENTS_MOUSEPRESSED_HPP_
 
 #include "galaxy/input/InputMods.hpp"
-#include "galaxy/input/Mouse.hpp"
+#include "galaxy/input/MouseButtons.hpp"
 
 namespace galaxy
 {

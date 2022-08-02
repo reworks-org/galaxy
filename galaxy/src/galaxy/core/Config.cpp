@@ -37,6 +37,7 @@ namespace galaxy
 		{
 			auto path = std::filesystem::path(file);
 			m_path    = path.string();
+
 			if (!std::filesystem::exists(path))
 			{
 				std::ofstream ofs {m_path, std::ofstream::out | std::ofstream::trunc};
@@ -94,7 +95,7 @@ namespace galaxy
 			}
 		}
 
-		bool Config::empty() noexcept
+		bool Config::empty() const noexcept
 		{
 			if (m_loaded)
 			{

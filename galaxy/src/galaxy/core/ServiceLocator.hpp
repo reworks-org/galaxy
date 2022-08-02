@@ -103,15 +103,13 @@ namespace galaxy
 		inline Service& ServiceLocator<Service>::make(Args&&... args) noexcept
 		{
 			m_service = std::make_unique<Service>(std::forward<Args>(args)...);
-
 			return ref();
 		}
 
 		template<meta::is_class Service>
 		inline Service& ServiceLocator<Service>::ref()
 		{
-			// Avoid static shenanigans.
-			if (!static_cast<bool>(m_service))
+			if (m_service == nullptr)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
 			}
@@ -122,14 +120,14 @@ namespace galaxy
 		template<meta::is_class Service>
 		inline bool ServiceLocator<Service>::empty() noexcept
 		{
-			return !static_cast<bool>(m_service);
+			return m_service == nullptr;
 		}
 
 		template<meta::is_class Service>
 		inline void ServiceLocator<Service>::del()
 		{
-			// Sets to nullptr.
 			m_service.reset();
+			m_service = nullptr;
 		}
 	} // namespace core
 } // namespace galaxy

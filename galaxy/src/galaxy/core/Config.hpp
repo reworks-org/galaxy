@@ -103,7 +103,7 @@ namespace galaxy
 			/// \tparam Value Standard JSON type to use.
 			///
 			/// \param key Key to lookup value.
-			/// \param sections Delimiter seperated sections.
+			/// \param section Delimiter seperated sections.
 			/// \param delim Delimiter to use. Optional.
 			///
 			/// \return Returns the value retrieved from the key.
@@ -116,7 +116,7 @@ namespace galaxy
 			///
 			/// \return True if blank.
 			///
-			[[nodiscard]] bool empty() noexcept;
+			[[nodiscard]] bool empty() const noexcept;
 
 		private:
 			///

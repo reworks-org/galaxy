@@ -95,12 +95,12 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		const int RectPack::get_width() const noexcept
+		int RectPack::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int RectPack::get_height() const noexcept
+		int RectPack::get_height() const noexcept
 		{
 			return m_height;
 		}
