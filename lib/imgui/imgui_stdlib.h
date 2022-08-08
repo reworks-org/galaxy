@@ -8,6 +8,8 @@
 
 #include <string>
 
+#include "imgui.h"
+
 namespace ImGui
 {
     // ImGui::InputText() with std::string

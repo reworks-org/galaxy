@@ -99,6 +99,11 @@
     <ClCompile Include="src\galaxy\state\Scene.cpp" />
     <ClCompile Include="src\galaxy\state\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\state\LayerRegistry.cpp" />
+    <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
+    <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -199,5 +204,10 @@
     <ClInclude Include="src\galaxy\state\Scene.hpp" />
     <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\state\LayerRegistry.hpp" />
+    <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
+    <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
   </ItemGroup>
 </Project>

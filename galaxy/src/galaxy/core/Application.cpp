@@ -37,6 +37,8 @@ namespace galaxy
 	{
 		Application::Application(std::string_view log_dir, std::string_view config_file)
 		{
+			GALAXY_START_TP = std::chrono::high_resolution_clock::now();
+
 			platform::configure_terminal();
 
 			// Seed pseudo-random algorithms.
