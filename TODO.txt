@@ -16,16 +16,9 @@ Sandbox tests to do:
 - Systems
 
 CODE REVIEW TODO:
-- GRAPHICS ENGINE.
-- RESOURCE
-- STATE
+- GRAPHICS.
 
 TODO: PORT REMAINING LEGACY CODE.
-
-
-
-
-
 
 
 -- LEGACY TODO BELOW --

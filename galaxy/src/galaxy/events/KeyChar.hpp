@@ -28,6 +28,11 @@ namespace galaxy
 			/// List of entered character(s).
 			///
 			std::string m_char;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

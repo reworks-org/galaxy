@@ -20,17 +20,6 @@
 
 namespace galaxy
 {
-	namespace meta
-	{
-		///
-		/// Checks if the input is an input device for a window.
-		///
-		/// \tparam T Parent type to test.
-		///
-		template<typename T>
-		concept is_input_device = std::derived_from<T, input::InputDevice>;
-	} // namespace meta
-
 	namespace core
 	{
 		///
@@ -113,6 +102,11 @@ namespace galaxy
 			/// \param dispatcher An event dispatcher usually belonging to a scene.
 			///
 			void trigger_queued_events(entt::dispatcher& dispatcher);
+
+			///
+			/// Pop all queued events.
+			///
+			void pop_queued_events() noexcept;
 
 			///
 			/// \brief Notify's user of an event without interrupting.

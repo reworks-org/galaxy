@@ -8,8 +8,8 @@
 #ifndef GALAXY_EVENTS_EVENTQUEUE_HPP_
 #define GALAXY_EVENTS_EVENTQUEUE_HPP_
 
-#include <queue>
 #include <variant>
+#include <vector>
 
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
@@ -42,7 +42,7 @@ namespace galaxy
 		///
 		/// Event queue type.
 		///
-		using Queue = std::queue<Variant>;
+		using Queue = std::vector<Variant>;
 	} // namespace events
 } // namespace galaxy
 

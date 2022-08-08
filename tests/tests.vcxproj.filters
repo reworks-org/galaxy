@@ -10,7 +10,6 @@
     <ClCompile Include="src\async\TimerTest.cpp" />
     <ClCompile Include="src\utils\GuidTest.cpp" />
     <ClCompile Include="src\core\ServiceLocatorTest.cpp" />
-    <ClCompile Include="src\resource\CacheLoaderTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\resource\LanguageTest.cpp" />

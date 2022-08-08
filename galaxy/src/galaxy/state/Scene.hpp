@@ -8,8 +8,7 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
-#include "galaxy/state/LayerStack.hpp"
-#include "galaxy/resource/Resources.hpp"
+#include "galaxy/state/Layers.hpp"
 
 namespace galaxy
 {
@@ -45,12 +44,17 @@ namespace galaxy
 			void unload();
 
 			///
-			/// Process events/updates and prepare for rendering.
+			/// Process scene events.
+			///
+			void events();
+
+			///
+			/// Process updates.
 			///
 			void update();
 
 			///
-			/// Render Scene.
+			/// Render scene.
 			///
 			void render();
 
@@ -71,9 +75,9 @@ namespace galaxy
 			///
 			/// Get layer stack.
 			///
-			/// \return Reference to scene stack.
+			/// \return Reference to layers stack.
 			///
-			[[nodiscard]] LayerStack& get_stack() noexcept;
+			[[nodiscard]] Layers& get_layers() noexcept;
 
 			///
 			/// Serializes object.
@@ -98,19 +102,127 @@ namespace galaxy
 			///
 			/// Controls current application layer.
 			///
-			LayerStack m_layer_stack;
-
-			///
-			/// Resources used by scene.
-			///
-			resource::Resources m_resources;
-
-			///
-			/// Backup of deserialization JSON.
-			///
-			nlohmann::json m_deserialization_json;
+			Layers m_layer_stack;
 		};
 	} // namespace state
 } // namespace galaxy
 
 #endif
+
+/*
+#include "galaxy/core/World.hpp"
+#include "galaxy/events/Dispatcher.hpp"
+#include "galaxy/graphics/Camera2D.hpp"
+#include "galaxy/map/TiledWorld.hpp"
+
+		///
+		/// Rendering/event Scene within a scene.
+		/// Scenes -> Game, Interiors, Pause, etc.
+		/// Share Resources, in a stack with only whats on top being processed.
+		///
+
+namespace Rml
+{
+	class Context;
+} // namespace Rml
+	namespace systems
+	{
+		class ActionSystem;
+		class RenderSystem2D;
+	} // namespace systems
+
+
+		///
+			/// Set Scene resources.
+			///
+			/// \param resources Scene resources.
+			///
+			void set_resources(resource::Resources* resources) noexcept;
+
+	///
+			/// Load an RML document.
+			///
+			/// \param document File, including path.
+			///
+			void load_rml_doc(std::string_view document);
+
+			///
+			/// Load a tiled world.
+			///
+			/// \param path Path to the tiled world.
+			///
+			void create_maps(std::string_view path);
+
+			///
+			/// Set the active map.
+			///
+			/// \param name Name of the map file to set as active.
+			///
+			void set_active_map(std::string_view name);
+
+			///
+			/// Get a map.
+			///
+			/// \param name Name of the map file to get.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_map(std::string_view name);
+
+			///
+			/// Get active map.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_active_map();
+
+
+
+
+			///
+			/// Entity/System manager.
+			///
+			core::World m_world;
+
+
+		private:
+			///
+			/// Tiled map world.
+			///
+			map::TiledWorld m_maps;
+
+			///
+			/// Currently active map.
+			///
+			std::string m_active_map;
+
+			///
+			/// Current map path.
+			///
+			std::string m_maps_path;
+
+			///
+			/// Pointer to rendering system.
+			///
+			systems::RenderSystem2D* m_rendersystem;
+
+			///
+			/// RML context.
+			///
+			Rml::Context* m_rml;///
+			/// Pointer to scene resources.
+			///
+			resource::Resources* m_resources;
+
+			///
+			/// Pointer to window.
+			///
+			core::Window* m_window;
+
+			///
+			/// Camera.
+			///
+			graphics::Camera m_camera;
+
+
+*/

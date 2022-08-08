@@ -26,6 +26,11 @@ namespace galaxy
 			/// -1 or 1.
 			///
 			double m_yoff;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

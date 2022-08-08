@@ -34,6 +34,11 @@ namespace galaxy
 			/// Platform scancode.
 			///
 			int m_scancode;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

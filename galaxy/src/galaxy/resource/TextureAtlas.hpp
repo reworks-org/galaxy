@@ -11,7 +11,6 @@
 #include <span>
 #include <string_view>
 
-#include <nlohmann/json_fwd.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/algorithm/RectPack.hpp"
@@ -22,12 +21,12 @@
 
 namespace galaxy
 {
-	namespace graphics
+	namespace resource
 	{
 		///
 		/// Parses raw texture files and stiches them into a large altas.
 		///
-		class TextureAtlas final : public fs::Serializable
+		class TextureAtlas final
 		{
 		public:
 			///
@@ -43,7 +42,7 @@ namespace galaxy
 				///
 				/// Texture to combine to.
 				///
-				RenderTexture m_render_texture;
+				graphics::RenderTexture m_render_texture;
 
 				///
 				/// Flag to determine if this sheet has been created.
@@ -59,7 +58,7 @@ namespace galaxy
 				///
 				/// Region of the texture in the atlas.
 				///
-				iRect m_region;
+				graphics::iRect m_region;
 
 				///
 				/// Index of which atlas this sprite belongs to.
@@ -73,23 +72,6 @@ namespace galaxy
 			TextureAtlas();
 
 			///
-			/// File constructor.
-			///
-			/// \param files List of files to load.
-			///
-			TextureAtlas(std::span<std::string> files);
-
-			///
-			/// Move constructor.
-			///
-			TextureAtlas(TextureAtlas&&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			TextureAtlas& operator=(TextureAtlas&&) noexcept;
-
-			///
 			/// Destructor.
 			///
 			virtual ~TextureAtlas();
@@ -99,14 +81,23 @@ namespace galaxy
 			///
 			/// \param file Texture file in the vfs to add to atlas.
 			///
-			void add(std::string_view file);
+			void add_file(std::string_view file);
 
 			///
-			/// Add a group of files.
+			/// \brief Load textures in a folder.
 			///
-			/// \param files List of files to load.
+			/// Paired shaders must share a common filename.
 			///
-			void add(std::span<std::string> files);
+			/// \param folder Folder located in the VFS.
+			///
+			void add_folder(std::string_view folder);
+
+			///
+			/// \brief Reload textures from folder.
+			///
+			/// Does nothing if load hasn't been called.
+			///
+			void reload();
 
 			///
 			/// \brief Save all created atlas' to disk.
@@ -148,21 +139,17 @@ namespace galaxy
 			///
 			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key) noexcept;
 
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to write out.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
-
 		private:
+			///
+			/// Move constructor.
+			///
+			TextureAtlas(TextureAtlas&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			TextureAtlas& operator=(TextureAtlas&&) = delete;
+
 			///
 			/// Copy constructor.
 			///
@@ -179,6 +166,11 @@ namespace galaxy
 			void init();
 
 		private:
+			///
+			/// Texture folder in vfs.
+			///
+			std::string m_folder;
+
 			///
 			/// Max number of active textures allowed.
 			///
@@ -202,14 +194,14 @@ namespace galaxy
 			///
 			/// Default vertex array to use when building an atlas.
 			///
-			VertexArray m_va;
+			graphics::VertexArray m_va;
 
 			///
 			/// Default transform to use when building an atlas.
 			///
 			components::Transform m_transform;
 		};
-	} // namespace graphics
+	} // namespace resource
 } // namespace galaxy
 
 #endif

@@ -26,6 +26,11 @@ namespace galaxy
 			/// Mouse y position.
 			///
 			double m_ypos;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

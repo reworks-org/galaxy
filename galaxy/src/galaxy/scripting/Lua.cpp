@@ -37,7 +37,9 @@
 #include "galaxy/fs/FileInfo.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
+#include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Rect.hpp"
+#include "galaxy/graphics/Shader.hpp"
 
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
@@ -51,6 +53,9 @@
 #include "galaxy/platform/Subprocess.hpp"
 
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Shaders.hpp"
+#include "galaxy/resource/Sounds.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 #include "galaxy/state/SceneManager.hpp"
 
@@ -259,7 +264,53 @@ namespace galaxy
 			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 
 			/* GRAPHICS */
-			// Not supported by lua at this time.
+			auto colour_type          = lua.new_usertype<graphics::Colour>("Colour",
+                sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
+			colour_type["alpha"]      = &graphics::Colour::m_alpha;
+			colour_type["blue"]       = &graphics::Colour::m_blue;
+			colour_type["green"]      = &graphics::Colour::m_green;
+			colour_type["red"]        = &graphics::Colour::m_red;
+			colour_type["normalized"] = &graphics::Colour::normalized;
+
+			auto irect_type =
+				lua.new_usertype<graphics::iRect>("iRect", sol::constructors<graphics::iRect(), graphics::iRect(const int, const int, const int, const int)>());
+			irect_type["contains"] = sol::resolve<bool(const int, const int)>(&graphics::iRect::contains);
+			irect_type["height"]   = &graphics::iRect::m_height;
+			irect_type["width"]    = &graphics::iRect::m_width;
+			irect_type["x"]        = &graphics::iRect::m_x;
+			irect_type["y"]        = &graphics::iRect::m_y;
+			irect_type["overlaps"] = &graphics::iRect::overlaps;
+
+			auto frect_type        = lua.new_usertype<graphics::fRect>("fRect",
+                sol::constructors<graphics::fRect(), graphics::fRect(const float, const float, const float, const float)>());
+			frect_type["contains"] = sol::resolve<bool(const float, const float)>(&graphics::fRect::contains);
+			frect_type["height"]   = &graphics::fRect::m_height;
+			frect_type["width"]    = &graphics::fRect::m_width;
+			frect_type["x"]        = &graphics::fRect::m_x;
+			frect_type["y"]        = &graphics::fRect::m_y;
+			frect_type["overlaps"] = &graphics::fRect::overlaps;
+
+			auto uniform_type        = lua.new_usertype<graphics::UniformInfo>("UniformInfo", sol::constructors<graphics::UniformInfo>());
+			uniform_type["count"]    = &graphics::UniformInfo::m_count;
+			uniform_type["location"] = &graphics::UniformInfo::m_location;
+
+			auto shader_type =
+				lua.new_usertype<graphics::Shader>("Shader", sol::constructors<graphics::Shader(), graphics::Shader(std::string_view, std::string_view)>());
+			shader_type["get_uniform_count"]    = &graphics::Shader::get_uniform_count;
+			shader_type["get_uniform_info"]     = &graphics::Shader::get_uniform_info;
+			shader_type["get_uniform_location"] = &graphics::Shader::get_uniform_location;
+			shader_type["load_file"]            = &graphics::Shader::load_file;
+			shader_type["load_raw"]             = &graphics::Shader::load_raw;
+			shader_type["set_uniform_int"]      = &graphics::Shader::set_uniform<int>;
+			shader_type["set_uniform_int2"]     = &graphics::Shader::set_uniform<int, int>;
+			shader_type["set_uniform_int3"]     = &graphics::Shader::set_uniform<int, int, int>;
+			shader_type["set_uniform_int4"]     = &graphics::Shader::set_uniform<int, int, int, int>;
+			shader_type["set_uniform_float"]    = &graphics::Shader::set_uniform<float>;
+			shader_type["set_uniform_float2"]   = &graphics::Shader::set_uniform<float, float>;
+			shader_type["set_uniform_float3"]   = &graphics::Shader::set_uniform<float, float, float>;
+			shader_type["set_uniform_float4"]   = &graphics::Shader::set_uniform<float, float, float, float>;
+			shader_type["set_uniform_bool"]     = &graphics::Shader::set_uniform<bool>;
+			shader_type["set_uniform_colour"]   = &graphics::Shader::set_uniform<graphics::Colour>;
 
 			/* INPUT */
 			// clang-format off
@@ -470,7 +521,37 @@ namespace galaxy
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;
 
-			lua["galaxy_language"] = std::ref(core::ServiceLocator<resource::Language>::ref());
+			auto shaders_type      = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
+			shaders_type["clear"]  = &resource::Shaders::clear;
+			shaders_type["empty"]  = &resource::Shaders::empty;
+			shaders_type["get"]    = &resource::Shaders::get;
+			shaders_type["has"]    = &resource::Shaders::has;
+			shaders_type["load"]   = &resource::Shaders::load;
+			shaders_type["reload"] = &resource::Shaders::reload;
+
+			auto sounds_type             = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
+			sounds_type["clear"]         = &resource::Sounds::clear;
+			sounds_type["empty"]         = &resource::Sounds::empty;
+			sounds_type["get"]           = &resource::Sounds::get;
+			sounds_type["has"]           = &resource::Sounds::has;
+			sounds_type["load_music"]    = &resource::Sounds::load_music;
+			sounds_type["load_sfx"]      = &resource::Sounds::load_sfx;
+			sounds_type["load_dialogue"] = &resource::Sounds::load_dialogue;
+			sounds_type["reload"]        = &resource::Sounds::reload;
+
+			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
+			textureatlas_type["add_file"]   = &resource::TextureAtlas::add_file;
+			textureatlas_type["add_folder"] = &resource::TextureAtlas::add_folder;
+			textureatlas_type["clear"]      = &resource::TextureAtlas::clear;
+			textureatlas_type["contains"]   = &resource::TextureAtlas::contains;
+			textureatlas_type["query"]      = &resource::TextureAtlas::query;
+			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
+			textureatlas_type["save"]       = &resource::TextureAtlas::save;
+
+			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
+			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
+			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 
 			/* STATE */
 			auto scenemanager_type      = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);

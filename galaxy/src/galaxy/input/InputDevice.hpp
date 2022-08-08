@@ -10,6 +10,8 @@
 
 struct GLFWwindow;
 
+#include <concepts>
+
 namespace galaxy
 {
 	namespace core
@@ -67,6 +69,17 @@ namespace galaxy
 			GLFWwindow* m_window;
 		};
 	} // namespace input
+
+	namespace meta
+	{
+		///
+		/// Checks if the input is an input device for a window.
+		///
+		/// \tparam T Parent type to test.
+		///
+		template<typename T>
+		concept is_input_device = std::derived_from<T, input::InputDevice>;
+	} // namespace meta
 } // namespace galaxy
 
 #endif

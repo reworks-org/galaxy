@@ -7,8 +7,6 @@
 
 #include <ranges>
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/utils/StringUtils.hpp"
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -20,69 +18,47 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Shaders::Shaders() noexcept
+		void Shaders::load(std::string_view folder)
 		{
-		}
+			m_folder = static_cast<std::string>(folder);
 
-		std::shared_ptr<graphics::Shader> Shaders::create(std::string_view file)
-		{
-			auto file_str = static_cast<std::string>(file);
-
-			return std::make_shared<graphics::Shader>(file_str + GALAXY_VERTEX_EXT, file_str + GALAXY_FRAGMENT_EXT);
-		}
-
-		Holder<graphics::Shader> Shaders::create_from_folder(std::string_view folder)
-		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto files = fs.list_directory(folder);
-
-			for (auto& file : files)
+			auto contents = fs.list_directory(m_folder);
+			if (!contents.empty())
 			{
-				file = strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
-				file = strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
+				for (auto& file : contents)
+				{
+					file = strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
+					file = strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
+				}
+
+				auto unique_range = std::ranges::unique(contents);
+				contents.erase(unique_range.begin(), unique_range.end());
+
+				std::ranges::sort(contents);
+				unique_range = std::ranges::unique(contents);
+				contents.erase(unique_range.begin(), unique_range.end());
+
+				for (const auto& file : contents)
+				{
+					const auto name = std::filesystem::path(file).stem().string();
+					m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
+				}
 			}
-
-			auto unique_range = std::ranges::unique(files);
-			files.erase(unique_range.begin(), unique_range.end());
-
-			std::ranges::sort(files);
-			unique_range = std::ranges::unique(files);
-			files.erase(unique_range.begin(), unique_range.end());
-
-			auto cache = Holder<graphics::Shader>();
-
-			for (const auto& file : files)
+			else
 			{
-				cache[std::filesystem::path(file).stem().string()] = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
+				GALAXY_LOG(GALAXY_WARNING, "Found to shaders to load in '{0}'.", m_folder);
 			}
-
-			return cache;
 		}
 
-		nlohmann::json Shaders::internal_serialize(Holder<graphics::Shader>& holder)
+		void Shaders::reload()
 		{
-			nlohmann::json json = "[]"_json;
-
-			for (const auto& [name, shader] : holder)
+			if (!m_folder.empty())
 			{
-				json.push_back(name);
+				clear();
+				load(m_folder);
 			}
-
-			return json;
-		}
-
-		Holder<graphics::Shader> Shaders::internal_deserialize(const nlohmann::json& json)
-		{
-			auto cache = Holder<graphics::Shader>();
-
-			// Have to cast to std::string explicitly here.
-			for (const std::string& name : json)
-			{
-				cache[name] = std::make_shared<graphics::Shader>(name + GALAXY_VERTEX_EXT, name + GALAXY_FRAGMENT_EXT);
-			}
-
-			return cache;
 		}
 	} // namespace resource
 } // namespace galaxy

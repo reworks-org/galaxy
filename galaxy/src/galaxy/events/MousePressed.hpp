@@ -39,6 +39,11 @@ namespace galaxy
 			/// Modifier Key.
 			///
 			input::InputMods m_mod;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

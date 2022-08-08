@@ -8,10 +8,11 @@
 #ifndef GALAXY_STATE_LAYER_HPP_
 #define GALAXY_STATE_LAYER_HPP_
 
+#include <concepts>
+
 #include <entt/signal/dispatcher.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Camera.hpp"
 
 namespace galaxy
 {
@@ -20,27 +21,24 @@ namespace galaxy
 		class Window;
 	} // namespace core
 
-	namespace resource
-	{
-		struct Resources;
-	} // namespace resource
-
 	namespace state
 	{
+		class Scene;
+
 		///
-		/// Rendering/event layer within a scene.
-		/// Layers -> Game, Interiors, Pause, etc.
-		/// Share Resources, in a stack with only whats on top being processed.
+		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
+		/// I.e. UI, Debug UI, Game, etc.
 		///
-		class Layer final : public fs::Serializable
+		class Layer : public fs::Serializable
 		{
 		public:
 			///
 			/// Argument Constructor.
 			///
 			/// \param name Name of the Layer.
+			/// \param scene Pointer to scene this layer belongs to.
 			///
-			Layer(std::string_view name);
+			Layer(std::string_view name, Scene* scene) noexcept;
 
 			///
 			/// Destructor.
@@ -50,22 +48,27 @@ namespace galaxy
 			///
 			/// On push of Layer to stack.
 			///
-			void on_push();
+			virtual void on_push() = 0;
 
 			///
 			/// On pop of Layer off stack.
 			///
-			void on_pop();
+			virtual void on_pop() = 0;
+
+			///
+			/// Handle events.
+			///
+			virtual void events() = 0;
 
 			///
 			/// Process events/updates and prepare for rendering.
 			///
-			void update();
+			virtual void update() = 0;
 
 			///
 			/// Render layer.
 			///
-			void render();
+			virtual void render() = 0;
 
 			///
 			/// Set layer name.
@@ -75,155 +78,48 @@ namespace galaxy
 			void set_name(std::string_view name) noexcept;
 
 			///
-			/// Set layer resources.
-			///
-			/// \param resources Scene resources.
-			///
-			void set_resources(resource::Resources* resources) noexcept;
-
-			///
 			/// Get layer name.
 			///
 			/// \return Const string reference.
 			///
 			[[nodiscard]] const std::string& get_name() const noexcept;
 
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
-
-		private:
-			///
-			/// Constructor.
-			///
-			Layer() = delete;
-
-		private:
+		protected:
 			///
 			/// Layer name.
 			///
 			std::string m_name;
 
 			///
-			/// Pointer to scene resources.
+			/// Scene pointer.
 			///
-			resource::Resources* m_resources;
+			Scene* m_scene;
 
 			///
-			/// Pointer to window.
+			/// Window pointer.
 			///
 			core::Window* m_window;
-
-			///
-			/// Camera.
-			///
-			graphics::Camera m_camera;
 
 			///
 			/// Event dispatcher.
 			///
 			entt::dispatcher m_dispatcher;
+
+		private:
+			///
+			/// Constructor.
+			///
+			Layer() = delete;
 		};
+
+		///
+		/// Concept to restrict templates to layers.
+		///
+		/// \tparam Type Type to constrain.
+		///
+		template<typename Type>
+		concept is_layer = std::derived_from<Type, Layer>;
 	} // namespace state
 } // namespace galaxy
 
 #endif
-
-/*
-#include "galaxy/core/World.hpp"
-#include "galaxy/events/Dispatcher.hpp"
-#include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/map/TiledWorld.hpp"
-
-namespace Rml
-{
-	class Context;
-} // namespace Rml
-	namespace systems
-	{
-		class ActionSystem;
-		class RenderSystem2D;
-	} // namespace systems
-
-	///
-			/// Load an RML document.
-			///
-			/// \param document File, including path.
-			///
-			void load_rml_doc(std::string_view document);
-
-			///
-			/// Load a tiled world.
-			///
-			/// \param path Path to the tiled world.
-			///
-			void create_maps(std::string_view path);
-
-			///
-			/// Set the active map.
-			///
-			/// \param name Name of the map file to set as active.
-			///
-			void set_active_map(std::string_view name);
-
-			///
-			/// Get a map.
-			///
-			/// \param name Name of the map file to get.
-			///
-			/// \return Pointer to the map.
-			///
-			[[nodiscard]] map::Map* get_map(std::string_view name);
-
-			///
-			/// Get active map.
-			///
-			/// \return Pointer to the map.
-			///
-			[[nodiscard]] map::Map* get_active_map();
-
-
-
-
-			///
-			/// Entity/System manager.
-			///
-			core::World m_world;
-
-
-		private:
-			///
-			/// Tiled map world.
-			///
-			map::TiledWorld m_maps;
-
-			///
-			/// Currently active map.
-			///
-			std::string m_active_map;
-
-			///
-			/// Current map path.
-			///
-			std::string m_maps_path;
-
-			///
-			/// Pointer to rendering system.
-			///
-			systems::RenderSystem2D* m_rendersystem;
-
-			///
-			/// RML context.
-			///
-			Rml::Context* m_rml;
-*/

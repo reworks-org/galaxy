@@ -8,51 +8,37 @@
 #ifndef GALAXY_RESOURCE_CACHE_HPP_
 #define GALAXY_RESOURCE_CACHE_HPP_
 
-#include "galaxy/error/Log.hpp"
-#include "galaxy/fs/Serializable.hpp"
-#include "galaxy/resource/Loader.hpp"
+#include <robin_hood.h>
+
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Stores a cache of resources in order to make effective use of memory.
-		/// resources can be a texture, sound, script, shader, etc...
+		/// Provides a useful set of functions around managing a resource cache.
 		///
 		/// \tparam Resource A resource can be anything that is not a pointer or a reference.
-		/// \tparam ResourceLoader Loader to use when creating resources.
 		///
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		class Cache final : public fs::Serializable
+		template<meta::not_memory Resource>
+		class Cache
 		{
-		public:
 			///
-			/// Constructor.
+			/// Defines the template syntax for a resource holder.
 			///
-			Cache() noexcept;
+			using CacheMap = robin_hood::unordered_node_map<std::string, std::shared_ptr<Resource>>;
 
+		public:
 			///
 			/// Destructor.
 			///
 			virtual ~Cache();
 
 			///
-			/// Load a resource from a file.
+			/// Reload all resources from folder.
 			///
-			/// \param key Key to use to access resource.
-			/// \param file Path, including filename, to file in the VFS.
-			///
-			/// \return Pointer to created resource. Null if creation failed.
-			///
-			[[maybe_unused]] std::shared_ptr<Resource> create(const std::string& key, std::string_view file);
-
-			///
-			/// Load a set of resources recursively from a root folder.
-			///
-			/// \param folder Folder to recursively search for files.
-			///
-			void create_from_folder(std::string_view folder);
+			virtual void reload() = 0;
 
 			///
 			/// Clean up resources.
@@ -89,21 +75,19 @@ namespace galaxy
 			///
 			/// \return Reference to the resource holders cache.
 			///
-			[[nodiscard]] Holder<Resource>& cache() noexcept;
+			[[nodiscard]] CacheMap& cache() noexcept;
 
+		protected:
 			///
-			/// Serializes object.
+			/// Constructor.
 			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			Cache() noexcept = default;
 
+		protected:
 			///
-			/// Deserializes from object.
+			/// Contiguous resource array.
 			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
+			CacheMap m_cache;
 
 		private:
 			///
@@ -125,60 +109,28 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Cache& operator=(Cache&&) = delete;
-
-		private:
-			///
-			/// Used to load the resource into the cache.
-			///
-			ResourceLoader m_loader;
-
-			///
-			/// Contiguous resource array.
-			///
-			Holder<Resource> m_cache;
 		};
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline Cache<Resource, ResourceLoader>::Cache() noexcept
-			: m_loader {}
-		{
-		}
-
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline Cache<Resource, ResourceLoader>::~Cache()
+		template<meta::not_memory Resource>
+		inline Cache<Resource>::~Cache()
 		{
 			clear();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline std::shared_ptr<Resource> Cache<Resource, ResourceLoader>::create(const std::string& key, std::string_view file)
-		{
-			auto resource = m_loader.create(file);
-
-			m_cache[key] = resource;
-			return resource;
-		}
-
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline void Cache<Resource, ResourceLoader>::create_from_folder(std::string_view folder)
-		{
-			m_cache = std::move(m_loader.create_from_folder(folder));
-		}
-
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline void Cache<Resource, ResourceLoader>::clear()
+		template<meta::not_memory Resource>
+		inline void Cache<Resource>::clear()
 		{
 			m_cache.clear();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline bool Cache<Resource, ResourceLoader>::has(const std::string& key) noexcept
+		template<meta::not_memory Resource>
+		inline bool Cache<Resource>::has(const std::string& key) noexcept
 		{
 			return m_cache.contains(key);
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline std::shared_ptr<Resource> Cache<Resource, ResourceLoader>::get(const std::string& key) noexcept
+		template<meta::not_memory Resource>
+		inline std::shared_ptr<Resource> Cache<Resource>::get(const std::string& key) noexcept
 		{
 			if (has(key))
 			{
@@ -188,28 +140,16 @@ namespace galaxy
 			return nullptr;
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline bool Cache<Resource, ResourceLoader>::empty() const noexcept
+		template<meta::not_memory Resource>
+		inline bool Cache<Resource>::empty() const noexcept
 		{
 			return m_cache.empty();
 		}
 
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline Holder<Resource>& Cache<Resource, ResourceLoader>::cache() noexcept
+		template<meta::not_memory Resource>
+		inline Cache<Resource>::CacheMap& Cache<Resource>::cache() noexcept
 		{
 			return m_cache;
-		}
-
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline nlohmann::json Cache<Resource, ResourceLoader>::serialize()
-		{
-			return m_loader.internal_serialize(m_cache);
-		}
-
-		template<meta::not_memory Resource, is_loader<Resource> ResourceLoader>
-		inline void Cache<Resource, ResourceLoader>::deserialize(const nlohmann::json& json)
-		{
-			m_cache = m_loader.internal_deserialize(json);
 		}
 	} // namespace resource
 } // namespace galaxy

@@ -26,6 +26,11 @@ namespace galaxy
 			/// New height of window.
 			///
 			int m_height;
+
+			///
+			/// Has this event been handled?
+			///
+			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

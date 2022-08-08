@@ -39,7 +39,7 @@ namespace galaxy
 			void load(std::string_view folder);
 
 			///
-			/// Loads all language files in a folder into galaxy.
+			/// Loads a lua script containing language definitions.
 			///
 			/// \param key Key to store language under.
 			/// \param lang_script Lua script containing language definitions.

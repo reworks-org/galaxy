@@ -124,7 +124,7 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace(std::move(wr));
+						win->m_event_queue.emplace_back(std::move(wr));
 						win->resize(width, height);
 					});
 
@@ -145,7 +145,7 @@ namespace galaxy
 										.m_scancode = scancode
 									};
 								
-									win->m_event_queue.emplace<events::KeyDown>(std::move(kd));
+									win->m_event_queue.emplace_back<events::KeyDown>(std::move(kd));
 								}
 								break;
 
@@ -158,7 +158,7 @@ namespace galaxy
 										.m_scancode = scancode
 									};
 								
-									win->m_event_queue.emplace<events::KeyRepeat>(std::move(kr));
+									win->m_event_queue.emplace_back<events::KeyRepeat>(std::move(kr));
 								}
 								break;
 
@@ -171,7 +171,7 @@ namespace galaxy
 										.m_scancode = scancode
 									};
 								
-									win->m_event_queue.emplace<events::KeyUp>(std::move(ku));
+									win->m_event_queue.emplace_back<events::KeyUp>(std::move(ku));
 								}
 								break;
 							}
@@ -192,7 +192,7 @@ namespace galaxy
 							};
 							// clang-format on
 
-							win->m_event_queue.emplace<events::KeyChar>(std::move(kc));
+							win->m_event_queue.emplace_back<events::KeyChar>(std::move(kc));
 						}
 					});
 
@@ -208,7 +208,7 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace<events::MouseMoved>(std::move(mm));
+						win->m_event_queue.emplace_back<events::MouseMoved>(std::move(mm));
 					});
 
 					// Mouse button callback.
@@ -229,7 +229,7 @@ namespace galaxy
 									.m_mod = static_cast<input::InputMods>(mods)
 								};
 								
-								win->m_event_queue.emplace<events::MousePressed>(std::move(mp));
+								win->m_event_queue.emplace_back<events::MousePressed>(std::move(mp));
 							}
 							break;
 
@@ -243,7 +243,7 @@ namespace galaxy
 									.m_mod = static_cast<input::InputMods>(mods)
 								};
 								
-								win->m_event_queue.emplace<events::MouseReleased>(std::move(mr));
+								win->m_event_queue.emplace_back<events::MouseReleased>(std::move(mr));
 							}
 							break;
 						}
@@ -262,7 +262,7 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace<events::MouseWheel>(std::move(mw));
+						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
 					// Set dropped item callback.
@@ -447,11 +447,7 @@ namespace galaxy
 
 		void Window::poll_events() noexcept
 		{
-			while (!m_event_queue.empty())
-			{
-				m_event_queue.pop();
-			}
-
+			pop_queued_events();
 			glfwPollEvents();
 		}
 
@@ -492,16 +488,19 @@ namespace galaxy
 
 		void Window::trigger_queued_events(entt::dispatcher& dispatcher)
 		{
-			while (!m_event_queue.empty())
+			for (auto i = 0; i < m_event_queue.size(); i++)
 			{
 				// clang-format off
-				std::visit([&](auto&& event) {
-                    dispatcher.trigger(event);
-                }, m_event_queue.front());
+				std::visit([&](auto&& queued_event) {
+                    dispatcher.trigger(queued_event);
+                }, m_event_queue[i]);
 				// clang-format on
-
-				m_event_queue.pop();
 			}
+		}
+
+		void Window::pop_queued_events() noexcept
+		{
+			m_event_queue.clear();
 		}
 
 		void Window::request_attention() noexcept

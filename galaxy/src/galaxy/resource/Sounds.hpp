@@ -8,26 +8,23 @@
 #ifndef GALAXY_RESOURCE_SOUNDS_HPP_
 #define GALAXY_RESOURCE_SOUNDS_HPP_
 
-#include "galaxy/audio/Sound.hpp"
-#include "galaxy/resource/Loader.hpp"
+#include "galaxy/audio/Audio.hpp"
+#include "galaxy/resource/Cache.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Resource loader for sounds.
+		/// Resource cache for sounds.
 		///
-		class Sounds final : public Loader<audio::Sound>
+		class Sounds final : public Cache<audio::Audio>
 		{
-			template<meta::not_memory Resource, is_loader<Resource> Loader>
-			friend class Cache;
-
 		public:
 			///
 			/// Constructor.
 			///
-			Sounds() noexcept;
+			Sounds() noexcept = default;
 
 			///
 			/// Destructor.
@@ -35,22 +32,32 @@ namespace galaxy
 			virtual ~Sounds() noexcept = default;
 
 			///
-			/// Load a resource from a file.
+			/// Load sound effects from VFS.
 			///
-			/// \param file Path, including filename, to file in the VFS.
+			/// \param folder Folder located in the VFS.
 			///
-			/// \return Pointer to created resource. Null if creation failed.
-			///
-			[[nodiscard]] std::shared_ptr<audio::Sound> create(std::string_view file) override;
+			void load_sfx(std::string_view folder);
 
 			///
-			/// Load a set of resources recursively from a root folder.
+			/// Load music from VFS.
 			///
-			/// \param folder Folder to recursively search for files.
+			/// \param folder Folder located in the VFS.
 			///
-			/// \return Resource holder containing loaded resources.
+			void load_music(std::string_view folder);
+
 			///
-			[[nodiscard]] Holder<audio::Sound> create_from_folder(std::string_view folder) override;
+			/// Load dialogue from VFS.
+			///
+			/// \param folder Folder located in the VFS.
+			///
+			void load_dialogue(std::string_view folder);
+
+			///
+			/// \brief Reload all sound assets from folders.
+			///
+			/// Does nothing if the above load functions haven't been called.
+			///
+			void reload() override;
 
 		private:
 			///
@@ -73,23 +80,21 @@ namespace galaxy
 			///
 			Sounds& operator=(Sounds&&) = delete;
 
+		private:
 			///
-			/// Serializes object.
+			/// SFX folder path.
 			///
-			/// \param holder Reference to the cache holder.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json internal_serialize(Holder<audio::Sound>& holder) override;
+			std::string m_sfx_path;
 
 			///
-			/// Deserializes from object.
+			/// Music folder path.
 			///
-			/// \param json Json object to retrieve data from.
+			std::string m_music_path;
+
 			///
-			/// \return Resource holder containing loaded resources.
+			/// Voice folder path.
 			///
-			[[nodiscard]] Holder<audio::Sound> internal_deserialize(const nlohmann::json& json) override;
+			std::string m_voice_path;
 		};
 	} // namespace resource
 } // namespace galaxy

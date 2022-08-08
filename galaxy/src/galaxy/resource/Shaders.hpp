@@ -8,30 +8,27 @@
 #ifndef GALAXY_RESOURCE_SHADERS_HPP_
 #define GALAXY_RESOURCE_SHADERS_HPP_
 
+#include "galaxy/resource/Cache.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/resource/Loader.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// \brief Resource loader for Shaders.
+		/// \brief Resource cache for shaders.
 		///
 		/// Shaders are required to have an extension of .vs for vertex shaders
 		/// and .fs for fragment shaders.
 		/// Or whatever has been configured in GALAXY GLOBALS CONFIG.
 		///
-		class Shaders final : public Loader<graphics::Shader>
+		class Shaders final : public Cache<graphics::Shader>
 		{
-			template<meta::not_memory Resource, is_loader<Resource> Loader>
-			friend class Cache;
-
 		public:
 			///
 			/// Constructor.
 			///
-			Shaders() noexcept;
+			Shaders() noexcept = default;
 
 			///
 			/// Destructor.
@@ -39,24 +36,20 @@ namespace galaxy
 			virtual ~Shaders() noexcept = default;
 
 			///
-			/// \brief Load a resource from a file.
+			/// \brief Loads shaders in a folder.
 			///
 			/// Paired shaders must share a common filename.
 			///
-			/// \param file Path, including filename, to file in the VFS.
+			/// \param folder Folder located in the VFS.
 			///
-			/// \return Pointer to created resource. Null if creation failed.
-			///
-			[[nodiscard]] std::shared_ptr<graphics::Shader> create(std::string_view file) override;
+			void load(std::string_view folder);
 
 			///
-			/// Load a set of resources recursively from a root folder.
+			/// \brief Reload all shaders from folder.
 			///
-			/// \param folder Folder to recursively search for files.
+			/// Does nothing if load hasn't been called.
 			///
-			/// \return Resource holder containing loaded resources.
-			///
-			[[nodiscard]] Holder<graphics::Shader> create_from_folder(std::string_view folder) override;
+			void reload() override;
 
 		private:
 			///
@@ -79,23 +72,11 @@ namespace galaxy
 			///
 			Shaders& operator=(Shaders&&) = delete;
 
+		private:
 			///
-			/// Serializes object.
+			/// Shader resource folder.
 			///
-			/// \param holder Reference to the cache holder.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json internal_serialize(Holder<graphics::Shader>& holder) override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			/// \return Resource holder containing loaded resources.
-			///
-			[[nodiscard]] Holder<graphics::Shader> internal_deserialize(const nlohmann::json& json) override;
+			std::string m_folder;
 		};
 	} // namespace resource
 } // namespace galaxy

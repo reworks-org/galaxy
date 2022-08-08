@@ -8,6 +8,9 @@
 #ifndef GALAXY_AUDIO_AUDIOENGINE_HPP_
 #define GALAXY_AUDIO_AUDIOENGINE_HPP_
 
+#include <memory>
+#include <string>
+
 #include "galaxy/audio/Audio.hpp"
 
 namespace galaxy

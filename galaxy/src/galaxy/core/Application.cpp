@@ -20,9 +20,14 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Shaders.hpp"
+#include "galaxy/resource/Sounds.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/state/SceneManager.hpp"
+#include "galaxy/state/layers/RuntimeLayer.hpp"
+#include "galaxy/state/layers/UILayer.hpp"
 
 #include "Application.hpp"
 
@@ -104,6 +109,7 @@ namespace galaxy
 				config.set<std::string>("texture_folder", "textures/", "resource_folders");
 				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
 				config.set<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
+				config.set<std::string>("dialogue_folder", "audio/dialogue", "resource_folders");
 				config.set<bool>("enable_aa", false, "graphics");
 				config.set<bool>("enable_sharpen", false, "graphics");
 
@@ -130,6 +136,7 @@ namespace galaxy
 
 				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("sfx_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("dialogue_folder", "resource_folders"));
 				// create_asset_layout(root, "fonts/");
 				// create_asset_layout(root, "json/");
 				// create_asset_layout(root, "scripts/actions/");
@@ -230,8 +237,24 @@ namespace galaxy
 			ae.set_voice_volume(config.get<float>("voiceover_volume", "audio"));
 
 			//
-			// SCENEMANAGER.
+			// Game Resources.
 			//
+			auto& shaders = ServiceLocator<resource::Shaders>::make();
+			shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
+
+			auto& sounds = ServiceLocator<resource::Sounds>::make();
+			sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
+			sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
+			sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
+
+			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
+			textureatlas.add_folder(config.get<std::string>("texture_folder", "resource_folders"));
+
+			//
+			// SceneManager.
+			//
+			state::LayerRegistry::register_type<state::UILayer>("UI");
+			state::LayerRegistry::register_type<state::RuntimeLayer>("Runtime");
 			ServiceLocator<state::SceneManager>::make();
 
 			//
@@ -311,6 +334,7 @@ namespace galaxy
 				{
 					window.poll_events();
 
+					manager.current()->events();
 					manager.current()->update();
 
 					accumulator -= ups_as_nano;

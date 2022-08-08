@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
+#include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "Sounds.hpp"
@@ -16,57 +16,85 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Sounds::Sounds() noexcept
+		void Sounds::load_sfx(std::string_view folder)
 		{
-		}
+			m_sfx_path = static_cast<std::string>(folder);
 
-		std::shared_ptr<audio::Sound> Sounds::create(std::string_view file)
-		{
-			auto sound = std::make_shared<audio::Sound>();
-			sound->load(file);
-
-			return sound;
-		}
-
-		Holder<audio::Sound> Sounds::create_from_folder(std::string_view folder)
-		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
 
-			auto cache = Holder<audio::Sound>();
-
-			for (const auto& file : fs.list_directory(folder))
+			auto contents = fs.list_directory(m_sfx_path);
+			if (!contents.empty())
 			{
-				const auto key = std::filesystem::path(file).stem().string();
+				for (const auto& file : contents)
+				{
+					const auto key = std::filesystem::path(file).stem().string();
 
-				cache[key] = std::make_shared<audio::Sound>();
-				cache[key]->load(file);
+					m_cache[key] = ae.make_sfx(static_cast<std::string>(file), 1.0f);
+				}
 			}
-
-			return cache;
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to load any sfx resources from '{0}'.", m_sfx_path);
+			}
 		}
 
-		nlohmann::json Sounds::internal_serialize(Holder<audio::Sound>& holder)
+		void Sounds::load_music(std::string_view folder)
 		{
-			nlohmann::json json = "{}"_json;
+			m_music_path = static_cast<std::string>(folder);
 
-			for (const auto& [name, sound] : holder)
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
+
+			auto contents = fs.list_directory(m_music_path);
+			if (!contents.empty())
 			{
-				json[name] = sound->serialize();
-			}
+				for (const auto& file : contents)
+				{
+					const auto key = std::filesystem::path(file).stem().string();
 
-			return json;
+					m_cache[key] = ae.make_music(static_cast<std::string>(file), 1.0f);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to load any music resources from '{0}'.", m_music_path);
+			}
 		}
 
-		Holder<audio::Sound> Sounds::internal_deserialize(const nlohmann::json& json)
+		void Sounds::load_dialogue(std::string_view folder)
 		{
-			auto cache = Holder<audio::Sound>();
+			m_voice_path = static_cast<std::string>(folder);
 
-			for (const auto& [name, obj] : json.items())
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
+
+			auto contents = fs.list_directory(m_voice_path);
+			if (!contents.empty())
 			{
-				cache[name] = std::make_shared<audio::Sound>(obj);
-			}
+				for (const auto& file : contents)
+				{
+					const auto key = std::filesystem::path(file).stem().string();
 
-			return cache;
+					m_cache[key] = ae.make_voice(static_cast<std::string>(file), 1.0f);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to load any voiced resources from '{0}'.", m_voice_path);
+			}
+		}
+
+		void Sounds::reload()
+		{
+			if (!m_sfx_path.empty() && !m_music_path.empty() && !m_voice_path.empty())
+			{
+				clear();
+
+				load_sfx(m_sfx_path);
+				load_music(m_music_path);
+				load_dialogue(m_voice_path);
+			}
 		}
 	} // namespace resource
 } // namespace galaxy

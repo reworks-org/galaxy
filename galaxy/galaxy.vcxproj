@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\state\LayerRegistry.cpp" />
+    <ClCompile Include="src\galaxy\state\layers\RuntimeLayer.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\audio\Audio.cpp" />
@@ -69,7 +71,7 @@
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\graphics\StorageFlags.cpp" />
     <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
-    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="src\galaxy\resource\TextureAtlas.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
     <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
@@ -86,6 +88,11 @@
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
+    <ClCompile Include="src\galaxy\state\Layer.cpp" />
+    <ClCompile Include="src\galaxy\state\Layers.cpp" />
+    <ClCompile Include="src\galaxy\state\Scene.cpp" />
+    <ClCompile Include="src\galaxy\state\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
@@ -94,21 +101,18 @@
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
     <ClCompile Include="src\galaxy\resource\Cache.cpp" />
     <ClCompile Include="src\galaxy\resource\Language.cpp" />
-    <ClCompile Include="src\galaxy\resource\Loader.cpp" />
-    <ClCompile Include="src\galaxy\resource\Resources.cpp" />
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
-    <ClCompile Include="src\galaxy\state\Layer.cpp" />
-    <ClCompile Include="src\galaxy\state\LayerStack.cpp" />
-    <ClCompile Include="src\galaxy\state\Scene.cpp" />
-    <ClCompile Include="src\galaxy\state\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\state\LayerRegistry.hpp" />
+    <ClInclude Include="src\galaxy\state\layers\RuntimeLayer.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\audio\Audio.hpp" />
@@ -167,7 +171,7 @@
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
     <ClInclude Include="src\galaxy\graphics\StorageFlags.hpp" />
     <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
-    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="src\galaxy\resource\TextureAtlas.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
     <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
@@ -184,6 +188,11 @@
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
+    <ClInclude Include="src\galaxy\state\Layer.hpp" />
+    <ClInclude Include="src\galaxy\state\Layers.hpp" />
+    <ClInclude Include="src\galaxy\state\Scene.hpp" />
+    <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
@@ -192,19 +201,14 @@
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
     <ClInclude Include="src\galaxy\resource\Cache.hpp" />
     <ClInclude Include="src\galaxy\resource\Language.hpp" />
-    <ClInclude Include="src\galaxy\resource\Loader.hpp" />
-    <ClInclude Include="src\galaxy\resource\Resources.hpp" />
     <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />
-    <ClInclude Include="src\galaxy\state\Layer.hpp" />
-    <ClInclude Include="src\galaxy\state\LayerStack.hpp" />
-    <ClInclude Include="src\galaxy\state\Scene.hpp" />
-    <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\state\layers\UILayer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

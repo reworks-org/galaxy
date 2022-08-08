@@ -8,7 +8,6 @@
 #include <format>
 
 #include <glad/glad.h>
-#include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -18,45 +17,11 @@
 
 namespace galaxy
 {
-	namespace graphics
+	namespace resource
 	{
 		TextureAtlas::TextureAtlas()
 		{
 			init();
-		}
-
-		TextureAtlas::TextureAtlas(std::span<std::string> files)
-		{
-			init();
-			add(files);
-		}
-
-		TextureAtlas::TextureAtlas(TextureAtlas&& ta) noexcept
-		{
-			if (this != &ta)
-			{
-				this->m_max_bindings = ta.m_max_bindings;
-				this->m_size         = ta.m_size;
-				this->m_sheets       = std::move(ta.m_sheets);
-				this->m_data         = std::move(ta.m_data);
-				this->m_transform    = std::move(ta.m_transform);
-				this->m_va           = std::move(ta.m_va);
-			}
-		}
-
-		TextureAtlas& TextureAtlas::operator=(TextureAtlas&& ta) noexcept
-		{
-			if (this != &ta)
-			{
-				this->m_max_bindings = ta.m_max_bindings;
-				this->m_size         = ta.m_size;
-				this->m_sheets       = std::move(ta.m_sheets);
-				this->m_data         = std::move(ta.m_data);
-				this->m_transform    = std::move(ta.m_transform);
-				this->m_va           = std::move(ta.m_va);
-			}
-
-			return *this;
 		}
 
 		TextureAtlas::~TextureAtlas()
@@ -64,9 +29,9 @@ namespace galaxy
 			clear();
 		}
 
-		void TextureAtlas::add(std::string_view file)
+		void TextureAtlas::add_file(std::string_view file)
 		{
-			Texture texture;
+			graphics::Texture texture;
 			if (texture.load(file))
 			{
 				const auto path = std::filesystem::path(file);
@@ -75,7 +40,7 @@ namespace galaxy
 				if (!m_data.contains(name))
 				{
 					TextureAtlas::Info info;
-					std::optional<iRect> packed = std::nullopt;
+					std::optional<graphics::iRect> packed = std::nullopt;
 
 					for (auto i = 0; i < m_sheets.size(); i++)
 					{
@@ -119,7 +84,7 @@ namespace galaxy
 						vertices[3].m_texels = {0.0f, 1.0f};
 
 						m_va.sub_buffer(0, vertices);
-						Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_va, m_transform);
+						graphics::Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_va, m_transform);
 					}
 					else
 					{
@@ -136,11 +101,32 @@ namespace galaxy
 			}
 		}
 
-		void TextureAtlas::add(std::span<std::string> files)
+		void TextureAtlas::add_folder(std::string_view folder)
 		{
-			for (const auto& file : files)
+			m_folder = static_cast<std::string>(folder);
+
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto contents = fs.list_directory(m_folder);
+			if (!contents.empty())
 			{
-				add(file);
+				for (const auto& file : contents)
+				{
+					add_file(file);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Failed to load any textures from '{0}'.", m_folder);
+			}
+		}
+
+		void TextureAtlas::reload()
+		{
+			if (!m_folder.empty())
+			{
+				clear();
+				add_folder(m_folder);
 			}
 		}
 
@@ -196,26 +182,6 @@ namespace galaxy
 			}
 		}
 
-		nlohmann::json TextureAtlas::serialize()
-		{
-			auto json = nlohmann::json::array();
-			for (const auto& [key, info] : m_data)
-			{
-				json.push_back(key + ".png");
-			}
-
-			return json;
-		}
-
-		void TextureAtlas::deserialize(const nlohmann::json& json)
-		{
-			clear();
-			for (const auto& path : json)
-			{
-				add(path.get<std::string>());
-			}
-		}
-
 		void TextureAtlas::init()
 		{
 			glGetIntegerv(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, &m_max_bindings);
@@ -227,8 +193,8 @@ namespace galaxy
 
 			m_sheets.resize(m_max_bindings);
 
-			auto vb = std::make_unique<VertexBuffer>();
-			auto ib = std::make_unique<IndexBuffer>();
+			auto vb = std::make_unique<graphics::VertexBuffer>();
+			auto ib = std::make_unique<graphics::IndexBuffer>();
 
 			std::array<graphics::Vertex, 4> vertices;
 			vertices[0].m_pos    = {0.0f, 0.0f};
@@ -245,10 +211,10 @@ namespace galaxy
 
 			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
 
-			vb->create(vertices, StorageFlag::DYNAMIC_DRAW);
-			ib->create(indices, StorageFlag::STATIC_DRAW);
+			vb->create(vertices, graphics::StorageFlag::DYNAMIC_DRAW);
+			ib->create(indices, graphics::StorageFlag::STATIC_DRAW);
 
 			m_va.create(vb, ib);
 		}
-	} // namespace graphics
+	} // namespace resource
 } // namespace galaxy

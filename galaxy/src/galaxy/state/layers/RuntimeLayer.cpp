@@ -1,0 +1,62 @@
+///
+/// RuntimeLayer.cpp
+/// galaxy
+///
+/// Refer to LICENSE.txt for more details.
+///
+
+#include <nlohmann/json.hpp>
+
+#include "galaxy/core/Window.hpp"
+
+#include "RuntimeLayer.hpp"
+
+namespace galaxy
+{
+	namespace state
+	{
+		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene) noexcept
+			: Layer {name, scene}
+		{
+		}
+
+		RuntimeLayer::~RuntimeLayer() noexcept
+		{
+		}
+
+		void RuntimeLayer::on_push()
+		{
+		}
+
+		void RuntimeLayer::on_pop()
+		{
+		}
+
+		void RuntimeLayer::events()
+		{
+			m_window->trigger_queued_events(m_dispatcher);
+		}
+
+		void RuntimeLayer::update()
+		{
+		}
+
+		void RuntimeLayer::render()
+		{
+		}
+
+		nlohmann::json RuntimeLayer::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["name"]        = m_name;
+			json["type"]        = "Runtime"; // Used by Layers stack.
+
+			return json;
+		}
+
+		void RuntimeLayer::deserialize(const nlohmann::json& json)
+		{
+			m_name = json.at("name");
+		}
+	} // namespace state
+} // namespace galaxy
