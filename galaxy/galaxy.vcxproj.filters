@@ -104,6 +104,7 @@
     <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -209,5 +210,6 @@
     <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
   </ItemGroup>
 </Project>
