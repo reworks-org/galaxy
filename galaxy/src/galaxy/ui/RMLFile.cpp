@@ -17,8 +17,9 @@ namespace galaxy
 	{
 		Rml::FileHandle RMLFile::Open(const Rml::String& path)
 		{
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto info = fs.find(path);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto info = fs.find(path);
 			if (info.m_code == fs::FileCode::FOUND)
 			{
 				return reinterpret_cast<Rml::FileHandle>(std::fopen(info.m_string.c_str(), "rb"));

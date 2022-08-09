@@ -54,9 +54,9 @@ namespace galaxy
 
 		void Cursor::set_cursor_icon(std::string_view icon)
 		{
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto info = fs.find(icon);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
+			const auto info = fs.find(icon);
 			if (info.m_code == fs::FileCode::FOUND)
 			{
 				// Fill glfw-compatible struct.
@@ -80,7 +80,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find {0} to use as a cursor.", icon);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a cursor, because '{1}'.", icon, magic_enum::enum_name(info.m_code));
 			}
 		}
 

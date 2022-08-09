@@ -369,9 +369,9 @@ namespace galaxy
 
 		void Window::set_icon(std::string_view icon) noexcept
 		{
-			auto& fs  = ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto info = fs.find(icon);
+			auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
 
+			const auto info = fs.find(icon);
 			if (info.m_code == fs::FileCode::FOUND)
 			{
 				// Fill glfw-compatible struct.
@@ -394,7 +394,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find {0} to use as a window icon.", icon);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a window icon, because '{1}'.", icon, magic_enum::enum_name(info.m_code));
 			}
 		}
 

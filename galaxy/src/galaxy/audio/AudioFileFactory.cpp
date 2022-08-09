@@ -20,8 +20,8 @@ namespace galaxy
 	{
 		irrklang::IFileReader* AudioFileFactory::createFileReader(const irrklang::ik_c8* filename)
 		{
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto info = fs.find(filename);
+			auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			const auto info = fs.find(filename);
 
 			if (info.m_code == fs::FileCode::FOUND)
 			{
@@ -37,7 +37,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' in vfs, returned error '{1}'.", filename, magic_enum::enum_name<fs::FileCode>(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' in vfs, returned error '{1}'.", filename, magic_enum::enum_name(info.m_code));
 			}
 
 			return nullptr;
