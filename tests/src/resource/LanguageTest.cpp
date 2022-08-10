@@ -15,7 +15,7 @@ TEST(Language, Translate)
 {
 	resource::Language lang;
 
-	lang.load_mem("en_test", "lang={\"test.first\"=\"a\", \"test.second\"=\"b\"}");
+	lang.load_mem("en_test", "lang = {} lang['test.first'] = 'a' lang['test.second'] = 'b'");
 	lang.set("en_test");
 
 	EXPECT_EQ(lang.translate("test.first"), "a");

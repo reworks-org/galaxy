@@ -384,7 +384,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>

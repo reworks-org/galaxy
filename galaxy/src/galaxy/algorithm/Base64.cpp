@@ -95,7 +95,7 @@ namespace galaxy
 
 		std::string decode_base64(const std::string& input)
 		{
-			if (input.empty())
+			if (!input.empty())
 			{
 				const auto in_len = input.size();
 

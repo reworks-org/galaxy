@@ -145,12 +145,12 @@ namespace galaxy
 			auto rml_vao = reinterpret_cast<RMLVAO*>(geometry);
 
 			auto& window = core::ServiceLocator<core::Window>::ref();
-			auto w       = static_cast<float>(window.get_width());
-			auto h       = static_cast<float>(window.get_height());
+			const auto w = window.get_width();
+			const auto h = window.get_height();
 
 			m_shader.bind();
 			m_shader.set_uniform("u_translation", glm::vec2 {translation.x, translation.y});
-			m_shader.set_uniform("u_proj", glm::ortho(0.0f, w, h, 0.0f, -1.0f, 1.0f));
+			m_shader.set_uniform("u_proj", glm::ortho(0.0f, static_cast<float>(w), static_cast<float>(h), 0.0f, -1.0f, 1.0f));
 
 			glViewport(0, 0, w, h);
 			glBindTexture(GL_TEXTURE_2D, rml_vao->m_texture);

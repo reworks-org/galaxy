@@ -40,7 +40,7 @@ namespace galaxy
 			std::random_device rd;
 			std::mt19937_64 mt {rd()};
 
-			const conditional_distribution<Type> dist {min, max};
+			conditional_distribution<Type> dist {min, max};
 
 			return dist(mt);
 		}

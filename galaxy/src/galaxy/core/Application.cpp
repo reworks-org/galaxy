@@ -16,7 +16,6 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -37,8 +36,6 @@ namespace galaxy
 	{
 		Application::Application(std::string_view log_dir, std::string_view config_file)
 		{
-			GALAXY_START_TP = std::chrono::high_resolution_clock::now();
-
 			platform::configure_terminal();
 
 			// Seed pseudo-random algorithms.
