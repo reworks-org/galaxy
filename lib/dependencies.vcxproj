@@ -152,15 +152,14 @@
     <ClCompile Include="msdfgen\msdfgen\core\msdfgen.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Projection.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\rasterization.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\render-sdf.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\save-bmp.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\save-tiff.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Scanline.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\sdf-error-estimation.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\shape-description.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Shape.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\SignedDistance.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Vector2.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\lib\lodepng.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\lib\tinyxml2.cpp" />
     <ClCompile Include="rmlui\Source\Core\BaseXMLParser.cpp" />
     <ClCompile Include="rmlui\Source\Core\Box.cpp" />
     <ClCompile Include="rmlui\Source\Core\Clock.cpp" />
@@ -1034,8 +1033,6 @@
     <ClInclude Include="msdfgen\msdf-atlas-gen\GlyphBox.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\GlyphGeometry.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\image-encode.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\image-save.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\image-save.hpp" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.hpp" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\msdf-atlas-gen.h" />
@@ -1068,9 +1065,6 @@
     <ClInclude Include="msdfgen\msdfgen\core\pixel-conversion.hpp" />
     <ClInclude Include="msdfgen\msdfgen\core\Projection.h" />
     <ClInclude Include="msdfgen\msdfgen\core\rasterization.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\render-sdf.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\save-bmp.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\save-tiff.h" />
     <ClInclude Include="msdfgen\msdfgen\core\Scanline.h" />
     <ClInclude Include="msdfgen\msdfgen\core\sdf-error-estimation.h" />
     <ClInclude Include="msdfgen\msdfgen\core\shape-description.h" />
@@ -1082,7 +1076,6 @@
     <ClInclude Include="msdfgen\msdfgen\include\lodepng.h" />
     <ClInclude Include="msdfgen\msdfgen\include\tinyxml2.h" />
     <ClInclude Include="msdfgen\msdfgen\msdfgen.h" />
-    <ClInclude Include="msdfgen\msdfgen\resource.h" />
     <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Config\Config.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core.h" />

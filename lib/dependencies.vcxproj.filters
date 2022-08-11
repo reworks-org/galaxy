@@ -377,9 +377,6 @@
     <ClCompile Include="msdfgen\msdfgen\core\msdfgen.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Projection.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\rasterization.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\render-sdf.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\save-bmp.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\save-tiff.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Scanline.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\sdf-error-estimation.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Shape.cpp" />
@@ -398,6 +395,8 @@
     <ClCompile Include="msdfgen\msdf-atlas-gen\glyph-generators.cpp" />
     <ClCompile Include="msdfgen\msdf-atlas-gen\GlyphGeometry.cpp" />
     <ClCompile Include="msdfgen\msdf-atlas-gen\image-encode.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\lib\lodepng.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\lib\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1446,9 +1445,6 @@
     <ClInclude Include="msdfgen\msdfgen\core\pixel-conversion.hpp" />
     <ClInclude Include="msdfgen\msdfgen\core\Projection.h" />
     <ClInclude Include="msdfgen\msdfgen\core\rasterization.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\render-sdf.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\save-bmp.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\save-tiff.h" />
     <ClInclude Include="msdfgen\msdfgen\core\Scanline.h" />
     <ClInclude Include="msdfgen\msdfgen\core\sdf-error-estimation.h" />
     <ClInclude Include="msdfgen\msdfgen\core\Shape.h" />
@@ -1458,7 +1454,6 @@
     <ClInclude Include="msdfgen\msdfgen\core\SignedDistance.h" />
     <ClInclude Include="msdfgen\msdfgen\core\Vector2.h" />
     <ClInclude Include="msdfgen\msdfgen\msdfgen.h" />
-    <ClInclude Include="msdfgen\msdfgen\resource.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\Workload.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\size-selectors.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\TightAtlasPacker.h" />
@@ -1483,8 +1478,6 @@
     <ClInclude Include="msdfgen\msdf-atlas-gen\glyph-generators.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\GlyphGeometry.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\image-encode.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\image-save.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\image-save.hpp" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.h" />
     <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.hpp" />
     <ClInclude Include="msdfgen\msdfgen\include\lodepng.h" />

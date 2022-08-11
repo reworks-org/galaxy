@@ -105,6 +105,10 @@
     <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\text\Font.cpp" />
+    <ClCompile Include="src\galaxy\graphics\text\FontInput.cpp" />
+    <ClCompile Include="src\galaxy\graphics\text\MSDFConfig.cpp" />
+    <ClCompile Include="src\galaxy\graphics\text\RangeMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -211,5 +215,9 @@
     <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\text\Font.hpp" />
+    <ClInclude Include="src\galaxy\graphics\text\FontInput.hpp" />
+    <ClInclude Include="src\galaxy\graphics\text\MSDFConfig.hpp" />
+    <ClInclude Include="src\galaxy\graphics\text\RangeMode.hpp" />
   </ItemGroup>
 </Project>
