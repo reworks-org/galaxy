@@ -28,11 +28,31 @@ namespace galaxy
 					const auto path     = std::filesystem::path(file);
 					const auto path_str = path.stem().string();
 
-					const auto _pos = path_str.find_last_of('_');
-					const auto name = path_str.substr(0, _pos);
-					const auto size = path_str.substr(_pos + 1, path_str.size() - _pos);
+					try
+					{
+						const auto _pos = path_str.find_last_of('_');
+						const auto name = path_str.substr(0, _pos);
+						const auto size = path_str.substr(_pos + 1, path_str.size() - _pos);
 
-					m_cache[name] = std::make_shared<graphics::Font>(path.string(), size);
+						if (name.empty() || size.empty())
+						{
+							m_cache[name] = std::make_shared<graphics::Font>(path.string(), std::stoi(size));
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR,
+								"Failed to parse font file name, make sure format is 'Arial_11.ext'. File that failed was named '{0}'.",
+								path_str);
+						}
+					}
+					catch (const std::exception& e)
+					{
+						GALAXY_UNUSED(e);
+
+						GALAXY_LOG(GALAXY_ERROR,
+							"Failed to parse font file name, make sure format is 'Arial_11.ext'. File that failed was named '{0}'.",
+							path_str);
+					}
 				}
 			}
 			else
