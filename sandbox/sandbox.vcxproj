@@ -188,6 +188,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\SandboxLayer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\SandboxLayer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

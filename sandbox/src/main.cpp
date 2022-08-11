@@ -13,6 +13,8 @@
 
 #include <galaxy/utils/Globals.hpp>
 
+#include "SandboxLayer.hpp"
+
 using namespace galaxy;
 
 class Sandbox : public core::Application
@@ -47,6 +49,12 @@ int main(int argsc, char* argsv[])
 
 				auto scene = sm.make("Sandbox");
 				sm.set(scene->get_name());
+
+				state::LayerRegistry::register_type<sandbox::SandboxLayer>("Sandbox");
+
+				auto& layers = scene->get_layers();
+				layers.make<sandbox::SandboxLayer>("Sandbox");
+				layers.push("Sandbox");
 			}
 
 			sandbox.run();

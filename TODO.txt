@@ -34,7 +34,6 @@ encode output of json
 - helps limit file size.
 - convert to base64 then zlib.
 
-- sort out multithreading - use of async / thread / jthread
 - update loading screen - should be aniumated / have tips / something to give feddback 2 usr
 
 - set camera keys
