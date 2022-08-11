@@ -12,8 +12,18 @@
 
 namespace galaxy
 {
+	namespace ui
+	{
+		class RMLFile;
+		class RMLSystem;
+		class RMLRenderer;
+	} // namespace ui
+
 	namespace core
 	{
+		///
+		/// Base level class for any galaxy application.
+		///
 		class Application
 		{
 		public:
@@ -48,7 +58,6 @@ namespace galaxy
 			///
 			explicit Application(std::string_view log_dir, std::string_view config_file);
 
-		private:
 			///
 			/// Copy constructor.
 			///
@@ -79,6 +88,22 @@ namespace galaxy
 			/// \param asset_folder Path to the asset folder to create.
 			///
 			void create_asset_layout(const std::string& root, const std::string& asset_folder);
+
+		protected:
+			///
+			/// RML System interface.
+			///
+			std::unique_ptr<ui::RMLSystem> m_rml_system_interface;
+
+			///
+			/// RML File interface.
+			///
+			std::unique_ptr<ui::RMLFile> m_rml_file_interface;
+
+			///
+			/// RML Rendering interface.
+			///
+			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
 		};
 	} // namespace core
 } // namespace galaxy
@@ -98,22 +123,6 @@ namespace galaxy
 			///
 			void reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename);
 
-		protected:
-			///
-			/// Layer stack.
-			///
-			std::stack<std::shared_ptr<Layer>> m_layer_stack;
-
-			///
-			/// Layer storage.
-			///
-			std::vector<std::shared_ptr<Layer>> m_layers;
-
-			///
-			/// Threadpool.
-			///
-			std::unique_ptr<async::ThreadPool> m_pool;
-
 		private:
 			///
 			/// Filesystem watcher.
@@ -124,21 +133,6 @@ namespace galaxy
 			/// Filesystem listener.
 			///
 			std::unique_ptr<fs::FileListener> m_filelistener;
-
-			///
-			/// RML System interface.
-			///
-			std::unique_ptr<ui::RMLSystem> m_rml_system_interface;
-
-			///
-			/// RML File interface.
-			///
-			std::unique_ptr<ui::RMLFile> m_rml_file_interface;
-
-			///
-			/// RML Rendering interface.
-			///
-			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
 		};
 	} // namespace core
 } // namespace galaxy

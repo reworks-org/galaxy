@@ -81,7 +81,6 @@
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
-    <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
@@ -192,7 +191,6 @@
     <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
-    <ClInclude Include="src\galaxy\scripting\Script.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />

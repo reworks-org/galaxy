@@ -5,8 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <sol/sol.hpp>
 #include <BS_thread_pool.hpp>
+#include <RmlUi/Core.h>
+#include <RmlUi/Lua.h>
+#include <sol/sol.hpp>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
@@ -28,6 +30,9 @@
 #include "galaxy/state/SceneManager.hpp"
 #include "galaxy/state/layers/RuntimeLayer.hpp"
 #include "galaxy/state/layers/UILayer.hpp"
+#include "galaxy/ui/RMLFile.hpp"
+#include "galaxy/ui/RMLSystem.hpp"
+#include "galaxy/ui/RMLRenderer.hpp"
 
 #include "Application.hpp"
 
@@ -253,6 +258,45 @@ namespace galaxy
 
 			auto& fonts = ServiceLocator<resource::Fonts>::make();
 			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
+
+			//
+			// UI.
+			//
+			m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
+			m_rml_file_interface      = std::make_unique<ui::RMLFile>();
+			m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
+
+			Rml::SetSystemInterface(m_rml_system_interface.get());
+			Rml::SetFileInterface(m_rml_file_interface.get());
+			Rml::SetRenderInterface(m_rml_rendering_interface.get());
+
+			if (Rml::Initialise())
+			{
+				Rml::Lua::Initialise(lua.lua_state());
+
+				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
+				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
+
+				if (!contents.empty())
+				{
+					for (const auto& file : contents)
+					{
+						if (!Rml::LoadFontFace(file))
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
+						}
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
+			}
+
 			//
 			// SceneManager.
 			//
@@ -269,6 +313,11 @@ namespace galaxy
 		Application::~Application()
 		{
 			ServiceLocator<state::SceneManager>::del();
+
+			m_rml_system_interface.reset();
+			m_rml_file_interface.reset();
+			m_rml_rendering_interface.reset();
+
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Sounds>::del();
@@ -391,30 +440,7 @@ namespace galaxy
 				logo.load(m_config->get<std::string>("logo"));
 				logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
 
-				// Set up RMLUI.
-				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
-				m_rml_file_interface      = std::make_unique<ui::RMLFile>();
-				m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
 
-				Rml::SetSystemInterface(m_rml_system_interface.get());
-				Rml::SetFileInterface(m_rml_file_interface.get());
-				Rml::SetRenderInterface(m_rml_rendering_interface.get());
-				if (!Rml::Initialise())
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
-				}
-				else
-				{
-					Rml::Lua::Initialise(m_lua->lua_state());
-
-					for (auto& [key, font] : m_fontbook->cache())
-					{
-						if (!Rml::LoadFontFace(font->get_filename()))
-						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to load RML font: {0}.", key);
-						}
-					}
-				}
 
 				// Ensure minimum amount of time has passed.
 				logo.wait();
