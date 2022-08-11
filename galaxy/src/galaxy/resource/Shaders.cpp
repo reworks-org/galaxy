@@ -48,7 +48,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Found to shaders to load in '{0}'.", m_folder);
+				GALAXY_LOG(GALAXY_WARNING, "Found no shaders to load in '{0}'.", m_folder);
 			}
 		}
 

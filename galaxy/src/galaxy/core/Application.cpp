@@ -18,6 +18,7 @@
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
@@ -104,6 +105,7 @@ namespace galaxy
 				config.set<bool>("trilinear_filtering", false, "graphics");
 				config.set<int>("ansiotrophic_filtering", 2, "graphics");
 				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
+				config.set<std::string>("font_folder", "fonts/", "resource_folders");
 				config.set<std::string>("lang_folder", "lang/", "resource_folders");
 				config.set<std::string>("texture_folder", "textures/", "resource_folders");
 				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
@@ -249,6 +251,8 @@ namespace galaxy
 			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
 			textureatlas.add_folder(config.get<std::string>("texture_folder", "resource_folders"));
 
+			auto& fonts = ServiceLocator<resource::Fonts>::make();
+			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
 			//
 			// SceneManager.
 			//
@@ -265,6 +269,10 @@ namespace galaxy
 		Application::~Application()
 		{
 			ServiceLocator<state::SceneManager>::del();
+			ServiceLocator<resource::Fonts>::del();
+			ServiceLocator<resource::TextureAtlas>::del();
+			ServiceLocator<resource::Sounds>::del();
+			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<audio::AudioEngine>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<resource::Language>::del();

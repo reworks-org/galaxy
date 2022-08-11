@@ -8,6 +8,7 @@
 #ifndef GALAXY_GRAPHICS_FONT_HPP_
 #define GALAXY_GRAPHICS_FONT_HPP_
 
+#include <msdf-atlas-gen/msdf-atlas-gen.h>
 #include <robin_hood.h>
 
 #include "galaxy/graphics/Texture.hpp"

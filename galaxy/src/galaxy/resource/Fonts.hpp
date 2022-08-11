@@ -1,14 +1,14 @@
 ///
-/// Shaders.hpp
+/// Fonts.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RESOURCE_SHADERS_HPP_
-#define GALAXY_RESOURCE_SHADERS_HPP_
+#ifndef GALAXY_RESOURCE_FONTBOOK_HPP_
+#define GALAXY_RESOURCE_FONTBOOK_HPP_
 
-#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/resource/Cache.hpp"
 
 namespace galaxy
@@ -16,29 +16,30 @@ namespace galaxy
 	namespace resource
 	{
 		///
-		/// \brief Resource cache for shaders.
+		/// \brief Resource manager for fonts.
 		///
-		/// Shaders are required to have an extension of .vs for vertex shaders
-		/// and .fs for fragment shaders.
-		/// Or whatever has been configured in GALAXY GLOBALS CONFIG.
+		/// Fonts must be named in the following format:
+		/// ARIAL_11.ttf
+		/// This allows a font to have a size on load.
 		///
-		class Shaders final : public Cache<graphics::Shader>
+		class Fonts final : public Cache<graphics::Font>
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Shaders() noexcept = default;
+			Fonts() noexcept = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Shaders() noexcept = default;
+			virtual ~Fonts() noexcept = default;
 
 			///
-			/// \brief Loads shaders in a folder.
+			/// \brief Loads fonts in a folder.
 			///
-			/// Paired shaders must share a common filename.
+			/// Fonts must be named in the following format:
+			/// ARIAL_11.ttf
 			///
 			/// \param folder Folder located in the VFS.
 			///
@@ -55,26 +56,26 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			Shaders(const Shaders&) = delete;
+			Fonts(const Fonts&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			Shaders(Shaders&&) = delete;
+			Fonts(Fonts&&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Shaders& operator=(const Shaders&) = delete;
+			Fonts& operator=(const Fonts&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			Shaders& operator=(Shaders&&) = delete;
+			Fonts& operator=(Fonts&&) = delete;
 
 		private:
 			///
-			/// Shader resource folder.
+			/// Font resource folder.
 			///
 			std::string m_folder;
 		};

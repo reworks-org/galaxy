@@ -35,7 +35,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Failed to load any sfx resources from '{0}'.", m_sfx_path);
+				GALAXY_LOG(GALAXY_WARNING, "Found no sfx resources to load in '{0}'.", m_sfx_path);
 			}
 		}
 
@@ -58,7 +58,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Failed to load any music resources from '{0}'.", m_music_path);
+				GALAXY_LOG(GALAXY_WARNING, "Found no music resources to load in '{0}'.", m_music_path);
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Failed to load any voiced resources from '{0}'.", m_voice_path);
+				GALAXY_LOG(GALAXY_WARNING, "Found no voice resources to load in '{0}'.", m_voice_path);
 			}
 		}
 

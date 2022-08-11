@@ -109,6 +109,7 @@
     <ClCompile Include="src\galaxy\graphics\text\FontInput.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\MSDFConfig.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\RangeMode.cpp" />
+    <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -219,5 +220,6 @@
     <ClInclude Include="src\galaxy\graphics\text\FontInput.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\MSDFConfig.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\RangeMode.hpp" />
+    <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
   </ItemGroup>
 </Project>

@@ -52,6 +52,7 @@
 
 #include "galaxy/platform/Subprocess.hpp"
 
+#include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
@@ -548,8 +549,17 @@ namespace galaxy
 			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
 			textureatlas_type["save"]       = &resource::TextureAtlas::save;
 
+			auto fonts_type        = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
+			shaders_type["clear"]  = &resource::Fonts::clear;
+			shaders_type["empty"]  = &resource::Fonts::empty;
+			shaders_type["get"]    = &resource::Fonts::get;
+			shaders_type["has"]    = &resource::Fonts::has;
+			shaders_type["load"]   = &resource::Fonts::load;
+			shaders_type["reload"] = &resource::Fonts::reload;
+
 			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
 			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
+			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
 			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
 			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 
