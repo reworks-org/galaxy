@@ -60,26 +60,26 @@ namespace galaxy
 			///
 			/// Create a layer.
 			///
-			/// \tparam Layer Derived layer type.
+			/// \tparam ChildLayer Derived layer type.
 			///
 			/// \param name Layer name.
 			///
 			/// \return Shared pointer to newly created layer.
 			///
-			template<is_layer Layer>
-			[[maybe_unused]] std::shared_ptr<Layer> make(const std::string& name);
+			template<is_layer ChildLayer>
+			[[maybe_unused]] std::shared_ptr<ChildLayer> make(const std::string& name);
 
 			///
 			/// Get a specific layer.
 			///
-			/// \tparam Layer Derived layer type.
+			/// \tparam ChildLayer Derived layer type.
 			///
 			/// \param name Layer name.
 			///
 			/// \return Shared pointer to layer.
 			///
-			template<is_layer Layer>
-			[[nodiscard]] std::shared_ptr<Layer> get(const std::string& name);
+			template<is_layer ChildLayer>
+			[[nodiscard]] std::shared_ptr<ChildLayer> get(const std::string& name);
 
 			///
 			/// Push a layer based on name.
@@ -233,13 +233,13 @@ namespace galaxy
 			Scene* m_scene;
 		};
 
-		template<is_layer Layer>
-		inline std::shared_ptr<Layer> Layers::make(const std::string& name)
+		template<is_layer ChildLayer>
+		inline std::shared_ptr<ChildLayer> Layers::make(const std::string& name)
 		{
 			if (!m_layers.contains(name))
 			{
-				m_layers[name] = std::make_shared<Layer>(name, m_scene);
-				return m_layers[name];
+				m_layers[name] = std::make_shared<ChildLayer>(name, m_scene);
+				return std::static_pointer_cast<ChildLayer>(m_layers[name]);
 			}
 			else
 			{
@@ -248,12 +248,12 @@ namespace galaxy
 			}
 		}
 
-		template<is_layer Layer>
-		inline std::shared_ptr<Layer> Layers::get(const std::string& name)
+		template<is_layer ChildLayer>
+		inline std::shared_ptr<ChildLayer> Layers::get(const std::string& name)
 		{
 			if (m_layers.contains(name))
 			{
-				return m_layers[name];
+				return std::static_pointer_cast<ChildLayer>(m_layers[name]);
 			}
 			else
 			{

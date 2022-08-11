@@ -59,6 +59,8 @@ namespace galaxy
 
 			m_sinks.clear();
 			m_messages = {};
+
+			m_sync.release();
 		}
 	} // namespace error
 } // namespace galaxy
