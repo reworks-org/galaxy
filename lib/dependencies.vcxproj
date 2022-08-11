@@ -158,6 +158,7 @@
     <ClCompile Include="msdfgen\msdfgen\core\Shape.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\SignedDistance.cpp" />
     <ClCompile Include="msdfgen\msdfgen\core\Vector2.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\ext\import-font.cpp" />
     <ClCompile Include="msdfgen\msdfgen\lib\lodepng.cpp" />
     <ClCompile Include="msdfgen\msdfgen\lib\tinyxml2.cpp" />
     <ClCompile Include="rmlui\Source\Core\BaseXMLParser.cpp" />
@@ -1073,8 +1074,10 @@
     <ClInclude Include="msdfgen\msdfgen\core\ShapeDistanceFinder.hpp" />
     <ClInclude Include="msdfgen\msdfgen\core\SignedDistance.h" />
     <ClInclude Include="msdfgen\msdfgen\core\Vector2.h" />
+    <ClInclude Include="msdfgen\msdfgen\ext\import-font.h" />
     <ClInclude Include="msdfgen\msdfgen\include\lodepng.h" />
     <ClInclude Include="msdfgen\msdfgen\include\tinyxml2.h" />
+    <ClInclude Include="msdfgen\msdfgen\msdfgen-ext.h" />
     <ClInclude Include="msdfgen\msdfgen\msdfgen.h" />
     <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Config\Config.h" />

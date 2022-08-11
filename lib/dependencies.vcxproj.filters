@@ -397,6 +397,7 @@
     <ClCompile Include="msdfgen\msdf-atlas-gen\image-encode.cpp" />
     <ClCompile Include="msdfgen\msdfgen\lib\lodepng.cpp" />
     <ClCompile Include="msdfgen\msdfgen\lib\tinyxml2.cpp" />
+    <ClCompile Include="msdfgen\msdfgen\ext\import-font.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1484,6 +1485,8 @@
     <ClInclude Include="msdfgen\msdfgen\include\tinyxml2.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
+    <ClInclude Include="msdfgen\msdfgen\ext\import-font.h" />
+    <ClInclude Include="msdfgen\msdfgen\msdfgen-ext.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

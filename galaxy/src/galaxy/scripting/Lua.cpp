@@ -549,13 +549,13 @@ namespace galaxy
 			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
 			textureatlas_type["save"]       = &resource::TextureAtlas::save;
 
-			auto fonts_type        = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
-			shaders_type["clear"]  = &resource::Fonts::clear;
-			shaders_type["empty"]  = &resource::Fonts::empty;
-			shaders_type["get"]    = &resource::Fonts::get;
-			shaders_type["has"]    = &resource::Fonts::has;
-			shaders_type["load"]   = &resource::Fonts::load;
-			shaders_type["reload"] = &resource::Fonts::reload;
+			auto fonts_type      = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
+			fonts_type["clear"]  = &resource::Fonts::clear;
+			fonts_type["empty"]  = &resource::Fonts::empty;
+			fonts_type["get"]    = &resource::Fonts::get;
+			fonts_type["has"]    = &resource::Fonts::has;
+			fonts_type["load"]   = &resource::Fonts::load;
+			fonts_type["reload"] = &resource::Fonts::reload;
 
 			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
 			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());

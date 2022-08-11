@@ -34,7 +34,7 @@ namespace galaxy
 						const auto name = path_str.substr(0, _pos);
 						const auto size = path_str.substr(_pos + 1, path_str.size() - _pos);
 
-						if (name.empty() || size.empty())
+						if (!name.empty() && !size.empty())
 						{
 							m_cache[name] = std::make_shared<graphics::Font>(path.string(), std::stoi(size));
 						}
