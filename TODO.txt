@@ -17,7 +17,7 @@ CODE REVIEW TODO:
 - GRAPHICS.
 
 TODO: PORT REMAINING LEGACY CODE.
-
+TODO: Loading screens for states/layers/app load
 
 -- LEGACY TODO BELOW --
 

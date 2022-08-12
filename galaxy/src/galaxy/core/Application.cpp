@@ -375,8 +375,9 @@ namespace galaxy
 			std::chrono::nanoseconds accumulator {0};
 			std::chrono::nanoseconds perf_counter {0};
 			std::chrono::nanoseconds elapsed {0};
-			auto previous = std::chrono::high_resolution_clock::now();
+
 			auto current  = std::chrono::high_resolution_clock::now();
+			auto previous = current;
 
 			while (window.is_open())
 			{
@@ -429,25 +430,9 @@ namespace galaxy
 			const auto merged = root + asset_folder;
 			if (!std::filesystem::exists(merged))
 			{
-				GALAXY_LOG(GALAXY_INFO, "Missing asset folder, creating at: {0}.", merged);
+				GALAXY_LOG(GALAXY_INFO, "Missing asset folder, creating at: '{0}'.", merged);
 				std::filesystem::create_directories(merged);
 			}
 		}
 	} // namespace core
 } // namespace galaxy
-
-/*
-			// window
-			else
-			{
-				LoadingScreen logo;
-				logo.load(m_config->get<std::string>("logo"));
-				logo.display(m_window->get_width(), m_window->get_height(), m_window->gl_window());
-
-
-
-				// Ensure minimum amount of time has passed.
-				logo.wait();
-			}
-		}
-*/

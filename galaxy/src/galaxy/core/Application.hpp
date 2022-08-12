@@ -109,33 +109,3 @@ namespace galaxy
 } // namespace galaxy
 
 #endif
-
-/*
-		private:
-			///
-			/// Reload assets from disk.
-			///
-			/// \param watch_id The watch id for the directory.
-			/// \param dir The directory.
-			/// \param filename The filename that was accessed (not full path).
-			/// \param action Action that was performed.
-			/// \param old_filename The name of the file or directory moved.
-			///
-			void reload_assets(efsw::WatchID watch_id, const std::string& dir, const std::string& filename, efsw::Action action, std::string old_filename);
-
-		private:
-			///
-			/// Filesystem watcher.
-			///
-			efsw::FileWatcher m_filewatcher;
-
-			///
-			/// Filesystem listener.
-			///
-			std::unique_ptr<fs::FileListener> m_filelistener;
-		};
-	} // namespace core
-} // namespace galaxy
-
-#endif
-*/
