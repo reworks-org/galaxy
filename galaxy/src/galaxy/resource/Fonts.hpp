@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RESOURCE_FONTBOOK_HPP_
-#define GALAXY_RESOURCE_FONTBOOK_HPP_
+#ifndef GALAXY_RESOURCE_FONTS_HPP_
+#define GALAXY_RESOURCE_FONTS_HPP_
 
 #include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/resource/Cache.hpp"

@@ -8,7 +8,6 @@
 #include <BS_thread_pool.hpp>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
-#include <sol/sol.hpp>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
@@ -22,6 +21,7 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
@@ -110,6 +110,7 @@ namespace galaxy
 				config.set<bool>("trilinear_filtering", false, "graphics");
 				config.set<int>("ansiotrophic_filtering", 2, "graphics");
 				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
+				config.set<std::string>("scripts_folder", "scripts/", "resource_folders");
 				config.set<std::string>("font_folder", "fonts/", "resource_folders");
 				config.set<std::string>("lang_folder", "lang/", "resource_folders");
 				config.set<std::string>("texture_folder", "textures/", "resource_folders");
@@ -143,14 +144,14 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("sfx_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("dialogue_folder", "resource_folders"));
-				// create_asset_layout(root, "fonts/");
-				// create_asset_layout(root, "json/");
-				// create_asset_layout(root, "scripts/actions/");
-				// create_asset_layout(root, "scripts/definitions/");
+				create_asset_layout(root, config.get<std::string>("font_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("scripts_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("texture_folder", "resource_folders"));
-				// create_asset_layout(root, "maps/");
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
+
+				// create_asset_layout(root, "json/");
+				// create_asset_layout(root, "maps/");
 
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lua"))
@@ -258,6 +259,9 @@ namespace galaxy
 
 			auto& fonts = ServiceLocator<resource::Fonts>::make();
 			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
+
+			auto& scripts = ServiceLocator<resource::Scripts>::make();
+			scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
 
 			//
 			// UI.
