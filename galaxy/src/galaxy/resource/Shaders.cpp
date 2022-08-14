@@ -18,6 +18,15 @@ namespace galaxy
 {
 	namespace resource
 	{
+		Shaders::Shaders() noexcept
+			: m_folder {""}
+		{
+		}
+
+		Shaders::~Shaders() noexcept
+		{
+		}
+
 		void Shaders::load(std::string_view folder)
 		{
 			m_folder = static_cast<std::string>(folder);

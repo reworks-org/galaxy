@@ -136,13 +136,14 @@ namespace galaxy
 
 		void SceneManager::clear()
 		{
+			m_current = nullptr;
+
 			for (auto& [name, scene] : m_scenes)
 			{
 				scene.reset();
 			}
 
 			m_scenes.clear();
-			m_current = nullptr;
 		}
 	} // namespace state
 } // namespace galaxy

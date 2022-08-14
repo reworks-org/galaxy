@@ -10,6 +10,7 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/events/KeyDown.hpp>
+#include <galaxy/resource/Sounds.hpp>
 
 #include "SandboxLayer.hpp"
 
@@ -28,10 +29,30 @@ namespace sandbox
 		}
 	}
 
+	void play(events::KeyDown& kd)
+	{
+		auto& audio = core::ServiceLocator<resource::Sounds>::ref();
+		if (kd.m_keycode == input::Keys::S)
+		{
+			audio.get("button")->play(false);
+		}
+
+		if (kd.m_keycode == input::Keys::M)
+		{
+			audio.get("pleasing_guns")->play(false);
+		}
+
+		if (kd.m_keycode == input::Keys::D)
+		{
+			audio.get("random")->play(false);
+		}
+	}
+
 	SandboxLayer::SandboxLayer(std::string_view name, state::Scene* scene) noexcept
 		: state::Layer {name, scene}
 	{
 		m_dispatcher.sink<events::KeyDown>().connect<&close>();
+		m_dispatcher.sink<events::KeyDown>().connect<&play>();
 	}
 
 	SandboxLayer::~SandboxLayer() noexcept

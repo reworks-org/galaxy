@@ -28,12 +28,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Fonts() noexcept = default;
+			Fonts() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Fonts() noexcept = default;
+			virtual ~Fonts() noexcept;
 
 			///
 			/// \brief Loads fonts in a folder.

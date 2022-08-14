@@ -17,6 +17,7 @@ namespace galaxy
 	namespace resource
 	{
 		Language::Language() noexcept
+			: m_cur_lang {""}
 		{
 		}
 

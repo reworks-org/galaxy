@@ -20,6 +20,9 @@ namespace galaxy
 	namespace resource
 	{
 		TextureAtlas::TextureAtlas()
+			: m_folder {""}
+			, m_max_bindings {0}
+			, m_size {0}
 		{
 			init();
 		}

@@ -16,6 +16,17 @@ namespace galaxy
 {
 	namespace resource
 	{
+		Sounds::Sounds() noexcept
+			: m_sfx_path {""}
+			, m_music_path {""}
+			, m_voice_path {""}
+		{
+		}
+
+		Sounds::~Sounds() noexcept
+		{
+		}
+
 		void Sounds::load_sfx(std::string_view folder)
 		{
 			m_sfx_path = static_cast<std::string>(folder);

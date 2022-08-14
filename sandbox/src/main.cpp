@@ -25,9 +25,7 @@ public:
 	{
 	}
 
-	virtual ~Sandbox()
-	{
-	}
+	virtual ~Sandbox() noexcept = default;
 };
 
 int main(int argsc, char* argsv[])

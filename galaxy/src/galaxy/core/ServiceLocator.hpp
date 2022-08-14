@@ -126,8 +126,11 @@ namespace galaxy
 		template<meta::is_class Service>
 		inline void ServiceLocator<Service>::del()
 		{
-			m_service.reset();
-			m_service = nullptr;
+			if (m_service)
+			{
+				m_service.reset();
+				m_service = nullptr;
+			}
 		}
 	} // namespace core
 } // namespace galaxy

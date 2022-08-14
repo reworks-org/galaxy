@@ -14,6 +14,15 @@ namespace galaxy
 {
 	namespace resource
 	{
+		Fonts::Fonts() noexcept
+			: m_folder {""}
+		{
+		}
+
+		Fonts::~Fonts() noexcept
+		{
+		}
+
 		void Fonts::load(std::string_view folder)
 		{
 			m_folder = static_cast<std::string>(folder);

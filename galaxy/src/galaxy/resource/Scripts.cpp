@@ -14,6 +14,15 @@ namespace galaxy
 {
 	namespace resource
 	{
+		Scripts::Scripts() noexcept
+			: m_folder {""}
+		{
+		}
+
+		Scripts::~Scripts() noexcept
+		{
+		}
+
 		void Scripts::load(std::string_view folder)
 		{
 			m_folder = static_cast<std::string>(folder);

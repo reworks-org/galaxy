@@ -106,7 +106,7 @@ namespace galaxy
 				config.set<int>("height", 720, "window");
 				config.set<float>("sfx_volume", 1.0f, "audio");
 				config.set<float>("music_volume", 1.0f, "audio");
-				config.set<float>("voiceover_volume", 1.0f, "audio");
+				config.set<float>("dialogue_volume", 1.0f, "audio");
 				config.set<bool>("trilinear_filtering", false, "graphics");
 				config.set<int>("ansiotrophic_filtering", 2, "graphics");
 				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
@@ -241,7 +241,7 @@ namespace galaxy
 			auto& ae = ServiceLocator<audio::AudioEngine>::make();
 			ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
 			ae.set_music_volume(config.get<float>("music_volume", "audio"));
-			ae.set_voice_volume(config.get<float>("voiceover_volume", "audio"));
+			ae.set_voice_volume(config.get<float>("dialogue_volume", "audio"));
 
 			//
 			// Game Resources.
@@ -318,10 +318,12 @@ namespace galaxy
 		{
 			ServiceLocator<state::SceneManager>::del();
 
+			Rml::Shutdown();
 			m_rml_system_interface.reset();
 			m_rml_file_interface.reset();
 			m_rml_rendering_interface.reset();
 
+			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Sounds>::del();

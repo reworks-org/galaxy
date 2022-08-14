@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Sounds() noexcept = default;
+			Sounds() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sounds() noexcept = default;
+			virtual ~Sounds() noexcept;
 
 			///
 			/// Load sound effects from VFS.
