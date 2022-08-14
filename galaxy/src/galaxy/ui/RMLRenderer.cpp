@@ -134,8 +134,19 @@ namespace galaxy
 			ibo->create(index_array, graphics::StorageFlag::DYNAMIC_DRAW);
 
 			auto rml_vao = new RMLVAO();
-			rml_vao->m_vao.create(vbo, ibo);
-			rml_vao->m_texture = static_cast<GLuint>(texture);
+
+			try
+			{
+				rml_vao->m_vao.create(vbo, ibo);
+				rml_vao->m_texture = static_cast<GLuint>(texture);
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+
+				delete rml_vao;
+				rml_vao = nullptr;
+			}
 
 			return reinterpret_cast<Rml::CompiledGeometryHandle>(rml_vao);
 		}

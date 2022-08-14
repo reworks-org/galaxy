@@ -19,16 +19,17 @@ namespace galaxy
 	{
 		std::string encode_gzip(const std::string& input)
 		{
-			zlibcomplete::GZipCompressor compressor;
 			auto in = new char[ZLIB_COMPLETE_CHUNK];
+
+			std::string result;
 
 			try
 			{
+				zlibcomplete::GZipCompressor compressor;
 				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
 
-				std::string result;
 				std::stringstream sstream;
 				sstream.str(input);
 
@@ -48,31 +49,29 @@ namespace galaxy
 				}
 
 				result += compressor.finish();
-
-				delete[] in;
-				return result;
 			}
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
-
-				delete[] in;
-				return {};
 			}
+
+			delete[] in;
+			return result;
 		}
 
 		std::string decode_gzip(const std::string& input)
 		{
-			zlibcomplete::GZipDecompressor decompressor;
 			auto in = new char[ZLIB_COMPLETE_CHUNK];
+
+			std::string result;
 
 			try
 			{
+				zlibcomplete::GZipDecompressor decompressor;
 				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
 
-				std::string result;
 				std::stringstream sstream;
 				sstream.str(input);
 
@@ -90,17 +89,14 @@ namespace galaxy
 						break;
 					}
 				}
-
-				delete[] in;
-				return result;
 			}
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
-
-				delete[] in;
-				return {};
 			}
+
+			delete[] in;
+			return result;
 		}
 	} // namespace algorithm
 } // namespace galaxy

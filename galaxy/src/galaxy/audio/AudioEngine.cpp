@@ -33,7 +33,16 @@ namespace galaxy
 			else
 			{
 				auto* factory = new AudioFileFactory();
-				m_sfx_engine->addFileFactory(factory);
+
+				try
+				{
+					m_sfx_engine->addFileFactory(factory);
+				}
+				catch (const std::exception& e)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				}
+
 				factory->drop();
 			}
 
@@ -44,7 +53,16 @@ namespace galaxy
 			else
 			{
 				auto* factory = new AudioFileFactory();
-				m_music_engine->addFileFactory(factory);
+
+				try
+				{
+					m_music_engine->addFileFactory(factory);
+				}
+				catch (const std::exception& e)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				}
+
 				factory->drop();
 			}
 
@@ -55,7 +73,16 @@ namespace galaxy
 			else
 			{
 				auto* factory = new AudioFileFactory();
-				m_voice_engine->addFileFactory(factory);
+
+				try
+				{
+					m_voice_engine->addFileFactory(factory);
+				}
+				catch (const std::exception& e)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				}
+
 				factory->drop();
 			}
 		}
