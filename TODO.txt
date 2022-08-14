@@ -1,16 +1,8 @@
 Sandbox tests to do:
-- Audio
 - Components
 - Core
-- Error
-- Events
-- FS
 - Graphics
-- Input
-- Platform
-- Resource
 - Scripting
-- State
 - Systems
 
 CODE REVIEW TODO:
