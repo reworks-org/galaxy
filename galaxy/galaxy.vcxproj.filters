@@ -111,6 +111,7 @@
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -223,5 +224,6 @@
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
   </ItemGroup>
 </Project>

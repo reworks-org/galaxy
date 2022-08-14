@@ -4,6 +4,7 @@ Sandbox tests to do:
 - Graphics
 - Scripting
 - Systems
+- UI
 
 CODE REVIEW TODO:
 - GRAPHICS.

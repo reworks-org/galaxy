@@ -13,7 +13,9 @@ namespace galaxy
 	namespace events
 	{
 		///
-		/// New width and height of window being resized.
+		/// \brief New width and height of window being resized.
+		///
+		/// Does not have an "handled" member, since all listeners are expected to handle this.
 		///
 		struct WindowResized final
 		{
@@ -26,11 +28,6 @@ namespace galaxy
 			/// New height of window.
 			///
 			int m_height;
-
-			///
-			/// Has this event been handled?
-			///
-			bool m_handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

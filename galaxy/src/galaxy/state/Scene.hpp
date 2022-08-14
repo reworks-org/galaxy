@@ -132,19 +132,12 @@ namespace Rml
 	} // namespace systems
 
 
-		///
+			///
 			/// Set Scene resources.
 			///
 			/// \param resources Scene resources.
 			///
 			void set_resources(resource::Resources* resources) noexcept;
-
-	///
-			/// Load an RML document.
-			///
-			/// \param document File, including path.
-			///
-			void load_rml_doc(std::string_view document);
 
 			///
 			/// Load a tiled world.
@@ -176,14 +169,10 @@ namespace Rml
 			///
 			[[nodiscard]] map::Map* get_active_map();
 
-
-
-
 			///
 			/// Entity/System manager.
 			///
 			core::World m_world;
-
 
 		private:
 			///
@@ -207,9 +196,6 @@ namespace Rml
 			systems::RenderSystem2D* m_rendersystem;
 
 			///
-			/// RML context.
-			///
-			Rml::Context* m_rml;///
 			/// Pointer to scene resources.
 			///
 			resource::Resources* m_resources;
@@ -223,6 +209,4 @@ namespace Rml
 			/// Camera.
 			///
 			graphics::Camera m_camera;
-
-
 */

@@ -101,46 +101,7 @@ namespace galaxy
 			m_world.create_system<systems::RenderSystem2D>();
 
 			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
-			m_rml          = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height()});
 
-			m_dispatcher.subscribe_callback<events::MouseMoved>([this](const events::MouseMoved& mme) {
-				this->m_rml->ProcessMouseMove(static_cast<int>(std::trunc(mme.m_x)), static_cast<int>(std::trunc(mme.m_y)), 0);
-			});
-
-			m_dispatcher.subscribe_callback<events::MousePressed>([this](const events::MousePressed& mpe) {
-				this->m_rml->ProcessMouseButtonDown(static_cast<int>(mpe.m_button), 0);
-			});
-
-			m_dispatcher.subscribe_callback<events::MouseReleased>([this](const events::MouseReleased& mre) {
-				this->m_rml->ProcessMouseButtonUp(static_cast<int>(mre.m_button), 0);
-			});
-
-			m_dispatcher.subscribe_callback<events::MouseWheel>([this](const events::MouseWheel& mwe) {
-				this->m_rml->ProcessMouseWheel(static_cast<float>(mwe.m_y_offset), 0);
-			});
-
-			m_dispatcher.subscribe_callback<events::KeyDown>([this](const events::KeyDown& kde) {
-				this->m_rml->ProcessKeyDown(ui::RMLInput::handle().m_keymap[kde.m_keycode], ui::RMLInput::handle().m_modmap[kde.m_mod]);
-			});
-
-			m_dispatcher.subscribe_callback<events::KeyUp>([this](const events::KeyUp& kue) {
-				this->m_rml->ProcessKeyUp(ui::RMLInput::handle().m_keymap[kue.m_keycode], ui::RMLInput::handle().m_modmap[kue.m_mod]);
-			});
-
-			m_dispatcher.subscribe_callback<events::KeyChar>([this](const events::KeyChar& kce) {
-				if (Rml::Element* element = this->m_rml->GetFocusElement())
-				{
-					const auto& tag = element->GetTagName();
-					if (tag == "input" || tag == "textarea" || tag == "select")
-					{
-						this->m_rml->ProcessTextInput(kce.m_character);
-					}
-				}
-			});
-
-			m_dispatcher.subscribe_callback<events::WindowResized>([this](const events::WindowResized& wre) {
-				this->m_rml->SetDimensions({wre.m_width, wre.m_height});
-			});
 		}
 
 		Scene::~Scene() noexcept
@@ -167,7 +128,7 @@ namespace galaxy
 		{
 
 			m_world.update(this);
-			m_rml->Update();
+
 		}
 
 		void Scene::pre_render()
@@ -178,19 +139,6 @@ namespace galaxy
 		{
 
 			m_rendersystem->render(m_world);
-		}
-
-		void Scene::load_rml_doc(std::string_view document)
-		{
-			auto* doc = m_rml->LoadDocument(static_cast<std::string>(document));
-			if (!doc)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load RML document: {0}.", document);
-			}
-			else
-			{
-				doc->Show();
-			}
 		}
 
 		void Scene::create_maps(std::string_view path)
