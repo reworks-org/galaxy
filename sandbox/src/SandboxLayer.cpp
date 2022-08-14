@@ -35,16 +35,19 @@ namespace sandbox
 		if (kd.m_keycode == input::Keys::S)
 		{
 			audio.get("button")->play(false);
+			kd.m_handled = true;
 		}
 
 		if (kd.m_keycode == input::Keys::M)
 		{
 			audio.get("pleasing_guns")->play(false);
+			kd.m_handled = true;
 		}
 
 		if (kd.m_keycode == input::Keys::D)
 		{
 			audio.get("random")->play(false);
+			kd.m_handled = true;
 		}
 	}
 
