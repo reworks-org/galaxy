@@ -203,7 +203,6 @@ namespace galaxy
 			const auto file_info = fs.find(source);
 			if (file_info.m_code != fs::FileCode::FOUND)
 			{
-				stbi_set_flip_vertically_on_load(true);
 				unsigned char* data = stbi_load(file_info.m_string.c_str(), &texture_dimensions.x, &texture_dimensions.y, nullptr, STBI_rgb_alpha);
 
 				if (data)

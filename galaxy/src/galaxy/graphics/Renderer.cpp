@@ -30,9 +30,8 @@ namespace
 
 		void main()
 		{
-			io_texels = l_texels;
-
 			gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
+			io_texels = l_texels;
 		}
 	)";
 

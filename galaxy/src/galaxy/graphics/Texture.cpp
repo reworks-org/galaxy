@@ -77,9 +77,8 @@ namespace galaxy
 			const auto file_info = fs.find(file);
 			if (file_info.m_code == fs::FileCode::FOUND)
 			{
-				if (file_info.m_path.extension() == "png")
+				if (file_info.m_path.extension() == ".png")
 				{
-					stbi_set_flip_vertically_on_load(true);
 					unsigned char* data = stbi_load(file_info.m_string.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 					if (data)
@@ -131,7 +130,6 @@ namespace galaxy
 
 			auto& config = core::ServiceLocator<core::Config>::ref();
 
-			stbi_set_flip_vertically_on_load(true);
 			unsigned char* data = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 			if (data)
