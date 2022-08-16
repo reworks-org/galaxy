@@ -60,8 +60,14 @@ namespace galaxy
 				}
 				else
 				{
+					auto start_dir = m_root.string();
+					if (path.has_parent_path())
+					{
+						start_dir += path.parent_path().string();
+					}
+
 					for (const auto& dir_entry :
-						std::filesystem::recursive_directory_iterator(m_root, std::filesystem::directory_options::skip_permission_denied))
+						std::filesystem::recursive_directory_iterator(start_dir, std::filesystem::directory_options::skip_permission_denied))
 					{
 						const auto& dir_path = dir_entry.path();
 

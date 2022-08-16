@@ -38,7 +38,12 @@ namespace galaxy
 			///
 			/// Retrieve the absolute position of a file to load.
 			///
-			/// \param file File to get the absolute path of within the VFS.
+			/// \param file File to get the absolute path of within the VFS. If contains folder, will search for that folder, then look in that folder for file.
+			/// I.e. audio/test.ogg as the filename, will look for files in audio/ and audio/music, audio/sfx, etc, returning first match, but
+			/// audio/music/test.ogg would only look in audio/music/.
+			/// Note that audio/ must be top level, i.e. right under root, otherwise directory wont be found.
+			/// So in FS it would look like: root/audio/music/test.ogg.
+			/// If you use audio/test.ogg and the physical path is root/woops/audio/music/test.ogg, file wont be found because audio/ is not under root/.
 			///
 			/// \return Path as a filesystem, string and a code to process what happened.
 			///
