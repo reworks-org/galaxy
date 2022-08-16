@@ -1,6 +1,5 @@
 Sandbox tests to do:
 - Components
-- Core
 - Graphics
 - Scripting
 - Systems
@@ -8,10 +7,9 @@ Sandbox tests to do:
 
 CODE REVIEW TODO:
 - GRAPHICS.
-- stbi_set_flip_vertically_on_load
 
 TODO: PORT REMAINING LEGACY CODE.
-TODO: Loading screens for states/layers/app load
+verify animatd loading icon works.
 
 -- LEGACY TODO BELOW --
 
@@ -46,15 +44,7 @@ https://stackoverflow.com/questions/19246077/how-to-add-lua-functions-to-the-not
 - may need to disable scissor test??? / fix event modifier handling for rml.
 - astar
 
-https://youtu.be/B1nO5wbPbwg
-https://www.google.com/search?client=firefox-b-d&q=writing+a+2d+rendering+engine
-https://learnopengl.com/
-https://learnopengl.com/Getting-started/Camera
-https://learnopengl.com/Getting-started/Coordinate-Systems
-
 https://www.minecraft.net/zh-hant/attribution
-https://scan.coverity.com/
-https://lgtm.com/help/lgtm/code-analysis
 
 3D:
 - Ogre-Next
