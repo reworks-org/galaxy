@@ -11,10 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\core\Loading.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\Font.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\FontInput.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\MSDFConfig.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\RangeMode.cpp" />
+    <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
@@ -124,10 +126,12 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\core\Loading.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\Font.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\FontInput.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\MSDFConfig.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\RangeMode.hpp" />
+    <ClInclude Include="src\galaxy\meta\Async.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />

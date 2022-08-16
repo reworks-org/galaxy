@@ -8,6 +8,7 @@ Sandbox tests to do:
 
 CODE REVIEW TODO:
 - GRAPHICS.
+- stbi_set_flip_vertically_on_load
 
 TODO: PORT REMAINING LEGACY CODE.
 TODO: Loading screens for states/layers/app load

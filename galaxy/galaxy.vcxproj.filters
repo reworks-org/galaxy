@@ -112,6 +112,8 @@
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
+    <ClCompile Include="src\galaxy\meta\Async.cpp" />
+    <ClCompile Include="src\galaxy\core\Loading.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -225,5 +227,7 @@
     <ClInclude Include="src\galaxy\scripting\Script.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
+    <ClInclude Include="src\galaxy\meta\Async.hpp" />
+    <ClInclude Include="src\galaxy\core\Loading.hpp" />
   </ItemGroup>
 </Project>

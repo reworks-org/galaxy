@@ -13,6 +13,7 @@
 #include "galaxy/algorithm/ZLib.hpp"
 #include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Loading.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
@@ -114,13 +115,16 @@ namespace galaxy
 				config.set<std::string>("font_folder", "fonts/", "resource_folders");
 				config.set<std::string>("lang_folder", "lang/", "resource_folders");
 				config.set<std::string>("texture_folder", "textures/", "resource_folders");
+				config.set<std::string>("atlas_folder", "atlas/", "resource_folders");
 				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
 				config.set<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
-				config.set<std::string>("dialogue_folder", "audio/dialogue", "resource_folders");
+				config.set<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
 				config.set<bool>("enable_aa", false, "graphics");
 				config.set<bool>("enable_sharpen", false, "graphics");
-
-				// config.set<std::string>("logo", "logo.png");
+				config.set<std::string>("bg", "", "loading");
+				config.set<std::string>("logo", "", "loading");
+				config.set<std::string>("bg_atlas", "", "loading");
+				config.set<std::string>("bg_shader", "", "loading");
 
 				config.save();
 			}
@@ -148,6 +152,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("scripts_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("texture_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("atlas_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 
 				// create_asset_layout(root, "json/");
@@ -163,32 +168,6 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
 			}
-
-			//
-			// LUA.
-			//
-			auto& lua = ServiceLocator<sol::state>::make();
-
-			// clang-format off
-			lua.open_libraries(
-				sol::lib::base,
-				sol::lib::package,
-				sol::lib::coroutine,
-				sol::lib::string,
-				sol::lib::os,
-				sol::lib::math,
-				sol::lib::table,
-				sol::lib::io,
-				sol::lib::utf8
-			);
-			// clang-format on
-
-			//
-			// LANGUAGES.
-			//
-			auto& lang = ServiceLocator<resource::Language>::make();
-			lang.load(config.get<std::string>("lang_folder", "resource_folders"));
-			lang.set(config.get<std::string>("default_lang"));
 
 			//
 			// WINDOW
@@ -236,82 +215,137 @@ namespace galaxy
 			}
 
 			//
-			// Audio Engine.
+			// Load rest of data with a load screen.
 			//
-			auto& ae = ServiceLocator<audio::AudioEngine>::make();
-			ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
-			ae.set_music_volume(config.get<float>("music_volume", "audio"));
-			ae.set_voice_volume(config.get<float>("dialogue_volume", "audio"));
+
+			Loading loading;
+			loading.prep_window_for_loading();
 
 			//
-			// Game Resources.
+			// Begin loading shader related data.
 			//
+			loading.display_loadingscreen(config.get<std::string>("bg_shader", "loading"));
+
 			auto& shaders = ServiceLocator<resource::Shaders>::make();
 			shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
 
-			auto& sounds = ServiceLocator<resource::Sounds>::make();
-			sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
-			sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
-			sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
-
-			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
-			textureatlas.add_folder(config.get<std::string>("texture_folder", "resource_folders"));
-
-			auto& fonts = ServiceLocator<resource::Fonts>::make();
-			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
-
-			auto& scripts = ServiceLocator<resource::Scripts>::make();
-			scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
-
-			//
-			// UI.
-			//
-			m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
-			m_rml_file_interface      = std::make_unique<ui::RMLFile>();
 			m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
 
-			Rml::SetSystemInterface(m_rml_system_interface.get());
-			Rml::SetFileInterface(m_rml_file_interface.get());
-			Rml::SetRenderInterface(m_rml_rendering_interface.get());
+			//
+			// Begin loading textures.
+			//
+			loading.display_loadingscreen(config.get<std::string>("bg_atlas", "loading"));
 
-			if (Rml::Initialise())
+			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
+			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
+
+			//
+			// Begin offthread loading.
+			// clang-format off
+			//
+			loading.start_offthread_loading([&, this]()
 			{
-				Rml::Lua::Initialise(lua.lua_state());
+				// NOTE: You CANT call OpenGL here. This runs on a separate thread.
 
-				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
-				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
+				//
+				// LUA.
+				//
+				auto& lua = ServiceLocator<sol::state>::make();
 
-				if (!contents.empty())
+				lua.open_libraries(
+					sol::lib::base,
+					sol::lib::package,
+					sol::lib::coroutine,
+					sol::lib::string,
+					sol::lib::os,
+					sol::lib::math,
+					sol::lib::table,
+					sol::lib::io,
+					sol::lib::utf8
+				);
+				// clang-format on
+
+				//
+				// LANGUAGES.
+				//
+				auto& lang = ServiceLocator<resource::Language>::make();
+				lang.load(config.get<std::string>("lang_folder", "resource_folders"));
+				lang.set(config.get<std::string>("default_lang"));
+
+				//
+				// Audio Engine.
+				//
+				auto& ae = ServiceLocator<audio::AudioEngine>::make();
+				ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
+				ae.set_music_volume(config.get<float>("music_volume", "audio"));
+				ae.set_voice_volume(config.get<float>("dialogue_volume", "audio"));
+
+				//
+				// Game Resources.
+				//
+
+				auto& sounds = ServiceLocator<resource::Sounds>::make();
+				sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
+				sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
+				sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
+
+				auto& fonts = ServiceLocator<resource::Fonts>::make();
+				fonts.load(config.get<std::string>("font_folder", "resource_folders"));
+
+				auto& scripts = ServiceLocator<resource::Scripts>::make();
+				scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
+
+				//
+				// UI.
+				//
+				m_rml_system_interface = std::make_unique<ui::RMLSystem>();
+				m_rml_file_interface   = std::make_unique<ui::RMLFile>();
+
+				Rml::SetSystemInterface(m_rml_system_interface.get());
+				Rml::SetFileInterface(m_rml_file_interface.get());
+				Rml::SetRenderInterface(m_rml_rendering_interface.get());
+
+				if (Rml::Initialise())
 				{
-					for (const auto& file : contents)
+					Rml::Lua::Initialise(lua.lua_state());
+
+					const auto dir      = config.get<std::string>("font_folder", "resource_folders");
+					const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
+
+					if (!contents.empty())
 					{
-						if (!Rml::LoadFontFace(file))
+						for (const auto& file : contents)
 						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
+							if (!Rml::LoadFontFace(file))
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
+							}
 						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
 					}
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
+					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
-			}
 
-			//
-			// SceneManager.
-			//
-			state::LayerRegistry::register_type<state::UILayer>("UI");
-			state::LayerRegistry::register_type<state::RuntimeLayer>("Runtime");
-			ServiceLocator<state::SceneManager>::make();
+				//
+				// SceneManager.
+				//
+				state::LayerRegistry::register_type<state::UILayer>("UI");
+				state::LayerRegistry::register_type<state::RuntimeLayer>("Runtime");
+				ServiceLocator<state::SceneManager>::make();
 
-			//
-			// Inject all configured galaxy into Lua.
-			//
-			lua::inject_galaxy_into_lua();
+				//
+				// Inject all configured galaxy into Lua.
+				//
+				lua::inject_galaxy_into_lua();
+			});
+
+			loading.display_bg_until_finished(config.get<std::string>("bg", "loading"), config.get<std::string>("logo", "loading"));
 		}
 
 		Application::~Application()
@@ -325,13 +359,13 @@ namespace galaxy
 
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Fonts>::del();
-			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Sounds>::del();
-			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<audio::AudioEngine>::del();
-			ServiceLocator<Window>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<sol::state>::del();
+			ServiceLocator<resource::TextureAtlas>::del();
+			ServiceLocator<resource::Shaders>::del();
+			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
 
