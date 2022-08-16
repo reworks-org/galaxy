@@ -91,5 +91,10 @@ namespace galaxy
 
 			return input;
 		}
+
+		bool begins_with(const std::string& input, const std::string& find) noexcept
+		{
+			return (input.rfind(find, 0) == 0);
+		}
 	} // namespace strutils
 } // namespace galaxy

@@ -59,6 +59,16 @@ namespace galaxy
 		/// \return Modified string.
 		///
 		[[nodiscard]] std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
+
+		///
+		/// Check if string begins with another string.
+		///
+		/// \param input Input string to check.
+		/// \param find String to check for at beginning of input string.
+		///
+		/// \return True if input string begins with find string.
+		///
+		[[nodiscard]] bool begins_with(const std::string& input, const std::string& find) noexcept;
 	} // namespace strutils
 } // namespace galaxy
 

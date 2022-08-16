@@ -581,7 +581,8 @@ namespace galaxy
 			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR);
 
 			lua.set_function("str_split", &strutils::split);
-			lua.set_function("parse_codepoint", &strutils::parse_codepoint);
+			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);
+			lua.set_function("str_begins_with", &strutils::begins_with);
 		}
 	} // namespace lua
 } // namespace galaxy
