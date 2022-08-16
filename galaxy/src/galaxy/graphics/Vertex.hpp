@@ -8,6 +8,7 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_HPP_
 #define GALAXY_GRAPHICS_VERTEX_HPP_
 
+#include <array>
 #include <compare>
 
 #include <glm/vec2.hpp>
@@ -86,6 +87,23 @@ namespace galaxy
 			/// Destructor.
 			///
 			~Vertex() noexcept = default;
+
+			///
+			/// Generate some default verticies.
+			///
+			/// \param width Width of quad.
+			/// \param height Height of quad.
+			///
+			/// \return Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE.
+			///
+			static std::array<Vertex, 4> gen_quad_vertices(const float width, const float height) noexcept;
+
+			///
+			/// Generate some default indicies.
+			///
+			/// \return Indices mapping vertices from TOP LEFT to BOTTOM LEFT CLOCKWISE.
+			///
+			static const std::array<unsigned int, 6>& get_default_indices() noexcept;
 
 			///
 			/// Comparison operator.

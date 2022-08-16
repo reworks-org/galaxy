@@ -79,5 +79,26 @@ namespace galaxy
 
 			return *this;
 		}
+
+		std::array<Vertex, 4> Vertex::gen_quad_vertices(const float width, const float height) noexcept
+		{
+			// clang-format off
+			std::array<graphics::Vertex, 4> vertices = 
+			{
+				graphics::Vertex {glm::vec2 {0.0f, 0.0f}, glm::vec2 {0.0f, 0.0f}},
+				graphics::Vertex {glm::vec2 {width, 0.0f}, glm::vec2 {1.0f, 0.0f}},
+				graphics::Vertex {glm::vec2 {width, height}, glm::vec2 {1.0f, 1.0f}},
+				graphics::Vertex {glm::vec2 {0.0f, height}, glm::vec2 {0.0f, 1.0f}}
+			};
+			// clang-format on
+
+			return vertices;
+		}
+
+		const std::array<unsigned int, 6>& Vertex::get_default_indices() noexcept
+		{
+			static const std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
+			return indices;
+		}
 	} // namespace graphics
 } // namespace galaxy

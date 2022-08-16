@@ -199,23 +199,9 @@ namespace galaxy
 			auto vb = std::make_unique<graphics::VertexBuffer>();
 			auto ib = std::make_unique<graphics::IndexBuffer>();
 
-			std::array<graphics::Vertex, 4> vertices;
-			vertices[0].m_pos    = {0.0f, 0.0f};
-			vertices[0].m_texels = {0.0f, 0.0f};
-
-			vertices[1].m_pos    = {1.0f, 0.0f};
-			vertices[1].m_texels = {1.0f, 0.0f};
-
-			vertices[2].m_pos    = {1.0f, 1.0f};
-			vertices[2].m_texels = {1.0f, 1.0f};
-
-			vertices[3].m_pos    = {0.0f, 1.0f};
-			vertices[3].m_texels = {0.0f, 1.0f};
-
-			std::array<unsigned int, 6> indices = {0, 1, 3, 1, 2, 3};
-
-			vb->create(vertices, graphics::StorageFlag::DYNAMIC_DRAW);
-			ib->create(indices, graphics::StorageFlag::STATIC_DRAW);
+			auto array = graphics::Vertex::gen_quad_vertices(1.0f, 1.0f);
+			vb->create(array, graphics::StorageFlag::DYNAMIC_DRAW);
+			ib->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
 			m_va.create(vb, ib);
 		}

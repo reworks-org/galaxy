@@ -67,6 +67,19 @@ namespace galaxy
 			}
 		}
 
+		void IndexBuffer::const_create(std::span<const unsigned int> indices, const StorageFlag flag)
+		{
+			if (!indices.empty())
+			{
+				m_count = static_cast<unsigned int>(indices.size());
+				glNamedBufferData(m_ibo, indices.size_bytes(), indices.data(), static_cast<GLenum>(flag));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to upload empty index buffer.");
+			}
+		}
+
 		void IndexBuffer::clear() noexcept
 		{
 			glInvalidateBufferData(m_ibo);
