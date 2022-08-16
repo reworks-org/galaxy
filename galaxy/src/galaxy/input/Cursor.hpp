@@ -60,6 +60,11 @@ namespace galaxy
 			///
 			[[nodiscard]] bool within_window() const noexcept;
 
+			///
+			/// Clear up all used data.
+			///
+			void destroy() noexcept;
+
 		private:
 			///
 			/// Constructor.

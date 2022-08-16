@@ -429,18 +429,23 @@ namespace galaxy
 
 		void Window::destroy()
 		{
-			graphics::Renderer::destroy();
-
 			// Clean up window data, checking to make sure its not already been destroyed.
 			if (m_window != nullptr)
 			{
+				graphics::Renderer::destroy();
+
+				m_postprocess.reset();
+				m_postprocess = nullptr;
+
+				m_cursor.destroy();
+
 				glfwDestroyWindow(m_window);
 
 				m_window               = nullptr;
 				input::Input::s_window = nullptr;
-			}
 
-			glfwTerminate();
+				glfwTerminate();
+			}
 		}
 
 		void Window::poll_events() noexcept

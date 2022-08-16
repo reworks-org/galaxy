@@ -26,11 +26,7 @@ namespace galaxy
 
 		Cursor::~Cursor() noexcept
 		{
-			if (m_data != nullptr)
-			{
-				glfwDestroyCursor(m_data);
-				m_data = nullptr;
-			}
+			destroy();
 		}
 
 		void Cursor::toggle(const bool visible) noexcept
@@ -107,6 +103,15 @@ namespace galaxy
 		bool Cursor::within_window() const noexcept
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_HOVERED);
+		}
+
+		void Cursor::destroy() noexcept
+		{
+			if (m_data != nullptr)
+			{
+				glfwDestroyCursor(m_data);
+				m_data = nullptr;
+			}
 		}
 	} // namespace input
 } // namespace galaxy

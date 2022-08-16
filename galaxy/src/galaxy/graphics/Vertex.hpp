@@ -96,7 +96,7 @@ namespace galaxy
 			///
 			/// \return Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 			///
-			static std::array<Vertex, 4> gen_quad_vertices(const float width, const float height) noexcept;
+			static std::array<Vertex, 4> gen_quad_vertices(const int width, const int height) noexcept;
 
 			///
 			/// Generate some default indicies.
