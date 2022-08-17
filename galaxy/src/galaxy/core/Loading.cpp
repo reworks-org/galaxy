@@ -72,8 +72,7 @@ namespace galaxy
 			auto& window = ServiceLocator<Window>::ref();
 
 			m_shader.bind();
-			m_shader.set_uniform<glm::mat4>("u_proj",
-				glm::ortho(0.0f, static_cast<float>(window.get_width()), static_cast<float>(window.get_height()), 0.0f, -1.0f, 1.0f));
+			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, window.get_widthf(), window.get_heightf(), 0.0f, -1.0f, 1.0f));
 			m_shader.unbind();
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -159,26 +158,27 @@ namespace galaxy
 					m_anim_vao.create(vbo, ibo);
 
 					auto& window = ServiceLocator<Window>::ref();
-					m_transform.set_pos(static_cast<float>(window.get_width() - m_animated.get_width()),
-						static_cast<float>(window.get_height() - m_animated.get_height()));
+					m_transform.set_pos(window.get_widthf() - m_animated.get_widthf(), window.get_heightf() - m_animated.get_heightf());
 
 					m_shader.bind();
-					glBindVertexArray(m_vao.id());
+					m_transform.set_origin(m_animated.get_widthf() / 2.0f, m_animated.get_heightf() / 2.0f);
 
 					while (!meta::is_work_done(m_loading_thread))
 					{
-						m_transform.rotate(1.0f);
+						m_transform.rotate(8.0f);
 
 						glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+						glBindVertexArray(m_vao.id());
 						glBindTexture(GL_TEXTURE_2D, m_bg.gl_texture());
 						m_shader.set_uniform("u_transform", m_default.get_transform());
 						glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
 
+						glBindVertexArray(m_anim_vao.id());
 						glBindTexture(GL_TEXTURE_2D, m_animated.gl_texture());
 						m_shader.set_uniform("u_transform", m_transform.get_transform());
-						glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
+						glDrawElements(GL_TRIANGLES, m_anim_vao.index_count(), GL_UNSIGNED_INT, nullptr);
 
 						glfwSwapBuffers(window.handle());
 					}
