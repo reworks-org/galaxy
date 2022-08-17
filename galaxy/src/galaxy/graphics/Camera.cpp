@@ -37,7 +37,7 @@ namespace galaxy
 			, m_rotation_origin {0, 0, 1}
 		{
 			auto& window   = core::ServiceLocator<core::Window>::ref();
-			m_aspect_ratio = static_cast<float>(window.get_width()) / static_cast<float>(window.get_height());
+			m_aspect_ratio = window.get_widthf() / window.get_heightf();
 		}
 
 		Camera::Camera(const float left, const float right, const float bottom, const float top) noexcept
@@ -57,7 +57,7 @@ namespace galaxy
 			, m_rotation_origin {0, 0, 1}
 		{
 			auto& window   = core::ServiceLocator<core::Window>::ref();
-			m_aspect_ratio = static_cast<float>(window.get_width()) / static_cast<float>(window.get_height());
+			m_aspect_ratio = window.get_widthf() / window.get_heightf();
 
 			create(left, right, bottom, top);
 		}

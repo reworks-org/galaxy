@@ -201,6 +201,20 @@ namespace galaxy
 			[[nodiscard]] int get_height() const noexcept;
 
 			///
+			/// Get window width.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_widthf() const noexcept;
+
+			///
+			/// Get window height.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_heightf() const noexcept;
+
+			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns pointer to GLFWwindow.

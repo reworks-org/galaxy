@@ -237,6 +237,16 @@ namespace galaxy
 			return m_height;
 		}
 
+		float Texture::get_widthf() const noexcept
+		{
+			return static_cast<float>(m_width);
+		}
+
+		float Texture::get_heightf() const noexcept
+		{
+			return static_cast<float>(m_height);
+		}
+
 		int Texture::get_aniso_level() noexcept
 		{
 			auto ansio = 0.0f;

@@ -112,7 +112,7 @@ namespace galaxy
 			///
 			/// Is cached for performance.
 			///
-			/// \return Width as int. int over unsigned for compat with float.
+			/// \return Width as int.
 			///
 			[[nodiscard]] int get_width() const noexcept;
 
@@ -121,9 +121,27 @@ namespace galaxy
 			///
 			/// Is cached for performance.
 			///
-			/// \return Height as int. int over unsigned for compat with float.
+			/// \return Height as int.
 			///
 			[[nodiscard]] int get_height() const noexcept;
+
+			///
+			/// \brief Get texture width.
+			///
+			/// Is cached for performance.
+			///
+			/// \return Width as float.
+			///
+			[[nodiscard]] float get_widthf() const noexcept;
+
+			///
+			/// \brief Get texture height.
+			///
+			/// Is cached for performance.
+			///
+			/// \return Height as float.
+			///
+			[[nodiscard]] float get_heightf() const noexcept;
 
 			///
 			/// Get Textures current Ansiotrophy level.

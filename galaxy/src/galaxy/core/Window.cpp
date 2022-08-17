@@ -555,6 +555,16 @@ namespace galaxy
 			return m_height;
 		}
 
+		float Window::get_widthf() const noexcept
+		{
+			return static_cast<float>(m_width);
+		}
+
+		float Window::get_heightf() const noexcept
+		{
+			return static_cast<float>(m_height);
+		}
+
 		GLFWwindow* Window::handle() noexcept
 		{
 			return m_window;
