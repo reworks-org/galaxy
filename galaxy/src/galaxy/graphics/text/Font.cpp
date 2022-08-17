@@ -166,7 +166,7 @@ namespace galaxy
 									generator(config.width, config.height);
 								generator.setAttributes(config.generator_attributes);
 								generator.setThreadCount(config.thread_count);
-								generator.generate(glyphs.data(), glyphs.size());
+								generator.generate(glyphs.data(), static_cast<int>(glyphs.size()));
 
 								std::vector<msdf_atlas::byte> output;
 								if (msdf_atlas::encodePng(output, generator.atlasStorage()))

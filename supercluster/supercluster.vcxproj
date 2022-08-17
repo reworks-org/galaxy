@@ -117,7 +117,7 @@
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4006  /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>call "$(SolutionDir)scripts\copy_irrklang_win.cmd" $(SolutionDir) $(Configuration) $(MSBuildProjectDirectory)</Command>
@@ -175,7 +175,7 @@
       <LargeAddressAware>true</LargeAddressAware>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalOptions>/ignore:4006 /ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4006  /ignore:4099 /ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>call "$(SolutionDir)scripts\copy_irrklang_win.cmd" $(SolutionDir) $(Configuration) $(MSBuildProjectDirectory)</Command>

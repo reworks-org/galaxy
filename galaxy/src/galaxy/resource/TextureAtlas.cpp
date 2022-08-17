@@ -199,7 +199,7 @@ namespace galaxy
 			auto vb = std::make_unique<graphics::VertexBuffer>();
 			auto ib = std::make_unique<graphics::IndexBuffer>();
 
-			auto array = graphics::Vertex::gen_quad_vertices(1.0f, 1.0f);
+			auto array = graphics::Vertex::gen_quad_vertices(1, 1);
 			vb->create(array, graphics::StorageFlag::DYNAMIC_DRAW);
 			ib->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
