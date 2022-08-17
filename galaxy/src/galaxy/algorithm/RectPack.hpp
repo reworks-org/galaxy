@@ -62,10 +62,14 @@ namespace galaxy
 			///
 			/// Get total width.
 			///
+			/// \return Integer.
+			///
 			[[nodiscard]] int get_width() const noexcept;
 
 			///
 			/// Get total height.
+			///
+			/// \return Integer.
 			///
 			[[nodiscard]] int get_height() const noexcept;
 
