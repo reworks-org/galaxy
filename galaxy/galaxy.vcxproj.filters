@@ -119,6 +119,7 @@
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
     <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
+    <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -239,5 +240,6 @@
     <ClInclude Include="src\galaxy\components\Flag.hpp" />
     <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
     <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
+    <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
   </ItemGroup>
 </Project>

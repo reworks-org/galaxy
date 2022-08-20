@@ -95,14 +95,14 @@ namespace galaxy
 ///
 /// Macro for windows platform detection.
 ///
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)
 #define GALAXY_WIN_PLATFORM
 #endif
 
 ///
 /// Macro for linux platform detection.
 ///
-#if defined(__linux__) || defined(__unix) || defined(_POISX_VERSION)
+#if defined(__linux__) || defined(__unix) || defined(_POISX_VERSION) || defined(__GNUC__) || defined(__clang__)
 #define GALAXY_LINUX_PLATFORM
 #endif
 
