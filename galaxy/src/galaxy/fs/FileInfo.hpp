@@ -21,7 +21,7 @@ namespace galaxy
 			///
 			/// The error code returned.
 			///
-			FileCode m_code;
+			FileCode m_code = FileCode::DEFAULT;
 
 			///
 			/// A string formatted absolute path to the file.

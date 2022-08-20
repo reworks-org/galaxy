@@ -12,9 +12,17 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "RMLRenderer.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26403)
+GALAXY_DISABLE_WARNING(26409)
+GALAXY_DISABLE_WARNING(26440)
+GALAXY_DISABLE_WARNING(26490)
+#endif
 
 ///
 /// RML document vertex shader.
@@ -62,10 +70,10 @@ constexpr const char* const rml_frag = R"(
 
 namespace galaxy
 {
-	struct RMLVAO final
+	struct RmlVao final
 	{
 		graphics::VertexArray m_vao;
-		GLuint m_texture;
+		GLuint m_texture = 0;
 	};
 
 	namespace ui
@@ -133,7 +141,7 @@ namespace galaxy
 			}
 			ibo->create(index_array, graphics::StorageFlag::DYNAMIC_DRAW);
 
-			auto rml_vao = new RMLVAO();
+			auto rml_vao = new RmlVao();
 
 			try
 			{
@@ -153,7 +161,7 @@ namespace galaxy
 
 		void RMLRenderer::RenderCompiledGeometry(Rml::CompiledGeometryHandle geometry, const Rml::Vector2f& translation)
 		{
-			auto rml_vao = reinterpret_cast<RMLVAO*>(geometry);
+			const RmlVao* rml_vao = reinterpret_cast<RmlVao*>(geometry);
 
 			auto& window = core::ServiceLocator<core::Window>::ref();
 			const auto w = window.get_width();
@@ -174,7 +182,7 @@ namespace galaxy
 
 		void RMLRenderer::ReleaseCompiledGeometry(Rml::CompiledGeometryHandle geometry)
 		{
-			delete reinterpret_cast<RMLVAO*>(geometry);
+			delete reinterpret_cast<RmlVao*>(geometry);
 		}
 
 		void RMLRenderer::EnableScissorRegion(bool enable)
@@ -294,3 +302,7 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

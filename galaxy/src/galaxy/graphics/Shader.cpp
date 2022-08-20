@@ -13,6 +13,11 @@
 
 #include "Shader.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26414)
+#endif
+
 namespace galaxy
 {
 	namespace graphics
@@ -118,7 +123,7 @@ namespace galaxy
 			if (result)
 			{
 				// Error reporting for OpenGL.
-				char info[1024];
+				char info[1024]   = {0};
 				int success       = 0;
 				unsigned int v_id = 0;
 				unsigned int f_id = 0;
@@ -260,3 +265,7 @@ namespace galaxy
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

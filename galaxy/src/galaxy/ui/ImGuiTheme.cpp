@@ -193,7 +193,7 @@ namespace galaxy
 		void imgui_theme_visual_dark()
 		{
 			constexpr auto ColorFromBytes = [](std::uint8_t r, std::uint8_t g, std::uint8_t b) {
-				return ImVec4((float)r / 255.0f, (float)g / 255.0f, (float)b / 255.0f, 1.0f);
+				return ImVec4(static_cast<float>(r) / 255.0f, static_cast<float>(g) / 255.0f, static_cast<float>(b) / 255.0f, 1.0f);
 			};
 
 			auto& style    = ImGui::GetStyle();

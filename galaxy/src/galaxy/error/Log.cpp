@@ -34,7 +34,7 @@ namespace galaxy
 			m_run_thread = true;
 
 			auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
-			tp.push_task([this]() {
+			tp.push_task([this]() noexcept {
 				while (m_run_thread)
 				{
 					m_sync.acquire();

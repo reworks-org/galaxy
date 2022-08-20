@@ -10,7 +10,12 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Pragma.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26440)
+#endif
 
 #include "RMLSystem.hpp"
 
@@ -76,3 +81,7 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

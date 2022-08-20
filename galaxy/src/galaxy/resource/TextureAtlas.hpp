@@ -63,7 +63,7 @@ namespace galaxy
 				///
 				/// Index of which atlas this sprite belongs to.
 				///
-				int m_index;
+				int m_index = 0;
 			};
 
 			///

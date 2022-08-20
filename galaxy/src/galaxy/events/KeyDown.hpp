@@ -23,17 +23,17 @@ namespace galaxy
 			///
 			/// Keycode for the key that was pressed.
 			///
-			input::Keys m_keycode;
+			input::Keys m_keycode = input::Keys::UNKNOWN;
 
 			///
 			/// Modifier Key.
 			///
-			input::InputMods m_mod;
+			input::InputMods m_mod = input::InputMods::UNKNOWN;
 
 			///
 			/// Platform scancode.
 			///
-			int m_scancode;
+			int m_scancode = 0;
 
 			///
 			/// Has this event been handled?

@@ -52,7 +52,7 @@ namespace galaxy
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
 
-			auto* const imgui_viewport = ImGui::GetMainViewport();
+			const ImGuiViewport* imgui_viewport = ImGui::GetMainViewport();
 			ImGui::SetNextWindowPos(imgui_viewport->WorkPos);
 			ImGui::SetNextWindowSize(imgui_viewport->WorkSize);
 			ImGui::SetNextWindowViewport(imgui_viewport->ID);
@@ -69,8 +69,8 @@ namespace galaxy
 
 			// Update and Render additional Platform Windows
 			// (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.
-			//  For this specific demo app we could also call glfwMakeContextCurrent(window) directly)
-			ImGuiIO& io = ImGui::GetIO();
+			// For this specific demo app we could also call glfwMakeContextCurrent(window) directly)
+			const auto& io = ImGui::GetIO();
 			if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 			{
 				GLFWwindow* backup_current_context = glfwGetCurrentContext();

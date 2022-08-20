@@ -20,6 +20,11 @@ namespace galaxy
 		enum class InputMods : int
 		{
 			///
+			/// Represents an unknown input modifier.
+			///
+			UNKNOWN = 0x0000,
+
+			///
 			/// If this bit is set one or more Shift keys were held down.
 			///
 			SHIFT = 0x0001,

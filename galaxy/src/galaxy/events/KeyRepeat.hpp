@@ -33,7 +33,7 @@ namespace galaxy
 			///
 			/// Platform scancode.
 			///
-			int m_scancode;
+			int m_scancode = 0;
 
 			///
 			/// Has this event been handled?

@@ -10,8 +10,17 @@
 #include <zlc/gzipcomplete.hpp>
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "GZip.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26403)
+GALAXY_DISABLE_WARNING(26407)
+GALAXY_DISABLE_WARNING(26409)
+GALAXY_DISABLE_WARNING(26414)
+#endif
 
 namespace galaxy
 {
@@ -25,7 +34,7 @@ namespace galaxy
 
 			try
 			{
-				zlibcomplete::GZipCompressor compressor;
+				auto compressor = std::make_unique<zlibcomplete::GZipCompressor>();
 				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
@@ -40,7 +49,7 @@ namespace galaxy
 
 					if (total_read != 0)
 					{
-						result += compressor.compress({in, total_read});
+						result += compressor->compress({in, total_read});
 					}
 					else
 					{
@@ -48,7 +57,7 @@ namespace galaxy
 					}
 				}
 
-				result += compressor.finish();
+				result += compressor->finish();
 			}
 			catch (const std::exception& e)
 			{
@@ -67,7 +76,7 @@ namespace galaxy
 
 			try
 			{
-				zlibcomplete::GZipDecompressor decompressor;
+				auto decompressor = std::make_unique<zlibcomplete::GZipDecompressor>();
 				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
@@ -82,7 +91,7 @@ namespace galaxy
 
 					if (total_read != 0)
 					{
-						result += decompressor.decompress({in, total_read});
+						result += decompressor->decompress({in, total_read});
 					}
 					else
 					{
@@ -100,3 +109,7 @@ namespace galaxy
 		}
 	} // namespace algorithm
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

@@ -22,7 +22,7 @@ namespace galaxy
 			///
 			/// Unsigned integer representation.
 			///
-			unsigned int m_uichar;
+			unsigned int m_uichar = 0u;
 
 			///
 			/// List of entered character(s).

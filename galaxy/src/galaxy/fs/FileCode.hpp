@@ -35,7 +35,12 @@ namespace galaxy
 			///
 			/// Is not a file.
 			///
-			NO_EXTENSION
+			NO_EXTENSION,
+
+			///
+			/// Used for default initialization.
+			///
+			DEFAULT
 		};
 	} // namespace fs
 } // namespace galaxy

@@ -15,7 +15,7 @@
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Pragma.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 #include "Window.hpp"
@@ -114,7 +114,7 @@ namespace galaxy
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
 						events::WindowResized wr
@@ -130,7 +130,7 @@ namespace galaxy
 
 					// Key input callback.
 					glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 						if (!win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
@@ -174,6 +174,10 @@ namespace galaxy
 									win->m_event_queue.emplace_back<events::KeyUp>(std::move(ku));
 								}
 								break;
+
+								default:
+                                    GALAXY_LOG(GALAXY_FATAL, "Received invalid action in glfw key callback.");
+								break;
 							}
 							// clang-format on
 						}
@@ -181,7 +185,7 @@ namespace galaxy
 
 					// Text input callback.
 					glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 						if (win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
@@ -198,7 +202,7 @@ namespace galaxy
 
 					// Mouse movement callback.
 					glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
 						events::MouseMoved mm
@@ -213,7 +217,7 @@ namespace galaxy
 
 					// Mouse button callback.
 					glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
-						auto* win      = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win      = static_cast<Window*>(glfwGetWindowUserPointer(window));
 						const auto pos = win->m_mouse.get_pos();
 
 						// clang-format off
@@ -246,13 +250,17 @@ namespace galaxy
 								win->m_event_queue.emplace_back<events::MouseReleased>(std::move(mr));
 							}
 							break;
+
+							default:
+                                GALAXY_LOG(GALAXY_FATAL, "Received invalid action in glfw key callback.");
+							break;
 						}
 						// clang-format on
 					});
 
 					// Set scroll wheel callback.
 					glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xoffset, double yoffset) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						// clang-format off
 						events::MouseWheel mw
@@ -265,9 +273,16 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
+                    // clang-format off
+					#ifdef GALAXY_WIN_PLATFORM
+					GALAXY_DISABLE_WARNING_PUSH
+					GALAXY_DISABLE_WARNING(26487)
+					#endif
+					// clang-format on
+
 					// Set dropped item callback.
 					glfwSetDropCallback(m_window, [](GLFWwindow* window, int count, const char** paths) {
-						auto* win = reinterpret_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
 						win->m_drop_paths.clear();
 						for (auto i = 0; i < count; i++)
@@ -276,7 +291,13 @@ namespace galaxy
 						}
 					});
 
-					glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
+                    // clang-format off
+					#ifdef GALAXY_WIN_PLATFORM
+					GALAXY_DISABLE_WARNING_POP
+					#endif
+					// clang-format on
+
+					glfwSetWindowUserPointer(m_window, this);
 					glfwGetWindowSize(m_window, &m_width, &m_height);
 
 					// Set window context and aspect ratio.

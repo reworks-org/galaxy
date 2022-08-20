@@ -20,12 +20,12 @@ namespace galaxy
 			///
 			/// -1 or 1.
 			///
-			double m_xoff;
+			double m_xoff = 0.0;
 
 			///
 			/// -1 or 1.
 			///
-			double m_yoff;
+			double m_yoff = 0.0;
 
 			///
 			/// Has this event been handled?

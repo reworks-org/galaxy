@@ -11,8 +11,16 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "AudioFileFactory.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26403)
+GALAXY_DISABLE_WARNING(26409)
+GALAXY_DISABLE_WARNING(26487)
+#endif
 
 namespace galaxy
 {
@@ -44,3 +52,7 @@ namespace galaxy
 		}
 	} // namespace audio
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

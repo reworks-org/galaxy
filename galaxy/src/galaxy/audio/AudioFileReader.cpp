@@ -7,7 +7,14 @@
 
 #include <cstdio>
 
+#include "galaxy/platform/Pragma.hpp"
+
 #include "AudioFileReader.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26440)
+#endif
 
 namespace galaxy
 {
@@ -54,3 +61,7 @@ namespace galaxy
 		}
 	} // namespace audio
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

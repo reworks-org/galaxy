@@ -203,7 +203,7 @@ namespace galaxy
 											{
 												m_kerning.emplace(std::make_pair(strutils::parse_codepoint(glyph1->getCodepoint()),
 																	  strutils::parse_codepoint(glyph2->getCodepoint())),
-													kernPair.second);
+													static_cast<int>(kernPair.second));
 											}
 										}
 

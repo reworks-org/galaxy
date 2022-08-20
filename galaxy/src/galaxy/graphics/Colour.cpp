@@ -31,56 +31,40 @@ namespace galaxy
 		{
 			static const constexpr auto DIVIDER = static_cast<float>(0xFF);
 
-			float r, g, b, a;
+			float r = 0.0f, g = 0.0f, b = 0.0f, a = 0.0f;
 
-			if (m_red == 0)
-			{
-				r = 0.0f;
-			}
-			else if (m_red == 255)
+			if (m_red == 255)
 			{
 				r = 1.0f;
 			}
-			else
+			else if (m_red != 0)
 			{
 				r = static_cast<float>(m_red) / DIVIDER;
 			}
 
-			if (m_green == 0)
-			{
-				g = 0.0f;
-			}
-			else if (m_green == 255)
+			if (m_green == 255)
 			{
 				g = 1.0f;
 			}
-			else
+			else if (m_green != 0)
 			{
 				g = static_cast<float>(m_green) / DIVIDER;
 			}
 
-			if (m_blue == 0)
-			{
-				b = 0.0f;
-			}
-			else if (m_blue == 255)
+			if (m_blue == 255)
 			{
 				b = 1.0f;
 			}
-			else
+			else if (m_blue != 0)
 			{
 				b = static_cast<float>(m_blue) / DIVIDER;
 			}
 
-			if (m_alpha == 0)
-			{
-				a = 0.0f;
-			}
-			else if (m_alpha == 255)
+			if (m_alpha == 255)
 			{
 				a = 1.0f;
 			}
-			else
+			else if (m_alpha != 0)
 			{
 				a = static_cast<float>(m_alpha) / DIVIDER;
 			}

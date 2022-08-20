@@ -8,8 +8,15 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "RMLFile.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26440)
+GALAXY_DISABLE_WARNING(26490)
+#endif
 
 namespace galaxy
 {
@@ -52,3 +59,7 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

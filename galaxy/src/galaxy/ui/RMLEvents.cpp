@@ -82,7 +82,7 @@ namespace galaxy
 		{
 			if (!e.m_handled && (m_context != nullptr))
 			{
-				if (auto element = m_context->GetFocusElement())
+				if (const Rml::Element* element = m_context->GetFocusElement())
 				{
 					const auto& tag = element->GetTagName();
 					if (tag == "input" || tag == "textarea" || tag == "select")

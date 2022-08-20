@@ -20,12 +20,12 @@ namespace galaxy
 			///
 			/// Mouse x position.
 			///
-			double m_xpos;
+			double m_xpos = 0.0;
 
 			///
 			/// Mouse y position.
 			///
-			double m_ypos;
+			double m_ypos = 0.0;
 
 			///
 			/// Has this event been handled?

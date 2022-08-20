@@ -23,22 +23,22 @@ namespace galaxy
 			///
 			/// Mouse x position.
 			///
-			double m_xpos;
+			double m_xpos = 0.0;
 
 			///
 			/// Mouse y position.
 			///
-			double m_ypos;
+			double m_ypos = 0.0;
 
 			///
 			/// Mouse button pressed.
 			///
-			input::MouseButtons m_button;
+			input::MouseButtons m_button = input::MouseButtons::UNKNOWN;
 
 			///
 			/// Modifier Key.
 			///
-			input::InputMods m_mod;
+			input::InputMods m_mod = input::InputMods::UNKNOWN;
 
 			///
 			/// Has this event been handled?

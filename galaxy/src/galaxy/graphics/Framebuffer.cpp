@@ -290,6 +290,9 @@ namespace galaxy
 					case GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
 						reason = "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS";
 						break;
+					default:
+						reason = "UNKOWN";
+						break;
 				}
 
 				GALAXY_LOG(GALAXY_FATAL, "Failed to complete framebuffer: {0}.", reason);

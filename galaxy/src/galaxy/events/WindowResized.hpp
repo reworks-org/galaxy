@@ -22,12 +22,12 @@ namespace galaxy
 			///
 			/// New width of window.
 			///
-			int m_width;
+			int m_width = 0;
 
 			///
 			/// New height of window.
 			///
-			int m_height;
+			int m_height = 0;
 		};
 	} // namespace events
 } // namespace galaxy
