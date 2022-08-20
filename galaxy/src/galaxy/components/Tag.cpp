@@ -48,6 +48,10 @@ namespace galaxy
 			return *this;
 		}
 
+		Tag::~Tag() noexcept
+		{
+		}
+
 		nlohmann::json Tag::serialize()
 		{
 			nlohmann::json json = "{}"_json;
