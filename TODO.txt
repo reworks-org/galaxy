@@ -1,3 +1,8 @@
+- update loading screen spinny icon to be animated
+Include-What-You-Use.
+add to lua:
+- https://github.com/skaarj1989/entt-meets-sol2
+ Linux Support.
 Sandbox tests to do:
 - Components
 - Graphics
@@ -9,7 +14,6 @@ CODE REVIEW TODO:
 - GRAPHICS.
 
 TODO: PORT REMAINING LEGACY CODE.
-verify animatd loading icon works.
 
 -- LEGACY TODO BELOW --
 
@@ -19,12 +23,12 @@ https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_bas
 https://gamedev.stackexchange.com/questions/30362/drawing-lots-of-tiles-with-opengl-the-modern-way
 https://gamedev.stackexchange.com/questions/166048/animate-some-tiles-of-tile-map
 https://gamedev.stackexchange.com/questions/53716/optimal-opengl-2d-sprite-batching-best-practice
-
 encode output of json
 - helps limit file size.
 - convert to base64 then zlib.
 
-- update loading screen - should be aniumated / have tips / something to give feddback 2 usr
+
+https://old.reddit.com/r/gamedev/comments/ugr3wg/improving_upon_entity_component_systems/
 
 - set camera keys
 - ensure tests are up to date.
