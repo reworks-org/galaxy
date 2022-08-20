@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-// https://github.com/skaarj1989/entt-meets-sol2/tree/main/examples
-
 #include <sol/sol.hpp>
 
 #include "galaxy/algorithm/Algorithms.hpp"
@@ -17,11 +15,14 @@
 
 #include "galaxy/audio/AudioEngine.hpp"
 
+#include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/core/World.hpp"
 
 #include "galaxy/error/Log.hpp"
 
@@ -36,6 +37,9 @@
 
 #include "galaxy/fs/FileInfo.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+
+#include "galaxy/flags/AllowSerialize.hpp"
+#include "galaxy/flags/Enabled.hpp"
 
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Rect.hpp"
@@ -167,6 +171,17 @@ namespace galaxy
 			transform_type["set_rotation"]  = &components::Transform::set_rotation;
 			transform_type["translate"]     = &components::Transform::translate;
 
+			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>());
+			tag_type["tag"] = &components::Tag::m_tag;
+
+			auto flag_type                      = lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>());
+			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
+			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
+			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
+			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
+			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
+			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
+
 			/* CORE */
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
 			config_type["load"]              = &core::Config::load;
@@ -182,6 +197,12 @@ namespace galaxy
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
 			lua["service_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
+
+			// Cannot be created in lua, accessed from scene instead.
+			auto world_type                = lua.new_usertype<core::World>("World", sol::no_constructor);
+			world_type["clear"]            = &core::World::clear;
+			world_type["create_from_file"] = &core::World::create_from_file;
+			world_type["registry"]         = &core::World::m_registry;
 
 			/* ERROR */
 			// clang-format off
@@ -312,6 +333,18 @@ namespace galaxy
 			shader_type["set_uniform_float4"]   = &graphics::Shader::set_uniform<float, float, float, float>;
 			shader_type["set_uniform_bool"]     = &graphics::Shader::set_uniform<bool>;
 			shader_type["set_uniform_colour"]   = &graphics::Shader::set_uniform<graphics::Colour>;
+
+			// Don't create from lua, access from scene instead.
+			auto camera_type                     = lua.new_usertype<graphics::Camera>("Camera", sol::no_constructor);
+			camera_type["set_pos"]               = &graphics::Camera::set_pos;
+			camera_type["set_projection"]        = &graphics::Camera::set_projection;
+			camera_type["set_rotation"]          = &graphics::Camera::set_rotation;
+			camera_type["set_rotation_speed"]    = &graphics::Camera::set_rotation_speed;
+			camera_type["set_translation_speed"] = &graphics::Camera::set_translation_speed;
+			camera_type["set_zoom"]              = &graphics::Camera::set_zoom;
+			camera_type["update"]                = &graphics::Camera::update;
+			camera_type["get_proj"]              = &graphics::Camera::get_proj;
+			camera_type["get_view"]              = &graphics::Camera::get_view;
 
 			/* INPUT */
 			// clang-format off
@@ -564,11 +597,22 @@ namespace galaxy
 			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 
 			/* STATE */
-			auto scenemanager_type      = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["change"] = &state::SceneManager::change;
-			scenemanager_type["clear"]  = &state::SceneManager::clear;
-			scenemanager_type["load"]   = &state::SceneManager::load;
-			scenemanager_type["save"]   = &state::SceneManager::save;
+			auto scenemanager_type       = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["change"]  = &state::SceneManager::change;
+			scenemanager_type["clear"]   = &state::SceneManager::clear;
+			scenemanager_type["load"]    = &state::SceneManager::load;
+			scenemanager_type["save"]    = &state::SceneManager::save;
+			scenemanager_type["current"] = &state::SceneManager::current;
+			scenemanager_type["get"]     = &state::SceneManager::get;
+			scenemanager_type["make"]    = &state::SceneManager::make;
+			scenemanager_type["set"]     = &state::SceneManager::set;
+
+			// Use scenemanager to create.
+			auto scene_type          = lua.new_usertype<state::Scene>("Scene", sol::no_constructor);
+			scene_type["set_name"]   = &state::Scene::set_name;
+			scene_type["get_name"]   = &state::Scene::get_name;
+			scene_type["get_layers"] = &state::Scene::get_layers;
+			scene_type["get_camera"] = &state::Scene::get_camera;
 
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());
 
