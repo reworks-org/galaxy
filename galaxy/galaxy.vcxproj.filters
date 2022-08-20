@@ -114,6 +114,11 @@
     <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\core\Loading.cpp" />
+    <ClCompile Include="src\galaxy\core\World.cpp" />
+    <ClCompile Include="src\galaxy\components\Flag.cpp" />
+    <ClCompile Include="src\galaxy\components\Tag.cpp" />
+    <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
+    <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -229,5 +234,10 @@
     <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
     <ClInclude Include="src\galaxy\meta\Async.hpp" />
     <ClInclude Include="src\galaxy\core\Loading.hpp" />
+    <ClInclude Include="src\galaxy\core\World.hpp" />
+    <ClInclude Include="src\galaxy\components\Tag.hpp" />
+    <ClInclude Include="src\galaxy\components\Flag.hpp" />
+    <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
+    <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
   </ItemGroup>
 </Project>

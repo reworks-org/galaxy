@@ -78,6 +78,16 @@ namespace galaxy
 		{
 			Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value;
 		};
+
+		///
+		/// \brief Makes sure a type is a valid component.
+		///
+		/// I.e. Move assignable/constructible and a class with a json constructor.
+		///
+		/// \tparam Type Type to test.
+		///
+		template<typename Type>
+		concept valid_component = std::is_move_assignable<Type>::value && std::is_move_constructible<Type>::value && std::is_class<Type>::value;
 	} // namespace meta
 } // namespace galaxy
 

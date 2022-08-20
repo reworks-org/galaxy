@@ -6,3 +6,17 @@
 ///
 
 #include "System.hpp"
+
+namespace galaxy
+{
+	namespace systems
+	{
+		System::System() noexcept
+		{
+		}
+
+		System::~System() noexcept
+		{
+		}
+	} // namespace systems
+} // namespace galaxy

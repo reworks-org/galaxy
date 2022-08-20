@@ -8,6 +8,7 @@
 #ifndef GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 #define GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 
+#include "galaxy/core/World.hpp"
 #include "galaxy/state/Layer.hpp"
 
 namespace galaxy
@@ -78,6 +79,12 @@ namespace galaxy
 			/// Constructor.
 			///
 			RuntimeLayer() = delete;
+
+		private:
+			///
+			/// Entitys.
+			///
+			core::World m_world;
 		};
 	} // namespace state
 } // namespace galaxy

@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/graphics/Renderer.hpp"
+
 #include "Scene.hpp"
 
 namespace galaxy
@@ -40,6 +42,7 @@ namespace galaxy
 		void Scene::update()
 		{
 			m_layer_stack.update();
+			graphics::Renderer::buffer_camera(m_camera);
 		}
 
 		void Scene::render()
@@ -62,11 +65,17 @@ namespace galaxy
 			return m_layer_stack;
 		}
 
+		graphics::Camera& Scene::get_camera() noexcept
+		{
+			return m_camera;
+		}
+
 		nlohmann::json Scene::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["stack"]       = m_layer_stack.serialize();
+			json["camera"]      = m_camera.serialize();
 
 			return json;
 		}
@@ -77,13 +86,14 @@ namespace galaxy
 
 			m_name = json.at("name");
 			m_layer_stack.deserialize(json.at("stack"));
+			m_camera.deserialize(json.at("camera"));
 		}
 	} // namespace state
 } // namespace galaxy
 
 /*
-			m_camera.update();
-			graphics::Renderer::buffer_camera(m_camera);
+
+
 
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);

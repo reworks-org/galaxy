@@ -55,6 +55,7 @@ namespace galaxy
 
 		void UILayer::update()
 		{
+			m_world.update_systems(m_scene);
 			m_rml->Update();
 		}
 
@@ -69,6 +70,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["type"]        = "UI"; // Used by Layers stack.
+			json["world"]       = m_world.serialize();
 
 			// serialize rml docs?
 
@@ -78,6 +80,7 @@ namespace galaxy
 		void UILayer::deserialize(const nlohmann::json& json)
 		{
 			m_name = json.at("name");
+			m_world.deserialize(json.at("world"));
 		}
 	} // namespace state
 } // namespace galaxy

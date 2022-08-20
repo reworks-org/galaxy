@@ -8,6 +8,7 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
+#include "galaxy/graphics/Camera.hpp"
 #include "galaxy/state/Layers.hpp"
 
 namespace galaxy
@@ -80,6 +81,13 @@ namespace galaxy
 			[[nodiscard]] Layers& get_layers() noexcept;
 
 			///
+			/// Get camera.
+			///
+			/// \return Reference to camera.
+			///
+			[[nodiscard]] graphics::Camera& get_camera() noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -103,6 +111,11 @@ namespace galaxy
 			/// Controls current application layer.
 			///
 			Layers m_layer_stack;
+
+			///
+			/// Camera.
+			///
+			graphics::Camera m_camera;
 		};
 	} // namespace state
 } // namespace galaxy
@@ -110,35 +123,6 @@ namespace galaxy
 #endif
 
 /*
-#include "galaxy/core/World.hpp"
-#include "galaxy/events/Dispatcher.hpp"
-#include "galaxy/graphics/Camera2D.hpp"
-#include "galaxy/map/TiledWorld.hpp"
-
-		///
-		/// Rendering/event Scene within a scene.
-		/// Scenes -> Game, Interiors, Pause, etc.
-		/// Share Resources, in a stack with only whats on top being processed.
-		///
-
-namespace Rml
-{
-	class Context;
-} // namespace Rml
-	namespace systems
-	{
-		class ActionSystem;
-		class RenderSystem2D;
-	} // namespace systems
-
-
-			///
-			/// Set Scene resources.
-			///
-			/// \param resources Scene resources.
-			///
-			void set_resources(resource::Resources* resources) noexcept;
-
 			///
 			/// Load a tiled world.
 			///
@@ -189,24 +173,4 @@ namespace Rml
 			/// Current map path.
 			///
 			std::string m_maps_path;
-
-			///
-			/// Pointer to rendering system.
-			///
-			systems::RenderSystem2D* m_rendersystem;
-
-			///
-			/// Pointer to scene resources.
-			///
-			resource::Resources* m_resources;
-
-			///
-			/// Pointer to window.
-			///
-			core::Window* m_window;
-
-			///
-			/// Camera.
-			///
-			graphics::Camera m_camera;
 */

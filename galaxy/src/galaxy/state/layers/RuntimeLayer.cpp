@@ -39,6 +39,7 @@ namespace galaxy
 
 		void RuntimeLayer::update()
 		{
+			m_world.update_systems(m_scene);
 		}
 
 		void RuntimeLayer::render()
@@ -50,6 +51,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["type"]        = "Runtime"; // Used by Layers stack.
+			json["world"]       = m_world.serialize();
 
 			return json;
 		}
@@ -57,6 +59,7 @@ namespace galaxy
 		void RuntimeLayer::deserialize(const nlohmann::json& json)
 		{
 			m_name = json.at("name");
+			m_world.deserialize(json.at("world"));
 		}
 	} // namespace state
 } // namespace galaxy

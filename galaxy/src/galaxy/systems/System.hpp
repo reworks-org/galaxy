@@ -8,10 +8,17 @@
 #ifndef GALAXY_SYSTEMS_SYSTEM_HPP_
 #define GALAXY_SYSTEMS_SYSTEM_HPP_
 
-#include "galaxy/state/Scene.hpp"
+#include <concepts>
+
+#include <entt/core/family.hpp>
 
 namespace galaxy
 {
+	namespace state
+	{
+		class Scene;
+	} // namespace state
+
 	namespace systems
 	{
 		///
@@ -20,25 +27,38 @@ namespace galaxy
 		class System
 		{
 		public:
+			using Id = entt::family<System>;
+
 			///
 			/// Destructor.
 			///
-			virtual ~System() noexcept = default;
+			virtual ~System() noexcept;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param scene Currently active scene.
+			/// \param scene Non-owning pointer to scene.
 			///
-			virtual void update(std::shared_ptr<state::Scene> scene) = 0;
+			virtual void update(state::Scene* scene) = 0;
 
 		protected:
 			///
 			/// Constructor.
 			///
-			System() noexcept = default;
+			System() noexcept;
 		};
 	} // namespace systems
+
+	namespace meta
+	{
+		///
+		/// Concept to ensure a system is actually derived from a System.
+		///
+		/// \tparam Type Type to test.
+		///
+		template<typename Type>
+		concept is_system = std::derived_from<Type, systems::System>;
+	} // namespace meta
 } // namespace galaxy
 
 #endif

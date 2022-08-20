@@ -11,7 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\components\Flag.cpp" />
+    <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\core\Loading.cpp" />
+    <ClCompile Include="src\galaxy\core\World.cpp" />
+    <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
+    <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\Font.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\FontInput.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\MSDFConfig.cpp" />
@@ -126,7 +131,12 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\components\Flag.hpp" />
+    <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\core\Loading.hpp" />
+    <ClInclude Include="src\galaxy\core\World.hpp" />
+    <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
+    <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\Font.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\FontInput.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\MSDFConfig.hpp" />
