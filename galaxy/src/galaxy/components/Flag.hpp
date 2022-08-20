@@ -1,0 +1,138 @@
+///
+/// Flag.hpp
+/// galaxy
+///
+/// Refer to LICENSE.txt for more details.
+///
+
+#ifndef GALAXY_COMPONENTS_FLAG_HPP_
+#define GALAXY_COMPONENTS_FLAG_HPP_
+
+#include <bitset>
+
+#include <entt/fwd.hpp>
+
+#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/fs/Serializable.hpp"
+#include "galaxy/utils/Globals.hpp"
+
+namespace galaxy
+{
+	namespace components
+	{
+		///
+		/// Flag an entity.
+		///
+		class Flag final : public fs::Serializable
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Flag() noexcept;
+
+			///
+			/// JSON constructor.
+			///
+			/// \param json JSON defining object.
+			///
+			Flag(const nlohmann::json& json) noexcept;
+
+			///
+			/// Move constructor.
+			///
+			Flag(Flag&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Flag& operator=(Flag&&) noexcept;
+
+			///
+			/// Destructor.
+			///
+			virtual ~Flag() noexcept;
+
+			///
+			/// Set a flag on an entity.
+			///
+			/// \tparam _Flag Flag to set.
+			///
+			/// \param entity Entity to set flag on.
+			///
+			template<meta::is_bitset_flag _Flag>
+			void set_flag() noexcept;
+
+			///
+			/// Check flag value on an entity.
+			///
+			/// \tparam _Flag Flag to set.
+			///
+			/// \param entity Entity to check flag.
+			///
+			template<meta::is_bitset_flag _Flag>
+			[[nodiscard]] bool is_flag_set() noexcept;
+
+			///
+			/// Unset a flag on an entity.
+			///
+			/// \tparam _Flag Flag to set.
+			///
+			/// \param entity Entity to unset flag on.
+			///
+			template<meta::is_bitset_flag _Flag>
+			void unset_flag() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
+
+		private:
+			///
+			/// Copy assignment operator.
+			///
+			Flag& operator=(const Flag&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Flag(const Flag&) = delete;
+
+		private:
+			///
+			/// Stores entity flags.
+			///
+			std::bitset<GALAXY_FLAG_BITSET_COUNT> m_flags;
+		};
+
+		template<meta::is_bitset_flag _Flag>
+		inline void Flag::set_flag() noexcept
+		{
+			m_flags.set(_Flag::value);
+		}
+
+		template<meta::is_bitset_flag _Flag>
+		inline bool Flag::is_flag_set() noexcept
+		{
+			return m_flags.test(_Flag::value);
+		}
+
+		template<meta::is_bitset_flag _Flag>
+		inline void Flag::unset_flag() noexcept
+		{
+			m_flags.reset(_Flag::value);
+		}
+	} // namespace components
+} // namespace galaxy
+
+#endif

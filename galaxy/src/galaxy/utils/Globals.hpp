@@ -57,6 +57,11 @@ namespace galaxy
 #define GALAXY_DT galaxy::doNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
 
 ///
+/// Number of bits in a flag bitset.
+///
+#define GALAXY_FLAG_BITSET_COUNT 8
+
+///
 /// Extension to use when loading vertex shaders.
 ///
 #define GALAXY_VERTEX_EXT ".vs"
