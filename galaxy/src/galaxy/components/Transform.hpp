@@ -150,11 +150,6 @@ namespace galaxy
 
 		private:
 			///
-			/// Recalculates the model view matrix.
-			///
-			void recalculate();
-
-			///
 			/// Copy assignment operator.
 			///
 			Transform& operator=(const Transform&) = delete;
@@ -165,11 +160,6 @@ namespace galaxy
 			Transform(const Transform&) = delete;
 
 		private:
-			///
-			/// Flag to determine if data needs to be recalculated.
-			///
-			bool m_dirty;
-
 			///
 			/// Cached for easy retrieval.
 			/// Pos.
@@ -192,26 +182,6 @@ namespace galaxy
 			/// Transform origin point.
 			///
 			glm::vec3 m_origin;
-
-			///
-			/// Translation matrix.
-			///
-			glm::mat4 m_translation_matrix;
-
-			///
-			/// Rotational matrix.
-			///
-			glm::mat4 m_rotation_matrix;
-
-			///
-			/// Scale matrix.
-			///
-			glm::mat4 m_scale_matrix;
-
-			///
-			/// Combined transformation matrix.
-			///
-			glm::mat4 m_model;
 		};
 	} // namespace components
 } // namespace galaxy
