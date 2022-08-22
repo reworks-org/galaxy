@@ -130,9 +130,9 @@ namespace galaxy
 			///
 			/// Retrieve internal transformation matrix.
 			///
-			/// \return Reference to glm::mat4.
+			/// \return glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_transform();
+			[[nodiscard]] glm::mat4 get_transform();
 
 			///
 			/// Serializes object.

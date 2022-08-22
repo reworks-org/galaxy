@@ -128,7 +128,7 @@ namespace galaxy
 			return {m_origin.x, m_origin.y};
 		}
 
-		const glm::mat4& Transform::get_transform()
+		glm::mat4 Transform::get_transform()
 		{
 			static const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 			static const constexpr auto rotation_vec    = glm::vec3 {0.0f, 0.0f, 1.0f};
