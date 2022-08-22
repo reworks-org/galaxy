@@ -35,5 +35,10 @@ namespace galaxy
 		{
 			return m_name;
 		}
+
+		core::World& Layer::world() noexcept
+		{
+			return m_world;
+		}
 	} // namespace state
 } // namespace galaxy

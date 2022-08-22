@@ -39,7 +39,7 @@ namespace galaxy
 
 		void RuntimeLayer::update()
 		{
-			m_world.update_systems(m_scene);
+			m_world.update_systems(this);
 		}
 
 		void RuntimeLayer::render()

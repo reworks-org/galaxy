@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace state
 	{
-		class Scene;
+		class Layer;
 	} // namespace state
 
 	namespace systems
@@ -37,9 +37,9 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param scene Non-owning pointer to scene.
+			/// \param layer Non-owning pointer to current layer.
 			///
-			virtual void update(state::Scene* scene) = 0;
+			virtual void update(state::Layer* layer) = 0;
 
 		protected:
 			///

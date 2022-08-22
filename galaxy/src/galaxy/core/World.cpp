@@ -64,7 +64,7 @@ namespace galaxy
 			return entity;
 		}
 
-		void World::update_systems(state::Scene* scene)
+		void World::update_systems(state::Layer* scene)
 		{
 			for (auto i = 0; i < m_systems.size(); i++)
 			{

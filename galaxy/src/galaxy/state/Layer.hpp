@@ -12,6 +12,7 @@
 
 #include <entt/signal/dispatcher.hpp>
 
+#include "galaxy/core/World.hpp"
 #include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
@@ -84,6 +85,13 @@ namespace galaxy
 			///
 			[[nodiscard]] const std::string& get_name() const noexcept;
 
+			///
+			/// Get layer entity world.
+			///
+			/// \return Reference to World.
+			///
+			[[nodiscard]] core::World& world() noexcept;
+
 		protected:
 			///
 			/// Layer name.
@@ -104,6 +112,11 @@ namespace galaxy
 			/// Event dispatcher.
 			///
 			entt::dispatcher m_dispatcher;
+
+			///
+			/// Entitys.
+			///
+			core::World m_world;
 
 		private:
 			///

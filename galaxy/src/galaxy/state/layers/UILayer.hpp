@@ -8,7 +8,6 @@
 #ifndef GALAXY_STATE_LAYER_UILAYER_HPP_
 #define GALAXY_STATE_LAYER_UILAYER_HPP_
 
-#include "galaxy/core/World.hpp"
 #include "galaxy/state/Layer.hpp"
 #include "galaxy/ui/RMLEvents.hpp"
 
@@ -92,11 +91,6 @@ namespace galaxy
 			/// Event handler for Rml.
 			///
 			ui::RMLEvents m_rml_events;
-
-			///
-			/// Entitys.
-			///
-			core::World m_world;
 		};
 	} // namespace state
 } // namespace galaxy

@@ -90,9 +90,9 @@ namespace galaxy
 			///
 			/// Update systems.
 			///
-			/// \param scene Non-owning pointer to scene object.
+			/// \param layer Non-owning pointer to current layer.
 			///
-			void update_systems(state::Scene* scene);
+			void update_systems(state::Layer* layer);
 
 			///
 			/// Clears all system, component registry, and entity data.

@@ -79,12 +79,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			RuntimeLayer() = delete;
-
-		private:
-			///
-			/// Entitys.
-			///
-			core::World m_world;
 		};
 	} // namespace state
 } // namespace galaxy
