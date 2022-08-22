@@ -16,6 +16,7 @@
 #include "galaxy/algorithm/RectPack.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/TexelRegion.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 #include "galaxy/meta/Memory.hpp"
 
@@ -61,9 +62,19 @@ namespace galaxy
 				graphics::iRect m_region;
 
 				///
+				/// Texture region in OpenGL texels.
+				///
+				graphics::TexelRegion m_texel_region;
+
+				///
 				/// Index of which atlas this sprite belongs to.
 				///
 				int m_index = 0;
+
+				///
+				/// Texture handle this texture belongs to.
+				///
+				int m_handle = 0;
 			};
 
 			///
@@ -138,6 +149,26 @@ namespace galaxy
 			/// \return TextureAtlas::Info, as an optional reference.
 			///
 			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key) noexcept;
+
+			///
+			/// Takes in a x positon texture coord and maps it to a texel.
+			///
+			/// \param x Position of texture coord.
+			/// \param width Texture width.
+			///
+			/// \return OpenGL shader compatible texel.
+			///
+			[[nodiscard]] constexpr float map_x_texel(const int x, const int width) const noexcept;
+
+			///
+			/// Takes in a y positon texture coord and maps it to a texel.
+			///
+			/// \param y Position of texture coord.
+			/// \param height Texture height.
+			///
+			/// \return OpenGL shader compatible texel.
+			///
+			[[nodiscard]] constexpr float map_y_texel(const int y, const int height) const noexcept;
 
 		private:
 			///

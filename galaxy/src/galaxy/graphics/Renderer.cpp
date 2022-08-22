@@ -60,6 +60,8 @@ namespace galaxy
 		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
 		std::vector<Renderable*> Renderer::s_data;
 		std::unique_ptr<Shader> Renderer::s_rtt_shader = nullptr;
+		int Renderer::s_prev_shader                    = 0;
+		int Renderer::s_prev_texture                   = 0;
 
 		void Renderer::init() noexcept
 		{
@@ -96,16 +98,16 @@ namespace galaxy
 
 		void Renderer::draw()
 		{
-			std::sort(s_data.begin(), s_data.end(), [](Renderable* left, Renderable* right) {
+			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) noexcept -> bool {
 				if (left->m_layer == right->m_layer)
 				{
-					if (left->m_type == right->m_type)
+					if (left->m_texture == right->m_texture)
 					{
-						return left->m_texture < right->m_texture;
+						return left->m_shader < right->m_shader;
 					}
 					else
 					{
-						return left->m_type < right->m_type;
+						return left->m_texture < right->m_texture;
 					}
 				}
 				else
@@ -118,11 +120,22 @@ namespace galaxy
 			{
 				auto renderable = s_data[i];
 
+				if (s_prev_shader != renderable->m_shader)
+				{
+					glUseProgram(renderable->m_shader);
+					s_prev_shader = renderable->m_shader;
+				}
+
+				// Don't need to check, usually will always be different.
 				glBindVertexArray(renderable->m_vao);
-				glBindTexture(GL_TEXTURE_2D, renderable->m_texture);
 
-				renderable->configure_shader();
+				if (s_prev_texture != renderable->m_texture)
+				{
+					glBindTexture(GL_TEXTURE_2D, renderable->m_texture);
+					s_prev_texture = renderable->m_texture;
+				}
 
+				// Instances = 1 is the same as glDrawElements.
 				glDrawElementsInstanced(renderable->m_type, renderable->m_count, GL_UNSIGNED_INT, nullptr, renderable->m_instances);
 			}
 		}

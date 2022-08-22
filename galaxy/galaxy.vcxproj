@@ -11,12 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
     <ClCompile Include="src\galaxy\components\Flag.cpp" />
+    <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\core\Loading.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
     <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\Font.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\FontInput.cpp" />
     <ClCompile Include="src\galaxy\graphics\text\MSDFConfig.cpp" />
@@ -108,6 +111,7 @@
     <ClCompile Include="src\galaxy\state\Layers.cpp" />
     <ClCompile Include="src\galaxy\state\Scene.cpp" />
     <ClCompile Include="src\galaxy\state\SceneManager.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
@@ -132,12 +136,15 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
     <ClInclude Include="src\galaxy\components\Flag.hpp" />
+    <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\core\Loading.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
     <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\Font.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\FontInput.hpp" />
     <ClInclude Include="src\galaxy\graphics\text\MSDFConfig.hpp" />
@@ -229,6 +236,7 @@
     <ClInclude Include="src\galaxy\state\Layers.hpp" />
     <ClInclude Include="src\galaxy\state\Scene.hpp" />
     <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />

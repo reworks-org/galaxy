@@ -66,8 +66,22 @@ namespace galaxy
 					{
 						auto& sheet = m_sheets[info.m_index];
 
+						info.m_handle = sheet.m_render_texture.get_texture();
 						info.m_region = packed.value();
 						sheet.m_render_texture.bind(false);
+
+						// Convert to texel coords.
+						info.m_texel_region.m_ul_texels.x = map_x_texel(info.m_region.m_x, info.m_region.m_width);
+						info.m_texel_region.m_ul_texels.y = map_y_texel(info.m_region.m_y, info.m_region.m_height);
+
+						info.m_texel_region.m_ur_texels.x = map_x_texel(info.m_region.m_x + info.m_region.m_width, info.m_region.m_width);
+						info.m_texel_region.m_ur_texels.y = map_y_texel(info.m_region.m_y, info.m_region.m_height);
+
+						info.m_texel_region.m_br_texels.x = map_x_texel(info.m_region.m_x + info.m_region.m_width, info.m_region.m_width);
+						info.m_texel_region.m_br_texels.y = map_y_texel(info.m_region.m_y + info.m_region.m_height, info.m_region.m_height);
+
+						info.m_texel_region.m_bl_texels.x = map_x_texel(info.m_region.m_x, info.m_region.m_width);
+						info.m_texel_region.m_bl_texels.y = map_y_texel(info.m_region.m_y + info.m_region.m_height, info.m_region.m_height);
 
 						// Update transform.
 						m_transform.set_pos(static_cast<float>(info.m_region.m_x), static_cast<float>(info.m_region.m_y));
@@ -183,6 +197,16 @@ namespace galaxy
 			{
 				return std::nullopt;
 			}
+		}
+
+		constexpr float TextureAtlas::map_x_texel(const int x, const int width) const noexcept
+		{
+			return static_cast<float>(x) / static_cast<float>(width);
+		}
+
+		constexpr float TextureAtlas::map_y_texel(const int y, const int height) const noexcept
+		{
+			return 1.0f - (static_cast<float>(y) / static_cast<float>(height));
 		}
 
 		void TextureAtlas::init()

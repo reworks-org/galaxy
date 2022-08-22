@@ -18,11 +18,49 @@ namespace galaxy
 			, m_instances {1}
 			, m_type {0}
 			, m_layer {0}
+			, m_shader {0}
 		{
+		}
+
+		Renderable::Renderable(Renderable&& r) noexcept
+		{
+			this->m_vao       = r.m_vao;
+			this->m_texture   = r.m_texture;
+			this->m_count     = r.m_count;
+			this->m_instances = r.m_instances;
+			this->m_type      = r.m_type;
+			this->m_layer     = r.m_layer;
+			this->m_shader    = r.m_shader;
+		}
+
+		Renderable& Renderable::operator=(Renderable&& r) noexcept
+		{
+			if (this != &r)
+			{
+				this->m_vao       = r.m_vao;
+				this->m_texture   = r.m_texture;
+				this->m_count     = r.m_count;
+				this->m_instances = r.m_instances;
+				this->m_type      = r.m_type;
+				this->m_layer     = r.m_layer;
+				this->m_shader    = r.m_shader;
+			}
+
+			return *this;
 		}
 
 		Renderable::~Renderable() noexcept
 		{
+		}
+
+		void Renderable::set_shader(const unsigned int program) noexcept
+		{
+			m_shader = program;
+		}
+
+		int Renderable::get_layer() const noexcept
+		{
+			return m_layer;
 		}
 
 		void Renderable::set_vao(const unsigned int vao) noexcept

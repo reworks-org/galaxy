@@ -120,6 +120,10 @@
     <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
     <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
+    <ClCompile Include="src\galaxy\components\Sprite.cpp" />
+    <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -241,5 +245,9 @@
     <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
     <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
+    <ClInclude Include="src\galaxy\components\Sprite.hpp" />
+    <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
   </ItemGroup>
 </Project>

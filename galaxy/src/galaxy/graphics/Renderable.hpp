@@ -9,7 +9,6 @@
 #define GALAXY_GRAPHICS_RENDERABLE_HPP_
 
 #include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
 {
@@ -26,22 +25,44 @@ namespace galaxy
 
 		public:
 			///
+			/// Move constructor.
+			///
+			Renderable(Renderable&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Renderable& operator=(Renderable&&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			virtual ~Renderable() noexcept;
 
 			///
-			/// Bind, Set Uniforms, then return a shader for this renderable object.
+			/// Set shader program.
 			///
-			/// \return Reference to configured shader.
+			/// \param program OpenGL handle.
 			///
-			[[maybe_unused]] virtual graphics::Shader& configure_shader() noexcept = 0;
+			void set_shader(const unsigned int program) noexcept;
+
+			///
+			/// Get current render layer.
+			///
+			/// \return Integer.
+			///
+			[[nodiscard]] int get_layer() const noexcept;
 
 		protected:
 			///
 			/// Constructor.
 			///
 			Renderable() noexcept;
+
+			///
+			/// Configure renderable.
+			///
+			virtual void configure() noexcept = 0;
 
 			///
 			/// Set Vertex Array Object to draw with.
@@ -87,6 +108,17 @@ namespace galaxy
 
 		private:
 			///
+			/// Copy constructor.
+			///
+			Renderable(const Renderable&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Renderable& operator=(const Renderable&) = delete;
+
+		private:
+			///
 			/// Vertex Array Object to bind.
 			///
 			unsigned int m_vao;
@@ -115,6 +147,11 @@ namespace galaxy
 			/// Object z-level for drawing.
 			///
 			int m_layer;
+
+			///
+			/// Shader program handle.
+			///
+			unsigned int m_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy
