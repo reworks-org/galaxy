@@ -71,9 +71,7 @@ namespace galaxy
 		{
 			auto& window = ServiceLocator<Window>::ref();
 
-			m_shader.bind();
 			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, window.get_widthf(), window.get_heightf(), 0.0f, -1.0f, 1.0f));
-			m_shader.unbind();
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, window.get_width(), window.get_height());

@@ -83,12 +83,9 @@ namespace galaxy
 			, m_scissor_region {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 			m_shader.load_raw(rml_vert, rml_frag);
-			m_shader.bind();
 
 			m_identity = glm::make_mat4(Rml::Matrix4f::Identity().data());
 			m_shader.set_uniform("u_transform", m_identity);
-
-			m_shader.unbind();
 		}
 
 		void RMLRenderer::RenderGeometry(Rml::Vertex* vertices,
@@ -291,9 +288,7 @@ namespace galaxy
 					static_cast<int>(std::trunc(m_scissor_region.z)),
 					static_cast<int>(std::trunc(m_scissor_region.w)));
 
-				m_shader.bind();
 				m_shader.set_uniform("u_transform", matrix);
-				m_shader.unbind();
 			}
 			else
 			{

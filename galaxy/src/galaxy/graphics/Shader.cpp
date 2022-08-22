@@ -263,6 +263,11 @@ namespace galaxy
 				return std::nullopt;
 			}
 		}
+		
+		unsigned int Shader::id() const noexcept
+		{
+			return m_id;
+		}
 	} // namespace graphics
 } // namespace galaxy
 

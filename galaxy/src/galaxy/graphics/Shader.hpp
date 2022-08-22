@@ -134,6 +134,13 @@ namespace galaxy
 			///
 			[[nodiscard]] meta::OptionalRef<UniformInfo> get_uniform_info(const std::string& name);
 
+			///
+			/// Get program id.
+			///
+			/// \return unsigned int.
+			///
+			[[nodiscard]] unsigned int id() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -160,43 +167,43 @@ namespace galaxy
 		template<>
 		inline void Shader::set_uniform<bool>(const std::string& name, const bool& a)
 		{
-			glUniform1i(get_uniform_location(name), a);
+			glProgramUniform1i(m_id, get_uniform_location(name), a);
 		}
 
 		template<>
 		inline void Shader::set_uniform<int>(const std::string& name, const int& a)
 		{
-			glUniform1i(get_uniform_location(name), a);
+			glProgramUniform1i(m_id, get_uniform_location(name), a);
 		}
 
 		template<>
 		inline void Shader::set_uniform<int, int>(const std::string& name, const int& a, const int& b)
 		{
-			glUniform2i(get_uniform_location(name), a, b);
+			glProgramUniform2i(m_id, get_uniform_location(name), a, b);
 		}
 
 		template<>
 		inline void Shader::set_uniform<int, int, int>(const std::string& name, const int& a, const int& b, const int& c)
 		{
-			glUniform3i(get_uniform_location(name), a, b, c);
+			glProgramUniform3i(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
 		inline void Shader::set_uniform<int, int, int, int>(const std::string& name, const int& a, const int& b, const int& c, const int& d)
 		{
-			glUniform4i(get_uniform_location(name), a, b, c, d);
+			glProgramUniform4i(m_id, get_uniform_location(name), a, b, c, d);
 		}
 
 		template<>
 		inline void Shader::set_uniform<unsigned int>(const std::string& name, const unsigned int& a)
 		{
-			glUniform1ui(get_uniform_location(name), a);
+			glProgramUniform1ui(m_id, get_uniform_location(name), a);
 		}
 
 		template<>
 		inline void Shader::set_uniform<unsigned int, unsigned int>(const std::string& name, const unsigned int& a, const unsigned int& b)
 		{
-			glUniform2ui(get_uniform_location(name), a, b);
+			glProgramUniform2ui(m_id, get_uniform_location(name), a, b);
 		}
 
 		template<>
@@ -205,7 +212,7 @@ namespace galaxy
 			const unsigned int& b,
 			const unsigned int& c)
 		{
-			glUniform3ui(get_uniform_location(name), a, b, c);
+			glProgramUniform3ui(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
@@ -215,98 +222,98 @@ namespace galaxy
 			const unsigned int& c,
 			const unsigned int& d)
 		{
-			glUniform4ui(get_uniform_location(name), a, b, c, d);
+			glProgramUniform4ui(m_id, get_uniform_location(name), a, b, c, d);
 		}
 
 		template<>
 		inline void Shader::set_uniform<float>(const std::string& name, const float& a)
 		{
-			glUniform1f(get_uniform_location(name), a);
+			glProgramUniform1f(m_id, get_uniform_location(name), a);
 		}
 
 		template<>
 		inline void Shader::set_uniform<float, float>(const std::string& name, const float& a, const float& b)
 		{
-			glUniform2f(get_uniform_location(name), a, b);
+			glProgramUniform2f(m_id, get_uniform_location(name), a, b);
 		}
 
 		template<>
 		inline void Shader::set_uniform<float, float, float>(const std::string& name, const float& a, const float& b, const float& c)
 		{
-			glUniform3f(get_uniform_location(name), a, b, c);
+			glProgramUniform3f(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
 		inline void Shader::set_uniform<float, float, float, float>(const std::string& name, const float& a, const float& b, const float& c, const float& d)
 		{
-			glUniform4f(get_uniform_location(name), a, b, c, d);
+			glProgramUniform4f(m_id, get_uniform_location(name), a, b, c, d);
 		}
 
 		template<>
 		inline void Shader::set_uniform<double>(const std::string& name, const double& a)
 		{
-			glUniform1d(get_uniform_location(name), a);
+			glProgramUniform1d(m_id, get_uniform_location(name), a);
 		}
 
 		template<>
 		inline void Shader::set_uniform<double, double>(const std::string& name, const double& a, const double& b)
 		{
-			glUniform2d(get_uniform_location(name), a, b);
+			glProgramUniform2d(m_id, get_uniform_location(name), a, b);
 		}
 
 		template<>
 		inline void Shader::set_uniform<double, double, double>(const std::string& name, const double& a, const double& b, const double& c)
 		{
-			glUniform3d(get_uniform_location(name), a, b, c);
+			glProgramUniform3d(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
 		inline void
 		Shader::set_uniform<double, double, double, double>(const std::string& name, const double& a, const double& b, const double& c, const double& d)
 		{
-			glUniform4d(get_uniform_location(name), a, b, c, d);
+			glProgramUniform4d(m_id, get_uniform_location(name), a, b, c, d);
 		}
 
 		template<>
 		inline void Shader::set_uniform<glm::mat3>(const std::string& name, const glm::mat3& a)
 		{
-			glUniformMatrix3fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(a));
+			glProgramUniformMatrix3fv(m_id, get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(a));
 		}
 
 		template<>
 		inline void Shader::set_uniform<glm::mat4>(const std::string& name, const glm::mat4& a)
 		{
-			glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(a));
+			glProgramUniformMatrix4fv(m_id, get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(a));
 		}
 
 		template<>
 		inline void Shader::set_uniform<glm::vec2>(const std::string& name, const glm::vec2& a)
 		{
-			glUniform2f(get_uniform_location(name), a.x, a.y);
+			glProgramUniform2f(m_id, get_uniform_location(name), a.x, a.y);
 		}
 
 		template<>
 		inline void Shader::set_uniform<glm::vec3>(const std::string& name, const glm::vec3& a)
 		{
-			glUniform3f(get_uniform_location(name), a.x, a.y, a.z);
+			glProgramUniform3f(m_id, get_uniform_location(name), a.x, a.y, a.z);
 		}
 
 		template<>
 		inline void Shader::set_uniform<glm::vec4>(const std::string& name, const glm::vec4& a)
 		{
-			glUniform4f(get_uniform_location(name), a.x, a.y, a.z, a.w);
+			glProgramUniform4f(m_id, get_uniform_location(name), a.x, a.y, a.z, a.w);
 		}
 
 		template<>
 		inline void Shader::set_uniform<std::array<float, 4>>(const std::string& name, const std::array<float, 4>& a)
 		{
-			glUniform4f(get_uniform_location(name), a[0], a[1], a[2], a[3]);
+			glProgramUniform4f(m_id, get_uniform_location(name), a[0], a[1], a[2], a[3]);
 		}
 
 		template<>
 		inline void Shader::set_uniform<graphics::Colour>(const std::string& name, const graphics::Colour& a)
 		{
-			glUniform4i(get_uniform_location(name), a.m_red, a.m_green, a.m_blue, a.m_alpha);
+			glProgramUniform4i(m_id, get_uniform_location(name), a.m_red, a.m_green, a.m_blue, a.m_alpha);
 		}
 	} // namespace graphics
 } // namespace galaxy
