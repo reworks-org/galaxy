@@ -14,7 +14,6 @@
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/UniformBuffer.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
@@ -75,11 +74,6 @@ namespace galaxy
 			/// Storage for renderables submitted.
 			///
 			static std::vector<Renderable*> s_data;
-
-			///
-			/// Internal shader for rendering to a texture.
-			///
-			static std::unique_ptr<Shader> s_rtt_shader;
 
 			///
 			/// Cache previous shader to prevent rebinding.

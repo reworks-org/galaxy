@@ -5,53 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <algorithm>
 #include <execution>
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/Shaders.hpp"
 #include "galaxy/utils/Globals.hpp"
 
 #include "Renderer.hpp"
-
-namespace
-{
-	///
-	/// Render To Texture vertex shader.
-	///
-	constexpr const char* const render_to_texture_vert = R"(
-		#version 460 core
-		layout(location = 0) in vec2 l_pos;
-		layout(location = 1) in vec2 l_texels;
-		layout(location = 2) in vec4 l_colour;
-
-		out vec2 io_texels;
-	
-		uniform mat4 u_projection;
-		uniform mat4 u_transform;
-
-		void main()
-		{
-			gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
-			io_texels = l_texels;
-		}
-	)";
-
-	///
-	/// Render To Texture fragment shader.
-	///
-	constexpr const char* const render_to_texture_frag = R"(
-		#version 460 core
-
-		in vec2 io_texels;
-		out vec4 io_frag_colour;
-
-		uniform sampler2D u_texture;
-
-		void main()
-		{
-			io_frag_colour = texture(u_texture, io_texels);
-		}
-	)";
-} // namespace
 
 namespace galaxy
 {
@@ -59,9 +19,8 @@ namespace galaxy
 	{
 		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
 		std::vector<Renderable*> Renderer::s_data;
-		std::unique_ptr<Shader> Renderer::s_rtt_shader = nullptr;
-		int Renderer::s_prev_shader                    = 0;
-		int Renderer::s_prev_texture                   = 0;
+		int Renderer::s_prev_shader  = 0;
+		int Renderer::s_prev_texture = 0;
 
 		void Renderer::init() noexcept
 		{
@@ -70,9 +29,6 @@ namespace galaxy
 			s_ubo->reserve(sizeof(Camera::Data));
 
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
-
-			s_rtt_shader = std::make_unique<Shader>();
-			s_rtt_shader->load_raw(render_to_texture_vert, render_to_texture_frag);
 		}
 
 		void Renderer::destroy() noexcept
@@ -80,10 +36,7 @@ namespace galaxy
 			s_data.clear();
 
 			s_ubo.reset();
-			s_rtt_shader.reset();
-
-			s_ubo        = nullptr;
-			s_rtt_shader = nullptr;
+			s_ubo = nullptr;
 		}
 
 		void Renderer::buffer_camera(Camera& camera) noexcept
@@ -145,11 +98,133 @@ namespace galaxy
 			va.bind();
 			texture.bind();
 
-			s_rtt_shader->bind();
-			s_rtt_shader->set_uniform("u_projection", target.get_proj());
-			s_rtt_shader->set_uniform("u_transform", transform.get_transform());
+			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
+			auto rtt      = shaders.get("RenderToTexture");
+			if (rtt != nullptr)
+			{
+				rtt->bind();
+				rtt->set_uniform("u_projection", target.get_proj());
+				rtt->set_uniform("u_transform", transform.get_transform());
 
-			glDrawElements(GL_TRIANGLES, va.index_count(), GL_UNSIGNED_INT, nullptr);
+				glDrawElements(GL_TRIANGLES, va.index_count(), GL_UNSIGNED_INT, nullptr);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default render to texture shader.");
+			}
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+/*
+void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* transform)
+		{
+			Renderable renderable = {.m_vao = data->vao(),
+				.m_texture                  = 0,
+				.m_index_count              = data->index_count(),
+				.m_configure_shader         = [this, data, transform]() {
+					this->m_point_shader.bind();
+					this->m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
+					this->m_point_shader.set_uniform("u_transform", transform->get_transform());
+				}};
+
+			switch (data->get_type())
+			{
+				case Primitives::CIRCLE:
+				case Primitives::ELLIPSE:
+				case Primitives::POLYGON:
+				case Primitives::POLYLINE:
+					renderable.m_type = GL_LINE_LOOP;
+					break;
+
+				case Primitives::LINE:
+					renderable.m_type = GL_LINES;
+					break;
+
+				case Primitives::POINT:
+					renderable.m_type = GL_POINTS;
+					break;
+			}
+
+			m_layer_data.at(data->get_layer()).submit(renderable);
+		}
+
+		void Renderer2D::submit(components::Text* text, components::Transform2D* transform)
+		{
+			Renderable renderable = {.m_vao = text->vao(),
+				.m_texture                  = text->gl_texture(),
+				.m_index_count              = text->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader         = [this, text, transform]() {
+					this->m_text_shader.bind();
+					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
+					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
+					this->m_text_shader.set_uniform<float>("u_width", static_cast<float>(text->get_width()));
+					this->m_text_shader.set_uniform<float>("u_height", static_cast<float>(text->get_height()));
+				}};
+
+			m_layer_data.at(text->get_layer()).submit(renderable);
+		}
+
+		void Renderer2D::submit(components::Sprite* sprite, components::Transform2D* transform)
+		{
+			Renderable renderable = {.m_vao = sprite->vao(),
+				.m_texture                  = sprite->gl_texture(),
+				.m_index_count              = sprite->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader         = [this, sprite, transform]() {
+					int   opacity      = sprite->get_opacity();
+					float norm_opacity = 0.0f;
+					if (opacity == 255)
+					{
+						norm_opacity = 1.0f;
+					}
+					else if (opacity != 0)
+					{
+						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+					}
+
+					this->m_sprite_shader.bind();
+					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
+					this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
+					this->m_sprite_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
+					this->m_sprite_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
+				}};
+
+			m_layer_data.at(sprite->get_layer()).submit(renderable);
+		}
+
+		void Renderer2D::submit(components::BatchSprite* batch, components::Transform2D* transform)
+		{
+			m_layer_data.at(batch->get_layer()).m_batches[batch->get_atlas_index()].add(batch, transform);
+		}
+
+		void Renderer2D::submit(components::ParticleEffect* particle_effect)
+		{
+			Renderable renderable = {.m_vao = particle_effect->vao(),
+				.m_texture                  = particle_effect->gl_texture(),
+				.m_index_count              = particle_effect->index_count(),
+				.m_type                     = GL_TRIANGLES,
+				.m_configure_shader =
+					[this, particle_effect]() {
+						int   opacity      = particle_effect->get_opacity();
+						float norm_opacity = 0.0f;
+						if (opacity == 255)
+						{
+							norm_opacity = 1.0f;
+						}
+						else if (opacity != 0)
+						{
+							norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
+						}
+
+						this->m_instance_shader.bind();
+						this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
+						this->m_instance_shader.set_uniform<float>("u_width", static_cast<float>(particle_effect->get_width()));
+						this->m_instance_shader.set_uniform<float>("u_height", static_cast<float>(particle_effect->get_height()));
+					},
+				.m_instance_count = particle_effect->instance_count()};
+
+			m_layer_data.at(particle_effect->get_layer()).submit(renderable);
+		} // namespace graphics
+*/
