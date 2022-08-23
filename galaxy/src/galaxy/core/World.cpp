@@ -7,7 +7,9 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/error/Log.hpp"
@@ -22,7 +24,9 @@ namespace galaxy
 		World::World() noexcept
 			: Serializable {}
 		{
+			register_component<components::DrawShader>("DrawShader");
 			register_component<components::Flag>("Flag");
+			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Transform>("Transform");
 		}
@@ -89,10 +93,22 @@ namespace galaxy
 				nlohmann::json entity_json = nlohmann::json::object();
 				entity_json["components"]  = nlohmann::json::object();
 
+				auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
+				if (draw_shader != nullptr)
+				{
+					entity_json["components"]["DrawShader"] = draw_shader->serialize();
+				}
+
 				auto flag = m_registry.try_get<components::Flag>(entity);
 				if (flag != nullptr)
 				{
 					entity_json["components"]["Flag"] = flag->serialize();
+				}
+
+				auto sprite = m_registry.try_get<components::Sprite>(entity);
+				if (sprite != nullptr)
+				{
+					entity_json["components"]["Sprite"] = sprite->serialize();
 				}
 
 				auto tag = m_registry.try_get<components::Tag>(entity);
