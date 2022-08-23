@@ -23,7 +23,6 @@ constexpr const char* const logo_vert = R"(
 
 	layout(location = 0) in vec2 l_pos;
 	layout(location = 1) in vec2 l_texels;
-	layout(location = 2) in vec4 l_colour;
 
 	out vec2 io_texels;
 

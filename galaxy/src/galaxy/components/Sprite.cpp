@@ -16,8 +16,8 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite() noexcept
-			: Serializable {}
-			, Renderable {}
+			: Renderable {}
+			, Serializable {}
 			, m_opacity {0.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
@@ -25,8 +25,8 @@ namespace galaxy
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-			: Serializable {}
-			, Renderable {}
+			: Renderable {}
+			, Serializable {}
 			, m_opacity {0.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
@@ -35,8 +35,8 @@ namespace galaxy
 		}
 
 		Sprite::Sprite(Sprite&& s) noexcept
-			: Serializable {}
-			, Renderable {std::move(s)}
+			: Renderable {std::move(s)}
+			, Serializable {}
 			, m_opacity {0.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}

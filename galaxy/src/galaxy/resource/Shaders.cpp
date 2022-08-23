@@ -11,6 +11,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/DefaultShaders.hpp"
 
 #include "Shaders.hpp"
 
@@ -54,6 +55,16 @@ namespace galaxy
 					const auto name = std::filesystem::path(file).stem().string();
 					m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
 				}
+
+				// Now load default shaders.
+				m_cache["Sprite"] = std::make_shared<graphics::Shader>();
+				m_cache["Sprite"]->load_raw(shaders::sprite_vert, shaders::sprite_frag);
+
+				m_cache["Line"] = std::make_shared<graphics::Shader>();
+				m_cache["Line"]->load_raw(shaders::line_vert, shaders::line_frag);
+
+				m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
+				m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 			}
 			else
 			{

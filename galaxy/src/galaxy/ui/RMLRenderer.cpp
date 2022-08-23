@@ -33,12 +33,12 @@ constexpr const char* const rml_vert = R"(
 	layout(location = 1) in vec2 l_texels;
 	layout(location = 2) in vec4 l_colour;
 
+	out vec2 io_texels;
+	out vec4 io_colour;
+
 	uniform vec2 u_translation;
 	uniform mat4 u_transform;
 	uniform mat4 u_proj;
-
-	out vec2 io_texels;
-	out vec4 io_colour;
 
 	void main()
 	{
@@ -55,10 +55,9 @@ constexpr const char* const rml_vert = R"(
 constexpr const char* const rml_frag = R"(
 	#version 460 core
 
-	out vec4 io_frag_colour;
-
 	in vec2 io_texels;
 	in vec4 io_colour;	
+	out vec4 io_frag_colour;
 
 	uniform sampler2D u_texture;
 
