@@ -15,7 +15,9 @@
 
 #include "galaxy/audio/AudioEngine.hpp"
 
+#include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
 
@@ -157,6 +159,31 @@ namespace galaxy
 			lua["galaxy_audioengine"] = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
 
 			/* COMPONENTS */
+			auto drawshader_type          = lua.new_usertype<components::DrawShader>("DrawShader", sol::constructors<components::DrawShader()>());
+			drawshader_type[""]           = &components::DrawShader::m_shader;
+			drawshader_type["set_shader"] = &components::DrawShader::set_shader;
+			drawshader_type["id"]         = &components::DrawShader::id;
+
+			auto flag_type                      = lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>());
+			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
+			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
+			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
+			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
+			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
+			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
+
+			auto sprite_type           = lua.new_usertype<components::Sprite>("Sprite", sol::constructors<components::Sprite()>());
+			sprite_type["create"]      = &components::Sprite::create;
+			sprite_type["get_height"]  = &components::Sprite::get_height;
+			sprite_type["get_layer"]   = &components::Sprite::get_layer;
+			sprite_type["get_opacity"] = &components::Sprite::get_opacity;
+			sprite_type["get_width"]   = &components::Sprite::get_width;
+			sprite_type["set_opacity"] = &components::Sprite::set_opacity;
+			sprite_type["set_shader"]  = &components::Sprite::set_shader;
+
+			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>());
+			tag_type["tag"] = &components::Tag::m_tag;
+
 			auto transform_type             = lua.new_usertype<components::Transform>("Transform", sol::constructors<components::Transform()>());
 			transform_type["get_origin"]    = &components::Transform::get_origin;
 			transform_type["get_pos"]       = &components::Transform::get_pos;
@@ -170,17 +197,6 @@ namespace galaxy
 			transform_type["set_pos"]       = &components::Transform::set_pos;
 			transform_type["set_rotation"]  = &components::Transform::set_rotation;
 			transform_type["translate"]     = &components::Transform::translate;
-
-			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>());
-			tag_type["tag"] = &components::Tag::m_tag;
-
-			auto flag_type                      = lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>());
-			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
-			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
-			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
-			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
-			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
-			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
 
 			/* CORE */
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
@@ -318,6 +334,7 @@ namespace galaxy
 
 			auto shader_type =
 				lua.new_usertype<graphics::Shader>("Shader", sol::constructors<graphics::Shader(), graphics::Shader(std::string_view, std::string_view)>());
+			shader_type["id"]                   = &graphics::Shader::id;
 			shader_type["get_uniform_count"]    = &graphics::Shader::get_uniform_count;
 			shader_type["get_uniform_info"]     = &graphics::Shader::get_uniform_info;
 			shader_type["get_uniform_location"] = &graphics::Shader::get_uniform_location;

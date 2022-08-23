@@ -56,6 +56,13 @@ namespace galaxy
 			void set_shader(const std::string& id);
 
 			///
+			/// Get shader id.
+			///
+			/// \return Const string reference.
+			///
+			[[nodiscard]] const std::string& id() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.

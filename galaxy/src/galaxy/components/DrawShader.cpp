@@ -61,6 +61,11 @@ namespace galaxy
 			m_id     = id;
 		}
 
+		const std::string& DrawShader::id() const noexcept
+		{
+			return m_id;
+		}
+
 		nlohmann::json DrawShader::serialize()
 		{
 			nlohmann::json json = "{}"_json;
