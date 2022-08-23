@@ -117,38 +117,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* transform)
-		{
-			Renderable renderable = {.m_vao = data->vao(),
-				.m_texture                  = 0,
-				.m_index_count              = data->index_count(),
-				.m_configure_shader         = [this, data, transform]() {
-					this->m_point_shader.bind();
-					this->m_point_shader.set_uniform("u_colour", data->get_colour().normalized());
-					this->m_point_shader.set_uniform("u_transform", transform->get_transform());
-				}};
-
-			switch (data->get_type())
-			{
-				case Primitives::CIRCLE:
-				case Primitives::ELLIPSE:
-				case Primitives::POLYGON:
-				case Primitives::POLYLINE:
-					renderable.m_type = GL_LINE_LOOP;
-					break;
-
-				case Primitives::LINE:
-					renderable.m_type = GL_LINES;
-					break;
-
-				case Primitives::POINT:
-					renderable.m_type = GL_POINTS;
-					break;
-			}
-
-			m_layer_data.at(data->get_layer()).submit(renderable);
-		}
-
 		void Renderer2D::submit(components::Text* text, components::Transform2D* transform)
 		{
 			Renderable renderable = {.m_vao = text->vao(),
@@ -164,34 +132,6 @@ void Renderer2D::submit(components::Primitive2D* data, components::Transform2D* 
 				}};
 
 			m_layer_data.at(text->get_layer()).submit(renderable);
-		}
-
-		void Renderer2D::submit(components::Sprite* sprite, components::Transform2D* transform)
-		{
-			Renderable renderable = {.m_vao = sprite->vao(),
-				.m_texture                  = sprite->gl_texture(),
-				.m_index_count              = sprite->index_count(),
-				.m_type                     = GL_TRIANGLES,
-				.m_configure_shader         = [this, sprite, transform]() {
-					int   opacity      = sprite->get_opacity();
-					float norm_opacity = 0.0f;
-					if (opacity == 255)
-					{
-						norm_opacity = 1.0f;
-					}
-					else if (opacity != 0)
-					{
-						norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
-					}
-
-					this->m_sprite_shader.bind();
-					this->m_sprite_shader.set_uniform("u_transform", transform->get_transform());
-					this->m_sprite_shader.set_uniform("u_opacity", norm_opacity);
-					this->m_sprite_shader.set_uniform<float>("u_width", static_cast<float>(sprite->get_width()));
-					this->m_sprite_shader.set_uniform<float>("u_height", static_cast<float>(sprite->get_height()));
-				}};
-
-			m_layer_data.at(sprite->get_layer()).submit(renderable);
 		}
 
 		void Renderer2D::submit(components::BatchSprite* batch, components::Transform2D* transform)
