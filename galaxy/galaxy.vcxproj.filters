@@ -124,6 +124,9 @@
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
     <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
+    <ClCompile Include="src\galaxy\graphics\DefaultShaders.cpp" />
+    <ClCompile Include="src\galaxy\components\Primitive.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -249,5 +252,8 @@
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
     <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
+    <ClInclude Include="src\galaxy\graphics\DefaultShaders.hpp" />
+    <ClInclude Include="src\galaxy\components\Primitive.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
   </ItemGroup>
 </Project>

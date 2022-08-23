@@ -9,6 +9,7 @@
 
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
@@ -26,6 +27,7 @@ namespace galaxy
 		{
 			register_component<components::DrawShader>("DrawShader");
 			register_component<components::Flag>("Flag");
+			register_component<components::Primitive>("Primitive");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
 			register_component<components::Transform>("Transform");
@@ -103,6 +105,12 @@ namespace galaxy
 				if (flag != nullptr)
 				{
 					entity_json["components"]["Flag"] = flag->serialize();
+				}
+
+				auto primitive = m_registry.try_get<components::Primitive>(entity);
+				if (primitive != nullptr)
+				{
+					entity_json["components"]["Primitive"] = primitive->serialize();
 				}
 
 				auto sprite = m_registry.try_get<components::Sprite>(entity);

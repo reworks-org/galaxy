@@ -17,6 +17,7 @@
 
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Transform.hpp"
@@ -172,6 +173,30 @@ namespace galaxy
 			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
 			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
 
+			auto primitive_data_type =
+				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
+			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::m_fragments;
+			primitive_data_type["points"]    = &components::Primitive::PrimitiveData::m_points;
+			primitive_data_type["radii"]     = &components::Primitive::PrimitiveData::m_radii;
+			primitive_data_type["radius"]    = &components::Primitive::PrimitiveData::m_radius;
+			primitive_data_type["start_end"] = &components::Primitive::PrimitiveData::m_start_end;
+
+			auto primitive_type               = lua.new_usertype<components::Primitive>("Primitive", sol::constructors<components::Primitive()>());
+			primitive_type["create_circle"]   = &components::Primitive::create<graphics::Shape::CIRCLE>;
+			primitive_type["create_ellipse"]  = &components::Primitive::create<graphics::Shape::ELLIPSE>;
+			primitive_type["create_line"]     = &components::Primitive::create<graphics::Shape::LINE>;
+			primitive_type["create_point"]    = &components::Primitive::create<graphics::Shape::POINT>;
+			primitive_type["create_polygon"]  = &components::Primitive::create<graphics::Shape::POLYGON>;
+			primitive_type["create_polyline"] = &components::Primitive::create<graphics::Shape::POLYLINE>;
+			primitive_type["get_data"]        = &components::Primitive::get_data;
+			primitive_type["get_height"]      = &components::Primitive::get_height;
+			primitive_type["get_layer"]       = &components::Primitive::get_layer;
+			primitive_type["get_shape"]       = &components::Primitive::get_shape;
+			primitive_type["get_width"]       = &components::Primitive::get_width;
+			primitive_type["colour"]          = &components::Primitive::m_colour;
+			primitive_type["set_opacity"]     = &components::Primitive::set_opacity;
+			primitive_type["set_shader"]      = &components::Primitive::set_shader;
+
 			auto sprite_type           = lua.new_usertype<components::Sprite>("Sprite", sol::constructors<components::Sprite()>());
 			sprite_type["create"]      = &components::Sprite::create;
 			sprite_type["get_height"]  = &components::Sprite::get_height;
@@ -302,6 +327,31 @@ namespace galaxy
 			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 
 			/* GRAPHICS */
+			// clang-format off
+			lua.new_enum<graphics::Primitives>("Primitives",
+			{
+				{"LINE", graphics::Primitives::LINE},
+				{"LINE_LOOP", graphics::Primitives::LINE_LOOP},
+				{"LINE_STRIP", graphics::Primitives::LINE_STRIP},
+				{"POINT", graphics::Primitives::POINT},
+				{"TRIANGLE", graphics::Primitives::TRIANGLE},
+				{"TRIANGLE_FAN", graphics::Primitives::TRIANGLE_FAN},
+				{"TRIANGLE_STRIP", graphics::Primitives::TRIANGLE_STRIP}
+			});
+			// clang-format on
+
+			// clang-format off
+			lua.new_enum<graphics::Shape>("Shape",
+			{
+				{"CIRCLE", graphics::Shape::CIRCLE},
+				{"ELLIPSE", graphics::Shape::ELLIPSE},
+				{"LINE", graphics::Shape::LINE},
+				{"POINT", graphics::Shape::POINT},
+				{"POLYGON", graphics::Shape::POLYGON},
+				{"POLYLINE", graphics::Shape::POLYLINE}
+			});
+			// clang-format on
+
 			auto colour_type          = lua.new_usertype<graphics::Colour>("Colour",
                 sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
 			colour_type["alpha"]      = &graphics::Colour::m_alpha;
