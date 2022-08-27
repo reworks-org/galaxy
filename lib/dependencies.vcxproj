@@ -128,39 +128,9 @@
     <ClCompile Include="lua\src\lutf8lib.c" />
     <ClCompile Include="lua\src\lvm.c" />
     <ClCompile Include="lua\src\lzio.c" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\bitmap-blit.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\charset-parser.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\Charset.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\FontGeometry.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\glyph-generators.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\GlyphGeometry.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\image-encode.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\RectanglePacker.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\size-selectors.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\TightAtlasPacker.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\utf8.cpp" />
-    <ClCompile Include="msdfgen\msdf-atlas-gen\Workload.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\contour-combiners.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\Contour.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\edge-coloring.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\edge-segments.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\edge-selectors.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\EdgeHolder.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\equation-solver.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\msdf-error-correction.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\MSDFErrorCorrection.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\msdfgen.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\Projection.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\rasterization.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\Scanline.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\sdf-error-estimation.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\shape-description.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\Shape.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\SignedDistance.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\core\Vector2.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\ext\import-font.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\lib\lodepng.cpp" />
-    <ClCompile Include="msdfgen\msdfgen\lib\tinyxml2.cpp" />
+    <ClCompile Include="msdfgl\src\msdfgl.c" />
+    <ClCompile Include="msdfgl\src\msdfgl_map.c" />
+    <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="rmlui\Source\Core\BaseXMLParser.cpp" />
     <ClCompile Include="rmlui\Source\Core\Box.cpp" />
     <ClCompile Include="rmlui\Source\Core\Clock.cpp" />
@@ -1021,64 +991,10 @@
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\AtlasGenerator.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\AtlasStorage.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\bitmap-blit.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\BitmapAtlasStorage.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\BitmapAtlasStorage.hpp" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\Charset.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\DynamicAtlas.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\DynamicAtlas.hpp" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\FontGeometry.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\glyph-generators.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\GlyphBox.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\GlyphGeometry.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\image-encode.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\ImmediateAtlasGenerator.hpp" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\msdf-atlas-gen.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\rectangle-packing.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\rectangle-packing.hpp" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\Rectangle.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\RectanglePacker.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\Remap.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\size-selectors.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\TightAtlasPacker.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\types.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\utf8.h" />
-    <ClInclude Include="msdfgen\msdf-atlas-gen\Workload.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\arithmetics.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\bitmap-interpolation.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\Bitmap.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\Bitmap.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\BitmapRef.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\contour-combiners.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\Contour.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\edge-coloring.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\edge-segments.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\edge-selectors.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\EdgeColor.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\EdgeHolder.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\equation-solver.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\generator-config.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\msdf-error-correction.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\MSDFErrorCorrection.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\pixel-conversion.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\Projection.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\rasterization.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\Scanline.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\sdf-error-estimation.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\shape-description.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\Shape.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\ShapeDistanceFinder.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\ShapeDistanceFinder.hpp" />
-    <ClInclude Include="msdfgen\msdfgen\core\SignedDistance.h" />
-    <ClInclude Include="msdfgen\msdfgen\core\Vector2.h" />
-    <ClInclude Include="msdfgen\msdfgen\ext\import-font.h" />
-    <ClInclude Include="msdfgen\msdfgen\include\lodepng.h" />
-    <ClInclude Include="msdfgen\msdfgen\include\tinyxml2.h" />
-    <ClInclude Include="msdfgen\msdfgen\msdfgen-ext.h" />
-    <ClInclude Include="msdfgen\msdfgen\msdfgen.h" />
+    <ClInclude Include="msdfgl\include\msdfgl.h" />
+    <ClInclude Include="msdfgl\include\msdfgl_map.h" />
+    <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
+    <ClInclude Include="msdfgl\include\_msdfgl_shaders.h" />
     <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Config\Config.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core.h" />
@@ -1706,7 +1622,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MSDFGL_STATIC_DEFINE;MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1741,7 +1657,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1767,7 +1683,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MSDFGL_STATIC_DEFINE;MSDFGEN_USE_CPP11;RMLUI_STATIC_LIB;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1798,7 +1714,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen;$(SolutionDir)lib/msdfgen/msdfgen/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
