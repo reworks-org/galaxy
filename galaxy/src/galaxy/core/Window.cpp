@@ -13,6 +13,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
@@ -288,6 +289,15 @@ namespace galaxy
 						for (auto i = 0; i < count; i++)
 						{
 							win->m_drop_paths.emplace_back(paths[i]);
+						}
+					});
+
+					// Set window scale callback.
+					glfwSetWindowContentScaleCallback(m_window, [](GLFWwindow* window, float xscale, float yscale) {
+						if (!ServiceLocator<graphics::FontContext>::empty())
+						{
+							auto& fc = ServiceLocator<graphics::FontContext>::ref();
+							fc.set_dpi(xscale * 96.0f, yscale * 96.0f);
 						}
 					});
 

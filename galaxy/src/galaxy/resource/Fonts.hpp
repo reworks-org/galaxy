@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_FONTS_HPP_
 #define GALAXY_RESOURCE_FONTS_HPP_
 
-#include "galaxy/graphics/text/Font.hpp"
+#include "galaxy/graphics/Font.hpp"
 #include "galaxy/resource/Cache.hpp"
 
 namespace galaxy
@@ -16,11 +16,7 @@ namespace galaxy
 	namespace resource
 	{
 		///
-		/// \brief Resource manager for fonts.
-		///
-		/// Fonts must be named in the following format:
-		/// ARIAL_11.ttf
-		/// This allows a font to have a size on load.
+		/// Resource manager for fonts.
 		///
 		class Fonts final : public Cache<graphics::Font>
 		{
@@ -36,10 +32,7 @@ namespace galaxy
 			virtual ~Fonts() noexcept;
 
 			///
-			/// \brief Loads fonts in a folder.
-			///
-			/// Fonts must be named in the following format:
-			/// ARIAL_11.ttf
+			/// Loads fonts in a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///

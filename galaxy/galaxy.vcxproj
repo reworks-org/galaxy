@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
     <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
     <ClCompile Include="src\galaxy\components\Flag.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
     <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
     <ClInclude Include="src\galaxy\components\Flag.hpp" />

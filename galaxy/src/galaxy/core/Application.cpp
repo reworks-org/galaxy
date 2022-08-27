@@ -19,6 +19,7 @@
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -102,7 +103,7 @@ namespace galaxy
 				config.set<bool>("debug", true, "window");
 				config.set<bool>("visible_cursor", true, "window");
 				config.set<bool>("allow_native_closing", true, "window");
-				config.set<bool>("scale_to_monitor", false, "window");
+				config.set<bool>("scale_to_monitor", true, "window");
 				config.set<int>("width", 1280, "window");
 				config.set<int>("height", 720, "window");
 				config.set<float>("sfx_volume", 1.0f, "audio");
@@ -125,6 +126,7 @@ namespace galaxy
 				config.set<std::string>("logo", "", "loading");
 				config.set<std::string>("bg_atlas", "", "loading");
 				config.set<std::string>("bg_shader", "", "loading");
+				config.set<std::string>("bg_fonts", "", "loading");
 
 				config.save();
 			}
@@ -229,6 +231,18 @@ namespace galaxy
 			auto& shaders = ServiceLocator<resource::Shaders>::make();
 			shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
 
+			//
+			// Begin loading fonts.
+			//
+			loading.display_loadingscreen(config.get<std::string>("bg_fonts", "loading"));
+			ServiceLocator<graphics::FontContext>::make();
+
+			auto& fonts = ServiceLocator<resource::Fonts>::make();
+			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
+
+			//
+			// RML Renderer.
+			//
 			m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
 
 			//
@@ -283,14 +297,10 @@ namespace galaxy
 				//
 				// Game Resources.
 				//
-
 				auto& sounds = ServiceLocator<resource::Sounds>::make();
 				sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
 				sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
 				sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
-
-				auto& fonts = ServiceLocator<resource::Fonts>::make();
-				fonts.load(config.get<std::string>("font_folder", "resource_folders"));
 
 				auto& scripts = ServiceLocator<resource::Scripts>::make();
 				scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
@@ -358,12 +368,13 @@ namespace galaxy
 			m_rml_rendering_interface.reset();
 
 			ServiceLocator<resource::Scripts>::del();
-			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Sounds>::del();
 			ServiceLocator<audio::AudioEngine>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
+			ServiceLocator<resource::Fonts>::del();
+			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();

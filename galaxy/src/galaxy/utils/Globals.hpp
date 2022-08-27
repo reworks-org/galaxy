@@ -88,6 +88,17 @@ namespace galaxy
 #define GALAXY_DEFAULT_RENDERER_RESERVED 1000
 
 ///
+/// Specifies the width of the range around the shape between the minimum and maximum
+/// representable signed distance in shape units or distance field pixels.
+///
+#define GALAXY_FONT_MSDF_RANGE 4.0f
+
+///
+/// Sets the scale used to convert shape units to distance field pixels.
+///
+#define GALAXY_FONT_MSDF_SCALE 2.0f
+
+///
 /// Current root directory of application, unless it has been changed.
 ///
 #define GALAXY_ROOT_DIR std::filesystem::current_path().string()
