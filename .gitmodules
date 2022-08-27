@@ -40,6 +40,3 @@
 [submodule "lib/threadpool"]
 	path = lib/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
-[submodule "lib/msdfgl"]
-	path = lib/msdfgl
-	url = https://github.com/nyyManni/msdfgl.git
