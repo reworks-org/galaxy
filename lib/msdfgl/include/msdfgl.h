@@ -43,11 +43,7 @@
 #include FT_FREETYPE_H
 #include FT_OUTLINE_H
 
-#ifdef __APPLE__
-#include <OpenGL/gl3.h>
-#else
-#include <GL/gl.h>
-#endif
+#include <glad/glad.h>
 
 #define MSDFGL_VERSION "0.2.2"
 

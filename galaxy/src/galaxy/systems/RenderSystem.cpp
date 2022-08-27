@@ -9,6 +9,7 @@
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Text.hpp"
 
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/state/Layer.hpp"
@@ -51,6 +52,18 @@ namespace galaxy
 				shader.m_shader->set_uniform("u_colour", primitive.m_colour);
 
 				graphics::Renderer::submit(&primitive);
+			}
+
+			const auto text_view = layer->world().m_registry.view<components::Text, components::DrawShader, components::Transform>();
+			for (auto&& [entity, text, shader, transform] : prim_view.each())
+			{
+				text.set_shader(shader.m_shader->id());
+				transform.set_origin(text.get_width() / 2.0f, text.get_height() / 2.0f);
+
+				shader.m_shader->set_uniform("u_transform", transform.get_transform());
+				shader.m_shader->set_uniform("u_colour", text.m_colour);
+
+				graphics::Renderer::submit(&text);
 			}
 		}
 	} // namespace systems

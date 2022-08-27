@@ -20,6 +20,7 @@
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
+#include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
 #include "galaxy/core/Config.hpp"
@@ -208,6 +209,20 @@ namespace galaxy
 
 			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>());
 			tag_type["tag"] = &components::Tag::m_tag;
+
+			auto text_type          = lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>());
+			text_type["create"]     = &components::Text::create;
+			text_type["get_height"] = &components::Text::get_height;
+			text_type["get_layer"]  = &components::Text::get_layer;
+			text_type["get_size"]   = &components::Text::get_size;
+			text_type["get_text"]   = &components::Text::get_text;
+			text_type["get_width"]  = &components::Text::get_width;
+			text_type["colour"]     = &components::Text::m_colour;
+
+			text_type["update_text"]             = sol::resolve<void(std::string_view)>(&components::Text::update);
+			text_type["update_text_size"]        = sol::resolve<void(std::string_view, const float)>(&components::Text::update);
+			text_type["update_text_colour"]      = sol::resolve<void(std::string_view, const graphics::Colour&)>(&components::Text::update);
+			text_type["update_text_size_colour"] = sol::resolve<void(std::string_view, const float, const graphics::Colour&)>(&components::Text::update);
 
 			auto transform_type             = lua.new_usertype<components::Transform>("Transform", sol::constructors<components::Transform()>());
 			transform_type["get_origin"]    = &components::Transform::get_origin;

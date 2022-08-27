@@ -12,6 +12,7 @@
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
+#include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/scripting/JSON.hpp"
@@ -30,6 +31,7 @@ namespace galaxy
 			register_component<components::Primitive>("Primitive");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
+			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
 		}
 
@@ -123,6 +125,12 @@ namespace galaxy
 				if (tag != nullptr)
 				{
 					entity_json["components"]["Tag"] = tag->serialize();
+				}
+
+				auto text = m_registry.try_get<components::Text>(entity);
+				if (text != nullptr)
+				{
+					entity_json["components"]["Text"] = text->serialize();
 				}
 
 				auto transform = m_registry.try_get<components::Transform>(entity);

@@ -120,7 +120,7 @@ namespace galaxy
 			return m_framebuffer.get_height();
 		}
 
-		const glm::mat4& RenderTexture::get_proj() noexcept
+		glm::mat4& RenderTexture::get_proj() noexcept
 		{
 			return m_projection;
 		}

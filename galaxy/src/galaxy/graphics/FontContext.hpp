@@ -11,6 +11,8 @@
 #include <msdfgl.h>
 #undef ERROR
 #undef DELETE
+#undef OPAQUE
+#undef TRANSPARENT
 
 namespace galaxy
 {

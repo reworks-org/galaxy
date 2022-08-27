@@ -170,7 +170,6 @@ namespace galaxy
 			}
 		)";
 
-		/*
 		///
 		/// Text vertex shader.
 		///
@@ -186,14 +185,12 @@ namespace galaxy
 			};
 
 			out vec2 io_texels;
-
+	
 			uniform mat4 u_transform;
-
+	
 			void main()
 			{
-				io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
-				io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
-
+				io_texels = l_texels;
 				gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
 			}
 		)";
@@ -212,10 +209,9 @@ namespace galaxy
 
 			void main()
 			{
-				io_frag_colour.rgb = u_colour.rgb;
-				io_frag_colour.a = texture(u_texture, io_texels).a * u_colour.a;
+				io_frag_colour = texture(u_texture, io_texels) * u_colour;
 			}
-		)";*/
+		)";
 
 		///
 		/// SpriteBatch vertex shader.

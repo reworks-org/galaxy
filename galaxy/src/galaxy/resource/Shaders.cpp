@@ -66,6 +66,9 @@ namespace galaxy
 				m_cache["Point"] = std::make_shared<graphics::Shader>();
 				m_cache["Point"]->load_raw(shaders::point_vert, shaders::point_frag);
 
+				m_cache["Text"] = std::make_shared<graphics::Shader>();
+				m_cache["Text"]->load_raw(shaders::text_vert, shaders::text_frag);
+
 				m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
 				m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 			}

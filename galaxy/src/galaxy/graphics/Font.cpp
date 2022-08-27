@@ -106,5 +106,10 @@ namespace galaxy
 
 			return vec;
 		}
+
+		msdfgl_font_t Font::handle() noexcept
+		{
+			return m_font;
+		}
 	} // namespace graphics
 } // namespace galaxy

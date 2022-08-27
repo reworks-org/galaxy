@@ -99,6 +99,13 @@ namespace galaxy
 			///
 			[[nodiscard]] glm::vec2 get_text_size(const std::string& text, const float size) noexcept;
 
+			///
+			/// Get handle to internal font object.
+			///
+			/// \return msdfgl_font_t pointer.
+			///
+			[[nodiscard]] msdfgl_font_t handle() noexcept;
+
 		private:
 			///
 			/// Font object.

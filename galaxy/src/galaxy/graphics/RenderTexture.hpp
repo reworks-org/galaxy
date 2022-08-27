@@ -123,9 +123,9 @@ namespace galaxy
 			///
 			/// Get projection.
 			///
-			/// \return Const reference to glm::mat4.
+			/// \return Reference to glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+			[[nodiscard]] glm::mat4& get_proj() noexcept;
 
 			///
 			/// Get texture.

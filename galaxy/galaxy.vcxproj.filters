@@ -125,6 +125,7 @@
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
+    <ClCompile Include="src\galaxy\components\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -251,5 +252,6 @@
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
+    <ClInclude Include="src\galaxy\components\Text.hpp" />
   </ItemGroup>
 </Project>
