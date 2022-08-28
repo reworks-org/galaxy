@@ -59,6 +59,13 @@ namespace galaxy
 			void create(const std::string& texture, const int layer, const float opacity = 1.0f);
 
 			///
+			/// Updates texture and internal vertex array.
+			///
+			/// \param texture Texture file in VFS.
+			///
+			void update(const std::string& texture);
+
+			///
 			/// Set opacity.
 			///
 			/// \param opacity Opacity from 0.0f to 1.0f.

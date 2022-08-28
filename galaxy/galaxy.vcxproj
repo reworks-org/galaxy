@@ -11,7 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
+    <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
+    <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
     <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
@@ -113,6 +116,7 @@
     <ClCompile Include="src\galaxy\state\Layers.cpp" />
     <ClCompile Include="src\galaxy\state\Scene.cpp" />
     <ClCompile Include="src\galaxy\state\SceneManager.cpp" />
+    <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
@@ -138,7 +142,10 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\components\Animated.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
+    <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
+    <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
     <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
@@ -240,6 +247,7 @@
     <ClInclude Include="src\galaxy\state\Layers.hpp" />
     <ClInclude Include="src\galaxy\state\Scene.hpp" />
     <ClInclude Include="src\galaxy\state\SceneManager.hpp" />
+    <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />

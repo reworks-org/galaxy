@@ -15,6 +15,7 @@
 
 #include "galaxy/audio/AudioEngine.hpp"
 
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -161,6 +162,18 @@ namespace galaxy
 			lua["galaxy_audioengine"] = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
 
 			/* COMPONENTS */
+			auto animated_type                   = lua.new_usertype<components::Animated>("Animated", sol::constructors<components::Animated()>());
+			animated_type["active"]              = &components::Animated::active;
+			animated_type["add"]                 = &components::Animated::add;
+			animated_type["is_paused"]           = &components::Animated::is_paused;
+			animated_type["animations"]          = &components::Animated::m_animations;
+			animated_type["time_spent_on_frame"] = &components::Animated::m_time_spent_on_frame;
+			animated_type["pause"]               = &components::Animated::pause;
+			animated_type["play"]                = sol::resolve<void(void)>(&components::Animated::play);
+			animated_type["set_and_play"]        = sol::resolve<void(const std::string&)>(&components::Animated::play);
+			animated_type["set"]                 = &components::Animated::set;
+			animated_type["stop"]                = &components::Animated::stop;
+
 			auto drawshader_type          = lua.new_usertype<components::DrawShader>("DrawShader", sol::constructors<components::DrawShader()>());
 			drawshader_type[""]           = &components::DrawShader::m_shader;
 			drawshader_type["set_shader"] = &components::DrawShader::set_shader;
@@ -427,6 +440,22 @@ namespace galaxy
 			camera_type["update"]                = &graphics::Camera::update;
 			camera_type["get_proj"]              = &graphics::Camera::get_proj;
 			camera_type["get_view"]              = &graphics::Camera::get_view;
+
+			auto frame              = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
+			frame["texture_id"]     = &graphics::Frame::m_texture_id;
+			frame["time_per_frame"] = &graphics::Frame::m_time_per_frame;
+
+			auto animation                   = lua.new_usertype<graphics::Animation>("Animation",
+                sol::constructors<graphics::Animation(), graphics::Animation(std::string_view, const bool, const double, std::span<graphics::Frame>)>());
+			animation["current_frame"]       = &graphics::Animation::current_frame;
+			animation["current_frame_index"] = &graphics::Animation::current_frame_index;
+			animation["frames"]              = &graphics::Animation::m_frames;
+			animation["looping"]             = &graphics::Animation::m_looping;
+			animation["name"]                = &graphics::Animation::m_name;
+			animation["speed"]               = &graphics::Animation::m_speed;
+			animation["total_frames"]        = &graphics::Animation::m_total_frames;
+			animation["next_frame"]          = &graphics::Animation::next_frame;
+			animation["restart"]             = &graphics::Animation::restart;
 
 			/* INPUT */
 			// clang-format off

@@ -13,6 +13,7 @@ Sandbox tests to do:
 - https://github.com/skypjack/entt/wiki/Crash-Course:-entity-component-system#dependencies
 - support content scale (dpi thingy) for rml
 - make sure font dpi is working with the content scale.
+- state based system for character moevement + updating animation.
 
 CODE REVIEW TODO:
 - GRAPHICS.

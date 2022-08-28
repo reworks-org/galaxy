@@ -114,6 +114,45 @@ namespace galaxy
 			}
 		}
 
+		void Sprite::update(const std::string& texture)
+		{
+			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
+
+			const auto info_opt = atlas.query(texture);
+			if (info_opt.has_value())
+			{
+				const auto& info = info_opt.value().get();
+
+				m_width  = static_cast<float>(info.m_region.m_width);
+				m_height = static_cast<float>(info.m_region.m_height);
+
+				set_texture(info.m_handle);
+
+				auto ibo = std::make_unique<graphics::IndexBuffer>();
+				auto vbo = std::make_unique<graphics::VertexBuffer>();
+
+				std::array<graphics::Vertex, 4> vertices;
+
+				vertices[0].m_pos    = {0.0f, 0.0f};
+				vertices[0].m_texels = info.m_texel_region.ul_texels();
+
+				vertices[1].m_pos    = {m_width, 0.0f};
+				vertices[1].m_texels = info.m_texel_region.ur_texels();
+
+				vertices[2].m_pos    = {m_width, m_height};
+				vertices[2].m_texels = info.m_texel_region.br_texels();
+
+				vertices[3].m_pos    = {0.0f, m_height};
+				vertices[3].m_texels = info.m_texel_region.ur_texels();
+
+				m_vao.sub_buffer(0, vertices);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
+			}
+		}
+
 		void Sprite::set_opacity(const float opacity) noexcept
 		{
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);

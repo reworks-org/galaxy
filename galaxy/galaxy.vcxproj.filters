@@ -126,6 +126,10 @@
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
+    <ClCompile Include="src\galaxy\components\Animated.cpp" />
+    <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
+    <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
+    <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -253,5 +257,9 @@
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
+    <ClInclude Include="src\galaxy\components\Animated.hpp" />
+    <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
+    <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
+    <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
   </ItemGroup>
 </Project>

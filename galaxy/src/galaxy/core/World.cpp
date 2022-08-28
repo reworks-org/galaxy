@@ -7,6 +7,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -26,6 +27,7 @@ namespace galaxy
 		World::World() noexcept
 			: Serializable {}
 		{
+			register_component<components::Animated>("Animated");
 			register_component<components::DrawShader>("DrawShader");
 			register_component<components::Flag>("Flag");
 			register_component<components::Primitive>("Primitive");
@@ -96,6 +98,12 @@ namespace galaxy
 			m_registry.each([&](const entt::entity entity) -> void {
 				nlohmann::json entity_json = nlohmann::json::object();
 				entity_json["components"]  = nlohmann::json::object();
+
+				auto animated = m_registry.try_get<components::Animated>(entity);
+				if (animated != nullptr)
+				{
+					entity_json["components"]["Animated"] = animated->serialize();
+				}
 
 				auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
 				if (draw_shader != nullptr)
