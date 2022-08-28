@@ -117,23 +117,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-		void Renderer2D::submit(components::Text* text, components::Transform2D* transform)
-		{
-			Renderable renderable = {.m_vao = text->vao(),
-				.m_texture                  = text->gl_texture(),
-				.m_index_count              = text->index_count(),
-				.m_type                     = GL_TRIANGLES,
-				.m_configure_shader         = [this, text, transform]() {
-					this->m_text_shader.bind();
-					this->m_text_shader.set_uniform("u_transform", transform->get_transform());
-					this->m_text_shader.set_uniform("u_colour", text->get_colour().normalized());
-					this->m_text_shader.set_uniform<float>("u_width", static_cast<float>(text->get_width()));
-					this->m_text_shader.set_uniform<float>("u_height", static_cast<float>(text->get_height()));
-				}};
-
-			m_layer_data.at(text->get_layer()).submit(renderable);
-		}
-
 		void Renderer2D::submit(components::BatchSprite* batch, components::Transform2D* transform)
 		{
 			m_layer_data.at(batch->get_layer()).m_batches[batch->get_atlas_index()].add(batch, transform);

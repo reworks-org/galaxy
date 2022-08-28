@@ -9,22 +9,33 @@ Sandbox tests to do:
 - Scripting
 - Systems
 - UI
-
+- assets should be per scene
+- convert system to update thread/render thread/etc
+- mainthread + render thread
+- asset loading in threads
 - https://github.com/skypjack/entt/wiki/Crash-Course:-entity-component-system#dependencies
 - support content scale (dpi thingy) for rml
 - make sure font dpi is working with the content scale.
 - state based system for character moevement + updating animation.
-
+- thread for resource/processing? maybe? for loading of assets
+- render thread architecture
 CODE REVIEW TODO:
 - GRAPHICS.
 
 TODO: PORT REMAINING LEGACY CODE.
 
+4 cores minimum then threads:
+1x main thread
+1x render thread
+1x audio thread
+
+1x io (resource) thread that then goes to 1x job system <-> misc tasks
+
 -- LEGACY TODO BELOW --
 
 Batch Rendering:
 https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1
-https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/
+https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/w
 https://gamedev.stackexchange.com/questions/30362/drawing-lots-of-tiles-with-opengl-the-modern-way
 https://gamedev.stackexchange.com/questions/166048/animate-some-tiles-of-tile-map
 https://gamedev.stackexchange.com/questions/53716/optimal-opengl-2d-sprite-batching-best-practice

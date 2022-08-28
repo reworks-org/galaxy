@@ -26,8 +26,8 @@ namespace galaxy
 
 		void AnimationSystem::update(state::Layer* layer)
 		{
-			const auto prim_view = layer->world().m_registry.view<components::Animated>();
-			for (auto&& [entity, animated] : prim_view.each())
+			const auto view = layer->world().m_registry.view<components::Animated>();
+			for (auto&& [entity, animated] : view.each())
 			{
 				if (!animated.is_paused())
 				{
