@@ -1,12 +1,12 @@
 ///
-/// Script.hpp
+/// BasicScript.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SCRIPTING_SCRIPT_HPP_
-#define GALAXY_SCRIPTING_SCRIPT_HPP_
+#ifndef GALAXY_SCRIPTING_BASICSCRIPT_HPP_
+#define GALAXY_SCRIPTING_BASICSCRIPT_HPP_
 
 #include <sol/sol.hpp>
 
@@ -15,27 +15,27 @@ namespace galaxy
 	namespace lua
 	{
 		///
-		/// High level abstraction of a lua script.
+		/// A basic script is usually only run once or run when something specific happens.
 		///
-		class Script final
+		class BasicScript final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Script() noexcept;
+			BasicScript() noexcept;
 
 			///
 			/// Argument Constructor.
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			Script(std::string_view file) noexcept;
+			BasicScript(std::string_view file) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Script() noexcept;
+			~BasicScript() noexcept;
 
 			///
 			/// Load a script.
@@ -65,7 +65,7 @@ namespace galaxy
 			sol::state* m_state;
 
 			///
-			/// Script loaded into sol3 memory.
+			/// BasicScript loaded into sol3 memory.
 			///
 			sol::load_result m_script;
 

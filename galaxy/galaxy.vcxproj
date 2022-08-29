@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
+    <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
     <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
@@ -32,8 +35,7 @@
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
-    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
-    <ClCompile Include="src\galaxy\scripting\Script.cpp" />
+    <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\state\LayerRegistry.cpp" />
     <ClCompile Include="src\galaxy\state\layers\RuntimeLayer.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
@@ -142,6 +144,9 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
+    <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\components\Animated.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
     <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
@@ -163,8 +168,7 @@
     <ClInclude Include="src\galaxy\meta\Async.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
-    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
-    <ClInclude Include="src\galaxy\scripting\Script.hpp" />
+    <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\state\LayerRegistry.hpp" />
     <ClInclude Include="src\galaxy\state\layers\RuntimeLayer.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />

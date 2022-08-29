@@ -10,8 +10,6 @@
 
 #include <concepts>
 
-#include <entt/signal/dispatcher.hpp>
-
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/Serializable.hpp"
 
@@ -109,12 +107,7 @@ namespace galaxy
 			core::Window* m_window;
 
 			///
-			/// Event dispatcher.
-			///
-			entt::dispatcher m_dispatcher;
-
-			///
-			/// Entitys.
+			/// Entitys, events, etc.
 			///
 			core::World m_world;
 

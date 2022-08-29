@@ -9,7 +9,7 @@
 #define GALAXY_RESOURCE_SCRIPTS_HPP_
 
 #include "galaxy/resource/Cache.hpp"
-#include "galaxy/scripting/Script.hpp"
+#include "galaxy/scripting/BasicScript.hpp"
 
 namespace galaxy
 {
@@ -18,7 +18,7 @@ namespace galaxy
 		///
 		/// Resource manager for lua scripts.
 		///
-		class Scripts final : public Cache<lua::Script>
+		class Scripts final : public Cache<lua::BasicScript>
 		{
 		public:
 			///

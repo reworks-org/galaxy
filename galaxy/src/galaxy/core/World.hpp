@@ -8,8 +8,8 @@
 #ifndef GALAXY_CORE_WORLD_HPP_
 #define GALAXY_CORE_WORLD_HPP_
 
-#include <entt/core/ident.hpp>
 #include <entt/entity/registry.hpp>
+#include <entt/signal/dispatcher.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
@@ -134,11 +134,32 @@ namespace galaxy
 			///
 			World& operator=(World&&) = delete;
 
+			///
+			/// Function that integrates lua init with entt on construct event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void construct_script(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates lua destroy with entt on destruction event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void destruct_script(entt::registry& registry, entt::entity entity);
+
 		public:
 			///
 			/// The main entt entity registry.
 			///
 			entt::registry m_registry;
+
+			///
+			/// Event dispatcher.
+			///
+			entt::dispatcher m_dispatcher;
 
 		private:
 			///

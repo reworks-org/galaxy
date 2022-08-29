@@ -34,7 +34,7 @@ namespace galaxy
 
 		void RuntimeLayer::events()
 		{
-			m_window->trigger_queued_events(m_dispatcher);
+			m_window->trigger_queued_events(m_world.m_dispatcher);
 		}
 
 		void RuntimeLayer::update()

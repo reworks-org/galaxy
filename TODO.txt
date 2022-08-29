@@ -45,6 +45,7 @@ For editor:
 todo: use references in resource/assets over pointers? and for components to reduce lookups.
 
 todo: run lua.garbage_collector()?
+todo: limit return of shared_ptr, prefer reference or weak_ptr instead.
 
 -- LEGACY TODO BELOW --
 

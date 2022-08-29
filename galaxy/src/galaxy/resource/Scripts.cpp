@@ -35,7 +35,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto name = std::filesystem::path(file).stem().string();
-					m_cache[name]   = std::make_shared<lua::Script>(file);
+					m_cache[name]   = std::make_shared<lua::BasicScript>(file);
 				}
 			}
 			else

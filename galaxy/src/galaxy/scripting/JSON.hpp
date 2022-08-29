@@ -1,5 +1,5 @@
 ///
-/// JSONUtils.hpp
+/// JSON.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.

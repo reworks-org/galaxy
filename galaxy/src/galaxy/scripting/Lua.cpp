@@ -1,11 +1,13 @@
 ///
-/// LuaUtils.cpp
+/// Lua.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <sol/sol.hpp>
+#include <entt/entt.hpp>
+#include <entt/addons/sol/dispatcher.hpp>
+#include <entt/addons/sol/registry.hpp>
 
 #include "galaxy/algorithm/Algorithms.hpp"
 #include "galaxy/algorithm/Base64.hpp"
@@ -19,6 +21,7 @@
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
@@ -63,11 +66,14 @@
 
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 
 #include "galaxy/state/SceneManager.hpp"
+
+#include "galaxy/scripting/BasicScript.hpp"
 
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/Guid.hpp"
@@ -162,7 +168,11 @@ namespace galaxy
 			lua["galaxy_audioengine"] = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
 
 			/* COMPONENTS */
-			auto animated_type                   = lua.new_usertype<components::Animated>("Animated", sol::constructors<components::Animated()>());
+			auto animated_type = lua.new_usertype<components::Animated>("Animated",
+				sol::constructors<components::Animated()>(),
+				"type_id",
+				&entt::type_hash<components::Animated>::value);
+
 			animated_type["active"]              = &components::Animated::active;
 			animated_type["add"]                 = &components::Animated::add;
 			animated_type["is_paused"]           = &components::Animated::is_paused;
@@ -174,18 +184,29 @@ namespace galaxy
 			animated_type["set"]                 = &components::Animated::set;
 			animated_type["stop"]                = &components::Animated::stop;
 
-			auto drawshader_type          = lua.new_usertype<components::DrawShader>("DrawShader", sol::constructors<components::DrawShader()>());
+			entt_sol::register_meta_component<components::Animated>();
+
+			auto drawshader_type = lua.new_usertype<components::DrawShader>("DrawShader",
+				sol::constructors<components::DrawShader()>(),
+				"type_id",
+				&entt::type_hash<components::DrawShader>::value);
+
 			drawshader_type[""]           = &components::DrawShader::m_shader;
 			drawshader_type["set_shader"] = &components::DrawShader::set_shader;
 			drawshader_type["id"]         = &components::DrawShader::id;
 
-			auto flag_type                      = lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>());
+			entt_sol::register_meta_component<components::DrawShader>();
+
+			auto flag_type =
+				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Animated>::value);
 			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
 			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
 			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
 			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
 			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
 			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
+
+			entt_sol::register_meta_component<components::Flag>();
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
@@ -195,7 +216,11 @@ namespace galaxy
 			primitive_data_type["radius"]    = &components::Primitive::PrimitiveData::m_radius;
 			primitive_data_type["start_end"] = &components::Primitive::PrimitiveData::m_start_end;
 
-			auto primitive_type               = lua.new_usertype<components::Primitive>("Primitive", sol::constructors<components::Primitive()>());
+			auto primitive_type = lua.new_usertype<components::Primitive>("Primitive",
+				sol::constructors<components::Primitive()>(),
+				"type_id",
+				&entt::type_hash<components::Primitive>::value);
+
 			primitive_type["create_circle"]   = &components::Primitive::create<graphics::Shape::CIRCLE>;
 			primitive_type["create_ellipse"]  = &components::Primitive::create<graphics::Shape::ELLIPSE>;
 			primitive_type["create_line"]     = &components::Primitive::create<graphics::Shape::LINE>;
@@ -211,7 +236,25 @@ namespace galaxy
 			primitive_type["set_opacity"]     = &components::Primitive::set_opacity;
 			primitive_type["set_shader"]      = &components::Primitive::set_shader;
 
-			auto sprite_type           = lua.new_usertype<components::Sprite>("Sprite", sol::constructors<components::Sprite()>());
+			entt_sol::register_meta_component<components::Primitive>();
+
+			auto script_type = lua.new_usertype<components::Script>("Script",
+				sol::constructors<components::Script()>(),
+				"type_id",
+				&entt::type_hash<components::Script>::value);
+
+			script_type["file"]   = &components::Script::file;
+			script_type["load"]   = &components::Script::load;
+			script_type["self"]   = &components::Script::m_self;
+			script_type["update"] = &components::Script::m_update;
+
+			entt_sol::register_meta_component<components::Script>();
+
+			auto sprite_type = lua.new_usertype<components::Sprite>("Sprite",
+				sol::constructors<components::Sprite()>(),
+				"type_id",
+				&entt::type_hash<components::Sprite>::value);
+
 			sprite_type["create"]      = &components::Sprite::create;
 			sprite_type["get_height"]  = &components::Sprite::get_height;
 			sprite_type["get_layer"]   = &components::Sprite::get_layer;
@@ -220,10 +263,16 @@ namespace galaxy
 			sprite_type["set_opacity"] = &components::Sprite::set_opacity;
 			sprite_type["set_shader"]  = &components::Sprite::set_shader;
 
-			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>());
+			entt_sol::register_meta_component<components::Sprite>();
+
+			auto tag_type =
+				lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
 			tag_type["tag"] = &components::Tag::m_tag;
 
-			auto text_type          = lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>());
+			entt_sol::register_meta_component<components::Tag>();
+
+			auto text_type =
+				lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
 			text_type["create"]     = &components::Text::create;
 			text_type["get_height"] = &components::Text::get_height;
 			text_type["get_layer"]  = &components::Text::get_layer;
@@ -237,7 +286,13 @@ namespace galaxy
 			text_type["update_text_colour"]      = sol::resolve<void(std::string_view, const graphics::Colour&)>(&components::Text::update);
 			text_type["update_text_size_colour"] = sol::resolve<void(std::string_view, const float, const graphics::Colour&)>(&components::Text::update);
 
-			auto transform_type             = lua.new_usertype<components::Transform>("Transform", sol::constructors<components::Transform()>());
+			entt_sol::register_meta_component<components::Text>();
+
+			auto transform_type = lua.new_usertype<components::Transform>("Transform",
+				sol::constructors<components::Transform()>(),
+				"type_id",
+				&entt::type_hash<components::Transform>::value);
+
 			transform_type["get_origin"]    = &components::Transform::get_origin;
 			transform_type["get_pos"]       = &components::Transform::get_pos;
 			transform_type["get_rotation"]  = &components::Transform::get_rotation;
@@ -250,6 +305,8 @@ namespace galaxy
 			transform_type["set_pos"]       = &components::Transform::set_pos;
 			transform_type["set_rotation"]  = &components::Transform::set_rotation;
 			transform_type["translate"]     = &components::Transform::translate;
+
+			entt_sol::register_meta_component<components::Transform>();
 
 			/* CORE */
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
@@ -288,43 +345,74 @@ namespace galaxy
 			lua.set_function("galaxy_log", &log_wrapper);
 
 			/* EVENTS */
-			auto keychar_type      = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
-			keychar_type["char"]   = &events::KeyChar::m_char;
-			keychar_type["uichar"] = &events::KeyChar::m_uichar;
+			auto keychar_type       = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
+			keychar_type["type_id"] = &entt::type_hash<events::KeyChar>::value;
+			keychar_type["char"]    = &events::KeyChar::m_char;
+			keychar_type["uichar"]  = &events::KeyChar::m_uichar;
+			keychar_type["handled"] = &events::KeyChar::m_handled;
+
+			entt_sol::register_meta_event<events::KeyChar>();
 
 			auto keydown_type        = lua.new_usertype<events::KeyDown>("KeyDown", sol::constructors<events::KeyDown()>());
+			keydown_type["type_id"]  = &entt::type_hash<events::KeyDown>::value;
 			keydown_type["keycode"]  = &events::KeyDown::m_keycode;
 			keydown_type["mod"]      = &events::KeyDown::m_mod;
 			keydown_type["scancode"] = &events::KeyDown::m_scancode;
+			keydown_type["handled"]  = &events::KeyDown::m_handled;
+
+			entt_sol::register_meta_event<events::KeyDown>();
 
 			auto keyup_type        = lua.new_usertype<events::KeyUp>("KeyUp", sol::constructors<events::KeyUp()>());
+			keyup_type["type_id"]  = &entt::type_hash<events::KeyUp>::value;
 			keyup_type["keycode"]  = &events::KeyUp::m_keycode;
 			keyup_type["mod"]      = &events::KeyUp::m_mod;
 			keyup_type["scancode"] = &events::KeyUp::m_scancode;
+			keyup_type["handled"]  = &events::KeyUp::m_handled;
 
-			auto mousemoved_type    = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
-			mousemoved_type["xpos"] = &events::MouseMoved::m_xpos;
-			mousemoved_type["ypos"] = &events::MouseMoved::m_ypos;
+			entt_sol::register_meta_event<events::KeyUp>();
 
-			auto mousepressed_type      = lua.new_usertype<events::MousePressed>("MousePressed", sol::constructors<events::MousePressed()>());
-			mousepressed_type["button"] = &events::MousePressed::m_button;
-			mousepressed_type["mod"]    = &events::MousePressed::m_mod;
-			mousepressed_type["xpos"]   = &events::MousePressed::m_xpos;
-			mousepressed_type["ypos"]   = &events::MousePressed::m_ypos;
+			auto mousemoved_type       = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
+			mousemoved_type["type_id"] = &entt::type_hash<events::MouseMoved>::value;
+			mousemoved_type["xpos"]    = &events::MouseMoved::m_xpos;
+			mousemoved_type["ypos"]    = &events::MouseMoved::m_ypos;
+			mousemoved_type["handled"] = &events::MouseMoved::m_handled;
 
-			auto mousereleased_type      = lua.new_usertype<events::MouseReleased>("MouseReleased", sol::constructors<events::MouseReleased()>());
-			mousereleased_type["button"] = &events::MouseReleased::m_button;
-			mousereleased_type["mod"]    = &events::MouseReleased::m_mod;
-			mousereleased_type["xpos"]   = &events::MouseReleased::m_xpos;
-			mousereleased_type["ypos"]   = &events::MouseReleased::m_ypos;
+			entt_sol::register_meta_event<events::MouseMoved>();
 
-			auto mousewheel_type    = lua.new_usertype<events::MouseWheel>("MouseWheel", sol::constructors<events::MouseWheel()>());
-			mousewheel_type["xoff"] = &events::MouseWheel::m_xoff;
-			mousewheel_type["yoff"] = &events::MouseWheel::m_yoff;
+			auto mousepressed_type       = lua.new_usertype<events::MousePressed>("MousePressed", sol::constructors<events::MousePressed()>());
+			mousepressed_type["type_id"] = &entt::type_hash<events::MousePressed>::value;
+			mousepressed_type["button"]  = &events::MousePressed::m_button;
+			mousepressed_type["mod"]     = &events::MousePressed::m_mod;
+			mousepressed_type["xpos"]    = &events::MousePressed::m_xpos;
+			mousepressed_type["ypos"]    = &events::MousePressed::m_ypos;
+			mousepressed_type["handled"] = &events::MousePressed::m_handled;
 
-			auto windowresized_type      = lua.new_usertype<events::WindowResized>("WindowResized", sol::constructors<events::WindowResized()>());
-			windowresized_type["width"]  = &events::WindowResized::m_width;
-			windowresized_type["height"] = &events::WindowResized::m_height;
+			entt_sol::register_meta_event<events::MousePressed>();
+
+			auto mousereleased_type       = lua.new_usertype<events::MouseReleased>("MouseReleased", sol::constructors<events::MouseReleased()>());
+			mousereleased_type["type_id"] = &entt::type_hash<events::MouseReleased>::value;
+			mousereleased_type["button"]  = &events::MouseReleased::m_button;
+			mousereleased_type["mod"]     = &events::MouseReleased::m_mod;
+			mousereleased_type["xpos"]    = &events::MouseReleased::m_xpos;
+			mousereleased_type["ypos"]    = &events::MouseReleased::m_ypos;
+			mousereleased_type["handled"] = &events::MouseReleased::m_handled;
+
+			entt_sol::register_meta_event<events::MouseReleased>();
+
+			auto mousewheel_type       = lua.new_usertype<events::MouseWheel>("MouseWheel", sol::constructors<events::MouseWheel()>());
+			mousewheel_type["type_id"] = &entt::type_hash<events::MouseWheel>::value;
+			mousewheel_type["xoff"]    = &events::MouseWheel::m_xoff;
+			mousewheel_type["yoff"]    = &events::MouseWheel::m_yoff;
+			mousewheel_type["handled"] = &events::MouseWheel::m_handled;
+
+			entt_sol::register_meta_event<events::MouseWheel>();
+
+			auto windowresized_type       = lua.new_usertype<events::WindowResized>("WindowResized", sol::constructors<events::WindowResized()>());
+			windowresized_type["type_id"] = &entt::type_hash<events::WindowResized>::value;
+			windowresized_type["width"]   = &events::WindowResized::m_width;
+			windowresized_type["height"]  = &events::WindowResized::m_height;
+
+			entt_sol::register_meta_event<events::WindowResized>();
 
 			/* FS */
 			// clang-format off
@@ -666,6 +754,14 @@ namespace galaxy
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;
 
+			auto scripts_type      = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
+			scripts_type["clear"]  = &resource::Scripts::clear;
+			scripts_type["empty"]  = &resource::Scripts::empty;
+			scripts_type["get"]    = &resource::Scripts::get;
+			scripts_type["has"]    = &resource::Scripts::has;
+			scripts_type["load"]   = &resource::Scripts::load;
+			scripts_type["reload"] = &resource::Scripts::reload;
+
 			auto shaders_type      = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
 			shaders_type["clear"]  = &resource::Shaders::clear;
 			shaders_type["empty"]  = &resource::Shaders::empty;
@@ -727,6 +823,13 @@ namespace galaxy
 
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());
 
+			/* SCRIPTING */
+			auto basicscript_type =
+				lua.new_usertype<lua::BasicScript>("BasicScript", sol::constructors<lua::BasicScript(), lua::BasicScript(std::string_view)>());
+			basicscript_type["load"]           = &lua::BasicScript::load;
+			basicscript_type["run"]            = &lua::BasicScript::run;
+			basicscript_type["run_and_return"] = &lua::BasicScript::run_and_return;
+
 			/* UTILS */
 			auto guid_type         = lua.new_usertype<utils::Guid>("Guid", sol::constructors<utils::Guid()>());
 			guid_type["as_string"] = &utils::Guid::to_string;
@@ -738,6 +841,10 @@ namespace galaxy
 			lua.set_function("str_split", &strutils::split);
 			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);
 			lua.set_function("str_begins_with", &strutils::begins_with);
+
+			/* ENTT */
+			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
+			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
 		}
 	} // namespace lua
 } // namespace galaxy

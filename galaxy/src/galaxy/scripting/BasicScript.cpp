@@ -1,5 +1,5 @@
 ///
-/// Script.cpp
+/// BasicScript.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -8,19 +8,19 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
-#include "Script.hpp"
+#include "BasicScript.hpp"
 
 namespace galaxy
 {
 	namespace lua
 	{
-		Script::Script() noexcept
+		BasicScript::BasicScript() noexcept
 			: m_loaded {false}
 		{
 			m_state = &core::ServiceLocator<sol::state>::ref();
 		}
 
-		Script::Script(std::string_view file) noexcept
+		BasicScript::BasicScript(std::string_view file) noexcept
 			: m_loaded {false}
 		{
 			m_state = &core::ServiceLocator<sol::state>::ref();
@@ -28,12 +28,12 @@ namespace galaxy
 			load(file);
 		}
 
-		Script::~Script() noexcept
+		BasicScript::~BasicScript() noexcept
 		{
 			m_state = nullptr;
 		}
 
-		void Script::load(std::string_view file) noexcept
+		void BasicScript::load(std::string_view file) noexcept
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -56,7 +56,7 @@ namespace galaxy
 			}
 		}
 
-		bool Script::run() noexcept
+		bool BasicScript::run() noexcept
 		{
 			if (m_loaded)
 			{
@@ -67,7 +67,7 @@ namespace galaxy
 			return false;
 		}
 
-		sol::protected_function_result Script::run_and_return() noexcept
+		sol::protected_function_result BasicScript::run_and_return() noexcept
 		{
 			if (m_loaded)
 			{

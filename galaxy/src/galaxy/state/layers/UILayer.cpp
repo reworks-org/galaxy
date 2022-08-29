@@ -23,14 +23,14 @@ namespace galaxy
 			m_rml = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {m_window->get_width(), m_window->get_height()});
 			m_rml_events.set_context(m_rml);
 
-			m_dispatcher.sink<events::MouseMoved>().connect<&ui::RMLEvents::on_mouse_move>(m_rml_events);
-			m_dispatcher.sink<events::MousePressed>().connect<&ui::RMLEvents::on_mouse_pressed>(m_rml_events);
-			m_dispatcher.sink<events::MouseReleased>().connect<&ui::RMLEvents::on_mouse_released>(m_rml_events);
-			m_dispatcher.sink<events::MouseWheel>().connect<&ui::RMLEvents::on_mouse_wheel>(m_rml_events);
-			m_dispatcher.sink<events::KeyDown>().connect<&ui::RMLEvents::on_key_down>(m_rml_events);
-			m_dispatcher.sink<events::KeyUp>().connect<&ui::RMLEvents::on_key_up>(m_rml_events);
-			m_dispatcher.sink<events::KeyChar>().connect<&ui::RMLEvents::on_key_char>(m_rml_events);
-			m_dispatcher.sink<events::WindowResized>().connect<&ui::RMLEvents::on_window_resize>(m_rml_events);
+			m_world.m_dispatcher.sink<events::MouseMoved>().connect<&ui::RMLEvents::on_mouse_move>(m_rml_events);
+			m_world.m_dispatcher.sink<events::MousePressed>().connect<&ui::RMLEvents::on_mouse_pressed>(m_rml_events);
+			m_world.m_dispatcher.sink<events::MouseReleased>().connect<&ui::RMLEvents::on_mouse_released>(m_rml_events);
+			m_world.m_dispatcher.sink<events::MouseWheel>().connect<&ui::RMLEvents::on_mouse_wheel>(m_rml_events);
+			m_world.m_dispatcher.sink<events::KeyDown>().connect<&ui::RMLEvents::on_key_down>(m_rml_events);
+			m_world.m_dispatcher.sink<events::KeyUp>().connect<&ui::RMLEvents::on_key_up>(m_rml_events);
+			m_world.m_dispatcher.sink<events::KeyChar>().connect<&ui::RMLEvents::on_key_char>(m_rml_events);
+			m_world.m_dispatcher.sink<events::WindowResized>().connect<&ui::RMLEvents::on_window_resize>(m_rml_events);
 		}
 
 		UILayer::~UILayer() noexcept
@@ -50,7 +50,7 @@ namespace galaxy
 
 		void UILayer::events()
 		{
-			m_window->trigger_queued_events(m_dispatcher);
+			m_window->trigger_queued_events(m_world.m_dispatcher);
 		}
 
 		void UILayer::update()

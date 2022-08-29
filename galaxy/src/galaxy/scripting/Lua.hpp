@@ -1,5 +1,5 @@
 ///
-/// LuaUtils.hpp
+/// Lua.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,8 +7,6 @@
 
 #ifndef GALAXY_SCRIPTING_LUAUTILS_HPP_
 #define GALAXY_SCRIPTING_LUAUTILS_HPP_
-
-#include <sol/forward.hpp>
 
 namespace galaxy
 {

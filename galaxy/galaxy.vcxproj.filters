@@ -106,8 +106,7 @@
     <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
     <ClCompile Include="src\galaxy\graphics\Font.cpp" />
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
-    <ClCompile Include="src\galaxy\scripting\Script.cpp" />
-    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\core\Loading.cpp" />
@@ -130,6 +129,9 @@
     <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
     <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
+    <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
+    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -237,8 +239,7 @@
     <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
     <ClInclude Include="src\galaxy\graphics\Font.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
-    <ClInclude Include="src\galaxy\scripting\Script.hpp" />
-    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
     <ClInclude Include="src\galaxy\meta\Async.hpp" />
     <ClInclude Include="src\galaxy\core\Loading.hpp" />
@@ -261,5 +262,8 @@
     <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
     <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
+    <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
+    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
   </ItemGroup>
 </Project>

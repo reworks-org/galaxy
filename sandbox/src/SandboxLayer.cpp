@@ -54,8 +54,8 @@ namespace sandbox
 	SandboxLayer::SandboxLayer(std::string_view name, state::Scene* scene) noexcept
 		: state::Layer {name, scene}
 	{
-		m_dispatcher.sink<events::KeyDown>().connect<&close>();
-		m_dispatcher.sink<events::KeyDown>().connect<&play>();
+		m_world.m_dispatcher.sink<events::KeyDown>().connect<&close>();
+		m_world.m_dispatcher.sink<events::KeyDown>().connect<&play>();
 	}
 
 	SandboxLayer::~SandboxLayer() noexcept
@@ -72,7 +72,7 @@ namespace sandbox
 
 	void SandboxLayer::events()
 	{
-		m_window->trigger_queued_events(m_dispatcher);
+		m_window->trigger_queued_events(m_world.m_dispatcher);
 	}
 
 	void SandboxLayer::update()
