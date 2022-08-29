@@ -436,6 +436,9 @@
     <ClInclude Include="entt\include\entt\addons\entt-box2d\registry-mixin.h" />
     <ClInclude Include="entt\include\entt\addons\entt-box2d\world.h" />
     <ClInclude Include="entt\include\entt\addons\imgui_entt_entity_editor.hpp" />
+    <ClInclude Include="entt\include\entt\addons\sol\dispatcher.hpp" />
+    <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
+    <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
     <ClInclude Include="entt\include\entt\config\config.h" />
     <ClInclude Include="entt\include\entt\config\macro.h" />
     <ClInclude Include="entt\include\entt\config\version.h" />

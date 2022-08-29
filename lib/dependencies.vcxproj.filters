@@ -1403,6 +1403,9 @@
     <ClInclude Include="msdfgl\include\msdfgl.h" />
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
     <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
+    <ClInclude Include="entt\include\entt\addons\sol\dispatcher.hpp" />
+    <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
+    <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

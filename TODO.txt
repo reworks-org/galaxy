@@ -31,6 +31,21 @@ TODO: PORT REMAINING LEGACY CODE.
 
 1x io (resource) thread that then goes to 1x job system <-> misc tasks
 
+use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
+
+//  add this to all events
+			// register_meta_event?
+			// https://github.com/skaarj1989/entt-meets-sol2/blob/main/examples/dispatcher/main.cpp#L23
+
+For editor:
+- own scene stack for editor layer that renders to a frame buffer view port.
+- Then serialize into a runtime layer / ui layer when playing, and pop editor layer.
+
+
+todo: use references in resource/assets over pointers? and for components to reduce lookups.
+
+todo: run lua.garbage_collector()?
+
 -- LEGACY TODO BELOW --
 
 Batch Rendering:
