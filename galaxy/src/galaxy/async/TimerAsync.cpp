@@ -7,6 +7,10 @@
 
 #include <future>
 
+#include <BS_thread_pool.hpp>
+
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "TimerAsync.hpp"
 
 namespace galaxy
@@ -43,7 +47,8 @@ namespace galaxy
 
 		void TimerAsync::start() noexcept
 		{
-			m_thread = std::jthread([&]() {
+			auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
+			m_handle = tp.submit([&]() {
 				do
 				{
 					std::this_thread::sleep_for(std::chrono::milliseconds(m_delay));
@@ -55,8 +60,7 @@ namespace galaxy
 		void TimerAsync::stop() noexcept
 		{
 			m_repeat = false;
-			m_thread.request_stop();
-			m_thread.join();
+			m_handle.get();
 		}
 	} // namespace async
 } // namespace galaxy

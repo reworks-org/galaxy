@@ -9,8 +9,6 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <filesystem>
-#include <queue>
-#include <semaphore>
 #include <source_location>
 
 #include <magic_enum.hpp>
@@ -69,7 +67,7 @@ namespace galaxy
 			/// \return A pointer to the newly created sink.
 			///
 			template<std::derived_from<Sink> SinkTo, typename... Args>
-			[[maybe_unused]] std::shared_ptr<SinkTo> add_sink(Args&&... args);
+			[[maybe_unused]] SinkTo& add_sink(Args&&... args);
 
 			///
 			/// \brief Set a minimum log level.
@@ -134,31 +132,15 @@ namespace galaxy
 			///
 			/// List of sinks.
 			///
-			std::vector<std::shared_ptr<Sink>> m_sinks;
-
-			///
-			/// Message queue.
-			///
-			std::queue<std::string> m_messages;
-
-			///
-			/// Flag to keep/shutdown thread.
-			///
-			std::atomic_bool m_run_thread;
-
-			///
-			/// Controls thread synchronization.
-			///
-			std::binary_semaphore m_sync;
+			std::vector<std::unique_ptr<Sink>> m_sinks;
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>
-		inline std::shared_ptr<SinkTo> Log::add_sink(Args&&... args)
+		inline SinkTo& Log::add_sink(Args&&... args)
 		{
-			auto ptr = std::make_shared<SinkTo>(std::forward<Args>(args)...);
-			m_sinks.push_back(std::static_pointer_cast<Sink>(ptr));
-
-			return ptr;
+			m_sinks.push_back(std::make_unique<SinkTo>(std::forward<Args>(args)...));
+			SinkTo* ptr = static_cast<SinkTo*>(m_sinks.back().get());
+			return *ptr;
 		}
 
 		template<LogLevel level>
@@ -218,8 +200,10 @@ namespace galaxy
 						std::vformat(message, std::make_format_args(args...)));
 				}
 
-				m_messages.push(final_str);
-				m_sync.release();
+				for (const auto& sink : m_sinks)
+				{
+					sink->sink_message(final_str);
+				}
 
 				if constexpr (level == LogLevel::FATAL)
 				{

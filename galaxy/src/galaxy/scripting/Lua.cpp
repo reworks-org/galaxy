@@ -115,6 +115,10 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
+			/* ENTT */
+			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
+			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
+
 			/* GLM */
 			auto vec2_type = lua.new_usertype<glm::vec2>("vec2", sol::constructors<glm::vec2()>());
 			vec2_type["x"] = &glm::vec2::x;
@@ -841,10 +845,6 @@ namespace galaxy
 			lua.set_function("str_split", &strutils::split);
 			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);
 			lua.set_function("str_begins_with", &strutils::begins_with);
-
-			/* ENTT */
-			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
-			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
 		}
 	} // namespace lua
 } // namespace galaxy

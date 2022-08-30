@@ -104,6 +104,13 @@ namespace galaxy
 #define GALAXY_ROOT_DIR std::filesystem::current_path().string()
 
 ///
+/// Number of threads for the threadpool to use.
+///
+/// On a 4 core system, you have 1 for main thread, 1 for audio and 2 for tasks.
+///
+#define GALAXY_WORKER_THREADS 2
+
+///
 /// Macro for windows platform detection.
 ///
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)

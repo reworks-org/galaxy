@@ -9,6 +9,7 @@
 #define GALAXY_ASYNC_TIMERASYNC_HPP_
 
 #include <functional>
+#include <future>
 
 namespace galaxy
 {
@@ -92,7 +93,7 @@ namespace galaxy
 			///
 			/// Thread running task.
 			///
-			std::jthread m_thread;
+			std::future<void> m_handle;
 
 			///
 			/// Callback function.

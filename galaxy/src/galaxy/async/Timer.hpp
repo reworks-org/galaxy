@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// Set constructor.
 			///
-			/// \param func Function to call on thread.
+			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
 			Timer(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
@@ -46,11 +46,9 @@ namespace galaxy
 			void repeat(const bool repeat) noexcept;
 
 			///
-			/// \brief Run a function on a precision timer.
+			/// Run a function on a precision timer.
 			///
-			/// The function runs on a thread so do not run any thread dependent code.
-			///
-			/// \param func Function to call on thread.
+			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
 			void set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;

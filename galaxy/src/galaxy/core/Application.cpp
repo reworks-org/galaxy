@@ -53,23 +53,17 @@ namespace galaxy
 			// The services are configured based off of the config file.
 			// Services are created in dependency order.
 
-			// Use half of available threads, rounded up.
+			// Make sure there is enough cores to run.
 			const auto hardware_count = std::thread::hardware_concurrency();
 			if (hardware_count < 4)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "You do not have enough hardware threads.");
 			}
 
-			auto thread_count = static_cast<int>(std::ceil(static_cast<float>(hardware_count) / 2.0f));
-			if (thread_count < 2)
-			{
-				thread_count = 2;
-			}
-
 			//
 			// Threadpool.
 			//
-			auto& tp = ServiceLocator<BS::thread_pool>::make(thread_count);
+			auto& tp = ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
 
 			//
 			// LOGGING.
