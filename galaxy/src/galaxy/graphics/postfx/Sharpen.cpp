@@ -96,6 +96,7 @@ namespace galaxy
 			m_fb.create(width, height);
 
 			m_shader.load_raw(sharpen_vert, sharpen_frag);
+			m_shader.compile();
 			m_shader.set_uniform<int>("u_texture", 0);
 		}
 

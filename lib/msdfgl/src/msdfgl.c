@@ -389,8 +389,7 @@ void msdfgl_destroy_atlas(msdfgl_atlas_t atlas) {
  * Initialize font from a FreeType face and generate textures and buffers for it.
  */
 msdfgl_font_t _msdfgl_init_font_internal(msdfgl_context_t ctx, FT_Face* face,
-                                         float range, float scale,
-                                         msdfgl_atlas_t atlas) {
+                                         float range, float scale) {
 
     msdfgl_font_t f = (msdfgl_font_t)calloc(1, sizeof(struct _msdfgl_font));
     if (!f)
@@ -399,38 +398,23 @@ msdfgl_font_t _msdfgl_init_font_internal(msdfgl_context_t ctx, FT_Face* face,
     f->face  = *face;
     f->scale = scale;
     f->range = range;
-
     f->context = ctx;
     f->_direct_lookup_upper_limit = 0;
-
-    if (!(f->atlas = atlas ? atlas : msdfgl_create_atlas(ctx, 0, 2))) {
-        free(f);
-        return NULL;
-    }
-    f->atlas->_refcount++;
-    f->atlas->_implicit = atlas == NULL;
-
     f->vertical_advance = (float)(f->face->ascender - f->face->descender);
 
     msdfgl_map_init(&f->character_index);
-
-    glGenBuffers(1, &f->_meta_input_buffer);
-    glGenBuffers(1, &f->_point_input_buffer);
-    glGenTextures(1, &f->_meta_input_texture);
-    glGenTextures(1, &f->_point_input_texture);
-
     return f;
 }
 
 msdfgl_font_t msdfgl_load_font(msdfgl_context_t ctx, const char *font_name, float range,
-                               float scale, msdfgl_atlas_t atlas) {
+                               float scale) {
 
     FT_Face face;
     if (FT_New_Face(ctx->ft_library, font_name, 0, &face)) {
         return NULL;
     }
 
-    return _msdfgl_init_font_internal(ctx, &face, range, scale, atlas);
+    return _msdfgl_init_font_internal(ctx, &face, range, scale);
 }
 
 /**
@@ -438,14 +422,32 @@ msdfgl_font_t msdfgl_load_font(msdfgl_context_t ctx, const char *font_name, floa
  */
 MSDFGL_EXPORT msdfgl_font_t msdfgl_load_font_mem(msdfgl_context_t ctx, void *font_buffer,
                                                  size_t font_buffer_size, float range,
-                                                 float scale, msdfgl_atlas_t atlas)
+                                                 float scale)
 {
     FT_Face face;
     if (FT_New_Memory_Face(ctx->ft_library, font_buffer, font_buffer_size, 0, &face)) {
         return NULL;
     }
 
-    return _msdfgl_init_font_internal(ctx, &face, range, scale, atlas);
+    return _msdfgl_init_font_internal(ctx, &face, range, scale);
+}
+
+void msdfgl_build_font(msdfgl_context_t ctx, msdfgl_font_t f)
+{
+    msdfgl_atlas_t atlas = NULL;
+
+    if (!(f->atlas = atlas ? atlas : msdfgl_create_atlas(ctx, 0, 2))) {
+        free(f);
+        return;
+    }
+
+    f->atlas->_refcount++;
+    f->atlas->_implicit = atlas == NULL;
+
+    glGenBuffers(1, &f->_meta_input_buffer);
+    glGenBuffers(1, &f->_point_input_buffer);
+    glGenTextures(1, &f->_meta_input_texture);
+    glGenTextures(1, &f->_point_input_texture);
 }
 
 void msdfgl_destroy_font(msdfgl_font_t font) {

@@ -52,6 +52,15 @@ namespace galaxy
 			{
 				clear();
 				load(m_folder);
+				build();
+			}
+		}
+
+		void Fonts::build()
+		{
+			for (auto&& [key, font] : m_cache)
+			{
+				font->build();
 			}
 		}
 	} // namespace resource

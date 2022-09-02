@@ -55,6 +55,7 @@ namespace galaxy
 			, m_output_fb {0}
 		{
 			m_output.load_raw(vao_vert, vao_frag);
+			m_output.compile();
 
 			// clang-format off
 			constexpr const std::array<float, 16> verticies = {

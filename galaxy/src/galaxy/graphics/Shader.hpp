@@ -86,6 +86,11 @@ namespace galaxy
 			[[maybe_unused]] bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
 
 			///
+			/// Compiles shader into OpenGL.
+			///
+			void compile();
+
+			///
 			/// Enable this shader for rendering.
 			///
 			void bind() noexcept;
@@ -162,6 +167,20 @@ namespace galaxy
 			/// Cache of uniforms for better performance.
 			///
 			robin_hood::unordered_flat_map<std::string, UniformInfo> m_cache;
+
+			///
+			/// \brief Vertex source.
+			///
+			/// Destroyed once shader is compiled.
+			///
+			std::unique_ptr<std::string> m_vertex_src;
+
+			///
+			/// \brief Fragment source.
+			///
+			/// Destroyed once shader is compiled.
+			///
+			std::unique_ptr<std::string> m_fragment_src;
 		};
 
 		template<>

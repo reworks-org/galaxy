@@ -84,6 +84,15 @@ namespace galaxy
 			{
 				clear();
 				load(m_folder);
+				compile();
+			}
+		}
+
+		void Shaders::compile()
+		{
+			for (auto&& [key, shader] : m_cache)
+			{
+				shader->compile();
 			}
 		}
 	} // namespace resource

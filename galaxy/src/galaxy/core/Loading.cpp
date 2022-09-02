@@ -5,8 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <random>
+
 #include <BS_thread_pool.hpp>
 #include <glfw/glfw3.h>
+#include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -15,178 +18,245 @@
 
 using namespace std::chrono_literals;
 
-///
-/// Logo vertex shader.
-///
-constexpr const char* const logo_vert = R"(
-	#version 460 core
-
-	layout(location = 0) in vec2 l_pos;
-	layout(location = 1) in vec2 l_texels;
-
-	out vec2 io_texels;
-
-	uniform mat4 u_proj;
-	uniform mat4 u_transform;
-
-	void main()
-	{
-		gl_Position =  u_proj * u_transform * vec4(l_pos, 0.0, 1.0);
-		io_texels = l_texels;
-	}
-)";
-
-///
-/// Logo fragment shader.
-///
-constexpr const char* const logo_frag = R"(
-	#version 460 core
-
-	in vec2 io_texels;
-	out vec4 io_frag_colour;
-
-	uniform sampler2D u_texture;
-
-	void main()
-	{
-		io_frag_colour = texture(u_texture, io_texels);
-	}
-)";
-
 namespace galaxy
 {
 	namespace core
 	{
-		Loading::Loading() noexcept
+		constexpr const auto bg_vert = R"(
+			#version 460 core
+
+			layout(location = 0) in vec2 l_pos;
+			layout(location = 1) in vec2 l_texels;
+
+			out vec2 io_texels;
+
+			uniform mat4 u_proj;
+			uniform mat4 u_transform;
+
+			void main()
+			{
+				gl_Position =  u_proj * u_transform * vec4(l_pos, 0.0, 1.0);
+				io_texels = l_texels;
+			}
+		)";
+
+		constexpr const auto bg_frag = R"(
+			#version 460 core
+
+			in vec2 io_texels;
+			out vec4 io_frag_colour;
+
+			uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels);
+			}
+		)";
+
+		constexpr const auto text_vert = R"(
+			#version 460 core
+			layout(location = 0) in vec2 l_pos;
+			layout(location = 1) in vec2 l_texels;
+
+			out vec2 io_texels;
+
+			uniform mat4 u_proj;
+			uniform mat4 u_transform;
+
+			void main()
+			{
+				io_texels = l_texels;
+				gl_Position =  u_proj * u_transform * vec4(l_pos, 0.0, 1.0);
+			}
+		)";
+
+		constexpr const auto text_frag = R"(
+			#version 460 core
+
+			in vec2 io_texels;
+			out vec4 io_frag_colour;
+
+			uniform vec4 u_colour;
+			uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels) * u_colour;
+			}
+		)";
+
+		Loading::LoadingText::LoadingText() noexcept
 		{
-			m_shader.load_raw(logo_vert, logo_frag);
+		}
+
+		Loading::LoadingText::~LoadingText() noexcept
+		{
+		}
+
+		void Loading::LoadingText::create(const std::string& text, const float size, graphics::Font& font, const graphics::Colour& colour)
+		{
+			m_colour                = colour;
+			const auto texture_size = font.get_text_size(text, size);
+
+			m_texture.bind(true);
+
+			std::size_t start = 0;
+			std::size_t end   = text.find('\n');
+
+			auto y_off = 0.0f;
+			while (end != std::string::npos)
+			{
+				msdfgl_printf(0,
+					y_off,
+					font.handle(),
+					size,
+					0x000000FF,
+					glm::value_ptr(m_texture.get_proj()),
+					MSDFGL_KERNING,
+					text.substr(start, end - start).c_str());
+
+				y_off += font.vertical_advance(size);
+				start = end + 1;
+				end   = text.find('\n', start);
+			}
+
+			msdfgl_printf(0, y_off, font.handle(), size, 0x000000FF, glm::value_ptr(m_texture.get_proj()), MSDFGL_KERNING, text.substr(start, end).c_str());
+
+			m_texture.unbind();
+
+			auto vbo = std::make_unique<graphics::VertexBuffer>();
+			auto ibo = std::make_unique<graphics::IndexBuffer>();
+
+			auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(texture_size.x), static_cast<int>(texture_size.y));
+			vbo->create(vertices, graphics::StorageFlag::DYNAMIC_DRAW);
+			ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+			m_vao.create(vbo, ibo);
+		}
+
+		Loading::Loading(std::string_view bg, const std::string& font)
+		{
+			m_bg_shader.load_raw(bg_vert, bg_frag);
+			m_bg_shader.compile();
+
+			m_text_shader.load_raw(text_vert, text_frag);
+			m_text_shader.compile();
+
+			auto& window = ServiceLocator<Window>::ref();
+			m_bg_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, window.get_widthf(), window.get_heightf(), 0.0f, -1.0f, 1.0f));
+			m_text_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, window.get_widthf(), window.get_heightf(), 0.0f, -1.0f, 1.0f));
+
+			m_bg.load(bg);
+			m_bg.set_anisotropy(16);
+			m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_bg.set_mode(graphics::TextureModes::REPEAT);
+
+			m_font.load(font);
+			m_font.build();
+
+			auto vbo = std::make_unique<graphics::VertexBuffer>();
+			auto ibo = std::make_unique<graphics::IndexBuffer>();
+
+			auto array = graphics::Vertex::gen_quad_vertices(m_bg.get_width(), m_bg.get_height());
+			vbo->create(array, graphics::StorageFlag::STATIC_DRAW);
+			ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+
+			m_vao.create(vbo, ibo);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glViewport(0, 0, window.get_width(), window.get_height());
 		}
 
 		Loading::~Loading() noexcept
 		{
 		}
 
-		void Loading::prep_window_for_loading() noexcept
+		void Loading::add_text(const std::string& text, const float size, const graphics::Colour& colour, glm::vec2 pos)
+		{
+			m_text_tf.set_pos(pos.x, pos.y);
+			m_text = std::make_unique<Loading::LoadingText>();
+			m_text->create(text, size, m_font, colour);
+		}
+
+		void Loading::add_tips(const std::string& lua_file, const float size, const graphics::Colour& colour, glm::vec2 pos)
+		{
+			m_tips_tf.set_pos(pos.x, pos.y);
+
+			sol::state lua;
+			lua.script_file(lua_file);
+
+			std::vector<std::string>& tips = lua["tips"];
+
+			for (const auto& tip : tips)
+			{
+				m_tips.emplace_back(std::make_unique<Loading::LoadingText>());
+				m_tips.back()->create(tip, size, m_font, colour);
+				m_tip_order.push_back(m_tips.size() - 1);
+			}
+
+			auto rd  = std::random_device {};
+			auto rng = std::default_random_engine {rd()};
+			std::shuffle(m_tip_order.begin(), m_tip_order.end(), rng);
+		}
+
+		void Loading::start(const std::function<void(void)>& lambda)
+		{
+			auto& tp        = ServiceLocator<BS::thread_pool>::ref();
+			m_thread_handle = tp.submit(lambda);
+		}
+
+		void Loading::display()
 		{
 			auto& window = ServiceLocator<Window>::ref();
 
-			m_shader.set_uniform<glm::mat4>("u_proj", glm::ortho(0.0f, window.get_widthf(), window.get_heightf(), 0.0f, -1.0f, 1.0f));
-
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, window.get_width(), window.get_height());
-
-			auto vbo = std::make_unique<graphics::VertexBuffer>();
-			auto ibo = std::make_unique<graphics::IndexBuffer>();
-
-			auto array = graphics::Vertex::gen_quad_vertices(1, 1);
-			vbo->create(array, graphics::StorageFlag::STATIC_DRAW);
-			ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-			m_vao.create(vbo, ibo);
-		}
-
-		void Loading::display_loadingscreen(std::string_view background) noexcept
-		{
-			if (!background.empty())
+			while (!meta::is_work_done(m_thread_handle))
 			{
-				graphics::Texture bg;
-				if (bg.load(background))
+				m_tf.translate(100.0f, 0.0f);
+
+				glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+				glBindVertexArray(m_vao.id());
+				glBindTexture(GL_TEXTURE_2D, m_bg.gl_texture());
+				m_bg_shader.bind();
+				m_bg_shader.set_uniform("u_transform", m_tf.get_transform());
+				glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
+
+				if (m_text != nullptr)
 				{
-					bg.set_anisotropy(16);
-					bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-					bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-					bg.set_mode(graphics::TextureModes::CLAMP_TO_BORDER);
-
-					auto array = graphics::Vertex::gen_quad_vertices(bg.get_width(), bg.get_height());
-					m_vao.sub_buffer(0, array);
-
-					m_shader.bind();
-
-					glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-					glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-					glBindVertexArray(m_vao.id());
-					glBindTexture(GL_TEXTURE_2D, bg.gl_texture());
-
-					m_shader.set_uniform("u_transform", m_default.get_transform());
-					glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
-
-					glfwSwapBuffers(ServiceLocator<Window>::ref().handle());
-
-					glBindTexture(GL_TEXTURE_2D, 0);
-					glBindVertexArray(0);
-					m_shader.unbind();
+					glBindVertexArray(m_text->m_vao.id());
+					glBindTexture(GL_TEXTURE_2D, m_text->m_texture.get_texture());
+					m_text_shader.bind();
+					m_text_shader.set_uniform("u_transform", m_text_tf.get_transform());
+					m_text_shader.set_uniform("u_colour", m_text->m_colour);
+					glDrawElements(GL_TRIANGLES, m_text->m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
 				}
-			}
-		}
 
-		void Loading::start_offthread_loading(const std::function<void(void)>& lambda)
-		{
-			auto& tp         = ServiceLocator<BS::thread_pool>::ref();
-			m_loading_thread = std::move(tp.submit(lambda));
-		}
-
-		void Loading::display_bg_until_finished(std::string_view background, std::string_view logo) noexcept
-		{
-			if (!background.empty() && !logo.empty())
-			{
-				if (m_bg.load(background) && m_animated.load(logo))
+				for (const auto& idx : m_tip_order)
 				{
-					m_bg.set_anisotropy(16);
-					m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-					m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-					m_bg.set_mode(graphics::TextureModes::CLAMP_TO_BORDER);
-
-					auto array = graphics::Vertex::gen_quad_vertices(m_bg.get_width(), m_bg.get_height());
-					m_vao.sub_buffer(0, array);
-
-					m_animated.set_anisotropy(16);
-					m_animated.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-					m_animated.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-					m_animated.set_mode(graphics::TextureModes::CLAMP_TO_BORDER);
-
-					auto vbo = std::make_unique<graphics::VertexBuffer>();
-					auto ibo = std::make_unique<graphics::IndexBuffer>();
-
-					auto array2 = graphics::Vertex::gen_quad_vertices(m_animated.get_width(), m_animated.get_height());
-					vbo->create(array2, graphics::StorageFlag::STATIC_DRAW);
-					ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-					m_anim_vao.create(vbo, ibo);
-
-					auto& window = ServiceLocator<Window>::ref();
-					m_transform.set_pos(window.get_widthf() - m_animated.get_widthf(), window.get_heightf() - m_animated.get_heightf());
-
-					m_shader.bind();
-					m_transform.set_origin(m_animated.get_widthf() / 2.0f, m_animated.get_heightf() / 2.0f);
-
-					while (!meta::is_work_done(m_loading_thread))
-					{
-						m_transform.rotate(8.0f);
-
-						glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-						glBindVertexArray(m_vao.id());
-						glBindTexture(GL_TEXTURE_2D, m_bg.gl_texture());
-						m_shader.set_uniform("u_transform", m_default.get_transform());
-						glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
-
-						glBindVertexArray(m_anim_vao.id());
-						glBindTexture(GL_TEXTURE_2D, m_animated.gl_texture());
-						m_shader.set_uniform("u_transform", m_transform.get_transform());
-						glDrawElements(GL_TRIANGLES, m_anim_vao.index_count(), GL_UNSIGNED_INT, nullptr);
-
-						glfwSwapBuffers(window.handle());
-					}
-
-					glBindTexture(GL_TEXTURE_2D, 0);
-					glBindVertexArray(0);
-					m_shader.unbind();
+					auto& tip = m_tips[idx];
+					glBindVertexArray(tip->m_vao.id());
+					glBindTexture(GL_TEXTURE_2D, tip->m_texture.get_texture());
+					m_text_shader.bind();
+					m_text_shader.set_uniform("u_transform", m_tips_tf.get_transform());
+					m_text_shader.set_uniform("u_colour", tip->m_colour);
+					glDrawElements(GL_TRIANGLES, tip->m_vao.index_count(), GL_UNSIGNED_INT, nullptr);
 				}
+
+				glfwSwapBuffers(window.handle());
 			}
 
-			m_loading_thread.get();
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glBindVertexArray(0);
+			glUseProgram(0);
+
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			glfwSwapBuffers(window.handle());
+
+			m_thread_handle.get();
 		}
 	} // namespace core
 } // namespace galaxy

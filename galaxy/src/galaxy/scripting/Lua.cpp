@@ -195,7 +195,7 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::DrawShader>::value);
 
-			drawshader_type[""]           = &components::DrawShader::m_shader;
+			drawshader_type["shader"]     = &components::DrawShader::m_shader;
 			drawshader_type["set_shader"] = &components::DrawShader::set_shader;
 			drawshader_type["id"]         = &components::DrawShader::id;
 
@@ -510,6 +510,7 @@ namespace galaxy
 			shader_type["get_uniform_location"] = &graphics::Shader::get_uniform_location;
 			shader_type["load_file"]            = &graphics::Shader::load_file;
 			shader_type["load_raw"]             = &graphics::Shader::load_raw;
+			shader_type["compile"]              = &graphics::Shader::compile;
 			shader_type["set_uniform_int"]      = &graphics::Shader::set_uniform<int>;
 			shader_type["set_uniform_int2"]     = &graphics::Shader::set_uniform<int, int>;
 			shader_type["set_uniform_int3"]     = &graphics::Shader::set_uniform<int, int, int>;
@@ -533,21 +534,29 @@ namespace galaxy
 			camera_type["get_proj"]              = &graphics::Camera::get_proj;
 			camera_type["get_view"]              = &graphics::Camera::get_view;
 
-			auto frame              = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
-			frame["texture_id"]     = &graphics::Frame::m_texture_id;
-			frame["time_per_frame"] = &graphics::Frame::m_time_per_frame;
+			auto frame_type              = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
+			frame_type["texture_id"]     = &graphics::Frame::m_texture_id;
+			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
 
-			auto animation                   = lua.new_usertype<graphics::Animation>("Animation",
+			auto animation_type                   = lua.new_usertype<graphics::Animation>("Animation",
                 sol::constructors<graphics::Animation(), graphics::Animation(std::string_view, const bool, const double, std::span<graphics::Frame>)>());
-			animation["current_frame"]       = &graphics::Animation::current_frame;
-			animation["current_frame_index"] = &graphics::Animation::current_frame_index;
-			animation["frames"]              = &graphics::Animation::m_frames;
-			animation["looping"]             = &graphics::Animation::m_looping;
-			animation["name"]                = &graphics::Animation::m_name;
-			animation["speed"]               = &graphics::Animation::m_speed;
-			animation["total_frames"]        = &graphics::Animation::m_total_frames;
-			animation["next_frame"]          = &graphics::Animation::next_frame;
-			animation["restart"]             = &graphics::Animation::restart;
+			animation_type["current_frame"]       = &graphics::Animation::current_frame;
+			animation_type["current_frame_index"] = &graphics::Animation::current_frame_index;
+			animation_type["frames"]              = &graphics::Animation::m_frames;
+			animation_type["looping"]             = &graphics::Animation::m_looping;
+			animation_type["name"]                = &graphics::Animation::m_name;
+			animation_type["speed"]               = &graphics::Animation::m_speed;
+			animation_type["total_frames"]        = &graphics::Animation::m_total_frames;
+			animation_type["next_frame"]          = &graphics::Animation::next_frame;
+			animation_type["restart"]             = &graphics::Animation::restart;
+
+			auto font_type                = lua.new_usertype<graphics::Font>("Font", sol::constructors<graphics::Font(), graphics::Font(const std::string&)>());
+			font_type["build"]            = &graphics::Font::build;
+			font_type["get_text_height"]  = &graphics::Font::get_text_height;
+			font_type["get_text_size"]    = &graphics::Font::get_text_size;
+			font_type["get_text_width"]   = &graphics::Font::get_text_width;
+			font_type["load"]             = &graphics::Font::load;
+			font_type["vertical_advance"] = &graphics::Font::vertical_advance;
 
 			/* INPUT */
 			// clang-format off
@@ -766,13 +775,14 @@ namespace galaxy
 			scripts_type["load"]   = &resource::Scripts::load;
 			scripts_type["reload"] = &resource::Scripts::reload;
 
-			auto shaders_type      = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
-			shaders_type["clear"]  = &resource::Shaders::clear;
-			shaders_type["empty"]  = &resource::Shaders::empty;
-			shaders_type["get"]    = &resource::Shaders::get;
-			shaders_type["has"]    = &resource::Shaders::has;
-			shaders_type["load"]   = &resource::Shaders::load;
-			shaders_type["reload"] = &resource::Shaders::reload;
+			auto shaders_type       = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
+			shaders_type["clear"]   = &resource::Shaders::clear;
+			shaders_type["empty"]   = &resource::Shaders::empty;
+			shaders_type["get"]     = &resource::Shaders::get;
+			shaders_type["has"]     = &resource::Shaders::has;
+			shaders_type["load"]    = &resource::Shaders::load;
+			shaders_type["reload"]  = &resource::Shaders::reload;
+			shaders_type["compile"] = &resource::Shaders::compile;
 
 			auto sounds_type             = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
 			sounds_type["clear"]         = &resource::Sounds::clear;
@@ -800,6 +810,7 @@ namespace galaxy
 			fonts_type["has"]    = &resource::Fonts::has;
 			fonts_type["load"]   = &resource::Fonts::load;
 			fonts_type["reload"] = &resource::Fonts::reload;
+			fonts_type["build"]  = &resource::Fonts::build;
 
 			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
 			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());

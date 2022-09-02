@@ -49,21 +49,12 @@ namespace galaxy
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-			// Set up all of the difference services.
-			// The services are configured based off of the config file.
-			// Services are created in dependency order.
-
 			// Make sure there is enough cores to run.
 			const auto hardware_count = std::thread::hardware_concurrency();
 			if (hardware_count < 4)
 			{
-				GALAXY_LOG(GALAXY_FATAL, "You do not have enough hardware threads.");
+				GALAXY_LOG(GALAXY_FATAL, "You do not have enough hardware threads. 4 is the minimum required.");
 			}
-
-			//
-			// Threadpool.
-			//
-			auto& tp = ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
 
 			//
 			// LOGGING.
@@ -117,10 +108,7 @@ namespace galaxy
 				config.set<bool>("enable_aa", false, "graphics");
 				config.set<bool>("enable_sharpen", false, "graphics");
 				config.set<std::string>("bg", "", "loading");
-				config.set<std::string>("logo", "", "loading");
-				config.set<std::string>("bg_atlas", "", "loading");
-				config.set<std::string>("bg_shader", "", "loading");
-				config.set<std::string>("bg_fonts", "", "loading");
+				config.set<std::string>("font", "", "loading");
 
 				config.save();
 			}
@@ -166,10 +154,9 @@ namespace galaxy
 			}
 
 			//
-			// WINDOW
-			//
-
+			// Window Settings.
 			// clang-format off
+			//
 			const auto window_settings = WindowSettings
 			{
 				.m_title = config.get<std::string>("title", "window"),
@@ -184,84 +171,86 @@ namespace galaxy
 			};
 			// clang-format on
 
+			//
+			// Construct window and init glfw and OpenGL.
+			//
 			auto& window = ServiceLocator<Window>::make(window_settings);
 
-			if (config.get<bool>("allow_native_closing", "window"))
-			{
-				window.allow_native_closing();
-			}
-			else
-			{
-				window.prevent_native_closing();
-			}
-
-			auto icon = config.get<std::string>("icon", "window");
-			if (!icon.empty())
-			{
-				window.set_icon(icon);
-			}
-
-			auto& cursor = window.get_input<input::Cursor>();
-			cursor.toggle(config.get<bool>("visible_cursor", "window"));
-
-			auto cursor_icon = config.get<std::string>("cursor_icon", "window");
-			if (!cursor_icon.empty())
-			{
-				cursor.set_cursor_icon(cursor_icon);
-			}
-
 			//
-			// Load rest of data with a load screen.
+			// Set up Font Context.
 			//
-
-			Loading loading;
-			loading.prep_window_for_loading();
-
-			//
-			// Begin loading shader related data.
-			//
-			loading.display_loadingscreen(config.get<std::string>("bg_shader", "loading"));
-
-			auto& shaders = ServiceLocator<resource::Shaders>::make();
-			shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
-
-			//
-			// Begin loading fonts.
-			//
-			loading.display_loadingscreen(config.get<std::string>("bg_fonts", "loading"));
 			ServiceLocator<graphics::FontContext>::make();
 
-			auto& fonts = ServiceLocator<resource::Fonts>::make();
-			fonts.load(config.get<std::string>("font_folder", "resource_folders"));
+			//
+			// Threadpool.
+			//
+			ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
 
 			//
-			// RML Renderer.
+			// Set up load screen.
 			//
-			m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
+			auto bg   = config.get<std::string>("bg", "loading");
+			auto font = config.get<std::string>("font", "loading");
+			if (bg.empty() || font.empty())
+			{
+				GALAXY_LOG(GALAXY_FATAL, "You need to set a background and a font for the loading screen in the config.");
+			}
 
-			//
-			// Begin loading textures.
-			//
-			loading.display_loadingscreen(config.get<std::string>("bg_atlas", "loading"));
-
-			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
-			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
+			Loading loading(bg, font);
 
 			//
 			// Begin offthread loading.
 			// clang-format off
 			//
-			loading.start_offthread_loading([&, this]()
+            // NOTE: You CANT call OpenGL here. This runs on a separate thread.
+			//
+			loading.start([&, this]()
 			{
-				// NOTE: You CANT call OpenGL here. This runs on a separate thread.
+				// clang-format on
+				//
+				// Load window texture data.
+				//
+				if (config.get<bool>("allow_native_closing", "window"))
+				{
+					window.allow_native_closing();
+				}
+				else
+				{
+					window.prevent_native_closing();
+				}
+
+				auto icon = config.get<std::string>("icon", "window");
+				if (!icon.empty())
+				{
+					window.set_icon(icon);
+				}
+
+				auto& cursor = window.get_input<input::Cursor>();
+				cursor.toggle(config.get<bool>("visible_cursor", "window"));
+
+				auto cursor_icon = config.get<std::string>("cursor_icon", "window");
+				if (!cursor_icon.empty())
+				{
+					cursor.set_cursor_icon(cursor_icon);
+				}
+
+				//
+				// Begin loading shader related data.
+				//
+				auto& shaders = ServiceLocator<resource::Shaders>::make();
+				shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
+
+				//
+				// Begin loading fonts.
+				//
+				auto& fonts = ServiceLocator<resource::Fonts>::make();
+				fonts.load(config.get<std::string>("font_folder", "resource_folders"));
 
 				//
 				// LUA.
 				//
 				auto& lua = ServiceLocator<sol::state>::make();
-
-				lua.open_libraries(
-					sol::lib::base,
+				lua.open_libraries(sol::lib::base,
 					sol::lib::package,
 					sol::lib::coroutine,
 					sol::lib::string,
@@ -269,9 +258,7 @@ namespace galaxy
 					sol::lib::math,
 					sol::lib::table,
 					sol::lib::io,
-					sol::lib::utf8
-				);
-				// clang-format on
+					sol::lib::utf8);
 
 				//
 				// LANGUAGES.
@@ -289,21 +276,25 @@ namespace galaxy
 				ae.set_voice_volume(config.get<float>("dialogue_volume", "audio"));
 
 				//
-				// Game Resources.
+				// Game audio files.
 				//
 				auto& sounds = ServiceLocator<resource::Sounds>::make();
 				sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
 				sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
 				sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
 
+				//
+				// Generic non entity scripts.
+				//
 				auto& scripts = ServiceLocator<resource::Scripts>::make();
 				scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
 
 				//
 				// UI.
 				//
-				m_rml_system_interface = std::make_unique<ui::RMLSystem>();
-				m_rml_file_interface   = std::make_unique<ui::RMLFile>();
+				m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
+				m_rml_file_interface      = std::make_unique<ui::RMLFile>();
+				m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
 
 				Rml::SetSystemInterface(m_rml_system_interface.get());
 				Rml::SetFileInterface(m_rml_file_interface.get());
@@ -349,35 +340,45 @@ namespace galaxy
 				lua::inject_galaxy_into_lua();
 			});
 
-			loading.display_bg_until_finished(config.get<std::string>("bg", "loading"), config.get<std::string>("logo", "loading"));
+			// Will display until loading offthread is done.
+			loading.display();
+
+			ServiceLocator<resource::Shaders>::ref().compile();
+			m_rml_rendering_interface->compile_shaders();
+			ServiceLocator<resource::Fonts>::ref().build();
+
+			//
+			// Texture atlas.
+			//
+			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
+			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
 		}
 
 		Application::~Application()
 		{
+			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<state::SceneManager>::del();
 
 			Rml::Shutdown();
-			m_rml_system_interface.reset();
-			m_rml_file_interface.reset();
 			m_rml_rendering_interface.reset();
+			m_rml_file_interface.reset();
+			m_rml_system_interface.reset();
 
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Sounds>::del();
 			ServiceLocator<audio::AudioEngine>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<sol::state>::del();
-			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Fonts>::del();
-			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<resource::Shaders>::del();
+			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
+			ServiceLocator<BS::thread_pool>::del();
+			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
 
 			GALAXY_LOG_FINISH();
-
-			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
-			ServiceLocator<BS::thread_pool>::del();
 		}
 
 		void Application::load(std::string_view json_file)

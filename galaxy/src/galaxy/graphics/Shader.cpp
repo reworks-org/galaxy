@@ -24,11 +24,15 @@ namespace galaxy
 	{
 		Shader::Shader() noexcept
 			: m_id {0}
+			, m_vertex_src {nullptr}
+			, m_fragment_src {nullptr}
 		{
 		}
 
 		Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
 			: m_id {0}
+			, m_vertex_src {nullptr}
+			, m_fragment_src {nullptr}
 		{
 			if (!load_file(vertex_file, frag_file))
 			{
@@ -38,6 +42,8 @@ namespace galaxy
 
 		Shader::Shader(const nlohmann::json& json)
 			: m_id {0}
+			, m_vertex_src {nullptr}
+			, m_fragment_src {nullptr}
 		{
 			if ((json.count("vertex_file") > 0) && (json.count("fragment_file") > 0))
 			{
@@ -59,8 +65,13 @@ namespace galaxy
 
 		Shader::Shader(Shader&& s) noexcept
 		{
-			this->m_id    = s.m_id;
-			this->m_cache = std::move(s.m_cache);
+			this->m_id           = s.m_id;
+			this->m_cache        = std::move(s.m_cache);
+			this->m_fragment_src = std::move(s.m_fragment_src);
+			this->m_vertex_src   = std::move(s.m_vertex_src);
+
+			s.m_vertex_src   = nullptr;
+			s.m_fragment_src = nullptr;
 
 			s.m_id = 0;
 		}
@@ -69,8 +80,13 @@ namespace galaxy
 		{
 			if (this != &s)
 			{
-				this->m_id    = s.m_id;
-				this->m_cache = std::move(s.m_cache);
+				this->m_id           = s.m_id;
+				this->m_cache        = std::move(s.m_cache);
+				this->m_fragment_src = std::move(s.m_fragment_src);
+				this->m_vertex_src   = std::move(s.m_vertex_src);
+
+				s.m_vertex_src   = nullptr;
+				s.m_fragment_src = nullptr;
 
 				s.m_id = 0;
 			}
@@ -80,6 +96,12 @@ namespace galaxy
 
 		Shader::~Shader() noexcept
 		{
+			m_fragment_src.reset();
+			m_vertex_src.reset();
+
+			m_fragment_src = nullptr;
+			m_vertex_src   = nullptr;
+
 			glDeleteProgram(m_id);
 		}
 
@@ -122,97 +144,110 @@ namespace galaxy
 
 			if (result)
 			{
-				// Error reporting for OpenGL.
-				char info[1024]   = {0};
-				int success       = 0;
-				unsigned int v_id = 0;
-				unsigned int f_id = 0;
+				m_vertex_src   = std::make_unique<std::string>(vertex_str);
+				m_fragment_src = std::make_unique<std::string>(fragment_str);
+			}
 
-				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string.
-				const char* v_src = vertex_str.c_str();
-				const char* f_src = fragment_str.c_str();
+			return result;
+		}
 
-				// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
-				v_id = glCreateShader(GL_VERTEX_SHADER);
-				glShaderSource(v_id, 1, &v_src, nullptr);
-				glCompileShader(v_id);
+		void Shader::compile()
+		{
+			// Error reporting for OpenGL.
+			char info[1024] = {0};
+			auto success    = 0;
+			auto v_id       = 0u;
+			auto f_id       = 0u;
 
-				glGetShaderiv(v_id, GL_COMPILE_STATUS, &success);
+			// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string.
+			auto v_src = m_vertex_src->c_str();
+			auto f_src = m_fragment_src->c_str();
+
+			// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
+			v_id = glCreateShader(GL_VERTEX_SHADER);
+			glShaderSource(v_id, 1, &v_src, nullptr);
+			glCompileShader(v_id);
+
+			glGetShaderiv(v_id, GL_COMPILE_STATUS, &success);
+			if (!success)
+			{
+				glGetShaderInfoLog(v_id, 1024, nullptr, info);
+
+				GALAXY_LOG(GALAXY_ERROR, "Failed to compile vertex shader. {0}.", info);
+			}
+
+			// Now do the same for the fragment shader.
+			f_id = glCreateShader(GL_FRAGMENT_SHADER);
+			glShaderSource(f_id, 1, &f_src, nullptr);
+			glCompileShader(f_id);
+
+			glGetShaderiv(f_id, GL_COMPILE_STATUS, &success);
+			if (!success)
+			{
+				glGetShaderInfoLog(f_id, 1024, nullptr, info);
+
+				GALAXY_LOG(GALAXY_ERROR, "Failed to compile fragment shader. {0}.", info);
+			}
+
+			if (m_vertex_src == nullptr || m_fragment_src == nullptr)
+			{
+				success = 0;
+			}
+
+			if (success)
+			{
+				// Create and link program.
+				m_id = glCreateProgram();
+				glAttachShader(m_id, v_id);
+				glAttachShader(m_id, f_id);
+				glLinkProgram(m_id);
+
+				glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 				if (!success)
 				{
-					glGetShaderInfoLog(v_id, 1024, nullptr, info);
+					glGetProgramInfoLog(m_id, 1024, nullptr, info);
 
-					GALAXY_LOG(GALAXY_ERROR, "Failed to compile vertex shader. {0}.", info);
-					result = false;
+					GALAXY_LOG(GALAXY_ERROR, "Failed to attach shaders: {0}.", info);
 				}
 
-				// Now do the same for the fragment shader.
-				f_id = glCreateShader(GL_FRAGMENT_SHADER);
-				glShaderSource(f_id, 1, &f_src, nullptr);
-				glCompileShader(f_id);
+				GLint uniform_count = 0;
+				glGetProgramiv(m_id, GL_ACTIVE_UNIFORMS, &uniform_count);
 
-				glGetShaderiv(f_id, GL_COMPILE_STATUS, &success);
-				if (!success)
+				if (uniform_count != 0)
 				{
-					glGetShaderInfoLog(f_id, 1024, nullptr, info);
+					GLint max_name_len = 0;
+					glGetProgramiv(m_id, GL_ACTIVE_UNIFORM_MAX_LENGTH, &max_name_len);
 
-					GALAXY_LOG(GALAXY_ERROR, "Failed to compile fragment shader. {0}.", info);
-					result = false;
-				}
-
-				// Hopefully by this point nothing has gone wrong...
-				if (result)
-				{
-					// Create and link program.
-					m_id = glCreateProgram();
-					glAttachShader(m_id, v_id);
-					glAttachShader(m_id, f_id);
-					glLinkProgram(m_id);
-
-					glGetProgramiv(m_id, GL_LINK_STATUS, &success);
-					if (!success)
+					GLsizei length = 0;
+					GLsizei count  = 0;
+					GLenum type    = GL_NONE;
+					for (GLint i = 0; i < uniform_count; ++i)
 					{
-						glGetProgramInfoLog(m_id, 1024, nullptr, info);
+						auto uniform_name = std::make_unique<char[]>(max_name_len);
+						glGetActiveUniform(m_id, i, max_name_len, &length, &count, &type, uniform_name.get());
 
-						GALAXY_LOG(GALAXY_ERROR, "Failed to attach shaders: {0}.", info);
-						result = false;
-					}
-
-					GLint uniform_count = 0;
-					glGetProgramiv(m_id, GL_ACTIVE_UNIFORMS, &uniform_count);
-
-					if (uniform_count != 0)
-					{
-						GLint max_name_len = 0;
-						glGetProgramiv(m_id, GL_ACTIVE_UNIFORM_MAX_LENGTH, &max_name_len);
-
-						GLsizei length = 0;
-						GLsizei count  = 0;
-						GLenum type    = GL_NONE;
-						for (GLint i = 0; i < uniform_count; ++i)
-						{
-							auto uniform_name = std::make_unique<char[]>(max_name_len);
-							glGetActiveUniform(m_id, i, max_name_len, &length, &count, &type, uniform_name.get());
-
-							// clang-format off
+						// clang-format off
 							auto uniform_info = UniformInfo
 							{
 								.m_location = glGetUniformLocation(m_id, uniform_name.get()),
 								.m_count = count
 							};
-							// clang-format on
+						// clang-format on
 
-							m_cache.emplace(std::string(uniform_name.get(), length), uniform_info);
-						}
+						m_cache.emplace(std::string(uniform_name.get(), length), uniform_info);
 					}
 				}
-
-				// Cleanup shaders.
-				glDeleteShader(v_id);
-				glDeleteShader(f_id);
 			}
 
-			return result;
+			// Cleanup shaders.
+			glDeleteShader(v_id);
+			glDeleteShader(f_id);
+
+			m_fragment_src.reset();
+			m_vertex_src.reset();
+
+			m_fragment_src = nullptr;
+			m_vertex_src   = nullptr;
 		}
 
 		void Shader::bind() noexcept
@@ -263,7 +298,7 @@ namespace galaxy
 				return std::nullopt;
 			}
 		}
-		
+
 		unsigned int Shader::id() const noexcept
 		{
 			return m_id;

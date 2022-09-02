@@ -23,7 +23,7 @@ namespace galaxy
 		Font::Font(const std::string& file)
 			: m_font {nullptr}
 		{
-			if (!create(file))
+			if (!load(file))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to load font file '{0}'.", file);
 			}
@@ -54,7 +54,7 @@ namespace galaxy
 			}
 		}
 
-		bool Font::create(const std::string& file)
+		bool Font::load(const std::string& file)
 		{
 			auto result = false;
 			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
@@ -64,8 +64,7 @@ namespace galaxy
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
 
-				m_font = msdfgl_load_font(fc.context(), file.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE, nullptr);
-				msdfgl_generate_ascii_ext(m_font);
+				m_font = msdfgl_load_font(fc.context(), file.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
 				msdfgl_set_missing_glyph_callback(fc.context(), msdfgl_generate_glyph, nullptr);
 
 				result = true;
@@ -76,6 +75,12 @@ namespace galaxy
 			}
 
 			return result;
+		}
+
+		void Font::build()
+		{
+			msdfgl_build_font(core::ServiceLocator<FontContext>::ref().context(), m_font);
+			msdfgl_generate_ascii_ext(m_font);
 		}
 
 		float Font::vertical_advance(const float size) const noexcept

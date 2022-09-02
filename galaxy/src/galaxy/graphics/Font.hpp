@@ -52,13 +52,20 @@ namespace galaxy
 			~Font() noexcept;
 
 			///
-			/// Creates the font and sets up characters.
+			/// Loads the font and sets up characters.
 			///
 			/// \param file Path to the font file.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool create(const std::string& file);
+			[[maybe_unused]] bool load(const std::string& file);
+
+			///
+			/// \brief Build the font atlas.
+			///
+			/// Not thread safe, calls OpenGL code.
+			///
+			void build();
 
 			///
 			/// Get vertical advance for drawing multiline text.

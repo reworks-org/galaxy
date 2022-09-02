@@ -84,7 +84,6 @@ namespace galaxy
 			m_shader.load_raw(rml_vert, rml_frag);
 
 			m_identity = glm::make_mat4(Rml::Matrix4f::Identity().data());
-			m_shader.set_uniform("u_transform", m_identity);
 		}
 
 		void RMLRenderer::RenderGeometry(Rml::Vertex* vertices,
@@ -293,6 +292,12 @@ namespace galaxy
 			{
 				m_shader.set_uniform("u_transform", m_identity);
 			}
+		}
+
+		void RMLRenderer::compile_shaders()
+		{
+			m_shader.compile();
+			m_shader.set_uniform("u_transform", m_identity);
 		}
 	} // namespace ui
 } // namespace galaxy

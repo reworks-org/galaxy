@@ -46,11 +46,11 @@ namespace galaxy
 			/// \param translation The translation to apply to the geometry.
 			///
 			void RenderGeometry(Rml::Vertex* vertices,
-				int                          num_vertices,
-				int*                         indices,
-				int                          num_indices,
-				Rml::TextureHandle           texture,
-				const Rml::Vector2f&         translation) override;
+				int num_vertices,
+				int* indices,
+				int num_indices,
+				Rml::TextureHandle texture,
+				const Rml::Vector2f& translation) override;
 
 			///
 			/// Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable future.
@@ -140,6 +140,11 @@ namespace galaxy
 			/// \param transform The new transform to apply, or nullptr if no transform applies to the current element.
 			///
 			void SetTransform(const Rml::Matrix4f* transform) override;
+
+			///
+			/// Compile shaders used by RML.
+			///
+			void compile_shaders();
 
 		private:
 			///
