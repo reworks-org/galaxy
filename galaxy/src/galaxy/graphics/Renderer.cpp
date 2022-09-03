@@ -115,39 +115,3 @@ namespace galaxy
 		}
 	} // namespace graphics
 } // namespace galaxy
-
-/*
-		void Renderer2D::submit(components::BatchSprite* batch, components::Transform2D* transform)
-		{
-			m_layer_data.at(batch->get_layer()).m_batches[batch->get_atlas_index()].add(batch, transform);
-		}
-
-		void Renderer2D::submit(components::ParticleEffect* particle_effect)
-		{
-			Renderable renderable = {.m_vao = particle_effect->vao(),
-				.m_texture                  = particle_effect->gl_texture(),
-				.m_index_count              = particle_effect->index_count(),
-				.m_type                     = GL_TRIANGLES,
-				.m_configure_shader =
-					[this, particle_effect]() {
-						int   opacity      = particle_effect->get_opacity();
-						float norm_opacity = 0.0f;
-						if (opacity == 255)
-						{
-							norm_opacity = 1.0f;
-						}
-						else if (opacity != 0)
-						{
-							norm_opacity = static_cast<float>(opacity) / static_cast<float>(0xFF);
-						}
-
-						this->m_instance_shader.bind();
-						this->m_instance_shader.set_uniform("u_opacity", norm_opacity);
-						this->m_instance_shader.set_uniform<float>("u_width", static_cast<float>(particle_effect->get_width()));
-						this->m_instance_shader.set_uniform<float>("u_height", static_cast<float>(particle_effect->get_height()));
-					},
-				.m_instance_count = particle_effect->instance_count()};
-
-			m_layer_data.at(particle_effect->get_layer()).submit(renderable);
-		} // namespace graphics
-*/

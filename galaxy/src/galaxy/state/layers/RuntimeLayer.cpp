@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/audio/AudioEngine.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
 #include "RuntimeLayer.hpp"
@@ -30,6 +32,8 @@ namespace galaxy
 
 		void RuntimeLayer::on_pop()
 		{
+			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
+			ae.stop_all();
 		}
 
 		void RuntimeLayer::events()
