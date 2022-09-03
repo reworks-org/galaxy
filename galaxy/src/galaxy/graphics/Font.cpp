@@ -64,7 +64,7 @@ namespace galaxy
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
 
-				m_font = msdfgl_load_font(fc.context(), file.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
+				m_font = msdfgl_load_font(fc.context(), info.m_string.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
 				msdfgl_set_missing_glyph_callback(fc.context(), msdfgl_generate_glyph, nullptr);
 
 				result = true;
