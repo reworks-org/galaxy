@@ -41,6 +41,8 @@ namespace galaxy
 
 		Framebuffer::Framebuffer(Framebuffer&& f) noexcept
 		{
+			this->destroy();
+
 			this->m_width              = f.m_width;
 			this->m_height             = f.m_height;
 			this->m_fbo                = f.m_fbo;
@@ -66,6 +68,8 @@ namespace galaxy
 		{
 			if (this != &f)
 			{
+				this->destroy();
+
 				this->m_width              = f.m_width;
 				this->m_height             = f.m_height;
 				this->m_fbo                = f.m_fbo;
@@ -92,37 +96,7 @@ namespace galaxy
 
 		Framebuffer::~Framebuffer()
 		{
-			if (m_fbo != 0)
-			{
-				glDeleteFramebuffers(1, &m_fbo);
-				m_fbo = 0;
-			}
-
-			if (m_depth_attachment != 0)
-			{
-				glDeleteTextures(1, &m_depth_attachment);
-				m_depth_attachment = 0;
-			}
-
-			if (m_depth_renderbuffer != 0)
-			{
-				glDeleteRenderbuffers(1, &m_depth_renderbuffer);
-			}
-
-			for (auto& pair : m_attachments)
-			{
-				glDeleteTextures(1, &pair.first);
-			}
-
-			m_attachments.clear();
-
-			if (m_renderbuffers.size() > 0)
-			{
-				glDeleteRenderbuffers(static_cast<GLsizei>(m_renderbuffers.size()), m_renderbuffers.data());
-				m_renderbuffers.clear();
-			}
-
-			m_used_attachments.clear();
+			destroy();
 		}
 
 		void Framebuffer::init(const int width, const int height) noexcept
@@ -425,6 +399,42 @@ namespace galaxy
 		unsigned int Framebuffer::id() const noexcept
 		{
 			return m_fbo;
+		}
+
+		void Framebuffer::destroy()
+		{
+			if (m_fbo != 0)
+			{
+				glDeleteFramebuffers(1, &m_fbo);
+				m_fbo = 0;
+			}
+
+			if (m_depth_attachment != 0)
+			{
+				glDeleteTextures(1, &m_depth_attachment);
+				m_depth_attachment = 0;
+			}
+
+			if (m_depth_renderbuffer != 0)
+			{
+				glDeleteRenderbuffers(1, &m_depth_renderbuffer);
+				m_depth_renderbuffer = 0;
+			}
+
+			for (auto& pair : m_attachments)
+			{
+				glDeleteTextures(1, &pair.first);
+			}
+
+			m_attachments.clear();
+
+			if (m_renderbuffers.size() > 0)
+			{
+				glDeleteRenderbuffers(static_cast<GLsizei>(m_renderbuffers.size()), m_renderbuffers.data());
+				m_renderbuffers.clear();
+			}
+
+			m_used_attachments.clear();
 		}
 	} // namespace graphics
 } // namespace galaxy

@@ -375,16 +375,16 @@ namespace galaxy
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						// Configure renderer and post processing.
-						m_postprocess = std::make_unique<graphics::PostProcess>(m_width, m_height);
+						m_postprocess.init(m_width, m_height);
 
 						if (settings.m_enable_aa)
 						{
-							m_postprocess->add<graphics::SMAA>(m_width, m_height);
+							m_postprocess.add<graphics::SMAA>(m_width, m_height);
 						}
 
 						if (settings.m_enable_sharpen)
 						{
-							m_postprocess->add<graphics::Sharpen>(m_width, m_height);
+							m_postprocess.add<graphics::Sharpen>(m_width, m_height);
 						}
 
 						graphics::Renderer::init();
@@ -465,8 +465,7 @@ namespace galaxy
 			{
 				graphics::Renderer::destroy();
 
-				m_postprocess.reset();
-				m_postprocess = nullptr;
+				m_postprocess.destroy();
 
 				m_cursor.destroy();
 
@@ -487,13 +486,13 @@ namespace galaxy
 
 		void Window::begin()
 		{
-			m_postprocess->bind();
+			m_postprocess.bind();
 		}
 
 		void Window::end()
 		{
 			graphics::Renderer::draw();
-			m_postprocess->render_effects();
+			m_postprocess.render_effects();
 
 			// Final Output.
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -502,7 +501,7 @@ namespace galaxy
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			m_postprocess->render_output();
+			m_postprocess.render_output();
 
 			glfwSwapBuffers(m_window);
 
@@ -516,7 +515,7 @@ namespace galaxy
 			m_width  = width;
 			m_height = height;
 
-			m_postprocess->resize(width, height);
+			m_postprocess.resize(width, height);
 			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 

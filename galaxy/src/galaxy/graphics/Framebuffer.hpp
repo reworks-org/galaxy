@@ -187,6 +187,11 @@ namespace galaxy
 			///
 			Framebuffer& operator=(const Framebuffer&) = delete;
 
+			///
+			/// Destroy all data used by framebuffer.
+			///
+			void destroy();
+
 		private:
 			///
 			/// Width cache.

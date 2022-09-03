@@ -30,6 +30,8 @@ namespace galaxy
 
 		VertexBuffer::VertexBuffer(VertexBuffer&& vb) noexcept
 		{
+			this->destroy();
+
 			this->m_vbo  = vb.m_vbo;
 			this->m_size = vb.m_size;
 
@@ -40,6 +42,8 @@ namespace galaxy
 		{
 			if (this != &vb)
 			{
+				this->destroy();
+
 				this->m_vbo  = vb.m_vbo;
 				this->m_size = vb.m_size;
 
@@ -92,8 +96,11 @@ namespace galaxy
 
 		void VertexBuffer::destroy() noexcept
 		{
-			glDeleteBuffers(1, &m_vbo);
-			m_vbo = 0;
+			if (m_vbo != 0)
+			{
+				glDeleteBuffers(1, &m_vbo);
+				m_vbo = 0;
+			}
 		}
 
 		unsigned int VertexBuffer::id() const noexcept

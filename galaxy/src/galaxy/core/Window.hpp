@@ -261,7 +261,7 @@ namespace galaxy
 			///
 			/// Post processor.
 			///
-			std::unique_ptr<graphics::PostProcess> m_postprocess;
+			graphics::PostProcess m_postprocess;
 
 			///
 			/// Event queue.

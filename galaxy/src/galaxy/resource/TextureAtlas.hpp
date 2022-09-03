@@ -225,7 +225,7 @@ namespace galaxy
 			///
 			/// Default vertex array to use when building an atlas.
 			///
-			graphics::VertexArray m_va;
+			graphics::VertexArray m_vao;
 
 			///
 			/// Default transform to use when building an atlas.

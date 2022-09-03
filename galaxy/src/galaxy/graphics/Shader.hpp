@@ -83,12 +83,17 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
+			[[maybe_unused]] bool load_raw(std::string_view vertex_str, std::string_view fragment_str);
 
 			///
 			/// Compiles shader into OpenGL.
 			///
 			void compile();
+
+			///
+			/// Free up resources used by shader.
+			///
+			void destroy();
 
 			///
 			/// Enable this shader for rendering.
@@ -173,14 +178,14 @@ namespace galaxy
 			///
 			/// Destroyed once shader is compiled.
 			///
-			std::unique_ptr<std::string> m_vertex_src;
+			std::string m_vertex_src;
 
 			///
 			/// \brief Fragment source.
 			///
 			/// Destroyed once shader is compiled.
 			///
-			std::unique_ptr<std::string> m_fragment_src;
+			std::string m_fragment_src;
 		};
 
 		template<>

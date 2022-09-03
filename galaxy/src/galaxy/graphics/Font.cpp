@@ -31,6 +31,11 @@ namespace galaxy
 
 		Font::Font(Font&& f) noexcept
 		{
+			if (this->m_font != nullptr)
+			{
+				msdfgl_destroy_font(this->m_font);
+			}
+
 			this->m_font = f.m_font;
 			f.m_font     = nullptr;
 		}
@@ -39,6 +44,11 @@ namespace galaxy
 		{
 			if (this != &f)
 			{
+				if (this->m_font != nullptr)
+				{
+					msdfgl_destroy_font(this->m_font);
+				}
+
 				this->m_font = f.m_font;
 				f.m_font     = nullptr;
 			}

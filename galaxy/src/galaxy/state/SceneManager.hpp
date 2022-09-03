@@ -42,7 +42,7 @@ namespace galaxy
 			///
 			/// \return Shared pointer to created scene.
 			///
-			[[maybe_unused]] std::shared_ptr<Scene> make(const std::string& name);
+			[[maybe_unused]] std::weak_ptr<Scene> make(const std::string& name);
 
 			///
 			/// \brief Set a scene.
@@ -64,9 +64,9 @@ namespace galaxy
 			///
 			/// Get currently active scene.
 			///
-			/// \return Shared pointer to currently active scene.
+			/// \return Ref to currently active scene.
 			///
-			[[nodiscard]] std::shared_ptr<Scene> current() noexcept;
+			[[nodiscard]] Scene& current() noexcept;
 
 			///
 			/// Gets a specific scene.
@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			/// \return Shared pointer to requested scene.
 			///
-			[[nodiscard]] std::shared_ptr<Scene> get(const std::string& name) noexcept;
+			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name) noexcept;
 
 			///
 			/// Load data from memory into scenes.

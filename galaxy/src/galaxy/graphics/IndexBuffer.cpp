@@ -29,7 +29,10 @@ namespace galaxy
 		}
 
 		IndexBuffer::IndexBuffer(IndexBuffer&& ib) noexcept
+			: m_ibo {0}
 		{
+			this->destroy();
+
 			this->m_ibo   = ib.m_ibo;
 			this->m_count = ib.m_count;
 
@@ -40,6 +43,8 @@ namespace galaxy
 		{
 			if (this != &ib)
 			{
+				this->destroy();
+
 				this->m_ibo   = ib.m_ibo;
 				this->m_count = ib.m_count;
 
@@ -67,19 +72,6 @@ namespace galaxy
 			}
 		}
 
-		void IndexBuffer::const_create(std::span<const unsigned int> indices, const StorageFlag flag)
-		{
-			if (!indices.empty())
-			{
-				m_count = static_cast<unsigned int>(indices.size());
-				glNamedBufferData(m_ibo, indices.size_bytes(), indices.data(), static_cast<GLenum>(flag));
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to upload empty index buffer.");
-			}
-		}
-
 		void IndexBuffer::clear() noexcept
 		{
 			glInvalidateBufferData(m_ibo);
@@ -87,8 +79,11 @@ namespace galaxy
 
 		void IndexBuffer::destroy() noexcept
 		{
-			glDeleteBuffers(1, &m_ibo);
-			m_ibo = 0;
+			if (m_ibo != 0)
+			{
+				glDeleteBuffers(1, &m_ibo);
+				m_ibo = 0;
+			}
 		}
 
 		int IndexBuffer::index_count() const noexcept

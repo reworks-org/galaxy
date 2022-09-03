@@ -212,9 +212,6 @@ namespace galaxy
 			std::vector<unsigned int> indices;
 			std::vector<graphics::Vertex> vertices;
 
-			auto vbo = std::make_unique<graphics::VertexBuffer>();
-			auto ibo = std::make_unique<graphics::IndexBuffer>();
-
 			if constexpr (shape == graphics::Shape::CIRCLE)
 			{
 				// Thanks to https://stackoverflow.com/a/33859443
@@ -342,10 +339,7 @@ namespace galaxy
 				set_primitive_type(graphics::Primitives::LINE_LOOP);
 			}
 
-			vbo->create(vertices, graphics::StorageFlag::STATIC_DRAW);
-			ibo->create(indices, graphics::StorageFlag::STATIC_DRAW);
-
-			m_vao.create(vbo, ibo);
+			m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, indices, graphics::StorageFlag::STATIC_DRAW);
 			configure();
 		}
 	} // namespace components

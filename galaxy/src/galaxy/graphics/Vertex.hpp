@@ -103,7 +103,7 @@ namespace galaxy
 			///
 			/// \return Indices mapping vertices from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 			///
-			static const std::array<unsigned int, 6>& get_default_indices() noexcept;
+			static std::array<unsigned int, 6>& get_default_indices() noexcept;
 
 			///
 			/// Comparison operator.

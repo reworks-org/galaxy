@@ -24,15 +24,11 @@ namespace galaxy
 	{
 		Shader::Shader() noexcept
 			: m_id {0}
-			, m_vertex_src {nullptr}
-			, m_fragment_src {nullptr}
 		{
 		}
 
 		Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
 			: m_id {0}
-			, m_vertex_src {nullptr}
-			, m_fragment_src {nullptr}
 		{
 			if (!load_file(vertex_file, frag_file))
 			{
@@ -42,8 +38,6 @@ namespace galaxy
 
 		Shader::Shader(const nlohmann::json& json)
 			: m_id {0}
-			, m_vertex_src {nullptr}
-			, m_fragment_src {nullptr}
 		{
 			if ((json.count("vertex_file") > 0) && (json.count("fragment_file") > 0))
 			{
@@ -65,13 +59,12 @@ namespace galaxy
 
 		Shader::Shader(Shader&& s) noexcept
 		{
+			this->destroy();
+
 			this->m_id           = s.m_id;
 			this->m_cache        = std::move(s.m_cache);
 			this->m_fragment_src = std::move(s.m_fragment_src);
 			this->m_vertex_src   = std::move(s.m_vertex_src);
-
-			s.m_vertex_src   = nullptr;
-			s.m_fragment_src = nullptr;
 
 			s.m_id = 0;
 		}
@@ -80,13 +73,12 @@ namespace galaxy
 		{
 			if (this != &s)
 			{
+				this->destroy();
+
 				this->m_id           = s.m_id;
 				this->m_cache        = std::move(s.m_cache);
 				this->m_fragment_src = std::move(s.m_fragment_src);
 				this->m_vertex_src   = std::move(s.m_vertex_src);
-
-				s.m_vertex_src   = nullptr;
-				s.m_fragment_src = nullptr;
 
 				s.m_id = 0;
 			}
@@ -96,13 +88,7 @@ namespace galaxy
 
 		Shader::~Shader() noexcept
 		{
-			m_fragment_src.reset();
-			m_vertex_src.reset();
-
-			m_fragment_src = nullptr;
-			m_vertex_src   = nullptr;
-
-			glDeleteProgram(m_id);
+			destroy();
 		}
 
 		bool Shader::load_file(std::string_view vertex_file, std::string_view frag_file)
@@ -126,7 +112,7 @@ namespace galaxy
 			return load_raw(vertex.value(), fragment.value());
 		}
 
-		bool Shader::load_raw(const std::string& vertex_str, const std::string& fragment_str)
+		bool Shader::load_raw(std::string_view vertex_str, std::string_view fragment_str)
 		{
 			bool result = true;
 
@@ -144,8 +130,8 @@ namespace galaxy
 
 			if (result)
 			{
-				m_vertex_src   = std::make_unique<std::string>(vertex_str);
-				m_fragment_src = std::make_unique<std::string>(fragment_str);
+				m_vertex_src   = vertex_str;
+				m_fragment_src = fragment_str;
 			}
 
 			return result;
@@ -160,8 +146,8 @@ namespace galaxy
 			auto f_id       = 0u;
 
 			// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string.
-			auto v_src = m_vertex_src->c_str();
-			auto f_src = m_fragment_src->c_str();
+			auto v_src = m_vertex_src.c_str();
+			auto f_src = m_fragment_src.c_str();
 
 			// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
 			v_id = glCreateShader(GL_VERTEX_SHADER);
@@ -189,7 +175,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Failed to compile fragment shader. {0}.", info);
 			}
 
-			if (m_vertex_src == nullptr || m_fragment_src == nullptr)
+			if (m_vertex_src.empty() || m_fragment_src.empty())
 			{
 				success = 0;
 			}
@@ -243,11 +229,17 @@ namespace galaxy
 			glDeleteShader(v_id);
 			glDeleteShader(f_id);
 
-			m_fragment_src.reset();
-			m_vertex_src.reset();
+			std::string().swap(m_fragment_src);
+			std::string().swap(m_vertex_src);
+		}
 
-			m_fragment_src = nullptr;
-			m_vertex_src   = nullptr;
+		void Shader::destroy()
+		{
+			if (m_id != 0)
+			{
+				glDeleteProgram(m_id);
+				m_id = 0;
+			}
 		}
 
 		void Shader::bind() noexcept

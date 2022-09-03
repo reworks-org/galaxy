@@ -22,17 +22,27 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Argument constructor.
+			/// Constructor.
 			///
-			/// \param width Width of internal framebuffer.
-			/// \param height Height of internal framebuffer.
-			///
-			PostProcess(const int width, const int height) noexcept;
+			PostProcess() noexcept;
 
 			///
 			/// Destructor.
 			///
 			~PostProcess() noexcept;
+
+			///
+			/// Initialize post processor and GL buffers.
+			///
+			/// \param width Width of internal framebuffer.
+			/// \param height Height of internal framebuffer.
+			///
+			void init(const int width, const int height);
+
+			///
+			/// Cleanup used memory.
+			///
+			void destroy();
 
 			///
 			/// \brief Add an effect to process.
@@ -45,10 +55,10 @@ namespace galaxy
 			///
 			/// \param args Constructor arguments.
 			///
-			/// \return Pointer to newly created effect.
+			/// \return Weak pointer to newly created effect.
 			///
 			template<is_posteffect Effect, typename... Args>
-			[[maybe_unused]] std::shared_ptr<Effect> add(Args&&... args);
+			[[maybe_unused]] std::weak_ptr<Effect> add(Args&&... args);
 
 			///
 			/// Bind to draw to post processor framebuffer.
@@ -77,12 +87,6 @@ namespace galaxy
 			/// \param height New height of internal framebuffer.
 			///
 			void resize(const int width, const int height);
-
-		private:
-			///
-			/// Constructor.
-			///
-			PostProcess() = delete;
 
 		private:
 			///
@@ -117,7 +121,7 @@ namespace galaxy
 		};
 
 		template<is_posteffect Effect, typename... Args>
-		inline std::shared_ptr<Effect> PostProcess::add(Args&&... args)
+		inline std::weak_ptr<Effect> PostProcess::add(Args&&... args)
 		{
 			auto effect = std::make_shared<Effect>(std::forward<Args>(args)...);
 			m_effects.push_back(std::static_pointer_cast<PostEffect>(effect));

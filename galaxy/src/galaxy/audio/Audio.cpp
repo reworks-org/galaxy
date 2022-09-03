@@ -17,58 +17,6 @@ namespace galaxy
 		{
 		}
 
-		void Audio::set_data(irrklang::ISoundSource* source, irrklang::ISoundEngine* engine) noexcept
-		{
-			m_source = source;
-
-			m_engine = engine;
-			m_engine->grab();
-		}
-
-		Audio::Audio(const Audio& a) noexcept
-		{
-			this->m_source = a.m_source;
-			this->m_engine = a.m_engine;
-
-			this->m_engine->grab();
-		}
-
-		Audio::Audio(Audio&& a) noexcept
-		{
-			this->m_source = a.m_source;
-			this->m_engine = a.m_engine;
-
-			a.m_source = nullptr;
-			a.m_engine = nullptr;
-		}
-
-		Audio& Audio::operator=(const Audio& a) noexcept
-		{
-			if (this != &a)
-			{
-				this->m_source = a.m_source;
-				this->m_engine = a.m_engine;
-
-				this->m_engine->grab();
-			}
-
-			return *this;
-		}
-
-		Audio& Audio::operator=(Audio&& a) noexcept
-		{
-			if (this != &a)
-			{
-				this->m_source = a.m_source;
-				this->m_engine = a.m_engine;
-
-				a.m_source = nullptr;
-				a.m_engine = nullptr;
-			}
-
-			return *this;
-		}
-
 		Audio::~Audio() noexcept
 		{
 			if (m_source != nullptr && m_engine != nullptr)
@@ -96,6 +44,14 @@ namespace galaxy
 		bool Audio::is_playing() const noexcept
 		{
 			return m_engine->isCurrentlyPlaying(m_source);
+		}
+
+		void Audio::set_data(irrklang::ISoundSource* source, irrklang::ISoundEngine* engine) noexcept
+		{
+			m_source = source;
+
+			m_engine = engine;
+			m_engine->grab();
 		}
 	} // namespace audio
 } // namespace galaxy

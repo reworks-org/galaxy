@@ -37,6 +37,12 @@ namespace galaxy
 
 		Texture::Texture(Texture&& t) noexcept
 		{
+			if (this->m_texture != 0)
+			{
+				glDeleteTextures(1, &this->m_texture);
+				this->m_texture = 0;
+			}
+
 			this->m_width   = t.m_width;
 			this->m_height  = t.m_height;
 			this->m_texture = t.m_texture;
@@ -48,6 +54,12 @@ namespace galaxy
 		{
 			if (this != &t)
 			{
+				if (this->m_texture != 0)
+				{
+					glDeleteTextures(1, &this->m_texture);
+					this->m_texture = 0;
+				}
+
 				this->m_width   = t.m_width;
 				this->m_height  = t.m_height;
 				this->m_texture = t.m_texture;

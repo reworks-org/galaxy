@@ -61,14 +61,6 @@ namespace galaxy
 			void create(std::span<unsigned int> indices, const StorageFlag flag);
 
 			///
-			/// Create index buffer object.
-			///
-			/// \param indices Const indices to assign.
-			/// \param flag Static or dynamic data buffer.
-			///
-			void const_create(std::span<const unsigned int> indices, const StorageFlag flag);
-
-			///
 			/// Clear all data from IBO.
 			///
 			void clear() noexcept;

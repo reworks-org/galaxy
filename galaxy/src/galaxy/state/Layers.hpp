@@ -67,7 +67,7 @@ namespace galaxy
 			/// \return Shared pointer to newly created layer.
 			///
 			template<is_layer ChildLayer>
-			[[maybe_unused]] std::shared_ptr<ChildLayer> make(const std::string& name);
+			[[maybe_unused]] std::weak_ptr<ChildLayer> make(const std::string& name);
 
 			///
 			/// Get a specific layer.
@@ -79,7 +79,7 @@ namespace galaxy
 			/// \return Shared pointer to layer.
 			///
 			template<is_layer ChildLayer>
-			[[nodiscard]] std::shared_ptr<ChildLayer> get(const std::string& name);
+			[[nodiscard]] std::weak_ptr<ChildLayer> get(const std::string& name);
 
 			///
 			/// Push a layer based on name.
@@ -234,7 +234,7 @@ namespace galaxy
 		};
 
 		template<is_layer ChildLayer>
-		inline std::shared_ptr<ChildLayer> Layers::make(const std::string& name)
+		inline std::weak_ptr<ChildLayer> Layers::make(const std::string& name)
 		{
 			if (!m_layers.contains(name))
 			{
@@ -244,12 +244,12 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Layer '{0}' already exists.", name);
-				return nullptr;
+				return {};
 			}
 		}
 
 		template<is_layer ChildLayer>
-		inline std::shared_ptr<ChildLayer> Layers::get(const std::string& name)
+		inline std::weak_ptr<ChildLayer> Layers::get(const std::string& name)
 		{
 			if (m_layers.contains(name))
 			{

@@ -139,13 +139,8 @@ namespace galaxy
 
 				m_texture.unbind();
 
-				auto vbo = std::make_unique<graphics::VertexBuffer>();
-				auto ibo = std::make_unique<graphics::IndexBuffer>();
-
 				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
-				vbo->create(vertices, graphics::StorageFlag::DYNAMIC_DRAW);
-				ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-				m_vao.create(vbo, ibo);
+				m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
 				configure();
 			}

@@ -32,9 +32,6 @@
 #include "galaxy/state/SceneManager.hpp"
 #include "galaxy/state/layers/RuntimeLayer.hpp"
 #include "galaxy/state/layers/UILayer.hpp"
-#include "galaxy/ui/RMLFile.hpp"
-#include "galaxy/ui/RMLSystem.hpp"
-#include "galaxy/ui/RMLRenderer.hpp"
 
 #include "Application.hpp"
 
@@ -303,13 +300,9 @@ namespace galaxy
 					//
 					// UI.
 					//
-					m_rml_system_interface    = std::make_unique<ui::RMLSystem>();
-					m_rml_file_interface      = std::make_unique<ui::RMLFile>();
-					m_rml_rendering_interface = std::make_unique<ui::RMLRenderer>();
-
-					Rml::SetSystemInterface(m_rml_system_interface.get());
-					Rml::SetFileInterface(m_rml_file_interface.get());
-					Rml::SetRenderInterface(m_rml_rendering_interface.get());
+					Rml::SetSystemInterface(&m_rml_system_interface);
+					Rml::SetFileInterface(&m_rml_file_interface);
+					Rml::SetRenderInterface(&m_rml_rendering_interface);
 
 					if (Rml::Initialise())
 					{
@@ -360,7 +353,7 @@ namespace galaxy
 			loading.display();
 
 			ServiceLocator<resource::Shaders>::ref().compile();
-			m_rml_rendering_interface->compile_shaders();
+			m_rml_rendering_interface.compile_shaders();
 			ServiceLocator<resource::Fonts>::ref().build();
 		}
 
@@ -369,9 +362,7 @@ namespace galaxy
 			ServiceLocator<state::SceneManager>::del();
 
 			Rml::Shutdown();
-			m_rml_rendering_interface.reset();
-			m_rml_file_interface.reset();
-			m_rml_system_interface.reset();
+			m_rml_rendering_interface.delete_shaders();
 
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Sounds>::del();
@@ -438,6 +429,8 @@ namespace galaxy
 				previous = current;
 				accumulator += elapsed;
 
+				auto& scene = manager.current();
+
 				if (log_perf)
 				{
 					perf_counter += elapsed;
@@ -447,8 +440,8 @@ namespace galaxy
 				{
 					window.poll_events();
 
-					manager.current()->events();
-					manager.current()->update();
+					scene.events();
+					scene.update();
 
 					accumulator -= ups_as_nano;
 
@@ -459,7 +452,7 @@ namespace galaxy
 				}
 
 				window.begin();
-				manager.current()->render();
+				scene.render();
 				window.end();
 
 				if (log_perf)

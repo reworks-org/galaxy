@@ -33,6 +33,11 @@ namespace galaxy
 			: Serializable {}
 			, m_shader {nullptr}
 		{
+			if (this->m_shader != nullptr)
+			{
+				this->m_shader = nullptr;
+			}
+
 			this->m_shader = ds.m_shader;
 			ds.m_shader    = nullptr;
 		}
@@ -41,6 +46,11 @@ namespace galaxy
 		{
 			if (this != &ds)
 			{
+				if (this->m_shader != nullptr)
+				{
+					this->m_shader = nullptr;
+				}
+
 				this->m_shader = ds.m_shader;
 				ds.m_shader    = nullptr;
 			}

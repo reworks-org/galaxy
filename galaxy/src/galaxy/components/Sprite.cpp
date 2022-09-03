@@ -84,9 +84,6 @@ namespace galaxy
 				set_opacity(opacity);
 				set_texture(info.m_handle);
 
-				auto ibo = std::make_unique<graphics::IndexBuffer>();
-				auto vbo = std::make_unique<graphics::VertexBuffer>();
-
 				std::array<graphics::Vertex, 4> vertices;
 
 				vertices[0].m_pos    = {0.0f, 0.0f};
@@ -101,10 +98,7 @@ namespace galaxy
 				vertices[3].m_pos    = {0.0f, m_height};
 				vertices[3].m_texels = info.m_texel_region.ur_texels();
 
-				vbo->create(vertices, graphics::StorageFlag::STATIC_DRAW);
-				ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-				m_vao.create(vbo, ibo);
+				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
 				configure();
 			}
@@ -127,9 +121,6 @@ namespace galaxy
 				m_height = static_cast<float>(info.m_region.m_height);
 
 				set_texture(info.m_handle);
-
-				auto ibo = std::make_unique<graphics::IndexBuffer>();
-				auto vbo = std::make_unique<graphics::VertexBuffer>();
 
 				std::array<graphics::Vertex, 4> vertices;
 

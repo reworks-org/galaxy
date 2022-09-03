@@ -1,23 +1,11 @@
-todo: split loading from disk and loading into opengl into 2 separate functions.
-        - clear data from class once opengl loads
-        - this way we can load all data for file i/o off disk
-        - then just draw a static background before running all the required opengl commands.
-       
-
-
-
-- update loading screen spinny icon to be animated
-- integrate timer with threadpool
-- assets should be per scene
+- assets should be per scene ??
 - convert system to update thread/render thread/etc
 - mainthread + render thread
-- asset loading in threads
 - https://github.com/skypjack/entt/wiki/Crash-Course:-entity-component-system#dependencies
 - support content scale (dpi thingy) for rml
 - make sure font dpi is working with the content scale.
 - state based system for character moevement + updating animation.
-- thread for resource/processing? maybe? for loading of assets
-- render thread architecture
+
 CODE REVIEW TODO:
 - GRAPHICS.
 
@@ -35,11 +23,7 @@ For editor:
 - own scene stack for editor layer that renders to a frame buffer view port.
 - Then serialize into a runtime layer / ui layer when playing, and pop editor layer.
 
-
-todo: use references in resource/assets over pointers? and for components to reduce lookups.
-
 todo: run lua.garbage_collector()?
-todo: limit return of shared_ptr, prefer reference or weak_ptr instead.
 
 -- LEGACY TODO BELOW --
 

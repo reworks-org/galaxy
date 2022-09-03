@@ -82,10 +82,10 @@ namespace galaxy
 			///
 			/// \param args Constructor arguments for system.
 			///
-			/// \return Pointer to the system.
+			/// \return Weak pointer to the system.
 			///
 			template<meta::is_system System, typename... Args>
-			[[maybe_unused]] std::shared_ptr<System> create_system(Args&&... args);
+			[[maybe_unused]] std::weak_ptr<System> create_system(Args&&... args);
 
 			///
 			/// Update systems.
@@ -189,7 +189,7 @@ namespace galaxy
 		}
 
 		template<meta::is_system System, typename... Args>
-		inline std::shared_ptr<System> World::create_system(Args&&... args)
+		inline std::weak_ptr<System> World::create_system(Args&&... args)
 		{
 			auto ptr = std::make_shared<System>(std::forward<Args>(args)...);
 			m_systems.push_back(std::static_pointer_cast<systems::System>(ptr));

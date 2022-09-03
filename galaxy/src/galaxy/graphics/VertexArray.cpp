@@ -16,15 +16,15 @@ namespace galaxy
 	{
 		VertexArray::VertexArray() noexcept
 			: m_vao {0}
-			, m_vbo {nullptr}
-			, m_ibo {nullptr}
-			, m_instance_buffer {nullptr}
 		{
 			glCreateVertexArrays(1, &m_vao);
 		}
 
 		VertexArray::VertexArray(VertexArray&& va) noexcept
+			: m_vao {0}
 		{
+			this->destroy();
+
 			this->m_vao             = va.m_vao;
 			this->m_vbo             = std::move(va.m_vbo);
 			this->m_ibo             = std::move(va.m_ibo);
@@ -37,6 +37,8 @@ namespace galaxy
 		{
 			if (this != &va)
 			{
+				this->destroy();
+
 				this->m_vao             = va.m_vao;
 				this->m_vbo             = std::move(va.m_vbo);
 				this->m_ibo             = std::move(va.m_ibo);
@@ -50,20 +52,20 @@ namespace galaxy
 
 		VertexArray::~VertexArray() noexcept
 		{
-			glDeleteVertexArrays(1, &m_vao);
+			destroy();
 		}
 
-		void VertexArray::create(std::unique_ptr<VertexBuffer>& vb, std::unique_ptr<IndexBuffer>& ib) noexcept
+		void VertexArray::create(std::span<Vertex> vertices,
+			const StorageFlag vertices_flag,
+			std::span<unsigned int> indices,
+			const StorageFlag indices_flag) noexcept
 		{
-			m_vbo.reset();
-			m_ibo.reset();
-
-			m_vbo = std::move(vb);
-			m_ibo = std::move(ib);
+			m_vbo.create(vertices, vertices_flag);
+			m_ibo.create(indices, indices_flag);
 
 			// Bind vertex to 0 (vertex buffer bind point, different from attribute bind point).
-			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT), m_vbo->id(), 0, sizeof(Vertex));
-			glVertexArrayElementBuffer(m_vao, m_ibo->id());
+			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT), m_vbo.id(), 0, sizeof(Vertex));
+			glVertexArrayElementBuffer(m_vao, m_ibo.id());
 
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT)); // Pos
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT));    // Texels
@@ -86,12 +88,11 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 		}
 
-		void VertexArray::set_instanced(std::unique_ptr<InstanceBuffer> instancing) noexcept
+		void VertexArray::set_instanced(std::span<glm::vec2> offsets)
 		{
-			m_instance_buffer.reset();
-			m_instance_buffer = std::move(instancing);
+			m_instance_buffer.create(offsets);
 
-			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT), m_instance_buffer->id(), 0, sizeof(float) * 2);
+			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT), m_instance_buffer.id(), 0, sizeof(float) * 2);
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::OFFSET_POINT));
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::OFFSET_POINT), 2, GL_FLOAT, GL_FALSE, 0);
 			glVertexArrayAttribBinding(m_vao,
@@ -102,7 +103,16 @@ namespace galaxy
 
 		void VertexArray::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
 		{
-			m_vbo->sub_buffer(index, vertices);
+			m_vbo.sub_buffer(index, vertices);
+		}
+
+		void VertexArray::destroy() noexcept
+		{
+			if (m_vao != 0)
+			{
+				glDeleteVertexArrays(1, &m_vao);
+				m_vao = 0;
+			}
 		}
 
 		void VertexArray::bind() noexcept
@@ -117,7 +127,7 @@ namespace galaxy
 
 		int VertexArray::index_count() const noexcept
 		{
-			return m_ibo->index_count();
+			return m_ibo.index_count();
 		}
 
 		unsigned int VertexArray::id() const noexcept
@@ -127,12 +137,12 @@ namespace galaxy
 
 		unsigned int VertexArray::vbo() const noexcept
 		{
-			return m_vbo->id();
+			return m_vbo.id();
 		}
 
 		unsigned int VertexArray::ibo() const noexcept
 		{
-			return m_ibo->id();
+			return m_ibo.id();
 		}
 	} // namespace graphics
 } // namespace galaxy

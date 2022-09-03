@@ -23,7 +23,10 @@ namespace galaxy
 		}
 
 		InstanceBuffer::InstanceBuffer(InstanceBuffer&& ib) noexcept
+			: m_ibo {0}
 		{
+			this->destroy();
+
 			this->m_ibo            = ib.m_ibo;
 			this->m_instance_count = ib.m_instance_count;
 
@@ -34,6 +37,8 @@ namespace galaxy
 		{
 			if (this != &ib)
 			{
+				this->destroy();
+
 				this->m_ibo            = ib.m_ibo;
 				this->m_instance_count = ib.m_instance_count;
 
@@ -68,8 +73,11 @@ namespace galaxy
 
 		void InstanceBuffer::destroy() noexcept
 		{
-			glDeleteBuffers(1, &m_ibo);
-			m_ibo = 0;
+			if (m_ibo != 0)
+			{
+				glDeleteBuffers(1, &m_ibo);
+				m_ibo = 0;
+			}
 		}
 
 		unsigned int InstanceBuffer::id() const noexcept

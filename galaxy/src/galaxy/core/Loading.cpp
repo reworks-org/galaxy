@@ -125,13 +125,8 @@ namespace galaxy
 
 			m_texture.unbind();
 
-			auto vbo = std::make_unique<graphics::VertexBuffer>();
-			auto ibo = std::make_unique<graphics::IndexBuffer>();
-
 			auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(texture_size.x), static_cast<int>(texture_size.y));
-			vbo->create(vertices, graphics::StorageFlag::DYNAMIC_DRAW);
-			ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-			m_vao.create(vbo, ibo);
+			m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 		}
 
 		Loading::Loading(std::string_view bg, const std::string& font)
@@ -155,14 +150,8 @@ namespace galaxy
 			m_font.load(font);
 			m_font.build();
 
-			auto vbo = std::make_unique<graphics::VertexBuffer>();
-			auto ibo = std::make_unique<graphics::IndexBuffer>();
-
 			auto array = graphics::Vertex::gen_quad_vertices(m_bg.get_width(), m_bg.get_height());
-			vbo->create(array, graphics::StorageFlag::STATIC_DRAW);
-			ibo->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-			m_vao.create(vbo, ibo);
+			m_vao.create(array, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, window.get_width(), window.get_height());

@@ -47,17 +47,19 @@ namespace galaxy
 			///
 			/// Create vertex array.
 			///
-			/// \param vb VBO to specify for VAO. Takes ownership.
-			/// \param ib IBO to specify for VAO. Takes ownership.
+			/// \param vertices Vertices to assign.
+			/// \param vertices_flag Static or dynamic data buffer.
+			/// \param indices Indices to assign.
+			/// \param indices_flag Static or dynamic data buffer.
 			///
-			void create(std::unique_ptr<VertexBuffer>& vb, std::unique_ptr<IndexBuffer>& ib) noexcept;
+			void create(std::span<Vertex> vertices, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept;
 
 			///
 			/// Enable instancing for this vertex array.
 			///
-			/// \param instancing Instance buffer to use when instancing with this VAO. Takes ownership.
+			/// \param offsets Offset position for each vertex.
 			///
-			void set_instanced(std::unique_ptr<InstanceBuffer> instancing) noexcept;
+			void set_instanced(std::span<glm::vec2> offsets);
 
 			///
 			/// Sub-buffer vertex object.
@@ -66,6 +68,13 @@ namespace galaxy
 			/// \param vertices Vertices to assign.
 			///
 			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
+
+			///
+			/// \brief Destroy Vertex Array Object.
+			///
+			/// Also called by destructor, you do not have to call this.
+			///
+			void destroy() noexcept;
 
 			///
 			/// Bind this vertex array to current GL context.
@@ -125,17 +134,17 @@ namespace galaxy
 			///
 			/// Vertex buffer.
 			///
-			std::unique_ptr<VertexBuffer> m_vbo;
+			VertexBuffer m_vbo;
 
 			///
 			/// Index buffer.
 			///
-			std::unique_ptr<IndexBuffer> m_ibo;
+			IndexBuffer m_ibo;
 
 			///
 			/// Instance buffer.
 			///
-			std::unique_ptr<InstanceBuffer> m_instance_buffer;
+			InstanceBuffer m_instance_buffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

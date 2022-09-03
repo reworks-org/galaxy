@@ -28,7 +28,7 @@ namespace galaxy
 			clear();
 		}
 
-		std::shared_ptr<Scene> SceneManager::make(const std::string& name)
+		std::weak_ptr<Scene> SceneManager::make(const std::string& name)
 		{
 			if (!m_scenes.contains(name))
 			{
@@ -40,7 +40,7 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Tried to create a duplicate scene '{0}'.", name);
-				return nullptr;
+				return {};
 			}
 		}
 
@@ -75,12 +75,12 @@ namespace galaxy
 			}
 		}
 
-		std::shared_ptr<Scene> SceneManager::current() noexcept
+		Scene& SceneManager::current() noexcept
 		{
-			return m_current;
+			return *m_current;
 		}
 
-		std::shared_ptr<Scene> SceneManager::get(const std::string& name) noexcept
+		std::weak_ptr<Scene> SceneManager::get(const std::string& name) noexcept
 		{
 			if (m_scenes.contains(name))
 			{
@@ -89,7 +89,7 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve non-existent scene '{0}'.", name);
-				return nullptr;
+				return {};
 			}
 		}
 
@@ -107,7 +107,10 @@ namespace galaxy
 				for (const auto& [key, value] : scenes.items())
 				{
 					auto scene = make(key);
-					scene->deserialize(value);
+					if (auto ptr = scene.lock())
+					{
+						ptr->deserialize(value);
+					}
 				}
 
 				change(parsed.at("current_scene"));

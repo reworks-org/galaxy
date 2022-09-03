@@ -146,6 +146,11 @@ namespace galaxy
 			///
 			void compile_shaders();
 
+			///
+			/// Delete shaders.
+			///
+			void delete_shaders();
+
 		private:
 			///
 			/// Shader for rendering RML geometry.

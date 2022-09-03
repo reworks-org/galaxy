@@ -30,26 +30,6 @@ namespace galaxy
 			Audio() noexcept;
 
 			///
-			/// Copy constructor.
-			///
-			Audio(const Audio&) noexcept;
-
-			///
-			/// Move constructor.
-			///
-			Audio(Audio&&) noexcept;
-
-			///
-			/// Copy assignment operator.
-			///
-			Audio& operator=(const Audio&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			Audio& operator=(Audio&&) noexcept;
-
-			///
 			/// Destructor.
 			///
 			~Audio() noexcept;
@@ -74,6 +54,26 @@ namespace galaxy
 			[[nodiscard]] bool is_playing() const noexcept;
 
 		private:
+			///
+			/// Copy constructor.
+			///
+			Audio(const Audio&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Audio(Audio&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Audio& operator=(const Audio&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Audio& operator=(Audio&&) = delete;
+
 			///
 			/// Set pointers to use.
 			///

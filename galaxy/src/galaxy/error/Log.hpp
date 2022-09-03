@@ -139,7 +139,7 @@ namespace galaxy
 		inline SinkTo& Log::add_sink(Args&&... args)
 		{
 			m_sinks.push_back(std::make_unique<SinkTo>(std::forward<Args>(args)...));
-			SinkTo* ptr = static_cast<SinkTo*>(m_sinks.back().get());
+			SinkTo* ptr = dynamic_cast<SinkTo*>(m_sinks.back().get());
 			return *ptr;
 		}
 

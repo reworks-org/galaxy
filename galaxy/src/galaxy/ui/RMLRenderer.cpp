@@ -109,10 +109,9 @@ namespace galaxy
 			const auto rml_verts = std::span<Rml::Vertex> {vertices, static_cast<std::size_t>(num_vertices)};
 			const auto rml_index = std::span<int> {indices, static_cast<std::size_t>(num_indices)};
 
-			auto vbo = std::make_unique<graphics::VertexBuffer>();
 			std::vector<graphics::Vertex> vertex_array;
-
 			vertex_array.reserve(rml_verts.size());
+
 			for (auto& vertex : rml_verts)
 			{
 				graphics::Vertex v;
@@ -124,23 +123,20 @@ namespace galaxy
 
 				vertex_array.emplace_back(std::move(v));
 			}
-			vbo->create(vertex_array, graphics::StorageFlag::DYNAMIC_DRAW);
 
-			auto ibo = std::make_unique<graphics::IndexBuffer>();
 			std::vector<unsigned int> index_array;
-
 			index_array.reserve(rml_index.size());
+
 			for (auto& index : rml_index)
 			{
 				index_array.push_back(static_cast<unsigned int>(index));
 			}
-			ibo->create(index_array, graphics::StorageFlag::DYNAMIC_DRAW);
 
 			auto rml_vao = new RmlVao();
 
 			try
 			{
-				rml_vao->m_vao.create(vbo, ibo);
+				rml_vao->m_vao.create(vertex_array, graphics::StorageFlag::DYNAMIC_DRAW, index_array, graphics::StorageFlag::DYNAMIC_DRAW);
 				rml_vao->m_texture = static_cast<GLuint>(texture);
 			}
 			catch (const std::exception& e)
@@ -298,6 +294,11 @@ namespace galaxy
 		{
 			m_shader.compile();
 			m_shader.set_uniform("u_transform", m_identity);
+		}
+
+		void RMLRenderer::delete_shaders()
+		{
+			m_shader.destroy();
 		}
 	} // namespace ui
 } // namespace galaxy

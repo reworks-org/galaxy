@@ -26,6 +26,12 @@ namespace galaxy
 
 		UniformBuffer::UniformBuffer(UniformBuffer&& ub) noexcept
 		{
+			if (this->m_ubo != 0)
+			{
+				glDeleteBuffers(1, &this->m_ubo);
+				this->m_ubo = 0;
+			}
+
 			this->m_ubo = ub.m_ubo;
 			ub.m_ubo    = 0;
 		}
@@ -34,6 +40,12 @@ namespace galaxy
 		{
 			if (this != &ub)
 			{
+				if (this->m_ubo != 0)
+				{
+					glDeleteBuffers(1, &this->m_ubo);
+					this->m_ubo = 0;
+				}
+
 				this->m_ubo = ub.m_ubo;
 				ub.m_ubo    = 0;
 			}
@@ -43,7 +55,11 @@ namespace galaxy
 
 		UniformBuffer::~UniformBuffer() noexcept
 		{
-			glDeleteBuffers(1, &m_ubo);
+			if (m_ubo != 0)
+			{
+				glDeleteBuffers(1, &m_ubo);
+				m_ubo = 0;
+			}
 		}
 
 		void UniformBuffer::create(const unsigned int index) noexcept

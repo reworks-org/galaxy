@@ -82,12 +82,12 @@ namespace galaxy
 		Animation::Animation(const Animation& a) noexcept
 		{
 			this->m_active_frame        = a.m_active_frame;
-			this->m_name                = std::move(a.m_name);
+			this->m_name                = a.m_name;
 			this->m_looping             = a.m_looping;
 			this->m_speed               = a.m_speed;
 			this->m_total_frames        = a.m_total_frames;
 			this->m_current_frame_index = a.m_current_frame_index;
-			this->m_frames              = std::move(a.m_frames);
+			this->m_frames              = a.m_frames;
 		}
 
 		Animation& Animation::operator=(const Animation& a) noexcept

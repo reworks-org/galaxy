@@ -49,10 +49,22 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		PostProcess::PostProcess(const int width, const int height) noexcept
+		PostProcess::PostProcess() noexcept
 			: m_screen_vbo {0}
 			, m_screen_vao {0}
 			, m_output_fb {0}
+		{
+		}
+
+		PostProcess::~PostProcess()
+		{
+			if (m_screen_vao != 0 || m_screen_vbo != 0 || m_output_fb != 0)
+			{
+				destroy();
+			}
+		}
+
+		void PostProcess::init(const int width, const int height)
 		{
 			m_output.load_raw(vao_vert, vao_frag);
 			m_output.compile();
@@ -90,10 +102,18 @@ namespace galaxy
 			m_fb.create(width, height);
 		}
 
-		PostProcess::~PostProcess()
+		void PostProcess::destroy()
 		{
+			m_effects.clear();
+			m_fb.clear();
+			m_output.destroy();
+
 			glDeleteVertexArrays(1, &m_screen_vao);
 			glDeleteBuffers(1, &m_screen_vbo);
+
+			m_screen_vbo = 0;
+			m_screen_vao = 0;
+			m_output_fb  = 0;
 		}
 
 		void PostProcess::resize(const int width, const int height)

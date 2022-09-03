@@ -24,6 +24,8 @@ namespace galaxy
 
 		Renderable::Renderable(Renderable&& r) noexcept
 		{
+			// Dont release existing memory here, as we dont own it.
+
 			this->m_vao       = r.m_vao;
 			this->m_texture   = r.m_texture;
 			this->m_count     = r.m_count;
@@ -31,12 +33,18 @@ namespace galaxy
 			this->m_type      = r.m_type;
 			this->m_layer     = r.m_layer;
 			this->m_shader    = r.m_shader;
+
+			r.m_vao     = 0;
+			r.m_texture = 0;
+			r.m_shader  = 0;
 		}
 
 		Renderable& Renderable::operator=(Renderable&& r) noexcept
 		{
 			if (this != &r)
 			{
+				// Dont release existing memory here, as we dont own it.
+
 				this->m_vao       = r.m_vao;
 				this->m_texture   = r.m_texture;
 				this->m_count     = r.m_count;
@@ -44,6 +52,10 @@ namespace galaxy
 				this->m_type      = r.m_type;
 				this->m_layer     = r.m_layer;
 				this->m_shader    = r.m_shader;
+
+				r.m_vao     = 0;
+				r.m_texture = 0;
+				r.m_shader  = 0;
 			}
 
 			return *this;

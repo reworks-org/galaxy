@@ -46,13 +46,16 @@ int main(int argsc, char* argsv[])
 				auto& sm = core::ServiceLocator<state::SceneManager>::ref();
 
 				auto scene = sm.make("Sandbox");
-				sm.set(scene->get_name());
+				if (auto ptr = scene.lock())
+				{
+					sm.set(ptr->get_name());
 
-				state::LayerRegistry::register_type<sandbox::SandboxLayer>("Sandbox");
+					state::LayerRegistry::register_type<sandbox::SandboxLayer>("Sandbox");
 
-				auto& layers = scene->get_layers();
-				layers.make<sandbox::SandboxLayer>("Sandbox");
-				layers.push("Sandbox");
+					auto& layers = ptr->get_layers();
+					layers.make<sandbox::SandboxLayer>("Sandbox");
+					layers.push("Sandbox");
+				}
 			}
 
 			sandbox.run();

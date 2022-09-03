@@ -511,6 +511,7 @@ namespace galaxy
 			shader_type["load_file"]            = &graphics::Shader::load_file;
 			shader_type["load_raw"]             = &graphics::Shader::load_raw;
 			shader_type["compile"]              = &graphics::Shader::compile;
+			shader_type["destroy"]              = &graphics::Shader::destroy;
 			shader_type["set_uniform_int"]      = &graphics::Shader::set_uniform<int>;
 			shader_type["set_uniform_int2"]     = &graphics::Shader::set_uniform<int, int>;
 			shader_type["set_uniform_int3"]     = &graphics::Shader::set_uniform<int, int, int>;

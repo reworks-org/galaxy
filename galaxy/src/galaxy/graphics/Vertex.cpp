@@ -95,9 +95,9 @@ namespace galaxy
 			return vertices;
 		}
 
-		const std::array<unsigned int, 6>& Vertex::get_default_indices() noexcept
+		std::array<unsigned int, 6>& Vertex::get_default_indices() noexcept
 		{
-			static const std::array<unsigned int, 6> indices = {0u, 1u, 3u, 1u, 2u, 3u};
+			static std::array<unsigned int, 6> indices = {0u, 1u, 3u, 1u, 2u, 3u};
 			return indices;
 		}
 	} // namespace graphics

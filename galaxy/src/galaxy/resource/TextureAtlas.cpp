@@ -100,8 +100,8 @@ namespace galaxy
 						vertices[3].m_pos    = {0.0f, info.m_region.m_height};
 						vertices[3].m_texels = {0.0f, 1.0f};
 
-						m_va.sub_buffer(0, vertices);
-						graphics::Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_va, m_transform);
+						m_vao.sub_buffer(0, vertices);
+						graphics::Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_vao, m_transform);
 					}
 					else
 					{
@@ -220,14 +220,8 @@ namespace galaxy
 
 			m_sheets.resize(m_max_bindings);
 
-			auto vb = std::make_unique<graphics::VertexBuffer>();
-			auto ib = std::make_unique<graphics::IndexBuffer>();
-
-			auto array = graphics::Vertex::gen_quad_vertices(1, 1);
-			vb->create(array, graphics::StorageFlag::DYNAMIC_DRAW);
-			ib->const_create(graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-			m_va.create(vb, ib);
+			auto vertices = graphics::Vertex::gen_quad_vertices(1, 1);
+			m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 		}
 	} // namespace resource
 } // namespace galaxy

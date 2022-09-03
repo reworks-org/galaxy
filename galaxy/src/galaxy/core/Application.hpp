@@ -8,17 +8,12 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
-#include <string_view>
+#include "galaxy/ui/RMLFile.hpp"
+#include "galaxy/ui/RMLSystem.hpp"
+#include "galaxy/ui/RMLRenderer.hpp"
 
 namespace galaxy
 {
-	namespace ui
-	{
-		class RMLFile;
-		class RMLSystem;
-		class RMLRenderer;
-	} // namespace ui
-
 	namespace core
 	{
 		///
@@ -93,17 +88,17 @@ namespace galaxy
 			///
 			/// RML System interface.
 			///
-			std::unique_ptr<ui::RMLSystem> m_rml_system_interface;
+			ui::RMLSystem m_rml_system_interface;
 
 			///
 			/// RML File interface.
 			///
-			std::unique_ptr<ui::RMLFile> m_rml_file_interface;
+			ui::RMLFile m_rml_file_interface;
 
 			///
 			/// RML Rendering interface.
 			///
-			std::unique_ptr<ui::RMLRenderer> m_rml_rendering_interface;
+			ui::RMLRenderer m_rml_rendering_interface;
 		};
 	} // namespace core
 } // namespace galaxy
