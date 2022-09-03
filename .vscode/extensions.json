@@ -1,0 +1,27 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+	// List of extensions which should be recommended for users of this workspace.
+	"recommendations": [
+		"geforcelegend.vscode-glsl",
+		"ms-vscode.cpptools-themes",
+		"ms-vscode-remote.remote-wsl",
+		"vscode-icons-team.vscode-icons",
+		"ms-vscode.cpptools",
+		"ms-vscode.cpptools-extension-pack",
+		"ms-vscode.cmake-tools",
+		"dtoplak.vscode-glsllint",
+		"visualstudioexptteam.vscodeintellicode",
+		"zainchen.json",
+		"yinfei.luahelper",
+		"yzhang.markdown-all-in-one",
+		"bierner.markdown-preview-github-styles",
+		"molunerfinn.revealfileinfolder",
+		"slevesque.shader"
+	],
+	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+	"unwantedRecommendations": [
+		
+	]
+}
