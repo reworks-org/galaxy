@@ -1,5 +1,6 @@
 # galaxy
 [![Windows](https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
+[![Linux](https://github.com/DomRe/galaxy/actions/workflows/linux.yml/badge.svg)](https://github.com/DomRe/galaxy/actions/workflows/linux.yml)
 [![Documentation Status](https://travis-ci.com/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/manual/DomRe/galaxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4377/badge)](https://bestpractices.coreinfrastructure.org/projects/4377)
@@ -33,31 +34,42 @@ Windows Universal C Runtime
 Building Instructions:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy
-git submodule update --init --recursive
 cd galaxy
 Open galaxy.sln and go Build -> Rebuild Solution.
 ```
 
 ### Linux:
-*Only ubuntu is supported.*
+*Only Ubuntu is supported.*
 
-[CMake v3.24](https://cmake.org/download/)
-[Ubuntu 22.04 LTS](https://ubuntu.com/download/desktop)
+[CMake v3.22](https://cmake.org/download/)
+[Ubuntu 22.04](https://ubuntu.com/download/desktop)
 -- OR --
-[WSL2 - Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install)
+[WSL2 - Ubuntu (22.04)](https://docs.microsoft.com/en-us/windows/wsl/install)
+[VSCode](https://code.visualstudio.com/)
+If developing on WSL2, you need this:
+[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+Other required extensions will be automatically recommended to you.
 
-```
-Coming Soon.
-```
+Required Packages:
+```git gh build-essential g++ gcc g++-12 gcc-12 gdb make cmake ninja-build wget ca-certificates rsync zip libfreetype-dev bzip2 software-properties-common xorg-dev libz-dev```
+If using WSL2, I recommend installing all packages from [this microsoft guide](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) in order to get the basic packages required for video, audio, etc.
+*Chrome, Teams and Edge not required, and you can uninstall the apps immediately afterwards, just leave their required packages installed.*
 
-### MacOS:
+Building Instructions:
 ```
-Unsupported, due to terrible support of Modern C++ and OpenGL.
+sudo apt update
+sudo apt upgrade -y
+Install above required packages.
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy
+cd galaxy
+Open "galaxy.code-workspace" in VSCode (or Remote - WSL).
+Install the recommended extensions and restart.
+Set the CMake kit is set to "GCC 12.0.1 x86_64-linux-gnu". You can set this from the bottom bar in VSCode, next to CMake. It looks like a spanner and wrench icon.
 ```
 
 ### Scripts:
 There are additional helper scripts located in the [scripts folder](https://github.com/DomRe/galaxy/tree/master/scripts).
-In order to run these, you require a ```MSYS2 installation``` installed on your ```PATH```.
+In order to run these on Windows, you require a ```MSYS2 installation``` installed on your ```PATH```.
 
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
