@@ -51,7 +51,7 @@ If developing on WSL2, you need this:
 Other required extensions will be automatically recommended to you.
 
 Required Packages:
-```git gh build-essential g++ gcc g++-12 gcc-12 gdb make cmake ninja-build wget ca-certificates rsync zip libfreetype-dev bzip2 software-properties-common xorg-dev libz-dev```
+```git gh build-essential g++ gcc g++-12 gcc-12 gdb make cmake ninja-build wget ca-certificates rsync zip libfreetype-dev bzip2 software-properties-common xorg-dev libz-dev libglu1-mesa-dev```
 If using WSL2, I recommend installing all packages from [this microsoft guide](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) in order to get the basic packages required for video, audio, etc.
 *Chrome, Teams and Edge not required, and you can uninstall the apps immediately afterwards, just leave their required packages installed.*
 
