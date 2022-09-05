@@ -18,6 +18,7 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 
@@ -54,7 +55,14 @@ namespace galaxy
 			const auto root = json::parse_from_disk(file);
 			if (root.has_value())
 			{
-				return create_from_obj(root.value());
+				const auto entity = create_from_obj(root.value());
+				if (!m_registry.all_of<components::Flag>(entity))
+				{
+					auto& flag = m_registry.emplace<components::Flag>(entity);
+					flag.set_flag<flags::AllowSerialize>();
+				}
+
+				return entity;
 			}
 			else
 			{
@@ -107,61 +115,64 @@ namespace galaxy
 				nlohmann::json entity_json = nlohmann::json::object();
 				entity_json["components"]  = nlohmann::json::object();
 
-				auto animated = m_registry.try_get<components::Animated>(entity);
-				if (animated != nullptr)
-				{
-					entity_json["components"]["Animated"] = animated->serialize();
-				}
-
-				auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
-				if (draw_shader != nullptr)
-				{
-					entity_json["components"]["DrawShader"] = draw_shader->serialize();
-				}
-
 				auto flag = m_registry.try_get<components::Flag>(entity);
 				if (flag != nullptr)
 				{
-					entity_json["components"]["Flag"] = flag->serialize();
-				}
+					if (flag->is_flag_set<flags::AllowSerialize>())
+					{
+						auto animated = m_registry.try_get<components::Animated>(entity);
+						if (animated != nullptr)
+						{
+							entity_json["components"]["Animated"] = animated->serialize();
+						}
 
-				auto primitive = m_registry.try_get<components::Primitive>(entity);
-				if (primitive != nullptr)
-				{
-					entity_json["components"]["Primitive"] = primitive->serialize();
-				}
+						auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
+						if (draw_shader != nullptr)
+						{
+							entity_json["components"]["DrawShader"] = draw_shader->serialize();
+						}
 
-				auto script = m_registry.try_get<components::Script>(entity);
-				if (script != nullptr)
-				{
-					entity_json["components"]["Script"] = script->serialize();
-				}
+						entity_json["components"]["Flag"] = flag->serialize();
 
-				auto sprite = m_registry.try_get<components::Sprite>(entity);
-				if (sprite != nullptr)
-				{
-					entity_json["components"]["Sprite"] = sprite->serialize();
-				}
+						auto primitive = m_registry.try_get<components::Primitive>(entity);
+						if (primitive != nullptr)
+						{
+							entity_json["components"]["Primitive"] = primitive->serialize();
+						}
 
-				auto tag = m_registry.try_get<components::Tag>(entity);
-				if (tag != nullptr)
-				{
-					entity_json["components"]["Tag"] = tag->serialize();
-				}
+						auto script = m_registry.try_get<components::Script>(entity);
+						if (script != nullptr)
+						{
+							entity_json["components"]["Script"] = script->serialize();
+						}
 
-				auto text = m_registry.try_get<components::Text>(entity);
-				if (text != nullptr)
-				{
-					entity_json["components"]["Text"] = text->serialize();
-				}
+						auto sprite = m_registry.try_get<components::Sprite>(entity);
+						if (sprite != nullptr)
+						{
+							entity_json["components"]["Sprite"] = sprite->serialize();
+						}
 
-				auto transform = m_registry.try_get<components::Transform>(entity);
-				if (transform != nullptr)
-				{
-					entity_json["components"]["Transform"] = transform->serialize();
-				}
+						auto tag = m_registry.try_get<components::Tag>(entity);
+						if (tag != nullptr)
+						{
+							entity_json["components"]["Tag"] = tag->serialize();
+						}
 
-				json["entities"].push_back(entity_json);
+						auto text = m_registry.try_get<components::Text>(entity);
+						if (text != nullptr)
+						{
+							entity_json["components"]["Text"] = text->serialize();
+						}
+
+						auto transform = m_registry.try_get<components::Transform>(entity);
+						if (transform != nullptr)
+						{
+							entity_json["components"]["Transform"] = transform->serialize();
+						}
+
+						json["entities"].push_back(entity_json);
+					}
+				}
 			});
 
 			return json;
