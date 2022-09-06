@@ -8,6 +8,8 @@
 - need to test rml integration, maybe refer to official backend implementations.
 - integrate camera into scene + key callback
 - https://github.com/CedricGuillemet/ImGuizmo
+- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
+	- then submit that to the renderer.
 
 CODE REVIEW TODO:
 - GRAPHICS.
