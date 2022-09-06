@@ -132,6 +132,7 @@
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
+    <ClCompile Include="src\galaxy\components\Batch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -265,5 +266,6 @@
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
+    <ClInclude Include="src\galaxy\components\Batch.hpp" />
   </ItemGroup>
 </Project>

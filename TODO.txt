@@ -31,13 +31,6 @@ For editor:
 
 todo: run lua.garbage_collector()?
 
-Batch Rendering:
-https://blog.tojicode.com/2012/07/sprite-tile-maps-on-gpu.html?m=1
-https://old.reddit.com/r/opengl/comments/9kbkwr/chunk_generation_for_2d_tile_based_game/w
-https://gamedev.stackexchange.com/questions/30362/drawing-lots-of-tiles-with-opengl-the-modern-way
-https://gamedev.stackexchange.com/questions/166048/animate-some-tiles-of-tile-map
-https://gamedev.stackexchange.com/questions/53716/optimal-opengl-2d-sprite-batching-best-practice
-
 encode output of json
 - helps limit file size.
 - convert to base64 then zlib.

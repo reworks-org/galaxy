@@ -8,6 +8,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 #include "Sprite.hpp"
 

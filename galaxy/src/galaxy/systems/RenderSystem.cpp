@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/components/Batch.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -64,6 +65,18 @@ namespace galaxy
 				shader.m_shader->set_uniform("u_colour", text.m_colour);
 
 				graphics::Renderer::submit(&text);
+			}
+
+			const auto batch_view = layer->world().m_registry.view<components::Batch, components::DrawShader, components::Transform>();
+			for (auto&& [entity, batch, shader, transform] : batch_view.each())
+			{
+				batch.set_shader(shader.m_shader->id());
+				transform.set_origin(batch.get_width() / 2.0f, batch.get_height() / 2.0f);
+
+				shader.m_shader->set_uniform("u_transform", transform.get_transform());
+				shader.m_shader->set_uniform("u_opacity", batch.get_opacity());
+
+				graphics::Renderer::submit(&batch);
 			}
 		}
 	} // namespace systems

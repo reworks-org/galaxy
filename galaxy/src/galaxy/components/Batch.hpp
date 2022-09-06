@@ -1,69 +1,63 @@
 ///
-/// Sprite.hpp
+/// Batch.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_SPRITE_HPP_
-#define GALAXY_COMPONENTS_SPRITE_HPP_
+#ifndef GALAXY_COMPONENTS_BATCH_HPP_
+#define GALAXY_COMPONENTS_BATCH_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Renderable.hpp"
-#include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/resource/TextureAtlas.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
 		///
-		/// A sprite is a texture with vertex data.
+		/// Batched vertex data for a series of sprites, like a tilemap.
 		///
-		class Sprite final : public graphics::Renderable, public fs::Serializable
+		class Batch final : public graphics::Renderable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Sprite() noexcept;
+			Batch() noexcept;
 
 			///
-			/// JSON constructor.
+			/// Constructor.
 			///
-			/// \param json JSON defining object.
+			/// \param Batch Batch for entity.
 			///
-			Sprite(const nlohmann::json& json);
+			Batch(std::string_view Batch) noexcept;
 
 			///
 			/// Move constructor.
 			///
-			Sprite(Sprite&&) noexcept;
+			Batch(Batch&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Sprite& operator=(Sprite&&) noexcept;
+			Batch& operator=(Batch&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sprite() noexcept;
+			virtual ~Batch() noexcept;
 
 			///
 			/// Creates the internal vertex array.
 			///
-			/// \param texture Texture file in VFS.
+			/// \param info Texture atlas data.
+			/// \param vertices Position of each quad.
 			/// \param layer Rendering layer.
 			/// \param opacity Opacity from 0.0f to 1.0f.
 			///
-			void create(const std::string& texture, const int layer, const float opacity = 1.0f);
-
-			///
-			/// Updates texture and internal vertex array.
-			///
-			/// \param texture Texture file in VFS.
-			///
-			void update(const std::string& texture);
+			void create(resource::TextureAtlas::Info& info, std::span<graphics::Vertex> vertices, const int layer, const float opacity = 1.0f);
 
 			///
 			/// Set opacity.
@@ -97,30 +91,16 @@ namespace galaxy
 			///
 			[[nodiscard]] float get_height() const noexcept;
 
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to be serialized.
-			///
-			[[nodiscard]] nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
-
 		private:
-			///
-			/// Copy constructor.
-			///
-			Sprite(const Sprite&) = delete;
-
 			///
 			/// Copy assignment operator.
 			///
-			Sprite& operator=(const Sprite&) = delete;
+			Batch& operator=(const Batch&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Batch(const Batch&) = delete;
 
 			///
 			/// Configure renderable.
@@ -129,14 +109,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Vertex Array Object.
+			/// Vertex array.
 			///
 			graphics::VertexArray m_vao;
-
-			///
-			/// Texture Name.
-			///
-			std::string m_texture;
 
 			///
 			/// Sprite opacity.
