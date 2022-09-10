@@ -6,7 +6,9 @@
 ///
 
 #include <nlohmann/json.hpp>
+#include <sol/sol.hpp>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 
 #include "Scene.hpp"
@@ -32,6 +34,9 @@ namespace galaxy
 
 		void Scene::unload()
 		{
+			// Cleanup loaded lua data from entities.
+			auto& lua = core::ServiceLocator<sol::state>::ref();
+			lua.collect_garbage();
 		}
 
 		void Scene::events()
