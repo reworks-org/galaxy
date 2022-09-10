@@ -155,24 +155,6 @@ namespace galaxy
 			}
 		}
 
-		void TextureAtlas::bind() noexcept
-		{
-			for (auto i = 0; i < m_sheets.size(); i++)
-			{
-				glActiveTexture(GL_TEXTURE0 + i);
-				glBindTexture(GL_TEXTURE_2D, m_sheets[i].m_render_texture.get_texture());
-			}
-		}
-
-		void TextureAtlas::unbind() noexcept
-		{
-			for (auto i = m_sheets.size(); i > 0; i--)
-			{
-				glActiveTexture(static_cast<GLenum>(GL_TEXTURE0 + i));
-				glBindTexture(GL_TEXTURE_2D, 0);
-			}
-		}
-
 		void TextureAtlas::clear()
 		{
 			m_sheets.clear();

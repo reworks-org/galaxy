@@ -76,6 +76,23 @@ namespace galaxy
 			}
 		}
 
+		void VertexBuffer::reserve(const unsigned int size, const StorageFlag flag)
+		{
+			if (size > 0u)
+			{
+				m_size = size;
+
+				m_vertices.clear();
+				m_vertices.reserve(m_size);
+
+				glNamedBufferData(m_vbo, size, nullptr, static_cast<GLenum>(flag));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Reserved vertex buffer size must be greater than 0.");
+			}
+		}
+
 		void VertexBuffer::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
 		{
 			if (!vertices.empty() && (vertices.size() <= (m_vertices.size() - index)))

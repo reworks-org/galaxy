@@ -55,6 +55,16 @@ namespace galaxy
 			void create(std::span<Vertex> vertices, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept;
 
 			///
+			/// Creates vertex array, but without uploading vertices.
+			///
+			/// \param size Amount of data in bytes to reserve.
+			/// \param vertices_flag Static or dynamic data buffer.
+			/// \param indices Indices to assign.
+			/// \param indices_flag Static or dynamic data buffer.
+			///
+			void create(const unsigned int size, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept;
+
+			///
 			/// Enable instancing for this vertex array.
 			///
 			/// \param offsets Offset position for each vertex.
@@ -68,6 +78,11 @@ namespace galaxy
 			/// \param vertices Vertices to assign.
 			///
 			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
+
+			///
+			/// Clear all data from the vertex buffer array.
+			///
+			void clear() noexcept;
 
 			///
 			/// \brief Destroy Vertex Array Object.

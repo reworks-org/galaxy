@@ -102,7 +102,6 @@ namespace galaxy
 		void Primitive::configure() noexcept
 		{
 			set_vao(m_vao.id());
-			set_texture(0);
 			set_index_count(m_vao.index_count());
 			set_instance_count(1);
 		}

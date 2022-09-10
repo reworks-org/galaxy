@@ -18,7 +18,6 @@
 #include "galaxy/audio/AudioEngine.hpp"
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Batch.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -190,18 +189,6 @@ namespace galaxy
 			animated_type["stop"]                = &components::Animated::stop;
 
 			entt_sol::register_meta_component<components::Animated>();
-
-			auto batch_type =
-				lua.new_usertype<components::Batch>("Batch", sol::constructors<components::Batch()>(), "type_id", &entt::type_hash<components::Batch>::value);
-			batch_type["create"]      = &components::Batch::create;
-			batch_type["get_height"]  = &components::Batch::get_height;
-			batch_type["get_layer"]   = &components::Batch::get_layer;
-			batch_type["get_opacity"] = &components::Batch::get_opacity;
-			batch_type["get_width"]   = &components::Batch::get_width;
-			batch_type["set_opacity"] = &components::Batch::set_opacity;
-			batch_type["set_shader"]  = &components::Batch::set_shader;
-
-			entt_sol::register_meta_component<components::Batch>();
 
 			auto drawshader_type = lua.new_usertype<components::DrawShader>("DrawShader",
 				sol::constructors<components::DrawShader()>(),

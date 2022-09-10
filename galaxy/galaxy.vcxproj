@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\components\Batch.cpp" />
+    <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
@@ -145,7 +145,7 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\components\Batch.hpp" />
+    <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />

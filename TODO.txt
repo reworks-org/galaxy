@@ -1,3 +1,4 @@
+- PORT REMAINING LEGACY CODE.
 - assets should be per scene ??
 - convert system to update thread/render thread/etc
 - mainthread + render thread
@@ -10,29 +11,20 @@
 - https://github.com/CedricGuillemet/ImGuizmo
 - when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
 	- then submit that to the renderer.
-
-CODE REVIEW TODO:
-- GRAPHICS.
-
-TODO: PORT REMAINING LEGACY CODE.
-
-4 cores minimum then threads:
-1x main thread
-1x render thread
-1x audio thread
-1x io (resource) thread that then goes to 1x job system <-> misc tasks
-
-todo: box2d collisions, integration, etc...
-todo: standard sat based collisions or box2d with no gravity...
-todo: box2d conversion from in game units to pixels...
-use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
-
+- need to verify font, ui and glfw window are handling "codepoints" correctly.
+- need to make sure batch is a proper spritebatch...
+- need  to add tiled map support...
+- box2d collisions, integration, etc...
+	- box2d conversion from in game units to pixels...
+	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
+- standard sat based collisions or box2d with no gravity using cute_c2
+- make sure json outputs are encoded
+	- convert to base64 then zlib.
+- mapping
+	- https://github.com/fallahn/tmxlite
+	- https://github.com/SSBMTonberry/tileson
+- particles
+	- https://www.youtube.com/watch?v=Pfk9X8iRqEo&list=PLSPw4ASQYyymu3PfG9gxywSPghnSMiOAW&index=44
 For editor:
 - own scene stack for editor layer that renders to a frame buffer view port.
 - Then serialize into a runtime layer / ui layer when playing, and pop editor layer.
-
-todo: run lua.garbage_collector()?
-
-encode output of json
-- helps limit file size.
-- convert to base64 then zlib.

@@ -63,6 +63,16 @@ namespace galaxy
 			void create(std::span<Vertex> vertices, const StorageFlag flag);
 
 			///
+			/// \brief Create vertex data without uploading.
+			///
+			/// You do not need to call create() now.
+			///
+			/// \param size Amount of data in bytes to reserve.
+			/// \param flag Static or dynamic data buffer.
+			///
+			void reserve(const unsigned int size, const StorageFlag flag);
+
+			///
 			/// Sub-buffer vertex object.
 			///
 			/// \param index Offset to start at from initial vertices. 0 = first element.

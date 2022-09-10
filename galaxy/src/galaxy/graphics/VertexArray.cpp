@@ -88,6 +88,37 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 		}
 
+		void
+		VertexArray::create(const unsigned int size, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept
+		{
+			m_vbo.reserve(size, vertices_flag);
+			m_ibo.create(indices, indices_flag);
+
+			// Bind vertex to 0 (vertex buffer bind point, different from attribute bind point).
+			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT), m_vbo.id(), 0, sizeof(Vertex));
+			glVertexArrayElementBuffer(m_vao, m_ibo.id());
+
+			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT)); // Pos
+			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT));    // Texels
+			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT));   // Colour
+
+			// bind point, size (i.e. vec2, vec3, etc) floats not unsigned ints, not normalized, offset in data structure.
+			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_pos));
+			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
+			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT), 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_colour));
+
+			// VAO, attribute bind point, vertex buffer bind point.
+			glVertexArrayAttribBinding(m_vao,
+				static_cast<unsigned int>(AttributeBinding::POSITION_POINT),
+				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+			glVertexArrayAttribBinding(m_vao,
+				static_cast<unsigned int>(AttributeBinding::TEXEL_POINT),
+				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+			glVertexArrayAttribBinding(m_vao,
+				static_cast<unsigned int>(AttributeBinding::COLOUR_POINT),
+				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+		}
+
 		void VertexArray::set_instanced(std::span<glm::vec2> offsets)
 		{
 			m_instance_buffer.create(offsets);
@@ -104,6 +135,11 @@ namespace galaxy
 		void VertexArray::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
 		{
 			m_vbo.sub_buffer(index, vertices);
+		}
+
+		void VertexArray::clear() noexcept
+		{
+			m_vbo.clear();
 		}
 
 		void VertexArray::destroy() noexcept

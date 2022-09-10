@@ -20,12 +20,12 @@ namespace galaxy
 			///
 			/// Uniform location in shader.
 			///
-			int m_location;
+			int m_location = 0;
 
 			///
 			/// Refers to the number of locations the uniform takes up with mat3, vec4 with float, etc. being 1.
 			///
-			int m_count;
+			int m_count = 0;
 		};
 	} // namespace graphics
 } // namespace galaxy

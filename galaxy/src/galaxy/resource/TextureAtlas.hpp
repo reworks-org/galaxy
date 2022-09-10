@@ -118,16 +118,6 @@ namespace galaxy
 			void save();
 
 			///
-			/// Bind all atlas'.
-			///
-			void bind() noexcept;
-
-			///
-			/// Unbind all.
-			///
-			void unbind() noexcept;
-
-			///
 			/// Clear all data.
 			///
 			void clear();
