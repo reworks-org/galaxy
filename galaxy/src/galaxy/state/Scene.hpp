@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// \return Reference to layers stack.
 			///
-			[[nodiscard]] Layers& get_layers() noexcept;
+			[[nodiscard]] Layers& layers() noexcept;
 
 			///
 			/// Get camera.

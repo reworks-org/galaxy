@@ -65,7 +65,7 @@ namespace galaxy
 			return m_name;
 		}
 
-		Layers& Scene::get_layers() noexcept
+		Layers& Scene::layers() noexcept
 		{
 			return m_layer_stack;
 		}

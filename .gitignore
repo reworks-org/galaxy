@@ -7,14 +7,9 @@ build/
 legacy/
 output/
 
-sandbox/bin
 supercluster/bin
-tests/bin
-
-sandbox/assets
-sandbox/logs
-sandbox/config.json
-
 supercluster/assets
 supercluster/logs
 supercluster/config.json
+
+tests/bin

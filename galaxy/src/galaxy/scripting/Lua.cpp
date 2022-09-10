@@ -834,7 +834,7 @@ namespace galaxy
 			auto scene_type          = lua.new_usertype<state::Scene>("Scene", sol::no_constructor);
 			scene_type["set_name"]   = &state::Scene::set_name;
 			scene_type["get_name"]   = &state::Scene::get_name;
-			scene_type["get_layers"] = &state::Scene::get_layers;
+			scene_type["layers"]     = &state::Scene::layers;
 			scene_type["get_camera"] = &state::Scene::get_camera;
 
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());

@@ -258,7 +258,7 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Layer with name '{0}' does not exist.", name);
-				return nullptr;
+				return {};
 			}
 		}
 	} // namespace state

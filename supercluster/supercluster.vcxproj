@@ -183,7 +183,14 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\layers\Menu.cpp" />
+    <ClCompile Include="src\layers\Editor.cpp" />
     <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\layers\Menu.hpp" />
+    <ClInclude Include="src\layers\Editor.hpp" />
+    <ClInclude Include="src\resources\RobotoLight.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
