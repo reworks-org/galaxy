@@ -23,8 +23,7 @@
 - mapping
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
-- particles
-	- https://www.youtube.com/watch?v=Pfk9X8iRqEo&list=PLSPw4ASQYyymu3PfG9gxywSPghnSMiOAW&index=44
+
 For editor:
 - own scene stack for editor layer that renders to a frame buffer view port.
 - Then serialize into a runtime layer / ui layer when playing, and pop editor layer.
