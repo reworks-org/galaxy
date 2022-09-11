@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -113,5 +115,14 @@ namespace sc
 
 		ui::imgui_prerender();
 		ui::imgui_render();
+	}
+
+	nlohmann::json Menu::serialize()
+	{
+		return {};
+	}
+
+	void Menu::deserialize(const nlohmann::json& json)
+	{
 	}
 } // namespace sc

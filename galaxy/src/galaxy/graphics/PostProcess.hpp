@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// Draw finished post effects to default framebuffer (screen).
 			///
-			void render_output();
+			void render_output() noexcept;
 
 			///
 			/// Resize framebuffers.

@@ -33,38 +33,30 @@ namespace sc
 		void pre_render() override;
 		void render() override;
 
-		void new_project();
-		void load_project(std::string_view path);
-		void save_project();
-		void exit();
-
 	private:
-		void viewport();
-
-	private:
-		panel::LuaConsole   m_lua_console;
-		panel::StdConsole   m_std_console;
-		panel::JSONEditor   m_json_panel;
+		panel::LuaConsole m_lua_console;
+		panel::StdConsole m_std_console;
+		panel::JSONEditor m_json_panel;
 		panel::EntityEditor m_entity_panel;
-		panel::AudioPanel   m_audio_panel;
-		panel::ScenePanel   m_scene_panel;
+		panel::AudioPanel m_audio_panel;
+		panel::ScenePanel m_scene_panel;
 
-		bool        m_paused = false;
+		bool m_paused = false;
 		std::string m_current_project_path;
 
 		platform::Subprocess m_tiled_process;
 		platform::Subprocess m_notepad_process;
 
-		OpenGLOperationStack    m_gl_operations;
+		OpenGLOperationStack m_gl_operations;
 		graphics::RenderTexture m_framebuffer;
 
-		glm::vec2  m_clicked_pos;
-		glm::vec2  m_cursor_size = {4.0f, 4.0f};
+		glm::vec2 m_clicked_pos;
+		glm::vec2 m_cursor_size = {4.0f, 4.0f};
 		math::AABB m_cursor_aabb;
-		bool       m_mouse_picked = false;
+		bool m_mouse_picked = false;
 
-		bool   m_viewport_focused  = false;
-		bool   m_viewport_hovered  = false;
+		bool m_viewport_focused    = false;
+		bool m_viewport_hovered    = false;
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 

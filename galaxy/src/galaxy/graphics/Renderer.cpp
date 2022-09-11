@@ -91,6 +91,8 @@ namespace galaxy
 				// Instances = 1 is the same as glDrawElements.
 				glDrawElementsInstanced(renderable->m_type, renderable->m_count, GL_UNSIGNED_INT, nullptr, renderable->m_instances);
 			}
+
+			s_data.clear();
 		}
 
 		void Renderer::draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform)

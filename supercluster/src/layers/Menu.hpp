@@ -8,8 +8,6 @@
 #ifndef SUPERCLUSTER_LAYERS_MENU_HPP_
 #define SUPERCLUSTER_LAYERS_MENU_HPP_
 
-#include <nlohmann/json.hpp>
-
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -33,14 +31,8 @@ namespace sc
 	private:
 		Menu() = delete;
 
-		[[nodiscard]] inline nlohmann::json serialize() override
-		{
-			return {};
-		}
-
-		inline void deserialize(const nlohmann::json& json) override
-		{
-		}
+		[[nodiscard]] nlohmann::json serialize() override;
+		void deserialize(const nlohmann::json& json) override;
 
 	private:
 		ImFont* m_bigger_default_font;

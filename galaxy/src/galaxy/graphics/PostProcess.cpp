@@ -13,8 +13,9 @@
 ///
 /// Plain VAO vertex shader.
 ///
-constexpr const char* const vao_vert = R"(
+constexpr const auto vao_vert = R"(
 	#version 460 core
+
 	layout (location = 0) in vec2 l_pos;
 	layout (location = 1) in vec2 l_texels;
 	
@@ -30,11 +31,10 @@ constexpr const char* const vao_vert = R"(
 ///
 /// Plain VAO fragment shader.
 ///
-constexpr const char* const vao_frag = R"(
+constexpr const auto vao_frag = R"(
 	#version 460 core
 
 	in vec2 io_texels;
-
 	out vec4 io_frag_colour;
 	
 	uniform sampler2D u_texture;
@@ -58,10 +58,7 @@ namespace galaxy
 
 		PostProcess::~PostProcess()
 		{
-			if (m_screen_vao != 0 || m_screen_vbo != 0 || m_output_fb != 0)
-			{
-				destroy();
-			}
+			destroy();
 		}
 
 		void PostProcess::init(const int width, const int height)
@@ -69,35 +66,34 @@ namespace galaxy
 			m_output.load_raw(vao_vert, vao_frag);
 			m_output.compile();
 
+			// We use the old style of opengl here, rather than DSA, just to keep it simple.
+
+			glGenBuffers(1, &m_screen_vbo);
+			glGenVertexArrays(1, &m_screen_vao);
+
+			m_output.load_raw(vao_vert, vao_frag);
+
 			// clang-format off
-			constexpr const std::array<float, 16> verticies = {
+			constexpr const std::array<float, 16> verticies =
+			{
 				// First 2 are pos, last 2 are texels.
-				-1.0f, 1.0f,  0.0f, 1.0f,
+				-1.0f,  1.0f, 0.0f, 1.0f,
 				-1.0f, -1.0f, 0.0f, 0.0f,
-				1.0f,  1.0f,  1.0f, 1.0f,
-				1.0f,  -1.0f, 1.0f, 0.0f
+				 1.0f,  1.0f, 1.0f, 1.0f,
+				 1.0f, -1.0f, 1.0f, 0.0f
 			};
 			// clang-format on
 
-			glCreateBuffers(1, &m_screen_vbo);
-			glCreateVertexArrays(1, &m_screen_vao);
+			glBindVertexArray(m_screen_vao);
+			glBindBuffer(GL_ARRAY_BUFFER, m_screen_vbo);
+			glBufferData(GL_ARRAY_BUFFER, verticies.size() * sizeof(float), verticies.data(), GL_STATIC_DRAW);
+			glEnableVertexAttribArray(0);
+			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+			glEnableVertexAttribArray(1);
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
-			glNamedBufferStorage(m_screen_vbo, verticies.size(), verticies.data(), GL_DYNAMIC_STORAGE_BIT);
-
-			glVertexArrayVertexBuffer(m_screen_vao, static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT), m_screen_vbo, 0, 4 * sizeof(float));
-
-			glEnableVertexArrayAttrib(m_screen_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT)); // Pos
-			glEnableVertexArrayAttrib(m_screen_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT));    // Texels
-
-			glVertexArrayAttribFormat(m_screen_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT), 2, GL_FLOAT, GL_FALSE, 0);
-			glVertexArrayAttribFormat(m_screen_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT), 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float));
-
-			glVertexArrayAttribBinding(m_screen_vao,
-				static_cast<unsigned int>(AttributeBinding::POSITION_POINT),
-				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
-			glVertexArrayAttribBinding(m_screen_vao,
-				static_cast<unsigned int>(AttributeBinding::TEXEL_POINT),
-				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+			glBindVertexArray(0);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			m_fb.create(width, height);
 		}
@@ -108,12 +104,19 @@ namespace galaxy
 			m_fb.clear();
 			m_output.destroy();
 
-			glDeleteVertexArrays(1, &m_screen_vao);
-			glDeleteBuffers(1, &m_screen_vbo);
+			if (m_screen_vao != 0)
+			{
+				glDeleteVertexArrays(1, &m_screen_vao);
+				m_screen_vao = 0;
+			}
 
-			m_screen_vbo = 0;
-			m_screen_vao = 0;
-			m_output_fb  = 0;
+			if (m_screen_vbo != 0)
+			{
+				glDeleteBuffers(1, &m_screen_vbo);
+				m_screen_vbo = 0;
+			}
+
+			m_output_fb = 0;
 		}
 
 		void PostProcess::resize(const int width, const int height)
@@ -149,10 +152,11 @@ namespace galaxy
 			}
 		}
 
-		void PostProcess::render_output()
+		void PostProcess::render_output() noexcept
 		{
 			m_output.bind();
 
+			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, m_output_fb);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 		}

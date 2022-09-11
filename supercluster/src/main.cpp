@@ -24,7 +24,7 @@ class Supercluster : public core::Application
 {
 public:
 	Supercluster()
-		: Application {"logs/", "config.json"}
+		: Application {"logs/", "assets/editor_data/config.json"}
 	{
 	}
 
@@ -43,9 +43,14 @@ int main(int argsc, char* argsv[])
 		GALAXY_RESTART  = false;
 		GALAXY_START_TP = std::chrono::high_resolution_clock::now();
 
-		if (!std::filesystem::exists("projects"))
+		if (!std::filesystem::exists("assets/editor_data"))
 		{
-			std::filesystem::create_directory("projects");
+			std::filesystem::create_directory("assets/editor_data");
+		}
+
+		if (!std::filesystem::exists("assets/editor_data/projects"))
+		{
+			std::filesystem::create_directory("assets/editor_data/projects");
 		}
 
 		try
@@ -57,7 +62,7 @@ int main(int argsc, char* argsv[])
 				window.prevent_native_closing();
 
 				ImGuiIO& io    = ui::imgui_init_context();
-				io.IniFilename = "assets/sclayout.ini";
+				io.IniFilename = "editor_data/sclayout.ini";
 
 				ImFontConfig font_config         = {};
 				font_config.FontDataOwnedByAtlas = false;

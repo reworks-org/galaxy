@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
@@ -40,6 +42,35 @@ namespace sc
 	}
 
 	void Editor::render()
+	{
+	}
+
+	void Editor::new_project()
+	{
+	}
+
+	void Editor::load_project(std::string_view path)
+	{
+	}
+
+	void Editor::save_project()
+	{
+	}
+
+	void Editor::exit()
+	{
+	}
+
+	void Editor::viewport()
+	{
+	}
+
+	nlohmann::json Editor::serialize()
+	{
+		return {};
+	}
+
+	void Editor::deserialize(const nlohmann::json& json)
 	{
 	}
 } // namespace sc

@@ -5,10 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_LAYERS_Editor_HPP_
-#define SUPERCLUSTER_LAYERS_Editor_HPP_
-
-#include <nlohmann/json.hpp>
+#ifndef SUPERCLUSTER_LAYERS_EDITOR_HPP_
+#define SUPERCLUSTER_LAYERS_EDITOR_HPP_
 
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -30,17 +28,18 @@ namespace sc
 		void update() override;
 		void render() override;
 
+		void new_project();
+		void load_project(std::string_view path);
+		void save_project();
+		void exit();
+
 	private:
 		Editor() = delete;
 
-		[[nodiscard]] inline nlohmann::json serialize() override
-		{
-			return {};
-		}
+		void viewport();
 
-		inline void deserialize(const nlohmann::json& json) override
-		{
-		}
+		[[nodiscard]] nlohmann::json serialize() override;
+		void deserialize(const nlohmann::json& json) override;
 	};
 } // namespace sc
 

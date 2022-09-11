@@ -87,6 +87,7 @@ namespace galaxy
 
 			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
+			stbi_flip_vertically_on_write(true);
 			stbi_write_png(full.c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
 		}
 
