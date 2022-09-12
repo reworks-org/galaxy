@@ -403,70 +403,77 @@ namespace galaxy
 
 		void Application::run()
 		{
-			auto& config  = ServiceLocator<Config>::ref();
-			auto& window  = ServiceLocator<Window>::ref();
-			auto& manager = ServiceLocator<state::SceneManager>::ref();
-
-			const bool log_perf = config.get<bool>("log_performance");
-
-			unsigned int frames  = 0;
-			unsigned int updates = 0;
-
-			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
-			constexpr const auto one_second  = std::chrono::seconds {1};
-
-			std::chrono::nanoseconds accumulator {0};
-			std::chrono::nanoseconds perf_counter {0};
-			std::chrono::nanoseconds elapsed {0};
-
-			auto current  = std::chrono::high_resolution_clock::now();
-			auto previous = current;
-
-			while (window.is_open())
+			try
 			{
-				current  = std::chrono::high_resolution_clock::now();
-				elapsed  = current - previous;
-				previous = current;
-				accumulator += elapsed;
+				auto& config  = ServiceLocator<Config>::ref();
+				auto& window  = ServiceLocator<Window>::ref();
+				auto& manager = ServiceLocator<state::SceneManager>::ref();
 
-				auto& scene = manager.current();
+				const bool log_perf = config.get<bool>("log_performance");
 
-				if (log_perf)
+				unsigned int frames  = 0;
+				unsigned int updates = 0;
+
+				constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
+				constexpr const auto one_second  = std::chrono::seconds {1};
+
+				std::chrono::nanoseconds accumulator {0};
+				std::chrono::nanoseconds perf_counter {0};
+				std::chrono::nanoseconds elapsed {0};
+
+				auto current  = std::chrono::high_resolution_clock::now();
+				auto previous = current;
+
+				while (window.is_open())
 				{
-					perf_counter += elapsed;
-				}
+					current  = std::chrono::high_resolution_clock::now();
+					elapsed  = current - previous;
+					previous = current;
+					accumulator += elapsed;
 
-				while (accumulator >= GALAXY_UPS)
-				{
-					window.poll_events();
-
-					scene.events();
-					scene.update();
-
-					accumulator -= ups_as_nano;
+					auto& scene = manager.current();
 
 					if (log_perf)
 					{
-						updates++;
+						perf_counter += elapsed;
 					}
-				}
 
-				window.begin();
-				scene.render();
-				window.end();
-
-				if (log_perf)
-				{
-					frames++;
-
-					if (perf_counter >= one_second)
+					while (accumulator >= GALAXY_UPS)
 					{
-						GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
-						frames       = 0;
-						updates      = 0;
-						perf_counter = std::chrono::nanoseconds {0};
+						window.poll_events();
+
+						scene.events();
+						scene.update();
+
+						accumulator -= ups_as_nano;
+
+						if (log_perf)
+						{
+							updates++;
+						}
+					}
+
+					window.begin();
+					scene.render();
+					window.end();
+
+					if (log_perf)
+					{
+						frames++;
+
+						if (perf_counter >= one_second)
+						{
+							GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
+							frames       = 0;
+							updates      = 0;
+							perf_counter = std::chrono::nanoseconds {0};
+						}
 					}
 				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Main loop exception: '{0}'.", e.what());
 			}
 		}
 

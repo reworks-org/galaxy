@@ -36,8 +36,6 @@ int main(int argsc, char* argsv[])
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
 
-	bool restart = false;
-
 	do
 	{
 		GALAXY_RESTART  = false;
@@ -62,7 +60,7 @@ int main(int argsc, char* argsv[])
 				window.prevent_native_closing();
 
 				ImGuiIO& io    = ui::imgui_init_context();
-				io.IniFilename = "editor_data/sclayout.ini";
+				io.IniFilename = "assets/editor_data/sclayout.ini";
 
 				ImFontConfig font_config         = {};
 				font_config.FontDataOwnedByAtlas = false;
@@ -95,11 +93,12 @@ int main(int argsc, char* argsv[])
 		}
 		catch (const std::exception& e)
 		{
-			std::cout << "=====================" << std::endl;
-			std::cout << "MAIN LOOP EXCEPTION: " << e.what() << std::endl;
-			std::cout << "=====================" << std::endl;
+			std::cout << "======================" << std::endl;
+			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
+			std::cout << "======================" << std::endl;
+			std::cin.get();
 		}
-	} while (restart);
+	} while (GALAXY_RESTART);
 
 	return GALAXY_EXIT_SUCCESS;
 }
