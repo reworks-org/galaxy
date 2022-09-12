@@ -54,7 +54,7 @@ namespace galaxy
 
 		void Layers::pop()
 		{
-			if (m_stack.size() > 1)
+			if (m_stack.size() > 0)
 			{
 				m_stack.back()->on_pop();
 				m_stack.pop_back();

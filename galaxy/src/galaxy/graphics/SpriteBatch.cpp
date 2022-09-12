@@ -70,7 +70,7 @@ namespace galaxy
 		{
 			if (!((m_bytes_used + vertices.size_bytes()) > m_max_bytes))
 			{
-				m_bytes_used += vertices.size_bytes();
+				m_bytes_used += static_cast<unsigned int>(vertices.size_bytes());
 
 				const unsigned int index = m_bytes_used / (4 * sizeof(Vertex));
 				sub_buffer(index, vertices);

@@ -8,6 +8,8 @@
 #ifndef GALAXY_INPUT_KEYS_HPP_
 #define GALAXY_INPUT_KEYS_HPP_
 
+#undef DELETE
+
 namespace galaxy
 {
 	namespace input

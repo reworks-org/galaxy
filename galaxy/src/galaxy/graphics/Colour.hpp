@@ -12,6 +12,9 @@
 
 #include <glm/vec4.hpp>
 
+#undef OPAQUE
+#undef TRANSPARENT
+
 namespace galaxy
 {
 	namespace graphics
