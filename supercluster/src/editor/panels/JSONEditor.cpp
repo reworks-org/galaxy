@@ -7,11 +7,11 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/error/Log.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/scripting/JSONUtils.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/scripting/JSON.hpp>
 
-#include <imgui/addons/ToggleButton.h>
-#include <imgui/imgui_stdlib.h>
+#include <imgui_addons/ToggleButton.h>
+#include <imgui_stdlib.h>
 
 #include "JSONEditor.hpp"
 
@@ -146,7 +146,7 @@ namespace sc
 
 					if (ImGui::MenuItem("Open"))
 					{
-						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.json");
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.json");
 						if (path == std::nullopt)
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Failed to find file to open for JSONEditor panel.");
@@ -161,7 +161,7 @@ namespace sc
 					{
 						if (is_loaded())
 						{
-							const auto path = SL_HANDLE.vfs()->show_save_dialog();
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_save_dialog();
 							if (path == std::nullopt)
 							{
 								GALAXY_LOG(GALAXY_ERROR, "Failed to find file to save to for JSONEditor panel.");
@@ -309,7 +309,7 @@ namespace sc
 			add_to_array(json);
 
 			unsigned int counter = 0;
-			std::string  name;
+			std::string name;
 			for (auto& elem : json)
 			{
 				name = std::format("[{0}]", counter);
@@ -364,8 +364,8 @@ namespace sc
 				static std::string s_key_str;
 				static std::string s_val_str;
 				static std::string s_err_str;
-				static int         s_index      = 0;
-				static bool        s_show_error = false;
+				static int s_index       = 0;
+				static bool s_show_error = false;
 
 				static constexpr const std::array<const char*, 8> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
 
@@ -383,7 +383,7 @@ namespace sc
 					}
 					else
 					{
-						if (std::strcmp(s_types[s_index], "bool"))
+						if (std::strcmp(s_types[s_index], "bool") == 0)
 						{
 							if (s_val_str == "true")
 							{
@@ -401,32 +401,32 @@ namespace sc
 								s_show_error = true;
 							}
 						}
-						else if (std::strcmp(s_types[s_index], "integer"))
+						else if (std::strcmp(s_types[s_index], "integer") == 0)
 						{
 							json[s_key_str] = std::stoi(s_val_str);
 							s_show_error    = false;
 						}
-						else if (std::strcmp(s_types[s_index], "unsigned"))
+						else if (std::strcmp(s_types[s_index], "unsigned") == 0)
 						{
 							json[s_key_str] = static_cast<unsigned int>(std::stoi(s_val_str));
 							s_show_error    = false;
 						}
-						else if (std::strcmp(s_types[s_index], "float"))
+						else if (std::strcmp(s_types[s_index], "float") == 0)
 						{
 							json[s_key_str] = std::stof(s_val_str);
 							s_show_error    = false;
 						}
-						else if (std::strcmp(s_types[s_index], "string"))
+						else if (std::strcmp(s_types[s_index], "string") == 0)
 						{
 							json[s_key_str] = s_val_str;
 							s_show_error    = false;
 						}
-						else if (std::strcmp(s_types[s_index], "object"))
+						else if (std::strcmp(s_types[s_index], "object") == 0)
 						{
 							json[s_key_str] = nlohmann::json::object();
 							s_show_error    = false;
 						}
-						else if (std::strcmp(s_types[s_index], "array"))
+						else if (std::strcmp(s_types[s_index], "array") == 0)
 						{
 							json.push_back(nlohmann::json::array());
 							s_show_error = false;
@@ -466,8 +466,8 @@ namespace sc
 			{
 				static std::string s_val_str;
 				static std::string s_err_str;
-				static int         s_index      = 0;
-				static bool        s_show_error = false;
+				static int s_index       = 0;
+				static bool s_show_error = false;
 
 				static const std::vector<const char*> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
 
@@ -483,7 +483,7 @@ namespace sc
 					}
 					else
 					{
-						if (std::strcmp(s_types[s_index], "bool"))
+						if (std::strcmp(s_types[s_index], "bool") == 0)
 						{
 							if (s_val_str == "true")
 							{
@@ -501,32 +501,32 @@ namespace sc
 								s_show_error = true;
 							}
 						}
-						else if (std::strcmp(s_types[s_index], "integer"))
+						else if (std::strcmp(s_types[s_index], "integer") == 0)
 						{
 							json.push_back(std::stoi(s_val_str));
 							s_show_error = false;
 						}
-						else if (std::strcmp(s_types[s_index], "unsigned"))
+						else if (std::strcmp(s_types[s_index], "unsigned") == 0)
 						{
 							json.push_back(static_cast<unsigned int>(std::stoi(s_val_str)));
 							s_show_error = false;
 						}
-						else if (std::strcmp(s_types[s_index], "float"))
+						else if (std::strcmp(s_types[s_index], "float") == 0)
 						{
 							json.push_back(std::stof(s_val_str));
 							s_show_error = false;
 						}
-						else if (std::strcmp(s_types[s_index], "string"))
+						else if (std::strcmp(s_types[s_index], "string") == 0)
 						{
 							json.push_back(s_val_str);
 							s_show_error = false;
 						}
-						else if (std::strcmp(s_types[s_index], "object"))
+						else if (std::strcmp(s_types[s_index], "object") == 0)
 						{
 							json.push_back(nlohmann::json::object());
 							s_show_error = false;
 						}
-						else if (std::strcmp(s_types[s_index], "array"))
+						else if (std::strcmp(s_types[s_index], "array") == 0)
 						{
 							json.push_back(nlohmann::json::array());
 							s_show_error = false;

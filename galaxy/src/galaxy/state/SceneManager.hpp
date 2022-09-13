@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		/// Scene saving/loading, creation, changing and loading.
 		///
-		class SceneManager final
+		class SceneManager final : public fs::Serializable
 		{
 		public:
 			///
@@ -62,22 +62,6 @@ namespace galaxy
 			void change(const std::string& name);
 
 			///
-			/// Get currently active scene.
-			///
-			/// \return Ref to currently active scene.
-			///
-			[[nodiscard]] Scene& current() noexcept;
-
-			///
-			/// Gets a specific scene.
-			///
-			/// \param name Name id for scene.
-			///
-			/// \return Shared pointer to requested scene.
-			///
-			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name) noexcept;
-
-			///
 			/// Load data from memory into scenes.
 			///
 			/// \param data JSON data to parse.
@@ -92,11 +76,59 @@ namespace galaxy
 			void save(std::string_view file);
 
 			///
-			/// \brief Remove all scenes.
+			/// Gets a specific scene.
+			///
+			/// \param name Name id for scene.
+			///
+			/// \return Shared pointer to requested scene.
+			///
+			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name) noexcept;
+
+			///
+			/// \brief Remove a specific scene.
+			///
+			/// You cant remove the currently active scene.
+			///
+			/// \param name Id for scene.
+			///
+			/// \return True if scene removed, false if not, because scene is active.
+			///
+			[[nodiscard]] bool remove(const std::string& name);
+
+			///
+			/// \brief Remove all scenes EXCEPT active.
 			///
 			/// Destroys scene data, so beware of pointers becoming invalid.
 			///
 			void clear();
+
+			///
+			/// Get currently active scene.
+			///
+			/// \return Ref to currently active scene.
+			///
+			[[nodiscard]] Scene& current() noexcept;
+
+			///
+			/// Get all scenes.
+			///
+			/// \return SceneContainer reference.
+			///
+			[[nodiscard]] SceneContainer& all() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to write out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///

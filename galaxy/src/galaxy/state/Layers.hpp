@@ -20,29 +20,14 @@ namespace galaxy
 		class Layers final : public fs::Serializable
 		{
 			///
+			/// Typedef for layer stack.
+			///
+			using LayerStack = std::vector<std::shared_ptr<Layer>>;
+
+			///
 			/// Typedef for layer storage.
 			///
 			using LayerContainer = robin_hood::unordered_node_map<std::string, std::shared_ptr<Layer>>;
-
-			///
-			/// Typedef for vector iterator.
-			///
-			using LayersIterator = std::vector<std::shared_ptr<Layer>>::iterator;
-
-			///
-			/// Typedef for vector reverse iterator.
-			///
-			using LayersReverseIterator = std::vector<std::shared_ptr<Layer>>::reverse_iterator;
-
-			///
-			/// Typedef for vector const iterator.
-			///
-			using LayersConstIterator = std::vector<std::shared_ptr<Layer>>::const_iterator;
-
-			///
-			/// Typedef for vector const reverse iterator.
-			///
-			using LayersConstReverseIterator = std::vector<std::shared_ptr<Layer>>::const_reverse_iterator;
 
 		public:
 			///
@@ -121,60 +106,18 @@ namespace galaxy
 			void clear();
 
 			///
-			/// Vector iterator.
+			/// Get layer stack.
 			///
-			/// \return Non-const begin.
+			/// \return Const ref to layer stack.
 			///
-			[[nodiscard]] constexpr LayersIterator begin() noexcept;
+			const LayerStack& stack() const noexcept;
 
 			///
-			/// Vector iterator.
+			/// Get layer cache.
 			///
-			/// \return Non-const end.
+			/// \return Const ref to layer cache.
 			///
-			[[nodiscard]] constexpr LayersIterator end() noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Non-const reverse begin.
-			///
-			[[nodiscard]] constexpr LayersReverseIterator rbegin() noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Non-const reverse end.
-			///
-			[[nodiscard]] constexpr LayersReverseIterator rend() noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Const begin.
-			///
-			[[nodiscard]] constexpr LayersConstIterator begin() const noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Const end.
-			///
-			[[nodiscard]] constexpr LayersConstIterator end() const noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Const reverse begin.
-			///
-			[[nodiscard]] constexpr LayersConstReverseIterator rbegin() const noexcept;
-
-			///
-			/// Vector iterator.
-			///
-			/// \return Const reverse end.
-			///
-			[[nodiscard]] constexpr LayersConstReverseIterator rend() const noexcept;
+			LayerContainer& cache() noexcept;
 
 			///
 			/// Serializes object.
@@ -225,7 +168,7 @@ namespace galaxy
 			///
 			/// Simulate a stack using a std::vector.
 			///
-			std::vector<std::shared_ptr<Layer>> m_stack;
+			LayerStack m_stack;
 
 			///
 			/// Scene pointer.

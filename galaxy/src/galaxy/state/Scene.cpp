@@ -18,7 +18,7 @@ namespace galaxy
 	namespace state
 	{
 		Scene::Scene() noexcept
-			: m_name {"New Scene"}
+			: m_name {"Untitled"}
 			, m_layer_stack {this}
 		{
 		}

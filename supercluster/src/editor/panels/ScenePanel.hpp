@@ -8,9 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 
-#include <galaxy/core/SceneStack.hpp>
-
-#include "editor/GLOperation.hpp"
+#include <galaxy/state/SceneManager.hpp>
 
 using namespace galaxy;
 
@@ -24,10 +22,11 @@ namespace sc
 			ScenePanel() noexcept  = default;
 			~ScenePanel() noexcept = default;
 
-			void render(core::SceneStack& scene_stack);
+			void render(state::SceneManager& sm);
 
 		private:
 			std::string m_selected;
+			std::string m_selected_layer;
 		};
 	} // namespace panel
 } // namespace sc

@@ -64,9 +64,9 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		const float window_calc             = ImGui::GetWindowWidth() / 2.0f;
-		constexpr const float button_width  = 200.0f;
-		constexpr const float button_height = 40.0f;
+		const auto window_calc             = ImGui::GetWindowWidth() / 2.0f;
+		constexpr const auto button_width  = 200.0f;
+		constexpr const auto button_height = 40.0f;
 
 		ImGui::PushFont(m_bigger_default_font);
 		ImGui::SetCursorPos({window_calc - (ImGui::CalcTextSize("Supercluster Editor").x / 2.0f), 100.0f});
@@ -80,7 +80,8 @@ namespace sc
 			auto editor = m_scene->layers().get<sc::Editor>("Editor");
 			if (auto ptr = editor.lock())
 			{
-				// ptr->new_project();
+				ptr->new_project();
+				m_scene->layers().pop();
 				m_scene->layers().push("Editor");
 			}
 		}
@@ -91,13 +92,14 @@ namespace sc
 		if (ImGui::Button("Load", {button_width, button_height}))
 		{
 			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto file = fs.show_open_dialog("*.scproj", "projects/");
+			auto file = fs.show_open_dialog("*.scproj");
 			if (file.has_value())
 			{
 				auto editor = m_scene->layers().get<sc::Editor>("Editor");
 				if (auto ptr = editor.lock())
 				{
-					// ptr->load_project(file.value());
+					ptr->load_project(file.value());
+					m_scene->layers().pop();
 					m_scene->layers().push("Editor");
 				}
 			}

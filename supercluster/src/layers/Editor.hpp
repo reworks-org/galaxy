@@ -8,8 +8,16 @@
 #ifndef SUPERCLUSTER_LAYERS_EDITOR_HPP_
 #define SUPERCLUSTER_LAYERS_EDITOR_HPP_
 
+#include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+
+//#include "editor/panels/AudioPanel.hpp"
+//#include "editor/panels/EntityEditor.hpp"
+#include "editor/panels/JSONEditor.hpp"
+#include "editor/panels/LuaConsole.hpp"
+#include "editor/panels/ScenePanel.hpp"
+#include "editor/panels/StdConsole.hpp"
 
 using namespace galaxy;
 
@@ -40,6 +48,52 @@ namespace sc
 
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
+
+	private:
+		/*
+		platform::Subprocess m_tiled_process;
+		platform::Subprocess m_notepad_process;
+
+		OpenGLOperationStack m_gl_operations;
+
+		glm::vec2 m_clicked_pos;
+		glm::vec2 m_cursor_size = {4.0f, 4.0f};
+		math::AABB m_cursor_aabb;
+
+
+
+
+
+		nlohmann::json m_backup;
+
+		bool m_game_mode        = false;
+
+
+		events::MouseMoved m_mousemoved_event;
+		events::MouseWheel m_scroll_delta;
+		events::KeyDown m_keydown_event;
+		events::KeyUp m_keyup_event;
+		*/
+
+		panel::LuaConsole m_lua_console;
+		panel::StdConsole m_std_console;
+		panel::JSONEditor m_json_panel;
+		// panel::EntityEditor m_entity_panel;
+		// panel::AudioPanel m_audio_panel;
+		panel::ScenePanel m_scene_panel;
+
+		bool m_paused           = false;
+		bool m_viewport_focused = false;
+		bool m_viewport_hovered = false;
+		bool m_mouse_picked     = false;
+		bool m_use_mouse_hand   = false;
+
+		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
+		ImVec2 m_viewport_size     = {0.0f, 0.0f};
+
+		std::string m_current_project_path;
+		state::SceneManager m_project_scenes;
+		graphics::RenderTexture m_framebuffer;
 	};
 } // namespace sc
 

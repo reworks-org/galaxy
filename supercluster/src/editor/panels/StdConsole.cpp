@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui/imgui_stdlib.h>
+#include <imgui_stdlib.h>
 
 #include "StdConsole.hpp"
 
@@ -25,7 +25,7 @@ namespace sc
 
 		void StdConsole::render()
 		{
-			if (ImGui::Begin("Console", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
+			if (ImGui::Begin("Log", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
 				for (const auto& str : m_sink->get_messages())
 				{

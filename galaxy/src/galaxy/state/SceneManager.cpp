@@ -75,9 +75,28 @@ namespace galaxy
 			}
 		}
 
-		Scene& SceneManager::current() noexcept
+		void SceneManager::load(const std::string& data)
 		{
-			return *m_current;
+			const auto parsed = nlohmann::json::parse(data);
+
+			if (!parsed.empty())
+			{
+				deserialize(parsed);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
+			}
+		}
+
+		void SceneManager::save(std::string_view file)
+		{
+			const auto json = serialize();
+
+			if (!json::save_to_disk(file, json))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
+			}
 		}
 
 		std::weak_ptr<Scene> SceneManager::get(const std::string& name) noexcept
@@ -93,35 +112,65 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::load(const std::string& data)
+		bool SceneManager::remove(const std::string& name)
 		{
-			const auto parsed = nlohmann::json::parse(data);
-
-			if (!parsed.empty())
+			if (m_scenes.contains(name))
 			{
-				// Only clear if read from disk was successful.
-				clear();
-
-				const auto& scenes = parsed.at("scenes");
-
-				for (const auto& [key, value] : scenes.items())
+				if (m_current != nullptr)
 				{
-					auto scene = make(key);
-					if (auto ptr = scene.lock())
+					if (m_current->get_name() != name)
 					{
-						ptr->deserialize(value);
+						m_scenes.erase(name);
+						return true;
+					}
+					else
+					{
+						return false;
 					}
 				}
-
-				change(parsed.at("current_scene"));
+				else
+				{
+					m_scenes.erase(name);
+					return true;
+				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
+				return false;
 			}
 		}
 
-		void SceneManager::save(std::string_view file)
+		void SceneManager::clear()
+		{
+			std::vector<std::string> remove;
+			remove.reserve(m_scenes.size());
+
+			for (auto& [name, scene] : m_scenes)
+			{
+				if (name != m_current->get_name())
+				{
+					scene.reset();
+					remove.push_back(name);
+				}
+			}
+
+			for (const auto& name : remove)
+			{
+				m_scenes.erase(name);
+			}
+		}
+
+		Scene& SceneManager::current() noexcept
+		{
+			return *m_current;
+		}
+
+		SceneContainer& SceneManager::all() noexcept
+		{
+			return m_scenes;
+		}
+
+		nlohmann::json SceneManager::serialize()
 		{
 			nlohmann::json json   = "{\"current_scene\": \"\", \"scenes\": {}}"_json;
 			json["current_scene"] = m_current->get_name();
@@ -131,22 +180,26 @@ namespace galaxy
 				json["scenes"][name] = scene->serialize();
 			}
 
-			if (!json::save_to_disk(file, json))
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
-			}
+			return json;
 		}
 
-		void SceneManager::clear()
+		void SceneManager::deserialize(const nlohmann::json& json)
 		{
-			m_current = nullptr;
+			// Only clear if read from disk was successful.
+			clear();
 
-			for (auto& [name, scene] : m_scenes)
+			const auto& scenes = json.at("scenes");
+
+			for (const auto& [key, value] : scenes.items())
 			{
-				scene.reset();
+				auto scene = make(key);
+				if (auto ptr = scene.lock())
+				{
+					ptr->deserialize(value);
+				}
 			}
 
-			m_scenes.clear();
+			change(json.at("current_scene"));
 		}
 	} // namespace state
 } // namespace galaxy

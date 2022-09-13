@@ -44,6 +44,7 @@ namespace galaxy
 
 			static void submit(Renderable* renderable);
 			static void draw();
+			static void flush() noexcept;
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 
 		private:

@@ -368,6 +368,7 @@
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
+    <ClCompile Include="imgui\imgui_addons\ToggleButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1406,6 +1407,7 @@
     <ClInclude Include="entt\include\entt\addons\sol\dispatcher.hpp" />
     <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
     <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
+    <ClInclude Include="imgui\imgui_addons\ToggleButton.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

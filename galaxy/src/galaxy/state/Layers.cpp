@@ -115,44 +115,14 @@ namespace galaxy
 			m_layers.clear();
 		}
 
-		constexpr Layers::LayersIterator Layers::begin() noexcept
+		const Layers::LayerStack& Layers::stack() const noexcept
 		{
-			return m_stack.begin();
+			return m_stack;
 		}
 
-		constexpr Layers::LayersIterator Layers::end() noexcept
+		Layers::LayerContainer& Layers::cache() noexcept
 		{
-			return m_stack.end();
-		}
-
-		constexpr Layers::LayersReverseIterator Layers::rbegin() noexcept
-		{
-			return m_stack.rbegin();
-		}
-
-		constexpr Layers::LayersReverseIterator Layers::rend() noexcept
-		{
-			return m_stack.rend();
-		}
-
-		constexpr Layers::LayersConstIterator Layers::begin() const noexcept
-		{
-			return m_stack.begin();
-		}
-
-		constexpr Layers::LayersConstIterator Layers::end() const noexcept
-		{
-			return m_stack.end();
-		}
-
-		constexpr Layers::LayersConstReverseIterator Layers::rbegin() const noexcept
-		{
-			return m_stack.rbegin();
-		}
-
-		constexpr Layers::LayersConstReverseIterator Layers::rend() const noexcept
-		{
-			return m_stack.rend();
+			return m_layers;
 		}
 
 		nlohmann::json Layers::serialize()

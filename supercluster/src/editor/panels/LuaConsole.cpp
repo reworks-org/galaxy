@@ -7,14 +7,16 @@
 
 #include <fstream>
 
-#include <imgui/imgui_stdlib.h>
+#include <imgui_stdlib.h>
 #include <sol/sol.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/error/Log.hpp>
-#include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
 
 #include "LuaConsole.hpp"
+
+using namespace galaxy;
 
 // Thanks to: https://gist.github.com/5at/3671566
 namespace
@@ -41,9 +43,11 @@ namespace sc
 	{
 		LuaConsole::LuaConsole() noexcept
 		{
-			lua_getglobal(SL_HANDLE.lua()->lua_state(), "_G");
-			luaL_setfuncs(SL_HANDLE.lua()->lua_state(), printlib, 0);
-			lua_pop(SL_HANDLE.lua()->lua_state(), 1);
+			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			lua_getglobal(lua.lua_state(), "_G");
+			luaL_setfuncs(lua.lua_state(), printlib, 0);
+			lua_pop(lua.lua_state(), 1);
 		}
 
 		LuaConsole::~LuaConsole() noexcept
@@ -60,7 +64,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Open & Run Script"))
 					{
-						const auto path = SL_HANDLE.vfs()->show_open_dialog("*.lua", "assets/scripts/");
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua", "assets/scripts/");
 						if (path == std::nullopt)
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
@@ -73,9 +77,10 @@ namespace sc
 
 							m_history.push_back("[SCRIPT]: ");
 							m_history.push_back(m_buff + '\n');
-							auto res = SL_HANDLE.lua()->script(m_buff);
 
-							const auto  type = res.get_type();
+							auto res = core::ServiceLocator<sol::state>::ref().script(m_buff);
+
+							const auto type = res.get_type();
 							std::string out;
 							if (type == sol::type::string)
 							{
@@ -119,7 +124,7 @@ namespace sc
 
 					if (ImGui::MenuItem("Run GC"))
 					{
-						SL_HANDLE.lua()->collect_garbage();
+						core::ServiceLocator<sol::state>::ref().collect_garbage();
 					}
 
 					if (ImGui::MenuItem("Clear"))
@@ -137,32 +142,39 @@ namespace sc
 					{
 						m_history.push_back(std::format("[INPUT]:  {0}.", m_buff));
 
-						auto        res  = SL_HANDLE.lua()->script(m_buff);
-						auto        type = res.get_type();
-						std::string out;
-						if (type == sol::type::string)
+						try
 						{
-							out = res.get<std::string>();
-						}
-						else if (type == sol::type::number)
-						{
-							out = std::to_string(res.get<float>());
-						}
-						else if (type == sol::type::boolean)
-						{
-							if (res.get<bool>())
+							auto res  = core::ServiceLocator<sol::state>::ref().script(m_buff);
+							auto type = res.get_type();
+							std::string out;
+							if (type == sol::type::string)
 							{
-								out = "true";
+								out = res.get<std::string>();
 							}
-							else
+							else if (type == sol::type::number)
 							{
-								out = "false";
+								out = std::to_string(res.get<float>());
 							}
-						}
+							else if (type == sol::type::boolean)
+							{
+								if (res.get<bool>())
+								{
+									out = "true";
+								}
+								else
+								{
+									out = "false";
+								}
+							}
 
-						if (!out.empty())
+							if (!out.empty())
+							{
+								m_history.push_back(std::format("[RESULT]: {0}.", out));
+							}
+						}
+						catch (const std::exception& e)
 						{
-							m_history.push_back(std::format("[RESULT]: {0}.", out));
+							m_history.push_back(e.what());
 						}
 
 						m_buff.clear();

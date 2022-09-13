@@ -24,6 +24,8 @@
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
 
-For editor:
-- own scene stack for editor layer that renders to a frame buffer view port.
-- Then serialize into a runtime layer / ui layer when playing, and pop editor layer.
+- fix scene names not being editable because cache in scene manager not updated.
+	- make sure scene names cant be changed?
+
+editor:
+- add a "view" dropdown and make some views toggleable.

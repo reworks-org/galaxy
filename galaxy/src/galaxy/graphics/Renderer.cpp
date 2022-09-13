@@ -95,6 +95,11 @@ namespace galaxy
 			s_data.clear();
 		}
 
+		void Renderer::flush() noexcept
+		{
+			s_data.clear();
+		}
+
 		void Renderer::draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform)
 		{
 			va.bind();

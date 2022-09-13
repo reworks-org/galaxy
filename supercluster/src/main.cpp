@@ -74,6 +74,8 @@ int main(int argsc, char* argsv[])
 				auto scene = sm.make("supercluster");
 				if (auto ptr = scene.lock())
 				{
+					sm.make("game_runtime");
+
 					sm.set(ptr->get_name());
 
 					state::LayerRegistry::register_type<sc::Editor>("Editor");
@@ -96,7 +98,7 @@ int main(int argsc, char* argsv[])
 			std::cout << "======================" << std::endl;
 			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
 			std::cout << "======================" << std::endl;
-			std::cin.get();
+			std::getchar();
 		}
 	} while (GALAXY_RESTART);
 
