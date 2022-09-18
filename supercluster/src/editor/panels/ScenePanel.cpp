@@ -7,6 +7,8 @@
 
 #include <portable-file-dialogs.h>
 
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/state/layers/RuntimeLayer.hpp>
 #include <galaxy/state/layers/UILayer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -19,7 +21,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(state::SceneManager& sm)
+		void ScenePanel::render(state::SceneManager& sm, entt::entity& selected_entity)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -164,13 +166,6 @@ namespace sc
 							ui::imgui_open_confirm("ClearAllLayersPopup");
 						}
 
-						ImGui::SameLine();
-
-						if (ImGui::Button("Pop"))
-						{
-							scene->layers().pop();
-						}
-
 						ui::imgui_confirm("ClearAllLayersPopup", [&]() {
 							scene->layers().clear();
 						});
@@ -221,6 +216,11 @@ namespace sc
 
 						if (ImGui::CollapsingHeader("Stack"))
 						{
+							if (ImGui::Button("Pop"))
+							{
+								scene->layers().pop();
+							}
+
 							for (const auto& layer : scene->layers().stack())
 							{
 								ImGui::BulletText(layer->get_name().c_str());
@@ -259,6 +259,36 @@ namespace sc
 								if (ImGui::Button("Pop"))
 								{
 									scene->layers().pop(layer_key);
+								}
+
+								ImGui::SameLine();
+
+								auto& world = layer->world();
+								if (ImGui::Button("Clear World"))
+								{
+									ui::imgui_open_confirm("ClearWorldPopup");
+								}
+
+								ui::imgui_confirm("ClearWorldPopup", [&]() {
+									world.clear();
+								});
+
+								ImGui::Spacing();
+
+								if (ImGui::Button("New Entity"))
+								{
+									selected_entity = world.m_registry.create();
+								}
+
+								ImGui::SameLine();
+
+								if (ImGui::Button("Load Entity"))
+								{
+									auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.json");
+									if (file.has_value())
+									{
+										selected_entity = world.create_from_file(file.value());
+									}
 								}
 
 								ImGui::TreePop();

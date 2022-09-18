@@ -153,11 +153,6 @@ namespace galaxy
 			///
 			[[nodiscard]] map::Map* get_active_map();
 
-			///
-			/// Entity/System manager.
-			///
-			core::World m_world;
-
 		private:
 			///
 			/// Tiled map world.

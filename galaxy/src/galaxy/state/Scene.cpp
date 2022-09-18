@@ -46,6 +46,8 @@ namespace galaxy
 
 		void Scene::update()
 		{
+			m_camera.update();
+
 			m_layer_stack.update();
 			graphics::Renderer::buffer_camera(m_camera);
 		}
@@ -97,65 +99,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-
-
-
-			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
-			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
-			m_window = &core::ServiceLocator<core::Window>::ref();
-
-		Scene::Scene(std::string_view name) noexcept
-			: Serializable {this}
-			, m_name {name}
-		{
-			m_world.create_system<systems::ActionSystem>();
-			m_world.create_system<systems::TransformSystem>();
-			m_world.create_system<systems::AnimationSystem>();
-			m_world.create_system<systems::CollisionSystem>();
-			m_world.create_system<systems::ParticleSystem>();
-			m_world.create_system<systems::RenderSystem2D>();
-
-			m_rendersystem = m_world.get_system<systems::RenderSystem2D>();
-
-		}
-
-		Scene::~Scene() noexcept
-		{
-		}
-
-		void Scene::on_push()
-		{
-			SL_HANDLE.musicbook()->stop_all();
-			SL_HANDLE.lua()->set("galaxy_current_world", &m_world);
-		}
-
-		void Scene::on_pop()
-		{
-			SL_HANDLE.musicbook()->stop_all();
-		}
-
-		void Scene::events()
-		{
-			SL_HANDLE.window()->trigger_queued_events(m_dispatcher);
-		}
-
-		void Scene::update()
-		{
-
-			m_world.update(this);
-
-		}
-
-		void Scene::pre_render()
-		{
-		}
-
-		void Scene::render()
-		{
-
-			m_rendersystem->render(m_world);
-		}
-
 		void Scene::create_maps(std::string_view path)
 		{
 			m_maps_path = static_cast<std::string>(path);

@@ -9,10 +9,16 @@
         },
         "default_lang": "en_au",
         "graphics": {
-            "ansiotrophic_filtering": 2,
-            "enable_aa": false,
+            "ansiotrophic_filtering": 16,
+            "enable_aa": true,
             "enable_sharpen": false,
             "trilinear_filtering": false
+        },
+        "input": {
+            "camera_backward": 83,
+            "camera_foward": 87,
+            "camera_left": 65,
+            "camera_right": 68
         },
         "loading": {
             "bg": "editor_data/load.png",
@@ -31,12 +37,12 @@
             "texture_folder": "textures/"
         },
         "window": {
-            "allow_native_closing": true,
+            "allow_native_closing": false,
             "cursor_icon": "",
             "debug": true,
             "height": 720,
             "icon": "editor_data/icon.png",
-            "maximized": false,
+            "maximized": true,
             "scale_to_monitor": true,
             "title": "Title",
             "visible_cursor": true,

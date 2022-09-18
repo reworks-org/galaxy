@@ -1,12 +1,12 @@
 ///
-/// StdConsole.hpp
+/// LogConsole.hpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_EDITOR_PANELS_STDCONSOLE_HPP_
-#define SUPERCLUSTER_EDITOR_PANELS_STDCONSOLE_HPP_
+#ifndef SUPERCLUSTER_EDITOR_PANELS_LogConsole_HPP_
+#define SUPERCLUSTER_EDITOR_PANELS_LogConsole_HPP_
 
 #include "editor/EditorSink.hpp"
 
@@ -14,11 +14,11 @@ namespace sc
 {
 	namespace panel
 	{
-		class StdConsole final
+		class LogConsole final
 		{
 		public:
-			StdConsole() noexcept = default;
-			~StdConsole() noexcept;
+			LogConsole() noexcept = default;
+			~LogConsole() noexcept;
 
 			void set_sink(EditorSink* sink) noexcept;
 

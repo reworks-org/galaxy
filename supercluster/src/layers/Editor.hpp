@@ -12,12 +12,11 @@
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
-//#include "editor/panels/AudioPanel.hpp"
 //#include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
-#include "editor/panels/StdConsole.hpp"
+#include "editor/panels/LogConsole.hpp"
 
 using namespace galaxy;
 
@@ -76,10 +75,9 @@ namespace sc
 		*/
 
 		panel::LuaConsole m_lua_console;
-		panel::StdConsole m_std_console;
+		panel::LogConsole m_log_console;
 		panel::JSONEditor m_json_panel;
 		// panel::EntityEditor m_entity_panel;
-		// panel::AudioPanel m_audio_panel;
 		panel::ScenePanel m_scene_panel;
 
 		bool m_paused           = false;
@@ -90,6 +88,8 @@ namespace sc
 
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
+
+		entt::entity m_selected_entity;
 
 		std::string m_current_project_path;
 		state::SceneManager m_project_scenes;

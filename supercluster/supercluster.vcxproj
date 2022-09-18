@@ -187,7 +187,7 @@
     <ClCompile Include="src\editor\panels\JSONEditor.cpp" />
     <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
     <ClCompile Include="src\editor\panels\ScenePanel.cpp" />
-    <ClCompile Include="src\editor\panels\StdConsole.cpp" />
+    <ClCompile Include="src\editor\panels\LogConsole.cpp" />
     <ClCompile Include="src\layers\Menu.cpp" />
     <ClCompile Include="src\layers\Editor.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -197,7 +197,7 @@
     <ClInclude Include="src\editor\panels\JSONEditor.hpp" />
     <ClInclude Include="src\editor\panels\LuaConsole.hpp" />
     <ClInclude Include="src\editor\panels\ScenePanel.hpp" />
-    <ClInclude Include="src\editor\panels\StdConsole.hpp" />
+    <ClInclude Include="src\editor\panels\LogConsole.hpp" />
     <ClInclude Include="src\layers\Menu.hpp" />
     <ClInclude Include="src\layers\Editor.hpp" />
     <ClInclude Include="src\resources\RobotoLight.hpp" />

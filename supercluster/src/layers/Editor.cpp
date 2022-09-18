@@ -26,7 +26,7 @@ namespace sc
 		: Layer {name, scene}
 	{
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
-		m_std_console.set_sink(&sink);
+		m_log_console.set_sink(&sink);
 
 		m_framebuffer.create(1, 1);
 	}
@@ -45,7 +45,7 @@ namespace sc
 
 	void Editor::events()
 	{
-		// m_window->trigger_queued_events(m_world.m_dispatcher);
+		m_world.m_dispatcher.sink<events::MouseWheel>().disconnect();
 
 		if (m_viewport_focused && m_viewport_hovered)
 		{
@@ -77,6 +77,8 @@ namespace sc
 			{
 				m_project_scenes.current().events();
 			}
+
+			// m_window->trigger_queued_events(m_world.m_dispatcher);
 		}
 	}
 
@@ -121,10 +123,6 @@ m_gl_operations.clear();
 		if (m_use_mouse_hand)
 		{
 			ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-		}
-		else
-		{
-			ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 		}
 
 		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
@@ -311,7 +309,7 @@ m_gl_operations.clear();
 
 		// Bottom:
 		m_lua_console.render();
-		m_std_console.render();
+		m_log_console.render();
 
 		// Center:
 		m_json_panel.render();
@@ -321,28 +319,12 @@ m_gl_operations.clear();
 		// m_entity_panel.render(m_scene_stack.top(), m_gl_operations);
 
 		// Right:
-		// m_audio_panel.render();
-		m_scene_panel.render(m_project_scenes);
+		m_scene_panel.render(m_project_scenes, m_selected_entity);
 
 		ImGui::End();
 
 		ui::imgui_prerender();
 		ui::imgui_render();
-
-		/*
-		if (!m_game_mode)
-		{
-			m_scene_stack.pre_render();
-			imgui_render();
-
-			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-		}
-		else
-		{
-			m_scene_stack.pre_render();
-			m_scene_stack.render();
-		}
-		*/
 	}
 
 	void Editor::new_project()
@@ -445,7 +427,7 @@ m_gl_operations.clear();
 			if (size_avail != m_viewport_size)
 			{
 				m_viewport_size = size_avail;
-				m_framebuffer.resize(m_viewport_size.x, m_viewport_size.y);
+				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
@@ -486,3 +468,131 @@ m_gl_operations.clear();
 		static_assert(true, "Do Not Call.");
 	}
 } // namespace sc
+
+/* void Editor::events()
+	{
+		if (!m_game_mode)
+		{
+			//	ImGui::ImplGlfw::g_BlockInput = false;
+
+			if (m_viewport_focused && m_viewport_hovered)
+			{
+
+
+
+
+
+			}
+		}
+		else
+		{
+			//ImGui::ImplGlfw::g_BlockInput = true;
+			m_scene_stack.top()->on_push();
+
+			if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
+			{
+				m_game_mode = false;
+				deserialize(m_backup);
+				SL_HANDLE.window()->set_cursor_visibility(true);
+			}
+
+			m_scene_stack.events();
+		}
+}
+} // namespace sc
+
+if (ImGui::BeginPopupContextItem("RightClickCreateEntityPopup"))
+{
+if (ImGui::BeginMenu("  Create"))
+{
+if (ImGui::BeginMenu("  Entity"))
+{
+if (m_topscene_type == "2D")
+{
+if (ImGui::MenuItem("  Sprite"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Animated Sprite"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Animated>(entity);
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Primitive2D"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Primitive2D>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::LINE_LOOP;
+}
+
+if (ImGui::MenuItem("  Rigid Body"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::OnCollision>(entity);
+world.create_component<components::RigidBody>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Animated Body"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Animated>(entity);
+world.create_component<components::BatchSprite>(entity);
+world.create_component<components::OnCollision>(entity);
+world.create_component<components::RigidBody>(entity);
+world.create_component<components::Tag>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::BATCHED;
+}
+
+if (ImGui::MenuItem("  Text"))
+{
+auto& world       = m_scene_stack.top()->m_world;
+const auto entity = world.create();
+
+world.create_component<components::Tag>(entity);
+world.create_component<components::Text>(entity);
+world.create_component<components::Transform2D>(entity);
+auto* r   = world.create_component<components::Renderable>(entity);
+r->m_type = graphics::Renderables::TEXT;
+}
+}
+
+ImGui::EndMenu();
+}
+
+ImGui::EndMenu();
+}
+
+ImGui::EndPopup();
+}*/

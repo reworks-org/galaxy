@@ -1,5 +1,5 @@
 ///
-/// StdConsole.cpp
+/// LogConsole.cpp
 /// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,23 +7,23 @@
 
 #include <imgui_stdlib.h>
 
-#include "StdConsole.hpp"
+#include "LogConsole.hpp"
 
 namespace sc
 {
 	namespace panel
 	{
-		StdConsole::~StdConsole() noexcept
+		LogConsole::~LogConsole() noexcept
 		{
 			m_sink = nullptr;
 		}
 
-		void StdConsole::set_sink(EditorSink* sink) noexcept
+		void LogConsole::set_sink(EditorSink* sink) noexcept
 		{
 			m_sink = sink;
 		}
 
-		void StdConsole::render()
+		void LogConsole::render()
 		{
 			if (ImGui::Begin("Log", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{

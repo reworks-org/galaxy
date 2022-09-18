@@ -10,6 +10,11 @@
 #include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/state/Scene.hpp"
+
+#include "galaxy/systems/AnimationSystem.hpp"
+#include "galaxy/systems/RenderSystem.hpp"
+#include "galaxy/systems/ScriptSystem.hpp"
 
 #include "RuntimeLayer.hpp"
 
@@ -20,6 +25,12 @@ namespace galaxy
 		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene) noexcept
 			: Layer {name, scene}
 		{
+			m_world.m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(scene->get_camera());
+			m_world.m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(scene->get_camera());
+
+			m_world.create_system<systems::ScriptSystem>();
+			m_world.create_system<systems::AnimationSystem>();
+			m_world.create_system<systems::RenderSystem>();
 		}
 
 		RuntimeLayer::~RuntimeLayer() noexcept

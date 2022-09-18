@@ -12,6 +12,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/state/Scene.hpp"
 
 #include "UILayer.hpp"
 
@@ -33,6 +34,9 @@ namespace galaxy
 			m_world.m_dispatcher.sink<events::KeyUp>().connect<&ui::RMLEvents::on_key_up>(m_rml_events);
 			m_world.m_dispatcher.sink<events::KeyChar>().connect<&ui::RMLEvents::on_key_char>(m_rml_events);
 			m_world.m_dispatcher.sink<events::WindowResized>().connect<&ui::RMLEvents::on_window_resize>(m_rml_events);
+
+			m_world.m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(scene->get_camera());
+			m_world.m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(scene->get_camera());
 		}
 
 		UILayer::~UILayer() noexcept

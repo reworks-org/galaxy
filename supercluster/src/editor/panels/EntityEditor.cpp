@@ -452,8 +452,8 @@ namespace sc
 
 							if (!s_mode)
 							{
-								static constexpr auto& keys      = magic_enum::enum_names<input::Keys>();
-								static const char*     s_current = "...";
+								static constexpr auto& keys  = magic_enum::enum_names<input::Keys>();
+								static const char* s_current = "...";
 								if (ImGui::BeginCombo("Keys", s_current))
 								{
 									for (const auto& key : keys)
@@ -489,8 +489,8 @@ namespace sc
 							}
 							else
 							{
-								constexpr auto&    mouse_buttons = magic_enum::enum_names<input::MouseButtons>();
-								static const char* s_current     = "...";
+								constexpr auto& mouse_buttons = magic_enum::enum_names<input::MouseButtons>();
+								static const char* s_current  = "...";
 								if (ImGui::BeginCombo("Mouse Buttons", s_current))
 								{
 									for (const auto& mb : mouse_buttons)
@@ -543,7 +543,7 @@ namespace sc
 							}
 
 							const char* key_name = magic_enum::enum_name(key).data();
-							const bool  is_open  = ImGui::TreeNodeEx(reinterpret_cast<void*>(key), flags, key_name);
+							const bool is_open   = ImGui::TreeNodeEx(reinterpret_cast<void*>(key), flags, key_name);
 							if (ImGui::IsItemClicked())
 							{
 								s_selected_key = key;
@@ -577,7 +577,7 @@ namespace sc
 							}
 
 							const char* mb_name = magic_enum::enum_name(mb).data();
-							const bool  is_open = ImGui::TreeNodeEx(reinterpret_cast<void*>(mb), flags, mb_name);
+							const bool is_open  = ImGui::TreeNodeEx(reinterpret_cast<void*>(mb), flags, mb_name);
 							if (ImGui::IsItemClicked())
 							{
 								s_selected_mb = mb;
@@ -611,9 +611,9 @@ namespace sc
 
 						if (s_add)
 						{
-							static std::string                  s_id;
-							static bool                         s_loop   = false;
-							static float                        s_speed  = 1.0f;
+							static std::string s_id;
+							static bool s_loop                           = false;
+							static float s_speed                         = 1.0f;
 							static std::vector<graphics::Frame> s_frames = {};
 
 							if (ImGui::BeginPopup("AddAnimation", ImGuiWindowFlags_AlwaysAutoResize))
@@ -635,8 +635,8 @@ namespace sc
 									if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
 									{
 										static graphics::Frame s_frame;
-										static std::string     s_tex_id;
-										static double          s_tpf = 0.1;
+										static std::string s_tex_id;
+										static double s_tpf = 0.1;
 
 										ImGui::InputText("Texture Atlas ID",
 											&s_tex_id,
