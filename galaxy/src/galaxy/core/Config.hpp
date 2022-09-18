@@ -86,6 +86,50 @@ namespace galaxy
 			void set(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///
+			/// Sets a new setting, only if key or value is missing.
+			///
+			/// \tparam Value Standard JSON type to use.
+			///
+			/// \param key Name of the variable.
+			/// \param value The variable value to set.
+			///
+			template<meta::standard_type Value>
+			void restore(const std::string& key, const Value& value);
+
+			///
+			/// Sets a new setting, only if key or value is missing.
+			///
+			/// \tparam Value Standard JSON type to use.
+			///
+			/// \param key Name of the variable.
+			/// \param value The variable value to set.
+			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
+			/// \param delim Delimiter to seperate sections with. Optional.
+			///
+			template<meta::standard_type Value>
+			void restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
+
+			///
+			/// Check if the config file actually has a value.
+			///
+			/// \param key Name of the value to check.
+			///
+			/// \return True if the value exists.
+			///
+			[[nodiscard]] bool has(const std::string& key);
+
+			///
+			/// Check if the config file actually has a value.
+			///
+			/// \param key Key to lookup value.
+			/// \param section Delimiter seperated sections.
+			/// \param delim Delimiter to use. Optional.
+			///
+			/// \return True if the value exists.
+			///
+			[[nodiscard]] bool has(const std::string& key, const std::string& section, const std::string& delim = ".");
+
+			///
 			/// Retrieve a root config value.
 			///
 			/// \tparam Value Standard JSON type to use.
@@ -204,6 +248,24 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
+		inline void Config::restore(const std::string& key, const Value& value)
+		{
+			if (!has(key))
+			{
+				set(key, value);
+			}
+		}
+
+		template<meta::standard_type Value>
+		inline void Config::restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim)
+		{
+			if (!has(key, section, delim))
+			{
+				set(key, value, section, delim);
+			}
+		}
+
+		template<meta::standard_type Value>
 		inline Value Config::get(const std::string& key)
 		{
 			if (m_loaded)
@@ -217,19 +279,12 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to get value of an unloaded config file.");
 			}
 
-			GALAXY_LOG(GALAXY_ERROR, "Failed to retrieve '{0}' from config.", key);
+			GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);
 
-			if constexpr (std::is_arithmetic_v<Value>)
-			{
-				return 0;
-			}
-			else
-			{
-				return Value {};
-			}
+			return Value {};
 		}
 
 		template<meta::standard_type Value>
@@ -277,7 +332,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to get value of an unloaded config file.");
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to get value of an unloaded config file.");
 			}
 
 			GALAXY_LOG(GALAXY_FATAL, "Failed to retrieve '{0}' from config.", key);

@@ -316,6 +316,8 @@ namespace galaxy
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
 			config_type["load"]              = &core::Config::load;
 			config_type["save"]              = &core::Config::save;
+			config_type["has_at_root"]       = sol::resolve<bool(const std::string&)>(&core::Config::has);
+			config_type["has_in_section"]    = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&core::Config::has);
 			config_type["get_bool"]          = sol::resolve<bool(const std::string&)>(&core::Config::get<bool>);
 			config_type["get_int"]           = sol::resolve<int(const std::string&)>(&core::Config::get<int>);
 			config_type["get_float"]         = sol::resolve<float(const std::string&)>(&core::Config::get<float>);
