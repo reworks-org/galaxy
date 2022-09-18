@@ -28,10 +28,6 @@ namespace galaxy
 			, m_zoom {1.0f}
 			, m_translation_speed {1.0f}
 			, m_rotation_speed {1.0f}
-			, m_forward_key {input::Keys::W}
-			, m_back_key {input::Keys::S}
-			, m_left_key {input::Keys::A}
-			, m_right_key {input::Keys::D}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -48,10 +44,6 @@ namespace galaxy
 			, m_zoom {1.0f}
 			, m_translation_speed {1.0f}
 			, m_rotation_speed {1.0f}
-			, m_forward_key {input::Keys::W}
-			, m_back_key {input::Keys::S}
-			, m_left_key {input::Keys::A}
-			, m_right_key {input::Keys::D}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -71,10 +63,6 @@ namespace galaxy
 			, m_translation_speed {1.0f}
 			, m_rotation_speed {1.0f}
 			, m_aspect_ratio {aspect_ratio}
-			, m_forward_key {input::Keys::W}
-			, m_back_key {input::Keys::S}
-			, m_left_key {input::Keys::A}
-			, m_right_key {input::Keys::D}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -84,10 +72,6 @@ namespace galaxy
 
 		Camera::Camera(const nlohmann::json& json) noexcept
 			: m_data {}
-			, m_forward_key {input::Keys::W}
-			, m_back_key {input::Keys::S}
-			, m_left_key {input::Keys::A}
-			, m_right_key {input::Keys::D}
 			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
 			, m_rotation_origin {0, 0, 1}
@@ -113,25 +97,25 @@ namespace galaxy
 
 		void Camera::update() noexcept
 		{
-			if (Input::key_down(m_forward_key))
+			if (Input::key_down(input::CameraKeys::FORWARD))
 			{
 				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(m_back_key))
+			if (Input::key_down(input::CameraKeys::BACKWARD))
 			{
 				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(m_left_key))
+			if (Input::key_down(input::CameraKeys::LEFT))
 			{
 				m_pos.x -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(m_right_key))
+			if (Input::key_down(input::CameraKeys::RIGHT))
 			{
 				m_pos.x += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
@@ -199,7 +183,6 @@ namespace galaxy
 			json["zoom"]              = m_zoom;
 			json["translation_speed"] = m_translation_speed;
 			json["rotation_speed"]    = m_rotation_speed;
-			json["aspect_ratio"]      = m_aspect_ratio;
 
 			return json;
 		}
@@ -217,7 +200,9 @@ namespace galaxy
 			m_zoom              = json.at("zoom");
 			m_translation_speed = json.at("translation_speed");
 			m_rotation_speed    = json.at("rotation_speed");
-			m_aspect_ratio      = json.at("aspect_ratio");
+
+			auto& window   = core::ServiceLocator<core::Window>::ref();
+			m_aspect_ratio = window.get_widthf() / window.get_heightf();
 
 			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
 		}

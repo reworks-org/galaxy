@@ -93,6 +93,32 @@ namespace galaxy
 			///
 			static GLFWwindow* s_window;
 		};
+
+		///
+		/// Struct holding camera key data.
+		///
+		struct CameraKeys
+		{
+			///
+			/// Key used to move camera FORWARD.
+			///
+			static inline input::Keys FORWARD;
+
+			///
+			/// Key to move camera BACKWARD.
+			///
+			static inline input::Keys BACKWARD;
+
+			///
+			/// Key to move camera LEFT.
+			///
+			static inline input::Keys LEFT;
+
+			///
+			/// Key to move camera RIGHT.
+			///
+			static inline input::Keys RIGHT;
+		};
 	} // namespace input
 } // namespace galaxy
 

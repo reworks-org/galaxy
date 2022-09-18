@@ -6,6 +6,7 @@
 ///
 
 #include <BS_thread_pool.hpp>
+#include <glfw/glfw3.h>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
 
@@ -20,6 +21,7 @@
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FontContext.hpp"
+#include "galaxy/input/Input.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -71,44 +73,45 @@ namespace galaxy
 			// CONFIG.
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
-			if (config.empty())
-			{
-				config.set<std::string>("asset_dir", "assets/");
-				config.set<std::string>("default_lang", "en_au");
-				config.set<std::string>("app_data", "default.galaxy");
-				config.set<bool>("log_performance", true);
-				config.set<std::string>("title", "Title", "window");
-				config.set<std::string>("icon", "", "window");
-				config.set<std::string>("cursor_icon", "", "window");
-				config.set<bool>("vsync", false, "window");
-				config.set<bool>("maximized", false, "window");
-				config.set<bool>("debug", true, "window");
-				config.set<bool>("visible_cursor", true, "window");
-				config.set<bool>("allow_native_closing", true, "window");
-				config.set<bool>("scale_to_monitor", true, "window");
-				config.set<int>("width", 1280, "window");
-				config.set<int>("height", 720, "window");
-				config.set<float>("sfx_volume", 1.0f, "audio");
-				config.set<float>("music_volume", 1.0f, "audio");
-				config.set<float>("dialogue_volume", 1.0f, "audio");
-				config.set<bool>("trilinear_filtering", false, "graphics");
-				config.set<int>("ansiotrophic_filtering", 2, "graphics");
-				config.set<std::string>("shader_folder", "shaders/", "resource_folders");
-				config.set<std::string>("scripts_folder", "scripts/", "resource_folders");
-				config.set<std::string>("font_folder", "fonts/", "resource_folders");
-				config.set<std::string>("lang_folder", "lang/", "resource_folders");
-				config.set<std::string>("texture_folder", "textures/", "resource_folders");
-				config.set<std::string>("atlas_folder", "atlas/", "resource_folders");
-				config.set<std::string>("music_folder", "audio/music/", "resource_folders");
-				config.set<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
-				config.set<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
-				config.set<bool>("enable_aa", false, "graphics");
-				config.set<bool>("enable_sharpen", false, "graphics");
-				config.set<std::string>("bg", "", "loading");
-				config.set<std::string>("font", "", "loading");
+			config.restore<std::string>("asset_dir", "assets/");
+			config.restore<std::string>("default_lang", "en_au");
+			config.restore<std::string>("app_data", "default.galaxy");
+			config.restore<bool>("log_performance", true);
+			config.restore<std::string>("title", "Title", "window");
+			config.restore<std::string>("icon", "", "window");
+			config.restore<std::string>("cursor_icon", "", "window");
+			config.restore<bool>("vsync", false, "window");
+			config.restore<bool>("maximized", false, "window");
+			config.restore<bool>("debug", true, "window");
+			config.restore<bool>("visible_cursor", true, "window");
+			config.restore<bool>("allow_native_closing", true, "window");
+			config.restore<bool>("scale_to_monitor", true, "window");
+			config.restore<int>("width", 1280, "window");
+			config.restore<int>("height", 720, "window");
+			config.restore<float>("sfx_volume", 1.0f, "audio");
+			config.restore<float>("music_volume", 1.0f, "audio");
+			config.restore<float>("dialogue_volume", 1.0f, "audio");
+			config.restore<bool>("trilinear_filtering", false, "graphics");
+			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
+			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
+			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
+			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
+			config.restore<std::string>("lang_folder", "lang/", "resource_folders");
+			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
+			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
+			config.restore<std::string>("music_folder", "audio/music/", "resource_folders");
+			config.restore<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
+			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
+			config.restore<bool>("enable_aa", false, "graphics");
+			config.restore<bool>("enable_sharpen", false, "graphics");
+			config.restore<std::string>("bg", "", "loading");
+			config.restore<std::string>("font", "", "loading");
+			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
+			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
+			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
+			config.restore<int>("camera_right", static_cast<int>(input::Keys::D), "input");
 
-				config.save();
-			}
+			config.save();
 
 			//
 			// VIRTUAL FILE SYSTEM.
@@ -217,6 +220,14 @@ namespace galaxy
 				try
 				{
 					// clang-format on
+
+					//
+					// Set inputs from config.
+					//
+					input::CameraKeys::FORWARD  = static_cast<input::Keys>(config.get<int>("camera_foward", "input"));
+					input::CameraKeys::BACKWARD = static_cast<input::Keys>(config.get<int>("camera_backward", "input"));
+					input::CameraKeys::LEFT     = static_cast<input::Keys>(config.get<int>("camera_left", "input"));
+					input::CameraKeys::RIGHT    = static_cast<input::Keys>(config.get<int>("camera_right", "input"));
 
 					//
 					// Window closing config.
