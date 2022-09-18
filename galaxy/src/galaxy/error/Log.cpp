@@ -29,7 +29,7 @@ namespace galaxy
 			m_sinks.reserve(2);
 		}
 
-		void Log::finish()
+		void Log::finish() noexcept
 		{
 			m_min_level = LogLevel::INFO;
 			m_sinks.clear();

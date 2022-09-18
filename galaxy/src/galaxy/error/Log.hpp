@@ -95,7 +95,7 @@ namespace galaxy
 			///
 			/// Cleanup any static resources.
 			///
-			void finish();
+			void finish() noexcept;
 
 		private:
 			///

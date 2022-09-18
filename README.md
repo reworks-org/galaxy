@@ -121,6 +121,7 @@ See [online documentation](https://domre.github.io/galaxy/).
 - [Lua](https://www.lua.org/) Scripting.
 - [RMLUI](https://github.com/mikke89/RmlUi) Support.
 - [ImGui](https://github.com/ocornut/imgui) Support.
+- Only US keyboard layout is supported.
 
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
