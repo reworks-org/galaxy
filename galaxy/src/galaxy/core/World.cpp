@@ -19,6 +19,7 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
+#include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 
@@ -59,7 +60,9 @@ namespace galaxy
 				if (!m_registry.all_of<components::Flag>(entity))
 				{
 					auto& flag = m_registry.emplace<components::Flag>(entity);
-					flag.set_flag<flags::AllowSerialize>();
+
+					flag.unset_flag<flags::AllowSerialize>();
+					flag.unset_flag<flags::Enabled>();
 				}
 
 				return entity;
