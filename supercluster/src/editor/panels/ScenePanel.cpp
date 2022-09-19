@@ -8,6 +8,7 @@
 #include <portable-file-dialogs.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/components/Tag.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/state/layers/RuntimeLayer.hpp>
 #include <galaxy/state/layers/UILayer.hpp>
@@ -21,7 +22,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(state::SceneManager& sm, entt::entity& selected_entity)
+		void ScenePanel::render(state::SceneManager& sm, Selected& selected)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -234,6 +235,9 @@ namespace sc
 						{
 							ImGuiTreeNodeFlags layer_flags =
 								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+
+							auto& world = layer->world();
+
 							if (m_selected_layer == layer_key)
 							{
 								layer_flags |= ImGuiTreeNodeFlags_Selected;
@@ -247,6 +251,19 @@ namespace sc
 
 							if (is_open_layertree)
 							{
+								// Right-click on blank space
+								if (ImGui::BeginPopupContextWindow("##CreateNewEntityContext",
+										ImGuiPopupFlags_MouseButtonRight | ImGuiPopupFlags_NoOpenOverExistingPopup))
+								{
+									if (ImGui::MenuItem("Create New Entity"))
+									{
+										selected.m_selected = world.create();
+										selected.m_world    = &world;
+									}
+
+									ImGui::EndPopup();
+								}
+
 								ImGui::Spacing();
 
 								if (ImGui::Button("Push"))
@@ -263,7 +280,6 @@ namespace sc
 
 								ImGui::SameLine();
 
-								auto& world = layer->world();
 								if (ImGui::Button("Clear World"))
 								{
 									ui::imgui_open_confirm("ClearWorldPopup");
@@ -277,7 +293,8 @@ namespace sc
 
 								if (ImGui::Button("New Entity"))
 								{
-									selected_entity = world.m_registry.create();
+									selected.m_selected = world.create();
+									selected.m_world    = &world;
 								}
 
 								ImGui::SameLine();
@@ -287,8 +304,53 @@ namespace sc
 									auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.json");
 									if (file.has_value())
 									{
-										selected_entity = world.create_from_file(file.value());
+										selected.m_selected = world.create_from_file(file.value());
+										selected.m_world    = &world;
 									}
+								}
+
+								if (ImGui::BeginListBox("Entities"))
+								{
+									world.m_registry.each([&](const entt::entity entity) {
+										auto& tag = world.m_registry.get<components::Tag>(entity);
+
+										const auto is_selected = (selected.m_selected == entity);
+
+										const auto id = tag.m_tag + "##" + std::to_string(static_cast<std::uint32_t>(entity));
+										if (ImGui::Selectable(id.c_str(), is_selected))
+										{
+											selected.m_selected = entity;
+											selected.m_world    = &world;
+										}
+
+										if (is_selected)
+										{
+											ImGui::SetItemDefaultFocus();
+
+											auto deleted = false;
+											if (ImGui::BeginPopupContextItem())
+											{
+												if (ImGui::MenuItem("Delete Entity"))
+												{
+													deleted = true;
+												}
+
+												ImGui::EndPopup();
+											}
+
+											if (deleted)
+											{
+												world.m_registry.destroy(entity);
+												if (selected.m_selected == entity)
+												{
+													selected.m_selected = entt::null;
+													selected.m_world    = nullptr;
+												}
+											}
+										}
+									});
+
+									ImGui::EndListBox();
 								}
 
 								ImGui::TreePop();

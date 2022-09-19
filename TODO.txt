@@ -31,3 +31,4 @@ editor:
 - new entities are initially disabled
 	- only allow if validate is pressed, then enable can be checked.
 - https://github.com/SpartanJ/efsw
+- fix all loading

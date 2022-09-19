@@ -1,0 +1,31 @@
+{
+    "current_scene": "Untitled",
+    "scenes": {
+        "Untitled": {
+            "camera": {
+                "pos": {
+                    "x": 0.0,
+                    "y": -0.08000000566244125
+                },
+                "rotation": 0.0,
+                "rotation_speed": 1.0,
+                "translation_speed": 1.0,
+                "zoom": 1.0
+            },
+            "name": "Untitled",
+            "stack": {
+                "layer_stack": 0,
+                "layers": {
+                    "s": {
+                        "name": "s",
+                        "type": "Runtime",
+                        "world": {
+                            "entities": []
+                        }
+                    }
+                },
+                "stack_size": ""
+            }
+        }
+    }
+}

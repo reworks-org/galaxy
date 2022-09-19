@@ -89,13 +89,12 @@ namespace sc
 			m_project_scenes.current().update();
 		}
 
-		/*
-for (const auto& gl_operation : m_gl_operations)
-{
-	gl_operation();
-}
-m_gl_operations.clear();
-*/
+		for (const auto& update : m_update_stack)
+		{
+			update();
+		}
+
+		m_update_stack.clear();
 	}
 
 	void Editor::render()
@@ -317,7 +316,7 @@ m_gl_operations.clear();
 		viewport();
 
 		// Left:
-		// m_entity_panel.render(m_scene_stack.top(), m_gl_operations);
+		m_entity_panel.render(m_selected_entity, m_update_stack);
 
 		// Right:
 		m_scene_panel.render(m_project_scenes, m_selected_entity);

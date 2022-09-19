@@ -9,6 +9,9 @@
     <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
     <ClCompile Include="src\editor\panels\JSONEditor.cpp" />
     <ClCompile Include="src\editor\panels\ScenePanel.cpp" />
+    <ClCompile Include="src\editor\UpdateStack.cpp" />
+    <ClCompile Include="src\editor\panels\EntityEditor.cpp" />
+    <ClCompile Include="src\editor\Selected.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\resources\RobotoLight.hpp" />
@@ -19,5 +22,8 @@
     <ClInclude Include="src\editor\panels\LuaConsole.hpp" />
     <ClInclude Include="src\editor\panels\JSONEditor.hpp" />
     <ClInclude Include="src\editor\panels\ScenePanel.hpp" />
+    <ClInclude Include="src\editor\UpdateStack.hpp" />
+    <ClInclude Include="src\editor\panels\EntityEditor.hpp" />
+    <ClInclude Include="src\editor\Selected.hpp" />
   </ItemGroup>
 </Project>

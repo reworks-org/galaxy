@@ -5,26 +5,19 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/entity/registry.hpp>
 #include <magic_enum.hpp>
-#include <imgui/addons/ToggleButton.h>
-#include <imgui/imgui_stdlib.h>
+#include <imgui_stdlib.h>
 
-#include <galaxy/components/Actions.hpp>
 #include <galaxy/components/Animated.hpp>
-#include <galaxy/components/BatchSprite.hpp>
-#include <galaxy/components/OnCollision.hpp>
-#include <galaxy/components/ParticleEffect.hpp>
-#include <galaxy/components/Primitive2D.hpp>
-#include <galaxy/components/Renderable.hpp>
-#include <galaxy/components/RigidBody.hpp>
+#include <galaxy/components/DrawShader.hpp>
+#include <galaxy/components/Flag.hpp>
+#include <galaxy/components/Primitive.hpp>
+#include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
-#include <galaxy/components/Transform2D.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/flags/AllowSerialize.hpp>
-#include <galaxy/flags/Enabled.hpp>
-#include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/components/Transform.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "EntityEditor.hpp"
@@ -36,8 +29,6 @@ namespace sc
 	namespace panel
 	{
 		EntityEditor::EntityEditor() noexcept
-			: m_selected {std::nullopt}
-			, m_label {"Unnamed"}
 		{
 		}
 
@@ -45,8 +36,56 @@ namespace sc
 		{
 		}
 
+		void EntityEditor::render(Selected& selected, UpdateStack& updates)
+		{
+			if (ImGui::Begin("Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+			{
+				if (selected.m_selected != entt::null)
+				{
+					auto tag = selected.m_world->m_registry.try_get<components::Tag>(selected.m_selected);
+					if (tag)
+					{
+						ImGui::InputText("##Tag", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
+					}
+
+					ImGui::SameLine();
+					ImGui::PushItemWidth(-1);
+
+					if (ImGui::Button("Add Component"))
+					{
+						ImGui::OpenPopup("AddNewComponent");
+					}
+
+					if (ImGui::BeginPopup("AddNewComponent"))
+					{
+						draw_entry<components::Animated>(selected, "Animated");
+						draw_entry<components::DrawShader>(selected, "Draw Shader");
+						draw_entry<components::Flag>(selected, "Flag");
+						draw_entry<components::Primitive>(selected, "Primitive");
+						draw_entry<components::Script>(selected, "Script");
+						draw_entry<components::Sprite>(selected, "Sprite");
+						draw_entry<components::Tag>(selected, "Tag");
+						draw_entry<components::Text>(selected, "Text");
+						draw_entry<components::Transform>(selected, "Transform");
+
+						ImGui::EndPopup();
+					}
+
+					ImGui::PopItemWidth();
+				}
+			}
+
+			ImGui::End();
+		}
+
+		/*
 		void EntityEditor::render(core::Scene2D* top, OpenGLOperationStack& gl_operations)
 		{
+		if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
+				{
+					selected.m_selected = entt::null;
+				}
+
 			if (ImGui::Begin("Entity Manager", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				if (ImGui::BeginMenuBar())
@@ -385,10 +424,7 @@ namespace sc
 					}
 				});
 
-				if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
-				{
-					m_selected = std::nullopt;
-				}
+
 
 				if (ImGui::Begin("Component Editor", NULL, ImGuiWindowFlags_AlwaysAutoResize))
 				{
@@ -402,11 +438,6 @@ namespace sc
 			}
 
 			ImGui::End();
-		}
-
-		void EntityEditor::set_selected_entity(std::optional<ecs::Entity> entity)
-		{
-			m_selected = entity;
 		}
 
 		void EntityEditor::render_components(core::Scene2D* top, const ecs::Entity entity, OpenGLOperationStack& gl_operations)
@@ -812,6 +843,6 @@ namespace sc
 
 				ImGui::EndTabBar();
 			}
-		}
+		}*/
 	} // namespace panel
 } // namespace sc

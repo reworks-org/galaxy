@@ -12,7 +12,7 @@
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
-//#include "editor/panels/EntityEditor.hpp"
+#include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
@@ -53,20 +53,13 @@ namespace sc
 		platform::Subprocess m_tiled_process;
 		platform::Subprocess m_notepad_process;
 
-		OpenGLOperationStack m_gl_operations;
-
 		glm::vec2 m_clicked_pos;
 		glm::vec2 m_cursor_size = {4.0f, 4.0f};
 		math::AABB m_cursor_aabb;
 
-
-
-
-
 		nlohmann::json m_backup;
 
 		bool m_game_mode        = false;
-
 
 		events::MouseMoved m_mousemoved_event;
 		events::MouseWheel m_scroll_delta;
@@ -77,8 +70,10 @@ namespace sc
 		panel::LuaConsole m_lua_console;
 		panel::LogConsole m_log_console;
 		panel::JSONEditor m_json_panel;
-		// panel::EntityEditor m_entity_panel;
+		panel::EntityEditor m_entity_panel;
 		panel::ScenePanel m_scene_panel;
+
+		UpdateStack m_update_stack;
 
 		bool m_paused           = false;
 		bool m_viewport_focused = false;
@@ -89,7 +84,7 @@ namespace sc
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
 
-		entt::entity m_selected_entity;
+		Selected m_selected_entity;
 
 		std::string m_current_project_path;
 		state::SceneManager m_project_scenes;

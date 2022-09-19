@@ -8,9 +8,10 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 
-#include <galaxy/core/Scene2D.hpp>
+#include <galaxy/meta/Concepts.hpp>
 
-#include "editor/GLOperation.hpp"
+#include "editor/Selected.hpp"
+#include "editor/UpdateStack.hpp"
 
 using namespace galaxy;
 
@@ -24,16 +25,25 @@ namespace sc
 			EntityEditor() noexcept;
 			~EntityEditor() noexcept;
 
-			void render(core::Scene2D* top, OpenGLOperationStack& gl_operations);
-			void set_selected_entity(std::optional<ecs::Entity> entity);
+			void render(Selected& selected, UpdateStack& updates);
 
 		private:
-			void render_components(core::Scene2D* top, const ecs::Entity entity, OpenGLOperationStack& gl_operations);
-
-		private:
-			std::optional<ecs::Entity> m_selected;
-			std::string                m_label;
+			template<meta::valid_component Component>
+			void draw_entry(Selected& selected, std::string_view name);
 		};
+
+		template<meta::valid_component Component>
+		inline void EntityEditor::draw_entry(Selected& selected, std::string_view name)
+		{
+			if (!selected.m_world->m_registry.all_of<Component>(selected.m_selected))
+			{
+				if (ImGui::MenuItem(name.data()))
+				{
+					selected.m_world->m_registry.emplace<Component>(selected.m_selected);
+					ImGui::CloseCurrentPopup();
+				}
+			}
+		}
 	} // namespace panel
 } // namespace sc
 
