@@ -51,21 +51,32 @@ namespace galaxy
 			clear();
 		}
 
+		entt::entity World::create()
+		{
+			const auto entity = m_registry.create();
+
+			if (!m_registry.all_of<components::Flag>(entity))
+			{
+				auto& flag = m_registry.emplace<components::Flag>(entity);
+				flag.unset_flag<flags::AllowSerialize>();
+				flag.unset_flag<flags::Enabled>();
+			}
+
+			if (!m_registry.all_of<components::Tag>(entity))
+			{
+				auto& tag = m_registry.emplace<components::Tag>(entity);
+				tag.m_tag = "Untagged";
+			}
+
+			return entity;
+		}
+
 		entt::entity World::create_from_file(std::string_view file)
 		{
 			const auto root = json::parse_from_disk(file);
 			if (root.has_value())
 			{
-				const auto entity = create_from_obj(root.value());
-				if (!m_registry.all_of<components::Flag>(entity))
-				{
-					auto& flag = m_registry.emplace<components::Flag>(entity);
-
-					flag.unset_flag<flags::AllowSerialize>();
-					flag.unset_flag<flags::Enabled>();
-				}
-
-				return entity;
+				return create_from_obj(root.value());
 			}
 			else
 			{
@@ -87,6 +98,19 @@ namespace galaxy
 					// Use the assign function to create components for entities without having to know the type.
 					m_component_factory[key](entity, value);
 				}
+			}
+
+			if (!m_registry.all_of<components::Flag>(entity))
+			{
+				auto& flag = m_registry.emplace<components::Flag>(entity);
+				flag.unset_flag<flags::AllowSerialize>();
+				flag.unset_flag<flags::Enabled>();
+			}
+
+			if (!m_registry.all_of<components::Tag>(entity))
+			{
+				auto& tag = m_registry.emplace<components::Tag>(entity);
+				tag.m_tag = "Untagged";
 			}
 
 			return entity;

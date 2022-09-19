@@ -41,6 +41,13 @@ namespace galaxy
 			~World() noexcept;
 
 			///
+			/// \brief Create an entity with some default components.
+			///
+			/// \return Created entity, or entt::null if failed.
+			///
+			[[maybe_unused]] entt::entity create();
+
+			///
 			/// \brief Create an entity from a JSON file.
 			///
 			/// If your using this make sure you have called register_component().
