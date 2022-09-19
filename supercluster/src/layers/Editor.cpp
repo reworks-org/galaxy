@@ -235,6 +235,7 @@ m_gl_operations.clear();
                 #ifdef _DEBUG
 				if (ImGui::MenuItem("Demo"))
 				{
+					GALAXY_LOG(GALAXY_INFO, "SHOWING DEBUG WINDOW.");
 					s_show_demo = !s_show_demo;
 				}
 				#endif
