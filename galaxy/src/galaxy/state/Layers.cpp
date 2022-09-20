@@ -141,7 +141,7 @@ namespace galaxy
 				layer_stack[std::to_string(i)] = m_stack[i]->get_name();
 			}
 
-			json["layer_stack"] = m_stack.size();
+			json["stack_size"] = m_stack.size();
 
 			return json;
 		}
@@ -153,7 +153,9 @@ namespace galaxy
 			const auto& layers = json.at("layers");
 			for (const auto& [key, value] : layers.items())
 			{
-				auto layer = LayerRegistry::m_registry[value.at("type")](value.at("name"), m_scene);
+				auto layer                 = LayerRegistry::m_registry[value.at("type")](value.at("name"), m_scene);
+				m_layers[value.at("name")] = layer;
+
 				layer->deserialize(value);
 			}
 

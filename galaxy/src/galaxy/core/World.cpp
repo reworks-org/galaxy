@@ -58,7 +58,7 @@ namespace galaxy
 			if (!m_registry.all_of<components::Flag>(entity))
 			{
 				auto& flag = m_registry.emplace<components::Flag>(entity);
-				flag.unset_flag<flags::AllowSerialize>();
+				flag.set_flag<flags::AllowSerialize>();
 				flag.unset_flag<flags::Enabled>();
 			}
 
@@ -103,7 +103,7 @@ namespace galaxy
 			if (!m_registry.all_of<components::Flag>(entity))
 			{
 				auto& flag = m_registry.emplace<components::Flag>(entity);
-				flag.unset_flag<flags::AllowSerialize>();
+				flag.set_flag<flags::AllowSerialize>();
 				flag.unset_flag<flags::Enabled>();
 			}
 
