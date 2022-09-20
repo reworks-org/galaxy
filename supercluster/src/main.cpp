@@ -98,7 +98,10 @@ int main(int argsc, char* argsv[])
 			std::cout << "======================" << std::endl;
 			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
 			std::cout << "======================" << std::endl;
+
+#ifdef _DEBUG
 			std::getchar();
+#endif
 		}
 	} while (GALAXY_RESTART);
 
