@@ -23,12 +23,11 @@
 - mapping
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
+- fix restart flag not being updated???
 
 editor:
-- fix scene names not being editable because cache in scene manager not updated.
-	- make sure scene names cant be changed?
 - add a "view" dropdown and make some views toggleable.
 - new entities are initially disabled
 	- only allow if validate is pressed, then enable can be checked.
 - https://github.com/SpartanJ/efsw
-- fix all loading
+- fix removing components

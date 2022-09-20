@@ -4,8 +4,8 @@
         "Untitled": {
             "camera": {
                 "pos": {
-                    "x": 0.0,
-                    "y": -0.08000000566244125
+                    "x": -0.08000000566244125,
+                    "y": -0.11200001090765
                 },
                 "rotation": 0.0,
                 "rotation_speed": 1.0,
@@ -14,17 +14,75 @@
             },
             "name": "Untitled",
             "stack": {
-                "layer_stack": 0,
+                "layer_stack": {},
                 "layers": {
-                    "s": {
-                        "name": "s",
+                    "test": {
+                        "name": "test",
                         "type": "Runtime",
                         "world": {
-                            "entities": []
+                            "entities": [
+                                {
+                                    "components": {
+                                        "Flag": {
+                                            "flags": {
+                                                "0": false,
+                                                "1": true,
+                                                "2": false,
+                                                "3": false,
+                                                "4": false,
+                                                "5": false,
+                                                "6": false,
+                                                "7": false
+                                            }
+                                        },
+                                        "Tag": {
+                                            "tag": "a"
+                                        }
+                                    }
+                                },
+                                {
+                                    "components": {
+                                        "Flag": {
+                                            "flags": {
+                                                "0": false,
+                                                "1": true,
+                                                "2": false,
+                                                "3": false,
+                                                "4": false,
+                                                "5": false,
+                                                "6": false,
+                                                "7": false
+                                            }
+                                        },
+                                        "Tag": {
+                                            "tag": "b"
+                                        }
+                                    }
+                                },
+                                {
+                                    "components": {
+                                        "Flag": {
+                                            "flags": {
+                                                "0": false,
+                                                "1": true,
+                                                "2": false,
+                                                "3": false,
+                                                "4": false,
+                                                "5": false,
+                                                "6": false,
+                                                "7": false
+                                            }
+                                        },
+                                        "Tag": {
+                                            "tag": "c"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 },
-                "stack_size": ""
+                "stack_size": 0
             }
         }
     }

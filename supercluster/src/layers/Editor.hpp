@@ -37,7 +37,7 @@ namespace sc
 
 		void new_project();
 		void load_project(std::string_view path);
-		void save_project();
+		void save_project(bool save_as = false);
 		void exit();
 
 	private:

@@ -26,7 +26,7 @@ namespace sc
 		{
 			if (ImGui::Begin("Scenes"))
 			{
-				if (ImGui::Button("New"))
+				if (ImGui::Button("New Scene"))
 				{
 					ImGui::OpenPopup("NewScenePopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
 					ui::imgui_center_next_window();
@@ -34,7 +34,7 @@ namespace sc
 
 				ImGui::SameLine();
 
-				if (ImGui::Button("Clear All"))
+				if (ImGui::Button("Delete all Scenes"))
 				{
 					ui::imgui_open_confirm("ClearAllScenesPopup");
 				}
@@ -64,9 +64,7 @@ namespace sc
 					ImGui::EndPopup();
 				}
 
-				ImGui::Spacing();
-
-				if (sm.all().size() > 0)
+				if (sm.has_current())
 				{
 					ImGui::Text(std::format("Current: {0}", sm.current().get_name()).c_str());
 				}
@@ -93,14 +91,14 @@ namespace sc
 
 					if (is_open)
 					{
-						if (ImGui::Button("Set"))
+						if (ImGui::Button("Set Scene"))
 						{
 							sm.change(name);
 						}
 
 						ImGui::SameLine();
 
-						if (ImGui::Button("Remove"))
+						if (ImGui::Button("Remove Scene"))
 						{
 							ui::imgui_open_confirm("TreeRemovePopup");
 						}
@@ -146,8 +144,6 @@ namespace sc
 						}
 						*/
 
-						ImGui::Spacing();
-
 						if (ImGui::Button("New Runtime"))
 						{
 							ImGui::OpenPopup("NewRuntimeLayerPopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
@@ -161,6 +157,8 @@ namespace sc
 							ImGui::OpenPopup("NewUILayerPopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
 							ui::imgui_center_next_window();
 						}
+
+						ImGui::SameLine();
 
 						if (ImGui::Button("Clear All Layers"))
 						{
@@ -213,8 +211,6 @@ namespace sc
 							ImGui::EndPopup();
 						}
 
-						ImGui::Spacing();
-
 						if (ImGui::CollapsingHeader("Stack"))
 						{
 							if (ImGui::Button("Pop"))
@@ -228,7 +224,6 @@ namespace sc
 							}
 						}
 
-						ImGui::Spacing();
 						ImGui::Text("Layers: ");
 
 						for (auto&& [layer_key, layer] : scene->layers().cache())
@@ -264,32 +259,17 @@ namespace sc
 									ImGui::EndPopup();
 								}
 
-								ImGui::Spacing();
-
-								if (ImGui::Button("Push"))
+								if (ImGui::Button("Push Layer"))
 								{
 									scene->layers().push(layer_key);
 								}
 
 								ImGui::SameLine();
 
-								if (ImGui::Button("Pop"))
+								if (ImGui::Button("Pop Layer"))
 								{
 									scene->layers().pop(layer_key);
 								}
-
-								ImGui::SameLine();
-
-								if (ImGui::Button("Clear World"))
-								{
-									ui::imgui_open_confirm("ClearWorldPopup");
-								}
-
-								ui::imgui_confirm("ClearWorldPopup", [&]() {
-									world.clear();
-								});
-
-								ImGui::Spacing();
 
 								if (ImGui::Button("New Entity"))
 								{
@@ -309,7 +289,20 @@ namespace sc
 									}
 								}
 
-								if (ImGui::BeginListBox("Entities"))
+								ImGui::SameLine();
+
+								if (ImGui::Button("Clear World"))
+								{
+									ui::imgui_open_confirm("ClearWorldPopup");
+								}
+
+								ui::imgui_confirm("ClearWorldPopup", [&]() {
+									world.clear();
+								});
+
+								ImGui::LabelText("##EntityLabel", "Entities");
+
+								if (ImGui::BeginListBox("##EntityList"))
 								{
 									world.m_registry.each([&](const entt::entity entity) {
 										auto& tag = world.m_registry.get<components::Tag>(entity);

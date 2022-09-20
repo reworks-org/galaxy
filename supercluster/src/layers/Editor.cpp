@@ -63,19 +63,22 @@ namespace sc
 				m_use_mouse_hand = false;
 			}
 
-			auto& camera = m_project_scenes.current().get_camera();
-			if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
+			if (m_project_scenes.has_current())
 			{
-				m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+				auto& camera = m_project_scenes.current().get_camera();
+				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
+				{
+					m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 
-				camera.set_pos(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
+					camera.set_pos(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
 
-				ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-			}
+					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
+				}
 
-			if (!m_paused)
-			{
-				m_project_scenes.current().events();
+				if (!m_paused)
+				{
+					m_project_scenes.current().events();
+				}
 			}
 
 			// m_window->trigger_queued_events(m_world.m_dispatcher);
@@ -84,7 +87,7 @@ namespace sc
 
 	void Editor::update()
 	{
-		if (!m_paused)
+		if (m_project_scenes.has_current() && !m_paused)
 		{
 			m_project_scenes.current().update();
 		}
@@ -111,7 +114,11 @@ namespace sc
 
 		m_framebuffer.bind(true);
 
-		m_project_scenes.current().render();
+		if (m_project_scenes.has_current())
+		{
+			m_project_scenes.current().render();
+		}
+
 		graphics::Renderer::draw();
 
 		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
@@ -154,6 +161,11 @@ namespace sc
 				if (ImGui::MenuItem("Save"))
 				{
 					save_project();
+				}
+
+				if (ImGui::MenuItem("Save As"))
+				{
+					save_project(true);
 				}
 
 				if (ImGui::MenuItem("Restart"))
@@ -332,8 +344,6 @@ namespace sc
 		m_window->set_title("Untitled Project - Supercluster Editor");
 
 		m_project_scenes.clear();
-		m_project_scenes.make("Untitled");
-		m_project_scenes.set("Untitled");
 	}
 
 	void Editor::load_project(std::string_view path)
@@ -359,7 +369,7 @@ namespace sc
 
 			if (json.has_value())
 			{
-				deserialize(json.value());
+				m_project_scenes.deserialize(json.value());
 
 				const auto title = std::format("{0} - Supercluster Editor", fs_path.stem().string());
 				m_window->set_title(title.c_str());
@@ -376,11 +386,11 @@ namespace sc
 		}
 	}
 
-	void Editor::save_project()
+	void Editor::save_project(bool save_as)
 	{
 		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-		if (m_current_project_path.empty())
+		if (m_current_project_path.empty() || save_as)
 		{
 			const auto sp_opt = fs.show_save_dialog("*.scproj", "untitled.scproj");
 			if (sp_opt.has_value())

@@ -96,11 +96,13 @@ namespace galaxy
 			[[nodiscard]] bool remove(const std::string& name);
 
 			///
-			/// \brief Remove all scenes EXCEPT active.
+			/// \brief Destroys all scenes.
 			///
-			/// Destroys scene data, so beware of pointers becoming invalid.
+			/// Beware of pointers becoming invalid.
 			///
-			void clear();
+			/// \param clear_current Also clear the currently active scene.
+			///
+			void clear(bool clear_current = false);
 
 			///
 			/// Get currently active scene.
@@ -108,6 +110,13 @@ namespace galaxy
 			/// \return Ref to currently active scene.
 			///
 			[[nodiscard]] Scene& current() noexcept;
+
+			///
+			/// Checks if there is a currently active scene.
+			///
+			/// \return True if there is a valid current scene.
+			///
+			[[nodiscard]] bool has_current() const noexcept;
 
 			///
 			/// Get all scenes.

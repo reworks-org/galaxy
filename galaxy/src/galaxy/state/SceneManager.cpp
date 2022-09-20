@@ -140,14 +140,22 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::clear()
+		void SceneManager::clear(bool clear_current)
 		{
 			std::vector<std::string> remove;
 			remove.reserve(m_scenes.size());
 
 			for (auto& [name, scene] : m_scenes)
 			{
-				if (name != m_current->get_name())
+				if (m_current)
+				{
+					if (name != m_current->get_name() || clear_current)
+					{
+						scene.reset();
+						remove.push_back(name);
+					}
+				}
+				else
 				{
 					scene.reset();
 					remove.push_back(name);
@@ -163,6 +171,11 @@ namespace galaxy
 		Scene& SceneManager::current() noexcept
 		{
 			return *m_current;
+		}
+
+		bool SceneManager::has_current() const noexcept
+		{
+			return m_current != nullptr;
 		}
 
 		SceneContainer& SceneManager::all() noexcept
@@ -185,8 +198,7 @@ namespace galaxy
 
 		void SceneManager::deserialize(const nlohmann::json& json)
 		{
-			// Only clear if read from disk was successful.
-			clear();
+			clear(true);
 
 			const auto& scenes = json.at("scenes");
 
