@@ -212,7 +212,7 @@ namespace galaxy
 			if (!m_validations.contains(index))
 			{
 				m_validations[index] = [this](const entt::entity entity) noexcept -> bool {
-					auto component = m_registry.try_get<ToValidate>(entity);
+					const auto component = m_registry.try_get<ToValidate>(entity);
 					if (component)
 					{
 						return m_registry.all_of<Dependencies...>(entity);

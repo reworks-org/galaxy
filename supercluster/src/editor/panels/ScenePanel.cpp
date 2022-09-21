@@ -305,11 +305,15 @@ namespace sc
 								if (ImGui::BeginListBox("##EntityList"))
 								{
 									world.m_registry.each([&](const entt::entity entity) {
-										auto& tag = world.m_registry.get<components::Tag>(entity);
-
 										const auto is_selected = (selected.m_selected == entity);
 
-										const auto id = tag.m_tag + "##" + std::to_string(static_cast<std::uint32_t>(entity));
+										auto id  = std::to_string(static_cast<std::uint32_t>(entity));
+										auto tag = world.m_registry.try_get<components::Tag>(entity);
+										if (tag)
+										{
+											id = tag->m_tag + "##" + id;
+										}
+
 										if (ImGui::Selectable(id.c_str(), is_selected))
 										{
 											selected.m_selected = entity;

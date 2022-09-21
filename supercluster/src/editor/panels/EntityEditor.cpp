@@ -152,13 +152,6 @@ namespace sc
 					});
 
 					draw_component<components::Script>(selected, "Script", [](components::Script* script) {
-						if (ImGui::Button("Copy Path to Clipboard"))
-						{
-							core::ServiceLocator<core::Window>::ref().get_input<input::Clipboard>().set(script->file().c_str());
-						}
-
-						ImGui::SameLine();
-
 						if (ImGui::Button("Load"))
 						{
 							auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua");
@@ -166,6 +159,13 @@ namespace sc
 							{
 								script->load(file.value());
 							}
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Copy Path to Clipboard"))
+						{
+							core::ServiceLocator<core::Window>::ref().get_input<input::Clipboard>().set(script->file().c_str());
 						}
 					});
 
@@ -194,7 +194,7 @@ namespace sc
 							if (!s_buff.empty())
 							{
 								updates.emplace_back([&]() {
-									sprite->create(s_buff, s_opacity, s_layer);
+									sprite->create(s_buff, s_layer, s_opacity);
 								});
 							}
 						}
