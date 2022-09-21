@@ -161,7 +161,7 @@ namespace sc
 					{
 						if (is_loaded())
 						{
-							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_save_dialog();
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_save_dialog("*.json", "untitled.json");
 							if (path == std::nullopt)
 							{
 								GALAXY_LOG(GALAXY_ERROR, "Failed to find file to save to for JSONEditor panel.");
