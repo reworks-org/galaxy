@@ -70,6 +70,11 @@ namespace galaxy
 			m_shader = program;
 		}
 
+		void Renderable::set_layer(const int layer) noexcept
+		{
+			m_layer = layer;
+		}
+
 		int Renderable::get_layer() const noexcept
 		{
 			return m_layer;
@@ -98,11 +103,6 @@ namespace galaxy
 		void Renderable::set_primitive_type(const Primitives type) noexcept
 		{
 			m_type = static_cast<unsigned int>(type);
-		}
-
-		void Renderable::set_layer(const int layer) noexcept
-		{
-			m_layer = layer;
 		}
 	} // namespace graphics
 } // namespace galaxy

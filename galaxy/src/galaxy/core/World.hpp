@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_WORLD_HPP_
 #define GALAXY_CORE_WORLD_HPP_
 
+#include <typeindex>
+
 #include <entt/entity/registry.hpp>
 #include <entt/signal/dispatcher.hpp>
 #include <robin_hood.h>
@@ -68,6 +70,19 @@ namespace galaxy
 			/// \return Created entity, or entt::null if failed.
 			///
 			[[maybe_unused]] entt::entity create_from_obj(const nlohmann::json& json);
+
+			///
+			/// Defines a dependency validation for components.
+			///
+			template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
+			void register_dependencies() noexcept;
+
+			///
+			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
+			///
+			/// \return True if entity is valid.
+			///
+			[[nodiscard]] bool is_valid(const entt::entity entity) noexcept;
 
 			///
 			/// Registers a component definition.
@@ -178,7 +193,44 @@ namespace galaxy
 			/// Used to allow for component creation without having to know the compile time type.
 			///
 			ComponentFactory m_component_factory;
+
+			///
+			/// Stores validation configurations.
+			///
+			robin_hood::unordered_flat_map<std::type_index, std::function<bool(const entt::entity)>> m_validations;
+
+			///
+			/// Validations to run upon request.
+			///
+			std::vector<std::type_index> m_validations_to_run;
 		};
+
+		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
+		inline void World::register_dependencies() noexcept
+		{
+			const auto index = std::type_index(typeid(ToValidate));
+			if (!m_validations.contains(index))
+			{
+				m_validations[index] = [this](const entt::entity entity) noexcept -> bool {
+					auto component = m_registry.try_get<ToValidate>(entity);
+					if (component)
+					{
+						return m_registry.all_of<Dependencies...>(entity);
+					}
+					else
+					{
+						// If we dont have component needing to be validated, then entity is valid.
+						return true;
+					}
+				};
+
+				m_validations_to_run.push_back(index);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to register duplicate validation of a component dependency.");
+			}
+		}
 
 		template<meta::valid_component Component>
 		inline void World::register_component(const std::string& name) noexcept

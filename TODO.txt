@@ -31,3 +31,4 @@ editor:
 	- only allow if validate is pressed, then enable can be checked.
 - https://github.com/SpartanJ/efsw
 - fix removing components
+- have some kind of shader manager and allow drag/drop that name onto draw shader component

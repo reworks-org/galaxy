@@ -335,6 +335,9 @@ namespace galaxy
 			world_type["clear"]            = &core::World::clear;
 			world_type["create_from_file"] = &core::World::create_from_file;
 			world_type["registry"]         = &core::World::m_registry;
+			world_type["dispatcher"]       = &core::World::m_dispatcher;
+			world_type["create"]           = &core::World::create;
+			world_type["is_valid"]         = &core::World::is_valid;
 
 			/* ERROR */
 			// clang-format off

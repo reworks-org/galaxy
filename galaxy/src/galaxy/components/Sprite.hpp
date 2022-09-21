@@ -98,6 +98,13 @@ namespace galaxy
 			[[nodiscard]] float get_height() const noexcept;
 
 			///
+			/// Get texture ID in texture atlas.
+			///
+			/// \return Const string reference.
+			///
+			[[nodiscard]] const std::string& texture_id() const noexcept;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.

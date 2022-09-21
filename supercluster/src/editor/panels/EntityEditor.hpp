@@ -54,7 +54,7 @@ namespace sc
 		inline void EntityEditor::draw_component(Selected& selected, const std::string& name, Func&& func)
 		{
 			const constexpr auto spacing             = ImVec2 {4, 4};
-			const constexpr ImGuiTreeNodeFlags flags = /* ImGuiTreeNodeFlags_DefaultOpen |*/ ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
+			const constexpr ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
 													   ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_FramePadding;
 
 			auto component = selected.m_world->m_registry.try_get<Component>(selected.m_selected);

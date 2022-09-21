@@ -44,6 +44,20 @@ namespace galaxy
 
 			m_registry.on_construct<components::Script>().connect<&World::construct_script>(this);
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
+
+			// Handle validation.
+			register_dependencies<components::Sprite, components::Transform, components::DrawShader>();
+			register_dependencies<components::Animated, components::Sprite>();
+
+			// Handle incompatible components.
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Text>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Animated>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Primitive>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Animated>>();
+			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Text>>();
 		}
 
 		World::~World() noexcept
@@ -114,6 +128,19 @@ namespace galaxy
 			}
 
 			return entity;
+		}
+
+		bool World::is_valid(const entt::entity entity) noexcept
+		{
+			for (const auto& index : m_validations_to_run)
+			{
+				if (!m_validations[index](entity))
+				{
+					return false;
+				}
+			}
+
+			return true;
 		}
 
 		void World::update_systems(state::Layer* scene)

@@ -47,6 +47,13 @@ namespace galaxy
 			void set_shader(const unsigned int program) noexcept;
 
 			///
+			/// Set rendering layer.
+			///
+			/// \param layer Z-Level layering.
+			///
+			void set_layer(const int layer) noexcept;
+
+			///
 			/// Get current render layer.
 			///
 			/// \return Integer.
@@ -98,13 +105,6 @@ namespace galaxy
 			/// \param type Primitive OpenGL draw type.
 			///
 			void set_primitive_type(const Primitives type) noexcept;
-
-			///
-			/// Set rendering layer.
-			///
-			/// \param layer Z-Level layering.
-			///
-			void set_layer(const int layer) noexcept;
 
 		private:
 			///

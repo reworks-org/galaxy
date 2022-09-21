@@ -100,6 +100,7 @@ namespace galaxy
 				vertices[3].m_texels = info.m_texel_region.ur_texels();
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+				m_texture = texture;
 
 				configure();
 			}
@@ -138,6 +139,7 @@ namespace galaxy
 				vertices[3].m_texels = info.m_texel_region.ur_texels();
 
 				m_vao.sub_buffer(0, vertices);
+				m_texture = texture;
 			}
 			else
 			{
@@ -163,6 +165,11 @@ namespace galaxy
 		float Sprite::get_height() const noexcept
 		{
 			return m_height;
+		}
+
+		const std::string& Sprite::texture_id() const noexcept
+		{
+			return m_texture;
 		}
 
 		void Sprite::configure() noexcept
