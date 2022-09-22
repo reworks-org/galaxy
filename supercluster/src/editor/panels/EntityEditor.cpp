@@ -16,7 +16,6 @@
 #include <galaxy/components/DrawShader.hpp>
 #include <galaxy/components/Flag.hpp>
 #include <galaxy/components/Primitive.hpp>
-#include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
@@ -151,13 +150,14 @@ namespace sc
 					draw_component<components::Primitive>(selected, "Primitive", [](components::Primitive* prim) {
 					});
 
-					draw_component<components::Script>(selected, "Script", [](components::Script* script) {
+					draw_component<components::Script>(selected, "Script", [&](components::Script* script) {
 						if (ImGui::Button("Load"))
 						{
 							auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua");
 							if (file.has_value())
 							{
-								script->load(file.value());
+								auto& script = selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected);
+								script.load(file.value());
 							}
 						}
 

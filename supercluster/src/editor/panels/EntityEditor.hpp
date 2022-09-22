@@ -10,7 +10,9 @@
 
 #include <imgui_internal.h>
 
+#include <galaxy/components/Script.hpp>
 #include <galaxy/meta/Concepts.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
 
 #include "editor/Selected.hpp"
 #include "editor/UpdateStack.hpp"
@@ -44,7 +46,20 @@ namespace sc
 			{
 				if (ImGui::MenuItem(name.c_str()))
 				{
-					selected.m_world->m_registry.emplace<Component>(selected.m_selected);
+					if constexpr (std::is_same<Component, components::Script>::value)
+					{
+						auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua");
+						if (file.has_value())
+						{
+							auto& script = selected.m_world->m_registry.emplace<components::Script>(selected.m_selected);
+							script.load(file.value());
+						}
+					}
+					else
+					{
+						selected.m_world->m_registry.emplace<Component>(selected.m_selected);
+					}
+
 					ImGui::CloseCurrentPopup();
 				}
 			}
