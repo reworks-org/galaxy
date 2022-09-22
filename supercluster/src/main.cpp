@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include <galaxy/core/Application.hpp>
+#include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/state/SceneManager.hpp>
@@ -68,7 +69,55 @@ int main(int argsc, char* argsv[])
 				font_config.OversampleH          = 4;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
 
-				ui::imgui_theme_visual_dark();
+				auto& config = core::ServiceLocator<core::Config>::ref();
+
+				config.restore<std::string>("theme", "CLASSIC", "editor");
+				config.save();
+
+				const auto theme = magic_enum::enum_cast<ui::ImguiThemeId>(config.get<std::string>("theme", "editor"));
+				if (theme.has_value())
+				{
+					if (theme.value() == ui::ImguiThemeId::LIGHT)
+					{
+						ImGui::StyleColorsLight();
+					}
+					else if (theme.value() == ui::ImguiThemeId::DARK)
+					{
+						ImGui::StyleColorsDark();
+					}
+					else if (theme.value() == ui::ImguiThemeId::CLASSIC)
+					{
+						ImGui::StyleColorsClassic();
+					}
+					else if (theme.value() == ui::ImguiThemeId::ENHANCED_LIGHT)
+					{
+						ui::imgui_theme_enhanced_light();
+					}
+					else if (theme.value() == ui::ImguiThemeId::ENHANCED_DARK)
+					{
+						ui::imgui_theme_enhanced_dark();
+					}
+					else if (theme.value() == ui::ImguiThemeId::MATERIAL_DARK)
+					{
+						ui::imgui_theme_material_dark();
+					}
+					else if (theme.value() == ui::ImguiThemeId::VISUAL_DARK)
+					{
+						ui::imgui_theme_visual_dark();
+					}
+					else if (theme.value() == ui::ImguiThemeId::FANCY_DARK)
+					{
+						ui::imgui_theme_fancy_dark();
+					}
+					else if (theme.value() == ui::ImguiThemeId::DARK_EMBRACE)
+					{
+						ui::imgui_theme_dark_embrace();
+					}
+					else if (theme.value() == ui::ImguiThemeId::GOLD)
+					{
+						ui::imgui_theme_gold();
+					}
+				}
 
 				auto& sm   = core::ServiceLocator<state::SceneManager>::ref();
 				auto scene = sm.make("supercluster");

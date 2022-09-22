@@ -11,6 +11,7 @@
 #include <portable-file-dialogs.h>
 
 #include <galaxy/algorithm/ZLib.hpp>
+#include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -186,39 +187,86 @@ namespace sc
 			{
 				if (ImGui::BeginMenu("Theme"))
 				{
+					auto& config = core::ServiceLocator<core::Config>::ref();
+
+					if (ImGui::MenuItem("Classic"))
+					{
+						ImGui::StyleColorsClassic();
+
+						config.set<std::string>("theme", "CLASSIC", "editor");
+						config.save();
+					}
+
 					if (ImGui::MenuItem("Light"))
 					{
 						ImGui::StyleColorsLight();
+
+						config.set<std::string>("theme", "LIGHT", "editor");
+						config.save();
 					}
 
 					if (ImGui::MenuItem("Dark"))
 					{
 						ImGui::StyleColorsDark();
-					}
 
-					if (ImGui::MenuItem("Classic"))
-					{
-						ImGui::StyleColorsClassic();
+						config.set<std::string>("theme", "DARK", "editor");
+						config.save();
 					}
 
 					if (ImGui::MenuItem("Enhanced Light"))
 					{
 						ui::imgui_theme_enhanced_light();
+
+						config.set<std::string>("theme", "ENHANCED_LIGHT", "editor");
+						config.save();
 					}
 
 					if (ImGui::MenuItem("Enhanced Dark"))
 					{
 						ui::imgui_theme_enhanced_dark();
+
+						config.set<std::string>("theme", "ENHANCED_DARK", "editor");
+						config.save();
 					}
 
 					if (ImGui::MenuItem("Material Dark"))
 					{
 						ui::imgui_theme_material_dark();
+
+						config.set<std::string>("theme", "MATERIAL_DARK", "editor");
+						config.save();
 					}
 
 					if (ImGui::MenuItem("Visual Dark"))
 					{
 						ui::imgui_theme_visual_dark();
+
+						config.set<std::string>("theme", "VISUAL_DARK", "editor");
+						config.save();
+					}
+
+					if (ImGui::MenuItem("Fancy Dark"))
+					{
+						ui::imgui_theme_fancy_dark();
+
+						config.set<std::string>("theme", "FANCY_DARK", "editor");
+						config.save();
+					}
+
+					if (ImGui::MenuItem("Dark Embrace"))
+					{
+						ui::imgui_theme_dark_embrace();
+
+						config.set<std::string>("theme", "DARK_EMBRACE", "editor");
+						config.save();
+					}
+
+					if (ImGui::MenuItem("Gold"))
+					{
+						ui::imgui_theme_gold();
+
+						config.set<std::string>("theme", "GOLD", "editor");
+						config.save();
 					}
 
 					ImGui::EndMenu();

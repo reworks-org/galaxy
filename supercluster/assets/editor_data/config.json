@@ -8,6 +8,9 @@
             "sfx_volume": 1.0
         },
         "default_lang": "en_au",
+        "editor": {
+            "theme": "CLASSIC"
+        },
         "graphics": {
             "ansiotrophic_filtering": 16,
             "enable_aa": true,
