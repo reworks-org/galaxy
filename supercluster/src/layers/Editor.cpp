@@ -150,30 +150,29 @@ namespace sc
 		{
 			if (ImGui::BeginMenu("Menu"))
 			{
-				if (ImGui::MenuItem("New"))
+				if (ImGui::MenuItem("New", "Ctrl+N"))
 				{
 					ui::imgui_open_confirm("NewConfirmPopup");
 				}
 
-				if (ImGui::MenuItem("Load"))
+				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
-					ui::imgui_open_confirm("LoadConfirmPopup");
+					ui::imgui_open_confirm("OpenConfirmPopup");
 				}
 
-				if (ImGui::MenuItem("Save"))
+				if (ImGui::MenuItem("Save", "Ctrl+S"))
 				{
 					save_project();
 				}
 
-				if (ImGui::MenuItem("Save As"))
+				if (ImGui::MenuItem("Save As", "Ctrl+Shift+S"))
 				{
 					save_project(true);
 				}
 
-				if (ImGui::MenuItem("Restart"))
+				if (ImGui::MenuItem("Restart", "Ctrl+Alt+R"))
 				{
-					GALAXY_RESTART = true;
-					exit();
+					restart();
 				}
 
 				if (ImGui::MenuItem("Exit"))
@@ -254,6 +253,11 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_N))
+		{
+			ui::imgui_open_confirm("NewConfirmPopup");
+		}
+
 		// clang-format off
 		ui::imgui_confirm("NewConfirmPopup",
 			[&]() {
@@ -265,7 +269,12 @@ namespace sc
 			}
 		);
 
-		ui::imgui_confirm("LoadConfirmPopup", [&]() {
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_O))
+		{
+			ui::imgui_open_confirm("OpenConfirmPopup");
+		}
+
+		ui::imgui_confirm("OpenConfirmPopup", [&]() {
             auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj");
 			if (file.has_value())
 			{
@@ -273,6 +282,21 @@ namespace sc
 			}
 		});
 		// clang-format on
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_S))
+		{
+			save_project();
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Shift, ImGuiKey_S))
+		{
+			save_project(true);
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_R))
+		{
+			restart();
+		}
 
 		m_lua_console.render();
 		m_log_console.render();
@@ -484,6 +508,12 @@ namespace sc
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save project to disk.");
 			}
 		}
+	}
+
+	void Editor::restart()
+	{
+		GALAXY_RESTART = true;
+		exit();
 	}
 
 	void Editor::exit()

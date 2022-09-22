@@ -179,5 +179,21 @@ namespace galaxy
 			const auto center = ImGui::GetMainViewport()->GetCenter();
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}
+
+		bool imgui_shortcut(ImGuiModFlags mods, ImGuiKey key) noexcept
+		{
+			if (ImGui::GetIO().KeyMods != mods)
+			{
+				return false;
+			}
+			else if (!ImGui::IsWindowFocused(ImGuiFocusedFlags_AnyWindow))
+			{
+				return false;
+			}
+			else
+			{
+				return ImGui::IsKeyPressed(key, false);
+			}
+		}
 	} // namespace ui
 } // namespace galaxy
