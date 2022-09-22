@@ -113,10 +113,6 @@ int main(int argsc, char* argsv[])
 					{
 						ui::imgui_theme_dark_embrace();
 					}
-					else if (theme.value() == ui::ImguiThemeId::GOLD)
-					{
-						ui::imgui_theme_gold();
-					}
 				}
 
 				auto& sm   = core::ServiceLocator<state::SceneManager>::ref();

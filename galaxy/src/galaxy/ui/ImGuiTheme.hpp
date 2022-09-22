@@ -25,8 +25,7 @@ namespace galaxy
 			MATERIAL_DARK,
 			VISUAL_DARK,
 			FANCY_DARK,
-			DARK_EMBRACE,
-			GOLD
+			DARK_EMBRACE
 		};
 
 		///
@@ -58,11 +57,6 @@ namespace galaxy
 		/// "Dark Embrace" theme.
 		///
 		void imgui_theme_dark_embrace() noexcept;
-
-		///
-		/// Deus-Ex style gold.
-		///
-		void imgui_theme_gold() noexcept;
 	} // namespace ui
 } // namespace galaxy
 
