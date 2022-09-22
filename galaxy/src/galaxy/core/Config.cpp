@@ -150,5 +150,15 @@ namespace galaxy
 
 			return true;
 		}
+
+		void Config::raw(const nlohmann::json& json) noexcept
+		{
+			m_config = json;
+		}
+
+		const nlohmann::json& Config::raw() const noexcept
+		{
+			return m_config;
+		}
 	} // namespace core
 } // namespace galaxy

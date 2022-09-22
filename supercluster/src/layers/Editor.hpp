@@ -18,6 +18,8 @@
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/LogConsole.hpp"
 
+#include "editor/Settings.hpp"
+
 using namespace galaxy;
 
 namespace sc
@@ -67,6 +69,8 @@ namespace sc
 		events::KeyUp m_keyup_event;
 		*/
 
+		Settings m_settings;
+
 		panel::LuaConsole m_lua_console;
 		panel::LogConsole m_log_console;
 		panel::JSONEditor m_json_panel;
@@ -80,6 +84,7 @@ namespace sc
 		bool m_viewport_hovered = false;
 		bool m_mouse_picked     = false;
 		bool m_use_mouse_hand   = false;
+		bool m_show_settings    = false;
 
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};

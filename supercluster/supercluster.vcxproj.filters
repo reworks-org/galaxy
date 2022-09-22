@@ -12,6 +12,8 @@
     <ClCompile Include="src\editor\UpdateStack.cpp" />
     <ClCompile Include="src\editor\panels\EntityEditor.cpp" />
     <ClCompile Include="src\editor\Selected.cpp" />
+    <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
+    <ClCompile Include="src\editor\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\resources\RobotoLight.hpp" />
@@ -25,5 +27,7 @@
     <ClInclude Include="src\editor\UpdateStack.hpp" />
     <ClInclude Include="src\editor\panels\EntityEditor.hpp" />
     <ClInclude Include="src\editor\Selected.hpp" />
+    <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
+    <ClInclude Include="src\editor\Settings.hpp" />
   </ItemGroup>
 </Project>

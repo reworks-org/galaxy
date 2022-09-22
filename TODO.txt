@@ -24,8 +24,11 @@
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
 - fix restart flag not being updated???
+- fix gl error on close
 
 editor:
 - add a "view" dropdown and make some views toggleable. (panels editors etc)
 - https://github.com/SpartanJ/efsw
 - have some kind of shader manager and allow drag/drop that name onto draw shader component
+- asset panel
+- hotkeys

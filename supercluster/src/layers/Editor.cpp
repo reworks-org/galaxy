@@ -30,6 +30,7 @@ namespace sc
 		m_log_console.set_sink(&sink);
 
 		m_framebuffer.create(1, 1);
+		m_settings.load();
 	}
 
 	Editor::~Editor() noexcept
@@ -211,6 +212,11 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::MenuItem("Settings"))
+			{
+				m_show_settings = true;
+			}
+
 			ImGui::Text("( ? )");
 			if (ImGui::IsItemHovered())
 			{
@@ -266,28 +272,132 @@ namespace sc
 				load_project(file.value());
 			}
 		});
-
-        #ifdef _DEBUG
-		if (s_show_demo)
-		{
-			ImGui::ShowDemoWindow();
-		}
-        #endif
 		// clang-format on
 
-		// Bottom:
 		m_lua_console.render();
 		m_log_console.render();
-
-		// Center:
 		m_json_panel.render();
 		viewport();
-
-		// Left:
 		m_entity_panel.render(m_selected_entity, m_update_stack);
-
-		// Right:
 		m_scene_panel.render(m_project_scenes, m_selected_entity);
+
+		//
+		// UTILITY WINDOWS.
+		//
+
+		if (m_show_settings)
+		{
+			if (ImGui::Begin("Settings", &m_show_settings, ImGuiWindowFlags_MenuBar))
+			{
+				if (ImGui::BeginMenuBar())
+				{
+					if (ImGui::MenuItem("Save"))
+					{
+						m_settings.save();
+						ui::imgui_open_alert("SettingsSaveAlert");
+					}
+
+					if (ImGui::MenuItem("Refresh"))
+					{
+						m_settings.load();
+					}
+
+					if (ImGui::BeginMenu("Theme"))
+					{
+						auto& config = core::ServiceLocator<core::Config>::ref();
+
+						if (ImGui::MenuItem("Classic"))
+						{
+							ImGui::StyleColorsClassic();
+
+							config.set<std::string>("theme", "CLASSIC", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Light"))
+						{
+							ImGui::StyleColorsLight();
+
+							config.set<std::string>("theme", "LIGHT", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Dark"))
+						{
+							ImGui::StyleColorsDark();
+
+							config.set<std::string>("theme", "DARK", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Enhanced Light"))
+						{
+							ui::imgui_theme_enhanced_light();
+
+							config.set<std::string>("theme", "ENHANCED_LIGHT", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Enhanced Dark"))
+						{
+							ui::imgui_theme_enhanced_dark();
+
+							config.set<std::string>("theme", "ENHANCED_DARK", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Material Dark"))
+						{
+							ui::imgui_theme_material_dark();
+
+							config.set<std::string>("theme", "MATERIAL_DARK", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Visual Dark"))
+						{
+							ui::imgui_theme_visual_dark();
+
+							config.set<std::string>("theme", "VISUAL_DARK", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Fancy Dark"))
+						{
+							ui::imgui_theme_fancy_dark();
+
+							config.set<std::string>("theme", "FANCY_DARK", "editor");
+							config.save();
+						}
+
+						if (ImGui::MenuItem("Dark Embrace"))
+						{
+							ui::imgui_theme_dark_embrace();
+
+							config.set<std::string>("theme", "DARK_EMBRACE", "editor");
+							config.save();
+						}
+
+						ImGui::EndMenu();
+					}
+
+					ImGui::EndMenuBar();
+				}
+
+				m_settings.render();
+			}
+
+			ImGui::End();
+
+			ui::imgui_alert("SettingsSaveAlert", "Settings changed. Please restart.");
+		}
+
+#ifdef _DEBUG
+		if (s_show_demo)
+		{
+			ImGui::ShowDemoWindow(&s_show_demo);
+		}
+#endif
 
 		ImGui::End();
 

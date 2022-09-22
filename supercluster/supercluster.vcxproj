@@ -183,6 +183,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
+    <ClCompile Include="src\editor\Settings.cpp" />
     <ClCompile Include="src\editor\Selected.cpp" />
     <ClCompile Include="src\editor\EditorSink.cpp" />
     <ClCompile Include="src\editor\panels\EntityEditor.cpp" />
@@ -196,6 +198,8 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
+    <ClInclude Include="src\editor\Settings.hpp" />
     <ClInclude Include="src\editor\Selected.hpp" />
     <ClInclude Include="src\editor\EditorSink.hpp" />
     <ClInclude Include="src\editor\panels\EntityEditor.hpp" />

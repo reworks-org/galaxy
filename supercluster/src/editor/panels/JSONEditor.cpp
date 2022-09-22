@@ -15,7 +15,7 @@
 
 #include "JSONEditor.hpp"
 
-#define INDENT_PIXELS 16.0f
+#define INDENT_PIXELS 8.0f
 
 using namespace galaxy;
 
