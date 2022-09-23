@@ -546,6 +546,21 @@ namespace galaxy
 			glfwFocusWindow(m_window);
 		}
 
+		void Window::maximize() const noexcept
+		{
+			glfwMaximizeWindow(m_window);
+		}
+
+		void Window::restore() const noexcept
+		{
+			glfwRestoreWindow(m_window);
+		}
+
+		void Window::minimize() const noexcept
+		{
+			glfwIconifyWindow(m_window);
+		}
+
 		void Window::allow_native_closing() noexcept
 		{
 			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) noexcept {

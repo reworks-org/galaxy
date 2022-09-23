@@ -121,6 +121,21 @@ namespace galaxy
 			void focus() const noexcept;
 
 			///
+			/// Maximize window.
+			///
+			void maximize() const noexcept;
+
+			///
+			/// Restore window.
+			///
+			void restore() const noexcept;
+
+			///
+			/// Minimize window.
+			///
+			void minimize() const noexcept;
+
+			///
 			/// \brief Allow the window to be closed by the OS.
 			///
 			/// I.e from ALT+F4 or the close button in the window frame.
