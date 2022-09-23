@@ -13,7 +13,6 @@
 #include <galaxy/state/Scene.hpp>
 
 #include "Editor.hpp"
-#include "../resources/RobotoLight.hpp"
 
 #include "Menu.hpp"
 
@@ -22,13 +21,9 @@ namespace sc
 	Menu::Menu(std::string_view name, state::Scene* scene) noexcept
 		: Layer {name, scene}
 	{
-		ImGuiIO& io = ImGui::GetIO();
-
-		ImFontConfig font_config         = {};
-		font_config.FontDataOwnedByAtlas = false;
-		font_config.RasterizerMultiply   = 1.5f;
-		font_config.OversampleH          = 4;
-		m_bigger_default_font = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 144.0f, &font_config);
+		m_bg.load("editor_data/icon.png");
+		m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}
 
 	Menu::~Menu() noexcept
@@ -37,6 +32,7 @@ namespace sc
 
 	void Menu::on_push()
 	{
+		m_window->restore();
 	}
 
 	void Menu::on_pop()
@@ -55,8 +51,8 @@ namespace sc
 	{
 		ui::imgui_new_frame();
 
-		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-															   ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+		static constexpr const auto window_flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
+												   ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
@@ -64,14 +60,11 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
+		ImGui::Image(reinterpret_cast<void*>(m_bg.gl_texture()), {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()});
+
 		const auto window_calc             = ImGui::GetWindowWidth() / 2.0f;
 		constexpr const auto button_width  = 200.0f;
 		constexpr const auto button_height = 40.0f;
-
-		ImGui::PushFont(m_bigger_default_font);
-		ImGui::SetCursorPos({window_calc - (ImGui::CalcTextSize("Supercluster Editor").x / 2.0f), 100.0f});
-		ImGui::Text("Supercluster Editor");
-		ImGui::PopFont();
 
 		ImGui::SetCursorPos({window_calc - (button_width / 2.0f), (ImGui::GetWindowHeight() / 2.0f) - ((button_height * 3) / 2.0f)});
 

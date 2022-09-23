@@ -40,6 +40,8 @@ namespace sc
 
 	void Editor::on_push()
 	{
+		m_window->resize(1280, 720);
+		m_window->maximize();
 	}
 
 	void Editor::on_pop()
@@ -142,10 +144,10 @@ namespace sc
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Main Viewport", NULL, window_flags);
+		ImGui::Begin("Main Viewport", nullptr, window_flags);
 		ImGui::PopStyleVar(3);
 
-		static const ImVec2 size = {0.0f, 0.0f};
+		static constexpr const auto size = ImVec2 {0.0f, 0.0f};
 		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), size, dockspace_flags);
 		if (ImGui::BeginMenuBar())
 		{
@@ -319,7 +321,7 @@ namespace sc
 					if (ImGui::MenuItem("Save"))
 					{
 						m_settings.save();
-						ImGui::InsertNotification({ImGuiToastType_Success, 2000, "Settings changed, a restart is needed."});
+						ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Settings changed, a restart is needed."});
 					}
 
 					if (ImGui::MenuItem("Refresh"))
@@ -427,7 +429,7 @@ namespace sc
 		static constexpr const auto s_notification_size = ImVec4(43.f / 255.f, 43.f / 255.f, 43.f / 255.f, 100.f / 255.f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 5.f);
 		ImGui::PushStyleColor(ImGuiCol_WindowBg, s_notification_size);
-		ImGui::RenderNotifications();
+		ImGui_Notify::RenderNotifications();
 		ImGui::PopStyleVar(1);
 		ImGui::PopStyleColor(1);
 
@@ -437,7 +439,7 @@ namespace sc
 
 	void Editor::new_project()
 	{
-		m_window->set_title("Untitled Project - Supercluster Editor");
+		m_window->set_title("Untitled Project");
 
 		m_project_scenes.clear();
 	}
@@ -466,9 +468,7 @@ namespace sc
 			if (json.has_value())
 			{
 				m_project_scenes.deserialize(json.value());
-
-				const auto title = std::format("{0} - Supercluster Editor", fs_path.stem().string());
-				m_window->set_title(title.c_str());
+				m_window->set_title(fs_path.stem().string().c_str());
 			}
 			else
 			{
@@ -505,8 +505,7 @@ namespace sc
 				ofs.write(data.data(), data.size());
 				ofs.close();
 
-				const auto title = std::format("{0} - Supercluster Editor", std::filesystem::path(m_current_project_path).stem().string());
-				m_window->set_title(title.c_str());
+				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
 			}
 			else
 			{
@@ -542,7 +541,7 @@ namespace sc
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
 			}
 
-			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
+			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size /*, {0, 1}, {1, 0}*/);
 
 			/*
 			if (m_mouse_picked)

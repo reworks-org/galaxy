@@ -8,6 +8,7 @@
 #ifndef SUPERCLUSTER_LAYERS_MENU_HPP_
 #define SUPERCLUSTER_LAYERS_MENU_HPP_
 
+#include <galaxy/graphics/Texture.hpp>
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -35,7 +36,7 @@ namespace sc
 		void deserialize(const nlohmann::json& json) override;
 
 	private:
-		ImFont* m_bigger_default_font;
+		graphics::Texture m_bg;
 	};
 } // namespace sc
 

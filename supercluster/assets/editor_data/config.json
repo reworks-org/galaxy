@@ -43,14 +43,14 @@
             "allow_native_closing": false,
             "cursor_icon": "",
             "debug": true,
-            "height": 720,
+            "height": 512,
             "icon": "editor_data/icon.png",
-            "maximized": true,
+            "maximized": false,
             "scale_to_monitor": true,
-            "title": "Title",
+            "title": "supercluster",
             "visible_cursor": true,
             "vsync": false,
-            "width": 1280
+            "width": 512
         }
     }
 }

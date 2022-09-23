@@ -31,3 +31,4 @@ editor:
 - https://github.com/SpartanJ/efsw
 - have some kind of shader manager and allow drag/drop that name onto draw shader component
 - asset panel
+- icon in upper left coords
