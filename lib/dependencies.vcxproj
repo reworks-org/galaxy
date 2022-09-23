@@ -894,6 +894,9 @@
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
     <ClInclude Include="imgui\imgui_addons\imspinner.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\fa_solid_900.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\ToggleButton.h" />
     <ClInclude Include="imgui\imgui_freetype.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />

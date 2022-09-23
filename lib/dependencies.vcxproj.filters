@@ -1408,6 +1408,9 @@
     <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
     <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
     <ClInclude Include="imgui\imgui_addons\ToggleButton.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\imgui_notify.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\fa_solid_900.h" />
+    <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

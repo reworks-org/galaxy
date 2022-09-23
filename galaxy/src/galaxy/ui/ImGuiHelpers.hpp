@@ -22,9 +22,6 @@ namespace galaxy
 		void imgui_render() noexcept;
 		void imgui_destroy_context() noexcept;
 
-		void imgui_open_alert(const char* popup) noexcept;
-		void imgui_alert(const char* popup, const char* msg) noexcept;
-
 		void imgui_open_confirm(const char* popup) noexcept;
 		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {}) noexcept;
 

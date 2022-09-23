@@ -91,39 +91,6 @@ namespace galaxy
 			ImGui::DestroyContext();
 		}
 
-		void imgui_open_alert(const char* popup) noexcept
-		{
-			s_popup_state[popup] = true;
-		}
-
-		void imgui_alert(const char* popup, const char* msg) noexcept
-		{
-			if (s_popup_state[popup])
-			{
-				ImGui::OpenPopup(popup);
-				imgui_center_next_window();
-
-				s_popup_state[popup] = false;
-			}
-
-			if (ImGui::BeginPopup(popup))
-			{
-				ImGui::Text("Alert");
-				ImGui::SameLine(ImGui::GetWindowWidth() - 25);
-				if (ImGui::Button("X"))
-				{
-					ImGui::CloseCurrentPopup();
-				}
-
-				ImGui::Separator();
-				ImGui::Spacing();
-
-				ImGui::Text(msg);
-
-				ImGui::EndPopup();
-			}
-		}
-
 		void imgui_open_confirm(const char* popup) noexcept
 		{
 			s_popup_state[popup] = true;
