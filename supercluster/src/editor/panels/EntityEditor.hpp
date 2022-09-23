@@ -26,8 +26,8 @@ namespace sc
 		class EntityEditor final
 		{
 		public:
-			EntityEditor() noexcept;
-			~EntityEditor() noexcept;
+			EntityEditor() noexcept  = default;
+			~EntityEditor() noexcept = default;
 
 			void render(Selected& selected, UpdateStack& updates);
 

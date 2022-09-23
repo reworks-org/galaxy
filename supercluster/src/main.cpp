@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+#include <imgui_addons/notify/imgui_notify.h>
+
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -68,6 +70,7 @@ int main(int argsc, char* argsv[])
 				font_config.RasterizerMultiply   = 1.5f;
 				font_config.OversampleH          = 4;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
+				ImGui::MergeIconsWithLatestFont(16.f, false);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();
 

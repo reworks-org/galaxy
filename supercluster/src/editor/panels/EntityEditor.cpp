@@ -8,6 +8,7 @@
 #include <entt/entity/registry.hpp>
 #include <magic_enum.hpp>
 #include <imgui_stdlib.h>
+#include <imgui_addons/notify/imgui_notify.h>
 #include <imgui_addons/ToggleButton.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
@@ -34,14 +35,6 @@ namespace sc
 {
 	namespace panel
 	{
-		EntityEditor::EntityEditor() noexcept
-		{
-		}
-
-		EntityEditor::~EntityEditor() noexcept
-		{
-		}
-
 		void EntityEditor::render(Selected& selected, UpdateStack& updates)
 		{
 			static constexpr const auto numeric_input_flags =
@@ -99,13 +92,11 @@ namespace sc
 								else
 								{
 									s_buff = "";
-									ui::imgui_open_alert("ShaderNotExisting");
+									ImGui::InsertNotification({ImGuiToastType_Error, 2000, "Shader does not exist."});
 								}
 							}
 						}
 					});
-
-					ui::imgui_alert("ShaderNotExisting", "Shader does not exist.");
 
 					draw_component<components::Flag>(selected, "Flags", [&](components::Flag* flag) {
 						static auto s_enabled = flag->is_flag_set<flags::Enabled>();
@@ -120,7 +111,7 @@ namespace sc
 								else
 								{
 									s_enabled = false;
-									ui::imgui_open_alert("EnabledNotValidWarning");
+									ImGui::InsertNotification({ImGuiToastType_Error, 2000, "Entity did not pass validation."});
 								}
 							}
 							else
@@ -144,8 +135,6 @@ namespace sc
 							}
 						}
 					});
-
-					ui::imgui_alert("EnabledNotValidWarning", "Entity did not pass validation.");
 
 					draw_component<components::Primitive>(selected, "Primitive", [](components::Primitive* prim) {
 					});

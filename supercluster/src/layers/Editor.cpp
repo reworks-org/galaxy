@@ -7,6 +7,7 @@
 
 #include <fstream>
 
+#include <imgui_addons/notify/imgui_notify.h>
 #include <nlohmann/json.hpp>
 #include <portable-file-dialogs.h>
 
@@ -318,7 +319,7 @@ namespace sc
 					if (ImGui::MenuItem("Save"))
 					{
 						m_settings.save();
-						ui::imgui_open_alert("SettingsSaveAlert");
+						ImGui::InsertNotification({ImGuiToastType_Success, 2000, "Settings changed, a restart is needed."});
 					}
 
 					if (ImGui::MenuItem("Refresh"))
@@ -412,8 +413,6 @@ namespace sc
 			}
 
 			ImGui::End();
-
-			ui::imgui_alert("SettingsSaveAlert", "Settings changed. Please restart.");
 		}
 
 #ifdef _DEBUG
@@ -424,6 +423,13 @@ namespace sc
 #endif
 
 		ImGui::End();
+
+		static constexpr const auto s_notification_size = ImVec4(43.f / 255.f, 43.f / 255.f, 43.f / 255.f, 100.f / 255.f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 5.f);
+		ImGui::PushStyleColor(ImGuiCol_WindowBg, s_notification_size);
+		ImGui::RenderNotifications();
+		ImGui::PopStyleVar(1);
+		ImGui::PopStyleColor(1);
 
 		ui::imgui_prerender();
 		ui::imgui_render();

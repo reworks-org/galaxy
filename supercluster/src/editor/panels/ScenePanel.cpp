@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <imgui_addons/notify/imgui_notify.h>
 #include <portable-file-dialogs.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
@@ -106,11 +107,9 @@ namespace sc
 						ui::imgui_confirm("TreeRemovePopup", [&]() {
 							if (!sm.remove(name))
 							{
-								ui::imgui_open_alert("TreeRemoveAlert");
+								ImGui::InsertNotification({ImGuiToastType_Warning, 2000, "Cannot remove active scene."});
 							}
 						});
-
-						ui::imgui_alert("TreeRemoveAlert", "Cant remove the active scene.");
 
 						/*
 						ImGui::Text("Camera:");
