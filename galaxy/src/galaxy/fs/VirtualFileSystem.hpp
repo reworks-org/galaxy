@@ -184,7 +184,7 @@ namespace galaxy
 			///
 			/// \return Absolute root path as a filesystem path.
 			///
-			[[nodiscard]] std::filesystem::path& root_path() noexcept;
+			[[nodiscard]] const std::filesystem::path& root_path() const noexcept;
 
 		private:
 			///
