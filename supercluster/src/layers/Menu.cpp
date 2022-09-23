@@ -60,7 +60,7 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::Image(reinterpret_cast<void*>(m_bg.gl_texture()), {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()});
+		ImGui::Image(reinterpret_cast<void*>(m_bg.handle()), {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()});
 
 		const auto window_calc             = ImGui::GetWindowWidth() / 2.0f;
 		constexpr const auto button_width  = 200.0f;

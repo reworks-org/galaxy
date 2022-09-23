@@ -267,7 +267,7 @@ namespace galaxy
 			return static_cast<int>(std::trunc(ansio));
 		}
 
-		unsigned int Texture::gl_texture() const noexcept
+		unsigned int Texture::handle() const noexcept
 		{
 			return m_texture;
 		}

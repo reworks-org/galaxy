@@ -207,7 +207,7 @@ namespace galaxy
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 				glBindVertexArray(m_vao.id());
-				glBindTexture(GL_TEXTURE_2D, m_bg.gl_texture());
+				glBindTexture(GL_TEXTURE_2D, m_bg.handle());
 				m_bg_shader.bind();
 				m_bg_shader.set_uniform("u_transform", m_tf.get_transform());
 				glDrawElements(GL_TRIANGLES, m_vao.index_count(), GL_UNSIGNED_INT, nullptr);

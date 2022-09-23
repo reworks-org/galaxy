@@ -155,7 +155,7 @@ namespace galaxy
 			///
 			/// \return Const unsigned int.
 			///
-			[[nodiscard]] unsigned int gl_texture() const noexcept;
+			[[nodiscard]] unsigned int handle() const noexcept;
 
 		private:
 			///
