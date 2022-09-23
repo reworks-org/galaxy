@@ -107,7 +107,7 @@ namespace sc
 						ui::imgui_confirm("TreeRemovePopup", [&]() {
 							if (!sm.remove(name))
 							{
-								ImGui::InsertNotification({ImGuiToastType_Warning, 2000, "Cannot remove active scene."});
+								ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "Cannot remove active scene."});
 							}
 						});
 

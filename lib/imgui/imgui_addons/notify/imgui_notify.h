@@ -139,20 +139,26 @@ public:
 		return this->type;
 	};
 
-	inline auto get_color() -> ImVec4
+	inline auto get_color() -> const ImVec4&
 	{
+		static constexpr const auto s_white  = ImVec4 {255, 255, 255, 255};
+		static constexpr const auto s_green  = ImVec4 {0, 255, 0, 255};
+		static constexpr const auto s_yellow = ImVec4 {255, 255, 0, 255};
+		static constexpr const auto s_red    = ImVec4 {255, 0, 0, 255};
+		static constexpr const auto s_blue   = ImVec4 {0, 157, 255, 255};
+
 		switch (this->type)
 		{
-			case ImGuiToastType_None:
-				return {255, 255, 255, 255}; // White
+			default:
+				return s_white;
 			case ImGuiToastType_Success:
-				return {0, 255, 0, 255}; // Green
+				return s_green;
 			case ImGuiToastType_Warning:
-				return {255, 255, 0, 255}; // Yellow
+				return s_yellow;
 			case ImGuiToastType_Error:
-				return {255, 0, 0, 255}; // Error
+				return s_red;
 			case ImGuiToastType_Info:
-				return {0, 157, 255, 255}; // Blue
+				return s_blue;
 		}
 	}
 
@@ -160,7 +166,7 @@ public:
 	{
 		switch (this->type)
 		{
-			case ImGuiToastType_None:
+			default:
 				return NULL;
 			case ImGuiToastType_Success:
 				return ICON_FA_CHECK_CIRCLE;
@@ -183,7 +189,7 @@ public:
 		return std::chrono::high_resolution_clock::now() - this->creation_time;
 	}
 
-	inline auto get_phase() -> const ImGuiToastPhase&
+	inline auto get_phase() -> ImGuiToastPhase
 	{
 		const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(get_elapsed_time()).count();
 
@@ -250,7 +256,7 @@ public:
 	}
 };
 
-namespace ImGui
+namespace ImGui_Notify
 {
 	inline std::vector<ImGuiToast> notifications;
 
@@ -276,7 +282,7 @@ namespace ImGui
 	/// </summary>
 	inline void RenderNotifications()
 	{
-		const auto vp_size = GetMainViewport()->Size;
+		const auto vp_size = ImGui::GetMainViewport()->Size;
 
 		float height = 0.f;
 
@@ -307,13 +313,13 @@ namespace ImGui
 			sprintf(window_name, "##TOAST%d", i);
 
 			// PushStyleColor(ImGuiCol_Text, text_color);
-			SetNextWindowBgAlpha(opacity);
-			SetNextWindowPos(ImVec2(vp_size.x - NOTIFY_PADDING_X, vp_size.y - NOTIFY_PADDING_Y - height), ImGuiCond_Always, ImVec2(1.0f, 1.0f));
-			Begin(window_name, NULL, NOTIFY_TOAST_FLAGS);
+			ImGui::SetNextWindowBgAlpha(opacity);
+			ImGui::SetNextWindowPos(ImVec2(vp_size.x - NOTIFY_PADDING_X, vp_size.y - NOTIFY_PADDING_Y - height), ImGuiCond_Always, ImVec2(1.0f, 1.0f));
+			ImGui::Begin(window_name, NULL, NOTIFY_TOAST_FLAGS);
 
 			// Here we render the toast content
 			{
-				PushTextWrapPos(vp_size.x / 3.f); // We want to support multi-line text, this will wrap the text after 1/3 of the screen width
+				ImGui::PushTextWrapPos(vp_size.x / 3.f); // We want to support multi-line text, this will wrap the text after 1/3 of the screen width
 
 				bool was_title_rendered = false;
 
@@ -321,7 +327,7 @@ namespace ImGui
 				if (!NOTIFY_NULL_OR_EMPTY(icon))
 				{
 					// Text(icon); // Render icon text
-					TextColored(text_color, icon);
+					ImGui::TextColored(text_color, icon);
 					was_title_rendered = true;
 				}
 
@@ -330,24 +336,24 @@ namespace ImGui
 				{
 					// If a title and an icon is set, we want to render on same line
 					if (!NOTIFY_NULL_OR_EMPTY(icon))
-						SameLine();
+						ImGui::SameLine();
 
-					Text(title); // Render title text
+					ImGui::Text(title); // Render title text
 					was_title_rendered = true;
 				}
 				else if (!NOTIFY_NULL_OR_EMPTY(default_title))
 				{
 					if (!NOTIFY_NULL_OR_EMPTY(icon))
-						SameLine();
+						ImGui::SameLine();
 
-					Text(default_title); // Render default title text (ImGuiToastType_Success -> "Success", etc...)
+					ImGui::Text(default_title); // Render default title text (ImGuiToastType_Success -> "Success", etc...)
 					was_title_rendered = true;
 				}
 
 				// In case ANYTHING was rendered in the top, we want to add a small padding so the text (or icon) looks centered vertically
 				if (was_title_rendered && !NOTIFY_NULL_OR_EMPTY(content))
 				{
-					SetCursorPosY(GetCursorPosY() + 5.f); // Must be a better way to do this!!!!
+					ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 5.f); // Must be a better way to do this!!!!
 				}
 
 				// If a content is set
@@ -356,21 +362,21 @@ namespace ImGui
 					if (was_title_rendered)
 					{
 #ifdef NOTIFY_USE_SEPARATOR
-						Separator();
+						ImGui::Separator();
 #endif
 					}
 
-					Text(content); // Render content text
+					ImGui::Text(content); // Render content text
 				}
 
-				PopTextWrapPos();
+				ImGui::PopTextWrapPos();
 			}
 
 			// Save height for next toasts
-			height += GetWindowHeight() + NOTIFY_PADDING_MESSAGE_Y;
+			height += ImGui::GetWindowHeight() + NOTIFY_PADDING_MESSAGE_Y;
 
 			// End
-			End();
+			ImGui::End();
 		}
 	}
 
@@ -387,8 +393,8 @@ namespace ImGui
 		icons_config.PixelSnapH           = true;
 		icons_config.FontDataOwnedByAtlas = FontDataOwnedByAtlas;
 
-		GetIO().Fonts->AddFontFromMemoryTTF((void*)fa_solid_900, sizeof(fa_solid_900), font_size, &icons_config, icons_ranges);
+		ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)fa_solid_900, sizeof(fa_solid_900), font_size, &icons_config, icons_ranges);
 	}
-} // namespace ImGui
+} // namespace ImGui_Notify
 
 #endif

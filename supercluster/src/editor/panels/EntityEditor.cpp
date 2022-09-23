@@ -92,7 +92,7 @@ namespace sc
 								else
 								{
 									s_buff = "";
-									ImGui::InsertNotification({ImGuiToastType_Error, 2000, "Shader does not exist."});
+									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Shader does not exist."});
 								}
 							}
 						}
@@ -111,7 +111,7 @@ namespace sc
 								else
 								{
 									s_enabled = false;
-									ImGui::InsertNotification({ImGuiToastType_Error, 2000, "Entity did not pass validation."});
+									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Entity did not pass validation."});
 								}
 							}
 							else
