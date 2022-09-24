@@ -12,6 +12,7 @@
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
+#include "editor/panels/AssetPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
 #include "editor/panels/LuaConsole.hpp"
@@ -77,6 +78,7 @@ namespace sc
 		panel::JSONEditor m_json_panel;
 		panel::EntityEditor m_entity_panel;
 		panel::ScenePanel m_scene_panel;
+		panel::AssetPanel m_asset_panel;
 
 		UpdateStack m_update_stack;
 
@@ -89,12 +91,19 @@ namespace sc
 
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
+		ImVec2 m_icon_size         = {20, 20};
 
 		Selected m_selected_entity;
 
 		std::string m_current_project_path;
 		state::SceneManager m_project_scenes;
 		graphics::RenderTexture m_framebuffer;
+
+		graphics::Texture m_resume_play;
+		graphics::Texture m_play;
+		graphics::Texture m_stop;
+		graphics::Texture m_help;
+		graphics::Texture m_cog;
 	};
 } // namespace sc
 

@@ -9,7 +9,9 @@
         },
         "default_lang": "en_au",
         "editor": {
-            "theme": "FANCY_DARK"
+            "padding": 64.0,
+            "theme": "FANCY_DARK",
+            "thumb_size": 48.0
         },
         "graphics": {
             "ansiotrophic_filtering": 16,
@@ -25,7 +27,7 @@
         },
         "loading": {
             "bg": "editor_data/load.png",
-            "font": "editor_data/sercode.ttf"
+            "font": "editor_data/secret_code.ttf"
         },
         "log_performance": false,
         "resource_folders": {
@@ -44,7 +46,7 @@
             "cursor_icon": "",
             "debug": true,
             "height": 512,
-            "icon": "editor_data/icon.png",
+            "icon": "editor_data/sc.png",
             "maximized": false,
             "scale_to_monitor": true,
             "title": "supercluster",

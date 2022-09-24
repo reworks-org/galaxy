@@ -21,7 +21,7 @@ namespace sc
 	Menu::Menu(std::string_view name, state::Scene* scene) noexcept
 		: Layer {name, scene}
 	{
-		m_bg.load("editor_data/icon.png");
+		m_bg.load("editor_data/sc.png");
 		m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}

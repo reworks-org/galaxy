@@ -147,3 +147,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://github.com/ocornut/imgui/issues/707
 * https://github.com/Asmodean-/SMAA-OpenGL/
 * https://github.com/lettier/3d-game-shaders-for-beginners
+* https://materialdesignicons.com/

@@ -11,6 +11,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/Texture.hpp"
 
 #include "ImGuiHelpers.hpp"
 
@@ -161,6 +162,11 @@ namespace galaxy
 			{
 				return ImGui::IsKeyPressed(key, false);
 			}
+		}
+
+		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept
+		{
+			return ImGui::ImageButton(reinterpret_cast<void*>(texture.handle()), size);
 		}
 	} // namespace ui
 } // namespace galaxy

@@ -14,6 +14,11 @@
 
 namespace galaxy
 {
+	namespace graphics
+	{
+		class Texture;
+	} // namespace graphics
+
 	namespace ui
 	{
 		[[maybe_unused]] ImGuiIO& imgui_init_context() noexcept;
@@ -27,6 +32,7 @@ namespace galaxy
 
 		void imgui_center_next_window() noexcept;
 		[[nodiscard]] bool imgui_shortcut(ImGuiModFlags mods, ImGuiKey key) noexcept;
+		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept;
 	} // namespace ui
 } // namespace galaxy
 

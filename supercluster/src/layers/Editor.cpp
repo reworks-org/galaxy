@@ -32,6 +32,26 @@ namespace sc
 
 		m_framebuffer.create(1, 1);
 		m_settings.load();
+
+		m_resume_play.load("editor_data/icons/resume_play.png");
+		m_resume_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_resume_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_play.load("editor_data/icons/play.png");
+		m_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_stop.load("editor_data/icons/stop.png");
+		m_stop.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_stop.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_help.load("editor_data/icons/question.png");
+		m_help.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_help.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_cog.load("editor_data/icons/cog.png");
+		m_cog.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_cog.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}
 
 	Editor::~Editor() noexcept
@@ -214,12 +234,15 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::MenuItem("Settings"))
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - (m_icon_size.x * 2) - 8.0f);
+			if (ui::imgui_imagebutton(m_cog, m_icon_size))
 			{
-				m_show_settings = true;
+				m_show_settings = !m_show_settings;
 			}
 
-			ImGui::Text("( ? )");
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - m_icon_size.x);
+			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+			ImGui::Image(reinterpret_cast<void*>(m_help.handle()), m_icon_size);
 			if (ImGui::IsItemHovered())
 			{
 				ImGui::BeginTooltip();
@@ -230,7 +253,7 @@ namespace sc
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
-			if (ImGui::ArrowButton("PlaySceneArrowButton", ImGuiDir_Right))
+			if (ui::imgui_imagebutton(m_play, m_icon_size))
 			{
 				// m_game_mode = true;
 				// m_backup    = serialize();
@@ -238,18 +261,18 @@ namespace sc
 				// m_window->set_cursor_visibility(false);
 			}
 
-			static std::string s_pause_resume = " | | ##PauseSceneButton";
-			if (ImGui::Button(s_pause_resume.c_str()))
+			if (!m_paused)
 			{
-				if (!m_paused)
+				if (ui::imgui_imagebutton(m_stop, m_icon_size))
 				{
-					m_paused       = true;
-					s_pause_resume = " >> ##ResumeSceneButton";
+					m_paused = true;
 				}
-				else
+			}
+			else
+			{
+				if (ui::imgui_imagebutton(m_resume_play, m_icon_size))
 				{
-					m_paused       = false;
-					s_pause_resume = " | | ##PauseSceneButton";
+					m_paused = false;
 				}
 			}
 
@@ -305,6 +328,7 @@ namespace sc
 		m_log_console.render();
 		m_json_panel.render();
 		viewport();
+		m_asset_panel.render();
 		m_entity_panel.render(m_selected_entity, m_update_stack);
 		m_scene_panel.render(m_project_scenes, m_selected_entity);
 

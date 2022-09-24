@@ -10,6 +10,11 @@
 
 #include <filesystem>
 
+#include <galaxy/graphics/Texture.hpp>
+#include <galaxy/ui/ImGuiHelpers.hpp>
+
+using namespace galaxy;
+
 namespace sc
 {
 	namespace panel
@@ -23,7 +28,33 @@ namespace sc
 			void render();
 
 		private:
-			std::filesystem::path m_current_path;
+			ImVec2 m_size_vec;
+			ImVec2 m_toolbar_vec;
+
+			float m_padding;
+			float m_thumb_size;
+
+			std::filesystem::path m_root;
+			std::filesystem::path m_current_dir;
+			std::filesystem::path m_prev_dir;
+
+			std::string m_search_term;
+
+			graphics::Texture m_audio;
+			graphics::Texture m_backward;
+			graphics::Texture m_cog;
+			graphics::Texture m_file;
+			graphics::Texture m_folder;
+			graphics::Texture m_font;
+			graphics::Texture m_forward;
+			graphics::Texture m_glsl;
+			graphics::Texture m_json;
+			graphics::Texture m_lang;
+			graphics::Texture m_lua;
+			graphics::Texture m_proj;
+			graphics::Texture m_texture;
+
+			graphics::Texture* m_icon;
 		};
 	} // namespace panel
 } // namespace sc
