@@ -57,6 +57,7 @@ namespace sc
 		config.restore("autosave_interval_seconds", 300, "editor");
 
 		// clang-format off
+		m_autosave.repeat(true);
 		m_autosave.set([&]() {
             save_project(false);
 		}, config.get<int>("autosave_interval_seconds", "editor") * 1000);
@@ -71,16 +72,17 @@ namespace sc
 	{
 		m_window->resize(1280, 720);
 		m_window->maximize();
+
+		m_autosave.start();
 	}
 
 	void Editor::on_pop()
 	{
+		m_autosave.stop();
 	}
 
 	void Editor::events()
 	{
-		// m_world.m_dispatcher.sink<events::MouseWheel>().disconnect();
-
 		if (m_viewport_focused && m_viewport_hovered)
 		{
 			if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
@@ -115,8 +117,6 @@ namespace sc
 					m_project_scenes.current().events();
 				}
 			}
-
-			// m_window->trigger_queued_events(m_world.m_dispatcher);
 		}
 	}
 
@@ -133,6 +133,7 @@ namespace sc
 		}
 
 		m_update_stack.clear();
+		m_autosave.update();
 	}
 
 	void Editor::render()
@@ -171,17 +172,18 @@ namespace sc
 															   ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
 		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
 
+		static constexpr const auto size = ImVec2 {0.0f, 0.0f};
+
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, size);
 		ImGui::Begin("Main Viewport", nullptr, window_flags);
 		ImGui::PopStyleVar(3);
 
-		static constexpr const auto size = ImVec2 {0.0f, 0.0f};
 		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), size, dockspace_flags);
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("Menu"))
+			if (ImGui::BeginMenu("File"))
 			{
 				if (ImGui::MenuItem("New", "Ctrl+N"))
 				{
@@ -216,6 +218,11 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::BeginMenu("View"))
+			{
+				ImGui::EndMenu();
+			}
+
 			if (ImGui::BeginMenu("Tools"))
 			{
 				/*
@@ -230,19 +237,18 @@ namespace sc
 				}
 				*/
 
-				// clang-format off
+				ImGui::EndMenu();
+			}
 
+			// clang-format off
                 #ifdef _DEBUG
-				if (ImGui::MenuItem("Demo"))
+				if (ImGui::MenuItem("ImGui Demo Window"))
 				{
 					GALAXY_LOG(GALAXY_INFO, "SHOWING DEBUG WINDOW.");
 					s_show_demo = !s_show_demo;
 				}
 				#endif
-				// clang-format on
-
-				ImGui::EndMenu();
-			}
+			// clang-format on
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - (m_icon_size.x * 2) - 8.0f);
 			if (ui::imgui_imagebutton(m_cog, m_icon_size))
