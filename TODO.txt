@@ -31,4 +31,3 @@ editor:
 - add a "view" dropdown and make some views toggleable. (panels editors etc)
 - https://github.com/SpartanJ/efsw
 - have some kind of shader manager and allow drag/drop that name onto draw shader component
-- icon in upper left coords

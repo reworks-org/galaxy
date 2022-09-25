@@ -28,8 +28,6 @@ namespace sc
 	private:
 		void do_object(nlohmann::json& json);
 		void do_array(nlohmann::json& json);
-		void new_object(nlohmann::json& json);
-		void add_to_array(nlohmann::json& json);
 
 	private:
 		int m_counter;

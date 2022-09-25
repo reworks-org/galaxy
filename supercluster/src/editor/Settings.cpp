@@ -15,7 +15,7 @@
 
 #include "Settings.hpp"
 
-#define INDENT_PIXELS 8.0f
+#define INDENT_PIXELS 16.0f
 
 using namespace galaxy;
 
@@ -63,13 +63,6 @@ namespace sc
 		ImGui::PushID(m_counter);
 
 		ImGui::Indent(INDENT_PIXELS);
-
-		if (ImGui::Button("New Object"))
-		{
-			ImGui::OpenPopup("New Object", ImGuiPopupFlags_NoOpenOverExistingPopup);
-		}
-
-		new_object(json);
 
 		for (auto& [key, value] : json.items())
 		{
@@ -127,13 +120,6 @@ namespace sc
 
 		ImGui::Indent(INDENT_PIXELS);
 
-		if (ImGui::Button("New Element"))
-		{
-			ImGui::OpenPopup("New Element", ImGuiPopupFlags_NoOpenOverExistingPopup);
-		}
-
-		add_to_array(json);
-
 		unsigned int counter = 0;
 		std::string name;
 		for (auto& elem : json)
@@ -179,207 +165,5 @@ namespace sc
 
 		ImGui::Unindent(INDENT_PIXELS);
 		ImGui::PopID();
-	}
-
-	void Settings::new_object(nlohmann::json& json)
-	{
-		if (ImGui::BeginPopup("New Object",
-				ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
-		{
-			static std::string s_key_str;
-			static std::string s_val_str;
-			static std::string s_err_str;
-			static int s_index       = 0;
-			static bool s_show_error = false;
-
-			static constexpr const std::array<const char*, 8> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
-
-			ImGui::InputText("Key", &s_key_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
-			ImGui::SameLine();
-			ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
-			ImGui::Combo("Type", &s_index, s_types.data(), static_cast<int>(s_types.size()));
-
-			if (ImGui::Button("Add"))
-			{
-				if (s_key_str.empty() || s_val_str.empty())
-				{
-					s_err_str    = "Input fields cannot be empty.";
-					s_show_error = true;
-				}
-				else
-				{
-					if (std::strcmp(s_types[s_index], "bool") == 0)
-					{
-						if (s_val_str == "true")
-						{
-							json[s_key_str] = true;
-							s_show_error    = false;
-						}
-						else if (s_val_str == "false")
-						{
-							json[s_key_str] = false;
-							s_show_error    = false;
-						}
-						else
-						{
-							s_err_str    = "Boolean string must be \"true\" or \"false\".";
-							s_show_error = true;
-						}
-					}
-					else if (std::strcmp(s_types[s_index], "integer") == 0)
-					{
-						json[s_key_str] = std::stoi(s_val_str);
-						s_show_error    = false;
-					}
-					else if (std::strcmp(s_types[s_index], "unsigned") == 0)
-					{
-						json[s_key_str] = static_cast<unsigned int>(std::stoi(s_val_str));
-						s_show_error    = false;
-					}
-					else if (std::strcmp(s_types[s_index], "float") == 0)
-					{
-						json[s_key_str] = std::stof(s_val_str);
-						s_show_error    = false;
-					}
-					else if (std::strcmp(s_types[s_index], "string") == 0)
-					{
-						json[s_key_str] = s_val_str;
-						s_show_error    = false;
-					}
-					else if (std::strcmp(s_types[s_index], "object") == 0)
-					{
-						json[s_key_str] = nlohmann::json::object();
-						s_show_error    = false;
-					}
-					else if (std::strcmp(s_types[s_index], "array") == 0)
-					{
-						json.push_back(nlohmann::json::array());
-						s_show_error = false;
-					}
-					else
-					{
-						s_err_str    = "No type selected.";
-						s_show_error = true;
-					}
-
-					if (!s_show_error)
-					{
-						s_key_str    = "";
-						s_val_str    = "";
-						s_err_str    = "";
-						s_index      = 0;
-						s_show_error = false;
-
-						ImGui::CloseCurrentPopup();
-					}
-				}
-			}
-
-			if (s_show_error)
-			{
-				ImGui::Text(s_err_str.c_str());
-			}
-
-			ImGui::EndPopup();
-		}
-	}
-
-	void Settings::add_to_array(nlohmann::json& json)
-	{
-		if (ImGui::BeginPopup("New Element",
-				ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar))
-		{
-			static std::string s_val_str;
-			static std::string s_err_str;
-			static int s_index       = 0;
-			static bool s_show_error = false;
-
-			static const std::vector<const char*> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
-
-			ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
-			ImGui::Combo("Type", &s_index, s_types.data(), static_cast<int>(s_types.size()));
-
-			if (ImGui::Button("Add"))
-			{
-				if (s_val_str.empty())
-				{
-					s_err_str    = "Input fields cannot be empty.";
-					s_show_error = true;
-				}
-				else
-				{
-					if (std::strcmp(s_types[s_index], "bool") == 0)
-					{
-						if (s_val_str == "true")
-						{
-							json.push_back(true);
-							s_show_error = false;
-						}
-						else if (s_val_str == "false")
-						{
-							json.push_back(false);
-							s_show_error = false;
-						}
-						else
-						{
-							s_err_str    = "Boolean string must be \"true\" or \"false\".";
-							s_show_error = true;
-						}
-					}
-					else if (std::strcmp(s_types[s_index], "integer") == 0)
-					{
-						json.push_back(std::stoi(s_val_str));
-						s_show_error = false;
-					}
-					else if (std::strcmp(s_types[s_index], "unsigned") == 0)
-					{
-						json.push_back(static_cast<unsigned int>(std::stoi(s_val_str)));
-						s_show_error = false;
-					}
-					else if (std::strcmp(s_types[s_index], "float") == 0)
-					{
-						json.push_back(std::stof(s_val_str));
-						s_show_error = false;
-					}
-					else if (std::strcmp(s_types[s_index], "string") == 0)
-					{
-						json.push_back(s_val_str);
-						s_show_error = false;
-					}
-					else if (std::strcmp(s_types[s_index], "object") == 0)
-					{
-						json.push_back(nlohmann::json::object());
-						s_show_error = false;
-					}
-					else if (std::strcmp(s_types[s_index], "array") == 0)
-					{
-						json.push_back(nlohmann::json::array());
-						s_show_error = false;
-					}
-					else
-					{
-						s_err_str    = "No type selected.";
-						s_show_error = true;
-					}
-
-					if (!s_show_error)
-					{
-						s_val_str    = "";
-						s_err_str    = "";
-						s_index      = 0;
-						s_show_error = false;
-
-						ImGui::CloseCurrentPopup();
-					}
-				}
-			}
-
-			if (s_show_error)
-			{
-				ImGui::Text(s_err_str.c_str());
-			}
-
-			ImGui::EndPopup();
-		}
 	}
 } // namespace sc
