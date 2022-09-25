@@ -52,6 +52,15 @@ namespace sc
 		m_cog.load("editor_data/icons/cog.png");
 		m_cog.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_cog.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		auto& config = core::ServiceLocator<core::Config>::ref();
+		config.restore("autosave_interval_seconds", 300, "editor");
+
+		// clang-format off
+		m_autosave.set([&]() {
+            save_project(false);
+		}, config.get<int>("autosave_interval_seconds", "editor") * 1000);
+		// clang-format on
 	}
 
 	Editor::~Editor() noexcept
@@ -70,7 +79,7 @@ namespace sc
 
 	void Editor::events()
 	{
-		m_world.m_dispatcher.sink<events::MouseWheel>().disconnect();
+		// m_world.m_dispatcher.sink<events::MouseWheel>().disconnect();
 
 		if (m_viewport_focused && m_viewport_hovered)
 		{
@@ -91,6 +100,7 @@ namespace sc
 			if (m_project_scenes.has_current())
 			{
 				auto& camera = m_project_scenes.current().get_camera();
+
 				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
 				{
 					m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
@@ -200,7 +210,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Exit"))
 				{
-					exit();
+					ui::imgui_open_confirm("ExitConfirm");
 				}
 
 				ImGui::EndMenu();
@@ -247,7 +257,7 @@ namespace sc
 			{
 				ImGui::BeginTooltip();
 				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-				ImGui::TextUnformatted("[RMB] to drag viewport.");
+				ImGui::Text("supercluster v1.0\nLicensed under Apache 2.0.");
 				ImGui::PopTextWrapPos();
 				ImGui::EndTooltip();
 			}
@@ -257,8 +267,6 @@ namespace sc
 			{
 				// m_game_mode = true;
 				// m_backup    = serialize();
-
-				// m_window->set_cursor_visibility(false);
 			}
 
 			if (!m_paused)
@@ -306,6 +314,10 @@ namespace sc
 			{
 				load_project(file.value());
 			}
+		});
+
+		ui::imgui_confirm("ExitConfirm", [&](){
+			exit();
 		});
 		// clang-format on
 

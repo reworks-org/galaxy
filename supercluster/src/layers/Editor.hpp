@@ -8,6 +8,7 @@
 #ifndef SUPERCLUSTER_LAYERS_EDITOR_HPP_
 #define SUPERCLUSTER_LAYERS_EDITOR_HPP_
 
+#include <galaxy/async/TimerAsync.hpp>
 #include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -104,6 +105,8 @@ namespace sc
 		graphics::Texture m_stop;
 		graphics::Texture m_help;
 		graphics::Texture m_cog;
+
+		async::TimerAsync m_autosave;
 	};
 } // namespace sc
 
