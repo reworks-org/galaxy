@@ -42,12 +42,11 @@ namespace galaxy
 		void Scene::events()
 		{
 			m_layer_stack.events();
+			m_camera.process_events();
 		}
 
 		void Scene::update()
 		{
-			m_camera.update();
-
 			m_layer_stack.update();
 			graphics::Renderer::buffer_camera(m_camera);
 		}

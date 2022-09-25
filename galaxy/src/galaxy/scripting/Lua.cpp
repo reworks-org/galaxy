@@ -536,7 +536,7 @@ namespace galaxy
 			camera_type["set_rotation_speed"]    = &graphics::Camera::set_rotation_speed;
 			camera_type["set_translation_speed"] = &graphics::Camera::set_translation_speed;
 			camera_type["set_zoom"]              = &graphics::Camera::set_zoom;
-			camera_type["update"]                = &graphics::Camera::update;
+			camera_type["process_events"]        = &graphics::Camera::process_events;
 			camera_type["get_proj"]              = &graphics::Camera::get_proj;
 			camera_type["get_view"]              = &graphics::Camera::get_view;
 

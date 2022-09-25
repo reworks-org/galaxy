@@ -93,9 +93,9 @@ namespace galaxy
 			void on_window_resized(const events::WindowResized& e) noexcept;
 
 			///
-			/// Update method for Camera.
+			/// Handle user input events.
 			///
-			void update() noexcept;
+			void process_events() noexcept;
 
 			///
 			/// Sets position without moving the entity.

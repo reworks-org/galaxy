@@ -95,7 +95,7 @@ namespace galaxy
 			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
 		}
 
-		void Camera::update() noexcept
+		void Camera::process_events() noexcept
 		{
 			if (Input::key_down(input::CameraKeys::FORWARD))
 			{
