@@ -76,6 +76,139 @@ namespace sc
 					ImGui::PopItemWidth();
 
 					draw_component<components::Animated>(selected, "Animated", [](components::Animated* animated) {
+						if (animated->is_paused())
+						{
+							ImGui::Text("State: Paused.");
+						}
+						else
+						{
+							ImGui::Text("State: Playing");
+						}
+
+						ImGui::Text("Time spent on frame: %.2f", animated->m_time_spent_on_frame);
+
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
+						if (ImGui::Button("Play"))
+						{
+							animated->play();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Pause"))
+						{
+							animated->pause();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Stop"))
+						{
+							animated->stop();
+						}
+
+						if (ImGui::Button("Add Animation"))
+						{
+							ImGui::OpenPopup("AddAnimationPopup");
+						}
+
+						if (ImGui::BeginPopup("AddAnimationPopup", ImGuiWindowFlags_AlwaysAutoResize))
+						{
+							static std::string s_name = "";
+							ImGui::InputText("Name", &s_name, ImGuiInputTextFlags_AutoSelectAll);
+
+							static bool s_loop = false;
+							ImGui::Checkbox("Is Looping?", &s_loop);
+
+							static float s_speed = 1.0f;
+							ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+							if (ImGui::Button("Add Frame"))
+							{
+								ImGui::OpenPopup("AddFramePopup");
+							}
+
+							static std::vector<graphics::Frame> s_frames = {};
+							if (ImGui::BeginPopup("AddFramePopup", ImGuiWindowFlags_AlwaysAutoResize))
+							{
+								static graphics::Frame s_frame;
+
+								static std::string s_tr_id = "";
+								ImGui::InputText("Texture Region Id", &s_tr_id, ImGuiInputTextFlags_AutoSelectAll);
+
+								static float s_tpf = 0.1f;
+								ImGui::SliderFloat("Time Per Frame", &s_tpf, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+								if (!s_tr_id.empty())
+								{
+									if (ImGui::Button("Create##Frame"))
+									{
+										s_frame.m_texture_id     = s_tr_id;
+										s_frame.m_time_per_frame = s_tpf;
+										s_frames.push_back(s_frame);
+
+										s_frame = {};
+										s_tr_id = "";
+										s_tpf   = 0.1f;
+
+										ImGui::CloseCurrentPopup();
+									}
+								}
+
+								ImGui::EndPopup();
+							}
+
+							for (const auto& frame : s_frames)
+							{
+								ImGui::BulletText("{Texture: %s, Time: %.1f}", frame.m_texture_id, frame.m_time_per_frame);
+							}
+
+							if (!s_name.empty())
+							{
+								if (ImGui::Button("Create##Animation"))
+								{
+									animated->add(s_name, s_loop, static_cast<double>(s_speed), s_frames);
+
+									s_name  = "";
+									s_loop  = false;
+									s_speed = 1.0f;
+									s_frames.clear();
+
+									ImGui::CloseCurrentPopup();
+								}
+							}
+
+							ImGui::EndPopup();
+						}
+
+						static std::string s_selected = "None";
+						if (animated->active())
+						{
+							s_selected = animated->active()->m_name;
+						}
+
+						if (ImGui::BeginCombo("Animation", s_selected.c_str()))
+						{
+							for (const auto& [name, anim] : animated->m_animations)
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(name.c_str(), selected))
+								{
+									s_selected = name;
+									animated->set(s_selected);
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
 					});
 
 					draw_component<components::DrawShader>(selected, "Draw Shader", [](components::DrawShader* ds) {
@@ -222,135 +355,5 @@ namespace sc
 if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 {
 	selected.m_selected = entt::null;
-}
-
-if (animated)
-{
-	if (ImGui::BeginTabItem("Animated"))
-	{
-		static bool s_add = false;
-		if (ImGui::Button("Add"))
-		{
-			s_add = !s_add;
-			ImGui::OpenPopup("AddAnimation");
-		}
-
-		if (s_add)
-		{
-			static std::string s_id;
-			static bool s_loop                           = false;
-			static float s_speed                         = 1.0f;
-			static std::vector<graphics::Frame> s_frames = {};
-
-			if (ImGui::BeginPopup("AddAnimation", ImGuiWindowFlags_AlwaysAutoResize))
-			{
-				ImGui::InputText("ID", &s_id, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
-				ImGui::Checkbox("Is Looping?", &s_loop);
-				ImGui::SliderFloat("Speed", &s_speed, 0.1f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
-
-				static bool s_add_frame = false;
-				if (ImGui::Button("Add Frame"))
-				{
-					s_add_frame = !s_add_frame;
-				}
-
-				if (s_add_frame)
-				{
-					if (ImGui::BeginPopup("Add Frame", ImGuiWindowFlags_AlwaysAutoResize))
-					{
-						static graphics::Frame s_frame;
-						static std::string s_tex_id;
-						static double s_tpf = 0.1;
-
-						ImGui::InputText("Texture Atlas ID",
-							&s_tex_id,
-							ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
-
-						const static double s_min = 0.1;
-						const static double s_max = 10.0;
-						ImGui::SliderScalar("Time Per Frame", ImGuiDataType_Double, &s_tpf, &s_min, &s_max, "%.1f");
-
-						if (ImGui::Button("Add##frameaddbutton01"))
-						{
-							s_frame.set_region(s_tex_id);
-							s_frame.m_time_per_frame = s_tpf;
-							s_frames.push_back(s_frame);
-
-							s_frame  = {};
-							s_tex_id = "";
-							s_tpf    = 0.1;
-
-							ImGui::CloseCurrentPopup();
-						}
-
-						ImGui::EndPopup();
-					}
-				}
-
-				if (ImGui::Button("Add"))
-				{
-					animated->add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
-
-					s_id    = "";
-					s_loop  = false;
-					s_speed = 1.0f;
-					s_frames.clear();
-
-					ImGui::CloseCurrentPopup();
-				}
-
-				ImGui::EndPopup();
-			}
-		}
-
-		static std::string s_selected = "None";
-		if (animated->get_cur_animation())
-		{
-			s_selected = animated->get_cur_animation()->get_name();
-		}
-
-		if (ImGui::BeginCombo("Animation", s_selected.c_str()))
-		{
-			for (const auto& [name, anim] : animated->get_all())
-			{
-				const bool selected = (s_selected == name);
-				if (ImGui::Selectable(name.c_str(), selected))
-				{
-					s_selected = name;
-					animated->set_animation(s_selected);
-				}
-
-				if (selected)
-				{
-					ImGui::SetItemDefaultFocus();
-				}
-			}
-
-			ImGui::EndCombo();
-		}
-
-		ImGui::LabelText("Current Animation", s_selected.c_str());
-
-		if (ImGui::Button("Play"))
-		{
-			animated->play();
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Pause"))
-		{
-			animated->pause();
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Stop"))
-		{
-			animated->stop();
-		}
-
-		ImGui::EndTabItem();
-	}
 }
 */
