@@ -37,6 +37,9 @@ namespace galaxy
 
 			s_ubo.reset();
 			s_ubo = nullptr;
+
+			s_prev_shader  = 0;
+			s_prev_texture = 0;
 		}
 
 		void Renderer::buffer_camera(Camera& camera) noexcept
