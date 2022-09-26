@@ -220,6 +220,41 @@ namespace sc
 
 			if (ImGui::BeginMenu("View"))
 			{
+				if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
+				{
+					m_show_scenes = !m_show_scenes;
+				}
+
+				if (ImGui::MenuItem("Toggle Entity Panel", "Ctrl+Alt+E"))
+				{
+					m_show_entities = !m_show_entities;
+				}
+
+				if (ImGui::MenuItem("Toggle Viewport", "Ctrl+Alt+V"))
+				{
+					m_show_viewport = !m_show_viewport;
+				}
+
+				if (ImGui::MenuItem("Toggle Asset Panel", "Ctrl+Alt+A"))
+				{
+					m_show_assetpanel = !m_show_assetpanel;
+				}
+
+				if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
+				{
+					m_show_logpanel = !m_show_logpanel;
+				}
+
+				if (ImGui::MenuItem("Toggle Lua Terminal", "Ctrl+Alt+C"))
+				{
+					m_show_luapanel = !m_show_luapanel;
+				}
+
+				if (ImGui::MenuItem("Toggle JSON Editor", "Ctrl+Alt+J"))
+				{
+					m_show_jsonpanel = !m_show_jsonpanel;
+				}
+
 				ImGui::EndMenu();
 			}
 
@@ -342,18 +377,79 @@ namespace sc
 			restart();
 		}
 
-		m_lua_console.render();
-		m_log_console.render();
-		m_json_panel.render();
-		viewport();
-		m_asset_panel.render();
-		m_entity_panel.render(m_selected_entity, m_update_stack);
-		m_scene_panel.render(m_project_scenes, m_selected_entity);
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_S))
+		{
+			m_show_scenes = !m_show_scenes;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_E))
+		{
+			m_show_entities = !m_show_entities;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_V))
+		{
+			m_show_viewport = !m_show_viewport;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_A))
+		{
+			m_show_assetpanel = !m_show_assetpanel;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_L))
+		{
+			m_show_logpanel = !m_show_logpanel;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_C))
+		{
+			m_show_luapanel = !m_show_luapanel;
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_J))
+		{
+			m_show_jsonpanel = !m_show_jsonpanel;
+		}
+
+		if (m_show_luapanel)
+		{
+			m_lua_console.render();
+		}
+
+		if (m_show_logpanel)
+		{
+			m_log_console.render();
+		}
+
+		if (m_show_jsonpanel)
+		{
+			m_json_panel.render();
+		}
+
+		if (m_show_viewport)
+		{
+			viewport();
+		}
+
+		if (m_show_assetpanel)
+		{
+			m_asset_panel.render();
+		}
+
+		if (m_show_scenes)
+		{
+			m_scene_panel.render(m_project_scenes, m_selected_entity);
+		}
+
+		if (m_show_entities)
+		{
+			m_entity_panel.render(m_selected_entity, m_update_stack);
+		}
 
 		//
 		// UTILITY WINDOWS.
 		//
-
 		if (m_show_settings)
 		{
 			if (ImGui::Begin("Settings", &m_show_settings, ImGuiWindowFlags_MenuBar))

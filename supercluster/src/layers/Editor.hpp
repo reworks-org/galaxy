@@ -90,6 +90,14 @@ namespace sc
 		bool m_use_mouse_hand   = false;
 		bool m_show_settings    = false;
 
+		bool m_show_scenes     = true;
+		bool m_show_entities   = true;
+		bool m_show_viewport   = true;
+		bool m_show_assetpanel = true;
+		bool m_show_logpanel   = true;
+		bool m_show_luapanel   = true;
+		bool m_show_jsonpanel  = true;
+
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
 		ImVec2 m_icon_size         = {20, 20};
