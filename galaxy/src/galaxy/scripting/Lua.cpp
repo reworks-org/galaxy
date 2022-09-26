@@ -237,7 +237,6 @@ namespace galaxy
 			primitive_type["get_shape"]       = &components::Primitive::get_shape;
 			primitive_type["get_width"]       = &components::Primitive::get_width;
 			primitive_type["colour"]          = &components::Primitive::m_colour;
-			primitive_type["set_opacity"]     = &components::Primitive::set_opacity;
 			primitive_type["set_shader"]      = &components::Primitive::set_shader;
 
 			entt_sol::register_meta_component<components::Primitive>();

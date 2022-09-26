@@ -74,11 +74,6 @@ namespace galaxy
 		{
 		}
 
-		void Primitive::set_opacity(const std::uint8_t opacity) noexcept
-		{
-			m_colour.m_alpha = std::clamp<std::uint8_t>(opacity, 0, 255);
-		}
-
 		const Primitive::PrimitiveData& Primitive::get_data() const noexcept
 		{
 			return m_data;

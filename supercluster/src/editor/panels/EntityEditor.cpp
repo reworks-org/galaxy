@@ -269,7 +269,184 @@ namespace sc
 						}
 					});
 
-					draw_component<components::Primitive>(selected, "Primitive", [](components::Primitive* prim) {
+					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {
+						ImGui::Text("Width: %.1f", primitive->get_width());
+						ImGui::SameLine(0.0f, 5.0f);
+						ImGui::Text("Height: %.1f", primitive->get_height());
+
+						static int s_layer = primitive->get_layer();
+						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
+						{
+							primitive->set_layer(s_layer);
+						}
+
+						static constexpr const auto s_types = magic_enum::enum_names<graphics::Shape>();
+
+						static auto s_selected = static_cast<std::string>(magic_enum::enum_name(primitive->get_shape()));
+						static auto s_type     = primitive->get_shape();
+						if (ImGui::BeginCombo("Type", s_selected.c_str()))
+						{
+							for (const auto& name : s_types)
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								{
+									s_selected = name;
+									s_type     = magic_enum::enum_cast<graphics::Shape>(s_selected).value();
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						static float colour[4] = {primitive->m_colour.m_red,
+							primitive->m_colour.m_green,
+							primitive->m_colour.m_blue,
+							primitive->m_colour.m_alpha};
+						if (ImGui::ColorEdit4("Colour",
+								colour,
+								ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							primitive->m_colour = {static_cast<std::uint8_t>(colour[0]),
+								static_cast<std::uint8_t>(colour[1]),
+								static_cast<std::uint8_t>(colour[2]),
+								static_cast<std::uint8_t>(colour[3])};
+						}
+
+						ImGui::Spacing();
+
+						static components::Primitive::PrimitiveData data = primitive->get_data();
+						if (s_type == graphics::Shape::CIRCLE || s_type == graphics::Shape::ELLIPSE)
+						{
+							ImGui::InputFloat("Fragments", &data.m_fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						if (s_type == graphics::Shape::CIRCLE)
+						{
+							ImGui::InputFloat("Radius", &data.m_radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						if (s_type == graphics::Shape::ELLIPSE)
+						{
+							ImGui::Text("Radii");
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X##1", &data.m_radii.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y##2", &data.m_radii.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						if (s_type == graphics::Shape::LINE)
+						{
+							ImGui::Text("First Point");
+							static float s_point_xy[2] = {0.0f, 0.0f};
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X1##3", &s_point_xy[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y1##4", &s_point_xy[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::Text("Second Point");
+							static float s_point_zw[2] = {0.0f, 0.0f};
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("X2##5", &s_point_zw[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+							ImGui::SameLine();
+
+							ImGui::SetNextItemWidth(150);
+							ImGui::InputFloat("Y2##6", &s_point_zw[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+						}
+
+						static std::vector<glm::vec2> points = {};
+						if (s_type == graphics::Shape::POLYLINE || s_type == graphics::Shape::POLYGON)
+						{
+							if (ImGui::Button("Add Point"))
+							{
+								ImGui::OpenPopup("PolyPointPopup");
+							}
+
+							ImGui::SameLine();
+
+							if (ImGui::Button("Clear Points"))
+							{
+								points.clear();
+							}
+
+							ImGui::Text("Points");
+							for (const auto& point : points)
+							{
+								ImGui::BulletText("{X: %.1f, Y: %.1f}", point.x, point.y);
+							}
+
+							if (ImGui::BeginPopup("PolyPointPopup"))
+							{
+								static glm::vec2 s_point {0.0f, 0.0f};
+								ImGui::SetNextItemWidth(150);
+								ImGui::InputFloat("X##7", &s_point.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+								ImGui::SameLine();
+
+								ImGui::SetNextItemWidth(150);
+								ImGui::InputFloat("Y##8", &s_point.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+								if (ImGui::Button("Push"))
+								{
+									points.emplace_back(s_point);
+
+									s_point.x = 0.0f;
+									s_point.y = 0.0f;
+
+									ImGui::CloseCurrentPopup();
+								}
+							}
+						}
+
+						if (ImGui::Button("Create"))
+						{
+							updates.emplace_back([&]() {
+								data.m_points = std::move(points);
+
+								switch (s_type)
+								{
+									case graphics::Shape::CIRCLE:
+										primitive->create<graphics::Shape::CIRCLE>(data, primitive->m_colour, primitive->get_layer());
+										break;
+
+									case graphics::Shape::ELLIPSE:
+										primitive->create<graphics::Shape::ELLIPSE>(data, primitive->m_colour, primitive->get_layer());
+										break;
+
+									case graphics::Shape::LINE:
+										primitive->create<graphics::Shape::LINE>(data, primitive->m_colour, primitive->get_layer());
+										break;
+
+									case graphics::Shape::POINT:
+										primitive->create<graphics::Shape::POINT>(data, primitive->m_colour, primitive->get_layer());
+										break;
+
+									case graphics::Shape::POLYGON:
+										primitive->create<graphics::Shape::POLYGON>(data, primitive->m_colour, primitive->get_layer());
+										break;
+
+									case graphics::Shape::POLYLINE:
+										primitive->create<graphics::Shape::POLYLINE>(data, primitive->m_colour, primitive->get_layer());
+										break;
+								}
+
+								data = {};
+								points.clear();
+							});
+						}
 					});
 
 					draw_component<components::Script>(selected, "Script", [&](components::Script* script) {
@@ -339,9 +516,57 @@ namespace sc
 					});
 
 					draw_component<components::Text>(selected, "Text", [](components::Text* text) {
+						/*
+						static std::string s_text_buff = text->get_text();
+						ImGui::InputText("Text", &s_text_buff);
+
+						static std::string s_font_buff = text->get_font_id();
+						if (ImGui::InputText("Font ID", &s_font_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							text->set_font(s_font_buff);
+						}
+
+						static float colour[4] = {static_cast<float>(text->get_colour().m_red),
+							static_cast<float>(text->get_colour().m_green),
+							static_cast<float>(text->get_colour().m_blue),
+							static_cast<float>(text->get_colour().m_alpha)};
+						if (ImGui::ColorEdit4("Colour",
+								colour,
+								ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						{
+							text->change_colour({static_cast<std::uint8_t>(colour[0]),
+								static_cast<std::uint8_t>(colour[1]),
+								static_cast<std::uint8_t>(colour[2]),
+								static_cast<std::uint8_t>(colour[3])});
+						}
+
+						if (ImGui::Button("Update"))
+						{
+							gl_operations.emplace_back([text]() -> void {
+								text->create(s_text_buff);
+							});
+						}
+						*/
 					});
 
 					draw_component<components::Transform>(selected, "Transform", [](components::Transform* tf) {
+						static float pos[2] = {tf->get_pos().x, tf->get_pos().y};
+						if (ImGui::InputFloat2("Position", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							tf->set_pos(pos[0], pos[1]);
+						}
+
+						static auto s_rotate = tf->get_rotation();
+						if (ImGui::SliderAngle("Rotate", &s_rotate, 0.0f, 360.0f))
+						{
+							tf->set_rotation(s_rotate);
+						}
+
+						static auto s_scale = tf->get_scale();
+						if (ImGui::InputFloat("Scale", &s_scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						{
+							tf->scale(s_scale);
+						}
 					});
 				}
 			}
@@ -350,10 +575,3 @@ namespace sc
 		}
 	} // namespace panel
 } // namespace sc
-
-/*
-if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
-{
-	selected.m_selected = entt::null;
-}
-*/

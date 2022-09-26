@@ -100,13 +100,6 @@ namespace galaxy
 			void create(const PrimitiveData& data, const graphics::Colour& colour, const int layer);
 
 			///
-			/// Set opacity.
-			///
-			/// \param opacity 0 - 255.
-			///
-			void set_opacity(const std::uint8_t opacity) noexcept;
-
-			///
 			/// Get current primitive data.
 			///
 			/// \return Reference to data. Can be modified.
