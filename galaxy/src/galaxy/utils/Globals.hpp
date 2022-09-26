@@ -13,17 +13,16 @@
 
 namespace galaxy
 {
-	namespace doNotUseReferToConfigForMacroNames
+	struct doNotUseReferToConfigForMacroNames
 	{
-		inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
+		static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
 
-		inline static constexpr const auto GALAXY_DT_VAR =
+		static constexpr const float GALAXY_DT_VAR =
 			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
-		inline static auto GALAXY_RESTART_FLAG = false;
-
-		inline static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT {};
-	} // namespace doNotUseReferToConfigForMacroNames
+		static bool GALAXY_RESTART_FLAG;
+		static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT;
+	};
 } // namespace galaxy
 
 ///

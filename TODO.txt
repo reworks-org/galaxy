@@ -23,7 +23,6 @@
 - mapping
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
-- fix restart flag not being updated???
 - change language extension to .lang
 
 editor:
