@@ -1,16 +1,7 @@
-- PORT REMAINING LEGACY CODE.
-- assets should be per scene ??
-- convert system to update thread/render thread/etc
-- mainthread + render thread
-- https://github.com/skypjack/entt/wiki/Crash-Course:-entity-component-system#dependencies
 - support content scale (dpi thingy) for rml
-- make sure font dpi is working with the content scale.
+	- make sure font dpi is working with the content scale.
 - state based system for character moevement + updating animation.
 - need to test rml integration, maybe refer to official backend implementations.
-- integrate camera into scene + key callback
-- https://github.com/CedricGuillemet/ImGuizmo
-- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
-	- then submit that to the renderer.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
 - box2d collisions, integration, etc...
@@ -22,6 +13,8 @@
 - mapping
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
+	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
+		- then submit that to the renderer.
 
 editor:
 - https://github.com/SpartanJ/efsw
