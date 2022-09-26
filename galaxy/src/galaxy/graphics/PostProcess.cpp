@@ -101,7 +101,6 @@ namespace galaxy
 		void PostProcess::destroy()
 		{
 			m_effects.clear();
-			m_fb.clear();
 			m_output.destroy();
 
 			if (m_screen_vao != 0)

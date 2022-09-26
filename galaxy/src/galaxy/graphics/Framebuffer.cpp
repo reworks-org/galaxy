@@ -340,7 +340,7 @@ namespace galaxy
 
 		void Framebuffer::clear() noexcept
 		{
-			for (const auto& index : m_used_attachments)
+			for (const auto& [index, type] : m_attachments)
 			{
 				glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 			}

@@ -24,7 +24,6 @@
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
 - fix restart flag not being updated???
-- fix gl error on close
 - change language extension to .lang
 
 editor:
