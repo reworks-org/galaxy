@@ -215,14 +215,11 @@ namespace sc
 
 						ui::imgui_imagebutton(*m_icon, m_size_vec);
 
-						/*
 						if (ImGui::BeginDragDropSource())
 						{
-							auto relativePath       = std::filesystem::relative(path, g_AssetPath);
-							const wchar_t* itemPath = relativePath.c_str();
-							ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, (wcslen(itemPath) + 1) * sizeof(wchar_t));
+							ImGui::SetDragDropPayload("AssetPanelItem", file.c_str(), file.size(), ImGuiCond_Once);
 							ImGui::EndDragDropSource();
-						}*/
+						}
 
 						ImGui::PopStyleColor();
 
