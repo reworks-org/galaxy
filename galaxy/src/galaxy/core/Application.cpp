@@ -486,7 +486,7 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Main loop exception: '{0}'.", e.what());
 #ifdef _DEBUG
-				std::getchar();
+				GALAXY_UNUSED(std::getchar());
 #endif
 			}
 		}

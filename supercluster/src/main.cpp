@@ -148,7 +148,7 @@ int main(int argsc, char* argsv[])
 			std::cout << "======================" << std::endl;
 
 #ifdef _DEBUG
-			std::getchar();
+			GALAXY_UNUSED(std::getchar());
 #endif
 		}
 	} while (GALAXY_RESTART);
