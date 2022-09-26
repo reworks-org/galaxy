@@ -143,7 +143,7 @@ namespace galaxy
 				// create_asset_layout(root, "maps/");
 
 				// Generate default language file.
-				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lua"))
+				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
 				}

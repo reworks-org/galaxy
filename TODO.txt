@@ -13,7 +13,6 @@
 	- then submit that to the renderer.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
-- need  to add tiled map support...
 - box2d collisions, integration, etc...
 	- box2d conversion from in game units to pixels...
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
@@ -23,7 +22,6 @@
 - mapping
 	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
-- change language extension to .lang
 
 editor:
 - https://github.com/SpartanJ/efsw
