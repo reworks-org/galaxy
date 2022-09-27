@@ -700,10 +700,10 @@ namespace sc
 				m_mouse_picked = false;
 			}
 			*/
-
-			ImGui::End();
-			ImGui::PopStyleVar(1);
 		}
+
+		ImGui::PopStyleVar(1);
+		ImGui::End();
 	}
 
 	nlohmann::json Editor::serialize()
