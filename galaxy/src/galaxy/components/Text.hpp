@@ -95,13 +95,6 @@ namespace galaxy
 			void update(std::string_view text, const float size, const graphics::Colour& colour);
 
 			///
-			/// Set opacity.
-			///
-			/// \param opacity Opacity from 0.0f to 1.0f.
-			///
-			void set_opacity(const float opacity) noexcept;
-
-			///
 			/// \brief Get text width.
 			///
 			/// Is cached for performance.
@@ -136,6 +129,13 @@ namespace galaxy
 			/// \return Float as EM.
 			///
 			[[nodiscard]] float get_size() const noexcept;
+
+			///
+			/// Get font ID.
+			///
+			/// \return Const string reference.
+			///
+			[[nodiscard]] const std::string& get_font() const noexcept;
 
 			///
 			/// Serializes object.

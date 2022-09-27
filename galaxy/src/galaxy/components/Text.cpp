@@ -94,7 +94,6 @@ namespace galaxy
 			m_size    = size;
 
 			set_layer(layer);
-			set_opacity(0.0f); // We use a colour instead.
 			set_texture(m_texture.get_texture());
 
 			auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
@@ -216,11 +215,6 @@ namespace galaxy
 			update(text);
 		}
 
-		void Text::set_opacity(const float opacity) noexcept
-		{
-			m_colour.m_alpha = std::max(0, std::min(255, static_cast<int>(std::floor(std::clamp(opacity, 0.0f, 1.0f) * 256.0f))));
-		}
-
 		float Text::get_width() const noexcept
 		{
 			return m_width;
@@ -239,6 +233,11 @@ namespace galaxy
 		float Text::get_size() const noexcept
 		{
 			return m_size;
+		}
+
+		const std::string& Text::get_font() const noexcept
+		{
+			return m_font_id;
 		}
 
 		void Text::configure() noexcept

@@ -282,6 +282,7 @@ namespace galaxy
 			text_type["get_size"]   = &components::Text::get_size;
 			text_type["get_text"]   = &components::Text::get_text;
 			text_type["get_width"]  = &components::Text::get_width;
+			text_type["get_width"]  = &components::Text::get_font;
 			text_type["colour"]     = &components::Text::m_colour;
 
 			text_type["update_text"]             = sol::resolve<void(std::string_view)>(&components::Text::update);

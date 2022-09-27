@@ -270,9 +270,9 @@ namespace sc
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {
-						ImGui::Text("Width: %.1f", primitive->get_width());
+						ImGui::Text("Width: %.0f", primitive->get_width());
 						ImGui::SameLine(0.0f, 5.0f);
-						ImGui::Text("Height: %.1f", primitive->get_height());
+						ImGui::Text("Height: %.0f", primitive->get_height());
 
 						static int s_layer = primitive->get_layer();
 						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
@@ -304,18 +304,16 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						static float colour[4] = {primitive->m_colour.m_red,
-							primitive->m_colour.m_green,
-							primitive->m_colour.m_blue,
-							primitive->m_colour.m_alpha};
-						if (ImGui::ColorEdit4("Colour",
-								colour,
-								ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						static float s_colour[4] = {static_cast<float>(primitive->m_colour.m_red),
+							static_cast<float>(primitive->m_colour.m_green),
+							static_cast<float>(primitive->m_colour.m_blue),
+							static_cast<float>(primitive->m_colour.m_alpha)};
+						if (ImGui::ColorEdit4("Colour", &s_colour[0], ImGuiColorEditFlags_DefaultOptions_))
 						{
-							primitive->m_colour = {static_cast<std::uint8_t>(colour[0]),
-								static_cast<std::uint8_t>(colour[1]),
-								static_cast<std::uint8_t>(colour[2]),
-								static_cast<std::uint8_t>(colour[3])};
+							primitive->m_colour = {static_cast<std::uint8_t>(s_colour[0]),
+								static_cast<std::uint8_t>(s_colour[1]),
+								static_cast<std::uint8_t>(s_colour[2]),
+								static_cast<std::uint8_t>(s_colour[3])};
 						}
 
 						ImGui::Spacing();
@@ -469,9 +467,9 @@ namespace sc
 					});
 
 					draw_component<components::Sprite>(selected, "Sprite", [&](components::Sprite* sprite) {
-						ImGui::Text("Width: %.1f", sprite->get_width());
+						ImGui::Text("Width: %.0f", sprite->get_width());
 						ImGui::SameLine(0.0f, 5.0f);
-						ImGui::Text("Height: %.1f", sprite->get_height());
+						ImGui::Text("Height: %.0f", sprite->get_height());
 
 						static std::string s_buff = sprite->texture_id();
 						ImGui::InputText("Texture Id", &s_buff, ImGuiInputTextFlags_AutoSelectAll);
@@ -515,38 +513,53 @@ namespace sc
 						ImGui::InputText("##ComponentTagEditor", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
 					});
 
-					draw_component<components::Text>(selected, "Text", [](components::Text* text) {
-						/*
-						static std::string s_text_buff = text->get_text();
-						ImGui::InputText("Text", &s_text_buff);
+					draw_component<components::Text>(selected, "Text", [&](components::Text* text) {
+						ImGui::Text("Width: %.0f", text->get_width());
+						ImGui::SameLine(0.0f, 5.0f);
+						ImGui::Text("Height: %.0f", text->get_height());
 
-						static std::string s_font_buff = text->get_font_id();
-						if (ImGui::InputText("Font ID", &s_font_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+						static int s_layer = text->get_layer();
+						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
 						{
-							text->set_font(s_font_buff);
+							text->set_layer(s_layer);
 						}
 
-						static float colour[4] = {static_cast<float>(text->get_colour().m_red),
-							static_cast<float>(text->get_colour().m_green),
-							static_cast<float>(text->get_colour().m_blue),
-							static_cast<float>(text->get_colour().m_alpha)};
-						if (ImGui::ColorEdit4("Colour",
-								colour,
-								ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_AlphaBar | ImGuiColorEditFlags_Uint8))
+						static std::string s_text = text->get_text();
+						ImGui::InputText("Text", &s_text, ImGuiInputTextFlags_AutoSelectAll);
+
+						static int s_size = static_cast<int>(text->get_size());
+						ImGui::InputInt("Size", &s_size, 1, 5, ImGuiInputTextFlags_CharsNoBlank);
+
+						static float s_colour[4] = {static_cast<float>(text->m_colour.m_red),
+							static_cast<float>(text->m_colour.m_green),
+							static_cast<float>(text->m_colour.m_blue),
+							static_cast<float>(text->m_colour.m_alpha)};
+						if (ImGui::ColorEdit4("Colour", &s_colour[0], ImGuiColorEditFlags_DefaultOptions_))
 						{
-							text->change_colour({static_cast<std::uint8_t>(colour[0]),
-								static_cast<std::uint8_t>(colour[1]),
-								static_cast<std::uint8_t>(colour[2]),
-								static_cast<std::uint8_t>(colour[3])});
+							text->m_colour = {static_cast<std::uint8_t>(s_colour[0]),
+								static_cast<std::uint8_t>(s_colour[1]),
+								static_cast<std::uint8_t>(s_colour[2]),
+								static_cast<std::uint8_t>(s_colour[3])};
 						}
+
+						static std::string s_font = text->get_font();
+						ImGui::InputText("Font", &s_font, ImGuiInputTextFlags_AutoSelectAll);
+
+						if (ImGui::Button("Create"))
+						{
+							updates.emplace_back([&]() {
+								text->create(s_text, s_size, s_font, text->m_colour, s_layer);
+							});
+						}
+
+						ImGui::SameLine();
 
 						if (ImGui::Button("Update"))
 						{
-							gl_operations.emplace_back([text]() -> void {
-								text->create(s_text_buff);
+							updates.emplace_back([&]() {
+								text->update(s_text, s_size);
 							});
 						}
-						*/
 					});
 
 					draw_component<components::Transform>(selected, "Transform", [](components::Transform* tf) {
