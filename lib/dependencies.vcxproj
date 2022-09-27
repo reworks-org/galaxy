@@ -88,6 +88,7 @@
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui_addons\ToggleButton.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -892,11 +893,11 @@
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
     <ClInclude Include="imgui\imgui_addons\imspinner.h" />
     <ClInclude Include="imgui\imgui_addons\notify\fa_solid_900.h" />
     <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
     <ClInclude Include="imgui\imgui_addons\notify\imgui_notify.h" />
+    <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
     <ClInclude Include="imgui\imgui_addons\ToggleButton.h" />
     <ClInclude Include="imgui\imgui_freetype.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />
