@@ -83,12 +83,13 @@ namespace sc
 
 				ImGui::Separator();
 				const auto hash = std::to_string(typeid(Component).hash_code());
-				const auto open = ImGui::TreeNodeEx(hash.c_str(), flags, name.c_str());
+				auto open       = ImGui::TreeNodeEx(hash.c_str(), flags, name.c_str());
+				auto pop        = false;
 
 				ImGui::PopStyleVar();
 				ImGui::SameLine(content_region.x - line_height * 0.5f);
 
-				const auto id = "-##" + hash;
+				const auto id = "+##" + hash;
 				if (ImGui::Button(id.c_str(), ImVec2 {line_height, line_height}))
 				{
 					ImGui::OpenPopup("ComponentsContextMenu");
@@ -101,6 +102,9 @@ namespace sc
 					{
 						selected.m_world->m_registry.remove<Component>(selected.m_selected);
 						ImGui::CloseCurrentPopup();
+
+						open = false;
+						pop  = true;
 					}
 
 					ImGui::EndPopup();
@@ -110,6 +114,12 @@ namespace sc
 				{
 					func(component);
 					ImGui::TreePop();
+				}
+
+				if (pop)
+				{
+					ImGui::TreePop();
+					pop = false;
 				}
 			}
 		}
