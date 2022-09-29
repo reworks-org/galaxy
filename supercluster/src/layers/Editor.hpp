@@ -115,8 +115,6 @@ namespace sc
 		graphics::Texture m_resume_play;
 		graphics::Texture m_play;
 		graphics::Texture m_stop;
-		graphics::Texture m_help;
-		graphics::Texture m_cog;
 
 		async::Timer m_autosave;
 	};

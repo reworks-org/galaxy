@@ -9,6 +9,7 @@
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 
 #include <imgui_internal.h>
+#include <imgui_addons/notify/font_awesome_5.h>
 
 #include <galaxy/components/Script.hpp>
 #include <galaxy/meta/Concepts.hpp>
@@ -89,8 +90,12 @@ namespace sc
 				ImGui::PopStyleVar();
 				ImGui::SameLine(content_region.x - line_height * 0.5f);
 
-				const auto id = "+##" + hash;
-				if (ImGui::Button(id.c_str(), ImVec2 {line_height, line_height}))
+				ImGui::PushID(hash.c_str());
+				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
+				const auto pressed = ImGui::Button(ICON_FA_COG);
+				ImGui::PopID();
+
+				if (pressed)
 				{
 					ImGui::OpenPopup("ComponentsContextMenu");
 				}

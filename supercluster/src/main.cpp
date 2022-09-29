@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include <imgui_freetype.h>
 #include <imgui_addons/notify/imgui_notify.h>
 
 #include <galaxy/core/Application.hpp>
@@ -65,11 +66,12 @@ int main(int argsc, char* argsv[])
 				ImGuiIO& io    = ui::imgui_init_context();
 				io.IniFilename = "assets/editor_data/sclayout.ini";
 
-				ImFontConfig font_config         = {};
-				font_config.FontDataOwnedByAtlas = false;
-				font_config.RasterizerMultiply   = 1.5f;
-				font_config.OversampleH          = 4;
-				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_config);
+				ImFontConfig font_cfg         = {};
+				font_cfg.FontDataOwnedByAtlas = false;
+				font_cfg.RasterizerMultiply   = 1.5f;
+				font_cfg.OversampleH          = 4;
+				font_cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
+				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_cfg);
 				ImGui_Notify::MergeIconsWithLatestFont(16.f, false);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();

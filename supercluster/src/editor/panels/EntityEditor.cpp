@@ -44,6 +44,15 @@ namespace sc
 			{
 				if (selected.m_selected != entt::null)
 				{
+					if (selected.m_world->m_registry.valid(selected.m_selected))
+					{
+						ImGui::Text("EnTT Id: %d", entt::to_integral(selected.m_selected));
+					}
+					else
+					{
+						ImGui::Text("EnTT validation failed!");
+					}
+
 					auto tag = selected.m_world->m_registry.try_get<components::Tag>(selected.m_selected);
 					if (tag)
 					{

@@ -25,3 +25,4 @@ editor:
 	- "create" buttons need to show validation message / notification.
 	- delete entity.
 https://github.com/Green-Sky/imgui_entt_entity_editor
+- texture maanger for editor

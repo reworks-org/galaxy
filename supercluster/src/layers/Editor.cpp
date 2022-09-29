@@ -48,14 +48,6 @@ namespace sc
 		m_stop.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_stop.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-		m_help.load("editor_data/icons/question.png");
-		m_help.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_help.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-		m_cog.load("editor_data/icons/cog.png");
-		m_cog.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_cog.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
 		auto& config = core::ServiceLocator<core::Config>::ref();
 		config.restore("autosave_interval_seconds", 300, "editor");
 
@@ -300,14 +292,15 @@ namespace sc
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - (m_icon_size.x * 2) - 8.0f);
-			if (ui::imgui_imagebutton(m_cog, m_icon_size))
+			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+			if (ImGui::Button(ICON_FA_COG))
 			{
 				m_show_settings = !m_show_settings;
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - m_icon_size.x);
 			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			ImGui::Image(reinterpret_cast<void*>(m_help.handle()), m_icon_size);
+			ImGui::Text(ICON_FA_QUESTION_CIRCLE);
 			if (ImGui::IsItemHovered())
 			{
 				ImGui::BeginTooltip();
@@ -901,11 +894,6 @@ if (!m_game_mode)
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-
-
-
-
-
 			}
 		}
 		else
