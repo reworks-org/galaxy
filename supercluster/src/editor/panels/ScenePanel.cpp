@@ -299,50 +299,67 @@ namespace sc
 									world.clear();
 								});
 
-								ImGui::LabelText("##EntityLabel", "Entities");
+								ImGui::Text("Entities");
+								ImGui::SameLine();
+
+								static std::string s_search = "";
+								ImGui::InputTextWithHint("##EntitySearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+
+								const auto entity_listbox_item = [&](entt::entity entity, components::Tag* tag) {
+									const auto is_selected = (selected.m_selected == entity);
+									auto id                = std::to_string(static_cast<std::uint32_t>(entity));
+									if (tag)
+									{
+										id = tag->m_tag + "##" + id;
+									}
+
+									if (ImGui::Selectable(id.c_str(), is_selected))
+									{
+										selected.m_selected = entity;
+										selected.m_world    = &world;
+									}
+
+									if (is_selected)
+									{
+										ImGui::SetItemDefaultFocus();
+
+										auto deleted = false;
+										if (ImGui::BeginPopupContextItem())
+										{
+											if (ImGui::MenuItem("Delete Entity"))
+											{
+												deleted = true;
+											}
+
+											ImGui::EndPopup();
+										}
+
+										if (deleted)
+										{
+											world.m_registry.destroy(entity);
+											if (selected.m_selected == entity)
+											{
+												selected.m_selected = entt::null;
+												selected.m_world    = nullptr;
+											}
+										}
+									}
+								};
 
 								if (ImGui::BeginListBox("##EntityList"))
 								{
 									world.m_registry.each([&](const entt::entity entity) {
-										const auto is_selected = (selected.m_selected == entity);
-
-										auto id  = std::to_string(static_cast<std::uint32_t>(entity));
 										auto tag = world.m_registry.try_get<components::Tag>(entity);
 										if (tag)
 										{
-											id = tag->m_tag + "##" + id;
-										}
-
-										if (ImGui::Selectable(id.c_str(), is_selected))
-										{
-											selected.m_selected = entity;
-											selected.m_world    = &world;
-										}
-
-										if (is_selected)
-										{
-											ImGui::SetItemDefaultFocus();
-
-											auto deleted = false;
-											if (ImGui::BeginPopupContextItem())
+											if (tag->m_tag.find(s_search) != std::string::npos)
 											{
-												if (ImGui::MenuItem("Delete Entity"))
-												{
-													deleted = true;
-												}
-
-												ImGui::EndPopup();
+												entity_listbox_item(entity, tag);
 											}
-
-											if (deleted)
-											{
-												world.m_registry.destroy(entity);
-												if (selected.m_selected == entity)
-												{
-													selected.m_selected = entt::null;
-													selected.m_world    = nullptr;
-												}
-											}
+										}
+										else
+										{
+											entity_listbox_item(entity, tag);
 										}
 									});
 

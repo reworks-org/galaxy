@@ -23,6 +23,24 @@
                             "entities": [
                                 {
                                     "components": {
+                                        "Animated": {
+                                            "animations": {
+                                                "avced": {
+                                                    "frames": {
+                                                        "0": {
+                                                            "texture_id": "abc",
+                                                            "time_per_frame": 0.10000000149011612
+                                                        }
+                                                    },
+                                                    "loop": false,
+                                                    "name": "avced",
+                                                    "speed": 1.0,
+                                                    "total_frames": 1
+                                                }
+                                            },
+                                            "playing": false,
+                                            "starting": "avced"
+                                        },
                                         "Flag": {
                                             "flags": {
                                                 "0": false,
@@ -36,7 +54,7 @@
                                             }
                                         },
                                         "Tag": {
-                                            "tag": "c"
+                                            "tag": "a"
                                         }
                                     }
                                 },
@@ -61,24 +79,6 @@
                                 },
                                 {
                                     "components": {
-                                        "Animated": {
-                                            "animations": {
-                                                "avced": {
-                                                    "frames": {
-                                                        "0": {
-                                                            "texture_id": "abc",
-                                                            "time_per_frame": 0.10000000149011612
-                                                        }
-                                                    },
-                                                    "loop": false,
-                                                    "name": "avced",
-                                                    "speed": 1.0,
-                                                    "total_frames": 1
-                                                }
-                                            },
-                                            "playing": true,
-                                            "starting": "avced"
-                                        },
                                         "Flag": {
                                             "flags": {
                                                 "0": false,
@@ -92,7 +92,7 @@
                                             }
                                         },
                                         "Tag": {
-                                            "tag": "a"
+                                            "tag": "c"
                                         }
                                     }
                                 }
