@@ -192,7 +192,11 @@ namespace sc
 
 				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
-					ui::imgui_open_confirm("OpenConfirmPopup");
+					auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "assets/editor_data/projects/");
+					if (file.has_value())
+					{
+						load_project(file.value());
+					}
 				}
 
 				if (ImGui::MenuItem("Save", "Ctrl+S"))
@@ -207,7 +211,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Restart", "Ctrl+Alt+R"))
 				{
-					restart();
+					ui::imgui_open_confirm("RestartConfirm");
 				}
 
 				if (ImGui::MenuItem("Exit"))
@@ -346,11 +350,7 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_O))
 		{
-			ui::imgui_open_confirm("OpenConfirmPopup");
-		}
-
-		ui::imgui_confirm("OpenConfirmPopup", [&]() {
-            auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj");
+			auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "assets/editor_data/projects/");
 			if (file.has_value())
 			{
 				load_project(file.value());
