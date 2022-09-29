@@ -201,12 +201,6 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_FATAL, "You need to set a background and a font for the loading screen in the config.");
 			}
 
-			//
-			// Texture atlas.
-			//
-			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
-			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
-
 			Loading loading(bg, font);
 
 			//
@@ -366,6 +360,17 @@ namespace galaxy
 			ServiceLocator<resource::Shaders>::ref().compile();
 			m_rml_rendering_interface.compile_shaders();
 			ServiceLocator<resource::Fonts>::ref().build();
+
+			//
+			// Build texture atlas.
+			//
+			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
+			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
+
+			//
+			// Add engine services to lua.
+			//
+			lua::inject_services_into_lua();
 		}
 
 		Application::~Application()
