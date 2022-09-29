@@ -44,6 +44,7 @@ namespace sc
 			{
 				if (selected.m_selected != entt::null)
 				{
+					ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
 					if (selected.m_world->m_registry.valid(selected.m_selected))
 					{
 						ImGui::Text("EnTT Id: %d", entt::to_integral(selected.m_selected));
@@ -52,6 +53,24 @@ namespace sc
 					{
 						ImGui::Text("EnTT validation failed!");
 					}
+
+					ImGui::SameLine();
+
+					ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.15f, 0.15f, 1.f));
+					ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.8f, 0.3f, 0.3f, 1.f));
+					ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.f, 0.2f, 0.2f, 1.f));
+					if (ImGui::Button("Destroy"))
+					{
+						selected.m_world->m_registry.destroy(selected.m_selected);
+						selected.m_selected = entt::null;
+
+						// Update stack for early exit.
+						ImGui::PopStyleColor(3);
+						ImGui::End();
+
+						return;
+					}
+					ImGui::PopStyleColor(3);
 
 					auto tag = selected.m_world->m_registry.try_get<components::Tag>(selected.m_selected);
 					if (tag)
