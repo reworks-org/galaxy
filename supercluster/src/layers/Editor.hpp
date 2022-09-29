@@ -48,6 +48,7 @@ namespace sc
 	private:
 		Editor() = delete;
 
+		void code_editor();
 		void viewport();
 
 		[[nodiscard]] nlohmann::json serialize() override;
@@ -81,6 +82,8 @@ namespace sc
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
 
+		CodeEditor m_code_editor;
+
 		UpdateStack m_update_stack;
 
 		bool m_paused           = false;
@@ -97,6 +100,7 @@ namespace sc
 		bool m_show_logpanel   = true;
 		bool m_show_luapanel   = true;
 		bool m_show_jsonpanel  = true;
+		bool m_show_codeeditor = true;
 
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};

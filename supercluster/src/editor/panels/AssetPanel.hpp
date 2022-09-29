@@ -8,10 +8,11 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 
-#include <filesystem>
-
 #include <galaxy/graphics/Texture.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+
+#include "editor/CodeEditor.hpp"
+#include "editor/SelectedAsset.hpp"
 
 using namespace galaxy;
 
@@ -25,9 +26,14 @@ namespace sc
 			AssetPanel() noexcept;
 			~AssetPanel() noexcept = default;
 
-			void render();
+			void render(CodeEditor& editor);
 
 		private:
+			void load_lua_script(CodeEditor& editor);
+
+		private:
+			SelectedAsset m_selected;
+
 			ImVec2 m_size_vec;
 			ImVec2 m_toolbar_vec;
 

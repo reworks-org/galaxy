@@ -85,7 +85,7 @@ namespace sc
 			m_texture.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
-		void AssetPanel::render()
+		void AssetPanel::render(CodeEditor& editor)
 		{
 			if (ImGui::Begin("Asset Browser"))
 			{
@@ -160,6 +160,7 @@ namespace sc
 				{
 					const auto& path = entry.path();
 					const auto file  = path.filename().string();
+					const auto ext   = path.extension();
 
 					if (file.find(m_search_term) != std::string::npos)
 					{
@@ -171,7 +172,6 @@ namespace sc
 						}
 						else
 						{
-							const auto ext = path.extension().string();
 							if (ext == ".ogg")
 							{
 								m_icon = &m_audio;
@@ -223,11 +223,26 @@ namespace sc
 
 						ImGui::PopStyleColor();
 
+						if (!entry.is_directory() && ImGui::IsItemHovered())
+						{
+							m_selected.m_path       = path;
+							m_selected.m_extension  = ext.string();
+							m_selected.m_is_hovered = true;
+						}
+						else
+						{
+							m_selected.m_is_hovered = false;
+						}
+
 						if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
 						{
 							if (entry.is_directory())
 							{
 								m_current_dir /= file;
+							}
+							else if (ext == ".lua")
+							{
+								load_lua_script(editor);
 							}
 						}
 
@@ -239,9 +254,42 @@ namespace sc
 				}
 
 				ImGui::Columns();
+
+				if (m_selected.m_is_hovered && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+				{
+					ImGui::OpenPopup("AssetPanelContextMenu");
+					m_selected.m_is_hovered = false;
+				}
+
+				if (ImGui::BeginPopupContextWindow("AssetPanelContextMenu"))
+				{
+					if (m_selected.m_extension == ".lua")
+					{
+						if (ImGui::MenuItem("Edit"))
+						{
+							load_lua_script(editor);
+
+							ImGui::CloseCurrentPopup();
+						}
+					}
+
+					ImGui::EndPopup();
+				}
 			}
 
 			ImGui::End();
+		}
+
+		void AssetPanel::load_lua_script(CodeEditor& editor)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto data = fs.open(m_selected.m_path.string());
+			if (data.has_value())
+			{
+				editor.m_editor.SetText(data.value());
+				editor.m_file = m_selected.m_path;
+			}
 		}
 	} // namespace panel
 } // namespace sc
