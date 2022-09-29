@@ -333,7 +333,14 @@ namespace galaxy
 
 		std::optional<std::string> VirtualFileSystem::show_open_dialog(const std::string& filter, const std::string& def_path)
 		{
-			pfd::open_file dialog {"Open file.", def_path, {"Files", filter}};
+			std::filesystem::path default_path = m_root;
+
+			if (!def_path.empty())
+			{
+				default_path /= def_path;
+			}
+
+			pfd::open_file dialog {"Open file.", default_path.string(), {"Files", filter}};
 
 			const auto result = dialog.result();
 			if (!result.empty())
@@ -348,7 +355,14 @@ namespace galaxy
 
 		std::optional<std::string> VirtualFileSystem::show_save_dialog(const std::string& filter, const std::string& def_path)
 		{
-			pfd::save_file dialog {"Save file.", def_path, {"Files", filter}};
+			std::filesystem::path default_path = m_root;
+
+			if (!def_path.empty())
+			{
+				default_path /= def_path;
+			}
+
+			pfd::save_file dialog {"Save file.", default_path.string(), {"Files", filter}};
 
 			const auto result = dialog.result();
 			if (!result.empty())
@@ -363,7 +377,14 @@ namespace galaxy
 
 		std::optional<std::string> VirtualFileSystem::show_folder_dialog(const std::string& def_path)
 		{
-			pfd::select_folder dialog {"Select folder.", def_path, pfd::opt::force_path};
+			std::filesystem::path default_path = m_root;
+
+			if (!def_path.empty())
+			{
+				default_path /= def_path;
+			}
+
+			pfd::select_folder dialog {"Select folder.", default_path.string(), pfd::opt::force_path};
 
 			const auto result = dialog.result();
 			if (!result.empty())

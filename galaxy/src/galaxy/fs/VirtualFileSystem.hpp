@@ -126,7 +126,7 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::optional<std::string> show_open_dialog(const std::string& filter = "*", const std::string& def_path = GALAXY_ROOT_DIR);
+			[[nodiscard]] std::optional<std::string> show_open_dialog(const std::string& filter = "*", const std::string& def_path = "");
 
 			///
 			/// Open a save file dialog using pfd.
@@ -135,14 +135,14 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& filter = "*", const std::string& def_path = GALAXY_ROOT_DIR);
+			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& filter = "*", const std::string& def_path = "");
 
 			///
 			/// Open a folder using a file dialog.
 			///
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::optional<std::string> show_folder_dialog(const std::string& def_path = GALAXY_ROOT_DIR);
+			[[nodiscard]] std::optional<std::string> show_folder_dialog(const std::string& def_path = "");
 
 			///
 			/// Open a file using a dialog.
@@ -151,7 +151,7 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			[[nodiscard]] std::optional<std::string> open_with_dialog(const std::string& filter = "*", const std::string& def_path = GALAXY_ROOT_DIR);
+			[[nodiscard]] std::optional<std::string> open_with_dialog(const std::string& filter = "*", const std::string& def_path = "");
 
 			///
 			/// Save a file using a dialog.
@@ -161,7 +161,7 @@ namespace galaxy
 			///
 			/// \return Const bool. True if successful.
 			///
-			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& def_path = GALAXY_ROOT_DIR);
+			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& def_path = "");
 
 			///
 			/// List contents of a directory in the VFS recursively.

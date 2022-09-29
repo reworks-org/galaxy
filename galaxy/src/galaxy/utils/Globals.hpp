@@ -100,7 +100,7 @@ namespace galaxy
 ///
 /// Current root directory of application, unless it has been changed.
 ///
-#define GALAXY_ROOT_DIR std::filesystem::current_path().string()
+#define GALAXY_APP_DIR std::filesystem::current_path().string()
 
 ///
 /// Number of threads for the threadpool to use.
