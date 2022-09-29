@@ -55,27 +55,27 @@ namespace galaxy
 					const auto name = std::filesystem::path(file).stem().string();
 					m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
 				}
-
-				// Now load default shaders.
-				m_cache["Sprite"] = std::make_shared<graphics::Shader>();
-				m_cache["Sprite"]->load_raw(shaders::sprite_vert, shaders::sprite_frag);
-
-				m_cache["Line"] = std::make_shared<graphics::Shader>();
-				m_cache["Line"]->load_raw(shaders::line_vert, shaders::line_frag);
-
-				m_cache["Point"] = std::make_shared<graphics::Shader>();
-				m_cache["Point"]->load_raw(shaders::point_vert, shaders::point_frag);
-
-				m_cache["Text"] = std::make_shared<graphics::Shader>();
-				m_cache["Text"]->load_raw(shaders::text_vert, shaders::text_frag);
-
-				m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
-				m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Found no shaders to load in '{0}'.", m_folder);
 			}
+
+			// Now load default shaders.
+			m_cache["Sprite"] = std::make_shared<graphics::Shader>();
+			m_cache["Sprite"]->load_raw(shaders::sprite_vert, shaders::sprite_frag);
+
+			m_cache["Line"] = std::make_shared<graphics::Shader>();
+			m_cache["Line"]->load_raw(shaders::line_vert, shaders::line_frag);
+
+			m_cache["Point"] = std::make_shared<graphics::Shader>();
+			m_cache["Point"]->load_raw(shaders::point_vert, shaders::point_frag);
+
+			m_cache["Text"] = std::make_shared<graphics::Shader>();
+			m_cache["Text"]->load_raw(shaders::text_vert, shaders::text_frag);
+
+			m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
+			m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 		}
 
 		void Shaders::reload()
