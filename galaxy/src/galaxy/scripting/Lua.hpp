@@ -16,6 +16,11 @@ namespace galaxy
 		/// Registers galaxy_engine into Lua.
 		///
 		void inject_galaxy_into_lua();
+
+		///
+		/// Regsiter static engine services into lua.
+		///
+		void inject_services_into_lua();
 	} // namespace lua
 } // namespace galaxy
 

@@ -818,12 +818,6 @@ namespace galaxy
 			fonts_type["reload"] = &resource::Fonts::reload;
 			fonts_type["build"]  = &resource::Fonts::build;
 
-			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
-			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
-			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
-			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
-			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
-
 			/* STATE */
 			auto scenemanager_type       = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
 			scenemanager_type["change"]  = &state::SceneManager::change;
@@ -862,6 +856,17 @@ namespace galaxy
 			lua.set_function("str_split", &strutils::split);
 			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);
 			lua.set_function("str_begins_with", &strutils::begins_with);
+		}
+
+		void inject_services_into_lua()
+		{
+			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
+			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
+			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
+			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy
