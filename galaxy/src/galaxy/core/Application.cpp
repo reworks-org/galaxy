@@ -419,8 +419,10 @@ namespace galaxy
 
 		void Application::run()
 		{
+#ifdef NDEBUG
 			try
 			{
+#endif
 				auto& config  = ServiceLocator<Config>::ref();
 				auto& window  = ServiceLocator<Window>::ref();
 				auto& manager = ServiceLocator<state::SceneManager>::ref();
@@ -486,14 +488,13 @@ namespace galaxy
 						}
 					}
 				}
+#ifdef NDEBUG
 			}
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Main loop exception: '{0}'.", e.what());
-#ifdef _DEBUG
-				GALAXY_UNUSED(std::getchar());
-#endif
 			}
+#endif
 		}
 
 		void Application::create_asset_layout(const std::string& root, const std::string& asset_folder)

@@ -55,8 +55,10 @@ int main(int argsc, char* argsv[])
 			std::filesystem::create_directory("assets/editor_data/projects");
 		}
 
+#ifdef NDEBUG
 		try
 		{
+#endif
 			Supercluster app;
 
 			{
@@ -142,17 +144,16 @@ int main(int argsc, char* argsv[])
 
 			app.run();
 			ui::imgui_destroy_context();
+
+#ifdef NDEBUG
 		}
 		catch (const std::exception& e)
 		{
 			std::cout << "======================" << std::endl;
 			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
 			std::cout << "======================" << std::endl;
-
-#ifdef _DEBUG
-			GALAXY_UNUSED(std::getchar());
-#endif
 		}
+#endif
 	} while (GALAXY_RESTART);
 
 	return GALAXY_EXIT_SUCCESS;
