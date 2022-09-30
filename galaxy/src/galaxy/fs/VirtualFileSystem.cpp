@@ -340,12 +340,34 @@ namespace galaxy
 				default_path /= def_path;
 			}
 
-			pfd::open_file dialog {"Open file.", default_path.string(), {"Files", filter}};
+			pfd::open_file dialog {"Open file.", default_path.string(), {"Select file", filter}};
 
 			const auto result = dialog.result();
 			if (!result.empty())
 			{
 				return std::make_optional(result[0]);
+			}
+			else
+			{
+				return std::nullopt;
+			}
+		}
+
+		std::optional<std::vector<std::string>> VirtualFileSystem::show_open_dialog_list(const std::string& filter, const std::string& def_path)
+		{
+			std::filesystem::path default_path = m_root;
+
+			if (!def_path.empty())
+			{
+				default_path /= def_path;
+			}
+
+			pfd::open_file dialog {"Open file.", default_path.string(), {"Select multiple files", filter}, pfd::opt::multiselect};
+
+			const auto result = dialog.result();
+			if (!result.empty())
+			{
+				return std::make_optional(result);
 			}
 			else
 			{
@@ -362,7 +384,7 @@ namespace galaxy
 				default_path /= def_path;
 			}
 
-			pfd::save_file dialog {"Save file.", default_path.string(), {"Files", filter}};
+			pfd::save_file dialog {"Save file.", default_path.string(), {"Select file", filter}};
 
 			const auto result = dialog.result();
 			if (!result.empty())

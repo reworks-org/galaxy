@@ -126,7 +126,20 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
+			/// \return String with path, nullopt if dialog closed or nothing selected.
+			///
 			[[nodiscard]] std::optional<std::string> show_open_dialog(const std::string& filter = "*", const std::string& def_path = "");
+
+			///
+			/// Opens a file dialog to select a list of files to open.
+			///
+			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
+			///					Defaults to all files.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return List of paths, nullopt if dialog closed or nothing selected.
+			///
+			[[nodiscard]] std::optional<std::vector<std::string>> show_open_dialog_list(const std::string& filter = "*", const std::string& def_path = "");
 
 			///
 			/// Open a save file dialog using pfd.
@@ -135,12 +148,16 @@ namespace galaxy
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
 			///
+			/// \return String with path, nullopt if dialog closed or nothing selected.
+			///
 			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& filter = "*", const std::string& def_path = "");
 
 			///
 			/// Open a folder using a file dialog.
 			///
 			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return String with path, nullopt if dialog closed or nothing selected.
 			///
 			[[nodiscard]] std::optional<std::string> show_folder_dialog(const std::string& def_path = "");
 
@@ -150,6 +167,8 @@ namespace galaxy
 			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
 			///					Defaults to all files.
 			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return String with path, nullopt if dialog closed or nothing selected.
 			///
 			[[nodiscard]] std::optional<std::string> open_with_dialog(const std::string& filter = "*", const std::string& def_path = "");
 
