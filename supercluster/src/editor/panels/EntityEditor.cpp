@@ -182,6 +182,8 @@ namespace sc
 										s_tr_id = "";
 										s_tpf   = 0.1f;
 
+										ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New frame added."});
+
 										ImGui::CloseCurrentPopup();
 									}
 								}
@@ -204,6 +206,8 @@ namespace sc
 									s_loop  = false;
 									s_speed = 1.0f;
 									s_frames.clear();
+
+									ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New animation added."});
 
 									ImGui::CloseCurrentPopup();
 								}
@@ -472,6 +476,8 @@ namespace sc
 								data = {};
 								points.clear();
 							});
+
+							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Successfully created primitive."});
 						}
 					});
 
@@ -521,6 +527,12 @@ namespace sc
 								updates.emplace_back([&]() {
 									sprite->create(s_buff, s_layer, s_opacity);
 								});
+
+								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New sprite created."});
+							}
+							else
+							{
+								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Specify texture buffer."});
 							}
 						}
 
@@ -533,6 +545,12 @@ namespace sc
 								updates.emplace_back([&]() {
 									sprite->update(s_buff);
 								});
+
+								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Sprite updated."});
+							}
+							else
+							{
+								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Specify texture buffer."});
 							}
 						}
 					});
@@ -578,6 +596,8 @@ namespace sc
 							updates.emplace_back([&]() {
 								text->create(s_text, s_size, s_font, text->m_colour, s_layer);
 							});
+
+							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text created."});
 						}
 
 						ImGui::SameLine();
@@ -587,6 +607,8 @@ namespace sc
 							updates.emplace_back([&]() {
 								text->update(s_text, s_size);
 							});
+
+							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text updated."});
 						}
 					});
 
