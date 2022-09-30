@@ -851,7 +851,7 @@ namespace galaxy
 			guid_type["is_empty"]  = &utils::Guid::is_empty;
 
 			lua.set("GALAXY_DT", GALAXY_DT);
-			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR);
+			lua.set("GALAXY_APP_DIR", GALAXY_APP_DIR);
 
 			lua.set_function("str_split", &strutils::split);
 			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);

@@ -783,13 +783,19 @@ namespace sc
 						m_code_editor.m_file = file.value();
 					}
 
-					fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string());
+					if (!fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string()))
+					{
+						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+					}
 				}
 			}
 
 			if (ImGui::MenuItem("Save as..."))
 			{
-				core::ServiceLocator<fs::VirtualFileSystem>::ref().save_with_dialog(m_code_editor.m_editor.GetText(), "untitled.lua");
+				if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().save_with_dialog(m_code_editor.m_editor.GetText(), "untitled.lua"))
+				{
+					ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+				}
 			}
 
 			ImGui::EndMenu();
