@@ -30,6 +30,7 @@ namespace sc
 
 		private:
 			void load_lua_script(CodeEditor& editor);
+			void import_files(const std::string& folder_from_config);
 
 		private:
 			SelectedAsset m_selected;

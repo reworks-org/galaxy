@@ -187,7 +187,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
-					auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects/");
+					auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
 					if (file.has_value())
 					{
 						load_project(file.value());
@@ -353,7 +353,7 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_O))
 		{
-			auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects/");
+			auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
 			if (file.has_value())
 			{
 				load_project(file.value());
@@ -758,7 +758,7 @@ namespace sc
 			if (ImGui::MenuItem("Open"))
 			{
 				auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-				const auto file = fs.show_open_dialog("*.lua", "scripts/");
+				const auto file = fs.show_open_dialog("*.lua", "scripts");
 
 				if (file.has_value())
 				{

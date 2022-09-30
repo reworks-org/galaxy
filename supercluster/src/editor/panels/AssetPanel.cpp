@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <imgui_addons/notify/imgui_notify.h>
+
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -117,6 +119,14 @@ namespace sc
 				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
 
 				ImGui::InputTextWithHint("##AssetPanelSearch", "Search...", &m_search_term, ImGuiInputTextFlags_AutoSelectAll);
+
+				ImGui::SameLine();
+
+				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+				if (ImGui::Button("Import"))
+				{
+					ImGui::OpenPopup("AssetPanelContextMenu");
+				}
 
 				ImGui::SameLine();
 
@@ -255,21 +265,83 @@ namespace sc
 
 				ImGui::Columns();
 
-				if (m_selected.m_is_hovered && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+				if (ImGui::IsMouseClicked(ImGuiMouseButton_Right))
 				{
 					ImGui::OpenPopup("AssetPanelContextMenu");
-					m_selected.m_is_hovered = false;
 				}
 
 				if (ImGui::BeginPopupContextWindow("AssetPanelContextMenu"))
 				{
-					if (m_selected.m_extension == ".lua")
+					if (ImGui::BeginMenu("Import"))
 					{
-						if (ImGui::MenuItem("Edit"))
+						if (ImGui::BeginMenu("Audio"))
 						{
-							load_lua_script(editor);
+							if (ImGui::MenuItem("Music"))
+							{
+								import_files("music_folder");
+							}
 
-							ImGui::CloseCurrentPopup();
+							if (ImGui::MenuItem("SFX"))
+							{
+								import_files("sfx_folder");
+							}
+
+							if (ImGui::MenuItem("Dialogue"))
+							{
+								import_files("dialogue_folder");
+							}
+
+							ImGui::EndMenu();
+						}
+
+						if (ImGui::BeginMenu("Texture"))
+						{
+							if (ImGui::MenuItem("Atlas Texture"))
+							{
+								import_files("atlas_folder");
+							}
+
+							if (ImGui::MenuItem("Standalone Texture"))
+							{
+								import_files("texture_folder");
+							}
+
+							ImGui::EndMenu();
+						}
+
+						if (ImGui::MenuItem("Shader"))
+						{
+							import_files("shader_folder");
+						}
+
+						if (ImGui::MenuItem("Script"))
+						{
+							import_files("scripts_folder");
+						}
+
+						if (ImGui::MenuItem("Language"))
+						{
+							import_files("lang_folder");
+						}
+
+						if (ImGui::MenuItem("Font"))
+						{
+							import_files("font_folder");
+						}
+
+						ImGui::EndMenu();
+					}
+
+					if (m_selected.m_is_hovered)
+					{
+						if (m_selected.m_extension == ".lua")
+						{
+							if (ImGui::MenuItem("Edit"))
+							{
+								load_lua_script(editor);
+
+								ImGui::CloseCurrentPopup();
+							}
 						}
 					}
 
@@ -289,6 +361,30 @@ namespace sc
 			{
 				editor.m_editor.SetText(data.value());
 				editor.m_file = m_selected.m_path;
+			}
+		}
+
+		void AssetPanel::import_files(const std::string& folder_from_config)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto list = fs.show_open_dialog_list();
+			if (list.has_value())
+			{
+				auto& config = core::ServiceLocator<core::Config>::ref();
+
+				const auto& paths = list.value();
+				const auto to     = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
+
+				for (const auto& path : paths)
+				{
+					const auto fs_path = std::filesystem::path(path);
+					if (!std::filesystem::copy_file(fs_path, to, std::filesystem::copy_options::overwrite_existing))
+					{
+						const auto error = std::format("Failed to copy file '{0}'.", fs_path.filename().string());
+						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, error.c_str()});
+					}
+				}
 			}
 		}
 	} // namespace panel
