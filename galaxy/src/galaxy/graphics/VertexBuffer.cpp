@@ -97,7 +97,7 @@ namespace galaxy
 		{
 			if (!vertices.empty() && (vertices.size() <= (m_vertices.size() - index)))
 			{
-				glNamedBufferSubData(m_vbo, index * sizeof(Vertex), vertices.size() * sizeof(Vertex), vertices.data());
+				glNamedBufferSubData(m_vbo, index * sizeof(Vertex), vertices.size_bytes(), vertices.data());
 				std::swap_ranges(m_vertices.begin() + index, m_vertices.begin() + index + vertices.size(), vertices.begin());
 			}
 			else

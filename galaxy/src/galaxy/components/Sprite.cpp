@@ -81,9 +81,9 @@ namespace galaxy
 				m_width  = static_cast<float>(info.m_region.m_width);
 				m_height = static_cast<float>(info.m_region.m_height);
 
-				set_layer(layer);
+				m_layer = layer;
 				set_opacity(opacity);
-				set_texture(info.m_handle);
+				m_texture_id = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -122,7 +122,7 @@ namespace galaxy
 				m_width  = static_cast<float>(info.m_region.m_width);
 				m_height = static_cast<float>(info.m_region.m_height);
 
-				set_texture(info.m_handle);
+				m_texture_id = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -174,9 +174,9 @@ namespace galaxy
 
 		void Sprite::configure() noexcept
 		{
-			set_vao(m_vao.id());
-			set_index_count(m_vao.index_count());
-			set_instance_count(1);
+			m_vao_id      = m_vao.id();
+			m_index_count = m_vao.index_count();
+			m_instances   = 1;
 			set_primitive_type(graphics::Primitives::TRIANGLE);
 		}
 
@@ -185,7 +185,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 			json["texture"]     = m_texture;
 			json["opacity"]     = m_opacity;
-			json["layer"]       = get_layer();
+			json["layer"]       = m_layer;
 
 			return json;
 		}

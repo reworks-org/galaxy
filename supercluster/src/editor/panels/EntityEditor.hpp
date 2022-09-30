@@ -84,16 +84,15 @@ namespace sc
 
 				ImGui::Separator();
 				const auto hash = std::to_string(typeid(Component).hash_code());
-				auto open       = ImGui::TreeNodeEx(hash.c_str(), flags, name.c_str());
-				auto pop        = false;
+
+				auto open = ImGui::TreeNodeEx(hash.c_str(), flags, name.c_str());
+				auto pop  = false;
 
 				ImGui::PopStyleVar();
 				ImGui::SameLine(content_region.x - line_height * 0.5f);
 
-				ImGui::PushID(hash.c_str());
 				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
 				const auto pressed = ImGui::Button(ICON_FA_COG);
-				ImGui::PopID();
 
 				if (pressed)
 				{
@@ -102,8 +101,7 @@ namespace sc
 
 				if (ImGui::BeginPopup("ComponentsContextMenu"))
 				{
-					const auto mi_id = "Remove Component##" + hash;
-					if (ImGui::MenuItem(mi_id.c_str()))
+					if (ImGui::MenuItem("Remove Component##"))
 					{
 						selected.m_world->m_registry.remove<Component>(selected.m_selected);
 						ImGui::CloseCurrentPopup();

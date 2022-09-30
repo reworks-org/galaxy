@@ -33,7 +33,7 @@ namespace galaxy
 			const auto spr_view = layer->world().m_registry.view<components::Sprite, components::DrawShader, components::Transform>();
 			for (auto&& [entity, sprite, shader, transform] : spr_view.each())
 			{
-				sprite.set_shader(shader.m_shader->id());
+				sprite.m_shader_id = shader.m_shader->id();
 				transform.set_origin(sprite.get_width() / 2.0f, sprite.get_height() / 2.0f);
 
 				shader.m_shader->set_uniform("u_transform", transform.get_transform());
@@ -45,7 +45,7 @@ namespace galaxy
 			const auto prim_view = layer->world().m_registry.view<components::Primitive, components::DrawShader, components::Transform>();
 			for (auto&& [entity, primitive, shader, transform] : prim_view.each())
 			{
-				primitive.set_shader(shader.m_shader->id());
+				primitive.m_shader_id = shader.m_shader->id();
 				transform.set_origin(primitive.get_width() / 2.0f, primitive.get_height() / 2.0f);
 
 				shader.m_shader->set_uniform("u_transform", transform.get_transform());
@@ -57,7 +57,7 @@ namespace galaxy
 			const auto text_view = layer->world().m_registry.view<components::Text, components::DrawShader, components::Transform>();
 			for (auto&& [entity, text, shader, transform] : prim_view.each())
 			{
-				text.set_shader(shader.m_shader->id());
+				text.m_shader_id = shader.m_shader->id();
 				transform.set_origin(text.get_width() / 2.0f, text.get_height() / 2.0f);
 
 				shader.m_shader->set_uniform("u_transform", transform.get_transform());

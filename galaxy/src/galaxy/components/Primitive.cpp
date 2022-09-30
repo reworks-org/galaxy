@@ -96,9 +96,9 @@ namespace galaxy
 
 		void Primitive::configure() noexcept
 		{
-			set_vao(m_vao.id());
-			set_index_count(m_vao.index_count());
-			set_instance_count(1);
+			m_vao_id      = m_vao.id();
+			m_index_count = m_vao.index_count();
+			m_instances   = 1;
 		}
 
 		nlohmann::json Primitive::serialize()
@@ -106,7 +106,7 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 
 			json["shape"]       = static_cast<std::string>(magic_enum::enum_name(m_shape));
-			json["layer"]       = get_layer();
+			json["layer"]       = m_layer;
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_colour.m_red;
 			json["colour"]["g"] = m_colour.m_green;

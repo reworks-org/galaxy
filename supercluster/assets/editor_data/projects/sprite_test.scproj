@@ -1,0 +1,112 @@
+{
+    "current_scene": "SpriteTest",
+    "scenes": {
+        "SpriteTest": {
+            "camera": {
+                "pos": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "rotation": 0.0,
+                "rotation_speed": 1.0,
+                "translation_speed": 1.0,
+                "zoom": 2.0
+            },
+            "name": "SpriteTest",
+            "stack": {
+                "layer_stack": {
+                    "0": "Runtime"
+                },
+                "layers": {
+                    "Runtime": {
+                        "name": "Runtime",
+                        "type": "Runtime",
+                        "world": {
+                            "entities": [
+                                {
+                                    "components": {
+                                        "DrawShader": {
+                                            "shader": "Sprite"
+                                        },
+                                        "Flag": {
+                                            "flags": {
+                                                "0": true,
+                                                "1": true,
+                                                "2": false,
+                                                "3": false,
+                                                "4": false,
+                                                "5": false,
+                                                "6": false,
+                                                "7": false
+                                            }
+                                        },
+                                        "Sprite": {
+                                            "layer": 1,
+                                            "opacity": 0.0,
+                                            "texture": "rock"
+                                        },
+                                        "Tag": {
+                                            "tag": "Rock"
+                                        },
+                                        "Transform": {
+                                            "origin": {
+                                                "x": 256.0,
+                                                "y": 256.0
+                                            },
+                                            "pos": {
+                                                "x": 0.0,
+                                                "y": 0.0
+                                            },
+                                            "rotation": 0.0,
+                                            "scale": 1.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "components": {
+                                        "DrawShader": {
+                                            "shader": "Sprite"
+                                        },
+                                        "Flag": {
+                                            "flags": {
+                                                "0": true,
+                                                "1": true,
+                                                "2": false,
+                                                "3": false,
+                                                "4": false,
+                                                "5": false,
+                                                "6": false,
+                                                "7": false
+                                            }
+                                        },
+                                        "Sprite": {
+                                            "layer": 0,
+                                            "opacity": 0.0,
+                                            "texture": "forest"
+                                        },
+                                        "Tag": {
+                                            "tag": "Forest"
+                                        },
+                                        "Transform": {
+                                            "origin": {
+                                                "x": 640.0,
+                                                "y": 360.0
+                                            },
+                                            "pos": {
+                                                "x": 0.0,
+                                                "y": 0.0
+                                            },
+                                            "rotation": 0.0,
+                                            "scale": 1.0
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "stack_size": 1
+            }
+        }
+    }
+}

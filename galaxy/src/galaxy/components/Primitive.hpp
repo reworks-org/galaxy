@@ -18,8 +18,21 @@
 #include "galaxy/graphics/Shape.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
+namespace sc
+{
+	namespace panel
+	{
+		class EntityEditor;
+	} // namespace panel
+} // namespace sc
+
 namespace galaxy
 {
+	namespace systems
+	{
+		class RenderSystem;
+	} // namespace systems
+
 	namespace components
 	{
 		///
@@ -27,6 +40,9 @@ namespace galaxy
 		///
 		class Primitive final : public graphics::Renderable, public fs::Serializable
 		{
+			friend class sc::panel::EntityEditor;
+			friend class systems::RenderSystem;
+
 		public:
 			///
 			/// Holds variables relating to constructing primitive's vertexs.
@@ -199,8 +215,7 @@ namespace galaxy
 		{
 			m_shape = shape;
 			m_data  = data;
-
-			set_layer(layer);
+			m_layer = layer;
 
 			std::vector<unsigned int> indices;
 			std::vector<graphics::Vertex> vertices;

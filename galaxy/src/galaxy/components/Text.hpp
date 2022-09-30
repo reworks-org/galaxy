@@ -14,8 +14,21 @@
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
+namespace sc
+{
+	namespace panel
+	{
+		class EntityEditor;
+	} // namespace panel
+} // namespace sc
+
 namespace galaxy
 {
+	namespace systems
+	{
+		class RenderSystem;
+	} // namespace systems
+
 	namespace components
 	{
 		///
@@ -23,6 +36,9 @@ namespace galaxy
 		///
 		class Text final : public graphics::Renderable, public fs::Serializable
 		{
+			friend class sc::panel::EntityEditor;
+			friend class systems::RenderSystem;
+
 		public:
 			///
 			/// Constructor.

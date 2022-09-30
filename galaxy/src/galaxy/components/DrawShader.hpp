@@ -11,6 +11,14 @@
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Shader.hpp"
 
+namespace sc
+{
+	namespace panel
+	{
+		class EntityEditor;
+	} // namespace panel
+} // namespace sc
+
 namespace galaxy
 {
 	namespace components
@@ -20,6 +28,8 @@ namespace galaxy
 		///
 		class DrawShader final : public fs::Serializable
 		{
+			friend class sc::panel::EntityEditor;
+
 		public:
 			///
 			/// Constructor.

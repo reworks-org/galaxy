@@ -233,11 +233,9 @@ namespace galaxy
 			primitive_type["create_polyline"] = &components::Primitive::create<graphics::Shape::POLYLINE>;
 			primitive_type["get_data"]        = &components::Primitive::get_data;
 			primitive_type["get_height"]      = &components::Primitive::get_height;
-			primitive_type["get_layer"]       = &components::Primitive::get_layer;
 			primitive_type["get_shape"]       = &components::Primitive::get_shape;
 			primitive_type["get_width"]       = &components::Primitive::get_width;
 			primitive_type["colour"]          = &components::Primitive::m_colour;
-			primitive_type["set_shader"]      = &components::Primitive::set_shader;
 
 			entt_sol::register_meta_component<components::Primitive>();
 
@@ -260,11 +258,9 @@ namespace galaxy
 
 			sprite_type["create"]      = &components::Sprite::create;
 			sprite_type["get_height"]  = &components::Sprite::get_height;
-			sprite_type["get_layer"]   = &components::Sprite::get_layer;
 			sprite_type["get_opacity"] = &components::Sprite::get_opacity;
 			sprite_type["get_width"]   = &components::Sprite::get_width;
 			sprite_type["set_opacity"] = &components::Sprite::set_opacity;
-			sprite_type["set_shader"]  = &components::Sprite::set_shader;
 
 			entt_sol::register_meta_component<components::Sprite>();
 
@@ -278,7 +274,6 @@ namespace galaxy
 				lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
 			text_type["create"]     = &components::Text::create;
 			text_type["get_height"] = &components::Text::get_height;
-			text_type["get_layer"]  = &components::Text::get_layer;
 			text_type["get_size"]   = &components::Text::get_size;
 			text_type["get_text"]   = &components::Text::get_text;
 			text_type["get_width"]  = &components::Text::get_width;

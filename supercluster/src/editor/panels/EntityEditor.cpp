@@ -35,6 +35,8 @@ namespace sc
 {
 	namespace panel
 	{
+		static constexpr const auto s_types = magic_enum::enum_names<graphics::Shape>();
+
 		void EntityEditor::render(Selected& selected, UpdateStack& updates)
 		{
 			static constexpr const auto numeric_input_flags =
@@ -44,7 +46,8 @@ namespace sc
 			{
 				if (selected.m_selected != entt::null)
 				{
-					ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+					ImGui::PushID(static_cast<std::uint32_t>(selected.m_selected));
+
 					if (selected.m_world->m_registry.valid(selected.m_selected))
 					{
 						ImGui::Text("EnTT Id: %d", entt::to_integral(selected.m_selected));
@@ -244,19 +247,17 @@ namespace sc
 					});
 
 					draw_component<components::DrawShader>(selected, "Draw Shader", [](components::DrawShader* ds) {
-						static std::string s_buff = ds->id();
-						if (ImGui::InputText("Shader ID", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+						if (ImGui::InputText("Shader ID", &ds->m_id, ImGuiInputTextFlags_EnterReturnsTrue))
 						{
-							if (!s_buff.empty())
+							if (!ds->m_id.empty())
 							{
 								auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
-								if (shaders.has(s_buff))
+								if (shaders.has(ds->m_id))
 								{
-									ds->set_shader(s_buff);
+									ds->set_shader(ds->m_id);
 								}
 								else
 								{
-									s_buff = "";
 									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Shader does not exist."});
 								}
 							}
@@ -264,10 +265,10 @@ namespace sc
 					});
 
 					draw_component<components::Flag>(selected, "Flags", [&](components::Flag* flag) {
-						static auto s_enabled = flag->is_flag_set<flags::Enabled>();
-						if (ImGui::Checkbox("Is Enabled", &s_enabled))
+						auto enabled = flag->is_flag_set<flags::Enabled>();
+						if (ImGui::Checkbox("Is Enabled", &enabled))
 						{
-							if (s_enabled)
+							if (enabled)
 							{
 								if (selected.m_world->is_valid(selected.m_selected))
 								{
@@ -275,7 +276,6 @@ namespace sc
 								}
 								else
 								{
-									s_enabled = false;
 									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Entity did not pass validation."});
 								}
 							}
@@ -287,10 +287,10 @@ namespace sc
 
 						ImGui::SameLine();
 
-						static auto s_allow_save = flag->is_flag_set<flags::AllowSerialize>();
-						if (ImGui::Checkbox("Allow Serialization", &s_allow_save))
+						auto allow_save = flag->is_flag_set<flags::AllowSerialize>();
+						if (ImGui::Checkbox("Allow Serialization", &allow_save))
 						{
-							if (s_allow_save)
+							if (allow_save)
 							{
 								flag->set_flag<flags::AllowSerialize>();
 							}
@@ -306,13 +306,7 @@ namespace sc
 						ImGui::SameLine(0.0f, 5.0f);
 						ImGui::Text("Height: %.0f", primitive->get_height());
 
-						static int s_layer = primitive->get_layer();
-						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
-						{
-							primitive->set_layer(s_layer);
-						}
-
-						static constexpr const auto s_types = magic_enum::enum_names<graphics::Shape>();
+						ImGui::InputInt("Layer", &primitive->m_layer, 1, 2, numeric_input_flags);
 
 						static auto s_selected = static_cast<std::string>(magic_enum::enum_name(primitive->get_shape()));
 						static auto s_type     = primitive->get_shape();
@@ -336,7 +330,7 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						static float s_colour[4] = {static_cast<float>(primitive->m_colour.m_red),
+						float s_colour[4] = {static_cast<float>(primitive->m_colour.m_red),
 							static_cast<float>(primitive->m_colour.m_green),
 							static_cast<float>(primitive->m_colour.m_blue),
 							static_cast<float>(primitive->m_colour.m_alpha)};
@@ -449,27 +443,27 @@ namespace sc
 								switch (s_type)
 								{
 									case graphics::Shape::CIRCLE:
-										primitive->create<graphics::Shape::CIRCLE>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::CIRCLE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
 									case graphics::Shape::ELLIPSE:
-										primitive->create<graphics::Shape::ELLIPSE>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::ELLIPSE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
 									case graphics::Shape::LINE:
-										primitive->create<graphics::Shape::LINE>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::LINE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
 									case graphics::Shape::POINT:
-										primitive->create<graphics::Shape::POINT>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::POINT>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
 									case graphics::Shape::POLYGON:
-										primitive->create<graphics::Shape::POLYGON>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::POLYGON>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
 									case graphics::Shape::POLYLINE:
-										primitive->create<graphics::Shape::POLYLINE>(data, primitive->m_colour, primitive->get_layer());
+										primitive->create<graphics::Shape::POLYLINE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 								}
 
@@ -505,27 +499,16 @@ namespace sc
 						ImGui::SameLine(0.0f, 5.0f);
 						ImGui::Text("Height: %.0f", sprite->get_height());
 
-						static std::string s_buff = sprite->texture_id();
-						ImGui::InputText("Texture Id", &s_buff, ImGuiInputTextFlags_AutoSelectAll);
-
-						static float s_opacity = sprite->get_opacity();
-						if (ImGui::InputFloat("Opacity", &s_opacity, 0.01f, 0.1f, "%.1f", numeric_input_flags))
-						{
-							sprite->set_opacity(s_opacity);
-						}
-
-						static int s_layer = sprite->get_layer();
-						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
-						{
-							sprite->set_layer(s_layer);
-						}
+						ImGui::InputText("Texture Id", &sprite->m_texture, ImGuiInputTextFlags_AutoSelectAll);
+						ImGui::InputFloat("Opacity", &sprite->m_opacity, 0.01f, 0.1f, "%.1f", numeric_input_flags);
+						ImGui::InputInt("Layer", &sprite->m_layer, 1, 2, numeric_input_flags);
 
 						if (ImGui::Button("Create Sprite"))
 						{
-							if (!s_buff.empty())
+							if (!sprite->m_texture.empty())
 							{
 								updates.emplace_back([&]() {
-									sprite->create(s_buff, s_layer, s_opacity);
+									sprite->create(sprite->m_texture, sprite->m_layer, sprite->m_opacity);
 								});
 
 								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New sprite created."});
@@ -540,10 +523,10 @@ namespace sc
 
 						if (ImGui::Button("Update Texture"))
 						{
-							if (!s_buff.empty())
+							if (!sprite->m_texture.empty())
 							{
 								updates.emplace_back([&]() {
-									sprite->update(s_buff);
+									sprite->update(sprite->m_texture);
 								});
 
 								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Sprite updated."});
@@ -564,19 +547,11 @@ namespace sc
 						ImGui::SameLine(0.0f, 5.0f);
 						ImGui::Text("Height: %.0f", text->get_height());
 
-						static int s_layer = text->get_layer();
-						if (ImGui::InputInt("Layer", &s_layer, 1, 2, numeric_input_flags))
-						{
-							text->set_layer(s_layer);
-						}
+						ImGui::InputInt("Layer", &text->m_layer, 1, 2, numeric_input_flags);
+						ImGui::InputText("Text", &text->m_text, ImGuiInputTextFlags_AutoSelectAll);
+						ImGui::InputFloat("Size", &text->m_size, 1.0f, 5.0f, "%.0f", ImGuiInputTextFlags_CharsNoBlank);
 
-						static std::string s_text = text->get_text();
-						ImGui::InputText("Text", &s_text, ImGuiInputTextFlags_AutoSelectAll);
-
-						static int s_size = static_cast<int>(text->get_size());
-						ImGui::InputInt("Size", &s_size, 1, 5, ImGuiInputTextFlags_CharsNoBlank);
-
-						static float s_colour[4] = {static_cast<float>(text->m_colour.m_red),
+						float s_colour[4] = {static_cast<float>(text->m_colour.m_red),
 							static_cast<float>(text->m_colour.m_green),
 							static_cast<float>(text->m_colour.m_blue),
 							static_cast<float>(text->m_colour.m_alpha)};
@@ -588,13 +563,12 @@ namespace sc
 								static_cast<std::uint8_t>(s_colour[3])};
 						}
 
-						static std::string s_font = text->get_font();
-						ImGui::InputText("Font", &s_font, ImGuiInputTextFlags_AutoSelectAll);
+						ImGui::InputText("Font", &text->m_font_id, ImGuiInputTextFlags_AutoSelectAll);
 
 						if (ImGui::Button("Create"))
 						{
 							updates.emplace_back([&]() {
-								text->create(s_text, s_size, s_font, text->m_colour, s_layer);
+								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer);
 							});
 
 							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text created."});
@@ -605,7 +579,7 @@ namespace sc
 						if (ImGui::Button("Update"))
 						{
 							updates.emplace_back([&]() {
-								text->update(s_text, s_size);
+								text->update(text->m_text, text->m_size);
 							});
 
 							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text updated."});
@@ -613,24 +587,26 @@ namespace sc
 					});
 
 					draw_component<components::Transform>(selected, "Transform", [](components::Transform* tf) {
-						static float pos[2] = {tf->get_pos().x, tf->get_pos().y};
-						if (ImGui::InputFloat2("Position", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						float pos[2] = {tf->get_pos().x, tf->get_pos().y};
+						if (ImGui::InputFloat2("Position", pos, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
 							tf->set_pos(pos[0], pos[1]);
 						}
 
-						static auto s_rotate = tf->get_rotation();
-						if (ImGui::SliderAngle("Rotate", &s_rotate, 0.0f, 360.0f))
+						auto rotate = tf->get_rotation();
+						if (ImGui::SliderAngle("Rotate", &rotate, 0.0f, 360.0f))
 						{
-							tf->set_rotation(s_rotate);
+							tf->set_rotation(rotate);
 						}
 
-						static auto s_scale = tf->get_scale();
-						if (ImGui::InputFloat("Scale", &s_scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						auto scale = tf->get_scale();
+						if (ImGui::InputFloat("Scale", &scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
-							tf->scale(s_scale);
+							tf->scale(scale);
 						}
 					});
+
+					ImGui::PopID();
 				}
 			}
 

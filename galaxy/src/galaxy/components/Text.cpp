@@ -93,8 +93,8 @@ namespace galaxy
 			m_text    = text;
 			m_size    = size;
 
-			set_layer(layer);
-			set_texture(m_texture.get_texture());
+			m_layer      = layer;
+			m_texture_id = m_texture.get_texture();
 
 			auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
 			m_font      = fonts.get(m_font_id);
@@ -242,9 +242,9 @@ namespace galaxy
 
 		void Text::configure() noexcept
 		{
-			set_vao(m_vao.id());
-			set_index_count(m_vao.index_count());
-			set_instance_count(1);
+			m_vao_id      = m_vao.id();
+			m_index_count = m_vao.index_count();
+			m_instances   = 1;
 			set_primitive_type(graphics::Primitives::TRIANGLE);
 		}
 
@@ -255,7 +255,7 @@ namespace galaxy
 			json["text"]  = m_text;
 			json["size"]  = m_size;
 			json["font"]  = m_font_id;
-			json["layer"] = get_layer();
+			json["layer"] = m_layer;
 
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_colour.m_red;
