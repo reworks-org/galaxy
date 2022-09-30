@@ -49,6 +49,7 @@ namespace sc
 		Editor() = delete;
 
 		void code_editor();
+		void code_editor_menu();
 		void viewport();
 
 		[[nodiscard]] nlohmann::json serialize() override;

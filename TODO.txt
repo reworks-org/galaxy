@@ -24,5 +24,6 @@ editor:
 	- context menu
 	- "create" buttons need to show validation message / notification.
 	- delete entity.
-https://github.com/Green-Sky/imgui_entt_entity_editor
 - texture maanger for editor
+- assets need to be imported into structure
+	- and be per project?

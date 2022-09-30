@@ -686,112 +686,7 @@ namespace sc
 		ImGui::Begin("CodeEditor", nullptr, ImGuiWindowFlags_MenuBar);
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("File"))
-			{
-				if (ImGui::MenuItem("New"))
-				{
-					if (!m_code_editor.m_editor.GetText().empty())
-					{
-						ui::imgui_open_confirm("NewCodeEditorFile");
-					}
-					else
-					{
-						m_code_editor.m_file = "";
-					}
-				}
-
-				if (ImGui::MenuItem("Open"))
-				{
-					auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-					const auto file = fs.show_open_dialog("*.lua", "scripts/");
-
-					if (file.has_value())
-					{
-						m_code_editor.m_editor.SetText(fs.open(file.value()).value());
-						m_code_editor.m_file = file.value();
-					}
-					else
-					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open script."});
-					}
-				}
-
-				if (ImGui::MenuItem("Save"))
-				{
-					if (m_code_editor.m_file.empty())
-					{
-						auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-						const auto file = fs.show_save_dialog("*.lua", "untitled.lua");
-
-						if (file.has_value())
-						{
-							m_code_editor.m_file = file.value();
-						}
-
-						fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string());
-					}
-				}
-
-				if (ImGui::MenuItem("Save as..."))
-				{
-					core::ServiceLocator<fs::VirtualFileSystem>::ref().save_with_dialog(m_code_editor.m_editor.GetText(), "untitled.lua");
-				}
-
-				ImGui::EndMenu();
-			}
-
-			if (ImGui::BeginMenu("Edit"))
-			{
-				auto ro = m_code_editor.m_editor.IsReadOnly();
-				if (ImGui::MenuItem("Read only", nullptr, &ro))
-				{
-					m_code_editor.m_editor.SetReadOnly(ro);
-				}
-
-				ImGui::Separator();
-
-				if (ImGui::MenuItem("Undo", "Ctrl+Z | Alt+Backspace", nullptr, !ro && m_code_editor.m_editor.CanUndo()))
-				{
-					m_code_editor.m_editor.Undo();
-				}
-
-				if (ImGui::MenuItem("Redo", "Ctrl+Y", nullptr, !ro && m_code_editor.m_editor.CanRedo()))
-				{
-					m_code_editor.m_editor.Redo();
-				}
-
-				ImGui::Separator();
-
-				if (ImGui::MenuItem("Copy", "Ctrl+C", nullptr, m_code_editor.m_editor.HasSelection()))
-				{
-					m_code_editor.m_editor.Copy();
-				}
-
-				if (ImGui::MenuItem("Cut", "Ctrl+X", nullptr, !ro && m_code_editor.m_editor.HasSelection()))
-				{
-					m_code_editor.m_editor.Cut();
-				}
-
-				if (ImGui::MenuItem("Delete", "Del", nullptr, !ro && m_code_editor.m_editor.HasSelection()))
-				{
-					m_code_editor.m_editor.Delete();
-				}
-
-				if (ImGui::MenuItem("Paste", "Ctrl+V", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
-				{
-					m_code_editor.m_editor.Paste();
-				}
-
-				ImGui::Separator();
-
-				if (ImGui::MenuItem("Select all", "Ctrl+A", nullptr))
-				{
-					m_code_editor.m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_code_editor.m_editor.GetTotalLines(), 0));
-				}
-
-				ImGui::EndMenu();
-			}
-
+			code_editor_menu();
 			ImGui::EndMenuBar();
 		}
 
@@ -830,7 +725,127 @@ namespace sc
 			ImGui::EndDragDropTarget();
 		}
 
+		if (ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows) && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+		{
+			ImGui::OpenPopup("CodeEditorContextMenu");
+		}
+
+		if (ImGui::BeginPopupContextWindow("CodeEditorContextMenu"))
+		{
+			code_editor_menu();
+			ImGui::EndPopup();
+		}
+
 		ImGui::End();
+	}
+
+	void Editor::code_editor_menu()
+	{
+		if (ImGui::BeginMenu("File"))
+		{
+			if (ImGui::MenuItem("New"))
+			{
+				if (!m_code_editor.m_editor.GetText().empty())
+				{
+					ui::imgui_open_confirm("NewCodeEditorFile");
+				}
+				else
+				{
+					m_code_editor.m_file = "";
+				}
+			}
+
+			if (ImGui::MenuItem("Open"))
+			{
+				auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+				const auto file = fs.show_open_dialog("*.lua", "scripts/");
+
+				if (file.has_value())
+				{
+					m_code_editor.m_editor.SetText(fs.open(file.value()).value());
+					m_code_editor.m_file = file.value();
+				}
+				else
+				{
+					ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open script."});
+				}
+			}
+
+			if (ImGui::MenuItem("Save"))
+			{
+				if (m_code_editor.m_file.empty())
+				{
+					auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+					const auto file = fs.show_save_dialog("*.lua", "untitled.lua");
+
+					if (file.has_value())
+					{
+						m_code_editor.m_file = file.value();
+					}
+
+					fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string());
+				}
+			}
+
+			if (ImGui::MenuItem("Save as..."))
+			{
+				core::ServiceLocator<fs::VirtualFileSystem>::ref().save_with_dialog(m_code_editor.m_editor.GetText(), "untitled.lua");
+			}
+
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Edit"))
+		{
+			auto ro = m_code_editor.m_editor.IsReadOnly();
+			if (ImGui::MenuItem("Read only", nullptr, &ro))
+			{
+				m_code_editor.m_editor.SetReadOnly(ro);
+			}
+
+			ImGui::Separator();
+
+			if (ImGui::MenuItem("Undo", "Ctrl+Z | Alt+Backspace", nullptr, !ro && m_code_editor.m_editor.CanUndo()))
+			{
+				m_code_editor.m_editor.Undo();
+			}
+
+			if (ImGui::MenuItem("Redo", "Ctrl+Y", nullptr, !ro && m_code_editor.m_editor.CanRedo()))
+			{
+				m_code_editor.m_editor.Redo();
+			}
+
+			ImGui::Separator();
+
+			if (ImGui::MenuItem("Copy", "Ctrl+C", nullptr, m_code_editor.m_editor.HasSelection()))
+			{
+				m_code_editor.m_editor.Copy();
+			}
+
+			if (ImGui::MenuItem("Cut", "Ctrl+X", nullptr, !ro && m_code_editor.m_editor.HasSelection()))
+			{
+				m_code_editor.m_editor.Cut();
+			}
+
+			if (ImGui::MenuItem("Delete", "Del", nullptr, !ro && m_code_editor.m_editor.HasSelection()))
+			{
+				m_code_editor.m_editor.Delete();
+			}
+
+			if (ImGui::MenuItem("Paste", "Ctrl+V", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
+			{
+				m_code_editor.m_editor.Paste();
+			}
+
+			ImGui::Separator();
+
+			if (ImGui::MenuItem("Select all", "Ctrl+A", nullptr))
+			{
+				m_code_editor.m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_code_editor.m_editor.GetTotalLines(), 0));
+			}
+
+			ImGui::EndMenu();
+		}
 	}
 
 	void Editor::viewport()
