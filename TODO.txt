@@ -21,5 +21,5 @@ editor:
 - have some kind of shader manager and allow drag/drop that name onto draw shader component
 - resource selection should be dropdownlists...
 - texture maanger for editor
-- assets need to be imported into structure
-	- and be per project?
+- fix duplicate static registrayion/data on restart
+- fix colour picker data being off

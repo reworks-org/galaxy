@@ -265,7 +265,7 @@ namespace sc
 
 				ImGui::Columns();
 
-				if (ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+				if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
 				{
 					ImGui::OpenPopup("AssetPanelContextMenu");
 				}
@@ -379,10 +379,13 @@ namespace sc
 				for (const auto& path : paths)
 				{
 					const auto fs_path = std::filesystem::path(path);
-					if (!std::filesystem::copy_file(fs_path, to, std::filesystem::copy_options::overwrite_existing))
+					try
 					{
-						const auto error = std::format("Failed to copy file '{0}'.", fs_path.filename().string());
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, error.c_str()});
+						std::filesystem::copy(fs_path, to, std::filesystem::copy_options::overwrite_existing);
+					}
+					catch (const std::exception& e)
+					{
+						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, e.what()});
 					}
 				}
 			}
