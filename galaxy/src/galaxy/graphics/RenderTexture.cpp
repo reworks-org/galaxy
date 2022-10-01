@@ -76,7 +76,14 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = std::filesystem::path(filepath);
-			auto full = (fs.root_path() / path.parent_path() / path.stem()).string();
+
+			auto full_path = fs.root_path() / path.parent_path() / path.stem();
+			auto full      = full_path.string();
+
+			if (!std::filesystem::exists(full_path.parent_path()))
+			{
+				std::filesystem::create_directories(full_path.parent_path());
+			}
 
 			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
 			{
