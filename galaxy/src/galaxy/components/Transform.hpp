@@ -176,7 +176,7 @@ namespace galaxy
 			/// Cached for easy retrieval.
 			/// Scale.
 			///
-			glm::vec3 m_scale;
+			float m_scale;
 
 			///
 			/// Transform origin point.
