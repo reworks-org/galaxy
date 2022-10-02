@@ -262,6 +262,13 @@ namespace sc
 								}
 							}
 						}
+
+						if (ImGui::IsItemHovered())
+						{
+							ImGui::BeginTooltip();
+							ImGui::Text("Press Enter to Set.");
+							ImGui::EndTooltip();
+						}
 					});
 
 					draw_component<components::Flag>(selected, "Flags", [&](components::Flag* flag) {
