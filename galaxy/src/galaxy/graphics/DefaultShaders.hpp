@@ -32,8 +32,10 @@ namespace galaxy
 	
 			void main()
 			{
-				io_texels = l_texels;
 				gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+
+				io_texels = l_texels;
+				io_texels.y = 1.0 - io_texels.y;
 			}
 		)";
 
@@ -149,7 +151,9 @@ namespace galaxy
 			void main()
 			{
 				gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
+
 				io_texels = l_texels;
+				io_texels.y = 1.0 - io_texels.y;
 			}
 		)";
 
@@ -190,8 +194,10 @@ namespace galaxy
 	
 			void main()
 			{
-				io_texels = l_texels;
 				gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+
+				io_texels = l_texels;
+				io_texels.y = 1.0 - io_texels.y;
 			}
 		)";
 
