@@ -507,7 +507,7 @@ namespace sc
 						{
 							if (!sprite->m_texture.empty())
 							{
-								updates.emplace_back([&]() {
+								updates.emplace_back([sprite]() {
 									sprite->create(sprite->m_texture, sprite->m_layer, sprite->m_opacity);
 								});
 
@@ -525,7 +525,7 @@ namespace sc
 						{
 							if (!sprite->m_texture.empty())
 							{
-								updates.emplace_back([&]() {
+								updates.emplace_back([sprite]() {
 									sprite->update(sprite->m_texture);
 								});
 
@@ -567,7 +567,7 @@ namespace sc
 
 						if (ImGui::Button("Create"))
 						{
-							updates.emplace_back([&]() {
+							updates.emplace_back([text]() {
 								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer);
 							});
 
@@ -578,7 +578,7 @@ namespace sc
 
 						if (ImGui::Button("Update"))
 						{
-							updates.emplace_back([&]() {
+							updates.emplace_back([text]() {
 								text->update(text->m_text, text->m_size);
 							});
 
