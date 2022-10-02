@@ -8,6 +8,8 @@
 #ifndef GALAXY_GRAPHICS_RENDERABLE_HPP_
 #define GALAXY_GRAPHICS_RENDERABLE_HPP_
 
+#include <functional>
+
 #include "galaxy/graphics/Primitives.hpp"
 
 namespace galaxy
@@ -84,9 +86,14 @@ namespace galaxy
 			int m_layer;
 
 			///
-			/// Shader program handle.
+			/// Shader config function.
 			///
-			unsigned int m_shader_id;
+			std::function<unsigned int(void)> m_configure_shader;
+
+			///
+			/// Shader id to sort by.
+			///
+			unsigned int m_shader_sort_id;
 
 		private:
 			///

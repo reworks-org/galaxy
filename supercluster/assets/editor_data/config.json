@@ -23,7 +23,9 @@
             "camera_backward": 83,
             "camera_foward": 87,
             "camera_left": 65,
-            "camera_right": 68
+            "camera_right": 68,
+            "camera_rotate_left": 81,
+            "camera_rotate_right": 69
         },
         "loading": {
             "bg": "editor_data/load.png",

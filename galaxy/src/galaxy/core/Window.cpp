@@ -407,6 +407,8 @@ namespace galaxy
 			{
 				// Fill glfw-compatible struct.
 
+				stbi_set_flip_vertically_on_load(true);
+
 				GLFWimage img = {};
 				img.pixels    = stbi_load(info.m_string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
@@ -431,6 +433,8 @@ namespace galaxy
 		void Window::set_icon(std::span<unsigned char> buffer) noexcept
 		{
 			// Fill glfw-compatible struct.
+
+			stbi_set_flip_vertically_on_load(true);
 
 			GLFWimage img = {};
 			img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);

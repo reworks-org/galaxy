@@ -20,6 +20,7 @@ namespace sc
 {
 	Menu::Menu(std::string_view name, state::Scene* scene) noexcept
 		: Layer {name, scene}
+		, m_load {false}
 	{
 		m_bg.load("editor_data/sc.png");
 		m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
@@ -45,6 +46,11 @@ namespace sc
 
 	void Menu::update()
 	{
+		if (m_load)
+		{
+			m_load = false;
+			load_project();
+		}
 	}
 
 	void Menu::render()
@@ -60,7 +66,7 @@ namespace sc
 		ImGui::Begin("Main Menu", NULL, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::Image(reinterpret_cast<void*>(m_bg.handle()), {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()});
+		ImGui::Image(reinterpret_cast<void*>(m_bg.handle()), {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()}, {0, 1}, {1, 0});
 
 		const auto window_calc             = ImGui::GetWindowWidth() / 2.0f;
 		constexpr const auto button_width  = 200.0f;
@@ -84,18 +90,7 @@ namespace sc
 
 		if (ImGui::Button("Load", {button_width, button_height}))
 		{
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto file = fs.show_open_dialog("*.scproj");
-			if (file.has_value())
-			{
-				auto editor = m_scene->layers().get<sc::Editor>("Editor");
-				if (auto ptr = editor.lock())
-				{
-					ptr->load_project(file.value());
-					m_scene->layers().pop();
-					m_scene->layers().push("Editor");
-				}
-			}
+			m_load = true;
 		}
 
 		ImGui::Spacing();
@@ -119,5 +114,22 @@ namespace sc
 
 	void Menu::deserialize(const nlohmann::json& json)
 	{
+	}
+
+	void Menu::load_project()
+	{
+		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+		auto file = fs.show_open_dialog("*.scproj", "editor_data/projects");
+		if (file.has_value())
+		{
+			auto editor = m_scene->layers().get<sc::Editor>("Editor");
+			if (auto ptr = editor.lock())
+			{
+				ptr->load_project(file.value());
+				m_scene->layers().pop();
+				m_scene->layers().push("Editor");
+			}
+		}
 	}
 } // namespace sc

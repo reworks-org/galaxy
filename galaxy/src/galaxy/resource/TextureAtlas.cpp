@@ -42,9 +42,9 @@ namespace galaxy
 
 				if (!m_data.contains(name))
 				{
-					TextureAtlas::Info info;
-					std::optional<graphics::iRect> packed = std::nullopt;
+					m_data[name] = {};
 
+					std::optional<graphics::iRect> packed = std::nullopt;
 					for (auto i = 0; i < m_sheets.size(); i++)
 					{
 						if (!m_sheets[i].m_sheet_created)
@@ -57,51 +57,56 @@ namespace galaxy
 						packed = m_sheets[i].m_packer.pack(texture.get_width(), texture.get_height());
 						if (packed.has_value())
 						{
-							info.m_index = i;
+							m_data[name].m_index = i;
 							break;
 						}
 					}
 
 					if (packed.has_value())
 					{
-						auto& sheet = m_sheets[info.m_index];
+						auto& sheet = m_sheets[m_data[name].m_index];
 
-						info.m_handle = sheet.m_render_texture.get_texture();
-						info.m_region = packed.value();
-						sheet.m_render_texture.bind(false);
+						m_data[name].m_handle = sheet.m_render_texture.get_texture();
+						m_data[name].m_region = packed.value();
 
 						// Convert to texel coords.
-						info.m_texel_region.m_ul_texels.x = map_x_texel(info.m_region.m_x, info.m_region.m_width);
-						info.m_texel_region.m_ul_texels.y = map_y_texel(info.m_region.m_y, info.m_region.m_height);
+						const auto sw = sheet.m_render_texture.get_width();
+						const auto sh = sheet.m_render_texture.get_height();
 
-						info.m_texel_region.m_ur_texels.x = map_x_texel(info.m_region.m_x + info.m_region.m_width, info.m_region.m_width);
-						info.m_texel_region.m_ur_texels.y = map_y_texel(info.m_region.m_y, info.m_region.m_height);
+						m_data[name].m_texel_region.m_ul_texels.x = map_x_texel(m_data[name].m_region.m_x, sw);
+						m_data[name].m_texel_region.m_ul_texels.y = map_y_texel(m_data[name].m_region.m_y, sh);
 
-						info.m_texel_region.m_br_texels.x = map_x_texel(info.m_region.m_x + info.m_region.m_width, info.m_region.m_width);
-						info.m_texel_region.m_br_texels.y = map_y_texel(info.m_region.m_y + info.m_region.m_height, info.m_region.m_height);
+						m_data[name].m_texel_region.m_ur_texels.x = map_x_texel(m_data[name].m_region.m_x + m_data[name].m_region.m_width, sw);
+						m_data[name].m_texel_region.m_ur_texels.y = map_y_texel(m_data[name].m_region.m_y, sh);
 
-						info.m_texel_region.m_bl_texels.x = map_x_texel(info.m_region.m_x, info.m_region.m_width);
-						info.m_texel_region.m_bl_texels.y = map_y_texel(info.m_region.m_y + info.m_region.m_height, info.m_region.m_height);
+						m_data[name].m_texel_region.m_br_texels.x = map_x_texel(m_data[name].m_region.m_x + m_data[name].m_region.m_width, sw);
+						m_data[name].m_texel_region.m_br_texels.y = map_y_texel(m_data[name].m_region.m_y + m_data[name].m_region.m_height, sh);
+
+						m_data[name].m_texel_region.m_bl_texels.x = map_x_texel(m_data[name].m_region.m_x, sw);
+						m_data[name].m_texel_region.m_bl_texels.y = map_y_texel(m_data[name].m_region.m_y + m_data[name].m_region.m_height, sh);
 
 						// Update transform.
-						m_transform.set_pos(static_cast<float>(info.m_region.m_x), static_cast<float>(info.m_region.m_y));
+						m_transform.set_pos(static_cast<float>(m_data[name].m_region.m_x), static_cast<float>(m_data[name].m_region.m_y));
 
 						// Redefine vertices.
 						std::array<graphics::Vertex, 4> vertices;
 						vertices[0].m_pos    = {0.0f, 0.0f};
 						vertices[0].m_texels = {0.0f, 0.0f};
 
-						vertices[1].m_pos    = {info.m_region.m_width, 0.0f};
+						vertices[1].m_pos    = {m_data[name].m_region.m_width, 0.0f};
 						vertices[1].m_texels = {1.0f, 0.0f};
 
-						vertices[2].m_pos    = {info.m_region.m_width, info.m_region.m_height};
+						vertices[2].m_pos    = {m_data[name].m_region.m_width, m_data[name].m_region.m_height};
 						vertices[2].m_texels = {1.0f, 1.0f};
 
-						vertices[3].m_pos    = {0.0f, info.m_region.m_height};
+						vertices[3].m_pos    = {0.0f, m_data[name].m_region.m_height};
 						vertices[3].m_texels = {0.0f, 1.0f};
 
 						m_vao.sub_buffer(0, vertices);
+
+						sheet.m_render_texture.bind(false);
 						graphics::Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_vao, m_transform);
+						glBindFramebuffer(GL_FRAMEBUFFER, 0);
 					}
 					else
 					{
@@ -151,7 +156,10 @@ namespace galaxy
 		{
 			for (auto i = 0; i < m_sheets.size(); i++)
 			{
-				m_sheets[i].m_render_texture.save(std::format("dump/sheet{0}.png", i));
+				if (m_sheets[i].m_sheet_created)
+				{
+					m_sheets[i].m_render_texture.save(std::format("dump/sheet{0}.png", i));
+				}
 			}
 		}
 
@@ -188,7 +196,7 @@ namespace galaxy
 
 		constexpr float TextureAtlas::map_y_texel(const int y, const int height) const noexcept
 		{
-			return 1.0f - (static_cast<float>(y) / static_cast<float>(height));
+			return static_cast<float>(y) / static_cast<float>(height);
 		}
 
 		void TextureAtlas::init()

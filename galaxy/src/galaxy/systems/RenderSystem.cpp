@@ -36,7 +36,7 @@ namespace galaxy
 			{
 				if (flag.is_flag_set<flags::Enabled>())
 				{
-					transform.set_origin(sprite.get_width() / 2.0f, sprite.get_height() / 2.0f);
+					transform.set_origin(sprite.get_width() * 0.5f, sprite.get_height() * 0.5f);
 
 					sprite.m_shader_sort_id   = shader.m_shader->id();
 					sprite.m_configure_shader = [&]() noexcept -> unsigned {
@@ -55,7 +55,7 @@ namespace galaxy
 			{
 				if (flag.is_flag_set<flags::Enabled>())
 				{
-					transform.set_origin(primitive.get_width() / 2.0f, primitive.get_height() / 2.0f);
+					transform.set_origin(primitive.get_width() * 0.5f, primitive.get_height() * 0.5f);
 
 					primitive.m_shader_sort_id   = shader.m_shader->id();
 					primitive.m_configure_shader = [&]() noexcept -> unsigned {
@@ -74,7 +74,7 @@ namespace galaxy
 			{
 				if (flag.is_flag_set<flags::Enabled>())
 				{
-					transform.set_origin(text.get_width() / 2.0f, text.get_height() / 2.0f);
+					transform.set_origin(text.get_width() * 0.5f, text.get_height() * 0.5f);
 
 					text.m_shader_sort_id   = shader.m_shader->id();
 					text.m_configure_shader = [&]() noexcept -> unsigned {

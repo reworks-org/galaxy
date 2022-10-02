@@ -3,14 +3,15 @@
     "scenes": {
         "SpriteTest": {
             "camera": {
+                "allow_rotate": false,
                 "pos": {
                     "x": 0.0,
                     "y": 0.0
                 },
                 "rotation": 0.0,
-                "rotation_speed": 1.0,
-                "translation_speed": 1.0,
-                "zoom": 2.0
+                "rotation_speed": 180.0,
+                "translation_speed": 5.0,
+                "zoom": 1.0
             },
             "name": "SpriteTest",
             "stack": {
@@ -30,7 +31,7 @@
                                         },
                                         "Flag": {
                                             "flags": {
-                                                "0": true,
+                                                "0": false,
                                                 "1": true,
                                                 "2": false,
                                                 "3": false,
@@ -42,17 +43,13 @@
                                         },
                                         "Sprite": {
                                             "layer": 1,
-                                            "opacity": 0.0,
+                                            "opacity": 1.0,
                                             "texture": "rock"
                                         },
                                         "Tag": {
                                             "tag": "Rock"
                                         },
                                         "Transform": {
-                                            "origin": {
-                                                "x": 256.0,
-                                                "y": 256.0
-                                            },
                                             "pos": {
                                                 "x": 0.0,
                                                 "y": 0.0
@@ -69,7 +66,7 @@
                                         },
                                         "Flag": {
                                             "flags": {
-                                                "0": true,
+                                                "0": false,
                                                 "1": true,
                                                 "2": false,
                                                 "3": false,
@@ -81,17 +78,13 @@
                                         },
                                         "Sprite": {
                                             "layer": 0,
-                                            "opacity": 0.0,
+                                            "opacity": 1.0,
                                             "texture": "forest"
                                         },
                                         "Tag": {
                                             "tag": "Forest"
                                         },
                                         "Transform": {
-                                            "origin": {
-                                                "x": 640.0,
-                                                "y": 360.0
-                                            },
                                             "pos": {
                                                 "x": 0.0,
                                                 "y": 0.0

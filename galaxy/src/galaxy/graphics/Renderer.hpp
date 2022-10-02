@@ -47,6 +47,8 @@ namespace galaxy
 			static void flush() noexcept;
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 
+			static std::vector<Renderable*>& get_data() noexcept;
+
 		private:
 			///
 			/// \brief Constructor.

@@ -16,10 +16,13 @@
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
 		- then submit that to the renderer.
 
+- make sure all events are regular references
+- and all check for ishandled and then set.
+
 editor:
 - https://github.com/SpartanJ/efsw
 - have some kind of shader manager and allow drag/drop that name onto draw shader component
 - resource selection should be dropdownlists...
-- texture maanger for editor
-- fix duplicate static registrayion/data on restart
+- texture manager for editor
+- fix issues with restart
 - fix colour picker data being off

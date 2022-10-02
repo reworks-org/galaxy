@@ -272,6 +272,8 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_FATAL, "Failed to complete framebuffer: {0}.", reason);
 			}
 
+			glClearColor(m_clear_colour[0], m_clear_colour[1], m_clear_colour[2], m_clear_colour[3]);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 

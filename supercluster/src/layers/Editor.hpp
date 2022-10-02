@@ -9,6 +9,7 @@
 #define SUPERCLUSTER_LAYERS_EDITOR_HPP_
 
 #include <galaxy/async/Timer.hpp>
+#include <galaxy/graphics/Renderable.hpp>
 #include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -118,6 +119,8 @@ namespace sc
 		graphics::Texture m_stop;
 
 		async::Timer m_autosave;
+
+		std::vector<graphics::Renderable*> m_render_data;
 	};
 } // namespace sc
 

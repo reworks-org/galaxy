@@ -49,6 +49,7 @@
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
 
+#include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Shader.hpp"
@@ -523,17 +524,23 @@ namespace galaxy
 			shader_type["set_uniform_bool"]     = &graphics::Shader::set_uniform<bool>;
 			shader_type["set_uniform_colour"]   = &graphics::Shader::set_uniform<graphics::Colour>;
 
-			// Don't create from lua, access from scene instead.
-			auto camera_type                     = lua.new_usertype<graphics::Camera>("Camera", sol::no_constructor);
-			camera_type["set_pos"]               = &graphics::Camera::set_pos;
-			camera_type["set_projection"]        = &graphics::Camera::set_projection;
-			camera_type["set_rotation"]          = &graphics::Camera::set_rotation;
-			camera_type["set_rotation_speed"]    = &graphics::Camera::set_rotation_speed;
-			camera_type["set_translation_speed"] = &graphics::Camera::set_translation_speed;
-			camera_type["set_zoom"]              = &graphics::Camera::set_zoom;
-			camera_type["process_events"]        = &graphics::Camera::process_events;
-			camera_type["get_proj"]              = &graphics::Camera::get_proj;
-			camera_type["get_view"]              = &graphics::Camera::get_view;
+			auto camera_type                 = lua.new_usertype<graphics::Camera>("Camera", sol::constructors<graphics::Camera(bool)>());
+			camera_type["set_projection"]    = &graphics::Camera::set_projection;
+			camera_type["set_pos"]           = &graphics::Camera::set_pos;
+			camera_type["set_rotation"]      = &graphics::Camera::set_rotation;
+			camera_type["get_x"]             = &graphics::Camera::get_x;
+			camera_type["get_y"]             = &graphics::Camera::get_y;
+			camera_type["get_rotation"]      = &graphics::Camera::get_rotation;
+			camera_type["get_view"]          = &graphics::Camera::get_view;
+			camera_type["get_proj"]          = &graphics::Camera::get_proj;
+			camera_type["get_zoom"]          = &graphics::Camera::get_zoom;
+			camera_type["on_mouse_wheel"]    = &graphics::Camera::on_mouse_wheel;
+			camera_type["on_window_resized"] = &graphics::Camera::on_window_resized;
+			camera_type["process_events"]    = &graphics::Camera::process_events;
+			camera_type["set_zoom"]          = &graphics::Camera::set_zoom;
+			camera_type["allow_rotate"]      = &graphics::Camera::m_allow_rotate;
+			camera_type["rotation_speed"]    = &graphics::Camera::m_rotation_speed;
+			camera_type["translation_speed"] = &graphics::Camera::m_translation_speed;
 
 			auto frame_type              = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
 			frame_type["texture_id"]     = &graphics::Frame::m_texture_id;

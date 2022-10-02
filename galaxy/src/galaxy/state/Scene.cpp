@@ -20,6 +20,7 @@ namespace galaxy
 		Scene::Scene() noexcept
 			: m_name {"Untitled"}
 			, m_layer_stack {this}
+			, m_camera {false}
 		{
 		}
 
@@ -41,8 +42,8 @@ namespace galaxy
 
 		void Scene::events()
 		{
-			m_layer_stack.events();
 			m_camera.process_events();
+			m_layer_stack.events();
 		}
 
 		void Scene::update()

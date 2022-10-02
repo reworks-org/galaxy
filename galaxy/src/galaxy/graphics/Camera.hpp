@@ -10,11 +10,8 @@
 
 #include <glm/mat4x4.hpp>
 
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
-
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/utils/Globals.hpp"
 
@@ -45,26 +42,11 @@ namespace galaxy
 			};
 
 			///
-			/// Constructor.
+			/// Argument constructor.
 			///
-			Camera() noexcept;
-
+			/// \param allow_rotate Can the camera rotate?
 			///
-			/// Projection constructor.
-			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
-			///
-			Camera(const float left, const float right, const float bottom, const float top) noexcept;
-
-			///
-			/// Aspect Ratio constructor.
-			///
-			/// \param aspect_ratio Camera view aspect ratio.
-			///
-			Camera(const float aspect_ratio) noexcept;
+			Camera(bool allow_rotate = false) noexcept;
 
 			///
 			/// JSON constructor.
@@ -74,9 +56,34 @@ namespace galaxy
 			Camera(const nlohmann::json& json) noexcept;
 
 			///
+			/// Move constructor.
+			///
+			Camera(Camera&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Camera& operator=(Camera&&) noexcept;
+
+			///
+			/// Copy constructor.
+			///
+			Camera(const Camera&) noexcept;
+
+			///
+			/// Copy assignment operator.
+			///
+			Camera& operator=(const Camera&) noexcept;
+
+			///
 			/// Destructor.
 			///
-			virtual ~Camera() noexcept = default;
+			virtual ~Camera() noexcept;
+
+			///
+			/// Handle user input events.
+			///
+			void process_events() noexcept;
 
 			///
 			/// Event processing method for scroll event for Camera.
@@ -93,9 +100,14 @@ namespace galaxy
 			void on_window_resized(const events::WindowResized& e) noexcept;
 
 			///
-			/// Handle user input events.
+			/// Set camera projection.
 			///
-			void process_events() noexcept;
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			///
+			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
 			/// Sets position without moving the entity.
@@ -120,28 +132,32 @@ namespace galaxy
 			void set_zoom(const float offset) noexcept;
 
 			///
-			/// Set camera projection.
+			/// Get camera x pos.
 			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
+			/// \return Float.
 			///
-			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+			[[nodiscard]] float get_x() const noexcept;
 
 			///
-			/// Camera translation speed.
+			/// Get camera y pos.
 			///
-			/// \param speed Speed value.
+			/// \return Float.
 			///
-			void set_translation_speed(const float speed) noexcept;
+			[[nodiscard]] float get_y() const noexcept;
 
 			///
-			/// Camera rotation speed.
+			/// Get camera rotation.
 			///
-			/// \param speed Speed value.
+			/// \return Float.
 			///
-			void set_rotation_speed(const float speed) noexcept;
+			[[nodiscard]] float get_rotation() const noexcept;
+
+			///
+			/// Get camera zoom.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_zoom() const noexcept;
 
 			///
 			/// Retrieve internal transformation matrix.
@@ -180,45 +196,20 @@ namespace galaxy
 
 		private:
 			///
-			/// Configures Camera for window model view projection.
+			/// Constructor.
 			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
-			///
-			void create(const float left, const float right, const float bottom, const float top) noexcept;
+			Camera() = delete;
 
 			///
 			/// Recalculates the model view matrix.
 			///
 			void recalculate() noexcept;
 
-		private:
+		public:
 			///
-			/// Update flag.
+			/// Allow camera to rotate.
 			///
-			bool m_dirty;
-
-			///
-			/// Camera data.
-			///
-			Data m_data;
-
-			///
-			/// Camera position.
-			///
-			glm::vec3 m_pos;
-
-			///
-			/// Camera rotation.
-			///
-			float m_rotation;
-
-			///
-			/// Camera zoom.
-			///
-			float m_zoom;
+			bool m_allow_rotate;
 
 			///
 			/// Movement speed.
@@ -230,25 +221,32 @@ namespace galaxy
 			///
 			float m_rotation_speed;
 
+		private:
 			///
-			/// Camera aspect ratio.
+			/// Camera position.
 			///
-			float m_aspect_ratio;
+			glm::vec3 m_pos;
 
 			///
-			/// Camera transform matrix.
+			/// Camera rotation.
 			///
-			glm::mat4 m_transform_matrix;
+			float m_rotation;
 
 			///
-			/// Transform identity matrix.
+			/// Camera zoom (scroll).
 			///
-			glm::mat4 m_identity_matrix;
+			float m_zoom;
 
 			///
-			/// Camera rotation origin.
+			/// Camera data.
 			///
-			glm::vec3 m_rotation_origin;
+			Data m_data;
+
+			///
+			/// Camera origin point.
+			/// Cached for reference.
+			///
+			glm::vec3 m_origin;
 		};
 	} // namespace graphics
 } // namespace galaxy

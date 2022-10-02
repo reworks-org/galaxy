@@ -6,6 +6,7 @@
 ///
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/trigonometric.hpp>
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -14,127 +15,184 @@
 
 #include "Camera.hpp"
 
-using namespace galaxy::input;
-
 namespace galaxy
 {
 	namespace graphics
 	{
-		Camera::Camera() noexcept
-			: m_dirty {true}
-			, m_data {}
+		Camera::Camera(bool allow_rotate) noexcept
+			: m_allow_rotate {allow_rotate}
+			, m_translation_speed {5.0f}
+			, m_rotation_speed {180.0f}
 			, m_pos {0.0f, 0.0f, 0.0f}
 			, m_rotation {0.0f}
 			, m_zoom {1.0f}
-			, m_translation_speed {1.0f}
-			, m_rotation_speed {1.0f}
-			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_rotation_origin {0, 0, 1}
-		{
-			auto& window   = core::ServiceLocator<core::Window>::ref();
-			m_aspect_ratio = window.get_widthf() / window.get_heightf();
-		}
-
-		Camera::Camera(const float left, const float right, const float bottom, const float top) noexcept
-			: m_dirty {true}
 			, m_data {}
-			, m_pos {0.0f, 0.0f, 0.0f}
-			, m_rotation {0.0f}
-			, m_zoom {1.0f}
-			, m_translation_speed {1.0f}
-			, m_rotation_speed {1.0f}
-			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_rotation_origin {0, 0, 1}
+			, m_origin {1.0f, 1.0f, 0.0f}
 		{
-			auto& window   = core::ServiceLocator<core::Window>::ref();
-			m_aspect_ratio = window.get_widthf() / window.get_heightf();
-
-			create(left, right, bottom, top);
-		}
-
-		Camera::Camera(const float aspect_ratio) noexcept
-			: m_dirty {true}
-			, m_data {}
-			, m_pos {0.0f, 0.0f, 0.0f}
-			, m_rotation {0.0f}
-			, m_zoom {1.0f}
-			, m_translation_speed {1.0f}
-			, m_rotation_speed {1.0f}
-			, m_aspect_ratio {aspect_ratio}
-			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_rotation_origin {0, 0, 1}
-		{
-			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
+			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
 		}
 
 		Camera::Camera(const nlohmann::json& json) noexcept
 			: m_data {}
-			, m_transform_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_identity_matrix {GALAXY_IDENTITY_MATRIX}
-			, m_rotation_origin {0, 0, 1}
 		{
+			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
+
 			deserialize(json);
 		}
 
-		void Camera::on_mouse_wheel(const events::MouseWheel& e) noexcept
+		Camera::Camera(Camera&& c) noexcept
 		{
-			m_dirty = true;
-
-			m_zoom -= static_cast<float>(e.m_yoff) * 0.25f;
-			m_zoom = std::max(m_zoom, 0.25f);
-
-			set_projection(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
+			this->m_allow_rotate      = c.m_allow_rotate;
+			this->m_translation_speed = c.m_translation_speed;
+			this->m_rotation_speed    = c.m_rotation_speed;
+			this->m_pos               = std::move(c.m_pos);
+			this->m_rotation          = c.m_rotation;
+			this->m_zoom              = c.m_zoom;
+			this->m_data.m_model_view = std::move(c.m_data.m_model_view);
+			this->m_data.m_projection = std::move(c.m_data.m_projection);
+			this->m_origin            = std::move(c.m_origin);
 		}
 
-		void Camera::on_window_resized(const events::WindowResized& e) noexcept
+		Camera& Camera::operator=(Camera&& c) noexcept
 		{
-			m_aspect_ratio = static_cast<float>(e.m_width) / static_cast<float>(e.m_height);
-			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
+			if (this != &c)
+			{
+				this->m_allow_rotate      = c.m_allow_rotate;
+				this->m_translation_speed = c.m_translation_speed;
+				this->m_rotation_speed    = c.m_rotation_speed;
+				this->m_pos               = std::move(c.m_pos);
+				this->m_rotation          = c.m_rotation;
+				this->m_zoom              = c.m_zoom;
+				this->m_data.m_model_view = std::move(c.m_data.m_model_view);
+				this->m_data.m_projection = std::move(c.m_data.m_projection);
+				this->m_origin            = std::move(c.m_origin);
+			}
+
+			return *this;
+		}
+
+		Camera::Camera(const Camera& c) noexcept
+		{
+			this->m_allow_rotate      = c.m_allow_rotate;
+			this->m_translation_speed = c.m_translation_speed;
+			this->m_rotation_speed    = c.m_rotation_speed;
+			this->m_pos               = c.m_pos;
+			this->m_rotation          = c.m_rotation;
+			this->m_zoom              = c.m_zoom;
+			this->m_data.m_model_view = c.m_data.m_model_view;
+			this->m_data.m_projection = c.m_data.m_projection;
+			this->m_origin            = c.m_origin;
+		}
+
+		Camera& Camera::operator=(const Camera& c) noexcept
+		{
+			if (this != &c)
+			{
+				this->m_allow_rotate      = c.m_allow_rotate;
+				this->m_translation_speed = c.m_translation_speed;
+				this->m_rotation_speed    = c.m_rotation_speed;
+				this->m_pos               = c.m_pos;
+				this->m_rotation          = c.m_rotation;
+				this->m_zoom              = c.m_zoom;
+				this->m_data.m_model_view = c.m_data.m_model_view;
+				this->m_data.m_projection = c.m_data.m_projection;
+				this->m_origin            = c.m_origin;
+			}
+
+			return *this;
+		}
+
+		Camera::~Camera() noexcept
+		{
 		}
 
 		void Camera::process_events() noexcept
 		{
-			if (Input::key_down(input::CameraKeys::FORWARD))
+			if (input::Input::key_down(input::CameraKeys::FORWARD))
 			{
 				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(input::CameraKeys::BACKWARD))
+			if (input::Input::key_down(input::CameraKeys::BACKWARD))
 			{
 				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(input::CameraKeys::LEFT))
+			if (input::Input::key_down(input::CameraKeys::LEFT))
 			{
 				m_pos.x -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y -= glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
-			if (Input::key_down(input::CameraKeys::RIGHT))
+			if (input::Input::key_down(input::CameraKeys::RIGHT))
 			{
 				m_pos.x += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				m_pos.y += glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
+
+			if (m_allow_rotate)
+			{
+				if (input::Input::key_down(input::CameraKeys::ROTATE_LEFT))
+				{
+					m_rotation += m_rotation_speed * GALAXY_DT;
+				}
+
+				if (input::Input::key_down(input::CameraKeys::ROTATE_RIGHT))
+				{
+					m_rotation -= m_rotation_speed * GALAXY_DT;
+				}
+
+				if (m_rotation > 180.0f)
+				{
+					m_rotation -= 360.0f;
+				}
+				else if (m_rotation <= -180.0f)
+				{
+					m_rotation += 360.0f;
+				}
+
+				set_rotation(m_rotation);
+			}
+
+			set_pos(m_pos.x, m_pos.y);
+			m_translation_speed = m_zoom;
+		}
+
+		void Camera::on_mouse_wheel(const events::MouseWheel& e) noexcept
+		{
+			if (!e.m_handled)
+			{
+				m_zoom -= static_cast<float>(e.m_yoff) * GALAXY_MIN_CAMERA_ZOOM;
+				m_zoom = std::max(m_zoom, GALAXY_MIN_CAMERA_ZOOM);
+
+				// e.m_handled = true;
+			}
+		}
+
+		void Camera::on_window_resized(const events::WindowResized& e) noexcept
+		{
+			set_projection(0.0f, static_cast<float>(e.m_width), static_cast<float>(e.m_height), 0.0f);
+		}
+
+		void Camera::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+		{
+			m_origin.x = right * 0.5f;
+			m_origin.y = bottom * 0.5f;
+
+			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
 		void Camera::set_pos(const float x, const float y) noexcept
 		{
 			m_pos.x = x;
 			m_pos.y = y;
-
-			m_dirty = true;
 		}
 
 		void Camera::set_rotation(const float degrees) noexcept
 		{
-			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
-
-			m_dirty = true;
+			m_rotation = degrees;
 		}
 
 		void Camera::set_zoom(const float offset) noexcept
@@ -142,19 +200,24 @@ namespace galaxy
 			m_zoom = offset;
 		}
 
-		void Camera::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+		float Camera::get_x() const noexcept
 		{
-			create(left, right, bottom, top);
+			return m_pos.x;
 		}
 
-		void Camera::set_translation_speed(const float speed) noexcept
+		float Camera::get_y() const noexcept
 		{
-			m_translation_speed = speed;
+			return m_pos.y;
 		}
 
-		void Camera::set_rotation_speed(const float speed) noexcept
+		float Camera::get_rotation() const noexcept
 		{
-			m_rotation_speed = speed;
+			return m_rotation;
+		}
+
+		float Camera::get_zoom() const noexcept
+		{
+			return m_zoom;
 		}
 
 		const glm::mat4& Camera::get_view() noexcept
@@ -165,6 +228,7 @@ namespace galaxy
 
 		const glm::mat4& Camera::get_proj() noexcept
 		{
+			recalculate();
 			return m_data.m_projection;
 		}
 
@@ -181,48 +245,44 @@ namespace galaxy
 			json["pos"]["y"]          = m_pos.y;
 			json["rotation"]          = m_rotation;
 			json["zoom"]              = m_zoom;
-			json["translation_speed"] = m_translation_speed;
+			json["allow_rotate"]      = m_allow_rotate;
 			json["rotation_speed"]    = m_rotation_speed;
+			json["translation_speed"] = m_translation_speed;
 
 			return json;
 		}
 
 		void Camera::deserialize(const nlohmann::json& json)
 		{
-			m_dirty = true;
-
 			const auto& pos = json.at("pos");
 			m_pos.x         = pos.at("x");
 			m_pos.y         = pos.at("y");
-			m_pos.z         = 0.0f;
 
 			m_rotation          = json.at("rotation");
 			m_zoom              = json.at("zoom");
-			m_translation_speed = json.at("translation_speed");
+			m_allow_rotate      = json.at("allow_rotate");
 			m_rotation_speed    = json.at("rotation_speed");
-
-			auto& window   = core::ServiceLocator<core::Window>::ref();
-			m_aspect_ratio = window.get_widthf() / window.get_heightf();
-
-			create(-m_aspect_ratio * m_zoom, m_aspect_ratio * m_zoom, -m_zoom, m_zoom);
-		}
-
-		void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
-		{
-			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
-
-			m_dirty = true;
+			m_translation_speed = json.at("translation_speed");
 		}
 
 		void Camera::recalculate() noexcept
 		{
-			if (m_dirty)
-			{
-				m_dirty = false;
+			static const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+			static const constexpr auto rotation_origin = glm::vec3 {0, 0, 1};
+			static auto scale_vec                       = glm::vec3 {1.0f, 1.0f, 1.0f};
 
-				m_transform_matrix  = glm::translate(m_identity_matrix, m_pos) * glm::rotate(m_identity_matrix, glm::radians(m_rotation), m_rotation_origin);
-				m_data.m_model_view = m_data.m_projection * glm::inverse(m_transform_matrix);
-			}
+			auto rotation = glm::translate(identity_matrix, m_origin);
+			rotation      = glm::rotate(identity_matrix, glm::radians(m_rotation), rotation_origin);
+			rotation      = glm::translate(identity_matrix, -m_origin);
+
+			auto scale  = glm::translate(identity_matrix, m_origin);
+			scale_vec.x = m_zoom;
+			scale_vec.y = m_zoom;
+			scale       = glm::scale(identity_matrix, scale_vec);
+			scale       = glm::translate(identity_matrix, -m_origin);
+
+			const auto transform = glm::translate(identity_matrix, m_pos) * rotation * scale;
+			m_data.m_model_view  = glm::inverse(transform);
 		}
 	} // namespace graphics
 } // namespace galaxy

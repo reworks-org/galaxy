@@ -118,6 +118,16 @@ namespace galaxy
 			/// Key to move camera RIGHT.
 			///
 			static inline input::Keys RIGHT;
+
+			///
+			/// Key to rotate camera LEFT.
+			///
+			static inline input::Keys ROTATE_LEFT;
+
+			///
+			/// Key to rotate camera RIGHT.
+			///
+			static inline input::Keys ROTATE_RIGHT;
 		};
 	} // namespace input
 } // namespace galaxy

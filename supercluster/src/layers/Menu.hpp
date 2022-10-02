@@ -35,8 +35,11 @@ namespace sc
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
 
+		void load_project();
+
 	private:
 		graphics::Texture m_bg;
+		bool m_load;
 	};
 } // namespace sc
 

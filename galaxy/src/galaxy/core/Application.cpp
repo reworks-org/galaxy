@@ -21,6 +21,7 @@
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FontContext.hpp"
+#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
@@ -110,6 +111,8 @@ namespace galaxy
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
 			config.restore<int>("camera_right", static_cast<int>(input::Keys::D), "input");
+			config.restore<int>("camera_rotate_left", static_cast<int>(input::Keys::Q), "input");
+			config.restore<int>("camera_rotate_right", static_cast<int>(input::Keys::E), "input");
 
 			config.save();
 
@@ -218,10 +221,12 @@ namespace galaxy
 					//
 					// Set inputs from config.
 					//
-					input::CameraKeys::FORWARD  = static_cast<input::Keys>(config.get<int>("camera_foward", "input"));
-					input::CameraKeys::BACKWARD = static_cast<input::Keys>(config.get<int>("camera_backward", "input"));
-					input::CameraKeys::LEFT     = static_cast<input::Keys>(config.get<int>("camera_left", "input"));
-					input::CameraKeys::RIGHT    = static_cast<input::Keys>(config.get<int>("camera_right", "input"));
+					input::CameraKeys::FORWARD      = static_cast<input::Keys>(config.get<int>("camera_foward", "input"));
+					input::CameraKeys::BACKWARD     = static_cast<input::Keys>(config.get<int>("camera_backward", "input"));
+					input::CameraKeys::LEFT         = static_cast<input::Keys>(config.get<int>("camera_left", "input"));
+					input::CameraKeys::RIGHT        = static_cast<input::Keys>(config.get<int>("camera_right", "input"));
+					input::CameraKeys::ROTATE_LEFT  = static_cast<input::Keys>(config.get<int>("camera_rotate_left", "input"));
+					input::CameraKeys::ROTATE_RIGHT = static_cast<input::Keys>(config.get<int>("camera_rotate_right", "input"));
 
 					//
 					// Window closing config.
@@ -458,6 +463,8 @@ namespace galaxy
 
 					while (accumulator >= GALAXY_UPS)
 					{
+						graphics::Renderer::flush();
+
 						window.poll_events();
 
 						scene.events();

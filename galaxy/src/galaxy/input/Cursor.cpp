@@ -55,6 +55,8 @@ namespace galaxy
 			const auto info = fs.find(icon);
 			if (info.m_code == fs::FileCode::FOUND)
 			{
+				stbi_set_flip_vertically_on_load(true);
+
 				// Fill glfw-compatible struct.
 
 				GLFWimage img = {};
@@ -81,6 +83,8 @@ namespace galaxy
 
 		void Cursor::set_cursor_icon(std::span<unsigned char> buffer)
 		{
+			stbi_set_flip_vertically_on_load(true);
+
 			// Fill glfw-compatible struct.
 
 			GLFWimage img = {};

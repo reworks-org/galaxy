@@ -81,6 +81,11 @@ namespace galaxy
 #define GAlAXY_CAMERA_UBO_INDEX 0
 
 ///
+/// Minimum zoom allowed on orthographic camera.
+///
+#define GALAXY_MIN_CAMERA_ZOOM 0.25f
+
+///
 /// Amount of items in a std::vector to initially reserve for the renderer
 /// This is to help prevent needless reallocations.
 ///

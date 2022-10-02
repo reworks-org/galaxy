@@ -101,10 +101,8 @@ namespace sc
 				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
 				{
 					m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-
 					camera.set_pos(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
-
-					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
+					// ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 				}
 
 				if (!m_paused)
@@ -143,14 +141,22 @@ namespace sc
 		static GLint s_viewport[4] = {0, 0, 0, 0};
 		glGetIntegerv(GL_VIEWPORT, s_viewport);
 
-		m_framebuffer.bind(true);
+		if (!graphics::Renderer::get_data().empty())
+		{
+			m_render_data = graphics::Renderer::get_data();
+		}
 
+		auto& data = graphics::Renderer::get_data();
+		data       = m_render_data;
+
+		m_framebuffer.bind(true);
 		if (m_project_scenes.has_current())
 		{
 			m_project_scenes.current().render();
 		}
 
 		graphics::Renderer::draw();
+		graphics::Renderer::flush();
 
 		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
@@ -187,15 +193,17 @@ namespace sc
 
 				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
-					auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
-					if (file.has_value())
-					{
-						load_project(file.value());
-					}
-					else
-					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project file."});
-					}
+					m_update_stack.emplace_back([&]() {
+						auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
+						if (file.has_value())
+						{
+							load_project(file.value());
+						}
+						else
+						{
+							ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project file."});
+						}
+					});
 				}
 
 				if (ImGui::MenuItem("Save", "Ctrl+S"))
@@ -353,11 +361,13 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_O))
 		{
-			auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
-			if (file.has_value())
-			{
-				load_project(file.value());
-			}
+			m_update_stack.emplace_back([&]() {
+				auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
+			    if (file.has_value())
+			    {
+                    load_project(file.value());
+			    }
+            });
 		}
 
 		ui::imgui_confirm("RestartConfirm", [&](){
@@ -628,12 +638,15 @@ namespace sc
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", fs_path.string());
+				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
 			}
 		}
 		else
 		{
 			ifs.close();
+
 			GALAXY_LOG(GALAXY_ERROR, "Failed to open project file: {0}.", path);
+			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
 		}
 	}
 
@@ -643,7 +656,7 @@ namespace sc
 
 		if (m_current_project_path.empty() || save_as)
 		{
-			const auto sp_opt = fs.show_save_dialog("*.scproj", "untitled.scproj");
+			const auto sp_opt = fs.show_save_dialog("untitled.scproj", "*.scproj");
 			if (sp_opt.has_value())
 			{
 				m_current_project_path = sp_opt.value();
@@ -661,11 +674,14 @@ namespace sc
 				ofs.close();
 
 				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
+				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
 			}
 			else
 			{
 				ofs.close();
+
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save project to disk.");
+				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save project."});
 			}
 		}
 	}
@@ -776,7 +792,7 @@ namespace sc
 				if (m_code_editor.m_file.empty())
 				{
 					auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-					const auto file = fs.show_save_dialog("*.lua", "untitled.lua");
+					const auto file = fs.show_save_dialog("untitled.lua", "*.lua");
 
 					if (file.has_value())
 					{
@@ -867,9 +883,14 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
+
+				if (m_project_scenes.has_current())
+				{
+					m_project_scenes.current().get_camera().on_window_resized({.m_width = (int)m_viewport_size.x, .m_height = (int)m_viewport_size.y});
+				}
 			}
 
-			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size /*, {0, 1}, {1, 0}*/);
+			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
 
 			/*
 			if (m_mouse_picked)

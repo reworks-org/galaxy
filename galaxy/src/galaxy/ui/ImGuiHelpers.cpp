@@ -166,7 +166,7 @@ namespace galaxy
 
 		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept
 		{
-			return ImGui::ImageButton(reinterpret_cast<void*>(texture.handle()), size);
+			return ImGui::ImageButton(reinterpret_cast<void*>(texture.handle()), size, {0, 1}, {1, 0});
 		}
 	} // namespace ui
 } // namespace galaxy

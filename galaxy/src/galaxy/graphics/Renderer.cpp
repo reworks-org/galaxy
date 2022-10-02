@@ -19,8 +19,8 @@ namespace galaxy
 	{
 		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
 		std::vector<Renderable*> Renderer::s_data;
-		int Renderer::s_prev_shader  = 0;
-		int Renderer::s_prev_texture = 0;
+		int Renderer::s_prev_shader  = -1;
+		int Renderer::s_prev_texture = -1;
 
 		void Renderer::init() noexcept
 		{
@@ -38,8 +38,8 @@ namespace galaxy
 			s_ubo.reset();
 			s_ubo = nullptr;
 
-			s_prev_shader  = 0;
-			s_prev_texture = 0;
+			s_prev_shader  = -1;
+			s_prev_texture = -1;
 		}
 
 		void Renderer::buffer_camera(Camera& camera) noexcept
@@ -54,16 +54,19 @@ namespace galaxy
 
 		void Renderer::draw()
 		{
+			s_prev_shader  = -1;
+			s_prev_texture = -1;
+
 			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) noexcept -> bool {
 				if (left->m_layer == right->m_layer)
 				{
-					if (left->m_texture == right->m_texture)
+					if (left->m_texture_id == right->m_texture_id)
 					{
-						return left->m_shader < right->m_shader;
+						return left->m_shader_sort_id < right->m_shader_sort_id;
 					}
 					else
 					{
-						return left->m_texture < right->m_texture;
+						return left->m_texture_id < right->m_texture_id;
 					}
 				}
 				else
@@ -72,30 +75,32 @@ namespace galaxy
 				}
 			});
 
+			glActiveTexture(GL_TEXTURE0);
+
 			for (auto i = 0; i < s_data.size(); i++)
 			{
 				auto renderable = s_data[i];
 
-				if (s_prev_shader != renderable->m_shader)
+				const auto shader = renderable->m_configure_shader();
+				if (s_prev_shader != shader)
 				{
-					glUseProgram(renderable->m_shader);
-					s_prev_shader = renderable->m_shader;
+					glUseProgram(shader);
+					s_prev_shader = shader;
 				}
 
 				// Don't need to check, usually will always be different.
-				glBindVertexArray(renderable->m_vao);
+				glBindVertexArray(renderable->m_vao_id);
 
-				if (s_prev_texture != renderable->m_texture)
+				if (s_prev_texture != renderable->m_texture_id)
 				{
-					glBindTexture(GL_TEXTURE_2D, renderable->m_texture);
-					s_prev_texture = renderable->m_texture;
+					glActiveTexture(GL_TEXTURE0);
+					glBindTexture(GL_TEXTURE_2D, renderable->m_texture_id);
+					s_prev_texture = renderable->m_texture_id;
 				}
 
 				// Instances = 1 is the same as glDrawElements.
-				glDrawElementsInstanced(renderable->m_type, renderable->m_count, GL_UNSIGNED_INT, nullptr, renderable->m_instances);
+				glDrawElementsInstanced(renderable->m_type, renderable->m_index_count, GL_UNSIGNED_INT, nullptr, renderable->m_instances);
 			}
-
-			s_data.clear();
 		}
 
 		void Renderer::flush() noexcept
@@ -105,11 +110,12 @@ namespace galaxy
 
 		void Renderer::draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform)
 		{
+			glActiveTexture(GL_TEXTURE0);
+
 			va.bind();
 			texture.bind();
 
-			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
-			auto rtt      = shaders.get("RenderToTexture");
+			auto rtt = core::ServiceLocator<resource::Shaders>::ref().get("RenderToTexture");
 			if (rtt != nullptr)
 			{
 				rtt->bind();
@@ -122,6 +128,15 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default render to texture shader.");
 			}
+
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glUseProgram(0);
+		}
+
+		std::vector<Renderable*>& Renderer::get_data() noexcept
+		{
+			return s_data;
 		}
 	} // namespace graphics
 } // namespace galaxy

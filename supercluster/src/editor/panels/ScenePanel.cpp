@@ -76,6 +76,7 @@ namespace sc
 
 				ImGui::Separator();
 
+				static auto s_exit_early = false;
 				for (auto&& [name, scene] : sm.all())
 				{
 					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
@@ -105,43 +106,43 @@ namespace sc
 						}
 
 						ui::imgui_confirm("TreeRemovePopup", [&]() {
-							if (!sm.remove(name))
+							if (sm.remove(name))
+							{
+								s_exit_early = true;
+							}
+							else
 							{
 								ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "Cannot remove active scene."});
 							}
 						});
 
-						/*
+						if (s_exit_early)
+						{
+							s_exit_early = false;
+							ImGui::TreePop();
+
+							break;
+						}
+
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
+						auto& camera = scene->get_camera();
 						ImGui::Text("Camera:");
-						float camera_x = scene->get_camera().get_pos().x;
-						if (ImGui::InputFloat("X##01", &camera_x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							scene->get_camera().move(camera_x, 0.0f);
-						}
+						ImGui::Text("Pos: %.2f, %.2f", camera.get_x(), camera.get_y());
+						ImGui::SameLine();
+						ImGui::Text("Rotation: %.1f", camera.get_rotation());
+						ImGui::SameLine();
+						ImGui::Text("Zoom: %.1f", camera.get_zoom());
 
-						float camera_y = scene->get_camera().get_pos().y;
-						if (ImGui::InputFloat("Y##02", &camera_y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							scene->get_camera().move(0.0f, camera_y);
-						}
+						ImGui::Checkbox("Allow Rotation", &camera.m_allow_rotate);
+						ImGui::InputFloat("Speed", &camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Rotation Speed", &camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");
 
-						float camera_speed = scene->get_camera().get_speed();
-						if (ImGui::InputFloat("Speed##03",
-								&camera_speed,
-								1.0f,
-								10.0f,
-								"%.1f",
-								ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-						{
-							scene->get_camera().set_speed(camera_speed);
-						}
-
-						float camera_zoom = scene->get_camera().get_scale();
-						if (ImGui::SliderFloat("Zoom##04", &camera_zoom, 1.0f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp))
-						{
-							scene->get_camera().zoom(camera_zoom);
-						}
-						*/
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
 
 						if (ImGui::Button("New Runtime"))
 						{
@@ -210,7 +211,7 @@ namespace sc
 							ImGui::EndPopup();
 						}
 
-						if (ImGui::CollapsingHeader("Stack"))
+						if (ImGui::CollapsingHeader("Layers"))
 						{
 							if (ImGui::Button("Pop"))
 							{
@@ -222,8 +223,6 @@ namespace sc
 								ImGui::BulletText(layer->get_name().c_str());
 							}
 						}
-
-						ImGui::Text("Layers: ");
 
 						for (auto&& [layer_key, layer] : scene->layers().cache())
 						{
