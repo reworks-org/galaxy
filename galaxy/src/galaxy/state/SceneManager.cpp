@@ -187,8 +187,11 @@ namespace galaxy
 
 		nlohmann::json SceneManager::serialize()
 		{
-			nlohmann::json json   = "{\"current_scene\": \"\", \"scenes\": {}}"_json;
-			json["current_scene"] = m_current->get_name();
+			nlohmann::json json = "{\"current_scene\": \"\", \"scenes\": {}}"_json;
+			if (m_current)
+			{
+				json["current_scene"] = m_current->get_name();
+			}
 
 			for (auto& [name, scene] : m_scenes)
 			{
