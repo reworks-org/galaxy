@@ -19,7 +19,7 @@ namespace galaxy
 		Sprite::Sprite() noexcept
 			: Renderable {}
 			, Serializable {}
-			, m_opacity {0.0f}
+			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
@@ -28,7 +28,7 @@ namespace galaxy
 		Sprite::Sprite(const nlohmann::json& json)
 			: Renderable {}
 			, Serializable {}
-			, m_opacity {0.0f}
+			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
@@ -38,7 +38,7 @@ namespace galaxy
 		Sprite::Sprite(Sprite&& s) noexcept
 			: Renderable {std::move(s)}
 			, Serializable {}
-			, m_opacity {0.0f}
+			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
@@ -97,7 +97,7 @@ namespace galaxy
 				vertices[2].m_texels = info.m_texel_region.br_texels();
 
 				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.ur_texels();
+				vertices[3].m_texels = info.m_texel_region.bl_texels();
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 				m_texture = texture;
@@ -136,7 +136,7 @@ namespace galaxy
 				vertices[2].m_texels = info.m_texel_region.br_texels();
 
 				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.ur_texels();
+				vertices[3].m_texels = info.m_texel_region.bl_texels();
 
 				m_vao.sub_buffer(0, vertices);
 				m_texture = texture;
