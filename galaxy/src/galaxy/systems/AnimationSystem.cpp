@@ -6,7 +6,9 @@
 ///
 
 #include "galaxy/components/Animated.hpp"
+#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Sprite.hpp"
+#include "galaxy/flags/Enabled.hpp"
 #include "galaxy/state/Layer.hpp"
 #include "galaxy/utils/Globals.hpp"
 
@@ -26,10 +28,10 @@ namespace galaxy
 
 		void AnimationSystem::update(state::Layer* layer)
 		{
-			const auto view = layer->world().m_registry.view<components::Animated>();
-			for (auto&& [entity, animated] : view.each())
+			const auto view = layer->world().m_registry.view<components::Animated, components::Flag>();
+			for (auto&& [entity, animated, flag] : view.each())
 			{
-				if (!animated.is_paused())
+				if (flag.is_flag_set<flags::Enabled>() && !animated.is_paused())
 				{
 					const auto active_anim = animated.active();
 					if (active_anim != nullptr)
