@@ -375,16 +375,9 @@ namespace galaxy
 			}
 		}
 
-		std::optional<std::string> VirtualFileSystem::show_save_dialog(const std::string& filter, const std::string& def_path)
+		std::optional<std::string> VirtualFileSystem::show_save_dialog(const std::string& default_filename, const std::string& filter)
 		{
-			std::filesystem::path default_path = m_root;
-
-			if (!def_path.empty())
-			{
-				default_path /= def_path;
-			}
-
-			pfd::save_file dialog {"Save file.", default_path.string(), {"Select file", filter}};
+			pfd::save_file dialog {"Save file.", default_filename, {"Select file", filter}};
 
 			const auto result = dialog.result();
 			if (!result.empty())
@@ -433,9 +426,9 @@ namespace galaxy
 			}
 		}
 
-		bool VirtualFileSystem::save_with_dialog(const std::string& data, const std::string& def_path)
+		bool VirtualFileSystem::save_with_dialog(const std::string& data, const std::string& default_filename)
 		{
-			const auto path = show_save_dialog(def_path);
+			const auto path = show_save_dialog(default_filename);
 			if (path.has_value())
 			{
 				return save(data, path.value());

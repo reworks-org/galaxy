@@ -144,13 +144,12 @@ namespace galaxy
 			///
 			/// Open a save file dialog using pfd.
 			///
+			/// \param default_filename Default name to save file as.
 			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
 			///					Defaults to all files.
-			/// \param def_path Default starting path to open dialog at.
-			///
 			/// \return String with path, nullopt if dialog closed or nothing selected.
 			///
-			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& filter = "*", const std::string& def_path = "");
+			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& default_filename, const std::string& filter = "*");
 
 			///
 			/// Open a folder using a file dialog.
@@ -176,11 +175,11 @@ namespace galaxy
 			/// Save a file using a dialog.
 			///
 			/// \param data Data to write to file.
-			/// \param def_path Default starting path to open dialog at.
+			/// \param default_filename Default name to save file as.
 			///
 			/// \return Const bool. True if successful.
 			///
-			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& def_path = "");
+			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& default_filename);
 
 			///
 			/// List contents of a directory in the VFS recursively.
