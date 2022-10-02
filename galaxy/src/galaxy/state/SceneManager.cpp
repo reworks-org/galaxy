@@ -61,17 +61,19 @@ namespace galaxy
 
 		void SceneManager::change(const std::string& name)
 		{
-			if (m_scenes.contains(name))
+			if (!name.empty())
 			{
-				// need to draw loading screen?
-
-				m_current->unload();
-				m_current = m_scenes[name];
-				m_current->load();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to change to a non-existent scene '{0}'.", name);
+				if (m_scenes.contains(name))
+				{
+					// need to draw loading screen?
+					m_current->unload();
+					m_current = m_scenes[name];
+					m_current->load();
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Tried to change to a non-existent scene '{0}'.", name);
+				}
 			}
 		}
 
