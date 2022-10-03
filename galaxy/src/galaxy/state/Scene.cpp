@@ -49,11 +49,11 @@ namespace galaxy
 		void Scene::update()
 		{
 			m_layer_stack.update();
-			graphics::Renderer::buffer_camera(m_camera);
 		}
 
 		void Scene::render()
 		{
+			graphics::Renderer::buffer_camera(m_camera);
 			m_layer_stack.render();
 		}
 

@@ -21,7 +21,7 @@ namespace galaxy
 	{
 		Camera::Camera(bool allow_rotate) noexcept
 			: m_allow_rotate {allow_rotate}
-			, m_translation_speed {5.0f}
+			, m_translation_speed {180.0f}
 			, m_rotation_speed {180.0f}
 			, m_pos {0.0f, 0.0f, 0.0f}
 			, m_rotation {0.0f}
@@ -110,14 +110,14 @@ namespace galaxy
 		{
 			if (input::Input::key_down(input::CameraKeys::FORWARD))
 			{
-				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
 			if (input::Input::key_down(input::CameraKeys::BACKWARD))
 			{
-				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 			}
 
 			if (input::Input::key_down(input::CameraKeys::LEFT))
@@ -157,7 +157,6 @@ namespace galaxy
 			}
 
 			set_pos(m_pos.x, m_pos.y);
-			m_translation_speed = m_zoom;
 		}
 
 		void Camera::on_mouse_wheel(const events::MouseWheel& e) noexcept
@@ -165,7 +164,7 @@ namespace galaxy
 			if (!e.m_handled)
 			{
 				m_zoom -= static_cast<float>(e.m_yoff) * GALAXY_MIN_CAMERA_ZOOM;
-				m_zoom = std::max(m_zoom, GALAXY_MIN_CAMERA_ZOOM);
+				m_zoom = std::clamp(m_zoom, GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM);
 
 				// e.m_handled = true;
 			}
@@ -272,14 +271,14 @@ namespace galaxy
 			static auto scale_vec                       = glm::vec3 {1.0f, 1.0f, 1.0f};
 
 			auto rotation = glm::translate(identity_matrix, m_origin);
-			rotation      = glm::rotate(identity_matrix, glm::radians(m_rotation), rotation_origin);
-			rotation      = glm::translate(identity_matrix, -m_origin);
+			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_origin);
+			rotation      = glm::translate(rotation, -m_origin);
 
 			auto scale  = glm::translate(identity_matrix, m_origin);
 			scale_vec.x = m_zoom;
 			scale_vec.y = m_zoom;
-			scale       = glm::scale(identity_matrix, scale_vec);
-			scale       = glm::translate(identity_matrix, -m_origin);
+			scale       = glm::scale(scale, scale_vec);
+			scale       = glm::translate(scale, -m_origin);
 
 			const auto transform = glm::translate(identity_matrix, m_pos) * rotation * scale;
 			m_data.m_model_view  = glm::inverse(transform);

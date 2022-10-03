@@ -10,7 +10,7 @@
                 },
                 "rotation": 0.0,
                 "rotation_speed": 180.0,
-                "translation_speed": 5.0,
+                "translation_speed": 180.0,
                 "zoom": 1.0
             },
             "name": "SpriteTest",
@@ -66,7 +66,7 @@
                                         },
                                         "Flag": {
                                             "flags": {
-                                                "0": false,
+                                                "0": true,
                                                 "1": true,
                                                 "2": false,
                                                 "3": false,

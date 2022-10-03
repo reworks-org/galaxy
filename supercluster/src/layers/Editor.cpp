@@ -7,6 +7,7 @@
 
 #include <fstream>
 
+#include <imgui_impl_glfw.h>
 #include <imgui_addons/notify/imgui_notify.h>
 #include <nlohmann/json.hpp>
 #include <portable-file-dialogs.h>
@@ -85,31 +86,18 @@ namespace sc
 				m_mouse_picked = true;
 			}
 
-			if (ImGui::IsMouseDown(ImGuiMouseButton_Right))
-			{
-				m_use_mouse_hand = true;
-			}
-			else
-			{
-				m_use_mouse_hand = false;
-			}
-
 			if (m_project_scenes.has_current())
 			{
-				auto& camera = m_project_scenes.current().get_camera();
-
-				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right))
-				{
-					m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-					camera.set_pos(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
-					// ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-				}
-
 				if (!m_paused)
 				{
+					ImGui_ImplGlfw_ToggleInput(true);
 					m_project_scenes.current().events();
 				}
 			}
+		}
+		else
+		{
+			ImGui_ImplGlfw_ToggleInput(false);
 		}
 	}
 
@@ -932,7 +920,7 @@ namespace sc
 /*
 if (!m_game_mode)
 		{
-			//	ImGui::ImplGlfw::g_BlockInput = false;
+			//
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{

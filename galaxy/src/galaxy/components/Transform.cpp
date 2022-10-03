@@ -129,14 +129,14 @@ namespace galaxy
 			static auto scale_vec                       = glm::vec3 {1.0f, 1.0f, 1.0f};
 
 			auto rotation = glm::translate(identity_matrix, m_origin);
-			rotation      = glm::rotate(identity_matrix, glm::radians(m_rotation), rotation_vec);
-			rotation      = glm::translate(identity_matrix, -m_origin);
+			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_vec);
+			rotation      = glm::translate(rotation, -m_origin);
 
 			auto scale  = glm::translate(identity_matrix, m_origin);
 			scale_vec.x = m_scale;
 			scale_vec.y = m_scale;
-			scale       = glm::scale(identity_matrix, scale_vec);
-			scale       = glm::translate(identity_matrix, -m_origin);
+			scale       = glm::scale(scale, scale_vec);
+			scale       = glm::translate(scale, -m_origin);
 
 			return glm::translate(identity_matrix, m_pos) * rotation * scale;
 		}

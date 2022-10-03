@@ -137,6 +137,8 @@ struct ImGui_ImplGlfw_Data
     ImGui_ImplGlfw_Data()   { memset((void*)this, 0, sizeof(*this)); }
 };
 
+static bool gInputBlocked = false;
+
 // Backend data stored in io.BackendPlatformUserData to allow support for multiple Dear ImGui contexts
 // It is STRONGLY preferred that you use docking branch with multi-viewports (== single Dear ImGui context + multiple windows) instead of multiple Dear ImGui contexts.
 // FIXME: multi-context support is not well tested and probably dysfunctional in this backend.
@@ -303,24 +305,30 @@ static void ImGui_ImplGlfw_UpdateKeyModifiers(int mods)
 void ImGui_ImplGlfw_MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
     ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
-    if (bd->PrevUserCallbackMousebutton != NULL && window == bd->Window)
-        bd->PrevUserCallbackMousebutton(window, button, action, mods);
+        if (bd->PrevUserCallbackMousebutton != NULL && window == bd->Window)
+            bd->PrevUserCallbackMousebutton(window, button, action, mods);
 
-    ImGui_ImplGlfw_UpdateKeyModifiers(mods);
+    if (!gInputBlocked)
+    {
+        ImGui_ImplGlfw_UpdateKeyModifiers(mods);
 
-    ImGuiIO& io = ImGui::GetIO();
-    if (button >= 0 && button < ImGuiMouseButton_COUNT)
-        io.AddMouseButtonEvent(button, action == GLFW_PRESS);
+        ImGuiIO& io = ImGui::GetIO();
+        if (button >= 0 && button < ImGuiMouseButton_COUNT)
+            io.AddMouseButtonEvent(button, action == GLFW_PRESS);    
+    }
 }
 
 void ImGui_ImplGlfw_ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 {
     ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
-    if (bd->PrevUserCallbackScroll != NULL && window == bd->Window)
-        bd->PrevUserCallbackScroll(window, xoffset, yoffset);
+        if (bd->PrevUserCallbackScroll != NULL && window == bd->Window)
+            bd->PrevUserCallbackScroll(window, xoffset, yoffset);
 
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddMouseWheelEvent((float)xoffset, (float)yoffset);
+    if (!gInputBlocked)
+    {
+        ImGuiIO& io = ImGui::GetIO();
+        io.AddMouseWheelEvent((float)xoffset, (float)yoffset);
+    }
 }
 
 static int ImGui_ImplGlfw_TranslateUntranslatedKey(int key, int scancode)
@@ -353,27 +361,30 @@ static int ImGui_ImplGlfw_TranslateUntranslatedKey(int key, int scancode)
 
 void ImGui_ImplGlfw_KeyCallback(GLFWwindow* window, int keycode, int scancode, int action, int mods)
 {
-    ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
-    if (bd->PrevUserCallbackKey != NULL && window == bd->Window)
-        bd->PrevUserCallbackKey(window, keycode, scancode, action, mods);
+     ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
+        if (bd->PrevUserCallbackKey != NULL && window == bd->Window)
+            bd->PrevUserCallbackKey(window, keycode, scancode, action, mods);
 
-    if (action != GLFW_PRESS && action != GLFW_RELEASE)
-        return;
+        if (action != GLFW_PRESS && action != GLFW_RELEASE)
+            return;
 
-    // Workaround: X11 does not include current pressed/released modifier key in 'mods' flags. https://github.com/glfw/glfw/issues/1630
-    if (int keycode_to_mod = ImGui_ImplGlfw_KeyToModifier(keycode))
-        mods = (action == GLFW_PRESS) ? (mods | keycode_to_mod) : (mods & ~keycode_to_mod);
-    ImGui_ImplGlfw_UpdateKeyModifiers(mods);
+    if (!gInputBlocked)
+    {
+        // Workaround: X11 does not include current pressed/released modifier key in 'mods' flags. https://github.com/glfw/glfw/issues/1630
+        if (int keycode_to_mod = ImGui_ImplGlfw_KeyToModifier(keycode))
+            mods = (action == GLFW_PRESS) ? (mods | keycode_to_mod) : (mods & ~keycode_to_mod);
+        ImGui_ImplGlfw_UpdateKeyModifiers(mods);
 
-    if (keycode >= 0 && keycode < IM_ARRAYSIZE(bd->KeyOwnerWindows))
-        bd->KeyOwnerWindows[keycode] = (action == GLFW_PRESS) ? window : NULL;
+        if (keycode >= 0 && keycode < IM_ARRAYSIZE(bd->KeyOwnerWindows))
+            bd->KeyOwnerWindows[keycode] = (action == GLFW_PRESS) ? window : NULL;
 
-    keycode = ImGui_ImplGlfw_TranslateUntranslatedKey(keycode, scancode);
+        keycode = ImGui_ImplGlfw_TranslateUntranslatedKey(keycode, scancode);
 
-    ImGuiIO& io = ImGui::GetIO();
-    ImGuiKey imgui_key = ImGui_ImplGlfw_KeyToImGuiKey(keycode);
-    io.AddKeyEvent(imgui_key, (action == GLFW_PRESS));
-    io.SetKeyEventNativeData(imgui_key, keycode, scancode); // To support legacy indexing (<1.87 user code)
+        ImGuiIO& io = ImGui::GetIO();
+        ImGuiKey imgui_key = ImGui_ImplGlfw_KeyToImGuiKey(keycode);
+        io.AddKeyEvent(imgui_key, (action == GLFW_PRESS));
+        io.SetKeyEventNativeData(imgui_key, keycode, scancode); // To support legacy indexing (<1.87 user code)
+    }
 }
 
 void ImGui_ImplGlfw_WindowFocusCallback(GLFWwindow* window, int focused)
@@ -432,8 +443,11 @@ void ImGui_ImplGlfw_CharCallback(GLFWwindow* window, unsigned int c)
     if (bd->PrevUserCallbackChar != NULL && window == bd->Window)
         bd->PrevUserCallbackChar(window, c);
 
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddInputCharacter(c);
+    if (!gInputBlocked)
+    {
+        ImGuiIO& io = ImGui::GetIO();
+        io.AddInputCharacter(c);
+    }
 }
 
 void ImGui_ImplGlfw_MonitorCallback(GLFWmonitor*, int)
@@ -556,16 +570,19 @@ static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, Glfw
 
 bool ImGui_ImplGlfw_InitForOpenGL(GLFWwindow* window, bool install_callbacks)
 {
+    gInputBlocked = false;
     return ImGui_ImplGlfw_Init(window, install_callbacks, GlfwClientApi_OpenGL);
 }
 
 bool ImGui_ImplGlfw_InitForVulkan(GLFWwindow* window, bool install_callbacks)
 {
+    gInputBlocked = false;
     return ImGui_ImplGlfw_Init(window, install_callbacks, GlfwClientApi_Vulkan);
 }
 
 bool ImGui_ImplGlfw_InitForOther(GLFWwindow* window, bool install_callbacks)
 {
+    gInputBlocked = false;
     return ImGui_ImplGlfw_Init(window, install_callbacks, GlfwClientApi_Unknown);
 }
 
@@ -586,6 +603,8 @@ void ImGui_ImplGlfw_Shutdown()
     io.BackendPlatformName = NULL;
     io.BackendPlatformUserData = NULL;
     IM_DELETE(bd);
+
+    gInputBlocked = false;
 }
 
 static void ImGui_ImplGlfw_UpdateMouseData()
@@ -800,6 +819,16 @@ void ImGui_ImplGlfw_NewFrame()
 
     // Update game controllers (if enabled and available)
     ImGui_ImplGlfw_UpdateGamepads();
+}
+
+bool ImGui_ImplGlfw_InputBlocked()
+{
+    return gInputBlocked;
+}
+
+void ImGui_ImplGlfw_ToggleInput(bool is_blocked)
+{
+    gInputBlocked = is_blocked;
 }
 
 //--------------------------------------------------------------------------------------------------------
