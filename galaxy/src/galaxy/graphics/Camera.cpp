@@ -159,14 +159,14 @@ namespace galaxy
 			set_pos(m_pos.x, m_pos.y);
 		}
 
-		void Camera::on_mouse_wheel(const events::MouseWheel& e) noexcept
+		void Camera::on_mouse_wheel(events::MouseWheel& e) noexcept
 		{
 			if (!e.m_handled)
 			{
 				m_zoom -= static_cast<float>(e.m_yoff) * GALAXY_MIN_CAMERA_ZOOM;
 				m_zoom = std::clamp(m_zoom, GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM);
 
-				// e.m_handled = true;
+				e.m_handled = true;
 			}
 		}
 
