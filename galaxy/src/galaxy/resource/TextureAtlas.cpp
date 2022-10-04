@@ -199,6 +199,19 @@ namespace galaxy
 			return static_cast<float>(y) / static_cast<float>(height);
 		}
 
+		std::vector<std::string> TextureAtlas::keys() noexcept
+		{
+			std::vector<std::string> keys;
+			keys.reserve(m_data.size());
+
+			for (const auto& [key, _] : m_data)
+			{
+				keys.push_back(key);
+			}
+
+			return keys;
+		}
+
 		void TextureAtlas::init()
 		{
 			glGetIntegerv(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, &m_max_bindings);

@@ -77,6 +77,13 @@ namespace galaxy
 			///
 			[[nodiscard]] CacheMap& cache() noexcept;
 
+			///
+			/// Get a list of keys in the cache.
+			///
+			/// \return A vector of strings.
+			///
+			[[nodiscard]] std::vector<std::string> keys() noexcept;
+
 		protected:
 			///
 			/// Constructor.
@@ -150,6 +157,20 @@ namespace galaxy
 		inline Cache<Resource>::CacheMap& Cache<Resource>::cache() noexcept
 		{
 			return m_cache;
+		}
+
+		template<meta::not_memory Resource>
+		inline std::vector<std::string> Cache<Resource>::keys() noexcept
+		{
+			std::vector<std::string> keys;
+			keys.reserve(m_cache.size());
+
+			for (const auto& [key, _] : m_cache)
+			{
+				keys.push_back(key);
+			}
+
+			return keys;
 		}
 	} // namespace resource
 } // namespace galaxy

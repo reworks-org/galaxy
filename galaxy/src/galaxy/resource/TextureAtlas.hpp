@@ -160,6 +160,13 @@ namespace galaxy
 			///
 			[[nodiscard]] constexpr float map_y_texel(const int y, const int height) const noexcept;
 
+			///
+			/// Get a list of keys in the cache.
+			///
+			/// \return A vector of strings.
+			///
+			[[nodiscard]] std::vector<std::string> keys() noexcept;
+
 		private:
 			///
 			/// Move constructor.

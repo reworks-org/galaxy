@@ -782,6 +782,7 @@ namespace galaxy
 			scripts_type["has"]    = &resource::Scripts::has;
 			scripts_type["load"]   = &resource::Scripts::load;
 			scripts_type["reload"] = &resource::Scripts::reload;
+			scripts_type["keys"]   = &resource::Scripts::keys;
 
 			auto shaders_type       = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
 			shaders_type["clear"]   = &resource::Shaders::clear;
@@ -791,6 +792,7 @@ namespace galaxy
 			shaders_type["load"]    = &resource::Shaders::load;
 			shaders_type["reload"]  = &resource::Shaders::reload;
 			shaders_type["compile"] = &resource::Shaders::compile;
+			shaders_type["keys"]    = &resource::Shaders::keys;
 
 			auto sounds_type             = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
 			sounds_type["clear"]         = &resource::Sounds::clear;
@@ -801,6 +803,7 @@ namespace galaxy
 			sounds_type["load_sfx"]      = &resource::Sounds::load_sfx;
 			sounds_type["load_dialogue"] = &resource::Sounds::load_dialogue;
 			sounds_type["reload"]        = &resource::Sounds::reload;
+			sounds_type["keys"]          = &resource::Sounds::keys;
 
 			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
 			textureatlas_type["add_file"]   = &resource::TextureAtlas::add_file;
@@ -810,6 +813,7 @@ namespace galaxy
 			textureatlas_type["query"]      = &resource::TextureAtlas::query;
 			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
 			textureatlas_type["save"]       = &resource::TextureAtlas::save;
+			textureatlas_type["keys"]       = &resource::TextureAtlas::keys;
 
 			auto fonts_type      = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
 			fonts_type["clear"]  = &resource::Fonts::clear;
@@ -819,6 +823,7 @@ namespace galaxy
 			fonts_type["load"]   = &resource::Fonts::load;
 			fonts_type["reload"] = &resource::Fonts::reload;
 			fonts_type["build"]  = &resource::Fonts::build;
+			fonts_type["keys"]   = &resource::Fonts::keys;
 
 			/* STATE */
 			auto scenemanager_type       = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
