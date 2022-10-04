@@ -247,27 +247,23 @@ namespace sc
 					});
 
 					draw_component<components::DrawShader>(selected, "Draw Shader", [](components::DrawShader* ds) {
-						if (ImGui::InputText("Shader ID", &ds->m_id, ImGuiInputTextFlags_EnterReturnsTrue))
+						if (ImGui::BeginCombo("Shader", ds->m_id.c_str()))
 						{
-							if (!ds->m_id.empty())
+							for (const auto& key : core::ServiceLocator<resource::Shaders>::ref().keys())
 							{
-								auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
-								if (shaders.has(ds->m_id))
+								const bool selected = (ds->m_id == key);
+								if (ImGui::Selectable(key.c_str(), selected))
 								{
-									ds->set_shader(ds->m_id);
+									ds->set_shader(key);
 								}
-								else
+
+								if (selected)
 								{
-									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Shader does not exist."});
+									ImGui::SetItemDefaultFocus();
 								}
 							}
-						}
 
-						if (ImGui::IsItemHovered())
-						{
-							ImGui::BeginTooltip();
-							ImGui::Text("Press Enter to Set.");
-							ImGui::EndTooltip();
+							ImGui::EndCombo();
 						}
 					});
 

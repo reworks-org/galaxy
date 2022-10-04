@@ -18,8 +18,8 @@
 
 editor:
 - https://github.com/SpartanJ/efsw
-- have some kind of shader manager and allow drag/drop that name onto draw shader component
-- resource selection should be dropdownlists...
+- resource selection should be dropdownlists
+	- done for shader, need for textures, others...
 - texture manager for editor
 - fix issues with restart
 - fix colour picker data being off
