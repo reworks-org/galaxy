@@ -1,0 +1,1 @@
+Each lib contains license info at the end of the file. There is a choice between public domain, and zlib.

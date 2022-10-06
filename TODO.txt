@@ -7,11 +7,11 @@
 - box2d collisions, integration, etc...
 	- box2d conversion from in game units to pixels...
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
-- standard sat based collisions or box2d with no gravity using cute_c2
+- cute_c2
+	- standard sat based collisions or box2d with no gravity using
 - make sure json outputs are encoded
 	- convert to base64 then zlib.
 - mapping
-	- https://github.com/fallahn/tmxlite
 	- https://github.com/SSBMTonberry/tileson
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
 		- then submit that to the renderer.
