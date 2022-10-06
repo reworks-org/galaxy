@@ -771,6 +771,7 @@ namespace galaxy
 			/* RESOURCE */
 			auto lang_type         = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
 			lang_type["load"]      = &resource::Language::load;
+			lang_type["reload"]    = &resource::Language::reload;
 			lang_type["set"]       = &resource::Language::set;
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;

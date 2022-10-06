@@ -63,6 +63,13 @@ namespace galaxy
 			[[nodiscard]] const std::string& translate(const std::string& key) noexcept;
 
 			///
+			/// \brief Reload languages from folder.
+			///
+			/// Does nothing if load hasn't been called.
+			///
+			void reload();
+
+			///
 			/// Clear all language data.
 			///
 			void clear() noexcept;
@@ -103,6 +110,11 @@ namespace galaxy
 			/// Current language KVPs.
 			///
 			robin_hood::unordered_flat_map<std::string, std::string> m_lang_map;
+
+			///
+			/// Folder.
+			///
+			std::string m_folder;
 		};
 	} // namespace resource
 } // namespace galaxy
