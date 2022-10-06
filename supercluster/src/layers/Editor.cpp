@@ -449,7 +449,7 @@ namespace sc
 
 		if (m_show_assetpanel)
 		{
-			m_asset_panel.render(m_code_editor);
+			m_asset_panel.render(m_code_editor, m_update_stack);
 		}
 
 		if (m_show_scenes)

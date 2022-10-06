@@ -13,6 +13,7 @@
 
 #include "editor/CodeEditor.hpp"
 #include "editor/SelectedAsset.hpp"
+#include "editor/UpdateStack.hpp"
 
 using namespace galaxy;
 
@@ -26,7 +27,7 @@ namespace sc
 			AssetPanel() noexcept;
 			~AssetPanel() noexcept = default;
 
-			void render(CodeEditor& editor);
+			void render(CodeEditor& editor, UpdateStack& updates);
 
 		private:
 			void load_lua_script(CodeEditor& editor);
@@ -60,6 +61,7 @@ namespace sc
 			graphics::Texture m_lua;
 			graphics::Texture m_proj;
 			graphics::Texture m_texture;
+			graphics::Texture m_reload;
 
 			graphics::Texture* m_icon;
 		};

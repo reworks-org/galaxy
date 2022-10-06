@@ -10,6 +10,12 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/resource/Fonts.hpp>
+#include <galaxy/resource/Language.hpp>
+#include <galaxy/resource/Scripts.hpp>
+#include <galaxy/resource/Shaders.hpp>
+#include <galaxy/resource/Sounds.hpp>
+#include <galaxy/resource/TextureAtlas.hpp>
 
 #include "AssetPanel.hpp"
 
@@ -85,9 +91,13 @@ namespace sc
 			m_texture.load("editor_data/icons/texture.png");
 			m_texture.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_texture.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_reload.load("editor_data/icons/reload.png");
+			m_reload.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_reload.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
-		void AssetPanel::render(CodeEditor& editor)
+		void AssetPanel::render(CodeEditor& editor, UpdateStack& updates)
 		{
 			if (ImGui::Begin("Asset Browser"))
 			{
@@ -111,6 +121,63 @@ namespace sc
 					{
 						m_current_dir = m_prev_dir;
 					}
+				}
+
+				ImGui::SameLine();
+
+				if (ui::imgui_imagebutton(m_reload, m_toolbar_vec))
+				{
+					ImGui::OpenPopup("AssetReloadPopup");
+				}
+
+				if (ImGui::BeginPopup("AssetReloadPopup"))
+				{
+					ImGui::Text("Select resource to reload.");
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Fonts"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::Fonts>::ref().reload();
+						});
+					}
+
+					if (ImGui::MenuItem("Languages"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::Language>::ref().reload();
+						});
+					}
+
+					if (ImGui::MenuItem("Scripts"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::Scripts>::ref().reload();
+						});
+					}
+
+					if (ImGui::MenuItem("Shaders"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::Shaders>::ref().reload();
+						});
+					}
+
+					if (ImGui::MenuItem("Sounds"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::Sounds>::ref().reload();
+						});
+					}
+
+					if (ImGui::MenuItem("Texture Atlas"))
+					{
+						updates.push_back([]() {
+							core::ServiceLocator<resource::TextureAtlas>::ref().reload();
+						});
+					}
+
+					ImGui::EndPopup();
 				}
 
 				ImGui::SameLine();
@@ -272,64 +339,59 @@ namespace sc
 
 				if (ImGui::BeginPopupContextWindow("AssetPanelContextMenu"))
 				{
-					if (ImGui::BeginMenu("Import"))
+					if (ImGui::BeginMenu("Audio"))
 					{
-						if (ImGui::BeginMenu("Audio"))
+						if (ImGui::MenuItem("Music"))
 						{
-							if (ImGui::MenuItem("Music"))
-							{
-								import_files("music_folder");
-							}
-
-							if (ImGui::MenuItem("SFX"))
-							{
-								import_files("sfx_folder");
-							}
-
-							if (ImGui::MenuItem("Dialogue"))
-							{
-								import_files("dialogue_folder");
-							}
-
-							ImGui::EndMenu();
+							import_files("music_folder");
 						}
 
-						if (ImGui::BeginMenu("Texture"))
+						if (ImGui::MenuItem("SFX"))
 						{
-							if (ImGui::MenuItem("Atlas Texture"))
-							{
-								import_files("atlas_folder");
-							}
-
-							if (ImGui::MenuItem("Standalone Texture"))
-							{
-								import_files("texture_folder");
-							}
-
-							ImGui::EndMenu();
+							import_files("sfx_folder");
 						}
 
-						if (ImGui::MenuItem("Shader"))
+						if (ImGui::MenuItem("Dialogue"))
 						{
-							import_files("shader_folder");
-						}
-
-						if (ImGui::MenuItem("Script"))
-						{
-							import_files("scripts_folder");
-						}
-
-						if (ImGui::MenuItem("Language"))
-						{
-							import_files("lang_folder");
-						}
-
-						if (ImGui::MenuItem("Font"))
-						{
-							import_files("font_folder");
+							import_files("dialogue_folder");
 						}
 
 						ImGui::EndMenu();
+					}
+
+					if (ImGui::BeginMenu("Texture"))
+					{
+						if (ImGui::MenuItem("Atlas Texture"))
+						{
+							import_files("atlas_folder");
+						}
+
+						if (ImGui::MenuItem("Standalone Texture"))
+						{
+							import_files("texture_folder");
+						}
+
+						ImGui::EndMenu();
+					}
+
+					if (ImGui::MenuItem("Shader"))
+					{
+						import_files("shader_folder");
+					}
+
+					if (ImGui::MenuItem("Script"))
+					{
+						import_files("scripts_folder");
+					}
+
+					if (ImGui::MenuItem("Language"))
+					{
+						import_files("lang_folder");
+					}
+
+					if (ImGui::MenuItem("Font"))
+					{
+						import_files("font_folder");
 					}
 
 					if (m_selected.m_is_hovered)

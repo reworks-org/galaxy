@@ -24,7 +24,9 @@
 #include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/resource/Fonts.hpp>
 #include <galaxy/resource/Shaders.hpp>
+#include <galaxy/resource/TextureAtlas.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "EntityEditor.hpp"
@@ -502,7 +504,25 @@ namespace sc
 						ImGui::SameLine(0.0f, 5.0f);
 						ImGui::Text("Height: %.0f", sprite->get_height());
 
-						ImGui::InputText("Texture Id", &sprite->m_texture, ImGuiInputTextFlags_AutoSelectAll);
+						if (ImGui::BeginCombo("Texture", sprite->m_texture.c_str()))
+						{
+							for (const auto& key : core::ServiceLocator<resource::TextureAtlas>::ref().keys())
+							{
+								const bool selected = (sprite->m_texture == key);
+								if (ImGui::Selectable(key.c_str(), selected))
+								{
+									sprite->m_texture = key;
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
 						ImGui::InputFloat("Opacity", &sprite->m_opacity, 0.01f, 0.1f, "%.1f", numeric_input_flags);
 						ImGui::InputInt("Layer", &sprite->m_layer, 1, 2, numeric_input_flags);
 
@@ -566,7 +586,24 @@ namespace sc
 								static_cast<std::uint8_t>(s_colour[3])};
 						}
 
-						ImGui::InputText("Font", &text->m_font_id, ImGuiInputTextFlags_AutoSelectAll);
+						if (ImGui::BeginCombo("Font", text->m_font_id.c_str()))
+						{
+							for (const auto& key : core::ServiceLocator<resource::Fonts>::ref().keys())
+							{
+								const bool selected = (text->m_font_id == key);
+								if (ImGui::Selectable(key.c_str(), selected))
+								{
+									text->m_font_id = key;
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
 
 						if (ImGui::Button("Create"))
 						{

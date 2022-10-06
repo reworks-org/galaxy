@@ -18,8 +18,5 @@
 
 editor:
 - https://github.com/SpartanJ/efsw
-- resource selection should be dropdownlists
-	- done for shader, need for textures, others...
-- texture manager for editor
 - fix issues with restart
 - fix colour picker data being off
