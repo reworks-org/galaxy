@@ -1,0 +1,5 @@
+Author(s): Blarumyrran, Bart, and surt
+License(s): CC-BY_SA 3.0, GPL 3.0, GPL 2.0
+Link: http://opengameart.org/content/16x16-tileset-water-dirt-forest
+
+Resized to 48x48 by reworks.

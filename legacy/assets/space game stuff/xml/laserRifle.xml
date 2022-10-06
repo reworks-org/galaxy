@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<item>
+  <type id="laserBeam" name="Laser Rifle"/>
+  <tooltip text="A stanard issue laser rifle. Doesn't damage flesh, but destroys armour." subtext="Good for removing enemy armour, increasing the damage they take."/>
+  <stats dmg="0" def="0" pierce="0" armourDmg="5"/>
+</item>

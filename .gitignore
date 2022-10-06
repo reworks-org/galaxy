@@ -4,16 +4,8 @@ Thumbs.db
 .vs/
 
 build/
-legacy/
 output/
 
-supercluster/assets/atlas
-supercluster/assets/audio
-supercluster/assets/fonts
-supercluster/assets/lang
-supercluster/assets/scripts
-supercluster/assets/shaders
-supercluster/assets/textures
 supercluster/bin
 supercluster/logs
 
