@@ -64,7 +64,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Open & Run Script"))
 					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua", "assets/scripts/");
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua", "scripts/");
 						if (path == std::nullopt)
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
