@@ -128,6 +128,13 @@ namespace galaxy
 			[[nodiscard]] glm::mat4& get_proj() noexcept;
 
 			///
+			/// Get framebuffer.
+			///
+			/// \return Reference to framebuffer.
+			///
+			[[nodiscard]] Framebuffer& get_framebuffer() noexcept;
+
+			///
 			/// Get texture.
 			///
 			/// \return OpenGL texture handle.

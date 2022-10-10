@@ -117,6 +117,13 @@ namespace galaxy
 			void clear() noexcept;
 
 			///
+			/// Clear a specific attachment.
+			///
+			/// \param index Specific index of attachment to clear.
+			///
+			void clear(const unsigned int index) noexcept;
+
+			///
 			/// Set clear colour.
 			///
 			/// \param col Colour to clear framebuffer to.
@@ -190,7 +197,7 @@ namespace galaxy
 			///
 			/// Destroy all data used by framebuffer.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 		private:
 			///

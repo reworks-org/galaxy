@@ -18,6 +18,7 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/graphics/Renderer.hpp>
+#include <galaxy/input/Input.hpp>
 #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
 
@@ -79,45 +80,171 @@ namespace sc
 
 	void Editor::events()
 	{
-		if (m_viewport_focused && m_viewport_hovered)
+		if (!m_game_mode)
 		{
-			if (ImGui::IsMouseReleased(ImGuiMouseButton_Left))
+			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_mouse_picked = true;
-			}
-
-			if (m_project_scenes.has_current())
-			{
-				if (!m_paused)
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
 				{
-					ImGui_ImplGlfw_ToggleInput(true);
-					m_project_scenes.current().events();
+					m_mouse_picked = true;
 				}
+
+				if (m_project_scenes.has_current())
+				{
+					if (!m_paused)
+					{
+						ImGui_ImplGlfw_ToggleInput(true);
+						m_project_scenes.current().events();
+					}
+				}
+			}
+			else
+			{
+				ImGui_ImplGlfw_ToggleInput(false);
 			}
 		}
 		else
 		{
-			ImGui_ImplGlfw_ToggleInput(false);
+			if (input::Input::key_down(input::Keys::ESCAPE))
+			{
+				ImGui_ImplGlfw_ToggleInput(true);
+				m_game_mode = false;
+				m_project_scenes.deserialize(m_backup);
+			}
 		}
 	}
 
 	void Editor::update()
 	{
-		if (m_project_scenes.has_current() && !m_paused)
+		if (!m_game_mode)
+		{
+			if (m_project_scenes.has_current() && !m_paused)
+			{
+				m_project_scenes.current().update();
+			}
+
+			for (const auto& update : m_update_stack)
+			{
+				update();
+			}
+
+			m_update_stack.clear();
+			m_autosave.update();
+		}
+		else
 		{
 			m_project_scenes.current().update();
 		}
-
-		for (const auto& update : m_update_stack)
-		{
-			update();
-		}
-
-		m_update_stack.clear();
-		m_autosave.update();
 	}
 
 	void Editor::render()
+	{
+		if (!m_game_mode)
+		{
+			draw_editor();
+		}
+		else
+		{
+			m_project_scenes.current().render();
+		}
+	}
+
+	void Editor::new_project()
+	{
+		m_window->set_title("Untitled Project");
+
+		m_project_scenes.clear();
+	}
+
+	void Editor::load_project(std::string_view path)
+	{
+		std::ifstream ifs {static_cast<std::string>(path), std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
+
+		if (ifs.good())
+		{
+			std::vector<char> buffer;
+
+			const auto size = ifs.tellg();
+			buffer.resize(size);
+
+			ifs.seekg(0, std::ifstream::beg);
+			ifs.read(&buffer[0], size);
+			ifs.close();
+
+			const auto fs_path     = std::filesystem::path(path);
+			m_current_project_path = fs_path.string();
+
+			auto decompressed = std::string(buffer.begin(), buffer.end());
+			auto json         = json::parse_from_mem(decompressed);
+
+			if (json.has_value())
+			{
+				m_project_scenes.deserialize(json.value());
+				m_window->set_title(fs_path.stem().string().c_str());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", fs_path.string());
+				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
+			}
+		}
+		else
+		{
+			ifs.close();
+
+			GALAXY_LOG(GALAXY_ERROR, "Failed to open project file: {0}.", path);
+			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
+		}
+	}
+
+	void Editor::save_project(bool save_as)
+	{
+		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+		if (m_current_project_path.empty() || save_as)
+		{
+			const auto sp_opt = fs.show_save_dialog("untitled.scproj", "*.scproj");
+			if (sp_opt.has_value())
+			{
+				m_current_project_path = sp_opt.value();
+			}
+		}
+
+		if (!m_current_project_path.empty())
+		{
+			std::ofstream ofs {m_current_project_path, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
+
+			if (ofs.good())
+			{
+				auto data = m_project_scenes.serialize().dump(4);
+				ofs.write(data.data(), data.size());
+				ofs.close();
+
+				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
+				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
+			}
+			else
+			{
+				ofs.close();
+
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save project to disk.");
+				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save project."});
+			}
+		}
+	}
+
+	void Editor::restart()
+	{
+		GALAXY_RESTART = true;
+		exit();
+	}
+
+	void Editor::exit()
+	{
+		m_window->close();
+	}
+
+	void Editor::draw_editor()
 	{
 #ifdef _DEBUG
 		static bool s_show_demo = false;
@@ -309,8 +436,10 @@ namespace sc
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
 			if (ui::imgui_imagebutton(m_play, m_icon_size))
 			{
-				// m_game_mode = true;
-				// m_backup    = serialize();
+				ImGui_ImplGlfw_ToggleInput(true);
+
+				m_game_mode = false;
+				m_backup    = m_project_scenes.serialize();
 			}
 
 			if (!m_paused)
@@ -318,6 +447,7 @@ namespace sc
 				if (ui::imgui_imagebutton(m_stop, m_icon_size))
 				{
 					m_paused = true;
+					m_project_scenes.deserialize(m_backup);
 				}
 			}
 			else
@@ -325,8 +455,12 @@ namespace sc
 				if (ui::imgui_imagebutton(m_resume_play, m_icon_size))
 				{
 					m_paused = false;
+					m_backup = m_project_scenes.serialize();
 				}
 			}
+
+			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+			ImGui::Text("Selected: %u", entt::to_integral(m_selected_entity.m_selected));
 
 			ImGui::EndMenuBar();
 		}
@@ -590,101 +724,6 @@ namespace sc
 		ui::imgui_render();
 	}
 
-	void Editor::new_project()
-	{
-		m_window->set_title("Untitled Project");
-
-		m_project_scenes.clear();
-	}
-
-	void Editor::load_project(std::string_view path)
-	{
-		std::ifstream ifs {static_cast<std::string>(path), std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
-
-		if (ifs.good())
-		{
-			std::vector<char> buffer;
-
-			const auto size = ifs.tellg();
-			buffer.resize(size);
-
-			ifs.seekg(0, std::ifstream::beg);
-			ifs.read(&buffer[0], size);
-			ifs.close();
-
-			const auto fs_path     = std::filesystem::path(path);
-			m_current_project_path = fs_path.string();
-
-			auto decompressed = std::string(buffer.begin(), buffer.end());
-			auto json         = json::parse_from_mem(decompressed);
-
-			if (json.has_value())
-			{
-				m_project_scenes.deserialize(json.value());
-				m_window->set_title(fs_path.stem().string().c_str());
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", fs_path.string());
-				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
-			}
-		}
-		else
-		{
-			ifs.close();
-
-			GALAXY_LOG(GALAXY_ERROR, "Failed to open project file: {0}.", path);
-			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
-		}
-	}
-
-	void Editor::save_project(bool save_as)
-	{
-		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-		if (m_current_project_path.empty() || save_as)
-		{
-			const auto sp_opt = fs.show_save_dialog("untitled.scproj", "*.scproj");
-			if (sp_opt.has_value())
-			{
-				m_current_project_path = sp_opt.value();
-			}
-		}
-
-		if (!m_current_project_path.empty())
-		{
-			std::ofstream ofs {m_current_project_path, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
-
-			if (ofs.good())
-			{
-				auto data = m_project_scenes.serialize().dump(4);
-				ofs.write(data.data(), data.size());
-				ofs.close();
-
-				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
-				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
-			}
-			else
-			{
-				ofs.close();
-
-				GALAXY_LOG(GALAXY_ERROR, "Failed to save project to disk.");
-				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save project."});
-			}
-		}
-	}
-
-	void Editor::restart()
-	{
-		GALAXY_RESTART = true;
-		exit();
-	}
-
-	void Editor::exit()
-	{
-		m_window->close();
-	}
-
 	void Editor::code_editor()
 	{
 		ImGui::Begin("CodeEditor", nullptr, ImGuiWindowFlags_MenuBar);
@@ -880,25 +919,15 @@ namespace sc
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
 
-			/*
 			if (m_mouse_picked)
 			{
-				auto scene = m_scene_stack.top();
+				// auto& camera = m_project_scenes.current().get_camera();
 
-				m_clicked_pos.x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - scene->m_camera.get_pos().x;
-				m_clicked_pos.y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - scene->m_camera.get_pos().y;
-				m_cursor_aabb.set(m_clicked_pos, {m_clicked_pos + m_cursor_size});
-
-				scene->m_world.operate<components::Renderable>(std::execution::par, [&](const ecs::Entity entity, components::Renderable* renderable) {
-					if (renderable->get_aabb().overlaps(m_cursor_aabb, true))
-					{
-						m_entity_panel.set_selected_entity(std::make_optional(entity));
-					}
-				});
+				// const auto x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - camera.get_x();
+				// const auto y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - camera.get_y();
 
 				m_mouse_picked = false;
 			}
-			*/
 		}
 
 		ImGui::PopStyleVar(1);
@@ -916,28 +945,3 @@ namespace sc
 		static_assert(true, "Do Not Call.");
 	}
 } // namespace sc
-
-/*
-if (!m_game_mode)
-		{
-			//
-
-			if (m_viewport_focused && m_viewport_hovered)
-			{
-			}
-		}
-		else
-		{
-			//ImGui::ImplGlfw::g_BlockInput = true;
-			m_scene_stack.top()->on_push();
-
-			if (SL_HANDLE.window()->key_pressed(input::Keys::ESC))
-			{
-				m_game_mode = false;
-				deserialize(m_backup);
-				SL_HANDLE.window()->set_cursor_visibility(true);
-			}
-
-			m_scene_stack.events();
-		}
-*/

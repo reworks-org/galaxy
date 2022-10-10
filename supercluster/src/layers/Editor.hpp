@@ -49,6 +49,7 @@ namespace sc
 	private:
 		Editor() = delete;
 
+		void draw_editor();
 		void code_editor();
 		void code_editor_menu();
 		void viewport();
@@ -64,15 +65,6 @@ namespace sc
 		glm::vec2 m_clicked_pos;
 		glm::vec2 m_cursor_size = {4.0f, 4.0f};
 		math::AABB m_cursor_aabb;
-
-		nlohmann::json m_backup;
-
-		bool m_game_mode        = false;
-
-		events::MouseMoved m_mousemoved_event;
-		events::MouseWheel m_scroll_delta;
-		events::KeyDown m_keydown_event;
-		events::KeyUp m_keyup_event;
 		*/
 
 		Settings m_settings;
@@ -89,6 +81,7 @@ namespace sc
 		UpdateStack m_update_stack;
 
 		bool m_paused           = false;
+		bool m_game_mode        = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
 		bool m_mouse_picked     = false;
@@ -121,6 +114,8 @@ namespace sc
 		async::Timer m_autosave;
 
 		std::vector<graphics::Renderable*> m_render_data;
+
+		nlohmann::json m_backup;
 	};
 } // namespace sc
 

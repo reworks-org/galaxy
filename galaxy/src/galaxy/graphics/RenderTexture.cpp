@@ -133,6 +133,11 @@ namespace galaxy
 			return m_projection;
 		}
 
+		Framebuffer& RenderTexture::get_framebuffer() noexcept
+		{
+			return m_framebuffer;
+		}
+
 		unsigned int RenderTexture::get_texture() const noexcept
 		{
 			// This works since the rendertexture will only ever have 1 attachment.

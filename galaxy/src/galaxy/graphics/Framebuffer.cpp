@@ -342,13 +342,18 @@ namespace galaxy
 
 		void Framebuffer::clear() noexcept
 		{
-			for (const auto& [index, type] : m_attachments)
+			for (const auto index : m_used_attachments)
 			{
 				glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 			}
 
 			static const constexpr auto CLEAR_DEPTH = 1.0f;
 			glClearNamedFramebufferfv(m_fbo, GL_DEPTH, 0, &CLEAR_DEPTH);
+		}
+
+		void Framebuffer::clear(const unsigned int index) noexcept
+		{
+			glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 		}
 
 		void Framebuffer::set_clear_colour(graphics::Colour& col) noexcept
@@ -403,7 +408,7 @@ namespace galaxy
 			return m_fbo;
 		}
 
-		void Framebuffer::destroy()
+		void Framebuffer::destroy() noexcept
 		{
 			if (m_fbo != 0)
 			{
