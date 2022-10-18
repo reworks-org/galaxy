@@ -107,7 +107,7 @@ namespace sc
 		{
 			if (input::Input::key_down(input::Keys::ESCAPE))
 			{
-				ImGui_ImplGlfw_ToggleInput(true);
+				ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
 				m_project_scenes.deserialize(m_backup);
 			}
@@ -399,17 +399,10 @@ namespace sc
 
 			if (ImGui::BeginMenu("Tools"))
 			{
-				/*
-				if (ImGui::MenuItem("Tiled"))
+				if (ImGui::MenuItem("Tiled", "Ctrl+Shift+T"))
 				{
-					m_tiled_process.create("tools/tiled/tiled.exe");
+					// m_tiled_process.create("tools/tiled/tiled.exe");
 				}
-
-				if (ImGui::MenuItem("Notepad++"))
-				{
-					m_notepad_process.create("tools/notepad++/notepad++.exe");
-				}
-				*/
 
 				ImGui::EndMenu();
 			}
@@ -434,14 +427,6 @@ namespace sc
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
-			if (ui::imgui_imagebutton(m_play, m_icon_size))
-			{
-				ImGui_ImplGlfw_ToggleInput(true);
-
-				m_game_mode = false;
-				m_backup    = m_project_scenes.serialize();
-			}
-
 			if (!m_paused)
 			{
 				if (ui::imgui_imagebutton(m_stop, m_icon_size))
@@ -452,15 +437,37 @@ namespace sc
 			}
 			else
 			{
-				if (ui::imgui_imagebutton(m_resume_play, m_icon_size))
+				if (ui::imgui_imagebutton(m_play, m_icon_size))
 				{
 					m_paused = false;
 					m_backup = m_project_scenes.serialize();
 				}
 			}
 
+			if (ui::imgui_imagebutton(m_resume_play, m_icon_size))
+			{
+				if (m_project_scenes.has_current())
+				{
+					ImGui_ImplGlfw_ToggleInput(true);
+
+					m_game_mode = true;
+					m_backup    = m_project_scenes.serialize();
+				}
+				else
+				{
+					ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "No active scene."});
+				}
+			}
+
 			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			ImGui::Text("Selected: %u", entt::to_integral(m_selected_entity.m_selected));
+			if (m_selected_entity.m_selected != entt::null)
+			{
+				ImGui::Text("Selected: %u", entt::to_integral(m_selected_entity.m_selected));
+			}
+			else
+			{
+				ImGui::Text("Selected: None");
+			}
 
 			ImGui::EndMenuBar();
 		}
@@ -509,6 +516,11 @@ namespace sc
 		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Shift, ImGuiKey_S))
 		{
 			save_project(true);
+		}
+
+		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Shift, ImGuiKey_T))
+		{
+			// m_tiled_process.create("tools/tiled/tiled.exe");
 		}
 
 		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_R))

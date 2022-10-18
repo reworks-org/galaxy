@@ -60,7 +60,6 @@ namespace sc
 	private:
 		/*
 		platform::Subprocess m_tiled_process;
-		platform::Subprocess m_notepad_process;
 
 		glm::vec2 m_clicked_pos;
 		glm::vec2 m_cursor_size = {4.0f, 4.0f};
@@ -80,7 +79,7 @@ namespace sc
 
 		UpdateStack m_update_stack;
 
-		bool m_paused           = false;
+		bool m_paused           = true;
 		bool m_game_mode        = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;

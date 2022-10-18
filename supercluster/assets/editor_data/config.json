@@ -9,6 +9,7 @@
         },
         "default_lang": "en_au",
         "editor": {
+            "autosave_interval_seconds": 300,
             "padding": 64.0,
             "theme": "FANCY_DARK",
             "thumb_size": 48.0
