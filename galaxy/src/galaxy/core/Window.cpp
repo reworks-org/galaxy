@@ -64,7 +64,7 @@ namespace galaxy
 				// Configure window setup using hints.
 				// If not here, then default is the preference.
 				glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-				glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
+				glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 				glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
 				glfwWindowHint(GLFW_FOCUSED, GLFW_TRUE);
 				glfwWindowHint(GLFW_AUTO_ICONIFY, GLFW_TRUE);
@@ -106,6 +106,66 @@ namespace galaxy
 				}
 				else
 				{
+					// Center window.
+					{
+						int sx = 0, sy = 0;
+						int px = 0, py = 0;
+						int mx = 0, my = 0;
+						int monitor_count = 0;
+						int best_area     = 0;
+						int final_x = 0, final_y = 0;
+
+						glfwGetWindowSize(m_window, &sx, &sy);
+						glfwGetWindowPos(m_window, &px, &py);
+
+						auto m = glfwGetMonitors(&monitor_count);
+
+						for (auto j = 0; j < monitor_count; ++j)
+						{
+							glfwGetMonitorPos(m[j], &mx, &my);
+							auto mode = glfwGetVideoMode(m[j]);
+							if (!mode)
+							{
+								continue;
+							}
+
+							const auto min_x = std::max(mx, px);
+							const auto min_y = std::max(my, py);
+
+							const auto max_x = std::min(mx + mode->width, px + sx);
+							const auto max_y = std::min(my + mode->height, py + sy);
+
+							const auto area = std::max(max_x - min_x, 0) * std::max(max_y - min_y, 0);
+
+							if (area > best_area)
+							{
+								final_x = mx + (mode->width - sx) / 2;
+								final_y = my + (mode->height - sy) / 2;
+
+								best_area = area;
+							}
+						}
+
+						if (best_area)
+						{
+							glfwSetWindowPos(m_window, final_x, final_y);
+						}
+						else
+						{
+							auto primary = glfwGetPrimaryMonitor();
+							if (primary)
+							{
+								auto desktop = glfwGetVideoMode(primary);
+								if (desktop)
+								{
+									glfwSetWindowPos(m_window, (desktop->width - sx) / 2, (desktop->height - sy) / 2);
+								}
+							}
+						}
+
+						glfwShowWindow(m_window);
+					}
+
 					// Set input devices.
 					m_keyboard.set_window(m_window);
 					m_mouse.set_window(m_window);
