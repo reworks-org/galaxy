@@ -652,14 +652,6 @@ namespace sc
 							config.save();
 						}
 
-						if (ImGui::MenuItem("Enhanced Dark"))
-						{
-							ui::imgui_theme_enhanced_dark();
-
-							config.set<std::string>("theme", "ENHANCED_DARK", "editor");
-							config.save();
-						}
-
 						if (ImGui::MenuItem("Material Dark"))
 						{
 							ui::imgui_theme_material_dark();

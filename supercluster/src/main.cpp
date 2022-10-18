@@ -100,10 +100,6 @@ int main(int argsc, char* argsv[])
 					{
 						ui::imgui_theme_enhanced_light();
 					}
-					else if (theme.value() == ui::ImguiThemeId::ENHANCED_DARK)
-					{
-						ui::imgui_theme_enhanced_dark();
-					}
 					else if (theme.value() == ui::ImguiThemeId::MATERIAL_DARK)
 					{
 						ui::imgui_theme_material_dark();

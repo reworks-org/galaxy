@@ -21,7 +21,6 @@ namespace galaxy
 			DARK,
 			CLASSIC,
 			ENHANCED_LIGHT,
-			ENHANCED_DARK,
 			MATERIAL_DARK,
 			VISUAL_DARK,
 			FANCY_DARK,
@@ -32,11 +31,6 @@ namespace galaxy
 		/// An enhanced light theme reminiscent of OS X.
 		///
 		void imgui_theme_enhanced_light() noexcept;
-
-		///
-		/// An enhanced dark theme for true night mode enthusiasts.
-		///
-		void imgui_theme_enhanced_dark() noexcept;
 
 		///
 		/// A classic material dark theme.
