@@ -12,6 +12,7 @@
 #include <nlohmann/json.hpp>
 #include <portable-file-dialogs.h>
 
+#include <galaxy/algorithm/Base64.hpp>
 #include <galaxy/algorithm/ZLib.hpp>
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -174,8 +175,11 @@ namespace sc
 			const auto fs_path     = std::filesystem::path(path);
 			m_current_project_path = fs_path.string();
 
-			auto decompressed = std::string(buffer.begin(), buffer.end());
-			auto json         = json::parse_from_mem(decompressed);
+			auto decompressed   = std::string(buffer.begin(), buffer.end());
+			auto decoded_zlib   = algorithm::decode_zlib(decompressed);
+			auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
+
+			auto json = json::parse_from_mem(decoded_base64);
 
 			if (json.has_value())
 			{
@@ -216,8 +220,11 @@ namespace sc
 
 			if (ofs.good())
 			{
-				auto data = m_project_scenes.serialize().dump(4);
-				ofs.write(data.data(), data.size());
+				auto data           = m_project_scenes.serialize().dump(4);
+				auto encoded_base64 = algorithm::encode_base64(data);
+				auto encoded_zlib   = algorithm::encode_zlib(encoded_base64);
+
+				ofs.write(encoded_zlib.data(), encoded_zlib.size());
 				ofs.close();
 
 				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());

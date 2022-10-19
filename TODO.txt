@@ -1,7 +1,8 @@
-- support content scale (dpi thingy) for rml
+- update rml to 5.0
+	- need to test rml integration, maybe refer to official backend implementations.
+	- support content scale (dpi thingy) for rml
 	- make sure font dpi is working with the content scale.
 - state based system for character moevement + updating animation.
-- need to test rml integration, maybe refer to official backend implementations.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
 - box2d collisions, integration, etc...
@@ -9,8 +10,6 @@
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
 - cute_c2
 	- standard sat based collisions or box2d with no gravity using
-- make sure json outputs are encoded
-	- convert to base64 then zlib.
 - mapping
 	- https://github.com/SSBMTonberry/tileson
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
