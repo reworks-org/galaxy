@@ -535,6 +535,9 @@ namespace galaxy
 				m_window               = nullptr;
 				input::Input::s_window = nullptr;
 
+				input::Input::s_cursor_pos.x = 0.0;
+				input::Input::s_cursor_pos.y = 0.0;
+
 				glfwTerminate();
 			}
 		}

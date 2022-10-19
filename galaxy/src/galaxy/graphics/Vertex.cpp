@@ -7,6 +7,8 @@
 
 #include "Vertex.hpp"
 
+std::array<unsigned int, 6> default_indices = {0u, 1u, 3u, 1u, 2u, 3u};
+
 namespace galaxy
 {
 	namespace graphics
@@ -97,8 +99,7 @@ namespace galaxy
 
 		std::array<unsigned int, 6>& Vertex::get_default_indices() noexcept
 		{
-			static std::array<unsigned int, 6> indices = {0u, 1u, 3u, 1u, 2u, 3u};
-			return indices;
+			return default_indices;
 		}
 	} // namespace graphics
 } // namespace galaxy

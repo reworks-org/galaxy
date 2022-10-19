@@ -14,6 +14,9 @@
 
 #include "Transform.hpp"
 
+const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+const constexpr auto rotation_vec    = glm::vec3 {0.0f, 0.0f, 1.0f};
+
 namespace galaxy
 {
 	namespace components
@@ -95,8 +98,6 @@ namespace galaxy
 
 		void Transform::reset() noexcept
 		{
-			static const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
-
 			m_pos      = {0.0f, 0.0f, 0.0f};
 			m_rotation = 0.0f;
 			m_scale    = 1.0f;
@@ -124,19 +125,13 @@ namespace galaxy
 
 		glm::mat4 Transform::get_transform()
 		{
-			static const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
-			static const constexpr auto rotation_vec    = glm::vec3 {0.0f, 0.0f, 1.0f};
-			static auto scale_vec                       = glm::vec3 {1.0f, 1.0f, 1.0f};
-
 			auto rotation = glm::translate(identity_matrix, m_origin);
 			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_vec);
 			rotation      = glm::translate(rotation, -m_origin);
 
-			auto scale  = glm::translate(identity_matrix, m_origin);
-			scale_vec.x = m_scale;
-			scale_vec.y = m_scale;
-			scale       = glm::scale(scale, scale_vec);
-			scale       = glm::translate(scale, -m_origin);
+			auto scale = glm::translate(identity_matrix, m_origin);
+			scale      = glm::scale(scale, {m_scale, m_scale, 1.0f});
+			scale      = glm::translate(scale, -m_origin);
 
 			return glm::translate(identity_matrix, m_pos) * rotation * scale;
 		}

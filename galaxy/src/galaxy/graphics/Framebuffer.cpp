@@ -12,6 +12,8 @@
 
 #include "Framebuffer.hpp"
 
+constexpr const auto CLEAR_DEPTH = 1.0f;
+
 namespace galaxy
 {
 	namespace graphics
@@ -347,7 +349,6 @@ namespace galaxy
 				glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 			}
 
-			static const constexpr auto CLEAR_DEPTH = 1.0f;
 			glClearNamedFramebufferfv(m_fbo, GL_DEPTH, 0, &CLEAR_DEPTH);
 		}
 

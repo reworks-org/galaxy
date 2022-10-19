@@ -15,6 +15,9 @@
 
 #include "Camera.hpp"
 
+const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+const constexpr auto rotation_origin = glm::vec3 {0, 0, 1};
+
 namespace galaxy
 {
 	namespace graphics
@@ -266,19 +269,13 @@ namespace galaxy
 
 		void Camera::recalculate() noexcept
 		{
-			static const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
-			static const constexpr auto rotation_origin = glm::vec3 {0, 0, 1};
-			static auto scale_vec                       = glm::vec3 {1.0f, 1.0f, 1.0f};
-
 			auto rotation = glm::translate(identity_matrix, m_origin);
 			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_origin);
 			rotation      = glm::translate(rotation, -m_origin);
 
-			auto scale  = glm::translate(identity_matrix, m_origin);
-			scale_vec.x = m_zoom;
-			scale_vec.y = m_zoom;
-			scale       = glm::scale(scale, scale_vec);
-			scale       = glm::translate(scale, -m_origin);
+			auto scale = glm::translate(identity_matrix, m_origin);
+			scale      = glm::scale(scale, {m_zoom, m_zoom, 1.0f});
+			scale      = glm::translate(scale, -m_origin);
 
 			const auto transform = glm::translate(identity_matrix, m_pos) * rotation * scale;
 			m_data.m_model_view  = glm::inverse(transform);

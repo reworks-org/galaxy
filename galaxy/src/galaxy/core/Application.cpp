@@ -381,6 +381,7 @@ namespace galaxy
 		Application::~Application()
 		{
 			ServiceLocator<state::SceneManager>::del();
+			state::LayerRegistry::m_registry.clear();
 
 			Rml::Shutdown();
 			m_rml_rendering_interface.delete_shaders();

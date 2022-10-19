@@ -18,5 +18,4 @@
 
 editor:
 - https://github.com/SpartanJ/efsw
-- fix issues with restart
 - fix colour picker data being off

@@ -15,7 +15,8 @@
 
 #include "ImGuiHelpers.hpp"
 
-static robin_hood::unordered_flat_map<const char*, bool> s_popup_state;
+constexpr const ImVec2 mid = {0.5f, 0.5f};
+robin_hood::unordered_flat_map<const char*, bool> popup_state;
 
 namespace galaxy
 {
@@ -23,6 +24,8 @@ namespace galaxy
 	{
 		ImGuiIO& imgui_init_context() noexcept
 		{
+			popup_state.clear();
+
 			// clang-format off
 			IMGUI_CHECKVERSION();
 			ImGui::CreateContext();
@@ -85,7 +88,7 @@ namespace galaxy
 
 		void imgui_destroy_context() noexcept
 		{
-			s_popup_state.clear();
+			popup_state.clear();
 
 			ImGui_ImplOpenGL3_Shutdown();
 			ImGui_ImplGlfw_Shutdown();
@@ -94,17 +97,17 @@ namespace galaxy
 
 		void imgui_open_confirm(const char* popup) noexcept
 		{
-			s_popup_state[popup] = true;
+			popup_state[popup] = true;
 		}
 
 		void imgui_confirm(const char* popup, const std::function<void(void)>& yes, const std::function<void(void)>& no) noexcept
 		{
-			if (s_popup_state[popup])
+			if (popup_state[popup])
 			{
 				ImGui::OpenPopup(popup);
 				imgui_center_next_window();
 
-				s_popup_state[popup] = false;
+				popup_state[popup] = false;
 			}
 
 			if (ImGui::BeginPopup(popup))
@@ -142,8 +145,6 @@ namespace galaxy
 
 		void imgui_center_next_window() noexcept
 		{
-			static ImVec2 mid = {0.5f, 0.5f};
-
 			const auto center = ImGui::GetMainViewport()->GetCenter();
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}

@@ -15,7 +15,7 @@ namespace galaxy
 		///
 		/// Sprite vertex shader.
 		///
-		static inline constexpr const auto sprite_vert = R"(
+		constexpr const auto sprite_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -42,7 +42,7 @@ namespace galaxy
 		///
 		/// Sprite fragment shader.
 		///
-		static inline constexpr const auto sprite_frag = R"(
+		constexpr const auto sprite_frag = R"(
 			#version 460 core
 
 			in vec2 io_texels;
@@ -61,7 +61,7 @@ namespace galaxy
 		///
 		/// Point vertex shader.
 		///
-		static inline constexpr const auto point_vert = R"(
+		constexpr const auto point_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -84,7 +84,7 @@ namespace galaxy
 		///
 		/// Point fragment shader.
 		///
-		static inline constexpr const auto point_frag = R"(
+		constexpr const auto point_frag = R"(
 			#version 460 core
 
 			out vec4 io_frag_colour;
@@ -100,7 +100,7 @@ namespace galaxy
 		///
 		/// Line vertex shader.
 		///
-		static inline constexpr const auto line_vert = R"(
+		constexpr const auto line_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -122,7 +122,7 @@ namespace galaxy
 		///
 		/// Line fragment shader.
 		///
-		static inline constexpr const auto line_frag = R"(
+		constexpr const auto line_frag = R"(
 			#version 460 core
 
 			out vec4 io_frag_colour;
@@ -138,7 +138,7 @@ namespace galaxy
 		///
 		/// Render To Texture vertex shader.
 		///
-		static inline constexpr const auto render_to_texture_vert = R"(
+		constexpr const auto render_to_texture_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -160,7 +160,7 @@ namespace galaxy
 		///
 		/// Render To Texture fragment shader.
 		///
-		static inline constexpr const auto render_to_texture_frag = R"(
+		constexpr const auto render_to_texture_frag = R"(
 			#version 460 core
 
 			in vec2 io_texels;
@@ -177,7 +177,7 @@ namespace galaxy
 		///
 		/// Text vertex shader.
 		///
-		static inline constexpr const auto text_vert = R"(
+		constexpr const auto text_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -204,7 +204,7 @@ namespace galaxy
 		///
 		/// Text fragment shader.
 		///
-		static inline constexpr const auto text_frag = R"(
+		constexpr const auto text_frag = R"(
 			#version 460 core
 
 			in vec2 io_texels;
@@ -222,7 +222,7 @@ namespace galaxy
 		///
 		/// SpriteBatch vertex shader.
 		///
-		/* static inline constexpr const auto spritebatch_vert = R"(
+		/*  constexpr const auto spritebatch_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -253,7 +253,7 @@ namespace galaxy
 		///
 		/// SpriteBatch fragment shader.
 		///
-		static inline constexpr const auto spritebatch_frag = R"(
+		 constexpr const auto spritebatch_frag = R"(
 			#version 460 core
 
 			in vec2 io_texels;
@@ -273,7 +273,7 @@ namespace galaxy
 		///
 		/// Instance vertex shader.
 		///
-		/* static inline constexpr const auto instance_vert = R"(
+		/*  constexpr const auto instance_vert = R"(
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
@@ -303,7 +303,7 @@ namespace galaxy
 		///
 		/// Instance fragment shader.
 		///
-		static inline constexpr const auto instance_frag = R"(
+		 constexpr const auto instance_frag = R"(
 			#version 460 core
 
 			in vec2 io_texels;
