@@ -330,16 +330,10 @@ namespace sc
 								ImGui::EndCombo();
 							}
 
-							float s_colour[4] = {static_cast<float>(primitive->m_colour.m_red),
-								static_cast<float>(primitive->m_colour.m_green),
-								static_cast<float>(primitive->m_colour.m_blue),
-								static_cast<float>(primitive->m_colour.m_alpha)};
-							if (ImGui::ColorEdit4("Colour", &s_colour[0], ImGuiColorEditFlags_DefaultOptions_))
+							auto colour = primitive->m_colour.normalized();
+							if (ImGui::ColorEdit4("Colour", &colour[0]))
 							{
-								primitive->m_colour = {static_cast<std::uint8_t>(s_colour[0]),
-									static_cast<std::uint8_t>(s_colour[1]),
-									static_cast<std::uint8_t>(s_colour[2]),
-									static_cast<std::uint8_t>(s_colour[3])};
+								primitive->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
 							}
 
 							ImGui::Spacing();
@@ -569,16 +563,10 @@ namespace sc
 							ImGui::InputText("Text", &text->m_text, ImGuiInputTextFlags_AutoSelectAll);
 							ImGui::InputFloat("Size", &text->m_size, 1.0f, 5.0f, "%.0f", ImGuiInputTextFlags_CharsNoBlank);
 
-							float s_colour[4] = {static_cast<float>(text->m_colour.m_red),
-								static_cast<float>(text->m_colour.m_green),
-								static_cast<float>(text->m_colour.m_blue),
-								static_cast<float>(text->m_colour.m_alpha)};
-							if (ImGui::ColorEdit4("Colour", &s_colour[0], ImGuiColorEditFlags_DefaultOptions_))
+							auto colour = text->m_colour.normalized();
+							if (ImGui::ColorEdit4("Colour", &colour[0]))
 							{
-								text->m_colour = {static_cast<std::uint8_t>(s_colour[0]),
-									static_cast<std::uint8_t>(s_colour[1]),
-									static_cast<std::uint8_t>(s_colour[2]),
-									static_cast<std::uint8_t>(s_colour[3])};
+								text->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
 							}
 
 							if (ImGui::BeginCombo("Font", text->m_font_id.c_str()))

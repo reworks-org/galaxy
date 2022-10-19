@@ -5,9 +5,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/platform/Pragma.hpp"
+
 #include "Colour.hpp"
 
-const constexpr auto COLOUR_DIVIDER = static_cast<float>(0xFF);
+const constexpr auto COLOUR_OFFSET = static_cast<float>(0xFF);
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26467)
+#endif
 
 namespace galaxy
 {
@@ -29,7 +36,19 @@ namespace galaxy
 		{
 		}
 
-		glm::vec4 Colour::normalized() noexcept
+		Colour::~Colour() noexcept
+		{
+		}
+
+		void Colour::set_from_normalized(const float r, const float g, const float b, const float a) noexcept
+		{
+			m_red   = static_cast<std::uint8_t>(std::max(r, 0.0f) * COLOUR_OFFSET);
+			m_green = static_cast<std::uint8_t>(std::max(g, 0.0f) * COLOUR_OFFSET);
+			m_blue  = static_cast<std::uint8_t>(std::max(b, 0.0f) * COLOUR_OFFSET);
+			m_alpha = static_cast<std::uint8_t>(std::max(a, 0.0f) * COLOUR_OFFSET);
+		}
+
+		std::array<float, 4> Colour::normalized() noexcept
 		{
 			float r = 0.0f, g = 0.0f, b = 0.0f, a = 0.0f;
 
@@ -39,7 +58,7 @@ namespace galaxy
 			}
 			else if (m_red != 0)
 			{
-				r = static_cast<float>(m_red) / COLOUR_DIVIDER;
+				r = static_cast<float>(m_red) / COLOUR_OFFSET;
 			}
 
 			if (m_green == 255)
@@ -48,7 +67,7 @@ namespace galaxy
 			}
 			else if (m_green != 0)
 			{
-				g = static_cast<float>(m_green) / COLOUR_DIVIDER;
+				g = static_cast<float>(m_green) / COLOUR_OFFSET;
 			}
 
 			if (m_blue == 255)
@@ -57,7 +76,7 @@ namespace galaxy
 			}
 			else if (m_blue != 0)
 			{
-				b = static_cast<float>(m_blue) / COLOUR_DIVIDER;
+				b = static_cast<float>(m_blue) / COLOUR_OFFSET;
 			}
 
 			if (m_alpha == 255)
@@ -66,10 +85,14 @@ namespace galaxy
 			}
 			else if (m_alpha != 0)
 			{
-				a = static_cast<float>(m_alpha) / COLOUR_DIVIDER;
+				a = static_cast<float>(m_alpha) / COLOUR_OFFSET;
 			}
 
 			return {r, g, b, a};
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

@@ -359,11 +359,7 @@ namespace galaxy
 
 		void Framebuffer::set_clear_colour(graphics::Colour& col) noexcept
 		{
-			auto vec4         = col.normalized();
-			m_clear_colour[0] = vec4.x;
-			m_clear_colour[1] = vec4.y;
-			m_clear_colour[2] = vec4.z;
-			m_clear_colour[3] = vec4.w;
+			m_clear_colour = col.normalized();
 		}
 
 		int Framebuffer::get_width() const noexcept

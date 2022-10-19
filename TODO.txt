@@ -2,9 +2,6 @@
 	- need to test rml integration, maybe refer to official backend implementations.
 	- support content scale (dpi thingy) for rml
 	- make sure font dpi is working with the content scale.
-- state based system for character moevement + updating animation.
-- need to verify font, ui and glfw window are handling "codepoints" correctly.
-- need to make sure batch is a proper spritebatch...
 - box2d collisions, integration, etc...
 	- box2d conversion from in game units to pixels...
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
@@ -14,7 +11,6 @@
 	- https://github.com/SSBMTonberry/tileson
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
 		- then submit that to the renderer.
-
-editor:
-- https://github.com/SpartanJ/efsw
-- fix colour picker data being off
+- state based system for character moevement + updating animation.
+- need to verify font, ui and glfw window are handling "codepoints" correctly.
+- need to make sure batch is a proper spritebatch...

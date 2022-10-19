@@ -8,9 +8,8 @@
 #ifndef GALAXY_GRAPHICS_COLOUR_HPP_
 #define GALAXY_GRAPHICS_COLOUR_HPP_
 
+#include <array>
 #include <compare>
-
-#include <glm/vec4.hpp>
 
 #undef OPAQUE
 #undef TRANSPARENT
@@ -55,16 +54,26 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Colour() noexcept = default;
+			~Colour() noexcept;
+
+			///
+			/// Set using normalized values.
+			///
+			/// \param r Red.
+			/// \param g Green.
+			/// \param b Blue.
+			/// \param a Alpha level. Defaults to Opaque (255).
+			///
+			void set_from_normalized(const float r, const float g, const float b, const float a) noexcept;
 
 			///
 			/// \brief Normalizes values and returns as floats.
 			///
 			/// Floats are in range 0.0f - 1.0f.
 			///
-			/// \return Vec4.
+			/// \return Array of floats.
 			///
-			[[nodiscard]] glm::vec4 normalized() noexcept;
+			[[nodiscard]] std::array<float, 4> normalized() noexcept;
 
 			///
 			/// Comparison operator.

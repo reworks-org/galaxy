@@ -49,6 +49,9 @@ namespace galaxy
 			ImGui_ImplGlfw_InitForOpenGL(window.handle(), true);
 			ImGui_ImplOpenGL3_Init("#version 460 core");
 
+			ImGui::SetColorEditOptions(ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB |
+									   ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar);
+
 			return io;
 		}
 
