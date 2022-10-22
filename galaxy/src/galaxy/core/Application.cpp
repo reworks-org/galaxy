@@ -26,6 +26,7 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
@@ -98,6 +99,7 @@ namespace galaxy
 			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
 			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
 			config.restore<std::string>("lang_folder", "lang/", "resource_folders");
+			config.restore<std::string>("prefabs_folder", "prefabs/", "resource_folders");
 			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
 			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
 			config.restore<std::string>("music_folder", "audio/music/", "resource_folders");
@@ -141,6 +143,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("texture_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("atlas_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 
 				// create_asset_layout(root, "json/");
 				// create_asset_layout(root, "maps/");
@@ -306,6 +309,12 @@ namespace galaxy
 					//
 					auto& scripts = ServiceLocator<resource::Scripts>::make();
 					scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
+
+					//
+					// Entity prefabs.
+					//
+					auto& prefabs = ServiceLocator<resource::Prefabs>::make();
+					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
 
 					//
 					// UI.

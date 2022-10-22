@@ -2,11 +2,12 @@
 	- need to test rml integration, maybe refer to official backend implementations.
 	- support content scale (dpi thingy) for rml
 	- make sure font dpi is working with the content scale.
-- box2d collisions, integration, etc...
-	- box2d conversion from in game units to pixels...
+- box2d
+	- b2 units to engine units.
+	- support circle colliders
+	- support polygon colliders
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
-- cute_c2
-	- standard sat based collisions or box2d with no gravity using
+	- physics materials
 - mapping
 	- https://github.com/SSBMTonberry/tileson
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
@@ -14,3 +15,13 @@
 - state based system for character moevement + updating animation.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
+- prefab entities, that are packaged into the game and come preconfigured.
+	- json format, zlib + base64 encoding.
+	- loaded into mem on game load, then creates entities from that.
+	- useful for things like bullets.
+- add a merged galaxy compression function - zlib/base64
+- add search to all combos.
+
+editor:
+- loading indicators
+- velocity iterations and position iterations need to be in editor

@@ -17,11 +17,13 @@
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
+#include "galaxy/resource/Prefabs.hpp"
 
 #include "World.hpp"
 
@@ -85,16 +87,16 @@ namespace galaxy
 			return entity;
 		}
 
-		entt::entity World::create_from_file(std::string_view file)
+		entt::entity World::create_from_prefab(const std::string& name)
 		{
-			const auto root = json::parse_from_disk(file);
-			if (root.has_value())
+			auto& prefabs = core::ServiceLocator<resource::Prefabs>::ref();
+			if (prefabs.has(name))
 			{
-				return create_from_obj(root.value());
+				return create_from_obj(prefabs.get(name)->m_data);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load entity json '{0}'.", file);
+				GALAXY_LOG(GALAXY_WARNING, "Tried to load missing prefab '{0}'.", name);
 				return entt::null;
 			}
 		}
@@ -159,6 +161,68 @@ namespace galaxy
 			m_dispatcher.clear();
 		}
 
+		nlohmann::json World::serialize_entity(const entt::entity entity)
+		{
+			nlohmann::json json = nlohmann::json::object();
+			json["components"]  = nlohmann::json::object();
+
+			auto animated = m_registry.try_get<components::Animated>(entity);
+			if (animated != nullptr)
+			{
+				json["components"]["Animated"] = animated->serialize();
+			}
+
+			auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
+			if (draw_shader != nullptr)
+			{
+				json["components"]["DrawShader"] = draw_shader->serialize();
+			}
+
+			auto flag = m_registry.try_get<components::Flag>(entity);
+			if (flag != nullptr)
+			{
+				json["components"]["Flag"] = flag->serialize();
+			}
+
+			auto primitive = m_registry.try_get<components::Primitive>(entity);
+			if (primitive != nullptr)
+			{
+				json["components"]["Primitive"] = primitive->serialize();
+			}
+
+			auto script = m_registry.try_get<components::Script>(entity);
+			if (script != nullptr)
+			{
+				json["components"]["Script"] = script->serialize();
+			}
+
+			auto sprite = m_registry.try_get<components::Sprite>(entity);
+			if (sprite != nullptr)
+			{
+				json["components"]["Sprite"] = sprite->serialize();
+			}
+
+			auto tag = m_registry.try_get<components::Tag>(entity);
+			if (tag != nullptr)
+			{
+				json["components"]["Tag"] = tag->serialize();
+			}
+
+			auto text = m_registry.try_get<components::Text>(entity);
+			if (text != nullptr)
+			{
+				json["components"]["Text"] = text->serialize();
+			}
+
+			auto transform = m_registry.try_get<components::Transform>(entity);
+			if (transform != nullptr)
+			{
+				json["components"]["Transform"] = transform->serialize();
+			}
+
+			return json;
+		}
+
 		nlohmann::json World::serialize()
 		{
 			nlohmann::json json = "{}"_json;
@@ -166,65 +230,12 @@ namespace galaxy
 			json["entities"] = nlohmann::json::array();
 
 			m_registry.each([&](const entt::entity entity) -> void {
-				nlohmann::json entity_json = nlohmann::json::object();
-				entity_json["components"]  = nlohmann::json::object();
-
 				auto flag = m_registry.try_get<components::Flag>(entity);
 				if (flag != nullptr)
 				{
 					if (flag->is_flag_set<flags::AllowSerialize>())
 					{
-						auto animated = m_registry.try_get<components::Animated>(entity);
-						if (animated != nullptr)
-						{
-							entity_json["components"]["Animated"] = animated->serialize();
-						}
-
-						auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
-						if (draw_shader != nullptr)
-						{
-							entity_json["components"]["DrawShader"] = draw_shader->serialize();
-						}
-
-						entity_json["components"]["Flag"] = flag->serialize();
-
-						auto primitive = m_registry.try_get<components::Primitive>(entity);
-						if (primitive != nullptr)
-						{
-							entity_json["components"]["Primitive"] = primitive->serialize();
-						}
-
-						auto script = m_registry.try_get<components::Script>(entity);
-						if (script != nullptr)
-						{
-							entity_json["components"]["Script"] = script->serialize();
-						}
-
-						auto sprite = m_registry.try_get<components::Sprite>(entity);
-						if (sprite != nullptr)
-						{
-							entity_json["components"]["Sprite"] = sprite->serialize();
-						}
-
-						auto tag = m_registry.try_get<components::Tag>(entity);
-						if (tag != nullptr)
-						{
-							entity_json["components"]["Tag"] = tag->serialize();
-						}
-
-						auto text = m_registry.try_get<components::Text>(entity);
-						if (text != nullptr)
-						{
-							entity_json["components"]["Text"] = text->serialize();
-						}
-
-						auto transform = m_registry.try_get<components::Transform>(entity);
-						if (transform != nullptr)
-						{
-							entity_json["components"]["Transform"] = transform->serialize();
-						}
-
-						json["entities"].push_back(entity_json);
+						json["entities"].push_back(serialize_entity(entity));
 					}
 				}
 			});

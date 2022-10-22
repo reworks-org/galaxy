@@ -8,9 +8,12 @@
 #include <imgui_addons/notify/imgui_notify.h>
 #include <portable-file-dialogs.h>
 
+#include <galaxy/algorithm/Base64.hpp>
+#include <galaxy/algorithm/ZLib.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/state/layers/RuntimeLayer.hpp>
 #include <galaxy/state/layers/UILayer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -277,18 +280,6 @@ namespace sc
 
 								ImGui::SameLine();
 
-								if (ImGui::Button("Load Entity"))
-								{
-									auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.json");
-									if (file.has_value())
-									{
-										selected.m_selected = world.create_from_file(file.value());
-										selected.m_world    = &world;
-									}
-								}
-
-								ImGui::SameLine();
-
 								if (ImGui::Button("Clear World"))
 								{
 									ui::imgui_open_confirm("ClearWorldPopup");
@@ -297,6 +288,67 @@ namespace sc
 								ui::imgui_confirm("ClearWorldPopup", [&]() {
 									world.clear();
 								});
+
+								if (ImGui::Button("Load Prefab"))
+								{
+									ImGui::OpenPopup("PrefabListPopup");
+								}
+
+								ImGui::SameLine();
+
+								if (ImGui::Button("Save as Prefab"))
+								{
+									const auto data   = world.serialize_entity(selected.m_selected);
+									const auto base64 = algorithm::encode_base64(data.dump(4));
+									const auto zlib   = algorithm::encode_zlib(base64);
+
+									auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+									if (!fs.save_with_dialog(zlib, "untitled.galaxyprefab"))
+									{
+										GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
+										ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save prefab."});
+									}
+								}
+
+								if (ImGui::BeginPopup("PrefabListPopup"))
+								{
+									static std::string s_search = "";
+									ImGui::InputTextWithHint("##PrefabSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+
+									static std::string s_selected = "";
+									if (ImGui::BeginCombo("##PrefabList", s_selected.c_str()))
+									{
+										for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
+										{
+											const bool selected = (s_selected == key);
+											if (ImGui::Selectable(key.c_str(), selected))
+											{
+												s_selected = key;
+											}
+
+											if (selected)
+											{
+												ImGui::SetItemDefaultFocus();
+											}
+										}
+
+										ImGui::EndCombo();
+									}
+
+									if (ImGui::Button("Load"))
+									{
+										if (!s_selected.empty())
+										{
+											world.create_from_prefab(s_selected);
+										}
+										else
+										{
+											ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "Please select a prefab."});
+										}
+									}
+
+									ImGui::EndPopup();
+								}
 
 								ImGui::Text("Entities");
 								ImGui::SameLine();

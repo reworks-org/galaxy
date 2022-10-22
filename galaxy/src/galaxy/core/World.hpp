@@ -50,15 +50,15 @@ namespace galaxy
 			[[maybe_unused]] entt::entity create();
 
 			///
-			/// \brief Create an entity from a JSON file.
+			/// \brief Create an entity from a prefab.
 			///
 			/// If your using this make sure you have called register_component().
 			///
-			/// \param file Filepath to the json.
+			/// \param name Name of the prefab to load.
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]] entt::entity create_from_file(std::string_view file);
+			[[maybe_unused]] entt::entity create_from_prefab(const std::string& name);
 
 			///
 			/// \brief Create an entity from a JSON object.
@@ -120,6 +120,15 @@ namespace galaxy
 			/// Clears all system, component registry, and entity data.
 			///
 			void clear() noexcept;
+
+			///
+			/// Serialise a single entity.
+			///
+			/// \param entity Entity to serialize.
+			///
+			/// \return JSON entity data.
+			///
+			[[nodiscard]] nlohmann::json serialize_entity(const entt::entity entity);
 
 			///
 			/// Serializes object.

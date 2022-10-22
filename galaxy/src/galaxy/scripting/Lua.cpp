@@ -67,6 +67,7 @@
 
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
@@ -309,6 +310,9 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Transform>();
 
 			/* CORE */
+			auto prefab_type    = lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab()>());
+			prefab_type["data"] = &core::Prefab::m_data;
+
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
 			config_type["load"]              = &core::Config::load;
 			config_type["save"]              = &core::Config::save;
@@ -327,13 +331,13 @@ namespace galaxy
 			lua["service_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
 
 			// Cannot be created in lua, accessed from scene instead.
-			auto world_type                = lua.new_usertype<core::World>("World", sol::no_constructor);
-			world_type["clear"]            = &core::World::clear;
-			world_type["create_from_file"] = &core::World::create_from_file;
-			world_type["registry"]         = &core::World::m_registry;
-			world_type["dispatcher"]       = &core::World::m_dispatcher;
-			world_type["create"]           = &core::World::create;
-			world_type["is_valid"]         = &core::World::is_valid;
+			auto world_type                  = lua.new_usertype<core::World>("World", sol::no_constructor);
+			world_type["clear"]              = &core::World::clear;
+			world_type["registry"]           = &core::World::m_registry;
+			world_type["dispatcher"]         = &core::World::m_dispatcher;
+			world_type["create"]             = &core::World::create;
+			world_type["create_from_prefab"] = &core::World::create_from_prefab;
+			world_type["is_valid"]           = &core::World::is_valid;
 
 			/* ERROR */
 			// clang-format off
@@ -776,6 +780,15 @@ namespace galaxy
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;
 
+			auto prefabs_type      = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
+			prefabs_type["clear"]  = &resource::Prefabs::clear;
+			prefabs_type["empty"]  = &resource::Prefabs::empty;
+			prefabs_type["get"]    = &resource::Prefabs::get;
+			prefabs_type["has"]    = &resource::Prefabs::has;
+			prefabs_type["load"]   = &resource::Prefabs::load;
+			prefabs_type["reload"] = &resource::Prefabs::reload;
+			prefabs_type["keys"]   = &resource::Prefabs::keys;
+
 			auto scripts_type      = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
 			scripts_type["clear"]  = &resource::Scripts::clear;
 			scripts_type["empty"]  = &resource::Scripts::empty;
@@ -875,6 +888,7 @@ namespace galaxy
 			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
 			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
 			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
+			lua["galaxy_prefabs"]      = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy
