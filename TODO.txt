@@ -16,7 +16,6 @@
 - state based system for character moevement + updating animation.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
-- add search to all combos.
 
 editor:
 - loading indicators

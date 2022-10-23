@@ -320,15 +320,18 @@ namespace sc
 									{
 										for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
 										{
-											const bool selected = (s_selected == key);
-											if (ImGui::Selectable(key.c_str(), selected))
+											if (key.find(s_selected) != std::string::npos)
 											{
-												s_selected = key;
-											}
+												const bool selected = (s_selected == key);
+												if (ImGui::Selectable(key.c_str(), selected))
+												{
+													s_selected = key;
+												}
 
-											if (selected)
-											{
-												ImGui::SetItemDefaultFocus();
+												if (selected)
+												{
+													ImGui::SetItemDefaultFocus();
+												}
 											}
 										}
 
