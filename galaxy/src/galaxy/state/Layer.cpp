@@ -26,6 +26,11 @@ namespace galaxy
 			m_window = nullptr;
 		}
 
+		void Layer::update_rendersystem()
+		{
+			m_world.update_rendersystem(this);
+		}
+
 		void Layer::set_name(std::string_view name) noexcept
 		{
 			m_name = static_cast<std::string>(name);

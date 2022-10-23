@@ -119,9 +119,16 @@ namespace sc
 	{
 		if (!m_game_mode)
 		{
-			if (m_project_scenes.has_current() && !m_paused)
+			if (m_project_scenes.has_current())
 			{
-				m_project_scenes.current().update();
+				if (!m_paused)
+				{
+					m_project_scenes.current().update();
+				}
+				else
+				{
+					m_project_scenes.current().update_rendersystem();
+				}
 			}
 
 			for (const auto& update : m_update_stack)

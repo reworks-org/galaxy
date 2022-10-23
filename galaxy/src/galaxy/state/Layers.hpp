@@ -99,6 +99,11 @@ namespace galaxy
 			void render();
 
 			///
+			/// Only update the rendersystem.
+			///
+			void update_rendersystem();
+
+			///
 			/// \brief Destroy all layers.
 			///
 			/// Also resets layer stack.

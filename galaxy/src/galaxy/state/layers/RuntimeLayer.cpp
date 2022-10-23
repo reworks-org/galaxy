@@ -13,7 +13,6 @@
 #include "galaxy/state/Scene.hpp"
 
 #include "galaxy/systems/AnimationSystem.hpp"
-#include "galaxy/systems/RenderSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
 
 #include "RuntimeLayer.hpp"

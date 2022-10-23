@@ -17,7 +17,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/Concepts.hpp"
-#include "galaxy/systems/System.hpp"
+#include "galaxy/systems/RenderSystem.hpp"
 
 namespace galaxy
 {
@@ -117,6 +117,13 @@ namespace galaxy
 			void update_systems(state::Layer* layer);
 
 			///
+			/// Only update the rendersystem.
+			///
+			/// \param layer Non-owning pointer to current layer.
+			///
+			void update_rendersystem(state::Layer* layer);
+
+			///
 			/// Clears all system, component registry, and entity data.
 			///
 			void clear() noexcept;
@@ -212,6 +219,11 @@ namespace galaxy
 			/// Validations to run upon request.
 			///
 			std::vector<std::type_index> m_validations_to_run;
+
+			///
+			/// Rendersystem index.
+			///
+			int m_rendersystem_index;
 		};
 
 		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
@@ -261,6 +273,11 @@ namespace galaxy
 		{
 			auto ptr = std::make_shared<System>(std::forward<Args>(args)...);
 			m_systems.push_back(std::static_pointer_cast<systems::System>(ptr));
+
+			if constexpr (std::is_same<System, systems::RenderSystem>::value)
+			{
+				m_rendersystem_index = static_cast<int>(m_systems.size()) - 1;
+			}
 
 			return ptr;
 		}

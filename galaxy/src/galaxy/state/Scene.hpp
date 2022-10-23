@@ -60,6 +60,11 @@ namespace galaxy
 			void render();
 
 			///
+			/// Only update the rendersystem.
+			///
+			void update_rendersystem();
+
+			///
 			/// Set Scene name.
 			///
 			/// \param name String name for debug purposes.

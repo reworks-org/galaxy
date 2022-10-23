@@ -70,6 +70,11 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
+			/// Only update the rendersystem.
+			///
+			void update_rendersystem();
+
+			///
 			/// Set layer name.
 			///
 			/// \param name String name for debug purposes.

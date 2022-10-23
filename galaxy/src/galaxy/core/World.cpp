@@ -33,6 +33,7 @@ namespace galaxy
 	{
 		World::World() noexcept
 			: Serializable {}
+			, m_rendersystem_index {-1}
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::DrawShader>("DrawShader");
@@ -145,11 +146,19 @@ namespace galaxy
 			return true;
 		}
 
-		void World::update_systems(state::Layer* scene)
+		void World::update_systems(state::Layer* layer)
 		{
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
-				m_systems[i]->update(scene);
+				m_systems[i]->update(layer);
+			}
+		}
+
+		void World::update_rendersystem(state::Layer* layer)
+		{
+			if (m_rendersystem_index < m_systems.size() && m_rendersystem_index != -1)
+			{
+				m_systems[m_rendersystem_index]->update(layer);
 			}
 		}
 
@@ -159,6 +168,8 @@ namespace galaxy
 			m_component_factory.clear();
 			m_registry.clear();
 			m_dispatcher.clear();
+
+			m_rendersystem_index = -1;
 		}
 
 		nlohmann::json World::serialize_entity(const entt::entity entity)

@@ -19,3 +19,5 @@
 
 editor:
 - loading indicators
+- mouse picking
+- imgizmo

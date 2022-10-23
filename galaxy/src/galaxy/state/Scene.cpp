@@ -57,6 +57,11 @@ namespace galaxy
 			m_layer_stack.render();
 		}
 
+		void Scene::update_rendersystem()
+		{
+			m_layer_stack.update_rendersystem();
+		}
+
 		void Scene::set_name(const std::string& name) noexcept
 		{
 			m_name = name;
