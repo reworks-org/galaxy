@@ -39,6 +39,7 @@
             "font_folder": "fonts/",
             "lang_folder": "lang/",
             "music_folder": "audio/music/",
+            "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",
             "sfx_folder": "audio/sfx/",
             "shader_folder": "shaders/",

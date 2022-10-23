@@ -8,6 +8,7 @@
 	- support polygon colliders
 	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
 	- physics materials
+	- velocity iterations and position iterations need to be in editor
 - mapping
 	- https://github.com/SSBMTonberry/tileson
 	- when adding mapping, add an animated tile component and then a map system that updates the animations, and batches them together into a batch stored in the system
@@ -15,13 +16,7 @@
 - state based system for character moevement + updating animation.
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
-- prefab entities, that are packaged into the game and come preconfigured.
-	- json format, zlib + base64 encoding.
-	- loaded into mem on game load, then creates entities from that.
-	- useful for things like bullets.
-- add a merged galaxy compression function - zlib/base64
 - add search to all combos.
 
 editor:
 - loading indicators
-- velocity iterations and position iterations need to be in editor
