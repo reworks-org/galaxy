@@ -214,7 +214,7 @@ namespace sc
 							ImGui::EndPopup();
 						}
 
-						if (ImGui::CollapsingHeader("Layers"))
+						if (ImGui::CollapsingHeader("Layer Stack"))
 						{
 							if (ImGui::Button("Pop"))
 							{
@@ -247,7 +247,7 @@ namespace sc
 
 							if (is_open_layertree)
 							{
-								// Right-click on blank space
+								// Right-click on blank space.
 								if (ImGui::BeginPopupContextWindow("##CreateNewEntityContext",
 										ImGuiPopupFlags_MouseButtonRight | ImGuiPopupFlags_NoOpenOverExistingPopup))
 								{
@@ -353,11 +353,8 @@ namespace sc
 									ImGui::EndPopup();
 								}
 
-								ImGui::Text("Entities");
-								ImGui::SameLine();
-
 								static std::string s_search = "";
-								ImGui::InputTextWithHint("##EntitySearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+								ImGui::InputTextWithHint("##EntitySearch", "Search Entity by Tag...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
 
 								const auto entity_listbox_item = [&](entt::entity entity, components::Tag* tag) {
 									const auto is_selected = (selected.m_selected == entity);
