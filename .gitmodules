@@ -40,3 +40,6 @@
 [submodule "lib/threadpool"]
 	path = lib/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
+[submodule "lib/tileson"]
+	path = lib/tileson
+	url = https://github.com/SSBMTonberry/tileson.git
