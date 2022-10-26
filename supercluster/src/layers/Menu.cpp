@@ -33,7 +33,7 @@ namespace sc
 
 	void Menu::on_push()
 	{
-		m_window->restore();
+		core::ServiceLocator<core::Window>::ref().restore();
 	}
 
 	void Menu::on_pop()
@@ -98,7 +98,7 @@ namespace sc
 
 		if (ImGui::Button("Exit", {button_width, button_height}))
 		{
-			m_window->close();
+			core::ServiceLocator<core::Window>::ref().close();
 		}
 
 		ImGui::End();

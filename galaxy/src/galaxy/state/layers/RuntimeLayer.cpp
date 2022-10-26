@@ -48,12 +48,11 @@ namespace galaxy
 
 		void RuntimeLayer::events()
 		{
-			m_window->trigger_queued_events(m_world.m_dispatcher);
+			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_world.m_dispatcher);
 		}
 
 		void RuntimeLayer::update()
 		{
-			m_world.update_systems(this);
 		}
 
 		void RuntimeLayer::render()

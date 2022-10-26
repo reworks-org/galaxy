@@ -107,11 +107,6 @@ namespace galaxy
 			Scene* m_scene;
 
 			///
-			/// Window pointer.
-			///
-			core::Window* m_window;
-
-			///
 			/// Entitys, events, etc.
 			///
 			core::World m_world;

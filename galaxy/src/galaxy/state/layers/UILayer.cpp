@@ -23,7 +23,9 @@ namespace galaxy
 		UILayer::UILayer(std::string_view name, Scene* scene) noexcept
 			: Layer {name, scene}
 		{
-			m_rml = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {m_window->get_width(), m_window->get_height()});
+			auto& window = core::ServiceLocator<core::Window>::ref();
+
+			m_rml = Rml::CreateContext(std::format("{0}_RmlContext", m_name), {window.get_width(), window.get_height()});
 			m_rml_events.set_context(m_rml);
 
 			m_world.m_dispatcher.sink<events::MouseMoved>().connect<&ui::RMLEvents::on_mouse_move>(m_rml_events);
@@ -58,7 +60,7 @@ namespace galaxy
 
 		void UILayer::events()
 		{
-			m_window->trigger_queued_events(m_world.m_dispatcher);
+			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_world.m_dispatcher);
 		}
 
 		void UILayer::update()

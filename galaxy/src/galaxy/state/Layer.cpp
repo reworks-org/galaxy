@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/Window.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-
 #include "Layer.hpp"
 
 namespace galaxy
@@ -18,12 +15,10 @@ namespace galaxy
 			: m_name {name}
 			, m_scene {scene}
 		{
-			m_window = &core::ServiceLocator<core::Window>::ref();
 		}
 
 		Layer::~Layer() noexcept
 		{
-			m_window = nullptr;
 		}
 
 		void Layer::update_rendersystem()
@@ -39,11 +34,6 @@ namespace galaxy
 		const std::string& Layer::get_name() const noexcept
 		{
 			return m_name;
-		}
-
-		core::World& Layer::world() noexcept
-		{
-			return m_world;
 		}
 	} // namespace state
 } // namespace galaxy

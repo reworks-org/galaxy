@@ -68,8 +68,9 @@ namespace sc
 
 	void Editor::on_push()
 	{
-		m_window->resize(1280, 720);
-		m_window->maximize();
+		auto& window = core::ServiceLocator<core::Window>::ref();
+		window.resize(1280, 720);
+		window.maximize();
 
 		m_autosave.start();
 	}
@@ -159,7 +160,7 @@ namespace sc
 
 	void Editor::new_project()
 	{
-		m_window->set_title("Untitled Project");
+		core::ServiceLocator<core::Window>::ref().set_title("Untitled Project");
 
 		m_project_scenes.clear();
 	}
@@ -191,7 +192,7 @@ namespace sc
 			if (json.has_value())
 			{
 				m_project_scenes.deserialize(json.value());
-				m_window->set_title(fs_path.stem().string().c_str());
+				core::ServiceLocator<core::Window>::ref().set_title(fs_path.stem().string().c_str());
 			}
 			else
 			{
@@ -234,7 +235,7 @@ namespace sc
 				ofs.write(encoded_zlib.data(), encoded_zlib.size());
 				ofs.close();
 
-				m_window->set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
+				core::ServiceLocator<core::Window>::ref().set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
 				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
 			}
 			else
@@ -255,7 +256,7 @@ namespace sc
 
 	void Editor::exit()
 	{
-		m_window->close();
+		core::ServiceLocator<core::Window>::ref().close();
 	}
 
 	void Editor::draw_editor()
