@@ -83,7 +83,6 @@ namespace sc
 		bool m_game_mode        = false;
 		bool m_viewport_focused = false;
 		bool m_viewport_hovered = false;
-		bool m_mouse_picked     = false;
 		bool m_use_mouse_hand   = false;
 		bool m_show_settings    = false;
 

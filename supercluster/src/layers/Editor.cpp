@@ -86,11 +86,6 @@ namespace sc
 		{
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
-				{
-					m_mouse_picked = true;
-				}
-
 				if (m_project_scenes.has_current())
 				{
 					if (!m_paused)
@@ -928,16 +923,6 @@ namespace sc
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
-
-			if (m_mouse_picked)
-			{
-				// auto& camera = m_project_scenes.current().get_camera();
-
-				// const auto x = ImGui::GetMousePos().x - ImGui::GetWindowPos().x - camera.get_x();
-				// const auto y = ImGui::GetMousePos().y - ImGui::GetWindowPos().y - camera.get_y();
-
-				m_mouse_picked = false;
-			}
 		}
 
 		ImGui::PopStyleVar(1);
