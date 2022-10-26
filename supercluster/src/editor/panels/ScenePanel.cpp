@@ -298,15 +298,18 @@ namespace sc
 
 								if (ImGui::Button("Save as Prefab"))
 								{
-									const auto data   = world.serialize_entity(selected.m_selected);
-									const auto base64 = algorithm::encode_base64(data.dump(4));
-									const auto zlib   = algorithm::encode_zlib(base64);
-
-									auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-									if (!fs.save_with_dialog(zlib, "untitled.galaxyprefab"))
+									if (selected.m_selected != entt::null && selected.m_world != nullptr)
 									{
-										GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
-										ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save prefab."});
+										const auto data   = world.serialize_entity(selected.m_selected);
+										const auto base64 = algorithm::encode_base64(data.dump(4));
+										const auto zlib   = algorithm::encode_zlib(base64);
+
+										auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+										if (!fs.save_with_dialog(zlib, "untitled.gpf"))
+										{
+											GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
+											ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save prefab."});
+										}
 									}
 								}
 
