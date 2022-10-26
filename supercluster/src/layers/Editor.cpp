@@ -922,7 +922,8 @@ namespace sc
 
 				if (m_project_scenes.has_current())
 				{
-					m_project_scenes.current().get_camera().on_window_resized({.m_width = (int)m_viewport_size.x, .m_height = (int)m_viewport_size.y});
+					m_project_scenes.current().get_camera().on_window_resized(
+						{.m_width = static_cast<int>(m_viewport_size.x), .m_height = static_cast<int>(m_viewport_size.y)});
 				}
 			}
 
