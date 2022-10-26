@@ -120,6 +120,26 @@ namespace galaxy
 #define GALAXY_WORKER_THREADS 2
 
 ///
+/// Box2D world velocity iterations.
+///
+#define GALAXY_VELOCITY_ITERATIONS 6
+
+///
+/// Box2D world position iterations.
+///
+#define GALAXY_POSITION_ITERATIONS 2
+
+///
+/// Box2D gravity horizontal velocity.
+///
+#define GALAXY_GRAVITY_X 0.0f
+
+///
+/// Box2d gravity vertical velocity.
+///
+#define GALAXY_GRAVITY_Y -9.8f
+
+///
 /// Macro for windows platform detection.
 ///
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)

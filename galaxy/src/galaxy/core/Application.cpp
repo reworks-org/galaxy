@@ -105,6 +105,7 @@ namespace galaxy
 			config.restore<std::string>("music_folder", "audio/music/", "resource_folders");
 			config.restore<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
 			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
+			config.restore<std::string>("materials_folder", "materials/", "resource_folders");
 			config.restore<bool>("enable_aa", false, "graphics");
 			config.restore<bool>("enable_sharpen", false, "graphics");
 			config.restore<std::string>("bg", "", "loading");
@@ -144,6 +145,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("atlas_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
 
 				// create_asset_layout(root, "json/");
 				// create_asset_layout(root, "maps/");

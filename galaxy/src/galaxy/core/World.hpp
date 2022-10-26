@@ -10,6 +10,7 @@
 
 #include <typeindex>
 
+#include <box2d/b2_world.h>
 #include <entt/entity/registry.hpp>
 #include <entt/signal/dispatcher.hpp>
 #include <robin_hood.h>
@@ -188,6 +189,22 @@ namespace galaxy
 			///
 			void destruct_script(entt::registry& registry, entt::entity entity);
 
+			///
+			/// Function that integrates a box2d construction with entt.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void construct_rigidbody(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates a box2d destruction with entt.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
+
 		public:
 			///
 			/// The main entt entity registry.
@@ -198,6 +215,11 @@ namespace galaxy
 			/// Event dispatcher.
 			///
 			entt::dispatcher m_dispatcher;
+
+			///
+			/// Box2D physics world.
+			///
+			std::unique_ptr<b2World> m_b2world;
 
 		private:
 			///

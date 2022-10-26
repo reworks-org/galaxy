@@ -133,6 +133,9 @@
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
+    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
+    <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="src\galaxy\physics\Material.cpp" />
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
   </ItemGroup>
@@ -269,6 +272,9 @@
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
+    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
+    <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="src\galaxy\physics\Material.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
   </ItemGroup>
