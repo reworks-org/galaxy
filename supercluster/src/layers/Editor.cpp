@@ -474,16 +474,6 @@ namespace sc
 				}
 			}
 
-			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			if (m_selected_entity.m_selected != entt::null)
-			{
-				ImGui::Text("Selected: %u", entt::to_integral(m_selected_entity.m_selected));
-			}
-			else
-			{
-				ImGui::Text("Selected: None");
-			}
-
 			ImGui::EndMenuBar();
 		}
 
