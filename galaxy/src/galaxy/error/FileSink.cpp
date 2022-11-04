@@ -5,7 +5,7 @@
 /// See LICENSE.txt.
 ///
 
-#include <filesystem>
+#include "galaxy/utils/Globals.hpp"
 
 #include "FileSink.hpp"
 
@@ -13,9 +13,25 @@ namespace galaxy
 {
 	namespace error
 	{
+		bool is_older_than(const std::filesystem::path& path, int hrs)
+		{
+			return std::chrono::duration_cast<std::chrono::hours>(std::filesystem::file_time_type::clock::now() - std::filesystem::last_write_time(path))
+					   .count() > hrs;
+		}
+
 		FileSink::FileSink(std::string_view file) noexcept
 		{
-			m_file_stream.open(std::filesystem::path(file).string(), std::ofstream::out);
+			const auto filepath = std::filesystem::path(file);
+
+			for (const auto& path : std::filesystem::recursive_directory_iterator(filepath.parent_path()))
+			{
+				if (std::filesystem::is_regular_file(path) && is_older_than(path, GALAXY_REMOVE_LOG_FILES_OLDER_THAN_HOURS))
+				{
+					std::filesystem::remove(path);
+				}
+			}
+
+			m_file_stream.open(filepath, std::ofstream::out);
 		}
 
 		FileSink::~FileSink() noexcept
