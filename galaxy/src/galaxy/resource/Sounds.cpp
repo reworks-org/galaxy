@@ -95,17 +95,5 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "Found no voice resources to load in '{0}'.", m_voice_path);
 			}
 		}
-
-		void Sounds::reload()
-		{
-			if (!m_sfx_path.empty() && !m_music_path.empty() && !m_voice_path.empty())
-			{
-				clear();
-
-				load_sfx(m_sfx_path);
-				load_music(m_music_path);
-				load_dialogue(m_voice_path);
-			}
-		}
 	} // namespace resource
 } // namespace galaxy

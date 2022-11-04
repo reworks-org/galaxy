@@ -54,14 +54,5 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "Found no Prefabs to load in '{0}'.", m_folder);
 			}
 		}
-
-		void Prefabs::reload()
-		{
-			if (!m_folder.empty())
-			{
-				clear();
-				load(m_folder);
-			}
-		}
 	} // namespace resource
 } // namespace galaxy

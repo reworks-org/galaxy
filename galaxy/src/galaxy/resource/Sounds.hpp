@@ -52,13 +52,6 @@ namespace galaxy
 			///
 			void load_dialogue(std::string_view folder);
 
-			///
-			/// \brief Reload all sound assets from folders.
-			///
-			/// Does nothing if the above load functions haven't been called.
-			///
-			void reload() override;
-
 		private:
 			///
 			/// Copy constructor.

@@ -39,14 +39,6 @@ namespace galaxy
 			void load(std::string_view folder);
 
 			///
-			/// \brief Reload all shaders from folder.
-			///
-			/// Does nothing if load hasn't been called.
-			/// Calls build() for you.
-			///
-			void reload() override;
-
-			///
 			/// \brief Build all font altas'.
 			///
 			/// Not thread safe, calls OpenGL code.

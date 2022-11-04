@@ -17,6 +17,7 @@
 - need to verify font, ui and glfw window are handling "codepoints" correctly.
 - need to make sure batch is a proper spritebatch...
 - remove logs older than two days
+- hot reloading
 
 editor:
 - loading indicators

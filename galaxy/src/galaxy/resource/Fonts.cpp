@@ -46,16 +46,6 @@ namespace galaxy
 			}
 		}
 
-		void Fonts::reload()
-		{
-			if (!m_folder.empty())
-			{
-				clear();
-				load(m_folder);
-				build();
-			}
-		}
-
 		void Fonts::build()
 		{
 			for (auto&& [key, font] : m_cache)

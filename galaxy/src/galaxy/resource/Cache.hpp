@@ -36,11 +36,6 @@ namespace galaxy
 			virtual ~Cache();
 
 			///
-			/// Reload all resources from folder.
-			///
-			virtual void reload() = 0;
-
-			///
 			/// Clean up resources.
 			///
 			void clear();

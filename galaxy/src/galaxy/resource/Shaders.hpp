@@ -45,14 +45,6 @@ namespace galaxy
 			void load(std::string_view folder);
 
 			///
-			/// \brief Reload all shaders from folder.
-			///
-			/// Does nothing if load hasn't been called.
-			/// Calls compile() for you.
-			///
-			void reload() override;
-
-			///
 			/// \brief Compiles the shaders in OpenGL.
 			///
 			/// NOT THREAD SAFE.

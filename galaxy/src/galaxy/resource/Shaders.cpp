@@ -78,16 +78,6 @@ namespace galaxy
 			m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 		}
 
-		void Shaders::reload()
-		{
-			if (!m_folder.empty())
-			{
-				clear();
-				load(m_folder);
-				compile();
-			}
-		}
-
 		void Shaders::compile()
 		{
 			for (auto&& [key, shader] : m_cache)

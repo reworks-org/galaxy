@@ -38,13 +38,6 @@ namespace galaxy
 			///
 			void load(std::string_view folder);
 
-			///
-			/// \brief Reload all Prefabs from folder.
-			///
-			/// Does nothing if load hasn't been called.
-			///
-			void reload() override;
-
 		private:
 			///
 			/// Copy constructor.
