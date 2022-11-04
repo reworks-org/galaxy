@@ -32,7 +32,7 @@ namespace galaxy
 			virtual ~Prefabs() noexcept;
 
 			///
-			///  Load Prefabs in a folder.
+			/// Load Prefabs in a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///

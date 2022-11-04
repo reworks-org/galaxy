@@ -32,7 +32,7 @@ namespace galaxy
 			virtual ~Scripts() noexcept;
 
 			///
-			///  Load scripts in a folder.
+			/// Load scripts in a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///
