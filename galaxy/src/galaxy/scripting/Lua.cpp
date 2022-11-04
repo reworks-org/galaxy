@@ -67,6 +67,7 @@
 
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -780,23 +781,29 @@ namespace galaxy
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;
 
-			auto prefabs_type      = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
-			prefabs_type["clear"]  = &resource::Prefabs::clear;
-			prefabs_type["empty"]  = &resource::Prefabs::empty;
-			prefabs_type["get"]    = &resource::Prefabs::get;
-			prefabs_type["has"]    = &resource::Prefabs::has;
-			prefabs_type["load"]   = &resource::Prefabs::load;
-			prefabs_type["reload"] = &resource::Prefabs::reload;
-			prefabs_type["keys"]   = &resource::Prefabs::keys;
+			auto maps_type     = lua.new_usertype<resource::Maps>("Maps", sol::no_constructor);
+			maps_type["clear"] = &resource::Maps::clear;
+			maps_type["empty"] = &resource::Maps::empty;
+			maps_type["get"]   = &resource::Maps::get;
+			maps_type["has"]   = &resource::Maps::has;
+			maps_type["load"]  = &resource::Maps::load;
+			maps_type["keys"]  = &resource::Maps::keys;
 
-			auto scripts_type      = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
-			scripts_type["clear"]  = &resource::Scripts::clear;
-			scripts_type["empty"]  = &resource::Scripts::empty;
-			scripts_type["get"]    = &resource::Scripts::get;
-			scripts_type["has"]    = &resource::Scripts::has;
-			scripts_type["load"]   = &resource::Scripts::load;
-			scripts_type["reload"] = &resource::Scripts::reload;
-			scripts_type["keys"]   = &resource::Scripts::keys;
+			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
+			prefabs_type["clear"] = &resource::Prefabs::clear;
+			prefabs_type["empty"] = &resource::Prefabs::empty;
+			prefabs_type["get"]   = &resource::Prefabs::get;
+			prefabs_type["has"]   = &resource::Prefabs::has;
+			prefabs_type["load"]  = &resource::Prefabs::load;
+			prefabs_type["keys"]  = &resource::Prefabs::keys;
+
+			auto scripts_type     = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
+			scripts_type["clear"] = &resource::Scripts::clear;
+			scripts_type["empty"] = &resource::Scripts::empty;
+			scripts_type["get"]   = &resource::Scripts::get;
+			scripts_type["has"]   = &resource::Scripts::has;
+			scripts_type["load"]  = &resource::Scripts::load;
+			scripts_type["keys"]  = &resource::Scripts::keys;
 
 			auto shaders_type       = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
 			shaders_type["clear"]   = &resource::Shaders::clear;
@@ -804,7 +811,6 @@ namespace galaxy
 			shaders_type["get"]     = &resource::Shaders::get;
 			shaders_type["has"]     = &resource::Shaders::has;
 			shaders_type["load"]    = &resource::Shaders::load;
-			shaders_type["reload"]  = &resource::Shaders::reload;
 			shaders_type["compile"] = &resource::Shaders::compile;
 			shaders_type["keys"]    = &resource::Shaders::keys;
 
@@ -816,7 +822,6 @@ namespace galaxy
 			sounds_type["load_music"]    = &resource::Sounds::load_music;
 			sounds_type["load_sfx"]      = &resource::Sounds::load_sfx;
 			sounds_type["load_dialogue"] = &resource::Sounds::load_dialogue;
-			sounds_type["reload"]        = &resource::Sounds::reload;
 			sounds_type["keys"]          = &resource::Sounds::keys;
 
 			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
@@ -829,15 +834,14 @@ namespace galaxy
 			textureatlas_type["save"]       = &resource::TextureAtlas::save;
 			textureatlas_type["keys"]       = &resource::TextureAtlas::keys;
 
-			auto fonts_type      = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
-			fonts_type["clear"]  = &resource::Fonts::clear;
-			fonts_type["empty"]  = &resource::Fonts::empty;
-			fonts_type["get"]    = &resource::Fonts::get;
-			fonts_type["has"]    = &resource::Fonts::has;
-			fonts_type["load"]   = &resource::Fonts::load;
-			fonts_type["reload"] = &resource::Fonts::reload;
-			fonts_type["build"]  = &resource::Fonts::build;
-			fonts_type["keys"]   = &resource::Fonts::keys;
+			auto fonts_type     = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
+			fonts_type["clear"] = &resource::Fonts::clear;
+			fonts_type["empty"] = &resource::Fonts::empty;
+			fonts_type["get"]   = &resource::Fonts::get;
+			fonts_type["has"]   = &resource::Fonts::has;
+			fonts_type["load"]  = &resource::Fonts::load;
+			fonts_type["build"] = &resource::Fonts::build;
+			fonts_type["keys"]  = &resource::Fonts::keys;
 
 			/* STATE */
 			auto scenemanager_type       = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
@@ -884,6 +888,7 @@ namespace galaxy
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
 			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_maps"]         = std::ref(core::ServiceLocator<resource::Maps>::ref());
 			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
 			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
 			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());

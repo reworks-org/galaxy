@@ -62,6 +62,8 @@ namespace sc
 			graphics::Texture m_proj;
 			graphics::Texture m_texture;
 			graphics::Texture m_reload;
+			graphics::Texture m_map;
+			graphics::Texture m_prefab;
 
 			graphics::Texture* m_icon;
 		};

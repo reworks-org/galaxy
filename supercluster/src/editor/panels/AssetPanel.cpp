@@ -95,6 +95,14 @@ namespace sc
 			m_reload.load("editor_data/icons/reload.png");
 			m_reload.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_reload.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_map.load("editor_data/icons/map.png");
+			m_map.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_map.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_prefab.load("editor_data/icons/prefab.png");
+			m_prefab.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_prefab.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
 		void AssetPanel::render(CodeEditor& editor, UpdateStack& updates)
@@ -135,38 +143,10 @@ namespace sc
 					ImGui::Text("Select resource to reload.");
 					ImGui::Separator();
 
-					if (ImGui::MenuItem("Fonts"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::Fonts>::ref().reload();
-						});
-					}
-
 					if (ImGui::MenuItem("Languages"))
 					{
 						updates.push_back([]() {
 							core::ServiceLocator<resource::Language>::ref().reload();
-						});
-					}
-
-					if (ImGui::MenuItem("Scripts"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::Scripts>::ref().reload();
-						});
-					}
-
-					if (ImGui::MenuItem("Shaders"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::Shaders>::ref().reload();
-						});
-					}
-
-					if (ImGui::MenuItem("Sounds"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::Sounds>::ref().reload();
 						});
 					}
 
@@ -281,6 +261,14 @@ namespace sc
 							{
 								m_icon = &m_texture;
 							}
+							else if (ext == ".tmx")
+							{
+								m_icon = &m_map;
+							}
+							else if (ext == ".galaxyprefab")
+							{
+								m_icon = &m_prefab;
+							}
 							else
 							{
 								m_icon = &m_file;
@@ -392,6 +380,16 @@ namespace sc
 					if (ImGui::MenuItem("Font"))
 					{
 						import_files("font_folder");
+					}
+
+					if (ImGui::MenuItem("Maps"))
+					{
+						import_files("maps_folder");
+					}
+
+					if (ImGui::MenuItem("Prefabs"))
+					{
+						import_files("prefabs_folder");
 					}
 
 					if (m_selected.m_is_hovered)

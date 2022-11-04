@@ -26,6 +26,7 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -314,6 +315,12 @@ namespace galaxy
 					//
 					auto& prefabs = ServiceLocator<resource::Prefabs>::make();
 					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
+
+					//
+					// Maps.
+					//
+					auto& maps = ServiceLocator<resource::Maps>::make();
+					maps.load(config.get<std::string>("maps_folder", "resource_folders"));
 
 					//
 					// UI.
