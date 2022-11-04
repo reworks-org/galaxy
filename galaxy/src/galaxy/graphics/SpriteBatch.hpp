@@ -8,7 +8,7 @@
 #ifndef GALAXY_GRAPHICS_SPRITEBATCH_HPP_
 #define GALAXY_GRAPHICS_SPRITEBATCH_HPP_
 
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Initialize spritebatch buffers.
 			///
-			/// \param max_quads Number of quads to allow to be batched. I.e. 5 tiles.
+			/// \param max_quads Number of quads to allow to be batched.
 			///
 			void init(const int max_quads);
 
@@ -56,7 +56,14 @@ namespace galaxy
 			///
 			/// \return Index where the vertx data is offset from. Useful to update animations, transforms later.
 			///
-			[[maybe_unused]] unsigned int push(std::span<Vertex> vertices) noexcept;
+			[[maybe_unused]] unsigned int push(const std::vector<Vertex>& vertices) noexcept;
+
+			///
+			/// \brief Buffer data into vertex object.
+			///
+			/// Make sure you call BEFORE sub_buffer or you will lose data.
+			///
+			void commit() noexcept;
 
 			///
 			/// Sub-buffer vertex object.
@@ -69,7 +76,7 @@ namespace galaxy
 			///
 			/// Clears out vertex buffer.
 			///
-			void clear() noexcept;
+			void flush() noexcept;
 
 			///
 			/// Get vertex array object.
@@ -104,6 +111,11 @@ namespace galaxy
 			/// Total bytes currently used.
 			///
 			unsigned int m_bytes_used;
+
+			///
+			/// Vertices to buffer.
+			///
+			std::vector<Vertex> m_vertices;
 		};
 	} // namespace graphics
 } // namespace galaxy

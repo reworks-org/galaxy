@@ -26,6 +26,7 @@ namespace galaxy
 			this->m_vao        = std::move(sb.m_vao);
 			this->m_max_bytes  = sb.m_max_bytes;
 			this->m_bytes_used = sb.m_bytes_used;
+			this->m_vertices   = std::move(sb.m_vertices);
 		}
 
 		SpriteBatch& SpriteBatch::operator=(SpriteBatch&& sb) noexcept
@@ -35,6 +36,7 @@ namespace galaxy
 				this->m_vao        = std::move(sb.m_vao);
 				this->m_max_bytes  = sb.m_max_bytes;
 				this->m_bytes_used = sb.m_bytes_used;
+				this->m_vertices   = std::move(sb.m_vertices);
 			}
 
 			return *this;
@@ -42,6 +44,7 @@ namespace galaxy
 
 		SpriteBatch::~SpriteBatch() noexcept
 		{
+			flush();
 		}
 
 		void SpriteBatch::init(const int max_quads)
@@ -64,18 +67,23 @@ namespace galaxy
 
 			m_max_bytes = max_quads * (sizeof(Vertex) * 4);
 			m_vao.create(m_max_bytes, StorageFlag::DYNAMIC_DRAW, indices, StorageFlag::DYNAMIC_DRAW);
+			m_vertices.reserve(max_quads);
 		}
 
-		unsigned int SpriteBatch::push(std::span<Vertex> vertices) noexcept
+		unsigned int SpriteBatch::push(const std::vector<Vertex>& vertices) noexcept
 		{
-			if (!((m_bytes_used + vertices.size_bytes()) > m_max_bytes))
+			const auto size_bytes = vertices.size() * sizeof(Vertex);
+
+			if (!((m_bytes_used + size_bytes) > m_max_bytes))
 			{
-				m_bytes_used += static_cast<unsigned int>(vertices.size_bytes());
+				m_bytes_used += static_cast<unsigned int>(size_bytes);
 
-				const unsigned int index = m_bytes_used / (4 * sizeof(Vertex));
-				sub_buffer(index, vertices);
+				for (const auto& vertex : vertices)
+				{
+					m_vertices.push_back(vertex);
+				}
 
-				return index;
+				return m_bytes_used / (4 * sizeof(Vertex));
 			}
 			else
 			{
@@ -84,12 +92,18 @@ namespace galaxy
 			}
 		}
 
+		void SpriteBatch::commit() noexcept
+		{
+			m_vao.sub_buffer(0, m_vertices);
+			m_vertices.clear();
+		}
+
 		void SpriteBatch::sub_buffer(const unsigned int index, std::span<Vertex> vertices) noexcept
 		{
 			m_vao.sub_buffer(index, vertices);
 		}
 
-		void SpriteBatch::clear() noexcept
+		void SpriteBatch::flush() noexcept
 		{
 			m_vao.clear();
 		}
