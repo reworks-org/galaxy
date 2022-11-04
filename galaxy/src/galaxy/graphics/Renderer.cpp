@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <execution>
-
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/utils/Globals.hpp"
