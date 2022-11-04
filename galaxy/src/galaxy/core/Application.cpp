@@ -95,6 +95,7 @@ namespace galaxy
 			config.restore<float>("dialogue_volume", 1.0f, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
+			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
 			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
 			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
 			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
@@ -144,9 +145,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("atlas_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
-
-				// create_asset_layout(root, "json/");
-				// create_asset_layout(root, "maps/");
+				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
 
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
