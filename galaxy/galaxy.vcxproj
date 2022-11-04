@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\state\layers\MapLayer.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
@@ -148,7 +147,6 @@
     <ClCompile Include="src\galaxy\state\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\state\layers\MapLayer.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />

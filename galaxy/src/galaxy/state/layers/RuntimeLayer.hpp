@@ -83,3 +83,57 @@ namespace galaxy
 } // namespace galaxy
 
 #endif
+
+/*
+
+		///
+			/// Add a tiled project to this layer.
+			///
+			/// \param path Path to the project.
+			///
+			void add_tiled_project(std::string_view path);
+
+			///
+			/// Parses the predefined list of tiled projects
+			///
+			void parse_tiled_projects();
+
+			///
+			/// Set the active map.
+			///
+			/// \param name Name of the map file to set as active.
+			///
+			void set_active_map(std::string_view name);
+
+			///
+			/// Get a map.
+			///
+			/// \param name Name of the map file to get.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_map(std::string_view name);
+
+			///
+			/// Get active map.
+			///
+			/// \return Pointer to the map.
+			///
+			[[nodiscard]] map::Map* get_active_map();
+
+		private:
+			///
+			/// Tiled map world.
+			///
+			map::TiledWorld m_maps;
+
+			///
+			/// Currently active map.
+			///
+			std::string m_active_map;
+
+			///
+			/// Current map path.
+			///
+			std::string m_maps_path;
+*/

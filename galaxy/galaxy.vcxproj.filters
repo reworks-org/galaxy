@@ -135,7 +135,6 @@
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
-    <ClCompile Include="src\galaxy\state\layers\MapLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -272,6 +271,5 @@
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
-    <ClInclude Include="src\galaxy\state\layers\MapLayer.hpp" />
   </ItemGroup>
 </Project>

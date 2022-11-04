@@ -76,3 +76,70 @@ namespace galaxy
 		}
 	} // namespace state
 } // namespace galaxy
+
+/*
+*
+		void MapLayer::add_tiled_project(std::string_view path)
+		{
+		}
+
+		void MapLayer::parse_tiled_projects()
+		{
+		}
+		void Scene::create_maps(std::string_view path)
+		{
+			m_maps_path = static_cast<std::string>(path);
+
+			m_maps.clear();
+			m_maps.load(m_maps_path);
+			if (!m_maps.parse(m_world))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse tiled world.");
+			}
+		}
+
+		void Scene::set_active_map(std::string_view name)
+		{
+			m_active_map = static_cast<std::string>(name);
+		}
+
+		map::Map* Scene::get_map(std::string_view name)
+		{
+			return m_maps.get_map(name);
+		}
+
+		map::Map* Scene::get_active_map()
+		{
+			return m_maps.get_map(m_active_map);
+		}
+
+		nlohmann::json Scene::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["name"]       = m_name;
+
+			json["world"]      = m_world.serialize();
+			json["active-map"] = m_active_map;
+			json["maps-path"]  = m_maps_path;
+			// json["theme"]  = m_gui_theme.serialize();
+			// json["gui"]    = m_gui.serialize();
+
+			return json;
+		}
+
+		void Scene::deserialize(const nlohmann::json& json)
+		{
+			m_name = json.at("name");
+
+
+			m_world.deserialize(json.at("world"));
+
+			m_active_map = json.at("active-map");
+			m_maps_path  = json.at("maps-path");
+
+			// m_gui_theme.deserialize(json.at("theme"));
+			// m_gui.set_theme(&m_gui_theme);
+			// m_gui.deserialize(json.at("gui"));
+		}
+*/
