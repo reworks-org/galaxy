@@ -1411,6 +1411,7 @@
     <ClInclude Include="imgui\imgui_addons\notify\fa_solid_900.h" />
     <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
     <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
+    <ClInclude Include="tileson\include\tileson.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

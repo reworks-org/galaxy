@@ -1414,6 +1414,7 @@
     <ClInclude Include="stb\include\stb_vorbis.h" />
     <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
+    <ClInclude Include="tileson\include\tileson.hpp" />
     <ClInclude Include="zlibcomplete\lib\zlc\gzipcomplete.hpp" />
     <ClInclude Include="zlibcomplete\lib\zlc\zlibbase.hpp" />
     <ClInclude Include="zlibcomplete\lib\zlc\zlibcomplete.hpp" />
