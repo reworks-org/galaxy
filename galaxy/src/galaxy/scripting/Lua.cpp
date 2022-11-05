@@ -259,11 +259,15 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Sprite>::value);
 
-			sprite_type["create"]      = &components::Sprite::create;
-			sprite_type["get_height"]  = &components::Sprite::get_height;
-			sprite_type["get_opacity"] = &components::Sprite::get_opacity;
-			sprite_type["get_width"]   = &components::Sprite::get_width;
-			sprite_type["set_opacity"] = &components::Sprite::set_opacity;
+			sprite_type["create"] = sol::resolve<void(const std::string&, const int, const float)>(&components::Sprite::create);
+			sprite_type["create_texturerect"] =
+				sol::resolve<void(const std::string&, const graphics::fRect&, const int, const float)>(&components::Sprite::create);
+			sprite_type["update"]             = sol::resolve<void(const std::string&)>(&components::Sprite::update);
+			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const graphics::fRect&)>(&components::Sprite::update);
+			sprite_type["get_height"]         = &components::Sprite::get_height;
+			sprite_type["get_opacity"]        = &components::Sprite::get_opacity;
+			sprite_type["get_width"]          = &components::Sprite::get_width;
+			sprite_type["set_opacity"]        = &components::Sprite::set_opacity;
 
 			entt_sol::register_meta_component<components::Sprite>();
 
@@ -295,18 +299,20 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Transform>::value);
 
-			transform_type["get_origin"]    = &components::Transform::get_origin;
-			transform_type["get_pos"]       = &components::Transform::get_pos;
-			transform_type["get_rotation"]  = &components::Transform::get_rotation;
-			transform_type["get_scale"]     = &components::Transform::get_scale;
-			transform_type["get_transform"] = &components::Transform::get_transform;
-			transform_type["reset"]         = &components::Transform::reset;
-			transform_type["rotate"]        = &components::Transform::rotate;
-			transform_type["scale"]         = &components::Transform::scale;
-			transform_type["set_origin"]    = &components::Transform::set_origin;
-			transform_type["set_pos"]       = &components::Transform::set_pos;
-			transform_type["set_rotation"]  = &components::Transform::set_rotation;
-			transform_type["translate"]     = &components::Transform::translate;
+			transform_type["get_origin"]           = &components::Transform::get_origin;
+			transform_type["get_pos"]              = &components::Transform::get_pos;
+			transform_type["get_rotation"]         = &components::Transform::get_rotation;
+			transform_type["get_scale"]            = &components::Transform::get_scale;
+			transform_type["get_transform"]        = &components::Transform::get_transform;
+			transform_type["reset"]                = &components::Transform::reset;
+			transform_type["rotate"]               = &components::Transform::rotate;
+			transform_type["set_scale"]            = &components::Transform::set_scale;
+			transform_type["set_scale_horizontal"] = &components::Transform::set_scale_horizontal;
+			transform_type["set_scale_vertical"]   = &components::Transform::set_scale_vertical;
+			transform_type["set_origin"]           = &components::Transform::set_origin;
+			transform_type["set_pos"]              = &components::Transform::set_pos;
+			transform_type["set_rotation"]         = &components::Transform::set_rotation;
+			transform_type["translate"]            = &components::Transform::translate;
 
 			entt_sol::register_meta_component<components::Transform>();
 

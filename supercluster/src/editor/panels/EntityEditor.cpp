@@ -638,10 +638,11 @@ namespace sc
 							tf->set_rotation(rotate);
 						}
 
-						auto scale = tf->get_scale();
-						if (ImGui::InputFloat("Scale", &scale, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						float scale[2] = {tf->get_scale().x, tf->get_scale().y};
+						if (ImGui::InputFloat2("Scale", scale, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
 						{
-							tf->scale(scale);
+							tf->set_scale_horizontal(scale[0]);
+							tf->set_scale_vertical(scale[1]);
 						}
 					});
 
