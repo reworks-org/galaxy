@@ -8,9 +8,6 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_HPP_
 #define GALAXY_GRAPHICS_VERTEX_HPP_
 
-#include <array>
-#include <compare>
-
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 
