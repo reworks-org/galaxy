@@ -110,7 +110,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::create(const std::string& texture, const int layer, const graphics::fRect& texture_rect, const float opacity)
+		void Sprite::create(const std::string& texture, const graphics::fRect& texture_rect, const int layer, const float opacity)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 

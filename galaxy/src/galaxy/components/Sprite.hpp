@@ -9,6 +9,7 @@
 #define GALAXY_COMPONENTS_SPRITE_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
@@ -78,11 +79,11 @@ namespace galaxy
 			/// Creates the internal vertex array.
 			///
 			/// \param texture Texture file in VFS.
-			/// \param layer Rendering layer.
 			/// \param texture_rect Custom region on a texture to render from.
+			/// \param layer Rendering layer.
 			/// \param opacity Opacity from 0.0f to 1.0f.
 			///
-			void create(const std::string& texture, const int layer, const graphics::fRect& texture_rect, const float opacity = 1.0f);
+			void create(const std::string& texture, const graphics::fRect& texture_rect, const int layer, const float opacity = 1.0f);
 
 			///
 			/// Updates texture and internal vertex array.
