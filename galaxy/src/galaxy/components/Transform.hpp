@@ -67,9 +67,9 @@ namespace galaxy
 			///
 			/// Set entity scale.
 			///
-			/// \param factor Scale multiplicative value. Must be positive.
+			/// \param scale Value to scale by.
 			///
-			void scale(const float factor) noexcept;
+			void set_scale(const float scale) noexcept;
 
 			///
 			/// Sets position without moving the entity.

@@ -74,9 +74,9 @@ namespace galaxy
 			m_rotation = std::clamp(m_rotation, 0.0f, 360.0f);
 		}
 
-		void Transform::scale(const float factor) noexcept
+		void Transform::set_scale(const float scale) noexcept
 		{
-			m_scale = factor;
+			m_scale = scale;
 		}
 
 		void Transform::set_pos(const float x, const float y) noexcept
