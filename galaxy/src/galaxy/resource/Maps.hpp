@@ -33,7 +33,9 @@ namespace galaxy
 			virtual ~Maps() noexcept;
 
 			///
-			/// Load maps in a folder.
+			/// \brief Load maps in a folder.
+			///
+			/// Tilesets and other map related files must be a part of the texture atlas.
 			///
 			/// \param folder Folder located in the VFS.
 			///
