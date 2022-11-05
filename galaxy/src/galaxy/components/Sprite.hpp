@@ -75,11 +75,29 @@ namespace galaxy
 			void create(const std::string& texture, const int layer, const float opacity = 1.0f);
 
 			///
+			/// Creates the internal vertex array.
+			///
+			/// \param texture Texture file in VFS.
+			/// \param layer Rendering layer.
+			/// \param texture_rect Custom region on a texture to render from.
+			/// \param opacity Opacity from 0.0f to 1.0f.
+			///
+			void create(const std::string& texture, const int layer, const graphics::fRect& texture_rect, const float opacity = 1.0f);
+
+			///
 			/// Updates texture and internal vertex array.
 			///
 			/// \param texture Texture file in VFS.
 			///
 			void update(const std::string& texture);
+
+			///
+			/// Updates texture and internal vertex array.
+			///
+			/// \param texture Texture file in VFS.
+			/// \param texture_rect Custom region on a texture to render from.
+			///
+			void update(const std::string& texture, const graphics::fRect& texture_rect);
 
 			///
 			/// Set opacity.

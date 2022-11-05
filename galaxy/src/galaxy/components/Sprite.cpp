@@ -110,6 +110,55 @@ namespace galaxy
 			}
 		}
 
+		void Sprite::create(const std::string& texture, const int layer, const graphics::fRect& texture_rect, const float opacity)
+		{
+			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
+
+			const auto info_opt = atlas.query(texture);
+			if (info_opt.has_value())
+			{
+				const auto& info = info_opt.value().get();
+
+				m_width  = texture_rect.m_width;
+				m_height = texture_rect.m_height;
+
+				m_layer = layer;
+				set_opacity(opacity);
+				m_texture_id = info.m_handle;
+
+				std::array<graphics::Vertex, 4> vertices;
+
+				vertices[0].m_pos    = {0.0f, 0.0f};
+				vertices[0].m_texels = info.m_texel_region.ul_texels();
+				vertices[0].m_texels.x += texture_rect.m_x;
+				vertices[0].m_texels.y += texture_rect.m_y;
+
+				vertices[1].m_pos      = {m_width, 0.0f};
+				vertices[1].m_texels   = info.m_texel_region.ur_texels();
+				vertices[1].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
+				vertices[1].m_texels.y += texture_rect.m_y;
+
+				vertices[2].m_pos      = {m_width, m_height};
+				vertices[2].m_texels   = info.m_texel_region.br_texels();
+				vertices[2].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
+				vertices[2].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+
+				vertices[3].m_pos    = {0.0f, m_height};
+				vertices[3].m_texels = info.m_texel_region.bl_texels();
+				vertices[3].m_texels.x += texture_rect.m_x;
+				vertices[3].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+
+				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+				m_texture = texture;
+
+				configure();
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
+			}
+		}
+
 		void Sprite::update(const std::string& texture)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
@@ -137,6 +186,51 @@ namespace galaxy
 
 				vertices[3].m_pos    = {0.0f, m_height};
 				vertices[3].m_texels = info.m_texel_region.bl_texels();
+
+				m_vao.sub_buffer(0, vertices);
+				m_texture = texture;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
+			}
+		}
+
+		void Sprite::update(const std::string& texture, const graphics::fRect& texture_rect)
+		{
+			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
+
+			const auto info_opt = atlas.query(texture);
+			if (info_opt.has_value())
+			{
+				const auto& info = info_opt.value().get();
+
+				m_width  = texture_rect.m_width;
+				m_height = texture_rect.m_height;
+
+				m_texture_id = info.m_handle;
+
+				std::array<graphics::Vertex, 4> vertices;
+
+				vertices[0].m_pos    = {0.0f, 0.0f};
+				vertices[0].m_texels = info.m_texel_region.ul_texels();
+				vertices[0].m_texels.x += texture_rect.m_x;
+				vertices[0].m_texels.y += texture_rect.m_y;
+
+				vertices[1].m_pos      = {m_width, 0.0f};
+				vertices[1].m_texels   = info.m_texel_region.ur_texels();
+				vertices[1].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
+				vertices[1].m_texels.y += texture_rect.m_y;
+
+				vertices[2].m_pos      = {m_width, m_height};
+				vertices[2].m_texels   = info.m_texel_region.br_texels();
+				vertices[2].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
+				vertices[2].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+
+				vertices[3].m_pos    = {0.0f, m_height};
+				vertices[3].m_texels = info.m_texel_region.bl_texels();
+				vertices[3].m_texels.x += texture_rect.m_x;
+				vertices[3].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
 
 				m_vao.sub_buffer(0, vertices);
 				m_texture = texture;
