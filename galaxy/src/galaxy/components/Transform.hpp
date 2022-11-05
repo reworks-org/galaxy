@@ -72,6 +72,20 @@ namespace galaxy
 			void set_scale(const float scale) noexcept;
 
 			///
+			/// Set entity scale.
+			///
+			/// \param x Value to scale horizontal axis by.
+			///
+			void set_scale_horizontal(const float x) noexcept;
+
+			///
+			/// Set entity scale.
+			///
+			/// \param y Value to scale vertical axis by.
+			///
+			void set_scale_vertical(const float y) noexcept;
+
+			///
 			/// Sets position without moving the entity.
 			///
 			/// \param x X position to set.
@@ -116,9 +130,9 @@ namespace galaxy
 			///
 			/// Get stored scale.
 			///
-			/// \return Float.
+			/// \return glm::vec2.
 			///
-			[[nodiscard]] float get_scale() const noexcept;
+			[[nodiscard]] const glm::vec2& get_scale() const noexcept;
 
 			///
 			/// Get origin point.
@@ -176,7 +190,7 @@ namespace galaxy
 			/// Cached for easy retrieval.
 			/// Scale.
 			///
-			float m_scale;
+			glm::vec2 m_scale;
 
 			///
 			/// Transform origin point.

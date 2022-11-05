@@ -25,7 +25,7 @@ namespace galaxy
 			: Serializable {}
 			, m_pos {0.0f, 0.0f, 0.0f}
 			, m_rotation {0.0f}
-			, m_scale {1.0f}
+			, m_scale {1.0f, 1.0f}
 			, m_origin {0.0f, 0.0f, 0.0f}
 		{
 		}
@@ -34,7 +34,7 @@ namespace galaxy
 			: Serializable {}
 			, m_pos {0.0f, 0.0f, 0.0f}
 			, m_rotation {0.0f}
-			, m_scale {1.0f}
+			, m_scale {1.0f, 1.0f}
 			, m_origin {0.0f, 0.0f, 0.0f}
 		{
 			deserialize(json);
@@ -45,7 +45,7 @@ namespace galaxy
 		{
 			this->m_pos      = std::move(t.m_pos);
 			this->m_rotation = t.m_rotation;
-			this->m_scale    = t.m_scale;
+			this->m_scale    = std::move(t.m_scale);
 			this->m_origin   = std::move(t.m_origin);
 		}
 
@@ -55,7 +55,7 @@ namespace galaxy
 			{
 				this->m_pos      = std::move(t.m_pos);
 				this->m_rotation = t.m_rotation;
-				this->m_scale    = t.m_scale;
+				this->m_scale    = std::move(t.m_scale);
 				this->m_origin   = std::move(t.m_origin);
 			}
 
@@ -76,7 +76,18 @@ namespace galaxy
 
 		void Transform::set_scale(const float scale) noexcept
 		{
-			m_scale = scale;
+			m_scale.x = scale;
+			m_scale.y = scale;
+		}
+
+		void Transform::set_scale_horizontal(const float x) noexcept
+		{
+			m_scale.x = x;
+		}
+
+		void Transform::set_scale_vertical(const float y) noexcept
+		{
+			m_scale.y = y;
 		}
 
 		void Transform::set_pos(const float x, const float y) noexcept
@@ -100,7 +111,7 @@ namespace galaxy
 		{
 			m_pos      = {0.0f, 0.0f, 0.0f};
 			m_rotation = 0.0f;
-			m_scale    = 1.0f;
+			m_scale    = {1.0f, 1.0f};
 		}
 
 		glm::vec2 Transform::get_pos() noexcept
@@ -113,7 +124,7 @@ namespace galaxy
 			return m_rotation;
 		}
 
-		float Transform::get_scale() const noexcept
+		const glm::vec2& Transform::get_scale() const noexcept
 		{
 			return m_scale;
 		}
@@ -130,7 +141,7 @@ namespace galaxy
 			rotation      = glm::translate(rotation, -m_origin);
 
 			auto scale = glm::translate(identity_matrix, m_origin);
-			scale      = glm::scale(scale, {m_scale, m_scale, 1.0f});
+			scale      = glm::scale(scale, {m_scale, 1.0f});
 			scale      = glm::translate(scale, -m_origin);
 
 			return glm::translate(identity_matrix, m_pos) * rotation * scale;
@@ -140,10 +151,11 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["pos"]["x"] = m_pos.x;
-			json["pos"]["y"] = m_pos.y;
-			json["rotation"] = m_rotation;
-			json["scale"]    = m_scale;
+			json["pos"]["x"]   = m_pos.x;
+			json["pos"]["y"]   = m_pos.y;
+			json["rotation"]   = m_rotation;
+			json["scale"]["x"] = m_scale.x;
+			json["scale"]["y"] = m_scale.y;
 
 			return json;
 		}
@@ -156,7 +168,10 @@ namespace galaxy
 			set_pos(pos.at("x"), pos.at("y"));
 
 			rotate(json.at("rotation"));
-			scale(json.at("scale"));
+
+			const auto& scale = json.at("scale");
+			set_scale_horizontal(scale.at("x"));
+			set_scale_vertical(scale.at("y"));
 		}
 	} // namespace components
 } // namespace galaxy
