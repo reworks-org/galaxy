@@ -35,17 +35,19 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto path = std::filesystem::path(file);
-
-					tson::Tileson tileson;
-					auto map = tileson.parse(path);
-
-					if (map->getStatus() == tson::ParseStatus::OK)
+					if (path.extension() == ".tmj")
 					{
-						m_cache[path.stem().string()] = std::move(map);
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to parse '{0}' in tileson.", file);
+						tson::Tileson tileson;
+						auto map = tileson.parse(path);
+
+						if (map->getStatus() == tson::ParseStatus::OK)
+						{
+							m_cache[path.stem().string()] = std::move(map);
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to parse '{0}' in tileson.", file);
+						}
 					}
 				}
 			}
