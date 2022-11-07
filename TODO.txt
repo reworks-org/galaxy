@@ -16,8 +16,11 @@
 - camera events need to be in scene, not layers...
 - dispatcher should probably be in scene
 - fonts should use font family as key name.
+- Fix not selecting correct atlas if map tilesets are spread out across atlas'.
+- add load screen when switching maps
 
 editor:
 - loading indicators
+	- add loading indicator for map loading
 - mouse picking
 	- imgizmo

@@ -261,7 +261,7 @@ namespace sc
 							{
 								m_icon = &m_texture;
 							}
-							else if (ext == ".tmx")
+							else if (ext == ".tmx" || ext == ".tmj")
 							{
 								m_icon = &m_map;
 							}

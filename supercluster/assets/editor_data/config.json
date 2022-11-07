@@ -38,6 +38,7 @@
             "dialogue_folder": "audio/dialogue/",
             "font_folder": "fonts/",
             "lang_folder": "lang/",
+            "maps_folder": "maps/",
             "music_folder": "audio/music/",
             "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",
