@@ -93,8 +93,7 @@ namespace galaxy
 			m_text    = text;
 			m_size    = size;
 
-			m_layer      = layer;
-			m_texture_id = m_texture.get_texture();
+			m_layer = layer;
 
 			auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
 			m_font      = fonts.get(m_font_id);
@@ -106,6 +105,8 @@ namespace galaxy
 				m_height       = vec.y;
 
 				m_texture.bind(true);
+				m_texture.create(m_width, m_height);
+				m_texture_id = m_texture.get_texture();
 
 				std::size_t start = 0;
 				std::size_t end   = m_text.find('\n');
