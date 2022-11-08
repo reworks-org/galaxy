@@ -128,25 +128,24 @@ namespace galaxy
 
 				std::array<graphics::Vertex, 4> vertices;
 
-				vertices[0].m_pos    = {0.0f, 0.0f};
-				vertices[0].m_texels = info.m_texel_region.ul_texels();
-				vertices[0].m_texels.x += texture_rect.m_x;
-				vertices[0].m_texels.y += texture_rect.m_y;
+				const auto off_x = info.m_region.m_x + texture_rect.m_x;
+				const auto off_y = info.m_region.m_y + texture_rect.m_y;
+
+				vertices[0].m_pos      = {0.0f, 0.0f};
+				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
+				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels   = info.m_texel_region.ur_texels();
-				vertices[1].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
-				vertices[1].m_texels.y += texture_rect.m_y;
+				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels   = info.m_texel_region.br_texels();
-				vertices[2].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
-				vertices[2].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
-				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.bl_texels();
-				vertices[3].m_texels.x += texture_rect.m_x;
-				vertices[3].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+				vertices[3].m_pos      = {0.0f, m_height};
+				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
+				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 				m_texture = texture;
@@ -212,25 +211,24 @@ namespace galaxy
 
 				std::array<graphics::Vertex, 4> vertices;
 
-				vertices[0].m_pos    = {0.0f, 0.0f};
-				vertices[0].m_texels = info.m_texel_region.ul_texels();
-				vertices[0].m_texels.x += texture_rect.m_x;
-				vertices[0].m_texels.y += texture_rect.m_y;
+				const auto off_x = info.m_region.m_x + texture_rect.m_x;
+				const auto off_y = info.m_region.m_y + texture_rect.m_y;
+
+				vertices[0].m_pos      = {0.0f, 0.0f};
+				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
+				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels   = info.m_texel_region.ur_texels();
-				vertices[1].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
-				vertices[1].m_texels.y += texture_rect.m_y;
+				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels   = info.m_texel_region.br_texels();
-				vertices[2].m_texels.x = vertices[0].m_texels.x + texture_rect.m_width;
-				vertices[2].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
-				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.bl_texels();
-				vertices[3].m_texels.x += texture_rect.m_x;
-				vertices[3].m_texels.y = vertices[0].m_texels.y + texture_rect.m_height;
+				vertices[3].m_pos      = {0.0f, m_height};
+				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
+				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
 				m_vao.sub_buffer(0, vertices);
 				m_texture = texture;

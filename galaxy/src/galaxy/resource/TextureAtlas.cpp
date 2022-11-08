@@ -73,6 +73,9 @@ namespace galaxy
 						const auto sw = sheet.m_render_texture.get_width();
 						const auto sh = sheet.m_render_texture.get_height();
 
+						m_data[name].m_sheet_width  = sw;
+						m_data[name].m_sheet_height = sh;
+
 						m_data[name].m_texel_region.m_ul_texels.x = map_x_texel(m_data[name].m_region.m_x, sw);
 						m_data[name].m_texel_region.m_ul_texels.y = map_y_texel(m_data[name].m_region.m_y, sh);
 
@@ -189,12 +192,12 @@ namespace galaxy
 			}
 		}
 
-		constexpr float TextureAtlas::map_x_texel(const int x, const int width) const noexcept
+		float TextureAtlas::map_x_texel(const int x, const int width) noexcept
 		{
 			return static_cast<float>(x) / static_cast<float>(width);
 		}
 
-		constexpr float TextureAtlas::map_y_texel(const int y, const int height) const noexcept
+		float TextureAtlas::map_y_texel(const int y, const int height) noexcept
 		{
 			return static_cast<float>(y) / static_cast<float>(height);
 		}

@@ -75,6 +75,16 @@ namespace galaxy
 				/// Texture handle this texture belongs to.
 				///
 				int m_handle = 0;
+
+				///
+				/// Texture sheet width.
+				///
+				int m_sheet_width = 0;
+
+				///
+				/// Texture sheet height.
+				///
+				int m_sheet_height = 0;
 			};
 
 			///
@@ -148,7 +158,7 @@ namespace galaxy
 			///
 			/// \return OpenGL shader compatible texel.
 			///
-			[[nodiscard]] constexpr float map_x_texel(const int x, const int width) const noexcept;
+			[[nodiscard]] static float map_x_texel(const int x, const int width) noexcept;
 
 			///
 			/// Takes in a y positon texture coord and maps it to a texel.
@@ -158,7 +168,7 @@ namespace galaxy
 			///
 			/// \return OpenGL shader compatible texel.
 			///
-			[[nodiscard]] constexpr float map_y_texel(const int y, const int height) const noexcept;
+			[[nodiscard]] static float map_y_texel(const int y, const int height) noexcept;
 
 			///
 			/// Get a list of keys in the cache.
