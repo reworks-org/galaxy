@@ -600,7 +600,7 @@ namespace sc
 
 		if (m_show_scenes)
 		{
-			m_scene_panel.render(m_project_scenes, m_selected_entity);
+			m_scene_panel.render(m_project_scenes, m_selected_entity, m_update_stack);
 		}
 
 		if (m_show_entities)
@@ -927,6 +927,14 @@ namespace sc
 
 		ImGui::PopStyleVar(1);
 		ImGui::End();
+	}
+
+	const std::string& Editor::get_type() const noexcept
+	{
+		static_assert(true, "Do Not Call.");
+
+		static std::string type = "Editor";
+		return type;
 	}
 
 	nlohmann::json Editor::serialize()

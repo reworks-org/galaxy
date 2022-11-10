@@ -107,6 +107,14 @@ namespace sc
 		ui::imgui_render();
 	}
 
+	const std::string& Menu::get_type() const noexcept
+	{
+		static_assert(true, "Do Not Call.");
+
+		static std::string type = "Menu";
+		return type;
+	}
+
 	nlohmann::json Menu::serialize()
 	{
 		return {};

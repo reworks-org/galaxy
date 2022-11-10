@@ -16,6 +16,7 @@
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/DrawShader.hpp>
 #include <galaxy/components/Flag.hpp>
+#include <galaxy/components/Map.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
@@ -303,6 +304,13 @@ namespace sc
 								flag->unset_flag<flags::AllowSerialize>();
 							}
 						}
+					});
+
+					draw_component<components::Map>(selected, "Map", [&](components::Map* map) {
+						ImGui::Text("Reference component, not directly editable.");
+						ImGui::Spacing();
+						ImGui::Text("Animated Tile Count: %zu", map->m_animations.size());
+						ImGui::Text("Render Layer: %i", map->get_layer());
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {
@@ -633,7 +641,7 @@ namespace sc
 						}
 
 						auto rotate = tf->get_rotation();
-						if (ImGui::SliderAngle("Rotate", &rotate, 0.0f, 360.0f))
+						if (ImGui::SliderAngle("Rotate", &rotate, 0.0f, 1080.0f))
 						{
 							tf->set_rotation(rotate);
 						}

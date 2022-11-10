@@ -13,6 +13,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/state/layers/RuntimeLayer.hpp>
 #include <galaxy/state/layers/UILayer.hpp>
@@ -26,7 +27,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(state::SceneManager& sm, Selected& selected)
+		void ScenePanel::render(state::SceneManager& sm, Selected& selected, UpdateStack& updates)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -354,6 +355,80 @@ namespace sc
 									}
 
 									ImGui::EndPopup();
+								}
+
+								if (layer->get_type() == "Runtime")
+								{
+									auto rt_layer = std::static_pointer_cast<state::RuntimeLayer>(layer);
+
+									if (ImGui::Button("Map Settings"))
+									{
+										ImGui::OpenPopup("LoadMapPopup");
+									}
+
+									if (ImGui::BeginPopup("LoadMapPopup"))
+									{
+										ImGui::Text("Select Map to Load.");
+
+										ImGui::Separator();
+										ImGui::Spacing();
+
+										static std::string s_search = "";
+										ImGui::InputTextWithHint("##ModalLoadMapSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+
+										static std::string s_selected = rt_layer->get_loaded_map();
+										if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
+										{
+											for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
+											{
+												if (key.find(s_search) != std::string::npos)
+												{
+													const bool selected = (s_selected == key);
+													if (ImGui::Selectable(key.c_str(), selected))
+													{
+														s_selected = key;
+													}
+
+													if (selected)
+													{
+														ImGui::SetItemDefaultFocus();
+													}
+												}
+											}
+
+											ImGui::EndCombo();
+										}
+
+										if (ImGui::Button("Load Selected Map"))
+										{
+											if (!s_selected.empty())
+											{
+												updates.emplace_back([rt_layer]() {
+													rt_layer->load_map(s_selected);
+												});
+											}
+											else
+											{
+												ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Please select a map before loading."});
+											}
+										}
+
+										ImGui::Spacing();
+
+										if (ImGui::Button("Enable Map"))
+										{
+											rt_layer->enable_map();
+										}
+
+										ImGui::SameLine();
+
+										if (ImGui::Button("Disable Map"))
+										{
+											rt_layer->disable_map();
+										}
+
+										ImGui::EndPopup();
+									}
 								}
 
 								static std::string s_search = "";

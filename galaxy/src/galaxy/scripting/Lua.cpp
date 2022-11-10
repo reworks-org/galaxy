@@ -20,6 +20,7 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -214,6 +215,12 @@ namespace galaxy
 			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
 
 			entt_sol::register_meta_component<components::Flag>();
+
+			auto mapcomponent_type =
+				lua.new_usertype<components::Map>("Map", sol::constructors<components::Map()>(), "type_id", &entt::type_hash<components::Map>::value);
+			// Note: Nothing needs to be registered with lua.
+
+			entt_sol::register_meta_component<components::Map>();
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());

@@ -75,11 +75,17 @@ namespace galaxy
 			m_rml->Render();
 		}
 
+		const std::string& UILayer::get_type() const noexcept
+		{
+			static std::string type = "UI";
+			return type;
+		}
+
 		nlohmann::json UILayer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
-			json["type"]        = "UI"; // Used by Layers stack.
+			json["type"]        = get_type();
 			json["world"]       = m_world.serialize();
 
 			// serialize rml docs?

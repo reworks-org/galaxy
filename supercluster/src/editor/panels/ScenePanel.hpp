@@ -11,6 +11,7 @@
 #include <galaxy/state/SceneManager.hpp>
 
 #include "editor/Selected.hpp"
+#include "editor/UpdateStack.hpp"
 
 using namespace galaxy;
 
@@ -24,7 +25,7 @@ namespace sc
 			ScenePanel() noexcept  = default;
 			~ScenePanel() noexcept = default;
 
-			void render(state::SceneManager& sm, Selected& selected);
+			void render(state::SceneManager& sm, Selected& selected, UpdateStack& updates);
 
 		private:
 			std::string m_selected;

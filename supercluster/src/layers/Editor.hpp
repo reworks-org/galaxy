@@ -54,6 +54,7 @@ namespace sc
 		void code_editor_menu();
 		void viewport();
 
+		const std::string& get_type() const noexcept override;
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
 

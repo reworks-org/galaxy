@@ -32,6 +32,7 @@ namespace sc
 	private:
 		Menu() = delete;
 
+		const std::string& get_type() const noexcept override;
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
 

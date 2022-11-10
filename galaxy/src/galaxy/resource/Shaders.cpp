@@ -76,6 +76,9 @@ namespace galaxy
 
 			m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
 			m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
+
+			m_cache["Map"] = std::make_shared<graphics::Shader>();
+			m_cache["Map"]->load_raw(shaders::map_vert, shaders::map_frag);
 		}
 
 		void Shaders::compile()

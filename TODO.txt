@@ -18,6 +18,8 @@
 - fonts should use font family as key name.
 - Fix not selecting correct atlas if map tilesets are spread out across atlas'.
 - add load screen when switching maps
+- remove pause? and only have play and back to editor? -> makes more sense? pause is for physics?
+	- fix crash on pause/unpause
 
 editor:
 - loading indicators

@@ -136,6 +136,8 @@
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
     <ClCompile Include="src\galaxy\resource\Maps.cpp" />
+    <ClCompile Include="src\galaxy\components\Map.cpp" />
+    <ClCompile Include="src\galaxy\graphics\animation\TileAnim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -273,5 +275,7 @@
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
     <ClInclude Include="src\galaxy\resource\Maps.hpp" />
+    <ClInclude Include="src\galaxy\components\Map.hpp" />
+    <ClInclude Include="src\galaxy\graphics\animation\TileAnim.hpp" />
   </ItemGroup>
 </Project>

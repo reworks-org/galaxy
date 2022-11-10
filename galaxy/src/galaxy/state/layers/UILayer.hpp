@@ -61,6 +61,13 @@ namespace galaxy
 			void render() override;
 
 			///
+			/// Get layer type.
+			///
+			/// \return String.
+			///
+			[[nodiscard]] const std::string& get_type() const noexcept override;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.

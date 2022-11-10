@@ -70,6 +70,13 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
+			/// Get layer type.
+			///
+			/// \return String.
+			///
+			[[nodiscard]] virtual const std::string& get_type() const noexcept = 0;
+
+			///
 			/// Only update the rendersystem.
 			///
 			void update_rendersystem();

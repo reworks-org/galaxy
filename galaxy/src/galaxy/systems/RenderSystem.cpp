@@ -8,6 +8,7 @@
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Map.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/components/Text.hpp"
@@ -85,6 +86,22 @@ namespace galaxy
 					};
 
 					graphics::Renderer::submit(&text);
+				}
+			}
+
+			const auto map_view = layer->world().m_registry.view<components::Map, components::DrawShader, components::Transform, components::Flag>();
+			for (auto&& [entity, map, shader, transform, flag] : map_view.each())
+			{
+				if (flag.is_flag_set<flags::Enabled>())
+				{
+					map.m_shader_sort_id   = shader.m_shader->id();
+					map.m_configure_shader = [entity, &map, &shader, &transform]() noexcept -> unsigned {
+						shader.m_shader->set_uniform("u_transform", transform.get_transform());
+
+						return shader.m_shader->id();
+					};
+
+					graphics::Renderer::submit(&map);
 				}
 			}
 		}
