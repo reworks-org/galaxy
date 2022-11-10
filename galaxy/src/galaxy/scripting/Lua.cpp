@@ -261,9 +261,9 @@ namespace galaxy
 
 			sprite_type["create"] = sol::resolve<void(const std::string&, const int, const float)>(&components::Sprite::create);
 			sprite_type["create_texturerect"] =
-				sol::resolve<void(const std::string&, const graphics::fRect&, const int, const float)>(&components::Sprite::create);
+				sol::resolve<void(const std::string&, const graphics::iRect&, const int, const float)>(&components::Sprite::create);
 			sprite_type["update"]             = sol::resolve<void(const std::string&)>(&components::Sprite::update);
-			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const graphics::fRect&)>(&components::Sprite::update);
+			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const graphics::iRect&)>(&components::Sprite::update);
 			sprite_type["get_height"]         = &components::Sprite::get_height;
 			sprite_type["get_opacity"]        = &components::Sprite::get_opacity;
 			sprite_type["get_width"]          = &components::Sprite::get_width;

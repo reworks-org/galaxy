@@ -79,6 +79,13 @@ namespace galaxy
 			void flush() noexcept;
 
 			///
+			/// Get index count.
+			///
+			/// \return Integer.
+			///
+			[[nodiscard]] int count() const noexcept;
+
+			///
 			/// Get vertex array object.
 			///
 			/// \return Const reference to VAO.
@@ -116,6 +123,11 @@ namespace galaxy
 			/// Vertices to buffer.
 			///
 			std::vector<Vertex> m_vertices;
+
+			///
+			/// Index count.
+			///
+			int m_index_count;
 		};
 	} // namespace graphics
 } // namespace galaxy

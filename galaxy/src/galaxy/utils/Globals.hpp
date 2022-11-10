@@ -110,7 +110,7 @@ namespace galaxy
 ///
 /// Default number of fragments to use when drawing an ellipse.
 ///
-#define GALAXY_DEFAULT_ELLIPSE_FRAGMENTS 10
+#define GALAXY_DEFAULT_ELLIPSE_FRAGMENTS 50
 
 ///
 /// Remove log files older than this amount in hours.

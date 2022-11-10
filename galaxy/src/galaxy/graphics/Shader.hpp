@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			/// Free up resources used by shader.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 			///
 			/// Enable this shader for rendering.
@@ -337,7 +337,46 @@ namespace galaxy
 		template<>
 		inline void Shader::set_uniform<graphics::Colour>(const std::string& name, const graphics::Colour& a)
 		{
-			glProgramUniform4i(m_id, get_uniform_location(name), a.m_red, a.m_green, a.m_blue, a.m_alpha);
+			auto r = 0.0f, g = 0.0f, b = 0.0f, alpha = 0.0f;
+			const constexpr auto COLOUR_OFFSET = static_cast<float>(0xFF);
+
+			if (a.m_red == 255)
+			{
+				r = 1.0f;
+			}
+			else if (a.m_red != 0)
+			{
+				r = static_cast<float>(a.m_red) / COLOUR_OFFSET;
+			}
+
+			if (a.m_green == 255)
+			{
+				g = 1.0f;
+			}
+			else if (a.m_green != 0)
+			{
+				g = static_cast<float>(a.m_green) / COLOUR_OFFSET;
+			}
+
+			if (a.m_blue == 255)
+			{
+				b = 1.0f;
+			}
+			else if (a.m_blue != 0)
+			{
+				b = static_cast<float>(a.m_blue) / COLOUR_OFFSET;
+			}
+
+			if (a.m_alpha == 255)
+			{
+				alpha = 1.0f;
+			}
+			else if (a.m_alpha != 0)
+			{
+				alpha = static_cast<float>(a.m_alpha) / COLOUR_OFFSET;
+			}
+
+			glProgramUniform4f(m_id, get_uniform_location(name), r, g, b, alpha);
 		}
 	} // namespace graphics
 } // namespace galaxy

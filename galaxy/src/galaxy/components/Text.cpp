@@ -105,7 +105,7 @@ namespace galaxy
 				m_height       = vec.y;
 
 				m_texture.bind(true);
-				m_texture.create(m_width, m_height);
+				m_texture.create(static_cast<int>(m_width), static_cast<int>(m_height));
 				m_texture_id = m_texture.get_texture();
 
 				std::size_t start = 0;

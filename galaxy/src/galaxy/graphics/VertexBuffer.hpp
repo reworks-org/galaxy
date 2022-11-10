@@ -30,16 +30,6 @@ namespace galaxy
 			VertexBuffer() noexcept;
 
 			///
-			/// Argument Constructor.
-			///
-			/// \brief Initialize buffer with capacity.
-			///
-			/// \param capacity Capacity to assign to this buffer.
-			/// \param flag Static or dynamic data buffer.
-			///
-			VertexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept;
-
-			///
 			/// Move constructor.
 			///
 			VertexBuffer(VertexBuffer&&) noexcept;
@@ -67,10 +57,9 @@ namespace galaxy
 			///
 			/// You do not need to call create() now.
 			///
-			/// \param size Amount of data in bytes to reserve.
-			/// \param flag Static or dynamic data buffer.
+			/// \param size Amount of elements to reserve, not bytes.
 			///
-			void reserve(const unsigned int size, const StorageFlag flag);
+			void reserve(const unsigned int size);
 
 			///
 			/// Sub-buffer vertex object.
@@ -119,11 +108,6 @@ namespace galaxy
 			/// Size of vertex buffer.
 			///
 			unsigned int m_size;
-
-			///
-			/// CPU side cache of vertex data.
-			///
-			std::vector<Vertex> m_vertices;
 		};
 	} // namespace graphics
 } // namespace galaxy

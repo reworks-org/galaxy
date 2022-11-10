@@ -16,27 +16,31 @@ namespace galaxy
 		SpriteBatch::SpriteBatch() noexcept
 			: m_max_bytes {0}
 			, m_bytes_used {0}
+			, m_index_count {0}
 		{
 		}
 
 		SpriteBatch::SpriteBatch(SpriteBatch&& sb) noexcept
 			: m_max_bytes {0}
 			, m_bytes_used {0}
+			, m_index_count {0}
 		{
-			this->m_vao        = std::move(sb.m_vao);
-			this->m_max_bytes  = sb.m_max_bytes;
-			this->m_bytes_used = sb.m_bytes_used;
-			this->m_vertices   = std::move(sb.m_vertices);
+			this->m_vao         = std::move(sb.m_vao);
+			this->m_max_bytes   = sb.m_max_bytes;
+			this->m_bytes_used  = sb.m_bytes_used;
+			this->m_vertices    = std::move(sb.m_vertices);
+			this->m_index_count = sb.m_index_count;
 		}
 
 		SpriteBatch& SpriteBatch::operator=(SpriteBatch&& sb) noexcept
 		{
 			if (this != &sb)
 			{
-				this->m_vao        = std::move(sb.m_vao);
-				this->m_max_bytes  = sb.m_max_bytes;
-				this->m_bytes_used = sb.m_bytes_used;
-				this->m_vertices   = std::move(sb.m_vertices);
+				this->m_vao         = std::move(sb.m_vao);
+				this->m_max_bytes   = sb.m_max_bytes;
+				this->m_bytes_used  = sb.m_bytes_used;
+				this->m_vertices    = std::move(sb.m_vertices);
+				this->m_index_count = sb.m_index_count;
 			}
 
 			return *this;
@@ -66,8 +70,8 @@ namespace galaxy
 			}
 
 			m_max_bytes = max_quads * (sizeof(Vertex) * 4);
-			m_vao.create(m_max_bytes, StorageFlag::DYNAMIC_DRAW, indices, StorageFlag::DYNAMIC_DRAW);
-			m_vertices.reserve(max_quads);
+			m_vao.create(max_quads * 4, indices, StorageFlag::DYNAMIC_DRAW);
+			m_vertices.reserve(max_quads * 4);
 		}
 
 		unsigned int SpriteBatch::push(const std::vector<Vertex>& vertices) noexcept
@@ -83,7 +87,7 @@ namespace galaxy
 					m_vertices.push_back(vertex);
 				}
 
-				return m_bytes_used / (4 * sizeof(Vertex));
+				return m_vertices.size() - 4;
 			}
 			else
 			{
@@ -94,6 +98,14 @@ namespace galaxy
 
 		void SpriteBatch::commit() noexcept
 		{
+			// Six indicies per quad. Number of quads is total vertexs / 4.
+			// The size here is always a multiple of 4 so no "uneven" division takes place.
+			if (m_vertices.size() != 0)
+			{
+				m_index_count = 6 * (static_cast<int>(m_vertices.size()) / 4);
+			}
+
+			flush();
 			m_vao.sub_buffer(0, m_vertices);
 			m_vertices.clear();
 		}
@@ -106,6 +118,11 @@ namespace galaxy
 		void SpriteBatch::flush() noexcept
 		{
 			m_vao.clear();
+		}
+
+		int SpriteBatch::count() const noexcept
+		{
+			return m_index_count;
 		}
 
 		const VertexArray& SpriteBatch::vao() const noexcept

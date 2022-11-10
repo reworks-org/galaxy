@@ -110,7 +110,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::create(const std::string& texture, const graphics::fRect& texture_rect, const int layer, const float opacity)
+		void Sprite::create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -119,8 +119,8 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = texture_rect.m_width;
-				m_height = texture_rect.m_height;
+				m_width  = static_cast<float>(texture_rect.m_width);
+				m_height = static_cast<float>(texture_rect.m_height);
 
 				m_layer = layer;
 				set_opacity(opacity);
@@ -195,7 +195,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::update(const std::string& texture, const graphics::fRect& texture_rect)
+		void Sprite::update(const std::string& texture, const graphics::iRect& texture_rect)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -204,8 +204,8 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = texture_rect.m_width;
-				m_height = texture_rect.m_height;
+				m_width  = static_cast<float>(texture_rect.m_width);
+				m_height = static_cast<float>(texture_rect.m_height);
 
 				m_texture_id = info.m_handle;
 

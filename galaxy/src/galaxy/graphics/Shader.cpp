@@ -233,7 +233,7 @@ namespace galaxy
 			std::string().swap(m_vertex_src);
 		}
 
-		void Shader::destroy()
+		void Shader::destroy() noexcept
 		{
 			if (m_id != 0)
 			{

@@ -128,11 +128,11 @@ namespace galaxy
 					break;
 
 				case graphics::Shape::LINE:
-					json["line-points"]       = nlohmann::json::object();
-					json["line-points"]["x1"] = m_data.m_start_end.x;
-					json["line-points"]["y1"] = m_data.m_start_end.y;
-					json["line-points"]["x2"] = m_data.m_start_end.z;
-					json["line-points"]["y2"] = m_data.m_start_end.w;
+					json["line_points"]       = nlohmann::json::object();
+					json["line_points"]["x1"] = m_data.m_start_end.x;
+					json["line_points"]["y1"] = m_data.m_start_end.y;
+					json["line_points"]["x2"] = m_data.m_start_end.z;
+					json["line_points"]["y2"] = m_data.m_start_end.w;
 					break;
 
 				case graphics::Shape::POLYGON:
@@ -176,9 +176,9 @@ namespace galaxy
 				data.m_fragments = json.at("fragments").get<float>();
 			}
 
-			if (json.count("line-points") > 0)
+			if (json.count("line_points") > 0)
 			{
-				const auto& points = json.at("line-points");
+				const auto& points = json.at("line_points");
 				data.m_start_end.x = points.at("x1");
 				data.m_start_end.y = points.at("y1");
 				data.m_start_end.z = points.at("x2");

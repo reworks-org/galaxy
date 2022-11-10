@@ -59,6 +59,50 @@ namespace galaxy
 		)";
 
 		///
+		/// Map vertex shader.
+		///
+		constexpr const auto map_vert = R"(
+			#version 460 core
+			layout(location = 0) in vec2 l_pos;
+			layout(location = 1) in vec2 l_texels;
+
+			layout(std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_model_view;
+				mat4 u_camera_proj;
+			};
+
+			out vec2 io_texels;
+	
+			uniform mat4 u_transform;
+	
+			void main()
+			{
+				gl_Position =  u_camera_proj * u_camera_model_view * u_transform * vec4(l_pos, 0.0, 1.0);
+
+				io_texels = l_texels;
+				io_texels.y = 1.0 - io_texels.y;
+			}
+		)";
+
+		///
+		/// Map fragment shader.
+		///
+		constexpr const auto map_frag = R"(
+			#version 460 core
+
+			in vec2 io_texels;
+			out vec4 io_frag_colour;
+
+			uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels);
+			}
+		)";
+
+		///
 		/// Point vertex shader.
 		///
 		constexpr const auto point_vert = R"(

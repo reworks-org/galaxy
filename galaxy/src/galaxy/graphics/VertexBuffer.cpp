@@ -20,14 +20,6 @@ namespace galaxy
 			glCreateBuffers(1, &m_vbo);
 		}
 
-		VertexBuffer::VertexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept
-			: m_vbo {0}
-			, m_size {capacity}
-		{
-			glCreateBuffers(1, &m_vbo);
-			glNamedBufferData(m_vbo, m_size * sizeof(Vertex), nullptr, static_cast<GLenum>(flag));
-		}
-
 		VertexBuffer::VertexBuffer(VertexBuffer&& vb) noexcept
 		{
 			this->destroy();
@@ -63,11 +55,6 @@ namespace galaxy
 			if (!vertices.empty())
 			{
 				m_size = static_cast<unsigned int>(vertices.size());
-
-				m_vertices.clear();
-				m_vertices.reserve(m_size);
-				m_vertices.assign(std::make_move_iterator(vertices.begin()), std::make_move_iterator(vertices.end()));
-
 				glNamedBufferData(m_vbo, vertices.size_bytes(), vertices.data(), static_cast<GLenum>(flag));
 			}
 			else
@@ -76,16 +63,12 @@ namespace galaxy
 			}
 		}
 
-		void VertexBuffer::reserve(const unsigned int size, const StorageFlag flag)
+		void VertexBuffer::reserve(const unsigned int size)
 		{
 			if (size > 0u)
 			{
 				m_size = size;
-
-				m_vertices.clear();
-				m_vertices.reserve(m_size);
-
-				glNamedBufferData(m_vbo, size, nullptr, static_cast<GLenum>(flag));
+				glNamedBufferData(m_vbo, m_size * sizeof(Vertex), nullptr, GL_DYNAMIC_DRAW);
 			}
 			else
 			{
@@ -95,10 +78,9 @@ namespace galaxy
 
 		void VertexBuffer::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
 		{
-			if (!vertices.empty() && (vertices.size() <= (m_vertices.size() - index)))
+			if (!vertices.empty() && (vertices.size() <= (m_size - (index * 4))))
 			{
 				glNamedBufferSubData(m_vbo, index * sizeof(Vertex), vertices.size_bytes(), vertices.data());
-				std::swap_ranges(m_vertices.begin() + index, m_vertices.begin() + index + vertices.size(), vertices.begin());
 			}
 			else
 			{
@@ -109,6 +91,7 @@ namespace galaxy
 		void VertexBuffer::clear() noexcept
 		{
 			glInvalidateBufferData(m_vbo);
+			glNamedBufferData(m_vbo, m_size * sizeof(Vertex), nullptr, GL_DYNAMIC_DRAW);
 		}
 
 		void VertexBuffer::destroy() noexcept

@@ -88,10 +88,9 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 		}
 
-		void
-		VertexArray::create(const unsigned int size, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept
+		void VertexArray::create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept
 		{
-			m_vbo.reserve(size, vertices_flag);
+			m_vbo.reserve(size);
 			m_ibo.create(indices, indices_flag);
 
 			// Bind vertex to 0 (vertex buffer bind point, different from attribute bind point).

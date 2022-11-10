@@ -153,22 +153,28 @@ namespace galaxy
 			///
 			/// Takes in a x positon texture coord and maps it to a texel.
 			///
+			/// \tparam Type Type of the variable.
+			///
 			/// \param x Position of texture coord.
 			/// \param width Texture width.
 			///
 			/// \return OpenGL shader compatible texel.
 			///
-			[[nodiscard]] static float map_x_texel(const int x, const int width) noexcept;
+			template<meta::is_arithmetic Type>
+			[[nodiscard]] static float map_x_texel(const Type x, const Type width) noexcept;
 
 			///
 			/// Takes in a y positon texture coord and maps it to a texel.
+			///
+			/// \tparam Type Type of the variable.
 			///
 			/// \param y Position of texture coord.
 			/// \param height Texture height.
 			///
 			/// \return OpenGL shader compatible texel.
 			///
-			[[nodiscard]] static float map_y_texel(const int y, const int height) noexcept;
+			template<meta::is_arithmetic Type>
+			[[nodiscard]] static float map_y_texel(const Type y, const Type height) noexcept;
 
 			///
 			/// Get a list of keys in the cache.
@@ -239,6 +245,32 @@ namespace galaxy
 			///
 			components::Transform m_transform;
 		};
+
+		template<meta::is_arithmetic Type>
+		inline float TextureAtlas::map_x_texel(const Type x, const Type width) noexcept
+		{
+			if constexpr (std::is_same<Type, float>::value)
+			{
+				return x / width;
+			}
+			else
+			{
+				return static_cast<float>(x) / static_cast<float>(width);
+			}
+		}
+
+		template<meta::is_arithmetic Type>
+		inline float TextureAtlas::map_y_texel(const Type y, const Type height) noexcept
+		{
+			if constexpr (std::is_same<Type, float>::value)
+			{
+				return y / height;
+			}
+			else
+			{
+				return static_cast<float>(y) / static_cast<float>(height);
+			}
+		}
 	} // namespace resource
 } // namespace galaxy
 

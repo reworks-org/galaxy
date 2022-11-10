@@ -192,16 +192,6 @@ namespace galaxy
 			}
 		}
 
-		float TextureAtlas::map_x_texel(const int x, const int width) noexcept
-		{
-			return static_cast<float>(x) / static_cast<float>(width);
-		}
-
-		float TextureAtlas::map_y_texel(const int y, const int height) noexcept
-		{
-			return static_cast<float>(y) / static_cast<float>(height);
-		}
-
 		std::vector<std::string> TextureAtlas::keys() noexcept
 		{
 			std::vector<std::string> keys;
