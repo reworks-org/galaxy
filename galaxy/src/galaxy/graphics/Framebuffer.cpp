@@ -328,7 +328,7 @@ namespace galaxy
 		void Framebuffer::bind(const bool clear) noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-			glViewport(0, 0, m_width, m_height);
+			glViewport(0, 0, 1280, 720);
 
 			if (clear)
 			{

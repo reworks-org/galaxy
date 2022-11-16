@@ -140,6 +140,12 @@ namespace sc
 						ImGui::SameLine();
 						ImGui::Text("Zoom: %.1f", camera.get_zoom());
 
+						float vp[2] = {camera.get_viewport().x, camera.get_viewport().y};
+						if (ImGui::InputFloat2("Viewport", vp, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
+						{
+							camera.set_viewport(vp[0], vp[1]);
+						}
+
 						ImGui::Checkbox("Allow Rotation", &camera.m_allow_rotate);
 						ImGui::InputFloat("Speed", &camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
 						ImGui::InputFloat("Rotation Speed", &camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");

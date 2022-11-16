@@ -37,7 +37,6 @@ namespace galaxy
 			: Layer {name, scene}
 		{
 			m_world.m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(scene->get_camera());
-			m_world.m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(scene->get_camera());
 
 			m_world.create_system<systems::ScriptSystem>();
 			m_world.create_system<systems::AnimationSystem>();

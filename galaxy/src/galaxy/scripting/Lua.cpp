@@ -544,7 +544,8 @@ namespace galaxy
 			shader_type["set_uniform_colour"]   = &graphics::Shader::set_uniform<graphics::Colour>;
 
 			auto camera_type                 = lua.new_usertype<graphics::Camera>("Camera", sol::constructors<graphics::Camera(bool)>());
-			camera_type["set_projection"]    = &graphics::Camera::set_projection;
+			camera_type["set_viewport"]      = &graphics::Camera::set_viewport;
+			camera_type["get_viewport"]      = &graphics::Camera::get_viewport;
 			camera_type["set_pos"]           = &graphics::Camera::set_pos;
 			camera_type["set_rotation"]      = &graphics::Camera::set_rotation;
 			camera_type["get_x"]             = &graphics::Camera::get_x;
@@ -554,7 +555,6 @@ namespace galaxy
 			camera_type["get_proj"]          = &graphics::Camera::get_proj;
 			camera_type["get_zoom"]          = &graphics::Camera::get_zoom;
 			camera_type["on_mouse_wheel"]    = &graphics::Camera::on_mouse_wheel;
-			camera_type["on_window_resized"] = &graphics::Camera::on_window_resized;
 			camera_type["process_events"]    = &graphics::Camera::process_events;
 			camera_type["set_zoom"]          = &graphics::Camera::set_zoom;
 			camera_type["allow_rotate"]      = &graphics::Camera::m_allow_rotate;

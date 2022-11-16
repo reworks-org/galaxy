@@ -173,17 +173,9 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_window_resized(const events::WindowResized& e) noexcept
+		void Camera::set_viewport(const float width, const float height) noexcept
 		{
-			set_projection(0.0f, static_cast<float>(e.m_width), static_cast<float>(e.m_height), 0.0f);
-		}
-
-		void Camera::set_projection(const float left, const float right, const float bottom, const float top) noexcept
-		{
-			m_origin.x = right * 0.5f;
-			m_origin.y = bottom * 0.5f;
-
-			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+			set_projection(0.0f, width, height, 0.0f);
 		}
 
 		void Camera::set_pos(const float x, const float y) noexcept
@@ -222,6 +214,11 @@ namespace galaxy
 			return m_zoom;
 		}
 
+		const glm::vec2& Camera::get_viewport() const noexcept
+		{
+			return m_viewport;
+		}
+
 		const glm::mat4& Camera::get_view() noexcept
 		{
 			recalculate();
@@ -240,11 +237,38 @@ namespace galaxy
 			return m_data;
 		}
 
+		void Camera::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+		{
+			m_origin.x = right * 0.5f;
+			m_origin.y = bottom * 0.5f;
+
+			m_viewport.x = right;
+			m_viewport.y = bottom;
+
+			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+		}
+
+		void Camera::recalculate() noexcept
+		{
+			auto rotation = glm::translate(identity_matrix, m_origin);
+			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_origin);
+			rotation      = glm::translate(rotation, -m_origin);
+
+			auto scale = glm::translate(identity_matrix, m_origin);
+			scale      = glm::scale(scale, {m_zoom, m_zoom, 1.0f});
+			scale      = glm::translate(scale, -m_origin);
+
+			const auto transform = glm::translate(identity_matrix, m_pos) * rotation * scale;
+			m_data.m_model_view  = glm::inverse(transform);
+		}
+
 		nlohmann::json Camera::serialize()
 		{
 			nlohmann::json json       = "{}"_json;
 			json["pos"]["x"]          = m_pos.x;
 			json["pos"]["y"]          = m_pos.y;
+			json["viewport"]["x"]     = m_viewport.x;
+			json["viewport"]["y"]     = m_viewport.y;
 			json["rotation"]          = m_rotation;
 			json["zoom"]              = m_zoom;
 			json["allow_rotate"]      = m_allow_rotate;
@@ -260,25 +284,14 @@ namespace galaxy
 			m_pos.x         = pos.at("x");
 			m_pos.y         = pos.at("y");
 
+			const auto& vp = json.at("viewport");
+			set_viewport(vp.at("x"), vp.at("y"));
+
 			m_rotation          = json.at("rotation");
 			m_zoom              = json.at("zoom");
 			m_allow_rotate      = json.at("allow_rotate");
 			m_rotation_speed    = json.at("rotation_speed");
 			m_translation_speed = json.at("translation_speed");
-		}
-
-		void Camera::recalculate() noexcept
-		{
-			auto rotation = glm::translate(identity_matrix, m_origin);
-			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_origin);
-			rotation      = glm::translate(rotation, -m_origin);
-
-			auto scale = glm::translate(identity_matrix, m_origin);
-			scale      = glm::scale(scale, {m_zoom, m_zoom, 1.0f});
-			scale      = glm::translate(scale, -m_origin);
-
-			const auto transform = glm::translate(identity_matrix, m_pos) * rotation * scale;
-			m_data.m_model_view  = glm::inverse(transform);
 		}
 	} // namespace graphics
 } // namespace galaxy

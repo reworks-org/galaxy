@@ -914,12 +914,6 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
-
-				if (m_project_scenes.has_current())
-				{
-					m_project_scenes.current().get_camera().on_window_resized(
-						{.m_width = static_cast<int>(m_viewport_size.x), .m_height = static_cast<int>(m_viewport_size.y)});
-				}
 			}
 
 			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});

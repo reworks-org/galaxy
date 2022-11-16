@@ -93,21 +93,14 @@ namespace galaxy
 			void on_mouse_wheel(events::MouseWheel& e) noexcept;
 
 			///
-			/// Event window resizing.
+			/// \brief Set Viewport.
 			///
-			/// \param e Window resized event.
+			/// Calls set_projection().
 			///
-			void on_window_resized(const events::WindowResized& e) noexcept;
-
+			/// \param width Width of viewport, independant of window size.
+			/// \param height Height of viewport, independant of window size.
 			///
-			/// Set camera projection.
-			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
-			///
-			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+			void set_viewport(const float width, const float height) noexcept;
 
 			///
 			/// Sets position without moving the entity.
@@ -160,6 +153,13 @@ namespace galaxy
 			[[nodiscard]] float get_zoom() const noexcept;
 
 			///
+			/// Get camera viewport.
+			///
+			/// \return glm::vec2 reference.
+			///
+			[[nodiscard]] const glm::vec2& get_viewport() const noexcept;
+
+			///
 			/// Retrieve internal transformation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
@@ -199,6 +199,16 @@ namespace galaxy
 			/// Constructor.
 			///
 			Camera() = delete;
+
+			///
+			/// Set camera projection.
+			///
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			///
+			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
 			/// Recalculates the model view matrix.
@@ -247,6 +257,11 @@ namespace galaxy
 			/// Cached for reference.
 			///
 			glm::vec3 m_origin;
+
+			///
+			/// Camera viewport size.
+			///
+			glm::vec2 m_viewport;
 		};
 	} // namespace graphics
 } // namespace galaxy
