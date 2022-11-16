@@ -364,6 +364,11 @@ namespace galaxy
 					ServiceLocator<state::SceneManager>::make();
 
 					//
+					// Add external libraries to lua.
+					//
+					lua::load_external_libs();
+
+					//
 					// Inject all configured galaxy into Lua.
 					//
 					lua::inject_galaxy_into_lua();

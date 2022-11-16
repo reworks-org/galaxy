@@ -78,6 +78,7 @@
 #include "galaxy/state/SceneManager.hpp"
 
 #include "galaxy/scripting/BasicScript.hpp"
+#include "galaxy/scripting/LuaExternalLibs.hpp"
 
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/Guid.hpp"
@@ -920,6 +921,15 @@ namespace galaxy
 			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
 			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 			lua["galaxy_prefabs"]      = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
+		}
+
+		void load_external_libs()
+		{
+			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			lua.script(scripting::inspect);
+			lua.script(scripting::middleclass);
+			lua.script(scripting::serpent);
 		}
 	} // namespace lua
 } // namespace galaxy
