@@ -453,9 +453,7 @@ namespace galaxy
 							break;
 
 						case tson::ObjectType::Text:
-							{
-								GALAXY_LOG(GALAXY_WARNING, "Tiled Text objects are not supported.");
-							}
+							GALAXY_LOG(GALAXY_WARNING, "Tiled Text objects are not supported.");
 							break;
 
 						case tson::ObjectType::Template:

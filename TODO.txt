@@ -1,28 +1,7 @@
-- update rml to 5.0
-	- need to test rml integration, maybe refer to official backend implementations.
-	- support content scale (dpi thingy) for rml
-	- make sure font dpi is working with the content scale.
-- box2d
-	- b2 units to engine units.
-	- support circle colliders
-	- support polygon colliders
-	- use onconstruct/destruct to register for box2d -> add b2world to world class alongside registry.
-	- physics materials
-	- velocity iterations and position iterations need to be in editor
-- state based system for character movement + updating animation.
-- need to verify font, ui and glfw window are handling "codepoints" correctly.
-- implement general renderer level spritebatch.
-- hot reloading
-- camera events need to be in scene, not layers...
-- dispatcher should probably be in scene
-- fonts should use font family as key name.
-- Fix not selecting correct atlas if map tilesets are spread out across atlas'.
-- add load screen when switching maps
-- remove pause? and only have play and back to editor? -> makes more sense? pause is for physics?
-	- fix crash on pause/unpause
-
 editor:
 - loading indicators
 	- add loading indicator for map loading
 - mouse picking
 	- imgizmo
+- remove pause? and only have play and back to editor? -> makes more sense? pause is for physics?
+	- fix crash on pause/unpause
