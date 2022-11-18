@@ -82,6 +82,12 @@ namespace sc
 
 	void Editor::events()
 	{
+		if (m_restore)
+		{
+			m_project_scenes.deserialize(m_backup);
+			m_restore = false;
+		}
+
 		if (!m_game_mode)
 		{
 			if (m_viewport_focused && m_viewport_hovered)
@@ -106,7 +112,7 @@ namespace sc
 			{
 				ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
-				m_project_scenes.deserialize(m_backup);
+				m_restore   = true;
 			}
 		}
 	}
@@ -441,8 +447,8 @@ namespace sc
 			{
 				if (ui::imgui_imagebutton(m_stop, m_icon_size))
 				{
-					m_paused = true;
-					m_project_scenes.deserialize(m_backup);
+					m_paused  = true;
+					m_restore = true;
 				}
 			}
 			else

@@ -3,5 +3,3 @@ editor:
 	- add loading indicator for map loading
 - mouse picking
 	- imgizmo
-- remove pause? and only have play and back to editor? -> makes more sense? pause is for physics?
-	- fix crash on pause/unpause

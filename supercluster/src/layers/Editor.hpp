@@ -86,6 +86,7 @@ namespace sc
 		bool m_viewport_hovered = false;
 		bool m_use_mouse_hand   = false;
 		bool m_show_settings    = false;
+		bool m_restore          = false;
 
 		bool m_show_scenes     = true;
 		bool m_show_entities   = true;
