@@ -437,7 +437,7 @@ namespace sc
 			{
 				ImGui::BeginTooltip();
 				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-				ImGui::Text("supercluster v1.0\nLicensed under Apache 2.0.");
+				ImGui::Text("supercluster (alpha)\nLicensed under Apache 2.0.");
 				ImGui::PopTextWrapPos();
 				ImGui::EndTooltip();
 			}
