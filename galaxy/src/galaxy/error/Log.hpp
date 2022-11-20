@@ -16,6 +16,8 @@
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
 
+// clang-format off
+#ifdef _DEBUG
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
 #define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
 #define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
@@ -26,6 +28,19 @@
 #define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
 #define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
 #define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::handle().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
+#else
+#define GALAXY_INFO                     {}
+#define GALAXY_DEBUG                    {}
+#define GALAXY_WARNING                  {}
+#define GALAXY_ERROR                    {}
+#define GALAXY_FATAL                    {}
+#define GALAXY_LOG_START()              {}
+#define GALAXY_LOG_FINISH()             {}
+#define GALAXY_LOG_SET_MIN_LEVEL(level) {}
+#define GALAXY_ADD_SINK(sink, ...)      {}
+#define GALAXY_LOG(level, msg, ...)     {}
+#endif
+// clang-format on
 
 namespace galaxy
 {

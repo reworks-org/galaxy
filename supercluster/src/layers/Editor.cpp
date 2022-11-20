@@ -33,8 +33,10 @@ namespace sc
 		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
 		m_code_editor.m_editor.SetPalette(TextEditor::GetDarkPalette());
 
+#ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
 		m_log_console.set_sink(&sink);
+#endif
 
 		m_framebuffer.create(1, 1);
 		m_settings.load();
