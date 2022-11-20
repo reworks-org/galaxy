@@ -14,7 +14,7 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/state/SceneManager.hpp>
+#include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
 #include <galaxy/utils/Globals.hpp>
 
@@ -118,7 +118,7 @@ int main(int argsc, char* argsv[])
 					}
 				}
 
-				auto& sm   = core::ServiceLocator<state::SceneManager>::ref();
+				auto& sm   = core::ServiceLocator<scene::SceneManager>::ref();
 				auto scene = sm.make("supercluster");
 				if (auto ptr = scene.lock())
 				{
@@ -126,8 +126,8 @@ int main(int argsc, char* argsv[])
 
 					sm.set(ptr->get_name());
 
-					state::LayerRegistry::register_type<sc::Editor>("Editor");
-					state::LayerRegistry::register_type<sc::Menu>("Menu");
+					scene::LayerRegistry::register_type<sc::Editor>("Editor");
+					scene::LayerRegistry::register_type<sc::Menu>("Menu");
 
 					auto& layers = ptr->layers();
 

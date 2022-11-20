@@ -9,7 +9,7 @@
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		Layer::Layer(std::string_view name, Scene* scene) noexcept
 			: m_name {name}
@@ -35,10 +35,10 @@ namespace galaxy
 		{
 			return m_name;
 		}
-		
+
 		core::World& Layer::world() noexcept
 		{
 			return m_world;
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy

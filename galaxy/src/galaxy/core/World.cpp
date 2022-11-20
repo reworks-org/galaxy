@@ -154,7 +154,7 @@ namespace galaxy
 			return true;
 		}
 
-		void World::update_systems(state::Layer* layer)
+		void World::update_systems(scene::Layer* layer)
 		{
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
@@ -162,7 +162,7 @@ namespace galaxy
 			}
 		}
 
-		void World::update_rendersystem(state::Layer* layer)
+		void World::update_rendersystem(scene::Layer* layer)
 		{
 			if (m_rendersystem_index < m_systems.size() && m_rendersystem_index != -1)
 			{

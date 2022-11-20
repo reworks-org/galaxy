@@ -12,7 +12,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/state/Layer.hpp"
+#include "galaxy/scene/Layer.hpp"
 #include "galaxy/utils/Globals.hpp"
 
 #include "AnimationSystem.hpp"
@@ -29,7 +29,7 @@ namespace galaxy
 		{
 		}
 
-		void AnimationSystem::update(state::Layer* layer)
+		void AnimationSystem::update(scene::Layer* layer)
 		{
 			// Sprites.
 			const auto view = layer->world().m_registry.view<components::Animated, components::Flag>();

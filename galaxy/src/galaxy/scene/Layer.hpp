@@ -20,7 +20,7 @@ namespace galaxy
 		class Window;
 	} // namespace core
 
-	namespace state
+	namespace scene
 	{
 		class Scene;
 
@@ -132,7 +132,7 @@ namespace galaxy
 		///
 		template<typename Type>
 		concept is_layer = std::derived_from<Type, Layer>;
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

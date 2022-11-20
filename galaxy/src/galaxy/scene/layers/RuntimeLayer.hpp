@@ -11,11 +11,11 @@
 #include <glm/vec2.hpp>
 #include <tileson.hpp>
 
-#include "galaxy/state/Layer.hpp"
+#include "galaxy/scene/Layer.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		///
 		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
@@ -167,7 +167,7 @@ namespace galaxy
 			///
 			std::string m_map;
 		};
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

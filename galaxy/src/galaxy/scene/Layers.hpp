@@ -8,11 +8,11 @@
 #ifndef GALAXY_STATE_LAYERS_HPP_
 #define GALAXY_STATE_LAYERS_HPP_
 
-#include "galaxy/state/LayerRegistry.hpp"
+#include "galaxy/scene/LayerRegistry.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		///
 		/// Stack based storage for layers.
@@ -209,7 +209,7 @@ namespace galaxy
 				return {};
 			}
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

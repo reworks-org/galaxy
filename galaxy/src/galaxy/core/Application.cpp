@@ -34,9 +34,9 @@
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
-#include "galaxy/state/SceneManager.hpp"
-#include "galaxy/state/layers/RuntimeLayer.hpp"
-#include "galaxy/state/layers/UILayer.hpp"
+#include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/scene/layers/RuntimeLayer.hpp"
+#include "galaxy/scene/layers/UILayer.hpp"
 
 #include "Application.hpp"
 
@@ -359,9 +359,9 @@ namespace galaxy
 					//
 					// SceneManager.
 					//
-					state::LayerRegistry::register_type<state::UILayer>("UI");
-					state::LayerRegistry::register_type<state::RuntimeLayer>("Runtime");
-					ServiceLocator<state::SceneManager>::make();
+					scene::LayerRegistry::register_type<scene::UILayer>("UI");
+					scene::LayerRegistry::register_type<scene::RuntimeLayer>("Runtime");
+					ServiceLocator<scene::SceneManager>::make();
 
 					//
 					// Add external libraries to lua.
@@ -400,8 +400,8 @@ namespace galaxy
 
 		Application::~Application()
 		{
-			ServiceLocator<state::SceneManager>::del();
-			state::LayerRegistry::m_registry.clear();
+			ServiceLocator<scene::SceneManager>::del();
+			scene::LayerRegistry::m_registry.clear();
 
 			Rml::Shutdown();
 			m_rml_rendering_interface.delete_shaders();
@@ -427,7 +427,7 @@ namespace galaxy
 		void Application::load(std::string_view json_file)
 		{
 			auto& fs      = ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& manager = ServiceLocator<state::SceneManager>::ref();
+			auto& manager = ServiceLocator<scene::SceneManager>::ref();
 
 			const auto default_data = fs.open(json_file);
 			if (default_data.has_value())
@@ -451,7 +451,7 @@ namespace galaxy
 #endif
 				auto& config  = ServiceLocator<Config>::ref();
 				auto& window  = ServiceLocator<Window>::ref();
-				auto& manager = ServiceLocator<state::SceneManager>::ref();
+				auto& manager = ServiceLocator<scene::SceneManager>::ref();
 
 				const bool log_perf = config.get<bool>("log_performance");
 

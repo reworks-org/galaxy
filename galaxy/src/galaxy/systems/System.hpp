@@ -14,10 +14,10 @@
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		class Layer;
-	} // namespace state
+	} // namespace scene
 
 	namespace systems
 	{
@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			/// \param layer Non-owning pointer to current layer.
 			///
-			virtual void update(state::Layer* layer) = 0;
+			virtual void update(scene::Layer* layer) = 0;
 
 		protected:
 			///

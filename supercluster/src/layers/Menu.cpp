@@ -10,7 +10,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/state/Scene.hpp>
+#include <galaxy/scene/Scene.hpp>
 
 #include "Editor.hpp"
 
@@ -18,7 +18,7 @@
 
 namespace sc
 {
-	Menu::Menu(std::string_view name, state::Scene* scene) noexcept
+	Menu::Menu(std::string_view name, scene::Scene* scene) noexcept
 		: Layer {name, scene}
 		, m_load {false}
 	{

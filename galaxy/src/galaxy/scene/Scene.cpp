@@ -15,7 +15,7 @@
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		Scene::Scene() noexcept
 			: m_name {"Untitled"}
@@ -100,5 +100,5 @@ namespace galaxy
 			m_layer_stack.deserialize(json.at("stack"));
 			m_camera.deserialize(json.at("camera"));
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy

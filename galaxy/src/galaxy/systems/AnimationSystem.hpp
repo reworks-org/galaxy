@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// \param layer Non-owning pointer to current layer.
 			///
-			void update(state::Layer* layer) override;
+			void update(scene::Layer* layer) override;
 		};
 	} // namespace systems
 } // namespace galaxy

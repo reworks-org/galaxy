@@ -8,11 +8,11 @@
 #ifndef GALAXY_STATE_SCENEMANAGER_HPP_
 #define GALAXY_STATE_SCENEMANAGER_HPP_
 
-#include "galaxy/state/Scene.hpp"
+#include "galaxy/scene/Scene.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		///
 		/// Typedef for scene container.
@@ -150,7 +150,7 @@ namespace galaxy
 			///
 			std::shared_ptr<Scene> m_current;
 		};
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

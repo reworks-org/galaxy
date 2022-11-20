@@ -27,7 +27,7 @@
 
 namespace sc
 {
-	Editor::Editor(std::string_view name, state::Scene* scene) noexcept
+	Editor::Editor(std::string_view name, scene::Scene* scene) noexcept
 		: Layer {name, scene}
 	{
 		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());

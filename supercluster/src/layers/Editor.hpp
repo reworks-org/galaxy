@@ -11,7 +11,7 @@
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/graphics/Renderable.hpp>
 #include <galaxy/platform/Subprocess.hpp>
-#include <galaxy/state/Layer.hpp>
+#include <galaxy/scene/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "editor/panels/AssetPanel.hpp"
@@ -27,10 +27,10 @@ using namespace galaxy;
 
 namespace sc
 {
-	class Editor final : public state::Layer
+	class Editor final : public scene::Layer
 	{
 	public:
-		Editor(std::string_view name, state::Scene* scene) noexcept;
+		Editor(std::string_view name, scene::Scene* scene) noexcept;
 		virtual ~Editor() noexcept;
 
 		void on_push() override;
@@ -104,7 +104,7 @@ namespace sc
 		Selected m_selected_entity;
 
 		std::string m_current_project_path;
-		state::SceneManager m_project_scenes;
+		scene::SceneManager m_project_scenes;
 		graphics::RenderTexture m_framebuffer;
 
 		graphics::Texture m_resume_play;

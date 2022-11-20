@@ -22,7 +22,7 @@
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/state/Scene.hpp"
+#include "galaxy/scene/Scene.hpp"
 
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
@@ -31,7 +31,7 @@
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene) noexcept
 			: Layer {name, scene}
@@ -515,5 +515,5 @@ namespace galaxy
 
 			return {0, 0};
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy

@@ -14,7 +14,7 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/graphics/Renderer.hpp"
-#include "galaxy/state/Layer.hpp"
+#include "galaxy/scene/Layer.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -30,7 +30,7 @@ namespace galaxy
 		{
 		}
 
-		void RenderSystem::update(state::Layer* layer)
+		void RenderSystem::update(scene::Layer* layer)
 		{
 			const auto spr_view = layer->world().m_registry.view<components::Sprite, components::DrawShader, components::Transform, components::Flag>();
 			for (auto&& [entity, sprite, shader, transform, flag] : spr_view.each())

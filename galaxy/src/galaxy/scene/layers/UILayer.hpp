@@ -8,12 +8,12 @@
 #ifndef GALAXY_STATE_LAYER_UILAYER_HPP_
 #define GALAXY_STATE_LAYER_UILAYER_HPP_
 
-#include "galaxy/state/Layer.hpp"
+#include "galaxy/scene/Layer.hpp"
 #include "galaxy/ui/RMLEvents.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		///
 		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
@@ -99,7 +99,7 @@ namespace galaxy
 			///
 			ui::RMLEvents m_rml_events;
 		};
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

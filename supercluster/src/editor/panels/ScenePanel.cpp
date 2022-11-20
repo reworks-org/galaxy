@@ -15,8 +15,8 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
-#include <galaxy/state/layers/RuntimeLayer.hpp>
-#include <galaxy/state/layers/UILayer.hpp>
+#include <galaxy/scene/layers/RuntimeLayer.hpp>
+#include <galaxy/scene/layers/UILayer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "ScenePanel.hpp"
@@ -27,7 +27,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(state::SceneManager& sm, Selected& selected, UpdateStack& updates)
+		void ScenePanel::render(scene::SceneManager& sm, Selected& selected, UpdateStack& updates)
 		{
 			if (ImGui::Begin("Scenes"))
 			{
@@ -190,7 +190,7 @@ namespace sc
 								}
 								else
 								{
-									scene->layers().make<state::RuntimeLayer>(s_buff);
+									scene->layers().make<scene::RuntimeLayer>(s_buff);
 									s_buff = "";
 								}
 
@@ -211,7 +211,7 @@ namespace sc
 								}
 								else
 								{
-									scene->layers().make<state::UILayer>(s_buff);
+									scene->layers().make<scene::UILayer>(s_buff);
 									s_buff = "";
 								}
 
@@ -365,7 +365,7 @@ namespace sc
 
 								if (layer->get_type() == "Runtime")
 								{
-									auto rt_layer = std::static_pointer_cast<state::RuntimeLayer>(layer);
+									auto rt_layer = std::static_pointer_cast<scene::RuntimeLayer>(layer);
 
 									if (ImGui::Button("Map Settings"))
 									{

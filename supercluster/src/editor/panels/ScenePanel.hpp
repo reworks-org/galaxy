@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_SCENEPANEL_HPP_
 
-#include <galaxy/state/SceneManager.hpp>
+#include <galaxy/scene/SceneManager.hpp>
 
 #include "editor/Selected.hpp"
 #include "editor/UpdateStack.hpp"
@@ -25,7 +25,7 @@ namespace sc
 			ScenePanel() noexcept  = default;
 			~ScenePanel() noexcept = default;
 
-			void render(state::SceneManager& sm, Selected& selected, UpdateStack& updates);
+			void render(scene::SceneManager& sm, Selected& selected, UpdateStack& updates);
 
 		private:
 			std::string m_selected;

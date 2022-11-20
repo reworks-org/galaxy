@@ -9,17 +9,17 @@
 #define SUPERCLUSTER_LAYERS_MENU_HPP_
 
 #include <galaxy/graphics/Texture.hpp>
-#include <galaxy/state/Layer.hpp>
+#include <galaxy/scene/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 using namespace galaxy;
 
 namespace sc
 {
-	class Menu final : public state::Layer
+	class Menu final : public scene::Layer
 	{
 	public:
-		Menu(std::string_view name, state::Scene* scene) noexcept;
+		Menu(std::string_view name, scene::Scene* scene) noexcept;
 		virtual ~Menu() noexcept;
 
 		void on_push() override;

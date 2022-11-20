@@ -11,11 +11,11 @@
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/state/Layer.hpp"
+#include "galaxy/scene/Layer.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		class LayerRegistry final
 		{
@@ -79,7 +79,7 @@ namespace galaxy
 			///
 			LayerRegistry& operator=(LayerRegistry&&) = delete;
 		};
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

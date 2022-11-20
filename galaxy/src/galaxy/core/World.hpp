@@ -114,14 +114,14 @@ namespace galaxy
 			///
 			/// \param layer Non-owning pointer to current layer.
 			///
-			void update_systems(state::Layer* layer);
+			void update_systems(scene::Layer* layer);
 
 			///
 			/// Only update the rendersystem.
 			///
 			/// \param layer Non-owning pointer to current layer.
 			///
-			void update_rendersystem(state::Layer* layer);
+			void update_rendersystem(scene::Layer* layer);
 
 			///
 			/// Clears all system, component registry, and entity data.

@@ -11,7 +11,7 @@
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		Layers::Layers(Scene* scene) noexcept
 			: m_scene {scene}
@@ -181,5 +181,5 @@ namespace galaxy
 				push(name);
 			}
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy

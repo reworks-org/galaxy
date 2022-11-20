@@ -16,7 +16,7 @@ using namespace std::chrono_literals;
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		SceneManager::SceneManager() noexcept
 			: m_current {nullptr}
@@ -218,5 +218,5 @@ namespace galaxy
 
 			change(json.at("current_scene"));
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy

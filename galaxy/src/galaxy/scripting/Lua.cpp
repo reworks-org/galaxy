@@ -75,7 +75,7 @@
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 
-#include "galaxy/state/SceneManager.hpp"
+#include "galaxy/scene/SceneManager.hpp"
 
 #include "galaxy/scripting/BasicScript.hpp"
 #include "galaxy/scripting/LuaExternalLibs.hpp"
@@ -858,24 +858,24 @@ namespace galaxy
 			fonts_type["keys"]  = &resource::Fonts::keys;
 
 			/* STATE */
-			auto scenemanager_type       = lua.new_usertype<state::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["change"]  = &state::SceneManager::change;
-			scenemanager_type["clear"]   = &state::SceneManager::clear;
-			scenemanager_type["load"]    = &state::SceneManager::load;
-			scenemanager_type["save"]    = &state::SceneManager::save;
-			scenemanager_type["current"] = &state::SceneManager::current;
-			scenemanager_type["get"]     = &state::SceneManager::get;
-			scenemanager_type["make"]    = &state::SceneManager::make;
-			scenemanager_type["set"]     = &state::SceneManager::set;
+			auto scenemanager_type       = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["change"]  = &scene::SceneManager::change;
+			scenemanager_type["clear"]   = &scene::SceneManager::clear;
+			scenemanager_type["load"]    = &scene::SceneManager::load;
+			scenemanager_type["save"]    = &scene::SceneManager::save;
+			scenemanager_type["current"] = &scene::SceneManager::current;
+			scenemanager_type["get"]     = &scene::SceneManager::get;
+			scenemanager_type["make"]    = &scene::SceneManager::make;
+			scenemanager_type["set"]     = &scene::SceneManager::set;
 
 			// Use scenemanager to create.
-			auto scene_type          = lua.new_usertype<state::Scene>("Scene", sol::no_constructor);
-			scene_type["set_name"]   = &state::Scene::set_name;
-			scene_type["get_name"]   = &state::Scene::get_name;
-			scene_type["layers"]     = &state::Scene::layers;
-			scene_type["get_camera"] = &state::Scene::get_camera;
+			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["set_name"]   = &scene::Scene::set_name;
+			scene_type["get_name"]   = &scene::Scene::get_name;
+			scene_type["layers"]     = &scene::Scene::layers;
+			scene_type["get_camera"] = &scene::Scene::get_camera;
 
-			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<state::SceneManager>::ref());
+			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 
 			/* SCRIPTING */
 			auto basicscript_type =

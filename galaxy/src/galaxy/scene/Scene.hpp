@@ -9,11 +9,11 @@
 #define GALAXY_STATE_SCENE_HPP_
 
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/state/Layers.hpp"
+#include "galaxy/scene/Layers.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		///
 		/// Represents a scene in a game. Like the menu, game, etc.
@@ -122,7 +122,7 @@ namespace galaxy
 			///
 			graphics::Camera m_camera;
 		};
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
 
 #endif

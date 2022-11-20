@@ -12,13 +12,13 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/state/Scene.hpp"
+#include "galaxy/scene/Scene.hpp"
 
 #include "UILayer.hpp"
 
 namespace galaxy
 {
-	namespace state
+	namespace scene
 	{
 		UILayer::UILayer(std::string_view name, Scene* scene) noexcept
 			: Layer {name, scene}
@@ -97,5 +97,5 @@ namespace galaxy
 			m_name = json.at("name");
 			m_world.deserialize(json.at("world"));
 		}
-	} // namespace state
+	} // namespace scene
 } // namespace galaxy
