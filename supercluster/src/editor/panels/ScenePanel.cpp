@@ -382,7 +382,7 @@ namespace sc
 										static std::string s_search = "";
 										ImGui::InputTextWithHint("##ModalLoadMapSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
 
-										static std::string s_selected = rt_layer->get_loaded_map();
+										static std::string s_selected = rt_layer->m_map.get_name();
 										if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
 										{
 											for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
@@ -410,7 +410,7 @@ namespace sc
 											if (!s_selected.empty())
 											{
 												updates.emplace_back([rt_layer]() {
-													rt_layer->load_map(s_selected);
+													rt_layer->m_map.load_map(s_selected);
 												});
 											}
 											else
@@ -423,14 +423,14 @@ namespace sc
 
 										if (ImGui::Button("Enable Map"))
 										{
-											rt_layer->enable_map();
+											rt_layer->m_map.enable_map();
 										}
 
 										ImGui::SameLine();
 
 										if (ImGui::Button("Disable Map"))
 										{
-											rt_layer->disable_map();
+											rt_layer->m_map.disable_map();
 										}
 
 										ImGui::EndPopup();

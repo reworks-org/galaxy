@@ -8,9 +8,7 @@
 #ifndef GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 #define GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 
-#include <glm/vec2.hpp>
-#include <tileson.hpp>
-
+#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/scene/Layer.hpp"
 
 namespace galaxy
@@ -70,30 +68,6 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_type() const noexcept override;
 
 			///
-			/// Load map into scene.
-			///
-			/// \param key Name of the map to load.
-			///
-			void load_map(const std::string& key);
-
-			///
-			/// Enable the currently active map's entities.
-			///
-			void enable_map() noexcept;
-
-			///
-			/// Disable the currently active map's entities.
-			///
-			void disable_map() noexcept;
-
-			///
-			/// Fetch the key of the loaded map.
-			///
-			/// \return Const string reference.
-			///
-			[[nodiscard]] const std::string& get_loaded_map() const noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -113,59 +87,11 @@ namespace galaxy
 			///
 			RuntimeLayer() = delete;
 
+		public:
 			///
-			/// Recursive function to process tiled map layers.
+			/// Manages the map for this layer.
 			///
-			/// \param layer Layer to process.
-			/// \param level Needs to be incremented for each call.
-			///
-			void process_layer(tson::Layer& layer, int& level);
-
-			///
-			/// Recursive function to process tile layer.
-			///
-			/// \param layer Layer to process.
-			/// \param level Needs to be incremented for each call.
-			///
-			void process_tile_layer(tson::Layer& layer, int& level);
-
-			///
-			/// Recursive function to process object layer.
-			///
-			/// \param layer Layer to process.
-			/// \param level Needs to be incremented for each call.
-			///
-			void process_object_layer(tson::Layer& layer, int& level);
-
-			///
-			/// Recursive function to process image layer.
-			///
-			/// \param layer Layer to process.
-			/// \param level Needs to be incremented for each call.
-			///
-			void process_image_layer(tson::Layer& layer, int& level);
-
-			///
-			/// Fetch tile offset in tileset.
-			///
-			/// \param tile_id Tile GID to use.
-			/// \param map Pointer to tson map.
-			/// \param tileset Pointer to tson tileset.
-			///
-			/// \return Offset as a vec2 integer.
-			///
-			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, tson::Map* map, tson::Tileset* tileset) noexcept;
-
-		private:
-			///
-			/// List of entities for currently active map.
-			///
-			std::vector<entt::entity> m_map_entities;
-
-			///
-			/// Currently loaded map.
-			///
-			std::string m_map;
+			core::TiledMap m_map;
 		};
 	} // namespace scene
 } // namespace galaxy

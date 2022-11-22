@@ -139,6 +139,7 @@
     <ClCompile Include="src\galaxy\components\Map.cpp" />
     <ClCompile Include="src\galaxy\graphics\animation\TileAnim.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalLibs.cpp" />
+    <ClCompile Include="src\galaxy\core\TiledMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -279,5 +280,6 @@
     <ClInclude Include="src\galaxy\components\Map.hpp" />
     <ClInclude Include="src\galaxy\graphics\animation\TileAnim.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaExternalLibs.hpp" />
+    <ClInclude Include="src\galaxy\core\TiledMap.hpp" />
   </ItemGroup>
 </Project>
