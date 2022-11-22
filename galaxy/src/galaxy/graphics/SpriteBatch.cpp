@@ -87,12 +87,12 @@ namespace galaxy
 					m_vertices.push_back(vertex);
 				}
 
-				return m_vertices.size() - 4;
+				return static_cast<unsigned int>(m_vertices.size() - 4);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to upload too many quads to a spritebatch.");
-				return -1;
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to upload too many quads to a spritebatch.");
+				return 0;
 			}
 		}
 
