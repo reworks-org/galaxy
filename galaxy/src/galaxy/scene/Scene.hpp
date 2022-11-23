@@ -121,6 +121,11 @@ namespace galaxy
 			/// Camera.
 			///
 			graphics::Camera m_camera;
+
+			///
+			/// Scene specific events that arent for a particular layer.
+			///
+			entt::dispatcher m_scene_dispatcher;
 		};
 	} // namespace scene
 } // namespace galaxy

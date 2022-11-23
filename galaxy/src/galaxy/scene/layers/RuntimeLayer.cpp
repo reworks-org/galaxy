@@ -24,8 +24,6 @@ namespace galaxy
 			: Layer {name, scene}
 			, m_map {this}
 		{
-			m_world.m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(scene->get_camera());
-
 			m_world.create_system<systems::ScriptSystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::RenderSystem>();

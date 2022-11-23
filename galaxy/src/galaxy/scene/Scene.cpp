@@ -9,6 +9,7 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 
 #include "Scene.hpp"
@@ -22,6 +23,7 @@ namespace galaxy
 			, m_layer_stack {this}
 			, m_camera {false}
 		{
+			m_scene_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
 		}
 
 		Scene::~Scene()
@@ -42,7 +44,9 @@ namespace galaxy
 
 		void Scene::events()
 		{
+			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_scene_dispatcher);
 			m_camera.process_events();
+
 			m_layer_stack.events();
 		}
 
