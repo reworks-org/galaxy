@@ -21,6 +21,8 @@
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
+    <ClCompile Include="src\galaxy\state\State.cpp" />
+    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
@@ -162,6 +164,8 @@
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
+    <ClInclude Include="src\galaxy\state\State.hpp" />
+    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\components\Animated.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />

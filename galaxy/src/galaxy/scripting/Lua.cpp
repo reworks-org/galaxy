@@ -80,6 +80,8 @@
 #include "galaxy/scripting/BasicScript.hpp"
 #include "galaxy/scripting/LuaExternalLibs.hpp"
 
+#include "galaxy/state/StateMachine.hpp"
+
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/Guid.hpp"
 #include "galaxy/utils/StringUtils.hpp"
@@ -883,6 +885,13 @@ namespace galaxy
 			basicscript_type["load"]           = &lua::BasicScript::load;
 			basicscript_type["run"]            = &lua::BasicScript::run;
 			basicscript_type["run_and_return"] = &lua::BasicScript::run_and_return;
+
+			/* STATE */
+			auto state_type             = lua.new_usertype<state::State>("State", sol::no_constructor);
+			auto statemachine_type      = lua.new_usertype<state::StateMachine>("StateMachine", sol::constructors<state::StateMachine()>());
+			statemachine_type["pop"]    = &state::StateMachine::pop;
+			statemachine_type["push"]   = &state::StateMachine::push;
+			statemachine_type["update"] = &state::StateMachine::update;
 
 			/* UTILS */
 			auto guid_type         = lua.new_usertype<utils::Guid>("Guid", sol::constructors<utils::Guid()>());
