@@ -61,8 +61,8 @@ namespace galaxy
 			{
 				auto level = 0;
 
-				auto map = maps.get(key);
-				for (auto& layer : map->getLayers())
+				m_map = maps.get(key);
+				for (auto& layer : m_map->getLayers())
 				{
 					if (layer.isVisible())
 					{
