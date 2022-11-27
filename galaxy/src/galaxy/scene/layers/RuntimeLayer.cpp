@@ -50,7 +50,7 @@ namespace galaxy
 
 		void RuntimeLayer::update()
 		{
-			m_world.update_systems(this);
+			m_world.update(this);
 		}
 
 		void RuntimeLayer::render()

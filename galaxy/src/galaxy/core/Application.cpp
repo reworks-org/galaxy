@@ -23,6 +23,7 @@
 #include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/physics/Constants.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -117,6 +118,11 @@ namespace galaxy
 			config.restore<int>("camera_right", static_cast<int>(input::Keys::D), "input");
 			config.restore<int>("camera_rotate_left", static_cast<int>(input::Keys::Q), "input");
 			config.restore<int>("camera_rotate_right", static_cast<int>(input::Keys::E), "input");
+			config.restore<float>("ppm", 64.0f, "box2d");
+			config.restore<float>("x", 0.0f, "box2d.gravity");
+			config.restore<float>("y", 0.0f, "box2d.gravity");
+			config.restore<int>("velocity_iterations", 8, "box2d");
+			config.restore<int>("position_iterations", 3, "box2d");
 
 			config.save();
 
@@ -254,6 +260,15 @@ namespace galaxy
 					{
 						cursor.set_cursor_icon(cursor_icon);
 					}
+
+					//
+					// Physics config data.
+					//
+					physics::Constants::gravity.x           = config.get<float>("x", "box2d.gravity");
+					physics::Constants::gravity.y           = config.get<float>("y", "box2d.gravity");
+					physics::Constants::velocity_iterations = config.get<int>("velocity_iterations", "box2d");
+					physics::Constants::position_iterations = config.get<int>("position_iterations", "box2d");
+					physics::Constants::pixels_per_meter    = config.get<float>("ppm", "box2d");
 
 					//
 					// Begin loading shader related data.

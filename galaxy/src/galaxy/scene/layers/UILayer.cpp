@@ -62,7 +62,7 @@ namespace galaxy
 
 		void UILayer::update()
 		{
-			m_world.update_systems(this);
+			m_world.update(this);
 			m_rml->Update();
 		}
 

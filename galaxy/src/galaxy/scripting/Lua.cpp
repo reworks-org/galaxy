@@ -22,6 +22,7 @@
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -64,6 +65,7 @@
 #include "galaxy/input/Mouse.hpp"
 #include "galaxy/input/MouseButtons.hpp"
 
+#include "galaxy/physics/Constants.hpp"
 #include "galaxy/platform/Subprocess.hpp"
 
 #include "galaxy/resource/Fonts.hpp"
@@ -251,6 +253,16 @@ namespace galaxy
 			primitive_type["colour"]          = &components::Primitive::m_colour;
 
 			entt_sol::register_meta_component<components::Primitive>();
+
+			auto rigidbody_type = lua.new_usertype<components::RigidBody>("RigidBody",
+				sol::constructors<components::RigidBody()>(),
+				"type_id",
+				&entt::type_hash<components::RigidBody>::value);
+
+			// TODO
+			// rigidbody_type[""] = &components::RigidBody::;
+
+			entt_sol::register_meta_component<components::RigidBody>();
 
 			auto script_type = lua.new_usertype<components::Script>("Script",
 				sol::constructors<components::Script()>(),
@@ -779,6 +791,13 @@ namespace galaxy
 			lua["galaxy_cursor"]    = std::ref(window.get_input<input::Cursor>());
 			lua["galaxy_keyboard"]  = std::ref(window.get_input<input::Keyboard>());
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
+
+			/* PHYSICS */
+			lua.set("GALAXY_PHYSICS_GRAVITY_X", physics::Constants::gravity.x);
+			lua.set("GALAXY_PHYSICS_GRAVITY_Y", physics::Constants::gravity.y);
+			lua.set("GALAXY_PHYSICS_VELOCITY_ITERATIONS", physics::Constants::velocity_iterations);
+			lua.set("GALAXY_PHYSICS_POSITION_ITERATIONS", physics::Constants::position_iterations);
+			lua.set("GALAXY_PHYSICS_PIXELS_PER_METER", physics::Constants::pixels_per_meter);
 
 			/* PLATFORM */
 			auto subprocess_type         = lua.new_usertype<platform::Subprocess>("Subprocess",

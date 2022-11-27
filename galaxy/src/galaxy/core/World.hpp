@@ -10,6 +10,7 @@
 
 #include <typeindex>
 
+#include <box2d/b2_world.h>
 #include <entt/entity/registry.hpp>
 #include <entt/signal/dispatcher.hpp>
 #include <robin_hood.h>
@@ -21,6 +22,12 @@
 
 namespace galaxy
 {
+	namespace components
+	{
+		class RigidBody;
+		class Transform;
+	} // namespace components
+
 	namespace core
 	{
 		///
@@ -69,7 +76,7 @@ namespace galaxy
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]] entt::entity create_from_obj(const nlohmann::json& json);
+			[[maybe_unused]] entt::entity create_from_json(const nlohmann::json& json);
 
 			///
 			/// Defines a dependency validation for components.
@@ -110,11 +117,11 @@ namespace galaxy
 			[[maybe_unused]] std::weak_ptr<System> create_system(Args&&... args);
 
 			///
-			/// Update systems.
+			/// Update world data.
 			///
 			/// \param layer Non-owning pointer to current layer.
 			///
-			void update_systems(scene::Layer* layer);
+			void update(scene::Layer* layer);
 
 			///
 			/// Only update the rendersystem.
@@ -188,6 +195,22 @@ namespace galaxy
 			///
 			void destruct_script(entt::registry& registry, entt::entity entity);
 
+			///
+			/// Function that integrates a box2d construction with entt.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void construct_rigidbody(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates a box2d destruction with entt.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
+
 		public:
 			///
 			/// The main entt entity registry.
@@ -198,6 +221,11 @@ namespace galaxy
 			/// Event dispatcher.
 			///
 			entt::dispatcher m_dispatcher;
+
+			///
+			/// Box2D physics world.
+			///
+			std::unique_ptr<b2World> m_b2world;
 
 		private:
 			///
@@ -224,6 +252,11 @@ namespace galaxy
 			/// Rendersystem index.
 			///
 			int m_rendersystem_index;
+
+			///
+			/// List of components that need to be constructed.
+			///
+			std::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
 		};
 
 		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>

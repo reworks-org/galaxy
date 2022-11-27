@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <box2d/b2_fixture.h>
+#include <box2d/b2_polygon_shape.h>
 #include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
@@ -13,6 +15,7 @@
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -22,6 +25,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
+#include "galaxy/physics/Constants.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -34,12 +38,16 @@ namespace galaxy
 	{
 		World::World() noexcept
 			: Serializable {}
+			, m_b2world {nullptr}
 			, m_rendersystem_index {-1}
 		{
+			m_b2world = std::make_unique<b2World>(physics::Constants::gravity);
+
 			register_component<components::Animated>("Animated");
 			register_component<components::DrawShader>("DrawShader");
 			register_component<components::Flag>("Flag");
 			register_component<components::Primitive>("Primitive");
+			register_component<components::RigidBody>("RigidBody");
 			register_component<components::Script>("Script");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Tag>("Tag");
@@ -48,10 +56,13 @@ namespace galaxy
 
 			m_registry.on_construct<components::Script>().connect<&World::construct_script>(this);
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
+			m_registry.on_construct<components::RigidBody>().connect<&World::construct_rigidbody>(this);
+			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
 
 			// Handle validation.
 			register_dependencies<components::Sprite, components::Transform, components::DrawShader>();
 			register_dependencies<components::Animated, components::Sprite>();
+			register_dependencies<components::RigidBody, components::Transform>();
 
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
@@ -74,6 +85,12 @@ namespace galaxy
 		World::~World() noexcept
 		{
 			clear();
+
+			if (m_b2world)
+			{
+				m_b2world.reset();
+				m_b2world = nullptr;
+			}
 		}
 
 		entt::entity World::create()
@@ -101,7 +118,7 @@ namespace galaxy
 			auto& prefabs = core::ServiceLocator<resource::Prefabs>::ref();
 			if (prefabs.has(name))
 			{
-				return create_from_obj(prefabs.get(name)->m_data);
+				return create_from_json(prefabs.get(name)->m_data);
 			}
 			else
 			{
@@ -110,7 +127,7 @@ namespace galaxy
 			}
 		}
 
-		entt::entity World::create_from_obj(const nlohmann::json& json)
+		entt::entity World::create_from_json(const nlohmann::json& json)
 		{
 			const auto entity      = m_registry.create();
 			const auto& components = json.at("components");
@@ -154,8 +171,36 @@ namespace galaxy
 			return true;
 		}
 
-		void World::update_systems(scene::Layer* layer)
+		void World::update(scene::Layer* layer)
 		{
+			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
+			{
+				b2BodyDef def {};
+				def.position.x    = transform->get_pos().x / physics::Constants::pixels_per_meter;
+				def.position.y    = transform->get_pos().y / physics::Constants::pixels_per_meter;
+				def.angle         = glm::radians(transform->get_rotation());
+				def.type          = rigidbody->m_type;
+				def.fixedRotation = rigidbody->m_fixed_rotation;
+				def.bullet        = rigidbody->m_bullet;
+
+				rigidbody->m_body = m_b2world->CreateBody(&def);
+
+				b2PolygonShape shape;
+				shape.SetAsBox(rigidbody->m_shape.x, rigidbody->m_shape.y);
+
+				b2FixtureDef fixture;
+				fixture.shape                = &shape;
+				fixture.density              = rigidbody->m_density;
+				fixture.friction             = rigidbody->m_friction;
+				fixture.restitution          = rigidbody->m_restitution;
+				fixture.restitutionThreshold = rigidbody->m_restitution_threshold;
+
+				rigidbody->m_body->CreateFixture(&fixture);
+			}
+
+			m_bodies_to_construct.clear();
+			m_b2world->Step(GALAXY_DT, physics::Constants::velocity_iterations, physics::Constants::position_iterations);
+
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
 				m_systems[i]->update(layer);
@@ -176,6 +221,7 @@ namespace galaxy
 			m_component_factory.clear();
 			m_registry.clear();
 			m_dispatcher.clear();
+			m_bodies_to_construct.clear();
 
 			m_rendersystem_index = -1;
 		}
@@ -207,6 +253,12 @@ namespace galaxy
 			if (primitive != nullptr)
 			{
 				json["components"]["Primitive"] = primitive->serialize();
+			}
+
+			auto rigidbody = m_registry.try_get<components::RigidBody>(entity);
+			if (rigidbody != nullptr)
+			{
+				json["components"]["RigidBody"] = rigidbody->serialize();
 			}
 
 			auto script = m_registry.try_get<components::Script>(entity);
@@ -269,7 +321,7 @@ namespace galaxy
 			const auto& entity_json = json.at("entities");
 			for (const auto& entity : entity_json)
 			{
-				create_from_obj(entity);
+				create_from_json(entity);
 			}
 		}
 
@@ -312,6 +364,29 @@ namespace galaxy
 			{
 				destruct(script.m_self);
 				script.m_self.abandon();
+			}
+		}
+
+		void World::construct_rigidbody(entt::registry& registry, entt::entity entity)
+		{
+			const auto rigidbody = registry.try_get<components::RigidBody>(entity);
+			const auto transform = registry.try_get<components::Transform>(entity);
+			if (rigidbody && transform)
+			{
+				m_bodies_to_construct.emplace_back(rigidbody, transform);
+			}
+		}
+
+		void World::destroy_rigidbody(entt::registry& registry, entt::entity entity)
+		{
+			const auto rigidbody = registry.try_get<components::RigidBody>(entity);
+			if (rigidbody)
+			{
+				if (rigidbody->m_body != nullptr)
+				{
+					m_b2world->DestroyBody(rigidbody->m_body);
+					rigidbody->m_body = nullptr;
+				}
 			}
 		}
 	} // namespace core
