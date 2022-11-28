@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="src\algorithm\AlgorithmTest.cpp" />
     <ClCompile Include="src\algorithm\Base64Test.cpp" />
-    <ClCompile Include="src\algorithm\GZipTest.cpp" />
     <ClCompile Include="src\algorithm\RandomTest.cpp" />
     <ClCompile Include="src\algorithm\RectPackTest.cpp" />
     <ClCompile Include="src\algorithm\ZLibTest.cpp" />

@@ -8,12 +8,102 @@
 #ifndef GALAXY_ALGORITHM_ZLIB_HPP_
 #define GALAXY_ALGORITHM_ZLIB_HPP_
 
-#include <string>
+#include <zlib.h>
+
+#include "galaxy/utils/Globals.hpp"
 
 namespace galaxy
 {
 	namespace algorithm
 	{
+		///
+		/// \brief Compressor and Decompressor.
+		///
+		/// Do not create on stack due to class size.
+		///
+		class ZLib final
+		{
+		public:
+			///
+			/// ZLib mode to start in.
+			///
+			enum class Mode : int
+			{
+				///
+				/// ZLib deflation.
+				///
+				COMPRESS = 0,
+
+				///
+				/// ZLib inflation.
+				///
+				DECOMPRESS = 1
+			};
+
+			///
+			/// Constructor.
+			///
+			/// \param mode ZLib mode to start in.
+			///
+			ZLib(const Mode mode) noexcept;
+
+			///
+			/// Destructor.
+			///
+			~ZLib() noexcept;
+
+			///
+			/// Compresses string.
+			///
+			/// \param input Data to compress.
+			///
+			/// \return Compressed string.
+			///
+			std::string compress(const std::string& input) noexcept;
+
+			///
+			/// Completes the compression.
+			///
+			/// \return Compressed string containing termination block.
+			///
+			std::string finish() noexcept;
+
+			///
+			/// Decompresses a zlib string.
+			///
+			/// \param input Data to decompress.
+			///
+			/// \return String containing decompressed data.
+			///
+			std::string decompress(const std::string& input) noexcept;
+
+		private:
+			///
+			/// ZLib mode.
+			///
+			Mode m_mode;
+
+			///
+			/// Stream object.
+			///
+			z_stream m_stream;
+
+			///
+			/// Has the compression finished.
+			///
+			bool m_finished;
+
+			///
+			/// Input buffer.
+			///
+			char m_in[GALAXY_ZLIB_COMPLETE_CHUNK];
+
+			///
+			/// Output buffer.
+			///
+			char m_out[GALAXY_ZLIB_COMPLETE_CHUNK];
+		};
+
 		///
 		/// Compresses string into ZLib.
 		///
@@ -21,7 +111,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_zlib(const std::string& input);
+		[[nodiscard]] std::string encode_zlib(const std::string& input) noexcept;
 
 		///
 		/// Decompresses string into ZLib.
@@ -30,7 +120,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_zlib(const std::string& input);
+		[[nodiscard]] std::string decode_zlib(const std::string& input) noexcept;
 	} // namespace algorithm
 } // namespace galaxy
 

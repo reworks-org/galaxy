@@ -5,10 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <sstream>
-
-#include <zlc/zlibcomplete.hpp>
-
 #include "galaxy/error/Log.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
@@ -20,22 +16,231 @@ GALAXY_DISABLE_WARNING(26403)
 GALAXY_DISABLE_WARNING(26407)
 GALAXY_DISABLE_WARNING(26409)
 GALAXY_DISABLE_WARNING(26414)
+GALAXY_DISABLE_WARNING(26477)
 #endif
 
 namespace galaxy
 {
 	namespace algorithm
 	{
-		std::string encode_zlib(const std::string& input)
+		ZLib::ZLib(const Mode mode) noexcept
+			: m_mode {mode}
+			, m_finished {false}
+			, m_in {0}
+			, m_out {0}
 		{
-			auto in = new char[ZLIB_COMPLETE_CHUNK];
+			try
+			{
+				if (m_mode == ZLib::Mode::COMPRESS)
+				{
+					m_stream.zalloc = Z_NULL;
+					m_stream.zfree  = Z_NULL;
+					m_stream.opaque = Z_NULL;
+
+					if (deflateInit2(&m_stream, 9, Z_DEFLATED, 15, 9, Z_DEFAULT_STRATEGY) != Z_OK)
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to initialize ZLib compressor.");
+					}
+				}
+				else
+				{
+					m_stream.zalloc   = Z_NULL;
+					m_stream.zfree    = Z_NULL;
+					m_stream.opaque   = Z_NULL;
+					m_stream.next_in  = Z_NULL;
+					m_stream.avail_in = 0;
+
+					if (inflateInit2(&m_stream, 15) != Z_OK)
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to initialize ZLib decompressor.");
+					}
+				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+			}
+		}
+
+		ZLib::~ZLib() noexcept
+		{
+			try
+			{
+				if (m_mode == ZLib::Mode::COMPRESS)
+				{
+					deflateEnd(&m_stream);
+				}
+				else
+				{
+					inflateEnd(&m_stream);
+				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+			}
+		}
+
+		std::string ZLib::compress(const std::string& input) noexcept
+		{
+			std::string result;
+
+			try
+			{
+				if (m_mode == ZLib::Mode::COMPRESS)
+				{
+					if (!m_finished)
+					{
+						for (auto i = 0u; i < input.length(); i += GALAXY_ZLIB_COMPLETE_CHUNK)
+						{
+							const auto left    = static_cast<unsigned int>(input.length() - i);
+							const auto end     = left <= GALAXY_ZLIB_COMPLETE_CHUNK;
+							const auto current = (left > GALAXY_ZLIB_COMPLETE_CHUNK) ? GALAXY_ZLIB_COMPLETE_CHUNK : left;
+
+							std::memcpy(m_in, input.data() + i, current);
+
+							m_stream.avail_in = current;
+							m_stream.next_in  = (Bytef*)m_in;
+
+							do
+							{
+								m_stream.avail_out = GALAXY_ZLIB_COMPLETE_CHUNK;
+								m_stream.next_out  = (Bytef*)m_out;
+
+								if (deflate(&m_stream, end ? Z_SYNC_FLUSH : Z_NO_FLUSH) == Z_STREAM_ERROR)
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to compress ZLib data stream.");
+									return {};
+								}
+
+								result += std::string(m_out, GALAXY_ZLIB_COMPLETE_CHUNK - m_stream.avail_out);
+							} while (m_stream.avail_out == 0);
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Dont call ZLib compress after calling zlib finish.");
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Dont call ZLib compress in decompression mode.");
+				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+			}
+
+			return result;
+		}
+
+		std::string ZLib::finish() noexcept
+		{
+			std::string result;
+
+			try
+			{
+				if (m_mode == ZLib::Mode::COMPRESS)
+				{
+					if (!m_finished)
+					{
+						m_finished        = true;
+						m_stream.avail_in = 0;
+						m_stream.next_in  = (Bytef*)m_in;
+
+						do
+						{
+							m_stream.avail_out = GALAXY_ZLIB_COMPLETE_CHUNK;
+							m_stream.next_out  = (Bytef*)m_out;
+
+							if (deflate(&m_stream, Z_FINISH) == Z_STREAM_ERROR)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to complete ZLib compression.");
+								return {};
+							}
+
+							result += std::string(m_out, GALAXY_ZLIB_COMPLETE_CHUNK - m_stream.avail_out);
+						} while (m_stream.avail_out == 0);
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "ZLib finish already called.");
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Dont call ZLib finish in decompress mode.");
+				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+			}
+
+			return result;
+		}
+
+		std::string ZLib::decompress(const std::string& input) noexcept
+		{
+			std::string result;
+
+			try
+			{
+				if (m_mode == ZLib::Mode::DECOMPRESS)
+				{
+					for (auto i = 0u; i < input.length(); i += GALAXY_ZLIB_COMPLETE_CHUNK)
+					{
+						const auto left    = static_cast<unsigned int>(input.length() - i);
+						const auto current = (left > GALAXY_ZLIB_COMPLETE_CHUNK) ? GALAXY_ZLIB_COMPLETE_CHUNK : left;
+
+						std::memcpy(m_in, input.data() + i, current);
+
+						m_stream.avail_in = current;
+						m_stream.next_in  = (Bytef*)m_in;
+
+						if (m_stream.avail_in == 0)
+						{
+							break;
+						}
+						do
+						{
+							m_stream.avail_out = GALAXY_ZLIB_COMPLETE_CHUNK;
+							m_stream.next_out  = (Bytef*)m_out;
+
+							if (inflate(&m_stream, Z_NO_FLUSH) == Z_STREAM_ERROR)
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to complete ZLib decompression.");
+								return {};
+							}
+
+							result += std::string(m_out, GALAXY_ZLIB_COMPLETE_CHUNK - m_stream.avail_out);
+						} while (m_stream.avail_out == 0);
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Dont call ZLib finish in compress mode.");
+				}
+			}
+			catch (const std::exception& e)
+			{
+				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+			}
+
+			return result;
+		}
+
+		std::string encode_zlib(const std::string& input) noexcept
+		{
+			auto in = new char[GALAXY_ZLIB_COMPLETE_CHUNK];
 
 			std::string result;
 
 			try
 			{
-				auto compressor = std::make_unique<zlibcomplete::ZLibCompressor>();
-				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
+				auto zlib = std::make_unique<ZLib>(ZLib::Mode::COMPRESS);
+				std::memset(in, 0, sizeof(char) * GALAXY_ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
 
@@ -44,12 +249,12 @@ namespace galaxy
 
 				while (true)
 				{
-					sstream.read(in, ZLIB_COMPLETE_CHUNK);
+					sstream.read(in, GALAXY_ZLIB_COMPLETE_CHUNK);
 					total_read = static_cast<unsigned int>(sstream.gcount());
 
 					if (total_read != 0)
 					{
-						result += compressor->compress({in, total_read});
+						result += zlib->compress({in, total_read});
 					}
 					else
 					{
@@ -57,7 +262,7 @@ namespace galaxy
 					}
 				}
 
-				result += compressor->finish();
+				result += zlib->finish();
 			}
 			catch (const std::exception& e)
 			{
@@ -68,16 +273,16 @@ namespace galaxy
 			return result;
 		}
 
-		std::string decode_zlib(const std::string& input)
+		std::string decode_zlib(const std::string& input) noexcept
 		{
-			auto in = new char[ZLIB_COMPLETE_CHUNK];
+			auto in = new char[GALAXY_ZLIB_COMPLETE_CHUNK];
 
 			std::string result;
 
 			try
 			{
-				auto decompressor = std::make_unique<zlibcomplete::ZLibDecompressor>();
-				std::memset(in, 0, sizeof(char) * ZLIB_COMPLETE_CHUNK);
+				auto zlib = std::make_unique<ZLib>(ZLib::Mode::DECOMPRESS);
+				std::memset(in, 0, sizeof(char) * GALAXY_ZLIB_COMPLETE_CHUNK);
 
 				unsigned int total_read = 0;
 
@@ -86,12 +291,12 @@ namespace galaxy
 
 				while (true)
 				{
-					sstream.read(in, ZLIB_COMPLETE_CHUNK);
+					sstream.read(in, GALAXY_ZLIB_COMPLETE_CHUNK);
 					total_read = static_cast<unsigned int>(sstream.gcount());
 
 					if (total_read != 0)
 					{
-						result += decompressor->decompress({in, total_read});
+						result += zlib->decompress({in, total_read});
 					}
 					else
 					{

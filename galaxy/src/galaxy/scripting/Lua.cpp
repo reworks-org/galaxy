@@ -11,7 +11,6 @@
 
 #include "galaxy/algorithm/Algorithms.hpp"
 #include "galaxy/algorithm/Base64.hpp"
-#include "galaxy/algorithm/GZip.hpp"
 #include "galaxy/algorithm/Random.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
 
@@ -155,12 +154,23 @@ namespace galaxy
 			lua.set_function("normalize", &algorithm::normalize<float>);
 			lua.set_function("encode_base64", &algorithm::encode_base64);
 			lua.set_function("decode_base64", &algorithm::decode_base64);
-			lua.set_function("encode_gzip", &algorithm::encode_gzip);
-			lua.set_function("decode_gzip", &algorithm::decode_gzip);
 			lua.set_function("random_int", &algorithm::random<int>);
 			lua.set_function("random_float", &algorithm::random<float>);
 			lua.set_function("encode_zlib", &algorithm::encode_zlib);
 			lua.set_function("decode_zlib", &algorithm::decode_zlib);
+
+			// clang-format off
+			lua.new_enum<algorithm::ZLib::Mode>("ZLibMode",
+			{
+				{"COMPRESS", algorithm::ZLib::Mode::COMPRESS},
+				{"DECOMPRESS", algorithm::ZLib::Mode::DECOMPRESS}
+			});
+			// clang-format on
+
+			auto zlibclass_type          = lua.new_usertype<algorithm::ZLib>("ZLib", sol::constructors<algorithm::ZLib(algorithm::ZLib::Mode)>());
+			zlibclass_type["compress"]   = &algorithm::ZLib::compress;
+			zlibclass_type["decompress"] = &algorithm::ZLib::decompress;
+			zlibclass_type["finish"]     = &algorithm::ZLib::finish;
 
 			/* AUDIO */
 			auto audio_type          = lua.new_usertype<audio::Audio>("Audio", sol::no_constructor);

@@ -19,9 +19,6 @@
 [submodule "lib/json"]
 	path = lib/json
 	url = https://github.com/nlohmann/json.git
-[submodule "lib/zlibcomplete"]
-	path = lib/zlibcomplete
-	url = https://github.com/rudi-cilibrasi/zlibcomplete
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest.git

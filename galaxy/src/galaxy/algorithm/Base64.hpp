@@ -15,22 +15,28 @@ namespace galaxy
 	namespace algorithm
 	{
 		///
-		/// Compresses string into Base64.
+		/// \brief Compresses string into Base64.
+		///
+		/// The MIT License (MIT)
+		/// Copyright(c) 2016 tomykaira
 		///
 		/// \param input Input data to convert.
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_base64(const std::string& input);
+		[[nodiscard]] std::string encode_base64(const std::string& input) noexcept;
 
 		///
-		/// Decompresses string into Base64.
+		/// \brief Decompresses string into Base64.
+		///
+		/// The MIT License (MIT)
+		/// Copyright(c) 2016 tomykaira
 		///
 		/// \param input Input data to convert.
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_base64(const std::string& input);
+		[[nodiscard]] std::string decode_base64(const std::string& input) noexcept;
 	} // namespace algorithm
 } // namespace galaxy
 

@@ -130,6 +130,11 @@ namespace galaxy
 #define GALAXY_WORKER_THREADS 2
 
 ///
+/// ZLib inflate/deflate chunk size.
+///
+#define GALAXY_ZLIB_COMPLETE_CHUNK 16384
+
+///
 /// Macro for windows platform detection.
 ///
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)

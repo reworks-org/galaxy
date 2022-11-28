@@ -360,11 +360,6 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2f.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="stb\stb_vorbis.c" />
-    <ClCompile Include="zlibcomplete\lib\gzipcomplete.cpp" />
-    <ClCompile Include="zlibcomplete\lib\mainpage.cpp" />
-    <ClCompile Include="zlibcomplete\lib\raw.cpp" />
-    <ClCompile Include="zlibcomplete\lib\zlibmisc.cpp" />
-    <ClCompile Include="zlibcomplete\lib\zlibtop.cpp" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
@@ -1390,11 +1385,6 @@
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="stb\include\stb_vorbis.h" />
     <ClInclude Include="subprocess\subprocess.h" />
-    <ClInclude Include="zlibcomplete\lib\zlc\gzipcomplete.hpp" />
-    <ClInclude Include="zlibcomplete\lib\zlc\zlibbase.hpp" />
-    <ClInclude Include="zlibcomplete\lib\zlc\zlibcomplete.hpp" />
-    <ClInclude Include="zlibcomplete\lib\zlc\zlibmisc.hpp" />
-    <ClInclude Include="zlibcomplete\lib\zlc\zlibraw.hpp" />
     <ClInclude Include="zlib_ng\include\zconf.h" />
     <ClInclude Include="zlib_ng\include\zlib.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
