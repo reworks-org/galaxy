@@ -254,7 +254,7 @@ namespace galaxy
 			int m_rendersystem_index;
 
 			///
-			/// List of components that need to be constructed.
+			/// List of rigid bodies that need to be constructed.
 			///
 			std::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
 		};

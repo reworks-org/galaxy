@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <box2d/b2_fixture.h>
+#include <box2d/b2_polygon_shape.h>
 #include <magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
@@ -18,12 +20,12 @@ namespace galaxy
 			: Serializable {}
 			, m_shape {0, 0}
 			, m_type {b2_staticBody}
-			, m_fixed_rotation {true}
 			, m_density {1.0f}
 			, m_friction {0.0f}
 			, m_restitution {0.0f}
 			, m_restitution_threshold {0.0f}
 			, m_bullet {false}
+			, m_fixed_rotation {true}
 			, m_body {nullptr}
 		{
 		}
@@ -39,12 +41,12 @@ namespace galaxy
 		{
 			this->m_shape                 = std::move(rb.m_shape);
 			this->m_type                  = rb.m_type;
-			this->m_fixed_rotation        = rb.m_fixed_rotation;
 			this->m_density               = rb.m_density;
 			this->m_friction              = rb.m_friction;
 			this->m_restitution           = rb.m_restitution;
 			this->m_restitution_threshold = rb.m_restitution_threshold;
 			this->m_bullet                = rb.m_bullet;
+			this->m_fixed_rotation        = rb.m_fixed_rotation;
 			this->m_body                  = rb.m_body;
 
 			rb.m_body = nullptr;
@@ -56,12 +58,12 @@ namespace galaxy
 			{
 				this->m_shape                 = std::move(rb.m_shape);
 				this->m_type                  = rb.m_type;
-				this->m_fixed_rotation        = rb.m_fixed_rotation;
 				this->m_density               = rb.m_density;
 				this->m_friction              = rb.m_friction;
 				this->m_restitution           = rb.m_restitution;
 				this->m_restitution_threshold = rb.m_restitution_threshold;
 				this->m_bullet                = rb.m_bullet;
+				this->m_fixed_rotation        = rb.m_fixed_rotation;
 				this->m_body                  = rb.m_body;
 
 				rb.m_body = nullptr;
@@ -75,18 +77,117 @@ namespace galaxy
 			// b2Body cleaned up by entt.
 		}
 
+		void RigidBody::set_shape(const float hw, const float hh) noexcept
+		{
+			m_shape.x = hw;
+			m_shape.y = hh;
+
+			auto fixture = m_body->GetFixtureList();
+			auto shape   = static_cast<b2PolygonShape*>(fixture->GetShape());
+			shape->SetAsBox(m_shape.x, m_shape.y);
+		}
+
+		void RigidBody::set_type(const b2BodyType type) noexcept
+		{
+			m_body->SetType(type);
+		}
+
+		void RigidBody::set_density(const float density) noexcept
+		{
+			m_density = density;
+
+			auto fixture = m_body->GetFixtureList();
+			fixture->SetDensity(m_density);
+
+			m_body->ResetMassData();
+		}
+
+		void RigidBody::set_friction(const float friction) noexcept
+		{
+			m_friction = friction;
+
+			auto fixture = m_body->GetFixtureList();
+			fixture->SetFriction(m_friction);
+		}
+
+		void RigidBody::set_restitution(const float restitution) noexcept
+		{
+			m_restitution = restitution;
+
+			auto fixture = m_body->GetFixtureList();
+			fixture->SetRestitution(m_restitution);
+		}
+
+		void RigidBody::set_restitution_threshold(const float restitution_threshold) noexcept
+		{
+			m_restitution_threshold = restitution_threshold;
+
+			auto fixture = m_body->GetFixtureList();
+			fixture->SetRestitutionThreshold(m_restitution_threshold);
+		}
+
+		void RigidBody::set_bullet(const bool is_bullet) noexcept
+		{
+			m_body->SetBullet(is_bullet);
+		}
+
+		void RigidBody::set_fixed_rotation(const bool fixed_rotation) noexcept
+		{
+			m_body->SetFixedRotation(fixed_rotation);
+		}
+
+		const glm::vec2& RigidBody::get_shape() const noexcept
+		{
+			return m_shape;
+		}
+
+		b2BodyType RigidBody::get_type() const noexcept
+		{
+			return m_type;
+		}
+
+		float RigidBody::get_density() const noexcept
+		{
+			return m_density;
+		}
+
+		float RigidBody::get_friction() const noexcept
+		{
+			return m_friction;
+		}
+
+		float RigidBody::get_restitution() const noexcept
+		{
+			return m_restitution;
+		}
+
+		float RigidBody::get_restitution_threshold() const noexcept
+		{
+			return m_restitution_threshold;
+		}
+
+		bool RigidBody::is_bullet() const noexcept
+		{
+			return m_bullet;
+		}
+
+		bool RigidBody::is_rotation_fixed() const noexcept
+		{
+			return m_fixed_rotation;
+		}
+
 		nlohmann::json RigidBody::serialize()
 		{
 			nlohmann::json json           = "{}"_json;
 			json["shape"]["hw"]           = m_shape.x;
 			json["shape"]["hh"]           = m_shape.y;
 			json["type"]                  = magic_enum::enum_name(m_type);
-			json["fixed_rotation"]        = m_fixed_rotation;
 			json["density"]               = m_density;
 			json["friction"]              = m_friction;
 			json["restitution"]           = m_restitution;
 			json["restitution_threshold"] = m_restitution_threshold;
 			json["bullet"]                = m_bullet;
+			json["fixed_rotation"]        = m_fixed_rotation;
 
 			return json;
 		}
@@ -103,12 +204,12 @@ namespace galaxy
 				m_type = type.value();
 			}
 
-			m_fixed_rotation        = json.at("fixed_rotation");
 			m_density               = json.at("density");
 			m_friction              = json.at("friction");
 			m_restitution           = json.at("restitution");
 			m_restitution_threshold = json.at("restitution_threshold");
 			m_bullet                = json.at("bullet");
+			m_fixed_rotation        = json.at("fixed_rotation");
 		}
 	} // namespace components
 } // namespace galaxy

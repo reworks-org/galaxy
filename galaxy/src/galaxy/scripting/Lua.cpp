@@ -223,7 +223,6 @@ namespace galaxy
 
 			auto mapcomponent_type =
 				lua.new_usertype<components::Map>("Map", sol::constructors<components::Map()>(), "type_id", &entt::type_hash<components::Map>::value);
-			// Note: Nothing needs to be registered with lua.
 
 			entt_sol::register_meta_component<components::Map>();
 
@@ -259,8 +258,31 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::RigidBody>::value);
 
-			// TODO
-			// rigidbody_type[""] = &components::RigidBody::;
+			// clang-format off
+			lua.new_enum<b2BodyType>("b2BodyType",
+			{
+				{"b2_dynamicBody", b2BodyType::b2_dynamicBody},
+				{"b2_kinematicBody", b2BodyType::b2_kinematicBody},
+				{"b2_staticBody", b2BodyType::b2_staticBody}
+			});
+			// clang-format on
+
+			rigidbody_type["get_density"]               = &components::RigidBody::get_density;
+			rigidbody_type["get_friction"]              = &components::RigidBody::get_friction;
+			rigidbody_type["get_restitution"]           = &components::RigidBody::get_restitution;
+			rigidbody_type["get_restitution_threshold"] = &components::RigidBody::get_restitution_threshold;
+			rigidbody_type["get_shape"]                 = &components::RigidBody::get_shape;
+			rigidbody_type["get_type"]                  = &components::RigidBody::get_type;
+			rigidbody_type["is_bullet"]                 = &components::RigidBody::is_bullet;
+			rigidbody_type["is_rotation_fixed"]         = &components::RigidBody::is_rotation_fixed;
+			rigidbody_type["set_bullet"]                = &components::RigidBody::set_bullet;
+			rigidbody_type["set_density"]               = &components::RigidBody::set_density;
+			rigidbody_type["set_fixed_rotation"]        = &components::RigidBody::set_fixed_rotation;
+			rigidbody_type["set_friction"]              = &components::RigidBody::set_friction;
+			rigidbody_type["set_restitution"]           = &components::RigidBody::set_restitution;
+			rigidbody_type["set_restitution_threshold"] = &components::RigidBody::set_restitution_threshold;
+			rigidbody_type["set_shape"]                 = &components::RigidBody::set_shape;
+			rigidbody_type["set_type"]                  = &components::RigidBody::set_type;
 
 			entt_sol::register_meta_component<components::RigidBody>();
 
