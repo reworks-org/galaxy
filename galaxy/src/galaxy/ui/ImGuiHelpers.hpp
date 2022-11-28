@@ -31,7 +31,7 @@ namespace galaxy
 		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {}) noexcept;
 
 		void imgui_center_next_window() noexcept;
-		[[nodiscard]] bool imgui_shortcut(ImGuiModFlags mods, ImGuiKey key, ImGuiFocusedFlags flag = ImGuiFocusedFlags_AnyWindow) noexcept;
+		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flag = ImGuiFocusedFlags_AnyWindow) noexcept;
 		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept;
 	} // namespace ui
 } // namespace galaxy

@@ -12,8 +12,14 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Texture.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "ImGuiHelpers.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 4312)
+#endif
 
 constexpr const ImVec2 mid = {0.5f, 0.5f};
 robin_hood::unordered_flat_map<const char*, bool> popup_state;
@@ -152,7 +158,7 @@ namespace galaxy
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}
 
-		bool imgui_shortcut(ImGuiModFlags mods, ImGuiKey key, ImGuiFocusedFlags flag) noexcept
+		bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flag) noexcept
 		{
 			if (ImGui::GetIO().KeyMods != mods)
 			{
@@ -170,7 +176,12 @@ namespace galaxy
 
 		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept
 		{
-			return ImGui::ImageButton(reinterpret_cast<void*>(texture.handle()), size, {0, 1}, {1, 0});
+			std::string id = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
+			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(texture.handle()), size, {0, 1}, {1, 0});
 		}
 	} // namespace ui
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

@@ -480,7 +480,7 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_N))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_N))
 		{
 			ui::imgui_open_confirm("NewConfirmPopup");
 		}
@@ -496,7 +496,7 @@ namespace sc
 			}
 		);
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_O))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_O))
 		{
 			m_update_stack.emplace_back([&]() {
 				auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
@@ -516,62 +516,62 @@ namespace sc
 		});
 		// clang-format on
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl, ImGuiKey_S))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_S))
 		{
 			save_project();
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Shift, ImGuiKey_S))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_S))
 		{
 			save_project(true);
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Shift, ImGuiKey_T))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_T))
 		{
 			// m_tiled_process.create("tools/tiled/tiled.exe");
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_R))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_R))
 		{
 			restart();
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_S))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_S))
 		{
 			m_show_scenes = !m_show_scenes;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_E))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_E))
 		{
 			m_show_entities = !m_show_entities;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_V))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_V))
 		{
 			m_show_viewport = !m_show_viewport;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_A))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_A))
 		{
 			m_show_assetpanel = !m_show_assetpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_L))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_L))
 		{
 			m_show_logpanel = !m_show_logpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_T))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_T))
 		{
 			m_show_luapanel = !m_show_luapanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_J))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_J))
 		{
 			m_show_jsonpanel = !m_show_jsonpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiModFlags_Ctrl | ImGuiModFlags_Alt, ImGuiKey_C))
+		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_C))
 		{
 			m_show_codeeditor = !m_show_codeeditor;
 		}
