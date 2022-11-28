@@ -359,12 +359,13 @@
     <ClCompile Include="rmlui\Source\Lua\Utilities.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2f.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
-    <ClCompile Include="stb\stb_vorbis.c" />
+    <ClCompile Include="stb\include\stb_vorbis.c" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="imgui\imgui_addons\ToggleButton.cpp" />
     <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
+    <ClCompile Include="miniaudio\miniaudio.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -955,27 +956,6 @@
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
-    <ClInclude Include="irrKlang\include\ik_ESoundEngineOptions.h" />
-    <ClInclude Include="irrKlang\include\ik_ESoundOutputDrivers.h" />
-    <ClInclude Include="irrKlang\include\ik_EStreamModes.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioRecorder.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioStream.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioStreamLoader.h" />
-    <ClInclude Include="irrKlang\include\ik_IFileFactory.h" />
-    <ClInclude Include="irrKlang\include\ik_IFileReader.h" />
-    <ClInclude Include="irrKlang\include\ik_IRefCounted.h" />
-    <ClInclude Include="irrKlang\include\ik_irrKlangTypes.h" />
-    <ClInclude Include="irrKlang\include\ik_ISound.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundDeviceList.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundEffectControl.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundEngine.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundMixedOutputReceiver.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundSource.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundStopEventReceiver.h" />
-    <ClInclude Include="irrKlang\include\ik_IVirtualRefCounted.h" />
-    <ClInclude Include="irrKlang\include\ik_SAudioStreamFormat.h" />
-    <ClInclude Include="irrKlang\include\ik_vec3d.h" />
-    <ClInclude Include="irrKlang\include\irrKlang.h" />
     <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\ElementImage.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\ElementLabel.h" />
@@ -1402,6 +1382,11 @@
     <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
     <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
     <ClInclude Include="tileson\include\tileson.hpp" />
+    <ClInclude Include="stb\include\stb_image.h" />
+    <ClInclude Include="stb\include\stb_image_resize.h" />
+    <ClInclude Include="stb\include\stb_image_write.h" />
+    <ClInclude Include="stb\include\stb_sprintf.h" />
+    <ClInclude Include="miniaudio\miniaudio.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

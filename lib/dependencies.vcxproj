@@ -130,6 +130,7 @@
     <ClCompile Include="lua\src\lutf8lib.c" />
     <ClCompile Include="lua\src\lvm.c" />
     <ClCompile Include="lua\src\lzio.c" />
+    <ClCompile Include="miniaudio\miniaudio.c" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
@@ -374,7 +375,7 @@
     <ClCompile Include="rmlui\Source\Lua\Utilities.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2f.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
-    <ClCompile Include="stb\stb_vorbis.c" />
+    <ClCompile Include="stb\include\stb_vorbis.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\include\box2d\b2_api.h" />
@@ -901,27 +902,6 @@
     <ClInclude Include="imgui\imgui_stdlib.h" />
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
-    <ClInclude Include="irrKlang\include\ik_ESoundEngineOptions.h" />
-    <ClInclude Include="irrKlang\include\ik_ESoundOutputDrivers.h" />
-    <ClInclude Include="irrKlang\include\ik_EStreamModes.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioRecorder.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioStream.h" />
-    <ClInclude Include="irrKlang\include\ik_IAudioStreamLoader.h" />
-    <ClInclude Include="irrKlang\include\ik_IFileFactory.h" />
-    <ClInclude Include="irrKlang\include\ik_IFileReader.h" />
-    <ClInclude Include="irrKlang\include\ik_IRefCounted.h" />
-    <ClInclude Include="irrKlang\include\ik_irrKlangTypes.h" />
-    <ClInclude Include="irrKlang\include\ik_ISound.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundDeviceList.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundEffectControl.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundEngine.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundMixedOutputReceiver.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundSource.h" />
-    <ClInclude Include="irrKlang\include\ik_ISoundStopEventReceiver.h" />
-    <ClInclude Include="irrKlang\include\ik_IVirtualRefCounted.h" />
-    <ClInclude Include="irrKlang\include\ik_SAudioStreamFormat.h" />
-    <ClInclude Include="irrKlang\include\ik_vec3d.h" />
-    <ClInclude Include="irrKlang\include\irrKlang.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="json\include\nlohmann\byte_container_with_subtype.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\from_json.hpp" />
@@ -994,6 +974,7 @@
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
+    <ClInclude Include="miniaudio\miniaudio.h" />
     <ClInclude Include="msdfgl\include\msdfgl.h" />
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
     <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
@@ -1406,7 +1387,6 @@
     <ClInclude Include="stb\include\stb_image_resize.h" />
     <ClInclude Include="stb\include\stb_image_write.h" />
     <ClInclude Include="stb\include\stb_sprintf.h" />
-    <ClInclude Include="stb\include\stb_vorbis.h" />
     <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
     <ClInclude Include="tileson\include\tileson.hpp" />
@@ -1656,7 +1636,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1670,7 +1650,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng\lib\zlibstatic.lib;$(SolutionDir)lib\irrKlang\lib\irrKlang.lib;$(SolutionDir)lib\freetype2_win\release static\vs2015-2022\win64\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng\lib\zlibstatic.lib;$(SolutionDir)lib\freetype2_win\release static\vs2015-2022\win64\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -1713,7 +1693,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/irrKlang/include;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)lib/zlibcomplete/lib;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1728,7 +1708,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng\lib\zlibstatic.lib;$(SolutionDir)lib\irrKlang\lib\irrKlang.lib;$(SolutionDir)lib\freetype2_win\release static\vs2015-2022\win64\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng\lib\zlibstatic.lib;$(SolutionDir)lib\freetype2_win\release static\vs2015-2022\win64\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

@@ -8,8 +8,8 @@
 #include <glad/glad.h>
 
 #include <glm/gtc/matrix_transform.hpp>
-#include <stb/stb_image.h>
-#include <stb/stb_image_write.h>
+#include <stb_image.h>
+#include <stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"

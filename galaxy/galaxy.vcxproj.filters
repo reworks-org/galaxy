@@ -83,13 +83,8 @@
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
-    <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
-    <ClCompile Include="src\galaxy\audio\AudioFileFactory.cpp" />
-    <ClCompile Include="src\galaxy\audio\AudioFileReader.cpp" />
-    <ClCompile Include="src\galaxy\audio\Audio.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
-    <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
     <ClCompile Include="src\galaxy\scene\Layers.cpp" />
     <ClCompile Include="src\galaxy\scene\Layer.cpp" />
     <ClCompile Include="src\galaxy\scene\layers\UILayer.cpp" />
@@ -228,13 +223,8 @@
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
-    <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
-    <ClInclude Include="src\galaxy\audio\AudioFileFactory.hpp" />
-    <ClInclude Include="src\galaxy\audio\AudioFileReader.hpp" />
-    <ClInclude Include="src\galaxy\audio\Audio.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
-    <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
     <ClInclude Include="src\galaxy\scene\Layers.hpp" />
     <ClInclude Include="src\galaxy\scene\Layer.hpp" />
     <ClInclude Include="src\galaxy\scene\layers\UILayer.hpp" />
