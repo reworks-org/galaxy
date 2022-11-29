@@ -83,7 +83,7 @@ namespace galaxy
 			m_shape.y = hh;
 
 			auto fixture = m_body->GetFixtureList();
-			auto shape   = static_cast<b2PolygonShape*>(fixture->GetShape());
+			auto shape   = dynamic_cast<b2PolygonShape*>(fixture->GetShape());
 			shape->SetAsBox(m_shape.x, m_shape.y);
 		}
 

@@ -293,8 +293,8 @@ namespace galaxy
 					{
 						case tson::ObjectType::Object:
 							{
-								auto tileset = layer.getMap()->getTilesetByGid(obj.getGid());
-								auto offset  = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
+								auto tileset      = layer.getMap()->getTilesetByGid(obj.getGid());
+								const auto offset = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
 
 								auto& image = tileset->getImage();
 

@@ -97,6 +97,7 @@ namespace galaxy
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				return {};
 			}
 		}
 
@@ -166,6 +167,7 @@ namespace galaxy
 			catch (const std::exception& e)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				return {};
 			}
 		}
 	} // namespace algorithm

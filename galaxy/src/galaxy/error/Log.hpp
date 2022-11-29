@@ -15,6 +15,12 @@
 
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
+#include "galaxy/platform/Pragma.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26846)
+#endif
 
 // clang-format off
 #ifdef _DEBUG
@@ -154,7 +160,7 @@ namespace galaxy
 		inline SinkTo& Log::add_sink(Args&&... args)
 		{
 			m_sinks.push_back(std::make_unique<SinkTo>(std::forward<Args>(args)...));
-			SinkTo* ptr = static_cast<SinkTo*>(m_sinks.back().get());
+			SinkTo* ptr = dynamic_cast<SinkTo*>(m_sinks.back().get());
 			return *ptr;
 		}
 
@@ -228,5 +234,9 @@ namespace galaxy
 		}
 	} // namespace error
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif
 
 #endif
