@@ -139,6 +139,9 @@
     <ClCompile Include="src\galaxy\physics\Constants.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
+    <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
+    <ClCompile Include="src\galaxy\audio\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -279,5 +282,8 @@
     <ClInclude Include="src\galaxy\physics\Constants.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
+    <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
+    <ClInclude Include="src\galaxy\audio\Sound.hpp" />
   </ItemGroup>
 </Project>

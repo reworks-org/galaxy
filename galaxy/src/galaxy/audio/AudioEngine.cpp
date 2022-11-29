@@ -6,182 +6,172 @@
 ///
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/audio/AudioFileFactory.hpp"
-#include "galaxy/platform/Pragma.hpp"
+#include "galaxy/utils/Globals.hpp"
+
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/Sounds.hpp"
 
 #include "AudioEngine.hpp"
 
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26403)
-GALAXY_DISABLE_WARNING(26409)
-#endif
+#undef ERROR
 
 namespace galaxy
 {
 	namespace audio
 	{
-		AudioEngine::AudioEngine()
-			: m_sfx_engine {nullptr}
-			, m_music_engine {nullptr}
-			, m_voice_engine {nullptr}
+		AudioEngine::AudioEngine(const int listener_count)
+			: m_sfx_engine {}
+			, m_music_engine {}
+			, m_dialogue_engine {}
+			, m_log {}
+			, m_callback {}
 		{
-			constexpr const auto options = irrklang::E_SOUND_ENGINE_OPTIONS::ESEO_MULTI_THREADED | irrklang::E_SOUND_ENGINE_OPTIONS::ESEO_USE_3D_BUFFERS |
-										   irrklang::E_SOUND_ENGINE_OPTIONS::ESEO_MUTE_IF_NOT_FOCUSED;
-
-			m_sfx_engine   = irrklang::createIrrKlangDevice(irrklang::ESOD_AUTO_DETECT, options);
-			m_music_engine = irrklang::createIrrKlangDevice(irrklang::ESOD_AUTO_DETECT, options);
-			m_voice_engine = irrklang::createIrrKlangDevice(irrklang::ESOD_AUTO_DETECT, options);
-
-			if (!m_sfx_engine)
+			ma_result result = ma_log_init(nullptr, &m_log);
+			if (result != MA_SUCCESS)
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to load irrKlang sfx engine.");
+				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize miniaudio logging.");
 			}
 			else
 			{
-				auto* factory = new AudioFileFactory();
+				m_callback.onLog = [](void* pUserData, ma_uint32 level, const char* pMessage) -> void {
+					GALAXY_UNUSED(pUserData);
 
-				try
+					const auto msg = std::string(pMessage);
+
+					switch (level)
+					{
+						case MA_LOG_LEVEL_INFO:
+							GALAXY_LOG(GALAXY_INFO, "{0}", msg);
+							break;
+
+						case MA_LOG_LEVEL_WARNING:
+							GALAXY_LOG(GALAXY_WARNING, "{0}", msg);
+							break;
+
+						case MA_LOG_LEVEL_ERROR:
+							GALAXY_LOG(GALAXY_ERROR, "{0}", msg);
+							break;
+
+						default:
+							GALAXY_LOG(GALAXY_DEBUG, "{0}", msg);
+							break;
+					}
+				};
+
+				m_callback.pUserData = nullptr;
+
+				result = ma_log_register_callback(&m_log, m_callback);
+				if (result != MA_SUCCESS)
 				{
-					m_sfx_engine->addFileFactory(factory);
+					GALAXY_LOG(GALAXY_FATAL, "Failed to set miniaudio logging callback.");
 				}
-				catch (const std::exception& e)
+				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+					ma_engine_config config = ma_engine_config_init();
+					config.pLog             = &m_log;
+					config.listenerCount    = std::clamp(listener_count, 1, MA_ENGINE_MAX_LISTENERS);
+
+					result = ma_engine_init(&config, &m_sfx_engine);
+					if (result != MA_SUCCESS)
+					{
+						GALAXY_LOG(GALAXY_FATAL, "Failed to initialize sfx engine.");
+					}
+
+					result = ma_engine_init(&config, &m_music_engine);
+					if (result != MA_SUCCESS)
+					{
+						GALAXY_LOG(GALAXY_FATAL, "Failed to initialize music engine.");
+					}
+
+					result = ma_engine_init(&config, &m_dialogue_engine);
+					if (result != MA_SUCCESS)
+					{
+						GALAXY_LOG(GALAXY_FATAL, "Failed to initialize dialogue engine.");
+					}
 				}
-
-				factory->drop();
-			}
-
-			if (!m_music_engine)
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to load irrKlang music engine.");
-			}
-			else
-			{
-				auto* factory = new AudioFileFactory();
-
-				try
-				{
-					m_music_engine->addFileFactory(factory);
-				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
-				}
-
-				factory->drop();
-			}
-
-			if (!m_voice_engine)
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to load irrKlang voice engine.");
-			}
-			else
-			{
-				auto* factory = new AudioFileFactory();
-
-				try
-				{
-					m_voice_engine->addFileFactory(factory);
-				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
-				}
-
-				factory->drop();
 			}
 		}
 
 		AudioEngine::~AudioEngine() noexcept
 		{
-			if (m_sfx_engine != nullptr)
-			{
-				m_sfx_engine->stopAllSounds();
-				m_sfx_engine->drop();
-				m_sfx_engine = nullptr;
-			}
+			ma_engine_uninit(&m_sfx_engine);
+			ma_engine_uninit(&m_music_engine);
+			ma_engine_uninit(&m_dialogue_engine);
+			ma_log_unregister_callback(&m_log, m_callback);
+			ma_log_uninit(&m_log);
+		}
 
-			if (m_music_engine != nullptr)
+		void AudioEngine::stop() noexcept
+		{
+			for (auto& [key, ptr] : core::ServiceLocator<resource::Sounds>::ref().cache())
 			{
-				m_music_engine->stopAllSounds();
-				m_music_engine->drop();
-				m_music_engine = nullptr;
-			}
-
-			if (m_voice_engine != nullptr)
-			{
-				m_voice_engine->stopAllSounds();
-				m_voice_engine->drop();
-				m_voice_engine = nullptr;
+				ptr->stop();
 			}
 		}
 
-		std::shared_ptr<Audio> AudioEngine::make_sfx(const std::string& filename, const float volume) noexcept
+		void AudioEngine::set_listener_position(const unsigned int id, const float x, const float y, const float z) noexcept
 		{
-			auto* source = m_sfx_engine->addSoundSourceFromFile(filename.c_str(), irrklang::ESM_AUTO_DETECT, true);
-			source->setDefaultVolume(std::clamp(volume, 0.0f, 1.0f));
-
-			auto audio = std::make_shared<Audio>();
-			audio->set_data(source, m_sfx_engine);
-
-			return audio;
+			ma_engine_listener_set_position(&m_sfx_engine, id, x, y, z);
+			ma_engine_listener_set_position(&m_music_engine, id, x, y, z);
+			ma_engine_listener_set_position(&m_dialogue_engine, id, x, y, z);
 		}
 
-		std::shared_ptr<Audio> AudioEngine::make_music(const std::string& filename, const float volume) noexcept
+		void AudioEngine::set_listener_direction(const unsigned int id, const float x, const float y, const float z) noexcept
 		{
-			auto* source = m_music_engine->addSoundSourceFromFile(filename.c_str(), irrklang::ESM_AUTO_DETECT, true);
-			source->setDefaultVolume(std::clamp(volume, 0.0f, 1.0f));
-
-			auto audio = std::make_shared<Audio>();
-			audio->set_data(source, m_music_engine);
-
-			return audio;
+			ma_engine_listener_set_direction(&m_sfx_engine, id, x, y, z);
+			ma_engine_listener_set_direction(&m_music_engine, id, x, y, z);
+			ma_engine_listener_set_direction(&m_dialogue_engine, id, x, y, z);
 		}
 
-		std::shared_ptr<Audio> AudioEngine::make_voice(const std::string& filename, const float volume) noexcept
+		void AudioEngine::set_listener_world_up(const unsigned int id, const float x, const float y, const float z) noexcept
 		{
-			auto* source = m_voice_engine->addSoundSourceFromFile(filename.c_str(), irrklang::ESM_AUTO_DETECT, true);
-			source->setDefaultVolume(std::clamp(volume, 0.0f, 1.0f));
-
-			auto audio = std::make_shared<Audio>();
-			audio->set_data(source, m_voice_engine);
-
-			return audio;
+			ma_engine_listener_set_world_up(&m_sfx_engine, id, x, y, z);
+			ma_engine_listener_set_world_up(&m_music_engine, id, x, y, z);
+			ma_engine_listener_set_world_up(&m_dialogue_engine, id, x, y, z);
 		}
 
-		void AudioEngine::toggle_pause_all(const bool paused) noexcept
+		void AudioEngine::set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain) noexcept
 		{
-			m_sfx_engine->setAllSoundsPaused(paused);
-			m_music_engine->setAllSoundsPaused(paused);
-			m_voice_engine->setAllSoundsPaused(paused);
+			ma_engine_listener_set_cone(&m_sfx_engine, id, inner_angle, outer_angle, outer_gain);
+			ma_engine_listener_set_cone(&m_music_engine, id, inner_angle, outer_angle, outer_gain);
+			ma_engine_listener_set_cone(&m_dialogue_engine, id, inner_angle, outer_angle, outer_gain);
 		}
 
-		void AudioEngine::stop_all() noexcept
+		void AudioEngine::toggle_listener(const unsigned int id, const bool enable) noexcept
 		{
-			m_sfx_engine->stopAllSounds();
-			m_music_engine->stopAllSounds();
-			m_voice_engine->stopAllSounds();
+			ma_engine_listener_set_enabled(&m_sfx_engine, id, enable);
+			ma_engine_listener_set_enabled(&m_music_engine, id, enable);
+			ma_engine_listener_set_enabled(&m_dialogue_engine, id, enable);
 		}
 
 		void AudioEngine::set_sfx_volume(const float volume) noexcept
 		{
-			m_sfx_engine->setSoundVolume(std::clamp(volume, 0.0f, 1.0f));
+			ma_engine_set_volume(&m_sfx_engine, volume);
 		}
 
 		void AudioEngine::set_music_volume(const float volume) noexcept
 		{
-			m_music_engine->setSoundVolume(std::clamp(volume, 0.0f, 1.0f));
+			ma_engine_set_volume(&m_music_engine, volume);
 		}
 
-		void AudioEngine::set_voice_volume(const float volume) noexcept
+		void AudioEngine::set_dialogue_volume(const float volume) noexcept
 		{
-			m_voice_engine->setSoundVolume(std::clamp(volume, 0.0f, 1.0f));
+			ma_engine_set_volume(&m_dialogue_engine, volume);
+		}
+
+		ma_engine* AudioEngine::get_sfx_engine() noexcept
+		{
+			return &m_sfx_engine;
+		}
+
+		ma_engine* AudioEngine::get_music_engine() noexcept
+		{
+			return &m_music_engine;
+		}
+
+		ma_engine* AudioEngine::get_dialogue_engine() noexcept
+		{
+			return &m_dialogue_engine;
 		}
 	} // namespace audio
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif

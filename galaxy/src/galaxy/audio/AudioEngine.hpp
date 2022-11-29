@@ -8,22 +8,24 @@
 #ifndef GALAXY_AUDIO_AUDIOENGINE_HPP_
 #define GALAXY_AUDIO_AUDIOENGINE_HPP_
 
-#include <memory>
-#include <string>
-
-#include "galaxy/audio/Audio.hpp"
+#include <miniaudio.h>
 
 namespace galaxy
 {
 	namespace audio
 	{
+		///
+		/// MiniAudio high level API engine.
+		///
 		class AudioEngine final
 		{
 		public:
 			///
-			/// Constructor.
+			/// Argument constructor.
 			///
-			AudioEngine();
+			/// \param listener_count Amount of listeners to spacialize audio around.
+			///
+			AudioEngine(const int listener_count);
 
 			///
 			/// Destructor.
@@ -31,72 +33,117 @@ namespace galaxy
 			~AudioEngine() noexcept;
 
 			///
-			/// Load a new sound effect into the engine.
+			/// Stop all playing audio.
 			///
-			/// \param filename File to load from VFS.
-			/// \param volume Sound volume. 0.0f - 1.0f.
-			///
-			/// \return Shared pointer to object.
-			///
-			[[nodiscard]] std::shared_ptr<Audio> make_sfx(const std::string& filename, const float volume) noexcept;
+			void stop() noexcept;
 
 			///
-			/// Load new music into the engine.
+			/// \brief Set a listeners position.
 			///
-			/// \param filename File to load from VFS.
-			/// \param volume Sound volume. 0.0f - 1.0f.
+			/// Coordinate system is where positive X points right, positive Y points up and negative Z points forward.
 			///
-			/// \return Shared pointer to object.
+			/// \param id Listener index / id.
+			/// \param x X Coord.
+			/// \param y Y Coord.
+			/// \param z Z Coord.
 			///
-			[[nodiscard]] std::shared_ptr<Audio> make_music(const std::string& filename, const float volume) noexcept;
+			void set_listener_position(const unsigned int id, const float x, const float y, const float z) noexcept;
 
 			///
-			/// Load a new voiceover into the engine.
+			/// \brief Set a listeners direction.
 			///
-			/// \param filename File to load from VFS.
-			/// \param volume Sound volume. 0.0f - 1.0f.
+			/// Direction is a forward vector.
 			///
-			/// \return Shared pointer to object.
+			/// \param id Listener index / id.
+			/// \param x X Coord.
+			/// \param y Y Coord.
+			/// \param z Z Coord.
 			///
-			[[nodiscard]] std::shared_ptr<Audio> make_voice(const std::string& filename, const float volume) noexcept;
+			void set_listener_direction(const unsigned int id, const float x, const float y, const float z) noexcept;
 
 			///
-			/// Pauses or unpauses all currently playing sounds.
+			/// \brief Set listener world up vector.
 			///
-			/// \param paused True to pause all, false to unpause all.
+			/// World up is an up vector.
 			///
-			void toggle_pause_all(const bool paused) noexcept;
+			/// \param id Listener index / id.
+			/// \param x X Coord.
+			/// \param y Y Coord.
+			/// \param z Z Coord.
+			///
+			void set_listener_world_up(const unsigned int id, const float x, const float y, const float z) noexcept;
 
 			///
-			/// Stops all currently playing sounds.
+			/// \brief Directional attenuation.
 			///
-			void stop_all() noexcept;
+			/// The listener can have a cone the controls how sound is attenuated based on the listener's direction.
+			/// When a sound is between the inner and outer cones, it will be attenuated between 1 and the cone's outer gain.
+			/// When a sound is inside the inner code, no directional attenuation is applied. When the sound is in between the inner and outer cones, the
+			/// attenuation will be interpolated between 1 and the outer gain.
+			///
+			/// \param id Listener index / id.
+			/// \param inner_angle In radians.
+			/// \param outer_angle In radians.
+			/// \param outer_gain Value attenuation will be set to when the sound is outside of the outer cone.
+			///
+			void set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain) noexcept;
 
 			///
-			/// \brief Sets master sound effect volume.
+			/// Toggle a listener.
 			///
-			/// This value is multiplied with all sounds played.
-			/// \param volume 0 (silent) to 1.0f (full volume).
+			/// \param id Listener index / id.
+			/// \param enable True to enable, false to disable.
+			///
+			void toggle_listener(const unsigned int id, const bool enable) noexcept;
+
+			///
+			/// Sets master sound effect volume.
+			///
+			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
 			void set_sfx_volume(const float volume) noexcept;
 
 			///
-			/// \brief Sets master music volume.
+			/// Sets master music volume.
 			///
-			/// This value is multiplied with all sounds played.
-			/// \param volume 0 (silent) to 1.0f (full volume).
+			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
 			void set_music_volume(const float volume) noexcept;
 
 			///
-			/// \brief Sets master voiceover volume.
+			/// Sets master dialogue volume.
 			///
-			/// This value is multiplied with all sounds played.
-			/// \param volume 0 (silent) to 1.0f (full volume).
+			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
-			void set_voice_volume(const float volume) noexcept;
+			void set_dialogue_volume(const float volume) noexcept;
+
+			///
+			/// Get SFX engine.
+			///
+			/// \return Pointer to ma_engine structure.
+			///
+			[[nodiscard]] ma_engine* get_sfx_engine() noexcept;
+
+			///
+			/// Get music engine.
+			///
+			/// \return Pointer to ma_engine structure.
+			///
+			[[nodiscard]] ma_engine* get_music_engine() noexcept;
+
+			///
+			/// Get dialogue engine.
+			///
+			/// \return Pointer to ma_engine structure.
+			///
+			[[nodiscard]] ma_engine* get_dialogue_engine() noexcept;
 
 		private:
+			///
+			/// Constructor.
+			///
+			AudioEngine() = delete;
+
 			///
 			/// Copy constructor.
 			///
@@ -119,19 +166,29 @@ namespace galaxy
 
 		private:
 			///
-			/// Audio engine for sound effects.
+			/// Handles sound effects.
 			///
-			irrklang::ISoundEngine* m_sfx_engine;
+			ma_engine m_sfx_engine;
 
 			///
-			/// Audio engine for music.
+			/// Handles music.
 			///
-			irrklang::ISoundEngine* m_music_engine;
+			ma_engine m_music_engine;
 
 			///
-			/// Audio engine for voices.
+			/// Handles dialogue sounds.
 			///
-			irrklang::ISoundEngine* m_voice_engine;
+			ma_engine m_dialogue_engine;
+
+			///
+			/// Log structure.
+			///
+			ma_log m_log;
+
+			///
+			/// Callback for when logging is done.
+			///
+			ma_log_callback m_callback;
 		};
 	} // namespace audio
 } // namespace galaxy

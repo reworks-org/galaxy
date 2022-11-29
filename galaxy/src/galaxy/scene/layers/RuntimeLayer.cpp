@@ -39,8 +39,7 @@ namespace galaxy
 
 		void RuntimeLayer::on_pop()
 		{
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
-			ae.stop_all();
+			core::ServiceLocator<audio::AudioEngine>::ref().stop();
 		}
 
 		void RuntimeLayer::events()

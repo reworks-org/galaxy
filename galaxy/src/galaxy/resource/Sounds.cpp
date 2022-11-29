@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -17,9 +16,6 @@ namespace galaxy
 	namespace resource
 	{
 		Sounds::Sounds() noexcept
-			: m_sfx_path {""}
-			, m_music_path {""}
-			, m_voice_path {""}
 		{
 		}
 
@@ -32,7 +28,6 @@ namespace galaxy
 			m_sfx_path = static_cast<std::string>(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
 
 			auto contents = fs.list_directory(m_sfx_path);
 			if (!contents.empty())
@@ -40,8 +35,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-
-					m_cache[key] = ae.make_sfx(static_cast<std::string>(file), 1.0f);
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::SFX, static_cast<std::string>(file));
 				}
 			}
 			else
@@ -55,7 +49,6 @@ namespace galaxy
 			m_music_path = static_cast<std::string>(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
 
 			auto contents = fs.list_directory(m_music_path);
 			if (!contents.empty())
@@ -63,8 +56,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-
-					m_cache[key] = ae.make_music(static_cast<std::string>(file), 1.0f);
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::MUSIC, static_cast<std::string>(file));
 				}
 			}
 			else
@@ -75,24 +67,22 @@ namespace galaxy
 
 		void Sounds::load_dialogue(std::string_view folder)
 		{
-			m_voice_path = static_cast<std::string>(folder);
+			m_dialogue_path = static_cast<std::string>(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
 
-			auto contents = fs.list_directory(m_voice_path);
+			auto contents = fs.list_directory(m_dialogue_path);
 			if (!contents.empty())
 			{
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-
-					m_cache[key] = ae.make_voice(static_cast<std::string>(file), 1.0f);
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::DIALOGUE, static_cast<std::string>(file));
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Found no voice resources to load in '{0}'.", m_voice_path);
+				GALAXY_LOG(GALAXY_WARNING, "Found no voice resources to load in '{0}'.", m_dialogue_path);
 			}
 		}
 	} // namespace resource

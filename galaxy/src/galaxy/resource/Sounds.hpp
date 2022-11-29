@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_SOUNDS_HPP_
 #define GALAXY_RESOURCE_SOUNDS_HPP_
 
-#include "galaxy/audio/Audio.hpp"
+#include "galaxy/audio/Sound.hpp"
 #include "galaxy/resource/Cache.hpp"
 
 namespace galaxy
@@ -18,7 +18,7 @@ namespace galaxy
 		///
 		/// Resource cache for sounds.
 		///
-		class Sounds final : public Cache<audio::Audio>
+		class Sounds final : public Cache<audio::Sound>
 		{
 		public:
 			///
@@ -85,9 +85,9 @@ namespace galaxy
 			std::string m_music_path;
 
 			///
-			/// Voice folder path.
+			/// Dialogue folder path.
 			///
-			std::string m_voice_path;
+			std::string m_dialogue_path;
 		};
 	} // namespace resource
 } // namespace galaxy

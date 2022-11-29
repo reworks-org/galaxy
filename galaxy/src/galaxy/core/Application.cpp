@@ -95,6 +95,7 @@ namespace galaxy
 			config.restore<float>("sfx_volume", 1.0f, "audio");
 			config.restore<float>("music_volume", 1.0f, "audio");
 			config.restore<float>("dialogue_volume", 1.0f, "audio");
+			config.restore<int>("listener_count", 1, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
 			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
@@ -306,10 +307,10 @@ namespace galaxy
 					//
 					// Audio Engine.
 					//
-					auto& ae = ServiceLocator<audio::AudioEngine>::make();
+					auto& ae = ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
 					ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
 					ae.set_music_volume(config.get<float>("music_volume", "audio"));
-					ae.set_voice_volume(config.get<float>("dialogue_volume", "audio"));
+					ae.set_dialogue_volume(config.get<float>("dialogue_volume", "audio"));
 
 					//
 					// Game audio files.

@@ -51,8 +51,7 @@ namespace galaxy
 		void UILayer::on_pop()
 		{
 			// hide rml docs
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
-			ae.stop_all();
+			core::ServiceLocator<audio::AudioEngine>::ref().stop();
 		}
 
 		void UILayer::events()
