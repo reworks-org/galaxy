@@ -8,5 +8,6 @@ output/
 
 supercluster/bin
 supercluster/logs
+supercluster/assets/editor_data/tools
 
 tests/bin

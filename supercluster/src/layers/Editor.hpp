@@ -59,13 +59,7 @@ namespace sc
 		void deserialize(const nlohmann::json& json) override;
 
 	private:
-		/*
 		platform::Subprocess m_tiled_process;
-
-		glm::vec2 m_clicked_pos;
-		glm::vec2 m_cursor_size = {4.0f, 4.0f};
-		math::AABB m_cursor_aabb;
-		*/
 
 		Settings m_settings;
 

@@ -4,6 +4,7 @@
         "asset_dir": "assets/",
         "audio": {
             "dialogue_volume": 1.0,
+            "listener_count": 1,
             "music_volume": 1.0,
             "sfx_volume": 1.0
         },

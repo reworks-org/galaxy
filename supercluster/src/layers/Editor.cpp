@@ -267,6 +267,7 @@ namespace sc
 
 	void Editor::exit()
 	{
+		m_tiled_process.terminate();
 		core::ServiceLocator<core::Window>::ref().close();
 	}
 
@@ -427,7 +428,7 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Tiled", "Ctrl+Shift+T"))
 				{
-					// m_tiled_process.create("tools/tiled/tiled.exe");
+					m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "editor_data/tools/tiled/tiled.exe");
 				}
 
 				ImGui::EndMenu();
@@ -536,7 +537,7 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_T))
 		{
-			// m_tiled_process.create("tools/tiled/tiled.exe");
+			m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "editor_data/tools/tiled/tiled.exe");
 		}
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_R))
