@@ -13113,7 +13113,6 @@ MA_API ma_result ma_log_init(const ma_allocation_callbacks* pAllocationCallbacks
     }
 
     MA_ZERO_OBJECT(pLog);
-    pLog->allocationCallbacks = ma_allocation_callbacks_init_default();
     ma_allocation_callbacks_init_copy(&pLog->allocationCallbacks, pAllocationCallbacks);
 
     /* We need a mutex for thread safety. */
