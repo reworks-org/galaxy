@@ -23,17 +23,28 @@ namespace galaxy
 {
 	namespace ui
 	{
+		RMLSystem::RMLSystem() noexcept
+		{
+			m_pointer = glfwCreateStandardCursor(GLFW_HAND_CURSOR);
+			m_cross   = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
+			m_text    = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);
+		}
+
+		RMLSystem::~RMLSystem() noexcept
+		{
+			glfwDestroyCursor(m_pointer);
+			glfwDestroyCursor(m_cross);
+			glfwDestroyCursor(m_text);
+		}
+
 		double RMLSystem::GetElapsedTime()
 		{
-			const auto now     = std::chrono::high_resolution_clock::now();
-			const auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now - GALAXY_START_TP);
-
-			return std::chrono::duration<double>(seconds).count();
+			return glfwGetTime();
 		}
 
 		bool RMLSystem::LogMessage(Rml::Log::Type type, const Rml::String& message)
 		{
-			bool output = true;
+			auto output = true;
 
 			switch (type)
 			{
@@ -56,7 +67,7 @@ namespace galaxy
 					break;
 
 				case Rml::Log::Type::LT_ASSERT:
-					GALAXY_LOG(GALAXY_FATAL, "RML: {0}.", message);
+					GALAXY_LOG(GALAXY_ERROR, "RML: {0}.", message);
 					output = false;
 					break;
 			}
@@ -66,8 +77,37 @@ namespace galaxy
 
 		void RMLSystem::SetMouseCursor(const Rml::String& cursor_name)
 		{
-			auto& cursor = core::ServiceLocator<core::Window>::ref().get_input<input::Cursor>();
-			cursor.set_cursor_icon(cursor_name);
+			auto& window        = core::ServiceLocator<core::Window>::ref();
+			auto& window_cursor = window.get_input<input::Cursor>();
+
+			GLFWcursor* cursor = nullptr;
+
+			if (cursor_name == "move")
+			{
+				cursor = m_pointer;
+			}
+			else if (cursor_name == "pointer")
+			{
+				cursor = m_pointer;
+			}
+			else if (cursor_name == "resize")
+			{
+				cursor = m_pointer;
+			}
+			else if (cursor_name == "cross")
+			{
+				cursor = m_cross;
+			}
+			else if (cursor_name == "text")
+			{
+				cursor = m_text;
+			}
+			else
+			{
+				cursor = window_cursor.m_data;
+			}
+
+			glfwSetCursor(window.handle(), cursor);
 		}
 
 		void RMLSystem::SetClipboardText(const Rml::String& text)
@@ -77,7 +117,7 @@ namespace galaxy
 
 		void RMLSystem::GetClipboardText(Rml::String& text)
 		{
-			text = glfwGetClipboardString(core::ServiceLocator<core::Window>::ref().handle());
+			text = Rml::String(glfwGetClipboardString(core::ServiceLocator<core::Window>::ref().handle()));
 		}
 	} // namespace ui
 } // namespace galaxy

@@ -464,11 +464,10 @@ namespace galaxy
 			lua.set_function("galaxy_log", &log_wrapper);
 
 			/* EVENTS */
-			auto keychar_type       = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
-			keychar_type["type_id"] = &entt::type_hash<events::KeyChar>::value;
-			keychar_type["char"]    = &events::KeyChar::m_char;
-			keychar_type["uichar"]  = &events::KeyChar::m_uichar;
-			keychar_type["handled"] = &events::KeyChar::m_handled;
+			auto keychar_type         = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
+			keychar_type["type_id"]   = &entt::type_hash<events::KeyChar>::value;
+			keychar_type["codepoint"] = &events::KeyChar::m_codepoint;
+			keychar_type["handled"]   = &events::KeyChar::m_handled;
 
 			entt_sol::register_meta_event<events::KeyChar>();
 

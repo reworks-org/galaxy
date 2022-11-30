@@ -21,7 +21,6 @@ namespace galaxy
 			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
 		static bool GALAXY_RESTART_FLAG;
-		static std::chrono::high_resolution_clock::time_point GALAXY_APP_START_TIME_POINT;
 	};
 } // namespace galaxy
 
@@ -39,11 +38,6 @@ namespace galaxy
 /// Restart flag.
 ///
 #define GALAXY_RESTART galaxy::doNotUseReferToConfigForMacroNames::GALAXY_RESTART_FLAG
-
-///
-/// Time point for application start.
-///
-#define GALAXY_START_TP galaxy::doNotUseReferToConfigForMacroNames::GALAXY_APP_START_TIME_POINT
 
 ///
 /// Updates per second.

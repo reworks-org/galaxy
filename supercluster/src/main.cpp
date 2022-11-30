@@ -42,8 +42,7 @@ int main(int argsc, char* argsv[])
 
 	do
 	{
-		GALAXY_RESTART  = false;
-		GALAXY_START_TP = std::chrono::high_resolution_clock::now();
+		GALAXY_RESTART = false;
 
 		if (!std::filesystem::exists("assets/editor_data"))
 		{

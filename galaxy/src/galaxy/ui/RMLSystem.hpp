@@ -10,6 +10,8 @@
 
 #include <RmlUi/Core/SystemInterface.h>
 
+struct GLFWcursor;
+
 namespace galaxy
 {
 	namespace ui
@@ -23,12 +25,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RMLSystem() noexcept = default;
+			RMLSystem() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~RMLSystem() noexcept = default;
+			virtual ~RMLSystem() noexcept;
 
 			///
 			/// Get the number of seconds elapsed since the start of the application.
@@ -67,6 +69,22 @@ namespace galaxy
 			/// \param text Retrieved text from clipboard.
 			///
 			void GetClipboardText(Rml::String& text) override;
+
+		private:
+			///
+			/// Default system pointer.
+			///
+			GLFWcursor* m_pointer;
+
+			///
+			/// Default system cross pointer.
+			///
+			GLFWcursor* m_cross;
+
+			///
+			/// Default system text pointer.
+			///
+			GLFWcursor* m_text;
 		};
 	} // namespace ui
 } // namespace galaxy

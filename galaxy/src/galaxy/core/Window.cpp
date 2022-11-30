@@ -252,8 +252,7 @@ namespace galaxy
 							// clang-format off
 							events::KeyChar kc
 							{
-								.m_uichar = codepoint,
-								.m_char = strutils::parse_codepoint(codepoint)
+								.m_codepoint = codepoint
 							};
 							// clang-format on
 
@@ -334,7 +333,7 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
-                    // clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_PUSH
 					GALAXY_DISABLE_WARNING(26487)
@@ -361,7 +360,7 @@ namespace galaxy
 						}
 					});
 
-                    // clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
 					#endif

@@ -8,13 +8,16 @@
 #ifndef GALAXY_UI_RMLEVENTS_HPP_
 #define GALAXY_UI_RMLEVENTS_HPP_
 
+#include "galaxy/ui/RMLInput.hpp"
+
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
+#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/WindowResized.hpp"
 
 namespace Rml
@@ -33,21 +36,16 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Constructor.
+			/// Argument constructor.
 			///
-			RMLEvents() noexcept;
+			/// \param context Pointer to RML context.
+			///
+			RMLEvents(Rml::Context* context) noexcept;
 
 			///
 			/// Destructor.
 			///
 			~RMLEvents() noexcept;
-
-			///
-			/// Set RmlUi context.
-			///
-			/// \param context Pointer to RML context.
-			///
-			void set_context(Rml::Context* context) noexcept;
 
 			///
 			/// On mouse moved event handler.
@@ -85,6 +83,13 @@ namespace galaxy
 			void on_key_down(events::KeyDown& e) noexcept;
 
 			///
+			/// On key repeat event handler.
+			///
+			/// \param e Event to process.
+			///
+			void on_key_repeat(events::KeyRepeat& e) noexcept;
+
+			///
 			/// On key up event handler.
 			///
 			/// \param e Event to process.
@@ -105,7 +110,30 @@ namespace galaxy
 			///
 			void on_window_resize(const events::WindowResized& e) noexcept;
 
+			///
+			/// Converts the GLFW key to RmlUi key.
+			///
+			/// \param glfw_key GLFW key identifier.
+			///
+			/// \return RML identifier.
+			///
+			[[nodiscard]] Rml::Input::KeyIdentifier convert_key(int glfw_key) noexcept;
+
+			///
+			/// Converts the GLFW key modifiers to RmlUi key modifiers.
+			///
+			/// \param glfw_mods GLFW modifier.
+			///
+			/// \return RML modifier.
+			///
+			[[nodiscard]] int convert_key_modifier(int glfw_mods) noexcept;
+
 		private:
+			///
+			/// Constructor.
+			///
+			RMLEvents() = delete;
+
 			///
 			/// Move constructor.
 			///
