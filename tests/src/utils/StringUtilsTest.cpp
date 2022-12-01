@@ -22,11 +22,6 @@ TEST(Utils, StringSplit)
 	EXPECT_EQ(out[1], "b");
 }
 
-TEST(Utils, CodePointToString)
-{
-	EXPECT_EQ(galaxy::strutils::parse_codepoint(0x00000021), "!");
-}
-
 TEST(Utils, ReplaceFirst)
 {
 	std::string test = "123.456";

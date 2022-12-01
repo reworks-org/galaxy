@@ -1014,7 +1014,6 @@ namespace galaxy
 			lua.set("GALAXY_APP_DIR", GALAXY_APP_DIR);
 
 			lua.set_function("str_split", &strutils::split);
-			lua.set_function("str_parse_codepoint", &strutils::parse_codepoint);
 			lua.set_function("str_begins_with", &strutils::begins_with);
 		}
 

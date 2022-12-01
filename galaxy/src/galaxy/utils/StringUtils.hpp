@@ -26,15 +26,6 @@ namespace galaxy
 		[[nodiscard]] std::vector<std::string> split(std::string_view input, std::string_view delim) noexcept;
 
 		///
-		/// Takes a UTF-32 codepoint and converts it into a std::string.
-		///
-		/// \param codepoint UTF-32 compliant codepoint.
-		///
-		/// \return UTF8 string.
-		///
-		[[nodiscard]] std::string parse_codepoint(const unsigned int codepoint) noexcept;
-
-		///
 		/// \brief Replace first occurance of a string.
 		///
 		/// Returns input string if to_replace not found.
