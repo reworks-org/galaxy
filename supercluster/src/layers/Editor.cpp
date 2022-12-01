@@ -188,7 +188,7 @@ namespace sc
 
 #ifdef _DEBUG
 			auto data = std::string(buffer.begin(), buffer.end());
-#elif
+#else
 			auto data = std::string(buffer.begin(), buffer.end());
 			data      = algorithm::decode_zlib(data);
 			data      = algorithm::decode_base64(data);
@@ -237,7 +237,7 @@ namespace sc
 			{
 #ifdef _DEBUG
 				auto data = m_project_scenes.serialize().dump(4);
-#elif
+#else
                 auto data = m_project_scenes.serialize().dump(4);
                 data      = algorithm::encode_base64(data);
                 data      = algorithm::encode_zlib(data);
