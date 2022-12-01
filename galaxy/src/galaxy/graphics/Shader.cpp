@@ -215,8 +215,8 @@ namespace galaxy
 						// clang-format off
 							auto uniform_info = UniformInfo
 							{
-								.m_location = glGetUniformLocation(m_id, uniform_name.get()),
-								.m_count = count
+								.location = glGetUniformLocation(m_id, uniform_name.get()),
+								.count = count
 							};
 						// clang-format on
 
@@ -256,7 +256,7 @@ namespace galaxy
 		{
 			if (m_cache.contains(name))
 			{
-				return m_cache[name].m_location;
+				return m_cache[name].location;
 			}
 			else
 			{
@@ -269,7 +269,7 @@ namespace galaxy
 		{
 			if (m_cache.contains(name))
 			{
-				return m_cache[name].m_count;
+				return m_cache[name].count;
 			}
 			else
 			{

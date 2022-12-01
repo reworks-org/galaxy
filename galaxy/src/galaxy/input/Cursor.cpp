@@ -53,14 +53,14 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(icon);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
 				stbi_set_flip_vertically_on_load(true);
 
 				// Fill glfw-compatible struct.
 
 				GLFWimage img = {};
-				img.pixels    = stbi_load(info.m_string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				img.pixels    = stbi_load(info.string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (img.pixels)
 				{
@@ -77,7 +77,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a cursor, because '{1}'.", icon, magic_enum::enum_name(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a cursor, because '{1}'.", icon, magic_enum::enum_name(info.code));
 			}
 		}
 

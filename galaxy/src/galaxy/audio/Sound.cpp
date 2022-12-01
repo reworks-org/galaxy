@@ -60,9 +60,9 @@ namespace galaxy
 			}
 
 			auto info = fs.find(file);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
-				const auto result = ma_sound_init_from_file(engine, info.m_string.c_str(), flags, nullptr, nullptr, &m_sound);
+				const auto result = ma_sound_init_from_file(engine, info.string.c_str(), flags, nullptr, nullptr, &m_sound);
 				if (result != MA_SUCCESS)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from file.");
@@ -70,7 +70,7 @@ namespace galaxy
 			}
 			else
 			{
-				const auto name = magic_enum::enum_name(info.m_code);
+				const auto name = magic_enum::enum_name(info.code);
 				GALAXY_LOG(GALAXY_ERROR, "Failed to find {0} because {1}.", file, name);
 			}
 		}

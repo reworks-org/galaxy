@@ -23,22 +23,22 @@ namespace galaxy
 			///
 			/// Keycode for the key that is repeating.
 			///
-			input::Keys m_keycode;
+			input::Keys keycode;
 
 			///
 			/// Modifier Key.
 			///
-			input::InputMods m_mod;
+			input::InputMods mod;
 
 			///
 			/// Platform scancode.
 			///
-			int m_scancode = 0;
+			int scancode = 0;
 
 			///
 			/// Has this event been handled?
 			///
-			bool m_handled = false;
+			bool handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

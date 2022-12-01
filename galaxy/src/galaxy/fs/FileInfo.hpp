@@ -21,17 +21,17 @@ namespace galaxy
 			///
 			/// The error code returned.
 			///
-			FileCode m_code = FileCode::DEFAULT;
+			FileCode code = FileCode::DEFAULT;
 
 			///
 			/// A string formatted absolute path to the file.
 			///
-			std::string m_string;
+			std::string string;
 
 			///
 			/// A filesystem aboslute path to the file.
 			///
-			std::filesystem::path m_path;
+			std::filesystem::path path;
 		};
 	} // namespace fs
 } // namespace galaxy

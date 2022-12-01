@@ -287,11 +287,11 @@ namespace galaxy
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
-			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::m_fragments;
-			primitive_data_type["points"]    = &components::Primitive::PrimitiveData::m_points;
-			primitive_data_type["radii"]     = &components::Primitive::PrimitiveData::m_radii;
-			primitive_data_type["radius"]    = &components::Primitive::PrimitiveData::m_radius;
-			primitive_data_type["start_end"] = &components::Primitive::PrimitiveData::m_start_end;
+			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::fragments;
+			primitive_data_type["points"]    = &components::Primitive::PrimitiveData::points;
+			primitive_data_type["radii"]     = &components::Primitive::PrimitiveData::radii;
+			primitive_data_type["radius"]    = &components::Primitive::PrimitiveData::radius;
+			primitive_data_type["start_end"] = &components::Primitive::PrimitiveData::start_end;
 
 			auto primitive_type = lua.new_usertype<components::Primitive>("Primitive",
 				sol::constructors<components::Primitive()>(),
@@ -466,69 +466,69 @@ namespace galaxy
 			/* EVENTS */
 			auto keychar_type         = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
 			keychar_type["type_id"]   = &entt::type_hash<events::KeyChar>::value;
-			keychar_type["codepoint"] = &events::KeyChar::m_codepoint;
-			keychar_type["handled"]   = &events::KeyChar::m_handled;
+			keychar_type["codepoint"] = &events::KeyChar::codepoint;
+			keychar_type["handled"]   = &events::KeyChar::handled;
 
 			entt_sol::register_meta_event<events::KeyChar>();
 
 			auto keydown_type        = lua.new_usertype<events::KeyDown>("KeyDown", sol::constructors<events::KeyDown()>());
 			keydown_type["type_id"]  = &entt::type_hash<events::KeyDown>::value;
-			keydown_type["keycode"]  = &events::KeyDown::m_keycode;
-			keydown_type["mod"]      = &events::KeyDown::m_mod;
-			keydown_type["scancode"] = &events::KeyDown::m_scancode;
-			keydown_type["handled"]  = &events::KeyDown::m_handled;
+			keydown_type["keycode"]  = &events::KeyDown::keycode;
+			keydown_type["mod"]      = &events::KeyDown::mod;
+			keydown_type["scancode"] = &events::KeyDown::scancode;
+			keydown_type["handled"]  = &events::KeyDown::handled;
 
 			entt_sol::register_meta_event<events::KeyDown>();
 
 			auto keyup_type        = lua.new_usertype<events::KeyUp>("KeyUp", sol::constructors<events::KeyUp()>());
 			keyup_type["type_id"]  = &entt::type_hash<events::KeyUp>::value;
-			keyup_type["keycode"]  = &events::KeyUp::m_keycode;
-			keyup_type["mod"]      = &events::KeyUp::m_mod;
-			keyup_type["scancode"] = &events::KeyUp::m_scancode;
-			keyup_type["handled"]  = &events::KeyUp::m_handled;
+			keyup_type["keycode"]  = &events::KeyUp::keycode;
+			keyup_type["mod"]      = &events::KeyUp::mod;
+			keyup_type["scancode"] = &events::KeyUp::scancode;
+			keyup_type["handled"]  = &events::KeyUp::handled;
 
 			entt_sol::register_meta_event<events::KeyUp>();
 
 			auto mousemoved_type       = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
 			mousemoved_type["type_id"] = &entt::type_hash<events::MouseMoved>::value;
-			mousemoved_type["xpos"]    = &events::MouseMoved::m_xpos;
-			mousemoved_type["ypos"]    = &events::MouseMoved::m_ypos;
-			mousemoved_type["handled"] = &events::MouseMoved::m_handled;
+			mousemoved_type["xpos"]    = &events::MouseMoved::xpos;
+			mousemoved_type["ypos"]    = &events::MouseMoved::ypos;
+			mousemoved_type["handled"] = &events::MouseMoved::handled;
 
 			entt_sol::register_meta_event<events::MouseMoved>();
 
 			auto mousepressed_type       = lua.new_usertype<events::MousePressed>("MousePressed", sol::constructors<events::MousePressed()>());
 			mousepressed_type["type_id"] = &entt::type_hash<events::MousePressed>::value;
-			mousepressed_type["button"]  = &events::MousePressed::m_button;
-			mousepressed_type["mod"]     = &events::MousePressed::m_mod;
-			mousepressed_type["xpos"]    = &events::MousePressed::m_xpos;
-			mousepressed_type["ypos"]    = &events::MousePressed::m_ypos;
-			mousepressed_type["handled"] = &events::MousePressed::m_handled;
+			mousepressed_type["button"]  = &events::MousePressed::button;
+			mousepressed_type["mod"]     = &events::MousePressed::mod;
+			mousepressed_type["xpos"]    = &events::MousePressed::xpos;
+			mousepressed_type["ypos"]    = &events::MousePressed::ypos;
+			mousepressed_type["handled"] = &events::MousePressed::handled;
 
 			entt_sol::register_meta_event<events::MousePressed>();
 
 			auto mousereleased_type       = lua.new_usertype<events::MouseReleased>("MouseReleased", sol::constructors<events::MouseReleased()>());
 			mousereleased_type["type_id"] = &entt::type_hash<events::MouseReleased>::value;
-			mousereleased_type["button"]  = &events::MouseReleased::m_button;
-			mousereleased_type["mod"]     = &events::MouseReleased::m_mod;
-			mousereleased_type["xpos"]    = &events::MouseReleased::m_xpos;
-			mousereleased_type["ypos"]    = &events::MouseReleased::m_ypos;
-			mousereleased_type["handled"] = &events::MouseReleased::m_handled;
+			mousereleased_type["button"]  = &events::MouseReleased::button;
+			mousereleased_type["mod"]     = &events::MouseReleased::mod;
+			mousereleased_type["xpos"]    = &events::MouseReleased::xpos;
+			mousereleased_type["ypos"]    = &events::MouseReleased::ypos;
+			mousereleased_type["handled"] = &events::MouseReleased::handled;
 
 			entt_sol::register_meta_event<events::MouseReleased>();
 
 			auto mousewheel_type       = lua.new_usertype<events::MouseWheel>("MouseWheel", sol::constructors<events::MouseWheel()>());
 			mousewheel_type["type_id"] = &entt::type_hash<events::MouseWheel>::value;
-			mousewheel_type["xoff"]    = &events::MouseWheel::m_xoff;
-			mousewheel_type["yoff"]    = &events::MouseWheel::m_yoff;
-			mousewheel_type["handled"] = &events::MouseWheel::m_handled;
+			mousewheel_type["xoff"]    = &events::MouseWheel::xoff;
+			mousewheel_type["yoff"]    = &events::MouseWheel::yoff;
+			mousewheel_type["handled"] = &events::MouseWheel::handled;
 
 			entt_sol::register_meta_event<events::MouseWheel>();
 
 			auto windowresized_type       = lua.new_usertype<events::WindowResized>("WindowResized", sol::constructors<events::WindowResized()>());
 			windowresized_type["type_id"] = &entt::type_hash<events::WindowResized>::value;
-			windowresized_type["width"]   = &events::WindowResized::m_width;
-			windowresized_type["height"]  = &events::WindowResized::m_height;
+			windowresized_type["width"]   = &events::WindowResized::width;
+			windowresized_type["height"]  = &events::WindowResized::height;
 
 			entt_sol::register_meta_event<events::WindowResized>();
 
@@ -544,8 +544,8 @@ namespace galaxy
 			// clang-format on
 
 			auto fileinfo_type      = lua.new_usertype<fs::FileInfo>("FileInfo", sol::constructors<fs::FileInfo()>());
-			fileinfo_type["code"]   = &fs::FileInfo::m_code;
-			fileinfo_type["string"] = &fs::FileInfo::m_string;
+			fileinfo_type["code"]   = &fs::FileInfo::code;
+			fileinfo_type["string"] = &fs::FileInfo::string;
 
 			auto vfs_type             = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
 			vfs_type["find"]          = &fs::VirtualFileSystem::find;
@@ -613,8 +613,8 @@ namespace galaxy
 			frect_type["overlaps"] = &graphics::fRect::overlaps;
 
 			auto uniform_type        = lua.new_usertype<graphics::UniformInfo>("UniformInfo", sol::constructors<graphics::UniformInfo>());
-			uniform_type["count"]    = &graphics::UniformInfo::m_count;
-			uniform_type["location"] = &graphics::UniformInfo::m_location;
+			uniform_type["count"]    = &graphics::UniformInfo::count;
+			uniform_type["location"] = &graphics::UniformInfo::location;
 
 			auto shader_type =
 				lua.new_usertype<graphics::Shader>("Shader", sol::constructors<graphics::Shader(), graphics::Shader(std::string_view, std::string_view)>());

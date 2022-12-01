@@ -116,28 +116,28 @@ namespace galaxy
 			switch (m_shape)
 			{
 				case graphics::Shape::CIRCLE:
-					json["radius"]    = m_data.m_radius;
-					json["fragments"] = m_data.m_fragments;
+					json["radius"]    = m_data.radius;
+					json["fragments"] = m_data.fragments;
 					break;
 
 				case graphics::Shape::ELLIPSE:
 					json["radii"]      = nlohmann::json::object();
-					json["radii"]["x"] = m_data.m_radii.x;
-					json["radii"]["y"] = m_data.m_radii.y;
-					json["fragments"]  = m_data.m_fragments;
+					json["radii"]["x"] = m_data.radii.x;
+					json["radii"]["y"] = m_data.radii.y;
+					json["fragments"]  = m_data.fragments;
 					break;
 
 				case graphics::Shape::LINE:
 					json["line_points"]       = nlohmann::json::object();
-					json["line_points"]["x1"] = m_data.m_start_end.x;
-					json["line_points"]["y1"] = m_data.m_start_end.y;
-					json["line_points"]["x2"] = m_data.m_start_end.z;
-					json["line_points"]["y2"] = m_data.m_start_end.w;
+					json["line_points"]["x1"] = m_data.start_end.x;
+					json["line_points"]["y1"] = m_data.start_end.y;
+					json["line_points"]["x2"] = m_data.start_end.z;
+					json["line_points"]["y2"] = m_data.start_end.w;
 					break;
 
 				case graphics::Shape::POLYGON:
 					json["points"] = nlohmann::json::array();
-					for (const auto& point : m_data.m_points)
+					for (const auto& point : m_data.points)
 					{
 						json["points"].push_back(nlohmann::json::object({{"x", point.x}, {"y", point.y}}));
 					}
@@ -145,7 +145,7 @@ namespace galaxy
 
 				case graphics::Shape::POLYLINE:
 					json["points"] = nlohmann::json::array();
-					for (const auto& point : m_data.m_points)
+					for (const auto& point : m_data.points)
 					{
 						json["points"].push_back(nlohmann::json::object({{"x", point.x}, {"y", point.y}}));
 					}
@@ -161,28 +161,28 @@ namespace galaxy
 
 			if (json.count("radius") > 0)
 			{
-				data.m_radius = json.at("radius").get<float>();
+				data.radius = json.at("radius").get<float>();
 			}
 
 			if (json.count("radii") > 0)
 			{
 				const auto& radii = json.at("radii");
-				data.m_radii.x    = radii.at("x");
-				data.m_radii.y    = radii.at("y");
+				data.radii.x      = radii.at("x");
+				data.radii.y      = radii.at("y");
 			}
 
 			if (json.count("fragments") > 0)
 			{
-				data.m_fragments = json.at("fragments").get<float>();
+				data.fragments = json.at("fragments").get<float>();
 			}
 
 			if (json.count("line_points") > 0)
 			{
 				const auto& points = json.at("line_points");
-				data.m_start_end.x = points.at("x1");
-				data.m_start_end.y = points.at("y1");
-				data.m_start_end.z = points.at("x2");
-				data.m_start_end.w = points.at("y2");
+				data.start_end.x   = points.at("x1");
+				data.start_end.y   = points.at("y1");
+				data.start_end.z   = points.at("x2");
+				data.start_end.w   = points.at("y2");
 			}
 
 			if (json.count("points") > 0)
@@ -192,7 +192,7 @@ namespace galaxy
 				const auto& points_array = json.at("points");
 				for (const auto& point : points_array)
 				{
-					data.m_points.emplace_back(point.at("x"), point.at("y"));
+					data.points.emplace_back(point.at("x"), point.at("y"));
 				}
 			}
 

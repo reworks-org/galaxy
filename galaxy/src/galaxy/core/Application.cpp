@@ -172,15 +172,15 @@ namespace galaxy
 			//
 			const auto window_settings = WindowSettings
 			{
-				.m_title = config.get<std::string>("title", "window"),
-				.m_width = config.get<int>("width", "window"),
-				.m_height = config.get<int>("height", "window"),
-				.m_vsync = config.get<bool>("vsync", "window"),
-				.m_maximized = config.get<bool>("maximized", "window"),
-				.m_debug = config.get<bool>("debug", "window"),
-				.m_scale_to_monitor = config.get<bool>("scale_to_monitor", "window"),
-				.m_enable_aa = config.get<bool>("enable_aa", "graphics"),
-				.m_enable_sharpen= config.get<bool>("enable_sharpen", "graphics")
+				.title = config.get<std::string>("title", "window"),
+				.width = config.get<int>("width", "window"),
+				.height = config.get<int>("height", "window"),
+				.vsync = config.get<bool>("vsync", "window"),
+				.maximized = config.get<bool>("maximized", "window"),
+				.debug = config.get<bool>("debug", "window"),
+				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window"),
+				.enable_aa = config.get<bool>("enable_aa", "graphics"),
+				.enable_sharpen= config.get<bool>("enable_sharpen", "graphics")
 			};
 			// clang-format on
 

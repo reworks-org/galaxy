@@ -27,13 +27,13 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(path);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
-				return reinterpret_cast<Rml::FileHandle>(std::fopen(info.m_string.c_str(), "rb"));
+				return reinterpret_cast<Rml::FileHandle>(std::fopen(info.string.c_str(), "rb"));
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load RML resource: {0}, because {1}.", path, magic_enum::enum_name(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load RML resource: {0}, because {1}.", path, magic_enum::enum_name(info.code));
 				return NULL;
 			}
 		}

@@ -70,7 +70,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_AUTO_ICONIFY, GLFW_TRUE);
 				glfwWindowHint(GLFW_CENTER_CURSOR, GLFW_TRUE);
 				glfwWindowHint(GLFW_FOCUS_ON_SHOW, GLFW_TRUE);
-				glfwWindowHint(GLFW_SCALE_TO_MONITOR, settings.m_scale_to_monitor);
+				glfwWindowHint(GLFW_SCALE_TO_MONITOR, settings.scale_to_monitor);
 
 				// Configure framebuffer setup.
 				glfwWindowHint(GLFW_RED_BITS, 8);
@@ -89,17 +89,17 @@ namespace galaxy
 				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 				glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
-				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.m_debug);
+				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.debug);
 				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 				// Window maximized check.
-				if (settings.m_maximized)
+				if (settings.maximized)
 				{
 					glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 				}
 
 				// Create the window from input, ensuring it is centered in the screen.
-				m_window = glfwCreateWindow(settings.m_width, settings.m_height, settings.m_title.c_str(), nullptr, nullptr);
+				m_window = glfwCreateWindow(settings.width, settings.height, settings.title.c_str(), nullptr, nullptr);
 				if (!m_window)
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to create window.");
@@ -180,8 +180,8 @@ namespace galaxy
 						// clang-format off
 						events::WindowResized wr
 						{
-							.m_width = width,
-							.m_height = height
+							.width = width,
+							.height = height
 						};
 						// clang-format on
 
@@ -201,9 +201,9 @@ namespace galaxy
 								{
 									events::KeyDown kd
 									{
-										.m_keycode = static_cast<input::Keys>(key),
-										.m_mod = static_cast<input::InputMods>(mods),
-										.m_scancode = scancode
+										.keycode = static_cast<input::Keys>(key),
+										.mod = static_cast<input::InputMods>(mods),
+										.scancode = scancode
 									};
 								
 									win->m_event_queue.emplace_back<events::KeyDown>(std::move(kd));
@@ -214,9 +214,9 @@ namespace galaxy
 								{
 									events::KeyRepeat kr
 									{
-										.m_keycode = static_cast<input::Keys>(key),
-										.m_mod = static_cast<input::InputMods>(mods),
-										.m_scancode = scancode
+										.keycode = static_cast<input::Keys>(key),
+										.mod = static_cast<input::InputMods>(mods),
+										.scancode = scancode
 									};
 								
 									win->m_event_queue.emplace_back<events::KeyRepeat>(std::move(kr));
@@ -227,9 +227,9 @@ namespace galaxy
 								{
 									events::KeyUp ku
 									{
-										.m_keycode = static_cast<input::Keys>(key),
-										.m_mod = static_cast<input::InputMods>(mods),
-										.m_scancode = scancode
+										.keycode = static_cast<input::Keys>(key),
+										.mod = static_cast<input::InputMods>(mods),
+										.scancode = scancode
 									};
 								
 									win->m_event_queue.emplace_back<events::KeyUp>(std::move(ku));
@@ -252,7 +252,7 @@ namespace galaxy
 							// clang-format off
 							events::KeyChar kc
 							{
-								.m_codepoint = codepoint
+								.codepoint = codepoint
 							};
 							// clang-format on
 
@@ -267,8 +267,8 @@ namespace galaxy
 						// clang-format off
 						events::MouseMoved mm
 						{
-							.m_xpos = xpos,
-							.m_ypos = ypos
+							.xpos = xpos,
+							.ypos = ypos
 						};
 						// clang-format on
 
@@ -287,10 +287,10 @@ namespace galaxy
 							{
 								events::MousePressed mp
 								{
-									.m_xpos = pos.x,
-									.m_ypos = pos.y,
-									.m_button = static_cast<input::MouseButtons>(button),
-									.m_mod = static_cast<input::InputMods>(mods)
+									.xpos = pos.x,
+									.ypos = pos.y,
+									.button = static_cast<input::MouseButtons>(button),
+									.mod = static_cast<input::InputMods>(mods)
 								};
 								
 								win->m_event_queue.emplace_back<events::MousePressed>(std::move(mp));
@@ -301,10 +301,10 @@ namespace galaxy
 							{
 								events::MouseReleased mr
 								{
-									.m_xpos = pos.x,
-									.m_ypos = pos.y,
-									.m_button = static_cast<input::MouseButtons>(button),
-									.m_mod = static_cast<input::InputMods>(mods)
+									.xpos = pos.x,
+									.ypos = pos.y,
+									.button = static_cast<input::MouseButtons>(button),
+									.mod = static_cast<input::InputMods>(mods)
 								};
 								
 								win->m_event_queue.emplace_back<events::MouseReleased>(std::move(mr));
@@ -325,8 +325,8 @@ namespace galaxy
 						// clang-format off
 						events::MouseWheel mw
 						{
-							.m_xoff = xoffset,
-							.m_yoff = yoffset
+							.xoff = xoffset,
+							.yoff = yoffset
 						};
 						// clang-format on
 
@@ -380,10 +380,10 @@ namespace galaxy
 					else
 					{
 						// Set vsync.
-						glfwSwapInterval(settings.m_vsync);
+						glfwSwapInterval(settings.vsync);
 
 						// Debug configuration.
-						if (settings.m_debug)
+						if (settings.debug)
 						{
 							glEnable(GL_DEBUG_OUTPUT);
 							glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
@@ -436,12 +436,12 @@ namespace galaxy
 						// Configure renderer and post processing.
 						m_postprocess.init(m_width, m_height);
 
-						if (settings.m_enable_aa)
+						if (settings.enable_aa)
 						{
 							m_postprocess.add<graphics::SMAA>(m_width, m_height);
 						}
 
-						if (settings.m_enable_sharpen)
+						if (settings.enable_sharpen)
 						{
 							m_postprocess.add<graphics::Sharpen>(m_width, m_height);
 						}
@@ -462,14 +462,14 @@ namespace galaxy
 			auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(icon);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
 				// Fill glfw-compatible struct.
 
 				stbi_set_flip_vertically_on_load(true);
 
 				GLFWimage img = {};
-				img.pixels    = stbi_load(info.m_string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				img.pixels    = stbi_load(info.string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (img.pixels)
 				{
@@ -485,7 +485,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a window icon, because '{1}'.", icon, magic_enum::enum_name(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a window icon, because '{1}'.", icon, magic_enum::enum_name(info.code));
 			}
 		}
 

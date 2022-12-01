@@ -53,27 +53,27 @@ namespace galaxy
 				///
 				/// Used for Circle.
 				///
-				float m_radius = 1.0f;
+				float radius = 1.0f;
 
 				///
 				/// Used for Ellipse.
 				///
-				glm::vec2 m_radii = {1.0f, 1.0f};
+				glm::vec2 radii = {1.0f, 1.0f};
 
 				///
 				/// Used for Circle and Ellipse.
 				///
-				float m_fragments = 1.0f;
+				float fragments = 1.0f;
 
 				///
 				/// Used by line. Contains start and end point.
 				///
-				glm::vec4 m_start_end = {0.0f, 0.0f, 1.0f, 1.0f};
+				glm::vec4 start_end = {0.0f, 0.0f, 1.0f, 1.0f};
 
 				///
 				/// Used by Polyline and Polygon.
 				///
-				std::vector<glm::vec2> m_points;
+				std::vector<glm::vec2> points;
 			};
 
 		public:
@@ -228,13 +228,13 @@ namespace galaxy
 
 				auto count                     = 0u;
 				constexpr const auto incr_stat = 2.0f * glm::pi<float>();
-				const auto increment           = incr_stat / data.m_fragments;
+				const auto increment           = incr_stat / data.fragments;
 
 				for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 				{
 					graphics::Vertex vertex;
-					vertex.m_pos.x = (data.m_radius * glm::cos(angle)) + data.m_radius;
-					vertex.m_pos.y = (data.m_radius * glm::sin(angle) + data.m_radius);
+					vertex.m_pos.x = (data.radius * glm::cos(angle)) + data.radius;
+					vertex.m_pos.y = (data.radius * glm::sin(angle) + data.radius);
 
 					vertices.emplace_back(vertex);
 					indices.push_back(count);
@@ -244,15 +244,15 @@ namespace galaxy
 
 				set_primitive_type(graphics::Primitives::LINE_LOOP);
 
-				m_width  = data.m_radius * 2.0f;
-				m_height = data.m_radius * 2.0f;
+				m_width  = data.radius * 2.0f;
+				m_height = data.radius * 2.0f;
 			}
 			else if constexpr (shape == graphics::Shape::ELLIPSE)
 			{
 				// Thanks to https://stackoverflow.com/a/34735255
 				// For help with maths.
 
-				const auto theta  = 2.0f * glm::pi<float>() / m_data.m_fragments;
+				const auto theta  = 2.0f * glm::pi<float>() / m_data.fragments;
 				const auto cosine = std::cosf(theta);
 				const auto sine   = std::sinf(theta);
 
@@ -261,11 +261,11 @@ namespace galaxy
 				auto y    = 0.0f;
 
 				auto count = 0u;
-				for (auto i = 0; i < std::floor(m_data.m_fragments); i++)
+				for (auto i = 0; i < std::floor(m_data.fragments); i++)
 				{
 					graphics::Vertex vertex;
-					vertex.m_pos.x = (x * m_data.m_radii.x) + m_data.m_radii.x;
-					vertex.m_pos.y = (y * m_data.m_radii.y) + m_data.m_radii.y;
+					vertex.m_pos.x = (x * m_data.radii.x) + m_data.radii.x;
+					vertex.m_pos.y = (y * m_data.radii.y) + m_data.radii.y;
 
 					vertices.emplace_back(vertex);
 					indices.push_back(count);
@@ -278,18 +278,18 @@ namespace galaxy
 
 				set_primitive_type(graphics::Primitives::LINE_LOOP);
 
-				m_width  = m_data.m_radii.x * 2.0f;
-				m_height = m_data.m_radii.y * 2.0f;
+				m_width  = m_data.radii.x * 2.0f;
+				m_height = m_data.radii.y * 2.0f;
 			}
 			else if constexpr (shape == graphics::Shape::LINE)
 			{
 				graphics::Vertex a;
-				a.m_pos.x = m_data.m_start_end.x;
-				a.m_pos.y = m_data.m_start_end.y;
+				a.m_pos.x = m_data.start_end.x;
+				a.m_pos.y = m_data.start_end.y;
 
 				graphics::Vertex b;
-				b.m_pos.x = m_data.m_start_end.z;
-				b.m_pos.y = m_data.m_start_end.w;
+				b.m_pos.x = m_data.start_end.z;
+				b.m_pos.y = m_data.start_end.w;
 
 				vertices.emplace_back(a);
 				vertices.emplace_back(b);
@@ -320,7 +320,7 @@ namespace galaxy
 				m_height = 0.0f;
 
 				auto count = 0u;
-				for (const auto& point : m_data.m_points)
+				for (const auto& point : m_data.points)
 				{
 					if constexpr (shape == graphics::Shape::POLYGON)
 					{

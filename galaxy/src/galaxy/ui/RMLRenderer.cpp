@@ -200,10 +200,10 @@ namespace galaxy
 			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto file_info = fs.find(source);
-			if (file_info.m_code != fs::FileCode::FOUND)
+			if (file_info.code != fs::FileCode::FOUND)
 			{
 				stbi_set_flip_vertically_on_load(true);
-				unsigned char* data = stbi_load(file_info.m_string.c_str(), &texture_dimensions.x, &texture_dimensions.y, nullptr, STBI_rgb_alpha);
+				unsigned char* data = stbi_load(file_info.string.c_str(), &texture_dimensions.x, &texture_dimensions.y, nullptr, STBI_rgb_alpha);
 
 				if (data)
 				{
@@ -219,7 +219,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find RML texture '{0}', because {1}.", source, magic_enum::enum_name(file_info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find RML texture '{0}', because {1}.", source, magic_enum::enum_name(file_info.code));
 				result = false;
 			}
 

@@ -24,14 +24,14 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = fs.find(file);
-			if (path.m_code == fs::FileCode::FOUND)
+			if (path.code == fs::FileCode::FOUND)
 			{
-				std::ifstream input {path.m_string, std::ifstream::in};
+				std::ifstream input {path.string, std::ifstream::in};
 
 				if (!input.good())
 				{
 					input.close();
-					GALAXY_LOG(GALAXY_ERROR, "Failed to read: {0}.", path.m_string);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read: {0}.", path.string);
 
 					return std::nullopt;
 				}

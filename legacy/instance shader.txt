@@ -1,0 +1,48 @@
+///
+		/// Instance vertex shader.
+		///
+		/*  constexpr const auto instance_vert = R"(
+			#version 460 core
+			layout(location = 0) in vec2 l_pos;
+			layout(location = 1) in vec2 l_texels;
+			layout(location = 2) in vec4 l_colour;
+			layout(location = 3) in vec2 l_instance_offset;
+
+			out vec2 io_texels;
+
+			layout(std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_model_view;
+				mat4 u_camera_proj;
+			};
+
+			uniform float u_width;
+			uniform float u_height;
+
+			void main()
+			{
+				io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+				io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+
+				gl_Position = u_camera_proj * u_camera_model_view * vec4(l_pos + l_instance_offset, 0.0, 1.0);
+			}
+		)";
+
+		///
+		/// Instance fragment shader.
+		///
+		 constexpr const auto instance_frag = R"(
+			#version 460 core
+
+			in vec2 io_texels;
+			out vec4 io_frag_colour;
+
+			uniform float u_opacity;
+			uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels);
+				io_frag_colour.a *= u_opacity;
+			}
+		)";*/

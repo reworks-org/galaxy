@@ -357,12 +357,12 @@ namespace sc
 						static components::Primitive::PrimitiveData data = primitive->get_data();
 						if (s_type == graphics::Shape::CIRCLE || s_type == graphics::Shape::ELLIPSE)
 						{
-							ImGui::InputFloat("Fragments", &data.m_fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+							ImGui::InputFloat("Fragments", &data.fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
 						if (s_type == graphics::Shape::CIRCLE)
 						{
-							ImGui::InputFloat("Radius", &data.m_radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+							ImGui::InputFloat("Radius", &data.radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
 						if (s_type == graphics::Shape::ELLIPSE)
@@ -370,12 +370,12 @@ namespace sc
 							ImGui::Text("Radii");
 
 							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("X##1", &data.m_radii.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+							ImGui::InputFloat("X##1", &data.radii.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 
 							ImGui::SameLine();
 
 							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("Y##2", &data.m_radii.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+							ImGui::InputFloat("Y##2", &data.radii.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
 						if (s_type == graphics::Shape::LINE)
@@ -448,7 +448,7 @@ namespace sc
 						if (ImGui::Button("Create"))
 						{
 							updates.emplace_back([&]() {
-								data.m_points = std::move(points);
+								data.points = std::move(points);
 
 								switch (s_type)
 								{

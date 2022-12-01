@@ -44,9 +44,9 @@ namespace galaxy
 				{
 					if (path.string().find(m_root.string()) != std::string::npos)
 					{
-						info.m_code   = FileCode::FOUND;
-						info.m_path   = path;
-						info.m_string = path.string();
+						info.code   = FileCode::FOUND;
+						info.path   = path;
+						info.string = path.string();
 
 						return info;
 					}
@@ -54,7 +54,7 @@ namespace galaxy
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Provided path is not located in the vfs: {0}.", path.string());
 
-						info.m_code = FileCode::NOT_IN_VFS;
+						info.code = FileCode::NOT_IN_VFS;
 						return info;
 					}
 				}
@@ -75,17 +75,17 @@ namespace galaxy
 						{
 							const auto abs_dir_path = std::filesystem::absolute(dir_path);
 
-							info.m_code   = FileCode::FOUND;
-							info.m_path   = abs_dir_path;
-							info.m_string = abs_dir_path.string();
+							info.code   = FileCode::FOUND;
+							info.path   = abs_dir_path;
+							info.string = abs_dir_path.string();
 
 							return info;
 						}
 					}
 
-					info.m_code   = FileCode::NOT_FOUND;
-					info.m_path   = m_root / path;
-					info.m_string = info.m_path.string();
+					info.code   = FileCode::NOT_FOUND;
+					info.path   = m_root / path;
+					info.string = info.path.string();
 
 					return info;
 				}
@@ -94,7 +94,7 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "VFS::Find() cannot be used to search for a folder.");
 
-				info.m_code = FileCode::NO_EXTENSION;
+				info.code = FileCode::NO_EXTENSION;
 				return info;
 			}
 		}
@@ -103,7 +103,7 @@ namespace galaxy
 		{
 			const auto found = find(path);
 
-			if (found.m_code == FileCode::NOT_FOUND)
+			if (found.code == FileCode::NOT_FOUND)
 			{
 				std::ofstream::openmode flags = std::ofstream::trunc;
 
@@ -119,7 +119,7 @@ namespace galaxy
 
 				return true;
 			}
-			else if (found.m_code == FileCode::FOUND)
+			else if (found.code == FileCode::FOUND)
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Tried to create file that already exists: {0}.", path);
 				return false;
@@ -187,9 +187,9 @@ namespace galaxy
 		{
 			const auto path = find(file);
 
-			if (path.m_code == FileCode::FOUND)
+			if (path.code == FileCode::FOUND)
 			{
-				std::ifstream ifs {path.m_string, std::ifstream::in};
+				std::ifstream ifs {path.string, std::ifstream::in};
 
 				if (ifs.good())
 				{
@@ -215,9 +215,9 @@ namespace galaxy
 		{
 			const auto path = find(file);
 
-			if (path.m_code == FileCode::FOUND)
+			if (path.code == FileCode::FOUND)
 			{
-				std::ifstream ifs {path.m_string, std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
+				std::ifstream ifs {path.string, std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
 
 				if (ifs.good())
 				{
@@ -250,9 +250,9 @@ namespace galaxy
 		{
 			const auto path = find(file);
 
-			if (path.m_code == FileCode::FOUND || path.m_code == FileCode::NOT_FOUND)
+			if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
 			{
-				std::ofstream ofs {path.m_string, std::ofstream::out | std::ofstream::trunc};
+				std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc};
 
 				if (ofs.good())
 				{
@@ -279,9 +279,9 @@ namespace galaxy
 		{
 			const auto path = find(file);
 
-			if (path.m_code == FileCode::FOUND || path.m_code == FileCode::NOT_FOUND)
+			if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
 			{
-				std::ofstream ofs {path.m_string, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
+				std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
 
 				if (ofs.good())
 				{

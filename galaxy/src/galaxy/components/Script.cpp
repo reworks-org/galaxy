@@ -53,9 +53,9 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(file);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
-				m_file      = info.m_string;
+				m_file      = info.string;
 				auto& state = core::ServiceLocator<sol::state>::ref();
 
 				auto result = state.load_file(m_file);
@@ -70,7 +70,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find script '{0}' because '{1}'.", file, magic_enum::enum_name(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find script '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
 			}
 		}
 

@@ -20,17 +20,17 @@ namespace galaxy
 			///
 			/// Mouse x position.
 			///
-			double m_xpos = 0.0;
+			double xpos = 0.0;
 
 			///
 			/// Mouse y position.
 			///
-			double m_ypos = 0.0;
+			double ypos = 0.0;
 
 			///
 			/// Has this event been handled?
 			///
-			bool m_handled = false;
+			bool handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

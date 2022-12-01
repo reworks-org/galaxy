@@ -333,9 +333,9 @@ namespace galaxy
 								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
-								data.m_fragments = GALAXY_DEFAULT_ELLIPSE_FRAGMENTS;
-								data.m_radii.x   = obj.getSize().x / 2.0f;
-								data.m_radii.y   = obj.getSize().y / 2.0f;
+								data.fragments = GALAXY_DEFAULT_ELLIPSE_FRAGMENTS;
+								data.radii.x   = obj.getSize().x / 2.0f;
+								data.radii.y   = obj.getSize().y / 2.0f;
 
 								primitive.create<graphics::Shape::ELLIPSE>(data, colour, level);
 
@@ -349,10 +349,10 @@ namespace galaxy
 								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
-								data.m_points.emplace_back(0.0f, 0.0f);
-								data.m_points.emplace_back(obj.getSize().x, 0.0f);
-								data.m_points.emplace_back(obj.getSize().x, obj.getSize().y);
-								data.m_points.emplace_back(0.0f, obj.getSize().y);
+								data.points.emplace_back(0.0f, 0.0f);
+								data.points.emplace_back(obj.getSize().x, 0.0f);
+								data.points.emplace_back(obj.getSize().x, obj.getSize().y);
+								data.points.emplace_back(0.0f, obj.getSize().y);
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
 
@@ -378,7 +378,7 @@ namespace galaxy
 								components::Primitive::PrimitiveData data;
 								for (const auto& point : obj.getPolygons())
 								{
-									data.m_points.emplace_back(point.x, point.y);
+									data.points.emplace_back(point.x, point.y);
 								}
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
@@ -395,7 +395,7 @@ namespace galaxy
 								components::Primitive::PrimitiveData data;
 								for (const auto& point : obj.getPolylines())
 								{
-									data.m_points.emplace_back(point.x, point.y);
+									data.points.emplace_back(point.x, point.y);
 								}
 
 								primitive.create<graphics::Shape::POLYLINE>(data, colour, level);

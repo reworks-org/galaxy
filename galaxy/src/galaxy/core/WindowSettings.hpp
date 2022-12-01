@@ -22,47 +22,47 @@ namespace galaxy
 			///
 			/// Window title.
 			///
-			std::string m_title;
+			std::string title;
 
 			///
 			/// Width of window.
 			///
-			int m_width;
+			int width;
 
 			///
 			/// Height of window.
 			///
-			int m_height;
+			int height;
 
 			///
 			/// Vertical sync.
 			///
-			bool m_vsync;
+			bool vsync;
 
 			///
 			/// Open window maximized.
 			///
-			bool m_maximized;
+			bool maximized;
 
 			///
 			/// Enable debug api calls.
 			///
-			bool m_debug;
+			bool debug;
 
 			///
 			/// Window content area should be resized based on the monitor content scale.
 			///
-			bool m_scale_to_monitor;
+			bool scale_to_monitor;
 
 			///
 			/// Enable SMAA.
 			///
-			bool m_enable_aa;
+			bool enable_aa;
 
 			///
 			/// Enable sharpening.
 			///
-			bool m_enable_sharpen;
+			bool enable_sharpen;
 		};
 	} // namespace core
 } // namespace galaxy

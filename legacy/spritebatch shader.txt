@@ -1,0 +1,51 @@
+
+		///
+		/// SpriteBatch vertex shader.
+		///
+		/*  constexpr const auto spritebatch_vert = R"(
+			#version 460 core
+			layout(location = 0) in vec2 l_pos;
+			layout(location = 1) in vec2 l_texels;
+			layout(location = 2) in vec4 l_colour;
+
+			out vec2 io_texels;
+			out float io_opacity;
+
+			layout(std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_model_view;
+				mat4 u_camera_proj;
+			};
+
+			uniform float u_width;
+			uniform float u_height;
+
+			void main()
+			{
+				io_texels.x = (((l_texels.x - 0.0) * (1.0 - 0.0)) / (u_width - 0.0)) + 0.0;
+				io_texels.y = 1.0 - (((l_texels.y - 0.0) * (1.0 - 0.0)) / (u_height - 0.0)) + 0.0;
+				io_opacity = l_colour.a;
+
+				gl_Position =  u_camera_proj * u_camera_model_view * vec4(l_pos, 0.0, 1.0);
+			}
+		)";
+
+		///
+		/// SpriteBatch fragment shader.
+		///
+		 constexpr const auto spritebatch_frag = R"(
+			#version 460 core
+
+			in vec2 io_texels;
+			in float io_opacity;
+
+			out vec4 io_frag_colour;
+
+			uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels);
+				io_frag_colour.a *= io_opacity;
+			}
+		)";*/

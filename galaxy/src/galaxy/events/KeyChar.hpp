@@ -20,12 +20,12 @@ namespace galaxy
 			///
 			/// UTF codepoint.
 			///
-			unsigned int m_codepoint = 0u;
+			unsigned int codepoint = 0u;
 
 			///
 			/// Has this event been handled?
 			///
-			bool m_handled = false;
+			bool handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

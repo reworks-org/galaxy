@@ -26,48 +26,48 @@ namespace galaxy
 
 		void RMLEvents::on_mouse_move(events::MouseMoved& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessMouseMove(static_cast<int>(std::trunc(e.m_xpos)), static_cast<int>(std::trunc(e.m_ypos)), 0);
+				e.handled = !m_context->ProcessMouseMove(static_cast<int>(std::trunc(e.xpos)), static_cast<int>(std::trunc(e.ypos)), 0);
 			}
 		}
 
 		void RMLEvents::on_mouse_pressed(events::MousePressed& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessMouseButtonDown(static_cast<int>(e.m_button), convert_key_modifier(static_cast<int>(e.m_mod)));
+				e.handled = !m_context->ProcessMouseButtonDown(static_cast<int>(e.button), convert_key_modifier(static_cast<int>(e.mod)));
 			}
 		}
 
 		void RMLEvents::on_mouse_released(events::MouseReleased& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessMouseButtonUp(static_cast<int>(e.m_button), convert_key_modifier(static_cast<int>(e.m_mod)));
+				e.handled = !m_context->ProcessMouseButtonUp(static_cast<int>(e.button), convert_key_modifier(static_cast<int>(e.mod)));
 			}
 		}
 
 		void RMLEvents::on_mouse_wheel(events::MouseWheel& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessMouseWheel(static_cast<float>(e.m_yoff), 0);
+				e.handled = !m_context->ProcessMouseWheel(static_cast<float>(e.yoff), 0);
 			}
 		}
 
 		void RMLEvents::on_key_down(events::KeyDown& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessKeyDown(RMLInput::handle().m_keymap[e.m_keycode], RMLInput::handle().m_modmap[e.m_mod]);
+				e.handled = !m_context->ProcessKeyDown(RMLInput::handle().m_keymap[e.keycode], RMLInput::handle().m_modmap[e.mod]);
 			}
 		}
 
 		void RMLEvents::on_key_repeat(events::KeyRepeat& e) noexcept
 		{
-			e.m_handled = !m_context->ProcessKeyDown(RMLInput::handle().m_keymap[e.m_keycode], RMLInput::handle().m_modmap[e.m_mod]);
-			if (e.m_keycode == input::Keys::ENTER || e.m_keycode == input::Keys::KP_ENTER && e.m_handled)
+			e.handled = !m_context->ProcessKeyDown(RMLInput::handle().m_keymap[e.keycode], RMLInput::handle().m_modmap[e.mod]);
+			if (e.keycode == input::Keys::ENTER || e.keycode == input::Keys::KP_ENTER && e.handled)
 			{
 				m_context->ProcessTextInput('\n');
 			}
@@ -75,23 +75,23 @@ namespace galaxy
 
 		void RMLEvents::on_key_up(events::KeyUp& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessKeyUp(RMLInput::handle().m_keymap[e.m_keycode], RMLInput::handle().m_modmap[e.m_mod]);
+				e.handled = !m_context->ProcessKeyUp(RMLInput::handle().m_keymap[e.keycode], RMLInput::handle().m_modmap[e.mod]);
 			}
 		}
 
 		void RMLEvents::on_key_char(events::KeyChar& e) noexcept
 		{
-			if (!e.m_handled)
+			if (!e.handled)
 			{
-				e.m_handled = !m_context->ProcessTextInput(static_cast<Rml::Character>(e.m_codepoint));
+				e.handled = !m_context->ProcessTextInput(static_cast<Rml::Character>(e.codepoint));
 			}
 		}
 
 		void RMLEvents::on_window_resize(const events::WindowResized& e) noexcept
 		{
-			m_context->SetDimensions({e.m_width, e.m_height});
+			m_context->SetDimensions({e.width, e.height});
 		}
 
 		int RMLEvents::convert_key_modifier(int glfw_mods) noexcept

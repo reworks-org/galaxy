@@ -20,17 +20,17 @@ namespace galaxy
 			///
 			/// -1 or 1.
 			///
-			double m_xoff = 0.0;
+			double xoff = 0.0;
 
 			///
 			/// -1 or 1.
 			///
-			double m_yoff = 0.0;
+			double yoff = 0.0;
 
 			///
 			/// Has this event been handled?
 			///
-			bool m_handled = false;
+			bool handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

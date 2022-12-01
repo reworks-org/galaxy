@@ -23,27 +23,27 @@ namespace galaxy
 			///
 			/// Mouse x position.
 			///
-			double m_xpos = 0.0;
+			double xpos = 0.0;
 
 			///
 			/// Mouse y position.
 			///
-			double m_ypos = 0.0;
+			double ypos = 0.0;
 
 			///
 			/// Mouse button released.
 			///
-			input::MouseButtons m_button = input::MouseButtons::UNKNOWN;
+			input::MouseButtons button = input::MouseButtons::UNKNOWN;
 
 			///
 			/// Modifier Key.
 			///
-			input::InputMods m_mod = input::InputMods::UNKNOWN;
+			input::InputMods mod = input::InputMods::UNKNOWN;
 
 			///
 			/// Has this event been handled?
 			///
-			bool m_handled = false;
+			bool handled = false;
 		};
 	} // namespace events
 } // namespace galaxy

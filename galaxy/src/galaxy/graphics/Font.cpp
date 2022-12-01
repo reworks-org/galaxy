@@ -70,18 +70,18 @@ namespace galaxy
 			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(file);
-			if (info.m_code == fs::FileCode::FOUND)
+			if (info.code == fs::FileCode::FOUND)
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
 
-				m_font = msdfgl_load_font(fc.context(), info.m_string.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
+				m_font = msdfgl_load_font(fc.context(), info.string.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
 				msdfgl_set_missing_glyph_callback(fc.context(), msdfgl_generate_glyph, nullptr);
 
 				result = true;
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find font '{0}' because '{1}'.", file, magic_enum::enum_name(info.m_code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find font '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
 			}
 
 			return result;
