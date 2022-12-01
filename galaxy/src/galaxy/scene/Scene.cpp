@@ -31,11 +31,11 @@ namespace galaxy
 			unload();
 		}
 
-		void Scene::load()
+		void Scene::load() noexcept
 		{
 		}
 
-		void Scene::unload()
+		void Scene::unload() noexcept
 		{
 			// Cleanup loaded lua data from entities.
 			auto& lua = core::ServiceLocator<sol::state>::ref();

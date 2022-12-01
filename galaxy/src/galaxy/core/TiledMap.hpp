@@ -96,7 +96,7 @@ namespace galaxy
 			/// \param layer Layer to process.
 			/// \param level Needs to be incremented for each call.
 			///
-			void process_image_layer(tson::Layer& layer, int& level);
+			void process_image_layer(const tson::Layer& layer, int& level);
 
 			///
 			/// Fetch tile offset in tileset.
@@ -107,7 +107,7 @@ namespace galaxy
 			///
 			/// \return Offset as a vec2 integer.
 			///
-			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, tson::Map* map, tson::Tileset* tileset) noexcept;
+			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, const tson::Map* map, tson::Tileset* tileset) noexcept;
 
 		private:
 			///

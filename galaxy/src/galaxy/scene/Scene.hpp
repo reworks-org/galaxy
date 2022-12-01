@@ -37,12 +37,12 @@ namespace galaxy
 			///
 			/// Displays a loading screen overriding whatever is currently rendering.
 			///
-			void load();
+			void load() noexcept;
 
 			///
 			/// Unload scene data.
 			///
-			void unload();
+			void unload() noexcept;
 
 			///
 			/// Process scene events.

@@ -17,11 +17,6 @@
 #include "galaxy/error/Sink.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26846)
-#endif
-
 // clang-format off
 #ifdef _DEBUG
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
@@ -234,9 +229,5 @@ namespace galaxy
 		}
 	} // namespace error
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif
 
 #endif

@@ -547,7 +547,7 @@ namespace galaxy
 			glfwPollEvents();
 		}
 
-		void Window::begin()
+		void Window::begin() noexcept
 		{
 			m_postprocess.bind();
 		}

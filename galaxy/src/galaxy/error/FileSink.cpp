@@ -21,9 +21,10 @@ namespace galaxy
 
 		FileSink::FileSink(std::string_view file) noexcept
 		{
-			const auto filepath = std::filesystem::path(file);
+			const auto filepath    = std::filesystem::path(file);
+			const auto parent_path = filepath.parent_path();
 
-			for (const auto& path : std::filesystem::recursive_directory_iterator(filepath.parent_path()))
+			for (const auto& path : std::filesystem::recursive_directory_iterator(parent_path))
 			{
 				if (std::filesystem::is_regular_file(path) && is_older_than(path, GALAXY_REMOVE_LOG_FILES_OLDER_THAN_HOURS))
 				{

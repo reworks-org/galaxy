@@ -417,7 +417,7 @@ namespace galaxy
 			}
 		}
 
-		void TiledMap::process_image_layer(tson::Layer& layer, int& level)
+		void TiledMap::process_image_layer(const tson::Layer& layer, int& level)
 		{
 			level++;
 
@@ -447,7 +447,7 @@ namespace galaxy
 			shader.set_shader("Sprite");
 		}
 
-		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, tson::Map* map, tson::Tileset* tileset) noexcept
+		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, tson::Tileset* tileset) noexcept
 		{
 			const auto first   = tileset->getFirstgid();
 			const auto columns = tileset->getColumns();

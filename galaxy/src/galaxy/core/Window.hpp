@@ -81,7 +81,7 @@ namespace galaxy
 			///
 			/// Prepare window for rendering.
 			///
-			void begin();
+			void begin() noexcept;
 
 			///
 			/// Finalize rendering.

@@ -42,7 +42,7 @@ namespace galaxy
 			///
 			/// Cleanup used memory.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 			///
 			/// \brief Add an effect to process.

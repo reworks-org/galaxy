@@ -136,18 +136,15 @@ namespace galaxy
 					break;
 
 				case graphics::Shape::POLYGON:
-					json["points"] = nlohmann::json::array();
-					for (const auto& point : m_data.points)
-					{
-						json["points"].push_back(nlohmann::json::object({{"x", point.x}, {"y", point.y}}));
-					}
-					break;
-
 				case graphics::Shape::POLYLINE:
 					json["points"] = nlohmann::json::array();
 					for (const auto& point : m_data.points)
 					{
-						json["points"].push_back(nlohmann::json::object({{"x", point.x}, {"y", point.y}}));
+						auto obj = nlohmann::json::object();
+						obj["x"] = point.x;
+						obj["y"] = point.y;
+
+						json["points"].push_back(obj);
 					}
 					break;
 			}

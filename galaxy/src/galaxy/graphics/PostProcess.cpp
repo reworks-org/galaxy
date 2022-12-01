@@ -98,7 +98,7 @@ namespace galaxy
 			m_fb.create(width, height);
 		}
 
-		void PostProcess::destroy()
+		void PostProcess::destroy() noexcept
 		{
 			m_effects.clear();
 			m_output.destroy();

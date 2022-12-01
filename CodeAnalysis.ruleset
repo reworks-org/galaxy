@@ -45,5 +45,6 @@
     <Rule Id="C26489" Action="None" />
     <Rule Id="C26821" Action="None" />
     <Rule Id="C26823" Action="None" />
+    <Rule Id="C26846" Action="None" />
   </Rules>
 </RuleSet>
