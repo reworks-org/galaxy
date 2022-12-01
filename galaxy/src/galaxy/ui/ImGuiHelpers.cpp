@@ -11,6 +11,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
@@ -176,8 +177,22 @@ namespace galaxy
 
 		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept
 		{
-			std::string id = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
-			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(texture.handle()), size, {0, 1}, {1, 0});
+			const auto id     = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
+			const auto upcast = static_cast<std::uint64_t>(texture.handle());
+
+			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
+		}
+
+		void imgui_image(const graphics::Texture& texture, const ImVec2& size) noexcept
+		{
+			const auto upcast = static_cast<std::uint64_t>(texture.handle());
+			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
+		}
+
+		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size) noexcept
+		{
+			const auto upcast = static_cast<std::uint64_t>(texture.get_texture());
+			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
 		}
 	} // namespace ui
 } // namespace galaxy

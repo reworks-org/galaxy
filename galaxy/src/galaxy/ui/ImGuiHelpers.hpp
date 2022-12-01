@@ -17,6 +17,7 @@ namespace galaxy
 	namespace graphics
 	{
 		class Texture;
+		class RenderTexture;
 	} // namespace graphics
 
 	namespace ui
@@ -33,6 +34,8 @@ namespace galaxy
 		void imgui_center_next_window() noexcept;
 		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flag = ImGuiFocusedFlags_AnyWindow) noexcept;
 		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept;
+		void imgui_image(const graphics::Texture& texture, const ImVec2& size) noexcept;
+		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size) noexcept;
 	} // namespace ui
 } // namespace galaxy
 

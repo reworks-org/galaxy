@@ -107,7 +107,7 @@ namespace galaxy
 			///
 			/// \return Offset as a vec2 integer.
 			///
-			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, const tson::Map* map, tson::Tileset* tileset) noexcept;
+			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset) noexcept;
 
 		private:
 			///

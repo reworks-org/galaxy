@@ -933,7 +933,7 @@ namespace sc
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
 			}
 
-			ImGui::Image(reinterpret_cast<void*>(m_framebuffer.get_texture()), m_viewport_size, {0, 1}, {1, 0});
+			ui::imgui_image(m_framebuffer, m_viewport_size);
 		}
 
 		ImGui::PopStyleVar(1);

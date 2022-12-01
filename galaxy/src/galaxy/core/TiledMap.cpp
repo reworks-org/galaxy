@@ -293,8 +293,8 @@ namespace galaxy
 					{
 						case tson::ObjectType::Object:
 							{
-								auto tileset      = layer.getMap()->getTilesetByGid(obj.getGid());
-								const auto offset = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
+								const auto tileset = layer.getMap()->getTilesetByGid(obj.getGid());
+								const auto offset  = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
 
 								auto& image = tileset->getImage();
 
@@ -447,7 +447,7 @@ namespace galaxy
 			shader.set_shader("Sprite");
 		}
 
-		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, tson::Tileset* tileset) noexcept
+		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset) noexcept
 		{
 			const auto first   = tileset->getFirstgid();
 			const auto columns = tileset->getColumns();
