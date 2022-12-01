@@ -17,6 +17,11 @@
 
 #include "AnimationSystem.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26462)
+#endif
+
 namespace galaxy
 {
 	namespace systems
@@ -118,3 +123,7 @@ namespace galaxy
 		}
 	} // namespace systems
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

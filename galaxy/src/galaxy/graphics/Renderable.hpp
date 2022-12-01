@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			Renderable& operator=(Renderable&&) noexcept;
+			virtual Renderable& operator=(Renderable&&) noexcept;
 
 			///
 			/// Destructor.

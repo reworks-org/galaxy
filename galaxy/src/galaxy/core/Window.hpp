@@ -71,7 +71,7 @@ namespace galaxy
 			///
 			/// Destroys Window and related context and data.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 			///
 			/// Poll for events.

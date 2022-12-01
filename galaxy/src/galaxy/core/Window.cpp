@@ -521,7 +521,7 @@ namespace galaxy
 			glfwSetWindowShouldClose(m_window, GLFW_TRUE);
 		}
 
-		void Window::destroy()
+		void Window::destroy() noexcept
 		{
 			if (m_window != nullptr)
 			{
