@@ -28,6 +28,16 @@ namespace galaxy
 			virtual ~Serializable() noexcept;
 
 			///
+			/// Move assignment operator.
+			///
+			virtual Serializable& operator=(Serializable&&) = default;
+
+			///
+			/// Copy assignment operator.
+			///
+			virtual Serializable& operator=(const Serializable&) = default;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
