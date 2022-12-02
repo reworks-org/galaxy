@@ -147,8 +147,17 @@ namespace sc
 						}
 
 						ImGui::Checkbox("Allow Rotation", &camera.m_allow_rotate);
-						ImGui::InputFloat("Speed", &camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Move Speed", &camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
 						ImGui::InputFloat("Rotation Speed", &camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");
+
+						if (ImGui::CollapsingHeader("Layer Stack"))
+						{
+							auto count = 0;
+							for (const auto& layer : scene->layers().stack())
+							{
+								ImGui::Text("%i: %s", count, layer->get_name().c_str());
+							}
+						}
 
 						ImGui::Spacing();
 						ImGui::Separator();
@@ -219,19 +228,6 @@ namespace sc
 							}
 
 							ImGui::EndPopup();
-						}
-
-						if (ImGui::CollapsingHeader("Layer Stack"))
-						{
-							if (ImGui::Button("Pop"))
-							{
-								scene->layers().pop();
-							}
-
-							for (const auto& layer : scene->layers().stack())
-							{
-								ImGui::BulletText(layer->get_name().c_str());
-							}
 						}
 
 						for (auto&& [layer_key, layer] : scene->layers().cache())
