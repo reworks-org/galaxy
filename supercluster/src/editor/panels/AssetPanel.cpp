@@ -229,7 +229,7 @@ namespace sc
 						}
 						else
 						{
-							if (ext == ".ogg")
+							if (ext == ".ogg" || ext == ".wav" || ext == ".mp3")
 							{
 								m_icon = &m_audio;
 							}
