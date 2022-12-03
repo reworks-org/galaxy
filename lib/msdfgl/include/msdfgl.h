@@ -118,17 +118,31 @@ typedef struct _msdfgl_glyph {
 } msdfgl_glyph_t;
 
 /**
+ * Allocate textures for a font atlas.
+ */
+MSDFGL_EXPORT msdfgl_atlas_t msdfgl_create_atlas(msdfgl_context_t ctx, int texture_width,
+                                                 int padding);
+
+/**
+ * Release resources of a font atlas.
+ */
+MSDFGL_EXPORT void msdfgl_destroy_atlas(msdfgl_atlas_t atlas);
+
+/**
  * Load font from a font file and generate textures and buffers for it.
  */
-MSDFGL_EXPORT msdfgl_font_t msdfgl_load_font(msdfgl_context_t ctx, const char *font_name,
-                                             float range, float scale);
+MSDFGL_EXPORT FT_Face msdfgl_load_font(msdfgl_context_t ctx, const char *font_name);
+
+MSDFGL_EXPORT msdfgl_font_t _msdfgl_init_font_internal(msdfgl_context_t ctx, FT_Face* face,
+                                         float range, float scale,
+                                         msdfgl_atlas_t atlas);
 
 /**
  * Load font from memory and generate textures and buffers for it.
  */
 MSDFGL_EXPORT msdfgl_font_t msdfgl_load_font_mem(msdfgl_context_t ctx, void *font_buffer,
                                                  size_t font_buffer_size, float range,
-                                                 float scale);
+                                                 float scale, msdfgl_atlas_t atlas);
 
 /**
  * Get vertical advance of the font with the given size.
@@ -139,11 +153,6 @@ MSDFGL_EXPORT float msdfgl_vertical_advance(msdfgl_font_t font, float size);
  * Release resources allocated by `msdfgl_load_font`.
  */
 MSDFGL_EXPORT void msdfgl_destroy_font(msdfgl_font_t font);
-
-/**
- * Build atlas and prep opengl.
- */
-MSDFGL_EXPORT void msdfgl_build_font(msdfgl_context_t ctx, msdfgl_font_t font);
 
 /**
  * Render a single glyph onto the MSDF atlas. Intented use case is to generate
@@ -207,7 +216,7 @@ enum msdfgl_printf_flags {
      *       responsible for validating the untrusted string before passing it
      *       to msdfgl.
      */
-    MSDFGL_UTF8 = 0x08,
+    MSDFGL_UTF8 = 0x08
 };
 
 /**

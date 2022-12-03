@@ -21,6 +21,10 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to create font context.");
 			}
+			else
+			{
+				msdfgl_set_missing_glyph_callback(m_context, msdfgl_generate_glyph, nullptr);
+			}
 		}
 
 		FontContext::~FontContext() noexcept

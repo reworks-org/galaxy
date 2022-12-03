@@ -8,7 +8,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <nlohmann/json.hpp>
 
+#include <stb_image.h>
+#include <stb_image_write.h>
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/resource/Fonts.hpp"
 
 #include "Text.hpp"
@@ -48,7 +51,7 @@ namespace galaxy
 		{
 			this->m_colour  = std::move(s.m_colour);
 			this->m_vao     = std::move(s.m_vao);
-			this->m_texture = std::move(s.m_texture);
+			this->m_rt      = std::move(s.m_rt);
 			this->m_font_id = std::move(s.m_font_id);
 			this->m_font    = s.m_font;
 			this->m_width   = s.m_width;
@@ -67,7 +70,7 @@ namespace galaxy
 
 				this->m_colour  = std::move(s.m_colour);
 				this->m_vao     = std::move(s.m_vao);
-				this->m_texture = std::move(s.m_texture);
+				this->m_rt      = std::move(s.m_rt);
 				this->m_font_id = std::move(s.m_font_id);
 				this->m_font    = s.m_font;
 				this->m_width   = s.m_width;
@@ -88,6 +91,12 @@ namespace galaxy
 
 		void Text::create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer)
 		{
+			if (font.empty())
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to create a font without text.");
+				return;
+			}
+
 			m_colour  = colour;
 			m_font_id = font;
 			m_text    = text;
@@ -104,40 +113,75 @@ namespace galaxy
 				m_width        = vec.x;
 				m_height       = vec.y;
 
-				m_texture.bind(true);
-				m_texture.create(static_cast<int>(m_width), static_cast<int>(m_height));
-				m_texture_id = m_texture.get_texture();
+				///
+				auto tex = _msdfgl_atlas_texture(m_font->handle());
 
-				std::size_t start = 0;
-				std::size_t end   = m_text.find('\n');
+				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-				auto y_off = 0.0f;
-				while (end != std::string::npos)
+				auto path = std::filesystem::path("atlas.png");
+
+				auto full_path = fs.root_path() / path.parent_path() / path.stem();
+				auto full      = full_path.string();
+
+				if (!std::filesystem::exists(full_path.parent_path()))
 				{
-					msdfgl_printf(0,
-						y_off,
-						m_font->handle(),
-						m_size,
-						0x000000FF,
-						glm::value_ptr(m_texture.get_proj()),
-						MSDFGL_KERNING,
-						m_text.substr(start, end - start).c_str());
-
-					y_off += m_font->vertical_advance(m_size);
-					start = end + 1;
-					end   = m_text.find('\n', start);
+					std::filesystem::create_directories(full_path.parent_path());
 				}
+				if (!full.ends_with(".png") || !full.ends_with(".PNG"))
+				{
+					full += ".png";
+				}
+				const auto ui = static_cast<unsigned int>(4096) * static_cast<unsigned int>(4096) * 4u;
+				std::vector<unsigned int> pixels(ui, 0);
+
+				glGetTextureImage(tex, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
+
+				stbi_flip_vertically_on_write(true);
+				stbi_write_png(full.c_str(), 4096, 4096, 4, pixels.data(), 4096 * 4);
+				///
+
+				m_rt.create(static_cast<int>(4096), static_cast<int>(4096));
+				m_texture_id = m_rt.get_texture();
+
+				m_rt.bind(true);
 
 				msdfgl_printf(0,
-					y_off,
+					0,
 					m_font->handle(),
 					m_size,
-					0x000000FF,
-					glm::value_ptr(m_texture.get_proj()),
-					MSDFGL_KERNING,
-					m_text.substr(start, end).c_str());
+					0xffffffff,
+					glm::value_ptr(m_rt.get_proj()),
+					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
+					"%s",
+					m_text.c_str());
 
-				m_texture.unbind();
+				/*
+				try
+				{
+					std::size_t start = 0;
+					std::size_t end   = m_text.find('\n');
+
+					auto y_off = 0.0f;
+					while (end != std::string::npos)
+					{
+						const auto block_text = m_text.substr(start, end);
+						msdfgl_printf(0, y_off, m_font->handle(), m_size, 0x000000FF, glm::value_ptr(m_rt.get_proj()), MSDFGL_KERNING, block_text.c_str());
+
+						y_off += m_font->vertical_advance(m_size);
+						start = end + 1;
+						end   = m_text.find('\n', start);
+					}
+
+					const auto last_text = m_text.substr(start, end);
+					msdfgl_printf(0, y_off, m_font->handle(), m_size, 0x000000FF, glm::value_ptr(m_rt.get_proj()), MSDFGL_KERNING, last_text.c_str());
+				}
+				catch (const std::exception& e)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
+				}
+				*/
+				m_rt.unbind();
+				m_rt.save("dump.png");
 
 				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
 				m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
@@ -154,7 +198,7 @@ namespace galaxy
 				m_width        = vec.x;
 				m_height       = vec.y;
 
-				m_texture.bind(true);
+				m_rt.bind(true);
 
 				std::size_t start = 0;
 				std::size_t end   = m_text.find('\n');
@@ -167,7 +211,7 @@ namespace galaxy
 						m_font->handle(),
 						m_size,
 						0x000000FF,
-						glm::value_ptr(m_texture.get_proj()),
+						glm::value_ptr(m_rt.get_proj()),
 						MSDFGL_KERNING,
 						m_text.substr(start, end - start).c_str());
 
@@ -181,11 +225,11 @@ namespace galaxy
 					m_font->handle(),
 					m_size,
 					0x000000FF,
-					glm::value_ptr(m_texture.get_proj()),
+					glm::value_ptr(m_rt.get_proj()),
 					MSDFGL_KERNING,
 					m_text.substr(start, end).c_str());
 
-				m_texture.unbind();
+				m_rt.unbind();
 
 				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
 

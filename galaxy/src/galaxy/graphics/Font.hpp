@@ -118,6 +118,13 @@ namespace galaxy
 			/// Font object.
 			///
 			msdfgl_font_t m_font;
+
+			///
+			/// \brief Freetype face.
+			///
+			/// Owned by MSDFGL.
+			///
+			FT_Face m_face;
 		};
 	} // namespace graphics
 } // namespace galaxy

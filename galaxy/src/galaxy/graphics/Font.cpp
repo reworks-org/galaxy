@@ -17,11 +17,13 @@ namespace galaxy
 	{
 		Font::Font() noexcept
 			: m_font {nullptr}
+			, m_face {nullptr}
 		{
 		}
 
 		Font::Font(const std::string& file)
 			: m_font {nullptr}
+			, m_face {nullptr}
 		{
 			if (!load(file))
 			{
@@ -37,7 +39,10 @@ namespace galaxy
 			}
 
 			this->m_font = f.m_font;
-			f.m_font     = nullptr;
+			this->m_face = f.m_face;
+
+			f.m_font = nullptr;
+			f.m_face = nullptr;
 		}
 
 		Font& Font::operator=(Font&& f) noexcept
@@ -50,7 +55,10 @@ namespace galaxy
 				}
 
 				this->m_font = f.m_font;
-				f.m_font     = nullptr;
+				this->m_face = f.m_face;
+
+				f.m_font = nullptr;
+				f.m_face = nullptr;
 			}
 
 			return *this;
@@ -61,6 +69,8 @@ namespace galaxy
 			if (m_font != nullptr)
 			{
 				msdfgl_destroy_font(m_font);
+
+				m_face = nullptr;
 			}
 		}
 
@@ -73,9 +83,7 @@ namespace galaxy
 			if (info.code == fs::FileCode::FOUND)
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
-
-				m_font = msdfgl_load_font(fc.context(), info.string.c_str(), GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE);
-				msdfgl_set_missing_glyph_callback(fc.context(), msdfgl_generate_glyph, nullptr);
+				m_face   = msdfgl_load_font(fc.context(), info.string.c_str());
 
 				result = true;
 			}
@@ -89,8 +97,13 @@ namespace galaxy
 
 		void Font::build()
 		{
-			msdfgl_build_font(core::ServiceLocator<FontContext>::ref().context(), m_font);
+			auto& fc = core::ServiceLocator<FontContext>::ref();
+
+			m_font = _msdfgl_init_font_internal(fc.context(), &m_face, GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE, nullptr);
 			msdfgl_generate_ascii_ext(m_font);
+
+			/* NOW OWNED BY MSDFGL */
+			m_face = nullptr;
 		}
 
 		float Font::vertical_advance(const float size) const noexcept

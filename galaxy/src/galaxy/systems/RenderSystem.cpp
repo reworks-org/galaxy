@@ -71,7 +71,7 @@ namespace galaxy
 			}
 
 			const auto text_view = layer->world().m_registry.view<components::Text, components::DrawShader, components::Transform, components::Flag>();
-			for (auto&& [entity, text, shader, transform, flag] : prim_view.each())
+			for (auto&& [entity, text, shader, transform, flag] : text_view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())
 				{

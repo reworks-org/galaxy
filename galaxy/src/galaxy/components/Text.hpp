@@ -198,7 +198,7 @@ namespace galaxy
 			///
 			/// Font render texture.
 			///
-			graphics::RenderTexture m_texture;
+			graphics::RenderTexture m_rt;
 
 			///
 			/// Font Name.
