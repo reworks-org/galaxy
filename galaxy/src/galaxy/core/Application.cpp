@@ -7,8 +7,6 @@
 
 #include <BS_thread_pool.hpp>
 #include <glfw/glfw3.h>
-#include <RmlUi/Core.h>
-#include <RmlUi/Lua.h>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
@@ -111,8 +109,6 @@ namespace galaxy
 			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
 			config.restore<bool>("enable_aa", false, "graphics");
 			config.restore<bool>("enable_sharpen", false, "graphics");
-			config.restore<std::string>("bg", "", "loading");
-			config.restore<std::string>("font", "", "loading");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -205,19 +201,10 @@ namespace galaxy
 			ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
 
 			//
-			// Set up load screen.
-			//
-			auto bg   = config.get<std::string>("bg", "loading");
-			auto font = config.get<std::string>("font", "loading");
-			if (bg.empty() || font.empty())
-			{
-				GALAXY_LOG(GALAXY_FATAL, "You need to set a background and a font for the loading screen in the config.");
-			}
-
-			Loading loading(bg, font);
-
-			//
 			// Begin offthread loading.
+			//
+			Loading loading;
+
 			// clang-format off
 			//
             // NOTE: You CANT call OpenGL here. This runs on a separate thread.
@@ -339,40 +326,6 @@ namespace galaxy
 					maps.load(config.get<std::string>("maps_folder", "resource_folders"));
 
 					//
-					// UI.
-					//
-					Rml::SetSystemInterface(&m_rml_system_interface);
-					Rml::SetFileInterface(&m_rml_file_interface);
-					Rml::SetRenderInterface(&m_rml_rendering_interface);
-
-					if (Rml::Initialise())
-					{
-						Rml::Lua::Initialise(lua.lua_state());
-
-						const auto dir      = config.get<std::string>("font_folder", "resource_folders");
-						const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
-
-						if (!contents.empty())
-						{
-							for (const auto& file : contents)
-							{
-								if (!Rml::LoadFontFace(file))
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
-								}
-							}
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
-					}
-
-					//
 					// SceneManager.
 					//
 					scene::LayerRegistry::register_type<scene::UILayer>("UI");
@@ -393,13 +346,14 @@ namespace galaxy
 				{
 					GALAXY_LOG(GALAXY_ERROR, e.what());
 				}
+
+				std::this_thread::sleep_for(20s);
 			});
 
 			// Will display until loading offthread is done.
 			loading.display();
 
 			ServiceLocator<resource::Shaders>::ref().compile();
-			m_rml_rendering_interface.compile_shaders();
 			ServiceLocator<resource::Fonts>::ref().build();
 
 			//
@@ -418,10 +372,6 @@ namespace galaxy
 		{
 			ServiceLocator<scene::SceneManager>::del();
 			scene::LayerRegistry::m_registry.clear();
-
-			Rml::Shutdown();
-			m_rml_rendering_interface.delete_shaders();
-
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Sounds>::del();
 			ServiceLocator<audio::AudioEngine>::del();

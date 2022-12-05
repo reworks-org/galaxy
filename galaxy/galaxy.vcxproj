@@ -132,11 +132,6 @@
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
@@ -275,11 +270,6 @@
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />

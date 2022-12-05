@@ -2,16 +2,19 @@
 /// RMLRenderer.hpp
 /// galaxy
 ///
-/// Refer to LICENSE.txt for more details.
+/// Originally from https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Renderer_GL3.h
+/// Code has been modified to work in galaxy.
 ///
 
 #ifndef GALAXY_UI_RMLRENDERER_HPP_
 #define GALAXY_UI_RMLRENDERER_HPP_
 
-#include <glm/mat4x4.hpp>
 #include <RmlUi/Core/RenderInterface.h>
 
-#include "galaxy/graphics/Shader.hpp"
+namespace Gfx
+{
+	struct ShadersData;
+}
 
 namespace galaxy
 {
@@ -31,7 +34,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~RMLRenderer() noexcept = default;
+			virtual ~RMLRenderer() noexcept;
 
 			///
 			/// \brief Called by RmlUi when it wants to render geometry that the application does not wish to optimise.
@@ -73,17 +76,17 @@ namespace galaxy
 			///
 			/// Called by RmlUi when it wants to render application-compiled geometry.
 			///
-			/// \param geometry The application-specific compiled geometry to render.
+			/// \param handle The application-specific compiled geometry to render.
 			/// \param translation The translation to apply to the geometry.
 			///
-			void RenderCompiledGeometry(Rml::CompiledGeometryHandle geometry, const Rml::Vector2f& translation) override;
+			void RenderCompiledGeometry(Rml::CompiledGeometryHandle handle, const Rml::Vector2f& translation) override;
 
 			///
 			/// Called by RmlUi when it wants to release application-compiled geometry.
 			///
-			/// \param geometry The application-specific compiled geometry to release.
+			/// \param handle The application-specific compiled geometry to release.
 			///
-			void ReleaseCompiledGeometry(Rml::CompiledGeometryHandle geometry) override;
+			void ReleaseCompiledGeometry(Rml::CompiledGeometryHandle handle) override;
 
 			///
 			/// Called by RmlUi when it wants to enable or disable scissoring to clip content.
@@ -137,35 +140,43 @@ namespace galaxy
 			/// This will only be called if 'transform' properties are encountered. If no transform applies to the current element, nullptr
 			/// is submitted. Then it expects the renderer to use an identity matrix or otherwise omit the multiplication with the transform.
 			///
-			/// \param transform The new transform to apply, or nullptr if no transform applies to the current element.
+			/// \param new_transform The new transform to apply, or nullptr if no transform applies to the current element.
 			///
-			void SetTransform(const Rml::Matrix4f* transform) override;
+			void SetTransform(const Rml::Matrix4f* new_transform) override;
 
-			///
-			/// Compile shaders used by RML.
-			///
-			void compile_shaders();
+			void init();
+			void destroy();
 
-			///
-			/// Delete shaders.
-			///
-			void delete_shaders();
+			void new_frame();
+			void end_frame();
 
 		private:
-			///
-			/// Shader for rendering RML geometry.
-			///
-			graphics::Shader m_shader;
+			enum class ProgramId
+			{
+				None,
+				Texture = 1,
+				Color   = 2,
+				All     = (Texture | Color)
+			};
 
-			///
-			/// Identity matrix.
-			///
-			glm::mat4 m_identity;
+			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
 
-			///
-			/// Scissor region cache.
-			///
-			glm::vec4 m_scissor_region;
+			Rml::Matrix4f transform, projection;
+			ProgramId transform_dirty_state = ProgramId::All;
+			bool transform_active           = false;
+
+			enum class ScissoringState
+			{
+				Disable,
+				Scissor,
+				Stencil
+			};
+			ScissoringState scissoring_state = ScissoringState::Disable;
+
+			int viewport_width  = 0;
+			int viewport_height = 0;
+
+			Rml::UniquePtr<Gfx::ShadersData> shaders;
 		};
 	} // namespace ui
 } // namespace galaxy

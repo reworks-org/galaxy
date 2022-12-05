@@ -3,3 +3,10 @@ editor:
 	- add loading indicator for map loading
 - mouse picking
 	- imgizmo
+
+- redesign layers:
+	- https://gamedev.stackexchange.com/questions/71555/entity-component-system-for-hud-and-gui
+	- https://gamedev.stackexchange.com/questions/136281/layered-ui-architecture
+	- layer ui should recieve events first.
+	- then consume them if needed.
+	- UI layer should be in a scene, then the game layer below.

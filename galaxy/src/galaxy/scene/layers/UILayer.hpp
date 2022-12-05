@@ -9,7 +9,6 @@
 #define GALAXY_STATE_LAYER_UILAYER_HPP_
 
 #include "galaxy/scene/Layer.hpp"
-#include "galaxy/ui/RMLEvents.hpp"
 
 namespace galaxy
 {
@@ -88,16 +87,6 @@ namespace galaxy
 			UILayer() = delete;
 
 		private:
-			///
-			/// RML context.
-			/// This is non-owning.
-			///
-			Rml::Context* m_rml;
-
-			///
-			/// Event handler for Rml.
-			///
-			ui::RMLEvents m_rml_events;
 		};
 	} // namespace scene
 } // namespace galaxy
