@@ -10,7 +10,8 @@
 
 #include <concepts>
 
-#include "galaxy/core/World.hpp"
+#include <entt/signal/dispatcher.hpp>
+
 #include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
@@ -25,8 +26,9 @@ namespace galaxy
 		class Scene;
 
 		///
-		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
-		/// I.e. UI, Debug UI, Game, etc.
+		/// A layer is a contained part of your game engine.
+		/// I.e. A scene would have a runtime layer and a UI layer.
+		/// It then might toggle a debug ui layer on top.
 		///
 		class Layer : public fs::Serializable
 		{
@@ -70,18 +72,6 @@ namespace galaxy
 			virtual void render() = 0;
 
 			///
-			/// Get layer type.
-			///
-			/// \return String.
-			///
-			[[nodiscard]] virtual const std::string& get_type() const noexcept = 0;
-
-			///
-			/// Only update the rendersystem.
-			///
-			void update_rendersystem();
-
-			///
 			/// Set layer name.
 			///
 			/// \param name String name for debug purposes.
@@ -96,11 +86,18 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_name() const noexcept;
 
 			///
-			/// Get layer entity world.
+			/// Get a reference to this layers event dispatcher.
 			///
-			/// \return Reference to World.
+			/// \return Reference to entt::dispatcher.
 			///
-			[[nodiscard]] core::World& world() noexcept;
+			[[nodiscard]] entt::dispatcher& dispatcher() noexcept;
+
+			///
+			/// Get layer type.
+			///
+			/// \return String.
+			///
+			[[nodiscard]] virtual const std::string& get_type() const noexcept = 0;
 
 		protected:
 			///
@@ -114,9 +111,9 @@ namespace galaxy
 			Scene* m_scene;
 
 			///
-			/// Entitys, events, etc.
+			/// Event dispatcher.
 			///
-			core::World m_world;
+			entt::dispatcher m_dispatcher;
 
 		private:
 			///

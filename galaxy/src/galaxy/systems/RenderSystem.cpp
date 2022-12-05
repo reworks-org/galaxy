@@ -14,7 +14,7 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/graphics/Renderer.hpp"
-#include "galaxy/scene/Layer.hpp"
+#include "galaxy/scene/Scene.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -30,9 +30,9 @@ namespace galaxy
 		{
 		}
 
-		void RenderSystem::update(scene::Layer* layer)
+		void RenderSystem::update(scene::Scene* scene)
 		{
-			const auto spr_view = layer->world().m_registry.view<components::Sprite, components::DrawShader, components::Transform, components::Flag>();
+			const auto spr_view = scene->m_world.m_registry.view<components::Sprite, components::DrawShader, components::Transform, components::Flag>();
 			for (auto&& [entity, sprite, shader, transform, flag] : spr_view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())
@@ -51,7 +51,7 @@ namespace galaxy
 				}
 			}
 
-			const auto prim_view = layer->world().m_registry.view<components::Primitive, components::DrawShader, components::Transform, components::Flag>();
+			const auto prim_view = scene->m_world.m_registry.view<components::Primitive, components::DrawShader, components::Transform, components::Flag>();
 			for (auto&& [entity, primitive, shader, transform, flag] : prim_view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())
@@ -70,7 +70,7 @@ namespace galaxy
 				}
 			}
 
-			const auto text_view = layer->world().m_registry.view<components::Text, components::DrawShader, components::Transform, components::Flag>();
+			const auto text_view = scene->m_world.m_registry.view<components::Text, components::DrawShader, components::Transform, components::Flag>();
 			for (auto&& [entity, text, shader, transform, flag] : text_view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())
@@ -89,7 +89,7 @@ namespace galaxy
 				}
 			}
 
-			const auto map_view = layer->world().m_registry.view<components::Map, components::DrawShader, components::Transform, components::Flag>();
+			const auto map_view = scene->m_world.m_registry.view<components::Map, components::DrawShader, components::Transform, components::Flag>();
 			for (auto&& [entity, map, shader, transform, flag] : map_view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())

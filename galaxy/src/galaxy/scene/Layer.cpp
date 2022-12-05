@@ -21,11 +21,6 @@ namespace galaxy
 		{
 		}
 
-		void Layer::update_rendersystem()
-		{
-			m_world.update_rendersystem(this);
-		}
-
 		void Layer::set_name(std::string_view name) noexcept
 		{
 			m_name = static_cast<std::string>(name);
@@ -36,9 +31,9 @@ namespace galaxy
 			return m_name;
 		}
 
-		core::World& Layer::world() noexcept
+		entt::dispatcher& Layer::dispatcher() noexcept
 		{
-			return m_world;
+			return m_dispatcher;
 		}
 	} // namespace scene
 } // namespace galaxy

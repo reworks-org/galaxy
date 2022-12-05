@@ -12,7 +12,7 @@
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/physics/Constants.hpp"
-#include "galaxy/scene/Layer.hpp"
+#include "galaxy/scene/Scene.hpp"
 
 #include "PhysicsSystem.hpp"
 
@@ -28,9 +28,9 @@ namespace galaxy
 		{
 		}
 
-		void PhysicsSystem::update(scene::Layer* layer)
+		void PhysicsSystem::update(scene::Scene* scene)
 		{
-			const auto view = layer->world().m_registry.view<components::RigidBody, components::Transform, components::Flag>();
+			const auto view = scene->m_world.m_registry.view<components::RigidBody, components::Transform, components::Flag>();
 			for (auto&& [entity, body, transform, flag] : view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())

@@ -8,6 +8,8 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
+#include "galaxy/core/World.hpp"
+#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/scene/Layers.hpp"
 
@@ -86,13 +88,6 @@ namespace galaxy
 			[[nodiscard]] Layers& layers() noexcept;
 
 			///
-			/// Get camera.
-			///
-			/// \return Reference to camera.
-			///
-			[[nodiscard]] graphics::Camera& get_camera() noexcept;
-
-			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -106,6 +101,22 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
+		public:
+			///
+			/// Camera.
+			///
+			graphics::Camera m_camera;
+
+			///
+			/// Entitys, events, etc.
+			///
+			core::World m_world;
+
+			///
+			/// Manages the map for this layer.
+			///
+			core::TiledMap m_map;
+
 		private:
 			///
 			/// Scene name for debug purposes.
@@ -116,16 +127,6 @@ namespace galaxy
 			/// Controls current application layer.
 			///
 			Layers m_layer_stack;
-
-			///
-			/// Camera.
-			///
-			graphics::Camera m_camera;
-
-			///
-			/// Scene specific events that arent for a particular layer.
-			///
-			entt::dispatcher m_scene_dispatcher;
 		};
 	} // namespace scene
 } // namespace galaxy

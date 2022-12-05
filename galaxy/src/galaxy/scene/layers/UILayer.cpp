@@ -7,12 +7,6 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/audio/AudioEngine.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/scene/Scene.hpp"
-
 #include "UILayer.hpp"
 
 namespace galaxy
@@ -30,23 +24,18 @@ namespace galaxy
 
 		void UILayer::on_push()
 		{
-			// show rml docs
 		}
 
 		void UILayer::on_pop()
 		{
-			// hide rml docs
-			core::ServiceLocator<audio::AudioEngine>::ref().stop();
 		}
 
 		void UILayer::events()
 		{
-			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_world.m_dispatcher);
 		}
 
 		void UILayer::update()
 		{
-			m_world.update(this);
 		}
 
 		void UILayer::render()
@@ -64,7 +53,6 @@ namespace galaxy
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["type"]        = get_type();
-			json["world"]       = m_world.serialize();
 
 			// serialize rml docs?
 
@@ -74,7 +62,6 @@ namespace galaxy
 		void UILayer::deserialize(const nlohmann::json& json)
 		{
 			m_name = json.at("name");
-			m_world.deserialize(json.at("world"));
 		}
 	} // namespace scene
 } // namespace galaxy

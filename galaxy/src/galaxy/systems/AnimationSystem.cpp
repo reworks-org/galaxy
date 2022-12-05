@@ -12,7 +12,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/scene/Layer.hpp"
+#include "galaxy/scene/Scene.hpp"
 #include "galaxy/utils/Globals.hpp"
 
 #include "AnimationSystem.hpp"
@@ -34,10 +34,10 @@ namespace galaxy
 		{
 		}
 
-		void AnimationSystem::update(scene::Layer* layer)
+		void AnimationSystem::update(scene::Scene* scene)
 		{
 			// Sprites.
-			const auto view = layer->world().m_registry.view<components::Animated, components::Flag>();
+			const auto view = scene->m_world.m_registry.view<components::Animated, components::Flag>();
 			for (auto&& [entity, animated, flag] : view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>() && !animated.is_paused())
@@ -57,7 +57,7 @@ namespace galaxy
 								const auto next = active_anim->next_frame();
 								if (next != nullptr)
 								{
-									auto sprite = layer->world().m_registry.try_get<components::Sprite>(entity);
+									auto sprite = scene->m_world.m_registry.try_get<components::Sprite>(entity);
 									if (sprite != nullptr)
 									{
 										sprite->update(next->m_texture_id);
@@ -72,7 +72,7 @@ namespace galaxy
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
 			// Tiles.
-			const auto view2 = layer->world().m_registry.view<components::Map, components::Flag>();
+			const auto view2 = scene->m_world.m_registry.view<components::Map, components::Flag>();
 			for (auto&& [entity, map, flag] : view2.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())

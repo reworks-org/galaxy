@@ -26,6 +26,8 @@
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/physics/Constants.hpp"
+#include "galaxy/scene/Scene.hpp"
+#include "galaxy/scene/layers/RuntimeLayer.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -36,10 +38,11 @@ namespace galaxy
 {
 	namespace core
 	{
-		World::World() noexcept
+		World::World(scene::Scene* scene) noexcept
 			: Serializable {}
 			, m_b2world {nullptr}
 			, m_rendersystem_index {-1}
+			, m_scene {scene}
 		{
 			m_b2world = std::make_unique<b2World>(physics::Constants::gravity);
 
@@ -91,6 +94,8 @@ namespace galaxy
 				m_b2world.reset();
 				m_b2world = nullptr;
 			}
+
+			m_scene = nullptr;
 		}
 
 		entt::entity World::create()
@@ -171,7 +176,7 @@ namespace galaxy
 			return true;
 		}
 
-		void World::update(scene::Layer* layer)
+		void World::update()
 		{
 			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
 			{
@@ -203,15 +208,15 @@ namespace galaxy
 
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
-				m_systems[i]->update(layer);
+				m_systems[i]->update(m_scene);
 			}
 		}
 
-		void World::update_rendersystem(scene::Layer* layer)
+		void World::update_rendersystem()
 		{
 			if (m_rendersystem_index < m_systems.size() && m_rendersystem_index != -1)
 			{
-				m_systems[m_rendersystem_index]->update(layer);
+				m_systems[m_rendersystem_index]->update(m_scene);
 			}
 		}
 
@@ -220,7 +225,6 @@ namespace galaxy
 			m_systems.clear();
 			m_component_factory.clear();
 			m_registry.clear();
-			m_dispatcher.clear();
 			m_bodies_to_construct.clear();
 
 			m_rendersystem_index = -1;
@@ -338,7 +342,7 @@ namespace galaxy
 				}
 
 				script.m_self["owner"]      = std::ref(registry);
-				script.m_self["dispatcher"] = std::ref(m_dispatcher);
+				script.m_self["dispatcher"] = std::ref(m_runtime_layer->dispatcher());
 				script.m_self["id"]         = sol::readonly_property([entity] {
                     return entity;
                 });

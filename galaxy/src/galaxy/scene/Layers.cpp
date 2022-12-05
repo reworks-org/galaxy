@@ -104,14 +104,6 @@ namespace galaxy
 			}
 		}
 
-		void Layers::update_rendersystem()
-		{
-			for (auto i = 0; i < m_stack.size(); i++)
-			{
-				m_stack[i]->update_rendersystem();
-			}
-		}
-
 		void Layers::clear()
 		{
 			while (!m_stack.empty())

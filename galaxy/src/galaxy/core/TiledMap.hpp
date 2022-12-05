@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace scene
 	{
-		class RuntimeLayer;
+		class Scene;
 	} // namespace scene
 
 	namespace core
@@ -27,9 +27,9 @@ namespace galaxy
 			///
 			/// Argument constructor.
 			///
-			/// \param layer Pointer to layer this map belongs to.
+			/// \param scene Pointer to scene this map belongs to.
 			///
-			TiledMap(scene::RuntimeLayer* layer);
+			TiledMap(scene::Scene* scene);
 
 			///
 			/// Destructor.
@@ -116,9 +116,9 @@ namespace galaxy
 			std::string m_name;
 
 			///
-			/// Pointer to layer this map belongs to.
+			/// Pointer to scene this map belongs to.
 			///
-			scene::RuntimeLayer* m_layer;
+			scene::Scene* m_scene;
 
 			///
 			/// List of entities for this map.

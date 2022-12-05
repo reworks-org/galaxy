@@ -31,6 +31,7 @@
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/World.hpp"
 
@@ -444,10 +445,15 @@ namespace galaxy
 			auto world_type                  = lua.new_usertype<core::World>("World", sol::no_constructor);
 			world_type["clear"]              = &core::World::clear;
 			world_type["registry"]           = &core::World::m_registry;
-			world_type["dispatcher"]         = &core::World::m_dispatcher;
 			world_type["create"]             = &core::World::create;
 			world_type["create_from_prefab"] = &core::World::create_from_prefab;
 			world_type["is_valid"]           = &core::World::is_valid;
+
+			auto tiledmap_type           = lua.new_usertype<core::TiledMap>("TiledMap", sol::no_constructor);
+			tiledmap_type["disable_map"] = &core::TiledMap::disable_map;
+			tiledmap_type["enable_map"]  = &core::TiledMap::enable_map;
+			tiledmap_type["get_name"]    = &core::TiledMap::get_name;
+			tiledmap_type["load_map"]    = &core::TiledMap::load_map;
 
 			/* ERROR */
 			// clang-format off
@@ -970,11 +976,13 @@ namespace galaxy
 			scenemanager_type["set"]     = &scene::SceneManager::set;
 
 			// Use scenemanager to create.
-			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
-			scene_type["set_name"]   = &scene::Scene::set_name;
-			scene_type["get_name"]   = &scene::Scene::get_name;
-			scene_type["layers"]     = &scene::Scene::layers;
-			scene_type["get_camera"] = &scene::Scene::get_camera;
+			auto scene_type        = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["set_name"] = &scene::Scene::set_name;
+			scene_type["get_name"] = &scene::Scene::get_name;
+			scene_type["layers"]   = &scene::Scene::layers;
+			scene_type["camera"]   = &scene::Scene::m_camera;
+			scene_type["map"]      = &scene::Scene::m_map;
+			scene_type["world"]    = &scene::Scene::m_world;
 
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 

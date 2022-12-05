@@ -8,7 +8,6 @@
 #ifndef GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 #define GALAXY_STATE_LAYER_RUNTIMELAYER_HPP_
 
-#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/scene/Layer.hpp"
 
 namespace galaxy
@@ -16,8 +15,7 @@ namespace galaxy
 	namespace scene
 	{
 		///
-		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
-		/// I.e. UI, Debug UI, Game, etc.
+		/// Layer handling game logic.
 		///
 		class RuntimeLayer final : public Layer
 		{
@@ -86,12 +84,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			RuntimeLayer() = delete;
-
-		public:
-			///
-			/// Manages the map for this layer.
-			///
-			core::TiledMap m_map;
 		};
 	} // namespace scene
 } // namespace galaxy

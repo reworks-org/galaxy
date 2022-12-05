@@ -12,6 +12,7 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
+#include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
 
 #include "RuntimeLayer.hpp"
@@ -22,11 +23,15 @@ namespace galaxy
 	{
 		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene) noexcept
 			: Layer {name, scene}
-			, m_map {this}
 		{
-			m_world.create_system<systems::ScriptSystem>();
-			m_world.create_system<systems::AnimationSystem>();
-			m_world.create_system<systems::RenderSystem>();
+			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_scene->m_camera);
+
+			m_scene->m_world.create_system<systems::ScriptSystem>();
+			m_scene->m_world.create_system<systems::AnimationSystem>();
+			m_scene->m_world.create_system<systems::PhysicsSystem>();
+			m_scene->m_world.create_system<systems::RenderSystem>();
+
+			m_scene->m_world.m_runtime_layer = this;
 		}
 
 		RuntimeLayer::~RuntimeLayer() noexcept
@@ -39,17 +44,17 @@ namespace galaxy
 
 		void RuntimeLayer::on_pop()
 		{
-			core::ServiceLocator<audio::AudioEngine>::ref().stop();
 		}
 
 		void RuntimeLayer::events()
 		{
-			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_world.m_dispatcher);
+			m_scene->m_camera.process_events();
+			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_dispatcher);
 		}
 
 		void RuntimeLayer::update()
 		{
-			m_world.update(this);
+			m_scene->m_world.update();
 		}
 
 		void RuntimeLayer::render()
@@ -65,19 +70,13 @@ namespace galaxy
 		nlohmann::json RuntimeLayer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["name"]        = m_name;
 			json["type"]        = get_type();
-			json["world"]       = m_world.serialize();
-			json["active_map"]  = m_map.get_name();
 
 			return json;
 		}
 
 		void RuntimeLayer::deserialize(const nlohmann::json& json)
 		{
-			m_name = json.at("name");
-			m_world.deserialize(json.at("world"));
-			m_map.load_map(json.at("active_map"));
 		}
 	} // namespace scene
 } // namespace galaxy

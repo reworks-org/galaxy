@@ -33,9 +33,9 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param layer Non-owning pointer to current layer.
+			/// \param scene Non-owning pointer to current scene.
 			///
-			void update(scene::Layer* layer) override;
+			void update(scene::Scene* scene) override;
 		};
 	} // namespace systems
 } // namespace galaxy

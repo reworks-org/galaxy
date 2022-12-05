@@ -99,11 +99,6 @@ namespace galaxy
 			void render();
 
 			///
-			/// Only update the rendersystem.
-			///
-			void update_rendersystem();
-
-			///
 			/// \brief Destroy all layers.
 			///
 			/// Also resets layer stack.
@@ -184,6 +179,15 @@ namespace galaxy
 		template<is_layer ChildLayer>
 		inline std::weak_ptr<ChildLayer> Layers::make(const std::string& name)
 		{
+			for (const auto& [key, layer] : m_layers)
+			{
+				if (layer->get_type() == "Runtime")
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Runtime layer already exists.");
+					return {};
+				}
+			}
+
 			if (!m_layers.contains(name))
 			{
 				m_layers[name] = std::make_shared<ChildLayer>(name, m_scene);

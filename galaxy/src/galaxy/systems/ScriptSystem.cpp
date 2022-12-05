@@ -8,7 +8,7 @@
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/flags/Enabled.hpp"
-#include "galaxy/scene/Layer.hpp"
+#include "galaxy/scene/Scene.hpp"
 #include "galaxy/utils/Globals.hpp"
 
 #include "ScriptSystem.hpp"
@@ -25,9 +25,9 @@ namespace galaxy
 		{
 		}
 
-		void ScriptSystem::update(scene::Layer* layer)
+		void ScriptSystem::update(scene::Scene* scene)
 		{
-			const auto view = layer->world().m_registry.view<components::Script, components::Flag>();
+			const auto view = scene->m_world.m_registry.view<components::Script, components::Flag>();
 			for (auto&& [entity, script, flag] : view.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>() && script.m_update.valid())

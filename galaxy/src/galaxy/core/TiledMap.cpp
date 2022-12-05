@@ -19,16 +19,18 @@
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/scene/layers/RuntimeLayer.hpp"
+#include "galaxy/scene/Scene.hpp"
+
+#include "TiledMap.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
-		TiledMap::TiledMap(scene::RuntimeLayer* layer)
-			: m_layer {layer}
+		TiledMap::TiledMap(scene::Scene* scene)
+			: m_scene {scene}
 		{
-			if (m_layer == nullptr)
+			if (m_scene == nullptr)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Runtime layer must not be a nullptr when passed to a tiled map.");
 			}
@@ -38,11 +40,11 @@ namespace galaxy
 		{
 			for (const auto& entity : m_map_entities)
 			{
-				m_layer->world().m_registry.destroy(entity);
+				m_scene->m_world.m_registry.destroy(entity);
 			}
 
 			m_map_entities.clear();
-			m_layer = nullptr;
+			m_scene = nullptr;
 		}
 
 		void TiledMap::load_map(const std::string& key)
@@ -51,7 +53,7 @@ namespace galaxy
 
 			for (const auto& entity : m_map_entities)
 			{
-				m_layer->world().m_registry.destroy(entity);
+				m_scene->m_world.m_registry.destroy(entity);
 			}
 
 			m_map_entities.clear();
@@ -76,7 +78,7 @@ namespace galaxy
 		{
 			for (const auto& entity : m_map_entities)
 			{
-				auto flag = m_layer->world().m_registry.try_get<components::Flag>(entity);
+				auto flag = m_scene->m_world.m_registry.try_get<components::Flag>(entity);
 				if (flag)
 				{
 					flag->set_flag<flags::Enabled>();
@@ -88,7 +90,7 @@ namespace galaxy
 		{
 			for (const auto& entity : m_map_entities)
 			{
-				auto flag = m_layer->world().m_registry.try_get<components::Flag>(entity);
+				auto flag = m_scene->m_world.m_registry.try_get<components::Flag>(entity);
 				if (flag)
 				{
 					flag->unset_flag<flags::Enabled>();
@@ -130,26 +132,26 @@ namespace galaxy
 		{
 			level++;
 
-			const auto entity = m_layer->world().m_registry.create();
+			const auto entity = m_scene->m_world.m_registry.create();
 			m_map_entities.push_back(entity);
 
-			auto& flag = m_layer->world().m_registry.emplace<components::Flag>(entity);
+			auto& flag = m_scene->m_world.m_registry.emplace<components::Flag>(entity);
 			flag.unset_flag<flags::AllowSerialize>();
 			flag.set_flag<flags::Enabled>();
 
-			auto& tag = m_layer->world().m_registry.emplace<components::Tag>(entity);
+			auto& tag = m_scene->m_world.m_registry.emplace<components::Tag>(entity);
 			tag.m_tag = layer.getName();
 			if (tag.m_tag.empty())
 			{
 				tag.m_tag = "Unnamed Tile Layer";
 			}
 
-			auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+			auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 			shader.set_shader("TiledMap");
 
-			auto& map = m_layer->world().m_registry.emplace<components::Map>(entity, layer.getTileObjects().size());
+			auto& map = m_scene->m_world.m_registry.emplace<components::Map>(entity, layer.getTileObjects().size());
 
-			auto& tf = m_layer->world().m_registry.emplace<components::Transform>(entity);
+			auto& tf = m_scene->m_world.m_registry.emplace<components::Transform>(entity);
 			tf.set_pos(layer.getOffset().x, layer.getOffset().y);
 
 			auto texture_id = 0U;
@@ -271,21 +273,21 @@ namespace galaxy
 			{
 				if (obj.isVisible())
 				{
-					const auto entity = m_layer->world().m_registry.create();
+					const auto entity = m_scene->m_world.m_registry.create();
 					m_map_entities.push_back(entity);
 
-					auto& flag = m_layer->world().m_registry.emplace<components::Flag>(entity);
+					auto& flag = m_scene->m_world.m_registry.emplace<components::Flag>(entity);
 					flag.unset_flag<flags::AllowSerialize>();
 					flag.set_flag<flags::Enabled>();
 
-					auto& tag = m_layer->world().m_registry.emplace<components::Tag>(entity);
+					auto& tag = m_scene->m_world.m_registry.emplace<components::Tag>(entity);
 					tag.m_tag = obj.getName();
 					if (tag.m_tag.empty())
 					{
 						tag.m_tag = "Unnamed Object";
 					}
 
-					auto& tf = m_layer->world().m_registry.emplace<components::Transform>(entity);
+					auto& tf = m_scene->m_world.m_registry.emplace<components::Transform>(entity);
 					tf.set_pos(static_cast<float>(obj.getPosition().x), static_cast<float>(obj.getPosition().y));
 					tf.set_rotation(obj.getRotation());
 
@@ -320,17 +322,17 @@ namespace galaxy
 								// Objects are drawn from bottom left, so we need to correct coords.
 								tf.set_pos(static_cast<float>(obj.getPosition().x), static_cast<float>(obj.getPosition().y - obj.getSize().y));
 
-								auto& sprite = m_layer->world().m_registry.emplace<components::Sprite>(entity);
+								auto& sprite = m_scene->m_world.m_registry.emplace<components::Sprite>(entity);
 								sprite.create(image.stem().string(), {offset.x, offset.y, tx, ty}, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Sprite");
 							}
 							break;
 
 						case tson::ObjectType::Ellipse:
 							{
-								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
+								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
 								data.fragments = GALAXY_DEFAULT_ELLIPSE_FRAGMENTS;
@@ -339,14 +341,14 @@ namespace galaxy
 
 								primitive.create<graphics::Shape::ELLIPSE>(data, colour, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Line");
 							}
 							break;
 
 						case tson::ObjectType::Rectangle:
 							{
-								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
+								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
 								data.points.emplace_back(0.0f, 0.0f);
@@ -356,24 +358,24 @@ namespace galaxy
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Line");
 							}
 							break;
 
 						case tson::ObjectType::Point:
 							{
-								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
+								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 								primitive.create<graphics::Shape::POINT>({}, colour, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Point");
 							}
 							break;
 
 						case tson::ObjectType::Polygon:
 							{
-								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
+								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
 								for (const auto& point : obj.getPolygons())
@@ -383,14 +385,14 @@ namespace galaxy
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Line");
 							}
 							break;
 
 						case tson::ObjectType::Polyline:
 							{
-								auto& primitive = m_layer->world().m_registry.emplace<components::Primitive>(entity);
+								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 
 								components::Primitive::PrimitiveData data;
 								for (const auto& point : obj.getPolylines())
@@ -400,7 +402,7 @@ namespace galaxy
 
 								primitive.create<graphics::Shape::POLYLINE>(data, colour, level);
 
-								auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 								shader.set_shader("Line");
 							}
 							break;
@@ -421,14 +423,14 @@ namespace galaxy
 		{
 			level++;
 
-			const auto entity = m_layer->world().m_registry.create();
+			const auto entity = m_scene->m_world.m_registry.create();
 			m_map_entities.push_back(entity);
 
-			auto& flag = m_layer->world().m_registry.emplace<components::Flag>(entity);
+			auto& flag = m_scene->m_world.m_registry.emplace<components::Flag>(entity);
 			flag.unset_flag<flags::AllowSerialize>();
 			flag.set_flag<flags::Enabled>();
 
-			auto& tag = m_layer->world().m_registry.emplace<components::Tag>(entity);
+			auto& tag = m_scene->m_world.m_registry.emplace<components::Tag>(entity);
 			tag.m_tag = layer.getName();
 			if (tag.m_tag.empty())
 			{
@@ -436,14 +438,14 @@ namespace galaxy
 			}
 
 			// Image must be in texture atlas.
-			auto& sprite   = m_layer->world().m_registry.emplace<components::Sprite>(entity);
+			auto& sprite   = m_scene->m_world.m_registry.emplace<components::Sprite>(entity);
 			const auto img = std::filesystem::path(layer.getImage()).stem().string();
 			sprite.create(img, level, layer.getOpacity());
 
-			auto& tf = m_layer->world().m_registry.emplace<components::Transform>(entity);
+			auto& tf = m_scene->m_world.m_registry.emplace<components::Transform>(entity);
 			tf.set_pos(layer.getOffset().x, layer.getOffset().y);
 
-			auto& shader = m_layer->world().m_registry.emplace<components::DrawShader>(entity);
+			auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
 			shader.set_shader("Sprite");
 		}
 

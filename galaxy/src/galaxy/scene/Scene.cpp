@@ -19,11 +19,12 @@ namespace galaxy
 	namespace scene
 	{
 		Scene::Scene() noexcept
-			: m_name {"Untitled"}
+			: m_camera {false}
+			, m_world {this}
+			, m_map {this}
+			, m_name {"Untitled"}
 			, m_layer_stack {this}
-			, m_camera {false}
 		{
-			m_scene_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
 		}
 
 		Scene::~Scene()
@@ -44,9 +45,6 @@ namespace galaxy
 
 		void Scene::events()
 		{
-			core::ServiceLocator<core::Window>::ref().trigger_queued_events(m_scene_dispatcher);
-			m_camera.process_events();
-
 			m_layer_stack.events();
 		}
 
@@ -63,7 +61,7 @@ namespace galaxy
 
 		void Scene::update_rendersystem()
 		{
-			m_layer_stack.update_rendersystem();
+			m_world.update_rendersystem();
 		}
 
 		void Scene::set_name(const std::string& name) noexcept
@@ -81,17 +79,14 @@ namespace galaxy
 			return m_layer_stack;
 		}
 
-		graphics::Camera& Scene::get_camera() noexcept
-		{
-			return m_camera;
-		}
-
 		nlohmann::json Scene::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 			json["name"]        = m_name;
 			json["stack"]       = m_layer_stack.serialize();
 			json["camera"]      = m_camera.serialize();
+			json["world"]       = m_world.serialize();
+			json["active_map"]  = m_map.get_name();
 
 			return json;
 		}
@@ -103,6 +98,8 @@ namespace galaxy
 			m_name = json.at("name");
 			m_layer_stack.deserialize(json.at("stack"));
 			m_camera.deserialize(json.at("camera"));
+			m_world.deserialize(json.at("world"));
+			m_map.load_map(json.at("active_map"));
 		}
 	} // namespace scene
 } // namespace galaxy

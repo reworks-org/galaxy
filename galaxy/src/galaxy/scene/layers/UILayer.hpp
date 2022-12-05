@@ -15,8 +15,7 @@ namespace galaxy
 	namespace scene
 	{
 		///
-		/// A layer is usually a layering of events/updates/rendering grouped together that dont interact.
-		/// I.e. UI, Debug UI, Game, etc.
+		/// Layer specifically for game ui.
 		///
 		class UILayer final : public Layer
 		{
@@ -85,8 +84,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			UILayer() = delete;
-
-		private:
 		};
 	} // namespace scene
 } // namespace galaxy

@@ -12,7 +12,6 @@
 
 #include <box2d/b2_world.h>
 #include <entt/entity/registry.hpp>
-#include <entt/signal/dispatcher.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
@@ -28,6 +27,12 @@ namespace galaxy
 		class Transform;
 	} // namespace components
 
+	namespace scene
+	{
+		class Scene;
+		class RuntimeLayer;
+	} // namespace scene
+
 	namespace core
 	{
 		///
@@ -42,7 +47,9 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			World() noexcept;
+			/// \param scene Non-owning pointer to current scene.
+			///
+			World(scene::Scene* scene) noexcept;
 
 			///
 			/// Destructor.
@@ -119,16 +126,12 @@ namespace galaxy
 			///
 			/// Update world data.
 			///
-			/// \param layer Non-owning pointer to current layer.
-			///
-			void update(scene::Layer* layer);
+			void update();
 
 			///
 			/// Only update the rendersystem.
 			///
-			/// \param layer Non-owning pointer to current layer.
-			///
-			void update_rendersystem(scene::Layer* layer);
+			void update_rendersystem();
 
 			///
 			/// Clears all system, component registry, and entity data.
@@ -218,14 +221,14 @@ namespace galaxy
 			entt::registry m_registry;
 
 			///
-			/// Event dispatcher.
-			///
-			entt::dispatcher m_dispatcher;
-
-			///
 			/// Box2D physics world.
 			///
 			std::unique_ptr<b2World> m_b2world;
+
+			///
+			/// Pointer to the scenes runtime layer.
+			///
+			scene::RuntimeLayer* m_runtime_layer;
 
 		private:
 			///
@@ -257,6 +260,11 @@ namespace galaxy
 			/// List of rigid bodies that need to be constructed.
 			///
 			std::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
+
+			///
+			/// Pointer to scene this world belongs to.
+			///
+			scene::Scene* m_scene;
 		};
 
 		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
