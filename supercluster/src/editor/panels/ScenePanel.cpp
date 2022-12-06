@@ -158,6 +158,40 @@ namespace sc
 							}
 						}
 
+						for (auto&& [layer_key, layer] : scene->layers().cache())
+						{
+							ImGuiTreeNodeFlags layer_flags =
+								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+
+							if (m_selected_layer == layer_key)
+							{
+								layer_flags |= ImGuiTreeNodeFlags_Selected;
+							}
+
+							const bool is_open_layertree = ImGui::TreeNodeEx(layer_key.c_str(), layer_flags);
+							if (ImGui::IsItemClicked())
+							{
+								m_selected_layer = layer_key;
+							}
+
+							if (is_open_layertree)
+							{
+								if (ImGui::Button("Push Layer"))
+								{
+									scene->layers().push(layer_key);
+								}
+
+								ImGui::SameLine();
+
+								if (ImGui::Button("Pop Layer"))
+								{
+									scene->layers().pop(layer_key);
+								}
+
+								ImGui::TreePop();
+							}
+						}
+
 						ImGui::Spacing();
 						ImGui::Separator();
 						ImGui::Spacing();
@@ -255,9 +289,80 @@ namespace sc
 							ui::imgui_open_confirm("ClearWorldPopup");
 						}
 
+						ImGui::SameLine();
+
+						if (ImGui::Button("Map Settings"))
+						{
+							ImGui::OpenPopup("LoadMapPopup");
+						}
+
 						ui::imgui_confirm("ClearWorldPopup", [&]() {
 							scene->m_world.clear();
 						});
+
+						if (ImGui::BeginPopup("LoadMapPopup"))
+						{
+							ImGui::Text("Select Map to Load.");
+
+							ImGui::Separator();
+							ImGui::Spacing();
+
+							static std::string s_search = "";
+							ImGui::InputTextWithHint("##ModalLoadMapSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+
+							static std::string s_selected = scene->m_map.get_name();
+							if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
+							{
+								for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
+								{
+									if (key.find(s_search) != std::string::npos)
+									{
+										const bool selected = (s_selected == key);
+										if (ImGui::Selectable(key.c_str(), selected))
+										{
+											s_selected = key;
+										}
+
+										if (selected)
+										{
+											ImGui::SetItemDefaultFocus();
+										}
+									}
+								}
+
+								ImGui::EndCombo();
+							}
+
+							if (ImGui::Button("Load Selected Map"))
+							{
+								if (!s_selected.empty())
+								{
+									updates.emplace_back([scene]() {
+										scene->m_map.load_map(s_selected);
+									});
+								}
+								else
+								{
+									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Please select a map before loading."});
+								}
+							}
+
+							ImGui::Spacing();
+
+							if (ImGui::Button("Enable Map"))
+							{
+								scene->m_map.enable_map();
+							}
+
+							ImGui::SameLine();
+
+							if (ImGui::Button("Disable Map"))
+							{
+								scene->m_map.disable_map();
+							}
+
+							ImGui::EndPopup();
+						}
 
 						if (ImGui::Button("Load Prefab"))
 						{
@@ -326,75 +431,6 @@ namespace sc
 							ImGui::EndPopup();
 						}
 
-						if (ImGui::Button("Map Settings"))
-						{
-							ImGui::OpenPopup("LoadMapPopup");
-						}
-
-						if (ImGui::BeginPopup("LoadMapPopup"))
-						{
-							ImGui::Text("Select Map to Load.");
-
-							ImGui::Separator();
-							ImGui::Spacing();
-
-							static std::string s_search = "";
-							ImGui::InputTextWithHint("##ModalLoadMapSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
-
-							static std::string s_selected = scene->m_map.get_name();
-							if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
-							{
-								for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
-								{
-									if (key.find(s_search) != std::string::npos)
-									{
-										const bool selected = (s_selected == key);
-										if (ImGui::Selectable(key.c_str(), selected))
-										{
-											s_selected = key;
-										}
-
-										if (selected)
-										{
-											ImGui::SetItemDefaultFocus();
-										}
-									}
-								}
-
-								ImGui::EndCombo();
-							}
-
-							if (ImGui::Button("Load Selected Map"))
-							{
-								if (!s_selected.empty())
-								{
-									updates.emplace_back([scene]() {
-										scene->m_map.load_map(s_selected);
-									});
-								}
-								else
-								{
-									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Please select a map before loading."});
-								}
-							}
-
-							ImGui::Spacing();
-
-							if (ImGui::Button("Enable Map"))
-							{
-								scene->m_map.enable_map();
-							}
-
-							ImGui::SameLine();
-
-							if (ImGui::Button("Disable Map"))
-							{
-								scene->m_map.disable_map();
-							}
-
-							ImGui::EndPopup();
-						}
-
 						static std::string s_search = "";
 						ImGui::InputTextWithHint("##EntitySearch", "Search Entity by Tag...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
 
@@ -457,40 +493,6 @@ namespace sc
 							});
 
 							ImGui::EndListBox();
-						}
-
-						for (auto&& [layer_key, layer] : scene->layers().cache())
-						{
-							ImGuiTreeNodeFlags layer_flags =
-								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-
-							if (m_selected_layer == layer_key)
-							{
-								layer_flags |= ImGuiTreeNodeFlags_Selected;
-							}
-
-							const bool is_open_layertree = ImGui::TreeNodeEx(layer_key.c_str(), layer_flags);
-							if (ImGui::IsItemClicked())
-							{
-								m_selected_layer = layer_key;
-							}
-
-							if (is_open_layertree)
-							{
-								if (ImGui::Button("Push Layer"))
-								{
-									scene->layers().push(layer_key);
-								}
-
-								ImGui::SameLine();
-
-								if (ImGui::Button("Pop Layer"))
-								{
-									scene->layers().pop(layer_key);
-								}
-
-								ImGui::TreePop();
-							}
 						}
 
 						ImGui::TreePop();

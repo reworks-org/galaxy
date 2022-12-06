@@ -87,6 +87,13 @@ namespace galaxy
 			void add_depth_renderbuffer();
 
 			///
+			/// Add an attachment to store an integer.
+			///
+			/// \return ID of storage attachment. 0 if invalid.
+			///
+			[[nodiscard]] unsigned int add_storage_attachment();
+
+			///
 			/// Construct framebuffer from attachments and renderbuffers.
 			///
 			void create();
@@ -129,6 +136,25 @@ namespace galaxy
 			/// \param col Colour to clear framebuffer to.
 			///
 			void set_clear_colour(graphics::Colour& col) noexcept;
+
+			///
+			/// Clear storagebuffer.
+			///
+			/// \param index Index of attachment to read.
+			/// \param val Value to clear buffer to.
+			///
+			void clear_storagebuffer(const unsigned int index, const int val) noexcept;
+
+			///
+			/// Read storage buffer.
+			///
+			/// \param index Index of attachment to read.
+			/// \param x Horizontal pixel pos.
+			/// \param y Vertical pixel pos.
+			///
+			/// \returns Integer read at pixel coords.
+			///
+			int read_storagebuffer(const unsigned int index, const int x, const int y) noexcept;
 
 			///
 			/// Get width.
@@ -193,6 +219,11 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Framebuffer& operator=(const Framebuffer&) = delete;
+
+			///
+			/// Add drawbuffers to framebuffer.
+			///
+			void add_drawbuffers() noexcept;
 
 			///
 			/// Destroy all data used by framebuffer.

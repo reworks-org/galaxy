@@ -1,0 +1,78 @@
+{
+    "current_scene": "Scene",
+    "scenes": {
+        "Scene": {
+            "active_map": "",
+            "camera": {
+                "allow_rotate": false,
+                "pos": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "rotation": 0.0,
+                "rotation_speed": 180.0,
+                "translation_speed": 180.0,
+                "viewport": {
+                    "x": 2560.0,
+                    "y": 1377.0
+                },
+                "zoom": 1.0
+            },
+            "name": "Scene",
+            "stack": {
+                "layer_stack": {
+                    "0": "Game"
+                },
+                "layers": {
+                    "Game": {
+                        "name": "Game",
+                        "type": "Runtime"
+                    }
+                },
+                "stack_size": 1
+            },
+            "world": {
+                "entities": [
+                    {
+                        "components": {
+                            "DrawShader": {
+                                "shader": "Sprite"
+                            },
+                            "Flag": {
+                                "flags": {
+                                    "0": true,
+                                    "1": true,
+                                    "2": false,
+                                    "3": false,
+                                    "4": false,
+                                    "5": false,
+                                    "6": false,
+                                    "7": false
+                                }
+                            },
+                            "Sprite": {
+                                "layer": 0,
+                                "opacity": 1.0,
+                                "texture": "rock"
+                            },
+                            "Tag": {
+                                "tag": "Wall"
+                            },
+                            "Transform": {
+                                "pos": {
+                                    "x": 0.0,
+                                    "y": 0.0
+                                },
+                                "rotation": 0.0,
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

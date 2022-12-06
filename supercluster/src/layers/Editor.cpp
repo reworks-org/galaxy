@@ -62,6 +62,10 @@ namespace sc
             save_project(false);
 		}, config.get<int>("autosave_interval_seconds", "editor") * 1000);
 		// clang-format on
+
+		auto& fb           = m_framebuffer.get_framebuffer();
+		m_mousepick_buffer = fb.add_storage_attachment();
+		fb.create();
 	}
 
 	Editor::~Editor() noexcept
@@ -94,6 +98,33 @@ namespace sc
 		{
 			if (m_viewport_focused && m_viewport_hovered)
 			{
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+				{
+					auto [mx, my] = ImGui::GetMousePos();
+					mx -= m_viewport_bounds[0].x;
+					my -= m_viewport_bounds[0].y;
+
+					const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
+					my              = size.y - my;
+
+					if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
+					{
+						auto& fb = m_framebuffer.get_framebuffer();
+
+						const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
+						if (entity == -1)
+						{
+							m_selected_entity.m_selected = entt::null;
+							m_selected_entity.m_world    = nullptr;
+						}
+						else
+						{
+							m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
+							m_selected_entity.m_world    = &m_project_scenes.current().m_world;
+						}
+					}
+				}
+
 				if (m_project_scenes.has_current())
 				{
 					if (!m_paused)
@@ -292,6 +323,8 @@ namespace sc
 		data       = m_render_data;
 
 		m_framebuffer.bind(true);
+		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
+
 		if (m_project_scenes.has_current())
 		{
 			m_project_scenes.current().render();
@@ -923,6 +956,13 @@ namespace sc
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
+			const auto viewport_min = ImGui::GetWindowContentRegionMin();
+			const auto viewport_max = ImGui::GetWindowContentRegionMax();
+			const auto offset       = ImGui::GetWindowPos();
+
+			m_viewport_bounds[0] = {viewport_min.x + offset.x, viewport_min.y + offset.y};
+			m_viewport_bounds[1] = {viewport_max.x + offset.x, viewport_max.y + offset.y};
+
 			m_viewport_focused = ImGui::IsWindowFocused();
 			m_viewport_hovered = ImGui::IsWindowHovered();
 

@@ -46,8 +46,11 @@ namespace galaxy
 			#version 460 core
 
 			in vec2 io_texels;
-			out vec4 io_frag_colour;
 
+			layout (location = 0) out vec4 io_frag_colour;
+			layout (location = 1) out int io_entity;
+
+			uniform int u_entity;
 			uniform float u_opacity;
 			uniform sampler2D u_texture;
 
@@ -55,6 +58,8 @@ namespace galaxy
 			{
 				io_frag_colour = texture(u_texture, io_texels);
 				io_frag_colour.a *= u_opacity;
+
+				io_entity = u_entity;
 			}
 		)";
 
@@ -131,13 +136,16 @@ namespace galaxy
 		constexpr const auto point_frag = R"(
 			#version 460 core
 
-			out vec4 io_frag_colour;
-	
+			layout (location = 0) out vec4 io_frag_colour;
+			layout (location = 1) out int io_entity;
+
+			uniform int u_entity;
 			uniform vec4 u_colour;
 
 			void main()
 			{
 				io_frag_colour = u_colour;
+				io_entity = u_entity;
 			}
 		)";
 
@@ -169,13 +177,16 @@ namespace galaxy
 		constexpr const auto line_frag = R"(
 			#version 460 core
 
-			out vec4 io_frag_colour;
+			layout (location = 0) out vec4 io_frag_colour;
+			layout (location = 1) out int io_entity;
 
+			uniform int u_entity;
 			uniform vec4 u_colour;
 
 			void main()
 			{
 				io_frag_colour = u_colour;
+				io_entity = u_entity;
 			}
 		)";
 
@@ -252,14 +263,18 @@ namespace galaxy
 			#version 460 core
 
 			in vec2 io_texels;
-			out vec4 io_frag_colour;
 
+			layout (location = 0) out vec4 io_frag_colour;
+			layout (location = 1) out int io_entity;
+
+			uniform int u_entity;
 			uniform vec4 u_colour;
 			uniform sampler2D u_texture;
 
 			void main()
 			{
 				io_frag_colour = texture(u_texture, io_texels) * u_colour;
+				io_entity = u_entity;
 			}
 		)";
 	} // namespace shaders

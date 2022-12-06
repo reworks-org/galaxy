@@ -1,6 +1,4 @@
 editor:
 - loading indicators
-	- add loading indicator for map loading
-- mouse picking
-	- imgizmo
+- add loading indicator for map loading
 - physics

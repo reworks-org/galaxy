@@ -43,6 +43,7 @@ namespace galaxy
 					sprite.m_configure_shader = [entity, &sprite, &shader, &transform]() noexcept -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_opacity", sprite.get_opacity());
+						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
 
 						return shader.m_shader->id();
 					};
@@ -62,6 +63,7 @@ namespace galaxy
 					primitive.m_configure_shader = [entity, &primitive, &shader, &transform]() noexcept -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_colour", primitive.m_colour);
+						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
 
 						return shader.m_shader->id();
 					};
@@ -81,6 +83,7 @@ namespace galaxy
 					text.m_configure_shader = [entity, &text, &shader, &transform]() noexcept -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_colour", text.m_colour);
+						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
 
 						return shader.m_shader->id();
 					};

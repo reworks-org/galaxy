@@ -156,7 +156,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "No colour attachments left avaliable.");
+				GALAXY_LOG(GALAXY_ERROR, "No attachments left avaliable.");
 			}
 		}
 
@@ -180,7 +180,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "No colour attachments left avaliable.");
+				GALAXY_LOG(GALAXY_ERROR, "No attachments left avaliable.");
 			}
 		}
 
@@ -231,52 +231,50 @@ namespace galaxy
 			}
 		}
 
+		unsigned int Framebuffer::add_storage_attachment()
+		{
+			if (m_used_attachments.size() < m_max_attachments)
+			{
+				GLuint texture = 0;
+
+				glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
+
+				glGenTextures(1, &texture);
+				glBindTexture(GL_TEXTURE_2D, texture);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_R32I, m_width, m_height, 0, GL_RED_INTEGER, GL_INT, nullptr);
+
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+				const auto next = static_cast<GLenum>(m_used_attachments.size());
+
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + next, GL_TEXTURE_2D, texture, 0);
+				m_used_attachments.push_back(GL_COLOR_ATTACHMENT0 + next);
+				m_attachments.push_back(std::make_pair(texture, GL_INT));
+
+				glBindFramebuffer(GL_FRAMEBUFFER, 0);
+				glBindTexture(GL_TEXTURE_2D, 0);
+
+				return next;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "No attachments left avaliable.");
+				return 0;
+			}
+		}
+
 		void Framebuffer::create()
 		{
+			static GLint s_cur_fbo = 0;
+			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
+
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
-			glDrawBuffers(static_cast<GLsizei>(m_used_attachments.size()), m_used_attachments.data());
-
-			const auto status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-			if (status != GL_FRAMEBUFFER_COMPLETE)
-			{
-				std::string reason;
-				switch (status)
-				{
-					case GL_FRAMEBUFFER_UNDEFINED:
-						reason = "GL_FRAMEBUFFER_UNDEFINED";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER";
-						break;
-					case GL_FRAMEBUFFER_UNSUPPORTED:
-						reason = "GL_FRAMEBUFFER_UNSUPPORTED";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE";
-						break;
-					case GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
-						reason = "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS";
-						break;
-					default:
-						reason = "UNKOWN";
-						break;
-				}
-
-				GALAXY_LOG(GALAXY_FATAL, "Failed to complete framebuffer: {0}.", reason);
-			}
-
-			glClearColor(m_clear_colour[0], m_clear_colour[1], m_clear_colour[2], m_clear_colour[3]);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			add_drawbuffers();
+			glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		}
 
 		void Framebuffer::resize(const int width, const int height)
@@ -284,13 +282,22 @@ namespace galaxy
 			m_width  = width;
 			m_height = height;
 
+			static GLint s_cur_fbo = 0;
+			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
 			for (const auto& pair : m_attachments)
 			{
 				glBindTexture(GL_TEXTURE_2D, pair.first);
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, pair.second, nullptr);
-				glGenerateMipmap(GL_TEXTURE_2D);
+				if (pair.second == GL_INT)
+				{
+					glTexImage2D(GL_TEXTURE_2D, 0, GL_R32I, m_width, m_height, 0, GL_RED_INTEGER, GL_INT, nullptr);
+				}
+				else
+				{
+					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, pair.second, nullptr);
+					glGenerateMipmap(GL_TEXTURE_2D);
+				}
 			}
 
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -321,8 +328,8 @@ namespace galaxy
 				glBindRenderbuffer(GL_RENDERBUFFER, 0);
 			}
 
-			create();
-			// Framebuffer unbound by create() function.
+			add_drawbuffers();
+			glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		}
 
 		void Framebuffer::bind(const bool clear) noexcept
@@ -360,6 +367,26 @@ namespace galaxy
 		void Framebuffer::set_clear_colour(graphics::Colour& col) noexcept
 		{
 			m_clear_colour = col.normalized();
+		}
+
+		void Framebuffer::clear_storagebuffer(const unsigned int index, const int val) noexcept
+		{
+			glClearNamedFramebufferiv(m_fbo, GL_COLOR, index, &val);
+		}
+
+		int Framebuffer::read_storagebuffer(const unsigned int index, const int x, const int y) noexcept
+		{
+			static GLint s_cur_fbo = 0;
+			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
+			glReadBuffer(GL_COLOR_ATTACHMENT0 + index);
+
+			int data = -1;
+			glReadPixels(x, y, 1, 1, GL_RED_INTEGER, GL_INT, &data);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
+			return data;
 		}
 
 		int Framebuffer::get_width() const noexcept
@@ -403,6 +430,52 @@ namespace galaxy
 		unsigned int Framebuffer::id() const noexcept
 		{
 			return m_fbo;
+		}
+
+		void Framebuffer::add_drawbuffers() noexcept
+		{
+			glDrawBuffers(static_cast<GLsizei>(m_used_attachments.size()), m_used_attachments.data());
+
+			const auto status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+			if (status != GL_FRAMEBUFFER_COMPLETE)
+			{
+				std::string reason;
+				switch (status)
+				{
+					case GL_FRAMEBUFFER_UNDEFINED:
+						reason = "GL_FRAMEBUFFER_UNDEFINED";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER";
+						break;
+					case GL_FRAMEBUFFER_UNSUPPORTED:
+						reason = "GL_FRAMEBUFFER_UNSUPPORTED";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE";
+						break;
+					case GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS:
+						reason = "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS";
+						break;
+					default:
+						reason = "UNKNOWN";
+						break;
+				}
+
+				GALAXY_LOG(GALAXY_FATAL, "Failed to complete framebuffer: {0}.", reason);
+			}
+
+			glClearColor(m_clear_colour[0], m_clear_colour[1], m_clear_colour[2], m_clear_colour[3]);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
 		void Framebuffer::destroy() noexcept
