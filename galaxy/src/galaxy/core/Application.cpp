@@ -346,8 +346,6 @@ namespace galaxy
 				{
 					GALAXY_LOG(GALAXY_ERROR, e.what());
 				}
-
-				std::this_thread::sleep_for(20s);
 			});
 
 			// Will display until loading offthread is done.

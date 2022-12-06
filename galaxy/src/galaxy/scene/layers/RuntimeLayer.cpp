@@ -71,6 +71,7 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 			json["type"]        = get_type();
+			json["name"]        = m_name;
 
 			return json;
 		}

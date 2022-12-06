@@ -61,7 +61,14 @@ namespace galaxy
 
 		void Scene::update_rendersystem()
 		{
-			m_world.update_rendersystem();
+			for (const auto& layer : m_layer_stack.stack())
+			{
+				if (layer->get_type() == "Runtime")
+				{
+					m_world.update_rendersystem();
+					break;
+				}
+			}
 		}
 
 		void Scene::set_name(const std::string& name) noexcept

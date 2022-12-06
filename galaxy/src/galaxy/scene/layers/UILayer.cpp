@@ -51,10 +51,8 @@ namespace galaxy
 		nlohmann::json UILayer::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["name"]        = m_name;
 			json["type"]        = get_type();
-
-			// serialize rml docs?
+			json["name"]        = m_name;
 
 			return json;
 		}

@@ -33,7 +33,7 @@ namespace galaxy
 		{
 			while (!meta::is_work_done(m_thread_handle))
 			{
-				std::this_thread::sleep_for(0.5s);
+				std::this_thread::sleep_for(0.1ms);
 			}
 
 			m_thread_handle.get();
