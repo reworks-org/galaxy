@@ -125,6 +125,7 @@
     <ClCompile Include="imgui\imgui_addons\ToggleButton.cpp" />
     <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="miniaudio\miniaudio.c" />
+    <ClCompile Include="nuklear\nuklear.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -855,6 +856,7 @@
     <ClInclude Include="stb\include\stb_image_write.h" />
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="miniaudio\miniaudio.h" />
+    <ClInclude Include="nuklear\nuklear.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

@@ -134,6 +134,7 @@
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
+    <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="stb\include\stb_vorbis.c" />
   </ItemGroup>
   <ItemGroup>
@@ -738,6 +739,7 @@
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
     <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
     <ClInclude Include="msdfgl\include\_msdfgl_shaders.h" />
+    <ClInclude Include="nuklear\nuklear.h" />
     <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
     <ClInclude Include="sol3\include\sol\assert.hpp" />
