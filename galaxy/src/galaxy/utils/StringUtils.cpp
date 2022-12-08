@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <algorithm>
+#include <cctype>
+
 #include "StringUtils.hpp"
 
 namespace galaxy
@@ -31,7 +34,7 @@ namespace galaxy
 			return splits;
 		}
 
-		std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
+		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			const auto pos = input.find(to_replace);
 
@@ -39,11 +42,9 @@ namespace galaxy
 			{
 				input.replace(pos, to_replace.length(), replace_with);
 			}
-
-			return input;
 		}
 
-		std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
+		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			std::size_t pos = 0;
 
@@ -56,13 +57,43 @@ namespace galaxy
 					input.replace(pos, to_replace.length(), replace_with);
 				}
 			}
-
-			return input;
 		}
 
 		bool begins_with(const std::string& input, const std::string& find) noexcept
 		{
 			return (input.rfind(find, 0) == 0);
+		}
+
+		void ltrim(std::string& input) noexcept
+		{
+			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) noexcept {
+				return !std::isspace(ch);
+			}));
+		}
+
+		void rtrim(std::string& input) noexcept
+		{
+			// clang-format off
+			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) noexcept {
+                return !std::isspace(ch);
+			}).base(), input.end());
+			// clang-format on
+		}
+
+		void trim(std::string& input) noexcept
+		{
+			rtrim(input);
+			ltrim(input);
+		}
+
+		void make_single_spaced(std::string& input) noexcept
+		{
+			const auto trim_from = std::unique(input.begin(), input.end(), [](const auto lhs, const auto rhs) {
+				return (lhs == rhs) && (lhs == ' ');
+			});
+
+			input.erase(trim_from, input.end());
+			input.shrink_to_fit();
 		}
 	} // namespace strutils
 } // namespace galaxy

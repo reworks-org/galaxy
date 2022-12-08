@@ -34,9 +34,7 @@ namespace galaxy
 		/// \param to_replace Substring to be replaced.
 		/// \param replace_with String to be inserted.
 		///
-		/// \return Modified string.
-		///
-		[[nodiscard]] std::string& replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
+		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 
 		///
 		/// \brief Replaces all occurances of a string.
@@ -47,9 +45,7 @@ namespace galaxy
 		/// \param to_replace Substring to be replaced.
 		/// \param replace_with String to be inserted.
 		///
-		/// \return Modified string.
-		///
-		[[nodiscard]] std::string& replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
+		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 
 		///
 		/// Check if string begins with another string.
@@ -60,6 +56,40 @@ namespace galaxy
 		/// \return True if input string begins with find string.
 		///
 		[[nodiscard]] bool begins_with(const std::string& input, const std::string& find) noexcept;
+
+		///
+		/// \brief Trim string from start.
+		///
+		/// Credits: https://stackoverflow.com/a/217605
+		///
+		/// \param input String to trim.
+		///
+		void rtrim(std::string& input) noexcept;
+
+		///
+		/// \brief Trim string from end.
+		///
+		/// Credits: https://stackoverflow.com/a/217605
+		///
+		/// \param input String to trim.
+		///
+		void ltrim(std::string& input) noexcept;
+
+		///
+		/// \brief Trim both ends of string.
+		///
+		/// Credits: https://stackoverflow.com/a/217605
+		///
+		/// \param input String to trim.
+		///
+		void trim(std::string& input) noexcept;
+
+		///
+		/// Make a string single spaced.
+		///
+		/// \param input String to reduce spacing from.
+		///
+		void make_single_spaced(std::string& input) noexcept;
 	} // namespace strutils
 } // namespace galaxy
 

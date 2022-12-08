@@ -39,8 +39,8 @@ namespace galaxy
 			{
 				for (auto& file : contents)
 				{
-					file = strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
-					file = strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
+					strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
+					strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
 				}
 
 				auto unique_range = std::ranges::unique(contents);
