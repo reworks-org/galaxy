@@ -34,3 +34,6 @@
 [submodule "lib/threadpool"]
 	path = lib/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
+[submodule "lib/zip"]
+	path = lib/zip
+	url = https://github.com/kuba--/zip.git

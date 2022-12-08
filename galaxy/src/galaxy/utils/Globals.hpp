@@ -107,11 +107,6 @@ namespace galaxy
 #define GALAXY_DEFAULT_ELLIPSE_FRAGMENTS 50
 
 ///
-/// Remove log files older than this amount in hours.
-///
-#define GALAXY_REMOVE_LOG_FILES_OLDER_THAN_HOURS 48
-
-///
 /// Current root directory of application, unless it has been changed.
 ///
 #define GALAXY_APP_DIR std::filesystem::current_path().string()

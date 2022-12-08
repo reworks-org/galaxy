@@ -126,6 +126,7 @@
     <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="miniaudio\miniaudio.c" />
     <ClCompile Include="nuklear\nuklear.c" />
+    <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -857,6 +858,8 @@
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="miniaudio\miniaudio.h" />
     <ClInclude Include="nuklear\nuklear.h" />
+    <ClInclude Include="zip\src\miniz.h" />
+    <ClInclude Include="zip\src\zip.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
