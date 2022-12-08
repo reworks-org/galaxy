@@ -77,27 +77,9 @@ namespace galaxy
 			[[nodiscard]] float vertical_advance(const float size) const noexcept;
 
 			///
-			/// Query text width with font.
+			/// \brief Query text size with font.
 			///
-			/// \param text Text to query.
-			/// \param size Font size in em.
-			///
-			/// \return Float.
-			///
-			[[nodiscard]] float get_text_width(const std::string& text, const float size) noexcept;
-
-			///
-			/// Query text height with font.
-			///
-			/// \param text Text to query.
-			/// \param size Font size in em.
-			///
-			/// \return Float.
-			///
-			[[nodiscard]] float get_text_height(const std::string& text, const float size) noexcept;
-
-			///
-			/// Query text size with font.
+			/// Doesnt support vertical text. You also need to pre-process '\t' (tabs).
 			///
 			/// \param text Text to query.
 			/// \param size Font size in em.

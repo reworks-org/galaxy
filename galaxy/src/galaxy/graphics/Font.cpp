@@ -100,7 +100,14 @@ namespace galaxy
 			auto& fc = core::ServiceLocator<FontContext>::ref();
 
 			m_font = _msdfgl_init_font_internal(fc.context(), &m_face, GALAXY_FONT_MSDF_RANGE, GALAXY_FONT_MSDF_SCALE, nullptr);
-			msdfgl_generate_ascii_ext(m_font);
+			if (!m_font)
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to build font atlas for {0}.", m_face->family_name);
+			}
+			else
+			{
+				msdfgl_generate_ascii_ext(m_font);
+			}
 
 			/* NOW OWNED BY MSDFGL */
 			m_face = nullptr;
@@ -111,26 +118,42 @@ namespace galaxy
 			return msdfgl_vertical_advance(m_font, size);
 		}
 
-		float Font::get_text_width(const std::string& text, const float size) noexcept
-		{
-			float x = 0.0f, y = 0.0f;
-			msdfgl_geometry(&x, &y, m_font, size, MSDFGL_KERNING, text.c_str());
-
-			return x;
-		}
-
-		float Font::get_text_height(const std::string& text, const float size) noexcept
-		{
-			float x = 0.0f, y = 0.0f;
-			msdfgl_geometry(&x, &y, m_font, size, MSDFGL_KERNING, text.c_str());
-
-			return y;
-		}
-
 		glm::vec2 Font::get_text_size(const std::string& text, const float size) noexcept
 		{
 			glm::vec2 vec;
-			msdfgl_geometry(&vec.x, &vec.y, m_font, size, MSDFGL_KERNING, text.c_str());
+
+			std::size_t start = 0;
+			std::size_t end   = text.find('\n');
+
+			while (end != std::string::npos)
+			{
+				vec.y += msdfgl_vertical_advance(m_font, size);
+
+				const auto block = text.substr(start, end);
+
+				float x = 0.0f, y = 0.0f;
+				msdfgl_geometry(&x, &y, m_font, size, static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING), block.c_str());
+
+				if (x > vec.x)
+				{
+					vec.x = x;
+				}
+
+				start = end + 1;
+				end   = text.find('\n', start);
+			}
+
+			const auto last_block = text.substr(start, end);
+
+			float x = 0.0f, y = 0.0f;
+			msdfgl_geometry(&x, &y, m_font, size, static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING), last_block.c_str());
+
+			if (x > vec.x)
+			{
+				vec.x = x;
+			}
+
+			vec.y += msdfgl_vertical_advance(m_font, size);
 
 			return vec;
 		}

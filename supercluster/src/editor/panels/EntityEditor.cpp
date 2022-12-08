@@ -664,7 +664,7 @@ namespace sc
 						ImGui::Text("Height: %.0f", text->get_height());
 
 						ImGui::InputInt("Layer", &text->m_layer, 1, 2, numeric_input_flags);
-						ImGui::InputText("Text", &text->m_text, ImGuiInputTextFlags_AutoSelectAll);
+						ImGui::InputTextMultiline("Text", &text->m_text);
 						ImGui::InputFloat("Size", &text->m_size, 1.0f, 5.0f, "%.0f", ImGuiInputTextFlags_CharsNoBlank);
 
 						auto colour = text->m_colour.normalized();

@@ -8,11 +8,9 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <nlohmann/json.hpp>
 
-#include <stb_image.h>
-#include <stb_image_write.h>
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/resource/Fonts.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 #include "Text.hpp"
 
@@ -91,150 +89,131 @@ namespace galaxy
 
 		void Text::create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer)
 		{
-			if (font.empty())
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to create a font without text.");
-				return;
-			}
-
 			m_colour  = colour;
 			m_font_id = font;
-			m_text    = text;
 			m_size    = size;
 
 			m_layer = layer;
 
-			auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
-			m_font      = fonts.get(m_font_id);
+			m_text = text;
+			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
 
-			if (m_font && !text.empty())
+			if (!font.empty())
 			{
+				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
+				m_font      = fonts.get(m_font_id);
+
 				const auto vec = m_font->get_text_size(m_text, m_size);
 				m_width        = vec.x;
 				m_height       = vec.y;
 
-				///
-				auto tex = _msdfgl_atlas_texture(m_font->handle());
-
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-				auto path = std::filesystem::path("atlas.png");
-
-				auto full_path = fs.root_path() / path.parent_path() / path.stem();
-				auto full      = full_path.string();
-
-				if (!std::filesystem::exists(full_path.parent_path()))
-				{
-					std::filesystem::create_directories(full_path.parent_path());
-				}
-				if (!full.ends_with(".png") || !full.ends_with(".PNG"))
-				{
-					full += ".png";
-				}
-				const auto ui = static_cast<unsigned int>(4096) * static_cast<unsigned int>(4096) * 4u;
-				std::vector<unsigned int> pixels(ui, 0);
-
-				glGetTextureImage(tex, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
-
-				stbi_flip_vertically_on_write(true);
-				stbi_write_png(full.c_str(), 4096, 4096, 4, pixels.data(), 4096 * 4);
-				///
-
-				m_rt.create(static_cast<int>(4096), static_cast<int>(4096));
+				m_rt.create(static_cast<int>(m_width), static_cast<int>(m_height));
 				m_texture_id = m_rt.get_texture();
-
-				m_rt.bind(true);
-
-				msdfgl_printf(0,
-					0,
-					m_font->handle(),
-					m_size,
-					0xffffffff,
-					glm::value_ptr(m_rt.get_proj()),
-					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
-					"%s",
-					m_text.c_str());
-
-				/*
-				try
-				{
-					std::size_t start = 0;
-					std::size_t end   = m_text.find('\n');
-
-					auto y_off = 0.0f;
-					while (end != std::string::npos)
-					{
-						const auto block_text = m_text.substr(start, end);
-						msdfgl_printf(0, y_off, m_font->handle(), m_size, 0x000000FF, glm::value_ptr(m_rt.get_proj()), MSDFGL_KERNING, block_text.c_str());
-
-						y_off += m_font->vertical_advance(m_size);
-						start = end + 1;
-						end   = m_text.find('\n', start);
-					}
-
-					const auto last_text = m_text.substr(start, end);
-					msdfgl_printf(0, y_off, m_font->handle(), m_size, 0x000000FF, glm::value_ptr(m_rt.get_proj()), MSDFGL_KERNING, last_text.c_str());
-				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "{0}.", e.what());
-				}
-				*/
-				m_rt.unbind();
-				m_rt.save("dump.png");
-
-				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
-				m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-				configure();
-			}
-		}
-
-		void Text::update(std::string_view text)
-		{
-			if (m_font && !text.empty())
-			{
-				const auto vec = m_font->get_text_size(m_text, m_size);
-				m_width        = vec.x;
-				m_height       = vec.y;
 
 				m_rt.bind(true);
 
 				std::size_t start = 0;
 				std::size_t end   = m_text.find('\n');
 
-				auto y_off = 0.0f;
+				auto y_off = m_font->vertical_advance(m_size);
 				while (end != std::string::npos)
 				{
+					const auto block = m_text.substr(start, end);
 					msdfgl_printf(0,
 						y_off,
 						m_font->handle(),
 						m_size,
-						0x000000FF,
+						0xffffffff,
 						glm::value_ptr(m_rt.get_proj()),
-						MSDFGL_KERNING,
-						m_text.substr(start, end - start).c_str());
+						static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
+						block.c_str());
 
 					y_off += m_font->vertical_advance(m_size);
 					start = end + 1;
 					end   = m_text.find('\n', start);
 				}
 
+				const auto last_block = m_text.substr(start, end);
+
 				msdfgl_printf(0,
 					y_off,
 					m_font->handle(),
 					m_size,
-					0x000000FF,
+					0xffffffff,
 					glm::value_ptr(m_rt.get_proj()),
-					MSDFGL_KERNING,
-					m_text.substr(start, end).c_str());
+					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
+					last_block.c_str());
 
 				m_rt.unbind();
 
 				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
+				m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 
-				m_vao.sub_buffer(0, vertices);
 				configure();
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to create text without a font.");
+			}
+		}
+
+		void Text::update(std::string_view text)
+		{
+			m_text = text;
+			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
+
+			if (!m_font_id.empty())
+			{
+				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
+				m_font      = fonts.get(m_font_id);
+
+				const auto vec = m_font->get_text_size(m_text, m_size);
+				m_width        = vec.x;
+				m_height       = vec.y;
+
+				m_rt.resize(static_cast<int>(m_width), static_cast<int>(m_height));
+				m_rt.bind(true);
+
+				std::size_t start = 0;
+				std::size_t end   = m_text.find('\n');
+
+				auto y_off = m_font->vertical_advance(m_size);
+				while (end != std::string::npos)
+				{
+					const auto block = m_text.substr(start, end);
+					msdfgl_printf(0,
+						y_off,
+						m_font->handle(),
+						m_size,
+						0xffffffff,
+						glm::value_ptr(m_rt.get_proj()),
+						static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
+						block.c_str());
+
+					y_off += m_font->vertical_advance(m_size);
+					start = end + 1;
+					end   = m_text.find('\n', start);
+				}
+
+				const auto last_block = m_text.substr(start, end);
+
+				msdfgl_printf(0,
+					y_off,
+					m_font->handle(),
+					m_size,
+					0xffffffff,
+					glm::value_ptr(m_rt.get_proj()),
+					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
+					last_block.c_str());
+
+				m_rt.unbind();
+
+				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
+				m_vao.sub_buffer(0, vertices);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to update text without a font.");
 			}
 		}
 
