@@ -10,6 +10,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/resource/Sounds.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 #include "AudioEngine.hpp"
 
@@ -36,7 +37,11 @@ namespace galaxy
 				m_callback.onLog = [](void* pUserData, ma_uint32 level, const char* pMessage) -> void {
 					GALAXY_UNUSED(pUserData);
 
-					const auto msg = std::string(pMessage);
+					auto msg = std::string(pMessage);
+					strutils::replace_all(msg, "\t", " ");
+					strutils::replace_all(msg, "\n", " ");
+					strutils::trim(msg);
+					strutils::make_single_spaced(msg);
 
 					switch (level)
 					{
