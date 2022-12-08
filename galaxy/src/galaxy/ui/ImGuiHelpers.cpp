@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glad/glad.h>
 #include <glfw/glfw3.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_impl_glfw.h>

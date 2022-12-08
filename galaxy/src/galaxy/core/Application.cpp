@@ -6,7 +6,6 @@
 ///
 
 #include <BS_thread_pool.hpp>
-#include <glfw/glfw3.h>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
