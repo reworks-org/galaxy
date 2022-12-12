@@ -1,0 +1,14 @@
+///
+/// Max vertex buffer size for nuklear.
+///
+#define GALAXY_NUKLEAR_MAX_VERTEX_BUFFER 512 * 1024
+
+///
+/// Max element buffer size for nuklear.
+///
+#define GALAXY_NUKLEAR_MAX_ELEMENT_BUFFER 128 * 1024
+
+///
+/// Default font size for nuklear.
+///
+#define GALAXY_NUKLEAR_DEFAULT_FONT_SIZE 16.0f

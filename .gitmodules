@@ -37,3 +37,6 @@
 [submodule "lib/zip"]
 	path = lib/zip
 	url = https://github.com/kuba--/zip.git
+[submodule "lib/rmlui"]
+	path = lib/rmlui
+	url = https://github.com/mikke89/RmlUi.git
