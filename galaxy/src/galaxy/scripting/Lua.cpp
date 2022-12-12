@@ -37,6 +37,7 @@
 
 #include "galaxy/error/Log.hpp"
 
+#include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyChar.hpp"
@@ -470,6 +471,13 @@ namespace galaxy
 			lua.set_function("galaxy_log", &log_wrapper);
 
 			/* EVENTS */
+			auto contentscale_type       = lua.new_usertype<events::ContentScale>("ContentScale", sol::constructors<events::ContentScale()>());
+			contentscale_type["type_id"] = &entt::type_hash<events::ContentScale>::value;
+			contentscale_type["xscale"]  = &events::ContentScale::xscale;
+			contentscale_type["yscale"]  = &events::ContentScale::yscale;
+
+			entt_sol::register_meta_event<events::ContentScale>();
+
 			auto keychar_type         = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
 			keychar_type["type_id"]   = &entt::type_hash<events::KeyChar>::value;
 			keychar_type["codepoint"] = &events::KeyChar::codepoint;

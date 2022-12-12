@@ -137,6 +137,7 @@
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
     <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\audio\Sound.cpp" />
+    <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -275,5 +276,6 @@
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
     <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\audio\Sound.hpp" />
+    <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
   </ItemGroup>
 </Project>

@@ -163,6 +163,7 @@ namespace galaxy
 							}
 						}
 
+						glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
 						glfwShowWindow(m_window);
 					}
 
@@ -187,6 +188,21 @@ namespace galaxy
 
 						win->m_event_queue.emplace_back(std::move(wr));
 						win->resize(width, height);
+					});
+
+					// Content scale callback.
+					glfwSetWindowContentScaleCallback(m_window, [](GLFWwindow* window, float xscale, float yscale) {
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+						// clang-format off
+						events::ContentScale sc
+						{
+							.xscale = xscale,
+							.yscale = yscale
+						};
+						// clang-format on
+
+						win->m_event_queue.emplace_back(std::move(sc));
 					});
 
 					// Key input callback.

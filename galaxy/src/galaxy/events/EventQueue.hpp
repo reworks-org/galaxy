@@ -11,6 +11,7 @@
 #include <variant>
 #include <vector>
 
+#include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -29,6 +30,7 @@ namespace galaxy
 		/// Event type.
 		///
 		using Variant = std::variant<std::monostate,
+			events::ContentScale,
 			events::KeyDown,
 			events::KeyRepeat,
 			events::KeyUp,
