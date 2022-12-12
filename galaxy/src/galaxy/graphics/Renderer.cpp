@@ -124,7 +124,34 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default render to texture shader.");
+				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default draw_texture_to_target shader.");
+			}
+
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glUseProgram(0);
+		}
+
+		void Renderer::draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj)
+		{
+			va.bind();
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, texture);
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+			auto rtt = core::ServiceLocator<resource::Shaders>::ref().get("RenderToTexture");
+			if (rtt != nullptr)
+			{
+				rtt->bind();
+				rtt->set_uniform("u_projection", proj);
+				rtt->set_uniform("u_transform", transform.get_transform());
+
+				glDrawElements(GL_TRIANGLES, va.index_count(), GL_UNSIGNED_INT, nullptr);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default draw_texture_to_framebuffer shader.");
 			}
 
 			glBindVertexArray(0);
