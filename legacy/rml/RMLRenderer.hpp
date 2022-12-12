@@ -36,6 +36,12 @@ namespace galaxy
 			///
 			virtual ~RMLRenderer() noexcept;
 
+			void init();
+			void destroy();
+
+			void new_frame();
+			void end_frame();
+
 			///
 			/// \brief Called by RmlUi when it wants to render geometry that the application does not wish to optimise.
 			///
@@ -144,11 +150,11 @@ namespace galaxy
 			///
 			void SetTransform(const Rml::Matrix4f* new_transform) override;
 
-			void init();
-			void destroy();
-
-			void new_frame();
-			void end_frame();
+		public:
+			///
+			/// Can be passed to RenderGeometry() to enable texture rendering without changing the bound texture.
+			///
+			static const Rml::TextureHandle TextureEnableWithoutBinding = Rml::TextureHandle(-1);
 
 		private:
 			enum class ProgramId
@@ -158,7 +164,6 @@ namespace galaxy
 				Color   = 2,
 				All     = (Texture | Color)
 			};
-
 			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
 
 			Rml::Matrix4f transform, projection;

@@ -8,17 +8,8 @@
 #ifndef GALAXY_UI_RMLEVENTS_HPP_
 #define GALAXY_UI_RMLEVENTS_HPP_
 
+#include "galaxy/events/EventQueue.hpp"
 #include "galaxy/ui/RMLInput.hpp"
-
-#include "galaxy/events/MouseMoved.hpp"
-#include "galaxy/events/MousePressed.hpp"
-#include "galaxy/events/MouseReleased.hpp"
-#include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/KeyChar.hpp"
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyRepeat.hpp"
-#include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/WindowResized.hpp"
 
 namespace Rml
 {
@@ -111,13 +102,11 @@ namespace galaxy
 			void on_window_resize(const events::WindowResized& e) noexcept;
 
 			///
-			/// Converts the GLFW key to RmlUi key.
+			/// On content scale event handler.
 			///
-			/// \param glfw_key GLFW key identifier.
+			/// \param e Event to process.
 			///
-			/// \return RML identifier.
-			///
-			[[nodiscard]] Rml::Input::KeyIdentifier convert_key(int glfw_key) noexcept;
+			void on_content_scale(const events::ContentScale& e) noexcept;
 
 			///
 			/// Converts the GLFW key modifiers to RmlUi key modifiers.

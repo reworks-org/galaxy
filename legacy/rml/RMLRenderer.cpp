@@ -6,6 +6,7 @@
 /// Code has been modified to work in galaxy.
 ///
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <RmlUi/Core/Core.h>
 #include <RmlUi/Core/FileInterface.h>
@@ -19,7 +20,7 @@
 
 #include "RMLRenderer.hpp"
 
-#define RMLUI_SHADER_HEADER "#version 330\n"
+#define RMLUI_SHADER_HEADER "#version 460\n"
 
 static const char* shader_main_vertex = RMLUI_SHADER_HEADER R"(
 uniform vec2 _translate;
@@ -80,7 +81,7 @@ namespace Gfx
 
 	struct CompiledGeometryData
 	{
-		GLuint texture;
+		Rml::TextureHandle texture;
 		GLuint vao;
 		GLuint vbo;
 		GLuint ibo;
@@ -305,6 +306,55 @@ namespace galaxy
 		{
 		}
 
+		void RMLRenderer::init()
+		{
+			shaders = Rml::MakeUnique<Gfx::ShadersData>();
+
+			if (!Gfx::CreateShaders(*shaders))
+				shaders.reset();
+
+			auto& window    = core::ServiceLocator<core::Window>::ref();
+			viewport_width  = window.get_width();
+			viewport_height = window.get_height();
+		}
+
+		void RMLRenderer::destroy()
+		{
+			if (shaders)
+				Gfx::DestroyShaders(*shaders);
+		}
+
+		void RMLRenderer::new_frame()
+		{
+			glViewport(0, 0, viewport_width, viewport_height);
+
+			glClearStencil(0);
+			glClearColor(0, 0, 0, 1);
+
+			glDisable(GL_CULL_FACE);
+
+			glEnable(GL_STENCIL_TEST);
+			glStencilFunc(GL_ALWAYS, 1, GLuint(-1));
+			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+
+			glEnable(GL_BLEND);
+			glBlendEquation(GL_FUNC_ADD);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport_width, (float)viewport_height, 0, -10000, 10000);
+
+			SetTransform(nullptr);
+
+			glClearStencil(0);
+			glClearColor(0, 0, 0, 1);
+			glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		}
+
+		void RMLRenderer::end_frame()
+		{
+			glfwSwapBuffers(core::ServiceLocator<core::Window>::ref().handle());
+		}
+
 		void RMLRenderer::RenderGeometry(Rml::Vertex* vertices,
 			int num_vertices,
 			int* indices,
@@ -369,7 +419,7 @@ namespace galaxy
 			Gfx::CheckGLError("CompileGeometry");
 
 			Gfx::CompiledGeometryData* geometry = new Gfx::CompiledGeometryData;
-			geometry->texture                   = (GLuint)texture;
+			geometry->texture                   = texture;
 			geometry->vao                       = vao;
 			geometry->vbo                       = vbo;
 			geometry->ibo                       = ibo;
@@ -385,7 +435,8 @@ namespace galaxy
 			if (geometry->texture)
 			{
 				glUseProgram(shaders->program_texture.id);
-				glBindTexture(GL_TEXTURE_2D, geometry->texture);
+				if (geometry->texture != TextureEnableWithoutBinding)
+					glBindTexture(GL_TEXTURE_2D, (GLuint)geometry->texture);
 				SubmitTransformUniform(ProgramId::Texture, shaders->program_texture.uniform_locations[(size_t)Gfx::ProgramUniform::Transform]);
 				glUniform2fv(shaders->program_texture.uniform_locations[(size_t)Gfx::ProgramUniform::Translate], 1, &translation.x);
 			}
@@ -540,56 +591,6 @@ namespace galaxy
 			transform_active      = (new_transform != nullptr);
 			transform             = projection * (new_transform ? *new_transform : Rml::Matrix4f::Identity());
 			transform_dirty_state = ProgramId::All;
-		}
-
-		void RMLRenderer::init()
-		{
-			shaders = Rml::MakeUnique<Gfx::ShadersData>();
-
-			if (!Gfx::CreateShaders(*shaders))
-				shaders.reset();
-
-			auto& window    = core::ServiceLocator<core::Window>::ref();
-			viewport_width  = window.get_width();
-			viewport_height = window.get_height();
-		}
-
-		void RMLRenderer::destroy()
-		{
-			if (shaders)
-				Gfx::DestroyShaders(*shaders);
-		}
-
-		void RMLRenderer::new_frame()
-		{
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, viewport_width, viewport_height);
-
-			glClearStencil(0);
-			glClearColor(0, 0, 0, 1);
-
-			glDisable(GL_CULL_FACE);
-
-			glEnable(GL_STENCIL_TEST);
-			glStencilFunc(GL_ALWAYS, 1, GLuint(-1));
-			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-
-			glEnable(GL_BLEND);
-			glBlendEquation(GL_FUNC_ADD);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport_width, (float)viewport_height, 0, -10000, 10000);
-
-			SetTransform(nullptr);
-
-			glClearStencil(0);
-			glClearColor(0, 0, 0, 1);
-			glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-		}
-
-		void RMLRenderer::end_frame()
-		{
-			glfwSwapBuffers(core::ServiceLocator<core::Window>::ref().handle());
 		}
 
 		void RMLRenderer::SubmitTransformUniform(ProgramId program_id, int uniform_location)

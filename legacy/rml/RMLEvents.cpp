@@ -94,6 +94,11 @@ namespace galaxy
 			m_context->SetDimensions({e.width, e.height});
 		}
 
+		void RMLEvents::on_content_scale(const events::ContentScale& e) noexcept
+		{
+			m_context->SetDensityIndependentPixelRatio(e.xscale);
+		}
+
 		int RMLEvents::convert_key_modifier(int glfw_mods) noexcept
 		{
 			int key_modifier_state = 0;
