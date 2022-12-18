@@ -306,6 +306,12 @@ namespace galaxy
 			}
 		}
 
+		bool VirtualFileSystem::exists(std::string_view file)
+		{
+			const auto info = find(file);
+			return info.code == FileCode::FOUND;
+		}
+
 		void VirtualFileSystem::remove(std::string_view path)
 		{
 			auto fs_path = std::filesystem::path(path);

@@ -111,6 +111,17 @@ namespace galaxy
 			[[nodiscard]] bool save_binary(std::span<char> data, std::string_view file);
 
 			///
+			/// \brief Check if a file exists.
+			///
+			/// Different from find() in that just returns a boolean.
+			///
+			/// \param file Filet to find in VFS.
+			///
+			/// \return True if found.
+			///
+			[[nodiscard]] bool exists(std::string_view file);
+
+			///
 			/// \brief Delete a file or folder.
 			///
 			/// Does not delete directories in path.
