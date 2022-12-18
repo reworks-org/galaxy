@@ -138,6 +138,11 @@
     <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\audio\Sound.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
+    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -277,5 +282,10 @@
     <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\audio\Sound.hpp" />
     <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
+    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
   </ItemGroup>
 </Project>

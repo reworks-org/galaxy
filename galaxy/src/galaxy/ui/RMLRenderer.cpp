@@ -19,22 +19,33 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "RMLRenderer.hpp"
+#if defined(RMLUI_PLATFORM_WIN32) && !defined(__MINGW32__)
+// function call missing argument list
+#pragma warning(disable : 4551)
+// unreferenced local function has been removed
+#pragma warning(disable : 4505)
+#endif
 
-#define RMLUI_SHADER_HEADER "#version 460\n"
+#define RMLUI_SHADER_HEADER "#version 330\n"
 
 static const char* shader_main_vertex = RMLUI_SHADER_HEADER R"(
 uniform vec2 _translate;
 uniform mat4 _transform;
+
 in vec2 inPosition;
 in vec4 inColor0;
 in vec2 inTexCoord0;
+
 out vec2 fragTexCoord;
 out vec4 fragColor;
+
 void main() {
 	fragTexCoord = inTexCoord0;
 	fragColor = inColor0;
+
 	vec2 translatedPos = inPosition + _translate.xy;
 	vec4 outPos = _transform * vec4(translatedPos, 0, 1);
+
     gl_Position = outPos;
 }
 )";
@@ -43,7 +54,9 @@ static const char* shader_main_fragment_texture = RMLUI_SHADER_HEADER R"(
 uniform sampler2D _tex;
 in vec2 fragTexCoord;
 in vec4 fragColor;
+
 out vec4 finalColor;
+
 void main() {
 	vec4 texColor = texture(_tex, fragTexCoord);
 	finalColor = fragColor * texColor;
@@ -52,7 +65,9 @@ void main() {
 static const char* shader_main_fragment_color   = RMLUI_SHADER_HEADER R"(
 in vec2 fragTexCoord;
 in vec4 fragColor;
+
 out vec4 finalColor;
+
 void main() {
 	finalColor = fragColor;
 }
@@ -308,14 +323,12 @@ namespace galaxy
 
 		void RMLRenderer::init()
 		{
+			m_window = &core::ServiceLocator<core::Window>::ref();
+
 			shaders = Rml::MakeUnique<Gfx::ShadersData>();
 
 			if (!Gfx::CreateShaders(*shaders))
 				shaders.reset();
-
-			auto& window    = core::ServiceLocator<core::Window>::ref();
-			viewport_width  = window.get_width();
-			viewport_height = window.get_height();
 		}
 
 		void RMLRenderer::destroy()
@@ -324,12 +337,12 @@ namespace galaxy
 				Gfx::DestroyShaders(*shaders);
 		}
 
-		void RMLRenderer::new_frame()
+		void RMLRenderer::begin_frame()
 		{
-			glViewport(0, 0, viewport_width, viewport_height);
+			const auto viewport = m_window->get_framebuffer_size();
 
-			glClearStencil(0);
-			glClearColor(0, 0, 0, 1);
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glViewport(0, 0, viewport.x, viewport.y);
 
 			glDisable(GL_CULL_FACE);
 
@@ -341,13 +354,13 @@ namespace galaxy
 			glBlendEquation(GL_FUNC_ADD);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport_width, (float)viewport_height, 0, -10000, 10000);
+			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport.x, (float)viewport.y, 0, -10000, 10000);
 
 			SetTransform(nullptr);
 
 			glClearStencil(0);
-			glClearColor(0, 0, 0, 1);
-			glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}
 
 		void RMLRenderer::end_frame()
@@ -520,7 +533,8 @@ namespace galaxy
 			}
 			else
 			{
-				glScissor(x, viewport_height - (y + height), width, height);
+				const auto viewport = m_window->get_framebuffer_size();
+				glScissor(x, viewport.y - (y + height), width, height);
 			}
 		}
 
@@ -532,7 +546,7 @@ namespace galaxy
 			const auto file_info = fs.find(source);
 			if (file_info.code == fs::FileCode::FOUND)
 			{
-				stbi_set_flip_vertically_on_load(true);
+				stbi_set_flip_vertically_on_load(false);
 				unsigned char* data = stbi_load(file_info.string.c_str(), &texture_dimensions.x, &texture_dimensions.y, nullptr, STBI_rgb_alpha);
 
 				if (data)
@@ -546,6 +560,7 @@ namespace galaxy
 				}
 
 				stbi_image_free(data);
+				stbi_set_flip_vertically_on_load(true);
 			}
 			else
 			{
@@ -603,3 +618,117 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
+
+/*
+
+// Set to byte packing, or the compiler will expand our struct, which means it won't read correctly from file
+#pragma pack(1)
+struct TGAHeader
+{
+	char idLength;
+	char colourMapType;
+	char dataType;
+	short int colourMapOrigin;
+	short int colourMapLength;
+	char colourMapDepth;
+	short int xOrigin;
+	short int yOrigin;
+	short int width;
+	short int height;
+	char bitsPerPixel;
+	char imageDescriptor;
+};
+// Restore packing
+#pragma pack()
+
+bool RMLRenderInterface_GL3::LoadTexture(Rml::TextureHandle& texture_handle, Rml::Vector2i& texture_dimensions, const Rml::String& source)
+{
+	Rml::FileInterface* file_interface = Rml::GetFileInterface();
+	Rml::FileHandle file_handle        = file_interface->Open(source);
+	if (!file_handle)
+	{
+		return false;
+	}
+
+	file_interface->Seek(file_handle, 0, SEEK_END);
+	size_t buffer_size = file_interface->Tell(file_handle);
+	file_interface->Seek(file_handle, 0, SEEK_SET);
+
+	if (buffer_size <= sizeof(TGAHeader))
+	{
+		Rml::Log::Message(Rml::Log::LT_ERROR, "Texture file size is smaller than TGAHeader, file is not a valid TGA image.");
+		file_interface->Close(file_handle);
+		return false;
+	}
+
+	using Rml::byte;
+	byte* buffer = new byte[buffer_size];
+	file_interface->Read(buffer, buffer_size, file_handle);
+	file_interface->Close(file_handle);
+
+	TGAHeader header;
+	memcpy(&header, buffer, sizeof(TGAHeader));
+
+	int color_mode = header.bitsPerPixel / 8;
+	int image_size = header.width * header.height * 4; // We always make 32bit textures
+
+	if (header.dataType != 2)
+	{
+		Rml::Log::Message(Rml::Log::LT_ERROR, "Only 24/32bit uncompressed TGAs are supported.");
+		delete[] buffer;
+		return false;
+	}
+
+	// Ensure we have at least 3 colors
+	if (color_mode < 3)
+	{
+		Rml::Log::Message(Rml::Log::LT_ERROR, "Only 24 and 32bit textures are supported.");
+		delete[] buffer;
+		return false;
+	}
+
+	const byte* image_src = buffer + sizeof(TGAHeader);
+	byte* image_dest      = new byte[image_size];
+
+	// Targa is BGR, swap to RGB and flip Y axis
+	for (long y = 0; y < header.height; y++)
+	{
+		long read_index  = y * header.width * color_mode;
+		long write_index = ((header.imageDescriptor & 32) != 0) ? read_index : (header.height - y - 1) * header.width * 4;
+		for (long x = 0; x < header.width; x++)
+		{
+			image_dest[write_index]     = image_src[read_index + 2];
+			image_dest[write_index + 1] = image_src[read_index + 1];
+			image_dest[write_index + 2] = image_src[read_index];
+			if (color_mode == 4)
+			{
+				const int alpha = image_src[read_index + 3];
+#ifdef RMLUI_SRGB_PREMULTIPLIED_ALPHA
+				image_dest[write_index + 0] = (image_dest[write_index + 0] * alpha) / 255;
+				image_dest[write_index + 1] = (image_dest[write_index + 1] * alpha) / 255;
+				image_dest[write_index + 2] = (image_dest[write_index + 2] * alpha) / 255;
+#endif
+				image_dest[write_index + 3] = (byte)alpha;
+			}
+			else
+			{
+				image_dest[write_index + 3] = 255;
+			}
+
+			write_index += 4;
+			read_index += color_mode;
+		}
+	}
+
+	texture_dimensions.x = header.width;
+	texture_dimensions.y = header.height;
+
+	bool success = GenerateTexture(texture_handle, image_dest, texture_dimensions);
+
+	delete[] image_dest;
+	delete[] buffer;
+
+	return success;
+}
+
+*/

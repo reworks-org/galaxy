@@ -9,8 +9,7 @@
 #define GALAXY_CORE_LOADING_HPP_
 
 #include "galaxy/meta/Async.hpp"
-
-struct GLFWwindow;
+#include "galaxy/ui/RMLRenderer.hpp"
 
 namespace galaxy
 {
@@ -23,14 +22,16 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Constructor.
+			/// Argument constructor.
 			///
-			Loading();
+			/// \param doc UI document to display when loading.
+			///
+			Loading(const std::string& doc);
 
 			///
 			/// Destructor.
 			///
-			~Loading() noexcept;
+			~Loading();
 
 			///
 			/// Start loading job in task pool.
@@ -46,9 +47,25 @@ namespace galaxy
 
 		private:
 			///
+			/// Constructor.
+			///
+			Loading() = delete;
+
+		private:
+			///
 			/// Handle to thread loading assets.
 			///
 			std::future<void> m_thread_handle;
+
+			///
+			/// RML context.
+			///
+			Rml::Context* m_context;
+
+			///
+			/// RML rendering interface.
+			///
+			ui::RMLRenderer m_renderer;
 		};
 	} // namespace core
 } // namespace galaxy

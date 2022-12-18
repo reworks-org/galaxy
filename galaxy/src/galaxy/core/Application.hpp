@@ -10,6 +10,10 @@
 
 #include <string_view>
 
+#include "galaxy/ui/RMLFile.hpp"
+#include "galaxy/ui/RMLSystem.hpp"
+#include "galaxy/ui/RMLRenderer.hpp"
+
 namespace galaxy
 {
 	namespace core
@@ -81,6 +85,22 @@ namespace galaxy
 			/// \param asset_folder Path to the asset folder to create.
 			///
 			void create_asset_layout(const std::string& root, const std::string& asset_folder);
+
+		protected:
+			///
+			/// RML System interface.
+			///
+			ui::RMLSystem m_rml_system_interface;
+
+			///
+			/// RML File interface.
+			///
+			ui::RMLFile m_rml_file_interface;
+
+			///
+			/// RML Rendering interface.
+			///
+			ui::RMLRenderer m_rml_rendering_interface;
 		};
 	} // namespace core
 } // namespace galaxy

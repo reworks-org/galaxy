@@ -18,6 +18,11 @@ namespace Gfx
 
 namespace galaxy
 {
+	namespace core
+	{
+		class Window;
+	} // namespace core
+
 	namespace ui
 	{
 		///
@@ -39,7 +44,7 @@ namespace galaxy
 			void init();
 			void destroy();
 
-			void new_frame();
+			void begin_frame();
 			void end_frame();
 
 			///
@@ -178,10 +183,8 @@ namespace galaxy
 			};
 			ScissoringState scissoring_state = ScissoringState::Disable;
 
-			int viewport_width  = 0;
-			int viewport_height = 0;
-
 			Rml::UniquePtr<Gfx::ShadersData> shaders;
+			core::Window* m_window;
 		};
 	} // namespace ui
 } // namespace galaxy

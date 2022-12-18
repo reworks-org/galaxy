@@ -571,6 +571,7 @@ namespace galaxy
 			vfs_type["save_binary"]   = &fs::VirtualFileSystem::save_binary;
 			vfs_type["remove"]        = &fs::VirtualFileSystem::remove;
 			vfs_type["root"]          = &fs::VirtualFileSystem::root;
+			vfs_type["exists"]        = &fs::VirtualFileSystem::exists;
 
 			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 

@@ -6,6 +6,8 @@
 ///
 
 #include <BS_thread_pool.hpp>
+#include <RmlUi/Core.h>
+#include <RmlUi/Lua.h>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
@@ -77,6 +79,7 @@ namespace galaxy
 			config.restore<std::string>("asset_dir", "assets/");
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("app_data", "default.galaxy");
+			config.restore<std::string>("load_screen_rml", "ui/load.rml");
 			config.restore<bool>("log_performance", true);
 			config.restore<std::string>("title", "Title", "window");
 			config.restore<std::string>("icon", "", "window");
@@ -106,6 +109,7 @@ namespace galaxy
 			config.restore<std::string>("music_folder", "audio/music/", "resource_folders");
 			config.restore<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
 			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
+			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
 			config.restore<bool>("enable_aa", false, "graphics");
 			config.restore<bool>("enable_sharpen", false, "graphics");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
@@ -149,11 +153,21 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("ui_folder", "resource_folders"));
 
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
+				}
+
+				// Generate default RML for load screen.
+				if (!fs.exists(config.get<std::string>("load_screen_rml")))
+				{
+					if (!fs.save("<rml><head><title>Loading</title></head><body><p>Loading</p></body></rml>", config.get<std::string>("load_screen_rml")))
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to save default load screen rml.");
+					}
 				}
 			}
 			else
@@ -190,19 +204,52 @@ namespace galaxy
 			}
 
 			//
-			// Set up Font Context.
-			//
-			ServiceLocator<graphics::FontContext>::make();
-
-			//
 			// Threadpool.
 			//
 			ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
 
 			//
+			// Set up Font Context.
+			//
+			ServiceLocator<graphics::FontContext>::make();
+
+			//
+			// UI.
+			//
+			m_rml_rendering_interface.init();
+			Rml::SetSystemInterface(&m_rml_system_interface);
+			Rml::SetFileInterface(&m_rml_file_interface);
+			Rml::SetRenderInterface(&m_rml_rendering_interface);
+
+			if (Rml::Initialise())
+			{
+				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
+				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
+
+				if (!contents.empty())
+				{
+					for (const auto& file : contents)
+					{
+						if (!Rml::LoadFontFace(file))
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
+						}
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
+			}
+
+			//
 			// Begin offthread loading.
 			//
-			Loading loading;
+			Loading loading(config.get<std::string>("load_screen_rml"));
 
 			// clang-format off
 			//
@@ -270,7 +317,7 @@ namespace galaxy
 					fonts.load(config.get<std::string>("font_folder", "resource_folders"));
 
 					//
-					// LUA.
+					// Lua.
 					//
 					auto& lua = ServiceLocator<sol::state>::make();
 					lua.open_libraries(sol::lib::base,
@@ -332,13 +379,14 @@ namespace galaxy
 					ServiceLocator<scene::SceneManager>::make();
 
 					//
-					// Add external libraries to lua.
+					// Add external libraries to Lua.
 					//
 					lua::load_external_libs();
 
 					//
 					// Inject all configured galaxy into Lua.
 					//
+					Rml::Lua::Initialise(lua.lua_state());
 					lua::inject_galaxy_into_lua();
 				}
 				catch (const std::exception& e)
@@ -377,9 +425,11 @@ namespace galaxy
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
+			Rml::Shutdown();
+			m_rml_rendering_interface.destroy();
+			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();
-			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();

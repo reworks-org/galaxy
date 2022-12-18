@@ -54,7 +54,8 @@
             "scripts_folder": "scripts/",
             "sfx_folder": "audio/sfx/",
             "shader_folder": "shaders/",
-            "texture_folder": "textures/"
+            "texture_folder": "textures/",
+            "ui_folder": "ui/"
         },
         "window": {
             "allow_native_closing": false,
