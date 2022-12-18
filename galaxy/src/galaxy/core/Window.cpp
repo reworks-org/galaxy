@@ -689,6 +689,14 @@ namespace galaxy
 			return static_cast<float>(m_height);
 		}
 
+		glm::ivec2 Window::get_framebuffer_size() noexcept
+		{
+			glm::ivec2 size;
+			glfwGetFramebufferSize(m_window, &size.x, &size.y);
+
+			return size;
+		}
+
 		GLFWwindow* Window::handle() noexcept
 		{
 			return m_window;

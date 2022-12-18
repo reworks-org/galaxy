@@ -230,6 +230,13 @@ namespace galaxy
 			[[nodiscard]] float get_heightf() const noexcept;
 
 			///
+			/// Get framebuffer size taking into account DPI.
+			///
+			/// \return glm::ivec2.
+			///
+			[[nodiscard]] glm::ivec2 get_framebuffer_size() noexcept;
+
+			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns pointer to GLFWwindow.
