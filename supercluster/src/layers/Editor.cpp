@@ -98,7 +98,7 @@ namespace sc
 		{
 			if (m_viewport_focused && m_viewport_hovered)
 			{
-				if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Left) && m_paused)
 				{
 					auto [mx, my] = ImGui::GetMousePos();
 					mx -= m_viewport_bounds[0].x;

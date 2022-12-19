@@ -1,6 +1,3 @@
 editor:
 - loading indicators
 - add loading indicator for map loading
-- physics
-- fix mouse picking being enabled when game is unpaused
-- some fonts look broken up when rendering.
