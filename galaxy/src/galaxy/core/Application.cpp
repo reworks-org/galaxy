@@ -16,6 +16,7 @@
 #include "galaxy/core/Loading.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -164,7 +165,8 @@ namespace galaxy
 				// Generate default RML for load screen.
 				if (!fs.exists(config.get<std::string>("load_screen_rml")))
 				{
-					if (!fs.save("<rml><head><title>Loading</title></head><body><p>Loading</p></body></rml>", config.get<std::string>("load_screen_rml")))
+					if (!fs.save("<rml><head><title>Loading</title><style>p{font-family: Roboto;}</style></head><body><p>Loading</p></body></rml>",
+							config.get<std::string>("load_screen_rml")))
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to save default load screen rml.");
 					}
@@ -226,19 +228,15 @@ namespace galaxy
 				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
 				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
 
-				if (!contents.empty())
+				// Load default font first.
+				Rml::LoadFontFace((Rml::byte*)&embedded::roboto_light, embedded::roboto_light_len, "Roboto", Rml::Style::FontStyle::Normal);
+
+				for (const auto& file : contents)
 				{
-					for (const auto& file : contents)
+					if (!Rml::LoadFontFace(file))
 					{
-						if (!Rml::LoadFontFace(file))
-						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
-						}
+						GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
 					}
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load into RmlUi at '{0}'.", dir);
 				}
 			}
 			else

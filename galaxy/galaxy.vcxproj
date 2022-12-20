@@ -14,6 +14,7 @@
     <ClCompile Include="src\galaxy\audio\Sound.cpp" />
     <ClCompile Include="src\galaxy\audio\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
+    <ClCompile Include="src\galaxy\embedded\RobotoLight.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
     <ClCompile Include="src\galaxy\physics\Constants.cpp" />
     <ClCompile Include="src\galaxy\core\TiledMap.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="src\galaxy\audio\Sound.hpp" />
     <ClInclude Include="src\galaxy\audio\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
+    <ClInclude Include="src\galaxy\embedded\RobotoLight.hpp" />
     <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
     <ClInclude Include="src\galaxy\physics\Constants.hpp" />
     <ClInclude Include="src\galaxy\core\TiledMap.hpp" />

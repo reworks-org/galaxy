@@ -38,6 +38,7 @@
             "camera_rotate_left": 81,
             "camera_rotate_right": 69
         },
+        "load_screen_rml": "ui/load.rml",
         "loading": {
             "bg": "editor_data/load.png",
             "font": "editor_data/secret_code.ttf"
