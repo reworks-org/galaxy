@@ -41,10 +41,26 @@ namespace galaxy
 			///
 			virtual ~RMLRenderer() noexcept;
 
+			///
+			/// Initialize rml renderer.
+			///
 			void init();
+
+			///
+			/// Cleanup rml renderer data.
+			///
 			void destroy();
 
+			///
+			/// \brief Begin isolated rendering.
+			///
+			/// Used for things like load screens, drawing to a framebuffer, etc.
+			///
 			void begin_frame();
+
+			///
+			/// Finish isolated rendering.
+			///
 			void end_frame();
 
 			///
@@ -162,6 +178,9 @@ namespace galaxy
 			static const Rml::TextureHandle TextureEnableWithoutBinding = Rml::TextureHandle(-1);
 
 		private:
+			///
+			/// Types of rml shaders.
+			///
 			enum class ProgramId
 			{
 				None,
@@ -169,21 +188,60 @@ namespace galaxy
 				Color   = 2,
 				All     = (Texture | Color)
 			};
-			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
 
-			Rml::Matrix4f transform, projection;
-			ProgramId transform_dirty_state = ProgramId::All;
-			bool transform_active           = false;
-
+			///
+			/// Rml renderer scissor state.
+			///
 			enum class ScissoringState
 			{
 				Disable,
 				Scissor,
 				Stencil
 			};
-			ScissoringState scissoring_state = ScissoringState::Disable;
 
+		private:
+			///
+			/// Update rml transform.
+			///
+			/// \param program_id Shader to modify.
+			/// \param uniform_location Location of uniform to modify.
+			///
+			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
+
+		private:
+			///
+			/// Rml transformation.
+			///
+			Rml::Matrix4f transform;
+
+			///
+			/// Rml ortho projection.
+			///
+			Rml::Matrix4f projection;
+
+			///
+			/// Shader Id for updating a dirty transform.
+			///
+			ProgramId transform_dirty_state;
+
+			///
+			/// Is there a transform applied.
+			///
+			bool transform_active;
+
+			///
+			/// Current rml renderer scissor state.
+			///
+			ScissoringState scissoring_state;
+
+			///
+			/// Rml shader data.
+			///
 			Rml::UniquePtr<Gfx::ShadersData> shaders;
+
+			///
+			/// Pointer to window.
+			///
 			core::Window* m_window;
 		};
 	} // namespace ui

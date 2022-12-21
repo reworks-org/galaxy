@@ -314,6 +314,11 @@ namespace galaxy
 	namespace ui
 	{
 		RMLRenderer::RMLRenderer() noexcept
+			: transform_dirty_state {ProgramId::All}
+			, transform_active {false}
+			, scissoring_state {ScissoringState::Disable}
+			, shaders {nullptr}
+			, m_window {nullptr}
 		{
 		}
 

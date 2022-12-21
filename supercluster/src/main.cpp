@@ -14,13 +14,13 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/embedded/RobotoLight.hpp>
 #include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
 #include <galaxy/utils/Globals.hpp>
 
 #include "layers/Editor.hpp"
 #include "layers/Menu.hpp"
-#include "resources/RobotoLight.hpp"
 
 using namespace galaxy;
 
@@ -72,7 +72,7 @@ int main(int argsc, char* argsv[])
 				font_cfg.RasterizerMultiply   = 1.5f;
 				font_cfg.OversampleH          = 4;
 				font_cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
-				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&ttf::roboto_light), ttf::roboto_light_len, 16.0f, &font_cfg);
+				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
 				ImGui_Notify::MergeIconsWithLatestFont(16.f, false);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();

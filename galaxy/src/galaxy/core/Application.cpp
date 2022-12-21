@@ -229,7 +229,7 @@ namespace galaxy
 				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
 
 				// Load default font first.
-				Rml::LoadFontFace((Rml::byte*)&embedded::roboto_light, embedded::roboto_light_len, "Roboto", Rml::Style::FontStyle::Normal);
+				Rml::LoadFontFace(reinterpret_cast<Rml::byte*>(&embedded::roboto_light), embedded::roboto_light_len, "Roboto", Rml::Style::FontStyle::Normal);
 
 				for (const auto& file : contents)
 				{
@@ -443,8 +443,8 @@ namespace galaxy
 			const auto default_data = fs.open(json_file);
 			if (default_data.has_value())
 			{
-				auto decoded_zlib   = algorithm::decode_zlib(default_data.value());
-				auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
+				const auto decoded_zlib   = algorithm::decode_zlib(default_data.value());
+				const auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
 
 				manager.load(decoded_base64);
 			}

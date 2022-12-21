@@ -216,7 +216,6 @@
     <ClInclude Include="src\editor\UpdateStack.hpp" />
     <ClInclude Include="src\layers\Menu.hpp" />
     <ClInclude Include="src\layers\Editor.hpp" />
-    <ClInclude Include="src\resources\RobotoLight.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

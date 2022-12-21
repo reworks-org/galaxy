@@ -18,7 +18,6 @@
     <ClCompile Include="src\editor\CodeEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\resources\RobotoLight.hpp" />
     <ClInclude Include="src\layers\Editor.hpp" />
     <ClInclude Include="src\layers\Menu.hpp" />
     <ClInclude Include="src\editor\panels\LogConsole.hpp" />
