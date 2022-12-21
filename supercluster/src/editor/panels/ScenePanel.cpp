@@ -380,7 +380,7 @@ namespace sc
 								const auto zlib   = algorithm::encode_zlib(base64);
 
 								auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-								if (!fs.save_with_dialog(zlib, "untitled.gpf"))
+								if (!fs.save_with_dialog(zlib, "untitled.gprefab"))
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
 									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save prefab."});

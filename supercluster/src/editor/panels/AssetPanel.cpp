@@ -265,7 +265,7 @@ namespace sc
 							{
 								m_icon = &m_map;
 							}
-							else if (ext == ".galaxyprefab")
+							else if (ext == ".gprefab")
 							{
 								m_icon = &m_prefab;
 							}
