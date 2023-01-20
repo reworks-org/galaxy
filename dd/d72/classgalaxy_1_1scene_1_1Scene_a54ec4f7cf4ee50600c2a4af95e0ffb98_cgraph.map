@@ -1,0 +1,5 @@
+<map id="galaxy::scene::Scene::render" name="galaxy::scene::Scene::render">
+<area shape="rect" id="node1" title="Render scene." alt="" coords="5,39,164,80"/>
+<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a249301ee8f4ed36d6bc76a2adeddcd04" title=" " alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node3" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ae088117c21375db1b437b98ea556a23f" title="Render all layers." alt="" coords="228,71,391,112"/>
+</map>

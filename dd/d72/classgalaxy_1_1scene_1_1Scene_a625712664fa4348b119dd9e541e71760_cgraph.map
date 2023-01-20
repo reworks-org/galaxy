@@ -1,0 +1,4 @@
+<map id="galaxy::scene::Scene::update" name="galaxy::scene::Scene::update">
+<area shape="rect" id="node1" title="Process updates." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ab27e36118d69b2bf5dbc44a06d51b45c" title="Process layer updates based on events." alt="" coords="212,5,375,47"/>
+</map>

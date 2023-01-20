@@ -1,0 +1,4 @@
+<map id="galaxy::ui::RMLRenderer::RenderGeometry" name="galaxy::ui::RMLRenderer::RenderGeometry">
+<area shape="rect" id="node1" title="Called by RmlUi when it wants to render geometry that the application does not wish to optimise." alt="" coords="233,5,413,47"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a77d3aa24e74558b40c18f042b23c0850" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="5,5,185,47"/>
+</map>

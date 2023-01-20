@@ -1,0 +1,5 @@
+<map id="galaxy::scene::RuntimeLayer" name="galaxy::scene::RuntimeLayer">
+<area shape="rect" id="node1" title="Layer handling game logic." alt="" coords="5,520,216,744"/>
+<area shape="rect" id="node2" href="$d2/d25/classgalaxy_1_1scene_1_1Layer.html" title="A layer is a contained part of your game engine. I.e. A scene would have a runtime layer and a UI lay..." alt="" coords="33,204,188,472"/>
+<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="26,5,195,156"/>
+</map>

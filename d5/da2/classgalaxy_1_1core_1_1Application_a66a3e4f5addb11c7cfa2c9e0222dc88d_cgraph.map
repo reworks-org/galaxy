@@ -1,0 +1,7 @@
+<map id="galaxy::core::Application::~Application" name="galaxy::core::Application::~Application">
+<area shape="rect" id="node1" title="Virtual destructor." alt="" coords="5,57,188,98"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ab1aee18c326706483180529b3e0e6b3b" title="Delete the service and frees up the memory." alt="" coords="236,5,469,32"/>
+<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aa5c48bb8a287ebb97f4394087219e816" title="Cleanup rml renderer data." alt="" coords="263,57,443,98"/>
+<area shape="rect" id="node5" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="237,123,468,149"/>
+<area shape="rect" id="node4" href="$d2/dad/namespaceGfx.html#abbbc94e318a4c08015a51055490a97d3" title=" " alt="" coords="517,64,673,91"/>
+</map>

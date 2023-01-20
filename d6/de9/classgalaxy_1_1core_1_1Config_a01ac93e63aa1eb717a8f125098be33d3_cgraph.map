@@ -1,0 +1,5 @@
+<map id="galaxy::core::Config::restore" name="galaxy::core::Config::restore">
+<area shape="rect" id="node1" title="Sets a new setting, only if key or value is missing." alt="" coords="5,23,156,65"/>
+<area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4f2c253c063e15d98412bc7c0869fbd7" title="Check if the config file actually has a value." alt="" coords="204,5,385,32"/>
+<area shape="rect" id="node3" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17" title="Set a new key&#45;value pair for the config." alt="" coords="205,56,384,83"/>
+</map>

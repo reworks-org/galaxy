@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::Camera::get_proj" name="galaxy::graphics::Camera::get_proj">
+<area shape="rect" id="node1" title="Get the Camera projection." alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node2" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a3817ce5abdb5d1f75b943d33f9ce54c7" title="Recalculates the model view matrix." alt="" coords="240,5,427,47"/>
+</map>

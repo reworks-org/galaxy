@@ -1,0 +1,4 @@
+<map id="galaxy::systems::ScriptSystem" name="galaxy::systems::ScriptSystem">
+<area shape="rect" id="node1" title="Update entities with a script component." alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node2" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="24,5,209,112"/>
+</map>

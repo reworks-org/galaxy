@@ -1,0 +1,12 @@
+<map id="galaxy::components::Sprite::create" name="galaxy::components::Sprite::create">
+<area shape="rect" id="node1" title="Creates the internal vertex array." alt="" coords="5,201,159,243"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a183a015a340f3686bd369b7b04d72bc8" title="Configure renderable." alt="" coords="245,71,399,112"/>
+<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="233,136,411,177"/>
+<area shape="rect" id="node8" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a901369072731302bf0e0184e62b64a0a" title="Generate some default indicies." alt="" coords="233,201,411,243"/>
+<area shape="rect" id="node9" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,267,437,294"/>
+<area shape="rect" id="node10" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aee1d7c69698f520f57e234215bc033a5" title="Set opacity." alt="" coords="245,319,399,360"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e5a06946bd96afd21392591c4432473" title="Get VAO GL id." alt="" coords="501,5,680,47"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0fc159dae1e32628bf1e3f22a8f32089" title="Get the count of indicies in the index buffer." alt="" coords="501,71,680,112"/>
+<area shape="rect" id="node6" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a0ba4fb9056b39f2aefacb701f384fa3a" title="Set primitive draw type." alt="" coords="485,136,696,177"/>
+<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#abc6c38f46158aaf45d62b41347b8dee9" title="Get the count of indicies in the index buffer." alt="" coords="744,71,955,112"/>
+</map>

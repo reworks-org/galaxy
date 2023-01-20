@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::SMAA::render" name="galaxy::graphics::SMAA::render">
+<area shape="rect" id="node1" title="Render effect to input texture." alt="" coords="5,5,180,47"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a27ada53d71e809ccf63abfb4e6892b2b" title="Enable this shader for rendering." alt="" coords="228,5,409,47"/>
+</map>

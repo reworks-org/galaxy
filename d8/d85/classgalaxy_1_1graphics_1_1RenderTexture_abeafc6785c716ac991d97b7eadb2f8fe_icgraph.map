@@ -1,0 +1,12 @@
+<map id="galaxy::graphics::RenderTexture::bind" name="galaxy::graphics::RenderTexture::bind">
+<area shape="rect" id="node1" title="Bind framebuffer and texture." alt="" coords="708,104,891,145"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aaee2c8ec04bdd456aab68cd9d763d94a" title="Bind to draw to post processor framebuffer." alt="" coords="445,5,660,47"/>
+<area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="476,71,629,112"/>
+<area shape="rect" id="node8" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="458,136,647,177"/>
+<area shape="rect" id="node9" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="476,201,629,243"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa77388eecebd5a5c239995070e3a1d86" title="Prepare window for rendering." alt="" coords="236,5,397,47"/>
+<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="240,71,393,112"/>
+<area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="248,136,385,177"/>
+<area shape="rect" id="node7" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,136,188,177"/>
+<area shape="rect" id="node10" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="240,201,393,243"/>
+</map>

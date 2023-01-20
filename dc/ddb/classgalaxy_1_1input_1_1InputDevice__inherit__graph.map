@@ -1,0 +1,7 @@
+<map id="galaxy::input::InputDevice" name="galaxy::input::InputDevice">
+<area shape="rect" id="node1" title=" " alt="" coords="287,5,479,171"/>
+<area shape="rect" id="node2" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="5,263,181,443"/>
+<area shape="rect" id="node3" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="206,241,362,465"/>
+<area shape="rect" id="node4" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="386,219,577,487"/>
+<area shape="rect" id="node5" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="601,255,791,450"/>
+</map>

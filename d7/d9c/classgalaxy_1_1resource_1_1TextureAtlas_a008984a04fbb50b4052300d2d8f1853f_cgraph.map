@@ -1,0 +1,9 @@
+<map id="galaxy::resource::TextureAtlas::~TextureAtlas" name="galaxy::resource::TextureAtlas::~TextureAtlas">
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,104,191,145"/>
+<area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="239,104,424,145"/>
+<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="472,71,657,112"/>
+<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a7fbb1608b60dbdcfac6b8a3eaf60da5b" title="Reset transform." alt="" coords="488,136,641,177"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="705,5,884,47"/>
+<area shape="rect" id="node5" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a97b374e42e34e514e1467d5f529677bf" title="Generate some default verticies." alt="" coords="705,71,884,112"/>
+<area shape="rect" id="node6" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a901369072731302bf0e0184e62b64a0a" title="Generate some default indicies." alt="" coords="705,136,884,177"/>
+</map>

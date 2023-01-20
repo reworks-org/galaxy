@@ -1,0 +1,6 @@
+<map id="galaxy::components::Map::~Map" name="galaxy::components::Map::~Map">
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#ae2bfb4c625f0df765e62cbd582a6e536" title="Clears out vertex buffer." alt="" coords="207,5,381,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a5ddedc080f34e236c059cd6635529ef8" title="Clear all data from the vertex buffer array." alt="" coords="429,5,608,47"/>
+<area shape="rect" id="node4" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a0916438fef3ce7b273ded99c663c3031" title="Clear all data from VBO." alt="" coords="656,5,835,47"/>
+</map>

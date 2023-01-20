@@ -1,0 +1,4 @@
+<map id="galaxy::components::Transform" name="galaxy::components::Transform">
+<area shape="rect" id="node1" title="Defines the 2D transformation of an entity." alt="" coords="5,204,185,516"/>
+<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="11,5,180,156"/>
+</map>

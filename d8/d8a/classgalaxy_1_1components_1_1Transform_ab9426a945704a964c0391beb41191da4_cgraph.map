@@ -1,0 +1,8 @@
+<map id="galaxy::components::Transform::deserialize" name="galaxy::components::Transform::deserialize">
+<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,136,180,177"/>
+<area shape="rect" id="node2" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a7fbb1608b60dbdcfac6b8a3eaf60da5b" title="Reset transform." alt="" coords="233,5,387,47"/>
+<area shape="rect" id="node3" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a91d478cfe9ff08d82ca9597c6f77ec50" title="Rotate entity." alt="" coords="233,71,387,112"/>
+<area shape="rect" id="node4" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae6a6c81a3d94865c1e9ac37ea69bb343" title="Sets position without moving the entity." alt="" coords="233,136,387,177"/>
+<area shape="rect" id="node5" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a98ce71857a747862ca061b291ea319eb" title="Set entity scale." alt="" coords="228,202,392,258"/>
+<area shape="rect" id="node6" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a01b5a8978cdf94d65daaa78c51f81999" title="Set entity scale." alt="" coords="228,282,392,338"/>
+</map>

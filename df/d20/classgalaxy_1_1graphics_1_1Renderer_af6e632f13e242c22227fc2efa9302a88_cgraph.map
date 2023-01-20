@@ -1,0 +1,10 @@
+<map id="galaxy::graphics::Renderer::draw_texture_to_target" name="galaxy::graphics::Renderer::draw_texture_to_target">
+<area shape="rect" id="node1" title=" " alt="" coords="5,169,200,211"/>
+<area shape="rect" id="node2" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a418a27a94b2f95107a82e2b1e0c7a878" title="Activate texture context." alt="" coords="271,5,455,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a33d85a3648d63dcb3a41d10eb789e6c8" title="Bind this vertex array to current GL context." alt="" coords="274,71,453,112"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af159c7d5b187ac830b20e8a7653bfabf" title="Get projection." alt="" coords="272,136,455,177"/>
+<area shape="rect" id="node5" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="266,201,461,243"/>
+<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0fc159dae1e32628bf1e3f22a8f32089" title="Get the count of indicies in the index buffer." alt="" coords="274,267,453,308"/>
+<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="248,333,479,359"/>
+<area shape="rect" id="node7" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#abc6c38f46158aaf45d62b41347b8dee9" title="Get the count of indicies in the index buffer." alt="" coords="527,267,737,308"/>
+</map>

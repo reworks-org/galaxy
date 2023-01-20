@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::PostProcess::~PostProcess" name="galaxy::graphics::PostProcess::~PostProcess">
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a6804a98188d9c7e5ad9fe9f504b984dc" title="Cleanup used memory." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aaf5f8ec73b1752814e508ba28286dced" title="Free up resources used by shader." alt="" coords="531,5,712,47"/>
+</map>

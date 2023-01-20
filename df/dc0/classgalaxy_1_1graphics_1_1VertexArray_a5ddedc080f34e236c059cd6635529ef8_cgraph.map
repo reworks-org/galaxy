@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::VertexArray::clear" name="galaxy::graphics::VertexArray::clear">
+<area shape="rect" id="node1" title="Clear all data from the vertex buffer array." alt="" coords="5,5,184,47"/>
+<area shape="rect" id="node2" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a0916438fef3ce7b273ded99c663c3031" title="Clear all data from VBO." alt="" coords="232,5,411,47"/>
+</map>

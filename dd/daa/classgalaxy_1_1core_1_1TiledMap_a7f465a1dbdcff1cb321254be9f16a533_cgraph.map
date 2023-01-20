@@ -1,0 +1,17 @@
+<map id="galaxy::core::TiledMap::process_tile_layer" name="galaxy::core::TiledMap::process_tile_layer">
+<area shape="rect" id="node1" title="Recursive function to process tile layer." alt="" coords="5,384,175,425"/>
+<area shape="rect" id="node2" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a81df33624514cbe249ffd52fd13bbc08" title="Get stored rotation." alt="" coords="229,5,411,47"/>
+<area shape="rect" id="node3" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ad0afc3ee942483901f16969a5d4c8e2c" title="Get stored scale." alt="" coords="237,71,403,112"/>
+<area shape="rect" id="node4" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="223,136,417,177"/>
+<area shape="rect" id="node5" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#af14df1d6afc4f04e04d2e976e78d61e5" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="227,201,413,243"/>
+<area shape="rect" id="node6" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a8f7e0a06fd48e73ce9da69e3bbc95e02" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="227,267,413,308"/>
+<area shape="rect" id="node7" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="465,511,696,538"/>
+<area shape="rect" id="node8" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a0966eb98a7443f1447cb944ff0a90909" title="Set the rotational origin point." alt="" coords="237,384,403,425"/>
+<area shape="rect" id="node9" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae6a6c81a3d94865c1e9ac37ea69bb343" title="Sets position without moving the entity." alt="" coords="243,449,397,491"/>
+<area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ac75926318550ae92c00c3ecb21e42bdb" title="Set the entity rotation." alt="" coords="229,515,411,556"/>
+<area shape="rect" id="node11" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a98ce71857a747862ca061b291ea319eb" title="Set entity scale." alt="" coords="238,581,402,637"/>
+<area shape="rect" id="node12" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a01b5a8978cdf94d65daaa78c51f81999" title="Set entity scale." alt="" coords="238,661,402,717"/>
+<area shape="rect" id="node13" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a5e863ac6dd646ab49324697c59338cf2" title="Set shader." alt="" coords="226,741,414,783"/>
+<area shape="rect" id="node15" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a2e8a69527820cc2c64994fc77d735d96" title="Unset a flag on an entity." alt="" coords="243,807,397,848"/>
+<area shape="rect" id="node14" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a20305df542242b63d3194bdfe49cbb50" title="Get shader id." alt="" coords="504,741,657,783"/>
+</map>

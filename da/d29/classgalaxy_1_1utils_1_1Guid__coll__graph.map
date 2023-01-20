@@ -1,0 +1,5 @@
+<map id="galaxy::utils::Guid" name="galaxy::utils::Guid">
+<area shape="rect" id="node1" title="Contains a 128bit randomly generated GUID, along with helper functions." alt="" coords="5,287,144,569"/>
+<area shape="rect" id="node2" title="STL class." alt="" coords="31,147,118,224"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="5,5,144,97"/>
+</map>

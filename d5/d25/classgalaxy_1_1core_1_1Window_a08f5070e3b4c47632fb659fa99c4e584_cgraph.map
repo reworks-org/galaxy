@@ -1,0 +1,17 @@
+<map id="galaxy::core::Window::open" name="galaxy::core::Window::open">
+<area shape="rect" id="node1" title="Construct a Window." alt="" coords="5,145,167,186"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4" title="Add an effect to process." alt="" coords="215,5,461,32"/>
+<area shape="rect" id="node3" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#aa8684d26c7eab791cf3ed92a75778810" title="Get last recorded mouse position." alt="" coords="259,57,417,98"/>
+<area shape="rect" id="node4" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="231,174,445,215"/>
+<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="1003,152,1233,179"/>
+<area shape="rect" id="node14" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a0ff522e1f031122c9168e45c90c1d0d5" title="Initialize renderer resources." alt="" coords="241,239,435,281"/>
+<area shape="rect" id="node15" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html#a4cfdce6cd0fe169a8cdfdf5f5b9c5777" title="Sets the window pointer." alt="" coords="242,305,434,346"/>
+<area shape="rect" id="node5" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="510,174,691,215"/>
+<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="509,239,692,281"/>
+<area shape="rect" id="node13" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="510,305,691,346"/>
+<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5" title="Add a colour attachment to the framebuffer." alt="" coords="740,174,955,215"/>
+<area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="740,239,955,281"/>
+<area shape="rect" id="node10" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="740,305,955,346"/>
+<area shape="rect" id="node12" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6113786a15f79eb512e32e56cfadfad8" title="Init framebuffer data." alt="" coords="740,370,955,411"/>
+<area shape="rect" id="node11" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a516dbd288d1a9db5c42946927c801be5" title="Add drawbuffers to framebuffer." alt="" coords="1011,305,1225,346"/>
+</map>

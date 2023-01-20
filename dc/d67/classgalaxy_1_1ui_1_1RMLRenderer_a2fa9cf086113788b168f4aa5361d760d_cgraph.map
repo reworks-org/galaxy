@@ -1,0 +1,5 @@
+<map id="galaxy::ui::RMLRenderer::begin_frame" name="galaxy::ui::RMLRenderer::begin_frame">
+<area shape="rect" id="node1" title="Begin isolated rendering." alt="" coords="5,39,185,80"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7e8fd4227d79912d098dbc828c4ac443" title="Get framebuffer size taking into account DPI." alt="" coords="239,5,407,47"/>
+<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="233,71,413,112"/>
+</map>

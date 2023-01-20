@@ -1,0 +1,6 @@
+<map id="galaxy::resource::TextureAtlas::init" name="galaxy::resource::TextureAtlas::init">
+<area shape="rect" id="node1" title="Initialize atlas." alt="" coords="5,71,191,112"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="239,5,417,47"/>
+<area shape="rect" id="node3" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a97b374e42e34e514e1467d5f529677bf" title="Generate some default verticies." alt="" coords="239,71,417,112"/>
+<area shape="rect" id="node4" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a901369072731302bf0e0184e62b64a0a" title="Generate some default indicies." alt="" coords="239,136,417,177"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="galaxy::systems::RenderSystem::update" name="galaxy::systems::RenderSystem::update">
+<area shape="rect" id="node1" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,47"/>
+<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#abab0bd48e1ebdac272645ee77f6f054d" title=" " alt="" coords="284,5,479,47"/>
+</map>

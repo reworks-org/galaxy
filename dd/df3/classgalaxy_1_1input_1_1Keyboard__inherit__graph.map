@@ -1,0 +1,4 @@
+<map id="galaxy::input::Keyboard" name="galaxy::input::Keyboard">
+<area shape="rect" id="node1" title="Physical keyboard device and state management." alt="" coords="6,219,197,487"/>
+<area shape="rect" id="node2" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,5,197,171"/>
+</map>

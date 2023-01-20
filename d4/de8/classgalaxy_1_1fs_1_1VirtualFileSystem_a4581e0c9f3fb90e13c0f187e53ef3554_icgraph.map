@@ -1,0 +1,13 @@
+<map id="galaxy::fs::VirtualFileSystem::find" name="galaxy::fs::VirtualFileSystem::find">
+<area shape="rect" id="node1" title="Retrieve the absolute position of a file to load." alt="" coords="748,188,956,229"/>
+<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="492,123,700,164"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="271,188,409,229"/>
+<area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="492,188,700,229"/>
+<area shape="rect" id="node6" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae207b80673ecb92e254141ef5164e65d" title="Open a file and store contents in std::string." alt="" coords="492,319,700,360"/>
+<area shape="rect" id="node8" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1912c156ab151d99d585290e74d70e4b" title="Open a binary file and store in std::span." alt="" coords="492,253,700,295"/>
+<area shape="rect" id="node9" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="492,384,700,425"/>
+<area shape="rect" id="node11" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="492,5,700,47"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,188,188,229"/>
+<area shape="rect" id="node7" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01" title="Open a file using a dialog." alt="" coords="236,319,444,360"/>
+<area shape="rect" id="node10" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047" title="Save a file using a dialog." alt="" coords="236,384,444,425"/>
+</map>

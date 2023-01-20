@@ -1,0 +1,6 @@
+<map id="galaxy::core::World::create_from_prefab" name="galaxy::core::World::create_from_prefab">
+<area shape="rect" id="node1" title="Create an entity from a prefab." alt="" coords="5,35,164,76"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="254,5,401,47"/>
+<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,71,443,98"/>
+<area shape="rect" id="node3" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a9a5b0b3508b42b5226350f244661191c" title="Set a flag on an entity." alt="" coords="491,5,644,47"/>
+</map>

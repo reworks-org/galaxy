@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::RenderTexture::resize" name="galaxy::graphics::RenderTexture::resize">
+<area shape="rect" id="node1" title="Change RenderTexture size." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="236,5,451,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a516dbd288d1a9db5c42946927c801be5" title="Add drawbuffers to framebuffer." alt="" coords="499,5,713,47"/>
+</map>

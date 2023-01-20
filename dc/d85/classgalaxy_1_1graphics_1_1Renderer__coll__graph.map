@@ -1,0 +1,10 @@
+<map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
+<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="261,660,499,899"/>
+<area shape="rect" id="node2" title=" " alt="" coords="174,505,367,597"/>
+<area shape="rect" id="node3" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,145,216,428"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="239,248,369,325"/>
+<area shape="rect" id="node5" title=" " alt="" coords="367,5,406,83"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="393,248,551,325"/>
+<area shape="rect" id="node6" title=" " alt="" coords="392,505,592,597"/>
+<area shape="rect" id="node7" href="$d8/d6a/classgalaxy_1_1graphics_1_1UniformBuffer.html" title="Abstraction for OpenGL uniform buffer objects." alt="" coords="575,145,764,428"/>
+</map>

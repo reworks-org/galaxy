@@ -1,0 +1,4 @@
+<map id="galaxy::lua::load_external_libs" name="galaxy::lua::load_external_libs">
+<area shape="rect" id="node1" title="Load some provided external libs into lua." alt="" coords="5,5,225,32"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="273,5,504,32"/>
+</map>

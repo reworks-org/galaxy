@@ -1,0 +1,14 @@
+<map id="galaxy::components::Primitive" name="galaxy::components::Primitive">
+<area shape="rect" id="node1" title="2D primitive shape." alt="" coords="451,961,605,1288"/>
+<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,616,216,899"/>
+<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,682,410,833"/>
+<area shape="rect" id="node4" href="$d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="435,689,621,825"/>
+<area shape="rect" id="node5" title=" " alt="" coords="421,381,606,458"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="449,145,578,223"/>
+<area shape="rect" id="node7" title=" " alt="" coords="494,5,533,83"/>
+<area shape="rect" id="node8" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="646,645,831,869"/>
+<area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="859,623,1037,891"/>
+<area shape="rect" id="node10" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="630,293,821,546"/>
+<area shape="rect" id="node11" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="845,293,1056,546"/>
+<area shape="rect" id="node12" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="1080,285,1259,553"/>
+</map>

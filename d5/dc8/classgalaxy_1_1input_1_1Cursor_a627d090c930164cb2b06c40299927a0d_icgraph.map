@@ -1,0 +1,6 @@
+<map id="galaxy::input::Cursor::destroy" name="galaxy::input::Cursor::destroy">
+<area shape="rect" id="node1" title="Clear up all used data." alt="" coords="424,39,580,80"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a2af89d8938522b8e8b1bffe9cabb19e9" title="Destroys Window and related context and data." alt="" coords="215,5,376,47"/>
+<area shape="rect" id="node4" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a7d4931f7e9b640db6c727911931b3df7" title="Destructor." alt="" coords="217,71,373,112"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="5,5,167,47"/>
+</map>

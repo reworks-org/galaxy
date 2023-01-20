@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::Font::build" name="galaxy::graphics::Font::build">
+<area shape="rect" id="node1" title="Build the font atlas." alt="" coords="5,5,169,47"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="217,13,448,39"/>
+</map>

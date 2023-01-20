@@ -1,0 +1,10 @@
+<map id="galaxy::components::DrawShader" name="galaxy::components::DrawShader">
+<area shape="rect" id="node1" title="Shader to draw a renderable entity with." alt="" coords="212,860,365,1099"/>
+<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,647,175,797"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="309,147,396,224"/>
+<area shape="rect" id="node6" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="198,301,379,569"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="283,5,422,97"/>
+<area shape="rect" id="node5" title=" " alt="" coords="199,676,378,768"/>
+<area shape="rect" id="node7" title="STL class." alt="" coords="17,397,174,474"/>
+<area shape="rect" id="node8" title=" " alt="" coords="76,147,115,224"/>
+</map>

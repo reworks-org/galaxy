@@ -1,0 +1,9 @@
+<map id="galaxy::components::Transform::reset" name="galaxy::components::Transform::reset">
+<area shape="rect" id="node1" title="Reset transform." alt="" coords="888,152,1041,193"/>
+<area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="655,61,840,103"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,28,373,69"/>
+<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="660,211,835,252"/>
+<area shape="rect" id="node5" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,28,607,69"/>
+<area shape="rect" id="node6" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f" title="Destructor." alt="" coords="421,93,607,135"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,28,188,69"/>
+</map>

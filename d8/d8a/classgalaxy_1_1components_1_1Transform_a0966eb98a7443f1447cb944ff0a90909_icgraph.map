@@ -1,0 +1,9 @@
+<map id="galaxy::components::Transform::set_origin" name="galaxy::components::Transform::set_origin">
+<area shape="rect" id="node1" title="Set the rotational origin point." alt="" coords="1095,35,1261,76"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,5,384,47"/>
+<area shape="rect" id="node4" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a7f465a1dbdcff1cb321254be9f16a533" title="Recursive function to process tile layer." alt="" coords="877,64,1047,105"/>
+<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node5" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf01eba37e0fa58ef5b9d77ed8acc7a4" title="Recursive function to process tiled map layers." alt="" coords="660,64,829,105"/>
+<area shape="rect" id="node6" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438" title="Load map into scene." alt="" coords="443,64,612,105"/>
+<area shape="rect" id="node7" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="236,71,395,112"/>
+</map>

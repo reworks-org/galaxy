@@ -1,0 +1,4 @@
+<map id="galaxy::systems::PhysicsSystem" name="galaxy::systems::PhysicsSystem">
+<area shape="rect" id="node1" title="Update entities with a rigid body component." alt="" coords="5,160,191,281"/>
+<area shape="rect" id="node2" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="5,5,191,112"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="galaxy::core::Loading::Loading" name="galaxy::core::Loading::Loading">
+<area shape="rect" id="node1" title="Argument constructor." alt="" coords="5,103,165,145"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ae52cbb6db0e5ffc7429b35861d993ca1" title="Initialize rml renderer." alt="" coords="213,74,393,115"/>
+<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="441,136,672,163"/>
+<area shape="rect" id="node3" href="$d2/dad/namespaceGfx.html#a211cc9bfffac25510160f23273dd8117" title=" " alt="" coords="483,81,631,108"/>
+<area shape="rect" id="node4" href="$d2/dad/namespaceGfx.html#a285389c80809e2d37256a2af08a2184a" title=" " alt="" coords="720,56,871,83"/>
+<area shape="rect" id="node7" href="$d2/dad/namespaceGfx.html#a92310d764227aa66d20e4cef3309ead0" title=" " alt="" coords="938,107,1079,133"/>
+<area shape="rect" id="node5" href="$d2/dad/namespaceGfx.html#aa91a9c87b5f1734b53db6c0340ed8a9f" title=" " alt="" coords="919,5,1099,32"/>
+<area shape="rect" id="node6" href="$d2/dad/namespaceGfx.html#ad0de4550771fd83db67c33457a0ce4ac" title=" " alt="" coords="1147,56,1288,83"/>
+</map>

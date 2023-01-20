@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::PostEffect" name="galaxy::graphics::PostEffect">
+<area shape="rect" id="node1" title="Manages post processing effects to apply to combined scene." alt="" coords="106,5,307,185"/>
+<area shape="rect" id="node2" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html" title="Sharpening effect." alt="" coords="5,277,195,472"/>
+<area shape="rect" id="node3" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html" title="Submorphological Anti Aliasing." alt="" coords="219,233,410,516"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="galaxy::components::Text::update" name="galaxy::components::Text::update">
+<area shape="rect" id="node1" title="Update the rendered text." alt="" coords="5,220,159,261"/>
+<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="207,220,360,261"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#abeafc6785c716ac991d97b7eadb2f8fe" title="Bind framebuffer and texture." alt="" coords="432,5,615,47"/>
+<area shape="rect" id="node4" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a97b374e42e34e514e1467d5f529677bf" title="Generate some default verticies." alt="" coords="434,71,613,112"/>
+<area shape="rect" id="node5" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af159c7d5b187ac830b20e8a7653bfabf" title="Get projection." alt="" coords="432,136,615,177"/>
+<area shape="rect" id="node6" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,202,639,229"/>
+<area shape="rect" id="node7" href="$db/d7c/namespacegalaxy_1_1strutils.html#ab1c81e310059a1904ba2f9e60fe30661" title="Replaces all occurances of a string." alt="" coords="425,253,622,279"/>
+<area shape="rect" id="node8" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="432,304,615,345"/>
+<area shape="rect" id="node11" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="434,369,613,411"/>
+<area shape="rect" id="node13" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a28d0627a5a250b3794ce4a8efeea6f62" title="Unbind framebuffer and texture." alt="" coords="432,435,615,476"/>
+<area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="687,304,901,345"/>
+<area shape="rect" id="node10" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a516dbd288d1a9db5c42946927c801be5" title="Add drawbuffers to framebuffer." alt="" coords="949,304,1164,345"/>
+<area shape="rect" id="node12" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="705,369,883,411"/>
+<area shape="rect" id="node14" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5cceb912b44175e72cb24c78c47b820e" title="Unbind framebuffer." alt="" coords="687,435,901,476"/>
+</map>

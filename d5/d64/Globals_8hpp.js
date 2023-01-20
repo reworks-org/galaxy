@@ -1,0 +1,25 @@
+var Globals_8hpp =
+[
+    [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ],
+    [ "GALAXY_UNUSED", "d5/d64/Globals_8hpp.html#aeea47fcf9ec981a261237221194b033f", null ],
+    [ "GALAXY_ENTITY_SIZE", "d5/d64/Globals_8hpp.html#a2b0e41d8efaaff495d68ecf3d8c8ff9b", null ],
+    [ "GALAXY_RESTART", "d5/d64/Globals_8hpp.html#aaf42a6f59bc131363f8bbd0a3482cfd9", null ],
+    [ "GALAXY_UPS", "d5/d64/Globals_8hpp.html#aa4898e150d235277c00c918ab605459c", null ],
+    [ "GALAXY_DT", "d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146", null ],
+    [ "GALAXY_FLAG_BITSET_COUNT", "d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76", null ],
+    [ "GALAXY_VERTEX_EXT", "d5/d64/Globals_8hpp.html#a08b3c0f07e03b16a2bc316a69ba2eb16", null ],
+    [ "GALAXY_FRAGMENT_EXT", "d5/d64/Globals_8hpp.html#aa0185565065398a7b5bb27a720e6304a", null ],
+    [ "GALAXY_IDENTITY_MATRIX", "d5/d64/Globals_8hpp.html#a197ca1fdda8be833505d3cbfa6bdb9d0", null ],
+    [ "GAlAXY_CAMERA_UBO_INDEX", "d5/d64/Globals_8hpp.html#a573fd7dcb1486fd33cc5384048876f92", null ],
+    [ "GALAXY_MIN_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#afc07e5528fc7b4c2bb70298680c56b2f", null ],
+    [ "GALAXY_MAX_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#a3a5ea250c1cec6acf77a07210d90469d", null ],
+    [ "GALAXY_DEFAULT_RENDERER_RESERVED", "d5/d64/Globals_8hpp.html#ade2d80e6efbc023f0d2bbe3119e9092e", null ],
+    [ "GALAXY_FONT_MSDF_RANGE", "d5/d64/Globals_8hpp.html#a249c1c4e5287697a88a0c37b6ed33716", null ],
+    [ "GALAXY_FONT_MSDF_SCALE", "d5/d64/Globals_8hpp.html#a7fc9600d0ea2484b2934a2f7352936b2", null ],
+    [ "GALAXY_DEFAULT_ELLIPSE_FRAGMENTS", "d5/d64/Globals_8hpp.html#a78d449533f268a3dbe9f4a30925ba80a", null ],
+    [ "GALAXY_APP_DIR", "d5/d64/Globals_8hpp.html#a8b9f5f3a0cd0d09909640fbaae28bc9d", null ],
+    [ "GALAXY_WORKER_THREADS", "d5/d64/Globals_8hpp.html#a6ead828fdcd08ef7c8b14094f5326e94", null ],
+    [ "GALAXY_ZLIB_COMPLETE_CHUNK", "d5/d64/Globals_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6", null ],
+    [ "GALAXY_EXIT_SUCCESS", "d5/d64/Globals_8hpp.html#ab60071f31aa1ecbc5179b6df85063a7c", null ],
+    [ "GALAXY_EXIT_FAILURE", "d5/d64/Globals_8hpp.html#abfdf0928765a4f31ea33458e40c93058", null ]
+];

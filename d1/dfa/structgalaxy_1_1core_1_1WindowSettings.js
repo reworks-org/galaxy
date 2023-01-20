@@ -1,0 +1,12 @@
+var structgalaxy_1_1core_1_1WindowSettings =
+[
+    [ "title", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a0b5770fb335f5a69a85a48855d54127a", null ],
+    [ "width", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a92483a08bc620ea4b5f1127e10add55d", null ],
+    [ "height", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a48078eb3904eed495b08208ae4c5448a", null ],
+    [ "vsync", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ab703099d7b193f489987e8b4d249604b", null ],
+    [ "maximized", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a569c1b04bc634fd26bd828f08be9d0ea", null ],
+    [ "debug", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57", null ],
+    [ "scale_to_monitor", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#af4841eaa81db03f33fc75c3d0632a09f", null ],
+    [ "enable_aa", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a3bcc611e2a279b78854e924a58a9a554", null ],
+    [ "enable_sharpen", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a7681ff1e62da8084fb873d3cb556de1f", null ]
+];

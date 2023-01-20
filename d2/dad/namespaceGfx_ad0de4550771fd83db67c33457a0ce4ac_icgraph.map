@@ -1,0 +1,14 @@
+<map id="Gfx::CheckGLError" name="Gfx::CheckGLError">
+<area shape="rect" id="node1" title=" " alt="" coords="1171,122,1312,149"/>
+<area shape="rect" id="node2" href="$d2/dad/namespaceGfx.html#aa91a9c87b5f1734b53db6c0340ed8a9f" title=" " alt="" coords="931,71,1111,98"/>
+<area shape="rect" id="node3" href="$d2/dad/namespaceGfx.html#a285389c80809e2d37256a2af08a2184a" title=" " alt="" coords="707,71,857,98"/>
+<area shape="rect" id="node8" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f" title="Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable futur..." alt="" coords="931,173,1111,215"/>
+<area shape="rect" id="node11" href="$d2/dad/namespaceGfx.html#a92310d764227aa66d20e4cef3309ead0" title=" " alt="" coords="711,21,853,47"/>
+<area shape="rect" id="node12" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad825b118783fe8b1f9896d0fe5b16823" title="Called by RmlUi when it wants to render application&#45;compiled geometry." alt="" coords="920,239,1123,280"/>
+<area shape="rect" id="node4" href="$d2/dad/namespaceGfx.html#a211cc9bfffac25510160f23273dd8117" title=" " alt="" coords="480,46,628,73"/>
+<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ae52cbb6db0e5ffc7429b35861d993ca1" title="Initialize rml renderer." alt="" coords="236,39,416,80"/>
+<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node7" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#a40490f2a439ba6714e84eb78e3fe927f" title="Argument constructor." alt="" coords="17,71,177,112"/>
+<area shape="rect" id="node9" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe" title="Called by RmlUi when it wants to render geometry that the application does not wish to optimise." alt="" coords="692,205,872,247"/>
+<area shape="rect" id="node10" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a77d3aa24e74558b40c18f042b23c0850" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="464,205,644,247"/>
+</map>

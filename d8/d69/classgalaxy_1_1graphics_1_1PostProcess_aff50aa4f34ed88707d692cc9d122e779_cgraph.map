@@ -1,0 +1,12 @@
+<map id="galaxy::graphics::PostProcess::init" name="galaxy::graphics::PostProcess::init">
+<area shape="rect" id="node1" title="Initialize post processor and GL buffers." alt="" coords="5,104,220,145"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="269,39,450,80"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="268,104,451,145"/>
+<area shape="rect" id="node10" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="269,169,450,211"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5" title="Add a colour attachment to the framebuffer." alt="" coords="499,5,713,47"/>
+<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="499,71,713,112"/>
+<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="499,136,713,177"/>
+<area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6113786a15f79eb512e32e56cfadfad8" title="Init framebuffer data." alt="" coords="499,201,713,243"/>
+<area shape="rect" id="node5" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="761,13,992,39"/>
+<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a516dbd288d1a9db5c42946927c801be5" title="Add drawbuffers to framebuffer." alt="" coords="769,136,984,177"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="galaxy::core::TiledMap::enable_map" name="galaxy::core::TiledMap::enable_map">
+<area shape="rect" id="node1" title="Enable the currently active map&#39;s entities." alt="" coords="5,5,175,47"/>
+<area shape="rect" id="node2" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a9a5b0b3508b42b5226350f244661191c" title="Set a flag on an entity." alt="" coords="223,5,376,47"/>
+</map>

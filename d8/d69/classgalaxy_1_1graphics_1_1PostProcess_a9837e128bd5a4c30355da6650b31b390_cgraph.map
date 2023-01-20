@@ -1,0 +1,6 @@
+<map id="galaxy::graphics::PostProcess::resize" name="galaxy::graphics::PostProcess::resize">
+<area shape="rect" id="node1" title="Resize framebuffers." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="268,5,451,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="499,5,713,47"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a516dbd288d1a9db5c42946927c801be5" title="Add drawbuffers to framebuffer." alt="" coords="761,5,976,47"/>
+</map>

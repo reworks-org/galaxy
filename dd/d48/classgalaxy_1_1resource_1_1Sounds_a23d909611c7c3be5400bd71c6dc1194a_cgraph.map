@@ -1,0 +1,4 @@
+<map id="galaxy::resource::Sounds::load_dialogue" name="galaxy::resource::Sounds::load_dialogue">
+<area shape="rect" id="node1" title="Load dialogue from VFS." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="237,13,468,39"/>
+</map>

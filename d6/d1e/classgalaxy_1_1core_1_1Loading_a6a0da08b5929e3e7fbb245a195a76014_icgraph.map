@@ -1,0 +1,4 @@
+<map id="galaxy::core::Loading::display" name="galaxy::core::Loading::display">
+<area shape="rect" id="node1" title="Draw loading screen while loading." alt="" coords="236,5,396,47"/>
+<area shape="rect" id="node2" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>

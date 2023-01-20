@@ -1,0 +1,4 @@
+<map id="galaxy::error::ConsoleSink" name="galaxy::error::ConsoleSink">
+<area shape="rect" id="node1" title="Logs a message to the console." alt="" coords="5,219,197,325"/>
+<area shape="rect" id="node2" href="$d6/d9f/classgalaxy_1_1error_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="31,5,171,171"/>
+</map>

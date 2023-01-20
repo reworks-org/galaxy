@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="5,107,191,134"/>
+<area shape="rect" id="node2" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html" title="Processess entities with a renderable component." alt="" coords="253,5,455,47"/>
+<area shape="rect" id="node3" href="$df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html" title="Update entities with a rigid body component." alt="" coords="261,71,447,112"/>
+<area shape="rect" id="node4" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html" title="Processess entities with a renderable component." alt="" coords="239,137,469,163"/>
+<area shape="rect" id="node5" href="$dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html" title="Update entities with a script component." alt="" coords="243,187,465,214"/>
+</map>

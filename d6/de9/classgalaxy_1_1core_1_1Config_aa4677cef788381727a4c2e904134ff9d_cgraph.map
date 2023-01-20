@@ -1,0 +1,4 @@
+<map id="galaxy::core::Config::get" name="galaxy::core::Config::get">
+<area shape="rect" id="node1" title="Retrieve a config value in a section." alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#aab04d63959f5dbae658b9198b53d64e8" title="Split a string based on a delimiter." alt="" coords="232,5,387,32"/>
+</map>

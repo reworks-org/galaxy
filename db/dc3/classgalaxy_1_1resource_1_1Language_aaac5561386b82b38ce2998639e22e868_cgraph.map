@@ -1,0 +1,6 @@
+<map id="galaxy::resource::Language::reload" name="galaxy::resource::Language::reload">
+<area shape="rect" id="node1" title="Reload languages from folder." alt="" coords="5,35,205,76"/>
+<area shape="rect" id="node2" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#a758a508dc4eb54b0fc40121db981060c" title="Loads all language files in a folder into galaxy." alt="" coords="267,5,467,47"/>
+<area shape="rect" id="node4" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#a15e49c4261c2368ddbc5d006cc145028" title="Sets the currently active language." alt="" coords="253,71,481,98"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="529,13,760,39"/>
+</map>

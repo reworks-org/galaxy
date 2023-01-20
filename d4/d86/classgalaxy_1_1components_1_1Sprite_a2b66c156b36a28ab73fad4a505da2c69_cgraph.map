@@ -1,0 +1,13 @@
+<map id="galaxy::components::Sprite::deserialize" name="galaxy::components::Sprite::deserialize">
+<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,201,159,243"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="207,201,360,243"/>
+<area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a183a015a340f3686bd369b7b04d72bc8" title="Configure renderable." alt="" coords="447,71,600,112"/>
+<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="434,136,613,177"/>
+<area shape="rect" id="node9" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a901369072731302bf0e0184e62b64a0a" title="Generate some default indicies." alt="" coords="434,201,613,243"/>
+<area shape="rect" id="node10" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,267,639,294"/>
+<area shape="rect" id="node11" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aee1d7c69698f520f57e234215bc033a5" title="Set opacity." alt="" coords="447,319,600,360"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e5a06946bd96afd21392591c4432473" title="Get VAO GL id." alt="" coords="703,5,881,47"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0fc159dae1e32628bf1e3f22a8f32089" title="Get the count of indicies in the index buffer." alt="" coords="703,71,881,112"/>
+<area shape="rect" id="node7" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a0ba4fb9056b39f2aefacb701f384fa3a" title="Set primitive draw type." alt="" coords="687,136,897,177"/>
+<area shape="rect" id="node6" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#abc6c38f46158aaf45d62b41347b8dee9" title="Get the count of indicies in the index buffer." alt="" coords="945,71,1156,112"/>
+</map>

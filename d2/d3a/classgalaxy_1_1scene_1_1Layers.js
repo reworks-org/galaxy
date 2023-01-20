@@ -1,0 +1,28 @@
+var classgalaxy_1_1scene_1_1Layers =
+[
+    [ "LayerStack", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a9e73a3de7474f35a844f3985a12bc96a", null ],
+    [ "LayerContainer", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5", null ],
+    [ "Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#abb3957bdbe8f994a9a1855834f59af4a", null ],
+    [ "~Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#abac6ba68e7b51a3c30e99180413cb1b6", null ],
+    [ "Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#adbd5044ede0a617bf700acfceda8d748", null ],
+    [ "Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ae6df2d76687b5a1e84e6d4363f82a846", null ],
+    [ "Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a628dfe796c0efc0b00d2f465b0951f99", null ],
+    [ "make", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ac66570195cfead3f511bed021ab9256a", null ],
+    [ "get", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#af0125a9da2ed6c5359fad1657ed90114", null ],
+    [ "push", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ae35e9317f4b8703c4d72d8ff8f8f29c6", null ],
+    [ "pop", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ab1c797a394869f0fd6497a5a374ac9c5", null ],
+    [ "pop", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a629316f28c4a6624efc345f2ad266eb2", null ],
+    [ "events", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7", null ],
+    [ "update", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ab27e36118d69b2bf5dbc44a06d51b45c", null ],
+    [ "render", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ae088117c21375db1b437b98ea556a23f", null ],
+    [ "clear", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#aea488847c1d97a7e3cf87160c7fb5f21", null ],
+    [ "stack", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a565d43638198cdef610a2976d693bbee", null ],
+    [ "cache", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#af9acb5b8c7947b52ad230d7471f12b77", null ],
+    [ "serialize", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a172f4dc5af7aa4d5c1fd09a6ce65321a", null ],
+    [ "deserialize", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a22cf338c948837edb2cffd9ea2bf5f3d", null ],
+    [ "operator=", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a0aba190bb892bd34405af4bc9b1ecffc", null ],
+    [ "operator=", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a50d9d5d5ec36790f42aa1dddb65e0ec1", null ],
+    [ "m_layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a9f78fccf4fadd3daa1bb6e81204681f3", null ],
+    [ "m_stack", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a006e4c08dd59bda77752e1773835dbaa", null ],
+    [ "m_scene", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a25c6fa2e51510773e9d892d85c40bafa", null ]
+];

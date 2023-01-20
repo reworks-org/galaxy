@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,81,197,108"/>
+<area shape="rect" id="node2" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="245,5,421,32"/>
+<area shape="rect" id="node3" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="255,56,411,83"/>
+<area shape="rect" id="node4" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="246,107,421,133"/>
+<area shape="rect" id="node5" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="255,157,412,184"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="galaxy::scene::Layer" name="galaxy::scene::Layer">
+<area shape="rect" id="node1" title="A layer is a contained part of your game engine. I.e. A scene would have a runtime layer and a UI lay..." alt="" coords="497,439,652,678"/>
+<area shape="rect" id="node19" href="$df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html" title="Layer handling game logic." alt="" coords="969,884,1180,1108"/>
+<area shape="rect" id="node25" title=" " alt="" coords="482,957,667,1035"/>
+<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="386,160,555,311"/>
+<area shape="rect" id="node5" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="673,1755,863,2008"/>
+<area shape="rect" id="node6" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="215,373,401,744"/>
+<area shape="rect" id="node8" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1151,1248,1345,1692"/>
+<area shape="rect" id="node23" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html" title="Stack based storage for layers." alt="" coords="329,2071,492,2427"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="579,197,666,274"/>
+<area shape="rect" id="node20" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html" title=" " alt="" coords="1949,2129,2128,2368"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="553,5,692,97"/>
+<area shape="rect" id="node7" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="5,182,192,289"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1257,775,1460,853"/>
+<area shape="rect" id="node10" title="STL class." alt="" coords="1444,197,1601,274"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1685,13,1723,90"/>
+<area shape="rect" id="node15" title="STL class." alt="" coords="1996,197,2153,274"/>
+<area shape="rect" id="node16" title="STL class." alt="" coords="1639,520,1769,597"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1842,950,2046,1042"/>
+<area shape="rect" id="node13" title=" " alt="" coords="2156,513,2345,605"/>
+<area shape="rect" id="node14" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="2419,182,2605,289"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2301,768,2464,860"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1655,950,1817,1042"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1391,935,1630,1057"/>
+<area shape="rect" id="node22" title=" " alt="" coords="1985,1132,2125,1224"/>
+<area shape="rect" id="node24" title=" " alt="" coords="485,1424,664,1516"/>
+</map>

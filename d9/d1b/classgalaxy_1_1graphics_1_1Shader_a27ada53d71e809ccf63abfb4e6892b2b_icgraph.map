@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Shader::bind" name="galaxy::graphics::Shader::bind">
+<area shape="rect" id="node1" title="Enable this shader for rendering." alt="" coords="508,71,689,112"/>
+<area shape="rect" id="node2" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="265,5,440,47"/>
+<area shape="rect" id="node3" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="258,71,447,112"/>
+<area shape="rect" id="node4" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a283a17583964c524e44d05b5ecb1a08b" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="245,136,460,177"/>
+<area shape="rect" id="node5" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="5,143,197,170"/>
+</map>

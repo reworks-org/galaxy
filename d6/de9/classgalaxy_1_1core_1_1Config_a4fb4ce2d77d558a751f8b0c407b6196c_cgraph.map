@@ -1,0 +1,4 @@
+<map id="galaxy::core::Config::set" name="galaxy::core::Config::set">
+<area shape="rect" id="node1" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#aab04d63959f5dbae658b9198b53d64e8" title="Split a string based on a delimiter." alt="" coords="232,5,387,32"/>
+</map>

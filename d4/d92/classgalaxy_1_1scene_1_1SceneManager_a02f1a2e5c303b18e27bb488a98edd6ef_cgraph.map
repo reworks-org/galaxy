@@ -1,0 +1,5 @@
+<map id="galaxy::scene::SceneManager::save" name="galaxy::scene::SceneManager::save">
+<area shape="rect" id="node1" title="Save all active scenes and sub data within those scenes." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d" title="Save a json file to disk." alt="" coords="268,5,407,47"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="455,13,685,39"/>
+</map>

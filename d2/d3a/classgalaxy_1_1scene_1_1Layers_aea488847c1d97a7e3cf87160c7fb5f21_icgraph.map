@@ -1,0 +1,6 @@
+<map id="galaxy::scene::Layers::clear" name="galaxy::scene::Layers::clear">
+<area shape="rect" id="node1" title="Destroy all layers." alt="" coords="423,39,585,80"/>
+<area shape="rect" id="node2" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a22cf338c948837edb2cffd9ea2bf5f3d" title="Deserializes from object." alt="" coords="212,5,375,47"/>
+<area shape="rect" id="node4" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#abac6ba68e7b51a3c30e99180413cb1b6" title="Destructor." alt="" coords="212,71,375,112"/>
+<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,5,164,47"/>
+</map>

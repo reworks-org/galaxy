@@ -1,0 +1,6 @@
+<map id="galaxy::components::Primitive::serialize" name="galaxy::components::Primitive::serialize">
+<area shape="rect" id="node1" title="Serializes object." alt="" coords="601,5,755,47"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a02952ae0d4a435e2d14c5884b3a23f1f" title="Serialise a single entity." alt="" coords="407,5,553,47"/>
+<area shape="rect" id="node3" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a97c19ecc0ac0e5fe70791dae767c27bf" title="Serializes object." alt="" coords="212,5,359,47"/>
+<area shape="rect" id="node4" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388" title="Serializes object." alt="" coords="5,5,164,47"/>
+</map>

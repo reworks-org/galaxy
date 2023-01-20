@@ -1,0 +1,4 @@
+<map id="galaxy::input::InputDevice::set_window" name="galaxy::input::InputDevice::set_window">
+<area shape="rect" id="node1" title="Sets the window pointer." alt="" coords="215,5,407,47"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="5,5,167,47"/>
+</map>
