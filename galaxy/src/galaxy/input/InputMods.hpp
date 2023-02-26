@@ -54,6 +54,15 @@ namespace galaxy
 			///
 			NUM_LOCK = 0x0020
 		};
+
+		///
+		/// Converts an integer to a key modifier enum.
+		///
+		/// \param key Integer keymod.
+		///
+		/// \return Enum keymod.
+		///
+		[[nodiscard]] input::InputMods int_to_keymod(const int mod) noexcept;
 	} // namespace input
 } // namespace galaxy
 

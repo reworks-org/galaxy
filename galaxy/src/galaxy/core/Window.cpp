@@ -217,8 +217,8 @@ namespace galaxy
 								{
 									events::KeyDown kd
 									{
-										.keycode = static_cast<input::Keys>(key),
-										.mod = static_cast<input::InputMods>(mods),
+										.keycode = input::int_to_key(key),
+										.mod = input::int_to_keymod(mods),
 										.scancode = scancode
 									};
 								
@@ -230,8 +230,8 @@ namespace galaxy
 								{
 									events::KeyRepeat kr
 									{
-										.keycode = static_cast<input::Keys>(key),
-										.mod = static_cast<input::InputMods>(mods),
+										.keycode = input::int_to_key(key),
+										.mod = input::int_to_keymod(mods),
 										.scancode = scancode
 									};
 								
@@ -243,8 +243,8 @@ namespace galaxy
 								{
 									events::KeyUp ku
 									{
-										.keycode = static_cast<input::Keys>(key),
-										.mod = static_cast<input::InputMods>(mods),
+										.keycode = input::int_to_key(key),
+										.mod = input::int_to_keymod(mods),
 										.scancode = scancode
 									};
 								
@@ -306,7 +306,7 @@ namespace galaxy
 									.xpos = pos.x,
 									.ypos = pos.y,
 									.button = static_cast<input::MouseButtons>(button),
-									.mod = static_cast<input::InputMods>(mods)
+									.mod = input::int_to_keymod(mods)
 								};
 								
 								win->m_event_queue.emplace_back<events::MousePressed>(std::move(mp));
@@ -320,7 +320,7 @@ namespace galaxy
 									.xpos = pos.x,
 									.ypos = pos.y,
 									.button = static_cast<input::MouseButtons>(button),
-									.mod = static_cast<input::InputMods>(mods)
+									.mod = input::int_to_keymod(mods)
 								};
 								
 								win->m_event_queue.emplace_back<events::MouseReleased>(std::move(mr));

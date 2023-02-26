@@ -143,6 +143,15 @@ namespace galaxy
 			RIGHT_SUPER   = 347,
 			MENU          = 348
 		};
+
+		///
+		/// Converts an integer to a key enum.
+		///
+		/// \param key Integer key.
+		///
+		/// \return Enum key.
+		///
+		[[nodiscard]] input::Keys int_to_key(const int key) noexcept;
 	} // namespace input
 } // namespace galaxy
 
