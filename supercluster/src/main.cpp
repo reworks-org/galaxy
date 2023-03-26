@@ -28,7 +28,7 @@ class Supercluster : public core::Application
 {
 public:
 	Supercluster()
-		: Application {"logs/", "assets/editor_data/config.json"}
+		: Application {"logs/", "config.json"}
 	{
 	}
 
