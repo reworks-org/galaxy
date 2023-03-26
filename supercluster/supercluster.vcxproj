@@ -122,7 +122,7 @@
       <AdditionalOptions>/ignore:4006  /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(SolutionDir)scripts\copy_tools_win.cmd" $(SolutionDir) $(MSBuildProjectDirectory)</Command>
+      <Command>call "$(SolutionDir)scripts\copy_tools_win.cmd" $(SolutionDir) $(MSBuildProjectDirectory) $(Configuration) </Command>
       <Message>Copy tools.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -180,7 +180,7 @@
       <AdditionalOptions>/ignore:4006  /ignore:4099 /ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(SolutionDir)scripts\copy_tools_win.cmd" $(SolutionDir) $(MSBuildProjectDirectory)</Command>
+      <Command>call "$(SolutionDir)scripts\copy_tools_win.cmd" $(SolutionDir) $(MSBuildProjectDirectory) $(Configuration) </Command>
       <Message>Copy tools.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
