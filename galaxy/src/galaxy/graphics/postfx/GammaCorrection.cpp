@@ -1,5 +1,5 @@
 ///
-/// ChromaticAberration.cpp
+/// GammaCorrection.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,12 +7,12 @@
 
 #include <glad/glad.h>
 
-#include "ChromaticAberration.hpp"
+#include "GammaCorrection.hpp"
 
 ///
 /// Basic vertex shader.
 ///
-constexpr const char* const chromaticaberration_vert = R"(
+constexpr const char* const gammacorrection_vert = R"(
 	#version 460 core
 	layout (location = 0) in vec2 l_pos;
 	layout (location = 1) in vec2 l_texels;
@@ -24,7 +24,7 @@ constexpr const char* const chromaticaberration_vert = R"(
 )";
 
 ///
-/// \brief Chromatic Aberration fragment shader.
+/// \brief Gamma Correction fragment shader.
 ///
 /// BSD 3-Clause License
 ///
@@ -56,26 +56,20 @@ constexpr const char* const chromaticaberration_vert = R"(
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-constexpr const char* const chromaticaberration_frag = R"(
+constexpr const char* const gammacorrection_frag = R"(
 	#version 460 core
 
 	out vec4 io_frag_colour;
 
-	uniform vec2 u_direction;
-	uniform vec3 u_rgb_offset;
+	uniform float u_gamma;
 	uniform sampler2D u_texture;
 
 	void main()
 	{
-		vec2 texSize = textureSize(u_texture, 0).xy;
-	    vec2 texCoord = gl_FragCoord.xy / texSize;
+		vec2 uv = gl_FragCoord.xy / textureSize(u_texture, 0).xy;
 
-		vec2 direction = texCoord - u_direction;
-
-		io_frag_colour = texture(u_texture, texCoord);
-		io_frag_colour.r = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.x))).r;
-		io_frag_colour.g = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.y))).g;
-		io_frag_colour.b = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.z))).b;
+		io_frag_colour = texture(u_texture, uv);
+		io_frag_colour.rgb = pow(io_frag_colour.rgb, vec3(1.0 / u_gamma));
 	}
 )";
 
@@ -83,27 +77,24 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		ChromaticAberration::ChromaticAberration(const int width, const int height) noexcept
-			: m_r_offset {0.009f}
-			, m_g_offset {0.006f}
-			, m_b_offset {-0.006f}
+		GammaCorrection::GammaCorrection(const int width, const int height) noexcept
+			: m_gamma {2.2f}
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(chromaticaberration_vert, chromaticaberration_frag);
+			m_shader.load_raw(gammacorrection_vert, gammacorrection_frag);
 			m_shader.compile();
 
 			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-			m_shader.set_uniform("u_direction", 0.509167f, 0.598f); // may need tweaking, in general 0.5, 0.5 is default, adjust to change direction.
+			m_shader.set_uniform("u_gamma", m_gamma);
 		}
 
-		void ChromaticAberration::resize(const int width, const int height)
+		void GammaCorrection::resize(const int width, const int height)
 		{
 			m_fb.resize(width, height);
 		}
 
-		unsigned int ChromaticAberration::render(const unsigned int input)
+		unsigned int GammaCorrection::render(const unsigned int input)
 		{
 			m_fb.bind(true);
 			m_shader.bind();
@@ -115,31 +106,21 @@ namespace galaxy
 			return m_fb.get_texture();
 		}
 
-		void ChromaticAberration::set_r_offset(const float r) noexcept
+		void GammaCorrection::set_gamma(const float gamma_mod) noexcept
 		{
-			m_r_offset = r;
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
+			m_gamma = gamma_mod;
+
+			if (static_cast<int>(m_gamma) == 0)
+			{
+				m_gamma = 1.0f;
+			}
+
+			m_shader.set_uniform("u_gamma", m_gamma);
 		}
 
-		void ChromaticAberration::set_g_offset(const float g) noexcept
+		float GammaCorrection::get_gamma() const noexcept
 		{
-			m_g_offset = g;
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-		}
-
-		void ChromaticAberration::set_b_offset(const float b) noexcept
-		{
-			m_b_offset = b;
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-		}
-
-		void ChromaticAberration::set_rgb_offset(const float r, const float g, const float b) noexcept
-		{
-			m_r_offset = r;
-			m_g_offset = g;
-			m_b_offset = b;
-
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
+			return m_gamma;
 		}
 	} // namespace graphics
 } // namespace galaxy

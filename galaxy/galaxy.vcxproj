@@ -16,7 +16,9 @@
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\embedded\RobotoLight.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\ChromaticAberration.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\GaussianBlur.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
     <ClCompile Include="src\galaxy\physics\Constants.cpp" />
     <ClCompile Include="src\galaxy\core\TiledMap.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalLibs.cpp" />
@@ -162,7 +164,9 @@
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\embedded\RobotoLight.hpp" />
     <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\ChromaticAberration.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\GaussianBlur.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\physics\Constants.hpp" />
     <ClInclude Include="src\galaxy\core\TiledMap.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaExternalLibs.hpp" />

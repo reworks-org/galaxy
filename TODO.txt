@@ -18,4 +18,4 @@ make sure renderer is deferred: render textures/sprites/lighting pass/posteffect
 
 - shaders to do:
 	- bloom
-	- SSAO using luma/screen only? no depth?
+	- SSAO using luma/screen only? no depth? pseudo luma based Ambient Occlusion
