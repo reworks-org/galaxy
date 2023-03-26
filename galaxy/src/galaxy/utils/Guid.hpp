@@ -8,7 +8,6 @@
 #ifndef GALAXY_UTILS_GUID_HPP_
 #define GALAXY_UTILS_GUID_HPP_
 
-#include <array>
 #include <compare>
 #include <string>
 
@@ -39,6 +38,16 @@ namespace galaxy
 			Guid& operator=(Guid&&) noexcept;
 
 			///
+			/// Copy constructor.
+			///
+			Guid(const Guid&) noexcept;
+
+			///
+			/// Copy assignment operator.
+			///
+			Guid& operator=(const Guid&) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Guid() noexcept = default;
@@ -51,9 +60,9 @@ namespace galaxy
 			[[nodiscard]] const std::string& to_string() const noexcept;
 
 			///
-			/// Check to make sure GUID is not empty.
+			/// Check to make sure Guid is not empty.
 			///
-			/// \return True if GUID has not yet been created.
+			/// \return True if guid is invalid or empty, usually from a move.
 			///
 			[[nodiscard]] bool is_empty() const noexcept;
 
@@ -82,45 +91,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Copy constructor.
+			/// Guid.
 			///
-			Guid(const Guid&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Guid& operator=(const Guid&) = delete;
-
-		private:
-			///
-			/// First part.
-			///
-			std::uint32_t m_first;
-
-			///
-			/// Second part.
-			///
-			std::uint16_t m_second;
-
-			///
-			/// Third part.
-			///
-			std::uint8_t m_third;
-
-			///
-			/// Forth part.
-			///
-			std::uint8_t m_fourth;
-
-			///
-			/// Fifth part.
-			///
-			std::uint64_t m_fifth;
-
-			///
-			/// String representation of guid.
-			///
-			std::string m_string;
+			std::string m_id;
 		};
 	} // namespace utils
 } // namespace galaxy
