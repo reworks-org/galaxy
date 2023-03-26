@@ -12,6 +12,4 @@ editor:
 	- loading indicators
 	- add loading indicator for map loading
 
-- integrate physfs and read from archive in release mode.
-
 - fix imgui input toggling in editor.

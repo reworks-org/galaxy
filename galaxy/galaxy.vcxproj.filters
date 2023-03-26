@@ -144,6 +144,7 @@
     <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
     <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
     <ClCompile Include="src\galaxy\embedded\RobotoLight.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\GaussianBlur.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
@@ -289,5 +290,6 @@
     <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
     <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
     <ClInclude Include="src\galaxy\embedded\RobotoLight.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\GaussianBlur.hpp" />
   </ItemGroup>
 </Project>

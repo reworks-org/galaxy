@@ -97,7 +97,7 @@ namespace galaxy
 
 			m_shader.load_raw(sharpen_vert, sharpen_frag);
 			m_shader.compile();
-			m_shader.set_uniform<int>("u_texture", 0);
+			m_shader.set_uniform("u_texture", 0);
 		}
 
 		void Sharpen::resize(const int width, const int height)
@@ -109,7 +109,7 @@ namespace galaxy
 		{
 			m_fb.bind(true);
 			m_shader.bind();
-			m_shader.set_uniform<float>("u_amount", m_amount);
+			m_shader.set_uniform("u_amount", m_amount);
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, input);
