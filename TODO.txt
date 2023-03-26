@@ -13,3 +13,9 @@ editor:
 	- add loading indicator for map loading
 
 - fix imgui input toggling in editor.
+
+make sure renderer is deferred: render textures/sprites/lighting pass/posteffect pass.
+
+- shaders to do:
+	- bloom
+	- SSAO using luma/screen only? no depth?
