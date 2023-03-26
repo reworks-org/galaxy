@@ -4,7 +4,19 @@ Thumbs.db
 .vs/
 
 build/
+legacy/
 output/
 
+supercluster/bin/Debug/*.exe
+supercluster/bin/Debug/*.pdb
+supercluster/bin/Debug/*.dll
+supercluster/bin/Debug/assets/editor_data/tools
+supercluster/bin/Debug/logs
+
+supercluster/bin/Release/*.exe
+supercluster/bin/Release/*.pdb
+supercluster/bin/Release/*.dll
+supercluster/bin/Release/assets/editor_data/tools
+supercluster/bin/Release/logs
 
 tests/bin
