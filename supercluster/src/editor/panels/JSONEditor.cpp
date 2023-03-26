@@ -10,7 +10,7 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/scripting/JSON.hpp>
 
-#include <imgui_addons/ToggleButton.h>
+#include <imgui_addons/imgui_toggle.h>
 #include <imgui_stdlib.h>
 
 #include "JSONEditor.hpp"
@@ -256,7 +256,7 @@ namespace sc
 				}
 				else if (value.is_boolean())
 				{
-					ImGui::ToggleButton(key.c_str(), value.get<bool*>());
+					ImGui::Toggle(key.c_str(), value.get<bool*>());
 					ImGui::SameLine();
 					ImGui::Text(key.c_str());
 				}
@@ -319,7 +319,7 @@ namespace sc
 				}
 				else if (elem.is_boolean())
 				{
-					ImGui::ToggleButton(name.c_str(), elem.get<bool*>());
+					ImGui::Toggle(name.c_str(), elem.get<bool*>());
 					ImGui::SameLine();
 					ImGui::Text(name.c_str());
 

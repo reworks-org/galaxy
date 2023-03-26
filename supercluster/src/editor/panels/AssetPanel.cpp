@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/notify/imgui_notify.h>
+#include <imgui_addons/imgui_notify.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>

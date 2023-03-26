@@ -10,7 +10,7 @@
 #include <string>
 #include "font_awesome_5.h"
 #include "fa_solid_900.h"
-#include "../../imgui.h"
+#include "../imgui.h"
 
 #define NOTIFY_MAX_MSG_LENGTH    4096 // Max message content length
 #define NOTIFY_PADDING_X         20.f // Bottom-left X padding

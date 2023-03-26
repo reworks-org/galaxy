@@ -8,8 +8,7 @@
 #include <entt/entity/registry.hpp>
 #include <magic_enum.hpp>
 #include <imgui_stdlib.h>
-#include <imgui_addons/notify/imgui_notify.h>
-#include <imgui_addons/ToggleButton.h>
+#include <imgui_addons/imgui_notify.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>

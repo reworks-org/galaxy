@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/notify/imgui_notify.h>
+#include <imgui_addons/imgui_notify.h>
 #include <portable-file-dialogs.h>
 
 #include <galaxy/algorithm/Base64.hpp>

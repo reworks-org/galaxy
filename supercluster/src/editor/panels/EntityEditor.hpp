@@ -9,7 +9,7 @@
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 
 #include <imgui_internal.h>
-#include <imgui_addons/notify/font_awesome_5.h>
+#include <imgui_addons/font_awesome_5.h>
 
 #include <galaxy/components/Script.hpp>
 #include <galaxy/meta/Concepts.hpp>

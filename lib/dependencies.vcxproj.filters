@@ -63,15 +63,6 @@
     <ClCompile Include="glfw\src\osmesa_context.c" />
     <ClCompile Include="glfw\src\window.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
-    <ClCompile Include="imgui\imgui.cpp" />
-    <ClCompile Include="imgui\imgui_demo.cpp" />
-    <ClCompile Include="imgui\imgui_draw.cpp" />
-    <ClCompile Include="imgui\imgui_freetype.cpp" />
-    <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="imgui\imgui_stdlib.cpp" />
-    <ClCompile Include="imgui\imgui_tables.cpp" />
-    <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-assertion-result.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-death-test.cc" />
@@ -122,8 +113,6 @@
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
-    <ClCompile Include="imgui\imgui_addons\ToggleButton.cpp" />
-    <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="miniaudio\miniaudio.c" />
     <ClCompile Include="zip\src\zip.c" />
     <ClCompile Include="rmlui\Source\Core\Elements\DataFormatter.cpp" />
@@ -356,6 +345,22 @@
     <ClCompile Include="rmlui\Source\Lua\Utilities.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2f.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imgui_toggle.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imgui_toggle_presets.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imgui_toggle_renderer.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imgui-knobs.cpp" />
+    <ClCompile Include="imgui\imgui_addons\LanguageDefinitions.cpp" />
+    <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_freetype.cpp" />
+    <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="imgui\imgui_tables.cpp" />
+    <ClCompile Include="imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -862,17 +867,6 @@
     <ClInclude Include="googletest\googlemock\include\gmock\gmock-more-matchers.h" />
     <ClInclude Include="googletest\googlemock\include\gmock\gmock-nice-strict.h" />
     <ClInclude Include="googletest\googlemock\include\gmock\gmock-spec-builders.h" />
-    <ClInclude Include="imgui\imgui_addons\imspinner.h" />
-    <ClInclude Include="imgui\imconfig.h" />
-    <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_freetype.h" />
-    <ClInclude Include="imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\imgui_stdlib.h" />
-    <ClInclude Include="imgui\imstb_rectpack.h" />
-    <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\from_json.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\to_chars.hpp" />
@@ -1075,11 +1069,6 @@
     <ClInclude Include="entt\include\entt\addons\sol\dispatcher.hpp" />
     <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
     <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
-    <ClInclude Include="imgui\imgui_addons\ToggleButton.h" />
-    <ClInclude Include="imgui\imgui_addons\notify\imgui_notify.h" />
-    <ClInclude Include="imgui\imgui_addons\notify\fa_solid_900.h" />
-    <ClInclude Include="imgui\imgui_addons\notify\font_awesome_5.h" />
-    <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
     <ClInclude Include="tileson\include\tileson.hpp" />
     <ClInclude Include="stb\include\stb_image.h" />
     <ClInclude Include="stb\include\stb_image_resize.h" />
@@ -1367,6 +1356,29 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Debugger.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Lua.h" />
+    <ClInclude Include="imgui\imgui_addons\fa_solid_900.h" />
+    <ClInclude Include="imgui\imgui_addons\font_awesome_5.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_math.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_palette.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
+    <ClInclude Include="imgui\imgui_addons\imspinner.h" />
+    <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_freetype.h" />
+    <ClInclude Include="imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imgui_stdlib.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
