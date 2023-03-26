@@ -12,7 +12,7 @@
 #include "Sharpen.hpp"
 
 ///
-/// Sharpen vertex shader.
+/// Basic vertex shader.
 ///
 constexpr const char* const sharpen_vert = R"(
 	#version 460 core
@@ -97,7 +97,9 @@ namespace galaxy
 
 			m_shader.load_raw(sharpen_vert, sharpen_frag);
 			m_shader.compile();
+
 			m_shader.set_uniform("u_texture", 0);
+			m_shader.set_uniform("u_amount", m_amount);
 		}
 
 		void Sharpen::resize(const int width, const int height)
@@ -109,7 +111,6 @@ namespace galaxy
 		{
 			m_fb.bind(true);
 			m_shader.bind();
-			m_shader.set_uniform("u_amount", m_amount);
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, input);
@@ -121,6 +122,7 @@ namespace galaxy
 		void Sharpen::set_amount(const float amount) noexcept
 		{
 			m_amount = std::clamp(amount, 0.0f, 10.0f);
+			m_shader.set_uniform("u_amount", m_amount);
 		}
 
 		float Sharpen::get_amount() const noexcept

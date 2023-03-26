@@ -5,14 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <algorithm>
-
 #include <glad/glad.h>
 
 #include "GaussianBlur.hpp"
 
 ///
-/// Blur vertex shader.
+/// Basic vertex shader.
 ///
 constexpr const char* const gaussianblur_vert = R"(
 	#version 460 core
@@ -43,7 +41,6 @@ constexpr const char* const gaussianblur_frag = R"(
 
 	out vec4 io_frag_colour;
 
-	uniform vec2 u_size;
 	uniform int u_strength;
 	uniform vec2 u_direction;
 	uniform sampler2D u_texture;
@@ -92,19 +89,20 @@ constexpr const char* const gaussianblur_frag = R"(
 
 	void main()
 	{
-		vec2 uv = gl_FragCoord.xy / u_size.xy;
+		vec2 size = textureSize(u_texture, 0).xy;
+		vec2 uv = gl_FragCoord.xy / size.xy;
 
 		if (u_strength == 0)
 		{
-			io_frag_colour = blur5(u_texture, uv, u_size, u_direction);
+			io_frag_colour = blur5(u_texture, uv, size, u_direction);
 		}
 		else if (u_strength == 1)
 		{
-			io_frag_colour = blur9(u_texture, uv, u_size, u_direction);
+			io_frag_colour = blur9(u_texture, uv, size, u_direction);
 		}
 		else if (u_strength == 2)
 		{
-			io_frag_colour = blur13(u_texture, uv, u_size, u_direction);
+			io_frag_colour = blur13(u_texture, uv, size, u_direction);
 		}
 	}
 )";
@@ -121,8 +119,9 @@ namespace galaxy
 
 			m_shader.load_raw(gaussianblur_vert, gaussianblur_frag);
 			m_shader.compile();
+
 			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_size", width, height);
+			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
 		}
 
 		void GaussianBlur::resize(const int width, const int height)
@@ -133,9 +132,9 @@ namespace galaxy
 
 		unsigned int GaussianBlur::render(const unsigned int input)
 		{
-			m_horizontal.bind(true);
 			m_shader.bind();
-			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
+
+			m_horizontal.bind(true);
 			m_shader.set_uniform("u_direction", 1.0f, 0.0f);
 
 			glActiveTexture(GL_TEXTURE0);
@@ -154,6 +153,7 @@ namespace galaxy
 		void GaussianBlur::set_strength(const Strength strength) noexcept
 		{
 			m_strength = strength;
+			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
 		}
 	} // namespace graphics
 } // namespace galaxy
