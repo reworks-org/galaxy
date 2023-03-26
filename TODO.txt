@@ -1,8 +1,9 @@
 rml:
+	- add
 	- restore gl state after rendering/new frames
 	- add reload support to editor
 
-state:
+action/animation state:
 	- https://michaelbitzos.com/devblog/fsm-player-controllers
 	- https://gamedev.stackexchange.com/questions/40672/how-to-update-entity-states-and-animations-in-a-component-based-game
 	- https://gameprogrammingpatterns.com/state.html
@@ -10,3 +11,5 @@ state:
 editor:
 	- loading indicators
 	- add loading indicator for map loading
+
+- integrate physfs and read from archive in release mode.
