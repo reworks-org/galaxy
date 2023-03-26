@@ -1,3 +1,0 @@
-Some tilesets have been rearranged to fit into RPG Maker MV!
-These changes were made by reworks, not the original authors.
-Too see the origial file, follow the link in the respective <Name>License.txt file.
