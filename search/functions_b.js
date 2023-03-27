@@ -18,8 +18,8 @@ var searchData=
   ['load_5fsfx_2294',['load_sfx',['../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d',1,'galaxy::resource::Sounds']]],
   ['loading_2295',['Loading',['../d6/d1e/classgalaxy_1_1core_1_1Loading.html#a40490f2a439ba6714e84eb78e3fe927f',1,'galaxy::core::Loading::Loading(const std::string &amp;doc)'],['../d6/d1e/classgalaxy_1_1core_1_1Loading.html#acaa49b05fdf4e098921fcd83f2356daa',1,'galaxy::core::Loading::Loading()=delete']]],
   ['loadtexture_2296',['LoadTexture',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a925911e4b4abe1f20f9fc8a0b9ca4ba6',1,'galaxy::ui::RMLRenderer']]],
-  ['log_2297',['Log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a77688fb2114d00735feb8acc8a602461',1,'galaxy::error::Log::Log() noexcept'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log(Log &amp;&amp;)=delete']]],
-  ['log_2298',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log']]],
+  ['log_2297',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log']]],
+  ['log_2298',['Log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a77688fb2114d00735feb8acc8a602461',1,'galaxy::error::Log::Log() noexcept'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_5fwrapper_2299',['log_wrapper',['../d0/d46/namespacegalaxy.html#a6801894d137b69973d5ad5c6d565b54e',1,'galaxy']]],
   ['logmessage_2300',['LogMessage',['../d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a54f7cc4afd3518c5e2d3c4f960751462',1,'galaxy::ui::RMLSystem']]],
   ['ltrim_2301',['ltrim',['../db/d7c/namespacegalaxy_1_1strutils.html#ae21f5b2f6c4c3796f7865daf63f71e53',1,'galaxy::strutils']]]

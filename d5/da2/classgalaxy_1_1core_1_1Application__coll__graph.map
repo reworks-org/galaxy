@@ -1,6 +1,6 @@
 <map id="galaxy::core::Application" name="galaxy::core::Application">
-<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="816,2391,999,2585"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="570,2001,799,2328"/>
+<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="816,2405,999,2600"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="570,2001,799,2343"/>
 <area shape="rect" id="node3" title=" " alt="" coords="438,1744,598,1821"/>
 <area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="623,1627,784,1939"/>
 <area shape="rect" id="node5" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1296,196,1564"/>
@@ -25,8 +25,8 @@
 <area shape="rect" id="node20" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="1206,965,1387,1233"/>
 <area shape="rect" id="node21" title=" " alt="" coords="1388,671,1475,749"/>
 <area shape="rect" id="node22" title=" " alt="" coords="1362,307,1501,399"/>
-<area shape="rect" id="node27" href="$d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html" title="Custom RML system interface." alt="" coords="823,2067,994,2262"/>
+<area shape="rect" id="node27" href="$d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html" title="Custom RML system interface." alt="" coords="823,2075,994,2269"/>
 <area shape="rect" id="node28" title=" " alt="" coords="827,1744,990,1821"/>
-<area shape="rect" id="node29" href="$d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html" title="Custom RML file interface." alt="" coords="1043,2082,1187,2247"/>
+<area shape="rect" id="node29" href="$d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html" title="Custom RML file interface." alt="" coords="1043,2089,1187,2255"/>
 <area shape="rect" id="node30" title=" " alt="" coords="1047,1744,1184,1821"/>
 </map>

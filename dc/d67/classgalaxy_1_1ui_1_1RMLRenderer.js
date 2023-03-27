@@ -11,8 +11,8 @@ var classgalaxy_1_1ui_1_1RMLRenderer =
       [ "Scissor", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aefe0cec5bb643b66091e453ac08b6c70a5a173331e5b2368b8e9179cbf32c429b", null ],
       [ "Stencil", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aefe0cec5bb643b66091e453ac08b6c70ad821e7ccd4d4c25a491ba1a9ea248895", null ]
     ] ],
-    [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a96effe9636dcfcaee2d0781b87b51776", null ],
-    [ "~RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a7d3ddb9f3b18540a764f15f028fc09a3", null ],
+    [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2f45e5e469143ab73678be5fe81f105c", null ],
+    [ "~RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5c8483a8a7b93699670955461295ebce", null ],
     [ "init", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ae52cbb6db0e5ffc7429b35861d993ca1", null ],
     [ "destroy", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aa5c48bb8a287ebb97f4394087219e816", null ],
     [ "begin_frame", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d", null ],
@@ -35,5 +35,6 @@ var classgalaxy_1_1ui_1_1RMLRenderer =
     [ "transform_active", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad7ff23f210c75cda9c0e5f641c062a25", null ],
     [ "scissoring_state", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#af0627c2239e5d0885eddbdcd119c5cd0", null ],
     [ "shaders", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a8ab718e5a1d46da755a9d3c40bf22fb0", null ],
-    [ "m_window", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a9900fb1d3bf5f29755cd7c1a9c183189", null ]
+    [ "m_window", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a9900fb1d3bf5f29755cd7c1a9c183189", null ],
+    [ "m_viewport_backup", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aab6e70daee35a064669945cd4173cbcc", null ]
 ];

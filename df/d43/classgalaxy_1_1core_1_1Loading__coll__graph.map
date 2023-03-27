@@ -1,6 +1,6 @@
 <map id="galaxy::core::Loading" name="galaxy::core::Loading">
-<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="459,2391,619,2541"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="425,2001,654,2328"/>
+<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="459,2405,619,2556"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="425,2001,654,2343"/>
 <area shape="rect" id="node3" title=" " alt="" coords="438,1744,598,1821"/>
 <area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="623,1627,784,1939"/>
 <area shape="rect" id="node5" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1296,196,1564"/>

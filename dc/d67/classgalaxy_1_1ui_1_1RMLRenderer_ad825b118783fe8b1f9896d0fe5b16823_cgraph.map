@@ -1,5 +1,4 @@
 <map id="galaxy::ui::RMLRenderer::RenderCompiledGeometry" name="galaxy::ui::RMLRenderer::RenderCompiledGeometry">
-<area shape="rect" id="node1" title="Called by RmlUi when it wants to render application&#45;compiled geometry." alt="" coords="5,27,208,69"/>
-<area shape="rect" id="node2" href="$d2/dad/namespaceGfx.html#ad0de4550771fd83db67c33457a0ce4ac" title=" " alt="" coords="283,5,424,32"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a868195a05f1ef62777bd06837deb2519" title="Update rml transform." alt="" coords="256,57,451,98"/>
+<area shape="rect" id="node1" title="Called by RmlUi when it wants to render application&#45;compiled geometry." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a868195a05f1ef62777bd06837deb2519" title="Update rml transform." alt="" coords="256,5,451,47"/>
 </map>

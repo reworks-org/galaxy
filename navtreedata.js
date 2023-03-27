@@ -63,8 +63,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5",
+"",
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a629316f28c4a6624efc345f2ad266eb2",
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b",
 "d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a",
 "d5/dd1/OpenGLError_8hpp_source.html",
@@ -72,9 +72,9 @@ var NAVTREEINDEX =
 "d8/dc2/namespacegalaxy_1_1scripting.html#ad0efa450da87d0684d4bd8325964b391",
 "da/d19/classgalaxy_1_1graphics_1_1Animation.html#ae6e231eae4bfbf3cdaa5060874e2dac8",
 "db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f",
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a243a6c7d058187d4318f59d6eefe2e72",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea9c56f942b051ba23447e108e16a8b23b",
-"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aebf59f573aae441ce0d571e52a85b214",
+"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a160c3a2d040dc59c67e1ed6777b13d64",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea9748632a03a999f14fd0c94056c4aa24",
+"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aea0189d7064e050dbad540d481302610",
 "df/dfe/classgalaxy_1_1components_1_1RigidBody.html"
 ];
 

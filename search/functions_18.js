@@ -52,7 +52,7 @@ var searchData=
   ['_7ermlevents_2611',['~RMLEvents',['../de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#ab3c982b8b00a5b44fb935e22f33adffe',1,'galaxy::ui::RMLEvents']]],
   ['_7ermlfile_2612',['~RMLFile',['../d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a6fb7762e21c1999c24434adfbbd317ab',1,'galaxy::ui::RMLFile']]],
   ['_7ermlinput_2613',['~RMLInput',['../df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#a830c333c5deb0ccf73df702259831249',1,'galaxy::ui::RMLInput']]],
-  ['_7ermlrenderer_2614',['~RMLRenderer',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a7d3ddb9f3b18540a764f15f028fc09a3',1,'galaxy::ui::RMLRenderer']]],
+  ['_7ermlrenderer_2614',['~RMLRenderer',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5c8483a8a7b93699670955461295ebce',1,'galaxy::ui::RMLRenderer']]],
   ['_7ermlsystem_2615',['~RMLSystem',['../d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a3e0bd5e97704176e9e6672a11f058d89',1,'galaxy::ui::RMLSystem']]],
   ['_7eruntimelayer_2616',['~RuntimeLayer',['../df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html#afee647ea647b3d65e17d6bc73a99b5eb',1,'galaxy::scene::RuntimeLayer']]],
   ['_7escene_2617',['~Scene',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#accf3df05e58d40468bfa3d47a4c14023',1,'galaxy::scene::Scene']]],

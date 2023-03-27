@@ -74,7 +74,7 @@ var searchData=
   ['rmlinput_1092',['RMLInput',['../df/d1c/classgalaxy_1_1ui_1_1RMLInput.html',1,'galaxy::ui::RMLInput'],['../df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#a45d535c2b64b675a9403d23f78989512',1,'galaxy::ui::RMLInput::RMLInput() noexcept'],['../df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#ac7bb69a4c7ff1790e333def704f05108',1,'galaxy::ui::RMLInput::RMLInput(RMLInput &amp;&amp;)=delete'],['../df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#a7de39ff4dafd7a5de4d542ce87dbe748',1,'galaxy::ui::RMLInput::RMLInput(const RMLInput &amp;)=delete']]],
   ['rmlinput_2ecpp_1093',['RMLInput.cpp',['../d4/d6b/RMLInput_8cpp.html',1,'']]],
   ['rmlinput_2ehpp_1094',['RMLInput.hpp',['../dc/d7b/RMLInput_8hpp.html',1,'']]],
-  ['rmlrenderer_1095',['RMLRenderer',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html',1,'galaxy::ui::RMLRenderer'],['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a96effe9636dcfcaee2d0781b87b51776',1,'galaxy::ui::RMLRenderer::RMLRenderer()']]],
+  ['rmlrenderer_1095',['RMLRenderer',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html',1,'galaxy::ui::RMLRenderer'],['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2f45e5e469143ab73678be5fe81f105c',1,'galaxy::ui::RMLRenderer::RMLRenderer()']]],
   ['rmlrenderer_2ecpp_1096',['RMLRenderer.cpp',['../df/d8d/RMLRenderer_8cpp.html',1,'']]],
   ['rmlrenderer_2ehpp_1097',['RMLRenderer.hpp',['../d1/d92/RMLRenderer_8hpp.html',1,'']]],
   ['rmlsystem_1098',['RMLSystem',['../d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html',1,'galaxy::ui::RMLSystem'],['../d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#aaea986fb3527c9f9cd7577b4860548e5',1,'galaxy::ui::RMLSystem::RMLSystem()']]],

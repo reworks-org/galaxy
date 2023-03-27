@@ -16,7 +16,6 @@ var RMLRenderer_8cpp =
       [ "TexCoord0", "df/d8d/RMLRenderer_8cpp.html#a18823fdafde60692d4eeac379b903b06a4ac00b6292b9c8d63d0a11df581bd399", null ],
       [ "Count", "df/d8d/RMLRenderer_8cpp.html#a18823fdafde60692d4eeac379b903b06ae93f994f01c537c4e2f7d8528c3eb5e9", null ]
     ] ],
-    [ "CheckGLError", "df/d8d/RMLRenderer_8cpp.html#ad0de4550771fd83db67c33457a0ce4ac", null ],
     [ "CreateShader", "df/d8d/RMLRenderer_8cpp.html#a92310d764227aa66d20e4cef3309ead0", null ],
     [ "BindAttribLocations", "df/d8d/RMLRenderer_8cpp.html#aa91a9c87b5f1734b53db6c0340ed8a9f", null ],
     [ "CreateProgram", "df/d8d/RMLRenderer_8cpp.html#a285389c80809e2d37256a2af08a2184a", null ],

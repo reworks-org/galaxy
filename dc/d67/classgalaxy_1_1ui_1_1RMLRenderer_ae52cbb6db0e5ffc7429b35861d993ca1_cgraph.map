@@ -1,9 +1,8 @@
 <map id="galaxy::ui::RMLRenderer::init" name="galaxy::ui::RMLRenderer::init">
-<area shape="rect" id="node1" title="Initialize rml renderer." alt="" coords="5,99,185,141"/>
-<area shape="rect" id="node2" href="$d2/dad/namespaceGfx.html#a211cc9bfffac25510160f23273dd8117" title=" " alt="" coords="275,81,423,108"/>
-<area shape="rect" id="node7" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,132,464,159"/>
-<area shape="rect" id="node3" href="$d2/dad/namespaceGfx.html#a285389c80809e2d37256a2af08a2184a" title=" " alt="" coords="512,56,663,83"/>
-<area shape="rect" id="node6" href="$d2/dad/namespaceGfx.html#a92310d764227aa66d20e4cef3309ead0" title=" " alt="" coords="730,107,871,133"/>
+<area shape="rect" id="node1" title="Initialize rml renderer." alt="" coords="5,49,185,90"/>
+<area shape="rect" id="node2" href="$d2/dad/namespaceGfx.html#a211cc9bfffac25510160f23273dd8117" title=" " alt="" coords="275,31,423,57"/>
+<area shape="rect" id="node6" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,81,464,108"/>
+<area shape="rect" id="node3" href="$d2/dad/namespaceGfx.html#a285389c80809e2d37256a2af08a2184a" title=" " alt="" coords="512,5,663,32"/>
+<area shape="rect" id="node5" href="$d2/dad/namespaceGfx.html#a92310d764227aa66d20e4cef3309ead0" title=" " alt="" coords="517,56,658,83"/>
 <area shape="rect" id="node4" href="$d2/dad/namespaceGfx.html#aa91a9c87b5f1734b53db6c0340ed8a9f" title=" " alt="" coords="711,5,891,32"/>
-<area shape="rect" id="node5" href="$d2/dad/namespaceGfx.html#ad0de4550771fd83db67c33457a0ce4ac" title=" " alt="" coords="939,56,1080,83"/>
 </map>
