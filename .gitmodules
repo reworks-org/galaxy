@@ -22,9 +22,6 @@
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest.git
-[submodule "lib/freetype2_win"]
-	path = lib/freetype2_win
-	url = https://github.com/ubawurinna/freetype-windows-binaries.git
 [submodule "lib/box2d"]
 	path = lib/box2d
 	url = https://github.com/erincatto/box2d.git
