@@ -33,7 +33,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~VirtualFileSystem() noexcept = default;
+			~VirtualFileSystem() = default;
 
 			///
 			/// Retrieve the absolute position of a file to load.
@@ -206,14 +206,14 @@ namespace galaxy
 			///
 			/// \return Absolute root path as a string.
 			///
-			[[nodiscard]] std::string root() noexcept;
+			[[nodiscard]] std::string root();
 
 			///
 			/// Get root path.
 			///
 			/// \return Absolute root path as a filesystem path.
 			///
-			[[nodiscard]] const std::filesystem::path& root_path() const noexcept;
+			[[nodiscard]] const std::filesystem::path& root_path() const;
 
 		private:
 			///

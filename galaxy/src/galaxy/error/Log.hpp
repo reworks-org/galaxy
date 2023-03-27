@@ -58,19 +58,19 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Log() noexcept = default;
+			~Log() = default;
 
 			///
 			/// Retrieve log instance.
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[nodiscard]] static Log& handle() noexcept;
+			[[nodiscard]] static Log& handle();
 
 			///
 			/// Start logging thread.
 			///
-			void start() noexcept;
+			void start();
 
 			///
 			/// Add a sink to log to.
@@ -93,7 +93,7 @@ namespace galaxy
 			/// In order to only print and log levels greater than or equal to the current log message level.
 			///
 			template<LogLevel level>
-			void set_min_level() noexcept;
+			void set_min_level();
 
 			///
 			/// Log a message.
@@ -111,13 +111,13 @@ namespace galaxy
 			///
 			/// Cleanup any static resources.
 			///
-			void finish() noexcept;
+			void finish();
 
 		private:
 			///
 			/// Constructor.
 			///
-			Log() noexcept;
+			Log();
 
 			///
 			/// Copy constructor.
@@ -160,7 +160,7 @@ namespace galaxy
 		}
 
 		template<LogLevel level>
-		inline void Log::set_min_level() noexcept
+		inline void Log::set_min_level()
 		{
 			m_min_level = level;
 		}

@@ -19,12 +19,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Shaders::Shaders() noexcept
+		Shaders::Shaders()
 			: m_folder {""}
 		{
 		}
 
-		Shaders::~Shaders() noexcept
+		Shaders::~Shaders()
 		{
 		}
 

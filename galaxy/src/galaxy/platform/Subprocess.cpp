@@ -13,23 +13,23 @@ namespace galaxy
 {
 	namespace platform
 	{
-		Subprocess::Subprocess() noexcept
+		Subprocess::Subprocess()
 			: m_process {nullptr}
 		{
 		}
 
-		Subprocess::Subprocess(std::string_view process, std::span<std::string> args) noexcept
+		Subprocess::Subprocess(std::string_view process, std::span<std::string> args)
 			: m_process {nullptr}
 		{
 			create(process, args);
 		}
 
-		Subprocess::~Subprocess() noexcept
+		Subprocess::~Subprocess()
 		{
 			terminate();
 		}
 
-		void Subprocess::create(std::string_view process, std::span<std::string> args) noexcept
+		void Subprocess::create(std::string_view process, std::span<std::string> args)
 		{
 			const auto sp_to_run = std::filesystem::absolute(process).replace_extension("").string();
 
@@ -49,7 +49,7 @@ namespace galaxy
 			}
 		}
 
-		int Subprocess::join() noexcept
+		int Subprocess::join()
 		{
 			if (alive())
 			{
@@ -65,7 +65,7 @@ namespace galaxy
 			return -1;
 		}
 
-		void Subprocess::terminate() noexcept
+		void Subprocess::terminate()
 		{
 			if (alive())
 			{
@@ -76,7 +76,7 @@ namespace galaxy
 			}
 		}
 
-		void Subprocess::destroy() noexcept
+		void Subprocess::destroy()
 		{
 			if (alive())
 			{
@@ -87,7 +87,7 @@ namespace galaxy
 			}
 		}
 
-		bool Subprocess::alive() noexcept
+		bool Subprocess::alive()
 		{
 			return subprocess_alive(&m_process) != 0 ? true : false;
 		}

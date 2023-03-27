@@ -22,14 +22,14 @@ namespace galaxy
 		///
 		/// \return Code as a string.
 		///
-		[[nodiscard]] std::string gl_errcode_as_string(const int code) noexcept;
+		[[nodiscard]] std::string gl_errcode_as_string(const int code);
 
 		///
 		/// Returns all GL errors on stack.
 		///
 		/// \return All current errors on stack in an array, as a string.
 		///
-		[[nodiscard]] std::vector<std::string> gl_get_all_errors() noexcept;
+		[[nodiscard]] std::vector<std::string> gl_get_all_errors();
 
 		///
 		/// Insert a message into the OpenGL debug stack.
@@ -46,7 +46,7 @@ namespace galaxy
 			const unsigned int id,
 			const unsigned int severity,
 			const int length,
-			const char* buf) noexcept;
+			const char* buf);
 	} // namespace error
 } // namespace galaxy
 

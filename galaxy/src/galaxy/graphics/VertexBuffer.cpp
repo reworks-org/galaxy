@@ -13,14 +13,14 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		VertexBuffer::VertexBuffer() noexcept
+		VertexBuffer::VertexBuffer()
 			: m_vbo {0}
 			, m_size {0}
 		{
 			glCreateBuffers(1, &m_vbo);
 		}
 
-		VertexBuffer::VertexBuffer(VertexBuffer&& vb) noexcept
+		VertexBuffer::VertexBuffer(VertexBuffer&& vb)
 		{
 			this->destroy();
 
@@ -30,7 +30,7 @@ namespace galaxy
 			vb.m_vbo = 0;
 		}
 
-		VertexBuffer& VertexBuffer::operator=(VertexBuffer&& vb) noexcept
+		VertexBuffer& VertexBuffer::operator=(VertexBuffer&& vb)
 		{
 			if (this != &vb)
 			{
@@ -45,7 +45,7 @@ namespace galaxy
 			return *this;
 		}
 
-		VertexBuffer::~VertexBuffer() noexcept
+		VertexBuffer::~VertexBuffer()
 		{
 			destroy();
 		}
@@ -88,13 +88,13 @@ namespace galaxy
 			}
 		}
 
-		void VertexBuffer::clear() noexcept
+		void VertexBuffer::clear()
 		{
 			glInvalidateBufferData(m_vbo);
 			glNamedBufferData(m_vbo, m_size * sizeof(Vertex), nullptr, GL_DYNAMIC_DRAW);
 		}
 
-		void VertexBuffer::destroy() noexcept
+		void VertexBuffer::destroy()
 		{
 			if (m_vbo != 0)
 			{
@@ -103,7 +103,7 @@ namespace galaxy
 			}
 		}
 
-		unsigned int VertexBuffer::id() const noexcept
+		unsigned int VertexBuffer::id() const
 		{
 			return m_vbo;
 		}

@@ -14,7 +14,7 @@ namespace galaxy
 {
 	namespace strutils
 	{
-		std::vector<std::string> split(std::string_view input, std::string_view delim) noexcept
+		std::vector<std::string> split(std::string_view input, std::string_view delim)
 		{
 			std::size_t start = 0;
 			std::size_t end   = 0;
@@ -34,7 +34,7 @@ namespace galaxy
 			return splits;
 		}
 
-		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
+		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with)
 		{
 			const auto pos = input.find(to_replace);
 
@@ -44,7 +44,7 @@ namespace galaxy
 			}
 		}
 
-		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
+		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with)
 		{
 			std::size_t pos = 0;
 
@@ -59,34 +59,34 @@ namespace galaxy
 			}
 		}
 
-		bool begins_with(const std::string& input, const std::string& find) noexcept
+		bool begins_with(const std::string& input, const std::string& find)
 		{
 			return (input.rfind(find, 0) == 0);
 		}
 
-		void ltrim(std::string& input) noexcept
+		void ltrim(std::string& input)
 		{
-			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) noexcept {
+			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) {
 				return !std::isspace(ch);
 			}));
 		}
 
-		void rtrim(std::string& input) noexcept
+		void rtrim(std::string& input)
 		{
 			// clang-format off
-			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) noexcept {
+			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) {
                 return !std::isspace(ch);
 			}).base(), input.end());
 			// clang-format on
 		}
 
-		void trim(std::string& input) noexcept
+		void trim(std::string& input)
 		{
 			rtrim(input);
 			ltrim(input);
 		}
 
-		void make_single_spaced(std::string& input) noexcept
+		void make_single_spaced(std::string& input)
 		{
 			const auto trim_from = std::unique(input.begin(), input.end(), [](const auto lhs, const auto rhs) {
 				return (lhs == rhs) && (lhs == ' ');

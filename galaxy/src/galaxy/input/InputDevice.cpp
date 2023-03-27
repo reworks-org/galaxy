@@ -11,17 +11,17 @@ namespace galaxy
 {
 	namespace input
 	{
-		InputDevice::InputDevice() noexcept
+		InputDevice::InputDevice()
 			: m_window {nullptr}
 		{
 		}
 
-		InputDevice::~InputDevice() noexcept
+		InputDevice::~InputDevice()
 		{
 			m_window = nullptr;
 		}
 
-		void InputDevice::set_window(GLFWwindow* window) noexcept
+		void InputDevice::set_window(GLFWwindow* window)
 		{
 			m_window = window;
 		}

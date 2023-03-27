@@ -31,7 +31,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Subprocess() noexcept;
+			Subprocess();
 
 			///
 			/// Create constructor.
@@ -39,14 +39,14 @@ namespace galaxy
 			/// \param process Subprocess to launch. Can include a path.
 			/// \param args Command-line args to set for process. Optional.
 			///
-			Subprocess(std::string_view process, std::span<std::string> args = {}) noexcept;
+			Subprocess(std::string_view process, std::span<std::string> args = {});
 
 			///
 			/// \brief Destructor.
 			///
 			/// Calls terminate().
 			///
-			~Subprocess() noexcept;
+			~Subprocess();
 
 			///
 			/// Launch a subprocess.
@@ -54,31 +54,31 @@ namespace galaxy
 			/// \param process Subprocess to launch. Can include a path.
 			/// \param args Command-line args to set for process. Optional.
 			///
-			void create(std::string_view process, std::span<std::string> args = {}) noexcept;
+			void create(std::string_view process, std::span<std::string> args = {});
 
 			///
 			/// Wait for a process to finish execution.
 			///
 			/// \return Process exit code. -1 on error.
 			///
-			[[maybe_unused]] int join() noexcept;
+			[[maybe_unused]] int join();
 
 			///
 			/// Terminate process, killing if alive.
 			///
-			void terminate() noexcept;
+			void terminate();
 
 			///
 			/// Destroy process, preserving if alive.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Check if subprocess is still alive and executing.
 			///
 			/// \return True if process is alive.
 			///
-			[[nodiscard]] bool alive() noexcept;
+			[[nodiscard]] bool alive();
 
 		private:
 			///

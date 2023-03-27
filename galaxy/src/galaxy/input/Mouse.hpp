@@ -27,32 +27,32 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Mouse() noexcept = default;
+			virtual ~Mouse() = default;
 
 			///
 			/// \brief Enable sticky mouse.
 			///
 			/// The pollable state of a nouse button will remain pressed until the state of that button is polled.
 			///
-			void enable_sticky_mouse() const noexcept;
+			void enable_sticky_mouse() const;
 
 			///
 			/// Disable sticky mouse.
 			///
-			void disable_sticky_mouse() const noexcept;
+			void disable_sticky_mouse() const;
 
 			///
 			/// Get last recorded mouse position.
 			///
 			/// \return XY vector position of cursor.
 			///
-			[[nodiscard]] glm::dvec2 get_pos() noexcept;
+			[[nodiscard]] glm::dvec2 get_pos();
 
 		private:
 			///
 			/// Constructor.
 			///
-			Mouse() noexcept;
+			Mouse();
 
 			///
 			/// Move constructor.

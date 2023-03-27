@@ -23,14 +23,14 @@ namespace sc
 {
 	namespace panel
 	{
-		JSONEditor::JSONEditor() noexcept
+		JSONEditor::JSONEditor()
 			: m_counter {0}
 			, m_loaded {false}
 			, m_external {nullptr}
 		{
 		}
 
-		JSONEditor::~JSONEditor() noexcept
+		JSONEditor::~JSONEditor()
 		{
 			m_external = nullptr;
 		}

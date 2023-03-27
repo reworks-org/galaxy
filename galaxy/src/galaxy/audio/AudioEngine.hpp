@@ -30,12 +30,12 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~AudioEngine() noexcept;
+			~AudioEngine();
 
 			///
 			/// Stop all playing audio.
 			///
-			void stop() noexcept;
+			void stop();
 
 			///
 			/// \brief Set a listeners position.
@@ -47,7 +47,7 @@ namespace galaxy
 			/// \param y Y Coord.
 			/// \param z Z Coord.
 			///
-			void set_listener_position(const unsigned int id, const float x, const float y, const float z) noexcept;
+			void set_listener_position(const unsigned int id, const float x, const float y, const float z);
 
 			///
 			/// \brief Set a listeners direction.
@@ -59,7 +59,7 @@ namespace galaxy
 			/// \param y Y Coord.
 			/// \param z Z Coord.
 			///
-			void set_listener_direction(const unsigned int id, const float x, const float y, const float z) noexcept;
+			void set_listener_direction(const unsigned int id, const float x, const float y, const float z);
 
 			///
 			/// \brief Set listener world up vector.
@@ -71,7 +71,7 @@ namespace galaxy
 			/// \param y Y Coord.
 			/// \param z Z Coord.
 			///
-			void set_listener_world_up(const unsigned int id, const float x, const float y, const float z) noexcept;
+			void set_listener_world_up(const unsigned int id, const float x, const float y, const float z);
 
 			///
 			/// \brief Directional attenuation.
@@ -86,7 +86,7 @@ namespace galaxy
 			/// \param outer_angle In radians.
 			/// \param outer_gain Value attenuation will be set to when the sound is outside of the outer cone.
 			///
-			void set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain) noexcept;
+			void set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain);
 
 			///
 			/// Toggle a listener.
@@ -94,49 +94,49 @@ namespace galaxy
 			/// \param id Listener index / id.
 			/// \param enable True to enable, false to disable.
 			///
-			void toggle_listener(const unsigned int id, const bool enable) noexcept;
+			void toggle_listener(const unsigned int id, const bool enable);
 
 			///
 			/// Sets master sound effect volume.
 			///
 			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
-			void set_sfx_volume(const float volume) noexcept;
+			void set_sfx_volume(const float volume);
 
 			///
 			/// Sets master music volume.
 			///
 			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
-			void set_music_volume(const float volume) noexcept;
+			void set_music_volume(const float volume);
 
 			///
 			/// Sets master dialogue volume.
 			///
 			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
 			///
-			void set_dialogue_volume(const float volume) noexcept;
+			void set_dialogue_volume(const float volume);
 
 			///
 			/// Get SFX engine.
 			///
 			/// \return Pointer to ma_engine structure.
 			///
-			[[nodiscard]] ma_engine* get_sfx_engine() noexcept;
+			[[nodiscard]] ma_engine* get_sfx_engine();
 
 			///
 			/// Get music engine.
 			///
 			/// \return Pointer to ma_engine structure.
 			///
-			[[nodiscard]] ma_engine* get_music_engine() noexcept;
+			[[nodiscard]] ma_engine* get_music_engine();
 
 			///
 			/// Get dialogue engine.
 			///
 			/// \return Pointer to ma_engine structure.
 			///
-			[[nodiscard]] ma_engine* get_dialogue_engine() noexcept;
+			[[nodiscard]] ma_engine* get_dialogue_engine();
 
 		private:
 			///

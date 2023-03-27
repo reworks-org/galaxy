@@ -13,17 +13,17 @@ namespace galaxy
 {
 	namespace input
 	{
-		Clipboard::Clipboard() noexcept
+		Clipboard::Clipboard()
 			: InputDevice {}
 		{
 		}
 
-		void Clipboard::set(const char* contents) const noexcept
+		void Clipboard::set(const char* contents) const
 		{
 			glfwSetClipboardString(m_window, contents);
 		}
 
-		std::string Clipboard::get() const noexcept
+		std::string Clipboard::get() const
 		{
 			return glfwGetClipboardString(m_window);
 		}

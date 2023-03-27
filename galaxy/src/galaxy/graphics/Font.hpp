@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Font() noexcept;
+			Font();
 
 			///
 			/// Argument constructor.
@@ -39,17 +39,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Font(Font&&) noexcept;
+			Font(Font&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Font& operator=(Font&&) noexcept;
+			Font& operator=(Font&&);
 
 			///
 			/// Destructor.
 			///
-			~Font() noexcept;
+			~Font();
 
 			///
 			/// Loads the font and sets up characters.
@@ -74,7 +74,7 @@ namespace galaxy
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float vertical_advance(const float size) const noexcept;
+			[[nodiscard]] float vertical_advance(const float size) const;
 
 			///
 			/// \brief Query text size with font.
@@ -86,14 +86,14 @@ namespace galaxy
 			///
 			/// \return Vector 2 of dimensions of text.
 			///
-			[[nodiscard]] glm::vec2 get_text_size(const std::string& text, const float size) noexcept;
+			[[nodiscard]] glm::vec2 get_text_size(const std::string& text, const float size);
 
 			///
 			/// Get handle to internal font object.
 			///
 			/// \return msdfgl_font_t pointer.
 			///
-			[[nodiscard]] msdfgl_font_t handle() noexcept;
+			[[nodiscard]] msdfgl_font_t handle();
 
 		private:
 			///

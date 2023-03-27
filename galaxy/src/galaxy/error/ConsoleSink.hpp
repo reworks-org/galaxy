@@ -23,19 +23,19 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ConsoleSink() noexcept = default;
+			ConsoleSink() = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~ConsoleSink() noexcept = default;
+			virtual ~ConsoleSink() = default;
 
 			///
 			/// Sink the message.
 			///
 			/// \param message String to sink.
 			///
-			void sink_message(std::string_view message) noexcept override;
+			void sink_message(std::string_view message) override;
 		};
 	} // namespace error
 } // namespace galaxy

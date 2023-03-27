@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		RigidBody::RigidBody() noexcept
+		RigidBody::RigidBody()
 			: Serializable {}
 			, m_shape {0, 0}
 			, m_type {b2_staticBody}
@@ -30,13 +30,13 @@ namespace galaxy
 		{
 		}
 
-		RigidBody::RigidBody(const nlohmann::json& json) noexcept
+		RigidBody::RigidBody(const nlohmann::json& json)
 			: Serializable {}
 		{
 			deserialize(json);
 		}
 
-		RigidBody::RigidBody(RigidBody&& rb) noexcept
+		RigidBody::RigidBody(RigidBody&& rb)
 			: Serializable {}
 		{
 			this->m_shape                 = std::move(rb.m_shape);
@@ -52,7 +52,7 @@ namespace galaxy
 			rb.m_body = nullptr;
 		}
 
-		RigidBody& RigidBody::operator=(RigidBody&& rb) noexcept
+		RigidBody& RigidBody::operator=(RigidBody&& rb)
 		{
 			if (this != &rb)
 			{
@@ -72,12 +72,12 @@ namespace galaxy
 			return *this;
 		}
 
-		RigidBody::~RigidBody() noexcept
+		RigidBody::~RigidBody()
 		{
 			// b2Body cleaned up by entt.
 		}
 
-		void RigidBody::set_shape(const float hw, const float hh) noexcept
+		void RigidBody::set_shape(const float hw, const float hh)
 		{
 			m_shape.x = hw;
 			m_shape.y = hh;
@@ -87,12 +87,12 @@ namespace galaxy
 			shape->SetAsBox(m_shape.x, m_shape.y);
 		}
 
-		void RigidBody::set_type(const b2BodyType type) noexcept
+		void RigidBody::set_type(const b2BodyType type)
 		{
 			m_body->SetType(type);
 		}
 
-		void RigidBody::set_density(const float density) noexcept
+		void RigidBody::set_density(const float density)
 		{
 			m_density = density;
 
@@ -102,7 +102,7 @@ namespace galaxy
 			m_body->ResetMassData();
 		}
 
-		void RigidBody::set_friction(const float friction) noexcept
+		void RigidBody::set_friction(const float friction)
 		{
 			m_friction = friction;
 
@@ -110,7 +110,7 @@ namespace galaxy
 			fixture->SetFriction(m_friction);
 		}
 
-		void RigidBody::set_restitution(const float restitution) noexcept
+		void RigidBody::set_restitution(const float restitution)
 		{
 			m_restitution = restitution;
 
@@ -118,7 +118,7 @@ namespace galaxy
 			fixture->SetRestitution(m_restitution);
 		}
 
-		void RigidBody::set_restitution_threshold(const float restitution_threshold) noexcept
+		void RigidBody::set_restitution_threshold(const float restitution_threshold)
 		{
 			m_restitution_threshold = restitution_threshold;
 
@@ -126,52 +126,52 @@ namespace galaxy
 			fixture->SetRestitutionThreshold(m_restitution_threshold);
 		}
 
-		void RigidBody::set_bullet(const bool is_bullet) noexcept
+		void RigidBody::set_bullet(const bool is_bullet)
 		{
 			m_body->SetBullet(is_bullet);
 		}
 
-		void RigidBody::set_fixed_rotation(const bool fixed_rotation) noexcept
+		void RigidBody::set_fixed_rotation(const bool fixed_rotation)
 		{
 			m_body->SetFixedRotation(fixed_rotation);
 		}
 
-		const glm::vec2& RigidBody::get_shape() const noexcept
+		const glm::vec2& RigidBody::get_shape() const
 		{
 			return m_shape;
 		}
 
-		b2BodyType RigidBody::get_type() const noexcept
+		b2BodyType RigidBody::get_type() const
 		{
 			return m_type;
 		}
 
-		float RigidBody::get_density() const noexcept
+		float RigidBody::get_density() const
 		{
 			return m_density;
 		}
 
-		float RigidBody::get_friction() const noexcept
+		float RigidBody::get_friction() const
 		{
 			return m_friction;
 		}
 
-		float RigidBody::get_restitution() const noexcept
+		float RigidBody::get_restitution() const
 		{
 			return m_restitution;
 		}
 
-		float RigidBody::get_restitution_threshold() const noexcept
+		float RigidBody::get_restitution_threshold() const
 		{
 			return m_restitution_threshold;
 		}
 
-		bool RigidBody::is_bullet() const noexcept
+		bool RigidBody::is_bullet() const
 		{
 			return m_bullet;
 		}
 
-		bool RigidBody::is_rotation_fixed() const noexcept
+		bool RigidBody::is_rotation_fixed() const
 		{
 			return m_fixed_rotation;
 		}

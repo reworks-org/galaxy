@@ -17,11 +17,11 @@ namespace galaxy
 {
 	namespace systems
 	{
-		ScriptSystem::ScriptSystem() noexcept
+		ScriptSystem::ScriptSystem()
 		{
 		}
 
-		ScriptSystem::~ScriptSystem() noexcept
+		ScriptSystem::~ScriptSystem()
 		{
 		}
 

@@ -28,12 +28,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			SceneManager() noexcept;
+			SceneManager();
 
 			///
 			/// Destructor.
 			///
-			~SceneManager() noexcept;
+			~SceneManager();
 
 			///
 			/// Create a new scene.
@@ -82,7 +82,7 @@ namespace galaxy
 			///
 			/// \return Shared pointer to requested scene.
 			///
-			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name) noexcept;
+			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name);
 
 			///
 			/// \brief Remove a specific scene.
@@ -109,21 +109,21 @@ namespace galaxy
 			///
 			/// \return Ref to currently active scene.
 			///
-			[[nodiscard]] Scene& current() noexcept;
+			[[nodiscard]] Scene& current();
 
 			///
 			/// Checks if there is a currently active scene.
 			///
 			/// \return True if there is a valid current scene.
 			///
-			[[nodiscard]] bool has_current() const noexcept;
+			[[nodiscard]] bool has_current() const;
 
 			///
 			/// Get all scenes.
 			///
 			/// \return SceneContainer reference.
 			///
-			[[nodiscard]] SceneContainer& all() noexcept;
+			[[nodiscard]] SceneContainer& all();
 
 			///
 			/// Serializes object.

@@ -18,18 +18,18 @@ namespace galaxy
 {
 	namespace input
 	{
-		Cursor::Cursor() noexcept
+		Cursor::Cursor()
 			: InputDevice {}
 			, m_data {nullptr}
 		{
 		}
 
-		Cursor::~Cursor() noexcept
+		Cursor::~Cursor()
 		{
 			destroy();
 		}
 
-		void Cursor::toggle(const bool visible) noexcept
+		void Cursor::toggle(const bool visible)
 		{
 			if (visible)
 			{
@@ -104,12 +104,12 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
-		bool Cursor::within_window() const noexcept
+		bool Cursor::within_window() const
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_HOVERED);
 		}
 
-		void Cursor::destroy() noexcept
+		void Cursor::destroy()
 		{
 			if (m_data != nullptr)
 			{

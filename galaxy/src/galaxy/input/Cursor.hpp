@@ -30,14 +30,14 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Cursor() noexcept;
+			virtual ~Cursor();
 
 			///
 			/// Set cursor visibility.
 			///
 			/// \param visible True for cursor to be visible, otherwise false.
 			///
-			void toggle(const bool visible) noexcept;
+			void toggle(const bool visible);
 
 			///
 			/// Set cursor icon.
@@ -58,18 +58,18 @@ namespace galaxy
 			///
 			/// \return True if cursor is within the content area of the window.
 			///
-			[[nodiscard]] bool within_window() const noexcept;
+			[[nodiscard]] bool within_window() const;
 
 			///
 			/// Clear up all used data.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 		private:
 			///
 			/// Constructor.
 			///
-			Cursor() noexcept;
+			Cursor();
 
 			///
 			/// Move constructor.

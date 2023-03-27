@@ -26,14 +26,14 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Vertex() noexcept;
+			Vertex();
 
 			///
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
 			///
-			Vertex(const glm::vec2& pos) noexcept;
+			Vertex(const glm::vec2& pos);
 
 			///
 			/// Reverse argument constructor.
@@ -41,7 +41,7 @@ namespace galaxy
 			/// \param pos Position of vertex.
 			/// \param texels Vertex texture coordinates.
 			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels) noexcept;
+			Vertex(const glm::vec2& pos, const glm::vec2& texels);
 
 			///
 			/// Reverse argument constructor.
@@ -49,7 +49,7 @@ namespace galaxy
 			/// \param pos Position of vertex.
 			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const graphics::Colour& colour) noexcept;
+			Vertex(const glm::vec2& pos, const graphics::Colour& colour);
 
 			///
 			/// Reverse argument constructor.
@@ -58,32 +58,32 @@ namespace galaxy
 			/// \param texels Vertex texture coordinates.
 			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour) noexcept;
+			Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour);
 
 			///
 			/// Move constructor.
 			///
-			Vertex(Vertex&&) noexcept;
+			Vertex(Vertex&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Vertex& operator=(Vertex&&) noexcept;
+			Vertex& operator=(Vertex&&);
 
 			///
 			/// Copy constructor.
 			///
-			Vertex(const Vertex&) noexcept;
+			Vertex(const Vertex&);
 
 			///
 			/// Copy assignment operator.
 			///
-			Vertex& operator=(const Vertex&) noexcept;
+			Vertex& operator=(const Vertex&);
 
 			///
 			/// Destructor.
 			///
-			~Vertex() noexcept = default;
+			~Vertex() = default;
 
 			///
 			/// Generate some default verticies.
@@ -93,14 +93,14 @@ namespace galaxy
 			///
 			/// \return Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 			///
-			static std::array<Vertex, 4> gen_quad_vertices(const int width, const int height) noexcept;
+			static std::array<Vertex, 4> gen_quad_vertices(const int width, const int height);
 
 			///
 			/// Generate some default indicies.
 			///
 			/// \return Indices mapping vertices from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 			///
-			static std::array<unsigned int, 6>& get_default_indices() noexcept;
+			static std::array<unsigned int, 6>& get_default_indices();
 
 			///
 			/// Comparison operator.

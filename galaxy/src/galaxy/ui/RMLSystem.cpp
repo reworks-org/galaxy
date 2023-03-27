@@ -24,14 +24,14 @@ namespace galaxy
 {
 	namespace ui
 	{
-		RMLSystem::RMLSystem() noexcept
+		RMLSystem::RMLSystem()
 		{
 			m_pointer = glfwCreateStandardCursor(GLFW_HAND_CURSOR);
 			m_cross   = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
 			m_text    = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);
 		}
 
-		RMLSystem::~RMLSystem() noexcept
+		RMLSystem::~RMLSystem()
 		{
 			glfwDestroyCursor(m_pointer);
 			glfwDestroyCursor(m_cross);

@@ -11,13 +11,13 @@ namespace galaxy
 {
 	namespace ui
 	{
-		RMLInput& RMLInput::handle() noexcept
+		RMLInput& RMLInput::handle()
 		{
 			static RMLInput input;
 			return input;
 		}
 
-		RMLInput::RMLInput() noexcept
+		RMLInput::RMLInput()
 		{
 			if (m_keymap.empty())
 			{
@@ -135,7 +135,7 @@ namespace galaxy
 			}
 		}
 
-		RMLInput::~RMLInput() noexcept
+		RMLInput::~RMLInput()
 		{
 			m_keymap.clear();
 			m_modmap.clear();

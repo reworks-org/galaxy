@@ -24,7 +24,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			TimerAsync() noexcept;
+			TimerAsync();
 
 			///
 			/// Set constructor.
@@ -32,19 +32,19 @@ namespace galaxy
 			/// \param func Function to call on thread.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
+			TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay);
 
 			///
 			/// Destructor.
 			///
-			~TimerAsync() noexcept;
+			~TimerAsync();
 
 			///
 			/// Make function repeat itself instead of running once.
 			///
 			/// \param repeat True to repeat.
 			///
-			void repeat(const bool repeat) noexcept;
+			void repeat(const bool repeat);
 
 			///
 			/// \brief Run a function on a precision timer.
@@ -54,19 +54,19 @@ namespace galaxy
 			/// \param func Function to call on thread.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			void set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
+			void set(const std::function<void(void)>& func, const std::uint32_t delay);
 
 			///
 			/// Start timer.
 			///
-			void start() noexcept;
+			void start();
 
 			///
 			/// \brief Stop a repeating timer.
 			///
 			/// Does nothing if timer is not set to repeat.
 			///
-			void stop() noexcept;
+			void stop();
 
 		private:
 			///

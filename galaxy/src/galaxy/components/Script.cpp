@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Script::Script() noexcept
+		Script::Script()
 		{
 		}
 
@@ -25,14 +25,14 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Script::Script(Script&& s) noexcept
+		Script::Script(Script&& s)
 		{
 			this->m_file   = std::move(s.m_file);
 			this->m_self   = std::move(s.m_self);
 			this->m_update = std::move(s.m_update);
 		}
 
-		Script& Script::operator=(Script&& s) noexcept
+		Script& Script::operator=(Script&& s)
 		{
 			if (this != &s)
 			{
@@ -44,11 +44,11 @@ namespace galaxy
 			return *this;
 		}
 
-		Script::~Script() noexcept
+		Script::~Script()
 		{
 		}
 
-		void Script::load(std::string_view file) noexcept
+		void Script::load(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -74,7 +74,7 @@ namespace galaxy
 			}
 		}
 
-		const std::string& Script::file() const noexcept
+		const std::string& Script::file() const
 		{
 			return m_file;
 		}

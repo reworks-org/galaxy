@@ -28,12 +28,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Shaders() noexcept;
+			Shaders();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Shaders() noexcept;
+			virtual ~Shaders();
 
 			///
 			/// \brief Loads shaders in a folder.

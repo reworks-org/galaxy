@@ -14,12 +14,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Fonts::Fonts() noexcept
+		Fonts::Fonts()
 			: m_folder {""}
 		{
 		}
 
-		Fonts::~Fonts() noexcept
+		Fonts::~Fonts()
 		{
 		}
 

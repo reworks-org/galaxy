@@ -13,45 +13,45 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Vertex::Vertex() noexcept
+		Vertex::Vertex()
 			: m_pos {0.0f, 0.0f}
 			, m_texels {0.0f, 0.0f}
 		{
 		}
 
-		Vertex::Vertex(const glm::vec2& pos) noexcept
+		Vertex::Vertex(const glm::vec2& pos)
 			: m_pos {pos}
 			, m_texels {0.0f, 0.0f}
 		{
 		}
 
-		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels) noexcept
+		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels)
 			: m_pos {pos}
 			, m_texels {texels}
 		{
 		}
 
-		Vertex::Vertex(const glm::vec2& pos, const graphics::Colour& colour) noexcept
+		Vertex::Vertex(const glm::vec2& pos, const graphics::Colour& colour)
 			: m_pos {pos}
 			, m_colour {colour}
 		{
 		}
 
-		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour) noexcept
+		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour)
 			: m_pos {pos}
 			, m_texels {texels}
 			, m_colour {colour}
 		{
 		}
 
-		Vertex::Vertex(Vertex&& v) noexcept
+		Vertex::Vertex(Vertex&& v)
 		{
 			this->m_pos    = std::move(v.m_pos);
 			this->m_texels = std::move(v.m_texels);
 			this->m_colour = std::move(v.m_colour);
 		}
 
-		Vertex& Vertex::operator=(Vertex&& v) noexcept
+		Vertex& Vertex::operator=(Vertex&& v)
 		{
 			if (this != &v)
 			{
@@ -63,14 +63,14 @@ namespace galaxy
 			return *this;
 		}
 
-		Vertex::Vertex(const Vertex& v) noexcept
+		Vertex::Vertex(const Vertex& v)
 		{
 			this->m_pos    = v.m_pos;
 			this->m_texels = v.m_texels;
 			this->m_colour = v.m_colour;
 		}
 
-		Vertex& Vertex::operator=(const Vertex& v) noexcept
+		Vertex& Vertex::operator=(const Vertex& v)
 		{
 			if (this != &v)
 			{
@@ -82,7 +82,7 @@ namespace galaxy
 			return *this;
 		}
 
-		std::array<Vertex, 4> Vertex::gen_quad_vertices(const int width, const int height) noexcept
+		std::array<Vertex, 4> Vertex::gen_quad_vertices(const int width, const int height)
 		{
 			// clang-format off
 			std::array<graphics::Vertex, 4> vertices = 
@@ -97,7 +97,7 @@ namespace galaxy
 			return vertices;
 		}
 
-		std::array<unsigned int, 6>& Vertex::get_default_indices() noexcept
+		std::array<unsigned int, 6>& Vertex::get_default_indices()
 		{
 			return default_indices;
 		}

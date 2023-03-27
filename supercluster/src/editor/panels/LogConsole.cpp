@@ -13,12 +13,12 @@ namespace sc
 {
 	namespace panel
 	{
-		LogConsole::~LogConsole() noexcept
+		LogConsole::~LogConsole()
 		{
 			m_sink = nullptr;
 		}
 
-		void LogConsole::set_sink(EditorSink* sink) noexcept
+		void LogConsole::set_sink(EditorSink* sink)
 		{
 			m_sink = sink;
 		}

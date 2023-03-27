@@ -26,12 +26,12 @@ namespace galaxy
 			/// \param name Name of the Layer.
 			/// \param scene Pointer to scene this layer belongs to.
 			///
-			UILayer(std::string_view name, Scene* scene) noexcept;
+			UILayer(std::string_view name, Scene* scene);
 
 			///
 			/// Destructor.
 			///
-			virtual ~UILayer() noexcept;
+			virtual ~UILayer();
 
 			///
 			/// On push of UILayer to stack.
@@ -63,7 +63,7 @@ namespace galaxy
 			///
 			/// \return String.
 			///
-			[[nodiscard]] const std::string& get_type() const noexcept override;
+			[[nodiscard]] const std::string& get_type() const override;
 
 			///
 			/// Serializes object.

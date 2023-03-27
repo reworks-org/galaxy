@@ -32,14 +32,14 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~FontContext() noexcept;
+			~FontContext();
 
 			///
 			/// Get font context object.
 			///
 			/// \return msdfgl_context_t pointer.
 			///
-			[[nodiscard]] msdfgl_context_t context() noexcept;
+			[[nodiscard]] msdfgl_context_t context();
 
 			///
 			/// Set font DPI.
@@ -47,7 +47,7 @@ namespace galaxy
 			/// \param x Font DPI scale for x axis.
 			/// \param y Font DPI scale for y axis.
 			///
-			void set_dpi(const float x, const float y) noexcept;
+			void set_dpi(const float x, const float y);
 
 		private:
 			///

@@ -19,12 +19,12 @@ namespace sc
 	class EditorSink final : public error::Sink
 	{
 	public:
-		EditorSink() noexcept = default;
-		virtual ~EditorSink() noexcept;
+		EditorSink() = default;
+		virtual ~EditorSink();
 
-		void sink_message(std::string_view message) noexcept override;
+		void sink_message(std::string_view message) override;
 
-		const std::vector<std::string>& get_messages() const noexcept;
+		const std::vector<std::string>& get_messages() const;
 
 	private:
 		std::vector<std::string> m_logs;

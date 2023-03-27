@@ -49,12 +49,12 @@ namespace galaxy
 			///
 			/// \param scene Non-owning pointer to current scene.
 			///
-			World(scene::Scene* scene) noexcept;
+			World(scene::Scene* scene);
 
 			///
 			/// Destructor.
 			///
-			~World() noexcept;
+			~World();
 
 			///
 			/// \brief Create an entity with some default components.
@@ -89,14 +89,14 @@ namespace galaxy
 			/// Defines a dependency validation for components.
 			///
 			template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
-			void register_dependencies() noexcept;
+			void register_dependencies();
 
 			///
 			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
 			///
 			/// \return True if entity is valid.
 			///
-			[[nodiscard]] bool is_valid(const entt::entity entity) noexcept;
+			[[nodiscard]] bool is_valid(const entt::entity entity);
 
 			///
 			/// Registers a component definition.
@@ -106,7 +106,7 @@ namespace galaxy
 			/// \param name Name of component class in string format i.e. "Transform" or "Tag".
 			///
 			template<meta::valid_component Component>
-			void register_component(const std::string& name) noexcept;
+			void register_component(const std::string& name);
 
 			///
 			/// \brief Add a system to the manager.
@@ -136,7 +136,7 @@ namespace galaxy
 			///
 			/// Clears all system, component registry, and entity data.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// Serialise a single entity.
@@ -268,13 +268,13 @@ namespace galaxy
 		};
 
 		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
-		inline void World::register_dependencies() noexcept
+		inline void World::register_dependencies()
 		{
 			const auto index = std::type_index(typeid(ToValidate));
 			if (!m_validations.contains(index))
 			{
-				m_validations[index] = [this](const entt::entity entity) noexcept -> bool {
-					const auto component = m_registry.try_get<ToValidate>(entity);
+				m_validations[index] = [this](const entt::entity entity) -> bool {
+					const ToValidate* component = m_registry.try_get<ToValidate>(entity);
 					if (component)
 					{
 						return m_registry.all_of<Dependencies...>(entity);
@@ -295,7 +295,7 @@ namespace galaxy
 		}
 
 		template<meta::valid_component Component>
-		inline void World::register_component(const std::string& name) noexcept
+		inline void World::register_component(const std::string& name)
 		{
 			if (!m_component_factory.contains(name))
 			{

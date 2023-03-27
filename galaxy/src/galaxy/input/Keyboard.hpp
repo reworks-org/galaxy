@@ -28,19 +28,19 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Keyboard() noexcept = default;
+			virtual ~Keyboard() = default;
 
 			///
 			/// \brief Enable window to begin processing text input.
 			///
 			/// Prevents normal key input until disabled.
 			///
-			void begin_text_input() noexcept;
+			void begin_text_input();
 
 			///
 			/// Disable text input.
 			///
-			void end_text_input() noexcept;
+			void end_text_input();
 
 			///
 			/// \brief Enable sticky keys.
@@ -48,19 +48,19 @@ namespace galaxy
 			/// The pollable state of a key will remain pressed until the state of that key is polled.
 			/// This applies to modifer keys aswell, such as CAPS LOCK.
 			///
-			void enable_sticky_keys() const noexcept;
+			void enable_sticky_keys() const;
 
 			///
 			/// Disable sticky keys.
 			///
-			void disable_sticky_keys() const noexcept;
+			void disable_sticky_keys() const;
 
 			///
 			/// Check if window is in text input mode.
 			///
 			/// \return True if only text input is being registered.
 			///
-			[[nodiscard]] bool is_text_input_enabled() const noexcept;
+			[[nodiscard]] bool is_text_input_enabled() const;
 
 			///
 			/// Get key scancode.
@@ -69,7 +69,7 @@ namespace galaxy
 			///
 			/// \return Platform-specific scancode of a key.
 			///
-			[[nodiscard]] int get_scancode(const input::Keys key) const noexcept;
+			[[nodiscard]] int get_scancode(const input::Keys key) const;
 
 			///
 			/// Get key name.
@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// \return Name of key, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_key_name(const input::Keys key) const noexcept;
+			[[nodiscard]] std::string get_key_name(const input::Keys key) const;
 
 			///
 			/// Get key name.
@@ -87,13 +87,13 @@ namespace galaxy
 			///
 			/// \return Name of scancode, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_scancode_name(const int scancode) const noexcept;
+			[[nodiscard]] std::string get_scancode_name(const int scancode) const;
 
 		private:
 			///
 			/// Constructor.
 			///
-			Keyboard() noexcept;
+			Keyboard();
 
 			///
 			/// Move constructor.

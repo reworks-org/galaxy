@@ -27,22 +27,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			VertexArray() noexcept;
+			VertexArray();
 
 			///
 			/// Move constructor.
 			///
-			VertexArray(VertexArray&&) noexcept;
+			VertexArray(VertexArray&&);
 
 			///
 			/// Move assignment operator.
 			///
-			VertexArray& operator=(VertexArray&&) noexcept;
+			VertexArray& operator=(VertexArray&&);
 
 			///
 			/// Destructor.
 			///
-			~VertexArray() noexcept;
+			~VertexArray();
 
 			///
 			/// Create vertex array.
@@ -52,7 +52,7 @@ namespace galaxy
 			/// \param indices Indices to assign.
 			/// \param indices_flag Static or dynamic data buffer.
 			///
-			void create(std::span<Vertex> vertices, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept;
+			void create(std::span<Vertex> vertices, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag);
 
 			///
 			/// Creates vertex array, but without uploading vertices.
@@ -61,7 +61,7 @@ namespace galaxy
 			/// \param indices Indices to assign.
 			/// \param indices_flag Static or dynamic data buffer.
 			///
-			void create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept;
+			void create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag);
 
 			///
 			/// Enable instancing for this vertex array.
@@ -81,52 +81,52 @@ namespace galaxy
 			///
 			/// Clear all data from the vertex buffer array.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// \brief Destroy Vertex Array Object.
 			///
 			/// Also called by destructor, you do not have to call this.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Bind this vertex array to current GL context.
 			///
-			void bind() noexcept;
+			void bind();
 
 			///
 			/// Unbind this vertex array to current GL context.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// Get the count of indicies in the index buffer.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int index_count() const noexcept;
+			[[nodiscard]] int index_count() const;
 
 			///
 			/// Get VAO GL id.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 			///
 			/// Get VBO.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int vbo() const noexcept;
+			[[nodiscard]] unsigned int vbo() const;
 
 			///
 			/// Get IBO.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int ibo() const noexcept;
+			[[nodiscard]] unsigned int ibo() const;
 
 		private:
 			///

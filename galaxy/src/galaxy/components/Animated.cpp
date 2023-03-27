@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Animated::Animated() noexcept
+		Animated::Animated()
 			: Serializable {}
 			, m_active {nullptr}
 			, m_paused {true}
@@ -32,7 +32,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Animated::Animated(Animated&& a) noexcept
+		Animated::Animated(Animated&& a)
 			: Serializable {}
 			, m_active {nullptr}
 			, m_paused {true}
@@ -44,7 +44,7 @@ namespace galaxy
 			this->m_animations          = std::move(a.m_animations);
 		}
 
-		Animated& Animated::operator=(Animated&& a) noexcept
+		Animated& Animated::operator=(Animated&& a)
 		{
 			if (this != &a)
 			{
@@ -57,12 +57,12 @@ namespace galaxy
 			return *this;
 		}
 
-		Animated::~Animated() noexcept
+		Animated::~Animated()
 		{
 			m_animations.clear();
 		}
 
-		void Animated::add(const std::string& name, const bool looping, const double speed, std::span<graphics::Frame> frames) noexcept
+		void Animated::add(const std::string& name, const bool looping, const double speed, std::span<graphics::Frame> frames)
 		{
 			if (!m_animations.contains(name))
 			{
@@ -74,7 +74,7 @@ namespace galaxy
 			}
 		}
 
-		void Animated::set(const std::string& animation) noexcept
+		void Animated::set(const std::string& animation)
 		{
 			// Reset current anim first.
 			if (m_active != nullptr)
@@ -87,7 +87,7 @@ namespace galaxy
 			m_active->restart();
 		}
 
-		void Animated::play() noexcept
+		void Animated::play()
 		{
 			if (m_active != nullptr)
 			{
@@ -99,18 +99,18 @@ namespace galaxy
 			}
 		}
 
-		void Animated::play(const std::string& animation) noexcept
+		void Animated::play(const std::string& animation)
 		{
 			m_paused = false;
 			set(animation);
 		}
 
-		void Animated::pause() noexcept
+		void Animated::pause()
 		{
 			m_paused = true;
 		}
 
-		void Animated::stop() noexcept
+		void Animated::stop()
 		{
 			if (m_active != nullptr)
 			{
@@ -121,12 +121,12 @@ namespace galaxy
 			}
 		}
 
-		bool Animated::is_paused() const noexcept
+		bool Animated::is_paused() const
 		{
 			return m_paused;
 		}
 
-		graphics::Animation* Animated::active() noexcept
+		graphics::Animation* Animated::active()
 		{
 			return m_active;
 		}

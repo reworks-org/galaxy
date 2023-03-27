@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Config() noexcept;
+			Config();
 
 			///
 			/// \brief Argument constructor.
@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Config() noexcept;
+			~Config();
 
 			///
 			/// \brief Checks if config exists and flags if a config needs to be created.
@@ -160,21 +160,21 @@ namespace galaxy
 			///
 			/// \return True if blank.
 			///
-			[[nodiscard]] bool empty() const noexcept;
+			[[nodiscard]] bool empty() const;
 
 			///
 			/// Set as external json object.
 			///
 			/// \param json New json config data to set.
 			///
-			void raw(const nlohmann::json& json) noexcept;
+			void raw(const nlohmann::json& json);
 
 			///
 			/// Get raw json object.
 			///
 			/// \return Const reference to internal json object.
 			///
-			[[nodiscard]] const nlohmann::json& raw() const noexcept;
+			[[nodiscard]] const nlohmann::json& raw() const;
 
 		private:
 			///

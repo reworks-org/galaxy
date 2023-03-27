@@ -21,7 +21,7 @@ namespace galaxy
 {
 	namespace scene
 	{
-		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene) noexcept
+		RuntimeLayer::RuntimeLayer(std::string_view name, Scene* scene)
 			: Layer {name, scene}
 		{
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_scene->m_camera);
@@ -34,7 +34,7 @@ namespace galaxy
 			m_scene->m_world.m_runtime_layer = this;
 		}
 
-		RuntimeLayer::~RuntimeLayer() noexcept
+		RuntimeLayer::~RuntimeLayer()
 		{
 		}
 
@@ -61,7 +61,7 @@ namespace galaxy
 		{
 		}
 
-		const std::string& RuntimeLayer::get_type() const noexcept
+		const std::string& RuntimeLayer::get_type() const
 		{
 			static std::string type = "Runtime";
 			return type;

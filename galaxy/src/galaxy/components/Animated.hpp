@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Animated() noexcept;
+			Animated();
 
 			///
 			/// JSON constructor.
@@ -39,17 +39,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Animated(Animated&&) noexcept;
+			Animated(Animated&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Animated& operator=(Animated&&) noexcept;
+			Animated& operator=(Animated&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Animated() noexcept;
+			virtual ~Animated();
 
 			///
 			/// Add an animation to the object.
@@ -59,52 +59,52 @@ namespace galaxy
 			/// \param speed Multiplier. Speed of animation.
 			/// \param frames Frames in the animation.
 			///
-			void add(const std::string& name, const bool looping, const double speed, std::span<graphics::Frame> frames) noexcept;
+			void add(const std::string& name, const bool looping, const double speed, std::span<graphics::Frame> frames);
 
 			///
 			/// Change the current animation.
 			///
 			/// \param animation The name of the animation type to change to as defined in lua file. E.g. "walking" -> "running"
 			///
-			void set(const std::string& animation) noexcept;
+			void set(const std::string& animation);
 
 			///
 			/// Play the animation.
 			///
-			void play() noexcept;
+			void play();
 
 			///
 			/// Play a specific animation.
 			///
 			/// \param animation Animation to change to to play.
 			///
-			void play(const std::string& animation) noexcept;
+			void play(const std::string& animation);
 
 			///
 			/// Pause animation.
 			///
-			void pause() noexcept;
+			void pause();
 
 			///
 			/// \brief Stop the animation.
 			///
 			/// If you call play() the animation starts from the beginning.
 			///
-			void stop() noexcept;
+			void stop();
 
 			///
 			/// Is the animation paused?
 			///
 			/// \return Bool.
 			///
-			[[nodiscard]] bool is_paused() const noexcept;
+			[[nodiscard]] bool is_paused() const;
 
 			///
 			/// Currently active animation.
 			///
 			/// \return Pointer to animation.
 			///
-			[[nodiscard]] graphics::Animation* active() noexcept;
+			[[nodiscard]] graphics::Animation* active();
 
 			///
 			/// Serializes object.

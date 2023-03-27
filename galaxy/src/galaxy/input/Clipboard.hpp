@@ -27,27 +27,27 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Clipboard() noexcept = default;
+			virtual ~Clipboard() = default;
 
 			///
 			/// Set clipboard contents.
 			///
 			/// \param contents UTF-8 string.
 			///
-			void set(const char* contents) const noexcept;
+			void set(const char* contents) const;
 
 			///
 			/// Get clipboard contents.
 			///
 			/// \return UTF-8 string.
 			///
-			[[nodiscard]] std::string get() const noexcept;
+			[[nodiscard]] std::string get() const;
 
 		private:
 			///
 			/// Constructor.
 			///
-			Clipboard() noexcept;
+			Clipboard();
 
 			///
 			/// Move constructor.

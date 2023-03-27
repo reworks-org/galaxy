@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Timer() noexcept;
+			Timer();
 
 			///
 			/// Set constructor.
@@ -31,19 +31,19 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			Timer(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
+			Timer(const std::function<void(void)>& func, const std::uint32_t delay);
 
 			///
 			/// Destructor.
 			///
-			~Timer() noexcept;
+			~Timer();
 
 			///
 			/// Make function repeat itself instead of running once.
 			///
 			/// \param repeat True to repeat.
 			///
-			void repeat(const bool repeat) noexcept;
+			void repeat(const bool repeat);
 
 			///
 			/// Run a function on a precision timer.
@@ -51,29 +51,29 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			void set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept;
+			void set(const std::function<void(void)>& func, const std::uint32_t delay);
 
 			///
 			/// Call to update timer count.
 			///
-			void update() noexcept;
+			void update();
 
 			///
 			/// Start timer.
 			///
-			void start() noexcept;
+			void start();
 
 			///
 			/// Stop timer.
 			///
-			void stop() noexcept;
+			void stop();
 
 			///
 			/// Is the timer finished?
 			///
 			/// \return True if timer is stopped (finished).
 			///
-			[[nodiscard]] bool stopped() const noexcept;
+			[[nodiscard]] bool stopped() const;
 
 		private:
 			///

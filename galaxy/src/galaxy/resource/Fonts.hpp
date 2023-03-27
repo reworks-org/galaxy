@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Fonts() noexcept;
+			Fonts();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Fonts() noexcept;
+			virtual ~Fonts();
 
 			///
 			/// Loads fonts in a folder.

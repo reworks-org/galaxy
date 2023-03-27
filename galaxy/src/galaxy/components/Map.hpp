@@ -44,29 +44,29 @@ namespace galaxy
 			///
 			/// Note this will by default cap out at 10,000 tiles.
 			///
-			Map() noexcept;
+			Map();
 
 			///
 			/// Constructor.
 			///
 			/// \param total_tiles Reserve a set amount of tiles to match map size.
 			///
-			Map(const int total_tiles) noexcept;
+			Map(const int total_tiles);
 
 			///
 			/// Move constructor.
 			///
-			Map(Map&&) noexcept;
+			Map(Map&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Map& operator=(Map&&) noexcept;
+			Map& operator=(Map&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Map() noexcept;
+			virtual ~Map();
 
 			///
 			/// Configure render data.
@@ -74,14 +74,14 @@ namespace galaxy
 			/// \param texture_id Id of texture to use in texture atlas.
 			/// \param layer Layer to render map on.
 			///
-			void configure(const unsigned int texture_id, const int layer) noexcept;
+			void configure(const unsigned int texture_id, const int layer);
 
 			///
 			/// Get render layer.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_layer() const noexcept;
+			[[nodiscard]] int get_layer() const;
 
 		public:
 			///
@@ -108,7 +108,7 @@ namespace galaxy
 			///
 			/// Stubbed function. We don't need this here.
 			///
-			void configure() noexcept override;
+			void configure() override;
 		};
 	} // namespace components
 } // namespace galaxy

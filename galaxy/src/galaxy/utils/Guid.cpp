@@ -17,7 +17,7 @@ namespace galaxy
 {
 	namespace utils
 	{
-		Guid::Guid() noexcept
+		Guid::Guid()
 			: m_id {""}
 		{
 			m_id += s_chars[static_cast<int>(std::floor(algorithm::random<float>(0.0f, 1.0f) * 6))];
@@ -38,12 +38,12 @@ namespace galaxy
 			}
 		}
 
-		Guid::Guid(Guid&& g) noexcept
+		Guid::Guid(Guid&& g)
 		{
 			this->m_id = std::move(g.m_id);
 		}
 
-		Guid& Guid::operator=(Guid&& g) noexcept
+		Guid& Guid::operator=(Guid&& g)
 		{
 			if (this != &g)
 			{
@@ -53,12 +53,12 @@ namespace galaxy
 			return *this;
 		}
 
-		Guid::Guid(const Guid& g) noexcept
+		Guid::Guid(const Guid& g)
 		{
 			this->m_id = g.m_id;
 		}
 
-		Guid& Guid::operator=(const Guid& g) noexcept
+		Guid& Guid::operator=(const Guid& g)
 		{
 			if (this != &g)
 			{
@@ -68,22 +68,22 @@ namespace galaxy
 			return *this;
 		}
 
-		const std::string& Guid::to_string() const noexcept
+		const std::string& Guid::to_string() const
 		{
 			return m_id;
 		}
 
-		bool Guid::is_empty() const noexcept
+		bool Guid::is_empty() const
 		{
 			return m_id.empty();
 		}
 
-		bool Guid::operator==(const Guid& rhs) noexcept
+		bool Guid::operator==(const Guid& rhs)
 		{
 			return m_id == rhs.m_id;
 		}
 
-		bool Guid::operator!=(const Guid& rhs) noexcept
+		bool Guid::operator!=(const Guid& rhs)
 		{
 			return !operator==(rhs);
 		}

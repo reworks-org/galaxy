@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Language() noexcept;
+			Language();
 
 			///
 			/// Destructor.
 			///
-			~Language() noexcept;
+			~Language();
 
 			///
 			/// Loads all language files in a folder into galaxy.
@@ -60,7 +60,7 @@ namespace galaxy
 			///
 			/// \return Const string reference. If not found, returns key.
 			///
-			[[nodiscard]] const std::string& translate(const std::string& key) noexcept;
+			[[nodiscard]] const std::string& translate(const std::string& key);
 
 			///
 			/// \brief Reload languages from folder.
@@ -72,7 +72,7 @@ namespace galaxy
 			///
 			/// Clear all language data.
 			///
-			void clear() noexcept;
+			void clear();
 
 		private:
 			///

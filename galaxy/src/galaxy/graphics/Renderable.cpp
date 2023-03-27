@@ -11,7 +11,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Renderable::Renderable() noexcept
+		Renderable::Renderable()
 			: m_vao_id {0}
 			, m_texture_id {0}
 			, m_index_count {0}
@@ -22,7 +22,7 @@ namespace galaxy
 		{
 		}
 
-		Renderable::Renderable(Renderable&& r) noexcept
+		Renderable::Renderable(Renderable&& r)
 		{
 			// Dont release existing memory here, as we dont own it.
 
@@ -40,7 +40,7 @@ namespace galaxy
 			r.m_shader_sort_id = 0;
 		}
 
-		Renderable& Renderable::operator=(Renderable&& r) noexcept
+		Renderable& Renderable::operator=(Renderable&& r)
 		{
 			if (this != &r)
 			{
@@ -63,11 +63,11 @@ namespace galaxy
 			return *this;
 		}
 
-		Renderable::~Renderable() noexcept
+		Renderable::~Renderable()
 		{
 		}
 
-		void Renderable::set_primitive_type(const Primitives type) noexcept
+		void Renderable::set_primitive_type(const Primitives type)
 		{
 			m_type = static_cast<unsigned int>(type);
 		}

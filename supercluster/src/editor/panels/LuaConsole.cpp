@@ -41,7 +41,7 @@ namespace sc
 {
 	namespace panel
 	{
-		LuaConsole::LuaConsole() noexcept
+		LuaConsole::LuaConsole()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
@@ -50,7 +50,7 @@ namespace sc
 			lua_pop(lua.lua_state(), 1);
 		}
 
-		LuaConsole::~LuaConsole() noexcept
+		LuaConsole::~LuaConsole()
 		{
 			m_buff.clear();
 			m_history.clear();

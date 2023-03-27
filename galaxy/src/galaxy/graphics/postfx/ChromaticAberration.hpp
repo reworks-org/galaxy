@@ -30,12 +30,12 @@ namespace galaxy
 			/// \param width Width of internal framebuffer.
 			/// \param height Height of internal framebuffer.
 			///
-			ChromaticAberration(const int width, const int height) noexcept;
+			ChromaticAberration(const int width, const int height);
 
 			///
 			/// Destructor.
 			///
-			virtual ~ChromaticAberration() noexcept = default;
+			virtual ~ChromaticAberration() = default;
 
 			///
 			/// Resize framebuffers.
@@ -54,10 +54,10 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int render(const unsigned int input) override;
 
-			void set_r_offset(const float r) noexcept;
-			void set_g_offset(const float g) noexcept;
-			void set_b_offset(const float b) noexcept;
-			void set_rgb_offset(const float r, const float g, const float b) noexcept;
+			void set_r_offset(const float r);
+			void set_g_offset(const float g);
+			void set_b_offset(const float b);
+			void set_rgb_offset(const float r, const float g, const float b);
 
 		private:
 			///

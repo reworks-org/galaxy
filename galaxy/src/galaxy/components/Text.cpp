@@ -18,7 +18,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Text::Text() noexcept
+		Text::Text()
 			: Renderable {}
 			, Serializable {}
 			, m_font {nullptr}
@@ -39,7 +39,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Text::Text(Text&& s) noexcept
+		Text::Text(Text&& s)
 			: Renderable {std::move(s)}
 			, Serializable {}
 			, m_font {nullptr}
@@ -60,7 +60,7 @@ namespace galaxy
 			s.m_font = nullptr;
 		}
 
-		Text& Text::operator=(Text&& s) noexcept
+		Text& Text::operator=(Text&& s)
 		{
 			if (this != &s)
 			{
@@ -82,7 +82,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Text::~Text() noexcept
+		Text::~Text()
 		{
 			m_font = nullptr;
 		}
@@ -239,32 +239,32 @@ namespace galaxy
 			update(text);
 		}
 
-		float Text::get_width() const noexcept
+		float Text::get_width() const
 		{
 			return m_width;
 		}
 
-		float Text::get_height() const noexcept
+		float Text::get_height() const
 		{
 			return m_height;
 		}
 
-		const std::string& Text::get_text() const noexcept
+		const std::string& Text::get_text() const
 		{
 			return m_text;
 		}
 
-		float Text::get_size() const noexcept
+		float Text::get_size() const
 		{
 			return m_size;
 		}
 
-		const std::string& Text::get_font() const noexcept
+		const std::string& Text::get_font() const
 		{
 			return m_font_id;
 		}
 
-		void Text::configure() noexcept
+		void Text::configure()
 		{
 			m_vao_id      = m_vao.id();
 			m_index_count = m_vao.index_count();

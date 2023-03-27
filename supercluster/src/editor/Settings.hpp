@@ -18,12 +18,12 @@ namespace sc
 	class Settings final
 	{
 	public:
-		Settings() noexcept;
-		~Settings() noexcept;
+		Settings();
+		~Settings();
 
-		void load() noexcept;
+		void load();
 		void render();
-		void save() noexcept;
+		void save();
 
 	private:
 		void do_object(nlohmann::json& json);

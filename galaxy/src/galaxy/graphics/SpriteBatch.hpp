@@ -25,22 +25,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			SpriteBatch() noexcept;
+			SpriteBatch();
 
 			///
 			/// Move constructor.
 			///
-			SpriteBatch(SpriteBatch&&) noexcept;
+			SpriteBatch(SpriteBatch&&);
 
 			///
 			/// Move assignment operator.
 			///
-			SpriteBatch& operator=(SpriteBatch&&) noexcept;
+			SpriteBatch& operator=(SpriteBatch&&);
 
 			///
 			/// Destructor.
 			///
-			~SpriteBatch() noexcept;
+			~SpriteBatch();
 
 			///
 			/// Initialize spritebatch buffers.
@@ -56,14 +56,14 @@ namespace galaxy
 			///
 			/// \return Index where the vertx data is offset from. Useful to update animations, transforms later.
 			///
-			[[maybe_unused]] unsigned int push(const std::vector<Vertex>& vertices) noexcept;
+			[[maybe_unused]] unsigned int push(const std::vector<Vertex>& vertices);
 
 			///
 			/// \brief Buffer data into vertex object.
 			///
 			/// Make sure you call BEFORE sub_buffer or you will lose data.
 			///
-			void commit() noexcept;
+			void commit();
 
 			///
 			/// Sub-buffer vertex object.
@@ -71,26 +71,26 @@ namespace galaxy
 			/// \param index Offset to start at. 0 = first vertex group (usually a group of 4 quads).
 			/// \param vertices Vertices to assign.
 			///
-			void sub_buffer(const unsigned int index, std::span<Vertex> vertices) noexcept;
+			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
 
 			///
 			/// Clears out vertex buffer.
 			///
-			void flush() noexcept;
+			void flush();
 
 			///
 			/// Get index count.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int count() const noexcept;
+			[[nodiscard]] int count() const;
 
 			///
 			/// Get vertex array object.
 			///
 			/// \return Const reference to VAO.
 			///
-			[[nodiscard]] const VertexArray& vao() const noexcept;
+			[[nodiscard]] const VertexArray& vao() const;
 
 		private:
 			///

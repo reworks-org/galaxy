@@ -111,7 +111,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		GaussianBlur::GaussianBlur(const int width, const int height) noexcept
+		GaussianBlur::GaussianBlur(const int width, const int height)
 			: m_strength {Strength::NORMAL}
 		{
 			m_horizontal.create(width, height);
@@ -150,7 +150,7 @@ namespace galaxy
 			return m_vertical.get_texture();
 		}
 
-		void GaussianBlur::set_strength(const Strength strength) noexcept
+		void GaussianBlur::set_strength(const Strength strength)
 		{
 			m_strength = strength;
 			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));

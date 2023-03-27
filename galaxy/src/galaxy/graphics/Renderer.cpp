@@ -20,7 +20,7 @@ namespace galaxy
 		int Renderer::s_prev_shader  = -1;
 		int Renderer::s_prev_texture = -1;
 
-		void Renderer::init() noexcept
+		void Renderer::init()
 		{
 			s_ubo = std::make_unique<UniformBuffer>();
 			s_ubo->create(GAlAXY_CAMERA_UBO_INDEX);
@@ -29,7 +29,7 @@ namespace galaxy
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 		}
 
-		void Renderer::destroy() noexcept
+		void Renderer::destroy()
 		{
 			s_data.clear();
 
@@ -40,7 +40,7 @@ namespace galaxy
 			s_prev_texture = -1;
 		}
 
-		void Renderer::buffer_camera(Camera& camera) noexcept
+		void Renderer::buffer_camera(Camera& camera)
 		{
 			s_ubo->sub_buffer<Camera::Data>(0, 1, &camera.get_data());
 		}
@@ -55,7 +55,7 @@ namespace galaxy
 			s_prev_shader  = -1;
 			s_prev_texture = -1;
 
-			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) noexcept -> bool {
+			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) -> bool {
 				if (left->m_layer == right->m_layer)
 				{
 					if (left->m_texture_id == right->m_texture_id)
@@ -101,7 +101,7 @@ namespace galaxy
 			}
 		}
 
-		void Renderer::flush() noexcept
+		void Renderer::flush()
 		{
 			s_data.clear();
 		}
@@ -159,7 +159,7 @@ namespace galaxy
 			glUseProgram(0);
 		}
 
-		std::vector<Renderable*>& Renderer::get_data() noexcept
+		std::vector<Renderable*>& Renderer::get_data()
 		{
 			return s_data;
 		}

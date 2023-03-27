@@ -32,7 +32,7 @@ public:
 	{
 	}
 
-	virtual ~Supercluster() noexcept = default;
+	virtual ~Supercluster() = default;
 };
 
 int main(int argsc, char* argsv[])

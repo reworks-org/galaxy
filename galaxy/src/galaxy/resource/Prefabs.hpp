@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Prefabs() noexcept;
+			Prefabs();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Prefabs() noexcept;
+			virtual ~Prefabs();
 
 			///
 			/// Load Prefabs in a folder.

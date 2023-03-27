@@ -18,8 +18,8 @@ namespace sc
 		class LuaConsole final
 		{
 		public:
-			LuaConsole() noexcept;
-			~LuaConsole() noexcept;
+			LuaConsole();
+			~LuaConsole();
 
 			void render();
 

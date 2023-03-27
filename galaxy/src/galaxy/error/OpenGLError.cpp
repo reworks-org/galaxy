@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace error
 	{
-		std::string gl_errcode_as_string(const int code) noexcept
+		std::string gl_errcode_as_string(const int code)
 		{
 			switch (code)
 			{
@@ -51,7 +51,7 @@ namespace galaxy
 			}
 		}
 
-		std::vector<std::string> gl_get_all_errors() noexcept
+		std::vector<std::string> gl_get_all_errors()
 		{
 			std::vector<std::string> errors;
 
@@ -69,7 +69,7 @@ namespace galaxy
 			const unsigned int id,
 			const unsigned int severity,
 			const int length,
-			const char* buf) noexcept
+			const char* buf)
 		{
 			glDebugMessageInsert(source, type, id, severity, length, buf);
 		}

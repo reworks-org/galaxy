@@ -22,11 +22,11 @@ namespace galaxy
 {
 	namespace systems
 	{
-		RenderSystem::RenderSystem() noexcept
+		RenderSystem::RenderSystem()
 		{
 		}
 
-		RenderSystem::~RenderSystem() noexcept
+		RenderSystem::~RenderSystem()
 		{
 		}
 
@@ -40,7 +40,7 @@ namespace galaxy
 					transform.set_origin(sprite.get_width() * 0.5f, sprite.get_height() * 0.5f);
 
 					sprite.m_shader_sort_id   = shader.m_shader->id();
-					sprite.m_configure_shader = [entity, &sprite, &shader, &transform]() noexcept -> unsigned {
+					sprite.m_configure_shader = [entity, &sprite, &shader, &transform]() -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_opacity", sprite.get_opacity());
 						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
@@ -60,7 +60,7 @@ namespace galaxy
 					transform.set_origin(primitive.get_width() * 0.5f, primitive.get_height() * 0.5f);
 
 					primitive.m_shader_sort_id   = shader.m_shader->id();
-					primitive.m_configure_shader = [entity, &primitive, &shader, &transform]() noexcept -> unsigned {
+					primitive.m_configure_shader = [entity, &primitive, &shader, &transform]() -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_colour", primitive.m_colour);
 						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
@@ -80,7 +80,7 @@ namespace galaxy
 					transform.set_origin(text.get_width() * 0.5f, text.get_height() * 0.5f);
 
 					text.m_shader_sort_id   = shader.m_shader->id();
-					text.m_configure_shader = [entity, &text, &shader, &transform]() noexcept -> unsigned {
+					text.m_configure_shader = [entity, &text, &shader, &transform]() -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 						shader.m_shader->set_uniform("u_colour", text.m_colour);
 						shader.m_shader->set_uniform("u_entity", static_cast<int>(entt::to_integral(entity)));
@@ -98,7 +98,7 @@ namespace galaxy
 				if (flag.is_flag_set<flags::Enabled>())
 				{
 					map.m_shader_sort_id   = shader.m_shader->id();
-					map.m_configure_shader = [entity, &map, &shader, &transform]() noexcept -> unsigned {
+					map.m_configure_shader = [entity, &map, &shader, &transform]() -> unsigned {
 						shader.m_shader->set_uniform("u_transform", transform.get_transform());
 
 						return shader.m_shader->id();

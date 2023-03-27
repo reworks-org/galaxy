@@ -11,7 +11,7 @@ namespace galaxy
 {
 	namespace state
 	{
-		State::~State() noexcept
+		State::~State()
 		{
 		}
 	} // namespace state

@@ -35,12 +35,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			StateMachine() noexcept;
+			StateMachine();
 
 			///
 			/// Destructor.
 			///
-			~StateMachine() noexcept;
+			~StateMachine();
 
 			///
 			/// Add a new state.
@@ -52,19 +52,19 @@ namespace galaxy
 			/// \param args Variable arguments for state constructor.
 			///
 			template<std::derived_from<State> Type, typename... Args>
-			void add(const std::string& key, Args&&... args) noexcept;
+			void add(const std::string& key, Args&&... args);
 
 			///
 			/// Push a new state onto the stack.
 			///
 			/// \param key Key of state to push.
 			///
-			void push(const std::string& key) noexcept;
+			void push(const std::string& key);
 
 			///
 			/// Pop the topmost state off the top of the stack.
 			///
-			void pop() noexcept;
+			void pop();
 
 			///
 			/// Update topmost state.
@@ -84,7 +84,7 @@ namespace galaxy
 		};
 
 		template<std::derived_from<State> Type, typename... Args>
-		inline void StateMachine::add(const std::string& key, Args&&... args) noexcept
+		inline void StateMachine::add(const std::string& key, Args&&... args)
 		{
 			m_states[key] = std::make_unique<Type>(std::forward<Args>(args)...);
 		}

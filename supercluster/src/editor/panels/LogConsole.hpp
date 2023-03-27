@@ -17,10 +17,10 @@ namespace sc
 		class LogConsole final
 		{
 		public:
-			LogConsole() noexcept = default;
-			~LogConsole() noexcept;
+			LogConsole() = default;
+			~LogConsole();
 
-			void set_sink(EditorSink* sink) noexcept;
+			void set_sink(EditorSink* sink);
 
 			void render();
 

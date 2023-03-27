@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			IndexBuffer() noexcept;
+			IndexBuffer();
 
 			///
 			/// Argument Constructor.
@@ -35,22 +35,22 @@ namespace galaxy
 			/// \param capacity Capacity to assign to this buffer.
 			/// \param flag Static or dynamic data buffer.
 			///
-			IndexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept;
+			IndexBuffer(const unsigned int capacity, const StorageFlag flag);
 
 			///
 			/// Move constructor.
 			///
-			IndexBuffer(IndexBuffer&&) noexcept;
+			IndexBuffer(IndexBuffer&&);
 
 			///
 			/// Move assignment operator.
 			///
-			IndexBuffer& operator=(IndexBuffer&&) noexcept;
+			IndexBuffer& operator=(IndexBuffer&&);
 
 			///
 			/// Destructor.
 			///
-			~IndexBuffer() noexcept;
+			~IndexBuffer();
 
 			///
 			/// Create index buffer object.
@@ -63,28 +63,28 @@ namespace galaxy
 			///
 			/// Clear all data from IBO.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// \brief Destroy Index Buffer Object.
 			///
 			/// Also called by destructor, you do not have to call this.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Get the count of indicies in the index buffer.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int index_count() const noexcept;
+			[[nodiscard]] int index_count() const;
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 		private:
 			///

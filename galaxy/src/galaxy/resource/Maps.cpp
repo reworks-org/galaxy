@@ -14,12 +14,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Maps::Maps() noexcept
+		Maps::Maps()
 			: m_folder {""}
 		{
 		}
 
-		Maps::~Maps() noexcept
+		Maps::~Maps()
 		{
 		}
 

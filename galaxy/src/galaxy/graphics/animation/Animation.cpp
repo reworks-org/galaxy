@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Animation::Animation() noexcept
+		Animation::Animation()
 			: Serializable {}
 			, m_active_frame {nullptr}
 			, m_name {"null"}
@@ -24,7 +24,7 @@ namespace galaxy
 		{
 		}
 
-		Animation::Animation(std::string_view name, bool looping, const double speed, std::span<Frame> frames) noexcept
+		Animation::Animation(std::string_view name, bool looping, const double speed, std::span<Frame> frames)
 			: Serializable {}
 			, m_active_frame {nullptr}
 			, m_name {name}
@@ -48,7 +48,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Animation::Animation(Animation&& a) noexcept
+		Animation::Animation(Animation&& a)
 		{
 			this->m_active_frame        = a.m_active_frame;
 			this->m_name                = std::move(a.m_name);
@@ -61,7 +61,7 @@ namespace galaxy
 			a.m_active_frame = nullptr;
 		}
 
-		Animation& Animation::operator=(Animation&& a) noexcept
+		Animation& Animation::operator=(Animation&& a)
 		{
 			if (this != &a)
 			{
@@ -79,7 +79,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Animation::Animation(const Animation& a) noexcept
+		Animation::Animation(const Animation& a)
 		{
 			this->m_active_frame        = a.m_active_frame;
 			this->m_name                = a.m_name;
@@ -90,7 +90,7 @@ namespace galaxy
 			this->m_frames              = a.m_frames;
 		}
 
-		Animation& Animation::operator=(const Animation& a) noexcept
+		Animation& Animation::operator=(const Animation& a)
 		{
 			if (this != &a)
 			{
@@ -106,13 +106,13 @@ namespace galaxy
 			return *this;
 		}
 
-		Animation::~Animation() noexcept
+		Animation::~Animation()
 		{
 			m_active_frame = nullptr;
 			m_frames.clear();
 		}
 
-		Frame* Animation::next_frame() noexcept
+		Frame* Animation::next_frame()
 		{
 			m_current_frame_index++;
 			if (m_current_frame_index >= m_frames.size())
@@ -138,18 +138,18 @@ namespace galaxy
 			return m_active_frame;
 		}
 
-		void Animation::restart() noexcept
+		void Animation::restart()
 		{
 			m_current_frame_index = 0;
 			m_active_frame        = &m_frames[0];
 		}
 
-		Frame* Animation::current_frame() noexcept
+		Frame* Animation::current_frame()
 		{
 			return m_active_frame;
 		}
 
-		std::size_t Animation::current_frame_index() noexcept
+		std::size_t Animation::current_frame_index()
 		{
 			return m_current_frame_index;
 		}

@@ -13,23 +13,23 @@ namespace galaxy
 {
 	namespace error
 	{
-		Log::Log() noexcept
+		Log::Log()
 			: m_min_level {LogLevel::INFO}
 		{
 		}
 
-		Log& Log::handle() noexcept
+		Log& Log::handle()
 		{
 			static Log s_instance;
 			return s_instance;
 		}
 
-		void Log::start() noexcept
+		void Log::start()
 		{
 			m_sinks.reserve(2);
 		}
 
-		void Log::finish() noexcept
+		void Log::finish()
 		{
 			m_min_level = LogLevel::INFO;
 			m_sinks.clear();

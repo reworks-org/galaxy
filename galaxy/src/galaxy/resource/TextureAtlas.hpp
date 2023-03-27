@@ -139,7 +139,7 @@ namespace galaxy
 			///
 			/// \return True if found.
 			///
-			[[nodiscard]] bool contains(const std::string& key) noexcept;
+			[[nodiscard]] bool contains(const std::string& key);
 
 			///
 			/// Get data about texture in atlas.
@@ -148,7 +148,7 @@ namespace galaxy
 			///
 			/// \return TextureAtlas::Info, as an optional reference.
 			///
-			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key) noexcept;
+			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key);
 
 			///
 			/// Takes in a x positon texture coord and maps it to a texel.
@@ -161,7 +161,7 @@ namespace galaxy
 			/// \return OpenGL shader compatible texel.
 			///
 			template<meta::is_arithmetic Type>
-			[[nodiscard]] static float map_x_texel(const Type x, const Type width) noexcept;
+			[[nodiscard]] static float map_x_texel(const Type x, const Type width);
 
 			///
 			/// Takes in a y positon texture coord and maps it to a texel.
@@ -174,14 +174,14 @@ namespace galaxy
 			/// \return OpenGL shader compatible texel.
 			///
 			template<meta::is_arithmetic Type>
-			[[nodiscard]] static float map_y_texel(const Type y, const Type height) noexcept;
+			[[nodiscard]] static float map_y_texel(const Type y, const Type height);
 
 			///
 			/// Get a list of keys in the cache.
 			///
 			/// \return A vector of strings.
 			///
-			[[nodiscard]] std::vector<std::string> keys() noexcept;
+			[[nodiscard]] std::vector<std::string> keys();
 
 		private:
 			///
@@ -247,7 +247,7 @@ namespace galaxy
 		};
 
 		template<meta::is_arithmetic Type>
-		inline float TextureAtlas::map_x_texel(const Type x, const Type width) noexcept
+		inline float TextureAtlas::map_x_texel(const Type x, const Type width)
 		{
 			if constexpr (std::is_same<Type, float>::value)
 			{
@@ -260,7 +260,7 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline float TextureAtlas::map_y_texel(const Type y, const Type height) noexcept
+		inline float TextureAtlas::map_y_texel(const Type y, const Type height)
 		{
 			if constexpr (std::is_same<Type, float>::value)
 			{

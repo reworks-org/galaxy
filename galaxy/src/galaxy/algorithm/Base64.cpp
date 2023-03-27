@@ -47,7 +47,7 @@ namespace galaxy
 {
 	namespace algorithm
 	{
-		std::string encode_base64(const std::string& input) noexcept
+		std::string encode_base64(const std::string& input)
 		{
 			try
 			{
@@ -101,7 +101,7 @@ namespace galaxy
 			}
 		}
 
-		std::string decode_base64(const std::string& input) noexcept
+		std::string decode_base64(const std::string& input)
 		{
 			try
 			{

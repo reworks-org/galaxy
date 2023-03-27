@@ -13,13 +13,13 @@ namespace galaxy
 {
 	namespace components
 	{
-		Tag::Tag() noexcept
+		Tag::Tag()
 			: Serializable {}
 			, m_tag {""}
 		{
 		}
 
-		Tag::Tag(std::string_view tag) noexcept
+		Tag::Tag(std::string_view tag)
 			: Serializable {}
 			, m_tag {tag}
 		{
@@ -31,14 +31,14 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Tag::Tag(Tag&& t) noexcept
+		Tag::Tag(Tag&& t)
 			: Serializable {}
 			, m_tag {"null"}
 		{
 			this->m_tag = std::move(t.m_tag);
 		}
 
-		Tag& Tag::operator=(Tag&& t) noexcept
+		Tag& Tag::operator=(Tag&& t)
 		{
 			if (this != &t)
 			{
@@ -48,7 +48,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Tag::~Tag() noexcept
+		Tag::~Tag()
 		{
 		}
 

@@ -17,35 +17,35 @@ namespace galaxy
 {
 	namespace async
 	{
-		TimerAsync::TimerAsync() noexcept
+		TimerAsync::TimerAsync()
 			: m_repeat {false}
 			, m_delay {1000}
 			, m_callback {nullptr}
 		{
 		}
 
-		TimerAsync::TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		TimerAsync::TimerAsync(const std::function<void(void)>& func, const std::uint32_t delay)
 		{
 			set(func, delay);
 		}
 
-		TimerAsync::~TimerAsync() noexcept
+		TimerAsync::~TimerAsync()
 		{
 			stop();
 		}
 
-		void TimerAsync::set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		void TimerAsync::set(const std::function<void(void)>& func, const std::uint32_t delay)
 		{
 			m_callback = func;
 			m_delay    = delay;
 		}
 
-		void TimerAsync::repeat(const bool repeat) noexcept
+		void TimerAsync::repeat(const bool repeat)
 		{
 			m_repeat = repeat;
 		}
 
-		void TimerAsync::start() noexcept
+		void TimerAsync::start()
 		{
 			auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
 			m_handle = tp.submit([&]() {
@@ -57,7 +57,7 @@ namespace galaxy
 			});
 		}
 
-		void TimerAsync::stop() noexcept
+		void TimerAsync::stop()
 		{
 			m_repeat = false;
 			m_handle.get();

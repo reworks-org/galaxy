@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Primitive::Primitive() noexcept
+		Primitive::Primitive()
 			: Renderable {}
 			, Serializable {}
 			, m_width {0}
@@ -37,7 +37,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Primitive::Primitive(Primitive&& p) noexcept
+		Primitive::Primitive(Primitive&& p)
 			: Renderable {std::move(p)}
 			, Serializable {}
 			, m_width {0}
@@ -53,7 +53,7 @@ namespace galaxy
 			this->m_colour = std::move(p.m_colour);
 		}
 
-		Primitive& Primitive::operator=(Primitive&& p) noexcept
+		Primitive& Primitive::operator=(Primitive&& p)
 		{
 			if (this != &p)
 			{
@@ -70,31 +70,31 @@ namespace galaxy
 			return *this;
 		}
 
-		Primitive::~Primitive() noexcept
+		Primitive::~Primitive()
 		{
 		}
 
-		const Primitive::PrimitiveData& Primitive::get_data() const noexcept
+		const Primitive::PrimitiveData& Primitive::get_data() const
 		{
 			return m_data;
 		}
 
-		graphics::Shape Primitive::get_shape() const noexcept
+		graphics::Shape Primitive::get_shape() const
 		{
 			return m_shape;
 		}
 
-		float Primitive::get_width() const noexcept
+		float Primitive::get_width() const
 		{
 			return m_width;
 		}
 
-		float Primitive::get_height() const noexcept
+		float Primitive::get_height() const
 		{
 			return m_height;
 		}
 
-		void Primitive::configure() noexcept
+		void Primitive::configure()
 		{
 			m_vao_id      = m_vao.id();
 			m_index_count = m_vao.index_count();

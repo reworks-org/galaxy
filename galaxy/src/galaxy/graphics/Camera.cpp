@@ -22,7 +22,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Camera::Camera(bool allow_rotate) noexcept
+		Camera::Camera(bool allow_rotate)
 			: m_allow_rotate {allow_rotate}
 			, m_translation_speed {180.0f}
 			, m_rotation_speed {180.0f}
@@ -35,7 +35,7 @@ namespace galaxy
 			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
 		}
 
-		Camera::Camera(const nlohmann::json& json) noexcept
+		Camera::Camera(const nlohmann::json& json)
 			: m_data {}
 		{
 			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
@@ -43,7 +43,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Camera::Camera(Camera&& c) noexcept
+		Camera::Camera(Camera&& c)
 		{
 			this->m_allow_rotate      = c.m_allow_rotate;
 			this->m_translation_speed = c.m_translation_speed;
@@ -56,7 +56,7 @@ namespace galaxy
 			this->m_origin            = std::move(c.m_origin);
 		}
 
-		Camera& Camera::operator=(Camera&& c) noexcept
+		Camera& Camera::operator=(Camera&& c)
 		{
 			if (this != &c)
 			{
@@ -74,7 +74,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Camera::Camera(const Camera& c) noexcept
+		Camera::Camera(const Camera& c)
 		{
 			this->m_allow_rotate      = c.m_allow_rotate;
 			this->m_translation_speed = c.m_translation_speed;
@@ -87,7 +87,7 @@ namespace galaxy
 			this->m_origin            = c.m_origin;
 		}
 
-		Camera& Camera::operator=(const Camera& c) noexcept
+		Camera& Camera::operator=(const Camera& c)
 		{
 			if (this != &c)
 			{
@@ -105,11 +105,11 @@ namespace galaxy
 			return *this;
 		}
 
-		Camera::~Camera() noexcept
+		Camera::~Camera()
 		{
 		}
 
-		void Camera::process_events() noexcept
+		void Camera::process_events()
 		{
 			if (input::Input::key_down(input::CameraKeys::FORWARD))
 			{
@@ -162,7 +162,7 @@ namespace galaxy
 			set_pos(m_pos.x, m_pos.y);
 		}
 
-		void Camera::on_mouse_wheel(events::MouseWheel& e) noexcept
+		void Camera::on_mouse_wheel(events::MouseWheel& e)
 		{
 			if (!e.handled)
 			{
@@ -173,71 +173,71 @@ namespace galaxy
 			}
 		}
 
-		void Camera::set_viewport(const float width, const float height) noexcept
+		void Camera::set_viewport(const float width, const float height)
 		{
 			set_projection(0.0f, width, height, 0.0f);
 		}
 
-		void Camera::set_pos(const float x, const float y) noexcept
+		void Camera::set_pos(const float x, const float y)
 		{
 			m_pos.x = x;
 			m_pos.y = y;
 		}
 
-		void Camera::set_rotation(const float degrees) noexcept
+		void Camera::set_rotation(const float degrees)
 		{
 			m_rotation = degrees;
 		}
 
-		void Camera::set_zoom(const float offset) noexcept
+		void Camera::set_zoom(const float offset)
 		{
 			m_zoom = offset;
 		}
 
-		float Camera::get_x() const noexcept
+		float Camera::get_x() const
 		{
 			return m_pos.x;
 		}
 
-		float Camera::get_y() const noexcept
+		float Camera::get_y() const
 		{
 			return m_pos.y;
 		}
 
-		float Camera::get_rotation() const noexcept
+		float Camera::get_rotation() const
 		{
 			return m_rotation;
 		}
 
-		float Camera::get_zoom() const noexcept
+		float Camera::get_zoom() const
 		{
 			return m_zoom;
 		}
 
-		const glm::vec2& Camera::get_viewport() const noexcept
+		const glm::vec2& Camera::get_viewport() const
 		{
 			return m_viewport;
 		}
 
-		const glm::mat4& Camera::get_view() noexcept
+		const glm::mat4& Camera::get_view()
 		{
 			recalculate();
 			return m_data.m_model_view;
 		}
 
-		const glm::mat4& Camera::get_proj() noexcept
+		const glm::mat4& Camera::get_proj()
 		{
 			recalculate();
 			return m_data.m_projection;
 		}
 
-		Camera::Data& Camera::get_data() noexcept
+		Camera::Data& Camera::get_data()
 		{
 			recalculate();
 			return m_data;
 		}
 
-		void Camera::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+		void Camera::set_projection(const float left, const float right, const float bottom, const float top)
 		{
 			m_origin.x = right * 0.5f;
 			m_origin.y = bottom * 0.5f;
@@ -248,7 +248,7 @@ namespace galaxy
 			m_data.m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		void Camera::recalculate() noexcept
+		void Camera::recalculate()
 		{
 			auto rotation = glm::translate(identity_matrix, m_origin);
 			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_origin);

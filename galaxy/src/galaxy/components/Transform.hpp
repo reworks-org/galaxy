@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Transform() noexcept;
+			Transform();
 
 			///
 			/// JSON constructor.
@@ -37,17 +37,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Transform(Transform&&) noexcept;
+			Transform(Transform&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Transform& operator=(Transform&&) noexcept;
+			Transform& operator=(Transform&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Transform() noexcept = default;
+			virtual ~Transform() = default;
 
 			///
 			/// Translate (move) position.
@@ -55,35 +55,35 @@ namespace galaxy
 			/// \param x How far to translate on x axis.
 			/// \param y How far to translate on y axis.
 			///
-			void translate(const float x, const float y) noexcept;
+			void translate(const float x, const float y);
 
 			///
 			/// Rotate entity.
 			///
 			/// \param degrees Additive. Min 0, max 360.
 			///
-			void rotate(const float degrees) noexcept;
+			void rotate(const float degrees);
 
 			///
 			/// Set entity scale.
 			///
 			/// \param scale Value to scale by.
 			///
-			void set_scale(const float scale) noexcept;
+			void set_scale(const float scale);
 
 			///
 			/// Set entity scale.
 			///
 			/// \param x Value to scale horizontal axis by.
 			///
-			void set_scale_horizontal(const float x) noexcept;
+			void set_scale_horizontal(const float x);
 
 			///
 			/// Set entity scale.
 			///
 			/// \param y Value to scale vertical axis by.
 			///
-			void set_scale_vertical(const float y) noexcept;
+			void set_scale_vertical(const float y);
 
 			///
 			/// Sets position without moving the entity.
@@ -91,14 +91,14 @@ namespace galaxy
 			/// \param x X position to set.
 			/// \param y Y position to set.
 			///
-			void set_pos(const float x, const float y) noexcept;
+			void set_pos(const float x, const float y);
 
 			///
 			/// Set the entity rotation.
 			///
 			/// \param degrees Min 0, max 360.
 			///
-			void set_rotation(const float degrees) noexcept;
+			void set_rotation(const float degrees);
 
 			///
 			/// Set the rotational origin point.
@@ -106,40 +106,40 @@ namespace galaxy
 			/// \param x X position to set origin to.
 			/// \param y Y position to set origin to.
 			///
-			void set_origin(const float x, const float y) noexcept;
+			void set_origin(const float x, const float y);
 
 			///
 			/// Reset transform.
 			///
-			void reset() noexcept;
+			void reset();
 
 			///
 			/// Get stored position.
 			///
 			/// \return glm::vec2.
 			///
-			[[nodiscard]] glm::vec2 get_pos() noexcept;
+			[[nodiscard]] glm::vec2 get_pos();
 
 			///
 			/// Get stored rotation.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_rotation() const noexcept;
+			[[nodiscard]] float get_rotation() const;
 
 			///
 			/// Get stored scale.
 			///
 			/// \return glm::vec2.
 			///
-			[[nodiscard]] const glm::vec2& get_scale() const noexcept;
+			[[nodiscard]] const glm::vec2& get_scale() const;
 
 			///
 			/// Get origin point.
 			///
 			/// \return glm::vec2.
 			///
-			[[nodiscard]] glm::vec2 get_origin() noexcept;
+			[[nodiscard]] glm::vec2 get_origin();
 
 			///
 			/// Retrieve internal transformation matrix.

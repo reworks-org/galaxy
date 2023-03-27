@@ -45,12 +45,12 @@ namespace galaxy
 			///
 			/// \param mode ZLib mode to start in.
 			///
-			ZLib(const Mode mode) noexcept;
+			ZLib(const Mode mode);
 
 			///
 			/// Destructor.
 			///
-			~ZLib() noexcept;
+			~ZLib();
 
 			///
 			/// Compresses string.
@@ -59,14 +59,14 @@ namespace galaxy
 			///
 			/// \return Compressed string.
 			///
-			std::string compress(const std::string& input) noexcept;
+			std::string compress(const std::string& input);
 
 			///
 			/// Completes the compression.
 			///
 			/// \return Compressed string containing termination block.
 			///
-			std::string finish() noexcept;
+			std::string finish();
 
 			///
 			/// Decompresses a zlib string.
@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			/// \return String containing decompressed data.
 			///
-			std::string decompress(const std::string& input) noexcept;
+			std::string decompress(const std::string& input);
 
 		private:
 			///
@@ -111,7 +111,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_zlib(const std::string& input) noexcept;
+		[[nodiscard]] std::string encode_zlib(const std::string& input);
 
 		///
 		/// Decompresses string into ZLib.
@@ -120,7 +120,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_zlib(const std::string& input) noexcept;
+		[[nodiscard]] std::string decode_zlib(const std::string& input);
 	} // namespace algorithm
 } // namespace galaxy
 

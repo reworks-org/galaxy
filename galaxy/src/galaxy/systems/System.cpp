@@ -11,11 +11,11 @@ namespace galaxy
 {
 	namespace systems
 	{
-		System::System() noexcept
+		System::System()
 		{
 		}
 
-		System::~System() noexcept
+		System::~System()
 		{
 		}
 	} // namespace systems

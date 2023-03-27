@@ -13,25 +13,25 @@ namespace galaxy
 {
 	namespace components
 	{
-		Map::Map() noexcept
+		Map::Map()
 			: Renderable {}
 		{
 			m_spritebatch.init(10000);
 		}
 
-		Map::Map(const int total_tiles) noexcept
+		Map::Map(const int total_tiles)
 		{
 			m_spritebatch.init(total_tiles);
 		}
 
-		Map::Map(Map&& m) noexcept
+		Map::Map(Map&& m)
 			: Renderable {std::move(m)}
 		{
 			this->m_animations  = std::move(m.m_animations);
 			this->m_spritebatch = std::move(m.m_spritebatch);
 		}
 
-		Map& Map::operator=(Map&& m) noexcept
+		Map& Map::operator=(Map&& m)
 		{
 			if (this != &m)
 			{
@@ -44,13 +44,13 @@ namespace galaxy
 			return *this;
 		}
 
-		Map::~Map() noexcept
+		Map::~Map()
 		{
 			m_animations.clear();
 			m_spritebatch.flush();
 		}
 
-		void Map::configure(const unsigned int texture_id, const int layer) noexcept
+		void Map::configure(const unsigned int texture_id, const int layer)
 		{
 			m_vao_id      = m_spritebatch.vao().id();
 			m_texture_id  = texture_id;
@@ -60,12 +60,12 @@ namespace galaxy
 			set_primitive_type(graphics::Primitives::TRIANGLE);
 		}
 
-		int Map::get_layer() const noexcept
+		int Map::get_layer() const
 		{
 			return m_layer;
 		}
 
-		void Map::configure() noexcept
+		void Map::configure()
 		{
 			GALAXY_LOG(GALAXY_FATAL, "Should not be called.");
 			static_assert("Map::configure() Should not be called.");

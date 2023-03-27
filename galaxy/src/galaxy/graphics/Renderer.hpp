@@ -38,17 +38,17 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Renderer() noexcept = default;
+			~Renderer() = default;
 
-			static void buffer_camera(Camera& camera) noexcept;
+			static void buffer_camera(Camera& camera);
 
 			static void submit(Renderable* renderable);
 			static void draw();
-			static void flush() noexcept;
+			static void flush();
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
 
-			static std::vector<Renderable*>& get_data() noexcept;
+			static std::vector<Renderable*>& get_data();
 
 		private:
 			///
@@ -61,12 +61,12 @@ namespace galaxy
 			///
 			/// Initialize renderer resources.
 			///
-			static void init() noexcept;
+			static void init();
 
 			///
 			/// Destroy renderer resources.
 			///
-			static void destroy() noexcept;
+			static void destroy();
 
 		private:
 			///

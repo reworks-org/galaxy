@@ -18,7 +18,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Texture::Texture() noexcept
+		Texture::Texture()
 			: m_width {0}
 			, m_height {0}
 			, m_texture {0}
@@ -26,7 +26,7 @@ namespace galaxy
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
 		}
 
-		Texture::Texture(std::string_view file) noexcept
+		Texture::Texture(std::string_view file)
 			: m_width {0}
 			, m_height {0}
 			, m_texture {0}
@@ -35,7 +35,7 @@ namespace galaxy
 			load(file);
 		}
 
-		Texture::Texture(Texture&& t) noexcept
+		Texture::Texture(Texture&& t)
 		{
 			if (this->m_texture != 0)
 			{
@@ -50,7 +50,7 @@ namespace galaxy
 			t.m_texture = 0;
 		}
 
-		Texture& Texture::operator=(Texture&& t) noexcept
+		Texture& Texture::operator=(Texture&& t)
 		{
 			if (this != &t)
 			{
@@ -70,7 +70,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Texture::~Texture() noexcept
+		Texture::~Texture()
 		{
 			if (m_texture != 0)
 			{
@@ -199,23 +199,23 @@ namespace galaxy
 			stbi_write_png(full.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 		}
 
-		void Texture::bind() noexcept
+		void Texture::bind()
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 		}
 
-		void Texture::unbind() noexcept
+		void Texture::unbind()
 		{
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void Texture::set_mode(const TextureModes mode) noexcept
+		void Texture::set_mode(const TextureModes mode)
 		{
 			glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, static_cast<GLint>(mode));
 			glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, static_cast<GLint>(mode));
 		}
 
-		void Texture::set_filter(const TextureFilters filter) noexcept
+		void Texture::set_filter(const TextureFilters filter)
 		{
 			switch (filter)
 			{
@@ -237,32 +237,32 @@ namespace galaxy
 			}
 		}
 
-		void Texture::set_anisotropy(const int level) noexcept
+		void Texture::set_anisotropy(const int level)
 		{
 			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(level));
 		}
 
-		int Texture::get_width() const noexcept
+		int Texture::get_width() const
 		{
 			return m_width;
 		}
 
-		int Texture::get_height() const noexcept
+		int Texture::get_height() const
 		{
 			return m_height;
 		}
 
-		float Texture::get_widthf() const noexcept
+		float Texture::get_widthf() const
 		{
 			return static_cast<float>(m_width);
 		}
 
-		float Texture::get_heightf() const noexcept
+		float Texture::get_heightf() const
 		{
 			return static_cast<float>(m_height);
 		}
 
-		int Texture::get_aniso_level() noexcept
+		int Texture::get_aniso_level()
 		{
 			auto ansio = 0.0f;
 			glGetTextureParameterfv(m_texture, GL_TEXTURE_MAX_ANISOTROPY, &ansio);
@@ -270,7 +270,7 @@ namespace galaxy
 			return static_cast<int>(std::trunc(ansio));
 		}
 
-		unsigned int Texture::handle() const noexcept
+		unsigned int Texture::handle() const
 		{
 			return m_texture;
 		}

@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace scene
 	{
-		Layers::Layers(Scene* scene) noexcept
+		Layers::Layers(Scene* scene)
 			: m_scene {scene}
 		{
 			// Reserve some initial memory.
@@ -23,7 +23,7 @@ namespace galaxy
 			m_stack.reserve(2);
 		}
 
-		Layers::~Layers() noexcept
+		Layers::~Layers()
 		{
 			clear();
 		}
@@ -115,12 +115,12 @@ namespace galaxy
 			m_layers.clear();
 		}
 
-		const Layers::LayerStack& Layers::stack() const noexcept
+		const Layers::LayerStack& Layers::stack() const
 		{
 			return m_stack;
 		}
 
-		Layers::LayerContainer& Layers::cache() noexcept
+		Layers::LayerContainer& Layers::cache()
 		{
 			return m_layers;
 		}

@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		DrawShader::DrawShader() noexcept
+		DrawShader::DrawShader()
 			: Serializable {}
 			, m_shader {nullptr}
 		{
@@ -29,7 +29,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		DrawShader::DrawShader(DrawShader&& ds) noexcept
+		DrawShader::DrawShader(DrawShader&& ds)
 			: Serializable {}
 			, m_shader {nullptr}
 		{
@@ -42,7 +42,7 @@ namespace galaxy
 			ds.m_shader    = nullptr;
 		}
 
-		DrawShader& DrawShader::operator=(DrawShader&& ds) noexcept
+		DrawShader& DrawShader::operator=(DrawShader&& ds)
 		{
 			if (this != &ds)
 			{
@@ -58,7 +58,7 @@ namespace galaxy
 			return *this;
 		}
 
-		DrawShader::~DrawShader() noexcept
+		DrawShader::~DrawShader()
 		{
 			m_shader = nullptr;
 		}
@@ -71,7 +71,7 @@ namespace galaxy
 			m_id     = id;
 		}
 
-		const std::string& DrawShader::id() const noexcept
+		const std::string& DrawShader::id() const
 		{
 			return m_id;
 		}

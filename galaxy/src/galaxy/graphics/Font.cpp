@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Font::Font() noexcept
+		Font::Font()
 			: m_font {nullptr}
 			, m_face {nullptr}
 		{
@@ -31,7 +31,7 @@ namespace galaxy
 			}
 		}
 
-		Font::Font(Font&& f) noexcept
+		Font::Font(Font&& f)
 		{
 			if (this->m_font != nullptr)
 			{
@@ -45,7 +45,7 @@ namespace galaxy
 			f.m_face = nullptr;
 		}
 
-		Font& Font::operator=(Font&& f) noexcept
+		Font& Font::operator=(Font&& f)
 		{
 			if (this != &f)
 			{
@@ -64,7 +64,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Font::~Font() noexcept
+		Font::~Font()
 		{
 			if (m_font != nullptr)
 			{
@@ -113,12 +113,12 @@ namespace galaxy
 			m_face = nullptr;
 		}
 
-		float Font::vertical_advance(const float size) const noexcept
+		float Font::vertical_advance(const float size) const
 		{
 			return msdfgl_vertical_advance(m_font, size);
 		}
 
-		glm::vec2 Font::get_text_size(const std::string& text, const float size) noexcept
+		glm::vec2 Font::get_text_size(const std::string& text, const float size)
 		{
 			glm::vec2 vec;
 
@@ -158,7 +158,7 @@ namespace galaxy
 			return vec;
 		}
 
-		msdfgl_font_t Font::handle() noexcept
+		msdfgl_font_t Font::handle()
 		{
 			return m_font;
 		}

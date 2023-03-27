@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			UniformBuffer() noexcept;
+			UniformBuffer();
 
 			///
 			/// \brief Argument Constructor.
@@ -34,36 +34,36 @@ namespace galaxy
 			///
 			/// \param index Index of UBO in shader.
 			///
-			UniformBuffer(const unsigned int index) noexcept;
+			UniformBuffer(const unsigned int index);
 
 			///
 			/// Move constructor.
 			///
-			UniformBuffer(UniformBuffer&&) noexcept;
+			UniformBuffer(UniformBuffer&&);
 
 			///
 			/// Move assignment operator.
 			///
-			UniformBuffer& operator=(UniformBuffer&&) noexcept;
+			UniformBuffer& operator=(UniformBuffer&&);
 
 			///
 			/// Destructor.
 			///
-			~UniformBuffer() noexcept;
+			~UniformBuffer();
 
 			///
 			/// Create the buffer.
 			///
 			/// \param index Index of UBO in shader.
 			///
-			void create(const unsigned int index) noexcept;
+			void create(const unsigned int index);
 
 			///
 			/// Reserve the buffer space.
 			///
 			/// \param size Size in bytes to reserve.
 			///
-			void reserve(const unsigned int size) noexcept;
+			void reserve(const unsigned int size);
 
 			///
 			/// Sub buffer data into UBO.
@@ -75,31 +75,31 @@ namespace galaxy
 			/// \param data Pointer to the data to buffer.
 			///
 			template<meta::is_object Type>
-			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data) noexcept;
+			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data);
 
 			///
 			/// Bind UBO.
 			///
-			void bind() noexcept;
+			void bind();
 
 			///
 			/// Unbind UBO.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// \brief Reset all UBO data.
 			///
 			/// You will need to call create() and reserve() again.
 			///
-			void reset() noexcept;
+			void reset();
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 		private:
 			///
@@ -119,7 +119,7 @@ namespace galaxy
 		};
 
 		template<meta::is_object Type>
-		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data) noexcept
+		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data)
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 			glBufferSubData(GL_UNIFORM_BUFFER, offset, count * sizeof(Type), data);

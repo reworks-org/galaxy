@@ -39,12 +39,12 @@ namespace galaxy
 			/// \param name Name of the Layer.
 			/// \param scene Pointer to scene this layer belongs to.
 			///
-			Layer(std::string_view name, Scene* scene) noexcept;
+			Layer(std::string_view name, Scene* scene);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Layer() noexcept;
+			virtual ~Layer();
 
 			///
 			/// On push of Layer to stack.
@@ -76,28 +76,28 @@ namespace galaxy
 			///
 			/// \param name String name for debug purposes.
 			///
-			void set_name(std::string_view name) noexcept;
+			void set_name(std::string_view name);
 
 			///
 			/// Get layer name.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& get_name() const noexcept;
+			[[nodiscard]] const std::string& get_name() const;
 
 			///
 			/// Get a reference to this layers event dispatcher.
 			///
 			/// \return Reference to entt::dispatcher.
 			///
-			[[nodiscard]] entt::dispatcher& dispatcher() noexcept;
+			[[nodiscard]] entt::dispatcher& dispatcher();
 
 			///
 			/// Get layer type.
 			///
 			/// \return String.
 			///
-			[[nodiscard]] virtual const std::string& get_type() const noexcept = 0;
+			[[nodiscard]] virtual const std::string& get_type() const = 0;
 
 		protected:
 			///

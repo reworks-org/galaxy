@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Rect() noexcept;
+			Rect();
 
 			///
 			/// Argument constructor.
@@ -38,12 +38,12 @@ namespace galaxy
 			/// \param width Width value.
 			/// \param height Height value.
 			///
-			Rect(const Type x, const Type y, const Type width, const Type height) noexcept;
+			Rect(const Type x, const Type y, const Type width, const Type height);
 
 			///
 			/// Destructor.
 			///
-			~Rect() noexcept = default;
+			~Rect() = default;
 
 			///
 			/// Does the rectangle contain the point (x, y).
@@ -53,7 +53,7 @@ namespace galaxy
 			///
 			/// \return True if contains the point.
 			///
-			[[nodiscard]] bool contains(const Type x, const Type y) noexcept;
+			[[nodiscard]] bool contains(const Type x, const Type y);
 
 			///
 			/// Does the rectangle contain another rectangle.
@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			/// \return Returns true if the rectangle is completely inside, not on the edge.
 			///
-			[[nodiscard]] bool contains(const Rect<Type>& b) noexcept;
+			[[nodiscard]] bool contains(const Rect<Type>& b);
 
 			///
 			/// \brief Do the rectangles a and b overlap.
@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			/// \return Returns true if there is an overlap.
 			///
-			[[nodiscard]] bool overlaps(const Rect<Type>& b) noexcept;
+			[[nodiscard]] bool overlaps(const Rect<Type>& b);
 
 			///
 			/// Comparison operator.
@@ -112,7 +112,7 @@ namespace galaxy
 			///
 			/// \return True if value is inbetween min and max. Inclusive.
 			///
-			[[nodiscard]] bool value_in_range(const Type value, const Type min, const Type max) noexcept;
+			[[nodiscard]] bool value_in_range(const Type value, const Type min, const Type max);
 		};
 
 		///
@@ -126,7 +126,7 @@ namespace galaxy
 		typedef Rect<float> fRect;
 
 		template<meta::is_arithmetic Type>
-		inline Rect<Type>::Rect() noexcept
+		inline Rect<Type>::Rect()
 			: m_x {0}
 			, m_y {0}
 			, m_width {0}
@@ -135,7 +135,7 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
+		inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height)
 			: m_x {x}
 			, m_y {y}
 			, m_width {width}
@@ -144,21 +144,21 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline bool Rect<Type>::contains(const Type x, const Type y) noexcept
+		inline bool Rect<Type>::contains(const Type x, const Type y)
 		{
 			// Checks if the rectangle contains the point (x, y) using some basic math.
 			return ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height)));
 		}
 
 		template<meta::is_arithmetic Type>
-		inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
+		inline bool Rect<Type>::contains(const Rect<Type>& b)
 		{
 			// Checks if the rectangle contains another rectangle using math.
 			return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
 		}
 
 		template<meta::is_arithmetic Type>
-		inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
+		inline bool Rect<Type>::overlaps(const Rect<Type>& b)
 		{
 			// Check for overlaps using math.
 			const auto x = value_in_range(m_x, b.m_x, b.m_x + b.m_width) || value_in_range(b.m_x, m_x, m_x + m_width);
@@ -168,7 +168,7 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline bool Rect<Type>::value_in_range(const Type value, const Type min, const Type max) noexcept
+		inline bool Rect<Type>::value_in_range(const Type value, const Type min, const Type max)
 		{
 			// Check if a value is between min and max - i.e. in range.
 			return (value >= min) && (value <= max);

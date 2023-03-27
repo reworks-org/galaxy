@@ -29,29 +29,29 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Flag() noexcept;
+			Flag();
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Flag(const nlohmann::json& json) noexcept;
+			Flag(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Flag(Flag&&) noexcept;
+			Flag(Flag&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Flag& operator=(Flag&&) noexcept;
+			Flag& operator=(Flag&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Flag() noexcept;
+			virtual ~Flag();
 
 			///
 			/// Set a flag on an entity.
@@ -61,7 +61,7 @@ namespace galaxy
 			/// \param entity Entity to set flag on.
 			///
 			template<meta::is_bitset_flag _Flag>
-			void set_flag() noexcept;
+			void set_flag();
 
 			///
 			/// Check flag value on an entity.
@@ -71,7 +71,7 @@ namespace galaxy
 			/// \param entity Entity to check flag.
 			///
 			template<meta::is_bitset_flag _Flag>
-			[[nodiscard]] bool is_flag_set() noexcept;
+			[[nodiscard]] bool is_flag_set();
 
 			///
 			/// Unset a flag on an entity.
@@ -81,7 +81,7 @@ namespace galaxy
 			/// \param entity Entity to unset flag on.
 			///
 			template<meta::is_bitset_flag _Flag>
-			void unset_flag() noexcept;
+			void unset_flag();
 
 			///
 			/// Serializes object.
@@ -116,19 +116,19 @@ namespace galaxy
 		};
 
 		template<meta::is_bitset_flag _Flag>
-		inline void Flag::set_flag() noexcept
+		inline void Flag::set_flag()
 		{
 			m_flags.set(_Flag::value);
 		}
 
 		template<meta::is_bitset_flag _Flag>
-		inline bool Flag::is_flag_set() noexcept
+		inline bool Flag::is_flag_set()
 		{
 			return m_flags.test(_Flag::value);
 		}
 
 		template<meta::is_bitset_flag _Flag>
-		inline void Flag::unset_flag() noexcept
+		inline void Flag::unset_flag()
 		{
 			m_flags.reset(_Flag::value);
 		}

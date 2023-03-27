@@ -83,7 +83,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		ChromaticAberration::ChromaticAberration(const int width, const int height) noexcept
+		ChromaticAberration::ChromaticAberration(const int width, const int height)
 			: m_r_offset {0.009f}
 			, m_g_offset {0.006f}
 			, m_b_offset {-0.006f}
@@ -115,25 +115,25 @@ namespace galaxy
 			return m_fb.get_texture();
 		}
 
-		void ChromaticAberration::set_r_offset(const float r) noexcept
+		void ChromaticAberration::set_r_offset(const float r)
 		{
 			m_r_offset = r;
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
-		void ChromaticAberration::set_g_offset(const float g) noexcept
+		void ChromaticAberration::set_g_offset(const float g)
 		{
 			m_g_offset = g;
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
-		void ChromaticAberration::set_b_offset(const float b) noexcept
+		void ChromaticAberration::set_b_offset(const float b)
 		{
 			m_b_offset = b;
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
-		void ChromaticAberration::set_rgb_offset(const float r, const float g, const float b) noexcept
+		void ChromaticAberration::set_rgb_offset(const float r, const float g, const float b)
 		{
 			m_r_offset = r;
 			m_g_offset = g;

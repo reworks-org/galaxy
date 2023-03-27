@@ -21,7 +21,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Transform::Transform() noexcept
+		Transform::Transform()
 			: Serializable {}
 			, m_pos {0.0f, 0.0f, 0.0f}
 			, m_rotation {0.0f}
@@ -40,7 +40,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Transform::Transform(Transform&& t) noexcept
+		Transform::Transform(Transform&& t)
 			: Serializable {}
 		{
 			this->m_pos      = std::move(t.m_pos);
@@ -49,7 +49,7 @@ namespace galaxy
 			this->m_origin   = std::move(t.m_origin);
 		}
 
-		Transform& Transform::operator=(Transform&& t) noexcept
+		Transform& Transform::operator=(Transform&& t)
 		{
 			if (this != &t)
 			{
@@ -62,74 +62,74 @@ namespace galaxy
 			return *this;
 		}
 
-		void Transform::translate(const float x, const float y) noexcept
+		void Transform::translate(const float x, const float y)
 		{
 			m_pos.x += x;
 			m_pos.y += y;
 		}
 
-		void Transform::rotate(const float degrees) noexcept
+		void Transform::rotate(const float degrees)
 		{
 			m_rotation += degrees;
 			m_rotation = std::clamp(m_rotation, 0.0f, 360.0f);
 		}
 
-		void Transform::set_scale(const float scale) noexcept
+		void Transform::set_scale(const float scale)
 		{
 			m_scale.x = scale;
 			m_scale.y = scale;
 		}
 
-		void Transform::set_scale_horizontal(const float x) noexcept
+		void Transform::set_scale_horizontal(const float x)
 		{
 			m_scale.x = x;
 		}
 
-		void Transform::set_scale_vertical(const float y) noexcept
+		void Transform::set_scale_vertical(const float y)
 		{
 			m_scale.y = y;
 		}
 
-		void Transform::set_pos(const float x, const float y) noexcept
+		void Transform::set_pos(const float x, const float y)
 		{
 			m_pos.x = x;
 			m_pos.y = y;
 		}
 
-		void Transform::set_rotation(const float degrees) noexcept
+		void Transform::set_rotation(const float degrees)
 		{
 			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
 		}
 
-		void Transform::set_origin(const float x, const float y) noexcept
+		void Transform::set_origin(const float x, const float y)
 		{
 			m_origin.x = x;
 			m_origin.y = y;
 		}
 
-		void Transform::reset() noexcept
+		void Transform::reset()
 		{
 			m_pos      = {0.0f, 0.0f, 0.0f};
 			m_rotation = 0.0f;
 			m_scale    = {1.0f, 1.0f};
 		}
 
-		glm::vec2 Transform::get_pos() noexcept
+		glm::vec2 Transform::get_pos()
 		{
 			return {m_pos.x, m_pos.y};
 		}
 
-		float Transform::get_rotation() const noexcept
+		float Transform::get_rotation() const
 		{
 			return m_rotation;
 		}
 
-		const glm::vec2& Transform::get_scale() const noexcept
+		const glm::vec2& Transform::get_scale() const
 		{
 			return m_scale;
 		}
 
-		glm::vec2 Transform::get_origin() noexcept
+		glm::vec2 Transform::get_origin()
 		{
 			return {m_origin.x, m_origin.y};
 		}

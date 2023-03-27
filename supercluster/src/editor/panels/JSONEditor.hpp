@@ -20,8 +20,8 @@ namespace sc
 		class JSONEditor final
 		{
 		public:
-			JSONEditor() noexcept;
-			~JSONEditor() noexcept;
+			JSONEditor();
+			~JSONEditor();
 
 			void create_new();
 

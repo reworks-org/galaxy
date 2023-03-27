@@ -26,12 +26,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RectPack() noexcept;
+			RectPack();
 
 			///
 			/// Destructor.
 			///
-			~RectPack() noexcept;
+			~RectPack();
 
 			///
 			/// Set starting width and height of rectangle.
@@ -41,7 +41,7 @@ namespace galaxy
 			/// \param width Width of the master rectangle.
 			/// \param height Height of the master rectangle.
 			///
-			void init(const int width, const int height) noexcept;
+			void init(const int width, const int height);
 
 			///
 			/// Pack a rectangle into the master rectangle.
@@ -52,33 +52,33 @@ namespace galaxy
 			/// \return Returns the location of the packed rectangle on the master rectangle.
 			///			Otherwise, returns a std::nullopt.
 			///
-			[[nodiscard]] std::optional<graphics::iRect> pack(const int width, const int height) noexcept;
+			[[nodiscard]] std::optional<graphics::iRect> pack(const int width, const int height);
 
 			///
 			/// Clear all data.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// Get total width.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const noexcept;
+			[[nodiscard]] int get_width() const;
 
 			///
 			/// Get total height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const noexcept;
+			[[nodiscard]] int get_height() const;
 
 			///
 			/// Get free rectangles.
 			///
 			/// \return Const std::vector.
 			///
-			[[nodiscard]] const std::vector<graphics::iRect>& get_free_space() const noexcept;
+			[[nodiscard]] const std::vector<graphics::iRect>& get_free_space() const;
 
 		private:
 			///

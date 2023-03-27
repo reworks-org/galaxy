@@ -29,12 +29,12 @@ namespace galaxy
 			/// \param width Width of internal framebuffer.
 			/// \param height Height of internal framebuffer.
 			///
-			SMAA(const int width, const int height) noexcept;
+			SMAA(const int width, const int height);
 
 			///
 			/// Destructor.
 			///
-			virtual ~SMAA() noexcept;
+			virtual ~SMAA();
 
 			///
 			/// Resize framebuffers.

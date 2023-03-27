@@ -32,28 +32,28 @@ namespace galaxy
 			///
 			/// \return const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& ul_texels() const noexcept;
+			[[nodiscard]] const glm::vec2& ul_texels() const;
 
 			///
 			/// Get Upper-right coords.
 			///
 			/// \return const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& ur_texels() const noexcept;
+			[[nodiscard]] const glm::vec2& ur_texels() const;
 
 			///
 			/// Get Bottom-left coords.
 			///
 			/// \return const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& bl_texels() const noexcept;
+			[[nodiscard]] const glm::vec2& bl_texels() const;
 
 			///
 			/// Get Bottom-left coords.
 			///
 			/// \return const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& br_texels() const noexcept;
+			[[nodiscard]] const glm::vec2& br_texels() const;
 
 		private:
 			///

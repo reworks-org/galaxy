@@ -23,40 +23,40 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			BasicScript() noexcept;
+			BasicScript();
 
 			///
 			/// Argument Constructor.
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			BasicScript(std::string_view file) noexcept;
+			BasicScript(std::string_view file);
 
 			///
 			/// Destructor.
 			///
-			~BasicScript() noexcept;
+			~BasicScript();
 
 			///
 			/// Load a script.
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			void load(std::string_view file) noexcept;
+			void load(std::string_view file);
 
 			///
 			/// Run a lua script.
 			///
 			/// \return True if script executed successfully.
 			///
-			[[maybe_unused]] bool run() noexcept;
+			[[maybe_unused]] bool run();
 
 			///
 			/// Run a lua script and get a return value.
 			///
 			/// \return Value returned from script execution. You will need to extract from function result and check validity.
 			///
-			[[nodiscard]] sol::protected_function_result run_and_return() noexcept;
+			[[nodiscard]] sol::protected_function_result run_and_return();
 
 		private:
 			///

@@ -26,22 +26,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			TileAnim() noexcept;
+			TileAnim();
 
 			///
 			/// Move constructor.
 			///
-			TileAnim(TileAnim&&) noexcept;
+			TileAnim(TileAnim&&);
 
 			///
 			/// Move assignment operator.
 			///
-			TileAnim& operator=(TileAnim&&) noexcept;
+			TileAnim& operator=(TileAnim&&);
 
 			///
 			/// Destructor.
 			///
-			~TileAnim() noexcept;
+			~TileAnim();
 
 		private:
 			///

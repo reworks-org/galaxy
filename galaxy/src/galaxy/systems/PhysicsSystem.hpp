@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			PhysicsSystem() noexcept;
+			PhysicsSystem();
 
 			///
 			/// Destructor.
 			///
-			virtual ~PhysicsSystem() noexcept;
+			virtual ~PhysicsSystem();
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.

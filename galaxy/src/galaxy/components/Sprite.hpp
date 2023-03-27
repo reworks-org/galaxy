@@ -42,7 +42,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Sprite() noexcept;
+			Sprite();
 
 			///
 			/// JSON constructor.
@@ -54,17 +54,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Sprite(Sprite&&) noexcept;
+			Sprite(Sprite&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Sprite& operator=(Sprite&&) noexcept;
+			Sprite& operator=(Sprite&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sprite() noexcept;
+			virtual ~Sprite();
 
 			///
 			/// Creates the internal vertex array.
@@ -105,14 +105,14 @@ namespace galaxy
 			///
 			/// \param opacity Opacity from 0.0f to 1.0f.
 			///
-			void set_opacity(const float opacity) noexcept;
+			void set_opacity(const float opacity);
 
 			///
 			/// Get opacity.
 			///
 			/// \return float. In range 0.0f - 1.0f.
 			///
-			[[nodiscard]] float get_opacity() const noexcept;
+			[[nodiscard]] float get_opacity() const;
 
 			///
 			/// \brief Get texture width.
@@ -121,7 +121,7 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float get_width() const noexcept;
+			[[nodiscard]] float get_width() const;
 
 			///
 			/// \brief Get texture height.
@@ -130,14 +130,14 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float get_height() const noexcept;
+			[[nodiscard]] float get_height() const;
 
 			///
 			/// Get texture ID in texture atlas.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& texture_id() const noexcept;
+			[[nodiscard]] const std::string& texture_id() const;
 
 			///
 			/// Serializes object.
@@ -167,7 +167,7 @@ namespace galaxy
 			///
 			/// Configure renderable.
 			///
-			void configure() noexcept override;
+			void configure() override;
 
 		private:
 			///

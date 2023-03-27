@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RMLFile() noexcept = default;
+			RMLFile() = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~RMLFile() noexcept = default;
+			virtual ~RMLFile() = default;
 
 			///
 			/// Opens a file.

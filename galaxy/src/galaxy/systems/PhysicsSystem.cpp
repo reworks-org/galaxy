@@ -20,11 +20,11 @@ namespace galaxy
 {
 	namespace systems
 	{
-		PhysicsSystem::PhysicsSystem() noexcept
+		PhysicsSystem::PhysicsSystem()
 		{
 		}
 
-		PhysicsSystem::~PhysicsSystem() noexcept
+		PhysicsSystem::~PhysicsSystem()
 		{
 		}
 

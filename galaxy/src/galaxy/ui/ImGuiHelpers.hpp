@@ -27,34 +27,34 @@ namespace galaxy
 		///
 		/// \return Reference to initialized imgui io.
 		///
-		[[maybe_unused]] ImGuiIO& imgui_init_context() noexcept;
+		[[maybe_unused]] ImGuiIO& imgui_init_context();
 
 		///
 		/// New imgui frame with galaxy.
 		///
-		void imgui_new_frame() noexcept;
+		void imgui_new_frame();
 
 		///
 		/// Imgui setup to prep for rendering.
 		///
-		void imgui_prerender() noexcept;
+		void imgui_prerender();
 
 		///
 		/// Render imgui with galaxy.
 		///
-		void imgui_render() noexcept;
+		void imgui_render();
 
 		///
 		/// Cleanup imgui resources used by galaxy.
 		///
-		void imgui_destroy_context() noexcept;
+		void imgui_destroy_context();
 
 		///
 		/// Open a confirmation popup.
 		///
 		/// \param popup String ID of popup to open.
 		///
-		void imgui_open_confirm(const char* popup) noexcept;
+		void imgui_open_confirm(const char* popup);
 
 		///
 		/// Render the confirmation popup.
@@ -63,12 +63,12 @@ namespace galaxy
 		/// \param yes Callback if user selects the yes option.
 		/// \param no Callback if user selects the no option.
 		///
-		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {}) noexcept;
+		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {});
 
 		///
 		/// Make sure the next window opened is centered on the monitor.
 		///
-		void imgui_center_next_window() noexcept;
+		void imgui_center_next_window();
 
 		///
 		/// Trigger imgui actions from keyboard shortcut.
@@ -79,7 +79,7 @@ namespace galaxy
 		///
 		/// \return True if shortcut was pressed.
 		///
-		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags = ImGuiFocusedFlags_AnyWindow) noexcept;
+		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags = ImGuiFocusedFlags_AnyWindow);
 
 		///
 		/// Render an imgui image button with a galaxy texture.
@@ -89,7 +89,7 @@ namespace galaxy
 		///
 		/// \return True if button pressed.
 		///
-		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size) noexcept;
+		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size);
 
 		///
 		/// Display a galaxy image with imgui.
@@ -97,7 +97,7 @@ namespace galaxy
 		/// \param texture Texture to display.
 		/// \param size Size of the button.
 		///
-		void imgui_image(const graphics::Texture& texture, const ImVec2& size) noexcept;
+		void imgui_image(const graphics::Texture& texture, const ImVec2& size);
 
 		///
 		/// Display a galaxy image with imgui.
@@ -105,16 +105,16 @@ namespace galaxy
 		/// \param texture Render texture to display.
 		/// \param size Size of the button.
 		///
-		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size) noexcept;
+		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size);
 	} // namespace ui
 } // namespace galaxy
 
-[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b) noexcept
+[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)
 {
 	return ((a.x == b.x) && (a.y == b.y));
 }
 
-[[nodiscard]] inline const bool operator!=(const ImVec2& a, const ImVec2& b) noexcept
+[[nodiscard]] inline const bool operator!=(const ImVec2& a, const ImVec2& b)
 {
 	return !(a == b);
 }

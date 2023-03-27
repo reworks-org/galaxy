@@ -13,12 +13,12 @@ namespace galaxy
 {
 	namespace scene
 	{
-		UILayer::UILayer(std::string_view name, Scene* scene) noexcept
+		UILayer::UILayer(std::string_view name, Scene* scene)
 			: Layer {name, scene}
 		{
 		}
 
-		UILayer::~UILayer() noexcept
+		UILayer::~UILayer()
 		{
 		}
 
@@ -42,7 +42,7 @@ namespace galaxy
 		{
 		}
 
-		const std::string& UILayer::get_type() const noexcept
+		const std::string& UILayer::get_type() const
 		{
 			static std::string type = "UI";
 			return type;

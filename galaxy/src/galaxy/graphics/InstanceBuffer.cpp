@@ -15,14 +15,14 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		InstanceBuffer::InstanceBuffer() noexcept
+		InstanceBuffer::InstanceBuffer()
 			: m_ibo {0}
 			, m_instance_count {0}
 		{
 			glCreateBuffers(1, &m_ibo);
 		}
 
-		InstanceBuffer::InstanceBuffer(InstanceBuffer&& ib) noexcept
+		InstanceBuffer::InstanceBuffer(InstanceBuffer&& ib)
 			: m_ibo {0}
 		{
 			this->destroy();
@@ -33,7 +33,7 @@ namespace galaxy
 			ib.m_ibo = 0;
 		}
 
-		InstanceBuffer& InstanceBuffer::operator=(InstanceBuffer&& ib) noexcept
+		InstanceBuffer& InstanceBuffer::operator=(InstanceBuffer&& ib)
 		{
 			if (this != &ib)
 			{
@@ -48,7 +48,7 @@ namespace galaxy
 			return *this;
 		}
 
-		InstanceBuffer::~InstanceBuffer() noexcept
+		InstanceBuffer::~InstanceBuffer()
 		{
 			destroy();
 		}
@@ -66,12 +66,12 @@ namespace galaxy
 			}
 		}
 
-		void InstanceBuffer::clear() noexcept
+		void InstanceBuffer::clear()
 		{
 			glInvalidateBufferData(m_ibo);
 		}
 
-		void InstanceBuffer::destroy() noexcept
+		void InstanceBuffer::destroy()
 		{
 			if (m_ibo != 0)
 			{
@@ -80,12 +80,12 @@ namespace galaxy
 			}
 		}
 
-		unsigned int InstanceBuffer::id() const noexcept
+		unsigned int InstanceBuffer::id() const
 		{
 			return m_ibo;
 		}
 
-		unsigned int InstanceBuffer::instance_count() const noexcept
+		unsigned int InstanceBuffer::instance_count() const
 		{
 			return m_instance_count;
 		}

@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			AnimationSystem() noexcept;
+			AnimationSystem();
 
 			///
 			/// Destructor.
 			///
-			virtual ~AnimationSystem() noexcept;
+			virtual ~AnimationSystem();
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.

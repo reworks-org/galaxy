@@ -21,7 +21,7 @@ namespace galaxy
 			///
 			/// Virtual destructor.
 			///
-			virtual ~State() noexcept;
+			virtual ~State();
 
 			///
 			/// Configure state when pushed onto the stack.

@@ -13,14 +13,14 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		SpriteBatch::SpriteBatch() noexcept
+		SpriteBatch::SpriteBatch()
 			: m_max_bytes {0}
 			, m_bytes_used {0}
 			, m_index_count {0}
 		{
 		}
 
-		SpriteBatch::SpriteBatch(SpriteBatch&& sb) noexcept
+		SpriteBatch::SpriteBatch(SpriteBatch&& sb)
 			: m_max_bytes {0}
 			, m_bytes_used {0}
 			, m_index_count {0}
@@ -32,7 +32,7 @@ namespace galaxy
 			this->m_index_count = sb.m_index_count;
 		}
 
-		SpriteBatch& SpriteBatch::operator=(SpriteBatch&& sb) noexcept
+		SpriteBatch& SpriteBatch::operator=(SpriteBatch&& sb)
 		{
 			if (this != &sb)
 			{
@@ -46,7 +46,7 @@ namespace galaxy
 			return *this;
 		}
 
-		SpriteBatch::~SpriteBatch() noexcept
+		SpriteBatch::~SpriteBatch()
 		{
 			flush();
 		}
@@ -54,7 +54,7 @@ namespace galaxy
 		void SpriteBatch::init(const int max_quads)
 		{
 			std::vector<unsigned int> indices;
-			indices.reserve(max_quads * 6);
+			indices.reserve(static_cast<std::size_t>(max_quads) * 6);
 
 			auto increment = 0;
 			for (auto counter = 0; counter < max_quads; counter++)
@@ -71,10 +71,10 @@ namespace galaxy
 
 			m_max_bytes = max_quads * (sizeof(Vertex) * 4);
 			m_vao.create(max_quads * 4, indices, StorageFlag::DYNAMIC_DRAW);
-			m_vertices.reserve(max_quads * 4);
+			m_vertices.reserve(static_cast<std::size_t>(max_quads) * 4);
 		}
 
-		unsigned int SpriteBatch::push(const std::vector<Vertex>& vertices) noexcept
+		unsigned int SpriteBatch::push(const std::vector<Vertex>& vertices)
 		{
 			const auto size_bytes = vertices.size() * sizeof(Vertex);
 
@@ -96,7 +96,7 @@ namespace galaxy
 			}
 		}
 
-		void SpriteBatch::commit() noexcept
+		void SpriteBatch::commit()
 		{
 			// Six indicies per quad. Number of quads is total vertexs / 4.
 			// The size here is always a multiple of 4 so no "uneven" division takes place.
@@ -110,22 +110,22 @@ namespace galaxy
 			m_vertices.clear();
 		}
 
-		void SpriteBatch::sub_buffer(const unsigned int index, std::span<Vertex> vertices) noexcept
+		void SpriteBatch::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
 		{
 			m_vao.sub_buffer(index, vertices);
 		}
 
-		void SpriteBatch::flush() noexcept
+		void SpriteBatch::flush()
 		{
 			m_vao.clear();
 		}
 
-		int SpriteBatch::count() const noexcept
+		int SpriteBatch::count() const
 		{
 			return m_index_count;
 		}
 
-		const VertexArray& SpriteBatch::vao() const noexcept
+		const VertexArray& SpriteBatch::vao() const
 		{
 			return m_vao;
 		}

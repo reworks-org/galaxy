@@ -33,7 +33,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Shader() noexcept;
+			Shader();
 
 			///
 			/// Path Constructor.
@@ -53,17 +53,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Shader(Shader&&) noexcept;
+			Shader(Shader&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Shader& operator=(Shader&&) noexcept;
+			Shader& operator=(Shader&&);
 
 			///
 			/// Destructor.
 			///
-			~Shader() noexcept;
+			~Shader();
 
 			///
 			/// Loads a shader into OpenGL from source and sets up the shader program.
@@ -93,17 +93,17 @@ namespace galaxy
 			///
 			/// Free up resources used by shader.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Enable this shader for rendering.
 			///
-			void bind() noexcept;
+			void bind();
 
 			///
 			/// Disable this currently active shader.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// \brief Specialized variadic template for setting shader uniforms.
@@ -149,7 +149,7 @@ namespace galaxy
 			///
 			/// \return unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 		private:
 			///

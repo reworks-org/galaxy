@@ -18,7 +18,7 @@
 
 namespace sc
 {
-	Menu::Menu(std::string_view name, scene::Scene* scene) noexcept
+	Menu::Menu(std::string_view name, scene::Scene* scene)
 		: Layer {name, scene}
 		, m_load {false}
 	{
@@ -27,7 +27,7 @@ namespace sc
 		m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}
 
-	Menu::~Menu() noexcept
+	Menu::~Menu()
 	{
 	}
 
@@ -107,7 +107,7 @@ namespace sc
 		ui::imgui_render();
 	}
 
-	const std::string& Menu::get_type() const noexcept
+	const std::string& Menu::get_type() const
 	{
 		static_assert(true, "Do Not Call.");
 

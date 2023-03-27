@@ -47,7 +47,7 @@ namespace galaxy
 			///
 			/// \return True if resource was found.
 			///
-			[[nodiscard]] bool has(const std::string& key) noexcept;
+			[[nodiscard]] bool has(const std::string& key);
 
 			///
 			/// Retrieve a resource.
@@ -56,34 +56,34 @@ namespace galaxy
 			///
 			/// \return Returns a pointer to the resource.
 			///
-			[[nodiscard]] std::shared_ptr<Resource> get(const std::string& key) noexcept;
+			[[nodiscard]] std::shared_ptr<Resource> get(const std::string& key);
 
 			///
 			/// Check if the cache has any resources in it.
 			///
 			/// \return True if empty, false otherwise.
 			///
-			[[nodiscard]] bool empty() const noexcept;
+			[[nodiscard]] bool empty() const;
 
 			///
 			/// Get entire resource cache.
 			///
 			/// \return Reference to the resource holders cache.
 			///
-			[[nodiscard]] CacheMap& cache() noexcept;
+			[[nodiscard]] CacheMap& cache();
 
 			///
 			/// Get a list of keys in the cache.
 			///
 			/// \return A vector of strings.
 			///
-			[[nodiscard]] std::vector<std::string> keys() noexcept;
+			[[nodiscard]] std::vector<std::string> keys();
 
 		protected:
 			///
 			/// Constructor.
 			///
-			Cache() noexcept = default;
+			Cache() = default;
 
 		protected:
 			///
@@ -126,13 +126,13 @@ namespace galaxy
 		}
 
 		template<meta::not_memory Resource>
-		inline bool Cache<Resource>::has(const std::string& key) noexcept
+		inline bool Cache<Resource>::has(const std::string& key)
 		{
 			return m_cache.contains(key);
 		}
 
 		template<meta::not_memory Resource>
-		inline std::shared_ptr<Resource> Cache<Resource>::get(const std::string& key) noexcept
+		inline std::shared_ptr<Resource> Cache<Resource>::get(const std::string& key)
 		{
 			if (has(key))
 			{
@@ -143,19 +143,19 @@ namespace galaxy
 		}
 
 		template<meta::not_memory Resource>
-		inline bool Cache<Resource>::empty() const noexcept
+		inline bool Cache<Resource>::empty() const
 		{
 			return m_cache.empty();
 		}
 
 		template<meta::not_memory Resource>
-		inline Cache<Resource>::CacheMap& Cache<Resource>::cache() noexcept
+		inline Cache<Resource>::CacheMap& Cache<Resource>::cache()
 		{
 			return m_cache;
 		}
 
 		template<meta::not_memory Resource>
-		inline std::vector<std::string> Cache<Resource>::keys() noexcept
+		inline std::vector<std::string> Cache<Resource>::keys()
 		{
 			std::vector<std::string> keys;
 			keys.reserve(m_cache.size());

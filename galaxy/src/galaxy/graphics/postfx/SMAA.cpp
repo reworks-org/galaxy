@@ -15959,7 +15959,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		SMAA::SMAA(const int width, const int height) noexcept
+		SMAA::SMAA(const int width, const int height)
 			: m_neighbour_tex {0}
 			, m_edge_tex {0}
 			, m_blend_tex {0}
@@ -16059,7 +16059,7 @@ namespace galaxy
 			m_smaa_neighbourhood.set_uniform("blend_tex", 1);
 		}
 
-		SMAA::~SMAA() noexcept
+		SMAA::~SMAA()
 		{
 			glDeleteFramebuffers(1, &m_blend_fbo);
 			glDeleteFramebuffers(1, &m_edge_fbo);

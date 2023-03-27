@@ -18,12 +18,12 @@ namespace galaxy
 {
 	namespace scene
 	{
-		SceneManager::SceneManager() noexcept
+		SceneManager::SceneManager()
 			: m_current {nullptr}
 		{
 		}
 
-		SceneManager::~SceneManager() noexcept
+		SceneManager::~SceneManager()
 		{
 			clear();
 		}
@@ -101,7 +101,7 @@ namespace galaxy
 			}
 		}
 
-		std::weak_ptr<Scene> SceneManager::get(const std::string& name) noexcept
+		std::weak_ptr<Scene> SceneManager::get(const std::string& name)
 		{
 			if (m_scenes.contains(name))
 			{
@@ -170,17 +170,17 @@ namespace galaxy
 			}
 		}
 
-		Scene& SceneManager::current() noexcept
+		Scene& SceneManager::current()
 		{
 			return *m_current;
 		}
 
-		bool SceneManager::has_current() const noexcept
+		bool SceneManager::has_current() const
 		{
 			return m_current != nullptr;
 		}
 
-		SceneContainer& SceneManager::all() noexcept
+		SceneContainer& SceneManager::all()
 		{
 			return m_scenes;
 		}

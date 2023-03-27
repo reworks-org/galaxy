@@ -28,20 +28,20 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~RMLInput() noexcept;
+			~RMLInput();
 
 			///
 			/// Retrieve instance.
 			///
 			/// \return Returns static reference.
 			///
-			[[nodiscard]] static RMLInput& handle() noexcept;
+			[[nodiscard]] static RMLInput& handle();
 
 		private:
 			///
 			/// Constructor.
 			///
-			RMLInput() noexcept;
+			RMLInput();
 
 			///
 			/// Move constructor.

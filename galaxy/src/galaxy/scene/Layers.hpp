@@ -35,12 +35,12 @@ namespace galaxy
 			///
 			/// \param scene Scene these layers belong to.
 			///
-			Layers(Scene* scene) noexcept;
+			Layers(Scene* scene);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Layers() noexcept;
+			virtual ~Layers();
 
 			///
 			/// Create a layer.
@@ -110,14 +110,14 @@ namespace galaxy
 			///
 			/// \return Const ref to layer stack.
 			///
-			const LayerStack& stack() const noexcept;
+			const LayerStack& stack() const;
 
 			///
 			/// Get layer cache.
 			///
 			/// \return Const ref to layer cache.
 			///
-			LayerContainer& cache() noexcept;
+			LayerContainer& cache();
 
 			///
 			/// Serializes object.

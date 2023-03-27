@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ScriptSystem() noexcept;
+			ScriptSystem();
 
 			///
 			/// Destructor.
 			///
-			virtual ~ScriptSystem() noexcept;
+			virtual ~ScriptSystem();
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.

@@ -9,13 +9,13 @@
 
 namespace sc
 {
-	Selected::Selected() noexcept
+	Selected::Selected()
 		: m_selected {entt::null}
 		, m_world {nullptr}
 	{
 	}
 
-	Selected::~Selected() noexcept
+	Selected::~Selected()
 	{
 		m_world    = nullptr;
 		m_selected = entt::null;

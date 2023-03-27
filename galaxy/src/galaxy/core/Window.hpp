@@ -31,7 +31,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Window() noexcept;
+			Window();
 
 			///
 			/// \brief Window creation constructor.
@@ -59,29 +59,29 @@ namespace galaxy
 			///
 			/// \return Returns true if window is currently open, false if not.
 			///
-			[[nodiscard]] bool is_open() const noexcept;
+			[[nodiscard]] bool is_open() const;
 
 			///
 			/// \brief Closes the current window.
 			///
 			/// Internally, sets isOpen to false.
 			///
-			void close() noexcept;
+			void close();
 
 			///
 			/// Destroys Window and related context and data.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Poll for events.
 			///
-			void poll_events() noexcept;
+			void poll_events();
 
 			///
 			/// Prepare window for rendering.
 			///
-			void begin() noexcept;
+			void begin();
 
 			///
 			/// Finalize rendering.
@@ -94,7 +94,7 @@ namespace galaxy
 			/// \param width Width of the window.
 			/// \param height Height of the window.
 			///
-			void resize(const int width, const int height) noexcept;
+			void resize(const int width, const int height);
 
 			///
 			/// Trigger all queued events for a dispatcher.
@@ -106,83 +106,83 @@ namespace galaxy
 			///
 			/// Pop all queued events.
 			///
-			void pop_queued_events() noexcept;
+			void pop_queued_events();
 
 			///
 			/// \brief Notify's user of an event without interrupting.
 			///
 			/// Think like windows flashing tray icon.
 			///
-			void request_attention() noexcept;
+			void request_attention();
 
 			///
 			/// Force window into focus.
 			///
-			void focus() const noexcept;
+			void focus() const;
 
 			///
 			/// Maximize window.
 			///
-			void maximize() const noexcept;
+			void maximize() const;
 
 			///
 			/// Restore window.
 			///
-			void restore() const noexcept;
+			void restore() const;
 
 			///
 			/// Minimize window.
 			///
-			void minimize() const noexcept;
+			void minimize() const;
 
 			///
 			/// \brief Allow the window to be closed by the OS.
 			///
 			/// I.e from ALT+F4 or the close button in the window frame.
 			///
-			void allow_native_closing() noexcept;
+			void allow_native_closing();
 
 			///
 			/// \brief Prevent the window from being closed by the OS.
 			///
 			/// I.e from ALT+F4 or the close button in the window frame.
 			///
-			void prevent_native_closing() noexcept;
+			void prevent_native_closing();
 
 			///
 			/// Set window title.
 			///
 			/// \param title New title to set window to.
 			///
-			void set_title(const char* title) noexcept;
+			void set_title(const char* title);
 
 			///
 			/// Set window icon.
 			///
 			/// \param icon Icon to load.
 			///
-			void set_icon(std::string_view icon) noexcept;
+			void set_icon(std::string_view icon);
 
 			///
 			/// Set window icon.
 			///
 			/// \param buffer Memory buffer containing pixels.
 			///
-			void set_icon(std::span<unsigned char> buffer) noexcept;
+			void set_icon(std::span<unsigned char> buffer);
 
 			///
 			/// Check if windows is in focus.
 			///
 			/// \return True if window is in input focus.
 			///
-			[[nodiscard]] bool is_focused() const noexcept;
+			[[nodiscard]] bool is_focused() const;
 
 			///
 			/// Get queued events.
 			///
 			/// \return Reference to EventQueue.
 			///
-			[[nodiscard]] events::Queue& queued_events() noexcept;
+			[[nodiscard]] events::Queue& queued_events();
 
 			///
 			/// Get a window input device.
@@ -192,56 +192,56 @@ namespace galaxy
 			/// \return Reference to the input device.
 			///
 			template<meta::is_input_device Device>
-			[[nodiscard]] Device& get_input() noexcept;
+			[[nodiscard]] Device& get_input();
 
 			///
 			/// \brief Get a list of paths dropped on window.
 			///
 			/// Reset when a new path is dropped.
 			///
-			[[nodiscard]] const std::vector<std::string>& get_drop_paths() const noexcept;
+			[[nodiscard]] const std::vector<std::string>& get_drop_paths() const;
 
 			///
 			/// Get window width.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const noexcept;
+			[[nodiscard]] int get_width() const;
 
 			///
 			/// Get window height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const noexcept;
+			[[nodiscard]] int get_height() const;
 
 			///
 			/// Get window width.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_widthf() const noexcept;
+			[[nodiscard]] float get_widthf() const;
 
 			///
 			/// Get window height.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_heightf() const noexcept;
+			[[nodiscard]] float get_heightf() const;
 
 			///
 			/// Get framebuffer size taking into account DPI.
 			///
 			/// \return glm::ivec2.
 			///
-			[[nodiscard]] glm::ivec2 get_framebuffer_size() noexcept;
+			[[nodiscard]] glm::ivec2 get_framebuffer_size();
 
 			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns pointer to GLFWwindow.
 			///
-			[[nodiscard]] GLFWwindow* handle() noexcept;
+			[[nodiscard]] GLFWwindow* handle();
 
 		private:
 			///
@@ -317,7 +317,7 @@ namespace galaxy
 		};
 
 		template<meta::is_input_device Device>
-		inline Device& Window::get_input() noexcept
+		inline Device& Window::get_input()
 		{
 			if constexpr (std::is_same<Device, input::Keyboard>::value)
 			{

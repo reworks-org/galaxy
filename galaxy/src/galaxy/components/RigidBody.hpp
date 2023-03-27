@@ -39,29 +39,29 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RigidBody() noexcept;
+			RigidBody();
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			RigidBody(const nlohmann::json& json) noexcept;
+			RigidBody(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			RigidBody(RigidBody&&) noexcept;
+			RigidBody(RigidBody&&);
 
 			///
 			/// Move assignment operator.
 			///
-			RigidBody& operator=(RigidBody&&) noexcept;
+			RigidBody& operator=(RigidBody&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~RigidBody() noexcept;
+			virtual ~RigidBody();
 
 			///
 			/// Set new box2d collider shape.
@@ -69,112 +69,112 @@ namespace galaxy
 			/// \param hw Half extant width.
 			/// \param hh Half extant height.
 			///
-			void set_shape(const float hw, const float hh) noexcept;
+			void set_shape(const float hw, const float hh);
 
 			///
 			/// Set body type.
 			///
 			/// \param type Box2d body enum type.
 			///
-			void set_type(const b2BodyType type) noexcept;
+			void set_type(const b2BodyType type);
 
 			///
 			/// Set body density.
 			///
 			/// \param density Affects mass of body.
 			///
-			void set_density(const float density) noexcept;
+			void set_density(const float density);
 
 			///
 			/// Set friction of body.
 			///
 			/// \param friction Affects movement against other bodies during collision.
 			///
-			void set_friction(const float friction) noexcept;
+			void set_friction(const float friction);
 
 			///
 			/// Set restitution of body.
 			///
 			/// \param restitution Affects bounce of body.
 			///
-			void set_restitution(const float restitution) noexcept;
+			void set_restitution(const float restitution);
 
 			///
 			/// Set restitution threshold.
 			///
 			/// \param restitution_threshold Affects bounce threshold of body.
 			///
-			void set_restitution_threshold(const float restitution_threshold) noexcept;
+			void set_restitution_threshold(const float restitution_threshold);
 
 			///
 			/// Set if body is a bullet type.
 			///
 			/// \param is_bullet Enables continous collision.
 			///
-			void set_bullet(const bool is_bullet) noexcept;
+			void set_bullet(const bool is_bullet);
 
 			///
 			/// Set rotation status of body.
 			///
 			/// \param fixed_rotation Can body rotate.
 			///
-			void set_fixed_rotation(const bool fixed_rotation) noexcept;
+			void set_fixed_rotation(const bool fixed_rotation);
 
 			///
 			/// Get body shape.
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_shape() const noexcept;
+			[[nodiscard]] const glm::vec2& get_shape() const;
 
 			///
 			/// Get body type.
 			///
 			/// \return Box2d enum body type.
 			///
-			[[nodiscard]] b2BodyType get_type() const noexcept;
+			[[nodiscard]] b2BodyType get_type() const;
 
 			///
 			/// Get body density.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_density() const noexcept;
+			[[nodiscard]] float get_density() const;
 
 			///
 			/// Get body friction.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_friction() const noexcept;
+			[[nodiscard]] float get_friction() const;
 
 			///
 			/// Get body restitution.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_restitution() const noexcept;
+			[[nodiscard]] float get_restitution() const;
 
 			///
 			/// Get restitution threshold.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_restitution_threshold() const noexcept;
+			[[nodiscard]] float get_restitution_threshold() const;
 
 			///
 			///
 			///
 			/// \return True if continously colliding.
 			///
-			[[nodiscard]] bool is_bullet() const noexcept;
+			[[nodiscard]] bool is_bullet() const;
 
 			///
 			/// Get rotation status.
 			///
 			/// \return True if body can't rotate.
 			///
-			[[nodiscard]] bool is_rotation_fixed() const noexcept;
+			[[nodiscard]] bool is_rotation_fixed() const;
 
 			///
 			/// Serializes object.

@@ -49,7 +49,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		PostProcess::PostProcess() noexcept
+		PostProcess::PostProcess()
 			: m_screen_vbo {0}
 			, m_screen_vao {0}
 			, m_output_fb {0}
@@ -100,7 +100,7 @@ namespace galaxy
 			m_fb.create(width, height);
 		}
 
-		void PostProcess::destroy() noexcept
+		void PostProcess::destroy()
 		{
 			m_effects.clear();
 			m_output.destroy();
@@ -130,12 +130,12 @@ namespace galaxy
 			}
 		}
 
-		void PostProcess::bind() noexcept
+		void PostProcess::bind()
 		{
 			m_fb.bind(true);
 		}
 
-		void PostProcess::unbind() noexcept
+		void PostProcess::unbind()
 		{
 			m_fb.unbind();
 		}
@@ -153,7 +153,7 @@ namespace galaxy
 			}
 		}
 
-		void PostProcess::render_output() noexcept
+		void PostProcess::render_output()
 		{
 			m_output.bind();
 

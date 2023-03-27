@@ -25,46 +25,46 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Guid() noexcept;
+			Guid();
 
 			///
 			/// Move constructor.
 			///
-			Guid(Guid&&) noexcept;
+			Guid(Guid&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Guid& operator=(Guid&&) noexcept;
+			Guid& operator=(Guid&&);
 
 			///
 			/// Copy constructor.
 			///
-			Guid(const Guid&) noexcept;
+			Guid(const Guid&);
 
 			///
 			/// Copy assignment operator.
 			///
-			Guid& operator=(const Guid&) noexcept;
+			Guid& operator=(const Guid&);
 
 			///
 			/// Destructor.
 			///
-			~Guid() noexcept = default;
+			~Guid() = default;
 
 			///
 			/// Get the GUID as a string.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& to_string() const noexcept;
+			[[nodiscard]] const std::string& to_string() const;
 
 			///
 			/// Check to make sure Guid is not empty.
 			///
 			/// \return True if guid is invalid or empty, usually from a move.
 			///
-			[[nodiscard]] bool is_empty() const noexcept;
+			[[nodiscard]] bool is_empty() const;
 
 			///
 			/// Equality comparison.
@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			/// \return True if equal.
 			///
-			[[nodiscard]] bool operator==(const Guid& rhs) noexcept;
+			[[nodiscard]] bool operator==(const Guid& rhs);
 
 			///
 			/// Inequality comparison.
@@ -82,7 +82,7 @@ namespace galaxy
 			///
 			/// \return True if NOT equal.
 			///
-			[[nodiscard]] bool operator!=(const Guid& rhs) noexcept;
+			[[nodiscard]] bool operator!=(const Guid& rhs);
 
 			///
 			/// Comparison operator.
@@ -109,7 +109,7 @@ namespace std
 		///
 		/// Hash specialization function for Guid.
 		///
-		std::size_t operator()(const galaxy::utils::Guid& guid) const noexcept
+		std::size_t operator()(const galaxy::utils::Guid& guid) const
 		{
 			return hash<std::string>()(guid.to_string());
 		}

@@ -37,7 +37,7 @@ namespace galaxy
 			/// \return Pointer to new service.
 			///
 			template<typename... Args>
-			[[maybe_unused]] static Service& make(Args&&... args) noexcept;
+			[[maybe_unused]] static Service& make(Args&&... args);
 
 			///
 			/// Get a reference to the service.
@@ -51,7 +51,7 @@ namespace galaxy
 			///
 			/// \return True if service has been created.
 			///
-			[[nodiscard]] static bool empty() noexcept;
+			[[nodiscard]] static bool empty();
 
 			///
 			/// \brief Delete the service and frees up the memory.
@@ -100,7 +100,7 @@ namespace galaxy
 
 		template<meta::is_class Service>
 		template<typename... Args>
-		inline Service& ServiceLocator<Service>::make(Args&&... args) noexcept
+		inline Service& ServiceLocator<Service>::make(Args&&... args)
 		{
 			m_service = std::make_unique<Service>(std::forward<Args>(args)...);
 			return ref();
@@ -118,7 +118,7 @@ namespace galaxy
 		}
 
 		template<meta::is_class Service>
-		inline bool ServiceLocator<Service>::empty() noexcept
+		inline bool ServiceLocator<Service>::empty()
 		{
 			return m_service == nullptr;
 		}

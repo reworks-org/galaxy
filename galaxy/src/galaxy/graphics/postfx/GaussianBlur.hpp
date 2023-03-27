@@ -51,12 +51,12 @@ namespace galaxy
 			/// \param width Width of internal framebuffer.
 			/// \param height Height of internal framebuffer.
 			///
-			GaussianBlur(const int width, const int height) noexcept;
+			GaussianBlur(const int width, const int height);
 
 			///
 			/// Destructor.
 			///
-			virtual ~GaussianBlur() noexcept = default;
+			virtual ~GaussianBlur() = default;
 
 			///
 			/// Resize framebuffers.
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			/// \param strength Enum of strength values.
 			///
-			void set_strength(const Strength strength) noexcept;
+			void set_strength(const Strength strength);
 
 		private:
 			///

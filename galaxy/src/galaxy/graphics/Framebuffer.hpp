@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// You MUST call init() if you use this constructor.
 			///
-			Framebuffer() noexcept;
+			Framebuffer();
 
 			///
 			/// \brief Argument constructor.
@@ -35,17 +35,17 @@ namespace galaxy
 			/// \param width Usually screen width or size of render texture.
 			/// \param height Usually screen height or size of render texture.
 			///
-			Framebuffer(const int width, const int height) noexcept;
+			Framebuffer(const int width, const int height);
 
 			///
 			/// Move constructor.
 			///
-			Framebuffer(Framebuffer&&) noexcept;
+			Framebuffer(Framebuffer&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Framebuffer& operator=(Framebuffer&&) noexcept;
+			Framebuffer& operator=(Framebuffer&&);
 
 			///
 			/// Destructor.
@@ -60,7 +60,7 @@ namespace galaxy
 			/// \param width Usually screen width or size of render texture.
 			/// \param height Usually screen height or size of render texture.
 			///
-			void init(const int width, const int height) noexcept;
+			void init(const int width, const int height);
 
 			///
 			/// Add a colour attachment to the framebuffer.
@@ -111,31 +111,31 @@ namespace galaxy
 			///
 			/// \param clear Should the framebuffer clear attachments.
 			///
-			void bind(const bool clear) noexcept;
+			void bind(const bool clear);
 
 			///
 			/// Unbind framebuffer.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// Clear framebuffer attachments.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// Clear a specific attachment.
 			///
 			/// \param index Specific index of attachment to clear.
 			///
-			void clear(const unsigned int index) noexcept;
+			void clear(const unsigned int index);
 
 			///
 			/// Set clear colour.
 			///
 			/// \param col Colour to clear framebuffer to.
 			///
-			void set_clear_colour(graphics::Colour& col) noexcept;
+			void set_clear_colour(graphics::Colour& col);
 
 			///
 			/// Clear storagebuffer.
@@ -143,7 +143,7 @@ namespace galaxy
 			/// \param index Index of attachment to read.
 			/// \param val Value to clear buffer to.
 			///
-			void clear_storagebuffer(const unsigned int index, const int val) noexcept;
+			void clear_storagebuffer(const unsigned int index, const int val);
 
 			///
 			/// Read storage buffer.
@@ -154,21 +154,21 @@ namespace galaxy
 			///
 			/// \returns Integer read at pixel coords.
 			///
-			int read_storagebuffer(const unsigned int index, const int x, const int y) noexcept;
+			int read_storagebuffer(const unsigned int index, const int x, const int y);
 
 			///
 			/// Get width.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const noexcept;
+			[[nodiscard]] int get_width() const;
 
 			///
 			/// Get height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const noexcept;
+			[[nodiscard]] int get_height() const;
 
 			///
 			/// \brief Get depth attachment.
@@ -177,7 +177,7 @@ namespace galaxy
 			///
 			/// \return Unsigned int. 0 if invalid.
 			///
-			[[nodiscard]] unsigned int get_depth_attachment() const noexcept;
+			[[nodiscard]] unsigned int get_depth_attachment() const;
 
 			///
 			/// \brief Get depth renderbuffer.
@@ -186,28 +186,28 @@ namespace galaxy
 			///
 			/// \return Unsigned int. 0 if invalid.
 			///
-			[[nodiscard]] unsigned int get_depth_renderbuffer() const noexcept;
+			[[nodiscard]] unsigned int get_depth_renderbuffer() const;
 
 			///
 			/// Get all attachments.
 			///
 			/// \return Reference to const vector of OpenGL texture ids.
 			///
-			[[nodiscard]] std::vector<unsigned int> get_attachments() const noexcept;
+			[[nodiscard]] std::vector<unsigned int> get_attachments() const;
 
 			///
 			/// Get all renderbuffer attachments.
 			///
 			/// \return Reference to const vector of OpenGL renderbuffer ids.
 			///
-			[[nodiscard]] const std::vector<unsigned int>& get_renderbuffers() const noexcept;
+			[[nodiscard]] const std::vector<unsigned int>& get_renderbuffers() const;
 
 			///
 			/// Get OpenGL framebuffer object.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 		private:
 			///
@@ -223,12 +223,12 @@ namespace galaxy
 			///
 			/// Add drawbuffers to framebuffer.
 			///
-			void add_drawbuffers() noexcept;
+			void add_drawbuffers();
 
 			///
 			/// Destroy all data used by framebuffer.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 		private:
 			///

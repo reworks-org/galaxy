@@ -27,29 +27,29 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Texture() noexcept;
+			Texture();
 
 			///
 			/// Argument Constructor.
 			///
 			/// \param file File on disk to load from.
 			///
-			Texture(std::string_view file) noexcept;
+			Texture(std::string_view file);
 
 			///
 			/// Move constructor.
 			///
-			Texture(Texture&&) noexcept;
+			Texture(Texture&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Texture& operator=(Texture&&) noexcept;
+			Texture& operator=(Texture&&);
 
 			///
 			/// Destructor.
 			///
-			~Texture() noexcept;
+			~Texture();
 
 			///
 			///  Loads texture from file.
@@ -79,33 +79,33 @@ namespace galaxy
 			///
 			/// Activate texture context.
 			///
-			void bind() noexcept;
+			void bind();
 
 			///
 			/// Deactivate texture context.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// Set texture mode.
 			///
 			/// \param mode I.e. GL_REPEAT, GL_CLAMP_TO_EDGE, etc.
 			///
-			void set_mode(const TextureModes mode) noexcept;
+			void set_mode(const TextureModes mode);
 
 			///
 			/// Set filter when texture is (up/down)scaled in OpenGL.
 			///
 			/// \param filter Filtering to use for min/mag.
 			///
-			void set_filter(const TextureFilters filter) noexcept;
+			void set_filter(const TextureFilters filter);
 
 			///
 			/// Set ansiotropic filtering level.
 			///
 			/// \param level 2, 4, 8, etc...
 			///
-			void set_anisotropy(const int level) noexcept;
+			void set_anisotropy(const int level);
 
 			///
 			/// \brief Get texture width.
@@ -114,7 +114,7 @@ namespace galaxy
 			///
 			/// \return Width as int.
 			///
-			[[nodiscard]] int get_width() const noexcept;
+			[[nodiscard]] int get_width() const;
 
 			///
 			/// \brief Get texture height.
@@ -123,7 +123,7 @@ namespace galaxy
 			///
 			/// \return Height as int.
 			///
-			[[nodiscard]] int get_height() const noexcept;
+			[[nodiscard]] int get_height() const;
 
 			///
 			/// \brief Get texture width.
@@ -132,7 +132,7 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float get_widthf() const noexcept;
+			[[nodiscard]] float get_widthf() const;
 
 			///
 			/// \brief Get texture height.
@@ -141,21 +141,21 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float get_heightf() const noexcept;
+			[[nodiscard]] float get_heightf() const;
 
 			///
 			/// Get Textures current Ansiotrophy level.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] int get_aniso_level() noexcept;
+			[[nodiscard]] int get_aniso_level();
 
 			///
 			/// Gets internal OpenGL id.
 			///
 			/// \return Const unsigned int.
 			///
-			[[nodiscard]] unsigned int handle() const noexcept;
+			[[nodiscard]] unsigned int handle() const;
 
 		private:
 			///

@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Serializable() noexcept;
+			virtual ~Serializable();
 
 			///
 			/// Move assignment operator.
@@ -55,7 +55,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Serializable() noexcept;
+			Serializable();
 		};
 	} // namespace fs
 } // namespace galaxy

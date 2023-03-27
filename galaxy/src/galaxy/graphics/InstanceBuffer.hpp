@@ -25,22 +25,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			InstanceBuffer() noexcept;
+			InstanceBuffer();
 
 			///
 			/// Move constructor.
 			///
-			InstanceBuffer(InstanceBuffer&&) noexcept;
+			InstanceBuffer(InstanceBuffer&&);
 
 			///
 			/// Move assignment operator.
 			///
-			InstanceBuffer& operator=(InstanceBuffer&&) noexcept;
+			InstanceBuffer& operator=(InstanceBuffer&&);
 
 			///
 			/// Destructor.
 			///
-			~InstanceBuffer() noexcept;
+			~InstanceBuffer();
 
 			///
 			/// Create instance buffer object.
@@ -52,28 +52,28 @@ namespace galaxy
 			///
 			/// Clear all data from buffer.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// \brief Destroy Instance Buffer Object.
 			///
 			/// Also called by destructor, you do not have to call this.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 			///
 			/// Get current instance object count.
 			///
 			/// \return Const unsigned int.
 			///
-			[[nodiscard]] unsigned int instance_count() const noexcept;
+			[[nodiscard]] unsigned int instance_count() const;
 
 		private:
 			///

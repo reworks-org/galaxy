@@ -46,51 +46,51 @@ namespace galaxy
 			///
 			/// \param allow_rotate Can the camera rotate?
 			///
-			Camera(bool allow_rotate = false) noexcept;
+			Camera(bool allow_rotate = false);
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON object.
 			///
-			Camera(const nlohmann::json& json) noexcept;
+			Camera(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Camera(Camera&&) noexcept;
+			Camera(Camera&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Camera& operator=(Camera&&) noexcept;
+			Camera& operator=(Camera&&);
 
 			///
 			/// Copy constructor.
 			///
-			Camera(const Camera&) noexcept;
+			Camera(const Camera&);
 
 			///
 			/// Copy assignment operator.
 			///
-			Camera& operator=(const Camera&) noexcept;
+			Camera& operator=(const Camera&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Camera() noexcept;
+			virtual ~Camera();
 
 			///
 			/// Handle user input events.
 			///
-			void process_events() noexcept;
+			void process_events();
 
 			///
 			/// Event processing method for scroll event for Camera.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///
-			void on_mouse_wheel(events::MouseWheel& e) noexcept;
+			void on_mouse_wheel(events::MouseWheel& e);
 
 			///
 			/// \brief Set Viewport.
@@ -100,7 +100,7 @@ namespace galaxy
 			/// \param width Width of viewport, independant of window size.
 			/// \param height Height of viewport, independant of window size.
 			///
-			void set_viewport(const float width, const float height) noexcept;
+			void set_viewport(const float width, const float height);
 
 			///
 			/// Sets position without moving the entity.
@@ -108,77 +108,77 @@ namespace galaxy
 			/// \param x X position to set.
 			/// \param y Y position to set.
 			///
-			void set_pos(const float x, const float y) noexcept;
+			void set_pos(const float x, const float y);
 
 			///
 			/// Set the entity rotation.
 			///
 			/// \param degrees Min 0, max 360.
 			///
-			void set_rotation(const float degrees) noexcept;
+			void set_rotation(const float degrees);
 
 			///
 			/// Zoom camera view.
 			///
 			/// \param offset Camera view scroll offset.
 			///
-			void set_zoom(const float offset) noexcept;
+			void set_zoom(const float offset);
 
 			///
 			/// Get camera x pos.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_x() const noexcept;
+			[[nodiscard]] float get_x() const;
 
 			///
 			/// Get camera y pos.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_y() const noexcept;
+			[[nodiscard]] float get_y() const;
 
 			///
 			/// Get camera rotation.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_rotation() const noexcept;
+			[[nodiscard]] float get_rotation() const;
 
 			///
 			/// Get camera zoom.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_zoom() const noexcept;
+			[[nodiscard]] float get_zoom() const;
 
 			///
 			/// Get camera viewport.
 			///
 			/// \return glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_viewport() const noexcept;
+			[[nodiscard]] const glm::vec2& get_viewport() const;
 
 			///
 			/// Retrieve internal transformation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_view() noexcept;
+			[[nodiscard]] const glm::mat4& get_view();
 
 			///
 			/// Get the Camera projection.
 			///
 			/// \return Const glm::mat4 reference.
 			///
-			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+			[[nodiscard]] const glm::mat4& get_proj();
 
 			///
 			/// Get camera view and proj.
 			///
 			/// \return Reference to camera data.
 			///
-			[[nodiscard]] Data& get_data() noexcept;
+			[[nodiscard]] Data& get_data();
 
 			///
 			/// Serializes object.
@@ -208,12 +208,12 @@ namespace galaxy
 			/// \param bottom Bottom point of ortho perspective.
 			/// \param top Top point of ortho perspective.
 			///
-			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+			void set_projection(const float left, const float right, const float bottom, const float top);
 
 			///
 			/// Recalculates the model view matrix.
 			///
-			void recalculate() noexcept;
+			void recalculate();
 
 		public:
 			///

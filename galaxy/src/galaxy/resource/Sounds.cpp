@@ -15,11 +15,11 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Sounds::Sounds() noexcept
+		Sounds::Sounds()
 		{
 		}
 
-		Sounds::~Sounds() noexcept
+		Sounds::~Sounds()
 		{
 		}
 

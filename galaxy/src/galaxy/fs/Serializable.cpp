@@ -11,11 +11,11 @@ namespace galaxy
 {
 	namespace fs
 	{
-		Serializable::~Serializable() noexcept
+		Serializable::~Serializable()
 		{
 		}
 
-		Serializable::Serializable() noexcept
+		Serializable::Serializable()
 		{
 		}
 	} // namespace fs

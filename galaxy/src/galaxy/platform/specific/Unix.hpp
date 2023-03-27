@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		/// Sets up debug terminal.
 		///
-		void configure_terminal() const noexcept;
+		void configure_terminal() const;
 	} // namespace platform
 } // namespace galaxy
 

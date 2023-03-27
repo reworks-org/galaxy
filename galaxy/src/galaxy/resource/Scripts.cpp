@@ -14,12 +14,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Scripts::Scripts() noexcept
+		Scripts::Scripts()
 			: m_folder {""}
 		{
 		}
 
-		Scripts::~Scripts() noexcept
+		Scripts::~Scripts()
 		{
 		}
 

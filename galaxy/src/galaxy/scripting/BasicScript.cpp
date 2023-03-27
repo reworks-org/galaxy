@@ -14,13 +14,13 @@ namespace galaxy
 {
 	namespace lua
 	{
-		BasicScript::BasicScript() noexcept
+		BasicScript::BasicScript()
 			: m_loaded {false}
 		{
 			m_state = &core::ServiceLocator<sol::state>::ref();
 		}
 
-		BasicScript::BasicScript(std::string_view file) noexcept
+		BasicScript::BasicScript(std::string_view file)
 			: m_loaded {false}
 		{
 			m_state = &core::ServiceLocator<sol::state>::ref();
@@ -28,12 +28,12 @@ namespace galaxy
 			load(file);
 		}
 
-		BasicScript::~BasicScript() noexcept
+		BasicScript::~BasicScript()
 		{
 			m_state = nullptr;
 		}
 
-		void BasicScript::load(std::string_view file) noexcept
+		void BasicScript::load(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -56,7 +56,7 @@ namespace galaxy
 			}
 		}
 
-		bool BasicScript::run() noexcept
+		bool BasicScript::run()
 		{
 			if (m_loaded)
 			{
@@ -67,7 +67,7 @@ namespace galaxy
 			return false;
 		}
 
-		sol::protected_function_result BasicScript::run_and_return() noexcept
+		sol::protected_function_result BasicScript::run_and_return()
 		{
 			if (m_loaded)
 			{

@@ -38,7 +38,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		World::World(scene::Scene* scene) noexcept
+		World::World(scene::Scene* scene)
 			: Serializable {}
 			, m_b2world {nullptr}
 			, m_rendersystem_index {-1}
@@ -85,7 +85,7 @@ namespace galaxy
 			m_registry.on_construct<components::Map>().connect<&entt::registry::remove<components::Primitive>>();
 		}
 
-		World::~World() noexcept
+		World::~World()
 		{
 			clear();
 
@@ -163,7 +163,7 @@ namespace galaxy
 			return entity;
 		}
 
-		bool World::is_valid(const entt::entity entity) noexcept
+		bool World::is_valid(const entt::entity entity)
 		{
 			for (const auto& index : m_validations_to_run)
 			{
@@ -220,7 +220,7 @@ namespace galaxy
 			}
 		}
 
-		void World::clear() noexcept
+		void World::clear()
 		{
 			m_systems.clear();
 			m_component_factory.clear();

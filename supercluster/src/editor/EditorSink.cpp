@@ -9,12 +9,12 @@
 
 namespace sc
 {
-	EditorSink::~EditorSink() noexcept
+	EditorSink::~EditorSink()
 	{
 		m_logs.clear();
 	}
 
-	void EditorSink::sink_message(std::string_view message) noexcept
+	void EditorSink::sink_message(std::string_view message)
 	{
 		auto str    = static_cast<std::string>(message);
 		auto second = str.find_first_of('[', str.find_first_of('[', 0) + 1);
@@ -22,7 +22,7 @@ namespace sc
 		m_logs.emplace_back(str.substr(second));
 	}
 
-	const std::vector<std::string>& EditorSink::get_messages() const noexcept
+	const std::vector<std::string>& EditorSink::get_messages() const
 	{
 		return m_logs;
 	}

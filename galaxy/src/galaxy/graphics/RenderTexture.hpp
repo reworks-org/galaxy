@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RenderTexture() noexcept;
+			RenderTexture();
 
 			///
 			/// \brief Argument constructor.
@@ -42,17 +42,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			RenderTexture(RenderTexture&&) noexcept;
+			RenderTexture(RenderTexture&&);
 
 			///
 			/// Move assignment operator.
 			///
-			RenderTexture& operator=(RenderTexture&&) noexcept;
+			RenderTexture& operator=(RenderTexture&&);
 
 			///
 			/// Destructor.
 			///
-			~RenderTexture() noexcept = default;
+			~RenderTexture() = default;
 
 			///
 			/// Create the RenderTexture.
@@ -84,17 +84,17 @@ namespace galaxy
 			///
 			/// \param clear Should the framebuffer clear attachments.
 			///
-			void bind(const bool clear) noexcept;
+			void bind(const bool clear);
 
 			///
 			/// Unbind framebuffer and texture.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// Clear framebuffer attachments.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// Modify projection of render texture.
@@ -104,42 +104,42 @@ namespace galaxy
 			/// \param bottom Bottom point of ortho perspective.
 			/// \param top Top point of ortho perspective.
 			///
-			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+			void set_projection(const float left, const float right, const float bottom, const float top);
 
 			///
 			/// Get texture width.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const noexcept;
+			[[nodiscard]] int get_width() const;
 
 			///
 			/// Get texture height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const noexcept;
+			[[nodiscard]] int get_height() const;
 
 			///
 			/// Get projection.
 			///
 			/// \return Reference to glm::mat4.
 			///
-			[[nodiscard]] glm::mat4& get_proj() noexcept;
+			[[nodiscard]] glm::mat4& get_proj();
 
 			///
 			/// Get framebuffer.
 			///
 			/// \return Reference to framebuffer.
 			///
-			[[nodiscard]] Framebuffer& get_framebuffer() noexcept;
+			[[nodiscard]] Framebuffer& get_framebuffer();
 
 			///
 			/// Get texture.
 			///
 			/// \return OpenGL texture handle.
 			///
-			[[nodiscard]] unsigned int get_texture() const noexcept;
+			[[nodiscard]] unsigned int get_texture() const;
 
 		private:
 			///

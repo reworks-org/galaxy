@@ -29,7 +29,7 @@ namespace galaxy
 		/// \return Normalized float.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float normalize(const Type val, const Type max) noexcept
+		[[nodiscard]] inline float normalize(const Type val, const Type max)
 		{
 			return (static_cast<float>(val) / static_cast<float>(max));
 		}
@@ -45,7 +45,7 @@ namespace galaxy
 		/// \return True if found.
 		///
 		template<typename Type>
-		[[nodiscard]] inline bool contains(const std::vector<Type>& cont, const Type& val) noexcept
+		[[nodiscard]] inline bool contains(const std::vector<Type>& cont, const Type& val)
 		{
 			auto out = false;
 			std::for_each(std::execution::par, cont.begin(), cont.end(), [&](const Type& var) {

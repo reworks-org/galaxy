@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_base64(const std::string& input) noexcept;
+		[[nodiscard]] std::string encode_base64(const std::string& input);
 
 		///
 		/// \brief Decompresses string into Base64.
@@ -36,7 +36,7 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_base64(const std::string& input) noexcept;
+		[[nodiscard]] std::string decode_base64(const std::string& input);
 	} // namespace algorithm
 } // namespace galaxy
 

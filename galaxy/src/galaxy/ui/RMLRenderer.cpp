@@ -121,7 +121,7 @@ namespace Gfx
 	// Create the shader, 'shader_type' is either GL_VERTEX_SHADER or GL_FRAGMENT_SHADER.
 	static GLuint CreateShader(GLenum shader_type, const char* code_string)
 	{
-		GLuint id = glCreateShader(shader_type);
+		const GLuint id = glCreateShader(shader_type);
 
 		glShaderSource(id, 1, (const GLchar**)&code_string, NULL);
 		glCompileShader(id);

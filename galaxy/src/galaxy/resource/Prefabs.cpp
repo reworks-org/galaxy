@@ -17,12 +17,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Prefabs::Prefabs() noexcept
+		Prefabs::Prefabs()
 			: m_folder {""}
 		{
 		}
 
-		Prefabs::~Prefabs() noexcept
+		Prefabs::~Prefabs()
 		{
 		}
 

@@ -27,7 +27,7 @@ namespace galaxy
 			}
 		}
 
-		FontContext::~FontContext() noexcept
+		FontContext::~FontContext()
 		{
 			if (m_context != nullptr)
 			{
@@ -35,12 +35,12 @@ namespace galaxy
 			}
 		}
 
-		msdfgl_context_t FontContext::context() noexcept
+		msdfgl_context_t FontContext::context()
 		{
 			return m_context;
 		}
 
-		void FontContext::set_dpi(const float x, const float y) noexcept
+		void FontContext::set_dpi(const float x, const float y)
 		{
 			msdfgl_set_dpi(m_context, x, y);
 		}

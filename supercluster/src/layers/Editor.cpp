@@ -27,7 +27,7 @@
 
 namespace sc
 {
-	Editor::Editor(std::string_view name, scene::Scene* scene) noexcept
+	Editor::Editor(std::string_view name, scene::Scene* scene)
 		: Layer {name, scene}
 	{
 		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
@@ -68,7 +68,7 @@ namespace sc
 		fb.create();
 	}
 
-	Editor::~Editor() noexcept
+	Editor::~Editor()
 	{
 	}
 
@@ -980,7 +980,7 @@ namespace sc
 		ImGui::End();
 	}
 
-	const std::string& Editor::get_type() const noexcept
+	const std::string& Editor::get_type() const
 	{
 		static_assert(true, "Do Not Call.");
 

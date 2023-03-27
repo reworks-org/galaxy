@@ -23,7 +23,7 @@ namespace galaxy
 {
 	namespace algorithm
 	{
-		ZLib::ZLib(const Mode mode) noexcept
+		ZLib::ZLib(const Mode mode)
 			: m_mode {mode}
 			, m_finished {false}
 			, m_in {0}
@@ -62,7 +62,7 @@ namespace galaxy
 			}
 		}
 
-		ZLib::~ZLib() noexcept
+		ZLib::~ZLib()
 		{
 			try
 			{
@@ -81,7 +81,7 @@ namespace galaxy
 			}
 		}
 
-		std::string ZLib::compress(const std::string& input) noexcept
+		std::string ZLib::compress(const std::string& input)
 		{
 			std::string result;
 
@@ -135,7 +135,7 @@ namespace galaxy
 			return result;
 		}
 
-		std::string ZLib::finish() noexcept
+		std::string ZLib::finish()
 		{
 			std::string result;
 
@@ -181,7 +181,7 @@ namespace galaxy
 			return result;
 		}
 
-		std::string ZLib::decompress(const std::string& input) noexcept
+		std::string ZLib::decompress(const std::string& input)
 		{
 			std::string result;
 
@@ -231,7 +231,7 @@ namespace galaxy
 			return result;
 		}
 
-		std::string encode_zlib(const std::string& input) noexcept
+		std::string encode_zlib(const std::string& input)
 		{
 			auto in = new char[GALAXY_ZLIB_COMPLETE_CHUNK];
 
@@ -273,7 +273,7 @@ namespace galaxy
 			return result;
 		}
 
-		std::string decode_zlib(const std::string& input) noexcept
+		std::string decode_zlib(const std::string& input)
 		{
 			auto in = new char[GALAXY_ZLIB_COMPLETE_CHUNK];
 

@@ -30,12 +30,12 @@ namespace galaxy
 			/// \param width Width of internal framebuffer.
 			/// \param height Height of internal framebuffer.
 			///
-			Sharpen(const int width, const int height) noexcept;
+			Sharpen(const int width, const int height);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Sharpen() noexcept = default;
+			virtual ~Sharpen() = default;
 
 			///
 			/// Resize framebuffers.
@@ -59,14 +59,14 @@ namespace galaxy
 			///
 			/// \param amount 0.0 - 10.0.
 			///
-			void set_amount(const float amount) noexcept;
+			void set_amount(const float amount);
 
 			///
 			/// Get sharpening amount.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_amount() const noexcept;
+			[[nodiscard]] float get_amount() const;
 
 		private:
 			///

@@ -17,8 +17,8 @@ namespace sc
 	class Selected
 	{
 	public:
-		Selected() noexcept;
-		~Selected() noexcept;
+		Selected();
+		~Selected();
 
 	public:
 		entt::entity m_selected;

@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Text() noexcept;
+			Text();
 
 			///
 			/// JSON constructor.
@@ -55,17 +55,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Text(Text&&) noexcept;
+			Text(Text&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Text& operator=(Text&&) noexcept;
+			Text& operator=(Text&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Text() noexcept;
+			virtual ~Text();
 
 			///
 			/// Creates the rendered text.
@@ -117,7 +117,7 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float get_width() const noexcept;
+			[[nodiscard]] float get_width() const;
 
 			///
 			/// \brief Get text height.
@@ -126,7 +126,7 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float get_height() const noexcept;
+			[[nodiscard]] float get_height() const;
 
 			///
 			/// \brief Get text.
@@ -135,7 +135,7 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& get_text() const noexcept;
+			[[nodiscard]] const std::string& get_text() const;
 
 			///
 			/// \brief Get text em size.
@@ -144,14 +144,14 @@ namespace galaxy
 			///
 			/// \return Float as EM.
 			///
-			[[nodiscard]] float get_size() const noexcept;
+			[[nodiscard]] float get_size() const;
 
 			///
 			/// Get font ID.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& get_font() const noexcept;
+			[[nodiscard]] const std::string& get_font() const;
 
 			///
 			/// Serializes object.
@@ -181,7 +181,7 @@ namespace galaxy
 			///
 			/// Configure renderable.
 			///
-			void configure() noexcept override;
+			void configure() override;
 
 		public:
 			///

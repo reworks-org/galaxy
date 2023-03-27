@@ -25,7 +25,7 @@ namespace sc
 {
 	namespace panel
 	{
-		AssetPanel::AssetPanel() noexcept
+		AssetPanel::AssetPanel()
 			: m_padding {48.0f}
 			, m_thumb_size {48.0f}
 			, m_toolbar_vec {24, 24}

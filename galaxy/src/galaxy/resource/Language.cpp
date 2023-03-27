@@ -16,12 +16,12 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Language::Language() noexcept
+		Language::Language()
 			: m_cur_lang {""}
 		{
 		}
 
-		Language::~Language() noexcept
+		Language::~Language()
 		{
 			clear();
 		}
@@ -86,7 +86,7 @@ namespace galaxy
 			}
 		}
 
-		const std::string& Language::translate(const std::string& key) noexcept
+		const std::string& Language::translate(const std::string& key)
 		{
 			if (m_lang_map.contains(key))
 			{
@@ -102,7 +102,7 @@ namespace galaxy
 			set(m_cur_lang);
 		}
 
-		void Language::clear() noexcept
+		void Language::clear()
 		{
 			m_languages.clear();
 			m_lang_map.clear();

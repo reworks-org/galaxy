@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			PostProcess() noexcept;
+			PostProcess();
 
 			///
 			/// Destructor.
 			///
-			~PostProcess() noexcept;
+			~PostProcess();
 
 			///
 			/// Initialize post processor and GL buffers.
@@ -42,7 +42,7 @@ namespace galaxy
 			///
 			/// Cleanup used memory.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// \brief Add an effect to process.
@@ -63,12 +63,12 @@ namespace galaxy
 			///
 			/// Bind to draw to post processor framebuffer.
 			///
-			void bind() noexcept;
+			void bind();
 
 			///
 			/// Unbind to draw to post processor framebuffer.
 			///
-			void unbind() noexcept;
+			void unbind();
 
 			///
 			/// Draw post effects to stored framebuffer.
@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// Draw finished post effects to default framebuffer (screen).
 			///
-			void render_output() noexcept;
+			void render_output();
 
 			///
 			/// Resize framebuffers.

@@ -23,14 +23,14 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Tag() noexcept;
+			Tag();
 
 			///
 			/// Constructor.
 			///
 			/// \param tag Tag for entity.
 			///
-			Tag(std::string_view tag) noexcept;
+			Tag(std::string_view tag);
 
 			///
 			/// JSON constructor.
@@ -42,17 +42,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Tag(Tag&&) noexcept;
+			Tag(Tag&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Tag& operator=(Tag&&) noexcept;
+			Tag& operator=(Tag&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Tag() noexcept;
+			virtual ~Tag();
 
 			///
 			/// Serializes object.

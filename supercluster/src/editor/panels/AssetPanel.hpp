@@ -24,8 +24,8 @@ namespace sc
 		class AssetPanel final
 		{
 		public:
-			AssetPanel() noexcept;
-			~AssetPanel() noexcept = default;
+			AssetPanel();
+			~AssetPanel() = default;
 
 			void render(CodeEditor& editor, UpdateStack& updates);
 

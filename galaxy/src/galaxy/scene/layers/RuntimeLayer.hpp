@@ -26,12 +26,12 @@ namespace galaxy
 			/// \param name Name of the Layer.
 			/// \param scene Pointer to scene this layer belongs to.
 			///
-			RuntimeLayer(std::string_view name, Scene* scene) noexcept;
+			RuntimeLayer(std::string_view name, Scene* scene);
 
 			///
 			/// Destructor.
 			///
-			virtual ~RuntimeLayer() noexcept;
+			virtual ~RuntimeLayer();
 
 			///
 			/// On push of RuntimeLayer to stack.
@@ -63,7 +63,7 @@ namespace galaxy
 			///
 			/// \return String.
 			///
-			[[nodiscard]] const std::string& get_type() const noexcept override;
+			[[nodiscard]] const std::string& get_type() const override;
 
 			///
 			/// Serializes object.

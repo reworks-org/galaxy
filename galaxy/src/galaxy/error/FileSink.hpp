@@ -24,19 +24,19 @@ namespace galaxy
 			///
 			/// \param file File to write all log messages to.
 			///
-			FileSink(std::string_view file) noexcept;
+			FileSink(std::string_view file);
 
 			///
 			/// Destructor.
 			///
-			virtual ~FileSink() noexcept;
+			virtual ~FileSink();
 
 			///
 			/// Sink the message.
 			///
 			/// \param message String to sink.
 			///
-			void sink_message(std::string_view message) noexcept override;
+			void sink_message(std::string_view message) override;
 
 		private:
 			///

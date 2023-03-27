@@ -29,35 +29,35 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Renderable(Renderable&&) noexcept;
+			Renderable(Renderable&&);
 
 			///
 			/// Move assignment operator.
 			///
-			virtual Renderable& operator=(Renderable&&) noexcept;
+			virtual Renderable& operator=(Renderable&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Renderable() noexcept;
+			virtual ~Renderable();
 
 		protected:
 			///
 			/// Constructor.
 			///
-			Renderable() noexcept;
+			Renderable();
 
 			///
 			/// Configure renderable.
 			///
-			virtual void configure() noexcept = 0;
+			virtual void configure() = 0;
 
 			///
 			/// Set primitive draw type.
 			///
 			/// \param type Primitive OpenGL draw type.
 			///
-			void set_primitive_type(const Primitives type) noexcept;
+			void set_primitive_type(const Primitives type);
 
 		protected:
 			///

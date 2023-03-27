@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~PostEffect() noexcept = default;
+			virtual ~PostEffect() = default;
 
 			///
 			/// Resize framebuffers.
@@ -46,27 +46,27 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			PostEffect() noexcept = default;
+			PostEffect() = default;
 
 			///
 			/// Copy constructor.
 			///
-			PostEffect(const PostEffect&) noexcept = default;
+			PostEffect(const PostEffect&) = default;
 
 			///
 			/// Move constructor.
 			///
-			PostEffect(PostEffect&&) noexcept = default;
+			PostEffect(PostEffect&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
-			PostEffect& operator=(const PostEffect&) noexcept = default;
+			PostEffect& operator=(const PostEffect&) = default;
 
 			///
 			/// Move assignment operator.
 			///
-			PostEffect& operator=(PostEffect&&) noexcept = default;
+			PostEffect& operator=(PostEffect&&) = default;
 		};
 
 		///

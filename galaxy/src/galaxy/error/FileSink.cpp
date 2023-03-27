@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace error
 	{
-		FileSink::FileSink(std::string_view file) noexcept
+		FileSink::FileSink(std::string_view file)
 		{
 			const auto filepath    = std::filesystem::path(file);
 			const auto parent_path = filepath.parent_path();
@@ -48,12 +48,12 @@ namespace galaxy
 			m_file_stream.open(filepath, std::ofstream::out);
 		}
 
-		FileSink::~FileSink() noexcept
+		FileSink::~FileSink()
 		{
 			m_file_stream.close();
 		}
 
-		void FileSink::sink_message(std::string_view message) noexcept
+		void FileSink::sink_message(std::string_view message)
 		{
 			m_file_stream << message;
 		}

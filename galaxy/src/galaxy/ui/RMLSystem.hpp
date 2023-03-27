@@ -25,12 +25,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RMLSystem() noexcept;
+			RMLSystem();
 
 			///
 			/// Destructor.
 			///
-			virtual ~RMLSystem() noexcept;
+			virtual ~RMLSystem();
 
 			///
 			/// Get the number of seconds elapsed since the start of the application.

@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Frame() noexcept;
+			Frame();
 
 			///
 			/// JSON constructor.
@@ -35,27 +35,27 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Frame(Frame&&) noexcept;
+			Frame(Frame&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Frame& operator=(Frame&&) noexcept;
+			Frame& operator=(Frame&&);
 
 			///
 			/// Copy constructor.
 			///
-			Frame(const Frame&) noexcept;
+			Frame(const Frame&);
 
 			///
 			/// Copy assignment operator.
 			///
-			Frame& operator=(const Frame&) noexcept;
+			Frame& operator=(const Frame&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Frame() noexcept;
+			virtual ~Frame();
 
 			///
 			/// Serializes object.

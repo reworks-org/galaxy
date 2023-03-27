@@ -11,18 +11,18 @@ namespace galaxy
 {
 	namespace algorithm
 	{
-		RectPack::RectPack() noexcept
+		RectPack::RectPack()
 			: m_width {0}
 			, m_height {0}
 		{
 		}
 
-		RectPack::~RectPack() noexcept
+		RectPack::~RectPack()
 		{
 			m_free_rects.clear();
 		}
 
-		void RectPack::init(const int width, const int height) noexcept
+		void RectPack::init(const int width, const int height)
 		{
 			m_width  = width;
 			m_height = height;
@@ -30,7 +30,7 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		std::optional<graphics::iRect> RectPack::pack(const int width, const int height) noexcept
+		std::optional<graphics::iRect> RectPack::pack(const int width, const int height)
 		{
 			// Result.
 			std::optional<graphics::iRect> result = std::nullopt;
@@ -89,23 +89,23 @@ namespace galaxy
 			return result;
 		}
 
-		void RectPack::clear() noexcept
+		void RectPack::clear()
 		{
 			m_free_rects.clear();
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		int RectPack::get_width() const noexcept
+		int RectPack::get_width() const
 		{
 			return m_width;
 		}
 
-		int RectPack::get_height() const noexcept
+		int RectPack::get_height() const
 		{
 			return m_height;
 		}
 
-		const std::vector<graphics::iRect>& RectPack::get_free_space() const noexcept
+		const std::vector<graphics::iRect>& RectPack::get_free_space() const
 		{
 			return m_free_rects;
 		}

@@ -32,7 +32,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~System() noexcept;
+			virtual ~System();
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			System() noexcept;
+			System();
 		};
 	} // namespace systems
 

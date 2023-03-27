@@ -26,11 +26,11 @@ namespace galaxy
 {
 	namespace systems
 	{
-		AnimationSystem::AnimationSystem() noexcept
+		AnimationSystem::AnimationSystem()
 		{
 		}
 
-		AnimationSystem::~AnimationSystem() noexcept
+		AnimationSystem::~AnimationSystem()
 		{
 		}
 

@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			DrawShader() noexcept;
+			DrawShader();
 
 			///
 			/// JSON constructor.
@@ -46,17 +46,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			DrawShader(DrawShader&&) noexcept;
+			DrawShader(DrawShader&&);
 
 			///
 			/// Move assignment operator.
 			///
-			DrawShader& operator=(DrawShader&&) noexcept;
+			DrawShader& operator=(DrawShader&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~DrawShader() noexcept;
+			virtual ~DrawShader();
 
 			///
 			/// Set shader.
@@ -70,7 +70,7 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& id() const noexcept;
+			[[nodiscard]] const std::string& id() const;
 
 			///
 			/// Serializes object.

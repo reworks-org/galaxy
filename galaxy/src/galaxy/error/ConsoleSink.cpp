@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace error
 	{
-		void ConsoleSink::sink_message(std::string_view message) noexcept
+		void ConsoleSink::sink_message(std::string_view message)
 		{
 			std::cout << message;
 		}

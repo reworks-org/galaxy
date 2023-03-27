@@ -175,12 +175,12 @@ namespace galaxy
 			init();
 		}
 
-		bool TextureAtlas::contains(const std::string& key) noexcept
+		bool TextureAtlas::contains(const std::string& key)
 		{
 			return m_data.contains(key);
 		}
 
-		meta::OptionalRef<TextureAtlas::Info> TextureAtlas::query(const std::string& key) noexcept
+		meta::OptionalRef<TextureAtlas::Info> TextureAtlas::query(const std::string& key)
 		{
 			if (contains(key))
 			{
@@ -192,7 +192,7 @@ namespace galaxy
 			}
 		}
 
-		std::vector<std::string> TextureAtlas::keys() noexcept
+		std::vector<std::string> TextureAtlas::keys()
 		{
 			std::vector<std::string> keys;
 			keys.reserve(m_data.size());

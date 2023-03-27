@@ -25,7 +25,7 @@ namespace galaxy
 			////
 			/// Constructor.
 			///
-			Script() noexcept;
+			Script();
 
 			///
 			/// JSON constructor.
@@ -37,31 +37,31 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Script(Script&&) noexcept;
+			Script(Script&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Script& operator=(Script&&) noexcept;
+			Script& operator=(Script&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Script() noexcept;
+			virtual ~Script();
 
 			///
 			/// Load a script.
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			void load(std::string_view file) noexcept;
+			void load(std::string_view file);
 
 			///
 			/// Get script file path.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& file() const noexcept;
+			[[nodiscard]] const std::string& file() const;
 
 			///
 			/// Serializes object.

@@ -21,7 +21,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		RenderTexture::RenderTexture() noexcept
+		RenderTexture::RenderTexture()
 			: m_projection {GALAXY_IDENTITY_MATRIX}
 		{
 		}
@@ -32,13 +32,13 @@ namespace galaxy
 			create(width, height);
 		}
 
-		RenderTexture::RenderTexture(RenderTexture&& rt) noexcept
+		RenderTexture::RenderTexture(RenderTexture&& rt)
 		{
 			this->m_framebuffer = std::move(rt.m_framebuffer);
 			this->m_projection  = std::move(rt.m_projection);
 		}
 
-		RenderTexture& RenderTexture::operator=(RenderTexture&& rt) noexcept
+		RenderTexture& RenderTexture::operator=(RenderTexture&& rt)
 		{
 			if (this != &rt)
 			{
@@ -99,47 +99,47 @@ namespace galaxy
 			stbi_write_png(full.c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
 		}
 
-		void RenderTexture::bind(const bool clear) noexcept
+		void RenderTexture::bind(const bool clear)
 		{
 			m_framebuffer.bind(clear);
 		}
 
-		void RenderTexture::unbind() noexcept
+		void RenderTexture::unbind()
 		{
 			m_framebuffer.unbind();
 		}
 
-		void RenderTexture::clear() noexcept
+		void RenderTexture::clear()
 		{
 			m_framebuffer.clear();
 		}
 
-		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top)
 		{
 			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		int RenderTexture::get_width() const noexcept
+		int RenderTexture::get_width() const
 		{
 			return m_framebuffer.get_width();
 		}
 
-		int RenderTexture::get_height() const noexcept
+		int RenderTexture::get_height() const
 		{
 			return m_framebuffer.get_height();
 		}
 
-		glm::mat4& RenderTexture::get_proj() noexcept
+		glm::mat4& RenderTexture::get_proj()
 		{
 			return m_projection;
 		}
 
-		Framebuffer& RenderTexture::get_framebuffer() noexcept
+		Framebuffer& RenderTexture::get_framebuffer()
 		{
 			return m_framebuffer;
 		}
 
-		unsigned int RenderTexture::get_texture() const noexcept
+		unsigned int RenderTexture::get_texture() const
 		{
 			// This works since the rendertexture will only ever have 1 attachment.
 			return m_framebuffer.get_attachments()[0];

@@ -20,7 +20,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Colour::Colour() noexcept
+		Colour::Colour()
 			: m_red {255}
 			, m_green {255}
 			, m_blue {255}
@@ -28,7 +28,7 @@ namespace galaxy
 		{
 		}
 
-		Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
+		Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a)
 			: m_red {r}
 			, m_green {g}
 			, m_blue {b}
@@ -36,11 +36,11 @@ namespace galaxy
 		{
 		}
 
-		Colour::~Colour() noexcept
+		Colour::~Colour()
 		{
 		}
 
-		void Colour::set_from_normalized(const float r, const float g, const float b, const float a) noexcept
+		void Colour::set_from_normalized(const float r, const float g, const float b, const float a)
 		{
 			m_red   = static_cast<std::uint8_t>(std::max(r, 0.0f) * COLOUR_OFFSET);
 			m_green = static_cast<std::uint8_t>(std::max(g, 0.0f) * COLOUR_OFFSET);
@@ -48,7 +48,7 @@ namespace galaxy
 			m_alpha = static_cast<std::uint8_t>(std::max(a, 0.0f) * COLOUR_OFFSET);
 		}
 
-		std::array<float, 4> Colour::normalized() noexcept
+		std::array<float, 4> Colour::normalized()
 		{
 			float r = 0.0f, g = 0.0f, b = 0.0f, a = 0.0f;
 

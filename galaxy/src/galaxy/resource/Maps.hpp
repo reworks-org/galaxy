@@ -25,12 +25,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Maps() noexcept;
+			Maps();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Maps() noexcept;
+			virtual ~Maps();
 
 			///
 			/// \brief Load maps in a folder.

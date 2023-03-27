@@ -21,21 +21,21 @@ using namespace galaxy;
 
 namespace sc
 {
-	Settings::Settings() noexcept
+	Settings::Settings()
 		: m_counter {0}
 	{
 	}
 
-	Settings::~Settings() noexcept
+	Settings::~Settings()
 	{
 	}
 
-	void Settings::load() noexcept
+	void Settings::load()
 	{
 		m_root = core::ServiceLocator<core::Config>::ref().raw();
 	}
 
-	void Settings::save() noexcept
+	void Settings::save()
 	{
 		auto& config = core::ServiceLocator<core::Config>::ref();
 

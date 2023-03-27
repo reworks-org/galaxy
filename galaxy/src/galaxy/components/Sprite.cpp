@@ -16,7 +16,7 @@ namespace galaxy
 {
 	namespace components
 	{
-		Sprite::Sprite() noexcept
+		Sprite::Sprite()
 			: Renderable {}
 			, Serializable {}
 			, m_opacity {1.0f}
@@ -35,7 +35,7 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Sprite::Sprite(Sprite&& s) noexcept
+		Sprite::Sprite(Sprite&& s)
 			: Renderable {std::move(s)}
 			, Serializable {}
 			, m_opacity {1.0f}
@@ -49,7 +49,7 @@ namespace galaxy
 			this->m_height  = s.m_height;
 		}
 
-		Sprite& Sprite::operator=(Sprite&& s) noexcept
+		Sprite& Sprite::operator=(Sprite&& s)
 		{
 			if (this != &s)
 			{
@@ -65,7 +65,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Sprite::~Sprite() noexcept
+		Sprite::~Sprite()
 		{
 		}
 
@@ -239,32 +239,32 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::set_opacity(const float opacity) noexcept
+		void Sprite::set_opacity(const float opacity)
 		{
 			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
 		}
 
-		float Sprite::get_opacity() const noexcept
+		float Sprite::get_opacity() const
 		{
 			return m_opacity;
 		}
 
-		float Sprite::get_width() const noexcept
+		float Sprite::get_width() const
 		{
 			return m_width;
 		}
 
-		float Sprite::get_height() const noexcept
+		float Sprite::get_height() const
 		{
 			return m_height;
 		}
 
-		const std::string& Sprite::texture_id() const noexcept
+		const std::string& Sprite::texture_id() const
 		{
 			return m_texture;
 		}
 
-		void Sprite::configure() noexcept
+		void Sprite::configure()
 		{
 			m_vao_id      = m_vao.id();
 			m_index_count = m_vao.index_count();

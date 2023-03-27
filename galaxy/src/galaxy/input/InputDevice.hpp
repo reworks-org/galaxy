@@ -27,40 +27,40 @@ namespace galaxy
 			///
 			/// Virtual destructor.
 			///
-			virtual ~InputDevice() noexcept;
+			virtual ~InputDevice();
 
 		protected:
 			///
 			/// Constructor.
 			///
-			InputDevice() noexcept;
+			InputDevice();
 
 			///
 			/// Move constructor.
 			///
-			InputDevice(InputDevice&&) noexcept = default;
+			InputDevice(InputDevice&&) = default;
 
 			///
 			/// Move assignment operator.
 			///
-			InputDevice& operator=(InputDevice&&) noexcept = default;
+			InputDevice& operator=(InputDevice&&) = default;
 
 			///
 			/// Copy constructor.
 			///
-			InputDevice(const InputDevice&) noexcept = default;
+			InputDevice(const InputDevice&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
-			InputDevice& operator=(const InputDevice&) noexcept = default;
+			InputDevice& operator=(const InputDevice&) = default;
 
 			///
 			/// Sets the window pointer.
 			///
 			/// \param window Window pointer from graphics::Window.
 			///
-			void set_window(GLFWwindow* window) noexcept;
+			void set_window(GLFWwindow* window);
 
 		protected:
 			///

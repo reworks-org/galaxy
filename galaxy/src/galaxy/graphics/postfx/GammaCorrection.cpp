@@ -77,7 +77,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		GammaCorrection::GammaCorrection(const int width, const int height) noexcept
+		GammaCorrection::GammaCorrection(const int width, const int height)
 			: m_gamma {2.2f}
 		{
 			m_fb.create(width, height);
@@ -106,7 +106,7 @@ namespace galaxy
 			return m_fb.get_texture();
 		}
 
-		void GammaCorrection::set_gamma(const float gamma_mod) noexcept
+		void GammaCorrection::set_gamma(const float gamma_mod)
 		{
 			m_gamma = gamma_mod;
 
@@ -118,7 +118,7 @@ namespace galaxy
 			m_shader.set_uniform("u_gamma", m_gamma);
 		}
 
-		float GammaCorrection::get_gamma() const noexcept
+		float GammaCorrection::get_gamma() const
 		{
 			return m_gamma;
 		}

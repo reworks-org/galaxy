@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace ui
 	{
-		void imgui_theme_enhanced_light() noexcept
+		void imgui_theme_enhanced_light()
 		{
 			auto& style = ImGui::GetStyle();
 
@@ -70,7 +70,7 @@ namespace galaxy
 			style.WindowBorderSize = 1.0f;
 		}
 
-		void imgui_theme_material_dark() noexcept
+		void imgui_theme_material_dark()
 		{
 			ImGui::GetStyle().FrameRounding = 4.0f;
 			ImGui::GetStyle().GrabRounding  = 4.0f;
@@ -131,7 +131,7 @@ namespace galaxy
 			ImGui::GetStyle().WindowBorderSize = 1.0f;
 		}
 
-		void imgui_theme_visual_dark() noexcept
+		void imgui_theme_visual_dark()
 		{
 			ImGuiStyle& style = ImGui::GetStyle();
 
@@ -221,7 +221,7 @@ namespace galaxy
 			style.Colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.1450980454683304, 0.1450980454683304, 0.1490196138620377, 1.0);
 		}
 
-		void imgui_theme_fancy_dark() noexcept
+		void imgui_theme_fancy_dark()
 		{
 			ImGuiStyle& style                            = ImGui::GetStyle();
 			style.Colors[ImGuiCol_Text]                  = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
@@ -277,7 +277,7 @@ namespace galaxy
 			style.GrabRounding = style.FrameRounding = 2.3f;
 		}
 
-		void imgui_theme_dark_embrace() noexcept
+		void imgui_theme_dark_embrace()
 		{
 			ImVec4* colors                         = ImGui::GetStyle().Colors;
 			colors[ImGuiCol_Text]                  = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);

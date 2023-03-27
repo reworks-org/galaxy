@@ -90,7 +90,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Sharpen::Sharpen(const int width, const int height) noexcept
+		Sharpen::Sharpen(const int width, const int height)
 			: m_amount {0.1f}
 		{
 			m_fb.create(width, height);
@@ -119,13 +119,13 @@ namespace galaxy
 			return m_fb.get_texture();
 		}
 
-		void Sharpen::set_amount(const float amount) noexcept
+		void Sharpen::set_amount(const float amount)
 		{
 			m_amount = std::clamp(amount, 0.0f, 10.0f);
 			m_shader.set_uniform("u_amount", m_amount);
 		}
 
-		float Sharpen::get_amount() const noexcept
+		float Sharpen::get_amount() const
 		{
 			return m_amount;
 		}

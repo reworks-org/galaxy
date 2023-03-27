@@ -25,40 +25,40 @@ namespace galaxy
 			///
 			/// Virtual Destructor.
 			///
-			virtual ~Sink() noexcept = default;
+			virtual ~Sink() = default;
 
 			///
 			/// Record the message.
 			///
 			/// \param message The actual message to record.
 			///
-			virtual void sink_message(std::string_view message) noexcept = 0;
+			virtual void sink_message(std::string_view message) = 0;
 
 		protected:
 			///
 			/// Constructor.
 			///
-			Sink() noexcept = default;
+			Sink() = default;
 
 			///
 			/// Copy constructor.
 			///
-			Sink(const Sink&) noexcept = default;
+			Sink(const Sink&) = default;
 
 			///
 			/// Move constructor.
 			///
-			Sink(Sink&&) noexcept = default;
+			Sink(Sink&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
-			Sink& operator=(const Sink&) noexcept = default;
+			Sink& operator=(const Sink&) = default;
 
 			///
 			/// Move assignment operator.
 			///
-			Sink& operator=(Sink&&) noexcept = default;
+			Sink& operator=(Sink&&) = default;
 		};
 	} // namespace error
 } // namespace galaxy

@@ -13,24 +13,24 @@ namespace galaxy
 {
 	namespace components
 	{
-		Flag::Flag() noexcept
+		Flag::Flag()
 			: Serializable {}
 		{
 		}
 
-		Flag::Flag(const nlohmann::json& json) noexcept
+		Flag::Flag(const nlohmann::json& json)
 			: Serializable {}
 		{
 			deserialize(json);
 		}
 
-		Flag::Flag(Flag&& t) noexcept
+		Flag::Flag(Flag&& t)
 			: Serializable {}
 		{
 			this->m_flags = std::move(t.m_flags);
 		}
 
-		Flag& Flag::operator=(Flag&& t) noexcept
+		Flag& Flag::operator=(Flag&& t)
 		{
 			if (this != &t)
 			{
@@ -40,7 +40,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Flag::~Flag() noexcept
+		Flag::~Flag()
 		{
 		}
 

@@ -27,22 +27,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			VertexBuffer() noexcept;
+			VertexBuffer();
 
 			///
 			/// Move constructor.
 			///
-			VertexBuffer(VertexBuffer&&) noexcept;
+			VertexBuffer(VertexBuffer&&);
 
 			///
 			/// Move assignment operator.
 			///
-			VertexBuffer& operator=(VertexBuffer&&) noexcept;
+			VertexBuffer& operator=(VertexBuffer&&);
 
 			///
 			/// Destructor.
 			///
-			~VertexBuffer() noexcept;
+			~VertexBuffer();
 
 			///
 			/// Create vertex buffer object.
@@ -72,21 +72,21 @@ namespace galaxy
 			///
 			/// Clear all data from VBO.
 			///
-			void clear() noexcept;
+			void clear();
 
 			///
 			/// \brief Destroy Vertex Buffer Object.
 			///
 			/// Also called by destructor, you do not have to call this.
 			///
-			void destroy() noexcept;
+			void destroy();
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const noexcept;
+			[[nodiscard]] unsigned int id() const;
 
 		private:
 			///

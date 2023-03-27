@@ -25,7 +25,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Window::Window() noexcept
+		Window::Window()
 			: m_window {nullptr}
 			, m_width {1}
 			, m_height {1}
@@ -468,12 +468,12 @@ namespace galaxy
 			}
 		}
 
-		void Window::set_title(const char* title) noexcept
+		void Window::set_title(const char* title)
 		{
 			glfwSetWindowTitle(m_window, title);
 		}
 
-		void Window::set_icon(std::string_view icon) noexcept
+		void Window::set_icon(std::string_view icon)
 		{
 			auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -505,7 +505,7 @@ namespace galaxy
 			}
 		}
 
-		void Window::set_icon(std::span<unsigned char> buffer) noexcept
+		void Window::set_icon(std::span<unsigned char> buffer)
 		{
 			// Fill glfw-compatible struct.
 
@@ -527,17 +527,17 @@ namespace galaxy
 			stbi_image_free(img.pixels);
 		}
 
-		bool Window::is_open() const noexcept
+		bool Window::is_open() const
 		{
 			return !glfwWindowShouldClose(m_window);
 		}
 
-		void Window::close() noexcept
+		void Window::close()
 		{
 			glfwSetWindowShouldClose(m_window, GLFW_TRUE);
 		}
 
-		void Window::destroy() noexcept
+		void Window::destroy()
 		{
 			if (m_window != nullptr)
 			{
@@ -557,13 +557,13 @@ namespace galaxy
 			}
 		}
 
-		void Window::poll_events() noexcept
+		void Window::poll_events()
 		{
 			pop_queued_events();
 			glfwPollEvents();
 		}
 
-		void Window::begin() noexcept
+		void Window::begin()
 		{
 			m_postprocess.bind();
 		}
@@ -589,7 +589,7 @@ namespace galaxy
 			glUseProgram(0);
 		}
 
-		void Window::resize(const int width, const int height) noexcept
+		void Window::resize(const int width, const int height)
 		{
 			m_width  = width;
 			m_height = height;
@@ -610,86 +610,86 @@ namespace galaxy
 			}
 		}
 
-		void Window::pop_queued_events() noexcept
+		void Window::pop_queued_events()
 		{
 			m_event_queue.clear();
 		}
 
-		void Window::request_attention() noexcept
+		void Window::request_attention()
 		{
 			glfwRequestWindowAttention(m_window);
 		}
 
-		void Window::focus() const noexcept
+		void Window::focus() const
 		{
 			glfwFocusWindow(m_window);
 		}
 
-		void Window::maximize() const noexcept
+		void Window::maximize() const
 		{
 			glfwMaximizeWindow(m_window);
 		}
 
-		void Window::restore() const noexcept
+		void Window::restore() const
 		{
 			glfwRestoreWindow(m_window);
 		}
 
-		void Window::minimize() const noexcept
+		void Window::minimize() const
 		{
 			glfwIconifyWindow(m_window);
 		}
 
-		void Window::allow_native_closing() noexcept
+		void Window::allow_native_closing()
 		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) noexcept {
+			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
 				glfwSetWindowShouldClose(window, GLFW_TRUE);
 			});
 		}
 
-		void Window::prevent_native_closing() noexcept
+		void Window::prevent_native_closing()
 		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) noexcept {
+			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
 				glfwSetWindowShouldClose(window, GLFW_FALSE);
 			});
 		}
 
-		bool Window::is_focused() const noexcept
+		bool Window::is_focused() const
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
 		}
 
-		events::Queue& Window::queued_events() noexcept
+		events::Queue& Window::queued_events()
 		{
 			return m_event_queue;
 		}
 
-		const std::vector<std::string>& Window::get_drop_paths() const noexcept
+		const std::vector<std::string>& Window::get_drop_paths() const
 		{
 			return m_drop_paths;
 		}
 
-		int Window::get_width() const noexcept
+		int Window::get_width() const
 		{
 			return m_width;
 		}
 
-		int Window::get_height() const noexcept
+		int Window::get_height() const
 		{
 			return m_height;
 		}
 
-		float Window::get_widthf() const noexcept
+		float Window::get_widthf() const
 		{
 			return static_cast<float>(m_width);
 		}
 
-		float Window::get_heightf() const noexcept
+		float Window::get_heightf() const
 		{
 			return static_cast<float>(m_height);
 		}
 
-		glm::ivec2 Window::get_framebuffer_size() noexcept
+		glm::ivec2 Window::get_framebuffer_size()
 		{
 			glm::ivec2 size;
 			glfwGetFramebufferSize(m_window, &size.x, &size.y);
@@ -697,7 +697,7 @@ namespace galaxy
 			return size;
 		}
 
-		GLFWwindow* Window::handle() noexcept
+		GLFWwindow* Window::handle()
 		{
 			return m_window;
 		}

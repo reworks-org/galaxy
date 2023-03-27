@@ -13,14 +13,14 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		IndexBuffer::IndexBuffer() noexcept
+		IndexBuffer::IndexBuffer()
 			: m_ibo {0}
 			, m_count {0}
 		{
 			glCreateBuffers(1, &m_ibo);
 		}
 
-		IndexBuffer::IndexBuffer(const unsigned int capacity, const StorageFlag flag) noexcept
+		IndexBuffer::IndexBuffer(const unsigned int capacity, const StorageFlag flag)
 			: m_ibo {0}
 			, m_count {capacity}
 		{
@@ -28,7 +28,7 @@ namespace galaxy
 			glNamedBufferData(m_ibo, m_count * sizeof(unsigned int), nullptr, static_cast<GLenum>(flag));
 		}
 
-		IndexBuffer::IndexBuffer(IndexBuffer&& ib) noexcept
+		IndexBuffer::IndexBuffer(IndexBuffer&& ib)
 			: m_ibo {0}
 		{
 			this->destroy();
@@ -39,7 +39,7 @@ namespace galaxy
 			ib.m_ibo = 0;
 		}
 
-		IndexBuffer& IndexBuffer::operator=(IndexBuffer&& ib) noexcept
+		IndexBuffer& IndexBuffer::operator=(IndexBuffer&& ib)
 		{
 			if (this != &ib)
 			{
@@ -54,7 +54,7 @@ namespace galaxy
 			return *this;
 		}
 
-		IndexBuffer::~IndexBuffer() noexcept
+		IndexBuffer::~IndexBuffer()
 		{
 			destroy();
 		}
@@ -72,12 +72,12 @@ namespace galaxy
 			}
 		}
 
-		void IndexBuffer::clear() noexcept
+		void IndexBuffer::clear()
 		{
 			glInvalidateBufferData(m_ibo);
 		}
 
-		void IndexBuffer::destroy() noexcept
+		void IndexBuffer::destroy()
 		{
 			if (m_ibo != 0)
 			{
@@ -86,12 +86,12 @@ namespace galaxy
 			}
 		}
 
-		int IndexBuffer::index_count() const noexcept
+		int IndexBuffer::index_count() const
 		{
 			return m_count;
 		}
 
-		unsigned int IndexBuffer::id() const noexcept
+		unsigned int IndexBuffer::id() const
 		{
 			return m_ibo;
 		}

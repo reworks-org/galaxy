@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Frame::Frame() noexcept
+		Frame::Frame()
 			: Serializable {}
 			, m_time_per_frame {0.0}
 		{
@@ -26,13 +26,13 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Frame::Frame(Frame&& f) noexcept
+		Frame::Frame(Frame&& f)
 		{
 			this->m_texture_id     = std::move(f.m_texture_id);
 			this->m_time_per_frame = f.m_time_per_frame;
 		}
 
-		Frame& Frame::operator=(Frame&& f) noexcept
+		Frame& Frame::operator=(Frame&& f)
 		{
 			if (this != &f)
 			{
@@ -43,13 +43,13 @@ namespace galaxy
 			return *this;
 		}
 
-		Frame::Frame(const Frame& f) noexcept
+		Frame::Frame(const Frame& f)
 		{
 			this->m_texture_id     = f.m_texture_id;
 			this->m_time_per_frame = f.m_time_per_frame;
 		}
 
-		Frame& Frame::operator=(const Frame& f) noexcept
+		Frame& Frame::operator=(const Frame& f)
 		{
 			if (this != &f)
 			{
@@ -60,7 +60,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Frame::~Frame() noexcept
+		Frame::~Frame()
 		{
 		}
 

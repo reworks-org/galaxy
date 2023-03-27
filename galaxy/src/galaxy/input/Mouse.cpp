@@ -13,22 +13,22 @@ namespace galaxy
 {
 	namespace input
 	{
-		Mouse::Mouse() noexcept
+		Mouse::Mouse()
 			: InputDevice {}
 		{
 		}
 
-		void Mouse::enable_sticky_mouse() const noexcept
+		void Mouse::enable_sticky_mouse() const
 		{
 			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);
 		}
 
-		void Mouse::disable_sticky_mouse() const noexcept
+		void Mouse::disable_sticky_mouse() const
 		{
 			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_FALSE);
 		}
 
-		glm::dvec2 Mouse::get_pos() noexcept
+		glm::dvec2 Mouse::get_pos()
 		{
 			glm::dvec2 out;
 			glfwGetCursorPos(m_window, &out.x, &out.y);

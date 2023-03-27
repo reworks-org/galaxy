@@ -27,24 +27,24 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Scene() noexcept;
+			Scene();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Scene() noexcept;
+			virtual ~Scene();
 
 			///
 			/// \brief Load data required by this scene.
 			///
 			/// Displays a loading screen overriding whatever is currently rendering.
 			///
-			void load() noexcept;
+			void load();
 
 			///
 			/// Unload scene data.
 			///
-			void unload() noexcept;
+			void unload();
 
 			///
 			/// Process scene events.
@@ -71,21 +71,21 @@ namespace galaxy
 			///
 			/// \param name String name for debug purposes.
 			///
-			void set_name(const std::string& name) noexcept;
+			void set_name(const std::string& name);
 
 			///
 			/// Get Scene name.
 			///
 			/// \return Const std::string reference.
 			///
-			[[nodiscard]] const std::string& get_name() const noexcept;
+			[[nodiscard]] const std::string& get_name() const;
 
 			///
 			/// Get layer stack.
 			///
 			/// \return Reference to layers stack.
 			///
-			[[nodiscard]] Layers& layers() noexcept;
+			[[nodiscard]] Layers& layers();
 
 			///
 			/// Serializes object.

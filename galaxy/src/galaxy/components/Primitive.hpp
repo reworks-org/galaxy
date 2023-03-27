@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Primitive() noexcept;
+			Primitive();
 
 			///
 			/// JSON constructor.
@@ -92,17 +92,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Primitive(Primitive&&) noexcept;
+			Primitive(Primitive&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Primitive& operator=(Primitive&&) noexcept;
+			Primitive& operator=(Primitive&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Primitive() noexcept;
+			virtual ~Primitive();
 
 			///
 			/// Create the primitive vertexs.
@@ -121,14 +121,14 @@ namespace galaxy
 			///
 			/// \return Reference to data. Can be modified.
 			///
-			[[nodiscard]] const PrimitiveData& get_data() const noexcept;
+			[[nodiscard]] const PrimitiveData& get_data() const;
 
 			///
 			/// Get current shape.
 			///
 			/// \return Enum.
 			///
-			[[nodiscard]] graphics::Shape get_shape() const noexcept;
+			[[nodiscard]] graphics::Shape get_shape() const;
 
 			///
 			/// \brief Get texture width.
@@ -137,7 +137,7 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float get_width() const noexcept;
+			[[nodiscard]] float get_width() const;
 
 			///
 			/// \brief Get texture height.
@@ -146,7 +146,7 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float get_height() const noexcept;
+			[[nodiscard]] float get_height() const;
 
 			///
 			/// Serializes object.
@@ -176,7 +176,7 @@ namespace galaxy
 			///
 			/// Configure renderable.
 			///
-			void configure() noexcept override;
+			void configure() override;
 
 		public:
 			///

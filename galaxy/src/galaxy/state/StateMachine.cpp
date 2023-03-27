@@ -11,11 +11,11 @@ namespace galaxy
 {
 	namespace state
 	{
-		StateMachine::StateMachine() noexcept
+		StateMachine::StateMachine()
 		{
 		}
 
-		StateMachine::~StateMachine() noexcept
+		StateMachine::~StateMachine()
 		{
 			while (!m_stack.empty())
 			{
@@ -25,7 +25,7 @@ namespace galaxy
 			m_states.clear();
 		}
 
-		void StateMachine::push(const std::string& key) noexcept
+		void StateMachine::push(const std::string& key)
 		{
 			if (m_states.contains(key))
 			{
@@ -40,7 +40,7 @@ namespace galaxy
 			}
 		}
 
-		void StateMachine::pop() noexcept
+		void StateMachine::pop()
 		{
 			m_stack.pop();
 		}

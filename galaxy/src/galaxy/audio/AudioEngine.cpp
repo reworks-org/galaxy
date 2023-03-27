@@ -97,7 +97,7 @@ namespace galaxy
 			}
 		}
 
-		AudioEngine::~AudioEngine() noexcept
+		AudioEngine::~AudioEngine()
 		{
 			ma_engine_uninit(&m_sfx_engine);
 			ma_engine_uninit(&m_music_engine);
@@ -106,7 +106,7 @@ namespace galaxy
 			ma_log_uninit(&m_log);
 		}
 
-		void AudioEngine::stop() noexcept
+		void AudioEngine::stop()
 		{
 			for (auto& [key, ptr] : core::ServiceLocator<resource::Sounds>::ref().cache())
 			{
@@ -114,67 +114,67 @@ namespace galaxy
 			}
 		}
 
-		void AudioEngine::set_listener_position(const unsigned int id, const float x, const float y, const float z) noexcept
+		void AudioEngine::set_listener_position(const unsigned int id, const float x, const float y, const float z)
 		{
 			ma_engine_listener_set_position(&m_sfx_engine, id, x, y, z);
 			ma_engine_listener_set_position(&m_music_engine, id, x, y, z);
 			ma_engine_listener_set_position(&m_dialogue_engine, id, x, y, z);
 		}
 
-		void AudioEngine::set_listener_direction(const unsigned int id, const float x, const float y, const float z) noexcept
+		void AudioEngine::set_listener_direction(const unsigned int id, const float x, const float y, const float z)
 		{
 			ma_engine_listener_set_direction(&m_sfx_engine, id, x, y, z);
 			ma_engine_listener_set_direction(&m_music_engine, id, x, y, z);
 			ma_engine_listener_set_direction(&m_dialogue_engine, id, x, y, z);
 		}
 
-		void AudioEngine::set_listener_world_up(const unsigned int id, const float x, const float y, const float z) noexcept
+		void AudioEngine::set_listener_world_up(const unsigned int id, const float x, const float y, const float z)
 		{
 			ma_engine_listener_set_world_up(&m_sfx_engine, id, x, y, z);
 			ma_engine_listener_set_world_up(&m_music_engine, id, x, y, z);
 			ma_engine_listener_set_world_up(&m_dialogue_engine, id, x, y, z);
 		}
 
-		void AudioEngine::set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain) noexcept
+		void AudioEngine::set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain)
 		{
 			ma_engine_listener_set_cone(&m_sfx_engine, id, inner_angle, outer_angle, outer_gain);
 			ma_engine_listener_set_cone(&m_music_engine, id, inner_angle, outer_angle, outer_gain);
 			ma_engine_listener_set_cone(&m_dialogue_engine, id, inner_angle, outer_angle, outer_gain);
 		}
 
-		void AudioEngine::toggle_listener(const unsigned int id, const bool enable) noexcept
+		void AudioEngine::toggle_listener(const unsigned int id, const bool enable)
 		{
 			ma_engine_listener_set_enabled(&m_sfx_engine, id, enable);
 			ma_engine_listener_set_enabled(&m_music_engine, id, enable);
 			ma_engine_listener_set_enabled(&m_dialogue_engine, id, enable);
 		}
 
-		void AudioEngine::set_sfx_volume(const float volume) noexcept
+		void AudioEngine::set_sfx_volume(const float volume)
 		{
 			ma_engine_set_volume(&m_sfx_engine, volume);
 		}
 
-		void AudioEngine::set_music_volume(const float volume) noexcept
+		void AudioEngine::set_music_volume(const float volume)
 		{
 			ma_engine_set_volume(&m_music_engine, volume);
 		}
 
-		void AudioEngine::set_dialogue_volume(const float volume) noexcept
+		void AudioEngine::set_dialogue_volume(const float volume)
 		{
 			ma_engine_set_volume(&m_dialogue_engine, volume);
 		}
 
-		ma_engine* AudioEngine::get_sfx_engine() noexcept
+		ma_engine* AudioEngine::get_sfx_engine()
 		{
 			return &m_sfx_engine;
 		}
 
-		ma_engine* AudioEngine::get_music_engine() noexcept
+		ma_engine* AudioEngine::get_music_engine()
 		{
 			return &m_music_engine;
 		}
 
-		ma_engine* AudioEngine::get_dialogue_engine() noexcept
+		ma_engine* AudioEngine::get_dialogue_engine()
 		{
 			return &m_dialogue_engine;
 		}

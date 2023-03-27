@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			/// Defaults to White.
 			///
-			Colour() noexcept;
+			Colour();
 
 			///
 			/// Argument Constructor.
@@ -49,12 +49,12 @@ namespace galaxy
 			/// \param b Blue.
 			/// \param a Alpha level. Defaults to Opaque (255).
 			///
-			Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a = OPAQUE) noexcept;
+			Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a = OPAQUE);
 
 			///
 			/// Destructor.
 			///
-			~Colour() noexcept;
+			~Colour();
 
 			///
 			/// Set using normalized values.
@@ -64,7 +64,7 @@ namespace galaxy
 			/// \param b Blue.
 			/// \param a Alpha level. Defaults to Opaque (255).
 			///
-			void set_from_normalized(const float r, const float g, const float b, const float a) noexcept;
+			void set_from_normalized(const float r, const float g, const float b, const float a);
 
 			///
 			/// \brief Normalizes values and returns as floats.
@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			/// \return Array of floats.
 			///
-			[[nodiscard]] std::array<float, 4> normalized() noexcept;
+			[[nodiscard]] std::array<float, 4> normalized();
 
 			///
 			/// Comparison operator.

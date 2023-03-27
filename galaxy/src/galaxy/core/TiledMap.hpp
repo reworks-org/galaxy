@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~TiledMap() noexcept;
+			~TiledMap();
 
 			///
 			/// Load map into scene.
@@ -46,19 +46,19 @@ namespace galaxy
 			///
 			/// Enable the currently active map's entities.
 			///
-			void enable_map() noexcept;
+			void enable_map();
 
 			///
 			/// Disable the currently active map's entities.
 			///
-			void disable_map() noexcept;
+			void disable_map();
 
 			///
 			/// Get name of map.
 			///
 			/// \return Const string ref.
 			///
-			const std::string& get_name() const noexcept;
+			const std::string& get_name() const;
 
 		private:
 			///
@@ -107,7 +107,7 @@ namespace galaxy
 			///
 			/// \return Offset as a vec2 integer.
 			///
-			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset) noexcept;
+			[[nodiscard]] glm::ivec2 get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset);
 
 		private:
 			///

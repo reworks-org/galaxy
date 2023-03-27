@@ -30,12 +30,12 @@ namespace galaxy
 			/// \param width Width of internal framebuffer.
 			/// \param height Height of internal framebuffer.
 			///
-			GammaCorrection(const int width, const int height) noexcept;
+			GammaCorrection(const int width, const int height);
 
 			///
 			/// Destructor.
 			///
-			virtual ~GammaCorrection() noexcept = default;
+			virtual ~GammaCorrection() = default;
 
 			///
 			/// Resize framebuffers.
@@ -59,14 +59,14 @@ namespace galaxy
 			///
 			/// \param gamma_mod You will need to lookup or tinker with value. The value will be used in the formula: 1.0 / amount. 0 defaults to 1.0.
 			///
-			void set_gamma(const float gamma_mod) noexcept;
+			void set_gamma(const float gamma_mod);
 
 			///
 			/// Get gamma modifier.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_gamma() const noexcept;
+			[[nodiscard]] float get_gamma() const;
 
 		private:
 			///

@@ -18,7 +18,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Framebuffer::Framebuffer() noexcept
+		Framebuffer::Framebuffer()
 			: m_width {1}
 			, m_height {1}
 			, m_fbo {0}
@@ -29,7 +29,7 @@ namespace galaxy
 		{
 		}
 
-		Framebuffer::Framebuffer(const int width, const int height) noexcept
+		Framebuffer::Framebuffer(const int width, const int height)
 			: m_width {1}
 			, m_height {1}
 			, m_fbo {0}
@@ -41,7 +41,7 @@ namespace galaxy
 			init(width, height);
 		}
 
-		Framebuffer::Framebuffer(Framebuffer&& f) noexcept
+		Framebuffer::Framebuffer(Framebuffer&& f)
 		{
 			this->destroy();
 
@@ -66,7 +66,7 @@ namespace galaxy
 			f.m_used_attachments.clear();
 		}
 
-		Framebuffer& Framebuffer::operator=(Framebuffer&& f) noexcept
+		Framebuffer& Framebuffer::operator=(Framebuffer&& f)
 		{
 			if (this != &f)
 			{
@@ -101,7 +101,7 @@ namespace galaxy
 			destroy();
 		}
 
-		void Framebuffer::init(const int width, const int height) noexcept
+		void Framebuffer::init(const int width, const int height)
 		{
 			m_width  = width;
 			m_height = height;
@@ -332,7 +332,7 @@ namespace galaxy
 			glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		}
 
-		void Framebuffer::bind(const bool clear) noexcept
+		void Framebuffer::bind(const bool clear)
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 			glViewport(0, 0, m_width, m_height);
@@ -344,12 +344,12 @@ namespace galaxy
 			}
 		}
 
-		void Framebuffer::unbind() noexcept
+		void Framebuffer::unbind()
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 
-		void Framebuffer::clear() noexcept
+		void Framebuffer::clear()
 		{
 			for (const auto index : m_used_attachments)
 			{
@@ -359,22 +359,22 @@ namespace galaxy
 			glClearNamedFramebufferfv(m_fbo, GL_DEPTH, 0, &CLEAR_DEPTH);
 		}
 
-		void Framebuffer::clear(const unsigned int index) noexcept
+		void Framebuffer::clear(const unsigned int index)
 		{
 			glClearNamedFramebufferfv(m_fbo, GL_COLOR, index, m_clear_colour.data());
 		}
 
-		void Framebuffer::set_clear_colour(graphics::Colour& col) noexcept
+		void Framebuffer::set_clear_colour(graphics::Colour& col)
 		{
 			m_clear_colour = col.normalized();
 		}
 
-		void Framebuffer::clear_storagebuffer(const unsigned int index, const int val) noexcept
+		void Framebuffer::clear_storagebuffer(const unsigned int index, const int val)
 		{
 			glClearNamedFramebufferiv(m_fbo, GL_COLOR, index, &val);
 		}
 
-		int Framebuffer::read_storagebuffer(const unsigned int index, const int x, const int y) noexcept
+		int Framebuffer::read_storagebuffer(const unsigned int index, const int x, const int y)
 		{
 			static GLint s_cur_fbo = 0;
 			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
@@ -389,27 +389,27 @@ namespace galaxy
 			return data;
 		}
 
-		int Framebuffer::get_width() const noexcept
+		int Framebuffer::get_width() const
 		{
 			return m_width;
 		}
 
-		int Framebuffer::get_height() const noexcept
+		int Framebuffer::get_height() const
 		{
 			return m_height;
 		}
 
-		unsigned int Framebuffer::get_depth_attachment() const noexcept
+		unsigned int Framebuffer::get_depth_attachment() const
 		{
 			return m_depth_attachment;
 		}
 
-		unsigned int Framebuffer::get_depth_renderbuffer() const noexcept
+		unsigned int Framebuffer::get_depth_renderbuffer() const
 		{
 			return m_depth_renderbuffer;
 		}
 
-		std::vector<unsigned int> Framebuffer::get_attachments() const noexcept
+		std::vector<unsigned int> Framebuffer::get_attachments() const
 		{
 			std::vector<unsigned int> attachments;
 			attachments.reserve(m_attachments.size());
@@ -422,17 +422,17 @@ namespace galaxy
 			return attachments;
 		}
 
-		const std::vector<unsigned int>& Framebuffer::get_renderbuffers() const noexcept
+		const std::vector<unsigned int>& Framebuffer::get_renderbuffers() const
 		{
 			return m_renderbuffers;
 		}
 
-		unsigned int Framebuffer::id() const noexcept
+		unsigned int Framebuffer::id() const
 		{
 			return m_fbo;
 		}
 
-		void Framebuffer::add_drawbuffers() noexcept
+		void Framebuffer::add_drawbuffers()
 		{
 			glDrawBuffers(static_cast<GLsizei>(m_used_attachments.size()), m_used_attachments.data());
 
@@ -478,7 +478,7 @@ namespace galaxy
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
-		void Framebuffer::destroy() noexcept
+		void Framebuffer::destroy()
 		{
 			if (m_fbo != 0)
 			{

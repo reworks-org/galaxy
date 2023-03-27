@@ -18,7 +18,7 @@ namespace galaxy
 {
 	namespace scene
 	{
-		Scene::Scene() noexcept
+		Scene::Scene()
 			: m_camera {false}
 			, m_world {this}
 			, m_map {this}
@@ -32,11 +32,11 @@ namespace galaxy
 			unload();
 		}
 
-		void Scene::load() noexcept
+		void Scene::load()
 		{
 		}
 
-		void Scene::unload() noexcept
+		void Scene::unload()
 		{
 			// Cleanup loaded lua data from entities.
 			auto& lua = core::ServiceLocator<sol::state>::ref();
@@ -71,17 +71,17 @@ namespace galaxy
 			}
 		}
 
-		void Scene::set_name(const std::string& name) noexcept
+		void Scene::set_name(const std::string& name)
 		{
 			m_name = name;
 		}
 
-		const std::string& Scene::get_name() const noexcept
+		const std::string& Scene::get_name() const
 		{
 			return m_name;
 		}
 
-		Layers& Scene::layers() noexcept
+		Layers& Scene::layers()
 		{
 			return m_layer_stack;
 		}

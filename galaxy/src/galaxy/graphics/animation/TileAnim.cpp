@@ -11,14 +11,14 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		TileAnim::TileAnim() noexcept
+		TileAnim::TileAnim()
 			: m_anim {nullptr}
 			, m_tileset {nullptr}
 
 		{
 		}
 
-		TileAnim::TileAnim(TileAnim&& a) noexcept
+		TileAnim::TileAnim(TileAnim&& a)
 			: m_anim {nullptr}
 			, m_tileset {nullptr}
 		{
@@ -30,7 +30,7 @@ namespace galaxy
 			a.m_tileset = nullptr;
 		}
 
-		TileAnim& TileAnim::operator=(TileAnim&& a) noexcept
+		TileAnim& TileAnim::operator=(TileAnim&& a)
 		{
 			if (this != &a)
 			{
@@ -45,7 +45,7 @@ namespace galaxy
 			return *this;
 		}
 
-		TileAnim::~TileAnim() noexcept
+		TileAnim::~TileAnim()
 		{
 			m_anim    = nullptr;
 			m_tileset = nullptr;

@@ -62,7 +62,10 @@ namespace galaxy
 		///
 		/// \return Enum keymod.
 		///
-		[[nodiscard]] input::InputMods int_to_keymod(const int mod) noexcept;
+		[[nodiscard]] inline constexpr input::InputMods int_to_keymod(const int mod)
+		{
+			return static_cast<input::InputMods>(mod);
+		}
 	} // namespace input
 } // namespace galaxy
 

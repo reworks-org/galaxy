@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Animation() noexcept;
+			Animation();
 
 			///
 			/// Argument constructor.
@@ -37,7 +37,7 @@ namespace galaxy
 			/// \param speed Multiplier. Speed of animation.
 			/// \param frames Frames in the animation.
 			///
-			Animation(std::string_view name, const bool looping, const double speed, std::span<Frame> frames) noexcept;
+			Animation(std::string_view name, const bool looping, const double speed, std::span<Frame> frames);
 
 			///
 			/// JSON constructor.
@@ -49,53 +49,53 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Animation(Animation&&) noexcept;
+			Animation(Animation&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Animation& operator=(Animation&&) noexcept;
+			Animation& operator=(Animation&&);
 
 			///
 			/// Copy constructor.
 			///
-			Animation(const Animation&) noexcept;
+			Animation(const Animation&);
 
 			///
 			/// Copy assignment operator.
 			///
-			Animation& operator=(const Animation&) noexcept;
+			Animation& operator=(const Animation&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Animation() noexcept;
+			virtual ~Animation();
 
 			///
 			/// Advance to the next frame.
 			///
 			/// \return Also returns a pointer to the next frame, saving you an extra call to get_current_frame().
 			///
-			[[maybe_unused]] Frame* next_frame() noexcept;
+			[[maybe_unused]] Frame* next_frame();
 
 			///
 			/// Restart animation from beginning.
 			///
-			void restart() noexcept;
+			void restart();
 
 			///
 			/// Get currently active frame.
 			///
 			/// \return Pointer to active frame.
 			///
-			[[nodiscard]] Frame* current_frame() noexcept;
+			[[nodiscard]] Frame* current_frame();
 
 			///
 			/// Get current frame index.
 			///
 			/// \return std::size_t.
 			///
-			[[nodiscard]] std::size_t current_frame_index() noexcept;
+			[[nodiscard]] std::size_t current_frame_index();
 
 			///
 			/// Serializes object.

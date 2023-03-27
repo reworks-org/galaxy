@@ -11,20 +11,20 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		UniformBuffer::UniformBuffer() noexcept
+		UniformBuffer::UniformBuffer()
 			: m_ubo {0}
 		{
 			glGenBuffers(1, &m_ubo);
 		}
 
-		UniformBuffer::UniformBuffer(const unsigned int index) noexcept
+		UniformBuffer::UniformBuffer(const unsigned int index)
 			: m_ubo {0}
 		{
 			glGenBuffers(1, &m_ubo);
 			create(index);
 		}
 
-		UniformBuffer::UniformBuffer(UniformBuffer&& ub) noexcept
+		UniformBuffer::UniformBuffer(UniformBuffer&& ub)
 		{
 			if (this->m_ubo != 0)
 			{
@@ -36,7 +36,7 @@ namespace galaxy
 			ub.m_ubo    = 0;
 		}
 
-		UniformBuffer& UniformBuffer::operator=(UniformBuffer&& ub) noexcept
+		UniformBuffer& UniformBuffer::operator=(UniformBuffer&& ub)
 		{
 			if (this != &ub)
 			{
@@ -53,7 +53,7 @@ namespace galaxy
 			return *this;
 		}
 
-		UniformBuffer::~UniformBuffer() noexcept
+		UniformBuffer::~UniformBuffer()
 		{
 			if (m_ubo != 0)
 			{
@@ -62,14 +62,14 @@ namespace galaxy
 			}
 		}
 
-		void UniformBuffer::create(const unsigned int index) noexcept
+		void UniformBuffer::create(const unsigned int index)
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 			glBindBufferBase(GL_UNIFORM_BUFFER, index, m_ubo);
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void UniformBuffer::reserve(const unsigned int size) noexcept
+		void UniformBuffer::reserve(const unsigned int size)
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 
@@ -85,24 +85,24 @@ namespace galaxy
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void UniformBuffer::bind() noexcept
+		void UniformBuffer::bind()
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 		}
 
-		void UniformBuffer::unbind() noexcept
+		void UniformBuffer::unbind()
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
-		void UniformBuffer::reset() noexcept
+		void UniformBuffer::reset()
 		{
 			glInvalidateBufferData(m_ubo);
 			glDeleteBuffers(1, &m_ubo);
 			glGenBuffers(1, &m_ubo);
 		}
 
-		unsigned int UniformBuffer::id() const noexcept
+		unsigned int UniformBuffer::id() const
 		{
 			return m_ubo;
 		}

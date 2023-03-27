@@ -36,7 +36,7 @@ namespace galaxy
 			}
 		}
 
-		TiledMap::~TiledMap() noexcept
+		TiledMap::~TiledMap()
 		{
 			for (const auto& entity : m_map_entities)
 			{
@@ -74,7 +74,7 @@ namespace galaxy
 			}
 		}
 
-		void TiledMap::enable_map() noexcept
+		void TiledMap::enable_map()
 		{
 			for (const auto& entity : m_map_entities)
 			{
@@ -86,7 +86,7 @@ namespace galaxy
 			}
 		}
 
-		void TiledMap::disable_map() noexcept
+		void TiledMap::disable_map()
 		{
 			for (const auto& entity : m_map_entities)
 			{
@@ -98,7 +98,7 @@ namespace galaxy
 			}
 		}
 
-		const std::string& TiledMap::get_name() const noexcept
+		const std::string& TiledMap::get_name() const
 		{
 			return m_name;
 		}
@@ -295,10 +295,10 @@ namespace galaxy
 					{
 						case tson::ObjectType::Object:
 							{
-								const auto tileset = layer.getMap()->getTilesetByGid(obj.getGid());
-								const auto offset  = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
+								const tson::Tileset* tileset = layer.getMap()->getTilesetByGid(obj.getGid());
 
-								auto& image = tileset->getImage();
+								const auto offset = get_tile_offset(obj.getGid(), layer.getMap(), tileset);
+								auto& image       = tileset->getImage();
 
 								auto tx = layer.getMap()->getTileSize().x;
 								auto ty = layer.getMap()->getTileSize().y;
@@ -449,7 +449,7 @@ namespace galaxy
 			shader.set_shader("Sprite");
 		}
 
-		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset) noexcept
+		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset)
 		{
 			const auto first   = tileset->getFirstgid();
 			const auto columns = tileset->getColumns();

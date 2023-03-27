@@ -14,17 +14,17 @@ namespace galaxy
 {
 	namespace ui
 	{
-		RMLEvents::RMLEvents(Rml::Context* context) noexcept
+		RMLEvents::RMLEvents(Rml::Context* context)
 			: m_context {context}
 		{
 		}
 
-		RMLEvents::~RMLEvents() noexcept
+		RMLEvents::~RMLEvents()
 		{
 			m_context = nullptr;
 		}
 
-		void RMLEvents::on_mouse_move(events::MouseMoved& e) noexcept
+		void RMLEvents::on_mouse_move(events::MouseMoved& e)
 		{
 			if (!e.handled)
 			{
@@ -32,7 +32,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_mouse_pressed(events::MousePressed& e) noexcept
+		void RMLEvents::on_mouse_pressed(events::MousePressed& e)
 		{
 			if (!e.handled)
 			{
@@ -40,7 +40,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_mouse_released(events::MouseReleased& e) noexcept
+		void RMLEvents::on_mouse_released(events::MouseReleased& e)
 		{
 			if (!e.handled)
 			{
@@ -48,7 +48,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_mouse_wheel(events::MouseWheel& e) noexcept
+		void RMLEvents::on_mouse_wheel(events::MouseWheel& e)
 		{
 			if (!e.handled)
 			{
@@ -56,7 +56,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_key_down(events::KeyDown& e) noexcept
+		void RMLEvents::on_key_down(events::KeyDown& e)
 		{
 			if (!e.handled)
 			{
@@ -64,7 +64,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_key_repeat(events::KeyRepeat& e) noexcept
+		void RMLEvents::on_key_repeat(events::KeyRepeat& e)
 		{
 			e.handled = !m_context->ProcessKeyDown(RMLInput::handle().m_keymap[e.keycode], RMLInput::handle().m_modmap[e.mod]);
 			if (e.keycode == input::Keys::ENTER || e.keycode == input::Keys::KP_ENTER && e.handled)
@@ -73,7 +73,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_key_up(events::KeyUp& e) noexcept
+		void RMLEvents::on_key_up(events::KeyUp& e)
 		{
 			if (!e.handled)
 			{
@@ -81,7 +81,7 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_key_char(events::KeyChar& e) noexcept
+		void RMLEvents::on_key_char(events::KeyChar& e)
 		{
 			if (!e.handled)
 			{
@@ -89,17 +89,17 @@ namespace galaxy
 			}
 		}
 
-		void RMLEvents::on_window_resize(const events::WindowResized& e) noexcept
+		void RMLEvents::on_window_resize(const events::WindowResized& e)
 		{
 			m_context->SetDimensions({e.width, e.height});
 		}
 
-		void RMLEvents::on_content_scale(const events::ContentScale& e) noexcept
+		void RMLEvents::on_content_scale(const events::ContentScale& e)
 		{
 			m_context->SetDensityIndependentPixelRatio(e.xscale);
 		}
 
-		int RMLEvents::convert_key_modifier(int glfw_mods) noexcept
+		int RMLEvents::convert_key_modifier(int glfw_mods)
 		{
 			int key_modifier_state = 0;
 

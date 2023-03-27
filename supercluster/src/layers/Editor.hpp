@@ -30,8 +30,8 @@ namespace sc
 	class Editor final : public scene::Layer
 	{
 	public:
-		Editor(std::string_view name, scene::Scene* scene) noexcept;
-		virtual ~Editor() noexcept;
+		Editor(std::string_view name, scene::Scene* scene);
+		virtual ~Editor();
 
 		void on_push() override;
 		void on_pop() override;
@@ -54,7 +54,7 @@ namespace sc
 		void code_editor_menu();
 		void viewport();
 
-		const std::string& get_type() const noexcept override;
+		const std::string& get_type() const override;
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
 

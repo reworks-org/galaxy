@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace async
 	{
-		Timer::Timer() noexcept
+		Timer::Timer()
 			: m_repeat {false}
 			, m_stopped {true}
 			, m_time_passed {0.0}
@@ -22,7 +22,7 @@ namespace galaxy
 		{
 		}
 
-		Timer::Timer(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		Timer::Timer(const std::function<void(void)>& func, const std::uint32_t delay)
 			: m_repeat {false}
 			, m_stopped {true}
 			, m_time_passed {0.0}
@@ -32,23 +32,23 @@ namespace galaxy
 			set(func, delay);
 		}
 
-		Timer::~Timer() noexcept
+		Timer::~Timer()
 		{
 			stop();
 		}
 
-		void Timer::set(const std::function<void(void)>& func, const std::uint32_t delay) noexcept
+		void Timer::set(const std::function<void(void)>& func, const std::uint32_t delay)
 		{
 			m_callback = func;
 			m_delay    = delay;
 		}
 
-		void Timer::repeat(const bool repeat) noexcept
+		void Timer::repeat(const bool repeat)
 		{
 			m_repeat = repeat;
 		}
 
-		void Timer::update() noexcept
+		void Timer::update()
 		{
 			if (!m_stopped)
 			{
@@ -70,18 +70,18 @@ namespace galaxy
 			}
 		}
 
-		void Timer::start() noexcept
+		void Timer::start()
 		{
 			m_stopped = false;
 		}
 
-		void Timer::stop() noexcept
+		void Timer::stop()
 		{
 			m_stopped     = true;
 			m_time_passed = 0.0;
 		}
 
-		bool Timer::stopped() const noexcept
+		bool Timer::stopped() const
 		{
 			return m_stopped;
 		}

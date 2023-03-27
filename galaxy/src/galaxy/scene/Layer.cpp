@@ -11,27 +11,27 @@ namespace galaxy
 {
 	namespace scene
 	{
-		Layer::Layer(std::string_view name, Scene* scene) noexcept
+		Layer::Layer(std::string_view name, Scene* scene)
 			: m_name {name}
 			, m_scene {scene}
 		{
 		}
 
-		Layer::~Layer() noexcept
+		Layer::~Layer()
 		{
 		}
 
-		void Layer::set_name(std::string_view name) noexcept
+		void Layer::set_name(std::string_view name)
 		{
 			m_name = static_cast<std::string>(name);
 		}
 
-		const std::string& Layer::get_name() const noexcept
+		const std::string& Layer::get_name() const
 		{
 			return m_name;
 		}
 
-		entt::dispatcher& Layer::dispatcher() noexcept
+		entt::dispatcher& Layer::dispatcher()
 		{
 			return m_dispatcher;
 		}

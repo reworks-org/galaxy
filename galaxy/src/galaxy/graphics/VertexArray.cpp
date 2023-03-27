@@ -14,13 +14,13 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		VertexArray::VertexArray() noexcept
+		VertexArray::VertexArray()
 			: m_vao {0}
 		{
 			glCreateVertexArrays(1, &m_vao);
 		}
 
-		VertexArray::VertexArray(VertexArray&& va) noexcept
+		VertexArray::VertexArray(VertexArray&& va)
 			: m_vao {0}
 		{
 			this->destroy();
@@ -33,7 +33,7 @@ namespace galaxy
 			va.m_vao = 0;
 		}
 
-		VertexArray& VertexArray::operator=(VertexArray&& va) noexcept
+		VertexArray& VertexArray::operator=(VertexArray&& va)
 		{
 			if (this != &va)
 			{
@@ -50,7 +50,7 @@ namespace galaxy
 			return *this;
 		}
 
-		VertexArray::~VertexArray() noexcept
+		VertexArray::~VertexArray()
 		{
 			destroy();
 		}
@@ -58,7 +58,7 @@ namespace galaxy
 		void VertexArray::create(std::span<Vertex> vertices,
 			const StorageFlag vertices_flag,
 			std::span<unsigned int> indices,
-			const StorageFlag indices_flag) noexcept
+			const StorageFlag indices_flag)
 		{
 			m_vbo.create(vertices, vertices_flag);
 			m_ibo.create(indices, indices_flag);
@@ -88,7 +88,7 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 		}
 
-		void VertexArray::create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag) noexcept
+		void VertexArray::create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag)
 		{
 			m_vbo.reserve(size);
 			m_ibo.create(indices, indices_flag);
@@ -136,12 +136,12 @@ namespace galaxy
 			m_vbo.sub_buffer(index, vertices);
 		}
 
-		void VertexArray::clear() noexcept
+		void VertexArray::clear()
 		{
 			m_vbo.clear();
 		}
 
-		void VertexArray::destroy() noexcept
+		void VertexArray::destroy()
 		{
 			if (m_vao != 0)
 			{
@@ -150,32 +150,32 @@ namespace galaxy
 			}
 		}
 
-		void VertexArray::bind() noexcept
+		void VertexArray::bind()
 		{
 			glBindVertexArray(m_vao);
 		}
 
-		void VertexArray::unbind() noexcept
+		void VertexArray::unbind()
 		{
 			glBindVertexArray(0);
 		}
 
-		int VertexArray::index_count() const noexcept
+		int VertexArray::index_count() const
 		{
 			return m_ibo.index_count();
 		}
 
-		unsigned int VertexArray::id() const noexcept
+		unsigned int VertexArray::id() const
 		{
 			return m_vao;
 		}
 
-		unsigned int VertexArray::vbo() const noexcept
+		unsigned int VertexArray::vbo() const
 		{
 			return m_vbo.id();
 		}
 
-		unsigned int VertexArray::ibo() const noexcept
+		unsigned int VertexArray::ibo() const
 		{
 			return m_ibo.id();
 		}

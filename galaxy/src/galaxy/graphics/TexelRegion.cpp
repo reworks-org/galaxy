@@ -11,22 +11,22 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		const glm::vec2& TexelRegion::ul_texels() const noexcept
+		const glm::vec2& TexelRegion::ul_texels() const
 		{
 			return m_ul_texels;
 		}
 
-		const glm::vec2& TexelRegion::ur_texels() const noexcept
+		const glm::vec2& TexelRegion::ur_texels() const
 		{
 			return m_ur_texels;
 		}
 
-		const glm::vec2& TexelRegion::bl_texels() const noexcept
+		const glm::vec2& TexelRegion::bl_texels() const
 		{
 			return m_bl_texels;
 		}
 
-		const glm::vec2& TexelRegion::br_texels() const noexcept
+		const glm::vec2& TexelRegion::br_texels() const
 		{
 			return m_br_texels;
 		}

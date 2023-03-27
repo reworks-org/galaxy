@@ -22,7 +22,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Shader::Shader() noexcept
+		Shader::Shader()
 			: m_id {0}
 		{
 		}
@@ -57,7 +57,7 @@ namespace galaxy
 			}
 		}
 
-		Shader::Shader(Shader&& s) noexcept
+		Shader::Shader(Shader&& s)
 		{
 			this->destroy();
 
@@ -69,7 +69,7 @@ namespace galaxy
 			s.m_id = 0;
 		}
 
-		Shader& Shader::operator=(Shader&& s) noexcept
+		Shader& Shader::operator=(Shader&& s)
 		{
 			if (this != &s)
 			{
@@ -86,7 +86,7 @@ namespace galaxy
 			return *this;
 		}
 
-		Shader::~Shader() noexcept
+		Shader::~Shader()
 		{
 			destroy();
 		}
@@ -233,7 +233,7 @@ namespace galaxy
 			std::string().swap(m_vertex_src);
 		}
 
-		void Shader::destroy() noexcept
+		void Shader::destroy()
 		{
 			if (m_id != 0)
 			{
@@ -242,12 +242,12 @@ namespace galaxy
 			}
 		}
 
-		void Shader::bind() noexcept
+		void Shader::bind()
 		{
 			glUseProgram(m_id);
 		}
 
-		void Shader::unbind() noexcept
+		void Shader::unbind()
 		{
 			glUseProgram(0);
 		}
@@ -291,7 +291,7 @@ namespace galaxy
 			}
 		}
 
-		unsigned int Shader::id() const noexcept
+		unsigned int Shader::id() const
 		{
 			return m_id;
 		}

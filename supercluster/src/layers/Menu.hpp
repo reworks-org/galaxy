@@ -19,8 +19,8 @@ namespace sc
 	class Menu final : public scene::Layer
 	{
 	public:
-		Menu(std::string_view name, scene::Scene* scene) noexcept;
-		virtual ~Menu() noexcept;
+		Menu(std::string_view name, scene::Scene* scene);
+		virtual ~Menu();
 
 		void on_push() override;
 		void on_pop() override;
@@ -32,7 +32,7 @@ namespace sc
 	private:
 		Menu() = delete;
 
-		const std::string& get_type() const noexcept override;
+		const std::string& get_type() const override;
 		[[nodiscard]] nlohmann::json serialize() override;
 		void deserialize(const nlohmann::json& json) override;
 

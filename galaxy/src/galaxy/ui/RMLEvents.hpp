@@ -31,82 +31,82 @@ namespace galaxy
 			///
 			/// \param context Pointer to RML context.
 			///
-			RMLEvents(Rml::Context* context) noexcept;
+			RMLEvents(Rml::Context* context);
 
 			///
 			/// Destructor.
 			///
-			~RMLEvents() noexcept;
+			~RMLEvents();
 
 			///
 			/// On mouse moved event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_mouse_move(events::MouseMoved& e) noexcept;
+			void on_mouse_move(events::MouseMoved& e);
 
 			///
 			/// On mouse pressed event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_mouse_pressed(events::MousePressed& e) noexcept;
+			void on_mouse_pressed(events::MousePressed& e);
 
 			///
 			/// On mouse released event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_mouse_released(events::MouseReleased& e) noexcept;
+			void on_mouse_released(events::MouseReleased& e);
 
 			///
 			/// On mouse wheel event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_mouse_wheel(events::MouseWheel& e) noexcept;
+			void on_mouse_wheel(events::MouseWheel& e);
 
 			///
 			/// On key down event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_key_down(events::KeyDown& e) noexcept;
+			void on_key_down(events::KeyDown& e);
 
 			///
 			/// On key repeat event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_key_repeat(events::KeyRepeat& e) noexcept;
+			void on_key_repeat(events::KeyRepeat& e);
 
 			///
 			/// On key up event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_key_up(events::KeyUp& e) noexcept;
+			void on_key_up(events::KeyUp& e);
 
 			///
 			/// On typing event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_key_char(events::KeyChar& e) noexcept;
+			void on_key_char(events::KeyChar& e);
 
 			///
 			/// On window resized event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_window_resize(const events::WindowResized& e) noexcept;
+			void on_window_resize(const events::WindowResized& e);
 
 			///
 			/// On content scale event handler.
 			///
 			/// \param e Event to process.
 			///
-			void on_content_scale(const events::ContentScale& e) noexcept;
+			void on_content_scale(const events::ContentScale& e);
 
 			///
 			/// Converts the GLFW key modifiers to RmlUi key modifiers.
@@ -115,7 +115,7 @@ namespace galaxy
 			///
 			/// \return RML modifier.
 			///
-			[[nodiscard]] int convert_key_modifier(int glfw_mods) noexcept;
+			[[nodiscard]] int convert_key_modifier(int glfw_mods);
 
 		private:
 			///

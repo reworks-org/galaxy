@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Scripts() noexcept;
+			Scripts();
 
 			///
 			/// Destructor.
 			///
-			virtual ~Scripts() noexcept;
+			virtual ~Scripts();
 
 			///
 			/// Load scripts in a folder.
