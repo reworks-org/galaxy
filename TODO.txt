@@ -19,3 +19,5 @@ make sure renderer is deferred: render textures/sprites/lighting pass/posteffect
 - shaders to do:
 	- bloom
 	- SSAO using luma/screen only? no depth? pseudo luma based Ambient Occlusion
+
+- investigate if smaa is overkill and need msaa/fxaa since TAA is 3d only.
