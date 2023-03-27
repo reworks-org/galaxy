@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"d5/ddd/Pragma_8hpp.html":[2,0,0,0,0,14,4],
 "d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041":[2,0,0,0,0,14,4,1],
 "d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1":[2,0,0,0,0,14,4,2],
 "d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b":[2,0,0,0,0,14,4,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a89d79c90252f0b8ac4cf435b4452b34a":[1,0,0,6,2,3],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#ae49844478f1d3ce506846a0bc5d98b2a":[1,0,0,6,2,1],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e":[1,0,0,6,2,0],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html":[1,0,0,9,3]
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html":[1,0,0,9,3],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a":[1,0,0,9,3,20]
 };

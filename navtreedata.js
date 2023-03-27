@@ -63,19 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5",
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b",
-"d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40",
-"d5/ddd/Pragma_8hpp.html",
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a",
-"d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html",
-"da/d19/classgalaxy_1_1graphics_1_1Animation.html#ae6e231eae4bfbf3cdaa5060874e2dac8",
-"db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129",
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a4f94b45527c55eac70d0658224c59806",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaa5f3c6a11b03839d46af9fb43c97c188",
-"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#af1999acc4a9e90a4742938376f1eba5c",
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a0ec85f707d3ad16e688f5fdb518e6bab"
+"annotated.html",
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7",
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa30f4e573342742cd04f1508c787ffcc",
+"d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae",
+"d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041",
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299",
+"d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a0371fb9c18ff8f008b3cc364db8b4101",
+"da/d19/classgalaxy_1_1graphics_1_1Animation.html#aeb147d0a0d5fa5e073f2db7646913464",
+"db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c",
+"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a7167fd500e08d0a4eb15eaf354ac14ab",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaa764b4bf13a360c7ac2a35ec4ca96c95",
+"de/d92/Lua_8hpp.html",
+"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a148c4efe76a051d3300a1526c8aec6ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a":[1,0,0,9,3,20],
 "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299":[1,0,0,9,3,21],
 "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570":[1,0,0,9,3,11],
 "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1a7dcb7ac1424bd99e775eb60e654f30":[1,0,0,9,3,15],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "d8/dc2/namespacegalaxy_1_1scripting.html":[0,0,0,19],
 "d8/dc2/namespacegalaxy_1_1scripting.html#a88426c3251183124a95a58a875dd0c5a":[0,0,0,19,2],
 "d8/dc2/namespacegalaxy_1_1scripting.html#acbc92327d8bcbfdf913b42595b55a686":[0,0,0,19,0],
-"d8/dc2/namespacegalaxy_1_1scripting.html#ad0efa450da87d0684d4bd8325964b391":[0,0,0,19,1]
+"d8/dc2/namespacegalaxy_1_1scripting.html#ad0efa450da87d0684d4bd8325964b391":[0,0,0,19,1],
+"d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html":[1,0,0,18,1]
 };

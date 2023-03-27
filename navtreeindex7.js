@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"da/d19/classgalaxy_1_1graphics_1_1Animation.html#ae6e231eae4bfbf3cdaa5060874e2dac8":[1,0,0,9,0,12],
 "da/d19/classgalaxy_1_1graphics_1_1Animation.html#aeb147d0a0d5fa5e073f2db7646913464":[1,0,0,9,0,15],
 "da/d19/classgalaxy_1_1graphics_1_1Animation.html#aef80fc366244425ab2a783ab29c29294":[1,0,0,9,0,0],
 "da/d1a/TiledMap_8cpp.html":[2,0,0,0,0,4,10],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a29598fc86e18d5db129d49a57e075bfc":[0,0,0,10,37,2],
 "db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a865e74f8c789bfe46e060f922d7edbbe":[0,0,0,10,37,0],
 "db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45ab0eee22cf43bfe7bb00da1c58b504b16":[0,0,0,10,37,3],
-"db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f":[0,0,0,10,43]
+"db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f":[0,0,0,10,43],
+"db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129":[0,0,0,10,42]
 };
