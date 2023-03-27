@@ -40,3 +40,6 @@
 [submodule "lib/rmlui"]
 	path = lib/rmlui
 	url = https://github.com/mikke89/RmlUi.git
+[submodule "lib/doxygen_dark_theme"]
+	path = lib/doxygen_dark_theme
+	url = https://github.com/MaJerle/doxygen-dark-theme.git

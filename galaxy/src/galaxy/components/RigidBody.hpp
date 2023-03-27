@@ -66,8 +66,8 @@ namespace galaxy
 			///
 			/// Set new box2d collider shape.
 			///
-			/// \param w Half extant width.
-			/// \param h Half extant height.
+			/// \param hw Half extant width.
+			/// \param hh Half extant height.
 			///
 			void set_shape(const float hw, const float hh) noexcept;
 

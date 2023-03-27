@@ -79,7 +79,7 @@ namespace galaxy
 		///
 		/// \return True if shortcut was pressed.
 		///
-		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flag = ImGuiFocusedFlags_AnyWindow) noexcept;
+		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags = ImGuiFocusedFlags_AnyWindow) noexcept;
 
 		///
 		/// Render an imgui image button with a galaxy texture.

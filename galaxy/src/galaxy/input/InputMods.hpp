@@ -58,7 +58,7 @@ namespace galaxy
 		///
 		/// Converts an integer to a key modifier enum.
 		///
-		/// \param key Integer keymod.
+		/// \param mod Integer keymod.
 		///
 		/// \return Enum keymod.
 		///

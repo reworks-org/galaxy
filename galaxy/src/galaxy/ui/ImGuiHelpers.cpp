@@ -160,13 +160,13 @@ namespace galaxy
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}
 
-		bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flag) noexcept
+		bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags) noexcept
 		{
 			if (ImGui::GetIO().KeyMods != mods)
 			{
 				return false;
 			}
-			else if (!ImGui::IsWindowFocused(flag))
+			else if (!ImGui::IsWindowFocused(flags))
 			{
 				return false;
 			}
