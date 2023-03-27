@@ -15,7 +15,7 @@ var searchData=
   ['imgui_5fopen_5fconfirm_487',['imgui_open_confirm',['../d3/dd9/namespacegalaxy_1_1ui.html#a112f55a657b286a6a84d9c45c5b5bead',1,'galaxy::ui']]],
   ['imgui_5fprerender_488',['imgui_prerender',['../d3/dd9/namespacegalaxy_1_1ui.html#a344b5cbf42733750df00cecbd628d8be',1,'galaxy::ui']]],
   ['imgui_5frender_489',['imgui_render',['../d3/dd9/namespacegalaxy_1_1ui.html#a1aa9de901e8d0ba61d7e9720d13eec68',1,'galaxy::ui']]],
-  ['imgui_5fshortcut_490',['imgui_shortcut',['../d3/dd9/namespacegalaxy_1_1ui.html#a660ed9061722e55f0b944382b0b5687e',1,'galaxy::ui']]],
+  ['imgui_5fshortcut_490',['imgui_shortcut',['../d3/dd9/namespacegalaxy_1_1ui.html#ad47457b7687b00ca17418c6f5c6dac8d',1,'galaxy::ui']]],
   ['imgui_5ftheme_5fdark_5fembrace_491',['imgui_theme_dark_embrace',['../d3/dd9/namespacegalaxy_1_1ui.html#a63778273e8f94e6fc906d6cf9d5b22f3',1,'galaxy::ui']]],
   ['imgui_5ftheme_5fenhanced_5flight_492',['imgui_theme_enhanced_light',['../d3/dd9/namespacegalaxy_1_1ui.html#a3bee7685bf98b8535b01797a6cb036eb',1,'galaxy::ui']]],
   ['imgui_5ftheme_5ffancy_5fdark_493',['imgui_theme_fancy_dark',['../d3/dd9/namespacegalaxy_1_1ui.html#a7fe46c21c73453ceb580dddfd4444372',1,'galaxy::ui']]],
