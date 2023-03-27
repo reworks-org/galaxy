@@ -79,7 +79,7 @@ namespace galaxy
 			///
 			/// \brief Query text size with font.
 			///
-			/// Doesnt support vertical text. You also need to pre-process '\t' (tabs).
+			/// Doesnt support vertical text. You also need to pre-process tab symbols.
 			///
 			/// \param text Text to query.
 			/// \param size Font size in em.
