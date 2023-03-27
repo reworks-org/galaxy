@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::PostProcess::resize" name="galaxy::graphics::PostProcess::resize">
+<area shape="rect" id="node1" title="Resize framebuffers." alt="" coords="215,5,429,47"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#ab763d0d2dd6d2d2fee0adb38f623879c" title="Resizes window." alt="" coords="5,5,167,47"/>
+</map>

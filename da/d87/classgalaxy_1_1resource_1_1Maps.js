@@ -1,7 +1,7 @@
 var classgalaxy_1_1resource_1_1Maps =
 [
-    [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a6d2323d73238108199cae665a911a558", null ],
-    [ "~Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a75d7ab70845f8ac6e52bc10a4f536fd3", null ],
+    [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a2d2ad57fc56c79ca3fc27397676e4f8f", null ],
+    [ "~Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a7be8527e5a68223655480e15eb47896b", null ],
     [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a1a4a123b34c33c28717b26c60285edbf", null ],
     [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a009dd742250e5ac60c090c6b47a59843", null ],
     [ "load", "da/d87/classgalaxy_1_1resource_1_1Maps.html#a7ce95ea15df386b465c202be9799a08b", null ],

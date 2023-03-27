@@ -1,0 +1,4 @@
+<map id="galaxy::ui::imgui_image" name="galaxy::ui::imgui_image">
+<area shape="rect" id="node1" title="Display a galaxy image with imgui." alt="" coords="5,13,184,39"/>
+<area shape="rect" id="node2" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a" title="Gets internal OpenGL id." alt="" coords="232,5,416,47"/>
+</map>

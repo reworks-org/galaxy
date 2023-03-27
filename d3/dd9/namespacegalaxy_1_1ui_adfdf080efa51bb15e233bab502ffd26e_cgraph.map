@@ -1,0 +1,5 @@
+<map id="galaxy::ui::imgui_image" name="galaxy::ui::imgui_image">
+<area shape="rect" id="node1" title="Display a galaxy image with imgui." alt="" coords="5,13,184,39"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="232,5,415,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5f35a9ff62a1df64b19baff4bbbcbcaa" title="Get all attachments." alt="" coords="463,5,677,47"/>
+</map>

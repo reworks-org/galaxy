@@ -1,6 +1,6 @@
 <map id="galaxy::scene::Scene::serialize" name="galaxy::scene::Scene::serialize">
 <area shape="rect" id="node1" title="Serializes object." alt="" coords="5,333,164,375"/>
-<area shape="rect" id="node2" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a3b1483e9e5ef4a949d119e48f0ae567e" title="Get name of map." alt="" coords="221,235,390,276"/>
+<area shape="rect" id="node2" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a27a4cb5a22236914e1c978cbcec7a357" title="Get name of map." alt="" coords="221,235,390,276"/>
 <area shape="rect" id="node3" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a97c19ecc0ac0e5fe70791dae767c27bf" title="Serializes object." alt="" coords="232,300,379,341"/>
 <area shape="rect" id="node15" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a49bc09de5748bf029c4b81fa1245030a" title="Serializes object." alt="" coords="212,365,399,407"/>
 <area shape="rect" id="node16" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a172f4dc5af7aa4d5c1fd09a6ce65321a" title="Serializes object." alt="" coords="224,431,387,472"/>

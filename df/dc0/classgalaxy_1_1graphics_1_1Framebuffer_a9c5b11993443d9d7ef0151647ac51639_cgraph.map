@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::Framebuffer::set_clear_colour" name="galaxy::graphics::Framebuffer::set_clear_colour">
+<area shape="rect" id="node1" title="Set clear colour." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a573bda4ae3ee9103bb2176ba77cfcc1e" title="Normalizes values and returns as floats." alt="" coords="268,5,447,47"/>
+</map>

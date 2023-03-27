@@ -1,6 +1,6 @@
 var classgalaxy_1_1error_1_1ConsoleSink =
 [
-    [ "ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a0691e4a7b69b489d0e66738d14bed46c", null ],
-    [ "~ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#ab5893bb415f76c322e68eea49b58ec1b", null ],
-    [ "sink_message", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a326daa9dccf3af59970f42d02ee721cd", null ]
+    [ "ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a79badb40061af18c8fb1d4555b75b0a4", null ],
+    [ "~ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a366fc58ab8f05f1b78b56c645d30c056", null ],
+    [ "sink_message", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a564a1b6aef76fc75b65cf4280b1913e8", null ]
 ];

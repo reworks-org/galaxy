@@ -1,7 +1,7 @@
 var classgalaxy_1_1ui_1_1RMLSystem =
 [
-    [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#aaea986fb3527c9f9cd7577b4860548e5", null ],
-    [ "~RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a3e0bd5e97704176e9e6672a11f058d89", null ],
+    [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2b87969458b9fda2c75dc133f0fd8528", null ],
+    [ "~RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a822607e3afb76b052e8c42e2f9415177", null ],
     [ "GetElapsedTime", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a6efafcadf348763ac305d4e25503c534", null ],
     [ "LogMessage", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a54f7cc4afd3518c5e2d3c4f960751462", null ],
     [ "SetMouseCursor", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2888c5fc4d42a6b0389f1c5e82983038", null ],

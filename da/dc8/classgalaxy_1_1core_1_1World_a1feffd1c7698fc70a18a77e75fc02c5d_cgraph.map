@@ -1,4 +1,0 @@
-<map id="galaxy::core::World::~World" name="galaxy::core::World::~World">
-<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a125f280efd68d76cd071671699ee1d8d" title="Clears all system, component registry, and entity data." alt="" coords="200,5,347,47"/>
-</map>

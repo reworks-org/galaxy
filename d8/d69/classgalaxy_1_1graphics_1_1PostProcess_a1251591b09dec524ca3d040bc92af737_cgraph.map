@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::PostProcess::bind" name="galaxy::graphics::PostProcess::bind">
+<area shape="rect" id="node1" title="Bind to draw to post processor framebuffer." alt="" coords="5,39,220,80"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="268,39,451,80"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="499,5,713,47"/>
+<area shape="rect" id="node5" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="515,71,697,112"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="761,39,976,80"/>
+</map>

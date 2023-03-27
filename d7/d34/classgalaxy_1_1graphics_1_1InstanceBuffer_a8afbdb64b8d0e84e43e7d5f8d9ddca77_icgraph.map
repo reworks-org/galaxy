@@ -1,0 +1,6 @@
+<map id="galaxy::graphics::InstanceBuffer::destroy" name="galaxy::graphics::InstanceBuffer::destroy">
+<area shape="rect" id="node1" title="Destroy Instance Buffer Object." alt="" coords="244,71,435,112"/>
+<area shape="rect" id="node2" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a55e7b4d65f903304e7f59fe24041e53b" title="Move constructor." alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node3" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a6913754370f6416a391007b255d2f57d" title="Move assignment operator." alt="" coords="5,71,196,112"/>
+<area shape="rect" id="node4" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a4665c1386c48070d32d9c1313823e0d0" title="Destructor." alt="" coords="5,136,196,177"/>
+</map>

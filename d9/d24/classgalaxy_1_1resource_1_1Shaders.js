@@ -1,7 +1,7 @@
 var classgalaxy_1_1resource_1_1Shaders =
 [
-    [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a3e7c59007a4b4d67cfa8b60bf9ce4626", null ],
-    [ "~Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#ac10efb7715368b3d7ba117d11857827b", null ],
+    [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#ad4af3ab3cc36fd3a282a1b4f0b1390ed", null ],
+    [ "~Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#afa1086c64e69d16cf8b1f72a377f39db", null ],
     [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a902eac038b2e011ffac68f59754b3895", null ],
     [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#acfb5d60abb3ae104496ed9f152a90aec", null ],
     [ "load", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#aa37b0e54f11f55743ecb3d508abf10d2", null ],

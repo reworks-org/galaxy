@@ -1,4 +1,0 @@
-<map id="galaxy::components::Animated::stop" name="galaxy::components::Animated::stop">
-<area shape="rect" id="node1" title="Stop the animation." alt="" coords="5,5,159,47"/>
-<area shape="rect" id="node2" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#afa650da0d1bdf1d22bf3d50330ba62e2" title="Restart animation from beginning." alt="" coords="207,5,409,47"/>
-</map>

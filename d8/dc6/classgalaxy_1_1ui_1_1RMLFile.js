@@ -1,7 +1,7 @@
 var classgalaxy_1_1ui_1_1RMLFile =
 [
-    [ "RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a0e9859b6db8a740ac7f3c18bf05e9d35", null ],
-    [ "~RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a6fb7762e21c1999c24434adfbbd317ab", null ],
+    [ "RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a0371fb9c18ff8f008b3cc364db8b4101", null ],
+    [ "~RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a760c7e6404f23f98e57ab92040790816", null ],
     [ "Open", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#af40e074e7f3c71afcdf5489e8515cb83", null ],
     [ "Close", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a66156443e54b2d6ae54ae70de77fb066", null ],
     [ "Read", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html#a13be6333e005cab439599ebeaabec97a", null ],

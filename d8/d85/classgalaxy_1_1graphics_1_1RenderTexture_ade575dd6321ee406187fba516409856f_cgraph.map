@@ -1,0 +1,6 @@
+<map id="galaxy::graphics::RenderTexture::bind" name="galaxy::graphics::RenderTexture::bind">
+<area shape="rect" id="node1" title="Bind framebuffer and texture." alt="" coords="5,39,188,80"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="236,5,451,47"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="252,71,435,112"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="499,39,713,80"/>
+</map>

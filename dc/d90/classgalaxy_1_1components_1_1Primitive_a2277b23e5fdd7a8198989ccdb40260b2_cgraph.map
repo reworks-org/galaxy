@@ -1,9 +1,13 @@
 <map id="galaxy::components::Primitive::create" name="galaxy::components::Primitive::create">
-<area shape="rect" id="node1" title="Create the primitive vertexs." alt="" coords="5,103,159,144"/>
-<area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a9934f914e91d571e42500705924bbbc3" title="Configure renderable." alt="" coords="233,37,391,79"/>
-<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="223,103,401,144"/>
-<area shape="rect" id="node7" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a0ba4fb9056b39f2aefacb701f384fa3a" title="Set primitive draw type." alt="" coords="207,168,417,209"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e5a06946bd96afd21392591c4432473" title="Get VAO GL id." alt="" coords="465,5,644,47"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0fc159dae1e32628bf1e3f22a8f32089" title="Get the count of indicies in the index buffer." alt="" coords="465,71,644,112"/>
-<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#abc6c38f46158aaf45d62b41347b8dee9" title="Get the count of indicies in the index buffer." alt="" coords="692,71,903,112"/>
+<area shape="rect" id="node1" title="Create the primitive vertexs." alt="" coords="5,201,159,243"/>
+<area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0" title="Configure renderable." alt="" coords="233,71,391,112"/>
+<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="223,201,401,243"/>
+<area shape="rect" id="node11" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="207,267,417,308"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="491,5,670,47"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="491,71,670,112"/>
+<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="744,71,955,112"/>
+<area shape="rect" id="node7" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="475,136,686,177"/>
+<area shape="rect" id="node8" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="491,201,670,243"/>
+<area shape="rect" id="node9" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="465,267,696,294"/>
+<area shape="rect" id="node10" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="491,319,670,360"/>
 </map>

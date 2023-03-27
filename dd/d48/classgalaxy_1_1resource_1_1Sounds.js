@@ -1,7 +1,7 @@
 var classgalaxy_1_1resource_1_1Sounds =
 [
-    [ "Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a4c835a5e72738bf7ce7a128b49b18a8a", null ],
-    [ "~Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a2e91e2e788205212462811e1501549b8", null ],
+    [ "Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a5fece304362ac9e6925dba0d4a00a4e7", null ],
+    [ "~Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#aa28082dd4f15f158a17322e590aefee8", null ],
     [ "Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a87af52e0b83937fe09c37bda203cb22f", null ],
     [ "Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#ac4fdc9e211c86009a4fff2c14f2fca0b", null ],
     [ "load_sfx", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d", null ],

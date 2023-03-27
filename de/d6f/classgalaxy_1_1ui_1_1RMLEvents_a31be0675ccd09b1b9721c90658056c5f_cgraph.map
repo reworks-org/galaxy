@@ -1,0 +1,4 @@
+<map id="galaxy::ui::RMLEvents::on_mouse_released" name="galaxy::ui::RMLEvents::on_mouse_released">
+<area shape="rect" id="node1" title="On mouse released event handler." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="node2" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a58cea9adce272bee25c2713e0684fd69" title="Converts the GLFW key modifiers to RmlUi key modifiers." alt="" coords="219,5,389,47"/>
+</map>

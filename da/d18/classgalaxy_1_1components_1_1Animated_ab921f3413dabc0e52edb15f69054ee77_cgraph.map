@@ -1,0 +1,4 @@
+<map id="galaxy::components::Animated::set" name="galaxy::components::Animated::set">
+<area shape="rect" id="node1" title="Change the current animation." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#ad243a4dd7312ee00476e43e9792d1491" title="Restart animation from beginning." alt="" coords="207,5,409,47"/>
+</map>

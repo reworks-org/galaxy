@@ -1,0 +1,7 @@
+<map id="galaxy::components::Map::configure" name="galaxy::components::Map::configure">
+<area shape="rect" id="node1" title="Configure render data." alt="" coords="5,104,159,145"/>
+<area shape="rect" id="node2" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a1ae66e0c281af933fc5317ad9624cd24" title="Get index count." alt="" coords="225,5,399,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="223,71,401,112"/>
+<area shape="rect" id="node4" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="207,136,417,177"/>
+<area shape="rect" id="node5" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82" title="Get vertex array object." alt="" coords="225,201,399,243"/>
+</map>

@@ -1,4 +1,0 @@
-<map id="galaxy::ui::imgui_center_next_window" name="galaxy::ui::imgui_center_next_window">
-<area shape="rect" id="node1" title="Make sure the next window opened is centered on the monitor." alt="" coords="240,5,419,47"/>
-<area shape="rect" id="node2" href="$d3/dd9/namespacegalaxy_1_1ui.html#a4e7d2325cc9017fac2c8825600d85b58" title="Render the confirmation popup." alt="" coords="5,13,192,39"/>
-</map>

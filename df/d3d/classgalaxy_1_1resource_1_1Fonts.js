@@ -1,7 +1,7 @@
 var classgalaxy_1_1resource_1_1Fonts =
 [
-    [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a8d4cc914332e1604c556ecd27b8be325", null ],
-    [ "~Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3ed02bbfb93347c2d1b58d0ce70265dd", null ],
+    [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e67e23e6e8e406f80dcc697a81d0485", null ],
+    [ "~Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401", null ],
     [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a9f15309bbe9df4e9a1c968ef9c69f132", null ],
     [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aaec8fb402890aa69fbe17640617c31be", null ],
     [ "load", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3b3decebcce92b386e4fe7a128d1f64a", null ],

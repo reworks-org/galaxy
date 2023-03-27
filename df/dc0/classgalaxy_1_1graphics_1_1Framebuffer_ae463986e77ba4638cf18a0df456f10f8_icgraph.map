@@ -1,0 +1,6 @@
+<map id="galaxy::graphics::Framebuffer::destroy" name="galaxy::graphics::Framebuffer::destroy">
+<area shape="rect" id="node1" title="Destroy all data used by framebuffer." alt="" coords="268,71,483,112"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a34e325cdd30038d84b53d5b98fcbb7be" title="Move constructor." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8eaf891f0445e678096d6ba2578aa88c" title="Move assignment operator." alt="" coords="5,71,220,112"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa2caf9eb6240ceb9c5dfe5ec84a48f9a" title="Destructor." alt="" coords="5,136,220,177"/>
+</map>

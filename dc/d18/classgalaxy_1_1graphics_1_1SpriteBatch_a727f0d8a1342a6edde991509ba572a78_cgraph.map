@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::SpriteBatch::sub_buffer" name="galaxy::graphics::SpriteBatch::sub_buffer">
+<area shape="rect" id="node1" title="Sub&#45;buffer vertex object." alt="" coords="5,5,180,47"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="228,5,407,47"/>
+<area shape="rect" id="node3" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="455,5,633,47"/>
+</map>

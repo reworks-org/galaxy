@@ -1,0 +1,5 @@
+<map id="galaxy::scene::Scene::unload" name="galaxy::scene::Scene::unload">
+<area shape="rect" id="node1" title="Unload scene data." alt="" coords="212,39,371,80"/>
+<area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a36e4158093600a6fa9a0826e26cb79ca" title="Destructor." alt="" coords="5,71,164,112"/>
+</map>

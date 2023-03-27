@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Renderer::buffer_camera" name="galaxy::graphics::Renderer::buffer_camera">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,200,47"/>
+<area shape="rect" id="node2" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="248,5,435,47"/>
+<area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="483,5,669,47"/>
+</map>

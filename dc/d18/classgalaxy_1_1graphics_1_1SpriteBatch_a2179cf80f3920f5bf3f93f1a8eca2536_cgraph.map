@@ -1,0 +1,8 @@
+<map id="galaxy::graphics::SpriteBatch::commit" name="galaxy::graphics::SpriteBatch::commit">
+<area shape="rect" id="node1" title="Buffer data into vertex object." alt="" coords="5,39,180,80"/>
+<area shape="rect" id="node2" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9" title="Clears out vertex buffer." alt="" coords="230,5,405,47"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="228,71,407,112"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a" title="Clear all data from the vertex buffer array." alt="" coords="455,5,633,47"/>
+<area shape="rect" id="node4" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87" title="Clear all data from VBO." alt="" coords="681,5,860,47"/>
+<area shape="rect" id="node6" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="455,71,633,112"/>
+</map>

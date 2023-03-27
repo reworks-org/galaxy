@@ -9,5 +9,5 @@ var InputMods_8hpp =
       [ "CAPS_LOCK", "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2", null ],
       [ "NUM_LOCK", "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaacb0d0bf9279e78f982deba761110e434", null ]
     ] ],
-    [ "int_to_keymod", "d4/d98/InputMods_8hpp.html#a5f84dd0b81feb725fe9ba8b01f438061", null ]
+    [ "int_to_keymod", "d4/d98/InputMods_8hpp.html#aed1be1118092a434dfe240a2de982fb4", null ]
 ];

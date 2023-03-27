@@ -1,6 +1,0 @@
-<map id="galaxy::ui::RMLInput::handle" name="galaxy::ui::RMLInput::handle">
-<area shape="rect" id="node1" title="Retrieve instance." alt="" coords="219,71,373,112"/>
-<area shape="rect" id="node2" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a327d0ed5fd72392e046c7ecf89b8cc80" title="On key down event handler." alt="" coords="5,5,171,47"/>
-<area shape="rect" id="node3" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a070e7acbfc568c58e4f84229cb8e3476" title="On key repeat event handler." alt="" coords="5,71,171,112"/>
-<area shape="rect" id="node4" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aea0189d7064e050dbad540d481302610" title="On key up event handler." alt="" coords="5,136,171,177"/>
-</map>

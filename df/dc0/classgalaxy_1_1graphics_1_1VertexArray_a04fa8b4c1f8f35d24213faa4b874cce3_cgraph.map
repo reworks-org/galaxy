@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::VertexArray::create" name="galaxy::graphics::VertexArray::create">
+<area shape="rect" id="node1" title="Create vertex array." alt="" coords="5,100,184,141"/>
+<area shape="rect" id="node2" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="242,5,453,47"/>
+<area shape="rect" id="node3" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="258,71,437,112"/>
+<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="232,137,463,163"/>
+<area shape="rect" id="node5" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="258,188,437,229"/>
+</map>

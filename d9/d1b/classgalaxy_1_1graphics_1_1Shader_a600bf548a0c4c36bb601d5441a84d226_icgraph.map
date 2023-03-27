@@ -1,13 +1,6 @@
 <map id="galaxy::graphics::Shader::get_uniform_location" name="galaxy::graphics::Shader::get_uniform_location">
-<area shape="rect" id="node1" title="Retrieves the location of a shader uniform." alt="" coords="499,267,680,308"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="275,5,412,47"/>
-<area shape="rect" id="node4" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab07b958cb15123ce9f040676ce22afe1" title=" " alt="" coords="253,71,434,112"/>
-<area shape="rect" id="node5" href="$db/dab/namespacegalaxy_1_1graphics.html#ad8a63088a93168a7ea4e4ca2beac9b96" title=" " alt="" coords="255,136,432,177"/>
-<area shape="rect" id="node6" href="$db/dab/namespacegalaxy_1_1graphics.html#af93070a213485d139ed3f27c0d2f82c0" title=" " alt="" coords="255,201,432,243"/>
-<area shape="rect" id="node7" href="$db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e" title=" " alt="" coords="256,267,431,308"/>
-<area shape="rect" id="node8" href="$db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129" title=" " alt="" coords="256,332,431,373"/>
-<area shape="rect" id="node9" href="$db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f" title=" " alt="" coords="256,397,431,439"/>
-<area shape="rect" id="node10" href="$db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736" title=" " alt="" coords="236,463,451,504"/>
-<area shape="rect" id="node11" href="$db/dab/namespacegalaxy_1_1graphics.html#ad8dc63ad3d782133b49819b7ae551e7a" title=" " alt="" coords="265,529,422,585"/>
+<area shape="rect" id="node1" title="Retrieves the location of a shader uniform." alt="" coords="465,39,647,80"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="258,5,395,47"/>
+<area shape="rect" id="node4" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab07b958cb15123ce9f040676ce22afe1" title=" " alt="" coords="236,71,417,112"/>
 <area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>

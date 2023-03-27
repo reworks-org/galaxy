@@ -1,7 +1,7 @@
 var classgalaxy_1_1fs_1_1VirtualFileSystem =
 [
     [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae0a7f426547f64140d3ed59568bba4b4", null ],
-    [ "~VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8bef925a7fecbf491e64b53c24ae8a2e", null ],
+    [ "~VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a68c36214dcc9beee8bd920f86e538dde", null ],
     [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#acb8c3f2e363f7f1114c6db25b5fbc8b8", null ],
     [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a713915bf658a7fca56793b42edf020d7", null ],
     [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#afa8610dcc3da7ce83b9a01a956d35ed9", null ],
@@ -21,8 +21,8 @@ var classgalaxy_1_1fs_1_1VirtualFileSystem =
     [ "open_with_dialog", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01", null ],
     [ "save_with_dialog", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047", null ],
     [ "list_directory", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a87ec44a2b370122b7611633c12c5e9e0", null ],
-    [ "root", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#afdda38e740d8ed8c26adb7e92ab4ac43", null ],
-    [ "root_path", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#af52823b329f394dd25e5bab9d7a03dd0", null ],
+    [ "root", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aff531c6ec5fd6aeb95e2dd17708114ee", null ],
+    [ "root_path", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#af03e62b440acf27eaab97132ab591267", null ],
     [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae2a78eafb26b5ed0f36d5223358fd8be", null ],
     [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1bd60ce24dcaac0486252f2a40d9ba22", null ],
     [ "m_root", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ab2a7089fcc5358441c2a297b741fe0d9", null ]

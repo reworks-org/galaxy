@@ -1,4 +1,0 @@
-<map id="galaxy::graphics::RenderTexture::unbind" name="galaxy::graphics::RenderTexture::unbind">
-<area shape="rect" id="node1" title="Unbind framebuffer and texture." alt="" coords="5,5,188,47"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5cceb912b44175e72cb24c78c47b820e" title="Unbind framebuffer." alt="" coords="236,5,451,47"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="galaxy::core::Window::begin" name="galaxy::core::Window::begin">
-<area shape="rect" id="node1" title="Prepare window for rendering." alt="" coords="5,5,167,47"/>
-<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aaee2c8ec04bdd456aab68cd9d763d94a" title="Bind to draw to post processor framebuffer." alt="" coords="215,5,429,47"/>
-<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#abeafc6785c716ac991d97b7eadb2f8fe" title="Bind framebuffer and texture." alt="" coords="477,5,660,47"/>
-</map>

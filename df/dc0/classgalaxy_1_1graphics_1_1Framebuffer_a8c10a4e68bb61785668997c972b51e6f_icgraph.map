@@ -1,4 +1,0 @@
-<map id="galaxy::graphics::Framebuffer::clear" name="galaxy::graphics::Framebuffer::clear">
-<area shape="rect" id="node1" title="Clear framebuffer attachments." alt="" coords="236,5,451,47"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac218fb2b5700a5a49fbd361b9c13736c" title="Clear framebuffer attachments." alt="" coords="5,5,188,47"/>
-</map>

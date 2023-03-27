@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::GaussianBlur::set_strength" name="galaxy::graphics::GaussianBlur::set_strength">
+<area shape="rect" id="node1" title="Set gaussian blur strength." alt="" coords="5,5,201,47"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="249,5,431,47"/>
+</map>

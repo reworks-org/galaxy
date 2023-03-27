@@ -1,0 +1,5 @@
+<map id="galaxy::audio::Sound::Sound" name="galaxy::audio::Sound::Sound">
+<area shape="rect" id="node1" title="Argument constructor." alt="" coords="5,5,163,47"/>
+<area shape="rect" id="node2" href="$da/ddd/classgalaxy_1_1audio_1_1Sound.html#a2a099f8cf964904b8a5d4d747d532fca" title="Load a sound from disk." alt="" coords="211,5,368,47"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="416,13,647,39"/>
+</map>

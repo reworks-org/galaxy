@@ -1,0 +1,4 @@
+<map id="galaxy::ui::RMLEvents::on_key_repeat" name="galaxy::ui::RMLEvents::on_key_repeat">
+<area shape="rect" id="node1" title="On key repeat event handler." alt="" coords="5,5,171,47"/>
+<area shape="rect" id="node2" href="$df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#aff9956e8da9c55d0159710f55836d094" title="Retrieve instance." alt="" coords="219,5,373,47"/>
+</map>

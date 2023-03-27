@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['query_2357',['query',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a57c55ebc3ffd8acfeaac1b90e6a0fc9d',1,'galaxy::resource::TextureAtlas']]],
-  ['queued_5fevents_2358',['queued_events',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a51c035c036e956cca823b2202fe526c0',1,'galaxy::core::Window']]]
+  ['query_2357',['query',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#ad1fe00faeae9ee08c8820c22f70441fa',1,'galaxy::resource::TextureAtlas']]],
+  ['queued_5fevents_2358',['queued_events',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a7a033e54ce6714aa25c26931a9652936',1,'galaxy::core::Window']]]
 ];

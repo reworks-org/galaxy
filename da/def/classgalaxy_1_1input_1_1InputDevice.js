@@ -1,11 +1,11 @@
 var classgalaxy_1_1input_1_1InputDevice =
 [
-    [ "~InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a0325268e1558ded348a4cf9cf6acdf2f", null ],
-    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a72e7d437edd52d60dd57d503029667dd", null ],
-    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a62d2d94795b58856e9c459d9d7e06a8a", null ],
-    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a2c03772733cf369983c9bee698034ebf", null ],
-    [ "operator=", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a1c9aae74927735fedfc7249946361c29", null ],
-    [ "operator=", "da/def/classgalaxy_1_1input_1_1InputDevice.html#ae95f99141b3ab6f404ef901d2cf708ba", null ],
-    [ "set_window", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a4cfdce6cd0fe169a8cdfdf5f5b9c5777", null ],
+    [ "~InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a800f7567eaaacdef667cc5aa1f09e8ab", null ],
+    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a9481822fe60698e7cb281f9db92c00fa", null ],
+    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a0803a7b0db5e94eb70f3424c31824a59", null ],
+    [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html#ab5aa7debbaea0712c41e5bce38081c15", null ],
+    [ "operator=", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a711221da4b43328f8bf5062973057d25", null ],
+    [ "operator=", "da/def/classgalaxy_1_1input_1_1InputDevice.html#ac6a6dce123dcbe7d85a5416e64faf7ba", null ],
+    [ "set_window", "da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2", null ],
     [ "m_window", "da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a", null ]
 ];

@@ -1,0 +1,4 @@
+<map id="galaxy::error::gl_get_all_errors" name="galaxy::error::gl_get_all_errors">
+<area shape="rect" id="node1" title="Returns all GL errors on stack." alt="" coords="5,5,157,47"/>
+<area shape="rect" id="node2" href="$d3/d81/namespacegalaxy_1_1error.html#aae02b0d611f319e23e5bf699aa403575" title="Convert a GL error code to a string." alt="" coords="205,5,385,47"/>
+</map>

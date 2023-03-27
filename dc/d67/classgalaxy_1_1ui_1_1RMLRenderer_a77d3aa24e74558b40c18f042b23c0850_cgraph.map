@@ -1,6 +1,6 @@
 <map id="galaxy::ui::RMLRenderer::SetScissorRegion" name="galaxy::ui::RMLRenderer::SetScissorRegion">
 <area shape="rect" id="node1" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="5,39,185,80"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7e8fd4227d79912d098dbc828c4ac443" title="Get framebuffer size taking into account DPI." alt="" coords="239,5,407,47"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7109dce6b8e40dcc7082792156b3afad" title="Get framebuffer size taking into account DPI." alt="" coords="239,5,407,47"/>
 <area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe" title="Called by RmlUi when it wants to render geometry that the application does not wish to optimise." alt="" coords="233,71,413,112"/>
 <area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f" title="Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable futur..." alt="" coords="476,5,656,47"/>
 <area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a8bc35e720fa3b3484deb9062a4893780" title="Called by RmlUi when it wants to release application&#45;compiled geometry." alt="" coords="461,71,671,112"/>

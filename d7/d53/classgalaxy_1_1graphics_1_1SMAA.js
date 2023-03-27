@@ -1,7 +1,7 @@
 var classgalaxy_1_1graphics_1_1SMAA =
 [
-    [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a31e667c1af26e0afc183d44820cbfde6", null ],
-    [ "~SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ac61741df62ddf768c70ac24699890a74", null ],
+    [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad", null ],
+    [ "~SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ad85bb3527e7297e162994f5e466d7c40", null ],
     [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aeefda1a8d4941e4fb9ce5755bf892b95", null ],
     [ "resize", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ae27624ab4671efcfbdb1ae95dfb47b44", null ],
     [ "render", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5", null ],

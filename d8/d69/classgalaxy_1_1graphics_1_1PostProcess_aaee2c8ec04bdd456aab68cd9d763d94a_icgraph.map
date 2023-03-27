@@ -1,4 +1,0 @@
-<map id="galaxy::graphics::PostProcess::bind" name="galaxy::graphics::PostProcess::bind">
-<area shape="rect" id="node1" title="Bind to draw to post processor framebuffer." alt="" coords="215,5,429,47"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa77388eecebd5a5c239995070e3a1d86" title="Prepare window for rendering." alt="" coords="5,5,167,47"/>
-</map>

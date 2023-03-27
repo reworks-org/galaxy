@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::RenderTexture::get_height" name="galaxy::graphics::RenderTexture::get_height">
+<area shape="rect" id="node1" title="Get texture height." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="236,5,451,47"/>
+</map>

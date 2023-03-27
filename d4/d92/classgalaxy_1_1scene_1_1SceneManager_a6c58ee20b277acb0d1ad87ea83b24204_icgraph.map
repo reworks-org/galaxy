@@ -1,0 +1,9 @@
+<map id="galaxy::scene::SceneManager::remove" name="galaxy::scene::SceneManager::remove">
+<area shape="rect" id="node1" title="Remove a specific scene." alt="" coords="1209,64,1424,105"/>
+<area shape="rect" id="node2" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="947,64,1161,105"/>
+<area shape="rect" id="node3" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="684,5,899,47"/>
+<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,35,373,76"/>
+<area shape="rect" id="node7" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b" title="Destructor." alt="" coords="684,123,899,164"/>
+<area shape="rect" id="node4" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a03ff8e779b7647a0775f28acb368b801" title="Load data from memory into scenes." alt="" coords="421,5,636,47"/>
+<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,35,188,76"/>
+</map>

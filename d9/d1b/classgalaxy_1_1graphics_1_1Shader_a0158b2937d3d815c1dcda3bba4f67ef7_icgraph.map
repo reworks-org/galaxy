@@ -1,0 +1,12 @@
+<map id="galaxy::graphics::Shader::destroy" name="galaxy::graphics::Shader::destroy">
+<area shape="rect" id="node1" title="Free up resources used by shader." alt="" coords="740,201,921,243"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="477,71,692,112"/>
+<area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="516,136,653,177"/>
+<area shape="rect" id="node8" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac3996ef8a1b403f85cced21032662a51" title="Move assignment operator." alt="" coords="494,201,675,243"/>
+<area shape="rect" id="node9" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1667f3d771c7a1ab700c53c2717df691" title="Move constructor." alt="" coords="494,267,675,308"/>
+<area shape="rect" id="node10" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a98805bf1affebc423b1c74524c172304" title="Destructor." alt="" coords="494,332,675,373"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="241,5,403,47"/>
+<area shape="rect" id="node5" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a8d0c143c7723243bac125c5da83a98aa" title="Destructor." alt="" coords="215,71,429,112"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="5,5,167,47"/>
+<area shape="rect" id="node7" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="231,136,413,177"/>
+</map>

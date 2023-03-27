@@ -1,14 +1,15 @@
 <map id="galaxy::graphics::VertexBuffer::sub_buffer" name="galaxy::graphics::VertexBuffer::sub_buffer">
-<area shape="rect" id="node1" title="Sub&#45;buffer vertex object." alt="" coords="1365,168,1544,209"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="1139,168,1317,209"/>
-<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="905,69,1091,110"/>
-<area shape="rect" id="node8" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a0fb7818102b8f180386d3aee9749c9d1" title="Buffer data into vertex object." alt="" coords="911,134,1085,176"/>
-<area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade0d507a65163400a87e9ea2e0290179" title="Updates texture and internal vertex array." alt="" coords="921,200,1075,241"/>
-<area shape="rect" id="node11" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="921,265,1075,306"/>
-<area shape="rect" id="node4" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Load textures in a folder." alt="" coords="663,34,849,76"/>
-<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,93,373,134"/>
-<area shape="rect" id="node7" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,34,607,76"/>
-<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,93,188,134"/>
-<area shape="rect" id="node10" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="655,202,857,244"/>
-<area shape="rect" id="node12" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="679,320,833,361"/>
+<area shape="rect" id="node1" title="Sub&#45;buffer vertex object." alt="" coords="1365,141,1544,183"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="1139,141,1317,183"/>
+<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="905,11,1091,52"/>
+<area shape="rect" id="node8" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a2179cf80f3920f5bf3f93f1a8eca2536" title="Buffer data into vertex object." alt="" coords="911,76,1085,117"/>
+<area shape="rect" id="node9" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a727f0d8a1342a6edde991509ba572a78" title="Sub&#45;buffer vertex object." alt="" coords="911,141,1085,183"/>
+<area shape="rect" id="node10" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade0d507a65163400a87e9ea2e0290179" title="Updates texture and internal vertex array." alt="" coords="921,207,1075,248"/>
+<area shape="rect" id="node12" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="921,272,1075,313"/>
+<area shape="rect" id="node4" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Load textures in a folder." alt="" coords="663,11,849,52"/>
+<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,97,373,139"/>
+<area shape="rect" id="node7" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,39,607,80"/>
+<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,97,188,139"/>
+<area shape="rect" id="node11" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="655,207,857,248"/>
+<area shape="rect" id="node13" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="679,324,833,365"/>
 </map>

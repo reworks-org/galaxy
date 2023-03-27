@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::VertexArray::clear" name="galaxy::graphics::VertexArray::clear">
+<area shape="rect" id="node1" title="Clear all data from the vertex buffer array." alt="" coords="451,71,629,112"/>
+<area shape="rect" id="node2" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9" title="Clears out vertex buffer." alt="" coords="228,71,403,112"/>
+<area shape="rect" id="node3" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a2179cf80f3920f5bf3f93f1a8eca2536" title="Buffer data into vertex object." alt="" coords="5,5,180,47"/>
+<area shape="rect" id="node4" href="$d3/d19/classgalaxy_1_1components_1_1Map.html#a7d872a3fa064a29a91e7aca93d9b24b2" title="Destructor." alt="" coords="16,71,169,112"/>
+<area shape="rect" id="node5" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a06aa60512fec17a4c21e54ee4e2d2e0c" title="Destructor." alt="" coords="5,136,180,177"/>
+</map>

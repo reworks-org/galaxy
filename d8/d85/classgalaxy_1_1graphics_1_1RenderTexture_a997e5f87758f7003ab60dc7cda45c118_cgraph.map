@@ -1,10 +1,10 @@
 <map id="galaxy::graphics::RenderTexture::save" name="galaxy::graphics::RenderTexture::save">
 <area shape="rect" id="node1" title="Saves texture to file on disk." alt="" coords="5,104,188,145"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a3729f74d7bf0e509e1b591a453be99d9" title="Get texture height." alt="" coords="260,5,443,47"/>
-<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac5719ce9e9e434b7a2b596e7d8652b84" title="Get texture." alt="" coords="260,71,443,112"/>
-<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6d9293fd2ad4139dcfcb98a2ad4a09ee" title="Get texture width." alt="" coords="260,136,443,177"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ae4f4985575fc2054a0afcce3c26eb0aa" title="Get texture height." alt="" coords="260,5,443,47"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="260,71,443,112"/>
+<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="260,136,443,177"/>
 <area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,202,467,229"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aef1fe35e848f7fca60cb52123988747d" title="Get height." alt="" coords="515,5,729,47"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a90e74053a49c554411182305b6ecf7e1" title="Get all attachments." alt="" coords="515,71,729,112"/>
-<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af42505ae3f525af784ea5e5d446aa0a1" title="Get width." alt="" coords="515,136,729,177"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="515,5,729,47"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5f35a9ff62a1df64b19baff4bbbcbcaa" title="Get all attachments." alt="" coords="515,71,729,112"/>
+<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a" title="Get width." alt="" coords="515,136,729,177"/>
 </map>

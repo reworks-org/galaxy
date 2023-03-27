@@ -1,0 +1,4 @@
+<map id="galaxy::resource::TextureAtlas::query" name="galaxy::resource::TextureAtlas::query">
+<area shape="rect" id="node1" title="Get data about texture in atlas." alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#af87efa6d91a20e4c0360bf4420cb2820" title="Check if atlas contains a texture." alt="" coords="239,5,424,47"/>
+</map>

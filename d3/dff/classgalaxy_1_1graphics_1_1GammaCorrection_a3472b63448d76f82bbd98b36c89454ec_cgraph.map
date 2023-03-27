@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::GammaCorrection::set_gamma" name="galaxy::graphics::GammaCorrection::set_gamma">
+<area shape="rect" id="node1" title="Set gamma modifier." alt="" coords="5,5,260,47"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="308,5,489,47"/>
+</map>

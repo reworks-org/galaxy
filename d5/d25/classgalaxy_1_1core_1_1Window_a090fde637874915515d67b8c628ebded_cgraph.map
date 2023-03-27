@@ -1,0 +1,7 @@
+<map id="galaxy::core::Window::destroy" name="galaxy::core::Window::destroy">
+<area shape="rect" id="node1" title="Destroys Window and related context and data." alt="" coords="5,71,167,112"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="215,5,429,47"/>
+<area shape="rect" id="node4" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Destroy renderer resources." alt="" coords="225,71,419,112"/>
+<area shape="rect" id="node5" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clear up all used data." alt="" coords="244,136,400,177"/>
+<area shape="rect" id="node3" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="477,5,659,47"/>
+</map>

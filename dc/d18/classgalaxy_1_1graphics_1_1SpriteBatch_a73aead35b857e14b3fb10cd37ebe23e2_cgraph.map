@@ -1,4 +1,8 @@
 <map id="galaxy::graphics::SpriteBatch::init" name="galaxy::graphics::SpriteBatch::init">
-<area shape="rect" id="node1" title="Initialize spritebatch buffers." alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0077d258d7363c89b6aca98507bfca30" title="Create vertex array." alt="" coords="228,5,407,47"/>
+<area shape="rect" id="node1" title="Initialize spritebatch buffers." alt="" coords="5,100,180,141"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="228,100,407,141"/>
+<area shape="rect" id="node3" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="465,5,675,47"/>
+<area shape="rect" id="node4" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="481,71,659,112"/>
+<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="455,137,685,163"/>
+<area shape="rect" id="node6" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="481,188,659,229"/>
 </map>

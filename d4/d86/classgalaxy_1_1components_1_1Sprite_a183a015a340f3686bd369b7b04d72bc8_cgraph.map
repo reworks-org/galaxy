@@ -1,7 +1,0 @@
-<map id="galaxy::components::Sprite::configure" name="galaxy::components::Sprite::configure">
-<area shape="rect" id="node1" title="Configure renderable." alt="" coords="5,71,159,112"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e5a06946bd96afd21392591c4432473" title="Get VAO GL id." alt="" coords="223,5,401,47"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0fc159dae1e32628bf1e3f22a8f32089" title="Get the count of indicies in the index buffer." alt="" coords="223,71,401,112"/>
-<area shape="rect" id="node5" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a0ba4fb9056b39f2aefacb701f384fa3a" title="Set primitive draw type." alt="" coords="207,136,417,177"/>
-<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#abc6c38f46158aaf45d62b41347b8dee9" title="Get the count of indicies in the index buffer." alt="" coords="465,71,676,112"/>
-</map>

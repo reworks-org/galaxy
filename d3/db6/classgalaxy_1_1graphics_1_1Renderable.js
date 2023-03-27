@@ -1,12 +1,12 @@
 var classgalaxy_1_1graphics_1_1Renderable =
 [
-    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#aac0966e0620530cbf0d9e00d7bc8ed36", null ],
-    [ "~Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#afa092832f7d2b25ea08aee65d36cb2a6", null ],
-    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acf0a88dfe3eb49510ddde0d20ad9e3bc", null ],
+    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a39a0da204d35a59961fe42c998c38ddd", null ],
+    [ "~Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a8d9afc135228b7cf6c7051d8039b29e0", null ],
+    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#abe52b1bd56ed20e4f98bfbaa66e60d97", null ],
     [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#aa739ddab569873e53db77fe4e9e2fbc2", null ],
-    [ "operator=", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a8696136ea21dc7b297a2c9aa2dfd723f", null ],
-    [ "configure", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a114ab2b654d27b494690d6e18a1afba1", null ],
-    [ "set_primitive_type", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a0ba4fb9056b39f2aefacb701f384fa3a", null ],
+    [ "operator=", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a32763aff65e4d281e9e6ff8b62e150ee", null ],
+    [ "configure", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a8c7b0bf5e1ef8a29f31609f7708318c6", null ],
+    [ "set_primitive_type", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c", null ],
     [ "operator=", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#aa6f6bbe7e8b9dde3247527c7926f8825", null ],
     [ "Renderer", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a70538530bc36e033e360880ef311df61", null ],
     [ "m_vao_id", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a31dde3162acc15c643aca8540e149bde", null ],

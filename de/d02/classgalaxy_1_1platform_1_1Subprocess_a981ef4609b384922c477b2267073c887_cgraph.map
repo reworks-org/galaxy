@@ -1,0 +1,4 @@
+<map id="galaxy::platform::Subprocess::destroy" name="galaxy::platform::Subprocess::destroy">
+<area shape="rect" id="node1" title="Destroy process, preserving if alive." alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node2" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#ad4876f494e1ec29adb0c8a0d0dc0a111" title="Check if subprocess is still alive and executing." alt="" coords="264,5,475,47"/>
+</map>

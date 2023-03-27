@@ -154,6 +154,6 @@ var namespacegalaxy_1_1input =
       [ "BTN_RIGHT", "dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3fa5d26ae01f20c4c990920b6ff71f7fc5e", null ],
       [ "BTN_MIDDLE", "dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3fa95f07cbd4d5d01eae86a508af53b491d", null ]
     ] ],
-    [ "int_to_keymod", "dd/d59/namespacegalaxy_1_1input.html#a5f84dd0b81feb725fe9ba8b01f438061", null ],
-    [ "int_to_key", "dd/d59/namespacegalaxy_1_1input.html#a46c27862f39aa146f7007a3a49e878ff", null ]
+    [ "int_to_keymod", "dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4", null ],
+    [ "int_to_key", "dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d", null ]
 ];

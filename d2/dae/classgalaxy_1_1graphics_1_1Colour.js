@@ -1,10 +1,10 @@
 var classgalaxy_1_1graphics_1_1Colour =
 [
-    [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae425a2e4804e44649f17b246bba7b0be", null ],
-    [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a713bbf70eec0127f48bcdb5ee475de89", null ],
-    [ "~Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4f77b05e9add5ca9b9b6af59a17e2c0d", null ],
-    [ "set_from_normalized", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a52fdd7be7324b8ecc2daf2f584202051", null ],
-    [ "normalized", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa128054bb9c3cb444f61f2b4184174d0", null ],
+    [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569", null ],
+    [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa0303fc4eb2b6d7c18348b75e01e0627", null ],
+    [ "~Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a34cd522c717ec8b795fb8df4858774b2", null ],
+    [ "set_from_normalized", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a723bd2060f539154c0333974ae0432f7", null ],
+    [ "normalized", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a573bda4ae3ee9103bb2176ba77cfcc1e", null ],
     [ "operator<=>", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a00eb50c19486a976b6899526670c484f", null ],
     [ "OPAQUE", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a2590474c935e36b7fcad0cb5b89f6b7b", null ],
     [ "TRANSPARENT", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6419510fc0fc99296aa4045e166c2012", null ],

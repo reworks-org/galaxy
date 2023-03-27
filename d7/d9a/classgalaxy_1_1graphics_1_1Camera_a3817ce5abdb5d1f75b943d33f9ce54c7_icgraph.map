@@ -1,8 +1,0 @@
-<map id="galaxy::graphics::Camera::recalculate" name="galaxy::graphics::Camera::recalculate">
-<area shape="rect" id="node1" title="Recalculates the model view matrix." alt="" coords="656,71,843,112"/>
-<area shape="rect" id="node2" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a4e869191449ab6fffa6366b217e46f0e" title="Get camera view and proj." alt="" coords="421,5,608,47"/>
-<area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a66e0cd56817b896fc372a6a8e008ed0a" title="Get the Camera projection." alt="" coords="421,71,608,112"/>
-<area shape="rect" id="node6" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a324179bb83e6e20821b0dd474184eb21" title="Retrieve internal transformation matrix." alt="" coords="421,136,608,177"/>
-<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,104,373,145"/>
-<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,104,188,145"/>
-</map>

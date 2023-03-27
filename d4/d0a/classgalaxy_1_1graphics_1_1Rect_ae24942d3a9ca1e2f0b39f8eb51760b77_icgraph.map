@@ -1,6 +1,0 @@
-<map id="galaxy::graphics::Rect::value_in_range" name="galaxy::graphics::Rect::value_in_range">
-<area shape="rect" id="node1" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="635,5,800,47"/>
-<area shape="rect" id="node2" href="$d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a62bba372a8678a8211b6e6f49a199982" title="Do the rectangles a and b overlap." alt="" coords="421,5,587,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
-<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
-</map>

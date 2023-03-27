@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::Framebuffer::bind" name="galaxy::graphics::Framebuffer::bind">
+<area shape="rect" id="node1" title="Bind framebuffer for rendering to." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="268,5,483,47"/>
+</map>
