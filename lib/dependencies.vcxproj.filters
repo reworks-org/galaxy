@@ -1058,8 +1058,6 @@
     <ClInclude Include="stb\include\stb_image_write.h" />
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="subprocess\subprocess.h" />
-    <ClInclude Include="zlib_ng\include\zconf.h" />
-    <ClInclude Include="zlib_ng\include\zlib.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
     <ClInclude Include="msdfgl\include\_msdfgl_shaders.h" />
@@ -1379,6 +1377,8 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="zlib_ng_win\include\zconf.h" />
+    <ClInclude Include="zlib_ng_win\include\zlib.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
