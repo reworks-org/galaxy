@@ -1,10 +1,13 @@
 <map id="galaxy::graphics::Framebuffer::add_depth_renderbuffer" name="galaxy::graphics::Framebuffer::add_depth_renderbuffer">
-<area shape="rect" id="node1" title="Add a depth renderbuffer to the framebuffer." alt="" coords="939,104,1153,145"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="708,104,891,145"/>
+<area shape="rect" id="node1" title="Add a depth renderbuffer to the framebuffer." alt="" coords="939,136,1153,177"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="708,136,891,177"/>
 <area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="476,71,629,112"/>
-<area shape="rect" id="node7" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="445,136,660,177"/>
+<area shape="rect" id="node8" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="445,136,660,177"/>
+<area shape="rect" id="node11" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a686fd76f52864e436f2660d07eae5d7a" title="Argument constructor." alt="" coords="461,201,644,243"/>
 <area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="240,5,393,47"/>
-<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="248,71,385,112"/>
-<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
-<area shape="rect" id="node8" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="236,136,397,177"/>
+<area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="248,71,385,112"/>
+<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="20,5,173,47"/>
+<area shape="rect" id="node7" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node9" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="236,136,397,177"/>
+<area shape="rect" id="node10" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="16,136,177,177"/>
 </map>

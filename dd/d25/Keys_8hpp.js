@@ -122,5 +122,6 @@ var Keys_8hpp =
       [ "RIGHT_ALT", "dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142ea0123827c03dce5d07ebd43bd649a1073", null ],
       [ "RIGHT_SUPER", "dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142ea8825bb5d58b44b72465799553acb964d", null ],
       [ "MENU", "dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142ea3ed53fbeb1eab0443561b68ca0c0b5cf", null ]
-    ] ]
+    ] ],
+    [ "int_to_key", "dd/d25/Keys_8hpp.html#a46c27862f39aa146f7007a3a49e878ff", null ]
 ];

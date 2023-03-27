@@ -12,7 +12,7 @@ var classgalaxy_1_1graphics_1_1Vertex =
     [ "operator=", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#abe24e6d0cca763d2e9630e659185b1cb", null ],
     [ "gen_quad_vertices", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a97b374e42e34e514e1467d5f529677bf", null ],
     [ "get_default_indices", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a901369072731302bf0e0184e62b64a0a", null ],
-    [ "operator", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7b72f848c49cf6953118647481ce880a", null ],
+    [ "operator<=>", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a46c4ab21909a1b461a3205079d4688fe", null ],
     [ "m_pos", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a5490f7315196c511fc62a7ec8a4c29d5", null ],
     [ "m_texels", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ae09a0b3f844b9c06c1e3a37abdadf12a", null ],
     [ "m_colour", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ab869398410ca1b483ef5740202566376", null ]

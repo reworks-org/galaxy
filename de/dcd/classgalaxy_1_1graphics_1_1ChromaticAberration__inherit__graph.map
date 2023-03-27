@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::ChromaticAberration" name="galaxy::graphics::ChromaticAberration">
+<area shape="rect" id="node1" title="Chromatic Aberration pass." alt="" coords="5,233,208,501"/>
+<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="6,5,207,185"/>
+</map>

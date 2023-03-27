@@ -1,0 +1,9 @@
+<map id="galaxy::components::Transform::Transform" name="galaxy::components::Transform::Transform">
+<area shape="rect" id="node1" title="JSON constructor." alt="" coords="5,136,173,177"/>
+<area shape="rect" id="node2" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,136,396,177"/>
+<area shape="rect" id="node3" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a7fbb1608b60dbdcfac6b8a3eaf60da5b" title="Reset transform." alt="" coords="449,5,603,47"/>
+<area shape="rect" id="node4" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a91d478cfe9ff08d82ca9597c6f77ec50" title="Rotate entity." alt="" coords="449,71,603,112"/>
+<area shape="rect" id="node5" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae6a6c81a3d94865c1e9ac37ea69bb343" title="Sets position without moving the entity." alt="" coords="449,136,603,177"/>
+<area shape="rect" id="node6" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a98ce71857a747862ca061b291ea319eb" title="Set entity scale." alt="" coords="444,202,608,258"/>
+<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a01b5a8978cdf94d65daaa78c51f81999" title="Set entity scale." alt="" coords="444,282,608,338"/>
+</map>

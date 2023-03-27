@@ -1,0 +1,8 @@
+<map id="galaxy::graphics::GaussianBlur::render" name="galaxy::graphics::GaussianBlur::render">
+<area shape="rect" id="node1" title="Render effect to input texture." alt="" coords="5,104,201,145"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a27ada53d71e809ccf63abfb4e6892b2b" title="Enable this shader for rendering." alt="" coords="250,5,431,47"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#abeafc6785c716ac991d97b7eadb2f8fe" title="Bind framebuffer and texture." alt="" coords="249,71,432,112"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac5719ce9e9e434b7a2b596e7d8652b84" title="Get texture." alt="" coords="249,136,432,177"/>
+<area shape="rect" id="node6" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="250,201,431,243"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a90e74053a49c554411182305b6ecf7e1" title="Get all attachments." alt="" coords="480,136,695,177"/>
+</map>

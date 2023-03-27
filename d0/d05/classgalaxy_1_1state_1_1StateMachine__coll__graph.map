@@ -1,7 +1,6 @@
 <map id="galaxy::state::StateMachine" name="galaxy::state::StateMachine">
-<area shape="rect" id="node1" title="A finite state machine." alt="" coords="31,484,234,635"/>
-<area shape="rect" id="node2" title=" " alt="" coords="40,329,225,421"/>
-<area shape="rect" id="node3" href="$db/d6a/classgalaxy_1_1state_1_1State.html" title="A state to use in a finite state machine." alt="" coords="5,145,153,252"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="178,160,301,237"/>
-<area shape="rect" id="node5" title=" " alt="" coords="220,5,259,83"/>
+<area shape="rect" id="node1" title="A finite state machine." alt="" coords="5,455,208,605"/>
+<area shape="rect" id="node2" title=" " alt="" coords="14,300,199,392"/>
+<area shape="rect" id="node3" title=" " alt="" coords="45,145,168,223"/>
+<area shape="rect" id="node4" title=" " alt="" coords="87,5,126,83"/>
 </map>

@@ -1,10 +1,13 @@
 <map id="galaxy::graphics::Framebuffer::resize" name="galaxy::graphics::Framebuffer::resize">
-<area shape="rect" id="node1" title="Resize framebuffer." alt="" coords="931,71,1145,112"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="700,71,883,112"/>
-<area shape="rect" id="node3" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="450,5,639,47"/>
-<area shape="rect" id="node4" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="437,71,652,112"/>
-<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="468,136,621,177"/>
-<area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="244,103,381,144"/>
-<area shape="rect" id="node8" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="236,168,389,209"/>
-<area shape="rect" id="node7" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,103,188,144"/>
+<area shape="rect" id="node1" title="Resize framebuffer." alt="" coords="971,169,1185,211"/>
+<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="740,169,923,211"/>
+<area shape="rect" id="node3" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="457,5,672,47"/>
+<area shape="rect" id="node4" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="463,71,666,112"/>
+<area shape="rect" id="node5" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="437,136,692,177"/>
+<area shape="rect" id="node6" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="467,201,663,243"/>
+<area shape="rect" id="node7" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="470,267,659,308"/>
+<area shape="rect" id="node8" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="488,332,641,373"/>
+<area shape="rect" id="node9" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="244,299,381,340"/>
+<area shape="rect" id="node11" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="236,364,389,405"/>
+<area shape="rect" id="node10" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,299,188,340"/>
 </map>

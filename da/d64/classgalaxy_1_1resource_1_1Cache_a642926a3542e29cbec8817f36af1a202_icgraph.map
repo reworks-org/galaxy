@@ -1,4 +1,4 @@
 <map id="galaxy::resource::Cache::has" name="galaxy::resource::Cache::has">
-<area shape="rect" id="node1" title="Check if a resource exists." alt="" coords="231,13,439,39"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abf52ce9fdc925e9d1b4962847e74efa4" title="Retrieve a resource." alt="" coords="5,5,183,47"/>
+<area shape="rect" id="node1" title="Check if a resource exists." alt="" coords="260,5,468,32"/>
+<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abf52ce9fdc925e9d1b4962847e74efa4" title="Retrieve a resource." alt="" coords="5,5,212,32"/>
 </map>

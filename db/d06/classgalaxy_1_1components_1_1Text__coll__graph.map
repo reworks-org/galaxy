@@ -1,23 +1,22 @@
 <map id="galaxy::components::Text" name="galaxy::components::Text">
-<area shape="rect" id="node1" title="String of glyphs rendered with a font." alt="" coords="578,1409,731,1721"/>
-<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,1049,216,1332"/>
-<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,1115,410,1266"/>
-<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="434,1057,617,1325"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="315,631,530,987"/>
-<area shape="rect" id="node6" title=" " alt="" coords="43,447,227,553"/>
-<area shape="rect" id="node7" title="STL class." alt="" coords="269,219,398,296"/>
-<area shape="rect" id="node9" title=" " alt="" coords="251,454,416,546"/>
-<area shape="rect" id="node8" title=" " alt="" coords="482,5,521,83"/>
-<area shape="rect" id="node11" title="STL class." alt="" coords="440,219,563,296"/>
-<area shape="rect" id="node21" title="STL class." alt="" coords="587,219,744,296"/>
-<area shape="rect" id="node10" title=" " alt="" coords="441,461,599,539"/>
-<area shape="rect" id="node12" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="693,1079,878,1303"/>
-<area shape="rect" id="node13" title="STL class." alt="" coords="902,1152,989,1229"/>
-<area shape="rect" id="node14" title="STL class." alt="" coords="784,763,923,855"/>
-<area shape="rect" id="node15" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="1096,1057,1275,1325"/>
-<area shape="rect" id="node16" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="947,682,1138,935"/>
-<area shape="rect" id="node17" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="1163,682,1373,935"/>
-<area shape="rect" id="node18" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="1397,675,1576,943"/>
-<area shape="rect" id="node19" title=" " alt="" coords="624,454,803,546"/>
-<area shape="rect" id="node20" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html" title="A font is a MSDF atlas of glyphs." alt="" coords="769,145,933,369"/>
+<area shape="rect" id="node1" title="String of glyphs rendered with a font." alt="" coords="578,1325,731,1637"/>
+<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,965,216,1248"/>
+<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,1031,410,1182"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="434,973,617,1241"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="329,547,543,903"/>
+<area shape="rect" id="node6" title=" " alt="" coords="61,300,245,407"/>
+<area shape="rect" id="node7" title=" " alt="" coords="287,145,417,223"/>
+<area shape="rect" id="node9" title=" " alt="" coords="269,307,435,399"/>
+<area shape="rect" id="node8" title=" " alt="" coords="519,5,558,83"/>
+<area shape="rect" id="node11" title=" " alt="" coords="477,145,600,223"/>
+<area shape="rect" id="node20" title=" " alt="" coords="628,145,785,223"/>
+<area shape="rect" id="node10" title=" " alt="" coords="459,315,618,392"/>
+<area shape="rect" id="node12" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="693,995,878,1219"/>
+<area shape="rect" id="node13" title=" " alt="" coords="902,1068,989,1145"/>
+<area shape="rect" id="node14" title=" " alt="" coords="784,679,923,771"/>
+<area shape="rect" id="node15" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="1096,973,1275,1241"/>
+<area shape="rect" id="node16" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="947,598,1138,851"/>
+<area shape="rect" id="node17" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="1163,598,1373,851"/>
+<area shape="rect" id="node18" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="1397,591,1576,859"/>
+<area shape="rect" id="node19" title=" " alt="" coords="640,431,819,523"/>
 </map>

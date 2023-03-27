@@ -1,25 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,97,216,124"/>
-<area shape="rect" id="node2" href="$d3/d19/classgalaxy_1_1components_1_1Map.html" title="Tilemap component." alt="" coords="277,5,466,32"/>
-<area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="295,57,448,98"/>
-<area shape="rect" id="node4" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="295,122,448,163"/>
-<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="295,187,448,229"/>
-<area shape="rect" id="node6" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="26,577,195,604"/>
-<area shape="rect" id="node7" href="$da/d18/classgalaxy_1_1components_1_1Animated.html" title="Allows for an entity to be animated." alt="" coords="295,907,448,949"/>
-<area shape="rect" id="node8" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html" title="Shader to draw a renderable entity with." alt="" coords="295,973,448,1014"/>
-<area shape="rect" id="node9" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html" title="Flag an entity." alt="" coords="295,1038,448,1079"/>
-<area shape="rect" id="node10" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html" title="Box2D physics body." alt="" coords="295,253,448,294"/>
-<area shape="rect" id="node11" href="$db/d40/classgalaxy_1_1components_1_1Script.html" title="High level abstraction of a lua script." alt="" coords="295,318,448,359"/>
-<area shape="rect" id="node12" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html" title="Tag an entity." alt="" coords="280,384,463,411"/>
-<area shape="rect" id="node13" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="295,435,448,477"/>
-<area shape="rect" id="node14" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="298,501,445,528"/>
-<area shape="rect" id="node15" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html" title="Basic keyframe animation." alt="" coords="270,552,473,579"/>
-<area shape="rect" id="node16" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="278,603,465,629"/>
-<area shape="rect" id="node17" href="$de/d57/classgalaxy_1_1graphics_1_1Frame.html" title="A single frame of an animation." alt="" coords="283,653,460,680"/>
-<area shape="rect" id="node18" href="$d2/d25/classgalaxy_1_1scene_1_1Layer.html" title="A layer is a contained part of your game engine. I.e. A scene would have a runtime layer and a UI lay..." alt="" coords="294,704,449,731"/>
-<area shape="rect" id="node21" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html" title="Stack based storage for layers." alt="" coords="290,755,453,781"/>
-<area shape="rect" id="node22" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="292,805,451,832"/>
-<area shape="rect" id="node23" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="264,856,479,883"/>
-<area shape="rect" id="node19" href="$df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html" title="Layer handling game logic." alt="" coords="527,679,737,705"/>
-<area shape="rect" id="node20" href="$d3/d20/classgalaxy_1_1scene_1_1UILayer.html" title="Layer specifically for game ui." alt="" coords="547,729,717,756"/>
+<area shape="rect" id="node1" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html" title="File System to make managing files easier." alt="" coords="5,5,213,32"/>
 </map>

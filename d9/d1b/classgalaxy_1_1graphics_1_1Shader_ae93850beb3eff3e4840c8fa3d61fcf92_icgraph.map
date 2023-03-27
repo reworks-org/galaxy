@@ -1,8 +1,11 @@
 <map id="galaxy::graphics::Shader::load_raw" name="galaxy::graphics::Shader::load_raw">
-<area shape="rect" id="node1" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="708,64,889,105"/>
-<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="445,5,660,47"/>
-<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="248,96,385,137"/>
-<area shape="rect" id="node6" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5761568b59552124bb96f2c2993ad97f" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="462,123,643,164"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="236,5,397,47"/>
-<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,96,188,137"/>
+<area shape="rect" id="node1" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="728,99,909,140"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="465,8,680,49"/>
+<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="258,71,395,112"/>
+<area shape="rect" id="node7" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5761568b59552124bb96f2c2993ad97f" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="482,128,663,169"/>
+<area shape="rect" id="node9" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abdd1427b50a9e9627323154533c1dcbf" title="JSON Constructor." alt="" coords="482,193,663,235"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="246,5,407,47"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="16,5,177,47"/>
+<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node8" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a43d9767f91b50c2ac39757e748ca011b" title="Path Constructor." alt="" coords="236,136,417,177"/>
 </map>

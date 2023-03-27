@@ -1,14 +1,15 @@
 <map id="galaxy::core::Application::Application" name="galaxy::core::Application::Application">
-<area shape="rect" id="node1" title="Default constructor." alt="" coords="5,369,188,411"/>
+<area shape="rect" id="node1" title="Default constructor." alt="" coords="5,399,188,440"/>
 <area shape="rect" id="node2" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#a9f13843624fbd15205d2423e4514359f" title="Create default asset layout." alt="" coords="255,64,437,105"/>
 <area shape="rect" id="node3" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#a6a0da08b5929e3e7fbb245a195a76014" title="Draw loading screen while loading." alt="" coords="266,129,426,171"/>
 <area shape="rect" id="node7" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ae52cbb6db0e5ffc7429b35861d993ca1" title="Initialize rml renderer." alt="" coords="256,223,436,264"/>
 <area shape="rect" id="node9" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="796,491,1027,518"/>
 <area shape="rect" id="node10" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="277,3101,415,3143"/>
-<area shape="rect" id="node96" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a37d10d42ff57928bf518d894f18efac2" title="Set cursor visibility." alt="" coords="548,6031,704,6072"/>
-<area shape="rect" id="node97" href="$de/d12/namespacegalaxy_1_1lua.html#a5b37ad12deede39b862706b20125934a" title="Regsiter static engine services into lua." alt="" coords="275,340,417,381"/>
+<area shape="rect" id="node95" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a37d10d42ff57928bf518d894f18efac2" title="Set cursor visibility." alt="" coords="548,5965,704,6007"/>
+<area shape="rect" id="node96" href="$de/d12/namespacegalaxy_1_1lua.html#a5b37ad12deede39b862706b20125934a" title="Regsiter static engine services into lua." alt="" coords="275,340,417,381"/>
+<area shape="rect" id="node97" href="$dd/d59/namespacegalaxy_1_1input.html#a46c27862f39aa146f7007a3a49e878ff" title="Converts an integer to a key enum." alt="" coords="281,3219,411,3260"/>
 <area shape="rect" id="node98" href="$de/d12/namespacegalaxy_1_1lua.html#a3d08fb94526e5927f64c1a39ba483818" title="Load some provided external libs into lua." alt="" coords="236,406,456,433"/>
-<area shape="rect" id="node99" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#af2b7e44262444e6075edc2eca2d07010" title="Construct a new service." alt="" coords="243,3219,449,3260"/>
+<area shape="rect" id="node99" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#af2b7e44262444e6075edc2eca2d07010" title="Construct a new service." alt="" coords="243,3284,449,3325"/>
 <area shape="rect" id="node100" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#a9ef1a1507c01058ecfa1a630e0b69f31" title="Start loading job in task pool." alt="" coords="266,457,426,499"/>
 <area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="536,5,716,47"/>
 <area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aced949f4f579082d62c38ee9abe040f1" title="Finish isolated rendering." alt="" coords="536,71,716,112"/>
@@ -21,22 +22,22 @@
 <area shape="rect" id="node15" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269" title="Check if subprocess is still alive and executing." alt="" coords="806,1073,1017,1115"/>
 <area shape="rect" id="node16" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2bcfe3244381456a582ae8e2f1998061" title="Enable window to begin processing text input." alt="" coords="539,1168,713,1209"/>
 <area shape="rect" id="node17" href="$db/d7c/namespacegalaxy_1_1strutils.html#a891940c1b8d8f220993bd95faa2f8203" title="Check if string begins with another string." alt="" coords="524,1234,728,1261"/>
-<area shape="rect" id="node18" href="$df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6" title="Build all font altas&#39;." alt="" coords="540,1285,712,1327"/>
-<area shape="rect" id="node19" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html#ac3d604f1f9ad6653e0dbeac0dcefaeb9" title="Build the font atlas." alt="" coords="544,543,708,584"/>
+<area shape="rect" id="node18" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html#ac3d604f1f9ad6653e0dbeac0dcefaeb9" title="Build the font atlas." alt="" coords="544,543,708,584"/>
+<area shape="rect" id="node19" href="$df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6" title="Build all font altas&#39;." alt="" coords="540,1285,712,1327"/>
 <area shape="rect" id="node20" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab61df16febf0c7621d8b2de298a7a334" title="Change the current scene." alt="" coords="519,1351,733,1392"/>
 <area shape="rect" id="node21" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136" title="Clean up resources." alt="" coords="537,1416,715,1457"/>
-<area shape="rect" id="node22" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#aa10ee8def94f8b2f5dca0bb9bef9db86" title="Clear all language data." alt="" coords="526,1481,726,1523"/>
-<area shape="rect" id="node23" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="519,1547,733,1588"/>
-<area shape="rect" id="node24" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="533,1612,719,1653"/>
-<area shape="rect" id="node25" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a125f280efd68d76cd071671699ee1d8d" title="Clears all system, component registry, and entity data." alt="" coords="553,1677,699,1719"/>
-<area shape="rect" id="node26" href="$d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a885384858065d0ffc5e239437a238696" title="Compiles the shaders in OpenGL." alt="" coords="531,1743,721,1784"/>
-<area shape="rect" id="node27" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="535,1808,717,1849"/>
+<area shape="rect" id="node22" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="533,1481,719,1523"/>
+<area shape="rect" id="node23" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a125f280efd68d76cd071671699ee1d8d" title="Clears all system, component registry, and entity data." alt="" coords="553,1547,699,1588"/>
+<area shape="rect" id="node24" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#aa10ee8def94f8b2f5dca0bb9bef9db86" title="Clear all language data." alt="" coords="526,1612,726,1653"/>
+<area shape="rect" id="node25" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="519,1677,733,1719"/>
+<area shape="rect" id="node26" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="535,1743,717,1784"/>
+<area shape="rect" id="node27" href="$d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a885384858065d0ffc5e239437a238696" title="Compiles the shaders in OpenGL." alt="" coords="531,1808,721,1849"/>
 <area shape="rect" id="node28" href="$d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#aeeb8c18c383c473fbe63ab4e96e495bd" title="Compresses string." alt="" coords="554,1873,698,1915"/>
-<area shape="rect" id="node29" href="$d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a5ba1424c32e83ab5fe7394ec8c99f2bd" title="Does the rectangle contain the point (x, y)." alt="" coords="543,1939,709,1980"/>
-<area shape="rect" id="node30" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a8d320aa92f79424d7a44aa00f36cdbfa" title="Check if atlas contains a texture." alt="" coords="533,2004,719,2045"/>
-<area shape="rect" id="node31" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#ae3793bff809e8c83411f2cde9cf012f6" title="Launch a subprocess." alt="" coords="521,2069,731,2111"/>
-<area shape="rect" id="node32" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7" title="Create an entity with some default components." alt="" coords="553,2135,699,2176"/>
-<area shape="rect" id="node33" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="549,608,703,649"/>
+<area shape="rect" id="node29" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a8d320aa92f79424d7a44aa00f36cdbfa" title="Check if atlas contains a texture." alt="" coords="533,1939,719,1980"/>
+<area shape="rect" id="node30" href="$d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a5ba1424c32e83ab5fe7394ec8c99f2bd" title="Does the rectangle contain the point (x, y)." alt="" coords="543,2004,709,2045"/>
+<area shape="rect" id="node31" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7" title="Create an entity with some default components." alt="" coords="553,2069,699,2111"/>
+<area shape="rect" id="node32" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="549,608,703,649"/>
+<area shape="rect" id="node33" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#ae3793bff809e8c83411f2cde9cf012f6" title="Launch a subprocess." alt="" coords="521,2135,731,2176"/>
 <area shape="rect" id="node34" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="549,673,703,715"/>
 <area shape="rect" id="node35" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="522,2252,730,2293"/>
 <area shape="rect" id="node36" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="807,2252,1015,2293"/>
@@ -48,12 +49,12 @@
 <area shape="rect" id="node42" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#aacf7726769ee0bb324c62b1c286440cf" title="Decompresses string into Base64." alt="" coords="554,2644,698,2685"/>
 <area shape="rect" id="node43" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#a89dd18ff54f544538117466a3802dd26" title="Decompresses string into ZLib." alt="" coords="554,2709,698,2751"/>
 <area shape="rect" id="node44" href="$d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a4993f47d191ff6ad6d1b17399a345325" title="Decompresses a zlib string." alt="" coords="554,2775,698,2816"/>
-<area shape="rect" id="node45" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b" title="Destroy process, preserving if alive." alt="" coords="521,1103,731,1144"/>
-<area shape="rect" id="node46" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aaf5f8ec73b1752814e508ba28286dced" title="Free up resources used by shader." alt="" coords="535,2840,717,2881"/>
+<area shape="rect" id="node45" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aaf5f8ec73b1752814e508ba28286dced" title="Free up resources used by shader." alt="" coords="535,2840,717,2881"/>
+<area shape="rect" id="node46" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b" title="Destroy process, preserving if alive." alt="" coords="521,1103,731,1144"/>
 <area shape="rect" id="node47" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#ac9f22ae2666f5a45b91e7979ff5bd4b1" title="Disable the currently active map&#39;s entities." alt="" coords="541,2905,711,2947"/>
 <area shape="rect" id="node48" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#aa13f6814e14e978ac9e490994e946f8a" title="Disable sticky keys." alt="" coords="539,2971,713,3012"/>
 <area shape="rect" id="node49" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0f32b4e6482bb9fc416e2decbc7d3616" title="Disable sticky mouse." alt="" coords="539,3036,713,3077"/>
-<area shape="rect" id="node50" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a697f1f89fc6d9bb0eca2506c351de768" title="Check if the cache has any resources in it." alt="" coords="537,3101,715,3143"/>
+<area shape="rect" id="node50" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a697f1f89fc6d9bb0eca2506c351de768" title="Check if the cache has any resources in it." alt="" coords="521,3101,731,3143"/>
 <area shape="rect" id="node51" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acbfd0e46e5f686e72c432741ee8f143b" title="Enable the currently active map&#39;s entities." alt="" coords="541,3167,711,3208"/>
 <area shape="rect" id="node52" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad6cc04215b4f61f4ab25820f2031b230" title="Enable sticky keys." alt="" coords="539,3232,713,3273"/>
 <area shape="rect" id="node53" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a2081e90222db877126e53069397653f0" title="Enable sticky mouse." alt="" coords="541,3297,711,3339"/>
@@ -73,16 +74,16 @@
 <area shape="rect" id="node67" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aeff8484812075f32568e470ed695ad7c" title="Get body density." alt="" coords="537,4120,715,4161"/>
 <area shape="rect" id="node68" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a4fd4f5b13a0ecade54433ca37a8521a4" title="Get font ID." alt="" coords="549,4185,703,4227"/>
 <area shape="rect" id="node69" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7d82909b09f8bed258b78155887e1724" title="Get body friction." alt="" coords="537,4251,715,4292"/>
-<area shape="rect" id="node70" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a7f32eaddd7a42f90fc6a404ef1c330a6" title="Get text height." alt="" coords="549,4316,703,4357"/>
+<area shape="rect" id="node70" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#aaa3058a0967a60cae4ba8dfefb2e0d83" title="Get texture height." alt="" coords="543,4316,709,4357"/>
 <area shape="rect" id="node71" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#adbb8856fcb5ecc61f69f37275f1bc2c3" title="Get texture height." alt="" coords="549,4381,703,4423"/>
-<area shape="rect" id="node72" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#aaa3058a0967a60cae4ba8dfefb2e0d83" title="Get texture height." alt="" coords="543,4447,709,4488"/>
+<area shape="rect" id="node72" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a7f32eaddd7a42f90fc6a404ef1c330a6" title="Get text height." alt="" coords="549,4447,703,4488"/>
 <area shape="rect" id="node73" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49f5828070d601fe4b40240336676929" title="Get key name." alt="" coords="539,4512,713,4553"/>
 <area shape="rect" id="node74" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a3b1483e9e5ef4a949d119e48f0ae567e" title="Get name of map." alt="" coords="541,4577,711,4619"/>
 <area shape="rect" id="node75" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a01856b2d38fc91b3a3e1f079c023c06e" title="Get Scene name." alt="" coords="547,4643,705,4684"/>
 <area shape="rect" id="node76" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a8143472873fe37e0efaf1fc1bac996bf" title="Get opacity." alt="" coords="549,4708,703,4749"/>
 <area shape="rect" id="node77" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3db80013e63838f2e6505ac855214773" title="Get origin point." alt="" coords="542,4773,710,4815"/>
-<area shape="rect" id="node78" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#aa8684d26c7eab791cf3ed92a75778810" title="Get last recorded mouse position." alt="" coords="547,4839,705,4880"/>
-<area shape="rect" id="node79" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ababf4fab9f65446830c3476aee0beeb2" title="Get stored position." alt="" coords="549,4904,703,4945"/>
+<area shape="rect" id="node78" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ababf4fab9f65446830c3476aee0beeb2" title="Get stored position." alt="" coords="549,4839,703,4880"/>
+<area shape="rect" id="node79" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#aa8684d26c7eab791cf3ed92a75778810" title="Get last recorded mouse position." alt="" coords="547,4904,705,4945"/>
 <area shape="rect" id="node80" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a66e0cd56817b896fc372a6a8e008ed0a" title="Get the Camera projection." alt="" coords="533,4969,719,5011"/>
 <area shape="rect" id="node81" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a335aee5f2336e1787ddbafc9ff50b639" title="Get body restitution." alt="" coords="527,5035,725,5076"/>
 <area shape="rect" id="node82" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a0f8d6bcf0616066217d7cca220770f1b" title="Get restitution threshold." alt="" coords="527,5101,725,5157"/>
@@ -91,12 +92,11 @@
 <area shape="rect" id="node85" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ad0afc3ee942483901f16969a5d4c8e2c" title="Get stored scale." alt="" coords="543,5312,709,5353"/>
 <area shape="rect" id="node86" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a062c53f73672b09f540a6163bdfc82dc" title="Get key scancode." alt="" coords="539,5377,713,5419"/>
 <area shape="rect" id="node87" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#af802a6f48b71988c7dd305ab5343cc58" title="Get key name." alt="" coords="539,5443,713,5484"/>
-<area shape="rect" id="node88" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a339d0d04c8c3e5f09a2068119634152e" title="Get body shape." alt="" coords="541,5508,711,5549"/>
-<area shape="rect" id="node89" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#ac71b64a664cd223285ecda6e1869ec74" title="Get current shape." alt="" coords="544,5573,708,5615"/>
+<area shape="rect" id="node88" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#ac71b64a664cd223285ecda6e1869ec74" title="Get current shape." alt="" coords="544,5508,708,5549"/>
+<area shape="rect" id="node89" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a339d0d04c8c3e5f09a2068119634152e" title="Get body shape." alt="" coords="541,5573,711,5615"/>
 <area shape="rect" id="node90" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a251983d6f6fd52b79d8c6678e25140e7" title="Get text em size." alt="" coords="549,5639,703,5680"/>
 <area shape="rect" id="node91" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a788189212210bd1e1b3d63c3c9cd9863" title="Get text." alt="" coords="549,5704,703,5745"/>
 <area shape="rect" id="node92" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad32d10ea656f6f3b9d00e6b23c22f1f6" title="Query text size with font." alt="" coords="544,5769,708,5811"/>
 <area shape="rect" id="node93" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="529,5835,723,5876"/>
 <area shape="rect" id="node94" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#ac8f60d65644253216af861c5ee1c04ee" title="Get body type." alt="" coords="546,5900,706,5941"/>
-<area shape="rect" id="node95" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0c9a2deb51adadb9d92777a32ef4d131" title="Retrieves the count of a shader uniform." alt="" coords="535,5965,717,6007"/>
 </map>

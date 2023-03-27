@@ -1,9 +1,8 @@
 <map id="galaxy::error::Log" name="galaxy::error::Log">
-<area shape="rect" id="node1" title="Log singleton." alt="" coords="161,745,299,984"/>
-<area shape="rect" id="node2" title=" " alt="" coords="125,591,335,683"/>
-<area shape="rect" id="node3" title=" " alt="" coords="50,436,229,528"/>
-<area shape="rect" id="node4" href="$d6/d9f/classgalaxy_1_1error_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,145,145,311"/>
-<area shape="rect" id="node5" title="STL class." alt="" coords="170,189,327,267"/>
-<area shape="rect" id="node6" title=" " alt="" coords="288,5,327,83"/>
-<area shape="rect" id="node7" title="STL class." alt="" coords="300,335,429,412"/>
+<area shape="rect" id="node1" title="Log singleton." alt="" coords="104,657,243,896"/>
+<area shape="rect" id="node2" title=" " alt="" coords="68,503,279,595"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,348,184,440"/>
+<area shape="rect" id="node4" title=" " alt="" coords="27,145,184,223"/>
+<area shape="rect" id="node5" title=" " alt="" coords="171,5,210,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="211,247,341,324"/>
 </map>

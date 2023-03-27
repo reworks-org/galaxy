@@ -1,0 +1,6 @@
+<map id="galaxy::input::int_to_key" name="galaxy::input::int_to_key">
+<area shape="rect" id="node1" title="Converts an integer to a key enum." alt="" coords="445,39,576,80"/>
+<area shape="rect" id="node2" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="215,5,397,47"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="225,71,387,112"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,71,167,112"/>
+</map>

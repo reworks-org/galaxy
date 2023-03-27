@@ -1,7 +1,8 @@
 <map id="galaxy::graphics::Shader::compile" name="galaxy::graphics::Shader::compile">
-<area shape="rect" id="node1" title="Compiles shader into OpenGL." alt="" coords="499,39,680,80"/>
-<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="236,5,451,47"/>
-<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="275,71,412,112"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="16,5,177,47"/>
-<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node1" title="Compiles shader into OpenGL." alt="" coords="708,39,889,80"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="445,5,660,47"/>
+<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="484,71,621,112"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="225,5,387,47"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,47"/>
+<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="215,71,397,112"/>
 </map>

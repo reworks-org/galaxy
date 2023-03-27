@@ -15,13 +15,13 @@ var dir_b44bae1181d28134d9654f6dd7c8beaa =
     ] ],
     [ "InputDevice.cpp", "df/d7c/InputDevice_8cpp.html", null ],
     [ "InputDevice.hpp", "d4/da5/InputDevice_8hpp.html", "d4/da5/InputDevice_8hpp" ],
-    [ "InputMods.cpp", "dc/d8e/InputMods_8cpp.html", null ],
+    [ "InputMods.cpp", "dc/d8e/InputMods_8cpp.html", "dc/d8e/InputMods_8cpp" ],
     [ "InputMods.hpp", "d4/d98/InputMods_8hpp.html", "d4/d98/InputMods_8hpp" ],
     [ "Keyboard.cpp", "de/db9/Keyboard_8cpp.html", null ],
     [ "Keyboard.hpp", "d8/dd0/Keyboard_8hpp.html", [
       [ "Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", "d9/d50/classgalaxy_1_1input_1_1Keyboard" ]
     ] ],
-    [ "Keys.cpp", "d4/d76/Keys_8cpp.html", null ],
+    [ "Keys.cpp", "d4/d76/Keys_8cpp.html", "d4/d76/Keys_8cpp" ],
     [ "Keys.hpp", "dd/d25/Keys_8hpp.html", "dd/d25/Keys_8hpp" ],
     [ "Mouse.cpp", "db/d1a/Mouse_8cpp.html", null ],
     [ "Mouse.hpp", "d5/d78/Mouse_8hpp.html", [

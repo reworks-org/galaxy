@@ -6,7 +6,7 @@ var classgalaxy_1_1graphics_1_1Rect =
     [ "contains", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a5ba1424c32e83ab5fe7394ec8c99f2bd", null ],
     [ "contains", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#afe53287c0b0e8b37cecff046ccc733bd", null ],
     [ "overlaps", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a62bba372a8678a8211b6e6f49a199982", null ],
-    [ "operator", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a2bf632b7742a6ed108f545be060bab86", null ],
+    [ "operator<=>", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#aabe0151489f57b768a0c39695dfd1cee", null ],
     [ "value_in_range", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#ae24942d3a9ca1e2f0b39f8eb51760b77", null ],
     [ "m_x", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a47146635f3615ec22c13b5d3d9fdd4f6", null ],
     [ "m_y", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#a902756c336021ecb0c2306c073afe7fa", null ],

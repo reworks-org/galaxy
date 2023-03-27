@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::GammaCorrection::render" name="galaxy::graphics::GammaCorrection::render">
+<area shape="rect" id="node1" title="Render effect to input texture." alt="" coords="5,71,260,112"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a27ada53d71e809ccf63abfb4e6892b2b" title="Enable this shader for rendering." alt="" coords="309,5,490,47"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#abeafc6785c716ac991d97b7eadb2f8fe" title="Bind framebuffer and texture." alt="" coords="308,71,491,112"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac5719ce9e9e434b7a2b596e7d8652b84" title="Get texture." alt="" coords="308,136,491,177"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a90e74053a49c554411182305b6ecf7e1" title="Get all attachments." alt="" coords="539,136,753,177"/>
+</map>

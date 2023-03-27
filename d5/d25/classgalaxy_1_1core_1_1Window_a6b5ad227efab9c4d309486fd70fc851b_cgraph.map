@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Destructor." alt="" coords="5,71,167,112"/>
 <area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a2af89d8938522b8e8b1bffe9cabb19e9" title="Destroys Window and related context and data." alt="" coords="215,71,376,112"/>
 <area shape="rect" id="node3" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a6804a98188d9c7e5ad9fe9f504b984dc" title="Cleanup used memory." alt="" coords="424,5,639,47"/>
-<area shape="rect" id="node5" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a627d090c930164cb2b06c40299927a0d" title="Clear up all used data." alt="" coords="453,71,609,112"/>
-<area shape="rect" id="node6" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a23cb3ab3f4931ba21da39ed1395d08bb" title="Destroy renderer resources." alt="" coords="434,136,629,177"/>
+<area shape="rect" id="node5" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a23cb3ab3f4931ba21da39ed1395d08bb" title="Destroy renderer resources." alt="" coords="434,71,629,112"/>
+<area shape="rect" id="node6" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a627d090c930164cb2b06c40299927a0d" title="Clear up all used data." alt="" coords="453,136,609,177"/>
 <area shape="rect" id="node4" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aaf5f8ec73b1752814e508ba28286dced" title="Free up resources used by shader." alt="" coords="687,5,868,47"/>
 </map>
