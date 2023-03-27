@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "galaxy", "galaxy\galaxy.vcx
 		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{45F5D1C0-83B4-4335-9617-CE8497BE50FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -59,6 +61,10 @@ Global
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6}.Debug|x64.Build.0 = Debug|x64
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6}.Release|x64.ActiveCfg = Release|x64
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6}.Release|x64.Build.0 = Release|x64
+		{45F5D1C0-83B4-4335-9617-CE8497BE50FC}.Debug|x64.ActiveCfg = Debug|x64
+		{45F5D1C0-83B4-4335-9617-CE8497BE50FC}.Debug|x64.Build.0 = Debug|x64
+		{45F5D1C0-83B4-4335-9617-CE8497BE50FC}.Release|x64.ActiveCfg = Release|x64
+		{45F5D1C0-83B4-4335-9617-CE8497BE50FC}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

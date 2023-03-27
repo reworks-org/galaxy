@@ -7,6 +7,18 @@ build/
 legacy/
 output/
 
+sandbox/bin/Debug/*.exe
+sandbox/bin/Debug/*.pdb
+sandbox/bin/Debug/*.dll
+sandbox/bin/Debug/assets/editor_data/tools
+sandbox/bin/Debug/logs
+
+sandbox/bin/Release/*.exe
+sandbox/bin/Release/*.pdb
+sandbox/bin/Release/*.dll
+sandbox/bin/Release/assets/editor_data/tools
+sandbox/bin/Release/logs
+
 supercluster/bin/Debug/*.exe
 supercluster/bin/Debug/*.pdb
 supercluster/bin/Debug/*.dll
