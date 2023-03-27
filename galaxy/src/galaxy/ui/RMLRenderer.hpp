@@ -34,12 +34,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RMLRenderer() noexcept;
+			RMLRenderer();
 
 			///
 			/// Destructor.
 			///
-			virtual ~RMLRenderer() noexcept;
+			virtual ~RMLRenderer();
 
 			///
 			/// Initialize rml renderer.
@@ -243,6 +243,11 @@ namespace galaxy
 			/// Pointer to window.
 			///
 			core::Window* m_window;
+
+			///
+			/// Backup existing viewport before rendering.
+			///
+			int m_viewport_backup[4] = {0, 0, 0, 0};
 		};
 	} // namespace ui
 } // namespace galaxy

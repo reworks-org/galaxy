@@ -1,8 +1,3 @@
-rml:
-	- add
-	- restore gl state after rendering/new frames
-	- add reload support to editor
-
 action/animation state:
 	- https://michaelbitzos.com/devblog/fsm-player-controllers
 	- https://gamedev.stackexchange.com/questions/40672/how-to-update-entity-states-and-animations-in-a-component-based-game

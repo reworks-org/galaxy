@@ -118,31 +118,6 @@ namespace Gfx
 		GLuint shader_main_fragment_texture;
 	};
 
-	static void CheckGLError(const char* operation_name)
-	{
-#ifdef RMLUI_DEBUG
-		GLenum error_code = glGetError();
-		if (error_code != GL_NO_ERROR)
-		{
-			static const Rml::Pair<GLenum, const char*> error_names[] = {{GL_INVALID_ENUM, "GL_INVALID_ENUM"},
-				{GL_INVALID_VALUE, "GL_INVALID_VALUE"},
-				{GL_INVALID_OPERATION, "GL_INVALID_OPERATION"},
-				{GL_OUT_OF_MEMORY, "GL_OUT_OF_MEMORY"}};
-			const char* error_str                                     = "''";
-			for (auto& err : error_names)
-			{
-				if (err.first == error_code)
-				{
-					error_str = err.second;
-					break;
-				}
-			}
-			Rml::Log::Message(Rml::Log::LT_ERROR, "OpenGL error during %s. Error code 0x%x (%s).", operation_name, error_code, error_str);
-		}
-#endif
-		(void)operation_name;
-	}
-
 	// Create the shader, 'shader_type' is either GL_VERTEX_SHADER or GL_FRAGMENT_SHADER.
 	static GLuint CreateShader(GLenum shader_type, const char* code_string)
 	{
@@ -166,8 +141,6 @@ namespace Gfx
 			return 0;
 		}
 
-		CheckGLError("CreateShader");
-
 		return id;
 	}
 
@@ -177,7 +150,6 @@ namespace Gfx
 		{
 			glBindAttribLocation(program, i, vertex_attribute_names[i]);
 		}
-		CheckGLError("BindAttribLocations");
 	}
 
 	static bool CreateProgram(GLuint vertex_shader, GLuint fragment_shader, ProgramData& out_program)
@@ -250,8 +222,6 @@ namespace Gfx
 			}
 		}
 
-		CheckGLError("CreateProgram");
-
 		return true;
 	}
 
@@ -313,7 +283,7 @@ namespace galaxy
 {
 	namespace ui
 	{
-		RMLRenderer::RMLRenderer() noexcept
+		RMLRenderer::RMLRenderer()
 			: transform_dirty_state {ProgramId::All}
 			, transform_active {false}
 			, scissoring_state {ScissoringState::Disable}
@@ -322,7 +292,7 @@ namespace galaxy
 		{
 		}
 
-		RMLRenderer::~RMLRenderer() noexcept
+		RMLRenderer::~RMLRenderer()
 		{
 		}
 
@@ -344,20 +314,16 @@ namespace galaxy
 
 		void RMLRenderer::begin_frame()
 		{
+			glGetIntegerv(GL_VIEWPORT, m_viewport_backup);
+
 			const auto viewport = m_window->get_framebuffer_size();
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, viewport.x, viewport.y);
 
-			glDisable(GL_CULL_FACE);
-
 			glEnable(GL_STENCIL_TEST);
 			glStencilFunc(GL_ALWAYS, 1, GLuint(-1));
 			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-
-			glEnable(GL_BLEND);
-			glBlendEquation(GL_FUNC_ADD);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport.x, (float)viewport.y, 0, -10000, 10000);
 
@@ -371,6 +337,12 @@ namespace galaxy
 		void RMLRenderer::end_frame()
 		{
 			glfwSwapBuffers(core::ServiceLocator<core::Window>::ref().handle());
+
+			glDisable(GL_STENCIL_TEST);
+			glDisable(GL_SCISSOR_TEST);
+			glViewport(m_viewport_backup[0], m_viewport_backup[1], m_viewport_backup[2], m_viewport_backup[3]);
+
+			scissoring_state = ScissoringState::Disable;
 		}
 
 		void RMLRenderer::RenderGeometry(Rml::Vertex* vertices,
@@ -432,9 +404,9 @@ namespace galaxy
 
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * num_indices, (const void*)indices, draw_usage);
-			glBindVertexArray(0);
 
-			Gfx::CheckGLError("CompileGeometry");
+			glBindVertexArray(0);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			Gfx::CompiledGeometryData* geometry = new Gfx::CompiledGeometryData;
 			geometry->texture                   = texture;
@@ -469,7 +441,9 @@ namespace galaxy
 			glBindVertexArray(geometry->vao);
 			glDrawElements(GL_TRIANGLES, geometry->draw_count, GL_UNSIGNED_INT, (const GLvoid*)0);
 
-			Gfx::CheckGLError("RenderCompiledGeometry");
+			glUseProgram(0);
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		void RMLRenderer::ReleaseCompiledGeometry(Rml::CompiledGeometryHandle handle)
@@ -512,10 +486,10 @@ namespace galaxy
 		{
 			if (transform_active)
 			{
-				const float left   = float(x);
-				const float right  = float(x + width);
-				const float top    = float(y);
-				const float bottom = float(y + height);
+				const auto left   = static_cast<float>(x);
+				const auto right  = static_cast<float>(x + width);
+				const auto top    = static_cast<float>(y);
+				const auto bottom = static_cast<float>(y + height);
 
 				Rml::Vertex vertices[4];
 				vertices[0].position = {left, top};
@@ -598,6 +572,8 @@ namespace galaxy
 
 			texture_handle = (Rml::TextureHandle)texture_id;
 
+			glBindTexture(GL_TEXTURE_2D, 0);
+
 			return true;
 		}
 
@@ -623,117 +599,3 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
-
-/*
-
-// Set to byte packing, or the compiler will expand our struct, which means it won't read correctly from file
-#pragma pack(1)
-struct TGAHeader
-{
-	char idLength;
-	char colourMapType;
-	char dataType;
-	short int colourMapOrigin;
-	short int colourMapLength;
-	char colourMapDepth;
-	short int xOrigin;
-	short int yOrigin;
-	short int width;
-	short int height;
-	char bitsPerPixel;
-	char imageDescriptor;
-};
-// Restore packing
-#pragma pack()
-
-bool RMLRenderInterface_GL3::LoadTexture(Rml::TextureHandle& texture_handle, Rml::Vector2i& texture_dimensions, const Rml::String& source)
-{
-	Rml::FileInterface* file_interface = Rml::GetFileInterface();
-	Rml::FileHandle file_handle        = file_interface->Open(source);
-	if (!file_handle)
-	{
-		return false;
-	}
-
-	file_interface->Seek(file_handle, 0, SEEK_END);
-	size_t buffer_size = file_interface->Tell(file_handle);
-	file_interface->Seek(file_handle, 0, SEEK_SET);
-
-	if (buffer_size <= sizeof(TGAHeader))
-	{
-		Rml::Log::Message(Rml::Log::LT_ERROR, "Texture file size is smaller than TGAHeader, file is not a valid TGA image.");
-		file_interface->Close(file_handle);
-		return false;
-	}
-
-	using Rml::byte;
-	byte* buffer = new byte[buffer_size];
-	file_interface->Read(buffer, buffer_size, file_handle);
-	file_interface->Close(file_handle);
-
-	TGAHeader header;
-	memcpy(&header, buffer, sizeof(TGAHeader));
-
-	int color_mode = header.bitsPerPixel / 8;
-	int image_size = header.width * header.height * 4; // We always make 32bit textures
-
-	if (header.dataType != 2)
-	{
-		Rml::Log::Message(Rml::Log::LT_ERROR, "Only 24/32bit uncompressed TGAs are supported.");
-		delete[] buffer;
-		return false;
-	}
-
-	// Ensure we have at least 3 colors
-	if (color_mode < 3)
-	{
-		Rml::Log::Message(Rml::Log::LT_ERROR, "Only 24 and 32bit textures are supported.");
-		delete[] buffer;
-		return false;
-	}
-
-	const byte* image_src = buffer + sizeof(TGAHeader);
-	byte* image_dest      = new byte[image_size];
-
-	// Targa is BGR, swap to RGB and flip Y axis
-	for (long y = 0; y < header.height; y++)
-	{
-		long read_index  = y * header.width * color_mode;
-		long write_index = ((header.imageDescriptor & 32) != 0) ? read_index : (header.height - y - 1) * header.width * 4;
-		for (long x = 0; x < header.width; x++)
-		{
-			image_dest[write_index]     = image_src[read_index + 2];
-			image_dest[write_index + 1] = image_src[read_index + 1];
-			image_dest[write_index + 2] = image_src[read_index];
-			if (color_mode == 4)
-			{
-				const int alpha = image_src[read_index + 3];
-#ifdef RMLUI_SRGB_PREMULTIPLIED_ALPHA
-				image_dest[write_index + 0] = (image_dest[write_index + 0] * alpha) / 255;
-				image_dest[write_index + 1] = (image_dest[write_index + 1] * alpha) / 255;
-				image_dest[write_index + 2] = (image_dest[write_index + 2] * alpha) / 255;
-#endif
-				image_dest[write_index + 3] = (byte)alpha;
-			}
-			else
-			{
-				image_dest[write_index + 3] = 255;
-			}
-
-			write_index += 4;
-			read_index += color_mode;
-		}
-	}
-
-	texture_dimensions.x = header.width;
-	texture_dimensions.y = header.height;
-
-	bool success = GenerateTexture(texture_handle, image_dest, texture_dimensions);
-
-	delete[] image_dest;
-	delete[] buffer;
-
-	return success;
-}
-
-*/
