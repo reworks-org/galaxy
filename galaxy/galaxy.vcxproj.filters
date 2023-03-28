@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
@@ -149,7 +149,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />

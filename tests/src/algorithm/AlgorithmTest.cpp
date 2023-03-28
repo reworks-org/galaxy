@@ -7,7 +7,7 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/algorithm/Algorithms.hpp>
+#include <galaxy/algorithm/Generic.hpp>
 
 TEST(Algorithm, Normalize)
 {

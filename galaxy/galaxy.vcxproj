@@ -60,7 +60,7 @@
     <ClCompile Include="src\galaxy\scene\layers\RuntimeLayer.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Algorithms.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
     <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
@@ -208,7 +208,7 @@
     <ClInclude Include="src\galaxy\scene\layers\RuntimeLayer.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Algorithms.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
     <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />

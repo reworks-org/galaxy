@@ -1,12 +1,12 @@
 ///
-/// Algorithms.hpp
+/// Generic.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ALGORITHM_ALGORITHMS_HPP_
-#define GALAXY_ALGORITHM_ALGORITHMS_HPP_
+#ifndef GALAXY_ALGORITHM_GENERIC_HPP_
+#define GALAXY_ALGORITHM_GENERIC_HPP_
 
 #include <algorithm>
 #include <execution>

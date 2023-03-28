@@ -9,7 +9,7 @@
 #include <entt/addons/sol/dispatcher.hpp>
 #include <entt/addons/sol/registry.hpp>
 
-#include "galaxy/algorithm/Algorithms.hpp"
+#include "galaxy/algorithm/Generic.hpp"
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/Random.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
