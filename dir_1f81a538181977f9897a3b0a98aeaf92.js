@@ -1,9 +1,9 @@
 var dir_1f81a538181977f9897a3b0a98aeaf92 =
 [
-    [ "Algorithms.cpp", "d1/d7c/Algorithms_8cpp.html", null ],
-    [ "Algorithms.hpp", "d6/d07/Algorithms_8hpp.html", "d6/d07/Algorithms_8hpp" ],
     [ "Base64.cpp", "d4/de5/Base64_8cpp.html", "d4/de5/Base64_8cpp" ],
     [ "Base64.hpp", "d0/d79/Base64_8hpp.html", "d0/d79/Base64_8hpp" ],
+    [ "Generic.cpp", "df/d07/Generic_8cpp.html", null ],
+    [ "Generic.hpp", "d8/d2c/Generic_8hpp.html", "d8/d2c/Generic_8hpp" ],
     [ "Random.cpp", "d4/dde/Random_8cpp.html", null ],
     [ "Random.hpp", "dd/d6e/Random_8hpp.html", "dd/d6e/Random_8hpp" ],
     [ "RectPack.cpp", "dc/d61/RectPack_8cpp.html", null ],

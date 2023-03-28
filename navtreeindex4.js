@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041":[2,0,0,0,0,14,4,1],
-"d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1":[2,0,0,0,0,14,4,2],
 "d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b":[2,0,0,0,0,14,4,0],
 "d5/ddd/Pragma_8hpp_source.html":[2,0,0,0,0,14,4],
 "d5/de0/Frame_8cpp.html":[2,0,0,0,0,10,0,2],
@@ -26,10 +24,6 @@ var NAVTREEINDEX4 =
 "d5/df3/ImGuiHelpers_8cpp_source.html":[2,0,0,0,0,20,0],
 "d6/d02/LayerRegistry_8hpp.html":[2,0,0,0,0,16,4],
 "d6/d02/LayerRegistry_8hpp_source.html":[2,0,0,0,0,16,4],
-"d6/d07/Algorithms_8hpp.html":[2,0,0,0,0,0,1],
-"d6/d07/Algorithms_8hpp.html#a65246240f17db24addb149199241889c":[2,0,0,0,0,0,1,1],
-"d6/d07/Algorithms_8hpp.html#af4e018556ce75e495e92004aeacf0b5c":[2,0,0,0,0,0,1,0],
-"d6/d07/Algorithms_8hpp_source.html":[2,0,0,0,0,0,1],
 "d6/d18/Sink_8cpp.html":[2,0,0,0,0,6,10],
 "d6/d18/Sink_8cpp_source.html":[2,0,0,0,0,6,10],
 "d6/d19/namespacegalaxy_1_1fs.html":[0,0,0,9],
@@ -249,5 +243,11 @@ var NAVTREEINDEX4 =
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#ae49844478f1d3ce506846a0bc5d98b2a":[1,0,0,6,2,1],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e":[1,0,0,6,2,0],
 "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html":[1,0,0,9,3],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a":[1,0,0,9,3,20]
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a":[1,0,0,9,3,20],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299":[1,0,0,9,3,21],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570":[1,0,0,9,3,11],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1a7dcb7ac1424bd99e775eb60e654f30":[1,0,0,9,3,15],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1abe18e6d29c82ae867196997b8f0621":[1,0,0,9,3,19],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a21dd284f9fe03e14a8ae4799784bdfe0":[1,0,0,9,3,28],
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a26d6f2318aeab171321c8d99adbd79cc":[1,0,0,9,3,33]
 };

@@ -1,6 +1,6 @@
 <map id="galaxy/src/galaxy/meta/Concepts.hpp" name="galaxy/src/galaxy/meta/Concepts.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="5628,5,5803,47"/>
-<area shape="rect" id="node2" href="$d6/d07/Algorithms_8hpp.html" title=" " alt="" coords="5833,95,6037,136"/>
+<area shape="rect" id="node2" href="$d8/d2c/Generic_8hpp.html" title=" " alt="" coords="5833,95,6037,136"/>
 <area shape="rect" id="node5" href="$dd/d6e/Random_8hpp.html" title=" " alt="" coords="5103,95,5307,136"/>
 <area shape="rect" id="node8" href="$d0/dda/Flag_8hpp.html" title=" " alt="" coords="837,452,1058,493"/>
 <area shape="rect" id="node16" href="$df/db4/Config_8hpp.html" title=" " alt="" coords="4620,452,4789,493"/>
@@ -11,7 +11,7 @@
 <area shape="rect" id="node67" href="$db/d78/Concepts_8cpp.html" title=" " alt="" coords="6113,95,6288,136"/>
 <area shape="rect" id="node68" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="6897,95,7072,136"/>
 <area shape="rect" id="node86" href="$d4/d1e/Cache_8hpp.html" title=" " alt="" coords="6318,363,6515,404"/>
-<area shape="rect" id="node3" href="$d1/d7c/Algorithms_8cpp.html" title=" " alt="" coords="5908,184,6112,225"/>
+<area shape="rect" id="node3" href="$df/d07/Generic_8cpp.html" title=" " alt="" coords="5908,184,6112,225"/>
 <area shape="rect" id="node4" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="6051,541,6249,583"/>
 <area shape="rect" id="node6" href="$d4/dde/Random_8cpp.html" title=" " alt="" coords="5103,184,5307,225"/>
 <area shape="rect" id="node7" href="$dd/dc0/Guid_8cpp.html" title=" " alt="" coords="4909,184,5079,225"/>

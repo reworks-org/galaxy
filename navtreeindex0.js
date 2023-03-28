@@ -36,10 +36,10 @@ var NAVTREEINDEX0 =
 "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0":[1,0,0,10,3,1],
 "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab5ca9ec89abc6e748041a942da2a73fa":[1,0,0,10,3,5],
 "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#abdb6c4e3bb685e0692b22a9657da0172":[1,0,0,10,3,3],
-"d0/d79/Base64_8hpp.html":[2,0,0,0,0,0,3],
-"d0/d79/Base64_8hpp.html#aa1a4102763ede9a59182d62bc7f6e243":[2,0,0,0,0,0,3,1],
-"d0/d79/Base64_8hpp.html#af51b2738ee1cf60733c4681ff4ad825b":[2,0,0,0,0,0,3,0],
-"d0/d79/Base64_8hpp_source.html":[2,0,0,0,0,0,3],
+"d0/d79/Base64_8hpp.html":[2,0,0,0,0,0,1],
+"d0/d79/Base64_8hpp.html#aa1a4102763ede9a59182d62bc7f6e243":[2,0,0,0,0,0,1,1],
+"d0/d79/Base64_8hpp.html#af51b2738ee1cf60733c4681ff4ad825b":[2,0,0,0,0,0,1,0],
+"d0/d79/Base64_8hpp_source.html":[2,0,0,0,0,0,1],
 "d0/d7f/namespacegalaxy_1_1async.html":[0,0,0,1],
 "d0/d82/Log_8hpp.html":[2,0,0,0,0,6,5],
 "d0/d82/Log_8hpp.html#a2565edfbb02a82906807dda458b849de":[2,0,0,0,0,6,5,9],
@@ -158,8 +158,6 @@ var NAVTREEINDEX0 =
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#aee47cb35e1670ab369f00b09349302a6":[1,0,0,9,5,7],
 "d1/d72/TileAnim_8hpp.html":[2,0,0,0,0,10,0,5],
 "d1/d72/TileAnim_8hpp_source.html":[2,0,0,0,0,10,0,5],
-"d1/d7c/Algorithms_8cpp.html":[2,0,0,0,0,0,0],
-"d1/d7c/Algorithms_8cpp_source.html":[2,0,0,0,0,0,0],
 "d1/d8a/Sound_8cpp.html":[2,0,0,0,0,2,2],
 "d1/d8a/Sound_8cpp_source.html":[2,0,0,0,0,2,2],
 "d1/d91/PhysicsSystem_8hpp.html":[2,0,0,0,0,19,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX0 =
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a50d9d5d5ec36790f42aa1dddb65e0ec1":[1,0,0,15,4,21],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a628dfe796c0efc0b00d2f465b0951f99":[1,0,0,15,4,6],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a629316f28c4a6624efc345f2ad266eb2":[1,0,0,15,4,11],
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5":[1,0,0,15,4,1]
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5":[1,0,0,15,4,1],
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7":[1,0,0,15,4,12],
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a972e6119965b219449b2bc6396f3ca78":[1,0,0,15,4,3]
 };
