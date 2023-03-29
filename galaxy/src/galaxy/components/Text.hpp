@@ -41,6 +41,16 @@ namespace galaxy
 
 		public:
 			///
+			/// Text alignment.
+			///
+			enum class Alignment : int
+			{
+				LEFT   = 0,
+				CENTER = 1,
+				RIGHT  = 2
+			};
+
+			///
 			/// Constructor.
 			///
 			Text();
@@ -75,8 +85,14 @@ namespace galaxy
 			/// \param font Font to use.
 			/// \param colour Font colour.
 			/// \param layer Rendering layer.
+			/// \param alignment Text alignment. Defaults to LEFT.
 			///
-			void create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer);
+			void create(std::string_view text,
+				const float size,
+				const std::string& font,
+				const graphics::Colour& colour,
+				const int layer,
+				Alignment alignment = Alignment::LEFT);
 
 			///
 			/// Update the rendered text.
@@ -109,6 +125,42 @@ namespace galaxy
 			/// \param colour Font colour.
 			///
 			void update(std::string_view text, const float size, const graphics::Colour& colour);
+
+			///
+			/// Update the rendered text.
+			///
+			/// \param text Text to display. Supports newlines.
+			/// \param alignment Text alignment.
+			///
+			void update(std::string_view text, const Alignment alignment);
+
+			///
+			/// Update the rendered text.
+			///
+			/// \param text Text to display. Supports newlines.
+			/// \param size Size of text in em.
+			/// \param alignment Text alignment.
+			///
+			void update(std::string_view text, const float size, const Alignment alignment);
+
+			///
+			/// Update the rendered text.
+			///
+			/// \param text Text to display. Supports newlines.
+			/// \param colour Font colour.
+			/// \param alignment Text alignment.
+			///
+			void update(std::string_view text, const graphics::Colour& colour, const Alignment alignment);
+
+			///
+			/// Update the rendered text.
+			///
+			/// \param text Text to display. Supports newlines.
+			/// \param size Size of text in em.
+			/// \param colour Font colour.
+			/// \param alignment Text alignment.
+			///
+			void update(std::string_view text, const float size, const graphics::Colour& colour, const Alignment alignment);
 
 			///
 			/// \brief Get text width.
@@ -145,6 +197,13 @@ namespace galaxy
 			/// \return Float as EM.
 			///
 			[[nodiscard]] float get_size() const;
+
+			///
+			/// Get the text alignment.
+			///
+			/// \return Alignment enum.
+			///
+			[[nodiscard]] Alignment get_alignment() const;
 
 			///
 			/// Get font ID.
@@ -229,6 +288,11 @@ namespace galaxy
 			/// EM size.
 			///
 			float m_size;
+
+			///
+			/// Alignment.
+			///
+			Alignment m_alignment;
 		};
 	} // namespace components
 } // namespace galaxy

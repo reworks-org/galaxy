@@ -666,6 +666,28 @@ namespace sc
 						ImGui::InputTextMultiline("Text", &text->m_text);
 						ImGui::InputFloat("Size", &text->m_size, 1.0f, 5.0f, "%.0f", ImGuiInputTextFlags_CharsNoBlank);
 
+						static auto s_selected = static_cast<std::string>(magic_enum::enum_name(text->get_alignment()));
+						static auto s_type     = text->get_alignment();
+						if (ImGui::BeginCombo("Alignment", s_selected.c_str()))
+						{
+							for (const auto& name : s_types)
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								{
+									s_selected = name;
+									s_type     = magic_enum::enum_cast<components::Text::Alignment>(s_selected).value();
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
 						auto colour = text->m_colour.normalized();
 						if (ImGui::ColorEdit4("Colour", &colour[0]))
 						{
@@ -700,7 +722,7 @@ namespace sc
 						if (ImGui::Button("Create"))
 						{
 							updates.emplace_back([text]() {
-								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer);
+								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer, text->m_alignment);
 							});
 
 							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text created."});
@@ -711,7 +733,7 @@ namespace sc
 						if (ImGui::Button("Update"))
 						{
 							updates.emplace_back([text]() {
-								text->update(text->m_text, text->m_size);
+								text->update(text->m_text, text->m_size, text->m_colour, text->m_alignment);
 							});
 
 							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text updated."});

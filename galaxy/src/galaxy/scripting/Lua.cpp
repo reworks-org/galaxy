@@ -382,20 +382,37 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::Tag>();
 
+			// clang-format off
+			lua.new_enum<components::Text::Alignment>("TextAlignment",
+			{
+				{"LEFT", components::Text::Alignment::LEFT},
+				{"CENTER", components::Text::Alignment::CENTER},
+				{"RIGHT", components::Text::Alignment::RIGHT}
+			});
+			// clang-format on
+
 			auto text_type =
 				lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
-			text_type["create"]     = &components::Text::create;
-			text_type["get_height"] = &components::Text::get_height;
-			text_type["get_size"]   = &components::Text::get_size;
-			text_type["get_text"]   = &components::Text::get_text;
-			text_type["get_width"]  = &components::Text::get_width;
-			text_type["get_width"]  = &components::Text::get_font;
-			text_type["colour"]     = &components::Text::m_colour;
+			text_type["create"]        = &components::Text::create;
+			text_type["get_height"]    = &components::Text::get_height;
+			text_type["get_size"]      = &components::Text::get_size;
+			text_type["get_text"]      = &components::Text::get_text;
+			text_type["get_width"]     = &components::Text::get_width;
+			text_type["get_width"]     = &components::Text::get_font;
+			text_type["get_alignment"] = &components::Text::get_alignment;
+			text_type["colour"]        = &components::Text::m_colour;
 
 			text_type["update_text"]             = sol::resolve<void(std::string_view)>(&components::Text::update);
 			text_type["update_text_size"]        = sol::resolve<void(std::string_view, const float)>(&components::Text::update);
 			text_type["update_text_colour"]      = sol::resolve<void(std::string_view, const graphics::Colour&)>(&components::Text::update);
 			text_type["update_text_size_colour"] = sol::resolve<void(std::string_view, const float, const graphics::Colour&)>(&components::Text::update);
+			text_type["update_text_alignment"]   = sol::resolve<void(std::string_view, const components::Text::Alignment)>(&components::Text::update);
+			text_type["update_text_size_alignment"] =
+				sol::resolve<void(std::string_view, const float, const components::Text::Alignment)>(&components::Text::update);
+			text_type["update_text_colour_alignment"] =
+				sol::resolve<void(std::string_view, const graphics::Colour&, const components::Text::Alignment)>(&components::Text::update);
+			text_type["update_text_size_colour_alignment"] =
+				sol::resolve<void(std::string_view, const float, const graphics::Colour&, const components::Text::Alignment)>(&components::Text::update);
 
 			entt_sol::register_meta_component<components::Text>();
 

@@ -25,6 +25,7 @@ namespace galaxy
 			, m_width {0.0f}
 			, m_height {0.0f}
 			, m_size {0.0f}
+			, m_alignment {Alignment::LEFT}
 		{
 		}
 
@@ -35,6 +36,7 @@ namespace galaxy
 			, m_width {0.0f}
 			, m_height {0.0f}
 			, m_size {0.0f}
+			, m_alignment {Alignment::LEFT}
 		{
 			deserialize(json);
 		}
@@ -47,15 +49,16 @@ namespace galaxy
 			, m_height {0.0f}
 			, m_size {0.0f}
 		{
-			this->m_colour  = std::move(s.m_colour);
-			this->m_vao     = std::move(s.m_vao);
-			this->m_rt      = std::move(s.m_rt);
-			this->m_font_id = std::move(s.m_font_id);
-			this->m_font    = s.m_font;
-			this->m_width   = s.m_width;
-			this->m_height  = s.m_height;
-			this->m_text    = std::move(s.m_text);
-			this->m_size    = s.m_size;
+			this->m_colour    = std::move(s.m_colour);
+			this->m_vao       = std::move(s.m_vao);
+			this->m_rt        = std::move(s.m_rt);
+			this->m_font_id   = std::move(s.m_font_id);
+			this->m_font      = s.m_font;
+			this->m_width     = s.m_width;
+			this->m_height    = s.m_height;
+			this->m_text      = std::move(s.m_text);
+			this->m_size      = s.m_size;
+			this->m_alignment = s.m_alignment;
 
 			s.m_font = nullptr;
 		}
@@ -66,15 +69,16 @@ namespace galaxy
 			{
 				this->Renderable::operator=(std::move(s));
 
-				this->m_colour  = std::move(s.m_colour);
-				this->m_vao     = std::move(s.m_vao);
-				this->m_rt      = std::move(s.m_rt);
-				this->m_font_id = std::move(s.m_font_id);
-				this->m_font    = s.m_font;
-				this->m_width   = s.m_width;
-				this->m_height  = s.m_height;
-				this->m_text    = std::move(s.m_text);
-				this->m_size    = s.m_size;
+				this->m_colour    = std::move(s.m_colour);
+				this->m_vao       = std::move(s.m_vao);
+				this->m_rt        = std::move(s.m_rt);
+				this->m_font_id   = std::move(s.m_font_id);
+				this->m_font      = s.m_font;
+				this->m_width     = s.m_width;
+				this->m_height    = s.m_height;
+				this->m_text      = std::move(s.m_text);
+				this->m_size      = s.m_size;
+				this->m_alignment = s.m_alignment;
 
 				s.m_font = nullptr;
 			}
@@ -87,11 +91,13 @@ namespace galaxy
 			m_font = nullptr;
 		}
 
-		void Text::create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer)
+		void
+		Text::create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer, Alignment alignment)
 		{
-			m_colour  = colour;
-			m_font_id = font;
-			m_size    = size;
+			m_colour    = colour;
+			m_font_id   = font;
+			m_size      = size;
+			m_alignment = alignment;
 
 			m_layer = layer;
 
@@ -121,7 +127,7 @@ namespace galaxy
 					const auto block = m_text.substr(start, end);
 					msdfgl_printf(0,
 						y_off,
-						0,
+						static_cast<int>(m_alignment),
 						m_font->handle(),
 						m_size,
 						0xffffffff,
@@ -138,7 +144,7 @@ namespace galaxy
 
 				msdfgl_printf(0,
 					y_off,
-					0,
+					static_cast<int>(m_alignment),
 					m_font->handle(),
 					m_size,
 					0xffffffff,
@@ -185,7 +191,7 @@ namespace galaxy
 					const auto block = m_text.substr(start, end);
 					msdfgl_printf(0,
 						y_off,
-						0,
+						static_cast<int>(m_alignment),
 						m_font->handle(),
 						m_size,
 						0xffffffff,
@@ -202,7 +208,7 @@ namespace galaxy
 
 				msdfgl_printf(0,
 					y_off,
-					0,
+					static_cast<int>(m_alignment),
 					m_font->handle(),
 					m_size,
 					0xffffffff,
@@ -243,6 +249,38 @@ namespace galaxy
 			update(text);
 		}
 
+		void Text::update(std::string_view text, Alignment alignment)
+		{
+			m_alignment = alignment;
+
+			update(text);
+		}
+
+		void Text::update(std::string_view text, const float size, Alignment alignment)
+		{
+			m_size      = size;
+			m_alignment = alignment;
+
+			update(text);
+		}
+
+		void Text::update(std::string_view text, const graphics::Colour& colour, Alignment alignment)
+		{
+			m_colour    = colour;
+			m_alignment = alignment;
+
+			update(text);
+		}
+
+		void Text::update(std::string_view text, const float size, const graphics::Colour& colour, Alignment alignment)
+		{
+			m_size      = size;
+			m_colour    = colour;
+			m_alignment = alignment;
+
+			update(text);
+		}
+
 		float Text::get_width() const
 		{
 			return m_width;
@@ -263,6 +301,11 @@ namespace galaxy
 			return m_size;
 		}
 
+		Text::Alignment Text::get_alignment() const
+		{
+			return m_alignment;
+		}
+
 		const std::string& Text::get_font() const
 		{
 			return m_font_id;
@@ -280,10 +323,11 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["text"]  = m_text;
-			json["size"]  = m_size;
-			json["font"]  = m_font_id;
-			json["layer"] = m_layer;
+			json["text"]      = m_text;
+			json["size"]      = m_size;
+			json["font"]      = m_font_id;
+			json["layer"]     = m_layer;
+			json["alignment"] = static_cast<int>(m_alignment);
 
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_colour.m_red;
@@ -304,7 +348,10 @@ namespace galaxy
 			colour.m_blue  = colson.at("b");
 			colour.m_alpha = colson.at("a");
 
-			create(json.at("text"), json.at("size"), json.at("font"), colour, json.at("layer"));
+			int alignment = json.at("alignment");
+			alignment     = std::clamp(alignment, 0, 2);
+
+			create(json.at("text"), json.at("size"), json.at("font"), colour, json.at("layer"), static_cast<Alignment>(alignment));
 		}
 	} // namespace components
 } // namespace galaxy

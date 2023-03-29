@@ -1,0 +1,1 @@
+tweak GALAXY_FONT_MSDF_RANGE. try 1.7?
