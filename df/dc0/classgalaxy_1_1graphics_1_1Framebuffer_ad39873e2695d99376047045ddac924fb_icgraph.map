@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::Framebuffer::unbind" name="galaxy::graphics::Framebuffer::unbind">
 <area shape="rect" id="node1" title="Unbind framebuffer." alt="" coords="931,71,1145,112"/>
 <area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Unbind framebuffer and texture." alt="" coords="700,71,883,112"/>
-<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="468,5,621,47"/>
+<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="468,5,621,47"/>
 <area shape="rect" id="node8" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="437,71,652,112"/>
 <area shape="rect" id="node9" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="468,136,621,177"/>
 <area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="236,5,389,47"/>

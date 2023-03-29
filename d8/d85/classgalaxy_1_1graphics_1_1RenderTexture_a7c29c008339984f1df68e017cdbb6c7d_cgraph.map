@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::RenderTexture::create" name="galaxy::graphics::RenderTexture::create">
 <area shape="rect" id="node1" title="Create the RenderTexture." alt="" coords="5,104,188,145"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5" title="Add a colour attachment to the framebuffer." alt="" coords="236,5,451,47"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="236,5,451,47"/>
 <area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="236,71,451,112"/>
 <area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="236,136,451,177"/>
 <area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="236,201,451,243"/>

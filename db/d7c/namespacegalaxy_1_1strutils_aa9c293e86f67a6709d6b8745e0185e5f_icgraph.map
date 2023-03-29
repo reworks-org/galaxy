@@ -1,7 +1,7 @@
 <map id="galaxy::strutils::replace_all" name="galaxy::strutils::replace_all">
 <area shape="rect" id="node1" title="Replaces all occurances of a string." alt="" coords="684,78,881,105"/>
 <area shape="rect" id="node2" href="$d9/dbe/classgalaxy_1_1audio_1_1AudioEngine.html#a3035c928ea20b6e9e1b79be1dabfa15d" title="Argument constructor." alt="" coords="437,5,636,47"/>
-<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="460,71,613,112"/>
+<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="460,71,613,112"/>
 <area shape="rect" id="node8" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="460,136,613,177"/>
 <area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="236,37,389,79"/>
 <area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="244,103,381,144"/>

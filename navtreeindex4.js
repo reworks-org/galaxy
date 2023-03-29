@@ -1,5 +1,16 @@
 var NAVTREEINDEX4 =
 {
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8":[1,0,0,10,1,12],
+"d5/dd0/KeyChar_8hpp.html":[2,0,0,0,0,7,5],
+"d5/dd0/KeyChar_8hpp_source.html":[2,0,0,0,0,7,5],
+"d5/dd1/OpenGLError_8hpp.html":[2,0,0,0,0,6,9],
+"d5/dd1/OpenGLError_8hpp.html#a992b35658b4009f3246e8a19a294f9b5":[2,0,0,0,0,6,9,2],
+"d5/dd1/OpenGLError_8hpp.html#aae02b0d611f319e23e5bf699aa403575":[2,0,0,0,0,6,9,0],
+"d5/dd1/OpenGLError_8hpp.html#acf323c0307d8aded8434e6676188852c":[2,0,0,0,0,6,9,1],
+"d5/dd1/OpenGLError_8hpp_source.html":[2,0,0,0,0,6,9],
+"d5/ddd/Pragma_8hpp.html":[2,0,0,0,0,14,4],
+"d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041":[2,0,0,0,0,14,4,1],
+"d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1":[2,0,0,0,0,14,4,2],
 "d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b":[2,0,0,0,0,14,4,0],
 "d5/ddd/Pragma_8hpp_source.html":[2,0,0,0,0,14,4],
 "d5/de0/Frame_8cpp.html":[2,0,0,0,0,10,0,2],
@@ -238,16 +249,5 @@ var NAVTREEINDEX4 =
 "d7/d91/Scripts_8hpp.html":[2,0,0,0,0,15,11],
 "d7/d91/Scripts_8hpp_source.html":[2,0,0,0,0,15,11],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html":[1,0,0,6,2],
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a159fd52a6534229d3397f41c65491a93":[1,0,0,6,2,2],
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a89d79c90252f0b8ac4cf435b4452b34a":[1,0,0,6,2,3],
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#ae49844478f1d3ce506846a0bc5d98b2a":[1,0,0,6,2,1],
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e":[1,0,0,6,2,0],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html":[1,0,0,9,3],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a04291f35752876e3e10b2d4b67defe0a":[1,0,0,9,3,20],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299":[1,0,0,9,3,21],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570":[1,0,0,9,3,11],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1a7dcb7ac1424bd99e775eb60e654f30":[1,0,0,9,3,15],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1abe18e6d29c82ae867196997b8f0621":[1,0,0,9,3,19],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a21dd284f9fe03e14a8ae4799784bdfe0":[1,0,0,9,3,28],
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a26d6f2318aeab171321c8d99adbd79cc":[1,0,0,9,3,33]
+"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a159fd52a6534229d3397f41c65491a93":[1,0,0,6,2,2]
 };

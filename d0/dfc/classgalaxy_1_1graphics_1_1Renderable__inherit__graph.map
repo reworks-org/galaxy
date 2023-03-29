@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::Renderable" name="galaxy::graphics::Renderable">
 <area shape="rect" id="node1" title="Data to submit to renderer." alt="" coords="279,5,489,288"/>
-<area shape="rect" id="node2" href="$d3/d19/classgalaxy_1_1components_1_1Map.html" title="Tilemap component." alt="" coords="5,424,195,648"/>
-<area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="219,351,373,721"/>
-<area shape="rect" id="node4" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="397,365,550,707"/>
-<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="574,336,727,736"/>
+<area shape="rect" id="node2" href="$d3/d19/classgalaxy_1_1components_1_1Map.html" title="Tilemap component." alt="" coords="5,431,195,655"/>
+<area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="219,358,373,729"/>
+<area shape="rect" id="node4" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="397,373,550,714"/>
+<area shape="rect" id="node5" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="574,336,727,751"/>
 </map>

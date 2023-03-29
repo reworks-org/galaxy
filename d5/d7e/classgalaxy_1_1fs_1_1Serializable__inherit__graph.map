@@ -8,7 +8,7 @@
 <area shape="rect" id="node7" href="$db/d40/classgalaxy_1_1components_1_1Script.html" title="High level abstraction of a lua script." alt="" coords="972,351,1125,589"/>
 <area shape="rect" id="node8" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="1149,299,1303,641"/>
 <area shape="rect" id="node9" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html" title="Tag an entity." alt="" coords="1327,365,1509,575"/>
-<area shape="rect" id="node10" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="1533,270,1687,670"/>
+<area shape="rect" id="node10" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="1533,263,1687,677"/>
 <area shape="rect" id="node11" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="1711,314,1891,626"/>
 <area shape="rect" id="node12" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1915,204,2110,736"/>
 <area shape="rect" id="node13" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html" title="Basic keyframe animation." alt="" coords="2134,292,2337,648"/>

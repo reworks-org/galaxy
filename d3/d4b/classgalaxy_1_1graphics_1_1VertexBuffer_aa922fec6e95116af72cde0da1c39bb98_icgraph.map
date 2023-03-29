@@ -4,7 +4,7 @@
 <area shape="rect" id="node24" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89" title="Get VBO." alt="" coords="1365,341,1544,383"/>
 <area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="1153,35,1307,76"/>
 <area shape="rect" id="node10" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="1153,129,1307,171"/>
-<area shape="rect" id="node14" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="1153,276,1307,317"/>
+<area shape="rect" id="node14" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="1153,276,1307,317"/>
 <area shape="rect" id="node17" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="909,371,1095,412"/>
 <area shape="rect" id="node22" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a73aead35b857e14b3fb10cd37ebe23e2" title="Initialize spritebatch buffers." alt="" coords="1143,403,1317,444"/>
 <area shape="rect" id="node4" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="917,5,1087,47"/>

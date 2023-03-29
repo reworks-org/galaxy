@@ -1,5 +1,5 @@
 <map id="galaxy::components::Text" name="galaxy::components::Text">
-<area shape="rect" id="node1" title="String of glyphs rendered with a font." alt="" coords="578,1325,731,1637"/>
+<area shape="rect" id="node1" title="String of glyphs rendered with a font." alt="" coords="578,1325,731,1652"/>
 <area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,965,216,1248"/>
 <area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,1031,410,1182"/>
 <area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="434,973,617,1241"/>

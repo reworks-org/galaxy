@@ -1,6 +1,6 @@
 <map id="galaxy::components::Text::deserialize" name="galaxy::components::Text::deserialize">
 <area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,704,159,745"/>
-<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="207,704,360,745"/>
+<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="207,704,360,745"/>
 <area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="415,71,598,112"/>
 <area shape="rect" id="node7" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a3a767d0bed9f20cd2e0df8d66d7be548" title="Configure renderable." alt="" coords="430,233,583,275"/>
 <area shape="rect" id="node12" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="415,515,598,556"/>
@@ -19,7 +19,7 @@
 <area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="679,267,858,308"/>
 <area shape="rect" id="node11" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="663,136,874,177"/>
 <area shape="rect" id="node10" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="942,267,1153,308"/>
-<area shape="rect" id="node13" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5" title="Add a colour attachment to the framebuffer." alt="" coords="661,384,876,425"/>
+<area shape="rect" id="node13" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="661,384,876,425"/>
 <area shape="rect" id="node15" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="661,449,876,491"/>
 <area shape="rect" id="node16" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="661,580,876,621"/>
 <area shape="rect" id="node18" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="661,515,876,556"/>

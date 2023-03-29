@@ -18,7 +18,7 @@
 <area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="478,267,657,308"/>
 <area shape="rect" id="node10" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="462,136,673,177"/>
 <area shape="rect" id="node9" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="741,267,951,308"/>
-<area shape="rect" id="node12" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5" title="Add a colour attachment to the framebuffer." alt="" coords="460,384,675,425"/>
+<area shape="rect" id="node12" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="460,384,675,425"/>
 <area shape="rect" id="node14" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="460,449,675,491"/>
 <area shape="rect" id="node15" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="460,580,675,621"/>
 <area shape="rect" id="node17" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="460,515,675,556"/>

@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::Vertex::get_default_indices" name="galaxy::graphics::Vertex::get_default_indices">
 <area shape="rect" id="node1" title="Generate some default indicies." alt="" coords="1344,285,1523,327"/>
 <area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="1143,129,1296,171"/>
-<area shape="rect" id="node12" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="1143,384,1296,425"/>
+<area shape="rect" id="node12" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="1143,384,1296,425"/>
 <area shape="rect" id="node15" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="909,285,1095,327"/>
 <area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="925,188,1079,229"/>
 <area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,187,384,228"/>

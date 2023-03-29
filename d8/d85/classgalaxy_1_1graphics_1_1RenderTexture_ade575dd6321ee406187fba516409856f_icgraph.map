@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::RenderTexture::bind" name="galaxy::graphics::RenderTexture::bind">
 <area shape="rect" id="node1" title="Bind framebuffer and texture." alt="" coords="748,201,931,243"/>
 <area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="465,5,680,47"/>
-<area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="496,71,649,112"/>
+<area shape="rect" id="node4" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="496,71,649,112"/>
 <area shape="rect" id="node9" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="471,136,674,177"/>
 <area shape="rect" id="node10" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="445,201,700,243"/>
 <area shape="rect" id="node11" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="475,267,671,308"/>

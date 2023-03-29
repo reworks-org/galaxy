@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('d2/d84/Window_8cpp_source.html','../..
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                glfwWindowHint(GLFW_DEPTH_BITS, 24);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                glfwWindowHint(GLFW_STENCIL_BITS, 8);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                glfwWindowHint(GLFW_STEREO, GLFW_FALSE);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                glfwWindowHint(GLFW_SAMPLES, 0);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                glfwWindowHint(GLFW_SAMPLES, 4);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                glfwWindowHint(GLFW_SRGB_CAPABLE, GLFW_TRUE);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
@@ -519,10 +519,10 @@ $(document).ready(function(){initNavTree('d2/d84/Window_8cpp_source.html','../..
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                        }</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                        <span class="comment">// Configure global GL state.</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                        glDisable(GL_MULTISAMPLE);</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                        glDisable(GL_FRAMEBUFFER_SRGB);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                        glDisable(GL_CULL_FACE);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                        glDisable(GL_FRAMEBUFFER_SRGB);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                        glDisable(GL_CULL_FACE);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                        glEnable(GL_MULTISAMPLE);</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                        glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                        glEnable(GL_PROGRAM_POINT_SIZE);</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                        glEnable(GL_DEPTH_TEST);</div>
@@ -910,7 +910,7 @@ $(document).ready(function(){initNavTree('d2/d84/Window_8cpp_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d2/d84/Window_8cpp.html">Window.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 28 2023 01:49:59 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 29 2023 11:21:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::Framebuffer::get_attachments" name="galaxy::graphics::Framebuffer::get_attachments">
 <area shape="rect" id="node1" title="Get all attachments." alt="" coords="1009,253,1224,295"/>
 <area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="779,253,961,295"/>
-<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="527,37,680,79"/>
+<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="527,37,680,79"/>
 <area shape="rect" id="node8" href="$d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e" title="Display a galaxy image with imgui." alt="" coords="514,103,693,130"/>
 <area shape="rect" id="node9" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="502,155,705,196"/>
 <area shape="rect" id="node10" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="476,220,731,261"/>

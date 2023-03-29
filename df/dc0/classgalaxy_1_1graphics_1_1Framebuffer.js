@@ -7,7 +7,7 @@ var classgalaxy_1_1graphics_1_1Framebuffer =
     [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ace9d2534db4c0e09192e454594b016cf", null ],
     [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8eaf891f0445e678096d6ba2578aa88c", null ],
     [ "init", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e", null ],
-    [ "add_colour_attachment", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aca3bb41c0ffc35dadb30457f2e555de5", null ],
+    [ "add_colour_attachment", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee", null ],
     [ "add_colour_renderbuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#affadefb21f62cdd99686b39e316dfe52", null ],
     [ "add_depth_attachment", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a3cf7b9f77782f5cb7c9d26e142881823", null ],
     [ "add_depth_renderbuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30", null ],

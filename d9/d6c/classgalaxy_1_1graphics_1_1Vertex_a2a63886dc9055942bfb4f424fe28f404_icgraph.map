@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Vertex::gen_quad_vertices" name="galaxy::graphics::Vertex::gen_quad_vertices">
 <area shape="rect" id="node1" title="Generate some default verticies." alt="" coords="1121,203,1300,244"/>
-<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="904,64,1057,105"/>
+<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="904,64,1057,105"/>
 <area shape="rect" id="node7" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="888,203,1073,244"/>
 <area shape="rect" id="node12" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="904,297,1057,339"/>
 <area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="671,5,824,47"/>

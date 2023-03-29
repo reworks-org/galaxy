@@ -1,5 +1,16 @@
 var NAVTREEINDEX2 =
 {
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87":[1,0,0,9,29,8],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a0f8ffc412c2d3772e9709ca47d1fc749":[1,0,0,9,29,11],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6":[1,0,0,9,29,5],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a39f9c7d8a64e01cb983ed9f5c47b8293":[1,0,0,9,29,3],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a43421794070cb1bf3a0bd2479ab3e771":[1,0,0,9,29,4],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a47752a3252c62a2b821ba268e9864872":[1,0,0,9,29,13],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a64ce2991b0677e9a7ba906b51bda39bb":[1,0,0,9,29,9],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba":[1,0,0,9,29,7],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b":[1,0,0,9,29,6],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa30f4e573342742cd04f1508c787ffcc":[1,0,0,9,29,12],
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98":[1,0,0,9,29,10],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aca7166ab522d8d9766f9d127a7457cad":[1,0,0,9,29,2],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae50f58ab8eccb51f23687d5ec2dfc43a":[1,0,0,9,29,1],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#afa43fcdd0125f4818a87570ca4ad81c1":[1,0,0,9,29,0],
@@ -238,16 +249,5 @@ var NAVTREEINDEX2 =
 "d4/d98/InputMods_8hpp_source.html":[2,0,0,0,0,11,9],
 "d4/da5/InputDevice_8hpp.html":[2,0,0,0,0,11,7],
 "d4/da5/InputDevice_8hpp.html#a2d806a95ea35447ceaa66d37b82ced95":[2,0,0,0,0,11,7,1],
-"d4/da5/InputDevice_8hpp_source.html":[2,0,0,0,0,11,7],
-"d4/da6/SpriteBatch_8hpp.html":[2,0,0,0,0,10,41],
-"d4/da6/SpriteBatch_8hpp_source.html":[2,0,0,0,0,10,41],
-"d4/dad/SMAA_8cpp.html":[2,0,0,0,0,10,1,8],
-"d4/dad/SMAA_8cpp.html#a07db1ea74e5407674895547422b94890":[2,0,0,0,0,10,1,8,14],
-"d4/dad/SMAA_8cpp.html#a0f0836280815bc6b75f6997b3bb1911b":[2,0,0,0,0,10,1,8,7],
-"d4/dad/SMAA_8cpp.html#a15de9127232659609fadb54ee35fb5b9":[2,0,0,0,0,10,1,8,5],
-"d4/dad/SMAA_8cpp.html#a1f97b157586d4a6cb9efc9b2cd5d0e75":[2,0,0,0,0,10,1,8,15],
-"d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a":[2,0,0,0,0,10,1,8,21],
-"d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40":[2,0,0,0,0,10,1,8,10],
-"d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae":[2,0,0,0,0,10,1,8,8],
-"d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810":[2,0,0,0,0,10,1,8,4]
+"d4/da5/InputDevice_8hpp_source.html":[2,0,0,0,0,11,7]
 };

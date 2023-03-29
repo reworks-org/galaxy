@@ -1,5 +1,16 @@
 var NAVTREEINDEX3 =
 {
+"d4/da6/SpriteBatch_8hpp.html":[2,0,0,0,0,10,41],
+"d4/da6/SpriteBatch_8hpp_source.html":[2,0,0,0,0,10,41],
+"d4/dad/SMAA_8cpp.html":[2,0,0,0,0,10,1,8],
+"d4/dad/SMAA_8cpp.html#a07db1ea74e5407674895547422b94890":[2,0,0,0,0,10,1,8,14],
+"d4/dad/SMAA_8cpp.html#a0f0836280815bc6b75f6997b3bb1911b":[2,0,0,0,0,10,1,8,7],
+"d4/dad/SMAA_8cpp.html#a15de9127232659609fadb54ee35fb5b9":[2,0,0,0,0,10,1,8,5],
+"d4/dad/SMAA_8cpp.html#a1f97b157586d4a6cb9efc9b2cd5d0e75":[2,0,0,0,0,10,1,8,15],
+"d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a":[2,0,0,0,0,10,1,8,21],
+"d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40":[2,0,0,0,0,10,1,8,10],
+"d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae":[2,0,0,0,0,10,1,8,8],
+"d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810":[2,0,0,0,0,10,1,8,4],
 "d4/dad/SMAA_8cpp.html#a7cd5be2c62f59c51c82349133774b267":[2,0,0,0,0,10,1,8,2],
 "d4/dad/SMAA_8cpp.html#a7fad5dd0d7400c340b2aa0fba2a9e1a2":[2,0,0,0,0,10,1,8,16],
 "d4/dad/SMAA_8cpp.html#a9abfe628c76188a2a5a2ed301e37b28d":[2,0,0,0,0,10,1,8,11],
@@ -238,16 +249,5 @@ var NAVTREEINDEX3 =
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2":[1,0,0,10,1,0],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ac070f12dffe748d6e930812d116f7605":[1,0,0,10,1,1],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#aca1f2e5e3ed89ad67e2d4c43c71e7615":[1,0,0,10,1,3],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308":[1,0,0,10,1,4],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8":[1,0,0,10,1,12],
-"d5/dd0/KeyChar_8hpp.html":[2,0,0,0,0,7,5],
-"d5/dd0/KeyChar_8hpp_source.html":[2,0,0,0,0,7,5],
-"d5/dd1/OpenGLError_8hpp.html":[2,0,0,0,0,6,9],
-"d5/dd1/OpenGLError_8hpp.html#a992b35658b4009f3246e8a19a294f9b5":[2,0,0,0,0,6,9,2],
-"d5/dd1/OpenGLError_8hpp.html#aae02b0d611f319e23e5bf699aa403575":[2,0,0,0,0,6,9,0],
-"d5/dd1/OpenGLError_8hpp.html#acf323c0307d8aded8434e6676188852c":[2,0,0,0,0,6,9,1],
-"d5/dd1/OpenGLError_8hpp_source.html":[2,0,0,0,0,6,9],
-"d5/ddd/Pragma_8hpp.html":[2,0,0,0,0,14,4],
-"d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041":[2,0,0,0,0,14,4,1],
-"d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1":[2,0,0,0,0,14,4,2]
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308":[1,0,0,10,1,4]
 };

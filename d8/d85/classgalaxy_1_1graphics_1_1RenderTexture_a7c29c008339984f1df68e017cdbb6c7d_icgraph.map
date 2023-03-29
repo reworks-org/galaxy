@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::RenderTexture::create" name="galaxy::graphics::RenderTexture::create">
 <area shape="rect" id="node1" title="Create the RenderTexture." alt="" coords="748,201,931,243"/>
 <area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="456,5,689,47"/>
-<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#adc0fe1d3cf845e06d96b3a6cf1ad68f0" title="Creates the rendered text." alt="" coords="496,71,649,112"/>
+<area shape="rect" id="node3" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="496,71,649,112"/>
 <area shape="rect" id="node8" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="445,136,700,177"/>
 <area shape="rect" id="node9" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="475,201,671,243"/>
 <area shape="rect" id="node10" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="465,267,680,308"/>

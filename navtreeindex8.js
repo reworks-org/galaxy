@@ -1,5 +1,16 @@
 var NAVTREEINDEX8 =
 {
+"db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736":[0,0,0,10,45],
+"db/dab/namespacegalaxy_1_1graphics.html#a7122062c7c3dfd3dc3b9913aa30ad1e2":[0,0,0,10,46],
+"db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45":[0,0,0,10,37],
+"db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a1048a084255b5cb4ee78504331f31f43":[0,0,0,10,37,1],
+"db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a29598fc86e18d5db129d49a57e075bfc":[0,0,0,10,37,2],
+"db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a865e74f8c789bfe46e060f922d7edbbe":[0,0,0,10,37,0],
+"db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45ab0eee22cf43bfe7bb00da1c58b504b16":[0,0,0,10,37,3],
+"db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f":[0,0,0,10,43],
+"db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129":[0,0,0,10,42],
+"db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c":[0,0,0,10,36],
+"db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca0c5234f5830e196c1079d1fdcf3f9aba":[0,0,0,10,36,0],
 "db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb":[0,0,0,10,36,1],
 "db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6b":[0,0,0,10,38],
 "db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6ba5be68175be14dfaa080165456c2e9555":[0,0,0,10,38,0],
@@ -238,16 +249,5 @@ var NAVTREEINDEX8 =
 "dc/dcf/UILayer_8cpp.html":[2,0,0,0,0,16,0,2],
 "dc/dcf/UILayer_8cpp_source.html":[2,0,0,0,0,16,0,2],
 "dc/dd2/Rect_8hpp.html":[2,0,0,0,0,10,29],
-"dc/dd2/Rect_8hpp.html#ab2faabf6d2aedbcb421132f115566b52":[2,0,0,0,0,10,29,2],
-"dc/dd2/Rect_8hpp.html#acc40cc97c7634fbf7a7f195d0f7670e1":[2,0,0,0,0,10,29,1],
-"dc/dd2/Rect_8hpp_source.html":[2,0,0,0,0,10,29],
-"dc/df8/AttributeBindings_8cpp.html":[2,0,0,0,0,10,2],
-"dc/df8/AttributeBindings_8cpp_source.html":[2,0,0,0,0,10,2],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html":[1,0,0,9,11],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a160c3a2d040dc59c67e1ed6777b13d64":[1,0,0,9,11,2],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a175073047a7b665ce7e7498f5c02b1a3":[1,0,0,9,11,1],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552":[1,0,0,9,11,3],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a4f94b45527c55eac70d0658224c59806":[1,0,0,9,11,12],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a7167fd500e08d0a4eb15eaf354ac14ab":[1,0,0,9,11,11],
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a81c0f30cb89fb4d430a5e34745973bb7":[1,0,0,9,11,6]
+"dc/dd2/Rect_8hpp.html#ab2faabf6d2aedbcb421132f115566b52":[2,0,0,0,0,10,29,2]
 };
