@@ -80,7 +80,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_STEREO, GLFW_FALSE);
-				glfwWindowHint(GLFW_SAMPLES, 0);
+				glfwWindowHint(GLFW_SAMPLES, 4);
 				glfwWindowHint(GLFW_SRGB_CAPABLE, GLFW_TRUE);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 
@@ -434,10 +434,10 @@ namespace galaxy
 						}
 
 						// Configure global GL state.
-						glDisable(GL_MULTISAMPLE);
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
 
+						glEnable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);

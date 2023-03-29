@@ -67,7 +67,7 @@ namespace galaxy
 			///
 			/// \param high_precision Is this storing positions or pixels. If just using plain textures, set at false. True is for geometry buffers.
 			///
-			void add_colour_attachment(const bool high_precision = false);
+			void add_colour_attachment(const bool high_precision);
 
 			///
 			/// Add a colour renderbuffer to the framebuffer.

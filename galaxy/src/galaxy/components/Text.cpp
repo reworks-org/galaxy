@@ -121,6 +121,7 @@ namespace galaxy
 					const auto block = m_text.substr(start, end);
 					msdfgl_printf(0,
 						y_off,
+						0,
 						m_font->handle(),
 						m_size,
 						0xffffffff,
@@ -137,6 +138,7 @@ namespace galaxy
 
 				msdfgl_printf(0,
 					y_off,
+					0,
 					m_font->handle(),
 					m_size,
 					0xffffffff,
@@ -183,6 +185,7 @@ namespace galaxy
 					const auto block = m_text.substr(start, end);
 					msdfgl_printf(0,
 						y_off,
+						0,
 						m_font->handle(),
 						m_size,
 						0xffffffff,
@@ -199,6 +202,7 @@ namespace galaxy
 
 				msdfgl_printf(0,
 					y_off,
+					0,
 					m_font->handle(),
 					m_size,
 					0xffffffff,

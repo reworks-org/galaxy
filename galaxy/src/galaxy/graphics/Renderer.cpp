@@ -91,7 +91,6 @@ namespace galaxy
 
 				if (s_prev_texture != renderable->m_texture_id)
 				{
-					glActiveTexture(GL_TEXTURE0);
 					glBindTexture(GL_TEXTURE_2D, renderable->m_texture_id);
 					s_prev_texture = renderable->m_texture_id;
 				}

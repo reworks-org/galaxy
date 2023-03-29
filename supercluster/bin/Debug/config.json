@@ -28,7 +28,7 @@
             "ansiotrophic_filtering": 16,
             "enable_aa": true,
             "enable_sharpen": false,
-            "trilinear_filtering": false
+            "trilinear_filtering": true
         },
         "input": {
             "camera_backward": 83,

@@ -1014,7 +1014,89 @@ void msdfgl_geometry(float* x, float* y, msdfgl_font_t font, float size, enum ms
 	free(s);
 }
 
-float msdfgl_printf(float x, float y, msdfgl_font_t font, float size, int32_t color, GLfloat* projection, enum msdfgl_printf_flags flags, const void* fmt, ...)
+float msdfgl_measure(msdfgl_font_t font, float size, unsigned int limit, GLfloat* projection, enum msdfgl_printf_flags flags, const void* fmt, ...)
+{
+	va_list argp;
+	va_start(argp, fmt);
+	float x = 0.0f;
+	size_t bufsize;
+	if (flags & MSDFGL_WCHAR)
+	{
+		fprintf(stderr, "msdfgl: MSDfGL_WHCAR is deprecated, use MSDFGL_UTF8 instead\n");
+		static wchar_t arr[255];
+		bufsize = vswprintf(arr, 255, (const wchar_t*)fmt, argp);
+	}
+	else
+	{
+		bufsize = vsnprintf(NULL, 0, (const char*)fmt, argp);
+	}
+	va_end(argp);
+
+	void* s = calloc(bufsize + 1, flags & MSDFGL_WCHAR ? sizeof(wchar_t) : sizeof(char));
+	if (!s)
+		return x;
+	va_start(argp, fmt);
+	if (flags & MSDFGL_WCHAR)
+		vswprintf((wchar_t*)s, bufsize + 1, (const wchar_t*)fmt, argp);
+	else
+		vsnprintf((char*)s, bufsize + 1, (const char*)fmt, argp);
+	va_end(argp);
+
+	msdfgl_glyph_t* glyphs = calloc(bufsize, sizeof(msdfgl_glyph_t));
+	if (!glyphs)
+	{
+		free(s);
+		return x;
+	}
+
+	size_t buf_idx;
+	buf_idx = 0;
+	for (size_t i = 0; buf_idx < bufsize && buf_idx < limit; ++i)
+	{
+		glyphs[i].x = x;
+
+		if (flags & MSDFGL_WCHAR)
+			glyphs[i].key = (int32_t)((wchar_t*)s)[buf_idx++];
+		else if (flags & MSDFGL_UTF8)
+			glyphs[i].key = parse_utf8(&((uint8_t*)s)[buf_idx], &buf_idx);
+		else
+			glyphs[i].key = (int32_t)((char*)s)[buf_idx++];
+
+		glyphs[i].size = (GLfloat)size;
+
+		msdfgl_map_item_t* e = msdfgl_map_get_or_add(font, glyphs[i].key);
+
+		FT_Vector kerning = {0, 0};
+		if (flags & MSDFGL_KERNING && i && FT_HAS_KERNING(font->face))
+		{
+			FT_Get_Kerning(font->face,
+				FT_Get_Char_Index(font->face, glyphs[i - 1].key),
+				FT_Get_Char_Index(font->face, glyphs[i].key),
+				FT_KERNING_UNSCALED,
+				&kerning);
+			if (!(flags & MSDFGL_VERTICAL))
+				glyphs[i - 1].x += kerning.x * (size * font->context->dpi[0] / 72.0f) / font->face->units_per_EM;
+		}
+
+		if (!(flags & MSDFGL_VERTICAL))
+			x += (e->advance[0] + kerning.x) * (size * font->context->dpi[0] / 72.0f) / font->face->units_per_EM;
+	}
+	free(glyphs);
+	free(s);
+
+	return x;
+}
+
+float msdfgl_printf(float x,
+	float y,
+	int align,
+	msdfgl_font_t font,
+	float size,
+	int32_t color,
+	GLfloat* projection,
+	enum msdfgl_printf_flags flags,
+	const void* fmt,
+	...)
 {
 	va_list argp;
 	va_start(argp, fmt);
@@ -1050,6 +1132,39 @@ float msdfgl_printf(float x, float y, msdfgl_font_t font, float size, int32_t co
 	}
 
 	size_t buf_idx = 0;
+
+	float startX = x;
+	float endX   = startX;
+	if (align == 1 || align == 2)
+	{
+		for (size_t i = 0; buf_idx < bufsize; ++i)
+		{
+			if (flags & MSDFGL_WCHAR)
+				glyphs[i].key = (int32_t)((wchar_t*)s)[buf_idx++];
+			else if (flags & MSDFGL_UTF8)
+				glyphs[i].key = parse_utf8(&((uint8_t*)s)[buf_idx], &buf_idx);
+			else
+				glyphs[i].key = (int32_t)((char*)s)[buf_idx++];
+			msdfgl_map_item_t* e = msdfgl_map_get_or_add(font, glyphs[i].key);
+			FT_Vector kerning    = {0, 0};
+			if (flags & MSDFGL_KERNING && i && FT_HAS_KERNING(font->face))
+			{
+				FT_Get_Kerning(font->face,
+					FT_Get_Char_Index(font->face, glyphs[i - 1].key),
+					FT_Get_Char_Index(font->face, glyphs[i].key),
+					FT_KERNING_UNSCALED,
+					&kerning);
+			}
+			endX += (e->advance[0] + kerning.x) * (size * font->context->dpi[0] / 72.0f) / font->face->units_per_EM;
+		}
+	}
+	if (align == 1)
+		x -= (endX - startX) * 0.5f;
+	else if (align == 2)
+		x -= (endX - startX);
+
+	buf_idx = 0;
+
 	for (size_t i = 0; buf_idx < bufsize; ++i)
 	{
 		glyphs[i].x     = x;

@@ -1,7 +1,7 @@
 {
-    "current_scene": "Scene",
+    "current_scene": "TextDemo",
     "scenes": {
-        "Scene": {
+        "TextDemo": {
             "active_map": "",
             "camera": {
                 "allow_rotate": false,
@@ -14,11 +14,11 @@
                 "translation_speed": 180.0,
                 "viewport": {
                     "x": 2560.0,
-                    "y": 1377.0
+                    "y": 1369.0
                 },
                 "zoom": 1.0
             },
-            "name": "Scene",
+            "name": "TextDemo",
             "stack": {
                 "layer_stack": {
                     "0": "Runtime"
@@ -56,14 +56,14 @@
                             "Text": {
                                 "colour": {
                                     "a": 255,
-                                    "b": 8,
-                                    "g": 8,
+                                    "b": 0,
+                                    "g": 0,
                                     "r": 255
                                 },
-                                "font": "roboto",
+                                "font": "Verdana",
                                 "layer": 0,
                                 "size": 72.0,
-                                "text": "Hello World\nTest"
+                                "text": "Hello World"
                             },
                             "Transform": {
                                 "pos": {

@@ -464,10 +464,10 @@ namespace galaxy
 				auto& window  = ServiceLocator<Window>::ref();
 				auto& manager = ServiceLocator<scene::SceneManager>::ref();
 
-				const bool log_perf = config.get<bool>("log_performance");
+				const auto log_perf = config.get<bool>("log_performance");
 
-				unsigned int frames  = 0;
-				unsigned int updates = 0;
+				unsigned int frames  = 0u;
+				unsigned int updates = 0u;
 
 				constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
 				constexpr const auto one_second  = std::chrono::seconds {1};

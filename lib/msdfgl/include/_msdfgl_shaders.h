@@ -27,7 +27,8 @@ const char * _font_fragment = "\n"
 "    float sigDist = median(s.r, s.g, s.b) - threshold;\n"
 "    sigDist *= dot(msdfUnit, 0.5/fwidth(coords));\n"
 "    float opacity = clamp(sigDist + 0.5, 0.0, 1.0);\n"
-"    color = mix(vec4(0.0, 0.0, 0.0, 0.0), text_color, opacity);\n"
+"    color.a = mix(0.0, text_color.a, opacity);\n"
+"    color.rgb = text_color.rgb;\n"
 "}";
 
 const char * _font_geometry = "\n"
