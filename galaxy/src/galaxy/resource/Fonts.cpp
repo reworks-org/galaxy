@@ -8,6 +8,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
+#include "galaxy/embedded/RobotoLight.hpp"
+
 #include "Fonts.hpp"
 
 namespace galaxy
@@ -28,6 +30,9 @@ namespace galaxy
 			m_folder = static_cast<std::string>(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			// Load default font(s) first, incase of override.
+			m_cache["RobotoLight"] = std::make_shared<graphics::Font>(embedded::roboto_light, embedded::roboto_light_len);
 
 			auto contents = fs.list_directory(m_folder);
 			if (!contents.empty())

@@ -63,7 +63,8 @@
                                 "font": "Verdana",
                                 "layer": 0,
                                 "size": 72.0,
-                                "text": "Hello World"
+                                "text": "Hello World",
+                                "alignment": 0
                             },
                             "Transform": {
                                 "pos": {
