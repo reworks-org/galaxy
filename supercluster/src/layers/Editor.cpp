@@ -129,21 +129,21 @@ namespace sc
 				{
 					if (!m_paused)
 					{
-						// ImGui_ImplGlfw_ToggleInput(true);
+						 ImGui_ImplGlfw_ToggleInput(true);
 						m_project_scenes.current().events();
 					}
 				}
 			}
 			else
 			{
-				// ImGui_ImplGlfw_ToggleInput(false);
+				 ImGui_ImplGlfw_ToggleInput(false);
 			}
 		}
 		else
 		{
 			if (input::Input::key_down(input::Keys::ESCAPE))
 			{
-				// ImGui_ImplGlfw_ToggleInput(false);
+				 ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
 				m_restore   = true;
 			}
@@ -508,7 +508,7 @@ namespace sc
 			{
 				if (m_project_scenes.has_current())
 				{
-					// ImGui_ImplGlfw_ToggleInput(true);
+					 ImGui_ImplGlfw_ToggleInput(true);
 
 					m_game_mode = true;
 					m_backup    = m_project_scenes.serialize();
