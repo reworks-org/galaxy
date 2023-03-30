@@ -55,6 +55,9 @@ namespace galaxy
 			s_prev_shader  = -1;
 			s_prev_texture = -1;
 
+			// I don't think we would ever sort the amount of renderable data required to do this in parallel faster.
+			// std::execution::par maybe used when > 1000? But 1000 draw calls is too slow anyway.
+
 			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) -> bool {
 				if (left->m_layer == right->m_layer)
 				{
