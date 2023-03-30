@@ -37,6 +37,14 @@ namespace galaxy
 			Font(const std::string& file);
 
 			///
+			/// Memory argument constructor.
+			///
+			/// \param buffer Array of data.
+			/// \param size Size of buffer.
+			///
+			Font(unsigned char* buffer, const unsigned int size);
+
+			///
 			/// Move constructor.
 			///
 			Font(Font&&);
@@ -59,6 +67,16 @@ namespace galaxy
 			/// \return True if successful.
 			///
 			[[maybe_unused]] bool load(const std::string& file);
+
+			///
+			/// Loads the font and sets up characters.
+			///
+			/// \param buffer Array of data.
+			/// \param size Size of buffer.
+			///
+			/// \return True if successful.
+			///
+			[[maybe_unused]] bool load(unsigned char* buffer, const unsigned int size);
 
 			///
 			/// \brief Build the font atlas.

@@ -31,6 +31,14 @@ namespace galaxy
 			}
 		}
 
+		Font::Font(unsigned char* buffer, const unsigned int size)
+		{
+			if (!load(buffer, size))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load font from memory.");
+			}
+		}
+
 		Font::Font(Font&& f)
 		{
 			if (this->m_font != nullptr)
@@ -90,6 +98,25 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to find font '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
+			}
+
+			return result;
+		}
+
+		bool Font::load(unsigned char* buffer, const unsigned int size)
+		{
+			auto result = false;
+
+			if (buffer && size > 0)
+			{
+				auto& fc = core::ServiceLocator<FontContext>::ref();
+				m_face   = msdfgl_load_font_mem(fc.context(), reinterpret_cast<void*>(buffer), size);
+
+				result = true;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load font from memory due to empty or null buffer");
 			}
 
 			return result;

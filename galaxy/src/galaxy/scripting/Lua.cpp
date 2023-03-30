@@ -706,7 +706,8 @@ namespace galaxy
 			auto font_type                = lua.new_usertype<graphics::Font>("Font", sol::constructors<graphics::Font(), graphics::Font(const std::string&)>());
 			font_type["build"]            = &graphics::Font::build;
 			font_type["get_text_size"]    = &graphics::Font::get_text_size;
-			font_type["load"]             = &graphics::Font::load;
+			font_type["load"]             = sol::resolve<bool(const std::string&)>(&graphics::Font::load);
+			font_type["load_mem"]         = sol::resolve<bool(unsigned char*, const unsigned int)>(&graphics::Font::load);
 			font_type["vertical_advance"] = &graphics::Font::vertical_advance;
 
 			/* INPUT */

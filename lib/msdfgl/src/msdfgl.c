@@ -434,8 +434,7 @@ FT_Face msdfgl_load_font(msdfgl_context_t ctx, const char* font_name)
 /**
  * Load font from memory and generate textures and buffers for it.
  */
-MSDFGL_EXPORT msdfgl_font_t
-msdfgl_load_font_mem(msdfgl_context_t ctx, void* font_buffer, size_t font_buffer_size, float range, float scale, msdfgl_atlas_t atlas)
+MSDFGL_EXPORT FT_Face msdfgl_load_font_mem(msdfgl_context_t ctx, void* font_buffer, size_t font_buffer_size)
 {
 	FT_Face face;
 	if (FT_New_Memory_Face(ctx->ft_library, font_buffer, font_buffer_size, 0, &face))
@@ -443,7 +442,7 @@ msdfgl_load_font_mem(msdfgl_context_t ctx, void* font_buffer, size_t font_buffer
 		return NULL;
 	}
 
-	return _msdfgl_init_font_internal(ctx, &face, range, scale, atlas);
+	return face;
 }
 
 void msdfgl_destroy_font(msdfgl_font_t font)
