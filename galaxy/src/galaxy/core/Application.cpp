@@ -8,6 +8,7 @@
 #include <BS_thread_pool.hpp>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
+#include <zip.h>
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
@@ -78,6 +79,7 @@ namespace galaxy
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
 			config.restore<std::string>("asset_dir", "assets/");
+			config.restore<std::string>("compressed_assets", "assets.zip");
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("app_data", "default.galaxy");
 			config.restore<std::string>("load_screen_rml", "ui/load.rml");
@@ -142,8 +144,40 @@ namespace galaxy
 					config.save();
 				}
 
-				create_asset_layout(root, "");
+				// Unpack assets if zip is present.
+				{
+					const auto compressed_assets = config.get<std::string>("compressed_assets");
+					if (std::filesystem::exists(compressed_assets))
+					{
+						GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
 
+						// Remove potentially out of date assets.
+						GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
+						std::filesystem::remove(config.get<std::string>("asset_dir"));
+
+						if (zip_extract(
+								compressed_assets.c_str(),
+								"./",
+								[](const char* filename, void* arg) {
+									GALAXY_LOG(GALAXY_INFO, "Extracting {0}", filename);
+									return 0;
+								},
+								nullptr) == 0)
+						{
+							std::filesystem::remove(config.get<std::string>("compressed_assets"));
+							GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
+						}
+						else
+						{
+							// Purge any extracted assets if failed.
+
+							std::filesystem::remove(config.get<std::string>("asset_dir"));
+							GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
+						}
+					}
+				}
+
+				create_asset_layout(root, "");
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
 
 				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
