@@ -8,6 +8,8 @@
 #ifndef SUPERCLUSTER_LAYERS_EDITOR_HPP_
 #define SUPERCLUSTER_LAYERS_EDITOR_HPP_
 
+#include <zip.h>
+
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/graphics/Renderable.hpp>
 #include <galaxy/platform/Subprocess.hpp>
@@ -54,6 +56,8 @@ namespace sc
 		void code_editor();
 		void code_editor_menu();
 		void viewport();
+
+		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
 		const std::string& get_type() const override;
 		[[nodiscard]] nlohmann::json serialize() override;

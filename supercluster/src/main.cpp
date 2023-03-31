@@ -67,10 +67,8 @@ int main(int argsc, char* argsv[])
 					std::filesystem::create_directory(root + "editor_data/projects");
 				}
 
-				const auto imgui_config = root + "editor_data/sclayout.ini";
-
 				ImGuiIO& io    = ui::imgui_init_context();
-				io.IniFilename = imgui_config.c_str();
+				io.IniFilename = "sclayout.ini";
 
 				ImFontConfig font_cfg         = {};
 				font_cfg.FontDataOwnedByAtlas = false;

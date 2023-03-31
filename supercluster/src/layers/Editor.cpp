@@ -228,7 +228,7 @@ namespace sc
 
 			if (json.has_value())
 			{
-				const auto scenes = json.value().at("app_data");
+				const auto& scenes = json.value().at("app_data");
 
 				m_project_scenes.deserialize(scenes);
 				core::ServiceLocator<core::Window>::ref().set_title(fs_path.stem().string().c_str());
@@ -303,7 +303,11 @@ namespace sc
 		save_project();
 
 		auto& config    = core::ServiceLocator<core::Config>::ref();
-		const auto path = std::filesystem::path("../" + config.get<std::string>("asset_dir"));
+		const auto path = std::filesystem::path("export");
+		if (!std::filesystem::exists(path))
+		{
+			std::filesystem::create_directories(path);
+		}
 
 		std::ofstream app_data;
 		std::ofstream app_config;
@@ -340,6 +344,15 @@ namespace sc
 		}
 
 		app_config.close();
+
+		const auto zip_path = path / "assets.zip";
+		std::filesystem::remove(zip_path);
+
+		struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
+		recursively_zip_assets(zip, config.get<std::string>("asset_dir"));
+		zip_close(zip);
+
+		ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project assets."});
 	}
 
 	void Editor::restart()
@@ -441,6 +454,11 @@ namespace sc
 				if (ImGui::MenuItem("Save As", "Ctrl+Shift+S"))
 				{
 					save_project(true);
+				}
+
+				if (ImGui::MenuItem("Export"))
+				{
+					export_project();
 				}
 
 				if (ImGui::MenuItem("Restart", "Ctrl+Alt+R"))
@@ -589,26 +607,26 @@ namespace sc
 				new_project();
 			}
 		);
+		// clang-format on
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_O))
 		{
 			m_update_stack.emplace_back([&]() {
 				auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
-			    if (file.has_value())
-			    {
-                    load_project(file.value());
-			    }
-            });
+				if (file.has_value())
+				{
+					load_project(file.value());
+				}
+			});
 		}
 
-		ui::imgui_confirm("RestartConfirm", [&](){
+		ui::imgui_confirm("RestartConfirm", [&]() {
 			restart();
 		});
 
-		ui::imgui_confirm("ExitConfirm", [&](){
+		ui::imgui_confirm("ExitConfirm", [&]() {
 			exit();
 		});
-		// clang-format on
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_S))
 		{
@@ -710,9 +728,6 @@ namespace sc
 			m_entity_panel.render(m_selected_entity, m_update_stack);
 		}
 
-		//
-		// UTILITY WINDOWS.
-		//
 		if (m_show_settings)
 		{
 			if (ImGui::Begin("Settings", &m_show_settings, ImGuiWindowFlags_MenuBar))
@@ -1033,6 +1048,29 @@ namespace sc
 
 		ImGui::PopStyleVar(1);
 		ImGui::End();
+	}
+
+	void Editor::recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path)
+	{
+		for (const auto& entry : std::filesystem::directory_iterator(path))
+		{
+			const auto entry_path = std::filesystem::path(entry);
+			if (entry_path.stem() == "editor_data")
+			{
+				continue;
+			}
+
+			if (entry.is_directory())
+			{
+				recursively_zip_assets(zip, entry_path);
+			}
+			else
+			{
+				zip_entry_open(zip, entry_path.relative_path().string().c_str());
+				zip_entry_fwrite(zip, entry_path.string().c_str());
+				zip_entry_close(zip);
+			}
+		}
 	}
 
 	const std::string& Editor::get_type() const
