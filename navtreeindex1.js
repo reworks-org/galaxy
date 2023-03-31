@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5":[1,0,0,15,4,1],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7":[1,0,0,15,4,12],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a972e6119965b219449b2bc6396f3ca78":[1,0,0,15,4,3],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a9e73a3de7474f35a844f3985a12bc96a":[1,0,0,15,4,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "d3/d3e/IndexBuffer_8cpp.html":[2,0,0,0,0,10,18],
 "d3/d3e/IndexBuffer_8cpp_source.html":[2,0,0,0,0,10,18],
 "d3/d4b/Async_8hpp.html":[2,0,0,0,0,12,1],
-"d3/d4b/Async_8hpp.html#a3e4e6d647a6fe6435f38d444fb47f754":[2,0,0,0,0,12,1,0]
+"d3/d4b/Async_8hpp.html#a3e4e6d647a6fe6435f38d444fb47f754":[2,0,0,0,0,12,1,0],
+"d3/d4b/Async_8hpp_source.html":[2,0,0,0,0,12,1]
 };

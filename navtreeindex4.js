@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#aca1f2e5e3ed89ad67e2d4c43c71e7615":[1,0,0,10,1,3],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308":[1,0,0,10,1,4],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8":[1,0,0,10,1,12],
 "d5/dd0/KeyChar_8hpp.html":[2,0,0,0,0,7,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "d7/d8d/FileInfo_8cpp.html":[2,0,0,0,0,9,2],
 "d7/d8d/FileInfo_8cpp_source.html":[2,0,0,0,0,9,2],
 "d7/d91/Scripts_8hpp.html":[2,0,0,0,0,15,11],
-"d7/d91/Scripts_8hpp_source.html":[2,0,0,0,0,15,11]
+"d7/d91/Scripts_8hpp_source.html":[2,0,0,0,0,15,11],
+"d7/d91/structgalaxy_1_1events_1_1KeyDown.html":[1,0,0,6,2]
 };

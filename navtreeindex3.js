@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/da5/InputDevice_8hpp.html#a2d806a95ea35447ceaa66d37b82ced95":[2,0,0,0,0,11,7,1],
 "d4/da5/InputDevice_8hpp_source.html":[2,0,0,0,0,11,7],
 "d4/da6/SpriteBatch_8hpp.html":[2,0,0,0,0,10,41],
 "d4/da6/SpriteBatch_8hpp_source.html":[2,0,0,0,0,10,41],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a922b7f26c17920bea7f8488efb1878eb":[1,0,0,10,1,6],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#aab9014cbb052574f87cc28ce825c7f7d":[1,0,0,10,1,2],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2":[1,0,0,10,1,0],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ac070f12dffe748d6e930812d116f7605":[1,0,0,10,1,1]
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ac070f12dffe748d6e930812d116f7605":[1,0,0,10,1,1],
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#aca1f2e5e3ed89ad67e2d4c43c71e7615":[1,0,0,10,1,3]
 };
