@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"df/dcc/namespacegalaxy_1_1state.html":[0,0,0,21],
 "df/dd4/MouseReleased_8hpp.html":[2,0,0,0,0,7,17],
 "df/dd4/MouseReleased_8hpp_source.html":[2,0,0,0,0,7,17],
 "df/de8/Input_8cpp.html":[2,0,0,0,0,11,4],
@@ -129,8 +130,8 @@ var NAVTREEINDEX12 =
 "functions_type.html":[1,3,3],
 "functions_u.html":[1,3,0,20],
 "functions_v.html":[1,3,0,21],
-"functions_vars.html":[1,3,2],
 "functions_vars.html":[1,3,2,0],
+"functions_vars.html":[1,3,2],
 "functions_vars_c.html":[1,3,2,1],
 "functions_vars_d.html":[1,3,2,2],
 "functions_vars_e.html":[1,3,2,3],
@@ -169,6 +170,5 @@ var NAVTREEINDEX12 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[],
-"":[0,0,4]
+"pages.html":[]
 };
