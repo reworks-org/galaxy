@@ -154,6 +154,7 @@ namespace galaxy
 		void Config::raw(const nlohmann::json& json)
 		{
 			m_config = json;
+			m_loaded = true;
 		}
 
 		const nlohmann::json& Config::raw() const
