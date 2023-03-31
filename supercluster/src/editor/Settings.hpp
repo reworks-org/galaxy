@@ -21,9 +21,9 @@ namespace sc
 		Settings();
 		~Settings();
 
-		void load();
+		void load(const nlohmann::json& json);
 		void render();
-		void save();
+		const nlohmann::json& save();
 
 	private:
 		void do_object(nlohmann::json& json);

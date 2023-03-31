@@ -39,7 +39,7 @@ namespace sc
 #endif
 
 		m_framebuffer.create(1, 1);
-		m_settings.load();
+		m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
 
 		m_resume_play.load("editor_data/icons/resume_play.png");
 		m_resume_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
@@ -229,7 +229,9 @@ namespace sc
 
 			if (json.has_value())
 			{
-				m_project_scenes.deserialize(json.value());
+				const auto scenes = json.value().at("app_data");
+
+				m_project_scenes.deserialize(scenes);
 				core::ServiceLocator<core::Window>::ref().set_title(fs_path.stem().string().c_str());
 			}
 			else
@@ -267,7 +269,12 @@ namespace sc
 			if (ofs.good())
 			{
 #ifdef _DEBUG
-				auto data = m_project_scenes.serialize().dump(4);
+
+				nlohmann::json out_json = "{\"settings\":{},\"app_data\":{}}"_json;
+				out_json["app_data"]    = m_project_scenes.serialize();
+				out_json["settings"]    = m_settings.save();
+
+				auto data = out_json.dump(4);
 #else
                 auto data = m_project_scenes.serialize().dump(4);
                 data      = algorithm::encode_base64(data);
@@ -669,13 +676,16 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Save"))
 					{
-						m_settings.save();
+						auto& config = core::ServiceLocator<core::Config>::ref();
+						config.raw(m_settings.save());
+						config.save();
+
 						ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Settings changed, a restart is needed."});
 					}
 
 					if (ImGui::MenuItem("Refresh"))
 					{
-						m_settings.load();
+						m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
 					}
 
 					if (ImGui::BeginMenu("Theme"))

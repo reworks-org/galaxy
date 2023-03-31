@@ -44,16 +44,6 @@ int main(int argsc, char* argsv[])
 	{
 		GALAXY_RESTART = false;
 
-		if (!std::filesystem::exists("assets/editor_data"))
-		{
-			std::filesystem::create_directory("assets/editor_data");
-		}
-
-		if (!std::filesystem::exists("assets/editor_data/projects"))
-		{
-			std::filesystem::create_directory("assets/editor_data/projects");
-		}
-
 #ifdef NDEBUG
 		try
 		{
@@ -64,8 +54,28 @@ int main(int argsc, char* argsv[])
 				auto& window = core::ServiceLocator<core::Window>::ref();
 				window.prevent_native_closing();
 
+				auto& config = core::ServiceLocator<core::Config>::ref();
+				auto root    = config.get<std::string>("asset_dir");
+
+				if (root.back() != '/')
+				{
+					root += '/';
+				}
+
+				if (!std::filesystem::exists(root + "editor_data"))
+				{
+					std::filesystem::create_directory(root + "editor_data");
+				}
+
+				if (!std::filesystem::exists(root + "editor_data/projects"))
+				{
+					std::filesystem::create_directory(root + "editor_data/projects");
+				}
+
+				const auto imgui_config = root + "editor_data/sclayout.ini";
+
 				ImGuiIO& io    = ui::imgui_init_context();
-				io.IniFilename = "assets/editor_data/sclayout.ini";
+				io.IniFilename = imgui_config.c_str();
 
 				ImFontConfig font_cfg         = {};
 				font_cfg.FontDataOwnedByAtlas = false;
@@ -74,8 +84,6 @@ int main(int argsc, char* argsv[])
 				font_cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
 				ImGui_Notify::MergeIconsWithLatestFont(16.f, false);
-
-				auto& config = core::ServiceLocator<core::Config>::ref();
 
 				config.restore<std::string>("theme", "CLASSIC", "editor");
 				config.save();

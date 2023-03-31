@@ -5,19 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/core/Config.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/error/Log.hpp>
-#include <galaxy/fs/VirtualFileSystem.hpp>
-
 #include <imgui_addons/imgui_toggle.h>
 #include <imgui_stdlib.h>
 
 #include "Settings.hpp"
 
 #define INDENT_PIXELS 16.0f
-
-using namespace galaxy;
 
 namespace sc
 {
@@ -30,17 +23,14 @@ namespace sc
 	{
 	}
 
-	void Settings::load()
+	void Settings::load(const nlohmann::json& json)
 	{
-		m_root = core::ServiceLocator<core::Config>::ref().raw();
+		m_root = json;
 	}
 
-	void Settings::save()
+	const nlohmann::json& Settings::save()
 	{
-		auto& config = core::ServiceLocator<core::Config>::ref();
-
-		config.raw(m_root);
-		config.save();
+		return m_root;
 	}
 
 	void Settings::render()

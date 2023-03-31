@@ -130,10 +130,9 @@ namespace galaxy
 			//
 			// VIRTUAL FILE SYSTEM.
 			//
-			auto root_opt = config.get<std::string>("asset_dir");
-			if (!root_opt.empty())
+			auto root = config.get<std::string>("asset_dir");
+			if (!root.empty())
 			{
-				auto& root = root_opt;
 				if (root.back() != '/')
 				{
 					root += '/';
