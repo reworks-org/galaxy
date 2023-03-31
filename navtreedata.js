@@ -63,19 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a972e6119965b219449b2bc6396f3ca78",
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87",
-"d4/da6/SpriteBatch_8hpp.html",
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8",
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a89d79c90252f0b8ac4cf435b4452b34a",
-"d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4",
-"da/d19/classgalaxy_1_1graphics_1_1Animation.html#a76b0a4c1310027a8f3a3b5ad769c590c",
-"db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736",
-"dc/dd2/Rect_8hpp.html#acc40cc97c7634fbf7a7f195d0f7670e1",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea8d9c307cb7f3c4a32822a51922d1ceaa",
-"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa0108d1e69a496a9939db4f26960c6c6",
-"df/dd4/MouseReleased_8hpp_source.html"
+"annotated.html",
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7",
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html",
+"d4/da5/InputDevice_8hpp_source.html",
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308",
+"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a159fd52a6534229d3397f41c65491a93",
+"d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5",
+"da/d19/classgalaxy_1_1graphics_1_1Animation.html#a65f8883d2ec744e499fffcfdabab67a6",
+"db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930ae64a4d2159ed46d077e21a505575c814",
+"dc/dd2/Rect_8hpp.html#ab2faabf6d2aedbcb421132f115566b52",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea892a245e287c163080b23db737d3c4c9",
+"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a9a81e927d88eec2e498f17881c2d980d",
+"df/dd4/MouseReleased_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

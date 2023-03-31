@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a9a81e927d88eec2e498f17881c2d980d":[1,0,0,18,0,4],
 "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa0108d1e69a496a9939db4f26960c6c6":[1,0,0,18,0,0],
 "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa46af74376157f08131a13fa29cdb7ad":[1,0,0,18,0,17],
 "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa855e310801266b30c1fa51d2fdedea8":[1,0,0,18,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf":[1,0,0,9,28,14],
 "df/dc3/AudioEngine_8cpp.html":[2,0,0,0,0,2,0],
 "df/dc3/AudioEngine_8cpp_source.html":[2,0,0,0,0,2,0],
-"df/dcc/namespacegalaxy_1_1state.html":[0,0,0,21],
-"df/dd4/MouseReleased_8hpp.html":[2,0,0,0,0,7,17]
+"df/dcc/namespacegalaxy_1_1state.html":[0,0,0,21]
 };
