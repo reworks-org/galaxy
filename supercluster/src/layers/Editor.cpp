@@ -217,12 +217,11 @@ namespace sc
 			const auto fs_path     = std::filesystem::path(path);
 			m_current_project_path = fs_path.string();
 
-#ifdef _DEBUG
 			auto data = std::string(buffer.begin(), buffer.end());
-#else
-			auto data = std::string(buffer.begin(), buffer.end());
-			data      = algorithm::decode_zlib(data);
-			data      = algorithm::decode_base64(data);
+
+#ifndef _DEBUG
+			data = algorithm::decode_zlib(data);
+			data = algorithm::decode_base64(data);
 #endif
 
 			auto json = json::parse_from_mem(data);
@@ -268,33 +267,79 @@ namespace sc
 
 			if (ofs.good())
 			{
-#ifdef _DEBUG
+				auto& config = core::ServiceLocator<core::Config>::ref();
+				config.raw(m_settings.save());
+				config.save();
 
 				nlohmann::json out_json = "{\"settings\":{},\"app_data\":{}}"_json;
-				out_json["app_data"]    = m_project_scenes.serialize();
-				out_json["settings"]    = m_settings.save();
+
+				out_json["app_data"] = m_project_scenes.serialize();
+				out_json["settings"] = m_settings.save();
 
 				auto data = out_json.dump(4);
-#else
-                auto data = m_project_scenes.serialize().dump(4);
-                data      = algorithm::encode_base64(data);
-                data      = algorithm::encode_zlib(data);
+
+#ifndef _DEBUG
+				data = algorithm::encode_base64(data);
+				data = algorithm::encode_zlib(data);
 #endif
 
 				ofs.write(data.data(), data.size());
-				ofs.close();
 
 				core::ServiceLocator<core::Window>::ref().set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
 				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
 			}
 			else
 			{
-				ofs.close();
-
-				GALAXY_LOG(GALAXY_ERROR, "Failed to save project to disk.");
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save project.");
 				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save project."});
 			}
+
+			ofs.close();
 		}
+	}
+
+	void Editor::export_project()
+	{
+		save_project();
+
+		auto& config    = core::ServiceLocator<core::Config>::ref();
+		const auto path = std::filesystem::path("../" + config.get<std::string>("asset_dir"));
+
+		std::ofstream app_data;
+		std::ofstream app_config;
+
+		auto data = m_project_scenes.serialize().dump(4);
+		data      = algorithm::encode_base64(data);
+		data      = algorithm::encode_zlib(data);
+
+		app_data.open(path / config.get<std::string>("app_data"), std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+		if (app_data.good())
+		{
+			app_data.write(data.data(), data.size());
+			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project data."});
+		}
+		else
+		{
+			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to export project data."});
+		}
+
+		app_data.close();
+
+		auto config_data = m_settings.save().dump(4);
+
+		app_config.open(path / "config.json", std::ofstream::out | std::ofstream::trunc);
+		if (app_config.good())
+		{
+			app_config.write(config_data.data(), config_data.size());
+			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project config."});
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to export project.");
+			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to export project config."});
+		}
+
+		app_config.close();
 	}
 
 	void Editor::restart()

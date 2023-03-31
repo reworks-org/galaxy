@@ -133,9 +133,13 @@ namespace galaxy
 			auto root = config.get<std::string>("asset_dir");
 			if (!root.empty())
 			{
+				// Fix filepath.
 				if (root.back() != '/')
 				{
 					root += '/';
+
+					config.set("asset_dir", root);
+					config.save();
 				}
 
 				create_asset_layout(root, "");

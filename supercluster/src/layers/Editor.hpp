@@ -43,6 +43,7 @@ namespace sc
 		void new_project();
 		void load_project(std::string_view path);
 		void save_project(bool save_as = false);
+		void export_project();
 		void restart();
 		void exit();
 

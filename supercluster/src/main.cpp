@@ -57,11 +57,6 @@ int main(int argsc, char* argsv[])
 				auto& config = core::ServiceLocator<core::Config>::ref();
 				auto root    = config.get<std::string>("asset_dir");
 
-				if (root.back() != '/')
-				{
-					root += '/';
-				}
-
 				if (!std::filesystem::exists(root + "editor_data"))
 				{
 					std::filesystem::create_directory(root + "editor_data");
