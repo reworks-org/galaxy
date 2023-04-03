@@ -9,6 +9,7 @@
 #define GALAXY_STATE_LAYERS_HPP_
 
 #include "galaxy/scene/LayerRegistry.hpp"
+#include "galaxy/scene/layers/RuntimeLayer.hpp"
 
 namespace galaxy
 {
@@ -179,12 +180,15 @@ namespace galaxy
 		template<is_layer ChildLayer>
 		inline std::weak_ptr<ChildLayer> Layers::make(const std::string& name)
 		{
-			for (const auto& [key, layer] : m_layers)
+			if constexpr (std::is_same_v<ChildLayer, scene::RuntimeLayer>)
 			{
-				if (layer->get_type() == "Runtime")
+				for (const auto& [key, layer] : m_layers)
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Runtime layer already exists.");
-					return {};
+					if (layer->get_type() == "Runtime")
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Runtime layer already exists.");
+						return {};
+					}
 				}
 			}
 

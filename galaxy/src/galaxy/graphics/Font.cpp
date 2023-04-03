@@ -110,7 +110,7 @@ namespace galaxy
 			if (buffer && size > 0)
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
-				m_face   = msdfgl_load_font_mem(fc.context(), reinterpret_cast<void*>(buffer), size);
+				m_face   = msdfgl_load_font_mem(fc.context(), buffer, size);
 
 				result = true;
 			}
