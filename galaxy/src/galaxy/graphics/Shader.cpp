@@ -96,20 +96,20 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto vertex = fs.open(vertex_file);
-			if (!vertex.has_value())
+			if (vertex.empty())
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to load vertex shader '{0}'.", vertex_file);
 				return false;
 			}
 
 			const auto fragment = fs.open(frag_file);
-			if (!fragment.has_value())
+			if (fragment.empty())
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to load fragment shader '{0}'.", frag_file);
 				return false;
 			}
 
-			return load_raw(vertex.value(), fragment.value());
+			return load_raw(vertex, fragment);
 		}
 
 		bool Shader::load_raw(std::string_view vertex_str, std::string_view fragment_str)

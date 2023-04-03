@@ -147,6 +147,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\GaussianBlur.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\ChromaticAberration.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -295,5 +296,6 @@
     <ClInclude Include="src\galaxy\graphics\postfx\GaussianBlur.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\ChromaticAberration.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
   </ItemGroup>
 </Project>

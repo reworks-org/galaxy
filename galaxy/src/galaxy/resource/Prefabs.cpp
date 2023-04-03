@@ -37,11 +37,11 @@ namespace galaxy
 			{
 				for (const auto& file : contents)
 				{
-					auto data_opt = fs.open(file);
-					if (data_opt.has_value())
+					const auto data = fs.open(file);
+					if (!data.empty())
 					{
 						const auto name         = std::filesystem::path(file).stem().string();
-						const auto base64       = algorithm::decode_zlib(data_opt.value());
+						const auto base64       = algorithm::decode_zlib(data);
 						const auto decompressed = algorithm::decode_base64(base64);
 
 						m_cache[name]         = std::make_shared<core::Prefab>();

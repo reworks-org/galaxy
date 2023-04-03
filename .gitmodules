@@ -10,9 +10,6 @@
 [submodule "lib/sol3"]
 	path = lib/sol3
 	url = https://github.com/ThePhD/sol2.git
-[submodule "lib/pfd"]
-	path = lib/pfd
-	url = https://github.com/samhocevar/portable-file-dialogs.git
 [submodule "lib/magic_enum"]
 	path = lib/magic_enum
 	url = https://github.com/Neargye/magic_enum.git

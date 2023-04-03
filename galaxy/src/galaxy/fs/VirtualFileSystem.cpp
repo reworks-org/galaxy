@@ -7,11 +7,18 @@
 
 #include <fstream>
 
-#include <portable-file-dialogs.h>
+#include <magic_enum.hpp>
+#include <tinyfiledialogs.h>
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 #include "VirtualFileSystem.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(4267)
+#endif
 
 namespace galaxy
 {
@@ -185,125 +192,139 @@ namespace galaxy
 			return result;
 		}
 
-		std::optional<std::string> VirtualFileSystem::open(std::string_view file)
+		std::string VirtualFileSystem::open(std::string_view file)
 		{
-			const auto path = find(file);
-
-			if (path.code == FileCode::FOUND)
+			if (!file.empty())
 			{
-				std::ifstream ifs {path.string, std::ifstream::in};
+				const auto path = find(file);
 
-				if (ifs.good())
+				if (path.code == FileCode::FOUND)
 				{
-					std::stringstream buffer;
-					buffer << ifs.rdbuf();
-					ifs.close();
+					std::ifstream ifs {path.string, std::ifstream::in};
 
-					return std::make_optional(buffer.str());
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to open file: {0}.", file);
-					return std::nullopt;
+					if (ifs.good())
+					{
+						std::stringstream buffer;
+						buffer << ifs.rdbuf();
+						ifs.close();
+
+						return buffer.str();
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to open file: {0}.", file);
+					}
 				}
 			}
 			else
 			{
-				return std::nullopt;
+				GALAXY_LOG(GALAXY_ERROR, "Passed empty string to VFS::Open");
 			}
+
+			return {};
 		}
 
-		std::optional<std::vector<char>> VirtualFileSystem::open_binary(std::string_view file)
+		std::vector<char> VirtualFileSystem::open_binary(std::string_view file)
 		{
-			const auto path = find(file);
-
-			if (path.code == FileCode::FOUND)
+			if (!file.empty())
 			{
-				std::ifstream ifs {path.string, std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
+				const auto path = find(file);
 
-				if (ifs.good())
+				if (path.code == FileCode::FOUND)
 				{
-					std::vector<char> buffer;
+					std::ifstream ifs {path.string, std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
 
-					const auto size = ifs.tellg();
-					buffer.resize(size);
+					if (ifs.good())
+					{
+						std::vector<char> buffer;
 
-					ifs.seekg(0, std::ifstream::beg);
-					ifs.read(&buffer[0], size);
-					ifs.close();
+						const auto size = ifs.tellg();
+						buffer.resize(size);
 
-					return std::make_optional(buffer);
-				}
-				else
-				{
-					ifs.close();
+						ifs.seekg(0, std::ifstream::beg);
+						ifs.read(&buffer[0], size);
+						ifs.close();
 
-					GALAXY_LOG(GALAXY_ERROR, "Failed to open binary: {0}.", file);
-					return std::nullopt;
+						return buffer;
+					}
+					else
+					{
+						ifs.close();
+
+						GALAXY_LOG(GALAXY_ERROR, "Failed to open binary: {0}.", file);
+					}
 				}
 			}
 			else
 			{
-				return std::nullopt;
+				GALAXY_LOG(GALAXY_ERROR, "Passed empty string to VFS::Open");
 			}
+
+			return {};
 		}
 
 		bool VirtualFileSystem::save(const std::string& data, std::string_view file)
 		{
-			const auto path = find(file);
-
-			if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
+			if (!data.empty() && !file.empty())
 			{
-				std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc};
+				const auto path = find(file);
 
-				if (ofs.good())
+				if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
 				{
-					ofs << data;
-					ofs.close();
+					std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc};
 
-					return true;
-				}
-				else
-				{
-					ofs.close();
-					GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
+					if (ofs.good())
+					{
+						ofs << data;
+						ofs.close();
 
-					return false;
+						return true;
+					}
+					else
+					{
+						ofs.close();
+						GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
+					}
 				}
 			}
 			else
 			{
-				return false;
+				GALAXY_LOG(GALAXY_ERROR, "Passed empty data or filename to VFS::save");
 			}
+
+			return false;
 		}
 
 		bool VirtualFileSystem::save_binary(std::span<char> data, std::string_view file)
 		{
-			const auto path = find(file);
-
-			if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
+			if (!data.empty() && !file.empty())
 			{
-				std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
+				const auto path = find(file);
 
-				if (ofs.good())
+				if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
 				{
-					ofs.write(data.data(), data.size());
-					ofs.close();
+					std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
 
-					return true;
-				}
-				else
-				{
-					ofs.close();
-					GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
+					if (ofs.good())
+					{
+						ofs.write(data.data(), data.size());
+						ofs.close();
 
-					return false;
+						return true;
+					}
+					else
+					{
+						ofs.close();
+						GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
+					}
 				}
 			}
 			else
 			{
-				return false;
+				GALAXY_LOG(GALAXY_ERROR, "Passed empty data or filename to VFS::save_binary");
 			}
+
+			return false;
 		}
 
 		bool VirtualFileSystem::exists(std::string_view file)
@@ -339,113 +360,103 @@ namespace galaxy
 			}
 		}
 
-		std::optional<std::string> VirtualFileSystem::show_open_dialog(const std::string& filter, const std::string& def_path)
+		void VirtualFileSystem::alert()
 		{
-			std::filesystem::path default_path = m_root;
+			tinyfd_beep();
+		}
 
-			if (!def_path.empty())
+		void VirtualFileSystem::trigger_notification(const std::string& title, const std::string& msg, const DialogIcon icon)
+		{
+			std::string tinyfd_icon {magic_enum::enum_name(icon)};
+			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
+		}
+
+		std::string VirtualFileSystem::open_file_dialog(const std::vector<const char*>& filters, const std::string& def_path)
+		{
+			const auto default_path = (m_root / def_path).string();
+
+			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
+			const char* result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
+
+			if (result != nullptr)
 			{
-				default_path /= def_path;
-			}
-
-			pfd::open_file dialog {"Open file.", default_path.string(), {"Select file", filter}};
-
-			const auto result = dialog.result();
-			if (!result.empty())
-			{
-				return std::make_optional(result[0]);
+				return {result};
 			}
 			else
 			{
-				return std::nullopt;
+				return {};
 			}
 		}
 
-		std::optional<std::vector<std::string>> VirtualFileSystem::show_open_dialog_list(const std::string& filter, const std::string& def_path)
+		std::vector<std::string> VirtualFileSystem::open_file_dialog_multi(const std::vector<const char*>& filters, const std::string& def_path)
 		{
-			std::filesystem::path default_path = m_root;
+			const auto default_path = (m_root / def_path).string();
 
-			if (!def_path.empty())
+			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
+			const char* result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
+
+			if (result != nullptr)
 			{
-				default_path /= def_path;
-			}
-
-			pfd::open_file dialog {"Open file.", default_path.string(), {"Select multiple files", filter}, pfd::opt::multiselect};
-
-			const auto result = dialog.result();
-			if (!result.empty())
-			{
-				return std::make_optional(result);
+				return strutils::split(result, "|");
 			}
 			else
 			{
-				return std::nullopt;
+				return {};
 			}
 		}
 
-		std::optional<std::string> VirtualFileSystem::show_save_dialog(const std::string& default_filename, const std::string& filter)
+		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters)
 		{
-			pfd::save_file dialog {"Save file.", default_filename, {"Select file", filter}};
+			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
+			const char* result                 = tinyfd_saveFileDialog("Save file.", default_filename.c_str(), filters.size(), filter_patterns, nullptr);
 
-			const auto result = dialog.result();
-			if (!result.empty())
+			if (result != nullptr)
 			{
-				return std::make_optional(result);
+				return {result};
 			}
 			else
 			{
-				return std::nullopt;
+				return {};
 			}
 		}
 
-		std::optional<std::string> VirtualFileSystem::show_folder_dialog(const std::string& def_path)
+		std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 		{
-			std::filesystem::path default_path = m_root;
+			const auto default_path = (m_root / def_path).string();
+			const char* result      = tinyfd_selectFolderDialog("Select folder.", default_path.c_str());
 
-			if (!def_path.empty())
+			if (result != nullptr)
 			{
-				default_path /= def_path;
-			}
-
-			pfd::select_folder dialog {"Select folder.", default_path.string(), pfd::opt::force_path};
-
-			const auto result = dialog.result();
-			if (!result.empty())
-			{
-				return std::make_optional(result);
+				return {result};
 			}
 			else
 			{
-				return std::nullopt;
+				return {};
 			}
 		}
 
-		std::optional<std::string> VirtualFileSystem::open_with_dialog(const std::string& filter, const std::string& def_path)
+		std::string VirtualFileSystem::open_using_dialog(const std::vector<const char*>& filters, const std::string& def_path)
 		{
-			const auto path = show_open_dialog(filter, def_path);
-			if (path.has_value())
-			{
-				return open(path.value());
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file.");
-				return std::nullopt;
-			}
+			const auto path = open_file_dialog(filters, def_path);
+			return open(path);
 		}
 
-		bool VirtualFileSystem::save_with_dialog(const std::string& data, const std::string& default_filename)
+		std::vector<char> VirtualFileSystem::open_binary_using_dialog(const std::vector<const char*>& filters, const std::string& def_path)
 		{
-			const auto path = show_save_dialog(default_filename);
-			if (path.has_value())
-			{
-				return save(data, path.value());
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to save a file to an empty path.");
-				return false;
-			}
+			const auto path = open_file_dialog(filters, def_path);
+			return open_binary(path);
+		}
+
+		bool VirtualFileSystem::save_using_dialog(const std::string& data, const std::string& default_filename, const std::vector<const char*>& filters)
+		{
+			const auto path = open_save_dialog(default_filename, filters);
+			return save(data, path);
+		}
+
+		bool VirtualFileSystem::save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const std::vector<const char*>& filters)
+		{
+			const auto path = open_save_dialog(default_filename, filters);
+			return save_binary(data, path);
 		}
 
 		std::vector<std::string> VirtualFileSystem::list_directory(std::string_view path)
@@ -499,3 +510,7 @@ namespace galaxy
 		}
 	} // namespace fs
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

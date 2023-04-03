@@ -572,23 +572,41 @@ namespace galaxy
 				{"NOT_IN_VFS", fs::FileCode::NOT_IN_VFS},
 				{"NO_EXTENSION", fs::FileCode::NO_EXTENSION}
 			});
+
+			lua.new_enum<fs::DialogIcon>("DialogIcons",
+			{
+                {"info", fs::DialogIcon::info},
+				{"warning", fs::DialogIcon::warning},
+				{"error", fs::DialogIcon::error}
+            });
 			// clang-format on
 
 			auto fileinfo_type      = lua.new_usertype<fs::FileInfo>("FileInfo", sol::constructors<fs::FileInfo()>());
 			fileinfo_type["code"]   = &fs::FileInfo::code;
 			fileinfo_type["string"] = &fs::FileInfo::string;
 
-			auto vfs_type             = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
-			vfs_type["find"]          = &fs::VirtualFileSystem::find;
-			vfs_type["create_file"]   = &fs::VirtualFileSystem::create_file;
-			vfs_type["create_folder"] = &fs::VirtualFileSystem::create_folder;
-			vfs_type["open"]          = &fs::VirtualFileSystem::open;
-			vfs_type["open_binary"]   = &fs::VirtualFileSystem::open_binary;
-			vfs_type["save"]          = &fs::VirtualFileSystem::save;
-			vfs_type["save_binary"]   = &fs::VirtualFileSystem::save_binary;
-			vfs_type["remove"]        = &fs::VirtualFileSystem::remove;
-			vfs_type["root"]          = &fs::VirtualFileSystem::root;
-			vfs_type["exists"]        = &fs::VirtualFileSystem::exists;
+			auto vfs_type                        = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
+			vfs_type["alert"]                    = &fs::VirtualFileSystem::alert;
+			vfs_type["create_file"]              = &fs::VirtualFileSystem::create_file;
+			vfs_type["create_folder"]            = &fs::VirtualFileSystem::create_folder;
+			vfs_type["exists"]                   = &fs::VirtualFileSystem::exists;
+			vfs_type["find"]                     = &fs::VirtualFileSystem::find;
+			vfs_type["list_directory"]           = &fs::VirtualFileSystem::list_directory;
+			vfs_type["open"]                     = &fs::VirtualFileSystem::open;
+			vfs_type["open_binary"]              = &fs::VirtualFileSystem::open_binary;
+			vfs_type["open_binary_using_dialog"] = &fs::VirtualFileSystem::open_binary_using_dialog;
+			vfs_type["open_file_dialog"]         = &fs::VirtualFileSystem::open_file_dialog;
+			vfs_type["open_file_dialog_multi"]   = &fs::VirtualFileSystem::open_file_dialog_multi;
+			vfs_type["open_save_dialog"]         = &fs::VirtualFileSystem::open_save_dialog;
+			vfs_type["open_using_dialog"]        = &fs::VirtualFileSystem::open_using_dialog;
+			vfs_type["remove"]                   = &fs::VirtualFileSystem::remove;
+			vfs_type["root"]                     = &fs::VirtualFileSystem::root;
+			vfs_type["save"]                     = &fs::VirtualFileSystem::save;
+			vfs_type["save_binary"]              = &fs::VirtualFileSystem::save_binary;
+			vfs_type["save_binary_using_dialog"] = &fs::VirtualFileSystem::save_binary_using_dialog;
+			vfs_type["save_using_dialog"]        = &fs::VirtualFileSystem::save_using_dialog;
+			vfs_type["select_folder_dialog"]     = &fs::VirtualFileSystem::select_folder_dialog;
+			vfs_type["trigger_notification"]     = &fs::VirtualFileSystem::trigger_notification;
 
 			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 

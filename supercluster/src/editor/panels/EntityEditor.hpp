@@ -49,11 +49,11 @@ namespace sc
 				{
 					if constexpr (std::is_same<Component, components::Script>::value)
 					{
-						auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua");
-						if (file.has_value())
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
+						if (!path.empty())
 						{
 							auto& script = selected.m_world->m_registry.emplace<components::Script>(selected.m_selected);
-							script.load(file.value());
+							script.load(path);
 						}
 					}
 					else

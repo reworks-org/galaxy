@@ -417,9 +417,9 @@ namespace sc
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto data = fs.open(m_selected.m_path.string());
-			if (data.has_value())
+			if (!data.empty())
 			{
-				editor.m_editor.SetText(data.value());
+				editor.m_editor.SetText(data);
 				editor.m_file = m_selected.m_path;
 			}
 		}
@@ -428,15 +428,13 @@ namespace sc
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto list = fs.show_open_dialog_list();
-			if (list.has_value())
+			const auto list = fs.open_file_dialog_multi();
+			if (!list.empty())
 			{
-				auto& config = core::ServiceLocator<core::Config>::ref();
+				auto& config  = core::ServiceLocator<core::Config>::ref();
+				const auto to = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
 
-				const auto& paths = list.value();
-				const auto to     = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
-
-				for (const auto& path : paths)
+				for (const auto& path : list)
 				{
 					const auto fs_path = std::filesystem::path(path);
 					try

@@ -10,6 +10,7 @@
 
 #include <span>
 
+#include "galaxy/fs/DialogIcons.hpp"
 #include "galaxy/fs/FileInfo.hpp"
 #include "galaxy/utils/Globals.hpp"
 
@@ -73,18 +74,18 @@ namespace galaxy
 			///
 			/// \param file File to open.
 			///
-			/// \return Buffer in a std::string format holding read info.
+			/// \return Buffer in a std::string format holding read info. Empty if error.
 			///
-			[[nodiscard]] std::optional<std::string> open(std::string_view file);
+			[[nodiscard]] std::string open(std::string_view file);
 
 			///
 			/// Open a binary file and store in std::span.
 			///
 			/// \param file File to open.
 			///
-			/// \return Span buffer.
+			/// \return Char buffer using std::vector.
 			///
-			[[nodiscard]] std::optional<std::vector<char>> open_binary(std::string_view file);
+			[[nodiscard]] std::vector<char> open_binary(std::string_view file);
 
 			///
 			/// \brief Saves a string to a file.
@@ -94,7 +95,7 @@ namespace galaxy
 			/// \param data Data to write to file.
 			/// \param file File to save to.
 			///
-			/// \return Const bool. True if successful.
+			/// \return True if successful.
 			///
 			[[nodiscard]] bool save(const std::string& data, std::string_view file);
 
@@ -106,7 +107,7 @@ namespace galaxy
 			/// \param data Data to write to file.
 			/// \param file File to overwrite.
 			///
-			/// \return Const bool. True if successful.
+			/// \return True if successful.
 			///
 			[[nodiscard]] bool save_binary(std::span<char> data, std::string_view file);
 
@@ -131,66 +132,104 @@ namespace galaxy
 			void remove(std::string_view path);
 
 			///
-			/// Open an open file dialog using pfd.
+			/// Trigger a standard filesystem audio alert.
 			///
-			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
-			///					Defaults to all files.
-			/// \param def_path Default starting path to open dialog at.
-			///
-			/// \return String with path, nullopt if dialog closed or nothing selected.
-			///
-			[[nodiscard]] std::optional<std::string> show_open_dialog(const std::string& filter = "*", const std::string& def_path = "");
+			void alert();
 
 			///
-			/// Opens a file dialog to select a list of files to open.
+			/// Trigger a system notification.
 			///
-			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
-			///					Defaults to all files.
-			/// \param def_path Default starting path to open dialog at.
+			/// \param title Notification title.
+			/// \param msg Body text of notification.
+			/// \param icon Icon to display alongside text.
 			///
-			/// \return List of paths, nullopt if dialog closed or nothing selected.
-			///
-			[[nodiscard]] std::optional<std::vector<std::string>> show_open_dialog_list(const std::string& filter = "*", const std::string& def_path = "");
+			void trigger_notification(const std::string& title, const std::string& msg, const DialogIcon icon);
 
 			///
-			/// Open a save file dialog using pfd.
+			/// Open a file dialog.
+			///
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return String with path, empty if error.
+			///
+			[[nodiscard]] std::string open_file_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+
+			///
+			/// Open file dialog that supports multiple files.
+			///
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return Array of string paths, empty if error.
+			///
+			[[nodiscard]] std::vector<std::string> open_file_dialog_multi(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+
+			///
+			/// Open a save file dialog.
 			///
 			/// \param default_filename Default name to save file as.
-			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
-			///					Defaults to all files.
-			/// \return String with path, nullopt if dialog closed or nothing selected.
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
 			///
-			[[nodiscard]] std::optional<std::string> show_save_dialog(const std::string& default_filename, const std::string& filter = "*");
+			/// \return String with path, empty if error.
+			///
+			[[nodiscard]] std::string open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters = {});
 
 			///
-			/// Open a folder using a file dialog.
+			/// Select a folder using a dialog.
 			///
 			/// \param def_path Default starting path to open dialog at.
 			///
-			/// \return String with path, nullopt if dialog closed or nothing selected.
+			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::optional<std::string> show_folder_dialog(const std::string& def_path = "");
+			[[nodiscard]] std::string select_folder_dialog(const std::string& def_path = "");
 
 			///
-			/// Open a file using a dialog.
+			/// Open a file and store contents in std::string.
 			///
-			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
-			///					Defaults to all files.
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			/// \return String with path, nullopt if dialog closed or nothing selected.
+			/// \return Buffer in a std::string format holding read info. Empty if error.
 			///
-			[[nodiscard]] std::optional<std::string> open_with_dialog(const std::string& filter = "*", const std::string& def_path = "");
+			[[nodiscard]] std::string open_using_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
-			/// Save a file using a dialog.
+			/// Open a file and store contents in std::string.
+			///
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			/// \return Char buffer using std::vector.
+			///
+			[[nodiscard]] std::vector<char> open_binary_using_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+
+			///
+			/// \brief Saves a string to a file using a dialog.
+			///
+			/// Checks for existing file to overwrite first.
 			///
 			/// \param data Data to write to file.
 			/// \param default_filename Default name to save file as.
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
 			///
-			/// \return Const bool. True if successful.
+			/// \return True if successful.
 			///
-			[[nodiscard]] bool save_with_dialog(const std::string& data, const std::string& default_filename);
+			[[nodiscard]] bool save_using_dialog(const std::string& data, const std::string& default_filename, const std::vector<const char*>& filters = {});
+
+			///
+			/// \brief Saves binary data to a file using a dialog.
+			///
+			/// Checks for existing file to overwrite first.
+			///
+			/// \param data Data to write to file.
+			/// \param default_filename Default name to save file as.
+			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
+			///
+			/// \return True if successful.
+			///
+			[[nodiscard]] bool
+			save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const std::vector<const char*>& filters = {});
 
 			///
 			/// List contents of a directory in the VFS recursively.

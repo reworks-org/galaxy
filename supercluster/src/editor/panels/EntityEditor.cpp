@@ -569,11 +569,11 @@ namespace sc
 					draw_component<components::Script>(selected, "Script", [&](components::Script* script) {
 						if (ImGui::Button("Load"))
 						{
-							auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua");
-							if (file.has_value())
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.lua"});
+							if (!path.empty())
 							{
 								auto& script = selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected);
-								script.load(file.value());
+								script.load(path);
 							}
 						}
 

@@ -361,6 +361,7 @@
     <ClCompile Include="imgui\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -940,7 +941,6 @@
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
-    <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.c.h" />
     <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.h" />
     <ClInclude Include="sol3\include\sol\compatibility\compat-5.4.h" />
@@ -1379,6 +1379,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="zlib_ng_win\include\zconf.h" />
     <ClInclude Include="zlib_ng_win\include\zlib.h" />
+    <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

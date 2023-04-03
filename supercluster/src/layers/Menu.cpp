@@ -128,13 +128,13 @@ namespace sc
 	{
 		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-		auto file = fs.show_open_dialog("*.scproj", "editor_data/projects");
-		if (file.has_value())
+		const auto path = fs.open_file_dialog({"*.scproj"}, "../editor_data/projects");
+		if (!path.empty())
 		{
 			auto editor = m_scene->layers().get<sc::Editor>("Editor");
 			if (auto ptr = editor.lock())
 			{
-				ptr->load_project(file.value());
+				ptr->load_project(path);
 				m_scene->layers().pop();
 				m_scene->layers().push("Editor");
 			}

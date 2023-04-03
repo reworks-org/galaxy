@@ -64,15 +64,11 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Open & Run Script"))
 					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.lua", "scripts/");
-						if (path == std::nullopt)
-						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
-						}
-						else
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"}, "scripts/");
+						if (!path.empty())
 						{
 							std::ifstream ifs;
-							ifs.open(std::filesystem::path(path.value()).string(), std::ifstream::in);
+							ifs.open(std::filesystem::path(path).string(), std::ifstream::in);
 							m_buff = std::string((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
 
 							m_history.push_back("[SCRIPT]: ");
@@ -119,6 +115,10 @@ namespace sc
 
 							m_buff.clear();
 							ImGui::SetKeyboardFocusHere(-1);
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to open a file for Lua Console.");
 						}
 					}
 

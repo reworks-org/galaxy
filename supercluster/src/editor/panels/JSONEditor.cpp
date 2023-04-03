@@ -146,14 +146,14 @@ namespace sc
 
 					if (ImGui::MenuItem("Open"))
 					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.json");
-						if (path == std::nullopt)
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.json"});
+						if (!path.empty())
 						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to find file to open for JSONEditor panel.");
+							load_file(path);
 						}
 						else
 						{
-							load_file(path.value());
+							GALAXY_LOG(GALAXY_ERROR, "Failed to find file to open for JSONEditor panel.");
 						}
 					}
 
@@ -161,14 +161,14 @@ namespace sc
 					{
 						if (is_loaded())
 						{
-							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_save_dialog("untitled.json", "*.json");
-							if (path == std::nullopt)
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_save_dialog("untitled.json", {"*.json"});
+							if (!path.empty())
 							{
-								GALAXY_LOG(GALAXY_ERROR, "Failed to find file to save to for JSONEditor panel.");
+								save(path);
 							}
 							else
 							{
-								save(path.value());
+								GALAXY_LOG(GALAXY_ERROR, "Failed to find file to save to for JSONEditor panel.");
 							}
 						}
 					}

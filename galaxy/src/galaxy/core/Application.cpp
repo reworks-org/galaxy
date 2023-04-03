@@ -478,9 +478,9 @@ namespace galaxy
 			auto& manager = ServiceLocator<scene::SceneManager>::ref();
 
 			const auto default_data = fs.open(json_file);
-			if (default_data.has_value())
+			if (!default_data.empty())
 			{
-				const auto decoded_zlib   = algorithm::decode_zlib(default_data.value());
+				const auto decoded_zlib   = algorithm::decode_zlib(default_data);
 				const auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
 
 				manager.load(decoded_base64);

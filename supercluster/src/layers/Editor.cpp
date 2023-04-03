@@ -10,7 +10,6 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_addons/imgui_notify.h>
 #include <nlohmann/json.hpp>
-#include <portable-file-dialogs.h>
 
 #include <galaxy/algorithm/Base64.hpp>
 #include <galaxy/algorithm/ZLib.hpp>
@@ -254,10 +253,10 @@ namespace sc
 
 		if (m_current_project_path.empty() || save_as)
 		{
-			const auto sp_opt = fs.show_save_dialog("untitled.scproj", "*.scproj");
-			if (sp_opt.has_value())
+			auto sp_opt = fs.open_save_dialog("untitled.scproj", {"*.scproj"});
+			if (!sp_opt.empty())
 			{
-				m_current_project_path = sp_opt.value();
+				m_current_project_path = std::move(sp_opt);
 			}
 		}
 
@@ -434,10 +433,10 @@ namespace sc
 				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
 					m_update_stack.emplace_back([&]() {
-						auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
-						if (file.has_value())
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.scproj"}, "../editor_data/projects");
+						if (!path.empty())
 						{
-							load_project(file.value());
+							load_project(path);
 						}
 						else
 						{
@@ -612,10 +611,10 @@ namespace sc
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_O))
 		{
 			m_update_stack.emplace_back([&]() {
-				auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().show_open_dialog("*.scproj", "editor_data/projects");
-				if (file.has_value())
+				const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.scproj"}, "../editor_data/projects");
+				if (!path.empty())
 				{
-					load_project(file.value());
+					load_project(path);
 				}
 			});
 		}
@@ -876,12 +875,12 @@ namespace sc
 			if (const auto payload = ImGui::AcceptDragDropPayload("AssetPanelItem"))
 			{
 				const char* path = static_cast<const char*>(payload->Data);
+				const auto data  = core::ServiceLocator<fs::VirtualFileSystem>::ref().open(path);
 
-				const auto file = core::ServiceLocator<fs::VirtualFileSystem>::ref().open(path);
-				if (file.has_value())
+				if (!data.empty())
 				{
-					m_code_editor.m_editor.SetText(file.value());
-					m_code_editor.m_file = std::filesystem::path(path);
+					m_code_editor.m_editor.SetText(data);
+					m_code_editor.m_file = path;
 				}
 				else
 				{
@@ -924,13 +923,15 @@ namespace sc
 
 			if (ImGui::MenuItem("Open"))
 			{
-				auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-				const auto file = fs.show_open_dialog("*.lua", "scripts");
+				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-				if (file.has_value())
+				const auto path = fs.open_file_dialog({"*.lua"}, "scripts/");
+				const auto data = fs.open(path);
+
+				if (!path.empty() && !data.empty())
 				{
-					m_code_editor.m_editor.SetText(fs.open(file.value()).value());
-					m_code_editor.m_file = file.value();
+					m_code_editor.m_editor.SetText(data);
+					m_code_editor.m_file = path;
 				}
 				else
 				{
@@ -942,24 +943,25 @@ namespace sc
 			{
 				if (m_code_editor.m_file.empty())
 				{
-					auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-					const auto file = fs.show_save_dialog("untitled.lua", "*.lua");
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-					if (file.has_value())
-					{
-						m_code_editor.m_file = file.value();
-					}
+					const auto path = fs.open_save_dialog("untitled.lua", {"*.lua"});
 
-					if (!fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string()))
+					if (!path.empty())
 					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+						m_code_editor.m_file = path;
+
+						if (!fs.save(m_code_editor.m_editor.GetText(), m_code_editor.m_file.string()))
+						{
+							ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+						}
 					}
 				}
 			}
 
 			if (ImGui::MenuItem("Save as..."))
 			{
-				if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().save_with_dialog(m_code_editor.m_editor.GetText(), "untitled.lua"))
+				if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().save_using_dialog(m_code_editor.m_editor.GetText(), "untitled.lua", {"*.lua"}))
 				{
 					ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
 				}

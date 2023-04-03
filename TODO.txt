@@ -5,6 +5,4 @@ https://github.com/pvigier/Quadtree
 https://learnopengl.com/Guest-Articles/2021/Scene/Scene-Graph
 https://github.com/RandyGaul/cute_headers
 
-copy assets to export
-
 differentiate between project data and save data

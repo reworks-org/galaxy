@@ -370,6 +370,7 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2f.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="stb\include\stb_vorbis.c" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
@@ -981,7 +982,6 @@
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
     <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
     <ClInclude Include="msdfgl\include\_msdfgl_shaders.h" />
-    <ClInclude Include="pfd\portable-file-dialogs.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Config\Config.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Animation.h" />
@@ -1381,6 +1381,7 @@
     <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
     <ClInclude Include="tileson\include\tileson.hpp" />
+    <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
     <ClInclude Include="zlib_ng_win\include\zconf.h" />
@@ -1629,7 +1630,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1686,7 +1687,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/pfd;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
