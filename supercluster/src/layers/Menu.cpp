@@ -22,7 +22,7 @@ namespace sc
 		: Layer {name, scene}
 		, m_load {false}
 	{
-		m_bg.load("editor_data/sc.png");
+		m_bg.load("../editor_data/sc.png");
 		m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}

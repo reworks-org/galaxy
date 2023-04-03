@@ -57,14 +57,14 @@ int main(int argsc, char* argsv[])
 				auto& config = core::ServiceLocator<core::Config>::ref();
 				auto root    = config.get<std::string>("asset_dir");
 
-				if (!std::filesystem::exists(root + "editor_data"))
+				if (!std::filesystem::exists(root + "../editor_data"))
 				{
-					std::filesystem::create_directory(root + "editor_data");
+					std::filesystem::create_directory(root + "../editor_data");
 				}
 
-				if (!std::filesystem::exists(root + "editor_data/projects"))
+				if (!std::filesystem::exists(root + "../editor_data/projects"))
 				{
-					std::filesystem::create_directory(root + "editor_data/projects");
+					std::filesystem::create_directory(root + "../editor_data/projects");
 				}
 
 				ImGuiIO& io    = ui::imgui_init_context();

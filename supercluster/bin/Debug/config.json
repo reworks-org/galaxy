@@ -17,6 +17,7 @@
             "ppm": 64.0,
             "velocity_iterations": 8
         },
+        "compressed_assets": "assets.zip",
         "default_lang": "en_au",
         "editor": {
             "autosave_interval_seconds": 300,
@@ -40,8 +41,8 @@
         },
         "load_screen_rml": "ui/load.rml",
         "loading": {
-            "bg": "editor_data/load.png",
-            "font": "editor_data/secret_code.ttf"
+            "bg": "../editor_data/load.png",
+            "font": "../editor_data/secret_code.ttf"
         },
         "log_performance": false,
         "resource_folders": {
@@ -63,7 +64,7 @@
             "cursor_icon": "",
             "debug": true,
             "height": 512,
-            "icon": "editor_data/sc.png",
+            "icon": "../editor_data/sc.png",
             "maximized": false,
             "scale_to_monitor": true,
             "title": "supercluster",

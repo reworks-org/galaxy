@@ -40,15 +40,15 @@ namespace sc
 		m_framebuffer.create(1, 1);
 		m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
 
-		m_resume_play.load("editor_data/icons/resume_play.png");
+		m_resume_play.load("../editor_data/icons/resume_play.png");
 		m_resume_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_resume_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-		m_play.load("editor_data/icons/play.png");
+		m_play.load("../editor_data/icons/play.png");
 		m_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-		m_stop.load("editor_data/icons/stop.png");
+		m_stop.load("../editor_data/icons/stop.png");
 		m_stop.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_stop.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
@@ -530,7 +530,7 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Tiled", "Ctrl+Shift+T"))
 				{
-					m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "editor_data/tools/tiled/tiled.exe");
+					m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/tiled/tiled.exe");
 				}
 
 				ImGui::EndMenu();
@@ -639,7 +639,7 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_T))
 		{
-			m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "editor_data/tools/tiled/tiled.exe");
+			m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/tiled/tiled.exe");
 		}
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_R))
@@ -1057,10 +1057,6 @@ namespace sc
 		for (const auto& entry : std::filesystem::directory_iterator(path))
 		{
 			const auto entry_path = std::filesystem::path(entry);
-			if (entry_path.stem() == "editor_data")
-			{
-				continue;
-			}
 
 			if (entry.is_directory())
 			{

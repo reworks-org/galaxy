@@ -40,67 +40,67 @@ namespace sc
 			config.restore("thumb_size", m_thumb_size, "editor");
 			config.save();
 
-			m_audio.load("editor_data/icons/audio.png");
+			m_audio.load("../editor_data/icons/audio.png");
 			m_audio.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_audio.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_backward.load("editor_data/icons/backward.png");
+			m_backward.load("../editor_data/icons/backward.png");
 			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_cog.load("editor_data/icons/cog.png");
+			m_cog.load("../editor_data/icons/cog.png");
 			m_cog.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_cog.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_file.load("editor_data/icons/file.png");
+			m_file.load("../editor_data/icons/file.png");
 			m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_folder.load("editor_data/icons/folder.png");
+			m_folder.load("../editor_data/icons/folder.png");
 			m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_font.load("editor_data/icons/font.png");
+			m_font.load("../editor_data/icons/font.png");
 			m_font.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_font.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_forward.load("editor_data/icons/forward.png");
+			m_forward.load("../editor_data/icons/forward.png");
 			m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_glsl.load("editor_data/icons/glsl.png");
+			m_glsl.load("../editor_data/icons/glsl.png");
 			m_glsl.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_glsl.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_json.load("editor_data/icons/json.png");
+			m_json.load("../editor_data/icons/json.png");
 			m_json.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_json.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_lang.load("editor_data/icons/lang.png");
+			m_lang.load("../editor_data/icons/lang.png");
 			m_lang.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_lang.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_lua.load("editor_data/icons/lua.png");
+			m_lua.load("../editor_data/icons/lua.png");
 			m_lua.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_lua.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_proj.load("editor_data/icons/proj.png");
+			m_proj.load("../editor_data/icons/proj.png");
 			m_proj.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_proj.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_texture.load("editor_data/icons/texture.png");
+			m_texture.load("../editor_data/icons/texture.png");
 			m_texture.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_texture.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_reload.load("editor_data/icons/reload.png");
+			m_reload.load("../editor_data/icons/reload.png");
 			m_reload.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_reload.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_map.load("editor_data/icons/map.png");
+			m_map.load("../editor_data/icons/map.png");
 			m_map.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_map.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_prefab.load("editor_data/icons/prefab.png");
+			m_prefab.load("../editor_data/icons/prefab.png");
 			m_prefab.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_prefab.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
