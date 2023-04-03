@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['texturefilters_3037',['TextureFilters',['../db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45',1,'galaxy::graphics']]],
-  ['texturemodes_3038',['TextureModes',['../db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6b',1,'galaxy::graphics']]],
-  ['type_3039',['Type',['../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7',1,'galaxy::audio::Sound']]]
+  ['scissoringstate_3050',['ScissoringState',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aefe0cec5bb643b66091e453ac08b6c70',1,'galaxy::ui::RMLRenderer']]],
+  ['shape_3051',['Shape',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578',1,'galaxy::graphics']]],
+  ['storageflag_3052',['StorageFlag',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c',1,'galaxy::graphics']]],
+  ['strength_3053',['Strength',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3fed',1,'galaxy::graphics::GaussianBlur']]]
 ];

@@ -1,9 +1,10 @@
 <map id="galaxy/src/galaxy/fs/VirtualFileSystem.hpp" name="galaxy/src/galaxy/fs/VirtualFileSystem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="79,5,249,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="194,5,363,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,59,121"/>
-<area shape="rect" id="node3" href="$d5/d4b/FileInfo_8hpp.html" title=" " alt="" coords="83,95,245,121"/>
-<area shape="rect" id="node6" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="269,95,448,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="241,169,332,196"/>
-<area shape="rect" id="node5" href="$d7/d75/FileCode_8hpp.html" title=" " alt="" coords="47,169,217,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="356,169,423,196"/>
+<area shape="rect" id="node3" href="$d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="83,95,274,121"/>
+<area shape="rect" id="node4" href="$d5/d4b/FileInfo_8hpp.html" title=" " alt="" coords="299,95,461,121"/>
+<area shape="rect" id="node7" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="485,95,664,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="457,169,548,196"/>
+<area shape="rect" id="node6" href="$d7/d75/FileCode_8hpp.html" title=" " alt="" coords="263,169,433,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="572,169,639,196"/>
 </map>

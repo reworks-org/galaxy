@@ -127,12 +127,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8fd15a9b4419174eb1a61756e58e6408"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8fd15a9b4419174eb1a61756e58e6408">create_folder</a> (std::string_view path)</td></tr>
 <tr class="memdesc:a8fd15a9b4419174eb1a61756e58e6408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty folder in the filesystem relative to the root.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8fd15a9b4419174eb1a61756e58e6408">More...</a><br /></td></tr>
 <tr class="separator:a8fd15a9b4419174eb1a61756e58e6408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae207b80673ecb92e254141ef5164e65d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae207b80673ecb92e254141ef5164e65d">open</a> (std::string_view file)</td></tr>
-<tr class="memdesc:ae207b80673ecb92e254141ef5164e65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file and store contents in std::string.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae207b80673ecb92e254141ef5164e65d">More...</a><br /></td></tr>
-<tr class="separator:ae207b80673ecb92e254141ef5164e65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1912c156ab151d99d585290e74d70e4b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::vector&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1912c156ab151d99d585290e74d70e4b">open_binary</a> (std::string_view file)</td></tr>
-<tr class="memdesc:a1912c156ab151d99d585290e74d70e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a binary file and store in std::span.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1912c156ab151d99d585290e74d70e4b">More...</a><br /></td></tr>
-<tr class="separator:a1912c156ab151d99d585290e74d70e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe931442476975b3e68378479252223b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b">open</a> (std::string_view file)</td></tr>
+<tr class="memdesc:abe931442476975b3e68378479252223b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file and store contents in std::string.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b">More...</a><br /></td></tr>
+<tr class="separator:abe931442476975b3e68378479252223b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a3288361a33118e44eaf89081d52f9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9">open_binary</a> (std::string_view file)</td></tr>
+<tr class="memdesc:a12a3288361a33118e44eaf89081d52f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a binary file and store in std::span.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9">More...</a><br /></td></tr>
+<tr class="separator:a12a3288361a33118e44eaf89081d52f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae67a025349dfefc812004e909db6d202"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202">save</a> (const std::string &amp;data, std::string_view file)</td></tr>
 <tr class="memdesc:ae67a025349dfefc812004e909db6d202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a string to a file.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202">More...</a><br /></td></tr>
 <tr class="separator:ae67a025349dfefc812004e909db6d202"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,24 +145,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9e33189756bb027735e1c9bf7e3fcf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae9e33189756bb027735e1c9bf7e3fcf6">remove</a> (std::string_view path)</td></tr>
 <tr class="memdesc:ae9e33189756bb027735e1c9bf7e3fcf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a file or folder.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae9e33189756bb027735e1c9bf7e3fcf6">More...</a><br /></td></tr>
 <tr class="separator:ae9e33189756bb027735e1c9bf7e3fcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55507cd739746a95e816e5740d781073"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a55507cd739746a95e816e5740d781073">show_open_dialog</a> (const std::string &amp;filter=&quot;*&quot;, const std::string &amp;def_path=&quot;&quot;)</td></tr>
-<tr class="memdesc:a55507cd739746a95e816e5740d781073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an open file dialog using pfd.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a55507cd739746a95e816e5740d781073">More...</a><br /></td></tr>
-<tr class="separator:a55507cd739746a95e816e5740d781073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5b9af18b26d6dfe033a4b6e232bf95"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aca5b9af18b26d6dfe033a4b6e232bf95">show_open_dialog_list</a> (const std::string &amp;filter=&quot;*&quot;, const std::string &amp;def_path=&quot;&quot;)</td></tr>
-<tr class="memdesc:aca5b9af18b26d6dfe033a4b6e232bf95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file dialog to select a list of files to open.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aca5b9af18b26d6dfe033a4b6e232bf95">More...</a><br /></td></tr>
-<tr class="separator:aca5b9af18b26d6dfe033a4b6e232bf95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23e588037fdb2e88049e62639f1c24df"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a23e588037fdb2e88049e62639f1c24df">show_save_dialog</a> (const std::string &amp;default_filename, const std::string &amp;filter=&quot;*&quot;)</td></tr>
-<tr class="memdesc:a23e588037fdb2e88049e62639f1c24df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a save file dialog using pfd.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a23e588037fdb2e88049e62639f1c24df">More...</a><br /></td></tr>
-<tr class="separator:a23e588037fdb2e88049e62639f1c24df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacd219cd749af8bf17a17849b845b2de"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aacd219cd749af8bf17a17849b845b2de">show_folder_dialog</a> (const std::string &amp;def_path=&quot;&quot;)</td></tr>
-<tr class="memdesc:aacd219cd749af8bf17a17849b845b2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a folder using a file dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aacd219cd749af8bf17a17849b845b2de">More...</a><br /></td></tr>
-<tr class="separator:aacd219cd749af8bf17a17849b845b2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9eccdab4d88a26a3e47393a0d3eac01"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01">open_with_dialog</a> (const std::string &amp;filter=&quot;*&quot;, const std::string &amp;def_path=&quot;&quot;)</td></tr>
-<tr class="memdesc:ac9eccdab4d88a26a3e47393a0d3eac01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file using a dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01">More...</a><br /></td></tr>
-<tr class="separator:ac9eccdab4d88a26a3e47393a0d3eac01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e97a55d8b375591d85fb74451e81047"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047">save_with_dialog</a> (const std::string &amp;data, const std::string &amp;default_filename)</td></tr>
-<tr class="memdesc:a4e97a55d8b375591d85fb74451e81047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a file using a dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047">More...</a><br /></td></tr>
-<tr class="separator:a4e97a55d8b375591d85fb74451e81047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a299c506384a5704e1b2ffa48cbf5c44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a299c506384a5704e1b2ffa48cbf5c44e">alert</a> ()</td></tr>
+<tr class="memdesc:a299c506384a5704e1b2ffa48cbf5c44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger a standard filesystem audio alert.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a299c506384a5704e1b2ffa48cbf5c44e">More...</a><br /></td></tr>
+<tr class="separator:a299c506384a5704e1b2ffa48cbf5c44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eae9f755c9c07a697c1d9f224b911e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a6eae9f755c9c07a697c1d9f224b911e0">trigger_notification</a> (const std::string &amp;title, const std::string &amp;msg, const <a class="el" href="../../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13">DialogIcon</a> icon)</td></tr>
+<tr class="memdesc:a6eae9f755c9c07a697c1d9f224b911e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger a system notification.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a6eae9f755c9c07a697c1d9f224b911e0">More...</a><br /></td></tr>
+<tr class="separator:a6eae9f755c9c07a697c1d9f224b911e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae6c8eabf6a33d372e65c4fa71c87e14"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14">open_file_dialog</a> (const std::vector&lt; const char * &gt; &amp;filters={}, const std::string &amp;def_path=&quot;&quot;)</td></tr>
+<tr class="memdesc:aae6c8eabf6a33d372e65c4fa71c87e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14">More...</a><br /></td></tr>
+<tr class="separator:aae6c8eabf6a33d372e65c4fa71c87e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b629653349849a8f01f84eada0d2fb9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b629653349849a8f01f84eada0d2fb9">open_file_dialog_multi</a> (const std::vector&lt; const char * &gt; &amp;filters={}, const std::string &amp;def_path=&quot;&quot;)</td></tr>
+<tr class="memdesc:a8b629653349849a8f01f84eada0d2fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open file dialog that supports multiple files.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b629653349849a8f01f84eada0d2fb9">More...</a><br /></td></tr>
+<tr class="separator:a8b629653349849a8f01f84eada0d2fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabafca0b5522d2a3e9286dfc7a9bf481"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481">open_save_dialog</a> (const std::string &amp;default_filename, const std::vector&lt; const char * &gt; &amp;filters={})</td></tr>
+<tr class="memdesc:aabafca0b5522d2a3e9286dfc7a9bf481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a save file dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481">More...</a><br /></td></tr>
+<tr class="separator:aabafca0b5522d2a3e9286dfc7a9bf481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44948c8e8b112f2bd0b1a604756644b7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7">select_folder_dialog</a> (const std::string &amp;def_path=&quot;&quot;)</td></tr>
+<tr class="memdesc:a44948c8e8b112f2bd0b1a604756644b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a folder using a dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7">More...</a><br /></td></tr>
+<tr class="separator:a44948c8e8b112f2bd0b1a604756644b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d01acfe01a5f6b199eab67710b72216"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216">open_using_dialog</a> (const std::vector&lt; const char * &gt; &amp;filters={}, const std::string &amp;def_path=&quot;&quot;)</td></tr>
+<tr class="memdesc:a9d01acfe01a5f6b199eab67710b72216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file and store contents in std::string.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216">More...</a><br /></td></tr>
+<tr class="separator:a9d01acfe01a5f6b199eab67710b72216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abde95a9c7669835dd9588bc0404fbd25"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25">open_binary_using_dialog</a> (const std::vector&lt; const char * &gt; &amp;filters={}, const std::string &amp;def_path=&quot;&quot;)</td></tr>
+<tr class="memdesc:abde95a9c7669835dd9588bc0404fbd25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file and store contents in std::string.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25">More...</a><br /></td></tr>
+<tr class="separator:abde95a9c7669835dd9588bc0404fbd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7779a33f24aad54858838a5b51e6d09b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b">save_using_dialog</a> (const std::string &amp;data, const std::string &amp;default_filename, const std::vector&lt; const char * &gt; &amp;filters={})</td></tr>
+<tr class="memdesc:a7779a33f24aad54858838a5b51e6d09b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a string to a file using a dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b">More...</a><br /></td></tr>
+<tr class="separator:a7779a33f24aad54858838a5b51e6d09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e803bca503aa5170ade31d2fe5e24b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0">save_binary_using_dialog</a> (std::span&lt; char &gt; data, const std::string &amp;default_filename, const std::vector&lt; const char * &gt; &amp;filters={})</td></tr>
+<tr class="memdesc:a1e803bca503aa5170ade31d2fe5e24b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves binary data to a file using a dialog.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0">More...</a><br /></td></tr>
+<tr class="separator:a1e803bca503aa5170ade31d2fe5e24b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87ec44a2b370122b7611633c12c5e9e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a87ec44a2b370122b7611633c12c5e9e0">list_directory</a> (std::string_view path)</td></tr>
 <tr class="memdesc:a87ec44a2b370122b7611633c12c5e9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">List contents of a directory in the VFS recursively.  <a href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a87ec44a2b370122b7611633c12c5e9e0">More...</a><br /></td></tr>
 <tr class="separator:a87ec44a2b370122b7611633c12c5e9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,7 +212,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File System to make managing files easier. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">VirtualFileSystem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">VirtualFileSystem.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae0a7f426547f64140d3ed59568bba4b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0a7f426547f64140d3ed59568bba4b4">&#9670;&nbsp;</a></span>VirtualFileSystem() <span class="overload">[1/4]</span></h2>
@@ -226,7 +238,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -377,7 +389,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Path as a filesystem, string and a code to process what happened. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -385,17 +397,19 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4581e0c9f3fb90e13c0f187e53ef3554_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4581e0c9f3fb90e13c0f187e53ef3554_icgraph" alt=""/></div>
 <map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4581e0c9f3fb90e13c0f187e53ef3554_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4581e0c9f3fb90e13c0f187e53ef3554_icgraph">
-<area shape="rect" title="Retrieve the absolute position of a file to load." alt="" coords="748,188,956,229"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="492,123,700,164"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="271,188,409,229"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="492,188,700,229"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae207b80673ecb92e254141ef5164e65d" title="Open a file and store contents in std::string." alt="" coords="492,319,700,360"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1912c156ab151d99d585290e74d70e4b" title="Open a binary file and store in std::span." alt="" coords="492,253,700,295"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="492,384,700,425"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="492,5,700,47"/>
-<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,188,188,229"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01" title="Open a file using a dialog." alt="" coords="236,319,444,360"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047" title="Save a file using a dialog." alt="" coords="236,384,444,425"/>
+<area shape="rect" title="Retrieve the absolute position of a file to load." alt="" coords="933,203,1141,244"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,283,373,324"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="677,129,885,171"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b" title="Open a file and store contents in std::string." alt="" coords="677,203,885,244"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9" title="Open a binary file and store in std::span." alt="" coords="677,283,885,324"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="677,400,885,441"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="677,517,885,559"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,283,188,324"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="421,224,629,265"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="421,341,629,383"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="421,459,629,500"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="421,576,629,617"/>
 </map>
 </div>
 
@@ -437,7 +451,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if creation successful, false if failed or file already exists. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00104">104</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -489,7 +503,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if creation successful, false if failed or folder already exists. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00135">135</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00142">142</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -505,14 +519,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae207b80673ecb92e254141ef5164e65d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae207b80673ecb92e254141ef5164e65d">&#9670;&nbsp;</a></span>open()</h2>
+<a id="abe931442476975b3e68378479252223b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe931442476975b3e68378479252223b">&#9670;&nbsp;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::string &gt; galaxy::fs::VirtualFileSystem::open </td>
+          <td class="memname">std::string galaxy::fs::VirtualFileSystem::open </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>file</em></td><td>)</td>
@@ -528,16 +542,16 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Buffer in a std::string format holding read info. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Buffer in a std::string format holding read info. Empty if error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00188">188</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00195">195</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_cgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_cgraph">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_cgraph">
 <area shape="rect" title="Open a file and store contents in std::string." alt="" coords="5,5,213,47"/>
 <area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="261,5,469,47"/>
 </map>
@@ -547,25 +561,25 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_icgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae207b80673ecb92e254141ef5164e65d_icgraph">
-<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="492,39,700,80"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="271,5,409,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01" title="Open a file using a dialog." alt="" coords="236,71,444,112"/>
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abe931442476975b3e68378479252223b_icgraph">
+<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="677,5,885,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="421,35,629,76"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1912c156ab151d99d585290e74d70e4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1912c156ab151d99d585290e74d70e4b">&#9670;&nbsp;</a></span>open_binary()</h2>
+<a id="a12a3288361a33118e44eaf89081d52f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a3288361a33118e44eaf89081d52f9">&#9670;&nbsp;</a></span>open_binary()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::vector&lt; char &gt; &gt; galaxy::fs::VirtualFileSystem::open_binary </td>
+          <td class="memname">std::vector&lt; char &gt; galaxy::fs::VirtualFileSystem::open_binary </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>file</em></td><td>)</td>
@@ -581,16 +595,16 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Span buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Char buffer using std::vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00216">216</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00227">227</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_cgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_cgraph">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_cgraph">
 <area shape="rect" title="Open a binary file and store in std::span." alt="" coords="5,5,213,47"/>
 <area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="261,5,469,47"/>
 </map>
@@ -600,10 +614,11 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_icgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1912c156ab151d99d585290e74d70e4b_icgraph">
-<area shape="rect" title="Open a binary file and store in std::span." alt="" coords="421,5,629,47"/>
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a12a3288361a33118e44eaf89081d52f9_icgraph">
+<area shape="rect" title="Open a binary file and store in std::span." alt="" coords="677,5,885,47"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="421,35,629,76"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -645,9 +660,9 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const bool. True if successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00251">251</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -666,9 +681,9 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae67a025349dfefc812004e909db6d202_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae67a025349dfefc812004e909db6d202_icgraph" alt=""/></div>
 <map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae67a025349dfefc812004e909db6d202_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ae67a025349dfefc812004e909db6d202_icgraph">
-<area shape="rect" title="Saves a string to a file." alt="" coords="492,39,700,80"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="271,5,409,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047" title="Save a file using a dialog." alt="" coords="236,71,444,112"/>
+<area shape="rect" title="Saves a string to a file." alt="" coords="677,5,885,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="421,35,629,76"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -710,9 +725,9 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const bool. True if successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00280">280</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00298">298</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
@@ -731,8 +746,9 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b6ed6d46b9d8395185b79faa1615baf_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b6ed6d46b9d8395185b79faa1615baf_icgraph" alt=""/></div>
 <map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b6ed6d46b9d8395185b79faa1615baf_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b6ed6d46b9d8395185b79faa1615baf_icgraph">
-<area shape="rect" title="Saves binary data to a file." alt="" coords="421,5,629,47"/>
+<area shape="rect" title="Saves binary data to a file." alt="" coords="677,5,885,47"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="421,35,629,76"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -765,7 +781,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00309">309</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00330">330</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary" style="display:block;">
@@ -817,7 +833,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00315">315</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00336">336</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
@@ -833,68 +849,108 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a55507cd739746a95e816e5740d781073"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55507cd739746a95e816e5740d781073">&#9670;&nbsp;</a></span>show_open_dialog()</h2>
+<a id="a299c506384a5704e1b2ffa48cbf5c44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299c506384a5704e1b2ffa48cbf5c44e">&#9670;&nbsp;</a></span>alert()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::string &gt; galaxy::fs::VirtualFileSystem::show_open_dialog </td>
+          <td class="memname">void galaxy::fs::VirtualFileSystem::alert </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;*&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>def_path</em> = <code>&quot;&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Open an open file dialog using pfd. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filter</td><td>See: <a href="https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md">https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md</a>. Defaults to all files. </td></tr>
-    <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>String with path, nullopt if dialog closed or nothing selected. </dd></dl>
+<p>Trigger a standard filesystem audio alert. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00342">342</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00363">363</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 <div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a55507cd739746a95e816e5740d781073_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a55507cd739746a95e816e5740d781073_icgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a55507cd739746a95e816e5740d781073_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a55507cd739746a95e816e5740d781073_icgraph">
-<area shape="rect" title="Open an open file dialog using pfd." alt="" coords="261,5,469,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac9eccdab4d88a26a3e47393a0d3eac01" title="Open a file using a dialog." alt="" coords="5,5,213,47"/>
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a299c506384a5704e1b2ffa48cbf5c44e_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a299c506384a5704e1b2ffa48cbf5c44e_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a299c506384a5704e1b2ffa48cbf5c44e_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a299c506384a5704e1b2ffa48cbf5c44e_icgraph">
+<area shape="rect" title="Trigger a standard filesystem audio alert." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aca5b9af18b26d6dfe033a4b6e232bf95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca5b9af18b26d6dfe033a4b6e232bf95">&#9670;&nbsp;</a></span>show_open_dialog_list()</h2>
+<a id="a6eae9f755c9c07a697c1d9f224b911e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eae9f755c9c07a697c1d9f224b911e0">&#9670;&nbsp;</a></span>trigger_notification()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::vector&lt; std::string &gt; &gt; galaxy::fs::VirtualFileSystem::show_open_dialog_list </td>
+          <td class="memname">void galaxy::fs::VirtualFileSystem::trigger_notification </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;*&quot;</code>, </td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13">DialogIcon</a>&#160;</td>
+          <td class="paramname"><em>icon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trigger a system notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Notification title. </td></tr>
+    <tr><td class="paramname">msg</td><td>Body text of notification. </td></tr>
+    <tr><td class="paramname">icon</td><td>Icon to display alongside text. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00368">368</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a6eae9f755c9c07a697c1d9f224b911e0_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a6eae9f755c9c07a697c1d9f224b911e0_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a6eae9f755c9c07a697c1d9f224b911e0_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a6eae9f755c9c07a697c1d9f224b911e0_icgraph">
+<area shape="rect" title="Trigger a system notification." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aae6c8eabf6a33d372e65c4fa71c87e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6c8eabf6a33d372e65c4fa71c87e14">&#9670;&nbsp;</a></span>open_file_dialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string galaxy::fs::VirtualFileSystem::open_file_dialog </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -910,28 +966,105 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Opens a file dialog to select a list of files to open. </p>
+<p>Open a file dialog. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filter</td><td>See: <a href="https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md">https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md</a>. Defaults to all files. </td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc. </td></tr>
     <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>List of paths, nullopt if dialog closed or nothing selected. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String with path, empty if error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00364">364</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00374">374</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aae6c8eabf6a33d372e65c4fa71c87e14_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aae6c8eabf6a33d372e65c4fa71c87e14_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aae6c8eabf6a33d372e65c4fa71c87e14_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aae6c8eabf6a33d372e65c4fa71c87e14_icgraph">
+<area shape="rect" title="Open a file dialog." alt="" coords="677,27,885,68"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,27,373,68"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="421,27,629,68"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="421,92,629,133"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,27,188,68"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a23e588037fdb2e88049e62639f1c24df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23e588037fdb2e88049e62639f1c24df">&#9670;&nbsp;</a></span>show_save_dialog()</h2>
+<a id="a8b629653349849a8f01f84eada0d2fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b629653349849a8f01f84eada0d2fb9">&#9670;&nbsp;</a></span>open_file_dialog_multi()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::string &gt; galaxy::fs::VirtualFileSystem::show_save_dialog </td>
+          <td class="memname">std::vector&lt; std::string &gt; galaxy::fs::VirtualFileSystem::open_file_dialog_multi </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>def_path</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Open file dialog that supports multiple files. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc. </td></tr>
+    <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Array of string paths, empty if error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00391">391</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_cgraph">
+<area shape="rect" title="Open file dialog that supports multiple files." alt="" coords="5,5,213,47"/>
+<area shape="rect" href="../../db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b" title="Split a string based on a delimiter." alt="" coords="261,13,416,39"/>
+</map>
+</div>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a8b629653349849a8f01f84eada0d2fb9_icgraph">
+<area shape="rect" title="Open file dialog that supports multiple files." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aabafca0b5522d2a3e9286dfc7a9bf481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabafca0b5522d2a3e9286dfc7a9bf481">&#9670;&nbsp;</a></span>open_save_dialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string galaxy::fs::VirtualFileSystem::open_save_dialog </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>default_filename</em>, </td>
@@ -939,8 +1072,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;*&quot;</code>&#160;</td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -950,39 +1083,42 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Open a save file dialog using pfd. </p>
+<p>Open a save file dialog. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">default_filename</td><td>Default name to save file as. </td></tr>
-    <tr><td class="paramname">filter</td><td>See: <a href="https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md">https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md</a>. Defaults to all files. </td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>String with path, nullopt if dialog closed or nothing selected. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String with path, empty if error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00386">386</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00408">408</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a23e588037fdb2e88049e62639f1c24df_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a23e588037fdb2e88049e62639f1c24df_icgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a23e588037fdb2e88049e62639f1c24df_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a23e588037fdb2e88049e62639f1c24df_icgraph">
-<area shape="rect" title="Open a save file dialog using pfd." alt="" coords="261,5,469,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4e97a55d8b375591d85fb74451e81047" title="Save a file using a dialog." alt="" coords="5,5,213,47"/>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aabafca0b5522d2a3e9286dfc7a9bf481_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aabafca0b5522d2a3e9286dfc7a9bf481_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aabafca0b5522d2a3e9286dfc7a9bf481_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aabafca0b5522d2a3e9286dfc7a9bf481_icgraph">
+<area shape="rect" title="Open a save file dialog." alt="" coords="677,27,885,68"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,27,373,68"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="421,27,629,68"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="421,92,629,133"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,27,188,68"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aacd219cd749af8bf17a17849b845b2de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacd219cd749af8bf17a17849b845b2de">&#9670;&nbsp;</a></span>show_folder_dialog()</h2>
+<a id="a44948c8e8b112f2bd0b1a604756644b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44948c8e8b112f2bd0b1a604756644b7">&#9670;&nbsp;</a></span>select_folder_dialog()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::string &gt; galaxy::fs::VirtualFileSystem::show_folder_dialog </td>
+          <td class="memname">std::string galaxy::fs::VirtualFileSystem::select_folder_dialog </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>def_path</em> = <code>&quot;&quot;</code></td><td>)</td>
@@ -991,30 +1127,42 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Open a folder using a file dialog. </p>
+<p>Select a folder using a dialog. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>String with path, nullopt if dialog closed or nothing selected. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String with path, empty if error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00401">401</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00423">423</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a44948c8e8b112f2bd0b1a604756644b7_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a44948c8e8b112f2bd0b1a604756644b7_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a44948c8e8b112f2bd0b1a604756644b7_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a44948c8e8b112f2bd0b1a604756644b7_icgraph">
+<area shape="rect" title="Select a folder using a dialog." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ac9eccdab4d88a26a3e47393a0d3eac01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9eccdab4d88a26a3e47393a0d3eac01">&#9670;&nbsp;</a></span>open_with_dialog()</h2>
+<a id="a9d01acfe01a5f6b199eab67710b72216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d01acfe01a5f6b199eab67710b72216">&#9670;&nbsp;</a></span>open_using_dialog()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; std::string &gt; galaxy::fs::VirtualFileSystem::open_with_dialog </td>
+          <td class="memname">std::string galaxy::fs::VirtualFileSystem::open_using_dialog </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>&quot;*&quot;</code>, </td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1030,50 +1178,62 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Open a file using a dialog. </p>
+<p>Open a file and store contents in std::string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filter</td><td>See: <a href="https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md">https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md</a>. Defaults to all files. </td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc. </td></tr>
     <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>String with path, nullopt if dialog closed or nothing selected. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Buffer in a std::string format holding read info. Empty if error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00423">423</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00438">438</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ac9eccdab4d88a26a3e47393a0d3eac01_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ac9eccdab4d88a26a3e47393a0d3eac01_cgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ac9eccdab4d88a26a3e47393a0d3eac01_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_ac9eccdab4d88a26a3e47393a0d3eac01_cgraph">
-<area shape="rect" title="Open a file using a dialog." alt="" coords="5,39,213,80"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae207b80673ecb92e254141ef5164e65d" title="Open a file and store contents in std::string." alt="" coords="261,5,469,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a55507cd739746a95e816e5740d781073" title="Open an open file dialog using pfd." alt="" coords="261,71,469,112"/>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_cgraph">
+<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="5,39,213,80"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b" title="Open a file and store contents in std::string." alt="" coords="261,5,469,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="261,71,469,112"/>
 <area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,5,725,47"/>
+</map>
+</div>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a9d01acfe01a5f6b199eab67710b72216_icgraph">
+<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a4e97a55d8b375591d85fb74451e81047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e97a55d8b375591d85fb74451e81047">&#9670;&nbsp;</a></span>save_with_dialog()</h2>
+<a id="abde95a9c7669835dd9588bc0404fbd25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde95a9c7669835dd9588bc0404fbd25">&#9670;&nbsp;</a></span>open_binary_using_dialog()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool galaxy::fs::VirtualFileSystem::save_with_dialog </td>
+          <td class="memname">std::vector&lt; char &gt; galaxy::fs::VirtualFileSystem::open_binary_using_dialog </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>default_filename</em>&#160;</td>
+          <td class="paramname"><em>def_path</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1083,28 +1243,186 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Save a file using a dialog. </p>
+<p>Open a file and store contents in std::string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Data to write to file. </td></tr>
-    <tr><td class="paramname">default_filename</td><td>Default name to save file as.</td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc. </td></tr>
+    <tr><td class="paramname">def_path</td><td>Default starting path to open dialog at.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const bool. True if successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Char buffer using std::vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00437">437</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00444">444</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4e97a55d8b375591d85fb74451e81047_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4e97a55d8b375591d85fb74451e81047_cgraph" alt=""/></div>
-<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4e97a55d8b375591d85fb74451e81047_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a4e97a55d8b375591d85fb74451e81047_cgraph">
-<area shape="rect" title="Save a file using a dialog." alt="" coords="5,39,213,80"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="261,5,469,47"/>
-<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a23e588037fdb2e88049e62639f1c24df" title="Open a save file dialog using pfd." alt="" coords="261,71,469,112"/>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_cgraph">
+<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="5,39,213,80"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9" title="Open a binary file and store in std::span." alt="" coords="261,5,469,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="261,71,469,112"/>
 <area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,5,725,47"/>
+</map>
+</div>
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_abde95a9c7669835dd9588bc0404fbd25_icgraph">
+<area shape="rect" title="Open a file and store contents in std::string." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7779a33f24aad54858838a5b51e6d09b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7779a33f24aad54858838a5b51e6d09b">&#9670;&nbsp;</a></span>save_using_dialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::fs::VirtualFileSystem::save_using_dialog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>default_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves a string to a file using a dialog. </p>
+<p>Checks for existing file to overwrite first.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Data to write to file. </td></tr>
+    <tr><td class="paramname">default_filename</td><td>Default name to save file as. </td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00450">450</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_cgraph">
+<area shape="rect" title="Saves a string to a file using a dialog." alt="" coords="5,39,213,80"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481" title="Open a save file dialog." alt="" coords="261,5,469,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="261,71,469,112"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,71,725,112"/>
+</map>
+</div>
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a7779a33f24aad54858838a5b51e6d09b_icgraph">
+<area shape="rect" title="Saves a string to a file using a dialog." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1e803bca503aa5170ade31d2fe5e24b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e803bca503aa5170ade31d2fe5e24b0">&#9670;&nbsp;</a></span>save_binary_using_dialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::fs::VirtualFileSystem::save_binary_using_dialog </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>default_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>filters</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves binary data to a file using a dialog. </p>
+<p>Checks for existing file to overwrite first.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Data to write to file. </td></tr>
+    <tr><td class="paramname">default_filename</td><td>Default name to save file as. </td></tr>
+    <tr><td class="paramname">filters</td><td>List of filters for dialog, i.e. "*.png", "*.jpg", etc.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00456">456</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_cgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_cgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_cgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_cgraph">
+<area shape="rect" title="Saves binary data to a file using a dialog." alt="" coords="5,39,213,80"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481" title="Open a save file dialog." alt="" coords="261,5,469,47"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="261,71,469,112"/>
+<area shape="rect" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,71,725,112"/>
+</map>
+</div>
+<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a1e803bca503aa5170ade31d2fe5e24b0_icgraph">
+<area shape="rect" title="Saves binary data to a file using a dialog." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
 
@@ -1135,7 +1453,19 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List of files / folders in directory. Empty if there is an error / nothing found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00451">451</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00462">462</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a87ec44a2b370122b7611633c12c5e9e0_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a87ec44a2b370122b7611633c12c5e9e0_icgraph" alt=""/></div>
+<map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a87ec44a2b370122b7611633c12c5e9e0_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_a87ec44a2b370122b7611633c12c5e9e0_icgraph">
+<area shape="rect" title="List contents of a directory in the VFS recursively." alt="" coords="421,5,629,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1157,12 +1487,12 @@ Private Attributes</h2></td></tr>
 <p>Get root path. </p>
 <dl class="section return"><dt>Returns</dt><dd>Absolute root path as a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00491">491</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00502">502</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aff531c6ec5fd6aeb95e2dd17708114ee_icgraph.png" border="0" usemap="#ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aff531c6ec5fd6aeb95e2dd17708114ee_icgraph" alt=""/></div>
 <map name="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aff531c6ec5fd6aeb95e2dd17708114ee_icgraph" id="ad4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem_aff531c6ec5fd6aeb95e2dd17708114ee_icgraph">
 <area shape="rect" title="Get root path." alt="" coords="492,39,700,80"/>
@@ -1192,7 +1522,7 @@ Private Attributes</h2></td></tr>
 <p>Get root path. </p>
 <dl class="section return"><dt>Returns</dt><dd>Absolute root path as a filesystem path. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00496">496</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html#l00507">507</a> of file <a class="el" href="../../d5/deb/VirtualFileSystem_8cpp_source.html">VirtualFileSystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -1275,7 +1605,7 @@ Private Attributes</h2></td></tr>
 
 <p>Root asset path location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html#l00248">248</a> of file <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">VirtualFileSystem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html#l00287">287</a> of file <a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">VirtualFileSystem.hpp</a>.</p>
 
 </div>
 </div>
@@ -1289,7 +1619,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d6/d19/namespacegalaxy_1_1fs.html">fs</a></li><li class="navelem"><a class="el" href="../../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html">VirtualFileSystem</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 13:22:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 3 2023 10:28:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

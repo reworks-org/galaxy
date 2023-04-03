@@ -1,5 +1,7 @@
 var dir_1172629c230fd658e12a747419a13e17 =
 [
+    [ "DialogIcons.cpp", "d6/d55/DialogIcons_8cpp.html", null ],
+    [ "DialogIcons.hpp", "d3/d21/DialogIcons_8hpp.html", "d3/d21/DialogIcons_8hpp" ],
     [ "FileCode.cpp", "dd/df7/FileCode_8cpp.html", null ],
     [ "FileCode.hpp", "d7/d75/FileCode_8hpp.html", "d7/d75/FileCode_8hpp" ],
     [ "FileInfo.cpp", "d7/d8d/FileInfo_8cpp.html", null ],

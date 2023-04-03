@@ -122,11 +122,11 @@ $(document).ready(function(){initNavTree('dc/d7a/Prefabs_8cpp_source.html','../.
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : contents)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keyword">auto</span> data_opt = fs.open(file);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    <span class="keywordflow">if</span> (data_opt.has_value())</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> data = fs.open(file);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    <span class="keywordflow">if</span> (!data.empty())</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> name         = std::filesystem::path(file).stem().string();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> base64       = <a class="code" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">algorithm::decode_zlib</a>(data_opt.value());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> base64       = <a class="code" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">algorithm::decode_zlib</a>(data);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> decompressed = <a class="code" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">algorithm::decode_base64</a>(base64);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[name]         = std::make_shared&lt;core::Prefab&gt;();</div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('dc/d7a/Prefabs_8cpp_source.html','../.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../dc/d7a/Prefabs_8cpp.html">Prefabs.cpp</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 13:22:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 3 2023 10:28:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -235,6 +235,12 @@ var NAVTREEINDEX1 =
 "d3/d20/classgalaxy_1_1scene_1_1UILayer.html#ad672cf9d0b2ea9faeceb534e316a68d5":[1,0,0,15,3,8],
 "d3/d20/classgalaxy_1_1scene_1_1UILayer.html#adf897abf6ecc2ea7ea15e6a410e8807e":[1,0,0,15,3,2],
 "d3/d20/classgalaxy_1_1scene_1_1UILayer.html#afaa820be79f65b9dce840212203cb1f6":[1,0,0,15,3,9],
+"d3/d21/DialogIcons_8hpp.html":[2,0,0,0,0,9,1],
+"d3/d21/DialogIcons_8hpp.html#a5345aeafcb662e1605b55fa01fdf7a13":[2,0,0,0,0,9,1,0],
+"d3/d21/DialogIcons_8hpp.html#a5345aeafcb662e1605b55fa01fdf7a13a7b83d3f08fa392b79e3f553b585971cd":[2,0,0,0,0,9,1,0,1],
+"d3/d21/DialogIcons_8hpp.html#a5345aeafcb662e1605b55fa01fdf7a13acaf9b6b99962bf5c2264824231d7a40c":[2,0,0,0,0,9,1,0,0],
+"d3/d21/DialogIcons_8hpp.html#a5345aeafcb662e1605b55fa01fdf7a13acb5e100e5a9a3e7f6d1fd97512215282":[2,0,0,0,0,9,1,0,2],
+"d3/d21/DialogIcons_8hpp_source.html":[2,0,0,0,0,9,1],
 "d3/d28/Enabled_8cpp.html":[2,0,0,0,0,8,2],
 "d3/d28/Enabled_8cpp_source.html":[2,0,0,0,0,8,2],
 "d3/d28/Renderer_8cpp.html":[2,0,0,0,0,10,32],
@@ -243,11 +249,5 @@ var NAVTREEINDEX1 =
 "d3/d2f/Text_8hpp_source.html":[2,0,0,0,0,3,19],
 "d3/d37/Cursor_8cpp.html":[2,0,0,0,0,11,2],
 "d3/d37/Cursor_8cpp_source.html":[2,0,0,0,0,11,2],
-"d3/d37/SMAA_8hpp.html":[2,0,0,0,0,10,1,9],
-"d3/d37/SMAA_8hpp_source.html":[2,0,0,0,0,10,1,9],
-"d3/d3e/IndexBuffer_8cpp.html":[2,0,0,0,0,10,18],
-"d3/d3e/IndexBuffer_8cpp_source.html":[2,0,0,0,0,10,18],
-"d3/d4b/Async_8hpp.html":[2,0,0,0,0,12,1],
-"d3/d4b/Async_8hpp.html#a3e4e6d647a6fe6435f38d444fb47f754":[2,0,0,0,0,12,1,0],
-"d3/d4b/Async_8hpp_source.html":[2,0,0,0,0,12,1]
+"d3/d37/SMAA_8hpp.html":[2,0,0,0,0,10,1,9]
 };

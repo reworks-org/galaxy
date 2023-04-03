@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['primitives_3030',['Primitives',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930',1,'galaxy::graphics']]],
-  ['programid_3031',['ProgramId',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a32f1de0127b52ff400cd69b98bf41cc0',1,'galaxy::ui::RMLRenderer']]],
-  ['programuniform_3032',['ProgramUniform',['../d2/dad/namespaceGfx.html#ad5487176b489a39830d8611e38914d25',1,'Gfx']]]
+  ['mode_3045',['Mode',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a9ef47ba11e4fbc98914ad8cd60ac4d42',1,'galaxy::algorithm::ZLib']]],
+  ['mousebuttons_3046',['MouseButtons',['../dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3f',1,'galaxy::input']]]
 ];

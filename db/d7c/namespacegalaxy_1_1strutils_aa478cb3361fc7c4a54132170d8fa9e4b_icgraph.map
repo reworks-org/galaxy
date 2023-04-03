@@ -1,8 +1,9 @@
 <map id="galaxy::strutils::split" name="galaxy::strutils::split">
-<area shape="rect" id="node1" title="Split a string based on a delimiter." alt="" coords="465,85,620,112"/>
-<area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#aa4677cef788381727a4c2e904134ff9d" title="Retrieve a config value in a section." alt="" coords="237,5,416,32"/>
-<area shape="rect" id="node3" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a025047e4f65914c5caf8020a67b30cf4" title="Check if the config file actually has a value." alt="" coords="236,56,417,83"/>
-<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="258,107,395,149"/>
-<area shape="rect" id="node6" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4fb4ce2d77d558a751f8b0c407b6196c" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="237,173,416,200"/>
-<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,107,188,149"/>
+<area shape="rect" id="node1" title="Split a string based on a delimiter." alt="" coords="677,107,832,133"/>
+<area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#aa4677cef788381727a4c2e904134ff9d" title="Retrieve a config value in a section." alt="" coords="436,5,615,32"/>
+<area shape="rect" id="node3" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a025047e4f65914c5caf8020a67b30cf4" title="Check if the config file actually has a value." alt="" coords="435,56,616,83"/>
+<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,129,373,170"/>
+<area shape="rect" id="node6" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b629653349849a8f01f84eada0d2fb9" title="Open file dialog that supports multiple files." alt="" coords="421,158,629,199"/>
+<area shape="rect" id="node7" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4fb4ce2d77d558a751f8b0c407b6196c" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="436,224,615,251"/>
+<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,129,188,170"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="galaxy::fs::VirtualFileSystem::open_file_dialog" name="galaxy::fs::VirtualFileSystem::open_file_dialog">
+<area shape="rect" id="node1" title="Open a file dialog." alt="" coords="677,27,885,68"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,27,373,68"/>
+<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="421,27,629,68"/>
+<area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="421,92,629,133"/>
+<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,27,188,68"/>
+</map>

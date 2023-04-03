@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mode_3028',['Mode',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a9ef47ba11e4fbc98914ad8cd60ac4d42',1,'galaxy::algorithm::ZLib']]],
-  ['mousebuttons_3029',['MouseButtons',['../dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3f',1,'galaxy::input']]]
+  ['loglevel_3044',['LogLevel',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefd',1,'galaxy::error']]]
 ];
