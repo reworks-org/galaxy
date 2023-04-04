@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e":[2,0,0,0,0,11,9,0,3],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2":[2,0,0,0,0,11,9,0,5],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea":[2,0,0,0,0,11,9,0,4],
 "d4/d98/InputMods_8hpp.html#aed1be1118092a434dfe240a2de982fb4":[2,0,0,0,0,11,9,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "d5/da4/WindowSettings_8cpp_source.html":[2,0,0,0,0,4,14],
 "d5/daa/DefaultShaders_8cpp.html":[2,0,0,0,0,10,10],
 "d5/daa/DefaultShaders_8cpp_source.html":[2,0,0,0,0,10,10],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html":[1,0,0,10,1],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b":[1,0,0,10,1,8]
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html":[1,0,0,10,1]
 };

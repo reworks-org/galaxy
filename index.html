@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>Real-Time C++20 Game/App Engine. Built on data-driven design principles and agile software engineering.</p>
 <p><img src="logo.png?raw=true" alt="galaxy" title="galaxy" class="inline"/></p>
 <h1>Building</h1>
-<p>Requirements: <a href="https://en.wikipedia.org/wiki/X86-64">64bit OS</a> <a href="https://www.doxygen.nl/index.html">Doxygen</a> <a href="https://github.com/MaJerle/doxygen-dark-theme">Doxygen Dark Theme</a></p>
+<p>Note that only 64bit is supported.</p>
 <h2>Windows:</h2>
 <p><a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2022</a></p>
 <p>Major Components: </p><div class="fragment"><div class="line">Desktop development with C++</div>
@@ -106,94 +106,26 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">cd galaxy</div>
 <div class="line">Open galaxy.sln and go Build -&gt; Rebuild Solution.</div>
 </div><!-- fragment --><h2>Linux:</h2>
-<p><em>Only ubuntu is supported.</em></p>
-<p><a href="https://cmake.org/download/">CMake v3.24</a> <a href="https://ubuntu.com/download/desktop">Ubuntu 22.04 LTS</a> &ndash; OR &ndash; <a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL2 - Ubuntu</a></p>
+<p><em>Only Ubuntu is supported.</em></p>
+<p><a href="https://cmake.org/download/">CMake v3.24</a></p>
+<p><a href="https://ubuntu.com/download/desktop">Ubuntu 22.04 LTS</a></p>
+<p>&ndash; OR &ndash;</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL2 - Ubuntu</a></p>
 <div class="fragment"><div class="line">Coming Soon.</div>
 </div><!-- fragment --><h2>MacOS:</h2>
-<div class="fragment"><div class="line">Unsupported, due to terrible support of Modern C++ and OpenGL.</div>
+<div class="fragment"><div class="line">No.</div>
 </div><!-- fragment --><h2>Scripts:</h2>
-<p>There are additional helper scripts located in the <a href="https://github.com/DomRe/galaxy/tree/master/scripts">scripts folder</a>. In order to run these, you require a <code>MSYS2 installation</code> installed on your <code>PATH</code>.</p>
+<p>There are additional helper scripts located in the <a href="https://github.com/DomRe/galaxy/tree/master/scripts">scripts folder</a>.</p>
+<p>In order to run these, you require a <code>MSYS2 installation</code> installed on your <code>PATH</code>.</p>
 <h1>Documentation</h1>
 <p>See <a href="https://domre.github.io/galaxy/">online documentation</a>.</p>
 <h1>Features</h1>
-<p><em>May be out of date.</em></p>
-<ul>
-<li>Uses Modern C++ design principles, built on C++20.</li>
-<li>Unit Testing and Sandbox Testing.</li>
-<li>Application and State Management.</li>
-<li>AI Algorithms.</li>
-<li>Async programming.</li>
-<li>Audio streaming and abstraction.</li>
-<li>Entity-Component-System.</li>
-<li>Config Engine.</li>
-<li>GUID generator.</li>
-<li>Scene Stack.</li>
-<li>Error Handling.</li>
-<li>Logging using Sinks and leveraging <code>constexpr</code> and <code>if constexpr</code>.</li>
-<li>Event dispatcher based on subscribing and listeners.</li>
-<li>Virtual FileSystem</li>
-<li>Database Support using <a href="https://www.sqlite.org/index.html">SQLite</a>.</li>
-<li>Serialization to JSON.</li>
-<li>Real-Time 2D rendering framework.<ul>
-<li>Modern Core OpenGL 4.5</li>
-<li>Animations</li>
-<li>Text</li>
-<li>Post-Processing</li>
-<li>Primitives</li>
-<li>Shading/Textures</li>
-<li>Etc.</li>
-</ul>
-</li>
-<li>Input Abstractions.</li>
-<li>Tiled Map parsing and rendering.<ul>
-<li>Supported:<ul>
-<li>Tiled 1.4.3 .json maps.</li>
-<li>Loading maps from Tiled Worlds.</li>
-<li>Base64 encoding.</li>
-<li>zlib compression.</li>
-<li>gzip compression.</li>
-</ul>
-</li>
-<li>Limitations:<ul>
-<li>Only renders right-down maps.</li>
-<li>Only renders topdown objects.</li>
-</ul>
-</li>
-<li>Unsupported:<ul>
-<li>Tiled projects.</li>
-<li>External Tiled assets.</li>
-<li>Text objects.</li>
-<li>Terrain.</li>
-<li>Wang-Sets.</li>
-<li>Tile Flipping.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Compression/Decompression Algorithms.</li>
-<li>Rect Packing.</li>
-<li>Physics Engine using <a href="https://github.com/erincatto/box2d">Box2D</a>.</li>
-<li>Platform Abstractions.</li>
-<li>Resource Management.<ul>
-<li>Fonts</li>
-<li>Languages</li>
-<li>Audio</li>
-<li>Scripts</li>
-<li>Shaders</li>
-<li>Textures</li>
-</ul>
-</li>
-<li><a href="https://www.lua.org/">Lua</a> Scripting.</li>
-<li><a href="https://github.com/mikke89/RmlUi">RMLUI</a> Support.</li>
-<li><a href="https://github.com/ocornut/imgui">ImGui</a> Support.</li>
-<li>Only US keyboard layout is supported.</li>
-</ul>
-<h1>Contributing / Feedback / Issues</h1>
+<div class="fragment"><div class="line">todo</div>
+</div><!-- fragment --><h1>Contributing / Feedback / Issues</h1>
 <p>Feel free to open an issue for feedback, bug reports, ehancements, issues, etc, and pull requests for contributions. (Don't forget to add yourself to the credits section below.)</p>
 <h2>Credits</h2>
 <ul>
 <li>Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria, Belen Masia, Fernando Navarro and Diego Gutierrez.</li>
-<li><a href="https://github.com/MaJerle/doxygen-dark-theme">doxygen-dark-theme</a>.</li>
 <li><a href="http://www.dafont.com/secret-code.font">sercode.ttf</a>.<ul>
 <li>Used in various icons and logos.</li>
 </ul>
@@ -211,14 +143,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 </li>
 <li>Any "dependency" i.e. "software library" should/will usually have an associated LICENSE/COPYING/AUTHORS file included.</li>
-<li>Resources used in sandbox:<ul>
-<li>Various from <a href="https://opengameart.org/">OpenGameArt</a>. No copyright infringement intended.</li>
+<li>Resources used for testing:<ul>
+<li>Various from <a href="https://opengameart.org/">OpenGameArt</a>.</li>
 </ul>
 </li>
-<li><a href="https://learnopengl.com/">https://learnopengl.com/</a></li>
 <li><a href="https://github.com/ocornut/imgui/issues/707">https://github.com/ocornut/imgui/issues/707</a></li>
-<li><a href="https://github.com/Asmodean-/SMAA-OpenGL/">https://github.com/Asmodean-/SMAA-OpenGL/</a></li>
-<li><a href="https://github.com/lettier/3d-game-shaders-for-beginners">https://github.com/lettier/3d-game-shaders-for-beginners</a></li>
 <li><a href="https://materialdesignicons.com/">https://materialdesignicons.com/</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
@@ -227,7 +156,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 3 2023 10:28:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 4 2023 00:52:59 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

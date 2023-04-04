@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b":[1,0,0,10,1,8],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5396cb4f5c3bde7f5fd05b04207065d4":[1,0,0,10,1,11],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a56ae43c7cff78cd2be8e4f999a6d1258":[1,0,0,10,1,10],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5939eb5f543804b0fd677ebaf80628d1":[1,0,0,10,1,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "d7/d5e/Maps_8cpp.html":[2,0,0,0,0,15,6],
 "d7/d5e/Maps_8cpp_source.html":[2,0,0,0,0,15,6],
 "d7/d75/FileCode_8hpp.html":[2,0,0,0,0,9,3],
-"d7/d75/FileCode_8hpp.html#a57278a58a8457b4345127d2a627f9d1f":[2,0,0,0,0,9,3,0],
-"d7/d75/FileCode_8hpp.html#a57278a58a8457b4345127d2a627f9d1fa15d20026fc33472b0965572cf709a6cc":[2,0,0,0,0,9,3,0,3]
+"d7/d75/FileCode_8hpp.html#a57278a58a8457b4345127d2a627f9d1f":[2,0,0,0,0,9,3,0]
 };

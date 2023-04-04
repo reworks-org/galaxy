@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa":[1,0,0,9,28,2],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a4cbd4aa3bf0ec97b635253788acb9f1d":[1,0,0,9,28,18],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a72ebaecd5d59b0e3e00625ff0fd716a9":[1,0,0,9,28,17],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601":[1,0,0,9,28,13],
@@ -93,8 +94,8 @@ var NAVTREEINDEX12 =
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,7],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],
@@ -185,6 +186,5 @@ var NAVTREEINDEX12 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[],
-"":[0,0,4]
+"pages.html":[]
 };
