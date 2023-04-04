@@ -40,11 +40,7 @@ Open galaxy.sln and go Build -> Rebuild Solution.
 
 [CMake v3.24](https://cmake.org/download/)
 
-[Ubuntu 22.04 LTS](https://ubuntu.com/download/desktop)
-
--- OR --
-
-[WSL2 - Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install)
+[Ubuntu 22.04 LTS](https://ubuntu.com/download/desktop) OR [WSL2 - Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 ```
 Coming Soon.
@@ -60,19 +56,23 @@ There are additional helper scripts located in the [scripts folder](https://gith
 
 In order to run these, you require a ```MSYS2 installation``` installed on your ```PATH```.
 
+
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
+
 
 ## Features
 ```
 todo
 ```
 
+
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
 and pull requests for contributions. (Don't forget to add yourself to the credits section below.)
 
-### Credits
+
+## Credits
 * Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
 * [sercode.ttf](http://www.dafont.com/secret-code.font).
 	* Used in various icons and logos.
