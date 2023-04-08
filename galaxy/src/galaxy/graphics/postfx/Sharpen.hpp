@@ -68,6 +68,13 @@ namespace galaxy
 			///
 			[[nodiscard]] float get_amount() const;
 
+			///
+			/// Is this effect enabled?
+			///
+			/// \return True if effect is enabled. Otherwise false.
+			///
+			[[nodiscard]] virtual bool is_enabled() override;
+
 		private:
 			///
 			/// Constructor.

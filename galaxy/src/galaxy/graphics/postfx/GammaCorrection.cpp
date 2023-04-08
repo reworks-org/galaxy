@@ -7,6 +7,9 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "GammaCorrection.hpp"
 
 ///
@@ -121,6 +124,11 @@ namespace galaxy
 		float GammaCorrection::get_gamma() const
 		{
 			return m_gamma;
+		}
+
+		bool GammaCorrection::is_enabled()
+		{
+			return core::ServiceLocator<core::Config>::ref().get<bool>("gamma_correction", "graphics.effect");
 		}
 	} // namespace graphics
 } // namespace galaxy

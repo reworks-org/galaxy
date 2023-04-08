@@ -54,10 +54,42 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int render(const unsigned int input) override;
 
+			///
+			/// Set chromatic r offset.
+			///
+			/// \param r -1.0f to 1.0f. Red.
+			///
 			void set_r_offset(const float r);
+
+			///
+			/// Set chromatic r offset.
+			///
+			/// \param g -1.0f to 1.0f. Green.
+			///
 			void set_g_offset(const float g);
+
+			///
+			/// Set chromatic r offset.
+			///
+			/// \param b -1.0f to 1.0f. Blue.
+			///
 			void set_b_offset(const float b);
+
+			///
+			/// Set chromatic rgb offset.
+			///
+			/// \param r -1.0f to 1.0f. Red.
+			/// \param g -1.0f to 1.0f. Green.
+			/// \param b -1.0f to 1.0f. Blue.
+			///
 			void set_rgb_offset(const float r, const float g, const float b);
+
+			///
+			/// Is this effect enabled?
+			///
+			/// \return True if effect is enabled. Otherwise false.
+			///
+			[[nodiscard]] virtual bool is_enabled() override;
 
 		private:
 			///

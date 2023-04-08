@@ -149,7 +149,10 @@ namespace galaxy
 			// Post-processing effects pass.
 			for (auto&& effect : m_effects)
 			{
-				m_output_fb = effect->render(m_output_fb);
+				if (effect->is_enabled())
+				{
+					m_output_fb = effect->render(m_output_fb);
+				}
 			}
 		}
 

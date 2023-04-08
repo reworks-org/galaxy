@@ -82,6 +82,13 @@ namespace galaxy
 			///
 			void set_strength(const Strength strength);
 
+			///
+			/// Is this effect enabled?
+			///
+			/// \return True if effect is enabled. Otherwise false.
+			///
+			[[nodiscard]] virtual bool is_enabled() override;
+
 		private:
 			///
 			/// Constructor.

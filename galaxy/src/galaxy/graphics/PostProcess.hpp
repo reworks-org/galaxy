@@ -8,8 +8,11 @@
 #ifndef GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 #define GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 
-#include "galaxy/graphics/postfx/SMAA.hpp"
+#include "galaxy/graphics/postfx/ChromaticAberration.hpp"
+#include "galaxy/graphics/postfx/GammaCorrection.hpp"
+#include "galaxy/graphics/postfx/GaussianBlur.hpp"
 #include "galaxy/graphics/postfx/Sharpen.hpp"
+#include "galaxy/graphics/postfx/SMAA.hpp"
 
 namespace galaxy
 {

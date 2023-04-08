@@ -7,6 +7,9 @@
 
 #include <format>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "SMAA.hpp"
 
 /*
@@ -16134,6 +16137,11 @@ namespace galaxy
 
 			// Return processed input.
 			return m_neighbour_tex;
+		}
+
+		bool SMAA::is_enabled()
+		{
+			return core::ServiceLocator<core::Config>::ref().get<bool>("smaa", "graphics.effect");
 		}
 	} // namespace graphics
 } // namespace galaxy

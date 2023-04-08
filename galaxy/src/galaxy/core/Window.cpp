@@ -452,15 +452,11 @@ namespace galaxy
 						// Configure renderer and post processing.
 						m_postprocess.init(m_width, m_height);
 
-						if (settings.enable_aa)
-						{
-							m_postprocess.add<graphics::SMAA>(m_width, m_height);
-						}
-
-						if (settings.enable_sharpen)
-						{
-							m_postprocess.add<graphics::Sharpen>(m_width, m_height);
-						}
+						m_postprocess.add<graphics::ChromaticAberration>(m_width, m_height);
+						m_postprocess.add<graphics::GammaCorrection>(m_width, m_height);
+						m_postprocess.add<graphics::GaussianBlur>(m_width, m_height);
+						m_postprocess.add<graphics::Sharpen>(m_width, m_height);
+						m_postprocess.add<graphics::SMAA>(m_width, m_height);
 
 						graphics::Renderer::init();
 					}

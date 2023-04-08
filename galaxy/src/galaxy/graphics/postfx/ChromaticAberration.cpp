@@ -7,6 +7,9 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "ChromaticAberration.hpp"
 
 ///
@@ -117,29 +120,34 @@ namespace galaxy
 
 		void ChromaticAberration::set_r_offset(const float r)
 		{
-			m_r_offset = r;
+			m_r_offset = std::clamp(r, -1.0f, 1.0f);
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
 		void ChromaticAberration::set_g_offset(const float g)
 		{
-			m_g_offset = g;
+			m_g_offset = std::clamp(g, -1.0f, 1.0f);
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
 		void ChromaticAberration::set_b_offset(const float b)
 		{
-			m_b_offset = b;
+			m_b_offset = std::clamp(b, -1.0f, 1.0f);
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
 		}
 
 		void ChromaticAberration::set_rgb_offset(const float r, const float g, const float b)
 		{
-			m_r_offset = r;
-			m_g_offset = g;
-			m_b_offset = b;
+			m_r_offset = std::clamp(r, -1.0f, 1.0f);
+			m_g_offset = std::clamp(g, -1.0f, 1.0f);
+			m_b_offset = std::clamp(b, -1.0f, 1.0f);
 
 			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
+		}
+
+		bool ChromaticAberration::is_enabled()
+		{
+			return core::ServiceLocator<core::Config>::ref().get<bool>("chromatic_abberation", "graphics.effect");
 		}
 	} // namespace graphics
 } // namespace galaxy

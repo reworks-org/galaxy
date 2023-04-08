@@ -42,6 +42,13 @@ namespace galaxy
 			///
 			[[nodiscard]] virtual unsigned int render(const unsigned int input) = 0;
 
+			///
+			/// Is this effect enabled?
+			///
+			/// \return True if effect is enabled. Otherwise false.
+			///
+			[[nodiscard]] virtual bool is_enabled() = 0;
+
 		protected:
 			///
 			/// Constructor.

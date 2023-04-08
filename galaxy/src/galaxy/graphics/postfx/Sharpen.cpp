@@ -9,6 +9,9 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "Sharpen.hpp"
 
 ///
@@ -128,6 +131,11 @@ namespace galaxy
 		float Sharpen::get_amount() const
 		{
 			return m_amount;
+		}
+
+		bool Sharpen::is_enabled()
+		{
+			return core::ServiceLocator<core::Config>::ref().get<bool>("sharpen", "graphics.effect");
 		}
 	} // namespace graphics
 } // namespace galaxy

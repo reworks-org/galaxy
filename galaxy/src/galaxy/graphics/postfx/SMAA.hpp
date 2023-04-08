@@ -53,6 +53,13 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int render(const unsigned int input) override;
 
+			///
+			/// Is this effect enabled?
+			///
+			/// \return True if effect is enabled. Otherwise false.
+			///
+			[[nodiscard]] virtual bool is_enabled() override;
+
 		private:
 			///
 			/// Constructor.

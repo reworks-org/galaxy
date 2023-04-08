@@ -101,6 +101,11 @@ namespace galaxy
 			config.restore<int>("listener_count", 1, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
+			config.restore<bool>("smaa", false, "graphics.effects");
+			config.restore<bool>("sharpen", false, "graphics.effects");
+			config.restore<bool>("gamma_correction", false, "graphics.effects");
+			config.restore<bool>("chromatic_abberation", false, "graphics.effects");
+			config.restore<bool>("gaussian_blur", false, "graphics.effects");
 			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
 			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
 			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
@@ -113,8 +118,6 @@ namespace galaxy
 			config.restore<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
 			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
 			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
-			config.restore<bool>("enable_aa", false, "graphics");
-			config.restore<bool>("enable_sharpen", false, "graphics");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -226,9 +229,7 @@ namespace galaxy
 				.vsync = config.get<bool>("vsync", "window"),
 				.maximized = config.get<bool>("maximized", "window"),
 				.debug = config.get<bool>("debug", "window"),
-				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window"),
-				.enable_aa = config.get<bool>("enable_aa", "graphics"),
-				.enable_sharpen= config.get<bool>("enable_sharpen", "graphics")
+				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window")
 			};
 			// clang-format on
 

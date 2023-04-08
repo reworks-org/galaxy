@@ -7,6 +7,9 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+
 #include "GaussianBlur.hpp"
 
 ///
@@ -154,6 +157,11 @@ namespace galaxy
 		{
 			m_strength = strength;
 			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
+		}
+
+		bool GaussianBlur::is_enabled()
+		{
+			return core::ServiceLocator<core::Config>::ref().get<bool>("gaussian_blur", "graphics.effect");
 		}
 	} // namespace graphics
 } // namespace galaxy
