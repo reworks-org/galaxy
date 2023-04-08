@@ -1,8 +1,0 @@
-tweak GALAXY_FONT_MSDF_RANGE. try 1.7?
-
-https://pvigier.github.io/2019/08/11/vagabond-2d-physics-engine.html
-https://github.com/pvigier/Quadtree
-https://learnopengl.com/Guest-Articles/2021/Scene/Scene-Graph
-https://github.com/RandyGaul/cute_headers
-
-differentiate between project data and save data
