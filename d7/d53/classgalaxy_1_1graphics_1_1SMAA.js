@@ -5,6 +5,7 @@ var classgalaxy_1_1graphics_1_1SMAA =
     [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aeefda1a8d4941e4fb9ce5755bf892b95", null ],
     [ "resize", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ae27624ab4671efcfbdb1ae95dfb47b44", null ],
     [ "render", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5", null ],
+    [ "is_enabled", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5e9869cbca77ef4099035de8369268a5", null ],
     [ "m_smaa_edge", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5fcc4b73f2879862ae314e3bad9f976a", null ],
     [ "m_smaa_blend", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a49adf0404563764e3ba6ba6f7638fabd", null ],
     [ "m_smaa_neighbourhood", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a294cf95abc386aa5210c1a972bdfeb92", null ],

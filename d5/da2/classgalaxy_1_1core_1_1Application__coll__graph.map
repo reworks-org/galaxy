@@ -1,5 +1,5 @@
 <map id="galaxy::core::Application" name="galaxy::core::Application">
-<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="816,2405,999,2600"/>
+<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="816,2405,999,2585"/>
 <area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="570,2001,799,2343"/>
 <area shape="rect" id="node3" title=" " alt="" coords="438,1744,598,1821"/>
 <area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="623,1627,784,1939"/>

@@ -11,6 +11,7 @@ var classgalaxy_1_1graphics_1_1GaussianBlur =
     [ "resize", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959", null ],
     [ "render", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f", null ],
     [ "set_strength", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf", null ],
+    [ "is_enabled", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0842a7f00cc95bb3c18dcab9fcee63f0", null ],
     [ "m_shader", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ad847b8d6ce65482b7661de37f1ba9342", null ],
     [ "m_horizontal", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a3c0f0a742c1164f05dc1998358e4e32f", null ],
     [ "m_vertical", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a903d199c8bfe4d228fbcd5e97257a61f", null ],

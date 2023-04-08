@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed":[1,0,0,9,1,5],
+"de/d59/KeyDown_8cpp.html":[2,0,0,0,0,7,6],
+"de/d59/KeyDown_8cpp_source.html":[2,0,0,0,0,7,6],
 "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html":[1,0,0,9,3,0],
 "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#a6e2d7eef4c72eed98c2aac946d91af90":[1,0,0,9,3,0,0],
 "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#ae977cd3fd18e29cfec99b1f324aefd8b":[1,0,0,9,3,0,1],
@@ -33,15 +36,16 @@ var NAVTREEINDEX11 =
 "de/d92/Lua_8hpp.html#abf4b5ce82f3ec06ebf544209f92ec00f":[2,0,0,0,0,17,6,0],
 "de/d92/Lua_8hpp_source.html":[2,0,0,0,0,17,6],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html":[1,0,0,9,14],
-"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a0d9b2d8d1dd16c5d3f872e4eda15bca7":[1,0,0,9,14,7],
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a0d9b2d8d1dd16c5d3f872e4eda15bca7":[1,0,0,9,14,8],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835":[1,0,0,9,14,0],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a267e818bc73fe7b822793a16f1c65dea":[1,0,0,9,14,5],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820":[1,0,0,9,14,4],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a92623562a6832349a0e63902b19bd78c":[1,0,0,9,14,2],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a976eeb90eb91a96957997fec99d13699":[1,0,0,9,14,1],
-"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aaa807800fa4dda51558867d2daa1834d":[1,0,0,9,14,9],
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aaa807800fa4dda51558867d2daa1834d":[1,0,0,9,14,10],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8":[1,0,0,9,14,3],
-"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#ad2890b2b139ba771e0ffedb41c10ef58":[1,0,0,9,14,8],
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#ad2890b2b139ba771e0ffedb41c10ef58":[1,0,0,9,14,9],
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aec348fce8f5a5bf45c8f77aa66b587da":[1,0,0,9,14,7],
 "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#afbf70f94856e901c3f9fed1183b78b99":[1,0,0,9,14,6],
 "de/da7/Config_8cpp.html":[2,0,0,0,0,4,2],
 "de/da7/Config_8cpp_source.html":[2,0,0,0,0,4,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a028c9e8cc413cca1e8a53d2f3642c32c":[1,0,0,9,28,16],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3":[1,0,0,9,28,5],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a":[1,0,0,9,28,9],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89":[1,0,0,9,28,15],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2f86d5f426c032068a98f547d737017e":[1,0,0,9,28,7],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2fe2626b52a114eb07b65e9d6659eb1a":[1,0,0,9,28,4],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3036035e6dd6bf5af3cf98e8684498f8":[1,0,0,9,28,10],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a392a8ba04f7276a7ac421b7207201317":[1,0,0,9,28,19]
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89":[1,0,0,9,28,15]
 };

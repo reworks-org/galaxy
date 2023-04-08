@@ -9,6 +9,7 @@ var classgalaxy_1_1graphics_1_1ChromaticAberration =
     [ "set_g_offset", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a81c0f30cb89fb4d430a5e34745973bb7", null ],
     [ "set_b_offset", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af7d50585c8247d2fa3cbffadc85814b8", null ],
     [ "set_rgb_offset", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ab01ff8c14c873ceff579794d9ff3ff82", null ],
+    [ "is_enabled", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ae23838a7346734a41a7bc302c37452f0", null ],
     [ "m_shader", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af76831351a97e0ac8177045fadd70831", null ],
     [ "m_fb", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac5c3acf151285466d5a25cfe006ab4de", null ],
     [ "m_r_offset", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a7167fd500e08d0a4eb15eaf354ac14ab", null ],

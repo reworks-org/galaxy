@@ -1,8 +1,0 @@
-<map id="galaxy::core::Loading::display" name="galaxy::core::Loading::display">
-<area shape="rect" id="node1" title="Draw loading screen while loading." alt="" coords="5,103,165,144"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="225,37,405,79"/>
-<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aced949f4f579082d62c38ee9abe040f1" title="Finish isolated rendering." alt="" coords="225,103,405,144"/>
-<area shape="rect" id="node6" href="$d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754" title="Check if an async thread has finished or not." alt="" coords="213,169,417,195"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7109dce6b8e40dcc7082792156b3afad" title="Get framebuffer size taking into account DPI." alt="" coords="471,5,639,47"/>
-<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="465,71,645,112"/>
-</map>

@@ -94,22 +94,18 @@ $(document).ready(function(){initNavTree('d2/db6/Application_8cpp.html','../../'
 <div class="textblock"><code>#include &lt;BS_thread_pool.hpp&gt;</code><br />
 <code>#include &lt;RmlUi/Core.h&gt;</code><br />
 <code>#include &lt;RmlUi/Lua.h&gt;</code><br />
+<code>#include &lt;tinyfiledialogs.h&gt;</code><br />
 <code>#include &lt;zip.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d79/Base64_8hpp_source.html">galaxy/algorithm/Base64.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/dba/ZLib_8hpp_source.html">galaxy/algorithm/ZLib.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html">galaxy/audio/AudioEngine.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/db4/Config_8hpp_source.html">galaxy/core/Config.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/dc1/Loading_8hpp_source.html">galaxy/core/Loading.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/ddf/ServiceLocator_8hpp_source.html">galaxy/core/ServiceLocator.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de3/Window_8hpp_source.html">galaxy/core/Window.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddf/ServiceLocator_8hpp_source.html">galaxy/core/ServiceLocator.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/df0/RobotoLight_8hpp_source.html">galaxy/embedded/RobotoLight.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/d4b/ConsoleSink_8hpp_source.html">galaxy/error/ConsoleSink.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d0e/FileSink_8hpp_source.html">galaxy/error/FileSink.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d0d/FontContext_8hpp_source.html">galaxy/graphics/FontContext.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/db8/Renderer_8hpp_source.html">galaxy/graphics/Renderer.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d36/Input_8hpp_source.html">galaxy/input/Input.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/de9/Constants_8hpp_source.html">galaxy/physics/Constants.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d5/d40/Platform_8hpp_source.html">galaxy/platform/Platform.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/d7d/Fonts_8hpp_source.html">galaxy/resource/Fonts.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d8e/Language_8hpp_source.html">galaxy/resource/Language.hpp</a>&quot;</code><br />
@@ -119,7 +115,6 @@ $(document).ready(function(){initNavTree('d2/db6/Application_8cpp.html','../../'
 <code>#include &quot;<a class="el" href="../../d6/df6/Shaders_8hpp_source.html">galaxy/resource/Shaders.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/d7c/Sounds_8hpp_source.html">galaxy/resource/Sounds.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../db/d27/TextureAtlas_8hpp_source.html">galaxy/resource/TextureAtlas.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/dea/JSON_8hpp_source.html">galaxy/scripting/JSON.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/d92/Lua_8hpp_source.html">galaxy/scripting/Lua.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d74/SceneManager_8hpp_source.html">galaxy/scene/SceneManager.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/d53/RuntimeLayer_8hpp_source.html">galaxy/scene/layers/RuntimeLayer.hpp</a>&quot;</code><br />
@@ -132,158 +127,156 @@ $(document).ready(function(){initNavTree('d2/db6/Application_8cpp.html','../../'
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/deb/Application_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2core_2Application_8cpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2core_2Application_8cpp" id="agalaxy_2src_2galaxy_2core_2Application_8cpp">
-<area shape="rect" title=" " alt="" coords="7397,5,7566,47"/>
-<area shape="rect" title=" " alt="" coords="107,95,258,121"/>
-<area shape="rect" title=" " alt="" coords="282,95,390,121"/>
-<area shape="rect" title=" " alt="" coords="415,95,516,121"/>
-<area shape="rect" title=" " alt="" coords="540,95,593,121"/>
-<area shape="rect" href="../../d0/d79/Base64_8hpp.html" title=" " alt="" coords="477,177,691,203"/>
-<area shape="rect" href="../../db/dba/ZLib_8hpp.html" title=" " alt="" coords="3065,95,3258,121"/>
-<area shape="rect" href="../../d4/d92/AudioEngine_8hpp.html" title=" " alt="" coords="7835,177,8053,203"/>
-<area shape="rect" href="../../df/db4/Config_8hpp.html" title=" " alt="" coords="8929,355,9100,382"/>
-<area shape="rect" href="../../d0/dc1/Loading_8hpp.html" title=" " alt="" coords="8304,95,8485,121"/>
-<area shape="rect" href="../../da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="9125,355,9350,382"/>
-<area shape="rect" href="../../d0/de3/Window_8hpp.html" title=" " alt="" coords="5615,95,5796,121"/>
-<area shape="rect" href="../../d1/df0/RobotoLight_8hpp.html" title=" " alt="" coords="5341,95,5590,121"/>
-<area shape="rect" href="../../d9/d4b/ConsoleSink_8hpp.html" title=" " alt="" coords="7487,95,7700,121"/>
-<area shape="rect" href="../../dd/d0e/FileSink_8hpp.html" title=" " alt="" coords="7279,95,7463,121"/>
-<area shape="rect" href="../../de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="209,445,439,471"/>
-<area shape="rect" href="../../d2/d0d/FontContext_8hpp.html" title=" " alt="" coords="3231,445,3467,471"/>
-<area shape="rect" href="../../dd/db8/Renderer_8hpp.html" title=" " alt="" coords="5111,266,5326,293"/>
-<area shape="rect" href="../../d1/d36/Input_8hpp.html" title=" " alt="" coords="665,445,833,471"/>
-<area shape="rect" href="../../d6/de9/Constants_8hpp.html" title=" " alt="" coords="7775,95,7991,121"/>
-<area shape="rect" href="../../d5/d40/Platform_8hpp.html" title=" " alt="" coords="2861,177,3075,203"/>
-<area shape="rect" href="../../d9/d7d/Fonts_8hpp.html" title=" " alt="" coords="7387,266,7581,293"/>
-<area shape="rect" href="../../dd/d8e/Language_8hpp.html" title=" " alt="" coords="10245,95,10467,121"/>
-<area shape="rect" href="../../db/d05/Maps_8hpp.html" title=" " alt="" coords="10125,266,10318,293"/>
-<area shape="rect" href="../../d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="9679,266,9886,293"/>
-<area shape="rect" href="../../d7/d91/Scripts_8hpp.html" title=" " alt="" coords="10452,266,10655,293"/>
-<area shape="rect" href="../../d6/df6/Shaders_8hpp.html" title=" " alt="" coords="7707,266,7917,293"/>
-<area shape="rect" href="../../d6/d7c/Sounds_8hpp.html" title=" " alt="" coords="9192,266,9397,293"/>
-<area shape="rect" href="../../db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="6633,266,6871,293"/>
-<area shape="rect" href="../../df/dea/JSON_8hpp.html" title=" " alt="" coords="7867,445,8058,471"/>
-<area shape="rect" href="../../de/d92/Lua_8hpp.html" title=" " alt="" coords="9523,95,9704,121"/>
-<area shape="rect" href="../../df/d74/SceneManager_8hpp.html" title=" " alt="" coords="9728,95,9963,121"/>
-<area shape="rect" href="../../dc/d53/RuntimeLayer_8hpp.html" title=" " alt="" coords="8753,348,8905,389"/>
-<area shape="rect" href="../../d2/d75/UILayer_8hpp.html" title=" " alt="" coords="8077,169,8229,211"/>
-<area shape="rect" href="../../df/d3c/Application_8hpp.html" title=" " alt="" coords="8680,95,8803,121"/>
-<area shape="rect" title=" " alt="" coords="599,601,657,628"/>
-<area shape="rect" title=" " alt="" coords="3099,177,3157,203"/>
-<area shape="rect" href="../../d5/d64/Globals_8hpp.html" title=" " alt="" coords="3105,601,3284,628"/>
-<area shape="rect" title=" " alt="" coords="3111,676,3177,703"/>
-<area shape="rect" title=" " alt="" coords="3201,676,3292,703"/>
-<area shape="rect" title=" " alt="" coords="8752,445,8851,471"/>
-<area shape="rect" title=" " alt="" coords="9176,445,9323,471"/>
-<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="9398,445,9554,471"/>
-<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="9070,527,9266,553"/>
-<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="7594,445,7793,471"/>
-<area shape="rect" title=" " alt="" coords="9715,527,9839,553"/>
-<area shape="rect" title=" " alt="" coords="9342,527,9477,553"/>
-<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="9501,527,9691,553"/>
-<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="8465,527,8626,553"/>
-<area shape="rect" href="../../d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="5812,527,6020,553"/>
-<area shape="rect" title=" " alt="" coords="7517,601,7614,628"/>
-<area shape="rect" title=" " alt="" coords="8992,601,9072,628"/>
-<area shape="rect" title=" " alt="" coords="9122,601,9214,628"/>
-<area shape="rect" title=" " alt="" coords="6713,527,6775,553"/>
-<area shape="rect" href="../../d3/d4b/Async_8hpp.html" title=" " alt="" coords="8305,177,8479,203"/>
-<area shape="rect" href="../../d1/d92/RMLRenderer_8hpp.html" title=" " alt="" coords="8504,177,8704,203"/>
-<area shape="rect" title=" " alt="" coords="8304,266,8365,293"/>
-<area shape="rect" title=" " alt="" coords="8389,266,8605,293"/>
-<area shape="rect" title=" " alt="" coords="7791,527,7868,553"/>
-<area shape="rect" title=" " alt="" coords="8147,527,8338,553"/>
-<area shape="rect" href="../../df/da8/WindowSettings_8hpp.html" title=" " alt="" coords="3333,177,3568,203"/>
-<area shape="rect" href="../../d9/d1d/EventQueue_8hpp.html" title=" " alt="" coords="2397,355,2622,382"/>
-<area shape="rect" href="../../d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="6919,177,7153,203"/>
-<area shape="rect" href="../../db/d20/Clipboard_8hpp.html" title=" " alt="" coords="4069,445,4267,471"/>
-<area shape="rect" href="../../de/ddb/Cursor_8hpp.html" title=" " alt="" coords="5611,445,5787,471"/>
-<area shape="rect" href="../../d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="858,445,1054,471"/>
-<area shape="rect" href="../../d5/d78/Mouse_8hpp.html" title=" " alt="" coords="6235,445,6413,471"/>
-<area shape="rect" title=" " alt="" coords="2301,445,2369,471"/>
-<area shape="rect" href="../../dd/d0e/ContentScale_8hpp.html" title=" " alt="" coords="2393,445,2625,471"/>
-<area shape="rect" href="../../d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="2070,445,2277,471"/>
-<area shape="rect" href="../../d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="1617,445,1833,471"/>
-<area shape="rect" href="../../d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="1858,445,2046,471"/>
-<area shape="rect" href="../../d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="2650,445,2849,471"/>
-<area shape="rect" href="../../d3/d08/MouseMoved_8hpp.html" title=" " alt="" coords="2873,445,3106,471"/>
-<area shape="rect" href="../../de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1079,445,1319,471"/>
-<area shape="rect" href="../../df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="1343,445,1593,471"/>
-<area shape="rect" href="../../dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="3491,445,3722,471"/>
-<area shape="rect" href="../../d9/d3b/WindowResized_8hpp.html" title=" " alt="" coords="3746,445,3995,471"/>
-<area shape="rect" href="../../d4/d98/InputMods_8hpp.html" title=" " alt="" coords="1729,527,1932,553"/>
-<area shape="rect" href="../../dd/d25/Keys_8hpp.html" title=" " alt="" coords="1538,527,1705,553"/>
-<area shape="rect" href="../../df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="1085,527,1313,553"/>
-<area shape="rect" href="../../d3/d37/SMAA_8hpp.html" title=" " alt="" coords="7141,259,7312,300"/>
-<area shape="rect" href="../../d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="6947,259,7117,300"/>
-<area shape="rect" href="../../d7/d2d/PostEffect_8hpp.html" title=" " alt="" coords="7527,355,7750,382"/>
-<area shape="rect" href="../../d4/d6e/Shader_8hpp.html" title=" " alt="" coords="7054,355,7255,382"/>
-<area shape="rect" title=" " alt="" coords="6553,676,6609,703"/>
-<area shape="rect" title=" " alt="" coords="4617,601,4711,628"/>
-<area shape="rect" title=" " alt="" coords="7003,445,7159,471"/>
-<area shape="rect" title=" " alt="" coords="8339,601,8515,628"/>
-<area shape="rect" title=" " alt="" coords="9579,445,9685,471"/>
-<area shape="rect" href="../../db/dd2/Colour_8hpp.html" title=" " alt="" coords="6618,601,6817,628"/>
-<area shape="rect" href="../../d2/d31/UniformInfo_8hpp.html" title=" " alt="" coords="7184,445,7419,471"/>
-<area shape="rect" href="../../d4/d18/Memory_8hpp.html" title=" " alt="" coords="8185,445,8373,471"/>
-<area shape="rect" title=" " alt="" coords="8279,676,8358,703"/>
-<area shape="rect" title=" " alt="" coords="8048,527,8123,553"/>
-<area shape="rect" href="../../d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="6627,355,6877,382"/>
-<area shape="rect" title=" " alt="" coords="6438,445,6567,471"/>
-<area shape="rect" href="../../d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="6592,445,6827,471"/>
-<area shape="rect" href="../../d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="6317,527,6531,553"/>
-<area shape="rect" title=" " alt="" coords="5500,527,5553,553"/>
-<area shape="rect" title=" " alt="" coords="5669,601,5779,628"/>
-<area shape="rect" title=" " alt="" coords="7334,177,7407,203"/>
-<area shape="rect" href="../../d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="197,527,387,553"/>
-<area shape="rect" href="../../d5/d4b/FileInfo_8hpp.html" title=" " alt="" coords="9,527,172,553"/>
-<area shape="rect" href="../../d7/d75/FileCode_8hpp.html" title=" " alt="" coords="5,601,176,628"/>
-<area shape="rect" title=" " alt="" coords="3310,527,3389,553"/>
-<area shape="rect" href="../../da/d83/Transform_8hpp.html" title=" " alt="" coords="6355,355,6602,382"/>
-<area shape="rect" href="../../d6/d80/Camera_8hpp.html" title=" " alt="" coords="4969,355,5177,382"/>
-<area shape="rect" href="../../d5/d1a/Renderable_8hpp.html" title=" " alt="" coords="4714,355,4945,382"/>
-<area shape="rect" href="../../d0/ddc/Texture_8hpp.html" title=" " alt="" coords="4861,445,5067,471"/>
-<area shape="rect" href="../../d1/d3c/UniformBuffer_8hpp.html" title=" " alt="" coords="5912,445,6160,471"/>
-<area shape="rect" href="../../dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="5252,355,5484,382"/>
-<area shape="rect" href="../../d0/d15/Serializable_8hpp.html" title=" " alt="" coords="8753,527,8943,553"/>
-<area shape="rect" title=" " alt="" coords="4342,445,4429,471"/>
-<area shape="rect" href="../../d2/d5e/Primitives_8hpp.html" title=" " alt="" coords="4193,527,4415,553"/>
-<area shape="rect" href="../../df/d19/TextureModes_8hpp.html" title=" " alt="" coords="4540,527,4788,553"/>
-<area shape="rect" href="../../df/d23/TextureFilters_8hpp.html" title=" " alt="" coords="5129,527,5375,553"/>
-<area shape="rect" href="../../d0/d6a/IndexBuffer_8hpp.html" title=" " alt="" coords="4555,445,4786,471"/>
-<area shape="rect" href="../../dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="5091,437,5275,479"/>
-<area shape="rect" href="../../d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="5299,445,5536,471"/>
-<area shape="rect" href="../../d6/d9c/StorageFlags_8hpp.html" title=" " alt="" coords="4812,527,5055,553"/>
-<area shape="rect" href="../../d6/db0/Vertex_8hpp.html" title=" " alt="" coords="6045,527,6243,553"/>
-<area shape="rect" title=" " alt="" coords="6089,601,6199,628"/>
-<area shape="rect" title=" " alt="" coords="7675,177,7810,203"/>
-<area shape="rect" href="../../dc/d7a/Font_8hpp.html" title=" " alt="" coords="3637,355,3822,382"/>
-<area shape="rect" href="../../d4/d1e/Cache_8hpp.html" title=" " alt="" coords="9874,355,10073,382"/>
-<area shape="rect" title=" " alt="" coords="10393,177,10516,203"/>
-<area shape="rect" title=" " alt="" coords="10223,355,10318,382"/>
-<area shape="rect" href="../../d1/d98/Prefab_8hpp.html" title=" " alt="" coords="9678,355,9850,382"/>
-<area shape="rect" href="../../de/d5f/BasicScript_8hpp.html" title=" " alt="" coords="10689,355,10919,382"/>
-<area shape="rect" title=" " alt="" coords="10849,445,10941,471"/>
-<area shape="rect" href="../../d9/db9/Sound_8hpp.html" title=" " alt="" coords="8500,355,8679,382"/>
-<area shape="rect" href="../../da/d8d/RectPack_8hpp.html" title=" " alt="" coords="7280,355,7504,382"/>
-<area shape="rect" href="../../dc/dbb/TexelRegion_8hpp.html" title=" " alt="" coords="6089,355,6324,382"/>
-<area shape="rect" href="../../dc/dd2/Rect_8hpp.html" title=" " alt="" coords="9760,445,9947,471"/>
-<area shape="rect" href="../../db/de8/Scene_8hpp.html" title=" " alt="" coords="9756,177,9935,203"/>
-<area shape="rect" href="../../d0/dbb/World_8hpp.html" title=" " alt="" coords="10394,355,10561,382"/>
-<area shape="rect" href="../../d9/dc2/TiledMap_8hpp.html" title=" " alt="" coords="9910,266,10101,293"/>
-<area shape="rect" href="../../d9/da3/Layers_8hpp.html" title=" " alt="" coords="9473,266,9655,293"/>
-<area shape="rect" title=" " alt="" coords="10105,445,10191,471"/>
-<area shape="rect" title=" " alt="" coords="10215,445,10353,471"/>
-<area shape="rect" title=" " alt="" coords="10377,445,10548,471"/>
-<area shape="rect" href="../../da/d4c/RenderSystem_8hpp.html" title=" " alt="" coords="10573,445,10825,471"/>
-<area shape="rect" href="../../d4/d25/System_8hpp.html" title=" " alt="" coords="10263,527,10470,553"/>
-<area shape="rect" title=" " alt="" coords="10291,601,10443,628"/>
-<area shape="rect" title=" " alt="" coords="10097,355,10199,382"/>
-<area shape="rect" href="../../d6/d02/LayerRegistry_8hpp.html" title=" " alt="" coords="9374,355,9602,382"/>
-<area shape="rect" href="../../d2/d3b/Layer_8hpp.html" title=" " alt="" coords="8926,445,9101,471"/>
-<area shape="rect" href="../../df/d9f/RMLFile_8hpp.html" title=" " alt="" coords="8995,177,9160,203"/>
-<area shape="rect" href="../../d9/d53/RMLSystem_8hpp.html" title=" " alt="" coords="8779,177,8970,203"/>
-<area shape="rect" title=" " alt="" coords="8923,266,9117,293"/>
-<area shape="rect" title=" " alt="" coords="8680,266,8899,293"/>
+<area shape="rect" title=" " alt="" coords="7541,5,7710,47"/>
+<area shape="rect" title=" " alt="" coords="3247,95,3398,121"/>
+<area shape="rect" title=" " alt="" coords="3422,95,3530,121"/>
+<area shape="rect" title=" " alt="" coords="3555,95,3656,121"/>
+<area shape="rect" title=" " alt="" coords="3681,95,3807,121"/>
+<area shape="rect" title=" " alt="" coords="3832,95,3885,121"/>
+<area shape="rect" href="../../d4/d92/AudioEngine_8hpp.html" title=" " alt="" coords="4269,177,4488,203"/>
+<area shape="rect" href="../../df/db4/Config_8hpp.html" title=" " alt="" coords="7788,355,7959,382"/>
+<area shape="rect" href="../../d0/de3/Window_8hpp.html" title=" " alt="" coords="6128,95,6309,121"/>
+<area shape="rect" href="../../da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="9091,355,9317,382"/>
+<area shape="rect" href="../../d1/df0/RobotoLight_8hpp.html" title=" " alt="" coords="5805,95,6054,121"/>
+<area shape="rect" href="../../d9/d4b/ConsoleSink_8hpp.html" title=" " alt="" coords="2301,177,2515,203"/>
+<area shape="rect" href="../../dd/d0e/FileSink_8hpp.html" title=" " alt="" coords="3960,95,4144,121"/>
+<area shape="rect" href="../../de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="10541,445,10771,471"/>
+<area shape="rect" href="../../dd/db8/Renderer_8hpp.html" title=" " alt="" coords="4101,266,4315,293"/>
+<area shape="rect" href="../../d1/d36/Input_8hpp.html" title=" " alt="" coords="723,445,891,471"/>
+<area shape="rect" href="../../d5/d40/Platform_8hpp.html" title=" " alt="" coords="10718,177,10933,203"/>
+<area shape="rect" href="../../d9/d7d/Fonts_8hpp.html" title=" " alt="" coords="8035,266,8229,293"/>
+<area shape="rect" href="../../dd/d8e/Language_8hpp.html" title=" " alt="" coords="8415,95,8636,121"/>
+<area shape="rect" href="../../db/d05/Maps_8hpp.html" title=" " alt="" coords="8714,266,8907,293"/>
+<area shape="rect" href="../../d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="7753,266,7959,293"/>
+<area shape="rect" href="../../d7/d91/Scripts_8hpp.html" title=" " alt="" coords="8253,266,8456,293"/>
+<area shape="rect" href="../../d6/df6/Shaders_8hpp.html" title=" " alt="" coords="7237,266,7448,293"/>
+<area shape="rect" href="../../d6/d7c/Sounds_8hpp.html" title=" " alt="" coords="7523,266,7728,293"/>
+<area shape="rect" href="../../db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="6906,266,7145,293"/>
+<area shape="rect" href="../../de/d92/Lua_8hpp.html" title=" " alt="" coords="9189,95,9371,121"/>
+<area shape="rect" href="../../df/d74/SceneManager_8hpp.html" title=" " alt="" coords="9395,95,9629,121"/>
+<area shape="rect" href="../../dc/d53/RuntimeLayer_8hpp.html" title=" " alt="" coords="8663,348,8815,389"/>
+<area shape="rect" href="../../d2/d75/UILayer_8hpp.html" title=" " alt="" coords="8181,169,8333,211"/>
+<area shape="rect" href="../../df/d3c/Application_8hpp.html" title=" " alt="" coords="10107,177,10229,203"/>
+<area shape="rect" title=" " alt="" coords="4877,445,4976,471"/>
+<area shape="rect" title=" " alt="" coords="7859,445,8005,471"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="9123,445,9279,471"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="7971,527,8167,553"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="8030,445,8229,471"/>
+<area shape="rect" title=" " alt="" coords="10603,676,10693,703"/>
+<area shape="rect" title=" " alt="" coords="9311,527,9435,553"/>
+<area shape="rect" title=" " alt="" coords="8938,527,9073,553"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="9097,527,9287,553"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="277,527,438,553"/>
+<area shape="rect" href="../../d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="10127,527,10335,553"/>
+<area shape="rect" title=" " alt="" coords="6087,601,6185,628"/>
+<area shape="rect" href="../../d5/d64/Globals_8hpp.html" title=" " alt="" coords="10685,601,10864,628"/>
+<area shape="rect" title=" " alt="" coords="10741,676,10808,703"/>
+<area shape="rect" title=" " alt="" coords="8000,601,8080,628"/>
+<area shape="rect" title=" " alt="" coords="6465,601,6524,628"/>
+<area shape="rect" title=" " alt="" coords="8105,601,8197,628"/>
+<area shape="rect" title=" " alt="" coords="5102,527,5165,553"/>
+<area shape="rect" title=" " alt="" coords="8191,527,8382,553"/>
+<area shape="rect" href="../../df/da8/WindowSettings_8hpp.html" title=" " alt="" coords="6024,177,6259,203"/>
+<area shape="rect" href="../../d9/d1d/EventQueue_8hpp.html" title=" " alt="" coords="2790,355,3015,382"/>
+<area shape="rect" href="../../d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="4916,177,5151,203"/>
+<area shape="rect" href="../../db/d20/Clipboard_8hpp.html" title=" " alt="" coords="6299,445,6496,471"/>
+<area shape="rect" href="../../de/ddb/Cursor_8hpp.html" title=" " alt="" coords="6048,445,6224,471"/>
+<area shape="rect" href="../../d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="5827,445,6023,471"/>
+<area shape="rect" href="../../d5/d78/Mouse_8hpp.html" title=" " alt="" coords="6827,445,7005,471"/>
+<area shape="rect" title=" " alt="" coords="3255,445,3323,471"/>
+<area shape="rect" href="../../dd/d0e/ContentScale_8hpp.html" title=" " alt="" coords="1836,445,2068,471"/>
+<area shape="rect" href="../../d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="2333,445,2539,471"/>
+<area shape="rect" href="../../d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="2092,445,2308,471"/>
+<area shape="rect" href="../../d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="3043,445,3231,471"/>
+<area shape="rect" href="../../d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="2563,445,2762,471"/>
+<area shape="rect" href="../../d3/d08/MouseMoved_8hpp.html" title=" " alt="" coords="2786,445,3019,471"/>
+<area shape="rect" href="../../de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1572,445,1812,471"/>
+<area shape="rect" href="../../df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="1298,445,1547,471"/>
+<area shape="rect" href="../../dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="4133,445,4363,471"/>
+<area shape="rect" href="../../d9/d3b/WindowResized_8hpp.html" title=" " alt="" coords="3859,445,4109,471"/>
+<area shape="rect" href="../../d4/d98/InputMods_8hpp.html" title=" " alt="" coords="2099,527,2301,553"/>
+<area shape="rect" href="../../dd/d25/Keys_8hpp.html" title=" " alt="" coords="2353,527,2519,553"/>
+<area shape="rect" href="../../df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="1309,527,1537,553"/>
+<area shape="rect" href="../../d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="4636,259,4825,300"/>
+<area shape="rect" href="../../d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="4849,259,5023,300"/>
+<area shape="rect" href="../../dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="5047,259,5217,300"/>
+<area shape="rect" href="../../d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="4441,259,4612,300"/>
+<area shape="rect" href="../../d3/d37/SMAA_8hpp.html" title=" " alt="" coords="5241,259,5412,300"/>
+<area shape="rect" href="../../d7/d2d/PostEffect_8hpp.html" title=" " alt="" coords="4717,355,4939,382"/>
+<area shape="rect" href="../../d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="4441,355,4692,382"/>
+<area shape="rect" href="../../d4/d6e/Shader_8hpp.html" title=" " alt="" coords="4963,355,5165,382"/>
+<area shape="rect" title=" " alt="" coords="6571,445,6701,471"/>
+<area shape="rect" href="../../d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="3399,445,3633,471"/>
+<area shape="rect" title=" " alt="" coords="3488,676,3544,703"/>
+<area shape="rect" href="../../db/dd2/Colour_8hpp.html" title=" " alt="" coords="3673,601,3871,628"/>
+<area shape="rect" title=" " alt="" coords="5813,676,5891,703"/>
+<area shape="rect" title=" " alt="" coords="1103,601,1198,628"/>
+<area shape="rect" title=" " alt="" coords="4387,445,4543,471"/>
+<area shape="rect" title=" " alt="" coords="6237,601,6413,628"/>
+<area shape="rect" title=" " alt="" coords="8521,445,8628,471"/>
+<area shape="rect" href="../../d2/d31/UniformInfo_8hpp.html" title=" " alt="" coords="4619,445,4853,471"/>
+<area shape="rect" href="../../d4/d18/Memory_8hpp.html" title=" " alt="" coords="7030,445,7218,471"/>
+<area shape="rect" title=" " alt="" coords="7043,527,7120,553"/>
+<area shape="rect" title=" " alt="" coords="7144,527,7219,553"/>
+<area shape="rect" href="../../d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="6299,527,6512,553"/>
+<area shape="rect" title=" " alt="" coords="5748,527,5801,553"/>
+<area shape="rect" title=" " alt="" coords="6861,601,6971,628"/>
+<area shape="rect" title=" " alt="" coords="449,177,522,203"/>
+<area shape="rect" href="../../d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="10359,527,10550,553"/>
+<area shape="rect" href="../../d5/d4b/FileInfo_8hpp.html" title=" " alt="" coords="10575,527,10737,553"/>
+<area shape="rect" href="../../d7/d75/FileCode_8hpp.html" title=" " alt="" coords="10440,601,10611,628"/>
+<area shape="rect" href="../../da/d83/Transform_8hpp.html" title=" " alt="" coords="6566,355,6813,382"/>
+<area shape="rect" href="../../d6/d80/Camera_8hpp.html" title=" " alt="" coords="6333,355,6541,382"/>
+<area shape="rect" href="../../d5/d1a/Renderable_8hpp.html" title=" " alt="" coords="843,355,1074,382"/>
+<area shape="rect" href="../../d0/ddc/Texture_8hpp.html" title=" " alt="" coords="392,445,597,471"/>
+<area shape="rect" href="../../d1/d3c/UniformBuffer_8hpp.html" title=" " alt="" coords="1027,445,1275,471"/>
+<area shape="rect" href="../../dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="5479,355,5711,382"/>
+<area shape="rect" href="../../d0/d15/Serializable_8hpp.html" title=" " alt="" coords="7446,527,7637,553"/>
+<area shape="rect" title=" " alt="" coords="915,445,1002,471"/>
+<area shape="rect" href="../../d2/d5e/Primitives_8hpp.html" title=" " alt="" coords="783,527,1006,553"/>
+<area shape="rect" href="../../df/d19/TextureModes_8hpp.html" title=" " alt="" coords="5,527,253,553"/>
+<area shape="rect" href="../../df/d23/TextureFilters_8hpp.html" title=" " alt="" coords="513,527,759,553"/>
+<area shape="rect" href="../../d0/d6a/IndexBuffer_8hpp.html" title=" " alt="" coords="5363,445,5594,471"/>
+<area shape="rect" href="../../dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="5619,437,5803,479"/>
+<area shape="rect" href="../../d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="5101,445,5339,471"/>
+<area shape="rect" href="../../d6/d9c/StorageFlags_8hpp.html" title=" " alt="" coords="5189,527,5432,553"/>
+<area shape="rect" href="../../d6/db0/Vertex_8hpp.html" title=" " alt="" coords="5457,527,5655,553"/>
+<area shape="rect" title=" " alt="" coords="5501,601,5611,628"/>
+<area shape="rect" href="../../dc/d7a/Font_8hpp.html" title=" " alt="" coords="8406,527,8591,553"/>
+<area shape="rect" href="../../d4/d1e/Cache_8hpp.html" title=" " alt="" coords="8033,355,8231,382"/>
+<area shape="rect" href="../../d2/d0d/FontContext_8hpp.html" title=" " alt="" coords="8381,601,8617,628"/>
+<area shape="rect" title=" " alt="" coords="8459,676,8538,703"/>
+<area shape="rect" title=" " alt="" coords="8415,177,8537,203"/>
+<area shape="rect" title=" " alt="" coords="9341,355,9435,382"/>
+<area shape="rect" href="../../d1/d98/Prefab_8hpp.html" title=" " alt="" coords="7591,355,7763,382"/>
+<area shape="rect" href="../../de/d5f/BasicScript_8hpp.html" title=" " alt="" coords="8306,355,8537,382"/>
+<area shape="rect" title=" " alt="" coords="8405,445,8497,471"/>
+<area shape="rect" href="../../d9/db9/Sound_8hpp.html" title=" " alt="" coords="7287,355,7465,382"/>
+<area shape="rect" href="../../da/d8d/RectPack_8hpp.html" title=" " alt="" coords="6988,355,7212,382"/>
+<area shape="rect" href="../../dc/dbb/TexelRegion_8hpp.html" title=" " alt="" coords="7661,527,7896,553"/>
+<area shape="rect" href="../../dc/dd2/Rect_8hpp.html" title=" " alt="" coords="7597,445,7784,471"/>
+<area shape="rect" href="../../d0/dc1/Loading_8hpp.html" title=" " alt="" coords="9724,177,9905,203"/>
+<area shape="rect" href="../../db/de8/Scene_8hpp.html" title=" " alt="" coords="9384,177,9563,203"/>
+<area shape="rect" href="../../d3/d4b/Async_8hpp.html" title=" " alt="" coords="9727,266,9902,293"/>
+<area shape="rect" href="../../d1/d92/RMLRenderer_8hpp.html" title=" " alt="" coords="9927,266,10127,293"/>
+<area shape="rect" title=" " alt="" coords="9829,355,9891,382"/>
+<area shape="rect" title=" " alt="" coords="9915,355,10131,382"/>
+<area shape="rect" href="../../d0/dbb/World_8hpp.html" title=" " alt="" coords="9638,355,9805,382"/>
+<area shape="rect" href="../../d9/dc2/TiledMap_8hpp.html" title=" " alt="" coords="9378,266,9569,293"/>
+<area shape="rect" href="../../d9/da3/Layers_8hpp.html" title=" " alt="" coords="8931,266,9114,293"/>
+<area shape="rect" title=" " alt="" coords="9511,445,9598,471"/>
+<area shape="rect" title=" " alt="" coords="9622,445,9759,471"/>
+<area shape="rect" title=" " alt="" coords="9784,445,9955,471"/>
+<area shape="rect" href="../../da/d4c/RenderSystem_8hpp.html" title=" " alt="" coords="10030,445,10282,471"/>
+<area shape="rect" href="../../d4/d25/System_8hpp.html" title=" " alt="" coords="9895,527,10102,553"/>
+<area shape="rect" title=" " alt="" coords="9923,601,10075,628"/>
+<area shape="rect" title=" " alt="" coords="9511,355,9614,382"/>
+<area shape="rect" href="../../d6/d02/LayerRegistry_8hpp.html" title=" " alt="" coords="8839,355,9067,382"/>
+<area shape="rect" href="../../d2/d3b/Layer_8hpp.html" title=" " alt="" coords="8653,445,8827,471"/>
+<area shape="rect" href="../../df/d9f/RMLFile_8hpp.html" title=" " alt="" coords="10213,266,10379,293"/>
+<area shape="rect" href="../../d9/d53/RMLSystem_8hpp.html" title=" " alt="" coords="10421,266,10611,293"/>
+<area shape="rect" title=" " alt="" coords="10206,355,10399,382"/>
+<area shape="rect" title=" " alt="" coords="10424,355,10643,382"/>
 </map>
 </div>
 </div>
@@ -303,7 +296,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d2/db6/Application_8cpp.html">Application.cpp</a></li>
-    <li class="footer">Generated on Tue Apr 4 2023 00:55:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 8 2023 13:56:08 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

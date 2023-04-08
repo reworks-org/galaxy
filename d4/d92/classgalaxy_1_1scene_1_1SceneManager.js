@@ -6,6 +6,8 @@ var classgalaxy_1_1scene_1_1SceneManager =
     [ "set", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad12eb492967e3ad4400c502e84a94f41", null ],
     [ "change", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab61df16febf0c7621d8b2de298a7a334", null ],
     [ "load", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a03ff8e779b7647a0775f28acb368b801", null ],
+    [ "load_from_appdata", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab41e4ad011775114cfb27c3319ce604c", null ],
+    [ "load_assets", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877", null ],
     [ "save", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a02f1a2e5c303b18e27bb488a98edd6ef", null ],
     [ "get", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d", null ],
     [ "remove", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204", null ],
@@ -16,5 +18,6 @@ var classgalaxy_1_1scene_1_1SceneManager =
     [ "serialize", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e", null ],
     [ "deserialize", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b", null ],
     [ "m_scenes", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2", null ],
-    [ "m_current", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f", null ]
+    [ "m_current", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f", null ],
+    [ "m_loader", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a96e7d8856b1e3afeed0e03963d59d319", null ]
 ];

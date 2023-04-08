@@ -1,6 +1,0 @@
-<map id="galaxy::core::Application::load" name="galaxy::core::Application::load">
-<area shape="rect" id="node1" title="Load scenes into app." alt="" coords="5,71,188,112"/>
-<area shape="rect" id="node2" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243" title="Decompresses string into Base64." alt="" coords="279,5,423,47"/>
-<area shape="rect" id="node3" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795" title="Decompresses string into ZLib." alt="" coords="279,71,423,112"/>
-<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,137,467,163"/>
-</map>

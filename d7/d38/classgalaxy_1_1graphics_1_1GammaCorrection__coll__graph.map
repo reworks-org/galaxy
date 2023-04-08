@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::GammaCorrection" name="galaxy::graphics::GammaCorrection">
-<area shape="rect" id="node1" title="GammaCorrection effect." alt="" coords="221,1248,475,1413"/>
-<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="31,961,233,1141"/>
+<area shape="rect" id="node1" title="GammaCorrection effect." alt="" coords="221,1248,475,1428"/>
+<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="31,954,233,1149"/>
 <area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="257,917,439,1185"/>
 <area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="201,484,415,840"/>
 <area shape="rect" id="node5" title=" " alt="" coords="5,300,189,407"/>

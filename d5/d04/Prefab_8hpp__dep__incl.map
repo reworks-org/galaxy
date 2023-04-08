@@ -1,9 +1,10 @@
 <map id="galaxy/src/galaxy/core/Prefab.hpp" name="galaxy/src/galaxy/core/Prefab.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="199,5,368,47"/>
-<area shape="rect" id="node2" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="95,95,264,136"/>
-<area shape="rect" id="node3" href="$d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="289,95,486,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="288,5,457,47"/>
+<area shape="rect" id="node2" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="184,95,353,136"/>
+<area shape="rect" id="node3" href="$d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="378,95,575,136"/>
 <area shape="rect" id="node4" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,184,175,225"/>
-<area shape="rect" id="node5" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="199,184,368,225"/>
-<area shape="rect" id="node6" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="393,184,590,225"/>
-<area shape="rect" id="node7" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="614,184,811,225"/>
+<area shape="rect" id="node5" href="$dd/dff/Loading_8cpp.html" title=" " alt="" coords="199,184,368,225"/>
+<area shape="rect" id="node6" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="392,184,561,225"/>
+<area shape="rect" id="node7" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="586,184,783,225"/>
+<area shape="rect" id="node8" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="807,184,1005,225"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="galaxy/src/galaxy/fs/VirtualFileSystem.hpp" name="galaxy/src/galaxy/fs/VirtualFileSystem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2348,5,2517,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2459,5,2628,47"/>
 <area shape="rect" id="node2" href="$d1/d8a/Sound_8cpp.html" title=" " alt="" coords="5,95,183,136"/>
 <area shape="rect" id="node3" href="$d8/d80/Script_8cpp.html" title=" " alt="" coords="207,95,429,136"/>
 <area shape="rect" id="node4" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="453,95,623,136"/>
@@ -18,9 +18,10 @@
 <area shape="rect" id="node17" href="$d4/d01/Shaders_8cpp.html" title=" " alt="" coords="3219,95,3417,136"/>
 <area shape="rect" id="node18" href="$d5/d92/Sounds_8cpp.html" title=" " alt="" coords="3441,95,3638,136"/>
 <area shape="rect" id="node19" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="3662,95,3859,136"/>
-<area shape="rect" id="node20" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="3883,95,4081,136"/>
-<area shape="rect" id="node21" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="4105,95,4302,136"/>
-<area shape="rect" id="node22" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="4326,95,4523,136"/>
-<area shape="rect" id="node23" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="4548,95,4701,136"/>
-<area shape="rect" id="node24" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="4725,95,4879,136"/>
+<area shape="rect" id="node20" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="3883,95,4062,136"/>
+<area shape="rect" id="node21" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="4086,95,4283,136"/>
+<area shape="rect" id="node22" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="4307,95,4505,136"/>
+<area shape="rect" id="node23" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="4529,95,4726,136"/>
+<area shape="rect" id="node24" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="4751,95,4904,136"/>
+<area shape="rect" id="node25" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="4928,95,5081,136"/>
 </map>
