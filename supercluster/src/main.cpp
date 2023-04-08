@@ -118,7 +118,9 @@ int main(int argsc, char* argsv[])
 					}
 				}
 
-				auto& sm   = core::ServiceLocator<scene::SceneManager>::ref();
+				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
+				sm.load_assets();
+
 				auto scene = sm.make("supercluster");
 				if (auto ptr = scene.lock())
 				{

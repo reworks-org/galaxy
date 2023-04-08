@@ -32,13 +32,6 @@ namespace galaxy
 			virtual ~Application();
 
 			///
-			/// Load scenes into app.
-			///
-			/// \param json_file Zlib + BAse64 encoded json data file.
-			///
-			void load(std::string_view json_file);
-
-			///
 			/// Runs the application.
 			///
 			void run();

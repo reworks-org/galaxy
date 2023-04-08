@@ -22,11 +22,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Argument constructor.
+			/// Constructor.
 			///
-			/// \param doc UI document to display when loading.
-			///
-			Loading(const std::string& doc);
+			Loading();
 
 			///
 			/// Destructor.
@@ -36,20 +34,12 @@ namespace galaxy
 			///
 			/// Start loading job in task pool.
 			///
-			/// \param lambda Task to call in thread pool.
-			///
-			void start(const std::function<void(void)>& lambda);
+			void start();
 
 			///
 			/// Draw loading screen while loading.
 			///
-			void display();
-
-		private:
-			///
-			/// Constructor.
-			///
-			Loading() = delete;
+			void finish();
 
 		private:
 			///

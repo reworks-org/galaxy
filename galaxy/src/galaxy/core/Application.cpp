@@ -8,23 +8,19 @@
 #include <BS_thread_pool.hpp>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
+#include <tinyfiledialogs.h>
 #include <zip.h>
 
-#include "galaxy/algorithm/Base64.hpp"
-#include "galaxy/algorithm/ZLib.hpp"
 #include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/Loading.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
-#include "galaxy/physics/Constants.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -34,7 +30,6 @@
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scene/layers/RuntimeLayer.hpp"
@@ -149,6 +144,8 @@ namespace galaxy
 
 				// Unpack assets if zip is present.
 				{
+					tinyfd_notifyPopup("Asset Unpacking", "Running first time asset unpacking.\tLoading may take longer.", "info");
+
 					const auto compressed_assets = config.get<std::string>("compressed_assets");
 					if (std::filesystem::exists(compressed_assets))
 					{
@@ -254,6 +251,20 @@ namespace galaxy
 			ServiceLocator<graphics::FontContext>::make();
 
 			//
+			// Initialize Lua.
+			//
+			auto& lua = ServiceLocator<sol::state>::make();
+			lua.open_libraries(sol::lib::base,
+				sol::lib::package,
+				sol::lib::coroutine,
+				sol::lib::string,
+				sol::lib::os,
+				sol::lib::math,
+				sol::lib::table,
+				sol::lib::io,
+				sol::lib::utf8);
+
+			//
 			// UI.
 			//
 			m_rml_rendering_interface.init();
@@ -263,6 +274,9 @@ namespace galaxy
 
 			if (Rml::Initialise())
 			{
+				// Initialize lua support.
+				Rml::Lua::Initialise(lua.lua_state());
+
 				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
 				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
 
@@ -283,169 +297,32 @@ namespace galaxy
 			}
 
 			//
-			// Begin offthread loading.
+			// Services.
 			//
-			Loading loading(config.get<std::string>("load_screen_rml"));
-
-			// clang-format off
-			//
-            // NOTE: You CANT call OpenGL here. This runs on a separate thread.
-			//
-			loading.start([&, this]()
-			{
-				try
-				{
-					// clang-format on
-
-					//
-					// Set inputs from config.
-					//
-					input::CameraKeys::FORWARD      = input::int_to_key(config.get<int>("camera_foward", "input"));
-					input::CameraKeys::BACKWARD     = input::int_to_key(config.get<int>("camera_backward", "input"));
-					input::CameraKeys::LEFT         = input::int_to_key(config.get<int>("camera_left", "input"));
-					input::CameraKeys::RIGHT        = input::int_to_key(config.get<int>("camera_right", "input"));
-					input::CameraKeys::ROTATE_LEFT  = input::int_to_key(config.get<int>("camera_rotate_left", "input"));
-					input::CameraKeys::ROTATE_RIGHT = input::int_to_key(config.get<int>("camera_rotate_right", "input"));
-
-					//
-					// Window closing config.
-					//
-					if (config.get<bool>("allow_native_closing", "window"))
-					{
-						window.allow_native_closing();
-					}
-					else
-					{
-						window.prevent_native_closing();
-					}
-
-					//
-					// Window cursor.
-					//
-					auto& cursor = window.get_input<input::Cursor>();
-					cursor.toggle(config.get<bool>("visible_cursor", "window"));
-
-					auto cursor_icon = config.get<std::string>("cursor_icon", "window");
-					if (!cursor_icon.empty())
-					{
-						cursor.set_cursor_icon(cursor_icon);
-					}
-
-					//
-					// Physics config data.
-					//
-					physics::Constants::gravity.x           = config.get<float>("x", "box2d.gravity");
-					physics::Constants::gravity.y           = config.get<float>("y", "box2d.gravity");
-					physics::Constants::velocity_iterations = config.get<int>("velocity_iterations", "box2d");
-					physics::Constants::position_iterations = config.get<int>("position_iterations", "box2d");
-					physics::Constants::pixels_per_meter    = config.get<float>("ppm", "box2d");
-
-					//
-					// Begin loading shader related data.
-					//
-					auto& shaders = ServiceLocator<resource::Shaders>::make();
-					shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
-
-					//
-					// Begin loading fonts.
-					//
-					auto& fonts = ServiceLocator<resource::Fonts>::make();
-					fonts.load(config.get<std::string>("font_folder", "resource_folders"));
-
-					//
-					// Lua.
-					//
-					auto& lua = ServiceLocator<sol::state>::make();
-					lua.open_libraries(sol::lib::base,
-						sol::lib::package,
-						sol::lib::coroutine,
-						sol::lib::string,
-						sol::lib::os,
-						sol::lib::math,
-						sol::lib::table,
-						sol::lib::io,
-						sol::lib::utf8);
-
-					//
-					// LANGUAGES.
-					//
-					auto& lang = ServiceLocator<resource::Language>::make();
-					lang.load(config.get<std::string>("lang_folder", "resource_folders"));
-					lang.set(config.get<std::string>("default_lang"));
-
-					//
-					// Audio Engine.
-					//
-					auto& ae = ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
-					ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
-					ae.set_music_volume(config.get<float>("music_volume", "audio"));
-					ae.set_dialogue_volume(config.get<float>("dialogue_volume", "audio"));
-
-					//
-					// Game audio files.
-					//
-					auto& sounds = ServiceLocator<resource::Sounds>::make();
-					sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
-					sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
-					sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
-
-					//
-					// Generic non entity scripts.
-					//
-					auto& scripts = ServiceLocator<resource::Scripts>::make();
-					scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
-
-					//
-					// Entity prefabs.
-					//
-					auto& prefabs = ServiceLocator<resource::Prefabs>::make();
-					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
-
-					//
-					// Maps.
-					//
-					auto& maps = ServiceLocator<resource::Maps>::make();
-					maps.load(config.get<std::string>("maps_folder", "resource_folders"));
-
-					//
-					// SceneManager.
-					//
-					scene::LayerRegistry::register_type<scene::UILayer>("UI");
-					scene::LayerRegistry::register_type<scene::RuntimeLayer>("Runtime");
-					ServiceLocator<scene::SceneManager>::make();
-
-					//
-					// Add external libraries to Lua.
-					//
-					lua::load_external_libs();
-
-					//
-					// Inject all configured galaxy into Lua.
-					//
-					Rml::Lua::Initialise(lua.lua_state());
-					lua::inject_galaxy_into_lua();
-				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, e.what());
-				}
-			});
-
-			// Will display until loading offthread is done.
-			loading.display();
-
-			ServiceLocator<resource::Shaders>::ref().compile();
-			ServiceLocator<resource::Fonts>::ref().build();
+			ServiceLocator<resource::Maps>::make();
+			ServiceLocator<resource::Prefabs>::make();
+			ServiceLocator<resource::Scripts>::make();
+			ServiceLocator<resource::Sounds>::make();
+			ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
+			ServiceLocator<resource::Language>::make();
+			ServiceLocator<resource::Fonts>::make();
+			ServiceLocator<resource::Shaders>::make();
+			ServiceLocator<resource::TextureAtlas>::make();
 
 			//
-			// Build texture atlas.
+			// SceneManager.
 			//
-			auto& textureatlas = ServiceLocator<resource::TextureAtlas>::make();
-			textureatlas.add_folder(config.get<std::string>("atlas_folder", "resource_folders"));
+			scene::LayerRegistry::register_type<scene::UILayer>("UI");
+			scene::LayerRegistry::register_type<scene::RuntimeLayer>("Runtime");
+			ServiceLocator<scene::SceneManager>::make();
 
 			//
+			// Add external libraries to Lua.
+			// Inject all configured galaxy into Lua.
 			// Add engine services to lua.
 			//
+			lua::load_external_libs();
+			lua::inject_galaxy_into_lua();
 			lua::inject_services_into_lua();
 		}
 
@@ -471,25 +348,6 @@ namespace galaxy
 			ServiceLocator<Config>::del();
 
 			GALAXY_LOG_FINISH();
-		}
-
-		void Application::load(std::string_view json_file)
-		{
-			auto& fs      = ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& manager = ServiceLocator<scene::SceneManager>::ref();
-
-			const auto default_data = fs.open(json_file);
-			if (!default_data.empty())
-			{
-				const auto decoded_zlib   = algorithm::decode_zlib(default_data);
-				const auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
-
-				manager.load(decoded_base64);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to load json data file '{0}'.", json_file);
-			}
 		}
 
 		void Application::run()

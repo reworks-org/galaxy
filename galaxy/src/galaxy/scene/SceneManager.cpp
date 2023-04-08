@@ -7,7 +7,11 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/algorithm/Base64.hpp"
+#include "galaxy/algorithm/ZLib.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/scripting/JSON.hpp"
 
 #include "SceneManager.hpp"
@@ -91,6 +95,42 @@ namespace galaxy
 			}
 		}
 
+		void SceneManager::load_from_appdata(std::string_view appdata_file)
+		{
+			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().open(appdata_file);
+			if (!data.empty())
+			{
+				const auto decoded_zlib = algorithm::decode_zlib(data);
+				if (!decoded_zlib.empty())
+
+				{
+					const auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
+					if (!decoded_base64.empty())
+					{
+						load(decoded_base64);
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to decode base64 appdata '{0}'.", appdata_file);
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to decode zlib appdata '{0}'.", appdata_file);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load appdata '{0}'.", appdata_file);
+			}
+		}
+
+		void SceneManager::load_assets()
+		{
+			m_loader.start();
+			m_loader.finish();
+		}
+
 		void SceneManager::save(std::string_view file)
 		{
 			const auto json = serialize();
@@ -109,7 +149,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to retrieve non-existent scene '{0}'.", name);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}'.", name);
 				return {};
 			}
 		}

@@ -8,6 +8,7 @@
 #ifndef GALAXY_STATE_SCENEMANAGER_HPP_
 #define GALAXY_STATE_SCENEMANAGER_HPP_
 
+#include "galaxy/core/Loading.hpp"
 #include "galaxy/scene/Scene.hpp"
 
 namespace galaxy
@@ -67,6 +68,20 @@ namespace galaxy
 			/// \param data JSON data to parse.
 			///
 			void load(const std::string& data);
+
+			///
+			/// \brief Load app data file into scene manager.
+			///
+			/// Will remove any other loaded scenes.
+			///
+			/// \param appdata_file Zlib + Base64 encoded json data file. Should have .galaxy extension.
+			///
+			void load_from_appdata(std::string_view appdata_file);
+
+			///
+			/// Load game assets.
+			///
+			void load_assets();
 
 			///
 			/// Save all active scenes and sub data within those scenes.
@@ -149,6 +164,11 @@ namespace galaxy
 			/// Currently active scene.
 			///
 			std::shared_ptr<Scene> m_current;
+
+			///
+			/// Loader to load game content.
+			///
+			core::Loading m_loader;
 		};
 	} // namespace scene
 } // namespace galaxy
