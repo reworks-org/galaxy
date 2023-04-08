@@ -239,8 +239,6 @@ namespace galaxy
 			audioengine_type["toggle_listener"]        = &audio::AudioEngine::toggle_listener;
 			audioengine_type["stop"]                   = &audio::AudioEngine::stop;
 
-			lua["galaxy_audioengine"] = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
-
 			/* COMPONENTS */
 			auto animated_type = lua.new_usertype<components::Animated>("Animated",
 				sol::constructors<components::Animated()>(),
@@ -457,8 +455,6 @@ namespace galaxy
 			config_type["get_section_string"] =
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
-			lua["service_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
-
 			// Cannot be created in lua, accessed from scene instead.
 			auto world_type                  = lua.new_usertype<core::World>("World", sol::no_constructor);
 			world_type["clear"]              = &core::World::clear;
@@ -607,8 +603,6 @@ namespace galaxy
 			vfs_type["save_using_dialog"]        = &fs::VirtualFileSystem::save_using_dialog;
 			vfs_type["select_folder_dialog"]     = &fs::VirtualFileSystem::select_folder_dialog;
 			vfs_type["trigger_notification"]     = &fs::VirtualFileSystem::trigger_notification;
-
-			lua["service_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 
 			/* GRAPHICS */
 			// clang-format off
@@ -1008,15 +1002,17 @@ namespace galaxy
 			fonts_type["keys"]  = &resource::Fonts::keys;
 
 			/* STATE */
-			auto scenemanager_type       = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["change"]  = &scene::SceneManager::change;
-			scenemanager_type["clear"]   = &scene::SceneManager::clear;
-			scenemanager_type["load"]    = &scene::SceneManager::load;
-			scenemanager_type["save"]    = &scene::SceneManager::save;
-			scenemanager_type["current"] = &scene::SceneManager::current;
-			scenemanager_type["get"]     = &scene::SceneManager::get;
-			scenemanager_type["make"]    = &scene::SceneManager::make;
-			scenemanager_type["set"]     = &scene::SceneManager::set;
+			auto scenemanager_type                 = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["change"]            = &scene::SceneManager::change;
+			scenemanager_type["clear"]             = &scene::SceneManager::clear;
+			scenemanager_type["load"]              = &scene::SceneManager::load;
+			scenemanager_type["load_from_appdata"] = &scene::SceneManager::load_from_appdata;
+			scenemanager_type["load_assets"]       = &scene::SceneManager::load_assets;
+			scenemanager_type["save"]              = &scene::SceneManager::save;
+			scenemanager_type["current"]           = &scene::SceneManager::current;
+			scenemanager_type["get"]               = &scene::SceneManager::get;
+			scenemanager_type["make"]              = &scene::SceneManager::make;
+			scenemanager_type["set"]               = &scene::SceneManager::set;
 
 			// Use scenemanager to create.
 			auto scene_type        = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
@@ -1026,8 +1022,6 @@ namespace galaxy
 			scene_type["camera"]   = &scene::Scene::m_camera;
 			scene_type["map"]      = &scene::Scene::m_map;
 			scene_type["world"]    = &scene::Scene::m_world;
-
-			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 
 			/* SCRIPTING */
 			auto basicscript_type =
@@ -1062,8 +1056,11 @@ namespace galaxy
 			lua.set("GALAXY_FONT_MSDF_SCALE", GALAXY_FONT_MSDF_SCALE);
 			lua.set("GALAXY_DEFAULT_ELLIPSE_FRAGMENTS", GALAXY_DEFAULT_ELLIPSE_FRAGMENTS);
 			lua.set("GALAXY_APP_DIR", GALAXY_APP_DIR);
+			lua.set("GALAXY_WORKER_THREADS", GALAXY_WORKER_THREADS);
+			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
+			lua.set("GALAXY_EXIT_SUCCESS", GALAXY_EXIT_SUCCESS);
+			lua.set("GALAXY_EXIT_FAILURE", GALAXY_EXIT_FAILURE);
 
-			lua.set_function("galaxy_str_split", &strutils::split);
 			lua.set_function("galaxy_str_begins_with", &strutils::begins_with);
 		}
 
@@ -1071,13 +1068,18 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			lua["galaxy_language"]     = std::ref(core::ServiceLocator<resource::Language>::ref());
-			lua["galaxy_maps"]         = std::ref(core::ServiceLocator<resource::Maps>::ref());
-			lua["galaxy_shaders"]      = std::ref(core::ServiceLocator<resource::Shaders>::ref());
-			lua["galaxy_fonts"]        = std::ref(core::ServiceLocator<resource::Fonts>::ref());
-			lua["galaxy_sounds"]       = std::ref(core::ServiceLocator<resource::Sounds>::ref());
-			lua["galaxy_textureatlas"] = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
-			lua["galaxy_prefabs"]      = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
+			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
+			lua["galaxy_language"]      = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_maps"]          = std::ref(core::ServiceLocator<resource::Maps>::ref());
+			lua["galaxy_shaders"]       = std::ref(core::ServiceLocator<resource::Shaders>::ref());
+			lua["galaxy_fonts"]         = std::ref(core::ServiceLocator<resource::Fonts>::ref());
+			lua["galaxy_sounds"]        = std::ref(core::ServiceLocator<resource::Sounds>::ref());
+			lua["galaxy_textureatlas"]  = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
+			lua["galaxy_prefabs"]       = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
+			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
+			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
+			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
+			lua["service_fs"]           = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 		}
 
 		void load_external_libs()
