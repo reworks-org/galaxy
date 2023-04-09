@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['galaxy_3318',['galaxy',['../index.html',1,'']]]
+  ['galaxy_3315',['galaxy',['../index.html',1,'']]]
 ];

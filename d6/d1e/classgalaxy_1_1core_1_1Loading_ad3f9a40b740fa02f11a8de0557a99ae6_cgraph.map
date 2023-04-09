@@ -1,6 +1,0 @@
-<map id="galaxy::core::Loading::start" name="galaxy::core::Loading::start">
-<area shape="rect" id="node1" title="Start loading job in task pool." alt="" coords="5,64,165,105"/>
-<area shape="rect" id="node2" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="263,5,394,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="213,71,444,98"/>
-<area shape="rect" id="node4" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="251,123,407,164"/>
-</map>

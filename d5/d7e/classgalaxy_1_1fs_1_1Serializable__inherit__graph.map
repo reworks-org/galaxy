@@ -17,7 +17,7 @@
 <area shape="rect" id="node16" href="$d2/d25/classgalaxy_1_1scene_1_1Layer.html" title="A layer is a contained part of your game engine. I.e. A scene would have a runtime layer and a UI lay..." alt="" coords="2774,336,2929,604"/>
 <area shape="rect" id="node19" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html" title="Stack based storage for layers." alt="" coords="2953,277,3115,663"/>
 <area shape="rect" id="node20" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="3139,314,3329,626"/>
-<area shape="rect" id="node21" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="3353,343,3568,597"/>
+<area shape="rect" id="node21" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="3353,351,3568,589"/>
 <area shape="rect" id="node17" href="$df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html" title="Layer handling game logic." alt="" coords="2638,784,2849,1008"/>
 <area shape="rect" id="node18" href="$d3/d20/classgalaxy_1_1scene_1_1UILayer.html" title="Layer specifically for game ui." alt="" coords="2873,784,3043,1008"/>
 </map>

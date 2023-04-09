@@ -2,7 +2,7 @@ var namespacegalaxy_1_1core =
 [
     [ "Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", "d5/da2/classgalaxy_1_1core_1_1Application" ],
     [ "Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", "d6/de9/classgalaxy_1_1core_1_1Config" ],
-    [ "Loading", "d6/d1e/classgalaxy_1_1core_1_1Loading.html", "d6/d1e/classgalaxy_1_1core_1_1Loading" ],
+    [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
     [ "Prefab", "d2/d2b/structgalaxy_1_1core_1_1Prefab.html", "d2/d2b/structgalaxy_1_1core_1_1Prefab" ],
     [ "ServiceLocator", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator" ],
     [ "TiledMap", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html", "dd/daa/classgalaxy_1_1core_1_1TiledMap" ],

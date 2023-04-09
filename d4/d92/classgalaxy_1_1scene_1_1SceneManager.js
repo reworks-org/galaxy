@@ -18,6 +18,5 @@ var classgalaxy_1_1scene_1_1SceneManager =
     [ "serialize", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e", null ],
     [ "deserialize", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b", null ],
     [ "m_scenes", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2", null ],
-    [ "m_current", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f", null ],
-    [ "m_loader", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a96e7d8856b1e3afeed0e03963d59d319", null ]
+    [ "m_current", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f", null ]
 ];

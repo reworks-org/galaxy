@@ -64,18 +64,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a972e6119965b219449b2bc6396f3ca78",
-"d3/d3e/IndexBuffer_8cpp.html",
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130",
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html",
-"d7/d75/FileCode_8hpp.html#a57278a58a8457b4345127d2a627f9d1f",
-"d8/d8a/classgalaxy_1_1components_1_1Transform.html#af99221c730584c670ba61f6fa7cf593e",
-"da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b",
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d",
-"dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea646da671ca01bb5d84dbb5fb2238dc8e",
-"de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed",
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2f86d5f426c032068a98f547d737017e"
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5",
+"d3/d37/SMAA_8hpp.html",
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3",
+"d5/daa/DefaultShaders_8cpp_source.html",
+"d7/d7b/UniformInfo_8cpp.html",
+"d8/d96/classgalaxy_1_1components_1_1Tag.html#a6b9ae81a6c64cf36f6ac725e24145fb6",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#af376fb09449bfa3b2a000a0840ab4093",
+"db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aaebdbcb765394d25d6a604589a890f82",
+"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a564a1b6aef76fc75b65cf4280b1913e8",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea71f42e8faf0fb7cb14174c8481461c00",
+"de/d59/KeyDown_8cpp.html",
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2fe2626b52a114eb07b65e9d6659eb1a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

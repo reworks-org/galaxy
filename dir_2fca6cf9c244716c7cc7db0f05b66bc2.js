@@ -8,9 +8,9 @@ var dir_2fca6cf9c244716c7cc7db0f05b66bc2 =
     [ "Config.hpp", "df/db4/Config_8hpp.html", [
       [ "Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", "d6/de9/classgalaxy_1_1core_1_1Config" ]
     ] ],
-    [ "Loading.cpp", "dd/dff/Loading_8cpp.html", null ],
-    [ "Loading.hpp", "d0/dc1/Loading_8hpp.html", [
-      [ "Loading", "d6/d1e/classgalaxy_1_1core_1_1Loading.html", "d6/d1e/classgalaxy_1_1core_1_1Loading" ]
+    [ "Loader.cpp", "d0/def/Loader_8cpp.html", null ],
+    [ "Loader.hpp", "d0/dde/Loader_8hpp.html", [
+      [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ]
     ] ],
     [ "Prefab.cpp", "d7/de1/Prefab_8cpp.html", null ],
     [ "Prefab.hpp", "d1/d98/Prefab_8hpp.html", [

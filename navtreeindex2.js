@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"d3/d37/SMAA_8hpp.html":[2,0,0,0,0,10,1,9],
+"d3/d37/SMAA_8hpp_source.html":[2,0,0,0,0,10,1,9],
 "d3/d3e/IndexBuffer_8cpp.html":[2,0,0,0,0,10,18],
 "d3/d3e/IndexBuffer_8cpp_source.html":[2,0,0,0,0,10,18],
 "d3/d4b/Async_8hpp.html":[2,0,0,0,0,12,1],
@@ -239,7 +241,6 @@ var NAVTREEINDEX2 =
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2":[1,0,0,15,6,17],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513":[1,0,0,15,6,11],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e":[1,0,0,15,6,15],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a96e7d8856b1e3afeed0e03963d59d319":[1,0,0,15,6,19],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab41e4ad011775114cfb27c3319ce604c":[1,0,0,15,6,6],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab61df16febf0c7621d8b2de298a7a334":[1,0,0,15,6,4],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ac764e50907f503cb821fc7dea0198efe":[1,0,0,15,6,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d":[1,0,0,15,6,14],
 "d4/d98/InputMods_8hpp.html":[2,0,0,0,0,11,9],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75ea":[2,0,0,0,0,11,9,0],
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1],
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3":[2,0,0,0,0,11,9,0,0]
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1]
 };

@@ -1,13 +1,4 @@
 <map id="galaxy::scene::SceneManager::load_assets" name="galaxy::scene::SceneManager::load_assets">
-<area shape="rect" id="node1" title="Load game assets." alt="" coords="5,216,220,257"/>
-<area shape="rect" id="node2" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#ab73156024f5cf14727176d634dc0a9b9" title="Draw loading screen while loading." alt="" coords="268,161,428,203"/>
-<area shape="rect" id="node9" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#ad3f9a40b740fa02f11a8de0557a99ae6" title="Start loading job in task pool." alt="" coords="268,248,428,289"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="501,37,681,79"/>
-<area shape="rect" id="node6" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aced949f4f579082d62c38ee9abe040f1" title="Finish isolated rendering." alt="" coords="501,103,681,144"/>
-<area shape="rect" id="node7" href="$d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754" title="Check if an async thread has finished or not." alt="" coords="489,169,693,195"/>
-<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="476,219,707,246"/>
-<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7109dce6b8e40dcc7082792156b3afad" title="Get framebuffer size taking into account DPI." alt="" coords="761,5,929,47"/>
-<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="755,71,935,112"/>
-<area shape="rect" id="node10" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="526,271,657,312"/>
-<area shape="rect" id="node11" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="513,336,669,377"/>
+<area shape="rect" id="node1" title="Load game assets." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,13,499,39"/>
 </map>

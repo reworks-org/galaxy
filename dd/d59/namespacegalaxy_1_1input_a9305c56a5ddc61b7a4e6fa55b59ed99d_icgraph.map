@@ -1,9 +1,6 @@
 <map id="galaxy::input::int_to_key" name="galaxy::input::int_to_key">
-<area shape="rect" id="node1" title="Converts an integer to a key enum." alt="" coords="893,39,1024,80"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="684,5,845,47"/>
-<area shape="rect" id="node4" href="$d6/d1e/classgalaxy_1_1core_1_1Loading.html#ad3f9a40b740fa02f11a8de0557a99ae6" title="Start loading job in task pool." alt="" coords="685,71,845,112"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="448,5,609,47"/>
-<area shape="rect" id="node5" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877" title="Load game assets." alt="" coords="421,71,636,112"/>
-<area shape="rect" id="node6" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,71,373,112"/>
-<area shape="rect" id="node7" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node1" title="Converts an integer to a key enum." alt="" coords="424,39,555,80"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,5,376,47"/>
+<area shape="rect" id="node4" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a2148c991985f1e84f732e8a0a5510ee0" title="Start loading job in task pool." alt="" coords="219,71,372,112"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,47"/>
 </map>

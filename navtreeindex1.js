@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5":[1,0,0,15,4,1],
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a7e733aea3e7051c1cc303f9d990012c7":[1,0,0,15,4,12],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a972e6119965b219449b2bc6396f3ca78":[1,0,0,15,4,3],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a9e73a3de7474f35a844f3985a12bc96a":[1,0,0,15,4,0],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a9f78fccf4fadd3daa1bb6e81204681f3":[1,0,0,15,4,22],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "d3/d2f/Text_8hpp.html":[2,0,0,0,0,3,19],
 "d3/d2f/Text_8hpp_source.html":[2,0,0,0,0,3,19],
 "d3/d37/Cursor_8cpp.html":[2,0,0,0,0,11,2],
-"d3/d37/Cursor_8cpp_source.html":[2,0,0,0,0,11,2],
-"d3/d37/SMAA_8hpp.html":[2,0,0,0,0,10,1,9],
-"d3/d37/SMAA_8hpp_source.html":[2,0,0,0,0,10,1,9]
+"d3/d37/Cursor_8cpp_source.html":[2,0,0,0,0,11,2]
 };

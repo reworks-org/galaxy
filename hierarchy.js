@@ -57,7 +57,7 @@ var hierarchy =
     [ "galaxy::events::KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", null ],
     [ "galaxy::resource::Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", null ],
     [ "galaxy::scene::LayerRegistry", "db/d37/classgalaxy_1_1scene_1_1LayerRegistry.html", null ],
-    [ "galaxy::core::Loading", "d6/d1e/classgalaxy_1_1core_1_1Loading.html", null ],
+    [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],

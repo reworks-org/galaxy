@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed":[1,0,0,9,1,5],
 "de/d59/KeyDown_8cpp.html":[2,0,0,0,0,7,6],
 "de/d59/KeyDown_8cpp_source.html":[2,0,0,0,0,7,6],
 "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html":[1,0,0,9,3,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a028c9e8cc413cca1e8a53d2f3642c32c":[1,0,0,9,28,16],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3":[1,0,0,9,28,5],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a":[1,0,0,9,28,9],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89":[1,0,0,9,28,15]
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89":[1,0,0,9,28,15],
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2f86d5f426c032068a98f547d737017e":[1,0,0,9,28,7]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3":[2,0,0,0,0,11,9,0,0],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130":[2,0,0,0,0,11,9,0,2],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaacb0d0bf9279e78f982deba761110e434":[2,0,0,0,0,11,9,0,6],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e":[2,0,0,0,0,11,9,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "d5/da2/classgalaxy_1_1core_1_1Application.html#acbb0eb3162455c6373f90d45d9c236b6":[1,0,0,4,0,10],
 "d5/da4/WindowSettings_8cpp.html":[2,0,0,0,0,4,14],
 "d5/da4/WindowSettings_8cpp_source.html":[2,0,0,0,0,4,14],
-"d5/daa/DefaultShaders_8cpp.html":[2,0,0,0,0,10,10],
-"d5/daa/DefaultShaders_8cpp_source.html":[2,0,0,0,0,10,10]
+"d5/daa/DefaultShaders_8cpp.html":[2,0,0,0,0,10,10]
 };
