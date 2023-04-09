@@ -161,7 +161,7 @@ namespace galaxy
 
 		bool GaussianBlur::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("gaussian_blur", "graphics.effect");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("gaussian_blur", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

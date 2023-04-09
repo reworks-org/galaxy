@@ -27,8 +27,13 @@
         },
         "graphics": {
             "ansiotrophic_filtering": 16,
-            "enable_aa": true,
-            "enable_sharpen": false,
+            "effects": {
+                "chromatic_abberation": false,
+                "gamma_correction": false,
+                "gaussian_blur": false,
+                "sharpen": false,
+                "smaa": false
+            },
             "trilinear_filtering": true
         },
         "input": {

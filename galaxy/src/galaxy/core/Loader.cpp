@@ -16,6 +16,7 @@
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/physics/Constants.hpp"
 #include "galaxy/resource/Fonts.hpp"
@@ -27,41 +28,42 @@
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 
-#include "Loading.hpp"
+#include "Loader.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
-		Loading::Loading()
+		Loader::Loader()
 		{
 			auto& config = ServiceLocator<Config>::ref();
-			auto doc     = config.get<std::string>("load_screen_rml");
+			auto& fs     = ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& window = ServiceLocator<Window>::ref();
+
+			auto doc = fs.find(config.get<std::string>("load_screen_rml"));
 
 			m_renderer.init();
 
-			auto& window = ServiceLocator<Window>::ref();
-
-			m_context = Rml::CreateContext("loading", Rml::Vector2i(window.get_width(), window.get_height()));
+			m_context = Rml::CreateContext("loader", Rml::Vector2i(window.get_width(), window.get_height()));
 			Rml::Debugger::Initialise(m_context);
 
-			auto rml_doc = m_context->LoadDocument(doc);
+			auto rml_doc = m_context->LoadDocument(doc.string);
 			if (rml_doc)
 			{
 				rml_doc->Show();
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' for loading screen.", doc);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' for loading screen.", doc.string);
 			}
 		}
 
-		Loading::~Loading()
+		Loader::~Loader()
 		{
 			m_renderer.destroy();
 		}
 
-		void Loading::start()
+		void Loader::start()
 		{
 			auto& tp        = ServiceLocator<BS::thread_pool>::ref();
 			m_thread_handle = tp.submit([]() {
@@ -148,7 +150,7 @@ namespace galaxy
 			});
 		}
 
-		void Loading::finish()
+		void Loader::finish()
 		{
 			// Use custom rendering interface for load screen.
 			auto old = Rml::GetRenderInterface();

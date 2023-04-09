@@ -9,6 +9,7 @@
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
+#include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -127,8 +128,9 @@ namespace galaxy
 
 		void SceneManager::load_assets()
 		{
-			m_loader.start();
-			m_loader.finish();
+			auto& loader = core::ServiceLocator<core::Loader>::ref();
+			loader.start();
+			loader.finish();
 		}
 
 		void SceneManager::save(std::string_view file)

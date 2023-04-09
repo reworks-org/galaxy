@@ -98,7 +98,7 @@
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
-    <ClCompile Include="src\galaxy\core\Loading.cpp" />
+    <ClCompile Include="src\galaxy\core\Loader.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\components\Flag.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
@@ -247,7 +247,7 @@
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\meta\Async.hpp" />
-    <ClInclude Include="src\galaxy\core\Loading.hpp" />
+    <ClInclude Include="src\galaxy\core\Loader.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\components\Flag.hpp" />

@@ -135,7 +135,7 @@ namespace galaxy
 
 		bool Sharpen::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("sharpen", "graphics.effect");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("sharpen", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

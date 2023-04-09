@@ -147,7 +147,7 @@ namespace galaxy
 
 		bool ChromaticAberration::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("chromatic_abberation", "graphics.effect");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("chromatic_abberation", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

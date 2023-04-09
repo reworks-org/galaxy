@@ -46,7 +46,7 @@
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
-    <ClCompile Include="src\galaxy\core\Loading.cpp" />
+    <ClCompile Include="src\galaxy\core\Loader.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
     <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
@@ -195,7 +195,7 @@
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
-    <ClInclude Include="src\galaxy\core\Loading.hpp" />
+    <ClInclude Include="src\galaxy\core\Loader.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
     <ClInclude Include="src\galaxy\flags\Enabled.hpp" />

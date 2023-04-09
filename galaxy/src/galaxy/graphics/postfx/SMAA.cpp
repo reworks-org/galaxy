@@ -16141,7 +16141,7 @@ namespace galaxy
 
 		bool SMAA::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("smaa", "graphics.effect");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("smaa", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

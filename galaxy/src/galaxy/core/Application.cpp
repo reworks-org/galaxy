@@ -13,6 +13,7 @@
 
 #include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
@@ -299,15 +300,16 @@ namespace galaxy
 			//
 			// Services.
 			//
+			ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
+			ServiceLocator<resource::Sounds>::make();
+			ServiceLocator<resource::Shaders>::make();
+			ServiceLocator<resource::Fonts>::make();
+			ServiceLocator<resource::TextureAtlas>::make();
 			ServiceLocator<resource::Maps>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
-			ServiceLocator<resource::Sounds>::make();
-			ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
 			ServiceLocator<resource::Language>::make();
-			ServiceLocator<resource::Fonts>::make();
-			ServiceLocator<resource::Shaders>::make();
-			ServiceLocator<resource::TextureAtlas>::make();
+			ServiceLocator<Loader>::make();
 
 			//
 			// SceneManager.
@@ -328,18 +330,22 @@ namespace galaxy
 
 		Application::~Application()
 		{
-			ServiceLocator<scene::SceneManager>::del();
-			scene::LayerRegistry::m_registry.clear();
-			ServiceLocator<resource::Scripts>::del();
-			ServiceLocator<resource::Sounds>::del();
-			ServiceLocator<audio::AudioEngine>::del();
-			ServiceLocator<resource::Language>::del();
-			ServiceLocator<sol::state>::del();
-			ServiceLocator<resource::Fonts>::del();
-			ServiceLocator<resource::Shaders>::del();
-			ServiceLocator<resource::TextureAtlas>::del();
 			Rml::Shutdown();
 			m_rml_rendering_interface.destroy();
+
+			ServiceLocator<scene::SceneManager>::del();
+			scene::LayerRegistry::m_registry.clear();
+			ServiceLocator<Loader>::del();
+			ServiceLocator<resource::Language>::del();
+			ServiceLocator<resource::Scripts>::del();
+			ServiceLocator<resource::Prefabs>::del();
+			ServiceLocator<resource::Maps>::del();
+			ServiceLocator<resource::TextureAtlas>::del();
+			ServiceLocator<resource::Fonts>::del();
+			ServiceLocator<resource::Shaders>::del();
+			ServiceLocator<resource::Sounds>::del();
+			ServiceLocator<audio::AudioEngine>::del();
+			ServiceLocator<sol::state>::del();
 			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();

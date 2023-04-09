@@ -8,7 +8,6 @@
 #ifndef GALAXY_STATE_SCENEMANAGER_HPP_
 #define GALAXY_STATE_SCENEMANAGER_HPP_
 
-#include "galaxy/core/Loading.hpp"
 #include "galaxy/scene/Scene.hpp"
 
 namespace galaxy
@@ -164,11 +163,6 @@ namespace galaxy
 			/// Currently active scene.
 			///
 			std::shared_ptr<Scene> m_current;
-
-			///
-			/// Loader to load game content.
-			///
-			core::Loading m_loader;
 		};
 	} // namespace scene
 } // namespace galaxy

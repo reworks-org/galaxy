@@ -128,7 +128,7 @@ namespace galaxy
 
 		bool GammaCorrection::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("gamma_correction", "graphics.effect");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("gamma_correction", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

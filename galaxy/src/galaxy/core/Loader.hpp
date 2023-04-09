@@ -18,18 +18,18 @@ namespace galaxy
 		///
 		/// Simple customizable loading screen.
 		///
-		class Loading final
+		class Loader final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Loading();
+			Loader();
 
 			///
 			/// Destructor.
 			///
-			~Loading();
+			~Loader();
 
 			///
 			/// Start loading job in task pool.
