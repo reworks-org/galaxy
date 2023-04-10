@@ -38,6 +38,7 @@
 #include "galaxy/scene/layers/RuntimeLayer.hpp"
 #include "galaxy/scene/layers/UILayer.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
+#include "galaxy/ui/ImGuiTheme.hpp"
 
 #include "Application.hpp"
 
@@ -180,8 +181,8 @@ namespace galaxy
 						std::filesystem::remove_all(config.get<std::string>("asset_dir"));
 
 						auto& io       = ui::imgui_init_context();
-						io.IniFilename = NULL;
-						ImGui::StyleColorsDark();
+						io.IniFilename = nullptr;
+						ui::imgui_theme_visual_dark();
 
 						// Get file count.
 						auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
