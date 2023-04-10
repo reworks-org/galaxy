@@ -1,21 +1,20 @@
 <map id="galaxy::graphics::VertexArray::id" name="galaxy::graphics::VertexArray::id">
-<area shape="rect" id="node1" title="Get VAO GL id." alt="" coords="1501,156,1680,197"/>
-<area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0" title="Configure renderable." alt="" coords="1296,28,1453,69"/>
-<area shape="rect" id="node10" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3d0b412828929aa240cfaf4864b0a9a6" title="Configure renderable." alt="" coords="1298,123,1451,164"/>
-<area shape="rect" id="node15" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a3a767d0bed9f20cd2e0df8d66d7be548" title="Configure renderable." alt="" coords="1298,188,1451,229"/>
-<area shape="rect" id="node19" href="$d3/d19/classgalaxy_1_1components_1_1Map.html#a780a456760a1f10110390d155e872ebe" title="Configure render data." alt="" coords="1298,253,1451,295"/>
-<area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="1095,13,1248,55"/>
-<area shape="rect" id="node4" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="877,5,1047,47"/>
-<area shape="rect" id="node5" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf01eba37e0fa58ef5b9d77ed8acc7a4" title="Recursive function to process tiled map layers." alt="" coords="660,68,829,109"/>
-<area shape="rect" id="node6" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438" title="Load map into scene." alt="" coords="443,68,612,109"/>
-<area shape="rect" id="node7" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="236,67,395,108"/>
-<area shape="rect" id="node8" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,132,384,173"/>
-<area shape="rect" id="node9" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,132,188,173"/>
-<area shape="rect" id="node11" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="1095,123,1248,164"/>
-<area shape="rect" id="node12" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="885,188,1039,229"/>
-<area shape="rect" id="node14" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a932d798721f5fa4b97370babd9747c2d" title="Recursive function to process image layer." alt="" coords="877,71,1047,112"/>
-<area shape="rect" id="node13" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7" title="JSON constructor." alt="" coords="668,188,821,229"/>
-<area shape="rect" id="node16" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="1095,247,1248,288"/>
-<area shape="rect" id="node17" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="885,305,1039,347"/>
-<area shape="rect" id="node18" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="668,305,821,347"/>
+<area shape="rect" id="node1" title="Get VAO GL id." alt="" coords="1271,156,1449,197"/>
+<area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0" title="Configure renderable." alt="" coords="1065,28,1223,69"/>
+<area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3d0b412828929aa240cfaf4864b0a9a6" title="Configure renderable." alt="" coords="1067,123,1221,164"/>
+<area shape="rect" id="node14" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a3a767d0bed9f20cd2e0df8d66d7be548" title="Configure renderable." alt="" coords="1067,188,1221,229"/>
+<area shape="rect" id="node18" href="$d3/d19/classgalaxy_1_1components_1_1Map.html#a780a456760a1f10110390d155e872ebe" title="Configure render data." alt="" coords="1067,253,1221,295"/>
+<area shape="rect" id="node3" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="864,13,1017,55"/>
+<area shape="rect" id="node4" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="647,5,816,47"/>
+<area shape="rect" id="node5" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf01eba37e0fa58ef5b9d77ed8acc7a4" title="Recursive function to process tiled map layers." alt="" coords="429,68,599,109"/>
+<area shape="rect" id="node6" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438" title="Load map into scene." alt="" coords="212,68,381,109"/>
+<area shape="rect" id="node7" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,67,164,108"/>
+<area shape="rect" id="node8" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="16,132,153,173"/>
+<area shape="rect" id="node10" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="864,123,1017,164"/>
+<area shape="rect" id="node11" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="655,188,808,229"/>
+<area shape="rect" id="node13" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a932d798721f5fa4b97370babd9747c2d" title="Recursive function to process image layer." alt="" coords="647,71,816,112"/>
+<area shape="rect" id="node12" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7" title="JSON constructor." alt="" coords="437,188,591,229"/>
+<area shape="rect" id="node15" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="864,247,1017,288"/>
+<area shape="rect" id="node16" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="655,305,808,347"/>
+<area shape="rect" id="node17" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="437,305,591,347"/>
 </map>

@@ -2,7 +2,6 @@ var ImGuiHelpers_8cpp =
 [
     [ "imgui_init_context", "d5/df3/ImGuiHelpers_8cpp.html#ac72dd21f0dc545815c93acaca2ed87db", null ],
     [ "imgui_new_frame", "d5/df3/ImGuiHelpers_8cpp.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
-    [ "imgui_prerender", "d5/df3/ImGuiHelpers_8cpp.html#a241849e0d0dbd7bd1aac92957bd82e79", null ],
     [ "imgui_render", "d5/df3/ImGuiHelpers_8cpp.html#aea83b3f2064bf87b9038ae036d782f65", null ],
     [ "imgui_destroy_context", "d5/df3/ImGuiHelpers_8cpp.html#a9b448428ad6a24f04383d3d99a76fb94", null ],
     [ "imgui_open_confirm", "d5/df3/ImGuiHelpers_8cpp.html#adb971134dd0fbb688645b10be3b9e28e", null ],

@@ -1,15 +1,14 @@
 <map id="galaxy::fs::VirtualFileSystem::find" name="galaxy::fs::VirtualFileSystem::find">
-<area shape="rect" id="node1" title="Retrieve the absolute position of a file to load." alt="" coords="933,203,1141,244"/>
-<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="421,5,629,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,283,373,324"/>
-<area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="677,129,885,171"/>
-<area shape="rect" id="node6" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b" title="Open a file and store contents in std::string." alt="" coords="677,203,885,244"/>
-<area shape="rect" id="node8" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9" title="Open a binary file and store in std::span." alt="" coords="677,283,885,324"/>
-<area shape="rect" id="node10" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="677,400,885,441"/>
-<area shape="rect" id="node12" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="677,517,885,559"/>
-<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,283,188,324"/>
-<area shape="rect" id="node7" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="421,224,629,265"/>
-<area shape="rect" id="node9" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="421,341,629,383"/>
-<area shape="rect" id="node11" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="421,459,629,500"/>
-<area shape="rect" id="node13" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="421,576,629,617"/>
+<area shape="rect" id="node1" title="Retrieve the absolute position of a file to load." alt="" coords="703,203,911,244"/>
+<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="191,5,399,47"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="5,283,143,324"/>
+<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="447,129,655,171"/>
+<area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b" title="Open a file and store contents in std::string." alt="" coords="447,203,655,244"/>
+<area shape="rect" id="node7" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9" title="Open a binary file and store in std::span." alt="" coords="447,283,655,324"/>
+<area shape="rect" id="node9" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="447,400,655,441"/>
+<area shape="rect" id="node11" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b6ed6d46b9d8395185b79faa1615baf" title="Saves binary data to a file." alt="" coords="447,517,655,559"/>
+<area shape="rect" id="node6" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9d01acfe01a5f6b199eab67710b72216" title="Open a file and store contents in std::string." alt="" coords="191,224,399,265"/>
+<area shape="rect" id="node8" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abde95a9c7669835dd9588bc0404fbd25" title="Open a file and store contents in std::string." alt="" coords="191,341,399,383"/>
+<area shape="rect" id="node10" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="191,459,399,500"/>
+<area shape="rect" id="node12" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="191,576,399,617"/>
 </map>

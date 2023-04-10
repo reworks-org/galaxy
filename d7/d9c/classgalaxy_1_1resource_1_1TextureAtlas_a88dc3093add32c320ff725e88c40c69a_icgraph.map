@@ -1,7 +1,6 @@
 <map id="galaxy::resource::TextureAtlas::clear" name="galaxy::resource::TextureAtlas::clear">
-<area shape="rect" id="node1" title="Clear all data." alt="" coords="655,35,840,76"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
-<area shape="rect" id="node4" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,35,607,76"/>
-<area shape="rect" id="node5" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f" title="Destructor." alt="" coords="421,100,607,141"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node1" title="Clear all data." alt="" coords="424,35,609,76"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="5,5,143,47"/>
+<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="191,35,376,76"/>
+<area shape="rect" id="node4" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f" title="Destructor." alt="" coords="191,100,376,141"/>
 </map>

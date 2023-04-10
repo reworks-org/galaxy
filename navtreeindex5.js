@@ -1,7 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"d7/d7b/UniformInfo_8cpp.html":[2,0,0,0,0,10,54],
-"d7/d7b/UniformInfo_8cpp_source.html":[2,0,0,0,0,10,54],
 "d7/d7f/InstanceBuffer_8cpp.html":[2,0,0,0,0,10,20],
 "d7/d7f/InstanceBuffer_8cpp_source.html":[2,0,0,0,0,10,20],
 "d7/d8c/RobotoLight_8cpp.html":[2,0,0,0,0,5,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX5 =
 "d8/d96/classgalaxy_1_1components_1_1Tag.html#a11d3775345f0a1de9f135c12aa12923f":[1,0,0,3,8,3],
 "d8/d96/classgalaxy_1_1components_1_1Tag.html#a15f42f74bdfee6526017f66a216c5b6b":[1,0,0,3,8,5],
 "d8/d96/classgalaxy_1_1components_1_1Tag.html#a4c5e549bf93c5556dc4933b8c0ddae44":[1,0,0,3,8,2],
-"d8/d96/classgalaxy_1_1components_1_1Tag.html#a56601658acd54a220d1dc5d90b8f16e6":[1,0,0,3,8,0]
+"d8/d96/classgalaxy_1_1components_1_1Tag.html#a56601658acd54a220d1dc5d90b8f16e6":[1,0,0,3,8,0],
+"d8/d96/classgalaxy_1_1components_1_1Tag.html#a6b9ae81a6c64cf36f6ac725e24145fb6":[1,0,0,3,8,9],
+"d8/d96/classgalaxy_1_1components_1_1Tag.html#a6f8f521aef2a83f8134ebb9f66516c2b":[1,0,0,3,8,8]
 };

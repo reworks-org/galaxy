@@ -1,7 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a564a1b6aef76fc75b65cf4280b1913e8":[1,0,0,5,0,2],
-"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a79badb40061af18c8fb1d4555b75b0a4":[1,0,0,5,0,0],
 "dc/dbb/TexelRegion_8hpp.html":[2,0,0,0,0,10,45],
 "dc/dbb/TexelRegion_8hpp_source.html":[2,0,0,0,0,10,45],
 "dc/dbe/Map_8hpp.html":[2,0,0,0,0,3,7],
@@ -249,5 +247,7 @@ var NAVTREEINDEX9 =
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea69691c7bdcc3ce6d5d8a1361f22d04ac":[0,0,0,11,8,31],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea696b031073e74bf2cb98e5ef201d4aa3":[0,0,0,11,8,0],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea6f5d8e41084b4d3d47fa621c459eede1":[0,0,0,11,8,54],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea710533dd879dd1202e5c73b27705bf02":[0,0,0,11,8,63]
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea710533dd879dd1202e5c73b27705bf02":[0,0,0,11,8,63],
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea71f42e8faf0fb7cb14174c8481461c00":[0,0,0,11,8,102],
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea766b4a88cba7645629bac70fd01d8275":[0,0,0,11,8,98]
 };

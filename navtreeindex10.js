@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea71f42e8faf0fb7cb14174c8481461c00":[0,0,0,11,8,102],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea766b4a88cba7645629bac70fd01d8275":[0,0,0,11,8,98],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea77e9eee7c579eef5f3731ecf1053c02e":[0,0,0,11,8,90],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7c333963ed187368820c5343b355e5bc":[0,0,0,11,8,106],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7fa06ead699fcbd63132370ffe13335a":[0,0,0,11,8,91],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#a97f735cf6102e9e3013728fe904366b0":[1,0,0,9,1,0],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#a9847739b5ad9d502aeb1528f5cc1f940":[1,0,0,9,1,3],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#aaf11b8d29f9bb3c82129f495d5aa8dc7":[1,0,0,9,1,6],
-"de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed":[1,0,0,9,1,5]
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed":[1,0,0,9,1,5],
+"de/d59/KeyDown_8cpp.html":[2,0,0,0,0,7,6],
+"de/d59/KeyDown_8cpp_source.html":[2,0,0,0,0,7,6]
 };

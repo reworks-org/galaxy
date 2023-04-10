@@ -1,5 +1,6 @@
 var NAVTREEINDEX0 =
 {
+"":[0,0,4],
 "annotated.html":[1,0],
 "classes.html":[1,1],
 "d0/d0a/Animated_8cpp.html":[2,0,0,0,0,3,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a22cf338c948837edb2cffd9ea2bf5f3d":[1,0,0,15,4,19],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a25c6fa2e51510773e9d892d85c40bafa":[1,0,0,15,4,24],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a50d9d5d5ec36790f42aa1dddb65e0ec1":[1,0,0,15,4,21],
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a628dfe796c0efc0b00d2f465b0951f99":[1,0,0,15,4,6],
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a629316f28c4a6624efc345f2ad266eb2":[1,0,0,15,4,11]
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a628dfe796c0efc0b00d2f465b0951f99":[1,0,0,15,4,6]
 };
