@@ -169,93 +169,85 @@ namespace galaxy
 				}
 
 				// Unpack assets if zip is present.
+				const auto compressed_assets = config.get<std::string>("compressed_assets");
+				const auto asset_dir         = config.get<std::string>("asset_dir");
+
+				if (std::filesystem::exists(compressed_assets))
 				{
-					const auto compressed_assets = config.get<std::string>("compressed_assets");
+					GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
+					GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
+					std::filesystem::remove_all(asset_dir);
 
-					if (std::filesystem::exists(compressed_assets))
+					// Initialize imgui.
+					auto& io       = ui::imgui_init_context();
+					io.IniFilename = nullptr;
+					ui::imgui_theme_visual_dark();
+
+					// Get file count.
+					auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
+					int count = static_cast<int>(zip_entries_total(z));
+					zip_close(z);
+
+					GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
+
+					auto extractor = [](const char* filename, void* arg) {
+						auto& window = ServiceLocator<Window>::ref();
+
+						static int i = 0;
+						const int n  = *(int*)arg;
+
+						ui::imgui_new_frame();
+						ui::imgui_center_next_window();
+
+						if (ImGui::Begin("AUP", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoSavedSettings))
+						{
+							++i;
+
+							const auto progress  = static_cast<float>(i) / static_cast<float>(n);
+							const auto text_size = ImGui::CalcTextSize("Extracted xxxx of yyyy").x;
+
+							static const auto progressbar_size = ImVec2(300, 20);
+
+							ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - progressbar_size.x) / 2);
+							ImGui::SetCursorPosY(((ImGui::GetCursorPosY() + ImGui::GetContentRegionAvail().y) - progressbar_size.y) / 2);
+							ImGui::ProgressBar(progress, progressbar_size);
+							ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - text_size) / 2);
+							ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
+							ImGui::Text("Extracted %d of %d", i, n);
+						}
+
+						ImGui::End();
+
+						glBindFramebuffer(GL_FRAMEBUFFER, 0);
+						glViewport(0, 0, window.get_width(), window.get_height());
+						glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+						ui::imgui_render();
+
+						glfwSwapBuffers(window.handle());
+
+						return 0;
+					};
+
+					if (zip_extract(compressed_assets.c_str(), "./", extractor, &count) == 0)
 					{
-						GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
-
-						// Remove potentially out of date assets.
-						GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
-						std::filesystem::remove_all(config.get<std::string>("asset_dir"));
-
-						auto& io       = ui::imgui_init_context();
-						io.IniFilename = nullptr;
-						ui::imgui_theme_visual_dark();
-
-						// Get file count.
-						auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
-						int count = static_cast<int>(zip_entries_total(z));
-						zip_close(z);
-
-						GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
-
-						if (zip_extract(
-								compressed_assets.c_str(),
-								"./",
-								[](const char* filename, void* arg) {
-									auto& window = ServiceLocator<Window>::ref();
-
-									static int i = 0;
-									const int n  = *(int*)arg;
-
-									ui::imgui_new_frame();
-									ui::imgui_center_next_window();
-
-									if (ImGui::Begin("AssetUnpackProgress",
-											nullptr,
-											ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoSavedSettings))
-									{
-										++i;
-
-										const auto progress  = static_cast<float>(i) / static_cast<float>(n);
-										const auto text_size = ImGui::CalcTextSize("Extracted xxxx of yyyy").x;
-
-										static const auto progressbar_size = ImVec2(300, 20);
-
-										ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - progressbar_size.x) / 2);
-										ImGui::SetCursorPosY(((ImGui::GetCursorPosY() + ImGui::GetContentRegionAvail().y) - progressbar_size.y) / 2);
-										ImGui::ProgressBar(progress, progressbar_size);
-										ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - text_size) / 2);
-										ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
-										ImGui::Text("Extracted %d of %d", i, n);
-									}
-
-									ImGui::End();
-
-									glBindFramebuffer(GL_FRAMEBUFFER, 0);
-									glViewport(0, 0, window.get_width(), window.get_height());
-									glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-									glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-									ui::imgui_render();
-
-									glfwSwapBuffers(window.handle());
-
-									return 0;
-								},
-								&count) == 0)
-						{
-							std::filesystem::remove(config.get<std::string>("compressed_assets"));
-							GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
-						}
-						else
-						{
-							// Purge any extracted assets if failed.
-
-							std::filesystem::remove_all(config.get<std::string>("asset_dir"));
-							GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
-						}
-
-						ui::imgui_destroy_context();
+						std::filesystem::remove(compressed_assets);
+						GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
+					}
+					else
+					{
+						std::filesystem::remove_all(asset_dir);
+						GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
 					}
 
-					// Clear popup.
-					glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-					glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-					glfwSwapBuffers(window.handle());
+					ui::imgui_destroy_context();
 				}
+
+				// Clear popup.
+				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				glfwSwapBuffers(window.handle());
 
 				create_asset_layout(root, "");
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
