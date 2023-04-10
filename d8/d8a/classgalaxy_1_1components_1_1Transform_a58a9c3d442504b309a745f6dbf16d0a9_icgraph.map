@@ -1,9 +1,10 @@
 <map id="galaxy::components::Transform::reset" name="galaxy::components::Transform::reset">
-<area shape="rect" id="node1" title="Reset transform." alt="" coords="657,154,811,195"/>
-<area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="424,63,609,104"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="5,30,143,71"/>
-<area shape="rect" id="node6" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="429,212,604,254"/>
-<area shape="rect" id="node4" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="191,30,376,71"/>
-<area shape="rect" id="node5" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f" title="Destructor." alt="" coords="191,95,376,136"/>
-<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="199,212,367,254"/>
+<area shape="rect" id="node1" title="Reset transform." alt="" coords="888,154,1041,195"/>
+<area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="655,63,840,104"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,30,373,71"/>
+<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="660,212,835,254"/>
+<area shape="rect" id="node5" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,30,607,71"/>
+<area shape="rect" id="node6" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f" title="Destructor." alt="" coords="421,95,607,136"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,30,188,71"/>
+<area shape="rect" id="node8" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="430,212,598,254"/>
 </map>

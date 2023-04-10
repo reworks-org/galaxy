@@ -1,15 +1,16 @@
 <map id="galaxy::graphics::Shader::load_raw" name="galaxy::graphics::Shader::load_raw">
-<area shape="rect" id="node1" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="747,260,928,301"/>
-<area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="455,5,688,47"/>
-<area shape="rect" id="node3" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="444,71,699,112"/>
-<area shape="rect" id="node4" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="473,136,669,177"/>
-<area shape="rect" id="node5" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="464,201,679,243"/>
-<area shape="rect" id="node8" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="237,264,374,305"/>
-<area shape="rect" id="node9" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5761568b59552124bb96f2c2993ad97f" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="481,319,662,360"/>
-<area shape="rect" id="node11" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abdd1427b50a9e9627323154533c1dcbf" title="JSON Constructor." alt="" coords="481,384,662,425"/>
-<area shape="rect" id="node12" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="477,449,666,491"/>
-<area shape="rect" id="node13" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="484,515,659,556"/>
-<area shape="rect" id="node6" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="225,199,386,240"/>
-<area shape="rect" id="node7" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,199,167,240"/>
-<area shape="rect" id="node10" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a43d9767f91b50c2ac39757e748ca011b" title="Path Constructor." alt="" coords="215,329,396,371"/>
+<area shape="rect" id="node1" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="768,260,949,301"/>
+<area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="476,5,709,47"/>
+<area shape="rect" id="node3" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="465,71,720,112"/>
+<area shape="rect" id="node4" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="495,136,691,177"/>
+<area shape="rect" id="node5" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="485,201,700,243"/>
+<area shape="rect" id="node8" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="258,264,395,305"/>
+<area shape="rect" id="node10" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5761568b59552124bb96f2c2993ad97f" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="502,319,683,360"/>
+<area shape="rect" id="node12" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abdd1427b50a9e9627323154533c1dcbf" title="JSON Constructor." alt="" coords="502,384,683,425"/>
+<area shape="rect" id="node13" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="498,449,687,491"/>
+<area shape="rect" id="node14" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="505,515,680,556"/>
+<area shape="rect" id="node6" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="246,199,407,240"/>
+<area shape="rect" id="node7" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="16,199,177,240"/>
+<area shape="rect" id="node9" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,264,188,305"/>
+<area shape="rect" id="node11" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a43d9767f91b50c2ac39757e748ca011b" title="Path Constructor." alt="" coords="236,329,417,371"/>
 </map>

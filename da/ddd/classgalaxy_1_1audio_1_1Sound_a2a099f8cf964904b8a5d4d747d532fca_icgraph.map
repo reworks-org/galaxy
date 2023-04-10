@@ -1,5 +1,6 @@
 <map id="galaxy::audio::Sound::load" name="galaxy::audio::Sound::load">
-<area shape="rect" id="node1" title="Load a sound from disk." alt="" coords="211,39,368,80"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="15,5,153,47"/>
-<area shape="rect" id="node3" href="$da/ddd/classgalaxy_1_1audio_1_1Sound.html#a08d7caca3ce886fca7806a0730d19b84" title="Argument constructor." alt="" coords="5,71,163,112"/>
+<area shape="rect" id="node1" title="Load a sound from disk." alt="" coords="441,39,599,80"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="246,5,383,47"/>
+<area shape="rect" id="node4" href="$da/ddd/classgalaxy_1_1audio_1_1Sound.html#a08d7caca3ce886fca7806a0730d19b84" title="Argument constructor." alt="" coords="236,71,393,112"/>
+<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>

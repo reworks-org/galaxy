@@ -1,9 +1,10 @@
 <map id="galaxy::graphics::Animation::restart" name="galaxy::graphics::Animation::restart">
-<area shape="rect" id="node1" title="Restart animation from beginning." alt="" coords="639,24,841,65"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="235,24,372,65"/>
-<area shape="rect" id="node3" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab921f3413dabc0e52edb15f69054ee77" title="Change the current animation." alt="" coords="437,89,591,131"/>
-<area shape="rect" id="node7" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a804058d0de3fdced9c8db1db0039cdd5" title="Stop the animation." alt="" coords="437,24,591,65"/>
-<area shape="rect" id="node4" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="217,89,389,131"/>
-<area shape="rect" id="node6" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#af0cddd34786ef9a9596869c9e82a6899" title="Play a specific animation." alt="" coords="227,155,380,196"/>
-<area shape="rect" id="node5" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="5,89,169,131"/>
+<area shape="rect" id="node1" title="Restart animation from beginning." alt="" coords="657,24,860,65"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="253,24,391,65"/>
+<area shape="rect" id="node4" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab921f3413dabc0e52edb15f69054ee77" title="Change the current animation." alt="" coords="456,89,609,131"/>
+<area shape="rect" id="node8" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a804058d0de3fdced9c8db1db0039cdd5" title="Stop the animation." alt="" coords="456,24,609,65"/>
+<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,24,188,65"/>
+<area shape="rect" id="node5" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="236,89,408,131"/>
+<area shape="rect" id="node7" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#af0cddd34786ef9a9596869c9e82a6899" title="Play a specific animation." alt="" coords="245,155,399,196"/>
+<area shape="rect" id="node6" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="15,89,179,131"/>
 </map>

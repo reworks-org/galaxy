@@ -1,5 +1,6 @@
 <map id="galaxy::core::Config::load" name="galaxy::core::Config::load">
-<area shape="rect" id="node1" title="Checks if config exists and flags if a config needs to be created." alt="" coords="204,39,355,80"/>
-<area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a78efd875d7e74a20471a03d245e8b8e2" title="Argument constructor." alt="" coords="5,5,156,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="12,71,149,112"/>
+<area shape="rect" id="node1" title="Checks if config exists and flags if a config needs to be created." alt="" coords="435,39,585,80"/>
+<area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a78efd875d7e74a20471a03d245e8b8e2" title="Argument constructor." alt="" coords="236,5,387,47"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="243,71,380,112"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::open_save_dialog" name="galaxy::fs::VirtualFileSystem::open_save_dialog">
-<area shape="rect" id="node1" title="Open a save file dialog." alt="" coords="447,27,655,68"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="5,27,143,68"/>
-<area shape="rect" id="node3" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="191,27,399,68"/>
-<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="191,92,399,133"/>
+<area shape="rect" id="node1" title="Open a save file dialog." alt="" coords="677,27,885,68"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,27,373,68"/>
+<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1e803bca503aa5170ade31d2fe5e24b0" title="Saves binary data to a file using a dialog." alt="" coords="421,27,629,68"/>
+<area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7779a33f24aad54858838a5b51e6d09b" title="Saves a string to a file using a dialog." alt="" coords="421,92,629,133"/>
+<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,27,188,68"/>
 </map>

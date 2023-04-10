@@ -1,10 +1,11 @@
 <map id="galaxy::components::Flag::set_flag" name="galaxy::components::Flag::set_flag">
-<area shape="rect" id="node1" title="Set a flag on an entity." alt="" coords="636,64,789,105"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7" title="Create an entity with some default components." alt="" coords="218,64,365,105"/>
-<area shape="rect" id="node4" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="430,129,577,171"/>
-<area shape="rect" id="node8" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf8483f7dc24b2f015d329f75c926487" title="Enable the currently active map&#39;s entities." alt="" coords="419,5,588,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="16,64,153,105"/>
-<area shape="rect" id="node5" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85" title="Create an entity from a prefab." alt="" coords="212,129,371,171"/>
-<area shape="rect" id="node6" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="218,195,365,236"/>
-<area shape="rect" id="node7" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,195,164,236"/>
+<area shape="rect" id="node1" title="Set a flag on an entity." alt="" coords="867,64,1020,105"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7" title="Create an entity with some default components." alt="" coords="449,64,595,105"/>
+<area shape="rect" id="node5" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="661,129,807,171"/>
+<area shape="rect" id="node9" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf8483f7dc24b2f015d329f75c926487" title="Enable the currently active map&#39;s entities." alt="" coords="649,5,819,47"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,64,384,105"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,64,188,105"/>
+<area shape="rect" id="node6" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85" title="Create an entity from a prefab." alt="" coords="443,129,601,171"/>
+<area shape="rect" id="node7" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="449,195,595,236"/>
+<area shape="rect" id="node8" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="236,195,395,236"/>
 </map>
