@@ -94,6 +94,15 @@ namespace galaxy
 					input::CameraKeys::ROTATE_RIGHT = input::int_to_key(config.get<int>("camera_rotate_right", "input"));
 
 					//
+					// Window Icon.
+					//
+					auto icon = config.get<std::string>("icon", "window");
+					if (!icon.empty())
+					{
+						window.set_icon(icon);
+					}
+
+					//
 					// Window closing config.
 					//
 					if (config.get<bool>("allow_native_closing", "window"))
