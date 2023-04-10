@@ -843,7 +843,6 @@ namespace sc
 		ImGui::PopStyleVar(1);
 		ImGui::PopStyleColor(1);
 
-		ui::imgui_prerender();
 		ui::imgui_render();
 	}
 

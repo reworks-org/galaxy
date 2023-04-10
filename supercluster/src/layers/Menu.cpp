@@ -103,7 +103,6 @@ namespace sc
 
 		ImGui::End();
 
-		ui::imgui_prerender();
 		ui::imgui_render();
 	}
 

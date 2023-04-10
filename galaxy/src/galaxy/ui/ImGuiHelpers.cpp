@@ -75,13 +75,9 @@ namespace galaxy
 			ImGui::SetNextWindowViewport(imgui_viewport->ID);
 		}
 
-		void imgui_prerender()
-		{
-			ImGui::Render();
-		}
-
 		void imgui_render()
 		{
+			ImGui::Render();
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 			// Update and Render additional Platform Windows

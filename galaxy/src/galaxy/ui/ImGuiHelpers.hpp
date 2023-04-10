@@ -35,11 +35,6 @@ namespace galaxy
 		void imgui_new_frame();
 
 		///
-		/// Imgui setup to prep for rendering.
-		///
-		void imgui_prerender();
-
-		///
 		/// Render imgui with galaxy.
 		///
 		void imgui_render();
