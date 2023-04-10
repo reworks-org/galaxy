@@ -6,6 +6,8 @@
 ///
 
 #include <BS_thread_pool.hpp>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
 #include <tinyfiledialogs.h>
@@ -35,6 +37,7 @@
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scene/layers/RuntimeLayer.hpp"
 #include "galaxy/scene/layers/UILayer.hpp"
+#include "galaxy/ui/ImGuiHelpers.hpp"
 
 #include "Application.hpp"
 
@@ -129,6 +132,27 @@ namespace galaxy
 			config.save();
 
 			//
+			// Window Settings.
+			// clang-format off
+			//
+			const auto window_settings = WindowSettings
+			{
+				.title = config.get<std::string>("title", "window"),
+				.width = config.get<int>("width", "window"),
+				.height = config.get<int>("height", "window"),
+				.vsync = config.get<bool>("vsync", "window"),
+				.maximized = config.get<bool>("maximized", "window"),
+				.debug = config.get<bool>("debug", "window"),
+				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window")
+			};
+			// clang-format on
+
+			//
+			// Construct window and init glfw and OpenGL.
+			//
+			auto& window = ServiceLocator<Window>::make(window_settings);
+
+			//
 			// VIRTUAL FILE SYSTEM.
 			//
 			auto root = config.get<std::string>("asset_dir");
@@ -145,25 +169,72 @@ namespace galaxy
 
 				// Unpack assets if zip is present.
 				{
-					tinyfd_notifyPopup("Asset Unpacking", "Running first time asset unpacking.\tLoading may take longer.", "info");
-
 					const auto compressed_assets = config.get<std::string>("compressed_assets");
+
 					if (std::filesystem::exists(compressed_assets))
 					{
 						GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
 
 						// Remove potentially out of date assets.
 						GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
-						std::filesystem::remove(config.get<std::string>("asset_dir"));
+						std::filesystem::remove_all(config.get<std::string>("asset_dir"));
+
+						auto& io       = ui::imgui_init_context();
+						io.IniFilename = NULL;
+						ImGui::StyleColorsDark();
+
+						// Get file count.
+						auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
+						int count = static_cast<int>(zip_entries_total(z));
+						zip_close(z);
+
+						GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
 
 						if (zip_extract(
 								compressed_assets.c_str(),
 								"./",
 								[](const char* filename, void* arg) {
-									GALAXY_LOG(GALAXY_INFO, "Extracting {0}", filename);
+									auto& window = ServiceLocator<Window>::ref();
+
+									static int i = 0;
+									const int n  = *(int*)arg;
+
+									ui::imgui_new_frame();
+									ui::imgui_center_next_window();
+
+									if (ImGui::Begin("AssetUnpackProgress",
+											nullptr,
+											ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoSavedSettings))
+									{
+										++i;
+
+										const auto progress  = static_cast<float>(i) / static_cast<float>(n);
+										const auto text_size = ImGui::CalcTextSize("Extracted xxxx of yyyy").x;
+
+										static const auto progressbar_size = ImVec2(300, 20);
+
+										ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - progressbar_size.x) / 2);
+										ImGui::SetCursorPosY(((ImGui::GetCursorPosY() + ImGui::GetContentRegionAvail().y) - progressbar_size.y) / 2);
+										ImGui::ProgressBar(progress, progressbar_size);
+										ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - text_size) / 2);
+										ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
+										ImGui::Text("Extracted %d of %d", i, n);
+									}
+
+									ImGui::End();
+
+									glBindFramebuffer(GL_FRAMEBUFFER, 0);
+									glViewport(0, 0, window.get_width(), window.get_height());
+									glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+									glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+									ui::imgui_render();
+
+									glfwSwapBuffers(window.handle());
+
 									return 0;
 								},
-								nullptr) == 0)
+								&count) == 0)
 						{
 							std::filesystem::remove(config.get<std::string>("compressed_assets"));
 							GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
@@ -172,10 +243,17 @@ namespace galaxy
 						{
 							// Purge any extracted assets if failed.
 
-							std::filesystem::remove(config.get<std::string>("asset_dir"));
+							std::filesystem::remove_all(config.get<std::string>("asset_dir"));
 							GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
 						}
+
+						ui::imgui_destroy_context();
 					}
+
+					// Clear popup.
+					glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+					glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+					glfwSwapBuffers(window.handle());
 				}
 
 				create_asset_layout(root, "");
@@ -213,32 +291,6 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
-			}
-
-			//
-			// Window Settings.
-			// clang-format off
-			//
-			const auto window_settings = WindowSettings
-			{
-				.title = config.get<std::string>("title", "window"),
-				.width = config.get<int>("width", "window"),
-				.height = config.get<int>("height", "window"),
-				.vsync = config.get<bool>("vsync", "window"),
-				.maximized = config.get<bool>("maximized", "window"),
-				.debug = config.get<bool>("debug", "window"),
-				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window")
-			};
-			// clang-format on
-
-			//
-			// Construct window and init glfw and OpenGL.
-			//
-			auto& window = ServiceLocator<Window>::make(window_settings);
-			auto icon    = config.get<std::string>("icon", "window");
-			if (!icon.empty())
-			{
-				window.set_icon(icon);
 			}
 
 			//
@@ -349,8 +401,8 @@ namespace galaxy
 			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();
-			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
+			ServiceLocator<Window>::del();
 			ServiceLocator<Config>::del();
 
 			GALAXY_LOG_FINISH();
