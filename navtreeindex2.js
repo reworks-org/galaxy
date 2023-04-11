@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"d3/d37/Cursor_8cpp_source.html":[2,0,0,0,0,11,2],
 "d3/d37/SMAA_8hpp.html":[2,0,0,0,0,10,1,9],
 "d3/d37/SMAA_8hpp_source.html":[2,0,0,0,0,10,1,9],
 "d3/d3e/IndexBuffer_8cpp.html":[2,0,0,0,0,10,18],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d":[1,0,0,15,6,14],
 "d4/d98/InputMods_8hpp.html":[2,0,0,0,0,11,9],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75ea":[2,0,0,0,0,11,9,0],
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1]
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1],
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3":[2,0,0,0,0,11,9,0,0]
 };

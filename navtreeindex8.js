@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc":[0,0,0,10,35,5],
 "db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e":[0,0,0,10,41],
 "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930":[0,0,0,10,34],
 "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7":[0,0,0,10,34,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html":[1,0,0,5,0],
 "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a366fc58ab8f05f1b78b56c645d30c056":[1,0,0,5,0,1],
 "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a564a1b6aef76fc75b65cf4280b1913e8":[1,0,0,5,0,2],
-"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a79badb40061af18c8fb1d4555b75b0a4":[1,0,0,5,0,0]
+"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a79badb40061af18c8fb1d4555b75b0a4":[1,0,0,5,0,0],
+"dc/dbb/TexelRegion_8hpp.html":[2,0,0,0,0,10,45]
 };

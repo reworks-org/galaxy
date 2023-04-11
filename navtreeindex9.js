@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"dc/dbb/TexelRegion_8hpp.html":[2,0,0,0,0,10,45],
 "dc/dbb/TexelRegion_8hpp_source.html":[2,0,0,0,0,10,45],
 "dc/dbe/Map_8hpp.html":[2,0,0,0,0,3,7],
 "dc/dbe/Map_8hpp_source.html":[2,0,0,0,0,3,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea6f5d8e41084b4d3d47fa621c459eede1":[0,0,0,11,8,54],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea710533dd879dd1202e5c73b27705bf02":[0,0,0,11,8,63],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea71f42e8faf0fb7cb14174c8481461c00":[0,0,0,11,8,102],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea766b4a88cba7645629bac70fd01d8275":[0,0,0,11,8,98]
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea766b4a88cba7645629bac70fd01d8275":[0,0,0,11,8,98],
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea77e9eee7c579eef5f3731ecf1053c02e":[0,0,0,11,8,90]
 };

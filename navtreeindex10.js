@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea77e9eee7c579eef5f3731ecf1053c02e":[0,0,0,11,8,90],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7c333963ed187368820c5343b355e5bc":[0,0,0,11,8,106],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7fa06ead699fcbd63132370ffe13335a":[0,0,0,11,8,91],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7fc56270e7a70fa81a5935b72eacbe29":[0,0,0,11,8,19],
@@ -249,5 +248,6 @@ var NAVTREEINDEX10 =
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#aaf11b8d29f9bb3c82129f495d5aa8dc7":[1,0,0,9,1,6],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#ae10457d88288b927419c3503377c46ed":[1,0,0,9,1,5],
 "de/d59/KeyDown_8cpp.html":[2,0,0,0,0,7,6],
-"de/d59/KeyDown_8cpp_source.html":[2,0,0,0,0,7,6]
+"de/d59/KeyDown_8cpp_source.html":[2,0,0,0,0,7,6],
+"de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html":[1,0,0,9,3,0]
 };
