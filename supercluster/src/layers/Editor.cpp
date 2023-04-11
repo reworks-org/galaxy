@@ -7,6 +7,7 @@
 
 #include <fstream>
 
+#include <BS_thread_pool.hpp>
 #include <imgui_impl_glfw.h>
 #include <imgui_addons/imgui_notify.h>
 #include <nlohmann/json.hpp>
@@ -301,57 +302,55 @@ namespace sc
 	{
 		save_project();
 
-		auto& config    = core::ServiceLocator<core::Config>::ref();
-		const auto path = std::filesystem::path("export");
-		if (!std::filesystem::exists(path))
-		{
-			std::filesystem::create_directories(path);
-		}
+		m_show_exportprogress = true;
 
-		std::ofstream app_data;
-		std::ofstream app_config;
+		auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
+		tp.push_task([&]() {
+			auto& config    = core::ServiceLocator<core::Config>::ref();
+			const auto path = std::filesystem::path("export");
+			if (!std::filesystem::exists(path))
+			{
+				std::filesystem::create_directories(path);
+			}
 
-		auto data = m_project_scenes.serialize().dump(4);
-		data      = algorithm::encode_base64(data);
-		data      = algorithm::encode_zlib(data);
+			std::ofstream app_data;
+			std::ofstream app_config;
 
-		app_data.open(path / config.get<std::string>("app_data"), std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
-		if (app_data.good())
-		{
-			app_data.write(data.data(), data.size());
-			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project data."});
-		}
-		else
-		{
-			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to export project data."});
-		}
+			auto data = m_project_scenes.serialize().dump(4);
+			data      = algorithm::encode_base64(data);
+			data      = algorithm::encode_zlib(data);
 
-		app_data.close();
+			app_data.open(path / config.get<std::string>("app_data"), std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+			if (app_data.good())
+			{
+				app_data.write(data.data(), data.size());
+			}
 
-		auto config_data = m_settings.save().dump(4);
+			app_data.close();
 
-		app_config.open(path / "config.json", std::ofstream::out | std::ofstream::trunc);
-		if (app_config.good())
-		{
-			app_config.write(config_data.data(), config_data.size());
-			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project config."});
-		}
-		else
-		{
-			GALAXY_LOG(GALAXY_ERROR, "Failed to export project.");
-			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to export project config."});
-		}
+			auto config_data = m_settings.save().dump(4);
 
-		app_config.close();
+			app_config.open(path / "config.json", std::ofstream::out | std::ofstream::trunc);
+			if (app_config.good())
+			{
+				app_config.write(config_data.data(), config_data.size());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to export project.");
+			}
 
-		const auto zip_path = path / "assets.zip";
-		std::filesystem::remove(zip_path);
+			app_config.close();
 
-		struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
-		recursively_zip_assets(zip, config.get<std::string>("asset_dir"));
-		zip_close(zip);
+			const auto zip_path = path / "assets.zip";
+			std::filesystem::remove(zip_path);
 
-		ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Exported project assets."});
+			struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
+			recursively_zip_assets(zip, config.get<std::string>("asset_dir"));
+			zip_close(zip);
+
+			m_show_exportprogress = false;
+		});
 	}
 
 	void Editor::restart()
@@ -833,6 +832,39 @@ namespace sc
 			ImGui::ShowDemoWindow(&s_show_demo);
 		}
 #endif
+
+		if (m_show_exportprogress)
+		{
+			ui::imgui_center_next_window();
+			if (ImGui::Begin("Exporting...",
+					nullptr,
+					ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoInputs |
+						ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoMove))
+			{
+				ImGuiContext& g     = *GImGui;
+				ImGuiWindow* window = ImGui::GetCurrentWindow();
+
+				ImGuiStyle& style = g.Style;
+				ImVec2 size       = ImGui::CalcItemSize(ImVec2(300, 20), ImGui::CalcItemWidth(), g.FontSize + style.FramePadding.y * 2.0f);
+				ImVec2 pos        = window->DC.CursorPos;
+				ImRect bb(pos.x, pos.y, pos.x + size.x, pos.y + size.y);
+				ImGui::ItemSize(size);
+				if (!ImGui::ItemAdd(bb, 0))
+					return;
+
+				const float speed            = g.FontSize * 0.05f;
+				const float phase            = ImFmod((float)g.Time * speed, 1.0f);
+				const float width_normalized = 0.2f;
+				float t0                     = phase * (1.0f + width_normalized) - width_normalized;
+				float t1                     = t0 + width_normalized;
+
+				ImGui::RenderFrame(bb.Min, bb.Max, ImGui::GetColorU32(ImGuiCol_FrameBg), true, style.FrameRounding);
+				bb.Expand(ImVec2(-style.FrameBorderSize, -style.FrameBorderSize));
+				ImGui::RenderRectFilledRangeH(window->DrawList, bb, ImGui::GetColorU32(ImGuiCol_PlotHistogram), t0, t1, style.FrameRounding);
+			}
+
+			ImGui::End();
+		}
 
 		ImGui::End();
 

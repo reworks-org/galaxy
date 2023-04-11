@@ -81,13 +81,14 @@ namespace sc
 
 		unsigned int m_mousepick_buffer;
 
-		bool m_paused           = true;
-		bool m_game_mode        = false;
-		bool m_viewport_focused = false;
-		bool m_viewport_hovered = false;
-		bool m_use_mouse_hand   = false;
-		bool m_show_settings    = false;
-		bool m_restore          = false;
+		bool m_paused              = true;
+		bool m_game_mode           = false;
+		bool m_viewport_focused    = false;
+		bool m_viewport_hovered    = false;
+		bool m_use_mouse_hand      = false;
+		bool m_show_settings       = false;
+		bool m_restore             = false;
+		bool m_show_exportprogress = false;
 
 		bool m_show_scenes     = true;
 		bool m_show_entities   = true;
