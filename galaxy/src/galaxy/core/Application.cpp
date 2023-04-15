@@ -194,7 +194,7 @@ namespace galaxy
 						auto& window = ServiceLocator<Window>::ref();
 
 						static int i = 0;
-						const int n  = *(int*)arg;
+						const int n  = *static_cast<int*>(arg);
 
 						ui::imgui_new_frame();
 						ui::imgui_center_next_window();
