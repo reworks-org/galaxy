@@ -73,6 +73,7 @@
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
+#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -922,6 +923,12 @@ namespace galaxy
 			lua.set("GALAXY_PHYSICS_POSITION_ITERATIONS", physics::Constants::position_iterations);
 			lua.set("GALAXY_PHYSICS_PIXELS_PER_METER", physics::Constants::pixels_per_meter);
 
+			auto material_type                     = lua.new_usertype<physics::Material>("Material", sol::constructors<physics::Material()>());
+			material_type["density"]               = &physics::Material::density;
+			material_type["friction"]              = &physics::Material::friction;
+			material_type["restitution"]           = &physics::Material::restitution;
+			material_type["restitution_threshold"] = &physics::Material::restitution_threshold;
+
 			/* PLATFORM */
 			auto subprocess_type         = lua.new_usertype<platform::Subprocess>("Subprocess",
                 sol::constructors<platform::Subprocess(), platform::Subprocess(std::string_view, std::span<std::string> args)>());
@@ -946,6 +953,14 @@ namespace galaxy
 			maps_type["has"]   = &resource::Maps::has;
 			maps_type["load"]  = &resource::Maps::load;
 			maps_type["keys"]  = &resource::Maps::keys;
+
+			auto materials_type     = lua.new_usertype<resource::Materials>("Materials", sol::no_constructor);
+			materials_type["clear"] = &resource::Materials::clear;
+			materials_type["empty"] = &resource::Materials::empty;
+			materials_type["get"]   = &resource::Materials::get;
+			materials_type["has"]   = &resource::Materials::has;
+			materials_type["load"]  = &resource::Materials::load;
+			materials_type["keys"]  = &resource::Materials::keys;
 
 			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
 			prefabs_type["clear"] = &resource::Prefabs::clear;
@@ -1076,6 +1091,7 @@ namespace galaxy
 			lua["galaxy_sounds"]        = std::ref(core::ServiceLocator<resource::Sounds>::ref());
 			lua["galaxy_textureatlas"]  = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 			lua["galaxy_prefabs"]       = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
+			lua["galaxy_materials"]     = std::ref(core::ServiceLocator<resource::Materials>::ref());
 			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
 			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());

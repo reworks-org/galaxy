@@ -12,6 +12,7 @@
 #include <glm/vec2.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/physics/Material.hpp"
 
 namespace galaxy
 {
@@ -119,6 +120,16 @@ namespace galaxy
 			/// \param fixed_rotation Can body rotate.
 			///
 			void set_fixed_rotation(const bool fixed_rotation);
+
+			///
+			/// \brief Set rigid body data from a material.
+			///
+			/// Sets density, friction, restitution and restitution threshold.
+			///
+			/// \param material Material to use as a base.
+			/// \param id Optional material id to serialize.
+			///
+			void set_material(const physics::Material& material, std::string_view id = "");
 
 			///
 			/// Get body shape.
@@ -246,6 +257,11 @@ namespace galaxy
 			/// Pointer to Box2D body.
 			///
 			b2Body* m_body;
+
+			///
+			/// Optional material id.
+			///
+			std::string m_material;
 		};
 	} // namespace components
 } // namespace galaxy

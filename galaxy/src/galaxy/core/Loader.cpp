@@ -22,6 +22,7 @@
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
+#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -72,16 +73,17 @@ namespace galaxy
 					//
 					// Fetch services.
 					//
-					auto& config  = ServiceLocator<Config>::ref();
-					auto& window  = ServiceLocator<Window>::ref();
-					auto& ae      = ServiceLocator<audio::AudioEngine>::ref();
-					auto& maps    = ServiceLocator<resource::Maps>::ref();
-					auto& prefabs = ServiceLocator<resource::Prefabs>::ref();
-					auto& scripts = ServiceLocator<resource::Scripts>::ref();
-					auto& sounds  = ServiceLocator<resource::Sounds>::ref();
-					auto& lang    = ServiceLocator<resource::Language>::ref();
-					auto& fonts   = ServiceLocator<resource::Fonts>::ref();
-					auto& shaders = ServiceLocator<resource::Shaders>::ref();
+					auto& config    = ServiceLocator<Config>::ref();
+					auto& window    = ServiceLocator<Window>::ref();
+					auto& ae        = ServiceLocator<audio::AudioEngine>::ref();
+					auto& maps      = ServiceLocator<resource::Maps>::ref();
+					auto& prefabs   = ServiceLocator<resource::Prefabs>::ref();
+					auto& materials = ServiceLocator<resource::Materials>::ref();
+					auto& scripts   = ServiceLocator<resource::Scripts>::ref();
+					auto& sounds    = ServiceLocator<resource::Sounds>::ref();
+					auto& lang      = ServiceLocator<resource::Language>::ref();
+					auto& fonts     = ServiceLocator<resource::Fonts>::ref();
+					auto& shaders   = ServiceLocator<resource::Shaders>::ref();
 
 					//
 					// Set inputs from config.
@@ -151,6 +153,7 @@ namespace galaxy
 					scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
 					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
 					maps.load(config.get<std::string>("maps_folder", "resource_folders"));
+					materials.load(config.get<std::string>("materials_folder", "resource_folders"));
 				}
 				catch (const std::exception& e)
 				{

@@ -22,6 +22,8 @@
     <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
     <ClCompile Include="src\galaxy\physics\Constants.cpp" />
     <ClCompile Include="src\galaxy\core\TiledMap.cpp" />
+    <ClCompile Include="src\galaxy\physics\Material.cpp" />
+    <ClCompile Include="src\galaxy\resource\Materials.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalLibs.cpp" />
     <ClCompile Include="src\galaxy\components\Map.cpp" />
     <ClCompile Include="src\galaxy\graphics\animation\TileAnim.cpp" />
@@ -171,6 +173,8 @@
     <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\physics\Constants.hpp" />
     <ClInclude Include="src\galaxy\core\TiledMap.hpp" />
+    <ClInclude Include="src\galaxy\physics\Material.hpp" />
+    <ClInclude Include="src\galaxy\resource\Materials.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaExternalLibs.hpp" />
     <ClInclude Include="src\galaxy\components\Map.hpp" />
     <ClInclude Include="src\galaxy\graphics\animation\TileAnim.hpp" />

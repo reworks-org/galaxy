@@ -28,6 +28,7 @@
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
+#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -107,6 +108,7 @@ namespace galaxy
 			config.restore<bool>("chromatic_abberation", false, "graphics.effects");
 			config.restore<bool>("gaussian_blur", false, "graphics.effects");
 			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
+			config.restore<std::string>("materials_folder", "materials/", "resource_folders");
 			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
 			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
 			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
@@ -264,6 +266,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("ui_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
 
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
@@ -351,6 +354,7 @@ namespace galaxy
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::TextureAtlas>::make();
 			ServiceLocator<resource::Maps>::make();
+			ServiceLocator<resource::Materials>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
 			ServiceLocator<resource::Language>::make();

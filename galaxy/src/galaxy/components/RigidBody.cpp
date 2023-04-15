@@ -48,6 +48,7 @@ namespace galaxy
 			this->m_bullet                = rb.m_bullet;
 			this->m_fixed_rotation        = rb.m_fixed_rotation;
 			this->m_body                  = rb.m_body;
+			this->m_material              = std::move(rb.m_material);
 
 			rb.m_body = nullptr;
 		}
@@ -65,6 +66,7 @@ namespace galaxy
 				this->m_bullet                = rb.m_bullet;
 				this->m_fixed_rotation        = rb.m_fixed_rotation;
 				this->m_body                  = rb.m_body;
+				this->m_material              = std::move(rb.m_material);
 
 				rb.m_body = nullptr;
 			}
@@ -136,6 +138,16 @@ namespace galaxy
 			m_body->SetFixedRotation(fixed_rotation);
 		}
 
+		void RigidBody::set_material(const physics::Material& material, std::string_view id)
+		{
+			set_density(material.density);
+			set_friction(material.friction);
+			set_restitution(material.restitution);
+			set_restitution_threshold(material.restitution_threshold);
+
+			m_material = static_cast<std::string>(id);
+		}
+
 		const glm::vec2& RigidBody::get_shape() const
 		{
 			return m_shape;
@@ -188,6 +200,7 @@ namespace galaxy
 			json["restitution_threshold"] = m_restitution_threshold;
 			json["bullet"]                = m_bullet;
 			json["fixed_rotation"]        = m_fixed_rotation;
+			json["material"]              = m_material;
 
 			return json;
 		}
@@ -210,6 +223,7 @@ namespace galaxy
 			m_restitution_threshold = json.at("restitution_threshold");
 			m_bullet                = json.at("bullet");
 			m_fixed_rotation        = json.at("fixed_rotation");
+			m_material              = json.at("material");
 		}
 	} // namespace components
 } // namespace galaxy
