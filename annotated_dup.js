@@ -109,7 +109,8 @@ var annotated_dup =
         [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ]
       ] ],
       [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", [
-        [ "Constants", "d4/d8a/structgalaxy_1_1physics_1_1Constants.html", "d4/d8a/structgalaxy_1_1physics_1_1Constants" ]
+        [ "Constants", "d4/d8a/structgalaxy_1_1physics_1_1Constants.html", "d4/d8a/structgalaxy_1_1physics_1_1Constants" ],
+        [ "Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", "d4/d7e/classgalaxy_1_1physics_1_1Material" ]
       ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
         [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
@@ -119,6 +120,7 @@ var annotated_dup =
         [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html", "df/d3d/classgalaxy_1_1resource_1_1Fonts" ],
         [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
         [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html", "da/d87/classgalaxy_1_1resource_1_1Maps" ],
+        [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", "d3/dbb/classgalaxy_1_1resource_1_1Materials" ],
         [ "Prefabs", "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html", "d2/daf/classgalaxy_1_1resource_1_1Prefabs" ],
         [ "Scripts", "d8/d35/classgalaxy_1_1resource_1_1Scripts.html", "d8/d35/classgalaxy_1_1resource_1_1Scripts" ],
         [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html", "d9/d24/classgalaxy_1_1resource_1_1Shaders" ],

@@ -1,5 +1,5 @@
 <map id="galaxy/src/galaxy/core/ServiceLocator.hpp" name="galaxy/src/galaxy/core/ServiceLocator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="4806,5,4975,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="4915,5,5085,47"/>
 <area shape="rect" id="node2" href="$d1/d2a/TimerAsync_8cpp.html" title=" " alt="" coords="5,95,184,136"/>
 <area shape="rect" id="node3" href="$df/dc3/AudioEngine_8cpp.html" title=" " alt="" coords="209,95,386,136"/>
 <area shape="rect" id="node4" href="$d1/d8a/Sound_8cpp.html" title=" " alt="" coords="410,95,587,136"/>
@@ -29,20 +29,21 @@
 <area shape="rect" id="node28" href="$db/d4b/Fonts_8cpp.html" title=" " alt="" coords="5652,95,5849,136"/>
 <area shape="rect" id="node29" href="$d6/daa/Language_8cpp.html" title=" " alt="" coords="5873,95,6071,136"/>
 <area shape="rect" id="node30" href="$d7/d5e/Maps_8cpp.html" title=" " alt="" coords="6095,95,6292,136"/>
-<area shape="rect" id="node31" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="6316,95,6513,136"/>
-<area shape="rect" id="node32" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="6537,95,6735,136"/>
-<area shape="rect" id="node33" href="$d4/d01/Shaders_8cpp.html" title=" " alt="" coords="6759,95,6956,136"/>
-<area shape="rect" id="node34" href="$d5/d92/Sounds_8cpp.html" title=" " alt="" coords="6980,95,7177,136"/>
-<area shape="rect" id="node35" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="7201,95,7399,136"/>
-<area shape="rect" id="node36" href="$d3/d54/RuntimeLayer_8cpp.html" title=" " alt="" coords="7423,95,7609,136"/>
-<area shape="rect" id="node37" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="7633,95,7812,136"/>
-<area shape="rect" id="node38" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="7836,95,8015,136"/>
-<area shape="rect" id="node39" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="8039,95,8236,136"/>
-<area shape="rect" id="node40" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="8260,95,8457,136"/>
-<area shape="rect" id="node41" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="8481,95,8679,136"/>
-<area shape="rect" id="node42" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="8703,95,8899,136"/>
-<area shape="rect" id="node43" href="$d5/df3/ImGuiHelpers_8cpp.html" title=" " alt="" coords="8923,95,9077,136"/>
-<area shape="rect" id="node44" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="9101,95,9254,136"/>
-<area shape="rect" id="node45" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="9278,95,9431,136"/>
-<area shape="rect" id="node46" href="$dc/d3a/RMLSystem_8cpp.html" title=" " alt="" coords="9455,95,9609,136"/>
+<area shape="rect" id="node31" href="$dc/dd7/Materials_8cpp.html" title=" " alt="" coords="6316,95,6513,136"/>
+<area shape="rect" id="node32" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="6537,95,6735,136"/>
+<area shape="rect" id="node33" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="6759,95,6956,136"/>
+<area shape="rect" id="node34" href="$d4/d01/Shaders_8cpp.html" title=" " alt="" coords="6980,95,7177,136"/>
+<area shape="rect" id="node35" href="$d5/d92/Sounds_8cpp.html" title=" " alt="" coords="7201,95,7399,136"/>
+<area shape="rect" id="node36" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="7423,95,7620,136"/>
+<area shape="rect" id="node37" href="$d3/d54/RuntimeLayer_8cpp.html" title=" " alt="" coords="7644,95,7831,136"/>
+<area shape="rect" id="node38" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="7855,95,8033,136"/>
+<area shape="rect" id="node39" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="8057,95,8236,136"/>
+<area shape="rect" id="node40" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="8260,95,8457,136"/>
+<area shape="rect" id="node41" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="8481,95,8679,136"/>
+<area shape="rect" id="node42" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="8703,95,8900,136"/>
+<area shape="rect" id="node43" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="8925,95,9121,136"/>
+<area shape="rect" id="node44" href="$d5/df3/ImGuiHelpers_8cpp.html" title=" " alt="" coords="9145,95,9298,136"/>
+<area shape="rect" id="node45" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="9322,95,9475,136"/>
+<area shape="rect" id="node46" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="9499,95,9653,136"/>
+<area shape="rect" id="node47" href="$dc/d3a/RMLSystem_8cpp.html" title=" " alt="" coords="9677,95,9830,136"/>
 </map>

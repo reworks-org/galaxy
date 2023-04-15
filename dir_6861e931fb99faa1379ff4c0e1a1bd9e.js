@@ -16,6 +16,10 @@ var dir_6861e931fb99faa1379ff4c0e1a1bd9e =
     [ "Maps.hpp", "db/d05/Maps_8hpp.html", [
       [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html", "da/d87/classgalaxy_1_1resource_1_1Maps" ]
     ] ],
+    [ "Materials.cpp", "dc/dd7/Materials_8cpp.html", null ],
+    [ "Materials.hpp", "d2/dce/Materials_8hpp.html", [
+      [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", "d3/dbb/classgalaxy_1_1resource_1_1Materials" ]
+    ] ],
     [ "Prefabs.cpp", "dc/d7a/Prefabs_8cpp.html", null ],
     [ "Prefabs.hpp", "d3/d96/Prefabs_8hpp.html", [
       [ "Prefabs", "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html", "d2/daf/classgalaxy_1_1resource_1_1Prefabs" ]

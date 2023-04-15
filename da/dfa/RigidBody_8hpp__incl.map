@@ -1,7 +1,8 @@
 <map id="galaxy/src/galaxy/components/RigidBody.hpp" name="galaxy/src/galaxy/components/RigidBody.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="105,5,327,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="152,5,373,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,136,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="161,95,271,121"/>
-<area shape="rect" id="node4" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="295,95,486,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="303,169,479,196"/>
+<area shape="rect" id="node4" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="283,169,474,196"/>
+<area shape="rect" id="node6" href="$d0/d70/Material_8hpp.html" title=" " alt="" coords="347,95,552,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="291,244,467,271"/>
 </map>

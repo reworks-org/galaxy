@@ -1,5 +1,5 @@
 <map id="galaxy/src/galaxy/fs/VirtualFileSystem.hpp" name="galaxy/src/galaxy/fs/VirtualFileSystem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2541,5,2711,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2652,5,2821,47"/>
 <area shape="rect" id="node2" href="$d1/d8a/Sound_8cpp.html" title=" " alt="" coords="5,95,183,136"/>
 <area shape="rect" id="node3" href="$d8/d80/Script_8cpp.html" title=" " alt="" coords="207,95,429,136"/>
 <area shape="rect" id="node4" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="453,95,623,136"/>
@@ -14,15 +14,16 @@
 <area shape="rect" id="node13" href="$db/d4b/Fonts_8cpp.html" title=" " alt="" coords="2306,95,2503,136"/>
 <area shape="rect" id="node14" href="$d6/daa/Language_8cpp.html" title=" " alt="" coords="2527,95,2725,136"/>
 <area shape="rect" id="node15" href="$d7/d5e/Maps_8cpp.html" title=" " alt="" coords="2749,95,2946,136"/>
-<area shape="rect" id="node16" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="2970,95,3167,136"/>
-<area shape="rect" id="node17" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="3191,95,3389,136"/>
-<area shape="rect" id="node18" href="$d4/d01/Shaders_8cpp.html" title=" " alt="" coords="3413,95,3610,136"/>
-<area shape="rect" id="node19" href="$d5/d92/Sounds_8cpp.html" title=" " alt="" coords="3634,95,3831,136"/>
-<area shape="rect" id="node20" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="3855,95,4053,136"/>
-<area shape="rect" id="node21" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="4077,95,4255,136"/>
-<area shape="rect" id="node22" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="4279,95,4477,136"/>
-<area shape="rect" id="node23" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="4501,95,4698,136"/>
-<area shape="rect" id="node24" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="4722,95,4919,136"/>
-<area shape="rect" id="node25" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="4944,95,5097,136"/>
-<area shape="rect" id="node26" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="5121,95,5275,136"/>
+<area shape="rect" id="node16" href="$dc/dd7/Materials_8cpp.html" title=" " alt="" coords="2970,95,3167,136"/>
+<area shape="rect" id="node17" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="3191,95,3389,136"/>
+<area shape="rect" id="node18" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="3413,95,3610,136"/>
+<area shape="rect" id="node19" href="$d4/d01/Shaders_8cpp.html" title=" " alt="" coords="3634,95,3831,136"/>
+<area shape="rect" id="node20" href="$d5/d92/Sounds_8cpp.html" title=" " alt="" coords="3855,95,4053,136"/>
+<area shape="rect" id="node21" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="4077,95,4274,136"/>
+<area shape="rect" id="node22" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="4298,95,4477,136"/>
+<area shape="rect" id="node23" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="4501,95,4698,136"/>
+<area shape="rect" id="node24" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="4722,95,4919,136"/>
+<area shape="rect" id="node25" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="4943,95,5141,136"/>
+<area shape="rect" id="node26" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="5165,95,5319,136"/>
+<area shape="rect" id="node27" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="5343,95,5496,136"/>
 </map>

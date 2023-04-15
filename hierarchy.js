@@ -20,6 +20,9 @@ var hierarchy =
     [ "galaxy::resource::Cache< lua::BasicScript >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Scripts", "d8/d35/classgalaxy_1_1resource_1_1Scripts.html", null ]
     ] ],
+    [ "galaxy::resource::Cache< physics::Material >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
+      [ "galaxy::resource::Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", null ]
+    ] ],
     [ "galaxy::resource::Cache< tson::Map >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html", null ]
     ] ],
@@ -104,6 +107,7 @@ var hierarchy =
       [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ],
       [ "galaxy::graphics::Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", null ],
+      [ "galaxy::physics::Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", null ],
       [ "galaxy::scene::Layer", "d2/d25/classgalaxy_1_1scene_1_1Layer.html", [
         [ "galaxy::scene::RuntimeLayer", "df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html", null ],
         [ "galaxy::scene::UILayer", "d3/d20/classgalaxy_1_1scene_1_1UILayer.html", null ]
