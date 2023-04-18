@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/d92/AudioEngine_8hpp.html":[2,0,0,0,0,2,1],
 "d4/d92/AudioEngine_8hpp_source.html":[2,0,0,0,0,2,1],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html":[1,0,0,15,6],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a02df73ec8516ff161282df6b1372ec01":[1,0,0,15,6,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ad8adff411002c3c59282252ddaf5a76e":[1,0,0,0,0,10],
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ae78fa42a923a9d2ef5edfc2816d0f788":[1,0,0,0,0,3],
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#afbf98c57192a72521fc9cdb6e2ca8b4b":[1,0,0,0,0,0],
-"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html":[1,0,0,18,4]
+"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html":[1,0,0,18,4],
+"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2888c5fc4d42a6b0389f1c5e82983038":[1,0,0,18,4,4]
 };

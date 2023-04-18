@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3ed53fbeb1eab0443561b68ca0c0b5cf":[0,0,0,11,8,120],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea44c29edb103a2872f519ad0c9a0fdaaa":[0,0,0,11,8,34],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea47489eb597b7db34caa24b1fc78fc839":[0,0,0,11,8,76],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea4787509ad9f9d747a81a30e9dde3d4a7":[0,0,0,11,8,77],
@@ -249,5 +248,6 @@ var NAVTREEINDEX10 =
 "de/d15/Scene_8cpp.html":[2,0,0,0,0,16,7],
 "de/d15/Scene_8cpp_source.html":[2,0,0,0,0,16,7],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html":[1,0,0,5,1],
-"de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[1,0,0,5,1,0]
+"de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[1,0,0,5,1,0],
+"de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c":[1,0,0,5,1,1]
 };

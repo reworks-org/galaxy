@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c":[1,0,0,5,1,1],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a4ae0537255f6c00f305227dacbef02b3":[1,0,0,5,1,2],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a58a4a232764ee7f1591585461f8269b5":[1,0,0,5,1,3],
 "de/d37/Text_8cpp.html":[2,0,0,0,0,3,18],
@@ -249,5 +248,6 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8eaf891f0445e678096d6ba2578aa88c":[1,0,0,9,7,5],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9ae76552368c6f943bd055994f036e9b":[1,0,0,9,7,36],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9c5b11993443d9d7ef0151647ac51639":[1,0,0,9,7,18],
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa2caf9eb6240ceb9c5dfe5ec84a48f9a":[1,0,0,9,7,3]
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa2caf9eb6240ceb9c5dfe5ec84a48f9a":[1,0,0,9,7,3],
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4":[1,0,0,9,7,22]
 };

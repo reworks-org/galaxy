@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a50d9d5d5ec36790f42aa1dddb65e0ec1":[1,0,0,15,4,21],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a628dfe796c0efc0b00d2f465b0951f99":[1,0,0,15,4,6],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a629316f28c4a6624efc345f2ad266eb2":[1,0,0,15,4,11],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5":[1,0,0,15,4,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "d3/d21/DialogIcons_8hpp_source.html":[2,0,0,0,0,9,1],
 "d3/d28/Enabled_8cpp.html":[2,0,0,0,0,8,2],
 "d3/d28/Enabled_8cpp_source.html":[2,0,0,0,0,8,2],
-"d3/d28/Renderer_8cpp.html":[2,0,0,0,0,10,32]
+"d3/d28/Renderer_8cpp.html":[2,0,0,0,0,10,32],
+"d3/d28/Renderer_8cpp_source.html":[2,0,0,0,0,10,32]
 };

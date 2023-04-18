@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4":[1,0,0,9,7,22],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab125d9dbf36eb6a123583b4025a8518c":[1,0,0,9,7,1],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee":[1,0,0,9,7,7],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab4d28cfc3fde1cb068035edfc2922c80":[1,0,0,9,7,26],
@@ -124,16 +123,16 @@ var NAVTREEINDEX12 =
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,7],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],
 "functions_e.html":[1,3,0,4],
 "functions_enum.html":[1,3,4],
 "functions_f.html":[1,3,0,5],
-"functions_func.html":[1,3,1,0],
 "functions_func.html":[1,3,1],
+"functions_func.html":[1,3,1,0],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -215,5 +214,6 @@ var NAVTREEINDEX12 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[]
+"pages.html":[],
+"":[0,0,4]
 };

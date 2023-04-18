@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"d9/df5/ImGuiTheme_8hpp_source.html":[2,0,0,0,0,20,3],
 "da/d18/classgalaxy_1_1components_1_1Animated.html":[1,0,0,3,0],
 "da/d18/classgalaxy_1_1components_1_1Animated.html#a054198ddd1c32ca1c358806236c9174c":[1,0,0,3,0,4],
 "da/d18/classgalaxy_1_1components_1_1Animated.html#a08f770e400d692135ae12184d22619c9":[1,0,0,3,0,11],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "db/d7c/namespacegalaxy_1_1strutils.html":[0,0,0,22],
 "db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b":[0,0,0,22,6],
 "db/d7c/namespacegalaxy_1_1strutils.html#a22d4d4217db71614abc57b1d4aa3a9a0":[0,0,0,22,7],
-"db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b":[0,0,0,22,0]
+"db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b":[0,0,0,22,0],
+"db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f":[0,0,0,22,2]
 };
