@@ -126,10 +126,9 @@ namespace galaxy
 			///
 			/// Sets density, friction, restitution and restitution threshold.
 			///
-			/// \param material Material to use as a base.
-			/// \param id Optional material id to serialize.
+			/// \param id Material to use as a base.
 			///
-			void set_material(const physics::Material& material, std::string_view id = "");
+			void set_material(const std::string& id);
 
 			///
 			/// Get body shape.
@@ -174,7 +173,7 @@ namespace galaxy
 			[[nodiscard]] float get_restitution_threshold() const;
 
 			///
-			///
+			/// Is this a bullet style body.
 			///
 			/// \return True if continously colliding.
 			///
@@ -186,6 +185,13 @@ namespace galaxy
 			/// \return True if body can't rotate.
 			///
 			[[nodiscard]] bool is_rotation_fixed() const;
+
+			///
+			/// Get material id.
+			///
+			/// \return String. May be empty as material isnt needed.
+			///
+			[[nodiscard]] const std::string& get_material() const;
 
 			///
 			/// Serializes object.

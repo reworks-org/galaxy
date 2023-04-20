@@ -10,6 +10,9 @@
 #include <magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/Materials.hpp"
+
 #include "RigidBody.hpp"
 
 namespace galaxy
@@ -138,14 +141,20 @@ namespace galaxy
 			m_body->SetFixedRotation(fixed_rotation);
 		}
 
-		void RigidBody::set_material(const physics::Material& material, std::string_view id)
+		void RigidBody::set_material(const std::string& id)
 		{
-			set_density(material.density);
-			set_friction(material.friction);
-			set_restitution(material.restitution);
-			set_restitution_threshold(material.restitution_threshold);
+			auto& materials = core::ServiceLocator<resource::Materials>::ref();
+			auto material   = materials.get(id);
 
-			m_material = static_cast<std::string>(id);
+			if (material != nullptr)
+			{
+				set_density(material->density);
+				set_friction(material->friction);
+				set_restitution(material->restitution);
+				set_restitution_threshold(material->restitution_threshold);
+
+				m_material = id;
+			}
 		}
 
 		const glm::vec2& RigidBody::get_shape() const
@@ -186,6 +195,11 @@ namespace galaxy
 		bool RigidBody::is_rotation_fixed() const
 		{
 			return m_fixed_rotation;
+		}
+
+		const std::string& RigidBody::get_material() const
+		{
+			return m_material;
 		}
 
 		nlohmann::json RigidBody::serialize()

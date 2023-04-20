@@ -27,6 +27,7 @@
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Fonts.hpp>
+#include <galaxy/resource/Materials.hpp>
 #include <galaxy/resource/Shaders.hpp>
 #include <galaxy/resource/TextureAtlas.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -505,6 +506,31 @@ namespace sc
 								if (selected)
 								{
 									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						static std::string s_mat_search = "";
+						ImGui::InputTextWithHint("##EntityRBMaterialSearch", "Search...", &s_mat_search, ImGuiInputTextFlags_AutoSelectAll);
+
+						if (ImGui::BeginCombo("Material", body->get_material().c_str()))
+						{
+							for (const auto& key : core::ServiceLocator<resource::Materials>::ref().keys())
+							{
+								if (key.find(s_mat_search) != std::string::npos)
+								{
+									const bool selected = (body->get_material() == key);
+									if (ImGui::Selectable(key.c_str(), selected))
+									{
+										body->set_material(s_mat_search);
+									}
+
+									if (selected)
+									{
+										ImGui::SetItemDefaultFocus();
+									}
 								}
 							}
 
