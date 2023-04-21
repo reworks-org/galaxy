@@ -135,6 +135,8 @@
     <ClCompile Include="lua\src\lutf8lib.c" />
     <ClCompile Include="lua\src\lvm.c" />
     <ClCompile Include="lua\src\lzio.c" />
+    <ClCompile Include="MemoryAllocator.cpp" />
+    <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="miniaudio\miniaudio.c" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
@@ -280,6 +282,7 @@
     <ClCompile Include="rmlui\Source\Core\PropertyParserTransform.cpp" />
     <ClCompile Include="rmlui\Source\Core\PropertySpecification.cpp" />
     <ClCompile Include="rmlui\Source\Core\RenderInterface.cpp" />
+    <ClCompile Include="rmlui\Source\Core\ScrollController.cpp" />
     <ClCompile Include="rmlui\Source\Core\Spritesheet.cpp" />
     <ClCompile Include="rmlui\Source\Core\Stream.cpp" />
     <ClCompile Include="rmlui\Source\Core\StreamFile.cpp" />
@@ -977,6 +980,14 @@
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
+    <ClInclude Include="mimalloc\include\mimalloc-new-delete.h" />
+    <ClInclude Include="mimalloc\include\mimalloc-override.h" />
+    <ClInclude Include="mimalloc\include\mimalloc.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\atomic.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\internal.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\prim.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\track.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\types.h" />
     <ClInclude Include="miniaudio\miniaudio.h" />
     <ClInclude Include="msdfgl\include\msdfgl.h" />
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
@@ -991,6 +1002,8 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\ComputedValues.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\chobo\flat_map.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\chobo\flat_set.hpp" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_map.hpp" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_set.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\robin_hood.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Context.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ContextInstancer.h" />
@@ -1058,6 +1071,7 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\PropertySpecification.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\RenderInterface.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ScriptInterface.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\ScrollTypes.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Spritesheet.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Stream.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\StreamMemory.h" />
@@ -1186,6 +1200,7 @@
     <ClInclude Include="rmlui\Source\Core\PropertyParserString.h" />
     <ClInclude Include="rmlui\Source\Core\PropertyParserTransform.h" />
     <ClInclude Include="rmlui\Source\Core\PropertyShorthandDefinition.h" />
+    <ClInclude Include="rmlui\Source\Core\ScrollController.h" />
     <ClInclude Include="rmlui\Source\Core\StreamFile.h" />
     <ClInclude Include="rmlui\Source\Core\StyleSheetFactory.h" />
     <ClInclude Include="rmlui\Source\Core\StyleSheetNode.h" />
@@ -1581,6 +1596,7 @@
     <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
     <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)output\dependencies\$(Configuration)\</OutDir>
@@ -1590,6 +1606,7 @@
     <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
     <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -1630,7 +1647,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1649,6 +1666,10 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>call "$(SolutionDir)scripts\update_rmlui_robinhood.cmd" $(SolutionDir)</Command>
+      <Message>Update RmlUi robin_hood.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -1687,7 +1708,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1707,6 +1728,10 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>call "$(SolutionDir)scripts\update_rmlui_robinhood.cmd" $(SolutionDir)</Command>
+      <Message>Update RmlUi robin_hood.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

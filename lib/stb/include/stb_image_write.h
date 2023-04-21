@@ -224,6 +224,8 @@ STBIWDEF void stbi_flip_vertically_on_write(int flip_boolean);
 #error "Must define all or none of STBIW_MALLOC, STBIW_FREE, and STBIW_REALLOC (or STBIW_REALLOC_SIZED)."
 #endif
 
+#include <mimalloc-override.h>
+
 #ifndef STBIW_MALLOC
 #define STBIW_MALLOC(sz)        malloc(sz)
 #define STBIW_REALLOC(p,newsz)  realloc(p,newsz)

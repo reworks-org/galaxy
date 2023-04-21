@@ -362,6 +362,9 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="mimalloc\src\static.c" />
+    <ClCompile Include="MemoryAllocator.cpp" />
+    <ClCompile Include="rmlui\Source\Core\ScrollController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1380,6 +1383,18 @@
     <ClInclude Include="zlib_ng_win\include\zconf.h" />
     <ClInclude Include="zlib_ng_win\include\zlib.h" />
     <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\atomic.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\internal.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\prim.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\track.h" />
+    <ClInclude Include="mimalloc\include\mimalloc\types.h" />
+    <ClInclude Include="mimalloc\include\mimalloc.h" />
+    <ClInclude Include="mimalloc\include\mimalloc-new-delete.h" />
+    <ClInclude Include="mimalloc\include\mimalloc-override.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\ScrollTypes.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_map.hpp" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_set.hpp" />
+    <ClInclude Include="rmlui\Source\Core\ScrollController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

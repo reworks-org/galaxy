@@ -629,6 +629,7 @@ enum STBVorbisError
 #error "Value of STB_VORBIS_FAST_HUFFMAN_LENGTH outside of allowed range"
 #endif
 
+#include <mimalloc-override.h>
 
 #if 0
 #include <crtdbg.h>
