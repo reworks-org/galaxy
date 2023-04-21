@@ -10,7 +10,7 @@
 
 #include <string>
 
-#include "galaxy/meta/Memory.hpp"
+#include <galaxy/meta/Memory.hpp>
 
 using namespace galaxy;
 
