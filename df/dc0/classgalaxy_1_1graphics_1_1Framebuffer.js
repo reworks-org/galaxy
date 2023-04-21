@@ -25,8 +25,8 @@ var classgalaxy_1_1graphics_1_1Framebuffer =
     [ "get_height", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4", null ],
     [ "get_depth_attachment", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a0427c814cf2b582cba2c29d0077bb86f", null ],
     [ "get_depth_renderbuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a0f5426259dcaecdc0637a737a8ccf8da", null ],
-    [ "get_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5f35a9ff62a1df64b19baff4bbbcbcaa", null ],
-    [ "get_renderbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab4d28cfc3fde1cb068035edfc2922c80", null ],
+    [ "get_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef", null ],
+    [ "get_renderbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a35cecca35ad8dc2f3a83ca5becd44a87", null ],
     [ "id", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6c06951b97ab3b720d267fb4ec12f9f6", null ],
     [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad76a8d5316c44a7171cfd9d5013d096f", null ],
     [ "add_drawbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e", null ],
@@ -37,8 +37,8 @@ var classgalaxy_1_1graphics_1_1Framebuffer =
     [ "m_depth_attachment", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ac88e01304e90bf500d63d3ff34289f6a", null ],
     [ "m_depth_renderbuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1311825f78678e7d7bde78b1522c7977", null ],
     [ "m_max_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9ae76552368c6f943bd055994f036e9b", null ],
-    [ "m_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a811efa6f436f878845ef164ae7d5954d", null ],
-    [ "m_renderbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a170700d8b255ec261cdaded49f14e0e5", null ],
-    [ "m_used_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af9ffd07039058366f37764786b3b3d88", null ],
+    [ "m_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a13c3e31ae987bc24014699373bb50149", null ],
+    [ "m_renderbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae93770fd57db9c54ba6fd273682a589b", null ],
+    [ "m_used_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a655d01e8984435fbbae6983a29e891a0", null ],
     [ "m_clear_colour", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a04e1e7782c8382c02d88bb2ec460dbb1", null ]
 ];

@@ -1,69 +1,79 @@
 <map id="galaxy/src/galaxy/ui/RMLSystem.cpp" name="galaxy/src/galaxy/ui/RMLSystem.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="798,5,951,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="1059,408,1154,435"/>
-<area shape="rect" id="node3" title=" " alt="" coords="2703,95,2803,121"/>
-<area shape="rect" id="node4" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="762,95,987,121"/>
-<area shape="rect" id="node10" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="519,169,675,196"/>
-<area shape="rect" id="node17" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="5,251,213,278"/>
-<area shape="rect" id="node20" href="$d0/de3/Window_8hpp.html" title=" " alt="" coords="2497,95,2679,121"/>
-<area shape="rect" id="node66" href="$d9/d53/RMLSystem_8hpp.html" title=" " alt="" coords="3621,95,3747,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="1439,483,1516,509"/>
-<area shape="rect" id="node6" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="2297,483,2493,509"/>
-<area shape="rect" id="node7" title=" " alt="" coords="2589,557,2669,584"/>
-<area shape="rect" id="node8" title=" " alt="" coords="2901,557,2960,584"/>
-<area shape="rect" id="node9" title=" " alt="" coords="2349,557,2441,584"/>
-<area shape="rect" id="node11" title=" " alt="" coords="193,408,284,435"/>
-<area shape="rect" id="node12" title=" " alt="" coords="339,251,463,278"/>
-<area shape="rect" id="node13" title=" " alt="" coords="487,251,622,278"/>
-<area shape="rect" id="node14" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="646,251,837,278"/>
-<area shape="rect" id="node15" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="1066,333,1227,360"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1438,408,1535,435"/>
-<area shape="rect" id="node18" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="28,333,207,360"/>
-<area shape="rect" id="node19" title=" " alt="" coords="84,408,151,435"/>
-<area shape="rect" id="node21" title=" " alt="" coords="2334,169,2525,196"/>
-<area shape="rect" id="node22" href="$df/da8/WindowSettings_8hpp.html" title=" " alt="" coords="2667,483,2901,509"/>
-<area shape="rect" id="node23" href="$d9/d1d/EventQueue_8hpp.html" title=" " alt="" coords="4227,169,4453,196"/>
-<area shape="rect" id="node39" href="$d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="1757,169,1992,196"/>
-<area shape="rect" id="node59" href="$db/d20/Clipboard_8hpp.html" title=" " alt="" coords="2651,251,2848,278"/>
-<area shape="rect" id="node61" href="$de/ddb/Cursor_8hpp.html" title=" " alt="" coords="2400,251,2576,278"/>
-<area shape="rect" id="node63" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="3075,251,3271,278"/>
-<area shape="rect" id="node64" href="$d5/d78/Mouse_8hpp.html" title=" " alt="" coords="2872,251,3051,278"/>
-<area shape="rect" id="node24" title=" " alt="" coords="4619,251,4687,278"/>
-<area shape="rect" id="node25" title=" " alt="" coords="2977,483,3039,509"/>
-<area shape="rect" id="node26" href="$dd/d0e/ContentScale_8hpp.html" title=" " alt="" coords="4712,251,4944,278"/>
-<area shape="rect" id="node27" href="$d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="5242,251,5449,278"/>
-<area shape="rect" id="node30" href="$d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="5473,251,5689,278"/>
-<area shape="rect" id="node31" href="$d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="5714,251,5902,278"/>
-<area shape="rect" id="node32" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="3346,251,3545,278"/>
-<area shape="rect" id="node33" href="$d3/d08/MouseMoved_8hpp.html" title=" " alt="" coords="3569,251,3802,278"/>
-<area shape="rect" id="node34" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="4355,251,4595,278"/>
-<area shape="rect" id="node36" href="$df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="4969,251,5218,278"/>
-<area shape="rect" id="node37" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="3826,251,4057,278"/>
-<area shape="rect" id="node38" href="$d9/d3b/WindowResized_8hpp.html" title=" " alt="" coords="4081,251,4330,278"/>
-<area shape="rect" id="node28" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="5244,333,5447,360"/>
-<area shape="rect" id="node29" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="5485,333,5651,360"/>
-<area shape="rect" id="node35" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="4670,333,4898,360"/>
-<area shape="rect" id="node40" href="$d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="1881,244,2071,285"/>
-<area shape="rect" id="node55" href="$d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="1295,244,1468,285"/>
-<area shape="rect" id="node56" href="$dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="1492,244,1663,285"/>
-<area shape="rect" id="node57" href="$d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="1687,244,1857,285"/>
-<area shape="rect" id="node58" href="$d3/d37/SMAA_8hpp.html" title=" " alt="" coords="2095,244,2265,285"/>
-<area shape="rect" id="node41" href="$d7/d2d/PostEffect_8hpp.html" title=" " alt="" coords="1865,333,2087,360"/>
-<area shape="rect" id="node42" href="$d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="1361,333,1612,360"/>
-<area shape="rect" id="node48" href="$d4/d6e/Shader_8hpp.html" title=" " alt="" coords="1639,333,1841,360"/>
-<area shape="rect" id="node43" title=" " alt="" coords="906,408,1035,435"/>
-<area shape="rect" id="node44" href="$d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="1179,408,1413,435"/>
-<area shape="rect" id="node45" title=" " alt="" coords="1525,557,1581,584"/>
-<area shape="rect" id="node46" href="$db/dd2/Colour_8hpp.html" title=" " alt="" coords="1217,483,1415,509"/>
-<area shape="rect" id="node47" title=" " alt="" coords="1277,557,1355,584"/>
-<area shape="rect" id="node49" title=" " alt="" coords="1662,408,1818,435"/>
-<area shape="rect" id="node50" title=" " alt="" coords="1843,408,2019,435"/>
-<area shape="rect" id="node51" title=" " alt="" coords="2043,408,2149,435"/>
-<area shape="rect" id="node52" href="$d2/d31/UniformInfo_8hpp.html" title=" " alt="" coords="2173,408,2408,435"/>
-<area shape="rect" id="node53" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="2433,408,2621,435"/>
-<area shape="rect" id="node54" title=" " alt="" coords="2517,483,2592,509"/>
-<area shape="rect" id="node60" href="$d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="2855,333,3068,360"/>
-<area shape="rect" id="node62" title=" " alt="" coords="2461,333,2515,360"/>
-<area shape="rect" id="node65" title=" " alt="" coords="3093,333,3203,360"/>
-<area shape="rect" id="node67" title=" " alt="" coords="4477,169,4696,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="4918,5,5071,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="4529,408,4623,435"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5182,95,5282,121"/>
+<area shape="rect" id="node4" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="4882,95,5107,121"/>
+<area shape="rect" id="node6" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="4813,169,4969,196"/>
+<area shape="rect" id="node13" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="5187,251,5395,278"/>
+<area shape="rect" id="node33" href="$d0/de3/Window_8hpp.html" title=" " alt="" coords="3008,95,3189,121"/>
+<area shape="rect" id="node76" href="$d9/d53/RMLSystem_8hpp.html" title=" " alt="" coords="5306,95,5433,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="4993,169,5071,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="5104,408,5195,435"/>
+<area shape="rect" id="node8" title=" " alt="" coords="4829,251,4953,278"/>
+<area shape="rect" id="node9" title=" " alt="" coords="4977,251,5111,278"/>
+<area shape="rect" id="node10" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="4614,251,4805,278"/>
+<area shape="rect" id="node11" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="4377,333,4538,360"/>
+<area shape="rect" id="node12" title=" " alt="" coords="4147,408,4245,435"/>
+<area shape="rect" id="node14" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="5195,333,5373,360"/>
+<area shape="rect" id="node15" title=" " alt="" coords="5269,408,5336,435"/>
+<area shape="rect" id="node16" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="3189,483,3377,509"/>
+<area shape="rect" id="node17" title=" " alt="" coords="3882,632,3974,659"/>
+<area shape="rect" id="node18" title=" " alt="" coords="3933,557,4008,584"/>
+<area shape="rect" id="node19" title=" " alt="" coords="2413,632,2472,659"/>
+<area shape="rect" id="node20" title=" " alt="" coords="4083,557,4146,584"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2658,557,2721,584"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2745,557,2844,584"/>
+<area shape="rect" id="node23" title=" " alt="" coords="2868,557,2911,584"/>
+<area shape="rect" id="node24" title=" " alt="" coords="2935,557,2977,584"/>
+<area shape="rect" id="node25" title=" " alt="" coords="3001,557,3052,584"/>
+<area shape="rect" id="node26" title=" " alt="" coords="3077,557,3201,584"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3225,557,3340,584"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3365,557,3422,584"/>
+<area shape="rect" id="node29" title=" " alt="" coords="3446,557,3509,584"/>
+<area shape="rect" id="node30" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="3713,557,3909,584"/>
+<area shape="rect" id="node32" title=" " alt="" coords="3533,557,3688,584"/>
+<area shape="rect" id="node31" title=" " alt="" coords="2580,632,2660,659"/>
+<area shape="rect" id="node34" title=" " alt="" coords="3003,169,3194,196"/>
+<area shape="rect" id="node35" href="$df/da8/WindowSettings_8hpp.html" title=" " alt="" coords="992,483,1227,509"/>
+<area shape="rect" id="node36" href="$d9/d1d/EventQueue_8hpp.html" title=" " alt="" coords="1302,169,1527,196"/>
+<area shape="rect" id="node51" href="$d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="3777,169,4012,196"/>
+<area shape="rect" id="node69" href="$db/d20/Clipboard_8hpp.html" title=" " alt="" coords="2893,251,3091,278"/>
+<area shape="rect" id="node71" href="$de/ddb/Cursor_8hpp.html" title=" " alt="" coords="3317,251,3493,278"/>
+<area shape="rect" id="node73" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="2673,251,2869,278"/>
+<area shape="rect" id="node74" href="$d5/d78/Mouse_8hpp.html" title=" " alt="" coords="3115,251,3293,278"/>
+<area shape="rect" id="node37" title=" " alt="" coords="2323,251,2391,278"/>
+<area shape="rect" id="node38" href="$dd/d0e/ContentScale_8hpp.html" title=" " alt="" coords="2416,251,2648,278"/>
+<area shape="rect" id="node39" href="$d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="631,251,838,278"/>
+<area shape="rect" id="node42" href="$d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="863,251,1079,278"/>
+<area shape="rect" id="node43" href="$d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="1103,251,1291,278"/>
+<area shape="rect" id="node44" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="1315,251,1514,278"/>
+<area shape="rect" id="node45" href="$d3/d08/MouseMoved_8hpp.html" title=" " alt="" coords="1538,251,1771,278"/>
+<area shape="rect" id="node46" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="367,251,607,278"/>
+<area shape="rect" id="node48" href="$df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="93,251,342,278"/>
+<area shape="rect" id="node49" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="1795,251,2026,278"/>
+<area shape="rect" id="node50" href="$d9/d3b/WindowResized_8hpp.html" title=" " alt="" coords="2050,251,2299,278"/>
+<area shape="rect" id="node40" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="633,333,836,360"/>
+<area shape="rect" id="node41" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="1001,333,1167,360"/>
+<area shape="rect" id="node47" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="303,333,531,360"/>
+<area shape="rect" id="node52" href="$d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="4101,244,4291,285"/>
+<area shape="rect" id="node65" href="$d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="4315,244,4488,285"/>
+<area shape="rect" id="node66" href="$dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="3712,244,3883,285"/>
+<area shape="rect" id="node67" href="$d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="3907,244,4077,285"/>
+<area shape="rect" id="node68" href="$d3/d37/SMAA_8hpp.html" title=" " alt="" coords="3517,244,3688,285"/>
+<area shape="rect" id="node53" href="$d7/d2d/PostEffect_8hpp.html" title=" " alt="" coords="3629,333,3851,360"/>
+<area shape="rect" id="node54" href="$d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="4101,333,4352,360"/>
+<area shape="rect" id="node60" href="$d4/d6e/Shader_8hpp.html" title=" " alt="" coords="3875,333,4077,360"/>
+<area shape="rect" id="node55" title=" " alt="" coords="4647,408,4777,435"/>
+<area shape="rect" id="node56" href="$d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="4269,408,4504,435"/>
+<area shape="rect" id="node57" title=" " alt="" coords="4293,557,4349,584"/>
+<area shape="rect" id="node58" href="$db/dd2/Colour_8hpp.html" title=" " alt="" coords="4151,483,4350,509"/>
+<area shape="rect" id="node59" title=" " alt="" coords="4190,557,4269,584"/>
+<area shape="rect" id="node61" title=" " alt="" coords="3275,408,3431,435"/>
+<area shape="rect" id="node62" title=" " alt="" coords="3456,408,3632,435"/>
+<area shape="rect" id="node63" title=" " alt="" coords="3656,408,3763,435"/>
+<area shape="rect" id="node64" href="$d2/d31/UniformInfo_8hpp.html" title=" " alt="" coords="3787,408,4021,435"/>
+<area shape="rect" id="node70" href="$d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="2885,333,3099,360"/>
+<area shape="rect" id="node72" title=" " alt="" coords="3443,333,3496,360"/>
+<area shape="rect" id="node75" title=" " alt="" coords="3149,333,3259,360"/>
+<area shape="rect" id="node77" title=" " alt="" coords="5260,169,5479,196"/>
 </map>

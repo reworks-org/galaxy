@@ -1,4 +1,4 @@
 <map id="galaxy::fs::VirtualFileSystem::open_file_dialog_multi" name="galaxy::fs::VirtualFileSystem::open_file_dialog_multi">
 <area shape="rect" id="node1" title="Open file dialog that supports multiple files." alt="" coords="5,5,213,47"/>
-<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b" title="Split a string based on a delimiter." alt="" coords="261,13,416,39"/>
+<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324" title="Split a string based on a delimiter." alt="" coords="261,13,416,39"/>
 </map>

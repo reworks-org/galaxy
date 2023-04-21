@@ -18,7 +18,7 @@ var classgalaxy_1_1graphics_1_1Animation =
     [ "m_looping", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#aeb147d0a0d5fa5e073f2db7646913464", null ],
     [ "m_speed", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#a0a2b9dfb48445866711eb5e7694558d7", null ],
     [ "m_total_frames", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#ad4e691841a941d4c4d24f952181ff595", null ],
-    [ "m_frames", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#a3f331f249e48d803bf3133bbf34e058b", null ],
+    [ "m_frames", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#ae3e541c01656d5492b5e5868aa49df40", null ],
     [ "m_active_frame", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#a524371c06fa72529ab65b8ccdbf31582", null ],
     [ "m_current_frame_index", "da/d19/classgalaxy_1_1graphics_1_1Animation.html#a091a3874b8a7066ad82399d4a1d96550", null ]
 ];

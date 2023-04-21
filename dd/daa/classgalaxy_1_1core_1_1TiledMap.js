@@ -14,6 +14,6 @@ var classgalaxy_1_1core_1_1TiledMap =
     [ "get_tile_offset", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a71446c641e0a3e301dbd704b91cf47d6", null ],
     [ "m_name", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a3ee8cf01a9ea00485e0e3d37fd648dcf", null ],
     [ "m_scene", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a243381ec340e26974369962a47767acd", null ],
-    [ "m_map_entities", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a0ef46fea70ea4e2efd4f44a61ac9e2ef", null ],
+    [ "m_map_entities", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a1b9d69eca53238c20dc8d06c9aceea78", null ],
     [ "m_map", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a958b2ccc04863dad27d88a629da460d1", null ]
 ];

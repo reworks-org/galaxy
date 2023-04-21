@@ -12,7 +12,7 @@ var classgalaxy_1_1graphics_1_1PostProcess =
     [ "resize", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390", null ],
     [ "m_fb", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1a0e85d8afedb0aa62e897caac98d025", null ],
     [ "m_output", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aa5ffdfd9f7167d210d734fb29574f36b", null ],
-    [ "m_effects", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ad7047430081ce8a0f800f9ef98f1a6df", null ],
+    [ "m_effects", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ad260bd1c05a0899956042646b7257391", null ],
     [ "m_screen_vbo", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af2086277094f60e5ea83a4c0b8b628dc", null ],
     [ "m_screen_vao", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a6f512c26335754520e26915614f76a79", null ],
     [ "m_output_fb", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af1e3dfa082d1d739db1b82a02711f660", null ]

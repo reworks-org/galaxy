@@ -1,5 +1,6 @@
 var NAVTREEINDEX0 =
 {
+"":[0,0,4],
 "annotated.html":[1,0],
 "classes.html":[1,1],
 "d0/d0a/Animated_8cpp.html":[2,0,0,0,0,3,0],
@@ -129,7 +130,7 @@ var NAVTREEINDEX0 =
 "d1/d44/StringUtils_8cpp.html":[2,0,0,0,0,21,4],
 "d1/d44/StringUtils_8cpp.html#a08031ceb7b289eae2739e4528489da4b":[2,0,0,0,0,21,4,6],
 "d1/d44/StringUtils_8cpp.html#a22d4d4217db71614abc57b1d4aa3a9a0":[2,0,0,0,0,21,4,7],
-"d1/d44/StringUtils_8cpp.html#aa478cb3361fc7c4a54132170d8fa9e4b":[2,0,0,0,0,21,4,0],
+"d1/d44/StringUtils_8cpp.html#aa49866d6c8088279303394a48f2a8324":[2,0,0,0,0,21,4,0],
 "d1/d44/StringUtils_8cpp.html#aa9c293e86f67a6709d6b8745e0185e5f":[2,0,0,0,0,21,4,2],
 "d1/d44/StringUtils_8cpp.html#aadb96bbbbd51e3761290151baf3bcd3d":[2,0,0,0,0,21,4,1],
 "d1/d44/StringUtils_8cpp.html#abd79c863f9a90136d5dd6ddea01cacda":[2,0,0,0,0,21,4,3],
@@ -139,7 +140,7 @@ var NAVTREEINDEX0 =
 "d1/d44/StringUtils_8hpp.html":[2,0,0,0,0,21,5],
 "d1/d44/StringUtils_8hpp.html#a08031ceb7b289eae2739e4528489da4b":[2,0,0,0,0,21,5,6],
 "d1/d44/StringUtils_8hpp.html#a22d4d4217db71614abc57b1d4aa3a9a0":[2,0,0,0,0,21,5,7],
-"d1/d44/StringUtils_8hpp.html#aa478cb3361fc7c4a54132170d8fa9e4b":[2,0,0,0,0,21,5,0],
+"d1/d44/StringUtils_8hpp.html#aa49866d6c8088279303394a48f2a8324":[2,0,0,0,0,21,5,0],
 "d1/d44/StringUtils_8hpp.html#aa9c293e86f67a6709d6b8745e0185e5f":[2,0,0,0,0,21,5,2],
 "d1/d44/StringUtils_8hpp.html#aadb96bbbbd51e3761290151baf3bcd3d":[2,0,0,0,0,21,5,1],
 "d1/d44/StringUtils_8hpp.html#abd79c863f9a90136d5dd6ddea01cacda":[2,0,0,0,0,21,5,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a0aba190bb892bd34405af4bc9b1ecffc":[1,0,0,15,4,20],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a172f4dc5af7aa4d5c1fd09a6ce65321a":[1,0,0,15,4,18],
 "d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a22cf338c948837edb2cffd9ea2bf5f3d":[1,0,0,15,4,19],
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a25c6fa2e51510773e9d892d85c40bafa":[1,0,0,15,4,24],
-"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a50d9d5d5ec36790f42aa1dddb65e0ec1":[1,0,0,15,4,21]
+"d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a25c6fa2e51510773e9d892d85c40bafa":[1,0,0,15,4,24]
 };

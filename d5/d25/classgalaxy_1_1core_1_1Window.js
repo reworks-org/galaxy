@@ -28,7 +28,7 @@ var classgalaxy_1_1core_1_1Window =
     [ "is_focused", "d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494", null ],
     [ "queued_events", "d5/d25/classgalaxy_1_1core_1_1Window.html#a7a033e54ce6714aa25c26931a9652936", null ],
     [ "get_input", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0d09c162a014faea948ce68ed15247fe", null ],
-    [ "get_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#ac90a0695f163968a5276d9d335a826dc", null ],
+    [ "get_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#ad7445809ef2e4602650665bc3894a553", null ],
     [ "get_width", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0ab8b02b3baa1a765a36d0dcfa9b5f86", null ],
     [ "get_height", "d5/d25/classgalaxy_1_1core_1_1Window.html#a2b9f2a01b03387b7930d1e37ed34852a", null ],
     [ "get_widthf", "d5/d25/classgalaxy_1_1core_1_1Window.html#a837de79087ab9ba880c84c3db901263c", null ],
@@ -46,5 +46,5 @@ var classgalaxy_1_1core_1_1Window =
     [ "m_mouse", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa8b93def4be190b82a6648334c623ee0", null ],
     [ "m_cursor", "d5/d25/classgalaxy_1_1core_1_1Window.html#a29dc00216d7c2206f7fb35d15c0bbe77", null ],
     [ "m_clipboard", "d5/d25/classgalaxy_1_1core_1_1Window.html#a1f34f6a4f8233dd5ff5ff5d7ad332c4a", null ],
-    [ "m_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#a02bc961d73f6ebd4a3d95a653787a644", null ]
+    [ "m_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0b2da29ced012f536464f3f3c9585c69", null ]
 ];

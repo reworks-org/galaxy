@@ -1,8 +1,3 @@
 <map id="galaxy::error::Log" name="galaxy::error::Log">
-<area shape="rect" id="node1" title="Log singleton." alt="" coords="104,657,243,896"/>
-<area shape="rect" id="node2" title=" " alt="" coords="68,503,279,595"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,348,184,440"/>
-<area shape="rect" id="node4" title=" " alt="" coords="27,145,184,223"/>
-<area shape="rect" id="node5" title=" " alt="" coords="171,5,210,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="211,247,341,324"/>
+<area shape="rect" id="node1" title="Log singleton." alt="" coords="5,5,144,259"/>
 </map>

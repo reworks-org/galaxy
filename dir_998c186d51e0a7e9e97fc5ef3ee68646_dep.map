@@ -1,9 +1,9 @@
 <map id="galaxy/src/galaxy/systems" name="galaxy/src/galaxy/systems">
 <area shape="rect" id="node1" href="dir_2b954ff381b9b3885b7442a3ec8b9d3a.html" title="components" alt="" coords="282,52,385,100"/>
 <area shape="rect" id="node2" href="dir_2fca6cf9c244716c7cc7db0f05b66bc2.html" title="core" alt="" coords="236,148,308,196"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000006_000007.html" title="4" alt="" coords="291,129,300,144"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000006_000007.html" title="5" alt="" coords="291,129,300,144"/>
 <area shape="rect" id="node4" href="dir_6861e931fb99faa1379ff4c0e1a1bd9e.html" title="resource" alt="" coords="406,340,485,388"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000006_000021.html" title="3" alt="" coords="427,312,436,327"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000006_000021.html" title="4" alt="" coords="427,312,436,327"/>
 <area shape="rect" id="node5" href="dir_99aa8610175742e789e9b97044e8bb7a.html" title="graphics" alt="" coords="104,436,181,484"/>
 <area shape="rect" id="edge5-headlabel" href="dir_000006_000013.html" title="16" alt="" coords="91,410,108,424"/>
 <area shape="rect" id="node7" href="dir_a1194cae147883a6cbcc1cdd989eaf5f.html" title="utils" alt="" coords="291,532,363,580"/>

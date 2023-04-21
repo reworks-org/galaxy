@@ -1,9 +1,6 @@
 <map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
-<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="241,660,479,899"/>
-<area shape="rect" id="node2" title=" " alt="" coords="154,505,347,597"/>
-<area shape="rect" id="node3" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,145,216,428"/>
-<area shape="rect" id="node4" title=" " alt="" coords="239,248,369,325"/>
-<area shape="rect" id="node5" title=" " alt="" coords="367,5,406,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="393,248,551,325"/>
-<area shape="rect" id="node6" title=" " alt="" coords="372,505,572,597"/>
+<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="5,455,243,708"/>
+<area shape="rect" id="node2" title=" " alt="" coords="24,300,224,392"/>
+<area shape="rect" id="node3" title=" " alt="" coords="45,145,203,223"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,5,143,83"/>
 </map>

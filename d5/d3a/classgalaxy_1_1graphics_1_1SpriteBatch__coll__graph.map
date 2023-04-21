@@ -1,12 +1,7 @@
 <map id="galaxy::graphics::SpriteBatch" name="galaxy::graphics::SpriteBatch">
-<area shape="rect" id="node1" title="Batches together vertex data to reduce draw calls." alt="" coords="284,968,459,1265"/>
-<area shape="rect" id="node2" title=" " alt="" coords="201,725,352,817"/>
-<area shape="rect" id="node3" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html" title="Represents a single vertex point." alt="" coords="9,292,187,560"/>
-<area shape="rect" id="node4" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="5,5,191,229"/>
-<area shape="rect" id="node5" title=" " alt="" coords="212,387,341,465"/>
-<area shape="rect" id="node6" title=" " alt="" coords="257,79,296,156"/>
-<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="486,637,665,905"/>
-<area shape="rect" id="node8" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="365,299,556,553"/>
-<area shape="rect" id="node9" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="581,299,791,553"/>
-<area shape="rect" id="node10" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="815,292,994,560"/>
+<area shape="rect" id="node1" title="Batches together vertex data to reduce draw calls." alt="" coords="239,667,413,979"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="237,336,415,604"/>
+<area shape="rect" id="node3" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="5,13,196,266"/>
+<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="221,13,431,266"/>
+<area shape="rect" id="node5" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="455,5,634,273"/>
 </map>

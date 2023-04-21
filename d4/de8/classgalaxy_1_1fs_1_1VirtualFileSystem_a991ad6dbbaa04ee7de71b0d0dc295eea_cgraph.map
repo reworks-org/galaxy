@@ -1,6 +1,6 @@
 <map id="galaxy::fs::VirtualFileSystem::open_binary_using_dialog" name="galaxy::fs::VirtualFileSystem::open_binary_using_dialog">
 <area shape="rect" id="node1" title="Open a file and store contents in std::string." alt="" coords="5,39,213,80"/>
-<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a3288361a33118e44eaf89081d52f9" title="Open a binary file and store in std::span." alt="" coords="261,5,469,47"/>
-<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="261,71,469,112"/>
+<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a653287c28a3ad04b26714601b48c59f8" title="Open a binary file and store in std::span." alt="" coords="261,5,469,47"/>
+<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a5c38ab0648a28c7ba29a5d5287d03a6e" title="Open a file dialog." alt="" coords="261,71,469,112"/>
 <area shape="rect" id="node3" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,5,725,47"/>
 </map>

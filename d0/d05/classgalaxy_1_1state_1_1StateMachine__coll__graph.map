@@ -1,6 +1,3 @@
 <map id="galaxy::state::StateMachine" name="galaxy::state::StateMachine">
-<area shape="rect" id="node1" title="A finite state machine." alt="" coords="5,455,208,605"/>
-<area shape="rect" id="node2" title=" " alt="" coords="14,300,199,392"/>
-<area shape="rect" id="node3" title=" " alt="" coords="45,145,168,223"/>
-<area shape="rect" id="node4" title=" " alt="" coords="87,5,126,83"/>
+<area shape="rect" id="node1" title="A finite state machine." alt="" coords="5,5,208,171"/>
 </map>

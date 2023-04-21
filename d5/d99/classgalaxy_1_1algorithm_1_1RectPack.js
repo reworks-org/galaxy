@@ -7,8 +7,8 @@ var classgalaxy_1_1algorithm_1_1RectPack =
     [ "clear", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a57eb480850734d6985eb88313a7bf84b", null ],
     [ "get_width", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ac4f10efadcb02d6520f0aa256633e705", null ],
     [ "get_height", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a3b0ee33c95feead2b521184175ce2399", null ],
-    [ "get_free_space", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a66232fc4bdba88a9045452c7fab02138", null ],
+    [ "get_free_space", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a59b29787d75da410647ff6f4399fe0dd", null ],
     [ "m_width", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a90a31b987c8e8d571ee0398a55d01a31", null ],
     [ "m_height", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#acf6fca39b8f6e6fd4ebab8ce5d1d64cb", null ],
-    [ "m_free_rects", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ad8adff411002c3c59282252ddaf5a76e", null ]
+    [ "m_free_rects", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#afd780464194a62fdf0c0c53f505c152e", null ]
 ];

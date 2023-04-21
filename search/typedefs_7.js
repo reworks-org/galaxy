@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ref_3062',['Ref',['../d3/d12/namespacegalaxy_1_1meta.html#aea1c3d328b5d851de8dc060fcf41a777',1,'galaxy::meta']]]
+  ['optional_5fref_3083',['optional_ref',['../d3/d12/namespacegalaxy_1_1meta.html#a36fc665a32a7a5ef8c418f2c84e25147',1,'galaxy::meta']]]
 ];

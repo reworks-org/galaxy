@@ -1,4 +1,4 @@
 <map id="galaxy::components::RigidBody::set_bullet" name="galaxy::components::RigidBody::set_bullet">
 <area shape="rect" id="node1" title="Set if body is a bullet type." alt="" coords="5,5,172,47"/>
-<area shape="rect" id="node2" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386" title=" " alt="" coords="220,5,379,47"/>
+<area shape="rect" id="node2" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386" title="Is this a bullet style body." alt="" coords="220,5,379,47"/>
 </map>

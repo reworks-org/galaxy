@@ -1,6 +1,6 @@
 <map id="galaxy::fs::VirtualFileSystem::save_using_dialog" name="galaxy::fs::VirtualFileSystem::save_using_dialog">
 <area shape="rect" id="node1" title="Saves a string to a file using a dialog." alt="" coords="5,39,213,80"/>
-<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481" title="Open a save file dialog." alt="" coords="261,5,469,47"/>
+<area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a85adec16b5f35e4d43b1545f7c789359" title="Open a save file dialog." alt="" coords="261,5,469,47"/>
 <area shape="rect" id="node3" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae67a025349dfefc812004e909db6d202" title="Saves a string to a file." alt="" coords="261,71,469,112"/>
 <area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4581e0c9f3fb90e13c0f187e53ef3554" title="Retrieve the absolute position of a file to load." alt="" coords="517,71,725,112"/>
 </map>

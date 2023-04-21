@@ -1,6 +1,3 @@
 <map id="galaxy::components::Primitive::PrimitiveData" name="galaxy::components::Primitive::PrimitiveData">
-<area shape="rect" id="node1" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="5,425,192,561"/>
-<area shape="rect" id="node2" title=" " alt="" coords="6,285,191,363"/>
-<area shape="rect" id="node3" title=" " alt="" coords="34,145,163,223"/>
-<area shape="rect" id="node4" title=" " alt="" coords="79,5,118,83"/>
+<area shape="rect" id="node1" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="5,5,192,156"/>
 </map>

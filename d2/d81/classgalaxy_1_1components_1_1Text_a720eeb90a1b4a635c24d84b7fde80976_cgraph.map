@@ -29,6 +29,6 @@
 <area shape="rect" id="node22" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="881,711,1059,752"/>
 <area shape="rect" id="node23" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="855,777,1085,803"/>
 <area shape="rect" id="node24" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="881,828,1059,869"/>
-<area shape="rect" id="node29" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5f35a9ff62a1df64b19baff4bbbcbcaa" title="Get all attachments." alt="" coords="863,900,1077,941"/>
+<area shape="rect" id="node29" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="863,900,1077,941"/>
 <area shape="rect" id="node32" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="863,1017,1077,1059"/>
 </map>

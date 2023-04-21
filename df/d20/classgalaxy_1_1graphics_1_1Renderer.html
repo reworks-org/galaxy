@@ -109,13 +109,10 @@ $(document).ready(function(){initNavTree('df/d20/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d85/classgalaxy_1_1graphics_1_1Renderer__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderer_coll__map" id="agalaxy_1_1graphics_1_1Renderer_coll__map">
-<area shape="rect" title="2D OpenGL renderer." alt="" coords="241,660,479,899"/>
-<area shape="rect" title=" " alt="" coords="154,505,347,597"/>
-<area shape="rect" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,145,216,428"/>
-<area shape="rect" title=" " alt="" coords="239,248,369,325"/>
-<area shape="rect" title=" " alt="" coords="367,5,406,83"/>
-<area shape="rect" title=" " alt="" coords="393,248,551,325"/>
-<area shape="rect" title=" " alt="" coords="372,505,572,597"/>
+<area shape="rect" title="2D OpenGL renderer." alt="" coords="5,455,243,708"/>
+<area shape="rect" title=" " alt="" coords="24,300,224,392"/>
+<area shape="rect" title=" " alt="" coords="45,145,203,223"/>
+<area shape="rect" title=" " alt="" coords="105,5,143,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -139,8 +136,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:af6e632f13e242c22227fc2efa9302a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08b2ef72a7ed8ce495e1954ceafe5e04"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04">draw_texture_to_framebuffer</a> (const unsigned int texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;transform, const glm::mat4 &amp;proj)</td></tr>
 <tr class="separator:a08b2ef72a7ed8ce495e1954ceafe5e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93eadb6d00d3d0c619cc28b75c58d199"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93eadb6d00d3d0c619cc28b75c58d199">get_data</a> ()</td></tr>
-<tr class="separator:a93eadb6d00d3d0c619cc28b75c58d199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659c30db6569f9aa068c5709f12ea6a4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a659c30db6569f9aa068c5709f12ea6a4">get_data</a> ()</td></tr>
+<tr class="separator:a659c30db6569f9aa068c5709f12ea6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -162,9 +159,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a040f84072441848efeeb6490ed307f52"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d8/d6a/classgalaxy_1_1graphics_1_1UniformBuffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a040f84072441848efeeb6490ed307f52">s_ubo</a> = nullptr</td></tr>
 <tr class="memdesc:a040f84072441848efeeb6490ed307f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform buffer for camera and other general shader data.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a040f84072441848efeeb6490ed307f52">More...</a><br /></td></tr>
 <tr class="separator:a040f84072441848efeeb6490ed307f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cac37caabcdd0a05aa37d5807389e3f"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a0cac37caabcdd0a05aa37d5807389e3f">s_data</a></td></tr>
-<tr class="memdesc:a0cac37caabcdd0a05aa37d5807389e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage for renderables submitted.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a0cac37caabcdd0a05aa37d5807389e3f">More...</a><br /></td></tr>
-<tr class="separator:a0cac37caabcdd0a05aa37d5807389e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a8e418c1fbecb0f9eb3e0837545429"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71a8e418c1fbecb0f9eb3e0837545429">s_data</a></td></tr>
+<tr class="memdesc:a71a8e418c1fbecb0f9eb3e0837545429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage for renderables submitted.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71a8e418c1fbecb0f9eb3e0837545429">More...</a><br /></td></tr>
+<tr class="separator:a71a8e418c1fbecb0f9eb3e0837545429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac279eb4aa5ae3d4551b432fd69e993bb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac279eb4aa5ae3d4551b432fd69e993bb">s_prev_shader</a> = -1</td></tr>
 <tr class="memdesc:ac279eb4aa5ae3d4551b432fd69e993bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache previous shader to prevent rebinding.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac279eb4aa5ae3d4551b432fd69e993bb">More...</a><br /></td></tr>
 <tr class="separator:ac279eb4aa5ae3d4551b432fd69e993bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -551,8 +548,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a93eadb6d00d3d0c619cc28b75c58d199"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93eadb6d00d3d0c619cc28b75c58d199">&#9670;&nbsp;</a></span>get_data()</h2>
+<a id="a659c30db6569f9aa068c5709f12ea6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659c30db6569f9aa068c5709f12ea6a4">&#9670;&nbsp;</a></span>get_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -561,7 +558,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; &amp; galaxy::graphics::Renderer::get_data </td>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; &amp; galaxy::graphics::Renderer::get_data </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -712,8 +709,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a0cac37caabcdd0a05aa37d5807389e3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cac37caabcdd0a05aa37d5807389e3f">&#9670;&nbsp;</a></span>s_data</h2>
+<a id="a71a8e418c1fbecb0f9eb3e0837545429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a8e418c1fbecb0f9eb3e0837545429">&#9670;&nbsp;</a></span>s_data</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -722,7 +719,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; galaxy::graphics::Renderer::s_data</td>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> * &gt; galaxy::graphics::Renderer::s_data</td>
         </tr>
       </table>
   </td>
@@ -800,7 +797,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Tue Apr 18 2023 11:48:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 08:32:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

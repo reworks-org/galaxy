@@ -1,10 +1,7 @@
 <map id="galaxy::graphics::Animation" name="galaxy::graphics::Animation">
-<area shape="rect" id="node1" title="Basic keyframe animation." alt="" coords="77,787,279,1099"/>
+<area shape="rect" id="node1" title="Basic keyframe animation." alt="" coords="74,617,277,944"/>
 <area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,147,175,297"/>
-<area shape="rect" id="node4" href="$de/d57/classgalaxy_1_1graphics_1_1Frame.html" title="A single frame of an animation." alt="" coords="79,360,256,555"/>
-<area shape="rect" id="node3" title=" " alt="" coords="253,632,404,724"/>
-<area shape="rect" id="node5" title=" " alt="" coords="380,183,467,261"/>
-<area shape="rect" id="node6" title=" " alt="" coords="354,5,493,97"/>
-<area shape="rect" id="node7" title=" " alt="" coords="280,419,409,496"/>
-<area shape="rect" id="node8" title=" " alt="" coords="236,183,275,261"/>
+<area shape="rect" id="node5" href="$de/d57/classgalaxy_1_1graphics_1_1Frame.html" title="A single frame of an animation." alt="" coords="87,360,264,555"/>
+<area shape="rect" id="node3" title=" " alt="" coords="233,183,320,261"/>
+<area shape="rect" id="node4" title=" " alt="" coords="207,5,346,97"/>
 </map>

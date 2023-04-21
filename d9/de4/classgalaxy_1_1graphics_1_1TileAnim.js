@@ -8,5 +8,5 @@ var classgalaxy_1_1graphics_1_1TileAnim =
     [ "operator=", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html#ad1748b131178db45d9d72ccaee6ffa4e", null ],
     [ "m_anim", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html#acf4e8dd4985e345ee353f7a7b6f621b7", null ],
     [ "m_tileset", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html#ac8b129d00138600d79727e0949d81fd1", null ],
-    [ "m_tiles_to_animate", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html#a32a5144d0910363ca789d196e7403b9f", null ]
+    [ "m_tiles_to_animate", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html#a68c7115682fcc278414596c2629eb0b2", null ]
 ];

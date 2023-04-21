@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Split a string based on a delimiter." alt="" coords="677,85,832,112"/>
 <area shape="rect" id="node2" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#aa4677cef788381727a4c2e904134ff9d" title="Retrieve a config value in a section." alt="" coords="436,5,615,32"/>
 <area shape="rect" id="node3" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a025047e4f65914c5caf8020a67b30cf4" title="Check if the config file actually has a value." alt="" coords="435,56,616,83"/>
-<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8b629653349849a8f01f84eada0d2fb9" title="Open file dialog that supports multiple files." alt="" coords="421,107,629,149"/>
+<area shape="rect" id="node4" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a072d2aae6ac672718c1ad14cd70240fb" title="Open file dialog that supports multiple files." alt="" coords="421,107,629,149"/>
 <area shape="rect" id="node7" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4fb4ce2d77d558a751f8b0c407b6196c" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="436,173,615,200"/>
 <area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,107,373,149"/>
 <area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,107,188,149"/>

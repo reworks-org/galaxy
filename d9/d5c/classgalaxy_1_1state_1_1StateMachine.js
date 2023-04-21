@@ -1,6 +1,6 @@
 var classgalaxy_1_1state_1_1StateMachine =
 [
-    [ "Stack", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a1513a8e6005d33ae8123c1e3a5f2fc33", null ],
+    [ "Stack", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a", null ],
     [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#abd7ced0266acb828a126f5a5be4acbfd", null ],
     [ "~StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a12338104eb306110f1e96eceaee9e739", null ],
     [ "add", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3", null ],

@@ -1,0 +1,8 @@
+<map id="galaxy::components::RigidBody::set_material" name="galaxy::components::RigidBody::set_material">
+<area shape="rect" id="node1" title="Set rigid body data from a material." alt="" coords="5,122,191,163"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="239,5,469,32"/>
+<area shape="rect" id="node3" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a90264ab000c606f84c94578006691854" title="Set body density." alt="" coords="265,57,443,98"/>
+<area shape="rect" id="node4" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a2cb3ed510d3c5364950963cc97fe22d8" title="Set friction of body." alt="" coords="266,122,442,163"/>
+<area shape="rect" id="node5" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a68c6ef026cdab9745d1ec1b40b77c46d" title="Set restitution of body." alt="" coords="255,187,453,229"/>
+<area shape="rect" id="node6" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a537bb49ace787e70b0e8e96fa21e6e44" title="Set restitution threshold." alt="" coords="255,253,453,309"/>
+</map>

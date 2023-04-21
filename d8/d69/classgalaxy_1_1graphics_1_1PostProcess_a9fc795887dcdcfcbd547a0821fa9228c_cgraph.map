@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::PostProcess::render_effects" name="galaxy::graphics::PostProcess::render_effects">
 <area shape="rect" id="node1" title="Draw post effects to stored framebuffer." alt="" coords="5,5,220,47"/>
 <area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="268,5,451,47"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a5f35a9ff62a1df64b19baff4bbbcbcaa" title="Get all attachments." alt="" coords="499,5,713,47"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="499,5,713,47"/>
 </map>

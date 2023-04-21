@@ -12,6 +12,6 @@ var namespacegalaxy_1_1error =
       [ "FATAL", "d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc", null ]
     ] ],
     [ "gl_errcode_as_string", "d3/d81/namespacegalaxy_1_1error.html#aae02b0d611f319e23e5bf699aa403575", null ],
-    [ "gl_get_all_errors", "d3/d81/namespacegalaxy_1_1error.html#acf323c0307d8aded8434e6676188852c", null ],
+    [ "gl_get_all_errors", "d3/d81/namespacegalaxy_1_1error.html#a169a2b466fbd10d41637d1627e48f1e5", null ],
     [ "gl_add_error", "d3/d81/namespacegalaxy_1_1error.html#a992b35658b4009f3246e8a19a294f9b5", null ]
 ];
