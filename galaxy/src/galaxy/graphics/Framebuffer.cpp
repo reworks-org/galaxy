@@ -408,9 +408,9 @@ namespace galaxy
 			return m_depth_renderbuffer;
 		}
 
-		std::vector<unsigned int> Framebuffer::get_attachments() const
+		meta::vector<unsigned int> Framebuffer::get_attachments() const
 		{
-			std::vector<unsigned int> attachments;
+			meta::vector<unsigned int> attachments;
 			attachments.reserve(m_attachments.size());
 
 			for (const auto& pair : m_attachments)
@@ -421,7 +421,7 @@ namespace galaxy
 			return attachments;
 		}
 
-		const std::vector<unsigned int>& Framebuffer::get_renderbuffers() const
+		const meta::vector<unsigned int>& Framebuffer::get_renderbuffers() const
 		{
 			return m_renderbuffers;
 		}

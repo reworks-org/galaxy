@@ -105,7 +105,7 @@ namespace galaxy
 			return m_height;
 		}
 
-		const std::vector<graphics::iRect>& RectPack::get_free_space() const
+		const meta::vector<graphics::iRect>& RectPack::get_free_space() const
 		{
 			return m_free_rects;
 		}

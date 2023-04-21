@@ -68,7 +68,7 @@ namespace galaxy
 			///
 			/// Map of tiles being animated.
 			///
-			robin_hood::unordered_flat_map<std::uint32_t, std::vector<graphics::Vertex>> m_tiles_to_animate;
+			robin_hood::unordered_flat_map<std::uint32_t, meta::vector<graphics::Vertex>> m_tiles_to_animate;
 		};
 	} // namespace graphics
 } // namespace galaxy

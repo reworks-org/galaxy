@@ -56,6 +56,7 @@
             "font_folder": "fonts/",
             "lang_folder": "lang/",
             "maps_folder": "maps/",
+            "materials_folder": "materials/",
             "music_folder": "audio/music/",
             "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",

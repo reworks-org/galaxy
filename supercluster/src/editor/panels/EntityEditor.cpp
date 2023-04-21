@@ -46,7 +46,7 @@ namespace sc
 		{
 			static constexpr const auto numeric_input_flags =
 				ImGuiInputTextFlags_CharsDecimal | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll;
-			static const std::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
+			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
 
 			if (ImGui::Begin("Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 			{
@@ -162,7 +162,7 @@ namespace sc
 								ImGui::OpenPopup("AddFramePopup");
 							}
 
-							static std::vector<graphics::Frame> s_frames = {};
+							static meta::vector<graphics::Frame> s_frames = {};
 							if (ImGui::BeginPopup("AddFramePopup", ImGuiWindowFlags_AlwaysAutoResize))
 							{
 								static graphics::Frame s_frame;
@@ -401,7 +401,7 @@ namespace sc
 							ImGui::InputFloat("Y2##6", &s_point_zw[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
-						static std::vector<glm::vec2> points = {};
+						static meta::vector<glm::vec2> points = {};
 						if (s_type == graphics::Shape::POLYLINE || s_type == graphics::Shape::POLYGON)
 						{
 							if (ImGui::Button("Add Point"))

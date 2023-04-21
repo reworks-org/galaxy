@@ -9,7 +9,8 @@
 #define GALAXY_ERROR_OPENGLERROR_HPP_
 
 #include <string>
-#include <vector>
+
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -29,7 +30,7 @@ namespace galaxy
 		///
 		/// \return All current errors on stack in an array, as a string.
 		///
-		[[nodiscard]] std::vector<std::string> gl_get_all_errors();
+		[[nodiscard]] meta::vector<std::string> gl_get_all_errors();
 
 		///
 		/// Insert a message into the OpenGL debug stack.
@@ -41,12 +42,8 @@ namespace galaxy
 		/// \param length The length string contained in the character array whose address is given by message.
 		/// \param buf The address of a character array containing the message to insert.
 		///
-		void gl_add_error(const unsigned int source,
-			const unsigned int type,
-			const unsigned int id,
-			const unsigned int severity,
-			const int length,
-			const char* buf);
+		void
+		gl_add_error(const unsigned int source, const unsigned int type, const unsigned int id, const unsigned int severity, const int length, const char* buf);
 	} // namespace error
 } // namespace galaxy
 

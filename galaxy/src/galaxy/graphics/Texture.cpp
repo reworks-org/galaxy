@@ -191,7 +191,7 @@ namespace galaxy
 			}
 
 			const auto ui = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4u;
-			std::vector<unsigned int> pixels(ui, 0);
+			meta::vector<unsigned int> pixels(ui, 0);
 
 			glGetTextureImage(m_texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 

@@ -10,6 +10,8 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/meta/Memory.hpp"
+
 namespace galaxy
 {
 	namespace fs

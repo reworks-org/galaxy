@@ -9,7 +9,6 @@
 #define GALAXY_EVENTS_EVENTQUEUE_HPP_
 
 #include <variant>
-#include <vector>
 
 #include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyDown.hpp"
@@ -21,6 +20,7 @@
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -44,7 +44,7 @@ namespace galaxy
 		///
 		/// Event queue type.
 		///
-		using Queue = std::vector<Variant>;
+		using Queue = meta::vector<Variant>;
 	} // namespace events
 } // namespace galaxy
 

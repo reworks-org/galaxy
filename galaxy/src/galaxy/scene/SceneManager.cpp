@@ -186,7 +186,7 @@ namespace galaxy
 
 		void SceneManager::clear(bool clear_current)
 		{
-			std::vector<std::string> remove;
+			meta::vector<std::string> remove;
 			remove.reserve(m_scenes.size());
 
 			for (auto& [name, scene] : m_scenes)

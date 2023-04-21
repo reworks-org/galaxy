@@ -53,7 +53,7 @@ namespace galaxy
 
 		void SpriteBatch::init(const int max_quads)
 		{
-			std::vector<unsigned int> indices;
+			meta::vector<unsigned int> indices;
 			indices.reserve(static_cast<std::size_t>(max_quads) * 6);
 
 			auto increment = 0;
@@ -74,7 +74,7 @@ namespace galaxy
 			m_vertices.reserve(static_cast<std::size_t>(max_quads) * 4);
 		}
 
-		unsigned int SpriteBatch::push(const std::vector<Vertex>& vertices)
+		unsigned int SpriteBatch::push(const meta::vector<Vertex>& vertices)
 		{
 			const auto size_bytes = vertices.size() * sizeof(Vertex);
 

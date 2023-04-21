@@ -10,7 +10,7 @@
 
 #include <robin_hood.h>
 
-#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			/// \return A vector of strings.
 			///
-			[[nodiscard]] std::vector<std::string> keys();
+			[[nodiscard]] meta::vector<std::string> keys();
 
 		protected:
 			///
@@ -155,9 +155,9 @@ namespace galaxy
 		}
 
 		template<meta::not_memory Resource>
-		inline std::vector<std::string> Cache<Resource>::keys()
+		inline meta::vector<std::string> Cache<Resource>::keys()
 		{
-			std::vector<std::string> keys;
+			meta::vector<std::string> keys;
 			keys.reserve(m_cache.size());
 
 			for (const auto& [key, _] : m_cache)

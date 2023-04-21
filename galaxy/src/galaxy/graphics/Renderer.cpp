@@ -16,7 +16,7 @@ namespace galaxy
 	namespace graphics
 	{
 		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
-		std::vector<Renderable*> Renderer::s_data;
+		meta::vector<Renderable*> Renderer::s_data;
 		int Renderer::s_prev_shader  = -1;
 		int Renderer::s_prev_texture = -1;
 
@@ -161,7 +161,7 @@ namespace galaxy
 			glUseProgram(0);
 		}
 
-		std::vector<Renderable*>& Renderer::get_data()
+		meta::vector<Renderable*>& Renderer::get_data()
 		{
 			return s_data;
 		}

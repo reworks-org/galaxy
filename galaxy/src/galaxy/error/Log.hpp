@@ -148,7 +148,7 @@ namespace galaxy
 			///
 			/// List of sinks.
 			///
-			std::vector<std::unique_ptr<Sink>> m_sinks;
+			meta::vector<std::unique_ptr<Sink>> m_sinks;
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>

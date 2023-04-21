@@ -11,6 +11,7 @@
 #include <vector>
 
 #include <galaxy/error/Sink.hpp>
+#include <galaxy/meta/Memory.hpp>
 
 using namespace galaxy;
 
@@ -24,10 +25,10 @@ namespace sc
 
 		void sink_message(std::string_view message) override;
 
-		const std::vector<std::string>& get_messages() const;
+		const meta::vector<std::string>& get_messages() const;
 
 	private:
-		std::vector<std::string> m_logs;
+		meta::vector<std::string> m_logs;
 	};
 } // namespace sc
 

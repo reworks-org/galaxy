@@ -222,7 +222,7 @@ namespace galaxy
 					tile_transform.set_rotation(rotation);
 					tile_transform.set_pos(tile.getPosition().x, tile.getPosition().y);
 
-					std::vector<graphics::Vertex> vertices(4);
+					meta::vector<graphics::Vertex> vertices(4);
 
 					const auto tile_matrix = tile_transform.get_transform();
 

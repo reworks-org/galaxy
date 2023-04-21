@@ -349,7 +349,7 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
-					// clang-format off
+// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_PUSH
 					GALAXY_DISABLE_WARNING(26487)
@@ -376,7 +376,7 @@ namespace galaxy
 						}
 					});
 
-					// clang-format off
+// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
 					#endif
@@ -660,7 +660,7 @@ namespace galaxy
 			return m_event_queue;
 		}
 
-		const std::vector<std::string>& Window::get_drop_paths() const
+		const meta::vector<std::string>& Window::get_drop_paths() const
 		{
 			return m_drop_paths;
 		}

@@ -33,7 +33,7 @@ namespace galaxy
 		{
 			const auto sp_to_run = std::filesystem::absolute(process).replace_extension("").string();
 
-			std::vector<const char*> cmd_line;
+			meta::vector<const char*> cmd_line;
 			cmd_line.reserve(args.size() + 2);
 
 			cmd_line.push_back(sp_to_run.c_str());

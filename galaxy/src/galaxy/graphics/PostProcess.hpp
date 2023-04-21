@@ -105,7 +105,7 @@ namespace galaxy
 			///
 			/// List of effects to apply in order.
 			///
-			std::vector<std::shared_ptr<PostEffect>> m_effects;
+			meta::vector<std::shared_ptr<PostEffect>> m_effects;
 
 			///
 			/// Simple quad to draw when applying effects (buffer).

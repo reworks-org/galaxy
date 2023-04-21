@@ -22,7 +22,7 @@ namespace sc
 		m_logs.emplace_back(str.substr(second));
 	}
 
-	const std::vector<std::string>& EditorSink::get_messages() const
+	const meta::vector<std::string>& EditorSink::get_messages() const
 	{
 		return m_logs;
 	}

@@ -159,7 +159,7 @@ namespace galaxy
 				layer->deserialize(value);
 			}
 
-			std::vector<std::string> names;
+			meta::vector<std::string> names;
 			names.resize(json.at("stack_size"));
 
 			const auto& layer_stack = json.at("layer_stack");

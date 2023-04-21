@@ -10,7 +10,6 @@
 
 #include <memory>
 
-#include "galaxy/meta/Concepts.hpp"
 #include "galaxy/error/Log.hpp"
 
 namespace galaxy

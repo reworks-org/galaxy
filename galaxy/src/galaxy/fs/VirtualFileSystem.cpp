@@ -224,7 +224,7 @@ namespace galaxy
 			return {};
 		}
 
-		std::vector<char> VirtualFileSystem::open_binary(std::string_view file)
+		meta::vector<char> VirtualFileSystem::open_binary(std::string_view file)
 		{
 			if (!file.empty())
 			{
@@ -236,7 +236,7 @@ namespace galaxy
 
 					if (ifs.good())
 					{
-						std::vector<char> buffer;
+						meta::vector<char> buffer;
 
 						const auto size = ifs.tellg();
 						buffer.resize(size);
@@ -371,7 +371,7 @@ namespace galaxy
 			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 		}
 
-		std::string VirtualFileSystem::open_file_dialog(const std::vector<const char*>& filters, const std::string& def_path)
+		std::string VirtualFileSystem::open_file_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
 		{
 			const auto default_path = (m_root / def_path).string();
 
@@ -388,7 +388,7 @@ namespace galaxy
 			}
 		}
 
-		std::vector<std::string> VirtualFileSystem::open_file_dialog_multi(const std::vector<const char*>& filters, const std::string& def_path)
+		meta::vector<std::string> VirtualFileSystem::open_file_dialog_multi(const meta::vector<const char*>& filters, const std::string& def_path)
 		{
 			const auto default_path = (m_root / def_path).string();
 
@@ -405,7 +405,7 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters)
+		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
 		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
 			const char* result                 = tinyfd_saveFileDialog("Save file.", default_filename.c_str(), filters.size(), filter_patterns, nullptr);
@@ -435,33 +435,33 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::open_using_dialog(const std::vector<const char*>& filters, const std::string& def_path)
+		std::string VirtualFileSystem::open_using_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
 		{
 			const auto path = open_file_dialog(filters, def_path);
 			return open(path);
 		}
 
-		std::vector<char> VirtualFileSystem::open_binary_using_dialog(const std::vector<const char*>& filters, const std::string& def_path)
+		meta::vector<char> VirtualFileSystem::open_binary_using_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
 		{
 			const auto path = open_file_dialog(filters, def_path);
 			return open_binary(path);
 		}
 
-		bool VirtualFileSystem::save_using_dialog(const std::string& data, const std::string& default_filename, const std::vector<const char*>& filters)
+		bool VirtualFileSystem::save_using_dialog(const std::string& data, const std::string& default_filename, const meta::vector<const char*>& filters)
 		{
 			const auto path = open_save_dialog(default_filename, filters);
 			return save(data, path);
 		}
 
-		bool VirtualFileSystem::save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const std::vector<const char*>& filters)
+		bool VirtualFileSystem::save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const meta::vector<const char*>& filters)
 		{
 			const auto path = open_save_dialog(default_filename, filters);
 			return save_binary(data, path);
 		}
 
-		std::vector<std::string> VirtualFileSystem::list_directory(std::string_view path)
+		meta::vector<std::string> VirtualFileSystem::list_directory(std::string_view path)
 		{
-			std::vector<std::string> output;
+			meta::vector<std::string> output;
 
 			auto fs_path = std::filesystem::path(path);
 			if (!fs_path.is_absolute())

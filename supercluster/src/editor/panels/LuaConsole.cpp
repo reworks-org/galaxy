@@ -21,7 +21,7 @@ using namespace galaxy;
 // Thanks to: https://gist.github.com/5at/3671566
 namespace
 {
-	std::vector<std::string> strs;
+	meta::vector<std::string> strs;
 
 	int l_my_print(lua_State* L)
 	{

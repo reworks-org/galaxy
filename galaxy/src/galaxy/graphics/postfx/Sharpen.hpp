@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			/// \return True if effect is enabled. Otherwise false.
 			///
-			[[nodiscard]] virtual bool is_enabled() override;
+			[[nodiscard]] bool is_enabled() override;
 
 		private:
 			///

@@ -48,7 +48,7 @@ namespace galaxy
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
 
-			static std::vector<Renderable*>& get_data();
+			static meta::vector<Renderable*>& get_data();
 
 		private:
 			///
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			/// Storage for renderables submitted.
 			///
-			static std::vector<Renderable*> s_data;
+			static meta::vector<Renderable*> s_data;
 
 			///
 			/// Cache previous shader to prevent rebinding.

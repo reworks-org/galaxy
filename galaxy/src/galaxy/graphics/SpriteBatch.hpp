@@ -9,6 +9,7 @@
 #define GALAXY_GRAPHICS_SPRITEBATCH_HPP_
 
 #include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -56,7 +57,7 @@ namespace galaxy
 			///
 			/// \return Index where the vertx data is offset from. Useful to update animations, transforms later.
 			///
-			[[maybe_unused]] unsigned int push(const std::vector<Vertex>& vertices);
+			[[maybe_unused]] unsigned int push(const meta::vector<Vertex>& vertices);
 
 			///
 			/// \brief Buffer data into vertex object.
@@ -122,7 +123,7 @@ namespace galaxy
 			///
 			/// Vertices to buffer.
 			///
-			std::vector<Vertex> m_vertices;
+			meta::vector<Vertex> m_vertices;
 
 			///
 			/// Index count.

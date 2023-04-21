@@ -180,7 +180,7 @@ namespace galaxy
 			return m_data.contains(key);
 		}
 
-		meta::OptionalRef<TextureAtlas::Info> TextureAtlas::query(const std::string& key)
+		meta::optional_ref<TextureAtlas::Info> TextureAtlas::query(const std::string& key)
 		{
 			if (contains(key))
 			{
@@ -192,9 +192,9 @@ namespace galaxy
 			}
 		}
 
-		std::vector<std::string> TextureAtlas::keys()
+		meta::vector<std::string> TextureAtlas::keys()
 		{
-			std::vector<std::string> keys;
+			meta::vector<std::string> keys;
 			keys.reserve(m_data.size());
 
 			for (const auto& [key, _] : m_data)

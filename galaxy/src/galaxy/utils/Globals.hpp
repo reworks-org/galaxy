@@ -11,6 +11,8 @@
 #include <chrono>
 #include <filesystem>
 
+#include "galaxy/meta/Memory.hpp"
+
 namespace galaxy
 {
 	struct doNotUseReferToConfigForMacroNames
@@ -85,7 +87,7 @@ namespace galaxy
 #define GALAXY_MAX_CAMERA_ZOOM 1.4f
 
 ///
-/// Amount of items in a std::vector to initially reserve for the renderer
+/// Amount of items in a meta::vector to initially reserve for the renderer
 /// This is to help prevent needless reallocations.
 ///
 #define GALAXY_DEFAULT_RENDERER_RESERVED 1000

@@ -18,7 +18,6 @@
 #include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/TexelRegion.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
-#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -148,7 +147,7 @@ namespace galaxy
 			///
 			/// \return TextureAtlas::Info, as an optional reference.
 			///
-			[[nodiscard]] meta::OptionalRef<Info> query(const std::string& key);
+			[[nodiscard]] meta::optional_ref<Info> query(const std::string& key);
 
 			///
 			/// Takes in a x positon texture coord and maps it to a texel.
@@ -181,7 +180,7 @@ namespace galaxy
 			///
 			/// \return A vector of strings.
 			///
-			[[nodiscard]] std::vector<std::string> keys();
+			[[nodiscard]] meta::vector<std::string> keys();
 
 		private:
 			///
@@ -228,7 +227,7 @@ namespace galaxy
 			///
 			/// Texture atlas sheets.
 			///
-			std::vector<Sheet> m_sheets;
+			meta::vector<Sheet> m_sheets;
 
 			///
 			/// Index'd list of textures on a sheet.

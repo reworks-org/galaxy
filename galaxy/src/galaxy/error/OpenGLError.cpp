@@ -51,9 +51,9 @@ namespace galaxy
 			}
 		}
 
-		std::vector<std::string> gl_get_all_errors()
+		meta::vector<std::string> gl_get_all_errors()
 		{
-			std::vector<std::string> errors;
+			meta::vector<std::string> errors;
 
 			GLenum code;
 			while ((code = glGetError()) != GL_NO_ERROR)

@@ -137,7 +137,7 @@ namespace galaxy
 			/// The frames that make up the animation.
 			/// Each frame contains a duration and a textureID.
 			///
-			std::vector<Frame> m_frames;
+			meta::vector<Frame> m_frames;
 
 		private:
 			///

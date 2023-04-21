@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Typedef for layer stack.
 			///
-			using LayerStack = std::vector<std::shared_ptr<Layer>>;
+			using LayerStack = meta::vector<std::shared_ptr<Layer>>;
 
 			///
 			/// Typedef for layer storage.
@@ -167,7 +167,7 @@ namespace galaxy
 			LayerContainer m_layers;
 
 			///
-			/// Simulate a stack using a std::vector.
+			/// Simulate a stack using a meta::vector.
 			///
 			LayerStack m_stack;
 

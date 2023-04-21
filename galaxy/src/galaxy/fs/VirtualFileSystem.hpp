@@ -83,9 +83,9 @@ namespace galaxy
 			///
 			/// \param file File to open.
 			///
-			/// \return Char buffer using std::vector.
+			/// \return Char buffer using meta::vector.
 			///
-			[[nodiscard]] std::vector<char> open_binary(std::string_view file);
+			[[nodiscard]] meta::vector<char> open_binary(std::string_view file);
 
 			///
 			/// \brief Saves a string to a file.
@@ -153,7 +153,7 @@ namespace galaxy
 			///
 			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::string open_file_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+			[[nodiscard]] std::string open_file_dialog(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// Open file dialog that supports multiple files.
@@ -163,7 +163,7 @@ namespace galaxy
 			///
 			/// \return Array of string paths, empty if error.
 			///
-			[[nodiscard]] std::vector<std::string> open_file_dialog_multi(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+			[[nodiscard]] meta::vector<std::string> open_file_dialog_multi(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// Open a save file dialog.
@@ -173,7 +173,7 @@ namespace galaxy
 			///
 			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::string open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters = {});
+			[[nodiscard]] std::string open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters = {});
 
 			///
 			/// Select a folder using a dialog.
@@ -192,7 +192,7 @@ namespace galaxy
 			///
 			/// \return Buffer in a std::string format holding read info. Empty if error.
 			///
-			[[nodiscard]] std::string open_using_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+			[[nodiscard]] std::string open_using_dialog(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// Open a file and store contents in std::string.
@@ -200,9 +200,9 @@ namespace galaxy
 			/// \param filters List of filters for dialog, i.e. "*.png", "*.jpg", etc.
 			/// \param def_path Default starting path to open dialog at.
 			///
-			/// \return Char buffer using std::vector.
+			/// \return Char buffer using meta::vector.
 			///
-			[[nodiscard]] std::vector<char> open_binary_using_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
+			[[nodiscard]] meta::vector<char> open_binary_using_dialog(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// \brief Saves a string to a file using a dialog.
@@ -215,7 +215,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool save_using_dialog(const std::string& data, const std::string& default_filename, const std::vector<const char*>& filters = {});
+			[[nodiscard]] bool save_using_dialog(const std::string& data, const std::string& default_filename, const meta::vector<const char*>& filters = {});
 
 			///
 			/// \brief Saves binary data to a file using a dialog.
@@ -229,7 +229,7 @@ namespace galaxy
 			/// \return True if successful.
 			///
 			[[nodiscard]] bool
-			save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const std::vector<const char*>& filters = {});
+			save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const meta::vector<const char*>& filters = {});
 
 			///
 			/// List contents of a directory in the VFS recursively.
@@ -238,7 +238,7 @@ namespace galaxy
 			///
 			/// \return List of files / folders in directory. Empty if there is an error / nothing found.
 			///
-			[[nodiscard]] std::vector<std::string> list_directory(std::string_view path);
+			[[nodiscard]] meta::vector<std::string> list_directory(std::string_view path);
 
 			///
 			/// Get root path.

@@ -16,7 +16,6 @@
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/meta/Concepts.hpp"
 #include "galaxy/systems/RenderSystem.hpp"
 
 namespace galaxy
@@ -40,7 +39,7 @@ namespace galaxy
 		///
 		class World final : public fs::Serializable
 		{
-			using SystemContainer  = std::vector<std::shared_ptr<systems::System>>;
+			using SystemContainer  = meta::vector<std::shared_ptr<systems::System>>;
 			using ComponentFactory = robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, const nlohmann::json&)>>;
 
 		public:
@@ -249,7 +248,7 @@ namespace galaxy
 			///
 			/// Validations to run upon request.
 			///
-			std::vector<std::type_index> m_validations_to_run;
+			meta::vector<std::type_index> m_validations_to_run;
 
 			///
 			/// Rendersystem index.
@@ -259,7 +258,7 @@ namespace galaxy
 			///
 			/// List of rigid bodies that need to be constructed.
 			///
-			std::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
+			meta::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
 
 			///
 			/// Pointer to scene this world belongs to.

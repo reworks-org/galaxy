@@ -199,7 +199,7 @@ namespace galaxy
 			///
 			/// Reset when a new path is dropped.
 			///
-			[[nodiscard]] const std::vector<std::string>& get_drop_paths() const;
+			[[nodiscard]] const meta::vector<std::string>& get_drop_paths() const;
 
 			///
 			/// Get window width.
@@ -313,7 +313,7 @@ namespace galaxy
 			///
 			/// Cache of last dropped paths.
 			///
-			std::vector<std::string> m_drop_paths;
+			meta::vector<std::string> m_drop_paths;
 		};
 
 		template<meta::is_input_device Device>

@@ -8,10 +8,8 @@
 #ifndef GALAXY_ALGORITHM_RECTPACK_HPP_
 #define GALAXY_ALGORITHM_RECTPACK_HPP_
 
-#include <optional>
-#include <vector>
-
 #include "galaxy/graphics/Rect.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -76,9 +74,9 @@ namespace galaxy
 			///
 			/// Get free rectangles.
 			///
-			/// \return Const std::vector.
+			/// \return Const meta::vector.
 			///
-			[[nodiscard]] const std::vector<graphics::iRect>& get_free_space() const;
+			[[nodiscard]] const meta::vector<graphics::iRect>& get_free_space() const;
 
 		private:
 			///
@@ -94,7 +92,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<graphics::iRect> m_free_rects;
+			meta::vector<graphics::iRect> m_free_rects;
 		};
 	} // namespace algorithm
 } // namespace galaxy

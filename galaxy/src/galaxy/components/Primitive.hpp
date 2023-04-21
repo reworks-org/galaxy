@@ -73,7 +73,7 @@ namespace galaxy
 				///
 				/// Used by Polyline and Polygon.
 				///
-				std::vector<glm::vec2> points;
+				meta::vector<glm::vec2> points;
 			};
 
 		public:
@@ -218,8 +218,8 @@ namespace galaxy
 			m_data  = data;
 			m_layer = layer;
 
-			std::vector<unsigned int> indices;
-			std::vector<graphics::Vertex> vertices;
+			meta::vector<unsigned int> indices;
+			meta::vector<graphics::Vertex> vertices;
 
 			if constexpr (shape == graphics::Shape::CIRCLE)
 			{

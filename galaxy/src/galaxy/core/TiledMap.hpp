@@ -123,7 +123,7 @@ namespace galaxy
 			///
 			/// List of entities for this map.
 			///
-			std::vector<entt::entity> m_map_entities;
+			meta::vector<entt::entity> m_map_entities;
 
 			///
 			/// Pointer to current map.

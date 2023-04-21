@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include <mimalloc-new-delete.h>
 #include <imgui_freetype.h>
 #include <imgui_addons/imgui_notify.h>
 

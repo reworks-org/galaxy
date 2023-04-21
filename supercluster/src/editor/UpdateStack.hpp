@@ -9,12 +9,15 @@
 #define SUPERCLUSTER_EDITOR_UPDATESTACK_HPP_
 
 #include <functional>
-#include <vector>
+
+#include <galaxy/meta/Memory.hpp>
+
+using namespace galaxy;
 
 namespace sc
 {
 	using UpdateStackCallback = std::function<void(void)>;
-	using UpdateStack         = std::vector<UpdateStackCallback>;
+	using UpdateStack         = meta::vector<UpdateStackCallback>;
 } // namespace sc
 
 #endif

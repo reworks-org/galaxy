@@ -116,7 +116,7 @@ namespace sc
 		async::Timer m_autosave;
 
 		std::array<glm::vec2, 2> m_viewport_bounds;
-		std::vector<graphics::Renderable*> m_render_data;
+		meta::vector<graphics::Renderable*> m_render_data;
 
 		nlohmann::json m_backup;
 	};

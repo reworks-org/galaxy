@@ -142,7 +142,7 @@ namespace galaxy
 			///
 			/// \return Uniform info as an optional reference.
 			///
-			[[nodiscard]] meta::OptionalRef<UniformInfo> get_uniform_info(const std::string& name);
+			[[nodiscard]] meta::optional_ref<UniformInfo> get_uniform_info(const std::string& name);
 
 			///
 			/// Get program id.

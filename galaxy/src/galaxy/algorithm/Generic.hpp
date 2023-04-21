@@ -12,7 +12,7 @@
 #include <execution>
 #include <vector>
 
-#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -45,7 +45,7 @@ namespace galaxy
 		/// \return True if found.
 		///
 		template<typename Type>
-		[[nodiscard]] inline bool contains(const std::vector<Type>& cont, const Type& val)
+		[[nodiscard]] inline bool contains(const meta::vector<Type>& cont, const Type& val)
 		{
 			auto out = false;
 			std::for_each(std::execution::par, cont.begin(), cont.end(), [&](const Type& var) {

@@ -9,7 +9,10 @@
 #define SUPERCLUSTER_EDITOR_PANELS_LUACONSOLE_HPP_
 
 #include <string>
-#include <vector>
+
+#include "galaxy/meta/Memory.hpp"
+
+using namespace galaxy;
 
 namespace sc
 {
@@ -25,7 +28,7 @@ namespace sc
 
 		private:
 			std::string m_buff;
-			std::vector<std::string> m_history;
+			meta::vector<std::string> m_history;
 		};
 	} // namespace panel
 } // namespace sc

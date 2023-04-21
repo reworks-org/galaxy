@@ -205,7 +205,7 @@ namespace sc
 
 		if (ifs.good())
 		{
-			std::vector<char> buffer;
+			meta::vector<char> buffer;
 
 			const auto size = ifs.tellg();
 			buffer.resize(size);

@@ -12,7 +12,6 @@
 #include <imgui_addons/font_awesome_5.h>
 
 #include <galaxy/components/Script.hpp>
-#include <galaxy/meta/Concepts.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 
 #include "editor/Selected.hpp"

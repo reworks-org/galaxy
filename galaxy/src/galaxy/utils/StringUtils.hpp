@@ -9,7 +9,8 @@
 #define GALAXY_UTILS_STRINGUTILS_HPP_
 
 #include <string_view>
-#include <vector>
+
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -23,7 +24,7 @@ namespace galaxy
 		///
 		/// \return Array of strings split. Does not return empty entries or delimiter.
 		///
-		[[nodiscard]] std::vector<std::string> split(std::string_view input, std::string_view delim);
+		[[nodiscard]] meta::vector<std::string> split(std::string_view input, std::string_view delim);
 
 		///
 		/// \brief Replace first occurance of a string.

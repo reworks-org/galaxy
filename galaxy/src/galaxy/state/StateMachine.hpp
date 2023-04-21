@@ -29,7 +29,7 @@ namespace galaxy
 			///
 			/// Ensure stack is using a vector over slower data structures.
 			///
-			using Stack = std::stack<State*, std::vector<State*>>;
+			using Stack = meta::stack<State*, meta::vector<State*>>;
 
 		public:
 			///

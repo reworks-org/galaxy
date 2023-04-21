@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "galaxy/graphics/Colour.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -193,14 +194,14 @@ namespace galaxy
 			///
 			/// \return Reference to const vector of OpenGL texture ids.
 			///
-			[[nodiscard]] std::vector<unsigned int> get_attachments() const;
+			[[nodiscard]] meta::vector<unsigned int> get_attachments() const;
 
 			///
 			/// Get all renderbuffer attachments.
 			///
 			/// \return Reference to const vector of OpenGL renderbuffer ids.
 			///
-			[[nodiscard]] const std::vector<unsigned int>& get_renderbuffers() const;
+			[[nodiscard]] const meta::vector<unsigned int>& get_renderbuffers() const;
 
 			///
 			/// Get OpenGL framebuffer object.
@@ -264,17 +265,17 @@ namespace galaxy
 			///
 			/// Array of colour attachemnts.
 			///
-			std::vector<std::pair<unsigned int, unsigned int>> m_attachments;
+			meta::vector<std::pair<unsigned int, unsigned int>> m_attachments;
 
 			///
 			/// Array of colour renderbuffers.
 			///
-			std::vector<unsigned int> m_renderbuffers;
+			meta::vector<unsigned int> m_renderbuffers;
 
 			///
 			/// Used colour attachments / renderbuffers.
 			///
-			std::vector<unsigned int> m_used_attachments;
+			meta::vector<unsigned int> m_used_attachments;
 
 			///
 			/// Clear colour.

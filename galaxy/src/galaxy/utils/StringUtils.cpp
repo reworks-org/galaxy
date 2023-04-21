@@ -14,12 +14,12 @@ namespace galaxy
 {
 	namespace strutils
 	{
-		std::vector<std::string> split(std::string_view input, std::string_view delim)
+		meta::vector<std::string> split(std::string_view input, std::string_view delim)
 		{
 			std::size_t start = 0;
 			std::size_t end   = 0;
 
-			std::vector<std::string> splits;
+			meta::vector<std::string> splits;
 			while ((start = input.find_first_not_of(delim, end)) != std::string::npos)
 			{
 				end = input.find(delim, start);

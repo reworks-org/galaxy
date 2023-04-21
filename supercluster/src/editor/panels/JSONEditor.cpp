@@ -469,7 +469,7 @@ namespace sc
 				static int s_index       = 0;
 				static bool s_show_error = false;
 
-				static const std::vector<const char*> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
+				static const meta::vector<const char*> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
 
 				ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
 				ImGui::Combo("Type", &s_index, s_types.data(), static_cast<int>(s_types.size()));

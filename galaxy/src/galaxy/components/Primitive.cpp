@@ -184,7 +184,7 @@ namespace galaxy
 
 			if (json.count("points") > 0)
 			{
-				std::vector<glm::vec2> points;
+				meta::vector<glm::vec2> points;
 
 				const auto& points_array = json.at("points");
 				for (const auto& point : points_array)
