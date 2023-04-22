@@ -49,91 +49,141 @@ namespace galaxy
 		using optional_ref = std::optional<std::reference_wrapper<Type>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::vector with faster allocation.
+		///
+		/// \tparam T Valid std::vector type.
 		///
 		template<typename T>
 		using vector = std::vector<T, mi_stl_allocator<T>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::deque with faster allocation.
+		///
+		/// \tparam T Valid std::deque type.
 		///
 		template<typename T>
 		using deque = std::deque<T, mi_stl_allocator<T>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::forward_list with faster allocation.
+		///
+		/// \tparam T Valid std::forward_list type.
 		///
 		template<typename T>
 		using forward_list = std::forward_list<T, mi_stl_allocator<T>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::list with faster allocation.
+		///
+		/// \tparam T Valid std::list type.
 		///
 		template<typename T>
 		using list = std::list<T, mi_stl_allocator<T>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::set with faster allocation.
+		///
+		/// \tparam Key Valid std::set key.
+		/// \tparam Compare Valid std::set compare.
 		///
 		template<typename Key, typename Compare = std::less<Key>>
 		using set = std::set<Key, Compare, mi_stl_allocator<Key>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::map with faster allocation.
+		///
+		/// \tparam Key Valid std::map key.
+		/// \tparam T Valid std::map value.
+		/// \tparam Compare Valid std::map compare.
 		///
 		template<typename Key, typename T, typename Compare = std::less<Key>>
 		using map = std::map<Key, T, Compare, mi_stl_allocator<std::pair<const Key, T>>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::multiset with faster allocation.
+		///
+		/// \tparam Key Valid std::set key.
+		/// \tparam Compare Valid std::set compare.
 		///
 		template<typename Key, typename Compare = std::less<Key>>
 		using multiset = std::multiset<Key, Compare, mi_stl_allocator<Key>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::multimap with faster allocation.
+		///
+		/// \tparam Key Valid std::multimap key.
+		/// \tparam T Valid std::multimap value.
+		/// \tparam Compare Valid std::multimap compare.
 		///
 		template<typename Key, typename T, typename Compare = std::less<Key>>
 		using multimap = std::multimap<Key, T, Compare, mi_stl_allocator<Key>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::unordered_set with faster allocation.
+		///
+		/// \tparam Key Valid std::unordered_set key.
+		/// \tparam Hash Valid std::unordered_set hash.
+		/// \tparam KeyEqual Valid std::unordered_set keyequal.
 		///
 		template<typename Key, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>>
 		using unordered_set = std::unordered_set<Key, Hash, KeyEqual, mi_stl_allocator<Key>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::unordered_map with faster allocation.
+		///
+		/// \tparam Key Valid std::unordered_map key.
+		/// \tparam T Valid std::unordered_map value.
+		/// \tparam Hash Valid std::unordered_map hash.
+		/// \tparam KeyEqual Valid std::unordered_map keyequal.
 		///
 		template<typename Key, typename T, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>>
 		using unordered_map = std::unordered_map<Key, T, Hash, KeyEqual, mi_stl_allocator<std::pair<const Key, T>>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::unordered_multiset with faster allocation.
+		///
+		/// \tparam Key Valid std::unordered_multiset key.
+		/// \tparam Hash Valid std::unordered_multiset hash.
+		/// \tparam KeyEqual Valid std::unordered_multiset keyequal.
 		///
 		template<typename Key, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>>
 		using unordered_multiset = std::unordered_multiset<Key, Hash, KeyEqual, mi_stl_allocator<Key>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::unordered_multimap with faster allocation.
+		///
+		/// \tparam Key Valid std::unordered_multimap key.
+		/// \tparam T Valid std::unordered_multimap value.
+		/// \tparam Hash Valid std::unordered_multimap hash.
+		/// \tparam KeyEqual Valid std::unordered_multimap keyequal.
 		///
 		template<typename Key, typename T, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>>
 		using unordered_multimap = std::unordered_multimap<Key, T, Hash, KeyEqual, mi_stl_allocator<std::pair<const Key, T>>>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::stack with faster allocation.
+		///
+		/// \tparam T Valid std::stack type.
+		/// \tparam Container Valid std::stack container.
 		///
 		template<typename T, typename Container = meta::deque<T>>
 		using stack = std::stack<T, Container>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::queue with faster allocation.
+		///
+		/// \tparam T Valid std::queue type.
+		/// \tparam Container Valid std::queue container.
 		///
 		template<typename T, typename Container = meta::deque<T>>
 		using queue = std::queue<T, Container>;
 
 		///
-		/// std::string with faster allocation.
+		/// std::priority_queue with faster allocation.
+		///
+		/// \tparam T Valid std::priority_queue type.
+		/// \tparam Container Valid std::priority_queue container.
+		/// \tparam Compare Valid std::priority_queue compare.
 		///
 		template<class T, class Container = meta::vector<T>, class Compare = std::less<typename Container::value_type>>
 		using priority_queue = std::priority_queue<T, Container, Compare>;
