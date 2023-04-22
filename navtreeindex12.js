@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a597b00b2e066d4fc01f9a99d03eb962d":[1,0,0,17,1,1],
 "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a67ee463532cfa6300fba0cb9c95b0944":[1,0,0,17,1,2],
 "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a6a7265f893173c45aa68392af402f31b":[1,0,0,17,1,0],
 "df/da8/WindowSettings_8hpp.html":[2,0,0,0,0,4,15],
@@ -207,8 +206,8 @@ var NAVTREEINDEX12 =
 "functions_type.html":[1,3,3],
 "functions_u.html":[1,3,0,20],
 "functions_v.html":[1,3,0,21],
-"functions_vars.html":[1,3,2,0],
 "functions_vars.html":[1,3,2],
+"functions_vars.html":[1,3,2,0],
 "functions_vars_c.html":[1,3,2,1],
 "functions_vars_d.html":[1,3,2,2],
 "functions_vars_f.html":[1,3,2,3],
@@ -246,5 +245,6 @@ var NAVTREEINDEX12 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[]
+"pages.html":[],
+"":[0,0,4]
 };
