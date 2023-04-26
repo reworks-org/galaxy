@@ -10,6 +10,7 @@
 
 #include <glm/mat4x4.hpp>
 
+#include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/Serializable.hpp"
@@ -81,12 +82,14 @@ namespace galaxy
 			virtual ~Camera();
 
 			///
-			/// Handle user input events.
+			/// Event processing method for input events.
 			///
-			void process_events();
+			/// \param e Takes in a key down event.
+			///
+			void on_key_down(events::KeyDown& e);
 
 			///
-			/// Event processing method for scroll event for Camera.
+			/// Event processing method for scroll events.
 			///
 			/// \param e Takes in a mouse wheel scroll event.
 			///

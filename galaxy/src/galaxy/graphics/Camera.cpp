@@ -109,57 +109,62 @@ namespace galaxy
 		{
 		}
 
-		void Camera::process_events()
+		void Camera::on_key_down(events::KeyDown& e)
 		{
-			if (input::Input::key_down(input::CameraKeys::FORWARD))
+			if (!e.handled)
 			{
-				m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-			}
-
-			if (input::Input::key_down(input::CameraKeys::BACKWARD))
-			{
-				m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-			}
-
-			if (input::Input::key_down(input::CameraKeys::LEFT))
-			{
-				m_pos.x -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y -= glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-			}
-
-			if (input::Input::key_down(input::CameraKeys::RIGHT))
-			{
-				m_pos.x += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-				m_pos.y += glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
-			}
-
-			if (m_allow_rotate)
-			{
-				if (input::Input::key_down(input::CameraKeys::ROTATE_LEFT))
+				if (e.keycode == input::CameraKeys::FORWARD)
 				{
-					m_rotation += m_rotation_speed * GALAXY_DT;
+					m_pos.x -= -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+					m_pos.y -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				}
 
-				if (input::Input::key_down(input::CameraKeys::ROTATE_RIGHT))
+				if (e.keycode == input::CameraKeys::BACKWARD)
 				{
-					m_rotation -= m_rotation_speed * GALAXY_DT;
+					m_pos.x += -glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+					m_pos.y += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				}
 
-				if (m_rotation > 180.0f)
+				if (e.keycode == input::CameraKeys::LEFT)
 				{
-					m_rotation -= 360.0f;
-				}
-				else if (m_rotation <= -180.0f)
-				{
-					m_rotation += 360.0f;
+					m_pos.x -= glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+					m_pos.y -= glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
 				}
 
-				set_rotation(m_rotation);
+				if (e.keycode == input::CameraKeys::RIGHT)
+				{
+					m_pos.x += glm::cos(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+					m_pos.y += glm::sin(glm::radians(m_rotation)) * m_translation_speed * GALAXY_DT;
+				}
+
+				if (m_allow_rotate)
+				{
+					if (e.keycode == input::CameraKeys::ROTATE_LEFT)
+					{
+						m_rotation += m_rotation_speed * GALAXY_DT;
+					}
+
+					if (e.keycode == input::CameraKeys::ROTATE_RIGHT)
+					{
+						m_rotation -= m_rotation_speed * GALAXY_DT;
+					}
+
+					if (m_rotation > 180.0f)
+					{
+						m_rotation -= 360.0f;
+					}
+					else if (m_rotation <= -180.0f)
+					{
+						m_rotation += 360.0f;
+					}
+
+					set_rotation(m_rotation);
+				}
+
+				set_pos(m_pos.x, m_pos.y);
+
+				e.handled = true;
 			}
-
-			set_pos(m_pos.x, m_pos.y);
 		}
 
 		void Camera::on_mouse_wheel(events::MouseWheel& e)
