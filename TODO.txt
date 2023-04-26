@@ -1,0 +1,10 @@
+worldspace/tilemap transitions/loadings separate from loader.
+loading screens in scene manager where needed.
+add load screen when switching maps in scene.
+
+need to add game ui events > layer events -> perhaps a dispatcher for ui and a dispatcher for game?
+rewrite rml integration to support this.
+
+add onload and on unload scene support and add to scripting
+
+add game stuff like ui and tilemap to lua.

@@ -27,7 +27,6 @@
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/physics/Constants.hpp"
 #include "galaxy/scene/Scene.hpp"
-#include "galaxy/scene/layers/RuntimeLayer.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -342,7 +341,7 @@ namespace galaxy
 				}
 
 				script.m_self["owner"]      = std::ref(registry);
-				script.m_self["dispatcher"] = std::ref(m_runtime_layer->dispatcher());
+				script.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
 				script.m_self["id"]         = sol::readonly_property([entity] {
                     return entity;
                 });

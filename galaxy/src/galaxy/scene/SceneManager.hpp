@@ -36,58 +36,58 @@ namespace galaxy
 			~SceneManager();
 
 			///
+			/// Load game assets.
+			///
+			void load_assets();
+
+			///
 			/// Create a new scene.
 			///
 			/// \param name Scene name to assign.
 			///
 			/// \return Shared pointer to created scene.
 			///
-			[[maybe_unused]] std::weak_ptr<Scene> make(const std::string& name);
+			[[maybe_unused]] std::weak_ptr<Scene> make_scene(const std::string& name);
 
 			///
-			/// \brief Set a scene.
+			/// \brief Add an already existing scene.
 			///
-			/// DOES NOT UNLOAD PREVIOUS SCENE.
-			/// Usually used for initial scene setup.
+			/// I.e. if you have a custom scene.
+			///
+			/// \param name Scene identifier.
+			/// \param scene Pointer to scene object. Let the manager take ownership.
+			///
+			void add_existing_scene(const std::string& name, std::shared_ptr<Scene> scene);
+
+			///
+			/// Set the currently active scene.
 			///
 			/// \param name Name id for scene.
 			///
-			void set(const std::string& name);
-
-			///
-			/// Change the current scene.
-			///
-			/// \param name Name id for scene.
-			///
-			void change(const std::string& name);
+			void set_scene(const std::string& name);
 
 			///
 			/// Load data from memory into scenes.
 			///
 			/// \param data JSON data to parse.
 			///
-			void load(const std::string& data);
+			void load_scene(const std::string& data);
 
 			///
 			/// \brief Load app data file into scene manager.
 			///
-			/// Will remove any other loaded scenes.
+			/// Will remove any other loaded scenes and adjust the currently loaded scene.
 			///
 			/// \param appdata_file Zlib + Base64 encoded json data file. Should have .galaxy extension.
 			///
-			void load_from_appdata(std::string_view appdata_file);
-
-			///
-			/// Load game assets.
-			///
-			void load_assets();
+			void load_appdata(std::string_view appdata_file);
 
 			///
 			/// Save all active scenes and sub data within those scenes.
 			///
 			/// \param file File to save data to.
 			///
-			void save(std::string_view file);
+			void save_appdata(std::string_view file);
 
 			///
 			/// Gets a specific scene.

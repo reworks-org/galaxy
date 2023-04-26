@@ -59,8 +59,6 @@
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
-    <ClCompile Include="src\galaxy\scene\LayerRegistry.cpp" />
-    <ClCompile Include="src\galaxy\scene\layers\RuntimeLayer.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
@@ -132,8 +130,6 @@
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
-    <ClCompile Include="src\galaxy\scene\Layer.cpp" />
-    <ClCompile Include="src\galaxy\scene\Layers.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
@@ -159,7 +155,6 @@
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
-    <ClCompile Include="src\galaxy\scene\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
@@ -210,8 +205,6 @@
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
-    <ClInclude Include="src\galaxy\scene\LayerRegistry.hpp" />
-    <ClInclude Include="src\galaxy\scene\layers\RuntimeLayer.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -283,8 +276,6 @@
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
-    <ClInclude Include="src\galaxy\scene\Layer.hpp" />
-    <ClInclude Include="src\galaxy\scene\Layers.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
@@ -310,7 +301,6 @@
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
-    <ClInclude Include="src\galaxy\scene\layers\UILayer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

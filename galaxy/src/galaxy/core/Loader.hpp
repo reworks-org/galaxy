@@ -32,14 +32,13 @@ namespace galaxy
 			~Loader();
 
 			///
-			/// Start loading job in task pool.
+			/// \brief Start loading job in task pool.
 			///
-			void start();
-
+			/// Draws loading screen while loading.
 			///
-			/// Draw loading screen while loading.
+			/// \param loader_func Function called by the loading thread.
 			///
-			void finish();
+			void load(const std::function<void(void)>& loader_func);
 
 		private:
 			///

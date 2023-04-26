@@ -85,13 +85,8 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
-    <ClCompile Include="src\galaxy\scene\Layers.cpp" />
-    <ClCompile Include="src\galaxy\scene\Layer.cpp" />
-    <ClCompile Include="src\galaxy\scene\layers\UILayer.cpp" />
-    <ClCompile Include="src\galaxy\scene\layers\RuntimeLayer.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
-    <ClCompile Include="src\galaxy\scene\LayerRegistry.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\graphics\Font.cpp" />
@@ -236,13 +231,8 @@
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
-    <ClInclude Include="src\galaxy\scene\Layers.hpp" />
-    <ClInclude Include="src\galaxy\scene\Layer.hpp" />
-    <ClInclude Include="src\galaxy\scene\layers\UILayer.hpp" />
-    <ClInclude Include="src\galaxy\scene\layers\RuntimeLayer.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
-    <ClInclude Include="src\galaxy\scene\LayerRegistry.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\graphics\Font.hpp" />

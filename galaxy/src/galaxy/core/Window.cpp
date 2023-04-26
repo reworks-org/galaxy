@@ -349,7 +349,7 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
-// clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_PUSH
 					GALAXY_DISABLE_WARNING(26487)
@@ -376,7 +376,7 @@ namespace galaxy
 						}
 					});
 
-// clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
 					#endif
@@ -436,6 +436,8 @@ namespace galaxy
 						// Configure global GL state.
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
+						glDisable(GL_STENCIL_TEST);
+						glDisable(GL_SCISSOR_TEST);
 
 						glEnable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
@@ -566,7 +568,6 @@ namespace galaxy
 
 		void Window::end()
 		{
-			graphics::Renderer::draw();
 			m_postprocess.render_effects();
 
 			// Final Output.

@@ -18,8 +18,8 @@
 
 namespace sc
 {
-	Menu::Menu(std::string_view name, scene::Scene* scene)
-		: Layer {name, scene}
+	Menu::Menu()
+		: Scene()
 		, m_load {false}
 	{
 		m_bg.load("../editor_data/sc.png");
@@ -31,17 +31,14 @@ namespace sc
 	{
 	}
 
-	void Menu::on_push()
+	void Menu::load()
 	{
 		core::ServiceLocator<core::Window>::ref().restore();
 	}
 
-	void Menu::on_pop()
+	void Menu::unload()
 	{
-	}
-
-	void Menu::events()
-	{
+		core::ServiceLocator<sol::state>::ref().collect_garbage();
 	}
 
 	void Menu::update()
@@ -76,12 +73,13 @@ namespace sc
 
 		if (ImGui::Button("New", {button_width, button_height}))
 		{
-			auto editor = m_scene->layers().get<sc::Editor>("Editor");
-			if (auto ptr = editor.lock())
+			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
+			if (auto ptr = sm.get("sc_editor").lock())
 			{
-				ptr->new_project();
-				m_scene->layers().pop();
-				m_scene->layers().push("Editor");
+				auto editor = std::static_pointer_cast<sc::Editor>(ptr);
+				editor->new_project();
+
+				sm.set_scene("sc_editor");
 			}
 		}
 
@@ -106,23 +104,6 @@ namespace sc
 		ui::imgui_render();
 	}
 
-	const std::string& Menu::get_type() const
-	{
-		static_assert(true, "Do Not Call.");
-
-		static std::string type = "Menu";
-		return type;
-	}
-
-	nlohmann::json Menu::serialize()
-	{
-		return {};
-	}
-
-	void Menu::deserialize(const nlohmann::json& json)
-	{
-	}
-
 	void Menu::load_project()
 	{
 		auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
@@ -130,12 +111,13 @@ namespace sc
 		const auto path = fs.open_file_dialog({"*.scproj"}, "../editor_data/projects");
 		if (!path.empty())
 		{
-			auto editor = m_scene->layers().get<sc::Editor>("Editor");
-			if (auto ptr = editor.lock())
+			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
+			if (auto ptr = sm.get("sc_editor").lock())
 			{
-				ptr->load_project(path);
-				m_scene->layers().pop();
-				m_scene->layers().push("Editor");
+				auto editor = std::static_pointer_cast<sc::Editor>(ptr);
+				editor->load_project(path);
+
+				sm.set_scene("sc_editor");
 			}
 		}
 	}

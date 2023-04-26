@@ -17,11 +17,12 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/embedded/RobotoLight.hpp>
 #include <galaxy/scene/SceneManager.hpp>
+#include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
 #include <galaxy/utils/Globals.hpp>
 
-#include "layers/Editor.hpp"
-#include "layers/Menu.hpp"
+#include "scenes/Editor.hpp"
+#include "scenes/Menu.hpp"
 
 using namespace galaxy;
 
@@ -122,23 +123,15 @@ int main(int argsc, char* argsv[])
 				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
 				sm.load_assets();
 
-				auto scene = sm.make("supercluster");
-				if (auto ptr = scene.lock())
-				{
-					sm.make("game_runtime");
+				auto menu    = std::make_shared<sc::Menu>();
+				menu->m_name = "sc_menu";
 
-					sm.set(ptr->get_name());
+				auto editor    = std::make_shared<sc::Editor>();
+				editor->m_name = "sc_editor";
 
-					scene::LayerRegistry::register_type<sc::Editor>("Editor");
-					scene::LayerRegistry::register_type<sc::Menu>("Menu");
-
-					auto& layers = ptr->layers();
-
-					layers.make<sc::Editor>("Editor");
-					layers.make<sc::Menu>("Menu");
-
-					layers.push("Menu");
-				}
+				sm.add_existing_scene(menu->m_name, menu);
+				sm.add_existing_scene(editor->m_name, editor);
+				sm.set_scene("sc_menu");
 			}
 
 			app.run();

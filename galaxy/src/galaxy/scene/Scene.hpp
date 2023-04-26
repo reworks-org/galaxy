@@ -8,20 +8,27 @@
 #ifndef GALAXY_STATE_SCENE_HPP_
 #define GALAXY_STATE_SCENE_HPP_
 
+#include <entt/signal/dispatcher.hpp>
+#include <RmlUi/Core/Context.h>
+
 #include "galaxy/core/World.hpp"
 #include "galaxy/core/TiledMap.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/scene/Layers.hpp"
 
 namespace galaxy
 {
+	namespace core
+	{
+		class Window;
+	} // namespace core
+
 	namespace scene
 	{
 		///
 		/// Represents a scene in a game. Like the menu, game, etc.
 		///	Does not share resources.
 		///
-		class Scene final : public fs::Serializable
+		class Scene : public fs::Serializable
 		{
 		public:
 			///
@@ -35,57 +42,24 @@ namespace galaxy
 			virtual ~Scene();
 
 			///
-			/// \brief Load data required by this scene.
+			/// When scene is loaded and made active.
 			///
-			/// Displays a loading screen overriding whatever is currently rendering.
-			///
-			void load();
+			virtual void load();
 
 			///
-			/// Unload scene data.
+			/// When scene is deactivated / unloaded.
 			///
-			void unload();
+			virtual void unload();
 
 			///
-			/// Process scene events.
+			/// Process events and updates.
 			///
-			void events();
-
-			///
-			/// Process updates.
-			///
-			void update();
+			virtual void update();
 
 			///
 			/// Render scene.
 			///
-			void render();
-
-			///
-			/// Only update the rendersystem.
-			///
-			void update_rendersystem();
-
-			///
-			/// Set Scene name.
-			///
-			/// \param name String name for debug purposes.
-			///
-			void set_name(const std::string& name);
-
-			///
-			/// Get Scene name.
-			///
-			/// \return Const std::string reference.
-			///
-			[[nodiscard]] const std::string& get_name() const;
-
-			///
-			/// Get layer stack.
-			///
-			/// \return Reference to layers stack.
-			///
-			[[nodiscard]] Layers& layers();
+			virtual void render();
 
 			///
 			/// Serializes object.
@@ -108,25 +82,35 @@ namespace galaxy
 			graphics::Camera m_camera;
 
 			///
-			/// Entitys, events, etc.
+			/// Game dispatcher.
+			///
+			entt::dispatcher m_dispatcher;
+
+			///
+			/// Entity data and processing systems.
 			///
 			core::World m_world;
 
 			///
-			/// Manages the map for this layer.
+			/// UI rendering context.
+			///
+			Rml::Context* m_context;
+
+			///
+			/// Manages the maps for this layer.
 			///
 			core::TiledMap m_map;
 
-		private:
 			///
 			/// Scene name for debug purposes.
 			///
 			std::string m_name;
 
+		protected:
 			///
-			/// Controls current application layer.
+			/// Pointer to window.
 			///
-			Layers m_layer_stack;
+			core::Window* m_window;
 		};
 	} // namespace scene
 } // namespace galaxy

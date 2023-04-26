@@ -693,8 +693,6 @@ namespace galaxy
 			camera_type["get_view"]          = &graphics::Camera::get_view;
 			camera_type["get_proj"]          = &graphics::Camera::get_proj;
 			camera_type["get_zoom"]          = &graphics::Camera::get_zoom;
-			camera_type["on_mouse_wheel"]    = &graphics::Camera::on_mouse_wheel;
-			camera_type["process_events"]    = &graphics::Camera::process_events;
 			camera_type["set_zoom"]          = &graphics::Camera::set_zoom;
 			camera_type["allow_rotate"]      = &graphics::Camera::m_allow_rotate;
 			camera_type["rotation_speed"]    = &graphics::Camera::m_rotation_speed;
@@ -1017,26 +1015,28 @@ namespace galaxy
 			fonts_type["keys"]  = &resource::Fonts::keys;
 
 			/* STATE */
-			auto scenemanager_type                 = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["change"]            = &scene::SceneManager::change;
-			scenemanager_type["clear"]             = &scene::SceneManager::clear;
-			scenemanager_type["load"]              = &scene::SceneManager::load;
-			scenemanager_type["load_from_appdata"] = &scene::SceneManager::load_from_appdata;
-			scenemanager_type["load_assets"]       = &scene::SceneManager::load_assets;
-			scenemanager_type["save"]              = &scene::SceneManager::save;
-			scenemanager_type["current"]           = &scene::SceneManager::current;
-			scenemanager_type["get"]               = &scene::SceneManager::get;
-			scenemanager_type["make"]              = &scene::SceneManager::make;
-			scenemanager_type["set"]               = &scene::SceneManager::set;
+			auto scenemanager_type            = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["all"]          = &scene::SceneManager::all;
+			scenemanager_type["clear"]        = &scene::SceneManager::clear;
+			scenemanager_type["current"]      = &scene::SceneManager::current;
+			scenemanager_type["get"]          = &scene::SceneManager::get;
+			scenemanager_type["has_current"]  = &scene::SceneManager::has_current;
+			scenemanager_type["load_appdata"] = &scene::SceneManager::load_appdata;
+			scenemanager_type["load_assets"]  = &scene::SceneManager::load_assets;
+			scenemanager_type["load_scene"]   = &scene::SceneManager::load_scene;
+			scenemanager_type["make_scene"]   = &scene::SceneManager::make_scene;
+			scenemanager_type["remove"]       = &scene::SceneManager::remove;
+			scenemanager_type["save_appdata"] = &scene::SceneManager::save_appdata;
+			scenemanager_type["set_scene"]    = &scene::SceneManager::set_scene;
 
 			// Use scenemanager to create.
-			auto scene_type        = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
-			scene_type["set_name"] = &scene::Scene::set_name;
-			scene_type["get_name"] = &scene::Scene::get_name;
-			scene_type["layers"]   = &scene::Scene::layers;
-			scene_type["camera"]   = &scene::Scene::m_camera;
-			scene_type["map"]      = &scene::Scene::m_map;
-			scene_type["world"]    = &scene::Scene::m_world;
+			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["camera"]     = &scene::Scene::m_camera;
+			scene_type["context"]    = &scene::Scene::m_context;
+			scene_type["dispatcher"] = &scene::Scene::m_dispatcher;
+			scene_type["map"]        = &scene::Scene::m_map;
+			scene_type["name"]       = &scene::Scene::m_name;
+			scene_type["world"]      = &scene::Scene::m_world;
 
 			/* SCRIPTING */
 			auto basicscript_type =

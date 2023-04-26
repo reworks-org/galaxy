@@ -312,6 +312,14 @@ namespace galaxy
 				Gfx::DestroyShaders(*shaders);
 		}
 
+		void RMLRenderer::update_transform()
+		{
+			const auto viewport = m_window->get_framebuffer_size();
+			projection          = Rml::Matrix4f::ProjectOrtho(0, (float)viewport.x, (float)viewport.y, 0, -10000, 10000);
+
+			SetTransform(nullptr);
+		}
+
 		void RMLRenderer::begin_frame()
 		{
 			glGetIntegerv(GL_VIEWPORT, m_viewport_backup);
@@ -325,9 +333,7 @@ namespace galaxy
 			glStencilFunc(GL_ALWAYS, 1, GLuint(-1));
 			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
-			projection = Rml::Matrix4f::ProjectOrtho(0, (float)viewport.x, (float)viewport.y, 0, -10000, 10000);
-
-			SetTransform(nullptr);
+			update_transform();
 
 			glClearStencil(0);
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);

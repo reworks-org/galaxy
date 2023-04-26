@@ -52,6 +52,11 @@ namespace galaxy
 			void destroy();
 
 			///
+			/// Update transform and projections.
+			///
+			void update_transform();
+
+			///
 			/// \brief Begin isolated rendering.
 			///
 			/// Used for things like load screens, drawing to a framebuffer, etc.
@@ -177,18 +182,6 @@ namespace galaxy
 			///
 			static const Rml::TextureHandle TextureEnableWithoutBinding = Rml::TextureHandle(-1);
 
-		private:
-			///
-			/// Types of rml shaders.
-			///
-			enum class ProgramId
-			{
-				None,
-				Texture = 1,
-				Color   = 2,
-				All     = (Texture | Color)
-			};
-
 			///
 			/// Rml renderer scissor state.
 			///
@@ -201,12 +194,40 @@ namespace galaxy
 
 		private:
 			///
+			/// Types of rml shaders.
+			///
+			enum class ProgramId
+			{
+				None,
+				Texture = 1,
+				Color   = 2,
+				All     = (Texture | Color)
+			};
+
+		private:
+			///
 			/// Update rml transform.
 			///
 			/// \param program_id Shader to modify.
 			/// \param uniform_location Location of uniform to modify.
 			///
 			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
+
+		public:
+			///
+			/// Current rml renderer scissor state.
+			///
+			ScissoringState scissoring_state;
+
+			///
+			/// Pointer to window.
+			///
+			core::Window* m_window;
+
+			///
+			/// Backup existing viewport before rendering.
+			///
+			int m_viewport_backup[4] = {0, 0, 0, 0};
 
 		private:
 			///
@@ -230,24 +251,9 @@ namespace galaxy
 			bool transform_active;
 
 			///
-			/// Current rml renderer scissor state.
-			///
-			ScissoringState scissoring_state;
-
-			///
 			/// Rml shader data.
 			///
 			Rml::UniquePtr<Gfx::ShadersData> shaders;
-
-			///
-			/// Pointer to window.
-			///
-			core::Window* m_window;
-
-			///
-			/// Backup existing viewport before rendering.
-			///
-			int m_viewport_backup[4] = {0, 0, 0, 0};
 		};
 	} // namespace ui
 } // namespace galaxy

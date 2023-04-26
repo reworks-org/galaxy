@@ -5,7 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include <imgui_addons/imgui_notify.h>
+#include <RmlUi/Core/Context.h>
+#include <RmlUi/Core/ElementDocument.h>
 
 #include <galaxy/algorithm/Base64.hpp>
 #include <galaxy/algorithm/ZLib.hpp>
@@ -14,8 +18,6 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
-#include <galaxy/scene/layers/RuntimeLayer.hpp>
-#include <galaxy/scene/layers/UILayer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "ScenePanel.hpp"
@@ -58,7 +60,7 @@ namespace sc
 						}
 						else
 						{
-							sm.make(s_buff);
+							sm.make_scene(s_buff);
 							s_buff = "";
 						}
 
@@ -70,7 +72,7 @@ namespace sc
 
 				if (sm.has_current())
 				{
-					ImGui::Text(std::format("Current: {0}", sm.current().get_name()).c_str());
+					ImGui::Text(std::format("Current: {0}", sm.current().m_name).c_str());
 				}
 				else
 				{
@@ -96,14 +98,14 @@ namespace sc
 
 					if (is_open)
 					{
-						if (ImGui::Button("Set Scene"))
+						if (ImGui::Button("Set"))
 						{
-							sm.change(name);
+							sm.set_scene(name);
 						}
 
 						ImGui::SameLine();
 
-						if (ImGui::Button("Remove Scene"))
+						if (ImGui::Button("Remove"))
 						{
 							ui::imgui_open_confirm("TreeRemovePopup");
 						}
@@ -148,119 +150,9 @@ namespace sc
 						ImGui::InputFloat("Move Speed", &scene->m_camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
 						ImGui::InputFloat("Rotation Speed", &scene->m_camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");
 
-						if (ImGui::CollapsingHeader("Layer Stack"))
-						{
-							auto count = 0;
-							for (const auto& layer : scene->layers().stack())
-							{
-								ImGui::Text("%i: %s", count, layer->get_name().c_str());
-							}
-						}
-
-						for (auto&& [layer_key, layer] : scene->layers().cache())
-						{
-							ImGuiTreeNodeFlags layer_flags =
-								ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-
-							if (m_selected_layer == layer_key)
-							{
-								layer_flags |= ImGuiTreeNodeFlags_Selected;
-							}
-
-							const bool is_open_layertree = ImGui::TreeNodeEx(layer_key.c_str(), layer_flags);
-							if (ImGui::IsItemClicked())
-							{
-								m_selected_layer = layer_key;
-							}
-
-							if (is_open_layertree)
-							{
-								if (ImGui::Button("Push Layer"))
-								{
-									scene->layers().push(layer_key);
-								}
-
-								ImGui::SameLine();
-
-								if (ImGui::Button("Pop Layer"))
-								{
-									scene->layers().pop(layer_key);
-								}
-
-								ImGui::TreePop();
-							}
-						}
-
 						ImGui::Spacing();
 						ImGui::Separator();
 						ImGui::Spacing();
-
-						if (ImGui::Button("New Runtime"))
-						{
-							ImGui::OpenPopup("NewRuntimeLayerPopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
-							ui::imgui_center_next_window();
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("New UI"))
-						{
-							ImGui::OpenPopup("NewUILayerPopup", ImGuiPopupFlags_NoOpenOverExistingPopup);
-							ui::imgui_center_next_window();
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Clear All Layers"))
-						{
-							ui::imgui_open_confirm("ClearAllLayersPopup");
-						}
-
-						ui::imgui_confirm("ClearAllLayersPopup", [&]() {
-							scene->layers().clear();
-						});
-
-						if (ImGui::BeginPopup("NewRuntimeLayerPopup"))
-						{
-							static std::string s_buff;
-							if (ImGui::InputText("Name", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
-							{
-								if (s_buff.empty())
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Runtime layer name cannot be empty.");
-								}
-								else
-								{
-									scene->layers().make<scene::RuntimeLayer>(s_buff);
-									s_buff = "";
-								}
-
-								ImGui::CloseCurrentPopup();
-							}
-
-							ImGui::EndPopup();
-						}
-
-						if (ImGui::BeginPopup("NewUILayerPopup"))
-						{
-							static std::string s_buff;
-							if (ImGui::InputText("Name", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
-							{
-								if (s_buff.empty())
-								{
-									GALAXY_LOG(GALAXY_ERROR, "UI layer name cannot be empty.");
-								}
-								else
-								{
-									scene->layers().make<scene::UILayer>(s_buff);
-									s_buff = "";
-								}
-
-								ImGui::CloseCurrentPopup();
-							}
-
-							ImGui::EndPopup();
-						}
 
 						// Right-click on blank space.
 						if (ImGui::BeginPopupContextWindow("##CreateNewEntityContext",

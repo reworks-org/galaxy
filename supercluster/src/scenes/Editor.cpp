@@ -27,8 +27,8 @@
 
 namespace sc
 {
-	Editor::Editor(std::string_view name, scene::Scene* scene)
-		: Layer {name, scene}
+	Editor::Editor()
+		: Scene()
 	{
 		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
 		m_code_editor.m_editor.SetPalette(TextEditor::GetDarkPalette());
@@ -72,7 +72,7 @@ namespace sc
 	{
 	}
 
-	void Editor::on_push()
+	void Editor::load()
 	{
 		auto& window = core::ServiceLocator<core::Window>::ref();
 		window.resize(1280, 720);
@@ -81,12 +81,12 @@ namespace sc
 		m_autosave.start();
 	}
 
-	void Editor::on_pop()
+	void Editor::unload()
 	{
 		m_autosave.stop();
 	}
 
-	void Editor::events()
+	void Editor::update()
 	{
 		if (m_restore)
 		{
@@ -130,40 +130,17 @@ namespace sc
 					if (!m_paused)
 					{
 						ImGui_ImplGlfw_ToggleInput(true);
-						m_project_scenes.current().events();
+						m_project_scenes.current().update();
+					}
+					else
+					{
+						m_project_scenes.current().m_world.update_rendersystem();
 					}
 				}
 			}
 			else
 			{
 				ImGui_ImplGlfw_ToggleInput(false);
-			}
-		}
-		else
-		{
-			if (input::Input::key_down(input::Keys::ESCAPE))
-			{
-				ImGui_ImplGlfw_ToggleInput(false);
-				m_game_mode = false;
-				m_restore   = true;
-			}
-		}
-	}
-
-	void Editor::update()
-	{
-		if (!m_game_mode)
-		{
-			if (m_project_scenes.has_current())
-			{
-				if (!m_paused)
-				{
-					m_project_scenes.current().update();
-				}
-				else
-				{
-					m_project_scenes.current().update_rendersystem();
-				}
 			}
 
 			for (const auto& update : m_update_stack)
@@ -176,6 +153,13 @@ namespace sc
 		}
 		else
 		{
+			if (input::Input::key_down(input::Keys::ESCAPE))
+			{
+				ImGui_ImplGlfw_ToggleInput(false);
+				m_game_mode = false;
+				m_restore   = true;
+			}
+
 			m_project_scenes.current().update();
 		}
 	}
@@ -1100,24 +1084,5 @@ namespace sc
 				zip_entry_close(zip);
 			}
 		}
-	}
-
-	const std::string& Editor::get_type() const
-	{
-		static_assert(true, "Do Not Call.");
-
-		static std::string type = "Editor";
-		return type;
-	}
-
-	nlohmann::json Editor::serialize()
-	{
-		static_assert(true, "Do Not Call.");
-		return {};
-	}
-
-	void Editor::deserialize(const nlohmann::json& json)
-	{
-		static_assert(true, "Do Not Call.");
 	}
 } // namespace sc

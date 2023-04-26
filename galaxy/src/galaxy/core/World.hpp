@@ -224,11 +224,6 @@ namespace galaxy
 			///
 			std::unique_ptr<b2World> m_b2world;
 
-			///
-			/// Pointer to the scenes runtime layer.
-			///
-			scene::RuntimeLayer* m_runtime_layer;
-
 		private:
 			///
 			/// Stores systems.

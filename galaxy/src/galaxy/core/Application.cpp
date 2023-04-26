@@ -36,8 +36,6 @@
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/scene/SceneManager.hpp"
-#include "galaxy/scene/layers/RuntimeLayer.hpp"
-#include "galaxy/scene/layers/UILayer.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/ui/ImGuiTheme.hpp"
 
@@ -359,12 +357,6 @@ namespace galaxy
 			ServiceLocator<resource::Scripts>::make();
 			ServiceLocator<resource::Language>::make();
 			ServiceLocator<Loader>::make();
-
-			//
-			// SceneManager.
-			//
-			scene::LayerRegistry::register_type<scene::UILayer>("UI");
-			scene::LayerRegistry::register_type<scene::RuntimeLayer>("Runtime");
 			ServiceLocator<scene::SceneManager>::make();
 
 			//
@@ -383,7 +375,6 @@ namespace galaxy
 			m_rml_rendering_interface.destroy();
 
 			ServiceLocator<scene::SceneManager>::del();
-			scene::LayerRegistry::m_registry.clear();
 			ServiceLocator<Loader>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<resource::Scripts>::del();
@@ -449,8 +440,6 @@ namespace galaxy
 						graphics::Renderer::flush();
 
 						window.poll_events();
-
-						scene.events();
 						scene.update();
 
 						accumulator -= ups_as_nano;

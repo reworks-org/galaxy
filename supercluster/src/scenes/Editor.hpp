@@ -13,7 +13,6 @@
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/graphics/Renderable.hpp>
 #include <galaxy/platform/Subprocess.hpp>
-#include <galaxy/scene/Layer.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "editor/panels/AssetPanel.hpp"
@@ -29,16 +28,14 @@ using namespace galaxy;
 
 namespace sc
 {
-	class Editor final : public scene::Layer
+	class Editor final : public scene::Scene
 	{
 	public:
-		Editor(std::string_view name, scene::Scene* scene);
+		Editor();
 		virtual ~Editor();
 
-		void on_push() override;
-		void on_pop() override;
-
-		void events() override;
+		void load() override;
+		void unload() override;
 		void update() override;
 		void render() override;
 
@@ -50,18 +47,12 @@ namespace sc
 		void exit();
 
 	private:
-		Editor() = delete;
-
 		void draw_editor();
 		void code_editor();
 		void code_editor_menu();
 		void viewport();
 
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
-
-		const std::string& get_type() const override;
-		[[nodiscard]] nlohmann::json serialize() override;
-		void deserialize(const nlohmann::json& json) override;
 
 	private:
 		platform::Subprocess m_tiled_process;
