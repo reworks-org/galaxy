@@ -1,5 +1,5 @@
 <map id="galaxy::core::Loader" name="galaxy::core::Loader">
-<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="283,2387,436,2523"/>
+<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="283,2387,436,2508"/>
 <area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="245,1983,474,2324"/>
 <area shape="rect" id="node3" title=" " alt="" coords="258,1711,418,1788"/>
 <area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="443,1579,604,1920"/>

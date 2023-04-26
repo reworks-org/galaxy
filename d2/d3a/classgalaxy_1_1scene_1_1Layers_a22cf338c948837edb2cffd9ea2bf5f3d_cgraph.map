@@ -1,5 +1,0 @@
-<map id="galaxy::scene::Layers::deserialize" name="galaxy::scene::Layers::deserialize">
-<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,39,168,80"/>
-<area shape="rect" id="node2" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#aea488847c1d97a7e3cf87160c7fb5f21" title="Destroy all layers." alt="" coords="216,5,379,47"/>
-<area shape="rect" id="node3" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ae35e9317f4b8703c4d72d8ff8f8f29c6" title="Push a layer based on name." alt="" coords="216,71,379,112"/>
-</map>

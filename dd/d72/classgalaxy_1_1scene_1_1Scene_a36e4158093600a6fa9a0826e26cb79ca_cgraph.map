@@ -1,5 +1,0 @@
-<map id="galaxy::scene::Scene::~Scene" name="galaxy::scene::Scene::~Scene">
-<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c" title="Unload scene data." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="419,13,649,39"/>
-</map>

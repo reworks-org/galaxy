@@ -1,4 +1,0 @@
-<map id="galaxy::scene::Layer::dispatcher" name="galaxy::scene::Layer::dispatcher">
-<area shape="rect" id="node1" title="Get a reference to this layers event dispatcher." alt="" coords="200,5,355,47"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a8e63e743af48acd5c8483447933733ef" title="Function that integrates lua init with entt on construct event." alt="" coords="5,5,152,47"/>
-</map>

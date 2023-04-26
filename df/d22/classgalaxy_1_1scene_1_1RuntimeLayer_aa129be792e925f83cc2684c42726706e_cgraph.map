@@ -1,8 +1,0 @@
-<map id="galaxy::scene::RuntimeLayer::events" name="galaxy::scene::RuntimeLayer::events">
-<area shape="rect" id="node1" title="Handle events." alt="" coords="5,100,216,141"/>
-<area shape="rect" id="node2" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a7233bc42115310f6248c6bdaadc3fce1" title="Handle user input events." alt="" coords="286,71,473,112"/>
-<area shape="rect" id="node6" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="264,137,495,163"/>
-<area shape="rect" id="node3" href="$db/df9/classgalaxy_1_1input_1_1Input.html#a71b0cbd6fd83f4f279d50599fca1a06e" title="See if a key is being held down." alt="" coords="563,5,709,47"/>
-<area shape="rect" id="node4" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a7b41efa64e033d38b8c267c44e5df72b" title="Sets position without moving the entity." alt="" coords="543,71,729,112"/>
-<area shape="rect" id="node5" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a6c3190d9718ce1e13229248dd1194bb4" title="Set the entity rotation." alt="" coords="543,136,729,177"/>
-</map>

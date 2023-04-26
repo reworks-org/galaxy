@@ -59,7 +59,6 @@ var hierarchy =
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],
     [ "galaxy::events::KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", null ],
     [ "galaxy::resource::Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", null ],
-    [ "galaxy::scene::LayerRegistry", "db/d37/classgalaxy_1_1scene_1_1LayerRegistry.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
@@ -108,11 +107,6 @@ var hierarchy =
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ],
       [ "galaxy::graphics::Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", null ],
       [ "galaxy::physics::Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", null ],
-      [ "galaxy::scene::Layer", "d2/d25/classgalaxy_1_1scene_1_1Layer.html", [
-        [ "galaxy::scene::RuntimeLayer", "df/d22/classgalaxy_1_1scene_1_1RuntimeLayer.html", null ],
-        [ "galaxy::scene::UILayer", "d3/d20/classgalaxy_1_1scene_1_1UILayer.html", null ]
-      ] ],
-      [ "galaxy::scene::Layers", "d2/d3a/classgalaxy_1_1scene_1_1Layers.html", null ],
       [ "galaxy::scene::Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", null ],
       [ "galaxy::scene::SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", null ]
     ] ],

@@ -27,7 +27,6 @@ var classgalaxy_1_1core_1_1World =
     [ "destroy_rigidbody", "da/dc8/classgalaxy_1_1core_1_1World.html#aabee9647b9b52bf5d02635e0c8bf7b83", null ],
     [ "m_registry", "da/dc8/classgalaxy_1_1core_1_1World.html#ae8bab595f5cea9f203686c6cf3977a6a", null ],
     [ "m_b2world", "da/dc8/classgalaxy_1_1core_1_1World.html#af9f56d06358036acd8bce06094ee82e9", null ],
-    [ "m_runtime_layer", "da/dc8/classgalaxy_1_1core_1_1World.html#a9c0d84181ca4353068cb59e9805b3a91", null ],
     [ "m_systems", "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf", null ],
     [ "m_component_factory", "da/dc8/classgalaxy_1_1core_1_1World.html#ad06f17e6b07d8ac87912f40d84c0676c", null ],
     [ "m_validations", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb88688f2ab04056dd9536052dc5030c", null ],

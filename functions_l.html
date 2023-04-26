@@ -91,27 +91,6 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 <li>Language()
 : <a class="el" href="db/dc3/classgalaxy_1_1resource_1_1Language.html#a56d60c1a334b99996ba7cba5657cf9fd">galaxy::resource::Language</a>
 </li>
-<li>Layer()
-: <a class="el" href="d2/d25/classgalaxy_1_1scene_1_1Layer.html#affac6afda05d7a69f7a3678ac3c3564a">galaxy::scene::Layer</a>
-</li>
-<li>LayerContainer
-: <a class="el" href="d2/d3a/classgalaxy_1_1scene_1_1Layers.html#a68f6bd02143190f36740ef9aeb2690b5">galaxy::scene::Layers</a>
-</li>
-<li>LayerRegistry()
-: <a class="el" href="db/d37/classgalaxy_1_1scene_1_1LayerRegistry.html#acae8877cf2d7e70fa17cea9c8b7b17d3">galaxy::scene::LayerRegistry</a>
-</li>
-<li>Layers()
-: <a class="el" href="d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ad6d0ba0a35a42b221d33f252aea23795">galaxy::scene::Layers</a>
-</li>
-<li>layers()
-: <a class="el" href="dd/d72/classgalaxy_1_1scene_1_1Scene.html#a6c25812b868d9366f7d70053f7e3fed5">galaxy::scene::Scene</a>
-</li>
-<li>LayerStack
-: <a class="el" href="d2/d3a/classgalaxy_1_1scene_1_1Layers.html#adde23fa3d9651bc6e2a99ef95675289f">galaxy::scene::Layers</a>
-</li>
-<li>LayerTypeFactory
-: <a class="el" href="db/d37/classgalaxy_1_1scene_1_1LayerRegistry.html#a719998b9c1fa0bfb6b74b1029a92f25a">galaxy::scene::LayerRegistry</a>
-</li>
 <li>LEFT
 : <a class="el" href="d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115">galaxy::input::CameraKeys</a>
 </li>
@@ -122,6 +101,7 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 : <a class="el" href="da/ddd/classgalaxy_1_1audio_1_1Sound.html#a2a099f8cf964904b8a5d4d747d532fca">galaxy::audio::Sound</a>
 , <a class="el" href="db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7">galaxy::components::Script</a>
 , <a class="el" href="d6/de9/classgalaxy_1_1core_1_1Config.html#a8d6d1dd5aa2d03549338d1c0139a0583">galaxy::core::Config</a>
+, <a class="el" href="dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677">galaxy::core::Loader</a>
 , <a class="el" href="d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad39d5182cffe3d9cc5e734651f3caabc">galaxy::graphics::Font</a>
 , <a class="el" href="dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ac0abb1fc5bdafc8d0f0829f02d59aba7">galaxy::graphics::Texture</a>
 , <a class="el" href="d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#aee64aead9ebbb4c842795710b9b181b2">galaxy::lua::BasicScript</a>
@@ -133,7 +113,9 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 , <a class="el" href="d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a7cafe3369b9940bf57fa2efbc8e084d1">galaxy::resource::Scripts</a>
 , <a class="el" href="d9/d24/classgalaxy_1_1resource_1_1Shaders.html#aa37b0e54f11f55743ecb3d508abf10d2">galaxy::resource::Shaders</a>
 , <a class="el" href="dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4">galaxy::scene::Scene</a>
-, <a class="el" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a03ff8e779b7647a0775f28acb368b801">galaxy::scene::SceneManager</a>
+</li>
+<li>load_appdata()
+: <a class="el" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969">galaxy::scene::SceneManager</a>
 </li>
 <li>load_assets()
 : <a class="el" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">galaxy::scene::SceneManager</a>
@@ -143,9 +125,6 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 </li>
 <li>load_file()
 : <a class="el" href="d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5761568b59552124bb96f2c2993ad97f">galaxy::graphics::Shader</a>
-</li>
-<li>load_from_appdata()
-: <a class="el" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab41e4ad011775114cfb27c3319ce604c">galaxy::scene::SceneManager</a>
 </li>
 <li>load_map()
 : <a class="el" href="dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438">galaxy::core::TiledMap</a>
@@ -159,6 +138,9 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 </li>
 <li>load_raw()
 : <a class="el" href="d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92">galaxy::graphics::Shader</a>
+</li>
+<li>load_scene()
+: <a class="el" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">galaxy::scene::SceneManager</a>
 </li>
 <li>load_sfx()
 : <a class="el" href="dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d">galaxy::resource::Sounds</a>
@@ -187,7 +169,7 @@ $(document).ready(function(){initNavTree('functions_l.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Apr 22 2023 06:22:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 09:45:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

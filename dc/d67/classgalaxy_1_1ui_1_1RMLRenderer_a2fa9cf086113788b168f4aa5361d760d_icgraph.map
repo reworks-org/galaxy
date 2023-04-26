@@ -1,4 +1,4 @@
 <map id="galaxy::ui::RMLRenderer::begin_frame" name="galaxy::ui::RMLRenderer::begin_frame">
 <area shape="rect" id="node1" title="Begin isolated rendering." alt="" coords="207,5,387,47"/>
-<area shape="rect" id="node2" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ab01b7874b30f006106de41eeee17e4cc" title="Draw loading screen while loading." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="5,5,159,47"/>
 </map>

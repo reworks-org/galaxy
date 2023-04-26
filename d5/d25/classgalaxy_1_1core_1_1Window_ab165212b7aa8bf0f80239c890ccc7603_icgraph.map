@@ -1,0 +1,4 @@
+<map id="galaxy::core::Window::trigger_queued_events" name="galaxy::core::Window::trigger_queued_events">
+<area shape="rect" id="node1" title="Trigger all queued events for a dispatcher." alt="" coords="212,5,391,47"/>
+<area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
+</map>

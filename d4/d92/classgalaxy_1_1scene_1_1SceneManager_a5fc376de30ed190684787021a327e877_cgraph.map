@@ -1,4 +1,6 @@
 <map id="galaxy::scene::SceneManager::load_assets" name="galaxy::scene::SceneManager::load_assets">
-<area shape="rect" id="node1" title="Load game assets." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,13,499,39"/>
+<area shape="rect" id="node1" title="Load game assets." alt="" coords="5,64,220,105"/>
+<area shape="rect" id="node2" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="318,5,449,47"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,71,499,98"/>
+<area shape="rect" id="node4" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="305,123,461,164"/>
 </map>

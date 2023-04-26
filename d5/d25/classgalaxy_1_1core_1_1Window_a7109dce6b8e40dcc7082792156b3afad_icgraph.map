@@ -1,6 +1,7 @@
 <map id="galaxy::core::Window::get_framebuffer_size" name="galaxy::core::Window::get_framebuffer_size">
-<area shape="rect" id="node1" title="Get framebuffer size taking into account DPI." alt="" coords="435,39,603,80"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="207,5,387,47"/>
-<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a77d3aa24e74558b40c18f042b23c0850" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="207,71,387,112"/>
-<area shape="rect" id="node3" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ab01b7874b30f006106de41eeee17e4cc" title="Draw loading screen while loading." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node1" title="Get framebuffer size taking into account DPI." alt="" coords="663,26,831,67"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="207,30,387,71"/>
+<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a77d3aa24e74558b40c18f042b23c0850" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="435,26,615,67"/>
+<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5db20547c78699cbd70b0f19b4486e73" title="Update transform and projections." alt="" coords="435,91,615,132"/>
+<area shape="rect" id="node3" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="5,30,159,71"/>
 </map>

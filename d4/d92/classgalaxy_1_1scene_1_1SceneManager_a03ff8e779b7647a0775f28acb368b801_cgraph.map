@@ -1,8 +1,0 @@
-<map id="galaxy::scene::SceneManager::load" name="galaxy::scene::SceneManager::load">
-<area shape="rect" id="node1" title="Load data from memory into scenes." alt="" coords="5,71,220,112"/>
-<area shape="rect" id="node2" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="268,71,483,112"/>
-<area shape="rect" id="node3" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab61df16febf0c7621d8b2de298a7a334" title="Change the current scene." alt="" coords="531,5,745,47"/>
-<area shape="rect" id="node4" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="531,71,745,112"/>
-<area shape="rect" id="node6" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a02df73ec8516ff161282df6b1372ec01" title="Create a new scene." alt="" coords="531,136,745,177"/>
-<area shape="rect" id="node5" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204" title="Remove a specific scene." alt="" coords="793,71,1008,112"/>
-</map>

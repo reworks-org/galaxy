@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['language_1692',['Language',['../db/dc3/classgalaxy_1_1resource_1_1Language.html',1,'galaxy::resource']]],
-  ['layer_1693',['Layer',['../d2/d25/classgalaxy_1_1scene_1_1Layer.html',1,'galaxy::scene']]],
-  ['layerregistry_1694',['LayerRegistry',['../db/d37/classgalaxy_1_1scene_1_1LayerRegistry.html',1,'galaxy::scene']]],
-  ['layers_1695',['Layers',['../d2/d3a/classgalaxy_1_1scene_1_1Layers.html',1,'galaxy::scene']]],
-  ['loader_1696',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html',1,'galaxy::core']]],
-  ['log_1697',['Log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error']]]
+  ['language_1659',['Language',['../db/dc3/classgalaxy_1_1resource_1_1Language.html',1,'galaxy::resource']]],
+  ['loader_1660',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html',1,'galaxy::core']]],
+  ['log_1661',['Log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error']]]
 ];

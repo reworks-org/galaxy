@@ -1,4 +1,0 @@
-<map id="galaxy::scene::RuntimeLayer::update" name="galaxy::scene::RuntimeLayer::update">
-<area shape="rect" id="node1" title="Process events/updates and prepare for rendering." alt="" coords="5,5,216,47"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e" title="Update world data." alt="" coords="264,5,411,47"/>
-</map>

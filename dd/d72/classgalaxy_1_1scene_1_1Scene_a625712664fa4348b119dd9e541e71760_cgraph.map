@@ -1,4 +1,5 @@
 <map id="galaxy::scene::Scene::update" name="galaxy::scene::Scene::update">
-<area shape="rect" id="node1" title="Process updates." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$d2/d3a/classgalaxy_1_1scene_1_1Layers.html#ab27e36118d69b2bf5dbc44a06d51b45c" title="Process layer updates based on events." alt="" coords="212,5,375,47"/>
+<area shape="rect" id="node1" title="Process events and updates." alt="" coords="5,39,164,80"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#ab165212b7aa8bf0f80239c890ccc7603" title="Trigger all queued events for a dispatcher." alt="" coords="212,5,391,47"/>
+<area shape="rect" id="node3" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e" title="Update world data." alt="" coords="228,71,375,112"/>
 </map>

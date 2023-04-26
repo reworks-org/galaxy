@@ -1,6 +1,0 @@
-<map id="galaxy::graphics::Camera::process_events" name="galaxy::graphics::Camera::process_events">
-<area shape="rect" id="node1" title="Handle user input events." alt="" coords="5,71,192,112"/>
-<area shape="rect" id="node2" href="$db/df9/classgalaxy_1_1input_1_1Input.html#a71b0cbd6fd83f4f279d50599fca1a06e" title="See if a key is being held down." alt="" coords="260,5,407,47"/>
-<area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a7b41efa64e033d38b8c267c44e5df72b" title="Sets position without moving the entity." alt="" coords="240,71,427,112"/>
-<area shape="rect" id="node4" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a6c3190d9718ce1e13229248dd1194bb4" title="Set the entity rotation." alt="" coords="240,136,427,177"/>
-</map>
