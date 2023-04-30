@@ -1028,6 +1028,7 @@ namespace galaxy
 			scenemanager_type["remove"]       = &scene::SceneManager::remove;
 			scenemanager_type["save_appdata"] = &scene::SceneManager::save_appdata;
 			scenemanager_type["set_scene"]    = &scene::SceneManager::set_scene;
+			scenemanager_type["unload_scene"] = &scene::SceneManager::unload_scene;
 
 			// Use scenemanager to create.
 			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);

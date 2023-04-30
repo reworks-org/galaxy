@@ -98,14 +98,21 @@ namespace sc
 
 					if (is_open)
 					{
-						if (ImGui::Button("Set"))
+						if (ImGui::Button("Push"))
 						{
 							sm.set_scene(name);
 						}
 
 						ImGui::SameLine();
 
-						if (ImGui::Button("Remove"))
+						if (ImGui::Button("Pop"))
+						{
+							sm.unload_scene();
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Delete"))
 						{
 							ui::imgui_open_confirm("TreeRemovePopup");
 						}

@@ -220,6 +220,12 @@ namespace galaxy
 			}
 		}
 
+		void SceneManager::unload_scene()
+		{
+			m_current->unload();
+			m_current = nullptr;
+		}
+
 		void SceneManager::load_appdata(std::string_view appdata_file)
 		{
 			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().open(appdata_file);

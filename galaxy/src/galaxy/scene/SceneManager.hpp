@@ -74,6 +74,11 @@ namespace galaxy
 			void load_scene(const std::string& data);
 
 			///
+			/// Unloads the currently active scene.
+			///
+			void unload_scene();
+
+			///
 			/// \brief Load app data file into scene manager.
 			///
 			/// Will remove any other loaded scenes and adjust the currently loaded scene.
