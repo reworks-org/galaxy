@@ -25,7 +25,7 @@ namespace galaxy
 
 		void Sounds::load_sfx(std::string_view folder)
 		{
-			m_sfx_path = static_cast<std::string>(folder);
+			m_sfx_path = std::string(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -35,7 +35,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::SFX, static_cast<std::string>(file));
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::SFX, std::string(file));
 				}
 			}
 			else
@@ -46,7 +46,7 @@ namespace galaxy
 
 		void Sounds::load_music(std::string_view folder)
 		{
-			m_music_path = static_cast<std::string>(folder);
+			m_music_path = std::string(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -56,7 +56,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::MUSIC, static_cast<std::string>(file));
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::MUSIC, std::string(file));
 				}
 			}
 			else
@@ -67,7 +67,7 @@ namespace galaxy
 
 		void Sounds::load_dialogue(std::string_view folder)
 		{
-			m_dialogue_path = static_cast<std::string>(folder);
+			m_dialogue_path = std::string(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -77,7 +77,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::DIALOGUE, static_cast<std::string>(file));
+					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::DIALOGUE, std::string(file));
 				}
 			}
 			else

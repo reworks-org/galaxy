@@ -185,7 +185,7 @@ namespace sc
 
 	void Editor::load_project(std::string_view path)
 	{
-		std::ifstream ifs {static_cast<std::string>(path), std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
+		std::ifstream ifs {std::string(path), std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
 
 		if (ifs.good())
 		{

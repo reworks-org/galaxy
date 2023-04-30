@@ -30,7 +30,7 @@ namespace galaxy
 
 		void Shaders::load(std::string_view folder)
 		{
-			m_folder = static_cast<std::string>(folder);
+			m_folder = std::string(folder);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 

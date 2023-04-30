@@ -324,14 +324,14 @@ namespace sc
 
 						ImGui::InputInt("Layer", &primitive->m_layer, 1, 2, numeric_input_flags);
 
-						static auto s_selected = static_cast<std::string>(magic_enum::enum_name(primitive->get_shape()));
+						static auto s_selected = std::string(magic_enum::enum_name(primitive->get_shape()));
 						static auto s_type     = primitive->get_shape();
 						if (ImGui::BeginCombo("Type", s_selected.c_str()))
 						{
 							for (const auto& name : s_types)
 							{
 								const bool selected = (s_selected == name);
-								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								if (ImGui::Selectable(std::string(name).c_str(), selected))
 								{
 									s_selected = name;
 									s_type     = magic_enum::enum_cast<graphics::Shape>(s_selected).value();
@@ -692,14 +692,14 @@ namespace sc
 						ImGui::InputTextMultiline("Text", &text->m_text);
 						ImGui::InputFloat("Size", &text->m_size, 1.0f, 5.0f, "%.0f", ImGuiInputTextFlags_CharsNoBlank);
 
-						static auto s_selected = static_cast<std::string>(magic_enum::enum_name(text->get_alignment()));
+						static auto s_selected = std::string(magic_enum::enum_name(text->get_alignment()));
 						static auto s_type     = text->get_alignment();
 						if (ImGui::BeginCombo("Alignment", s_selected.c_str()))
 						{
 							for (const auto& name : s_types)
 							{
 								const bool selected = (s_selected == name);
-								if (ImGui::Selectable(static_cast<std::string>(name).c_str(), selected))
+								if (ImGui::Selectable(std::string(name).c_str(), selected))
 								{
 									s_selected = name;
 									s_type     = magic_enum::enum_cast<components::Text::Alignment>(s_selected).value();

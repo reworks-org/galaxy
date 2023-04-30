@@ -105,7 +105,7 @@ namespace galaxy
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["shape"]       = static_cast<std::string>(magic_enum::enum_name(m_shape));
+			json["shape"]       = std::string(magic_enum::enum_name(m_shape));
 			json["layer"]       = m_layer;
 			json["colour"]      = nlohmann::json::object();
 			json["colour"]["r"] = m_colour.m_red;
