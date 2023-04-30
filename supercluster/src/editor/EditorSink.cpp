@@ -14,15 +14,32 @@ namespace sc
 		m_logs.clear();
 	}
 
-	void EditorSink::sink_message(std::string_view message)
+	void EditorSink::sink_message(std::string_view colour,
+		std::string_view level,
+		std::string_view time,
+		std::string_view file,
+		std::string_view line,
+		std::string_view message)
 	{
-		auto str    = static_cast<std::string>(message);
-		auto second = str.find_first_of('[', str.find_first_of('[', 0) + 1);
-
-		m_logs.emplace_back(str.substr(second));
+		// clang-format off
+		m_logs.emplace_back(EditorSinkMessage
+		{
+			.colour  = std::string (colour),
+			.level   = std::string (level),
+			.time    = std::string (time),
+			.file    = std::string (file),
+			.line    = std::string (line),
+			.message = std::string (message)
+		});
+		// clang-format on
 	}
 
-	const meta::vector<std::string>& EditorSink::get_messages() const
+	void EditorSink::clear()
+	{
+		m_logs.clear();
+	}
+
+	const meta::vector<EditorSinkMessage>& EditorSink::get_messages() const
 	{
 		return m_logs;
 	}

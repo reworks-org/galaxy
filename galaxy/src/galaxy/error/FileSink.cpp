@@ -53,9 +53,14 @@ namespace galaxy
 			m_file_stream.close();
 		}
 
-		void FileSink::sink_message(std::string_view message)
+		void FileSink::sink_message(std::string_view colour,
+			std::string_view level,
+			std::string_view time,
+			std::string_view file,
+			std::string_view line,
+			std::string_view message)
 		{
-			m_file_stream << message;
+			m_file_stream << std::format("[{0}] {1}: [{2}] {3}\n", time, level, std::format("{0}, Ln {1}", file, line), message);
 		}
 	} // namespace error
 } // namespace galaxy

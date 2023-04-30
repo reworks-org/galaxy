@@ -73,6 +73,11 @@ namespace galaxy
 			void start();
 
 			///
+			/// Cleanup any static resources.
+			///
+			void finish();
+
+			///
 			/// Add a sink to log to.
 			///
 			/// \tparam SinkTo The derived type of the sink.
@@ -88,9 +93,9 @@ namespace galaxy
 			///
 			/// \brief Set a minimum log level.
 			///
-			/// \tparam level Must be a LogLevel enum value.
-			///
 			/// In order to only print and log levels greater than or equal to the current log message level.
+			///
+			/// \tparam level Must be a LogLevel enum value.
 			///
 			template<LogLevel level>
 			void set_min_level();
@@ -107,11 +112,6 @@ namespace galaxy
 			///
 			template<LogLevel level, typename... MsgInputs>
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
-
-			///
-			/// Cleanup any static resources.
-			///
-			void finish();
 
 		private:
 			///
@@ -172,58 +172,32 @@ namespace galaxy
 			{
 				constexpr const auto level_str = magic_enum::enum_name(level);
 
-				// Prevents needless memory reallocation.
-				// One copy per thread.
-				thread_local std::string final_str;
-				final_str.clear();
+				const auto now =
+					std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time());
 
-				const auto now = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
-
-				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
-				{
-					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
-						"\x1B[37m",
-						std::format("{0:%T}", now),
-						level_str,
-						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
-							std::filesystem::path(loc.file_name()).filename().string(),
-							loc.function_name(),
-							loc.line()),
-						std::vformat(message, std::make_format_args(args...)));
-				}
-				else if constexpr (level == LogLevel::WARNING)
-				{
-					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
-						"\x1B[33m",
-						std::format("{0:%T}", now),
-						level_str,
-						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
-							std::filesystem::path(loc.file_name()).filename().string(),
-							loc.function_name(),
-							loc.line()),
-						std::vformat(message, std::make_format_args(args...)));
-				}
-				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
-				{
-					final_str = std::format("{0}[{1}] {2} | {3} \"{4}\"\n",
-						"\x1B[31m",
-						std::format("{0:%T}", now),
-						level_str,
-						std::format("File: {0}, Func: {1}, Line: {2}, Message: ",
-							std::filesystem::path(loc.file_name()).filename().string(),
-							loc.function_name(),
-							loc.line()),
-						std::vformat(message, std::make_format_args(args...)));
-				}
+				const auto line      = std::to_string(loc.line());
+				const auto file      = std::filesystem::path(loc.file_name()).filename().string();
+				const auto formatted = std::vformat(message, std::make_format_args(args...));
 
 				for (const auto& sink : m_sinks)
 				{
-					sink->sink_message(final_str);
+					if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
+					{
+						sink->sink_message("\x1B[37m", level_str, now, file, line, formatted);
+					}
+					else if constexpr (level == LogLevel::WARNING)
+					{
+						sink->sink_message("\x1B[33m", level_str, now, file, line, formatted);
+					}
+					else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
+					{
+						sink->sink_message("\x1B[31m", level_str, now, file, line, formatted);
+					}
 				}
 
 				if constexpr (level == LogLevel::FATAL)
 				{
-					throw std::runtime_error(std::vformat(message, std::make_format_args(args...)));
+					throw std::runtime_error(formatted);
 				}
 			}
 		}

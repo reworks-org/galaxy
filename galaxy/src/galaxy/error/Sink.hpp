@@ -28,11 +28,21 @@ namespace galaxy
 			virtual ~Sink() = default;
 
 			///
-			/// Record the message.
+			/// Sink the message.
 			///
+			/// \param colour ASCII colour code.
+			/// \param level Level of message.
+			/// \param time Timestamp of message.
+			/// \param file File message occured in.
+			/// \param line Line the message occured on.
 			/// \param message The actual message to record.
 			///
-			virtual void sink_message(std::string_view message) = 0;
+			virtual void sink_message(std::string_view colour,
+				std::string_view level,
+				std::string_view time,
+				std::string_view file,
+				std::string_view line,
+				std::string_view message) = 0;
 
 		protected:
 			///

@@ -26,7 +26,7 @@ namespace galaxy
 
 		void Log::start()
 		{
-			m_sinks.reserve(2);
+			m_sinks.reserve(20);
 		}
 
 		void Log::finish()
