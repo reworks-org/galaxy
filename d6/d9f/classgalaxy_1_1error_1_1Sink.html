@@ -126,9 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac6efda21f03fb370e21d2aa5339127d8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#ac6efda21f03fb370e21d2aa5339127d8">~Sink</a> ()=default</td></tr>
 <tr class="memdesc:ac6efda21f03fb370e21d2aa5339127d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Destructor.  <a href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#ac6efda21f03fb370e21d2aa5339127d8">More...</a><br /></td></tr>
 <tr class="separator:ac6efda21f03fb370e21d2aa5339127d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a8b1e0c9f175b738437d4cfe499f131"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#a0a8b1e0c9f175b738437d4cfe499f131">sink_message</a> (std::string_view message)=0</td></tr>
-<tr class="memdesc:a0a8b1e0c9f175b738437d4cfe499f131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record the message.  <a href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#a0a8b1e0c9f175b738437d4cfe499f131">More...</a><br /></td></tr>
-<tr class="separator:a0a8b1e0c9f175b738437d4cfe499f131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089506b07f19ca436afd2a57fa88c168"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#a089506b07f19ca436afd2a57fa88c168">sink_message</a> (std::string_view colour, std::string_view level, std::string_view time, std::string_view file, std::string_view line, std::string_view message)=0</td></tr>
+<tr class="memdesc:a089506b07f19ca436afd2a57fa88c168"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html" title="A source for log messages to be recorded to.">Sink</a> the message.  <a href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html#a089506b07f19ca436afd2a57fa88c168">More...</a><br /></td></tr>
+<tr class="separator:a089506b07f19ca436afd2a57fa88c168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -265,8 +265,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0a8b1e0c9f175b738437d4cfe499f131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a8b1e0c9f175b738437d4cfe499f131">&#9670;&nbsp;</a></span>sink_message()</h2>
+<a id="a089506b07f19ca436afd2a57fa88c168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089506b07f19ca436afd2a57fa88c168">&#9670;&nbsp;</a></span>sink_message()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,8 +278,42 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">virtual void galaxy::error::Sink::sink_message </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -289,15 +323,20 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Record the message. </p>
+<p><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html" title="A source for log messages to be recorded to.">Sink</a> the message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">colour</td><td>ASCII colour code. </td></tr>
+    <tr><td class="paramname">level</td><td>Level of message. </td></tr>
+    <tr><td class="paramname">time</td><td>Timestamp of message. </td></tr>
+    <tr><td class="paramname">file</td><td>File message occured in. </td></tr>
+    <tr><td class="paramname">line</td><td>Line the message occured on. </td></tr>
     <tr><td class="paramname">message</td><td>The actual message to record. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a4ae0537255f6c00f305227dacbef02b3">galaxy::error::FileSink</a>, and <a class="el" href="../../dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a564a1b6aef76fc75b65cf4280b1913e8">galaxy::error::ConsoleSink</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a478ae7c367f20d7f5fa2eff2cd2445ed">galaxy::error::FileSink</a>, and <a class="el" href="../../dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a422312a3e056ea7ac3580872d1d7d9a6">galaxy::error::ConsoleSink</a>.</p>
 
 </div>
 </div>
@@ -366,7 +405,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d81/namespacegalaxy_1_1error.html">error</a></li><li class="navelem"><a class="el" href="../../d6/d9f/classgalaxy_1_1error_1_1Sink.html">Sink</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

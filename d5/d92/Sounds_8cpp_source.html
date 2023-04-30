@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d">   26</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d">Sounds::load_sfx</a>(std::string_view folder)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a14dceaddfe147c99375fc23fd52c011b">m_sfx_path</a> = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(folder);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a14dceaddfe147c99375fc23fd52c011b">m_sfx_path</a> = std::string(folder);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">auto</span>&amp; fs = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : contents)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> key = std::filesystem::path(file).stem().string();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7ada101052f6ba998ab41d571a6fff1708">audio::Sound::Type::SFX</a>, <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(file));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7ada101052f6ba998ab41d571a6fff1708">audio::Sound::Type::SFX</a>, std::string(file));</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">else</span></div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a728e1a13419e82668d34d8c280003e49">   47</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a728e1a13419e82668d34d8c280003e49">Sounds::load_music</a>(std::string_view folder)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a31b4259ba4b9bf6dd26c2cbc20891630">m_music_path</a> = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(folder);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a31b4259ba4b9bf6dd26c2cbc20891630">m_music_path</a> = std::string(folder);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keyword">auto</span>&amp; fs = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : contents)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> key = std::filesystem::path(file).stem().string();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7ad74c735013cdd2b883e25ccca502a2e9">audio::Sound::Type::MUSIC</a>, <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(file));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7ad74c735013cdd2b883e25ccca502a2e9">audio::Sound::Type::MUSIC</a>, std::string(file));</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">else</span></div>
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a23d909611c7c3be5400bd71c6dc1194a">   68</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a23d909611c7c3be5400bd71c6dc1194a">Sounds::load_dialogue</a>(std::string_view folder)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a7404ac1bbf49541ce0d27718f5c6ccbe">m_dialogue_path</a> = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(folder);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a7404ac1bbf49541ce0d27718f5c6ccbe">m_dialogue_path</a> = std::string(folder);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keyword">auto</span>&amp; fs = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : contents)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> key = std::filesystem::path(file).stem().string();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7afbc1136327d892c897c3b1e43d239140">audio::Sound::Type::DIALOGUE</a>, <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(file));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[key]   = std::make_shared&lt;audio::Sound&gt;(<a class="code" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#a5ad6f559223707ede9692c436187e8d7afbc1136327d892c897c3b1e43d239140">audio::Sound::Type::DIALOGUE</a>, std::string(file));</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">else</span></div>
@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('d5/d92/Sounds_8cpp_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../d5/d92/Sounds_8cpp.html">Sounds.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

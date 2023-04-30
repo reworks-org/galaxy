@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('d4/d25/Primitive_8cpp_source.html','..
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            nlohmann::json json = <span class="stringliteral">&quot;{}&quot;</span>_json;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            json[<span class="stringliteral">&quot;shape&quot;</span>]       = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(magic_enum::enum_name(<a class="code" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a81deccba11bc6bd12f4cdd3f95cdf9c5">m_shape</a>));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            json[<span class="stringliteral">&quot;shape&quot;</span>]       = std::string(magic_enum::enum_name(<a class="code" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a81deccba11bc6bd12f4cdd3f95cdf9c5">m_shape</a>));</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            json[<span class="stringliteral">&quot;layer&quot;</span>]       = <a class="code" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acb11ee999df94db8ead1237716e97918">m_layer</a>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            json[<span class="stringliteral">&quot;colour&quot;</span>]      = nlohmann::json::object();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            json[<span class="stringliteral">&quot;colour&quot;</span>][<span class="stringliteral">&quot;r&quot;</span>] = <a class="code" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9">m_colour</a>.<a class="code" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a70c5f1d67a9e9220a935932d665fb04e">m_red</a>;</div>
@@ -373,7 +373,7 @@ $(document).ready(function(){initNavTree('d4/d25/Primitive_8cpp_source.html','..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2b954ff381b9b3885b7442a3ec8b9d3a.html">components</a></li><li class="navelem"><a class="el" href="../../d4/d25/Primitive_8cpp.html">Primitive.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

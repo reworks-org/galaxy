@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('dc/dd7/Materials_8cpp_source.html','..
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a9b2e50de499e85325c834cd2243e028a">   28</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a9b2e50de499e85325c834cd2243e028a">Materials::load</a>(std::string_view folder)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0">m_folder</a> = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(folder);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0">m_folder</a> = std::string(folder);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">auto</span>&amp; fs = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('dc/dd7/Materials_8cpp_source.html','..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../dc/dd7/Materials_8cpp.html">Materials.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

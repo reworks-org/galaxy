@@ -119,6 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0ef428ca4bbfeaec9ee5288d5c37974"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ac0ef428ca4bbfeaec9ee5288d5c37974">start</a> ()</td></tr>
 <tr class="memdesc:ac0ef428ca4bbfeaec9ee5288d5c37974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start logging thread.  <a href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ac0ef428ca4bbfeaec9ee5288d5c37974">More...</a><br /></td></tr>
 <tr class="separator:ac0ef428ca4bbfeaec9ee5288d5c37974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ae176805f2c983d8dd94964f99cdf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">finish</a> ()</td></tr>
+<tr class="memdesc:ad4ae176805f2c983d8dd94964f99cdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleanup any static resources.  <a href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">More...</a><br /></td></tr>
+<tr class="separator:ad4ae176805f2c983d8dd94964f99cdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d148ba5c6bd1a8b4182008a8efbf4d"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; Sink &gt; SinkTo, typename... Args&gt; </td></tr>
 <tr class="memitem:ae3d148ba5c6bd1a8b4182008a8efbf4d"><td class="memTemplItemLeft" align="right" valign="top">SinkTo &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ae3d148ba5c6bd1a8b4182008a8efbf4d">add_sink</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:ae3d148ba5c6bd1a8b4182008a8efbf4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a sink to log to.  <a href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ae3d148ba5c6bd1a8b4182008a8efbf4d">More...</a><br /></td></tr>
@@ -131,9 +134,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a01a241ba77fe45a379993e7ed2f69f9f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f">log</a> (const std::source_location &amp;loc, std::string_view message, const MsgInputs &amp;... args)</td></tr>
 <tr class="memdesc:a01a241ba77fe45a379993e7ed2f69f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html" title="Log singleton.">Log</a> a message.  <a href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f">More...</a><br /></td></tr>
 <tr class="separator:a01a241ba77fe45a379993e7ed2f69f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4ae176805f2c983d8dd94964f99cdf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">finish</a> ()</td></tr>
-<tr class="memdesc:ad4ae176805f2c983d8dd94964f99cdf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleanup any static resources.  <a href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">More...</a><br /></td></tr>
-<tr class="separator:ad4ae176805f2c983d8dd94964f99cdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -338,6 +338,27 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad4ae176805f2c983d8dd94964f99cdf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ae176805f2c983d8dd94964f99cdf2">&#9670;&nbsp;</a></span>finish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::error::Log::finish </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cleanup any static resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d88/Log_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d4/d88/Log_8cpp_source.html">Log.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ae3d148ba5c6bd1a8b4182008a8efbf4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3d148ba5c6bd1a8b4182008a8efbf4d">&#9670;&nbsp;</a></span>add_sink()</h2>
 
@@ -407,13 +428,13 @@ template&lt;LogLevel level&gt; </div>
 </div><div class="memdoc">
 
 <p>Set a minimum log level. </p>
+<p>In order to only print and log levels greater than or equal to the current log message level.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">level</td><td>Must be a LogLevel enum value.</td></tr>
+    <tr><td class="paramname">level</td><td>Must be a LogLevel enum value. </td></tr>
   </table>
   </dd>
 </dl>
-<p>In order to only print and log levels greater than or equal to the current log message level. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
@@ -479,27 +500,6 @@ template&lt;LogLevel level, typename... MsgInputs&gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad4ae176805f2c983d8dd94964f99cdf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4ae176805f2c983d8dd94964f99cdf2">&#9670;&nbsp;</a></span>finish()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::error::Log::finish </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cleanup any static resources. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d88/Log_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d4/d88/Log_8cpp_source.html">Log.cpp</a>.</p>
 
 </div>
 </div>
@@ -622,7 +622,7 @@ template&lt;LogLevel level, typename... MsgInputs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d81/namespacegalaxy_1_1error.html">error</a></li><li class="navelem"><a class="el" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html">Log</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

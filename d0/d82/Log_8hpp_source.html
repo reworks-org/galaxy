@@ -141,16 +141,16 @@ $(document).ready(function(){initNavTree('d0/d82/Log_8hpp_source.html','../../')
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ac0ef428ca4bbfeaec9ee5288d5c37974">start</a>();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">template</span>&lt;std::derived_from&lt;Sink&gt; SinkTo, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            [[maybe_unused]] SinkTo&amp; <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ae3d148ba5c6bd1a8b4182008a8efbf4d">add_sink</a>(Args&amp;&amp;... args);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keyword">template</span>&lt;LogLevel level&gt;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ab697c216f55a999b9dab3606d804db9b">set_min_level</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keyword">template</span>&lt;<a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefd">LogLevel</a> level, <span class="keyword">typename</span>... MsgInputs&gt;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f">log</a>(<span class="keyword">const</span> std::source_location&amp; loc, std::string_view message, <span class="keyword">const</span> MsgInputs&amp;... args);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">finish</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad4ae176805f2c983d8dd94964f99cdf2">finish</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keyword">template</span>&lt;std::derived_from&lt;Sink&gt; SinkTo, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            [[maybe_unused]] SinkTo&amp; <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ae3d148ba5c6bd1a8b4182008a8efbf4d">add_sink</a>(Args&amp;&amp;... args);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">template</span>&lt;LogLevel level&gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#ab697c216f55a999b9dab3606d804db9b">set_min_level</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">template</span>&lt;<a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefd">LogLevel</a> level, <span class="keyword">typename</span>... MsgInputs&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f">log</a>(<span class="keyword">const</span> std::source_location&amp; loc, std::string_view message, <span class="keyword">const</span> MsgInputs&amp;... args);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a878d9ce48fa43d87c25f57acda8e594d">Log</a>();</div>
@@ -190,65 +190,39 @@ $(document).ready(function(){initNavTree('d0/d82/Log_8hpp_source.html','../../')
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            {</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                constexpr <span class="keyword">const</span> <span class="keyword">auto</span> level_str = magic_enum::enum_name(level);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="comment">// Prevents needless memory reallocation.</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                <span class="comment">// One copy per thread.</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                thread_local std::string final_str;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                final_str.clear();</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> now = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> now =</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    std::format(<span class="stringliteral">&quot;{0:%r}&quot;</span>, std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time());</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> line      = std::to_string(loc.line());</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> file      = std::filesystem::path(loc.file_name()).filename().string();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> formatted = std::vformat(message, std::make_format_args(args...));</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a> || level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdadc30ec20708ef7b0f641ef78b7880a15">LogLevel::DEBUG</a>)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sink : <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a21ec9168a79f4c33bbbda98fd3a54c99">m_sinks</a>)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    final_str = std::format(<span class="stringliteral">&quot;{0}[{1}] {2} | {3} \&quot;{4}\&quot;\n&quot;</span>,</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                        <span class="stringliteral">&quot;\x1B[37m&quot;</span>,</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                        std::format(<span class="stringliteral">&quot;{0:%T}&quot;</span>, now),</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                        level_str,</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                        std::format(<span class="stringliteral">&quot;File: {0}, Func: {1}, Line: {2}, Message: &quot;</span>,</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                            std::filesystem::path(loc.file_name()).filename().string(),</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                            loc.function_name(),</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                            loc.line()),</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                        std::vformat(message, std::make_format_args(args...)));</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda059e9861e0400dfbe05c98a841f3f96b">LogLevel::WARNING</a>)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    final_str = std::format(<span class="stringliteral">&quot;{0}[{1}] {2} | {3} \&quot;{4}\&quot;\n&quot;</span>,</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                        <span class="stringliteral">&quot;\x1B[33m&quot;</span>,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                        std::format(<span class="stringliteral">&quot;{0:%T}&quot;</span>, now),</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                        level_str,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                        std::format(<span class="stringliteral">&quot;File: {0}, Func: {1}, Line: {2}, Message: &quot;</span>,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                            std::filesystem::path(loc.file_name()).filename().string(),</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                            loc.function_name(),</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                            loc.line()),</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                        std::vformat(message, std::make_format_args(args...)));</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdabb1ca97ec761fc37101737ba0aa2e7c5">LogLevel::ERROR</a> || level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc">LogLevel::FATAL</a>)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    final_str = std::format(<span class="stringliteral">&quot;{0}[{1}] {2} | {3} \&quot;{4}\&quot;\n&quot;</span>,</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                        <span class="stringliteral">&quot;\x1B[31m&quot;</span>,</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                        std::format(<span class="stringliteral">&quot;{0:%T}&quot;</span>, now),</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                        level_str,</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                        std::format(<span class="stringliteral">&quot;File: {0}, Func: {1}, Line: {2}, Message: &quot;</span>,</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                            std::filesystem::path(loc.file_name()).filename().string(),</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                            loc.function_name(),</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                            loc.line()),</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                        std::vformat(message, std::make_format_args(args...)));</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sink : <a class="code" href="../../d6/d5b/classgalaxy_1_1error_1_1Log.html#a21ec9168a79f4c33bbbda98fd3a54c99">m_sinks</a>)</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    sink-&gt;sink_message(final_str);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc">LogLevel::FATAL</a>)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(std::vformat(message, std::make_format_args(args...)));</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            }</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    } <span class="comment">// namespace error</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a> || level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdadc30ec20708ef7b0f641ef78b7880a15">LogLevel::DEBUG</a>)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                        sink-&gt;sink_message(<span class="stringliteral">&quot;\x1B[37m&quot;</span>, level_str, now, file, line, formatted);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda059e9861e0400dfbe05c98a841f3f96b">LogLevel::WARNING</a>)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                        sink-&gt;sink_message(<span class="stringliteral">&quot;\x1B[33m&quot;</span>, level_str, now, file, line, formatted);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdabb1ca97ec761fc37101737ba0aa2e7c5">LogLevel::ERROR</a> || level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc">LogLevel::FATAL</a>)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                        sink-&gt;sink_message(<span class="stringliteral">&quot;\x1B[31m&quot;</span>, level_str, now, file, line, formatted);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                <span class="keywordflow">if</span> constexpr (level == <a class="code" href="../../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc">LogLevel::FATAL</a>)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(formatted);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    } <span class="comment">// namespace error</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aLogLevel_8hpp_html"><div class="ttname"><a href="../../d8/d00/LogLevel_8hpp.html">LogLevel.hpp</a></div></div>
 <div class="ttc" id="aPragma_8hpp_html"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html">Pragma.hpp</a></div></div>
 <div class="ttc" id="aSink_8hpp_html"><div class="ttname"><a href="../../d8/d5e/Sink_8hpp.html">Sink.hpp</a></div></div>
@@ -281,7 +255,7 @@ $(document).ready(function(){initNavTree('d0/d82/Log_8hpp_source.html','../../')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_48f77a4e21c16676ac8bbd98db82dd44.html">error</a></li><li class="navelem"><a class="el" href="../../d0/d82/Log_8hpp.html">Log.hpp</a></li>
-    <li class="footer">Generated on Wed Apr 26 2023 09:45:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 11:36:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
