@@ -7,6 +7,7 @@ var classgalaxy_1_1scene_1_1SceneManager =
     [ "add_existing_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab", null ],
     [ "set_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f", null ],
     [ "load_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d", null ],
+    [ "unload_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765", null ],
     [ "load_appdata", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969", null ],
     [ "save_appdata", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb", null ],
     [ "get", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d", null ],

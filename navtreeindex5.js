@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a159fd52a6534229d3397f41c65491a93":[1,0,0,6,2,2],
+"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a89d79c90252f0b8ac4cf435b4452b34a":[1,0,0,6,2,3],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#ae49844478f1d3ce506846a0bc5d98b2a":[1,0,0,6,2,1],
 "d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e":[1,0,0,6,2,0],
 "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html":[1,0,0,9,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "d8/d9d/structGfx_1_1ProgramData.html#aa7e46875a9739af2b08bb0884071bb7f":[1,0,1,1,1],
 "d8/d9f/PostProcess_8cpp.html":[2,0,0,0,0,10,24],
 "d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5":[2,0,0,0,0,10,24,0],
-"d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4":[2,0,0,0,0,10,24,1],
-"d8/d9f/PostProcess_8cpp_source.html":[2,0,0,0,0,10,24],
-"d8/dbf/Timer_8hpp.html":[2,0,0,0,0,1,1]
+"d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4":[2,0,0,0,0,10,24,1]
 };
