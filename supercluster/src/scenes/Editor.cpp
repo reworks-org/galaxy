@@ -862,6 +862,36 @@ namespace sc
 		ui::imgui_render();
 	}
 
+	void Editor::viewport()
+	{
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
+		{
+			const auto viewport_min = ImGui::GetWindowContentRegionMin();
+			const auto viewport_max = ImGui::GetWindowContentRegionMax();
+			const auto offset       = ImGui::GetWindowPos();
+
+			m_viewport_bounds[0] = {viewport_min.x + offset.x, viewport_min.y + offset.y};
+			m_viewport_bounds[1] = {viewport_max.x + offset.x, viewport_max.y + offset.y};
+
+			m_viewport_focused = ImGui::IsWindowFocused();
+			m_viewport_hovered = ImGui::IsWindowHovered();
+
+			const auto size_avail = ImGui::GetContentRegionAvail();
+			if (size_avail != m_viewport_size)
+			{
+				m_viewport_size = size_avail;
+				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
+				m_editor_camera.set_viewport(m_viewport_size.x, m_viewport_size.y);
+			}
+
+			ui::imgui_image(m_framebuffer, m_viewport_size);
+		}
+
+		ImGui::PopStyleVar(1);
+		ImGui::End();
+	}
+
 	void Editor::code_editor()
 	{
 		ImGui::Begin("CodeEditor", nullptr, ImGuiWindowFlags_MenuBar);
@@ -1036,35 +1066,6 @@ namespace sc
 
 			ImGui::EndMenu();
 		}
-	}
-
-	void Editor::viewport()
-	{
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
-		{
-			const auto viewport_min = ImGui::GetWindowContentRegionMin();
-			const auto viewport_max = ImGui::GetWindowContentRegionMax();
-			const auto offset       = ImGui::GetWindowPos();
-
-			m_viewport_bounds[0] = {viewport_min.x + offset.x, viewport_min.y + offset.y};
-			m_viewport_bounds[1] = {viewport_max.x + offset.x, viewport_max.y + offset.y};
-
-			m_viewport_focused = ImGui::IsWindowFocused();
-			m_viewport_hovered = ImGui::IsWindowHovered();
-
-			const auto size_avail = ImGui::GetContentRegionAvail();
-			if (size_avail != m_viewport_size)
-			{
-				m_viewport_size = size_avail;
-				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
-			}
-
-			ui::imgui_image(m_framebuffer, m_viewport_size);
-		}
-
-		ImGui::PopStyleVar(1);
-		ImGui::End();
 	}
 
 	void Editor::recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path)
