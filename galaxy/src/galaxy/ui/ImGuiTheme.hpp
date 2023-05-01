@@ -17,20 +17,19 @@ namespace galaxy
 		///
 		enum class ImguiThemeId : int
 		{
-			LIGHT,
 			DARK,
-			CLASSIC,
-			ENHANCED_LIGHT,
+			DRACULA,
 			MATERIAL_DARK,
 			VISUAL_DARK,
 			FANCY_DARK,
-			DARK_EMBRACE
+			DARK_EMBRACE,
+			ENHANCED_DARK
 		};
 
 		///
-		/// An enhanced light theme reminiscent of OS X.
+		/// Dracula inspired dark theme.
 		///
-		void imgui_theme_enhanced_light();
+		void imgui_theme_dracula();
 
 		///
 		/// A classic material dark theme.
@@ -51,6 +50,11 @@ namespace galaxy
 		/// "Dark Embrace" theme.
 		///
 		void imgui_theme_dark_embrace();
+
+		///
+		/// An enhanced dark theme.
+		///
+		void imgui_theme_enhanced_dark();
 	} // namespace ui
 } // namespace galaxy
 

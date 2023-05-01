@@ -391,7 +391,10 @@ namespace ImGui_Notify
 		ImFontConfig icons_config;
 		icons_config.MergeMode            = true;
 		icons_config.PixelSnapH           = true;
+		icons_config.OversampleH          = 1;
+		icons_config.OversampleV          = 1;
 		icons_config.FontDataOwnedByAtlas = FontDataOwnedByAtlas;
+		icons_config.RasterizerMultiply   = 0.95f;
 
 		ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)materialdesignicons_ttf, sizeof(materialdesignicons_ttf), font_size, &icons_config, icons_ranges);
 	}

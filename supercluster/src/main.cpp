@@ -75,32 +75,25 @@ int main(int argsc, char* argsv[])
 				ImFontConfig font_cfg         = {};
 				font_cfg.FontDataOwnedByAtlas = false;
 				font_cfg.RasterizerMultiply   = 1.5f;
-				font_cfg.OversampleH          = 4;
+				font_cfg.OversampleH          = 1;
+				font_cfg.OversampleV          = 1;
 				font_cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
-				ImGui_Notify::MergeIconsWithLatestFont(16.f, false);
+				ImGui_Notify::MergeIconsWithLatestFont(16.0f, false);
 
-				config.restore<std::string>("theme", "CLASSIC", "editor");
+				config.restore<std::string>("theme", "DARK", "editor");
 				config.save();
 
 				const auto theme = magic_enum::enum_cast<ui::ImguiThemeId>(config.get<std::string>("theme", "editor"));
 				if (theme.has_value())
 				{
-					if (theme.value() == ui::ImguiThemeId::LIGHT)
-					{
-						ImGui::StyleColorsLight();
-					}
-					else if (theme.value() == ui::ImguiThemeId::DARK)
+					if (theme.value() == ui::ImguiThemeId::DARK)
 					{
 						ImGui::StyleColorsDark();
 					}
-					else if (theme.value() == ui::ImguiThemeId::CLASSIC)
+					else if (theme.value() == ui::ImguiThemeId::DRACULA)
 					{
-						ImGui::StyleColorsClassic();
-					}
-					else if (theme.value() == ui::ImguiThemeId::ENHANCED_LIGHT)
-					{
-						ui::imgui_theme_enhanced_light();
+						ui::imgui_theme_dracula();
 					}
 					else if (theme.value() == ui::ImguiThemeId::MATERIAL_DARK)
 					{
@@ -117,6 +110,10 @@ int main(int argsc, char* argsv[])
 					else if (theme.value() == ui::ImguiThemeId::DARK_EMBRACE)
 					{
 						ui::imgui_theme_dark_embrace();
+					}
+					else if (theme.value() == ui::ImguiThemeId::ENHANCED_DARK)
+					{
+						ui::imgui_theme_enhanced_dark();
 					}
 				}
 
