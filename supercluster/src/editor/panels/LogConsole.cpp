@@ -5,7 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <imgui_addons/material_design_icons.h>
+
 #include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/utils/StringUtils.hpp>
 
 #include "LogConsole.hpp"
 
@@ -15,22 +18,11 @@ namespace sc
 	{
 		LogConsole::LogConsole()
 			: m_sink {nullptr}
-			, m_icon_size {16, 16}
+			, m_icon_size {32, 32}
 			, m_show_info {true}
 			, m_show_warning {true}
 			, m_show_error {true}
 		{
-			m_info.load("../editor_data/icons/info.png");
-			m_info.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_info.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_warning.load("../editor_data/icons/warning.png");
-			m_warning.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_warning.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_error.load("../editor_data/icons/error.png");
-			m_error.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_error.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
 		LogConsole::~LogConsole()
@@ -53,23 +45,23 @@ namespace sc
 				}
 
 				ImGui::SameLine();
-				ImGui::SetCursorPosX(ImGui::GetContentRegionAvail().x - 48);
+				ImGui::SetCursorPosX(ImGui::GetContentRegionAvail().x - 56);
 
-				if (ui::imgui_imagebutton(m_info, m_icon_size))
+				if (ImGui::Button(ICON_MDI_INFORMATION, m_icon_size))
 				{
 					m_show_info = !m_show_info;
 				}
 
 				ImGui::SameLine();
 
-				if (ui::imgui_imagebutton(m_warning, m_icon_size))
+				if (ImGui::Button(ICON_MDI_ALERT, m_icon_size))
 				{
 					m_show_warning = !m_show_warning;
 				}
 
 				ImGui::SameLine();
 
-				if (ui::imgui_imagebutton(m_error, m_icon_size))
+				if (ImGui::Button(ICON_MDI_ALERT_CIRCLE, m_icon_size))
 				{
 					m_show_error = !m_show_error;
 				}

@@ -887,8 +887,6 @@
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_addons\fa_solid_900.h" />
-    <ClInclude Include="imgui\imgui_addons\font_awesome_5.h" />
     <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
@@ -898,6 +896,8 @@
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
     <ClInclude Include="imgui\imgui_addons\imspinner.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
     <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
     <ClInclude Include="imgui\imgui_freetype.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />

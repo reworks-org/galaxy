@@ -8,8 +8,8 @@
 #include <chrono>
 #include <vector>
 #include <string>
-#include "font_awesome_5.h"
-#include "fa_solid_900.h"
+#include "material_design_icons.h"
+#include "material_design_icons_ttf.h"
 #include "../imgui.h"
 
 #define NOTIFY_MAX_MSG_LENGTH    4096 // Max message content length
@@ -169,13 +169,13 @@ public:
 			default:
 				return NULL;
 			case ImGuiToastType_Success:
-				return ICON_FA_CHECK_CIRCLE;
+				return ICON_MDI_CHECK_CIRCLE;
 			case ImGuiToastType_Warning:
-				return ICON_FA_EXCLAMATION_TRIANGLE;
+				return ICON_MDI_ALERT;
 			case ImGuiToastType_Error:
-				return ICON_FA_TIMES_CIRCLE;
+				return ICON_MDI_ALERT_CIRCLE;
 			case ImGuiToastType_Info:
-				return ICON_FA_INFO_CIRCLE;
+				return ICON_MDI_INFORMATION;
 		}
 	}
 
@@ -386,14 +386,14 @@ namespace ImGui_Notify
 	/// </summary>
 	inline void MergeIconsWithLatestFont(float font_size, bool FontDataOwnedByAtlas = false)
 	{
-		static const ImWchar icons_ranges[] = {ICON_MIN_FA, ICON_MAX_FA, 0};
+		static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
 
 		ImFontConfig icons_config;
 		icons_config.MergeMode            = true;
 		icons_config.PixelSnapH           = true;
 		icons_config.FontDataOwnedByAtlas = FontDataOwnedByAtlas;
 
-		ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)fa_solid_900, sizeof(fa_solid_900), font_size, &icons_config, icons_ranges);
+		ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)materialdesignicons_ttf, sizeof(materialdesignicons_ttf), font_size, &icons_config, icons_ranges);
 	}
 } // namespace ImGui_Notify
 

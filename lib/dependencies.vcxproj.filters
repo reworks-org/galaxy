@@ -1357,8 +1357,6 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Debugger.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Lua.h" />
-    <ClInclude Include="imgui\imgui_addons\fa_solid_900.h" />
-    <ClInclude Include="imgui\imgui_addons\font_awesome_5.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle.h" />
@@ -1395,6 +1393,8 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_map.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_set.hpp" />
     <ClInclude Include="rmlui\Source\Core\ScrollController.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

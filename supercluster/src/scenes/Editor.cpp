@@ -41,18 +41,6 @@ namespace sc
 		m_framebuffer.create(1, 1);
 		m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
 
-		m_resume_play.load("../editor_data/icons/resume_play.png");
-		m_resume_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_resume_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-		m_play.load("../editor_data/icons/play.png");
-		m_play.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_play.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-		m_stop.load("../editor_data/icons/stop.png");
-		m_stop.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_stop.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
 		auto& config = core::ServiceLocator<core::Config>::ref();
 		config.restore("autosave_interval_seconds", 300, "editor");
 
@@ -521,14 +509,14 @@ namespace sc
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - (m_icon_size.x * 2) - 8.0f);
 			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			if (ImGui::Button(ICON_FA_COG))
+			if (ImGui::Button(ICON_MDI_COG))
 			{
 				m_show_settings = !m_show_settings;
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - m_icon_size.x);
 			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			ImGui::Text(ICON_FA_QUESTION_CIRCLE);
+			ImGui::Text(ICON_MDI_HELP_BOX);
 			if (ImGui::IsItemHovered())
 			{
 				ImGui::BeginTooltip();
@@ -541,7 +529,7 @@ namespace sc
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
 			if (!m_paused)
 			{
-				if (ui::imgui_imagebutton(m_stop, m_icon_size))
+				if (ImGui::Button(ICON_MDI_STOP, m_icon_size))
 				{
 					m_paused  = true;
 					m_restore = true;
@@ -549,14 +537,18 @@ namespace sc
 			}
 			else
 			{
-				if (ui::imgui_imagebutton(m_play, m_icon_size))
+				if (ImGui::Button(ICON_MDI_PLAY, m_icon_size))
 				{
 					m_paused = false;
 					m_backup = m_project_scenes.serialize();
 				}
 			}
 
-			if (ui::imgui_imagebutton(m_resume_play, m_icon_size))
+			if (ImGui::Button(ICON_MDI_PAUSE, m_icon_size))
+			{
+			}
+
+			if (ImGui::Button(ICON_MDI_BUG_PLAY, m_icon_size))
 			{
 				if (m_project_scenes.has_current())
 				{

@@ -100,9 +100,6 @@ namespace sc
 		scene::SceneManager m_project_scenes;
 		graphics::RenderTexture m_framebuffer;
 
-		graphics::Texture m_resume_play;
-		graphics::Texture m_play;
-		graphics::Texture m_stop;
 
 		async::Timer m_autosave;
 

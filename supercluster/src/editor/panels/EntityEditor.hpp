@@ -9,7 +9,7 @@
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 
 #include <imgui_internal.h>
-#include <imgui_addons/font_awesome_5.h>
+#include <imgui_addons/material_design_icons.h>
 
 #include <galaxy/components/Script.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -91,7 +91,7 @@ namespace sc
 				ImGui::SameLine(content_region.x - line_height * 0.5f);
 
 				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
-				const auto pressed = ImGui::Button(ICON_FA_COG);
+				const auto pressed = ImGui::Button(ICON_MDI_COG);
 
 				if (pressed)
 				{

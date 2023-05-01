@@ -30,10 +30,6 @@ namespace sc
 			EditorSink* m_sink;
 			ImVec2 m_icon_size;
 
-			galaxy::graphics::Texture m_info;
-			galaxy::graphics::Texture m_warning;
-			galaxy::graphics::Texture m_error;
-
 			bool m_show_info;
 			bool m_show_warning;
 			bool m_show_error;
