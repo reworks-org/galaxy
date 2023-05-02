@@ -128,8 +128,13 @@ namespace sc
 					if (ImGui::IsMouseDown(ImGuiMouseButton_Right) && m_editor_cam_enabled)
 					{
 						ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+
+						m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+						m_editor_camera.translate(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
+						m_imgui_mouse_delta = {0.0f, 0.0f};
 					}
-					else
+
+					if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_editor_cam_enabled)
 					{
 						ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 					}

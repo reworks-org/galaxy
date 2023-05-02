@@ -128,6 +128,16 @@ namespace galaxy
 			void set_zoom(const float offset);
 
 			///
+			/// \brief Moves camera.
+			///
+			/// Adds to the current position, not set.
+			///
+			/// \param x Distance to translate on x axis.
+			/// \param y Distance to translate on y axis.
+			///
+			void translate(const float x, const float y);
+
+			///
 			/// Get camera x pos.
 			///
 			/// \return Float.

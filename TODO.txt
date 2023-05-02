@@ -30,5 +30,3 @@ rml file reloading
 larger text font icons
 
 handle custom mouse cursors in editor
-ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
-imgui camera viewport dragging

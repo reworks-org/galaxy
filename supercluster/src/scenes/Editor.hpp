@@ -96,6 +96,7 @@ namespace sc
 
 		ImVec2 m_viewport_size = {0.0f, 0.0f};
 		std::array<glm::vec2, 2> m_viewport_bounds;
+		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 
 		graphics::Texture m_camera_btn;
 		graphics::Texture m_editor_cam_btn;

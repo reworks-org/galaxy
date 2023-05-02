@@ -199,6 +199,12 @@ namespace galaxy
 			m_zoom = offset;
 		}
 
+		void Camera::translate(const float x, const float y)
+		{
+			m_pos.x += x;
+			m_pos.y += y;
+		}
+
 		float Camera::get_x() const
 		{
 			return m_pos.x;

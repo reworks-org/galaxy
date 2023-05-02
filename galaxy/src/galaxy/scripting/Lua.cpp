@@ -694,6 +694,7 @@ namespace galaxy
 			camera_type["get_proj"]          = &graphics::Camera::get_proj;
 			camera_type["get_zoom"]          = &graphics::Camera::get_zoom;
 			camera_type["set_zoom"]          = &graphics::Camera::set_zoom;
+			camera_type["translate"]         = &graphics::Camera::translate;
 			camera_type["allow_rotate"]      = &graphics::Camera::m_allow_rotate;
 			camera_type["rotation_speed"]    = &graphics::Camera::m_rotation_speed;
 			camera_type["translation_speed"] = &graphics::Camera::m_translation_speed;
