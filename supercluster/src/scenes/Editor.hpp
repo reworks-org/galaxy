@@ -72,27 +72,31 @@ namespace sc
 
 		unsigned int m_mousepick_buffer;
 
-		bool m_paused              = true;
-		bool m_game_mode           = false;
-		bool m_viewport_focused    = false;
-		bool m_viewport_hovered    = false;
-		bool m_use_mouse_hand      = false;
-		bool m_show_settings       = false;
-		bool m_restore             = false;
-		bool m_show_exportprogress = false;
+		bool m_paused           = true;
+		bool m_game_mode        = false;
+		bool m_viewport_focused = false;
+		bool m_viewport_hovered = false;
+		bool m_use_mouse_hand   = false;
+		bool m_restore          = false;
 
-		bool m_show_scenes     = true;
-		bool m_show_entities   = true;
-		bool m_show_viewport   = true;
-		bool m_show_assetpanel = true;
-		bool m_show_logpanel   = true;
-		bool m_show_luapanel   = true;
-		bool m_show_jsonpanel  = true;
-		bool m_show_codeeditor = true;
+		bool m_show_scenes         = true;
+		bool m_show_entities       = true;
+		bool m_show_viewport       = true;
+		bool m_show_assetpanel     = true;
+		bool m_show_logpanel       = true;
+		bool m_show_luapanel       = true;
+		bool m_show_jsonpanel      = true;
+		bool m_show_codeeditor     = true;
+		bool m_show_settings       = false;
+		bool m_show_exportprogress = false;
+		bool m_show_about          = false;
+		bool m_about_control       = true;
 
 		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
 		ImVec2 m_viewport_size     = {0.0f, 0.0f};
-		ImVec2 m_icon_size         = {20, 20};
+		ImVec2 m_icon_size         = {24, 24};
+		ImVec2 m_icon_size_large   = {48, 48};
+		ImVec2 m_padding           = {4, 4};
 
 		Selected m_selected_entity;
 

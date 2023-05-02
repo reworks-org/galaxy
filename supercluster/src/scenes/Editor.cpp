@@ -444,7 +444,7 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::BeginMenu("View"))
+			if (ImGui::BeginMenu("Panels"))
 			{
 				if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
 				{
@@ -507,23 +507,78 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
-			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - (m_icon_size.x * 2) - 8.0f);
-			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			if (ImGui::Button(ICON_MDI_COG))
+			if (ImGui::BeginMenu("Theme"))
+			{
+				auto& config = core::ServiceLocator<core::Config>::ref();
+
+				if (ImGui::MenuItem("Dark"))
+				{
+					ImGui::StyleColorsDark();
+
+					config.set<std::string>("theme", "DARK", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Dracula"))
+				{
+					ui::imgui_theme_dracula();
+
+					config.set<std::string>("theme", "DRACULA", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Material Dark"))
+				{
+					ui::imgui_theme_material_dark();
+
+					config.set<std::string>("theme", "MATERIAL_DARK", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Visual Dark"))
+				{
+					ui::imgui_theme_visual_dark();
+
+					config.set<std::string>("theme", "VISUAL_DARK", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Fancy Dark"))
+				{
+					ui::imgui_theme_fancy_dark();
+
+					config.set<std::string>("theme", "FANCY_DARK", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Dark Embrace"))
+				{
+					ui::imgui_theme_dark_embrace();
+
+					config.set<std::string>("theme", "DARK_EMBRACE", "editor");
+					config.save();
+				}
+
+				if (ImGui::MenuItem("Enhanced Dark"))
+				{
+					ui::imgui_theme_enhanced_dark();
+
+					config.set<std::string>("theme", "ENHANCED_DARK", "editor");
+					config.save();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::MenuItem("Settings"))
 			{
 				m_show_settings = !m_show_settings;
 			}
 
-			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - m_icon_size.x);
-			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-			ImGui::Text(ICON_MDI_HELP_BOX);
-			if (ImGui::IsItemHovered())
+			if (ImGui::MenuItem("About"))
 			{
-				ImGui::BeginTooltip();
-				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-				ImGui::Text("supercluster (alpha)\nLicensed under Apache 2.0.");
-				ImGui::PopTextWrapPos();
-				ImGui::EndTooltip();
+				m_show_about    = true;
+				m_about_control = true;
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
@@ -564,6 +619,19 @@ namespace sc
 			}
 
 			ImGui::EndMenuBar();
+		}
+
+		if (m_show_about)
+		{
+			m_show_about = false;
+
+			ImGui::OpenPopup("About##MenuBarAboutPopup");
+		}
+
+		if (ImGui::BeginPopupModal("About##MenuBarAboutPopup", &m_about_control))
+		{
+			ImGui::TextWrapped("Galaxy Game Engine\nSupercluster Editor\nLicensed under Apache 2.0.");
+			ImGui::EndPopup();
 		}
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_N))
@@ -720,77 +788,6 @@ namespace sc
 					if (ImGui::MenuItem("Refresh"))
 					{
 						m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
-					}
-
-					if (ImGui::BeginMenu("Theme"))
-					{
-						auto& config = core::ServiceLocator<core::Config>::ref();
-
-						if (ImGui::MenuItem("Classic"))
-						{
-							ImGui::StyleColorsClassic();
-
-							config.set<std::string>("theme", "CLASSIC", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Light"))
-						{
-							ImGui::StyleColorsLight();
-
-							config.set<std::string>("theme", "LIGHT", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Dark"))
-						{
-							ImGui::StyleColorsDark();
-
-							config.set<std::string>("theme", "DARK", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Enhanced Light"))
-						{
-							ui::imgui_theme_enhanced_light();
-
-							config.set<std::string>("theme", "ENHANCED_LIGHT", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Material Dark"))
-						{
-							ui::imgui_theme_material_dark();
-
-							config.set<std::string>("theme", "MATERIAL_DARK", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Visual Dark"))
-						{
-							ui::imgui_theme_visual_dark();
-
-							config.set<std::string>("theme", "VISUAL_DARK", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Fancy Dark"))
-						{
-							ui::imgui_theme_fancy_dark();
-
-							config.set<std::string>("theme", "FANCY_DARK", "editor");
-							config.save();
-						}
-
-						if (ImGui::MenuItem("Dark Embrace"))
-						{
-							ui::imgui_theme_dark_embrace();
-
-							config.set<std::string>("theme", "DARK_EMBRACE", "editor");
-							config.save();
-						}
-
-						ImGui::EndMenu();
 					}
 
 					ImGui::EndMenuBar();
