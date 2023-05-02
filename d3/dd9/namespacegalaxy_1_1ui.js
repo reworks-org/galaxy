@@ -6,14 +6,13 @@ var namespacegalaxy_1_1ui =
     [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer" ],
     [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem" ],
     [ "ImguiThemeId", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08e", [
-      [ "LIGHT", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaf8589806bbf66241917092b2a6e18c6f", null ],
       [ "DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaacaef50d33fc86532c260a045c672f3e", null ],
-      [ "CLASSIC", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea21994d6177b29e1128b2d7f0f8342057", null ],
-      [ "ENHANCED_LIGHT", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea1c14cf35078a6b14e9db0a79b9576f2c", null ],
+      [ "DRACULA", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d", null ],
       [ "MATERIAL_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eab665c6161d7629daa05f2d91b0a0c38e", null ],
       [ "VISUAL_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eabd742fa443d1de350b8755b68b62bdf0", null ],
       [ "FANCY_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0d515c5fb3a08473299741def918fa8c", null ],
-      [ "DARK_EMBRACE", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0275132ebf2c592c60cd3228cd77ba99", null ]
+      [ "DARK_EMBRACE", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0275132ebf2c592c60cd3228cd77ba99", null ],
+      [ "ENHANCED_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaea0263b117e1728c2a77ba4418226613", null ]
     ] ],
     [ "imgui_init_context", "d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db", null ],
     [ "imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
@@ -26,9 +25,10 @@ var namespacegalaxy_1_1ui =
     [ "imgui_imagebutton", "d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e", null ],
-    [ "imgui_theme_enhanced_light", "d3/dd9/namespacegalaxy_1_1ui.html#a2bed6388ccdaf5a59b2e96216c527121", null ],
+    [ "imgui_theme_dracula", "d3/dd9/namespacegalaxy_1_1ui.html#afcdac5ef6bbc1b3b58260439b77a7c68", null ],
     [ "imgui_theme_material_dark", "d3/dd9/namespacegalaxy_1_1ui.html#a52d063c3ffe3e6ec5f38b1a1131c5f78", null ],
     [ "imgui_theme_visual_dark", "d3/dd9/namespacegalaxy_1_1ui.html#ab66bb91bd86c9a7b8ea279327c659992", null ],
     [ "imgui_theme_fancy_dark", "d3/dd9/namespacegalaxy_1_1ui.html#a1cf2fc9ad5cc58af83cb1bab81ae751a", null ],
-    [ "imgui_theme_dark_embrace", "d3/dd9/namespacegalaxy_1_1ui.html#aae1e0fc3b8f44f5381db416b4d84d94e", null ]
+    [ "imgui_theme_dark_embrace", "d3/dd9/namespacegalaxy_1_1ui.html#aae1e0fc3b8f44f5381db416b4d84d94e", null ],
+    [ "imgui_theme_enhanced_dark", "d3/dd9/namespacegalaxy_1_1ui.html#aacdac9efb274ac360d676372c4f10dd9", null ]
 ];

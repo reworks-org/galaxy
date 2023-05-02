@@ -34,12 +34,13 @@ var searchData=
   ['disable_5fsticky_5fmouse_220',['disable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688',1,'galaxy::input::Mouse']]],
   ['donotuserefertoconfigformacronames_221',['doNotUseReferToConfigForMacroNames',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html',1,'galaxy']]],
   ['down_222',['DOWN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac4e0e4e3118472beeb2ae75827450f1f',1,'galaxy::input']]],
-  ['draw_223',['draw',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b',1,'galaxy::graphics::Renderer']]],
-  ['draw_5fcount_224',['draw_count',['../d1/daa/structGfx_1_1CompiledGeometryData.html#a8764ad3fe27e949a22f76eaafca6b5cb',1,'Gfx::CompiledGeometryData']]],
-  ['draw_5ftexture_5fto_5fframebuffer_225',['draw_texture_to_framebuffer',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04',1,'galaxy::graphics::Renderer']]],
-  ['draw_5ftexture_5fto_5ftarget_226',['draw_texture_to_target',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88',1,'galaxy::graphics::Renderer']]],
-  ['drawshader_227',['DrawShader',['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a44720fcab2e8778e7db3f8e97180679f',1,'galaxy::components::DrawShader::DrawShader(const DrawShader &amp;)=delete'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a3b6a934e06d97d212f61ead7d277564d',1,'galaxy::components::DrawShader::DrawShader(DrawShader &amp;&amp;)'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#adc49e1cb5e3cc6f06d085e1ea1590fc8',1,'galaxy::components::DrawShader::DrawShader(const nlohmann::json &amp;json)'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a3a8b2962ac96d2cf6e93812d83d4562c',1,'galaxy::components::DrawShader::DrawShader()'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html',1,'galaxy::components::DrawShader']]],
-  ['drawshader_2ecpp_228',['DrawShader.cpp',['../d2/d71/DrawShader_8cpp.html',1,'']]],
-  ['drawshader_2ehpp_229',['DrawShader.hpp',['../de/d0d/DrawShader_8hpp.html',1,'']]],
-  ['dynamic_5fdraw_230',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
+  ['dracula_223',['DRACULA',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d',1,'galaxy::ui']]],
+  ['draw_224',['draw',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b',1,'galaxy::graphics::Renderer']]],
+  ['draw_5fcount_225',['draw_count',['../d1/daa/structGfx_1_1CompiledGeometryData.html#a8764ad3fe27e949a22f76eaafca6b5cb',1,'Gfx::CompiledGeometryData']]],
+  ['draw_5ftexture_5fto_5fframebuffer_226',['draw_texture_to_framebuffer',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04',1,'galaxy::graphics::Renderer']]],
+  ['draw_5ftexture_5fto_5ftarget_227',['draw_texture_to_target',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88',1,'galaxy::graphics::Renderer']]],
+  ['drawshader_228',['DrawShader',['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a44720fcab2e8778e7db3f8e97180679f',1,'galaxy::components::DrawShader::DrawShader(const DrawShader &amp;)=delete'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a3b6a934e06d97d212f61ead7d277564d',1,'galaxy::components::DrawShader::DrawShader(DrawShader &amp;&amp;)'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#adc49e1cb5e3cc6f06d085e1ea1590fc8',1,'galaxy::components::DrawShader::DrawShader(const nlohmann::json &amp;json)'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a3a8b2962ac96d2cf6e93812d83d4562c',1,'galaxy::components::DrawShader::DrawShader()'],['../d2/d46/classgalaxy_1_1components_1_1DrawShader.html',1,'galaxy::components::DrawShader']]],
+  ['drawshader_2ecpp_229',['DrawShader.cpp',['../d2/d71/DrawShader_8cpp.html',1,'']]],
+  ['drawshader_2ehpp_230',['DrawShader.hpp',['../de/d0d/DrawShader_8hpp.html',1,'']]],
+  ['dynamic_5fdraw_231',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
 ];
