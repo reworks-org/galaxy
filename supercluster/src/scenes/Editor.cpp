@@ -29,6 +29,7 @@ namespace sc
 {
 	Editor::Editor()
 		: Scene()
+		, m_editor_camera {true}
 	{
 		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
 		m_code_editor.m_editor.SetPalette(TextEditor::GetDarkPalette());
@@ -54,6 +55,14 @@ namespace sc
 		auto& fb           = m_framebuffer.get_framebuffer();
 		m_mousepick_buffer = fb.add_storage_attachment();
 		fb.create();
+
+		m_camera_btn.load("../editor_data/icons/camera.png");
+		m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_editor_cam_btn.load("../editor_data/icons/video.png");
+		m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+		m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 	}
 
 	Editor::~Editor()
@@ -76,79 +85,92 @@ namespace sc
 
 	void Editor::update()
 	{
-		if (m_restore)
+		for (const auto& update : m_update_stack)
 		{
-			m_project_scenes.deserialize(m_backup);
-			m_restore = false;
+			update();
 		}
+
+		m_update_stack.clear();
 
 		if (!m_game_mode)
 		{
-			if (m_viewport_focused && m_viewport_hovered)
+			if (m_stopped)
 			{
-				if (ImGui::IsMouseDown(ImGuiMouseButton_Left) && m_paused)
+				if (m_viewport_focused && m_viewport_hovered)
 				{
-					auto [mx, my] = ImGui::GetMousePos();
-					mx -= m_viewport_bounds[0].x;
-					my -= m_viewport_bounds[0].y;
-
-					const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
-					my              = size.y - my;
-
-					if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
+					if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
 					{
-						auto& fb = m_framebuffer.get_framebuffer();
+						auto [mx, my] = ImGui::GetMousePos();
+						mx -= m_viewport_bounds[0].x;
+						my -= m_viewport_bounds[0].y;
 
-						const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
-						if (entity == -1)
+						const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
+						my              = size.y - my;
+
+						if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
 						{
-							m_selected_entity.m_selected = entt::null;
-							m_selected_entity.m_world    = nullptr;
-						}
-						else
-						{
-							m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
-							m_selected_entity.m_world    = &m_project_scenes.current().m_world;
+							auto& fb = m_framebuffer.get_framebuffer();
+
+							const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
+							if (entity == -1)
+							{
+								m_selected_entity.m_selected = entt::null;
+								m_selected_entity.m_world    = nullptr;
+							}
+							else
+							{
+								m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
+								m_selected_entity.m_world    = &m_project_sm.current().m_world;
+							}
 						}
 					}
-				}
 
-				if (m_project_scenes.has_current())
-				{
-					if (!m_paused)
+					if (ImGui::IsMouseDown(ImGuiMouseButton_Right) && m_editor_cam_enabled)
 					{
-						ImGui_ImplGlfw_ToggleInput(true);
-						m_project_scenes.current().update();
+						ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
 					}
 					else
 					{
-						m_project_scenes.current().m_world.update_rendersystem();
+						ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 					}
+				}
+
+				if (m_project_sm.has_current())
+				{
+					m_project_sm.current().m_world.update_rendersystem();
 				}
 			}
 			else
 			{
-				ImGui_ImplGlfw_ToggleInput(false);
+				m_project_sm.current().update();
+
+				if (input::Input::key_down(input::Keys::LEFT_ALT))
+				{
+					ImGui_ImplGlfw_ToggleInput(false);
+				}
+				else
+				{
+					ImGui_ImplGlfw_ToggleInput(true);
+				}
 			}
 
-			for (const auto& update : m_update_stack)
-			{
-				update();
-			}
-
-			m_update_stack.clear();
 			m_autosave.update();
 		}
 		else
 		{
-			if (input::Input::key_down(input::Keys::ESCAPE))
+			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
 			{
 				ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
-				m_restore   = true;
-			}
 
-			m_project_scenes.current().update();
+				m_update_stack.push_back([&]() {
+					m_project_sm.deserialize(m_backup);
+				});
+			}
+			else
+			{
+				m_project_sm.current().update();
+			}
 		}
 	}
 
@@ -160,15 +182,14 @@ namespace sc
 		}
 		else
 		{
-			m_project_scenes.current().render();
+			m_project_sm.current().render();
 		}
 	}
 
 	void Editor::new_project()
 	{
 		core::ServiceLocator<core::Window>::ref().set_title("Untitled Project");
-
-		m_project_scenes.clear();
+		m_project_sm.clear();
 	}
 
 	void Editor::load_project(std::string_view path)
@@ -202,7 +223,7 @@ namespace sc
 			{
 				const auto& scenes = json.value().at("app_data");
 
-				m_project_scenes.deserialize(scenes);
+				m_project_sm.deserialize(scenes);
 				core::ServiceLocator<core::Window>::ref().set_title(fs_path.stem().string().c_str());
 			}
 			else
@@ -245,7 +266,7 @@ namespace sc
 
 				nlohmann::json out_json = "{\"settings\":{},\"app_data\":{}}"_json;
 
-				out_json["app_data"] = m_project_scenes.serialize();
+				out_json["app_data"] = m_project_sm.serialize();
 				out_json["settings"] = m_settings.save();
 
 				auto data = out_json.dump(4);
@@ -288,7 +309,7 @@ namespace sc
 			std::ofstream app_data;
 			std::ofstream app_config;
 
-			auto data = m_project_scenes.serialize().dump(4);
+			auto data = m_project_sm.serialize().dump(4);
 			data      = algorithm::encode_base64(data);
 			data      = algorithm::encode_zlib(data);
 
@@ -342,30 +363,25 @@ namespace sc
 #ifdef _DEBUG
 		static bool s_show_demo = false;
 #endif
-
 		static GLint s_cur_fbo = 0;
 		glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
 
 		static GLint s_viewport[4] = {0, 0, 0, 0};
 		glGetIntegerv(GL_VIEWPORT, s_viewport);
 
-		if (!graphics::Renderer::get_data().empty())
-		{
-			m_render_data = graphics::Renderer::get_data();
-		}
-
-		auto& data = graphics::Renderer::get_data();
-		data       = m_render_data;
-
 		m_framebuffer.bind(true);
 		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
 
-		if (m_project_scenes.has_current())
+		if (m_project_sm.has_current())
 		{
-			m_project_scenes.current().render();
+			if (m_stopped && m_editor_cam_enabled)
+			{
+				graphics::Renderer::buffer_camera(m_editor_camera);
+			}
+
+			m_project_sm.current().render();
 		}
 
-		graphics::Renderer::draw();
 		graphics::Renderer::flush();
 
 		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
@@ -373,25 +389,17 @@ namespace sc
 
 		ui::imgui_new_frame();
 
-		if (m_use_mouse_hand)
-		{
-			ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-		}
-
 		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
 															   ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
 															   ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground;
-		static constexpr const ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode;
-
-		static constexpr const auto size = ImVec2 {0.0f, 0.0f};
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, size);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, m_no_padding);
 		ImGui::Begin("Main Viewport", nullptr, window_flags);
 		ImGui::PopStyleVar(3);
 
-		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), size, dockspace_flags);
+		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), m_no_padding, ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode);
 		if (ImGui::BeginMenuBar())
 		{
 			if (ImGui::BeginMenu("File"))
@@ -582,35 +590,44 @@ namespace sc
 			}
 
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
-			if (!m_paused)
+			if (m_stopped)
 			{
-				if (ImGui::Button(ICON_MDI_STOP, m_icon_size))
+				if (ImGui::Button(ICON_MDI_PLAY, m_icon_size))
 				{
-					m_paused  = true;
-					m_restore = true;
+					if (m_project_sm.has_current())
+					{
+						ImGui_ImplGlfw_ToggleInput(true);
+
+						m_backup  = m_project_sm.serialize();
+						m_stopped = false;
+					}
+					else
+					{
+						ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "No active scene."});
+					}
 				}
 			}
 			else
 			{
-				if (ImGui::Button(ICON_MDI_PLAY, m_icon_size))
+				if (ImGui::Button(ICON_MDI_STOP, m_icon_size))
 				{
-					m_paused = false;
-					m_backup = m_project_scenes.serialize();
-				}
-			}
+					ImGui_ImplGlfw_ToggleInput(false);
 
-			if (ImGui::Button(ICON_MDI_PAUSE, m_icon_size))
-			{
+					m_stopped = true;
+					m_update_stack.push_back([&]() {
+						m_project_sm.deserialize(m_backup);
+					});
+				}
 			}
 
 			if (ImGui::Button(ICON_MDI_BUG_PLAY, m_icon_size))
 			{
-				if (m_project_scenes.has_current())
+				if (m_project_sm.has_current())
 				{
 					ImGui_ImplGlfw_ToggleInput(true);
 
 					m_game_mode = true;
-					m_backup    = m_project_scenes.serialize();
+					m_backup    = m_project_sm.serialize();
 				}
 				else
 				{
@@ -631,6 +648,8 @@ namespace sc
 		if (ImGui::BeginPopupModal("About##MenuBarAboutPopup", &m_about_control))
 		{
 			ImGui::TextWrapped("Galaxy Game Engine\nSupercluster Editor\nLicensed under Apache 2.0.");
+			ImGui::Spacing();
+			ImGui::TextWrapped("Controls:\nTo exit game mode, press SHIFT+TAB.\nWhen viewport is running, hold LEFT ALT to restore ImGui input.");
 			ImGui::EndPopup();
 		}
 
@@ -762,7 +781,7 @@ namespace sc
 
 		if (m_show_scenes)
 		{
-			m_scene_panel.render(m_project_scenes, m_selected_entity, m_update_stack);
+			m_scene_panel.render(m_project_sm, m_selected_entity, m_update_stack);
 		}
 
 		if (m_show_entities)
@@ -853,7 +872,7 @@ namespace sc
 
 	void Editor::viewport()
 	{
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, m_no_padding);
 		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 		{
 			const auto viewport_min = ImGui::GetWindowContentRegionMin();
@@ -872,6 +891,31 @@ namespace sc
 				m_viewport_size = size_avail;
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
 				m_editor_camera.set_viewport(m_viewport_size.x, m_viewport_size.y);
+			}
+
+			if (m_stopped)
+			{
+				ImGui::BeginGroup();
+				{
+					ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f);
+					ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, m_padding);
+
+					ImGui::SetCursorPos(ImGui::GetCursorPos() + m_padding);
+					if (ui::imgui_imagebutton(m_camera_btn, m_icon_size_large))
+					{
+						m_editor_cam_enabled = false;
+					}
+
+					ImGui::SameLine();
+
+					if (ui::imgui_imagebutton(m_editor_cam_btn, m_icon_size_large))
+					{
+						m_editor_cam_enabled = true;
+					}
+
+					ImGui::PopStyleVar(2);
+				}
+				ImGui::EndGroup();
 			}
 
 			ui::imgui_image(m_framebuffer, m_viewport_size);

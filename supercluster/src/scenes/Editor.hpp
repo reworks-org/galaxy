@@ -55,9 +55,8 @@ namespace sc
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
 	private:
+		async::Timer m_autosave;
 		platform::Subprocess m_tiled_process;
-
-		Settings m_settings;
 
 		panel::LuaConsole m_lua_console;
 		panel::LogConsole m_log_console;
@@ -66,18 +65,9 @@ namespace sc
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
 
+		Settings m_settings;
 		CodeEditor m_code_editor;
-
 		UpdateStack m_update_stack;
-
-		unsigned int m_mousepick_buffer;
-
-		bool m_paused           = true;
-		bool m_game_mode        = false;
-		bool m_viewport_focused = false;
-		bool m_viewport_hovered = false;
-		bool m_use_mouse_hand   = false;
-		bool m_restore          = false;
 
 		bool m_show_scenes         = true;
 		bool m_show_entities       = true;
@@ -91,26 +81,33 @@ namespace sc
 		bool m_show_exportprogress = false;
 		bool m_show_about          = false;
 		bool m_about_control       = true;
+		bool m_stopped             = true;
+		bool m_viewport_focused    = false;
+		bool m_viewport_hovered    = false;
+		bool m_game_mode           = false;
+		bool m_editor_cam_enabled  = true;
 
-		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
-		ImVec2 m_viewport_size     = {0.0f, 0.0f};
-		ImVec2 m_icon_size         = {24, 24};
-		ImVec2 m_icon_size_large   = {48, 48};
-		ImVec2 m_padding           = {4, 4};
+		ImVec2 m_icon_size       = {24, 24};
+		ImVec2 m_icon_size_large = {32, 32};
+		ImVec2 m_padding         = {4, 4};
+		ImVec2 m_no_padding      = {0, 0};
 
-		Selected m_selected_entity;
-
-		std::string m_current_project_path;
-		scene::SceneManager m_project_scenes;
 		graphics::RenderTexture m_framebuffer;
 
-
-		async::Timer m_autosave;
-
+		ImVec2 m_viewport_size = {0.0f, 0.0f};
 		std::array<glm::vec2, 2> m_viewport_bounds;
-		meta::vector<graphics::Renderable*> m_render_data;
+
+		graphics::Texture m_camera_btn;
+		graphics::Texture m_editor_cam_btn;
+		graphics::Camera m_editor_camera;
+
+		std::string m_current_project_path;
 
 		nlohmann::json m_backup;
+		scene::SceneManager m_project_sm;
+
+		unsigned int m_mousepick_buffer;
+		Selected m_selected_entity;
 	};
 } // namespace sc
 

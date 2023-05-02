@@ -56,11 +56,12 @@ namespace galaxy
 		{
 			m_window->trigger_queued_events(m_dispatcher);
 			m_world.update();
+
+			graphics::Renderer::buffer_camera(m_camera);
 		}
 
 		void Scene::render()
 		{
-			graphics::Renderer::buffer_camera(m_camera);
 			graphics::Renderer::draw();
 		}
 
