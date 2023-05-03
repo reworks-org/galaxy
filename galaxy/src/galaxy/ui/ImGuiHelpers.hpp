@@ -81,10 +81,15 @@ namespace galaxy
 		///
 		/// \param texture Texture to display.
 		/// \param size Size of the button.
+		/// \param bg_col Optional background colour.
+		/// \param tint_col Optional tint colour.
 		///
 		/// \return True if button pressed.
 		///
-		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size);
+		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture& texture,
+			const ImVec2& size,
+			const ImVec4& bg_col   = ImVec4(0, 0, 0, 0),
+			const ImVec4& tint_col = ImVec4(1, 1, 1, 1));
 
 		///
 		/// Display a galaxy image with imgui.

@@ -172,12 +172,12 @@ namespace galaxy
 			}
 		}
 
-		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size)
+		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)
 		{
 			const auto id     = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
 			const auto upcast = static_cast<std::uint64_t>(texture.handle());
 
-			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
+			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0}, bg_col, tint_col);
 		}
 
 		void imgui_image(const graphics::Texture& texture, const ImVec2& size)
