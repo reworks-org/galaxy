@@ -271,7 +271,7 @@ namespace sc
 				}
 				else if (value.is_number_float())
 				{
-					ImGui::InputDouble(key.c_str(), value.get<double*>());
+					ImGui::InputDouble(key.c_str(), value.get<double*>(), 0.1f, 1.0f, "%.1f");
 				}
 				else if (value.is_string())
 				{
@@ -338,7 +338,7 @@ namespace sc
 				}
 				else if (elem.is_number_float())
 				{
-					ImGui::InputDouble(name.c_str(), elem.get<double*>());
+					ImGui::InputDouble(name.c_str(), elem.get<double*>(), 0.1f, 1.0f, "%.1f");
 					counter++;
 				}
 				else if (elem.is_string())
