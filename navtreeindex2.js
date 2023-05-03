@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"d3/d84/Concepts_8hpp.html#aa5fedc1237e43edeb8f1a1c4c79ff353":[2,0,0,0,0,12,3,0],
 "d3/d84/Concepts_8hpp_source.html":[2,0,0,0,0,12,3],
 "d3/d92/Map_8cpp.html":[2,0,0,0,0,3,6],
 "d3/d92/Map_8cpp_source.html":[2,0,0,0,0,3,6],
@@ -56,6 +55,7 @@ var NAVTREEINDEX2 =
 "d3/dd9/namespacegalaxy_1_1ui.html#a1cf2fc9ad5cc58af83cb1bab81ae751a":[0,0,0,24,20],
 "d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6":[0,0,0,24,11],
 "d3/dd9/namespacegalaxy_1_1ui.html#a52d063c3ffe3e6ec5f38b1a1131c5f78":[0,0,0,24,18],
+"d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151":[0,0,0,24,14],
 "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1":[0,0,0,24,7],
 "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e":[0,0,0,24,12],
 "d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7":[0,0,0,24,15],
@@ -68,7 +68,6 @@ var NAVTREEINDEX2 =
 "d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e":[0,0,0,24,10],
 "d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e":[0,0,0,24,16],
 "d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65":[0,0,0,24,8],
-"d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3":[0,0,0,24,14],
 "d3/dd9/namespacegalaxy_1_1ui.html#afcdac5ef6bbc1b3b58260439b77a7c68":[0,0,0,24,17],
 "d3/def/RigidBody_8hpp.html":[2,0,0,0,0,3,11],
 "d3/def/RigidBody_8hpp_source.html":[2,0,0,0,0,3,11],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e":[2,0,0,0,0,11,9,0,3],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2":[2,0,0,0,0,11,9,0,5],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea":[2,0,0,0,0,11,9,0,4],
-"d4/d98/InputMods_8hpp.html#aed1be1118092a434dfe240a2de982fb4":[2,0,0,0,0,11,9,1]
+"d4/d98/InputMods_8hpp.html#aed1be1118092a434dfe240a2de982fb4":[2,0,0,0,0,11,9,1],
+"d4/d98/InputMods_8hpp_source.html":[2,0,0,0,0,11,9]
 };

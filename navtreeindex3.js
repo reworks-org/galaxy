@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/d98/InputMods_8hpp_source.html":[2,0,0,0,0,11,9],
 "d4/da5/InputDevice_8hpp.html":[2,0,0,0,0,11,7],
 "d4/da5/InputDevice_8hpp.html#a2d806a95ea35447ceaa66d37b82ced95":[2,0,0,0,0,11,7,1],
 "d4/da5/InputDevice_8hpp_source.html":[2,0,0,0,0,11,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5396cb4f5c3bde7f5fd05b04207065d4":[1,0,0,10,1,11],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a56ae43c7cff78cd2be8e4f999a6d1258":[1,0,0,10,1,10],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5939eb5f543804b0fd677ebaf80628d1":[1,0,0,10,1,5],
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740":[1,0,0,10,1,7]
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740":[1,0,0,10,1,7],
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a850abe1d71d91b80664261a2d035095a":[1,0,0,10,1,9]
 };

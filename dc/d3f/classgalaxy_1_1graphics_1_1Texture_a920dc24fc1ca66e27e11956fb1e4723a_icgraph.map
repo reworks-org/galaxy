@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Texture::handle" name="galaxy::graphics::Texture::handle">
 <area shape="rect" id="node1" title="Gets internal OpenGL id." alt="" coords="273,23,457,65"/>
 <area shape="rect" id="node2" href="$d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7" title="Display a galaxy image with imgui." alt="" coords="26,5,205,32"/>
-<area shape="rect" id="node3" href="$d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3" title="Render an imgui image button with a galaxy texture." alt="" coords="5,56,225,83"/>
+<area shape="rect" id="node3" href="$d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151" title="Render an imgui image button with a galaxy texture." alt="" coords="5,56,225,83"/>
 </map>

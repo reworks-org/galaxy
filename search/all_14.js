@@ -58,7 +58,7 @@ var searchData=
   ['transform_2ehpp_1419',['Transform.hpp',['../da/d83/Transform_8hpp.html',1,'']]],
   ['transform_5factive_1420',['transform_active',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad7ff23f210c75cda9c0e5f641c062a25',1,'galaxy::ui::RMLRenderer']]],
   ['transform_5fdirty_5fstate_1421',['transform_dirty_state',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad92dde413485bf1bc61a91b7dc306123',1,'galaxy::ui::RMLRenderer']]],
-  ['translate_1422',['translate',['../db/dc3/classgalaxy_1_1resource_1_1Language.html#a08bdeb667856d66025897e669d2e3774',1,'galaxy::resource::Language::translate()'],['../d8/d8a/classgalaxy_1_1components_1_1Transform.html#a5775c835cca5a4768f50bdb1872eef7e',1,'galaxy::components::Transform::translate()']]],
+  ['translate_1422',['translate',['../db/dc3/classgalaxy_1_1resource_1_1Language.html#a08bdeb667856d66025897e669d2e3774',1,'galaxy::resource::Language::translate()'],['../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a3394548bccfab47ce5f74348965cad63',1,'galaxy::graphics::Camera::translate()'],['../d8/d8a/classgalaxy_1_1components_1_1Transform.html#a5775c835cca5a4768f50bdb1872eef7e',1,'galaxy::components::Transform::translate()']]],
   ['translate_1423',['Translate',['../d2/dad/namespaceGfx.html#ad5487176b489a39830d8611e38914d25adeccbe4e9083c3b5f7cd2632722765bb',1,'Gfx']]],
   ['transparent_1424',['TRANSPARENT',['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6419510fc0fc99296aa4045e166c2012',1,'galaxy::graphics::Colour']]],
   ['triangle_1425',['TRIANGLE',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a9bcd89070cae224dce305f5011659ef4',1,'galaxy::graphics']]],

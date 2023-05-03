@@ -22,7 +22,7 @@ var namespacegalaxy_1_1ui =
     [ "imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6", null ],
     [ "imgui_center_next_window", "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e", null ],
     [ "imgui_shortcut", "d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291", null ],
-    [ "imgui_imagebutton", "d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3", null ],
+    [ "imgui_imagebutton", "d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e", null ],
     [ "imgui_theme_dracula", "d3/dd9/namespacegalaxy_1_1ui.html#afcdac5ef6bbc1b3b58260439b77a7c68", null ],

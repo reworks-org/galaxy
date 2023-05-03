@@ -154,9 +154,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac10ec2a6e29137fea44d75a88eb6f291"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">imgui_shortcut</a> (ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags=ImGuiFocusedFlags_AnyWindow)</td></tr>
 <tr class="memdesc:ac10ec2a6e29137fea44d75a88eb6f291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger imgui actions from keyboard shortcut.  <a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">More...</a><br /></td></tr>
 <tr class="separator:ac10ec2a6e29137fea44d75a88eb6f291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb89b2f1c08b0d28ff650b8aa9594cb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3">imgui_imagebutton</a> (const <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a> &amp;texture, const ImVec2 &amp;size)</td></tr>
-<tr class="memdesc:afb89b2f1c08b0d28ff650b8aa9594cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render an imgui image button with a galaxy texture.  <a href="../../d3/dd9/namespacegalaxy_1_1ui.html#afb89b2f1c08b0d28ff650b8aa9594cb3">More...</a><br /></td></tr>
-<tr class="separator:afb89b2f1c08b0d28ff650b8aa9594cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67865b34fe34c0f136768dc267b0e151"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">imgui_imagebutton</a> (const <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a> &amp;texture, const ImVec2 &amp;size, const ImVec4 &amp;bg_col=ImVec4(0, 0, 0, 0), const ImVec4 &amp;tint_col=ImVec4(1, 1, 1, 1))</td></tr>
+<tr class="memdesc:a67865b34fe34c0f136768dc267b0e151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render an imgui image button with a galaxy texture.  <a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">More...</a><br /></td></tr>
+<tr class="separator:a67865b34fe34c0f136768dc267b0e151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82c355b60d2b89ed9254b74aa8e9f6a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">imgui_image</a> (const <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a> &amp;texture, const ImVec2 &amp;size)</td></tr>
 <tr class="memdesc:a82c355b60d2b89ed9254b74aa8e9f6a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a galaxy image with imgui.  <a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">More...</a><br /></td></tr>
 <tr class="separator:a82c355b60d2b89ed9254b74aa8e9f6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -524,8 +524,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afb89b2f1c08b0d28ff650b8aa9594cb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb89b2f1c08b0d28ff650b8aa9594cb3">&#9670;&nbsp;</a></span>imgui_imagebutton()</h2>
+<a id="a67865b34fe34c0f136768dc267b0e151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67865b34fe34c0f136768dc267b0e151">&#9670;&nbsp;</a></span>imgui_imagebutton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +540,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const ImVec2 &amp;&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ImVec4 &amp;&#160;</td>
+          <td class="paramname"><em>bg_col</em> = <code>ImVec4(0,&#160;0,&#160;0,&#160;0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ImVec4 &amp;&#160;</td>
+          <td class="paramname"><em>tint_col</em> = <code>ImVec4(1,&#160;1,&#160;1,&#160;1)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -554,7 +566,9 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">texture</td><td>Texture to display. </td></tr>
-    <tr><td class="paramname">size</td><td>Size of the button.</td></tr>
+    <tr><td class="paramname">size</td><td>Size of the button. </td></tr>
+    <tr><td class="paramname">bg_col</td><td>Optional background colour. </td></tr>
+    <tr><td class="paramname">tint_col</td><td>Optional tint colour.</td></tr>
   </table>
   </dd>
 </dl>
@@ -566,8 +580,8 @@ Functions</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_afb89b2f1c08b0d28ff650b8aa9594cb3_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_afb89b2f1c08b0d28ff650b8aa9594cb3_cgraph" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_afb89b2f1c08b0d28ff650b8aa9594cb3_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_afb89b2f1c08b0d28ff650b8aa9594cb3_cgraph">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a67865b34fe34c0f136768dc267b0e151_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a67865b34fe34c0f136768dc267b0e151_cgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a67865b34fe34c0f136768dc267b0e151_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a67865b34fe34c0f136768dc267b0e151_cgraph">
 <area shape="rect" title="Render an imgui image button with a galaxy texture." alt="" coords="5,78,225,105"/>
 <area shape="rect" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504" title="Get texture height." alt="" coords="273,5,457,47"/>
 <area shape="rect" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0" title="Get texture width." alt="" coords="273,71,457,112"/>
@@ -821,7 +835,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html">ui</a></li>
-    <li class="footer">Generated on Tue May 2 2023 09:44:21 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 3 2023 09:23:30 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

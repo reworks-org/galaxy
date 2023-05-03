@@ -15,6 +15,7 @@ var classgalaxy_1_1graphics_1_1Camera =
     [ "set_pos", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a7b41efa64e033d38b8c267c44e5df72b", null ],
     [ "set_rotation", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a6c3190d9718ce1e13229248dd1194bb4", null ],
     [ "set_zoom", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#adca71bc01fc74c22842448225419abf4", null ],
+    [ "translate", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a3394548bccfab47ce5f74348965cad63", null ],
     [ "get_x", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1a7dcb7ac1424bd99e775eb60e654f30", null ],
     [ "get_y", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae54915a89246becacfd672555b299e11", null ],
     [ "get_rotation", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9096362ffedad7a4f8f826f6ad9ffc2", null ],
