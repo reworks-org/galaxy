@@ -29,12 +29,20 @@ namespace sc
 
 			void render(CodeEditor& editor, UpdateStack& updates);
 
+			void top(UpdateStack& updates);
+			void tree();
+			void body(CodeEditor& editor);
+
 		private:
 			void load_lua_script(CodeEditor& editor);
 			void import_files(const std::string& folder_from_config);
 
+			// https://gist.github.com/OverShifted/13aec504dfe376dcc2171e8b7451c5b5
+			void directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count);
+
 		private:
 			SelectedAsset m_selected;
+			ImGuiTextFilter m_filter;
 
 			ImVec2 m_size_vec;
 			ImVec2 m_toolbar_vec;
@@ -42,15 +50,15 @@ namespace sc
 			float m_padding;
 			float m_thumb_size;
 
+			bool m_open_config;
+			bool m_create_folder_popup;
+
 			std::filesystem::path m_root;
 			std::filesystem::path m_current_dir;
 			std::filesystem::path m_prev_dir;
 
-			std::string m_search_term;
-
 			graphics::Texture m_audio;
 			graphics::Texture m_backward;
-			graphics::Texture m_cog;
 			graphics::Texture m_file;
 			graphics::Texture m_folder;
 			graphics::Texture m_font;

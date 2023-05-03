@@ -30,3 +30,17 @@ rml file reloading
 larger text font icons
 
 handle custom mouse cursors in editor
+
+replace search with imgui text filters
+
+move code editor to panel folder 
+
+merge settings and json editor
+
+wrap some imgui code into reusable functions
+
+more drag/drop support for tree view, body, etc
+delete folder support for asset panel
+
+fix context menu not selecting item
+fix scrolling treeview scrolling folder view

@@ -6,6 +6,7 @@
 ///
 
 #include <imgui_addons/imgui_notify.h>
+#include <imgui_internal.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -19,6 +20,8 @@
 
 #include "AssetPanel.hpp"
 
+#define BIT(x) (1 << x)
+
 using namespace galaxy;
 
 namespace sc
@@ -26,19 +29,22 @@ namespace sc
 	namespace panel
 	{
 		AssetPanel::AssetPanel()
-			: m_padding {48.0f}
-			, m_thumb_size {48.0f}
-			, m_toolbar_vec {24, 24}
+			: m_toolbar_vec {24, 24}
 			, m_icon {nullptr}
+			, m_open_config {false}
+			, m_create_folder_popup {false}
 		{
 			auto& fs      = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			m_root        = fs.root_path();
 			m_current_dir = fs.root_path();
 
 			auto& config = core::ServiceLocator<core::Config>::ref();
-			config.restore("padding", m_padding, "editor");
-			config.restore("thumb_size", m_thumb_size, "editor");
+			config.restore("padding", 48.0f, "editor");
+			config.restore("thumb_size", 96.0f, "editor");
 			config.save();
+
+			m_thumb_size = config.get<float>("thumb_size", "editor");
+			m_padding    = config.get<float>("padding", "editor");
 
 			m_audio.load("../editor_data/icons/audio.png");
 			m_audio.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
@@ -47,10 +53,6 @@ namespace sc
 			m_backward.load("../editor_data/icons/backward.png");
 			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_cog.load("../editor_data/icons/cog.png");
-			m_cog.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_cog.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
 			m_file.load("../editor_data/icons/file.png");
 			m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
@@ -107,119 +109,158 @@ namespace sc
 
 		void AssetPanel::render(CodeEditor& editor, UpdateStack& updates)
 		{
-			if (ImGui::Begin("Asset Browser"))
+			if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser"))
 			{
-				m_size_vec.x     = m_thumb_size;
-				m_size_vec.y     = m_thumb_size;
-				auto cell_size   = m_thumb_size + m_padding;
-				auto panel_width = ImGui::GetContentRegionAvail().x;
-				auto columns     = std::max(static_cast<int>(panel_width / cell_size), 1);
+				top(updates);
 
-				if (ui::imgui_imagebutton(m_backward, m_toolbar_vec))
+				if (ImGui::BeginTable("AssetPanelLayoutTable",
+						2,
+						ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX |
+							ImGuiTableFlags_ScrollY,
+						ImGui::GetContentRegionAvail()))
 				{
-					m_prev_dir    = m_current_dir;
-					m_current_dir = m_current_dir.parent_path();
+					ImGui::TableNextRow();
+					ImGui::TableNextColumn();
+					tree();
+
+					ImGui::TableNextColumn();
+					body(editor);
+
+					ImGui::EndTable();
 				}
+			}
 
-				ImGui::SameLine();
+			ImGui::End();
+		}
 
-				if (ui::imgui_imagebutton(m_forward, m_toolbar_vec))
-				{
-					if (!m_prev_dir.empty())
-					{
-						m_current_dir = m_prev_dir;
-					}
-				}
+		void AssetPanel::top(UpdateStack& updates)
+		{
+			const auto scaled_thumb = (m_thumb_size * ImGui::GetIO().FontGlobalScale) * 0.55f;
+			m_size_vec.x            = scaled_thumb;
+			m_size_vec.y            = scaled_thumb;
 
-				ImGui::SameLine();
+			auto root_str = m_root.string();
+			root_str.pop_back();
 
-				if (ui::imgui_imagebutton(m_reload, m_toolbar_vec))
-				{
-					ImGui::OpenPopup("AssetReloadPopup");
-				}
+			const auto disable_back = m_current_dir.parent_path().string().find(root_str) == std::string::npos;
+			if (disable_back)
+			{
+				ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
+			}
 
-				if (ImGui::BeginPopup("AssetReloadPopup"))
-				{
-					ImGui::Text("Select resource to reload.");
-					ImGui::Separator();
+			if (ui::imgui_imagebutton(m_backward, m_toolbar_vec))
+			{
+				m_prev_dir    = m_current_dir;
+				m_current_dir = m_current_dir.parent_path();
+			}
 
-					if (ImGui::MenuItem("Languages"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::Language>::ref().reload();
-						});
-					}
+			if (disable_back)
+			{
+				ImGui::PopStyleVar();
+				ImGui::PopItemFlag();
+			}
 
-					if (ImGui::MenuItem("Texture Atlas"))
-					{
-						updates.push_back([]() {
-							core::ServiceLocator<resource::TextureAtlas>::ref().reload();
-						});
-					}
+			ImGui::SameLine();
 
-					ImGui::EndPopup();
-				}
+			const auto disable_forward = m_prev_dir.empty();
 
-				ImGui::SameLine();
+			if (disable_forward)
+			{
+				ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
+			}
 
-				ImGui::SetNextItemWidth(panel_width / 4.0f);
-				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+			if (ui::imgui_imagebutton(m_forward, m_toolbar_vec))
+			{
+				m_current_dir = m_prev_dir;
+				m_prev_dir.clear();
+			}
 
-				ImGui::InputTextWithHint("##AssetPanelSearch", "Search...", &m_search_term, ImGuiInputTextFlags_AutoSelectAll);
+			if (disable_forward)
+			{
+				ImGui::PopStyleVar();
+				ImGui::PopItemFlag();
+			}
 
-				ImGui::SameLine();
+			ImGui::SameLine();
 
-				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-				if (ImGui::Button("Import"))
-				{
-					ImGui::OpenPopup("AssetPanelContextMenu");
-				}
+			if (ui::imgui_imagebutton(m_reload, m_toolbar_vec))
+			{
+				ImGui::OpenPopup("AssetReloadPopup");
+			}
 
-				ImGui::SameLine();
-
-				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
-				ImGui::TextWrapped(m_current_dir.string().c_str());
-
-				ImGui::SameLine();
-
-				ImGui::SetCursorPosX(panel_width - m_toolbar_vec.x);
-
-				if (ui::imgui_imagebutton(m_cog, m_toolbar_vec))
-				{
-					ImGui::OpenPopup("AssetConfigPopup");
-				}
-
-				if (ImGui::BeginPopup("AssetConfigPopup"))
-				{
-					if (ImGui::SliderFloat("Thumbnail Size", &m_thumb_size, 16.0f, 48.0f, "%.0f", ImGuiSliderFlags_AlwaysClamp))
-					{
-						auto& config = core::ServiceLocator<core::Config>::ref();
-						config.set("thumb_size", m_thumb_size, "editor");
-						config.save();
-					}
-
-					if (ImGui::SliderFloat("Padding", &m_padding, 0.0f, 64.0f, "%.0f", ImGuiSliderFlags_AlwaysClamp))
-					{
-						auto& config = core::ServiceLocator<core::Config>::ref();
-						config.set("padding", m_padding, "editor");
-						config.save();
-					}
-
-					ImGui::EndPopup();
-				}
-
+			if (ImGui::BeginPopup("AssetReloadPopup"))
+			{
+				ImGui::Text("Select resource to reload");
 				ImGui::Separator();
-				ImGui::Spacing();
 
-				ImGui::Columns(columns, "AssetPanelColumns", false);
+				if (ImGui::MenuItem("Languages"))
+				{
+					updates.push_back([]() {
+						core::ServiceLocator<resource::Language>::ref().reload();
+					});
+				}
 
+				if (ImGui::MenuItem("Texture Atlas"))
+				{
+					updates.push_back([]() {
+						core::ServiceLocator<resource::TextureAtlas>::ref().reload();
+					});
+				}
+
+				ImGui::EndPopup();
+			}
+
+			ImGui::SameLine();
+
+			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 4.0f);
+			m_filter.DrawWithHint("###AssetPanelSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
+
+			ImGui::Spacing();
+			ImGui::TextWrapped(m_current_dir.string().c_str());
+			ImGui::Spacing();
+
+			ImGui::Separator();
+			ImGui::Spacing();
+		}
+
+		void AssetPanel::tree()
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2 {0.0f, 0.0f});
+
+			if (ImGui::CollapsingHeader("Assets", ImGuiTreeNodeFlags_SpanAvailWidth))
+			{
+				unsigned int count = 0;
+				for (const auto& entry : std::filesystem::recursive_directory_iterator(m_root))
+				{
+					count++;
+				}
+
+				directory_tree_view_recursive(m_root, &count);
+			}
+
+			ImGui::PopStyleVar();
+		}
+
+		void AssetPanel::body(CodeEditor& editor)
+		{
+			const auto columns = static_cast<int>((ImGui::GetContentRegionAvail().x - ImGui::GetStyle().ScrollbarSize) / (m_size_vec.x + m_padding));
+
+			constexpr const ImGuiTableFlags flags =
+				ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_NoClip;
+
+			if (ImGui::BeginTable("AssetPanelColumns", std::max(columns, 1), flags))
+			{
 				for (const auto& entry : std::filesystem::directory_iterator(m_current_dir))
 				{
+					ImGui::TableNextColumn();
+
 					const auto& path = entry.path();
 					const auto file  = path.filename().string();
 					const auto ext   = path.extension();
 
-					if (file.find(m_search_term) != std::string::npos)
+					if (m_filter.PassFilter(file.c_str()))
 					{
 						ImGui::PushID(file.c_str());
 
@@ -275,18 +316,16 @@ namespace sc
 							}
 						}
 
-						static const constexpr auto s_btn_col = ImVec4 {0, 0, 0, 0};
-						ImGui::PushStyleColor(ImGuiCol_Button, s_btn_col);
-
+						ImGui::PushStyleColor(ImGuiCol_Button, {0, 0, 0, 0});
+						ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ((ImGui::GetColumnWidth() / 2.0f) - (m_size_vec.x / 2.0f)));
 						ui::imgui_imagebutton(*m_icon, m_size_vec);
+						ImGui::PopStyleColor();
 
 						if (ImGui::BeginDragDropSource())
 						{
 							ImGui::SetDragDropPayload("AssetPanelItem", file.c_str(), file.size(), ImGuiCond_Once);
 							ImGui::EndDragDropSource();
 						}
-
-						ImGui::PopStyleColor();
 
 						if (!entry.is_directory() && ImGui::IsItemHovered())
 						{
@@ -311,14 +350,12 @@ namespace sc
 							}
 						}
 
-						ImGui::TextWrapped(file.c_str());
+						ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ((ImGui::GetColumnWidth() / 2.0f) - (ImGui::CalcTextSize(file.c_str()).x / 2.0f)));
+						ImGui::TextUnformatted(file.c_str());
 
-						ImGui::NextColumn();
 						ImGui::PopID();
 					}
 				}
-
-				ImGui::Columns();
 
 				if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
 				{
@@ -327,89 +364,178 @@ namespace sc
 
 				if (ImGui::BeginPopupContextWindow("AssetPanelContextMenu"))
 				{
-					if (ImGui::BeginMenu("Audio"))
+					if (ImGui::BeginMenu(ICON_MDI_PLUS " Create"))
 					{
-						if (ImGui::MenuItem("Music"))
+						if (ImGui::MenuItem(ICON_MDI_FOLDER_PLUS " Folder"))
 						{
-							import_files("music_folder");
+							m_create_folder_popup = true;
+							ImGui::CloseCurrentPopup();
 						}
 
-						if (ImGui::MenuItem("SFX"))
+						if (ImGui::MenuItem(ICON_MDI_LANGUAGE_LUA " Script"))
 						{
-							import_files("sfx_folder");
-						}
+							auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-						if (ImGui::MenuItem("Dialogue"))
-						{
-							import_files("dialogue_folder");
-						}
+							const auto path = std::filesystem::path(m_current_dir / "script.lua");
+							fs.save("-- galaxy script (lua)", path.string());
 
-						ImGui::EndMenu();
-					}
-
-					if (ImGui::BeginMenu("Texture"))
-					{
-						if (ImGui::MenuItem("Atlas Texture"))
-						{
-							import_files("atlas_folder");
-						}
-
-						if (ImGui::MenuItem("Standalone Texture"))
-						{
-							import_files("texture_folder");
+							ImGui::CloseCurrentPopup();
 						}
 
 						ImGui::EndMenu();
 					}
 
-					if (ImGui::MenuItem("Shader"))
+					if (ImGui::BeginMenu(ICON_MDI_IMPORT " Import"))
 					{
-						import_files("shader_folder");
-					}
+						if (ImGui::BeginMenu("Audio"))
+						{
+							if (ImGui::MenuItem("Music"))
+							{
+								import_files("music_folder");
+							}
 
-					if (ImGui::MenuItem("Script"))
-					{
-						import_files("scripts_folder");
-					}
+							if (ImGui::MenuItem("SFX"))
+							{
+								import_files("sfx_folder");
+							}
 
-					if (ImGui::MenuItem("Language"))
-					{
-						import_files("lang_folder");
-					}
+							if (ImGui::MenuItem("Dialogue"))
+							{
+								import_files("dialogue_folder");
+							}
 
-					if (ImGui::MenuItem("Font"))
-					{
-						import_files("font_folder");
-					}
+							ImGui::EndMenu();
+						}
 
-					if (ImGui::MenuItem("Maps"))
-					{
-						import_files("maps_folder");
-					}
+						if (ImGui::BeginMenu("Texture"))
+						{
+							if (ImGui::MenuItem("Atlas Texture"))
+							{
+								import_files("atlas_folder");
+							}
 
-					if (ImGui::MenuItem("Prefabs"))
-					{
-						import_files("prefabs_folder");
+							if (ImGui::MenuItem("Standalone Texture"))
+							{
+								import_files("texture_folder");
+							}
+
+							ImGui::EndMenu();
+						}
+
+						if (ImGui::MenuItem("Shader"))
+						{
+							import_files("shader_folder");
+						}
+
+						if (ImGui::MenuItem("Script"))
+						{
+							import_files("scripts_folder");
+						}
+
+						if (ImGui::MenuItem("Language"))
+						{
+							import_files("lang_folder");
+						}
+
+						if (ImGui::MenuItem("Font"))
+						{
+							import_files("font_folder");
+						}
+
+						if (ImGui::MenuItem("Maps"))
+						{
+							import_files("maps_folder");
+						}
+
+						if (ImGui::MenuItem("Prefabs"))
+						{
+							import_files("prefabs_folder");
+						}
+
+						ImGui::EndMenu();
 					}
 
 					if (m_selected.m_is_hovered)
 					{
 						if (m_selected.m_extension == ".lua")
 						{
-							if (ImGui::MenuItem("Edit"))
+							if (ImGui::MenuItem(ICON_MDI_FILE_EDIT " Edit"))
 							{
 								load_lua_script(editor);
 
 								ImGui::CloseCurrentPopup();
 							}
 						}
+
+						if (ImGui::MenuItem(ICON_MDI_DELETE_ALERT " Delete"))
+						{
+							ui::imgui_open_confirm("AssetDeleteConfirm");
+						}
+					}
+
+					if (ImGui::MenuItem(ICON_MDI_COG " Settings"))
+					{
+						m_open_config = true;
+						ImGui::CloseCurrentPopup();
 					}
 
 					ImGui::EndPopup();
 				}
-			}
 
-			ImGui::End();
+				if (m_create_folder_popup)
+				{
+					m_create_folder_popup = false;
+					ImGui::OpenPopup("AssetCreateFolder");
+				}
+
+				if (ImGui::BeginPopup("AssetCreateFolder"))
+				{
+					static std::string str;
+					if (ImGui::InputText("Folder Name", &str, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+					{
+						if (!str.empty())
+						{
+							std::filesystem::create_directory(m_current_dir / str);
+
+							str.clear();
+							ImGui::CloseCurrentPopup();
+						}
+					}
+
+					ImGui::EndPopup();
+				}
+
+				ui::imgui_confirm("AssetDeleteConfirm", [&]() {
+					std::filesystem::remove(m_selected.m_path);
+				});
+
+				if (m_open_config)
+				{
+					m_open_config = false;
+					ImGui::OpenPopup("AssetConfigPopup");
+				}
+
+				if (ImGui::BeginPopup("AssetConfigPopup"))
+				{
+					if (ImGui::SliderFloat("Thumbnail Size", &m_thumb_size, 16.0f, 128.0f, "%.0f", ImGuiSliderFlags_AlwaysClamp))
+					{
+						auto& config = core::ServiceLocator<core::Config>::ref();
+						config.set("thumb_size", m_thumb_size, "editor");
+						config.save();
+					}
+
+					if (ImGui::SliderFloat("Padding", &m_padding, 0.0f, 64.0f, "%.0f", ImGuiSliderFlags_AlwaysClamp))
+					{
+						auto& config = core::ServiceLocator<core::Config>::ref();
+						config.set("padding", m_padding, "editor");
+						config.save();
+					}
+
+					ImGui::EndPopup();
+				}
+
+				ImGui::EndTable();
+			}
 		}
 
 		void AssetPanel::load_lua_script(CodeEditor& editor)
@@ -444,6 +570,63 @@ namespace sc
 					catch (const std::exception& e)
 					{
 						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, e.what()});
+					}
+				}
+			}
+		}
+
+		void AssetPanel::directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count)
+		{
+			ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_SpanFullWidth;
+
+			for (const auto& entry : std::filesystem::directory_iterator(path))
+			{
+				ImGuiTreeNodeFlags node_flags = base_flags;
+
+				std::string name = entry.path().string();
+
+				auto last_slash = name.find_last_of("/\\");
+				last_slash      = last_slash == std::string::npos ? 0 : last_slash + 1;
+				name            = name.substr(last_slash, name.size() - last_slash);
+
+				const auto is_file = !std::filesystem::is_directory(entry.path());
+				if (is_file)
+				{
+					node_flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+				}
+
+				const auto node_open = ImGui::TreeNodeEx((void*)(intptr_t)(*count), node_flags, "");
+
+				if (ImGui::IsItemClicked())
+				{
+					m_prev_dir    = m_current_dir;
+					m_current_dir = entry.path();
+				}
+
+				if (!is_file)
+				{
+					ImGui::SameLine();
+					ImGui::TextUnformatted(node_open ? ICON_MDI_FOLDER_OPEN : ICON_MDI_FOLDER);
+				}
+
+				ImGui::SameLine();
+				ImGui::TextUnformatted(name.data());
+
+				(*count)--;
+
+				if (!is_file)
+				{
+					if (node_open)
+					{
+						directory_tree_view_recursive(entry.path(), count);
+						ImGui::TreePop();
+					}
+					else
+					{
+						for (const auto& e : std::filesystem::recursive_directory_iterator(entry.path()))
+						{
+							(*count)--;
+						}
 					}
 				}
 			}

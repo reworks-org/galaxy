@@ -21,9 +21,9 @@
         "default_lang": "en_au",
         "editor": {
             "autosave_interval_seconds": 300,
-            "padding": 64.0,
+            "padding": 48.0,
             "theme": "DRACULA",
-            "thumb_size": 48.0
+            "thumb_size": 96.0
         },
         "graphics": {
             "ansiotrophic_filtering": 16,

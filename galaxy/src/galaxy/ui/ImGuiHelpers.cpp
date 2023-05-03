@@ -119,7 +119,7 @@ namespace galaxy
 
 			if (ImGui::BeginPopup(popup))
 			{
-				ImGui::Text("Are you sure you want to proceed?");
+				ImGui::Text("Are you sure you want to?");
 
 				ImGui::Separator();
 				ImGui::Spacing();
