@@ -8,6 +8,7 @@
 #include <fstream>
 
 #include <imgui_stdlib.h>
+#include <imgui_addons/material_design_icons.h>
 #include <sol/sol.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
@@ -58,7 +59,7 @@ namespace sc
 
 		void LuaConsole::render()
 		{
-			if (ImGui::Begin("Lua Terminal", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
+			if (ImGui::Begin(ICON_MDI_CONSOLE " Lua Terminal", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
 				if (ImGui::BeginMenuBar())
 				{

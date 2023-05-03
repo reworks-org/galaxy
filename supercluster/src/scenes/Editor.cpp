@@ -877,8 +877,10 @@ namespace sc
 
 	void Editor::viewport()
 	{
+		constexpr const ImGuiWindowFlags flags = ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse;
+
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, m_no_padding);
-		if (ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
+		if (ImGui::Begin(ICON_MDI_WINDOW_MAXIMIZE " Viewport", nullptr, flags))
 		{
 			const auto viewport_min = ImGui::GetWindowContentRegionMin();
 			const auto viewport_max = ImGui::GetWindowContentRegionMax();
@@ -932,7 +934,7 @@ namespace sc
 
 	void Editor::code_editor()
 	{
-		ImGui::Begin("CodeEditor", nullptr, ImGuiWindowFlags_MenuBar);
+		ImGui::Begin(ICON_MDI_CODE_ARRAY " Code Editor", nullptr, ImGuiWindowFlags_MenuBar);
 		if (ImGui::BeginMenuBar())
 		{
 			code_editor_menu();
@@ -952,7 +954,7 @@ namespace sc
 			m_code_editor.m_file.empty() ? "New File" : m_code_editor.m_file.string().c_str(),
 			m_code_editor.m_editor.CanUndo() ? "*" : "");
 
-		m_code_editor.m_editor.Render("TextEditor");
+		m_code_editor.m_editor.Render("Editor");
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const auto payload = ImGui::AcceptDragDropPayload("AssetPanelItem"))

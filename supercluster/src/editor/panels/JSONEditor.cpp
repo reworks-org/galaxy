@@ -11,6 +11,7 @@
 #include <galaxy/scripting/JSON.hpp>
 
 #include <imgui_addons/imgui_toggle.h>
+#include <imgui_addons/material_design_icons.h>
 #include <imgui_stdlib.h>
 
 #include "JSONEditor.hpp"
@@ -135,7 +136,7 @@ namespace sc
 		{
 			bool popup_create_new = false;
 
-			if (ImGui::Begin("JSON Editor", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar))
+			if (ImGui::Begin(ICON_MDI_CODE_JSON " JSON Editor", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar))
 			{
 				if (ImGui::BeginMenuBar())
 				{

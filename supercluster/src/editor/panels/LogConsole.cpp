@@ -37,7 +37,7 @@ namespace sc
 
 		void LogConsole::render()
 		{
-			if (ImGui::Begin("Log", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
+			if (ImGui::Begin(ICON_MDI_POST " Log", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
 				if (ImGui::Button("Clear"))
 				{

@@ -48,7 +48,7 @@ namespace sc
 				ImGuiInputTextFlags_CharsDecimal | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll;
 			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
 
-			if (ImGui::Begin("Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+			if (ImGui::Begin(ICON_MDI_DATABASE " Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 			{
 				if (selected.m_selected != entt::null && selected.m_world != nullptr && selected.m_world->m_registry.valid(selected.m_selected))
 				{

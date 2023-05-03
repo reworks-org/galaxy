@@ -30,7 +30,7 @@ namespace sc
 	{
 		void ScenePanel::render(scene::SceneManager& sm, Selected& selected, UpdateStack& updates)
 		{
-			if (ImGui::Begin("Scenes"))
+			if (ImGui::Begin(ICON_MDI_LIST_BOX_OUTLINE " Scenes"))
 			{
 				if (ImGui::Button("New Scene"))
 				{

@@ -22,7 +22,7 @@
         "editor": {
             "autosave_interval_seconds": 300,
             "padding": 64.0,
-            "theme": "ENHANCED_DARK",
+            "theme": "DRACULA",
             "thumb_size": 48.0
         },
         "graphics": {
