@@ -377,7 +377,10 @@ namespace sc
 							auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 							const auto path = std::filesystem::path(m_current_dir / "script.lua");
-							fs.save("-- galaxy script (lua)", path.string());
+							if (!fs.save("-- galaxy script (lua)", path.string()))
+							{
+								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save new script."});
+							}
 
 							ImGui::CloseCurrentPopup();
 						}
