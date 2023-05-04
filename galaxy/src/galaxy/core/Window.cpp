@@ -565,6 +565,7 @@ namespace galaxy
 				graphics::Renderer::destroy();
 				m_postprocess.destroy();
 				m_cursor.destroy();
+				m_cursor.destroy_system_cursors();
 
 				glfwDestroyWindow(m_window);
 

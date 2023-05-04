@@ -31,11 +31,6 @@ namespace galaxy
 		Cursor::~Cursor()
 		{
 			destroy();
-
-			glfwDestroyCursor(m_pointer);
-			glfwDestroyCursor(m_cross);
-			glfwDestroyCursor(m_hand);
-			glfwDestroyCursor(m_text);
 		}
 
 		void Cursor::toggle(const bool visible)
@@ -170,6 +165,14 @@ namespace galaxy
 				glfwDestroyCursor(m_custom);
 				m_custom = nullptr;
 			}
+		}
+
+		void Cursor::destroy_system_cursors()
+		{
+			glfwDestroyCursor(m_pointer);
+			glfwDestroyCursor(m_cross);
+			glfwDestroyCursor(m_hand);
+			glfwDestroyCursor(m_text);
 		}
 	} // namespace input
 } // namespace galaxy

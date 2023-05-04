@@ -123,6 +123,11 @@ namespace galaxy
 			///
 			Cursor& operator=(const Cursor&) = delete;
 
+			///
+			/// Destroy system cursor data.
+			///
+			void destroy_system_cursors();
+
 		private:
 			///
 			/// Custom user cursor.
