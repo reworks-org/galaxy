@@ -5,6 +5,7 @@
 
 // Implemented features:
 //  [X] Platform: Clipboard support.
+//  [X] Platform: Mouse support. Can discriminate Mouse/TouchScreen/Pen (Windows only).
 //  [X] Platform: Keyboard support. Since 1.87 we are using the io.AddKeyEvent() function. Pass ImGuiKey values to all key functions e.g.
 //  ImGui::IsKeyPressed(ImGuiKey_Space). [Legacy GLFW_KEY_* values will also be supported unless IMGUI_DISABLE_OBSOLETE_KEYIO is set] [X] Platform: Gamepad
 //  support. Enable with 'io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad'. [X] Platform: Mouse cursor shape and visibility. Disable with 'io.ConfigFlags |=
@@ -22,37 +23,39 @@
 // CHANGELOG
 // (minor and older changes stripped away, please see git history for details)
 //  2023-XX-XX: Platform: Added support for multiple windows via the ImGuiPlatformIO interface.
-//  2023-03-16: Inputs: Fixed key modifiers handling on secondary viewports (docking branch). Broken on 2023/01/04. (#6248, #6034)
-//  2023-03-14: Emscripten: Avoid using glfwGetError() and glfwGetGamepadState() which are not correctly implemented in Emscripten emulation. (#6240)
-//  2023-02-03: Emscripten: Registering custom low-level mouse wheel handler to get more accurate scrolling impulses on Emscripten. (#4019, #6096)
-//  2023-01-18: Handle unsupported glfwGetVideoMode() call on e.g. Emscripten.
-//  2023-01-04: Inputs: Fixed mods state on Linux when using Alt-GR text input (e.g. German keyboard layout), could lead to broken text input. Revert a
-//  2022/01/17 change were we resumed using mods provided by GLFW, turns out they were faulty. 2022-11-22: Perform a dummy glfwGetError() read to cancel missing
-//  names with glfwGetKeyName(). (#5908) 2022-10-18: Perform a dummy glfwGetError() read to cancel missing mouse cursors errors. Using GLFW_VERSION_COMBINED
-//  directly. (#5785) 2022-10-11: Using 'nullptr' instead of 'NULL' as per our switch to C++11. 2022-09-26: Inputs: Renamed ImGuiKey_ModXXX introduced in 1.87
-//  to ImGuiMod_XXX (old names still supported). 2022-09-01: Inputs: Honor GLFW_CURSOR_DISABLED by not setting mouse position. 2022-04-30: Inputs: Fixed
-//  ImGui_ImplGlfw_TranslateUntranslatedKey() for lower case letters on OSX. 2022-03-23: Inputs: Fixed a regression in 1.87 which resulted in keyboard modifiers
-//  events being reported incorrectly on Linux/X11. 2022-02-07: Added ImGui_ImplGlfw_InstallCallbacks()/ImGui_ImplGlfw_RestoreCallbacks() helpers to facilitate
-//  user installing callbacks after initializing backend. 2022-01-26: Inputs: replaced short-lived io.AddKeyModsEvent() (added two weeks ago) with
-//  io.AddKeyEvent() using ImGuiKey_ModXXX flags. Sorry for the confusion. 2021-01-20: Inputs: calling new io.AddKeyAnalogEvent() for gamepad support, instead
-//  of writing directly to io.NavInputs[]. 2022-01-17: Inputs: calling new io.AddMousePosEvent(), io.AddMouseButtonEvent(), io.AddMouseWheelEvent() API (1.87+).
-//  2022-01-17: Inputs: always update key mods next and before key event (not in NewFrame) to fix input queue with very low framerates.
-//  2022-01-12: *BREAKING CHANGE*: Now using glfwSetCursorPosCallback(). If you called ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST install
-//  glfwSetCursorPosCallback() and forward it to the backend via ImGui_ImplGlfw_CursorPosCallback(). 2022-01-10: Inputs: calling new io.AddKeyEvent(),
-//  io.AddKeyModsEvent() + io.SetKeyEventNativeData() API (1.87+). Support for full ImGuiKey range. 2022-01-05: Inputs: Converting GLFW untranslated keycodes
-//  back to translated keycodes (in the ImGui_ImplGlfw_KeyCallback() function) in order to match the behavior of every other backend, and facilitate the use of
-//  GLFW with lettered-shortcuts API. 2021-08-17: *BREAKING CHANGE*: Now using glfwSetWindowFocusCallback() to calling io.AddFocusEvent(). If you called
-//  ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST install glfwSetWindowFocusCallback() and forward it to the backend via
-//  ImGui_ImplGlfw_WindowFocusCallback(). 2021-07-29: *BREAKING CHANGE*: Now using glfwSetCursorEnterCallback(). MousePos is correctly reported when the host
-//  platform window is hovered but not focused. If you called ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST install
-//  glfwSetWindowFocusCallback() callback and forward it to the backend via ImGui_ImplGlfw_CursorEnterCallback(). 2021-06-29: Reorganized backend to pull data
-//  from a single structure to facilitate usage with multiple-contexts (all g_XXXX access changed to bd->XXXX). 2020-01-17: Inputs: Disable error callback while
-//  assigning mouse cursors because some X11 setup don't have them and it generates errors. 2019-12-05: Inputs: Added support for new mouse cursors added in
-//  GLFW 3.4+ (resizing cursors, not allowed cursor). 2019-10-18: Misc: Previously installed user callbacks are now restored on shutdown. 2019-07-21: Inputs:
-//  Added mapping for ImGuiKey_KeyPadEnter. 2019-05-11: Inputs: Don't filter value from character callback before calling AddInputCharacter(). 2019-03-12: Misc:
-//  Preserve DisplayFramebufferScale when main window is minimized. 2018-11-30: Misc: Setting up io.BackendPlatformName so it can be displayed in the About
-//  Window. 2018-11-07: Inputs: When installing our GLFW callbacks, we save user's previously installed ones - if any - and chain call them. 2018-08-01: Inputs:
-//  Workaround for Emscripten which doesn't seem to handle focus related calls. 2018-06-29: Inputs: Added support for the ImGuiMouseCursor_Hand cursor.
+//  2023-04-04: Inputs: Added support for io.AddMouseSourceEvent() to discriminate ImGuiMouseSource_Mouse/ImGuiMouseSource_TouchScreen/ImGuiMouseSource_Pen on
+//  Windows ONLY, using a custom WndProc hook. (#2702) 2023-03-16: Inputs: Fixed key modifiers handling on secondary viewports (docking branch). Broken on
+//  2023/01/04. (#6248, #6034) 2023-03-14: Emscripten: Avoid using glfwGetError() and glfwGetGamepadState() which are not correctly implemented in Emscripten
+//  emulation. (#6240) 2023-02-03: Emscripten: Registering custom low-level mouse wheel handler to get more accurate scrolling impulses on Emscripten. (#4019,
+//  #6096) 2023-01-18: Handle unsupported glfwGetVideoMode() call on e.g. Emscripten. 2023-01-04: Inputs: Fixed mods state on Linux when using Alt-GR text input
+//  (e.g. German keyboard layout), could lead to broken text input. Revert a 2022/01/17 change were we resumed using mods provided by GLFW, turns out they were
+//  faulty. 2022-11-22: Perform a dummy glfwGetError() read to cancel missing names with glfwGetKeyName(). (#5908) 2022-10-18: Perform a dummy glfwGetError()
+//  read to cancel missing mouse cursors errors. Using GLFW_VERSION_COMBINED directly. (#5785) 2022-10-11: Using 'nullptr' instead of 'NULL' as per our switch
+//  to C++11. 2022-09-26: Inputs: Renamed ImGuiKey_ModXXX introduced in 1.87 to ImGuiMod_XXX (old names still supported). 2022-09-01: Inputs: Honor
+//  GLFW_CURSOR_DISABLED by not setting mouse position. 2022-04-30: Inputs: Fixed ImGui_ImplGlfw_TranslateUntranslatedKey() for lower case letters on OSX.
+//  2022-03-23: Inputs: Fixed a regression in 1.87 which resulted in keyboard modifiers events being reported incorrectly on Linux/X11.
+//  2022-02-07: Added ImGui_ImplGlfw_InstallCallbacks()/ImGui_ImplGlfw_RestoreCallbacks() helpers to facilitate user installing callbacks after initializing
+//  backend. 2022-01-26: Inputs: replaced short-lived io.AddKeyModsEvent() (added two weeks ago) with io.AddKeyEvent() using ImGuiKey_ModXXX flags. Sorry for
+//  the confusion. 2021-01-20: Inputs: calling new io.AddKeyAnalogEvent() for gamepad support, instead of writing directly to io.NavInputs[]. 2022-01-17:
+//  Inputs: calling new io.AddMousePosEvent(), io.AddMouseButtonEvent(), io.AddMouseWheelEvent() API (1.87+). 2022-01-17: Inputs: always update key mods next
+//  and before key event (not in NewFrame) to fix input queue with very low framerates. 2022-01-12: *BREAKING CHANGE*: Now using glfwSetCursorPosCallback(). If
+//  you called ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST install glfwSetCursorPosCallback() and forward it to the backend via
+//  ImGui_ImplGlfw_CursorPosCallback(). 2022-01-10: Inputs: calling new io.AddKeyEvent(), io.AddKeyModsEvent() + io.SetKeyEventNativeData() API (1.87+). Support
+//  for full ImGuiKey range. 2022-01-05: Inputs: Converting GLFW untranslated keycodes back to translated keycodes (in the ImGui_ImplGlfw_KeyCallback()
+//  function) in order to match the behavior of every other backend, and facilitate the use of GLFW with lettered-shortcuts API. 2021-08-17: *BREAKING CHANGE*:
+//  Now using glfwSetWindowFocusCallback() to calling io.AddFocusEvent(). If you called ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST
+//  install glfwSetWindowFocusCallback() and forward it to the backend via ImGui_ImplGlfw_WindowFocusCallback(). 2021-07-29: *BREAKING CHANGE*: Now using
+//  glfwSetCursorEnterCallback(). MousePos is correctly reported when the host platform window is hovered but not focused. If you called
+//  ImGui_ImplGlfw_InitXXX() with install_callbacks = false, you MUST install glfwSetWindowFocusCallback() callback and forward it to the backend via
+//  ImGui_ImplGlfw_CursorEnterCallback(). 2021-06-29: Reorganized backend to pull data from a single structure to facilitate usage with multiple-contexts (all
+//  g_XXXX access changed to bd->XXXX). 2020-01-17: Inputs: Disable error callback while assigning mouse cursors because some X11 setup don't have them and it
+//  generates errors. 2019-12-05: Inputs: Added support for new mouse cursors added in GLFW 3.4+ (resizing cursors, not allowed cursor). 2019-10-18: Misc:
+//  Previously installed user callbacks are now restored on shutdown. 2019-07-21: Inputs: Added mapping for ImGuiKey_KeyPadEnter. 2019-05-11: Inputs: Don't
+//  filter value from character callback before calling AddInputCharacter(). 2019-03-12: Misc: Preserve DisplayFramebufferScale when main window is minimized.
+//  2018-11-30: Misc: Setting up io.BackendPlatformName so it can be displayed in the About Window.
+//  2018-11-07: Inputs: When installing our GLFW callbacks, we save user's previously installed ones - if any - and chain call them.
+//  2018-08-01: Inputs: Workaround for Emscripten which doesn't seem to handle focus related calls.
+//  2018-06-29: Inputs: Added support for the ImGuiMouseCursor_Hand cursor.
 //  2018-06-08: Misc: Extracted imgui_impl_glfw.cpp/.h away from the old combined GLFW+OpenGL/Vulkan examples.
 //  2018-03-20: Misc: Setup io.BackendFlags ImGuiBackendFlags_HasMouseCursors flag + honor ImGuiConfigFlags_NoMouseCursorChange flag.
 //  2018-02-20: Inputs: Added support for mouse cursors (ImGui::GetMouseCursor() value, passed to glfwSetCursor()).
@@ -142,9 +145,6 @@ struct ImGui_ImplGlfw_Data
 	bool InstalledCallbacks;
 	bool CallbacksChainForAllWindows;
 	bool WantUpdateMonitors;
-#ifdef _WIN32
-	WNDPROC GlfwWndProc;
-#endif
 
 	// Chain GLFW callbacks: our callbacks will call the user's previously installed callbacks, if any.
 	GLFWwindowfocusfun PrevUserCallbackWindowFocus;
@@ -155,6 +155,9 @@ struct ImGui_ImplGlfw_Data
 	GLFWkeyfun PrevUserCallbackKey;
 	GLFWcharfun PrevUserCallbackChar;
 	GLFWmonitorfun PrevUserCallbackMonitor;
+#ifdef _WIN32
+	WNDPROC GlfwWndProc;
+#endif
 
 	ImGui_ImplGlfw_Data()
 	{
@@ -474,7 +477,7 @@ static int ImGui_ImplGlfw_TranslateUntranslatedKey(int key, int scancode)
 	const char* key_name             = glfwGetKeyName(key, scancode);
 	glfwSetErrorCallback(prev_error_callback);
 #if GLFW_HAS_GETERROR && !defined(__EMSCRIPTEN__) // Eat errors (see #5908)
-	(void)glfwGetError(NULL);
+	(void)glfwGetError(nullptr);
 #endif
 	if (key_name && key_name[0] != 0 && key_name[1] == 0)
 	{
@@ -531,9 +534,7 @@ void ImGui_ImplGlfw_KeyCallback(GLFWwindow* window, int keycode, int scancode, i
 	}
 
 	if (keycode >= 0 && keycode < IM_ARRAYSIZE(bd->KeyOwnerWindows))
-	{
 		bd->KeyOwnerWindows[keycode] = (action == GLFW_PRESS) ? window : nullptr;
-	}
 
 	if (!gInputBlocked)
 	{
@@ -647,6 +648,60 @@ static EM_BOOL ImGui_ImplEmscripten_WheelCallback(int, const EmscriptenWheelEven
 }
 #endif
 
+#ifdef _WIN32
+// GLFW doesn't allow to distinguish Mouse vs TouchScreen vs Pen.
+// Add support for Win32 (based on imgui_impl_win32), because we rely on _TouchScreen info to trickle inputs differently.
+static ImGuiMouseSource GetMouseSourceFromMessageExtraInfo()
+{
+	LPARAM extra_info = ::GetMessageExtraInfo();
+	if ((extra_info & 0xFFFFFF80) == 0xFF515700)
+		return ImGuiMouseSource_Pen;
+	if ((extra_info & 0xFFFFFF80) == 0xFF515780)
+		return ImGuiMouseSource_TouchScreen;
+	return ImGuiMouseSource_Mouse;
+}
+static LRESULT CALLBACK ImGui_ImplGlfw_WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
+	switch (msg)
+	{
+		case WM_MOUSEMOVE:
+		case WM_NCMOUSEMOVE:
+		case WM_LBUTTONDOWN:
+		case WM_LBUTTONDBLCLK:
+		case WM_LBUTTONUP:
+		case WM_RBUTTONDOWN:
+		case WM_RBUTTONDBLCLK:
+		case WM_RBUTTONUP:
+		case WM_MBUTTONDOWN:
+		case WM_MBUTTONDBLCLK:
+		case WM_MBUTTONUP:
+		case WM_XBUTTONDOWN:
+		case WM_XBUTTONDBLCLK:
+		case WM_XBUTTONUP:
+			ImGui::GetIO().AddMouseSourceEvent(GetMouseSourceFromMessageExtraInfo());
+			break;
+
+			// We have submitted https://github.com/glfw/glfw/pull/1568 to allow GLFW to support "transparent inputs".
+			// In the meanwhile we implement custom per-platform workarounds here (FIXME-VIEWPORT: Implement same work-around for Linux/OSX!)
+#if !GLFW_HAS_MOUSE_PASSTHROUGH && GLFW_HAS_WINDOW_HOVERED
+		case WM_NCHITTEST:
+			{
+				// Let mouse pass-through the window. This will allow the backend to call io.AddMouseViewportEvent() properly (which is OPTIONAL).
+				// The ImGuiViewportFlags_NoInputs flag is set while dragging a viewport, as want to detect the window behind the one we are dragging.
+				// If you cannot easily access those viewport flags from your windowing/event code: you may manually synchronize its state e.g. in
+				// your main loop after calling UpdatePlatformWindows(). Iterate all viewports/platform windows and pass the flag to your windowing system.
+				ImGuiViewport* viewport = (ImGuiViewport*)::GetPropA(hWnd, "IMGUI_VIEWPORT");
+				if (viewport && (viewport->Flags & ImGuiViewportFlags_NoInputs))
+					return HTTRANSPARENT;
+				break;
+			}
+#endif
+	}
+	return ::CallWindowProc(bd->GlfwWndProc, hWnd, msg, wParam, lParam);
+}
+#endif
+
 void ImGui_ImplGlfw_InstallCallbacks(GLFWwindow* window)
 {
 	ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
@@ -749,7 +804,7 @@ static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, Glfw
 #endif
 	glfwSetErrorCallback(prev_error_callback);
 #if GLFW_HAS_GETERROR && !defined(__EMSCRIPTEN__) // Eat errors (see #5908)
-	(void)glfwGetError(NULL);
+	(void)glfwGetError(nullptr);
 #endif
 
 	// Chain GLFW callbacks: our callbacks will call the user's previously installed callbacks, if any.
@@ -759,7 +814,7 @@ static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, Glfw
 		// We intentionally do not check 'if (install_callbacks)' here, as some users may set it to false and call GLFW callback themselves.
 		// FIXME: May break chaining in case user registered their own Emscripten callback?
 #ifdef __EMSCRIPTEN__
-	emscripten_set_wheel_callback(EMSCRIPTEN_EVENT_TARGET_DOCUMENT, NULL, false, ImGui_ImplEmscripten_WheelCallback);
+	emscripten_set_wheel_callback(EMSCRIPTEN_EVENT_TARGET_DOCUMENT, nullptr, false, ImGui_ImplEmscripten_WheelCallback);
 #endif
 
 	// Update monitors the first time (note: monitor callback are broken in GLFW 3.2 and earlier, see github.com/glfw/glfw/issues/784)
@@ -778,6 +833,13 @@ static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, Glfw
 #endif
 	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 		ImGui_ImplGlfw_InitPlatformInterface();
+
+		// Windows: register a WndProc hook so we can intercept some messages.
+#ifdef _WIN32
+	bd->GlfwWndProc = (WNDPROC)::GetWindowLongPtr((HWND)main_viewport->PlatformHandleRaw, GWLP_WNDPROC);
+	IM_ASSERT(bd->GlfwWndProc != nullptr);
+	::SetWindowLongPtr((HWND)main_viewport->PlatformHandleRaw, GWLP_WNDPROC, (LONG_PTR)ImGui_ImplGlfw_WndProc);
+#endif
 
 	bd->ClientApi = client_api;
 	return true;
@@ -812,8 +874,17 @@ void ImGui_ImplGlfw_Shutdown()
 	for (ImGuiMouseCursor cursor_n = 0; cursor_n < ImGuiMouseCursor_COUNT; cursor_n++)
 		glfwDestroyCursor(bd->MouseCursors[cursor_n]);
 
+		// Windows: register a WndProc hook so we can intercept some messages.
+#ifdef _WIN32
+	ImGuiViewport* main_viewport = ImGui::GetMainViewport();
+	::SetWindowLongPtr((HWND)main_viewport->PlatformHandleRaw, GWLP_WNDPROC, (LONG_PTR)bd->GlfwWndProc);
+	bd->GlfwWndProc = nullptr;
+#endif
+
 	io.BackendPlatformName     = nullptr;
 	io.BackendPlatformUserData = nullptr;
+	io.BackendFlags &= ~(ImGuiBackendFlags_HasMouseCursors | ImGuiBackendFlags_HasSetMousePos | ImGuiBackendFlags_HasGamepad |
+						 ImGuiBackendFlags_PlatformHasViewports | ImGuiBackendFlags_HasMouseHoveredViewport);
 	IM_DELETE(bd);
 }
 
@@ -931,7 +1002,6 @@ static inline float Saturate(float v)
 {
 	return v < 0.0f ? 0.0f : v > 1.0f ? 1.0f : v;
 }
-
 static void ImGui_ImplGlfw_UpdateGamepads()
 {
 	ImGuiIO& io = ImGui::GetIO();
@@ -1018,7 +1088,7 @@ static void ImGui_ImplGlfw_UpdateMonitors()
 		int x, y;
 		glfwGetMonitorPos(glfw_monitors[n], &x, &y);
 		const GLFWvidmode* vid_mode = glfwGetVideoMode(glfw_monitors[n]);
-		if (vid_mode == NULL)
+		if (vid_mode == nullptr)
 			continue; // Failed to get Video mode (e.g. Emscripten does not support this function)
 		monitor.MainPos = monitor.WorkPos = ImVec2((float)x, (float)y);
 		monitor.MainSize = monitor.WorkSize = ImVec2((float)vid_mode->width, (float)vid_mode->height);
@@ -1038,6 +1108,7 @@ static void ImGui_ImplGlfw_UpdateMonitors()
 		glfwGetMonitorContentScale(glfw_monitors[n], &x_scale, &y_scale);
 		monitor.DpiScale = x_scale;
 #endif
+		monitor.PlatformHandle = (void*)glfw_monitors[n]; // [...] GLFW doc states: "guaranteed to be valid only until the monitor configuration changes"
 		platform_io.Monitors.push_back(monitor);
 	}
 }
@@ -1087,7 +1158,7 @@ void ImGui_ImplGlfw_ToggleInput(bool is_blocked)
 // If you are new to dear imgui or creating a new binding for dear imgui, it is recommended that you completely ignore this section first..
 //--------------------------------------------------------------------------------------------------------
 
-// Helper structure we store in the void* RenderUserData field of each ImGuiViewport to easily retrieve our backend data.
+// Helper structure we store in the void* RendererUserData field of each ImGuiViewport to easily retrieve our backend data.
 struct ImGui_ImplGlfw_ViewportData
 {
 	GLFWwindow* Window;
@@ -1225,26 +1296,6 @@ static void ImGui_ImplGlfw_DestroyWindow(ImGuiViewport* viewport)
 	viewport->PlatformUserData = viewport->PlatformHandle = nullptr;
 }
 
-// We have submitted https://github.com/glfw/glfw/pull/1568 to allow GLFW to support "transparent inputs".
-// In the meanwhile we implement custom per-platform workarounds here (FIXME-VIEWPORT: Implement same work-around for Linux/OSX!)
-#if !GLFW_HAS_MOUSE_PASSTHROUGH && GLFW_HAS_WINDOW_HOVERED && defined(_WIN32)
-static LRESULT CALLBACK WndProcNoInputs(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-	ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
-	if (msg == WM_NCHITTEST)
-	{
-		// Let mouse pass-through the window. This will allow the backend to call io.AddMouseViewportEvent() properly (which is OPTIONAL).
-		// The ImGuiViewportFlags_NoInputs flag is set while dragging a viewport, as want to detect the window behind the one we are dragging.
-		// If you cannot easily access those viewport flags from your windowing/event code: you may manually synchronize its state e.g. in
-		// your main loop after calling UpdatePlatformWindows(). Iterate all viewports/platform windows and pass the flag to your windowing system.
-		ImGuiViewport* viewport = (ImGuiViewport*)::GetPropA(hWnd, "IMGUI_VIEWPORT");
-		if (viewport->Flags & ImGuiViewportFlags_NoInputs)
-			return HTTRANSPARENT;
-	}
-	return ::CallWindowProc(bd->GlfwWndProc, hWnd, msg, wParam, lParam);
-}
-#endif
-
 static void ImGui_ImplGlfw_ShowWindow(ImGuiViewport* viewport)
 {
 	ImGui_ImplGlfw_ViewportData* vd = (ImGui_ImplGlfw_ViewportData*)viewport->PlatformUserData;
@@ -1264,9 +1315,8 @@ static void ImGui_ImplGlfw_ShowWindow(ImGuiViewport* viewport)
 #if !GLFW_HAS_MOUSE_PASSTHROUGH && GLFW_HAS_WINDOW_HOVERED && defined(_WIN32)
 	ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
 	::SetPropA(hwnd, "IMGUI_VIEWPORT", viewport);
-	if (bd->GlfwWndProc == nullptr)
-		bd->GlfwWndProc = (WNDPROC)::GetWindowLongPtr(hwnd, GWLP_WNDPROC);
-	::SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)WndProcNoInputs);
+	IM_ASSERT(bd->GlfwWndProc == (WNDPROC)::GetWindowLongPtr(hwnd, GWLP_WNDPROC));
+	::SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)ImGui_ImplGlfw_WndProc);
 #endif
 
 #if !GLFW_HAS_FOCUS_ON_SHOW
