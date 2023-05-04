@@ -86,6 +86,7 @@ namespace sc
 		bool m_viewport_hovered    = false;
 		bool m_game_mode           = false;
 		bool m_editor_cam_enabled  = true;
+		bool m_use_hand            = false;
 
 		ImVec2 m_icon_size       = {24, 24};
 		ImVec2 m_icon_size_large = {32, 32};

@@ -127,16 +127,11 @@ namespace sc
 
 					if (ImGui::IsMouseDown(ImGuiMouseButton_Right) && m_editor_cam_enabled)
 					{
-						ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+						m_use_hand = true;
 
 						m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 						m_editor_camera.translate(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
 						m_imgui_mouse_delta = {0.0f, 0.0f};
-					}
-
-					if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_editor_cam_enabled)
-					{
-						ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 					}
 				}
 
@@ -165,9 +160,9 @@ namespace sc
 		{
 			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
 			{
+				ImGui_ImplGlfw_ToggleInput(false);
 				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 
-				ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
 
 				m_update_stack.push_back([&]() {
@@ -395,6 +390,19 @@ namespace sc
 		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
 
 		ui::imgui_new_frame();
+
+		// Cursor handling here due to issues with fixed timestep loop.
+
+		if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_editor_cam_enabled)
+		{
+			m_use_hand = false;
+			ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+		}
+
+		if (m_use_hand)
+		{
+			ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+		}
 
 		static constexpr const ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
 															   ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus |
