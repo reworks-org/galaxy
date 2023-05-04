@@ -117,7 +117,12 @@ namespace galaxy
 					auto cursor_icon = config.get<std::string>("cursor_icon", "window");
 					if (!cursor_icon.empty())
 					{
-						cursor.set_cursor_icon(cursor_icon);
+						cursor.load_custom(cursor_icon);
+						cursor.use_custom_else_pointer();
+					}
+					else
+					{
+						cursor.use_pointer();
 					}
 
 					//

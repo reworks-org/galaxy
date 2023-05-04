@@ -898,27 +898,30 @@ static void ImGui_ImplGlfw_UpdateMouseData()
 
 static void ImGui_ImplGlfw_UpdateMouseCursor()
 {
-	ImGuiIO& io             = ImGui::GetIO();
-	ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
-	if ((io.ConfigFlags & ImGuiConfigFlags_NoMouseCursorChange) || glfwGetInputMode(bd->Window, GLFW_CURSOR) == GLFW_CURSOR_DISABLED)
-		return;
-
-	ImGuiMouseCursor imgui_cursor = ImGui::GetMouseCursor();
-	ImGuiPlatformIO& platform_io  = ImGui::GetPlatformIO();
-	for (int n = 0; n < platform_io.Viewports.Size; n++)
+	if (!gInputBlocked)
 	{
-		GLFWwindow* window = (GLFWwindow*)platform_io.Viewports[n]->PlatformHandle;
-		if (imgui_cursor == ImGuiMouseCursor_None || io.MouseDrawCursor)
+		ImGuiIO& io             = ImGui::GetIO();
+		ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
+		if ((io.ConfigFlags & ImGuiConfigFlags_NoMouseCursorChange) || glfwGetInputMode(bd->Window, GLFW_CURSOR) == GLFW_CURSOR_DISABLED)
+			return;
+
+		ImGuiMouseCursor imgui_cursor = ImGui::GetMouseCursor();
+		ImGuiPlatformIO& platform_io  = ImGui::GetPlatformIO();
+		for (int n = 0; n < platform_io.Viewports.Size; n++)
 		{
-			// Hide OS mouse cursor if imgui is drawing it or if it wants no cursor
-			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-		}
-		else
-		{
-			// Show OS mouse cursor
-			// FIXME-PLATFORM: Unfocused windows seems to fail changing the mouse cursor with GLFW 3.2, but 3.3 works here.
-			glfwSetCursor(window, bd->MouseCursors[imgui_cursor] ? bd->MouseCursors[imgui_cursor] : bd->MouseCursors[ImGuiMouseCursor_Arrow]);
-			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			GLFWwindow* window = (GLFWwindow*)platform_io.Viewports[n]->PlatformHandle;
+			if (imgui_cursor == ImGuiMouseCursor_None || io.MouseDrawCursor)
+			{
+				// Hide OS mouse cursor if imgui is drawing it or if it wants no cursor
+				glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+			}
+			else
+			{
+				// Show OS mouse cursor
+				// FIXME-PLATFORM: Unfocused windows seems to fail changing the mouse cursor with GLFW 3.2, but 3.3 works here.
+				glfwSetCursor(window, bd->MouseCursors[imgui_cursor] ? bd->MouseCursors[imgui_cursor] : bd->MouseCursors[ImGuiMouseCursor_Arrow]);
+				glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			}
 		}
 	}
 }
@@ -928,6 +931,7 @@ static inline float Saturate(float v)
 {
 	return v < 0.0f ? 0.0f : v > 1.0f ? 1.0f : v;
 }
+
 static void ImGui_ImplGlfw_UpdateGamepads()
 {
 	ImGuiIO& io = ImGui::GetIO();

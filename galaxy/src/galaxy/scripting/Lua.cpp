@@ -885,10 +885,17 @@ namespace galaxy
 			clipboard_type["set"] = &input::Clipboard::set;
 			clipboard_type["get"] = &input::Clipboard::get;
 
-			auto cursor_type               = lua.new_usertype<input::Cursor>("Cursor", sol::no_constructor);
-			cursor_type["set_cursor_icon"] = sol::resolve<void(std::string_view)>(&input::Cursor::set_cursor_icon);
-			cursor_type["toggle"]          = &input::Cursor::toggle;
-			cursor_type["within_window"]   = &input::Cursor::within_window;
+			auto cursor_type                       = lua.new_usertype<input::Cursor>("Cursor", sol::no_constructor);
+			cursor_type["load_custom"]             = &input::Cursor::load_custom;
+			cursor_type["toggle"]                  = &input::Cursor::toggle;
+			cursor_type["within_window"]           = &input::Cursor::within_window;
+			cursor_type["destroy"]                 = &input::Cursor::destroy;
+			cursor_type["use_cross"]               = &input::Cursor::use_cross;
+			cursor_type["use_custom"]              = &input::Cursor::use_custom;
+			cursor_type["use_custom_else_pointer"] = &input::Cursor::use_custom_else_pointer;
+			cursor_type["use_hand"]                = &input::Cursor::use_hand;
+			cursor_type["use_pointer"]             = &input::Cursor::use_pointer;
+			cursor_type["use_text"]                = &input::Cursor::use_text;
 
 			lua.set_function("galaxy_key_down", &input::Input::key_down);
 			lua.set_function("galaxy_mouse_down", &input::Input::mouse_button_down);

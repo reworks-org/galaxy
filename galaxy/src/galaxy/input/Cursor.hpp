@@ -40,18 +40,48 @@ namespace galaxy
 			void toggle(const bool visible);
 
 			///
-			/// Set cursor icon.
+			/// Load custom cursor data.
 			///
-			/// \param icon Icon to load.
+			/// \param file Cursor texture file to load.
 			///
-			void set_cursor_icon(std::string_view icon);
+			void load_custom(std::string_view file);
 
 			///
-			/// Set cursor icon.
+			/// Load custom cursor data.
 			///
-			/// \param buffer Memory buffer containing pixels.
+			/// \param buffer Memory buffer containing pixel data.
 			///
-			void set_cursor_icon(std::span<unsigned char> buffer);
+			void load_custom_mem(std::span<unsigned char> buffer);
+
+			///
+			/// Set cursor to custom cursor if loaded.
+			///
+			void use_custom();
+
+			///
+			/// OS default pointer.
+			///
+			void use_pointer();
+
+			///
+			/// OS default hand pointer.
+			///
+			void use_hand();
+
+			///
+			/// OS default cross pointer.
+			///
+			void use_cross();
+
+			///
+			/// OS default I-Beam cursor.
+			///
+			void use_text();
+
+			///
+			/// Uses custom cursor if available, otherwise uses default OS pointer.
+			///
+			void use_custom_else_pointer();
 
 			///
 			/// Checks if cursor is within window.
@@ -61,7 +91,9 @@ namespace galaxy
 			[[nodiscard]] bool within_window() const;
 
 			///
-			/// Clear up all used data.
+			/// \brief Clean up custom cursor.
+			///
+			/// Does not destroy default cursors.
 			///
 			void destroy();
 
@@ -91,11 +123,31 @@ namespace galaxy
 			///
 			Cursor& operator=(const Cursor&) = delete;
 
-		public:
+		private:
 			///
-			/// Allows for custom cursor properties.
+			/// Custom user cursor.
 			///
-			GLFWcursor* m_data;
+			GLFWcursor* m_custom;
+
+			///
+			/// Default system pointer.
+			///
+			GLFWcursor* m_pointer;
+
+			///
+			/// Default system cross pointer.
+			///
+			GLFWcursor* m_cross;
+
+			///
+			/// Default system hand cursor.
+			///
+			GLFWcursor* m_hand;
+
+			///
+			/// Default system text pointer.
+			///
+			GLFWcursor* m_text;
 		};
 	} // namespace input
 } // namespace galaxy

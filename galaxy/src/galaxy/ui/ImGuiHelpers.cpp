@@ -38,12 +38,17 @@ namespace galaxy
 			IMGUI_CHECKVERSION();
 			ImGui::CreateContext();
 			ImGuiIO& io = ImGui::GetIO(); (void)io;
-			io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-			io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-            io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-			io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-			io.ConfigDockingAlwaysTabBar = true;
 			// clang-format on
+
+			io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+			io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+			io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+			io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+			io.ConfigInputTextCursorBlink = true;
+			io.ConfigDockingWithShift     = true;
+			io.ConfigDockingAlwaysTabBar  = true;
+			io.MouseDrawCursor            = false;
 
 			// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 			ImGuiStyle& style = ImGui::GetStyle();

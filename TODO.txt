@@ -29,8 +29,6 @@ rml file reloading
 
 larger text font icons
 
-handle custom mouse cursors in editor
-
 replace search with imgui text filters
 
 move code editor to panel folder 
@@ -44,3 +42,7 @@ delete folder support for asset panel
 
 fix context menu not selecting item
 fix scrolling treeview scrolling folder view
+
+wrap iumgui notifys
+
+optimize fs iteration in asset panel is slow

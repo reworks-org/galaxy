@@ -10,13 +10,6 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/platform/Pragma.hpp"
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26440)
-#endif
 
 #include "RMLSystem.hpp"
 
@@ -26,16 +19,10 @@ namespace galaxy
 	{
 		RMLSystem::RMLSystem()
 		{
-			m_pointer = glfwCreateStandardCursor(GLFW_HAND_CURSOR);
-			m_cross   = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
-			m_text    = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);
 		}
 
 		RMLSystem::~RMLSystem()
 		{
-			glfwDestroyCursor(m_pointer);
-			glfwDestroyCursor(m_cross);
-			glfwDestroyCursor(m_text);
 		}
 
 		double RMLSystem::GetElapsedTime()
@@ -81,34 +68,30 @@ namespace galaxy
 			auto& window        = core::ServiceLocator<core::Window>::ref();
 			auto& window_cursor = window.get_input<input::Cursor>();
 
-			GLFWcursor* cursor = nullptr;
-
 			if (cursor_name == "move")
 			{
-				cursor = m_pointer;
+				window_cursor.use_hand();
 			}
 			else if (cursor_name == "pointer")
 			{
-				cursor = m_pointer;
+				window_cursor.use_pointer();
 			}
 			else if (cursor_name == "resize")
 			{
-				cursor = m_pointer;
+				window_cursor.use_hand();
 			}
 			else if (cursor_name == "cross")
 			{
-				cursor = m_cross;
+				window_cursor.use_cross();
 			}
 			else if (cursor_name == "text")
 			{
-				cursor = m_text;
+				window_cursor.use_text();
 			}
 			else
 			{
-				cursor = window_cursor.m_data;
+				window_cursor.use_custom_else_pointer();
 			}
-
-			glfwSetCursor(window.handle(), cursor);
 		}
 
 		void RMLSystem::SetClipboardText(const Rml::String& text)
@@ -122,7 +105,3 @@ namespace galaxy
 		}
 	} // namespace ui
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif

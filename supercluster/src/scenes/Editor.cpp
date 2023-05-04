@@ -136,7 +136,7 @@ namespace sc
 
 					if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_editor_cam_enabled)
 					{
-						ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+						ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 					}
 				}
 
@@ -165,6 +165,8 @@ namespace sc
 		{
 			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
 			{
+				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+
 				ImGui_ImplGlfw_ToggleInput(false);
 				m_game_mode = false;
 
@@ -633,6 +635,8 @@ namespace sc
 
 					m_game_mode = true;
 					m_backup    = m_project_sm.serialize();
+
+					core::ServiceLocator<core::Window>::ref().get_input<input::Cursor>().use_custom_else_pointer();
 				}
 				else
 				{
@@ -654,7 +658,8 @@ namespace sc
 		{
 			ImGui::TextWrapped("Galaxy Game Engine\nSupercluster Editor\nLicensed under Apache 2.0.");
 			ImGui::Spacing();
-			ImGui::TextWrapped("Controls:\nTo exit game mode, press SHIFT+TAB.\nWhen viewport is running, hold LEFT ALT to restore ImGui input.");
+			ImGui::TextWrapped("Controls:\nTo exit game mode, press SHIFT+TAB.\nWhen viewport is running, hold LEFT ALT to restore ImGui input.\nHold Left "
+							   "SHIFT to enable docking.");
 			ImGui::EndPopup();
 		}
 
