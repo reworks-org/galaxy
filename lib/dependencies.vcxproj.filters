@@ -47,21 +47,6 @@
     <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
     <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
     <ClCompile Include="glad\glad.c" />
-    <ClCompile Include="glfw\src\context.c" />
-    <ClCompile Include="glfw\src\init.c" />
-    <ClCompile Include="glfw\src\input.c" />
-    <ClCompile Include="glfw\src\monitor.c" />
-    <ClCompile Include="glfw\src\vulkan.c" />
-    <ClCompile Include="glfw\src\win32_init.c" />
-    <ClCompile Include="glfw\src\win32_joystick.c" />
-    <ClCompile Include="glfw\src\win32_monitor.c" />
-    <ClCompile Include="glfw\src\win32_thread.c" />
-    <ClCompile Include="glfw\src\win32_time.c" />
-    <ClCompile Include="glfw\src\win32_window.c" />
-    <ClCompile Include="glfw\src\wgl_context.c" />
-    <ClCompile Include="glfw\src\egl_context.c" />
-    <ClCompile Include="glfw\src\osmesa_context.c" />
-    <ClCompile Include="glfw\src\window.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-assertion-result.cc" />
@@ -365,6 +350,27 @@
     <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="rmlui\Source\Core\ScrollController.cpp" />
+    <ClCompile Include="glfw\src\egl_context.c" />
+    <ClCompile Include="glfw\src\context.c" />
+    <ClCompile Include="glfw\src\init.c" />
+    <ClCompile Include="glfw\src\input.c" />
+    <ClCompile Include="glfw\src\monitor.c" />
+    <ClCompile Include="glfw\src\null_init.c" />
+    <ClCompile Include="glfw\src\null_joystick.c" />
+    <ClCompile Include="glfw\src\null_monitor.c" />
+    <ClCompile Include="glfw\src\null_window.c" />
+    <ClCompile Include="glfw\src\osmesa_context.c" />
+    <ClCompile Include="glfw\src\platform.c" />
+    <ClCompile Include="glfw\src\vulkan.c" />
+    <ClCompile Include="glfw\src\wgl_context.c" />
+    <ClCompile Include="glfw\src\win32_init.c" />
+    <ClCompile Include="glfw\src\win32_joystick.c" />
+    <ClCompile Include="glfw\src\win32_module.c" />
+    <ClCompile Include="glfw\src\win32_monitor.c" />
+    <ClCompile Include="glfw\src\win32_thread.c" />
+    <ClCompile Include="glfw\src\win32_time.c" />
+    <ClCompile Include="glfw\src\win32_window.c" />
+    <ClCompile Include="glfw\src\window.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -538,15 +544,6 @@
     <ClInclude Include="freetype2_win\include\ft2build.h" />
     <ClInclude Include="glad\include\glad\glad.h" />
     <ClInclude Include="glad\include\KHR\khrplatform.h" />
-    <ClInclude Include="glfw\include\GLFW\glfw3.h" />
-    <ClInclude Include="glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="glfw\src\internal.h" />
-    <ClInclude Include="glfw\src\mappings.h" />
-    <ClInclude Include="glfw\src\win32_joystick.h" />
-    <ClInclude Include="glfw\src\win32_platform.h" />
-    <ClInclude Include="glfw\src\wgl_context.h" />
-    <ClInclude Include="glfw\src\egl_context.h" />
-    <ClInclude Include="glfw\src\osmesa_context.h" />
     <ClInclude Include="glm\glm\detail\_features.hpp" />
     <ClInclude Include="glm\glm\detail\_fixes.hpp" />
     <ClInclude Include="glm\glm\detail\_noise.hpp" />
@@ -1393,8 +1390,17 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_map.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_set.hpp" />
     <ClInclude Include="rmlui\Source\Core\ScrollController.h" />
-    <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
-    <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
+    <ClInclude Include="glfw\include\GLFW\glfw3.h" />
+    <ClInclude Include="glfw\include\GLFW\glfw3native.h" />
+    <ClInclude Include="glfw\src\internal.h" />
+    <ClInclude Include="glfw\src\mappings.h" />
+    <ClInclude Include="glfw\src\null_joystick.h" />
+    <ClInclude Include="glfw\src\null_platform.h" />
+    <ClInclude Include="glfw\src\platform.h" />
+    <ClInclude Include="glfw\src\win32_joystick.h" />
+    <ClInclude Include="glfw\src\win32_platform.h" />
+    <ClInclude Include="glfw\src\win32_thread.h" />
+    <ClInclude Include="glfw\src\win32_time.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
