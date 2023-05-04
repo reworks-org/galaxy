@@ -8,7 +8,10 @@ typedef SSIZE_T ssize_t;
 #endif
 
 #include <ft2build.h>
+#include <freetype/ftmodapi.h>
 #include FT_FREETYPE_H
+
+#include <mimalloc-override.h>
 
 #ifdef __linux__
 /* We don't want to link to any specific OpenGL implementation. */
@@ -125,6 +128,7 @@ typedef struct msdfgl_index_entry
 struct _msdfgl_context
 {
 	FT_Library ft_library;
+	FT_Memory ft_memory;
 
 	GLfloat dpi[2];
 
@@ -222,11 +226,23 @@ msdfgl_context_t msdfgl_create_context(const char* version)
 	if (!ctx)
 		return NULL;
 
-	FT_Error error = FT_Init_FreeType(&ctx->ft_library);
+	ctx->ft_memory          = malloc(sizeof(FT_Memory));
+	ctx->ft_memory->alloc   = &mi_malloc;
+	ctx->ft_memory->free    = &mi_free;
+	ctx->ft_memory->realloc = &mi_realloc;
+
+	FT_Error error = FT_New_Library(ctx->ft_memory, &ctx->ft_library);
 	if (error)
 	{
+		free(ctx->ft_memory);
 		free(ctx);
+
 		return NULL;
+	}
+	else
+	{
+		FT_Add_Default_Modules(ctx->ft_library);
+		FT_Set_Default_Properties(ctx->ft_library);
 	}
 
 	glGetIntegerv(GL_MAX_TEXTURE_SIZE, &ctx->_max_texture_size);
@@ -336,7 +352,8 @@ void msdfgl_destroy_context(msdfgl_context_t ctx)
 	if (!ctx)
 		return;
 
-	FT_Done_FreeType(ctx->ft_library);
+	FT_Done_Library(ctx->ft_library);
+	free(ctx->ft_memory);
 
 	glDeleteProgram(ctx->gen_shader);
 	glDeleteProgram(ctx->render_shader);
