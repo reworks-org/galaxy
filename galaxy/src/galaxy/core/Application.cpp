@@ -6,8 +6,6 @@
 ///
 
 #include <BS_thread_pool.hpp>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <RmlUi/Core.h>
 #include <RmlUi/Lua.h>
 #include <tinyfiledialogs.h>

@@ -9,6 +9,8 @@
 #define GALAXY_CORE_WINDOW_HPP_
 
 #include <entt/signal/dispatcher.hpp>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/EventQueue.hpp"
@@ -265,6 +267,11 @@ namespace galaxy
 			Window& operator=(Window&&) = delete;
 
 		private:
+			///
+			/// Custom GLFW window allocator.
+			///
+			GLFWallocator m_glfw_allocator;
+
 			///
 			/// GLFW window data.
 			///

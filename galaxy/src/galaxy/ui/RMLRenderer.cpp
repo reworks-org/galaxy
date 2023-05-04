@@ -6,8 +6,6 @@
 /// Code has been modified to work in galaxy.
 ///
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <RmlUi/Core/Core.h>
 #include <RmlUi/Core/FileInterface.h>
 #include <RmlUi/Core/Log.h>

@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <stb_image.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -21,6 +19,21 @@
 
 #include "Window.hpp"
 
+void* glfw_alloc(size_t size, void* user)
+{
+	return mi_malloc(size);
+}
+
+void* glfw_realloc(void* block, size_t size, void* user)
+{
+	return mi_realloc(block, size);
+}
+
+void glfw_dealloc(void* block, void* user)
+{
+	mi_free(block);
+}
+
 namespace galaxy
 {
 	namespace core
@@ -30,6 +43,9 @@ namespace galaxy
 			, m_width {1}
 			, m_height {1}
 		{
+			m_glfw_allocator.allocate   = &glfw_alloc;
+			m_glfw_allocator.reallocate = &glfw_realloc;
+			m_glfw_allocator.deallocate = &glfw_dealloc;
 		}
 
 		Window::Window(const WindowSettings& settings)
@@ -37,6 +53,10 @@ namespace galaxy
 			, m_width {1}
 			, m_height {1}
 		{
+			m_glfw_allocator.allocate   = &glfw_alloc;
+			m_glfw_allocator.reallocate = &glfw_realloc;
+			m_glfw_allocator.deallocate = &glfw_dealloc;
+
 			open(settings);
 		}
 
@@ -54,6 +74,8 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "[GLFW] Code: {0}, Desc: {1}.", error, description);
 			});
 
+			glfwInitAllocator(&m_glfw_allocator);
+
 			glfwInitHint(GLFW_JOYSTICK_HAT_BUTTONS, GLFW_FALSE);
 			if (!glfwInit())
 			{
@@ -63,6 +85,7 @@ namespace galaxy
 			{
 				// Configure window setup using hints.
 				// If not here, then default is the preference.
+				glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, GLFW_FALSE);
 				glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 				glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 				glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
@@ -162,10 +185,10 @@ namespace galaxy
 								}
 							}
 						}
-
-						glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
-						glfwShowWindow(m_window);
 					}
+
+					glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
+					glfwShowWindow(m_window);
 
 					// Set input devices.
 					m_keyboard.set_window(m_window);
@@ -349,7 +372,7 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
-					// clang-format off
+// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_PUSH
 					GALAXY_DISABLE_WARNING(26487)
@@ -376,7 +399,7 @@ namespace galaxy
 						}
 					});
 
-					// clang-format off
+// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
 					#endif
