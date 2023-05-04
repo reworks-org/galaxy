@@ -30,6 +30,21 @@ static inline int _msdfgl_is_control(int32_t code)
 	return (code <= 31) || (code >= 128 && code <= 159);
 }
 
+void* msdfgl_ft_alloc(FT_Memory memory, long size)
+{
+	return mi_malloc(size);
+}
+
+void msdfgl_ft_free(FT_Memory memory, void* block)
+{
+	return mi_free(block);
+}
+
+void* msdfgl_ft_realloc(FT_Memory memory, long cur_size, long new_size, void* block)
+{
+	return mi_realloc(block, new_size);
+}
+
 struct _msdfgl_atlas
 {
 	int _refcount; /* Amount of fonts using this atlas */
@@ -226,23 +241,26 @@ msdfgl_context_t msdfgl_create_context(const char* version)
 	if (!ctx)
 		return NULL;
 
-	ctx->ft_memory          = malloc(sizeof(FT_Memory));
-	ctx->ft_memory->alloc   = &mi_malloc;
-	ctx->ft_memory->free    = &mi_free;
-	ctx->ft_memory->realloc = &mi_realloc;
+	ctx->ft_memory = calloc(1, sizeof(struct FT_MemoryRec_));
 
-	FT_Error error = FT_New_Library(ctx->ft_memory, &ctx->ft_library);
-	if (error)
+	if (!ctx->ft_memory)
+		return NULL;
+
+	ctx->ft_memory->alloc   = &msdfgl_ft_alloc;
+	ctx->ft_memory->free    = &msdfgl_ft_free;
+	ctx->ft_memory->realloc = &msdfgl_ft_realloc;
+
+	if (FT_New_Library(ctx->ft_memory, &ctx->ft_library) == 0)
+	{
+		FT_Add_Default_Modules(ctx->ft_library);
+		FT_Set_Default_Properties(ctx->ft_library);
+	}
+	else
 	{
 		free(ctx->ft_memory);
 		free(ctx);
 
 		return NULL;
-	}
-	else
-	{
-		FT_Add_Default_Modules(ctx->ft_library);
-		FT_Set_Default_Properties(ctx->ft_library);
 	}
 
 	glGetIntegerv(GL_MAX_TEXTURE_SIZE, &ctx->_max_texture_size);
