@@ -8,7 +8,6 @@
 #include <entt/entity/registry.hpp>
 #include <magic_enum.hpp>
 #include <imgui_stdlib.h>
-#include <imgui_addons/imgui_notify.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
@@ -185,7 +184,7 @@ namespace sc
 										s_tr_id = "";
 										s_tpf   = 0.1f;
 
-										ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New frame added."});
+										ui::imgui_notify_success("New frame added.");
 
 										ImGui::CloseCurrentPopup();
 									}
@@ -210,7 +209,7 @@ namespace sc
 									s_speed = 1.0f;
 									s_frames.clear();
 
-									ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New animation added."});
+									ui::imgui_notify_success("New animation added.");
 
 									ImGui::CloseCurrentPopup();
 								}
@@ -285,7 +284,7 @@ namespace sc
 								}
 								else
 								{
-									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Entity did not pass validation."});
+									ui::imgui_notify_error("Entity did not pass validation.");
 								}
 							}
 							else
@@ -481,7 +480,7 @@ namespace sc
 								points.clear();
 							});
 
-							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Successfully created primitive."});
+							ui::imgui_notify_success("Successfully created primitive.");
 						}
 					});
 
@@ -652,11 +651,11 @@ namespace sc
 									sprite->create(sprite->m_texture, sprite->m_layer, sprite->m_opacity);
 								});
 
-								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "New sprite created."});
+								ui::imgui_notify_success("New sprite created.");
 							}
 							else
 							{
-								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Specify texture buffer."});
+								ui::imgui_notify_error("Specify texture buffer.");
 							}
 						}
 
@@ -670,11 +669,11 @@ namespace sc
 									sprite->update(sprite->m_texture);
 								});
 
-								ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Sprite updated."});
+								ui::imgui_notify_success("Sprite updated.");
 							}
 							else
 							{
-								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Specify texture buffer."});
+								ui::imgui_notify_error("Specify texture buffer.");
 							}
 						}
 					});
@@ -751,7 +750,7 @@ namespace sc
 								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer, text->m_alignment);
 							});
 
-							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text created."});
+							ui::imgui_notify_success("Text created.");
 						}
 
 						ImGui::SameLine();
@@ -762,7 +761,7 @@ namespace sc
 								text->update(text->m_text, text->m_size, text->m_colour, text->m_alignment);
 							});
 
-							ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Text updated."});
+							ui::imgui_notify_success("Text updated.");
 						}
 					});
 

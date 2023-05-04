@@ -6,7 +6,6 @@
 ///
 
 #include <imgui_addons/material_design_icons.h>
-#include <imgui_addons/imgui_notify.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -59,7 +58,7 @@ namespace sc
 						}
 						else
 						{
-							ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open script."});
+							ui::imgui_notify_error("Failed to open script.");
 						}
 					}
 
@@ -111,7 +110,7 @@ namespace sc
 					}
 					else
 					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open script."});
+						ui::imgui_notify_error("Failed to open script.");
 					}
 				}
 
@@ -129,7 +128,7 @@ namespace sc
 
 							if (!fs.save(m_editor.GetText(), m_file.string()))
 							{
-								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+								ui::imgui_notify_error("Failed to save script.");
 							}
 						}
 					}
@@ -139,7 +138,7 @@ namespace sc
 				{
 					if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().save_using_dialog(m_editor.GetText(), "untitled.lua", {"*.lua"}))
 					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save script file."});
+						ui::imgui_notify_error("Failed to save script.");
 					}
 				}
 

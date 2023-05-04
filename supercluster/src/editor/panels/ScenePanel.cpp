@@ -5,11 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
-#include <imgui_addons/imgui_notify.h>
-#include <RmlUi/Core/Context.h>
-#include <RmlUi/Core/ElementDocument.h>
+#include <imgui_addons/material_design_icons.h>
 
 #include <galaxy/algorithm/Base64.hpp>
 #include <galaxy/algorithm/ZLib.hpp>
@@ -124,7 +120,7 @@ namespace sc
 							}
 							else
 							{
-								ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "Cannot remove active scene."});
+								ui::imgui_notify_warning("Cannot remove active scene.");
 							}
 						});
 
@@ -241,7 +237,7 @@ namespace sc
 								}
 								else
 								{
-									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Please select a map before loading."});
+									ui::imgui_notify_warning("Please select a map before loading.");
 								}
 							}
 
@@ -281,7 +277,7 @@ namespace sc
 								if (!fs.save_using_dialog(zlib, "untitled.gprefab", {"*.gprefab"}))
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
-									ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save prefab."});
+									ui::imgui_notify_error("Failed to save prefab.");
 								}
 							}
 						}
@@ -322,7 +318,7 @@ namespace sc
 								}
 								else
 								{
-									ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "Please select a prefab."});
+									ui::imgui_notify_warning("Please select a prefab.");
 								}
 							}
 

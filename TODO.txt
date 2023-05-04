@@ -23,15 +23,12 @@ overrides game camera when not in play mode
 switch to game camera in play mode also have button to enable setting that camera & controls for it.
 buff4er editor camera or game camera based on mode.
 
-
 lua script reloading
 rml file reloading
 
 larger text font icons
 
 replace search with imgui text filters
-
-
 
 merge settings and json editor
 
@@ -42,7 +39,5 @@ delete folder support for asset panel
 
 fix context menu not selecting item
 fix scrolling treeview scrolling folder view
-
-wrap iumgui notifys
 
 optimize fs iteration in asset panel is slow

@@ -231,7 +231,7 @@ namespace sc
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to parse json from memory after decompression for: {0}.", fs_path.string());
-				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
+				ui::imgui_notify_error("Failed to open project.");
 			}
 		}
 		else
@@ -239,7 +239,7 @@ namespace sc
 			ifs.close();
 
 			GALAXY_LOG(GALAXY_ERROR, "Failed to open project file: {0}.", path);
-			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project."});
+			ui::imgui_notify_error("Failed to open project.");
 		}
 	}
 
@@ -281,12 +281,12 @@ namespace sc
 				ofs.write(data.data(), data.size());
 
 				core::ServiceLocator<core::Window>::ref().set_title(std::filesystem::path(m_current_project_path).stem().string().c_str());
-				ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, "Saved project."});
+				ui::imgui_notify_info("Saved project.");
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save project.");
-				ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save project."});
+				ui::imgui_notify_error("Failed to save project.");
 			}
 
 			ofs.close();
@@ -434,7 +434,7 @@ namespace sc
 						}
 						else
 						{
-							ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to open project file."});
+							ui::imgui_notify_error("Failed to open project file.");
 						}
 					});
 				}
@@ -618,7 +618,7 @@ namespace sc
 					}
 					else
 					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "No active scene."});
+						ui::imgui_notify_warning("No active scene.");
 					}
 				}
 			}
@@ -648,7 +648,7 @@ namespace sc
 				}
 				else
 				{
-					ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, "No active scene."});
+					ui::imgui_notify_warning("No active scene.");
 				}
 			}
 
@@ -819,7 +819,7 @@ namespace sc
 						config.raw(m_settings.save());
 						config.save();
 
-						ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, "Settings changed, a restart is needed."});
+						ui::imgui_notify_success("Settings changed, a restart is needed.");
 					}
 
 					if (ImGui::MenuItem("Refresh"))

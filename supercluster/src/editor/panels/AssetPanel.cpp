@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/imgui_notify.h>
 #include <imgui_internal.h>
+#include <imgui_addons/material_design_icons.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -379,7 +379,7 @@ namespace sc
 							const auto path = std::filesystem::path(m_current_dir / "script.lua");
 							if (!fs.save("-- galaxy script (lua)", path.string()))
 							{
-								ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, "Failed to save new script."});
+								ui::imgui_notify_error("Failed to save new script.");
 							}
 
 							ImGui::CloseCurrentPopup();
@@ -572,7 +572,7 @@ namespace sc
 					}
 					catch (const std::exception& e)
 					{
-						ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, e.what()});
+						ui::imgui_notify_error(e.what());
 					}
 				}
 			}

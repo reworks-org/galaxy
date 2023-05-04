@@ -106,6 +106,34 @@ namespace galaxy
 		/// \param size Size of the button.
 		///
 		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size);
+
+		///
+		/// ImGui success notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_success(const char* msg);
+
+		///
+		/// ImGui info notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_info(const char* msg);
+
+		///
+		/// ImGui warning notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_warning(const char* msg);
+
+		///
+		/// ImGui error notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_error(const char* msg);
 	} // namespace ui
 } // namespace galaxy
 

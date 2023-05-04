@@ -9,6 +9,7 @@
 #include <glfw/glfw3.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_impl_glfw.h>
+#include <imgui_addons/imgui_notify.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -195,6 +196,26 @@ namespace galaxy
 		{
 			const auto upcast = static_cast<std::uint64_t>(texture.get_texture());
 			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
+		}
+
+		void imgui_notify_success(const char* msg)
+		{
+			ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, msg});
+		}
+
+		void imgui_notify_info(const char* msg)
+		{
+			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, msg});
+		}
+
+		void imgui_notify_warning(const char* msg)
+		{
+			ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, msg});
+		}
+
+		void imgui_notify_error(const char* msg)
+		{
+			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});
 		}
 	} // namespace ui
 } // namespace galaxy
