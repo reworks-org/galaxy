@@ -49,8 +49,6 @@ namespace sc
 	private:
 		void draw_editor();
 		void viewport();
-		void code_editor();
-		void code_editor_menu();
 
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
@@ -64,9 +62,9 @@ namespace sc
 		panel::EntityEditor m_entity_panel;
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
+		panel::CodeEditor m_code_editor;
 
 		Settings m_settings;
-		CodeEditor m_code_editor;
 		UpdateStack m_update_stack;
 
 		bool m_show_scenes         = true;

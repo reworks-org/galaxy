@@ -11,7 +11,7 @@
 #include <galaxy/graphics/Texture.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
-#include "editor/CodeEditor.hpp"
+#include "editor/panels/CodeEditor.hpp"
 #include "editor/SelectedAsset.hpp"
 #include "editor/UpdateStack.hpp"
 

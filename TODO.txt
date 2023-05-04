@@ -31,7 +31,7 @@ larger text font icons
 
 replace search with imgui text filters
 
-move code editor to panel folder 
+
 
 merge settings and json editor
 
