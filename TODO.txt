@@ -39,5 +39,3 @@ delete folder support for asset panel
 
 fix context menu not selecting item
 fix scrolling treeview scrolling folder view
-
-optimize fs iteration in asset panel is slow

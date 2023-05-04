@@ -33,10 +33,14 @@ namespace sc
 			, m_icon {nullptr}
 			, m_open_config {false}
 			, m_create_folder_popup {false}
+			, m_update_directories {true}
 		{
 			auto& fs      = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			m_root        = fs.root_path();
 			m_current_dir = fs.root_path();
+
+			m_root_str = m_root.string();
+			m_root_str.pop_back();
 
 			auto& config = core::ServiceLocator<core::Config>::ref();
 			config.restore("padding", 48.0f, "editor");
@@ -45,10 +49,6 @@ namespace sc
 
 			m_thumb_size = config.get<float>("thumb_size", "editor");
 			m_padding    = config.get<float>("padding", "editor");
-
-			m_audio.load("../editor_data/icons/audio.png");
-			m_audio.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_audio.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
 			m_backward.load("../editor_data/icons/backward.png");
 			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
@@ -62,53 +62,95 @@ namespace sc
 			m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_font.load("../editor_data/icons/font.png");
-			m_font.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_font.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
 			m_forward.load("../editor_data/icons/forward.png");
 			m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_glsl.load("../editor_data/icons/glsl.png");
-			m_glsl.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_glsl.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_json.load("../editor_data/icons/json.png");
-			m_json.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_json.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_lang.load("../editor_data/icons/lang.png");
-			m_lang.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_lang.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_lua.load("../editor_data/icons/lua.png");
-			m_lua.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_lua.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_proj.load("../editor_data/icons/proj.png");
-			m_proj.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_proj.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
-
-			m_texture.load("../editor_data/icons/texture.png");
-			m_texture.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_texture.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
 			m_reload.load("../editor_data/icons/reload.png");
 			m_reload.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_reload.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_map.load("../editor_data/icons/map.png");
-			m_map.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_map.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_ext_map.emplace(".ogg", FileType::AUDIO);
+			m_ext_map.emplace(".wav", FileType::AUDIO);
+			m_ext_map.emplace(".mp3", FileType::AUDIO);
+			m_ext_map.emplace(".ttf", FileType::FONT);
+			m_ext_map.emplace(".otf", FileType::FONT);
+			m_ext_map.emplace(GALAXY_VERTEX_EXT, FileType::SHADER);
+			m_ext_map.emplace(GALAXY_FRAGMENT_EXT, FileType::SHADER);
+			m_ext_map.emplace(".json", FileType::JSON);
+			m_ext_map.emplace(".lang", FileType::LANG);
+			m_ext_map.emplace(".lua", FileType::LUA);
+			m_ext_map.emplace(".scproj", FileType::PROJ);
+			m_ext_map.emplace(".png", FileType::TEXTURE);
+			m_ext_map.emplace(".bmp", FileType::TEXTURE);
+			m_ext_map.emplace(".jpg", FileType::TEXTURE);
+			m_ext_map.emplace(".jpeg", FileType::TEXTURE);
+			m_ext_map.emplace(".gif", FileType::TEXTURE);
+			m_ext_map.emplace(".tmx", FileType::MAP);
+			m_ext_map.emplace(".tmj", FileType::MAP);
+			m_ext_map.emplace(".gprefab", FileType::PREFAB);
 
-			m_prefab.load("../editor_data/icons/prefab.png");
-			m_prefab.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_prefab.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_tex_map.try_emplace(FileType::AUDIO);
+			m_tex_map.try_emplace(FileType::FONT);
+			m_tex_map.try_emplace(FileType::SHADER);
+			m_tex_map.try_emplace(FileType::JSON);
+			m_tex_map.try_emplace(FileType::LANG);
+			m_tex_map.try_emplace(FileType::LUA);
+			m_tex_map.try_emplace(FileType::PROJ);
+			m_tex_map.try_emplace(FileType::TEXTURE);
+			m_tex_map.try_emplace(FileType::MAP);
+			m_tex_map.try_emplace(FileType::PREFAB);
+
+			m_tex_map[FileType::AUDIO].load("../editor_data/icons/audio.png");
+			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::FONT].load("../editor_data/icons/font.png");
+			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::SHADER].load("../editor_data/icons/glsl.png");
+			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::JSON].load("../editor_data/icons/json.png");
+			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::LANG].load("../editor_data/icons/lang.png");
+			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::LUA].load("../editor_data/icons/lua.png");
+			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::PROJ].load("../editor_data/icons/proj.png");
+			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::TEXTURE].load("../editor_data/icons/texture.png");
+			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::MAP].load("../editor_data/icons/map.png");
+			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+			m_tex_map[FileType::PREFAB].load("../editor_data/icons/prefab.png");
+			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
 		void AssetPanel::render(CodeEditor& editor, UpdateStack& updates)
 		{
+			// First update current_dir will always be root.
+			if (m_update_directories)
+			{
+				m_update_directories = false;
+				update_directories(m_current_dir);
+			}
+
 			if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser"))
 			{
 				top(updates);
@@ -139,10 +181,7 @@ namespace sc
 			m_size_vec.x            = scaled_thumb;
 			m_size_vec.y            = scaled_thumb;
 
-			auto root_str = m_root.string();
-			root_str.pop_back();
-
-			const auto disable_back = m_current_dir.parent_path().string().find(root_str) == std::string::npos;
+			const auto disable_back = m_current_dir.parent_path().string().find(m_root_str) == std::string::npos;
 			if (disable_back)
 			{
 				ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
@@ -151,8 +190,9 @@ namespace sc
 
 			if (ui::imgui_imagebutton(m_backward, m_toolbar_vec))
 			{
-				m_prev_dir    = m_current_dir;
-				m_current_dir = m_current_dir.parent_path();
+				m_prev_dir           = m_current_dir;
+				m_current_dir        = m_current_dir.parent_path();
+				m_update_directories = true;
 			}
 
 			if (disable_back)
@@ -175,6 +215,8 @@ namespace sc
 			{
 				m_current_dir = m_prev_dir;
 				m_prev_dir.clear();
+
+				m_update_directories = true;
 			}
 
 			if (disable_forward)
@@ -231,12 +273,7 @@ namespace sc
 
 			if (ImGui::CollapsingHeader("Assets", ImGuiTreeNodeFlags_SpanAvailWidth))
 			{
-				unsigned int count = 0;
-				for (const auto& entry : std::filesystem::recursive_directory_iterator(m_root))
-				{
-					count++;
-				}
-
+				auto count = static_cast<unsigned int>(m_directories.size());
 				directory_tree_view_recursive(m_root, &count);
 			}
 
@@ -252,63 +289,26 @@ namespace sc
 
 			if (ImGui::BeginTable("AssetPanelColumns", std::max(columns, 1), flags))
 			{
-				for (const auto& entry : std::filesystem::directory_iterator(m_current_dir))
+				for (const auto& path : m_directories)
 				{
 					ImGui::TableNextColumn();
 
-					const auto& path = entry.path();
-					const auto file  = path.filename().string();
-					const auto ext   = path.extension();
+					const auto file = path.filename().string();
+					const auto ext  = path.extension().string();
 
 					if (m_filter.PassFilter(file.c_str()))
 					{
 						ImGui::PushID(file.c_str());
 
-						if (entry.is_directory())
+						if (!path.has_extension())
 						{
 							m_icon = &m_folder;
 						}
 						else
 						{
-							if (ext == ".ogg" || ext == ".wav" || ext == ".mp3")
+							if (m_ext_map.contains(ext))
 							{
-								m_icon = &m_audio;
-							}
-							else if (ext == ".ttf" || ext == ".otf")
-							{
-								m_icon = &m_font;
-							}
-							else if (ext == GALAXY_VERTEX_EXT || ext == GALAXY_FRAGMENT_EXT)
-							{
-								m_icon = &m_glsl;
-							}
-							else if (ext == ".json")
-							{
-								m_icon = &m_json;
-							}
-							else if (ext == ".lang")
-							{
-								m_icon = &m_lang;
-							}
-							else if (ext == ".lua")
-							{
-								m_icon = &m_lua;
-							}
-							else if (ext == ".scproj")
-							{
-								m_icon = &m_proj;
-							}
-							else if (ext == ".png" || ext == ".bmp" || ext == ".jpg" || ext == ".jpeg" || ext == ".gif")
-							{
-								m_icon = &m_texture;
-							}
-							else if (ext == ".tmx" || ext == ".tmj")
-							{
-								m_icon = &m_map;
-							}
-							else if (ext == ".gprefab")
-							{
-								m_icon = &m_prefab;
+								m_icon = &m_tex_map[m_ext_map[ext]];
 							}
 							else
 							{
@@ -327,10 +327,10 @@ namespace sc
 							ImGui::EndDragDropSource();
 						}
 
-						if (!entry.is_directory() && ImGui::IsItemHovered())
+						if (path.has_extension() && ImGui::IsItemHovered())
 						{
 							m_selected.m_path       = path;
-							m_selected.m_extension  = ext.string();
+							m_selected.m_extension  = ext;
 							m_selected.m_is_hovered = true;
 						}
 						else
@@ -340,9 +340,10 @@ namespace sc
 
 						if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
 						{
-							if (entry.is_directory())
+							if (!path.has_extension())
 							{
 								m_current_dir /= file;
+								m_update_directories = true;
 							}
 							else if (ext == ".lua")
 							{
@@ -602,8 +603,9 @@ namespace sc
 
 				if (ImGui::IsItemClicked())
 				{
-					m_prev_dir    = m_current_dir;
-					m_current_dir = entry.path();
+					m_prev_dir           = m_current_dir;
+					m_current_dir        = entry.path();
+					m_update_directories = true;
 				}
 
 				if (!is_file)
@@ -632,6 +634,16 @@ namespace sc
 						}
 					}
 				}
+			}
+		}
+
+		void AssetPanel::update_directories(const std::filesystem::path& path)
+		{
+			m_directories.clear();
+
+			for (const auto& entry : std::filesystem::directory_iterator(path))
+			{
+				m_directories.emplace_back(entry.path());
 			}
 		}
 	} // namespace panel

@@ -24,6 +24,20 @@ namespace sc
 		class AssetPanel final
 		{
 		public:
+			enum class FileType : int
+			{
+				AUDIO,
+				FONT,
+				SHADER,
+				JSON,
+				LANG,
+				LUA,
+				PROJ,
+				TEXTURE,
+				MAP,
+				PREFAB
+			};
+
 			AssetPanel();
 			~AssetPanel() = default;
 
@@ -39,6 +53,7 @@ namespace sc
 
 			// https://gist.github.com/OverShifted/13aec504dfe376dcc2171e8b7451c5b5
 			void directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count);
+			void update_directories(const std::filesystem::path& path);
 
 		private:
 			SelectedAsset m_selected;
@@ -52,28 +67,26 @@ namespace sc
 
 			bool m_open_config;
 			bool m_create_folder_popup;
+			bool m_update_directories;
 
 			std::filesystem::path m_root;
 			std::filesystem::path m_current_dir;
 			std::filesystem::path m_prev_dir;
 
-			graphics::Texture m_audio;
+			std::string m_root_str;
+
 			graphics::Texture m_backward;
 			graphics::Texture m_file;
 			graphics::Texture m_folder;
-			graphics::Texture m_font;
 			graphics::Texture m_forward;
-			graphics::Texture m_glsl;
-			graphics::Texture m_json;
-			graphics::Texture m_lang;
-			graphics::Texture m_lua;
-			graphics::Texture m_proj;
-			graphics::Texture m_texture;
 			graphics::Texture m_reload;
-			graphics::Texture m_map;
-			graphics::Texture m_prefab;
 
 			graphics::Texture* m_icon;
+
+			robin_hood::unordered_map<std::string, FileType> m_ext_map;
+			robin_hood::unordered_map<FileType, graphics::Texture> m_tex_map;
+
+			std::vector<std::filesystem::path> m_directories;
 		};
 	} // namespace panel
 } // namespace sc
