@@ -1,8 +1,9 @@
 <map id="galaxy::core::Window::~Window" name="galaxy::core::Window::~Window">
-<area shape="rect" id="node1" title="Destructor." alt="" coords="5,71,167,112"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="215,71,376,112"/>
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,104,167,145"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="215,104,376,145"/>
 <area shape="rect" id="node3" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="424,5,639,47"/>
 <area shape="rect" id="node5" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Destroy renderer resources." alt="" coords="434,71,629,112"/>
-<area shape="rect" id="node6" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clear up all used data." alt="" coords="453,136,609,177"/>
+<area shape="rect" id="node6" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clean up custom cursor." alt="" coords="453,136,609,177"/>
+<area shape="rect" id="node7" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a77c5cad9d2a83a0a7d393cdbb21fc783" title="Destroy system cursor data." alt="" coords="437,201,625,243"/>
 <area shape="rect" id="node4" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="687,5,868,47"/>
 </map>

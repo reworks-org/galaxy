@@ -87,8 +87,8 @@ $(document).ready(function(){initNavTree('d5/dc8/classgalaxy_1_1input_1_1Cursor.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="../../df/dde/classgalaxy_1_1input_1_1Cursor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -107,8 +107,8 @@ $(document).ready(function(){initNavTree('d5/dc8/classgalaxy_1_1input_1_1Cursor.
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d72/classgalaxy_1_1input_1_1Cursor__inherit__graph.png" border="0" usemap="#agalaxy_1_1input_1_1Cursor_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1input_1_1Cursor_inherit__map" id="agalaxy_1_1input_1_1Cursor_inherit__map">
-<area shape="rect" title="Implementation of the mouse cursor and state management." alt="" coords="23,219,179,443"/>
-<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,5,197,171"/>
+<area shape="rect" title="Implementation of the mouse cursor and state management." alt="" coords="5,219,217,604"/>
+<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="15,5,207,171"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -118,8 +118,8 @@ $(document).ready(function(){initNavTree('d5/dc8/classgalaxy_1_1input_1_1Cursor.
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/df9/classgalaxy_1_1input_1_1Cursor__coll__graph.png" border="0" usemap="#agalaxy_1_1input_1_1Cursor_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1input_1_1Cursor_coll__map" id="agalaxy_1_1input_1_1Cursor_coll__map">
-<area shape="rect" title="Implementation of the mouse cursor and state management." alt="" coords="23,219,179,443"/>
-<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,5,197,171"/>
+<area shape="rect" title="Implementation of the mouse cursor and state management." alt="" coords="5,219,217,604"/>
+<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="15,5,207,171"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -131,28 +131,40 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad72f046e8bce8d95b18ebd561c477308"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">toggle</a> (const bool visible)</td></tr>
 <tr class="memdesc:ad72f046e8bce8d95b18ebd561c477308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cursor visibility.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">More...</a><br /></td></tr>
 <tr class="separator:ad72f046e8bce8d95b18ebd561c477308"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5939eb5f543804b0fd677ebaf80628d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5939eb5f543804b0fd677ebaf80628d1">set_cursor_icon</a> (std::string_view icon)</td></tr>
-<tr class="memdesc:a5939eb5f543804b0fd677ebaf80628d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cursor icon.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5939eb5f543804b0fd677ebaf80628d1">More...</a><br /></td></tr>
-<tr class="separator:a5939eb5f543804b0fd677ebaf80628d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a922b7f26c17920bea7f8488efb1878eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a922b7f26c17920bea7f8488efb1878eb">set_cursor_icon</a> (std::span&lt; unsigned char &gt; buffer)</td></tr>
-<tr class="memdesc:a922b7f26c17920bea7f8488efb1878eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cursor icon.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a922b7f26c17920bea7f8488efb1878eb">More...</a><br /></td></tr>
-<tr class="separator:a922b7f26c17920bea7f8488efb1878eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61bfce3f76b3c8fcaf1b89f44ef3784b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a61bfce3f76b3c8fcaf1b89f44ef3784b">load_custom</a> (std::string_view file)</td></tr>
+<tr class="memdesc:a61bfce3f76b3c8fcaf1b89f44ef3784b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load custom cursor data.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a61bfce3f76b3c8fcaf1b89f44ef3784b">More...</a><br /></td></tr>
+<tr class="separator:a61bfce3f76b3c8fcaf1b89f44ef3784b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fe90b437cd8a043f17e5165e159c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#af1fe90b437cd8a043f17e5165e159c1b">load_custom_mem</a> (std::span&lt; unsigned char &gt; buffer)</td></tr>
+<tr class="memdesc:af1fe90b437cd8a043f17e5165e159c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load custom cursor data.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#af1fe90b437cd8a043f17e5165e159c1b">More...</a><br /></td></tr>
+<tr class="separator:af1fe90b437cd8a043f17e5165e159c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a674d16dccffec7705b060f8ca13f5a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a674d16dccffec7705b060f8ca13f5a5d">use_custom</a> ()</td></tr>
+<tr class="memdesc:a674d16dccffec7705b060f8ca13f5a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cursor to custom cursor if loaded.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a674d16dccffec7705b060f8ca13f5a5d">More...</a><br /></td></tr>
+<tr class="separator:a674d16dccffec7705b060f8ca13f5a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5101c7ba2fb0c162d2125ba57eb10c60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5101c7ba2fb0c162d2125ba57eb10c60">use_pointer</a> ()</td></tr>
+<tr class="memdesc:a5101c7ba2fb0c162d2125ba57eb10c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS default pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5101c7ba2fb0c162d2125ba57eb10c60">More...</a><br /></td></tr>
+<tr class="separator:a5101c7ba2fb0c162d2125ba57eb10c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5f51125f8657cd56867fe5af44723d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a1f5f51125f8657cd56867fe5af44723d">use_hand</a> ()</td></tr>
+<tr class="memdesc:a1f5f51125f8657cd56867fe5af44723d"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS default hand pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a1f5f51125f8657cd56867fe5af44723d">More...</a><br /></td></tr>
+<tr class="separator:a1f5f51125f8657cd56867fe5af44723d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add11ffc8f98140f7a081ef2c46987240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#add11ffc8f98140f7a081ef2c46987240">use_cross</a> ()</td></tr>
+<tr class="memdesc:add11ffc8f98140f7a081ef2c46987240"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS default cross pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#add11ffc8f98140f7a081ef2c46987240">More...</a><br /></td></tr>
+<tr class="separator:add11ffc8f98140f7a081ef2c46987240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d8ae2e759528dd126a4c7cd3b20926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad9d8ae2e759528dd126a4c7cd3b20926">use_text</a> ()</td></tr>
+<tr class="memdesc:ad9d8ae2e759528dd126a4c7cd3b20926"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS default I-Beam cursor.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad9d8ae2e759528dd126a4c7cd3b20926">More...</a><br /></td></tr>
+<tr class="separator:ad9d8ae2e759528dd126a4c7cd3b20926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b4fd213896f2ffbf8196c36c07fa88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab2b4fd213896f2ffbf8196c36c07fa88">use_custom_else_pointer</a> ()</td></tr>
+<tr class="memdesc:ab2b4fd213896f2ffbf8196c36c07fa88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses custom cursor if available, otherwise uses default OS pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab2b4fd213896f2ffbf8196c36c07fa88">More...</a><br /></td></tr>
+<tr class="separator:ab2b4fd213896f2ffbf8196c36c07fa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd1af46c2ce9976895cd4898ad26740"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740">within_window</a> () const</td></tr>
 <tr class="memdesc:a5fd1af46c2ce9976895cd4898ad26740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if cursor is within window.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740">More...</a><br /></td></tr>
 <tr class="separator:a5fd1af46c2ce9976895cd4898ad26740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30e5a132fef8dfadc28942a87351353b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b">destroy</a> ()</td></tr>
-<tr class="memdesc:a30e5a132fef8dfadc28942a87351353b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear up all used data.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b">More...</a><br /></td></tr>
+<tr class="memdesc:a30e5a132fef8dfadc28942a87351353b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up custom cursor.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b">More...</a><br /></td></tr>
 <tr class="separator:a30e5a132fef8dfadc28942a87351353b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classgalaxy_1_1input_1_1InputDevice"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classgalaxy_1_1input_1_1InputDevice')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html">galaxy::input::InputDevice</a></td></tr>
 <tr class="memitem:a800f7567eaaacdef667cc5aa1f09e8ab inherit pub_methods_classgalaxy_1_1input_1_1InputDevice"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a800f7567eaaacdef667cc5aa1f09e8ab">~InputDevice</a> ()</td></tr>
 <tr class="memdesc:a800f7567eaaacdef667cc5aa1f09e8ab inherit pub_methods_classgalaxy_1_1input_1_1InputDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a800f7567eaaacdef667cc5aa1f09e8ab">More...</a><br /></td></tr>
 <tr class="separator:a800f7567eaaacdef667cc5aa1f09e8ab inherit pub_methods_classgalaxy_1_1input_1_1InputDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ad921f843428d0351a9017342d8fd05a8"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8">m_data</a></td></tr>
-<tr class="memdesc:ad921f843428d0351a9017342d8fd05a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for custom cursor properties.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad921f843428d0351a9017342d8fd05a8">More...</a><br /></td></tr>
-<tr class="separator:ad921f843428d0351a9017342d8fd05a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -171,6 +183,27 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a56ae43c7cff78cd2be8e4f999a6d1258"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">Cursor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a56ae43c7cff78cd2be8e4f999a6d1258">operator=</a> (const <a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">Cursor</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a56ae43c7cff78cd2be8e4f999a6d1258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a56ae43c7cff78cd2be8e4f999a6d1258">More...</a><br /></td></tr>
 <tr class="separator:a56ae43c7cff78cd2be8e4f999a6d1258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77c5cad9d2a83a0a7d393cdbb21fc783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a77c5cad9d2a83a0a7d393cdbb21fc783">destroy_system_cursors</a> ()</td></tr>
+<tr class="memdesc:a77c5cad9d2a83a0a7d393cdbb21fc783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy system cursor data.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a77c5cad9d2a83a0a7d393cdbb21fc783">More...</a><br /></td></tr>
+<tr class="separator:a77c5cad9d2a83a0a7d393cdbb21fc783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a19b01509a17a6b446e87bf4b9efbfb62"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a19b01509a17a6b446e87bf4b9efbfb62">m_custom</a></td></tr>
+<tr class="memdesc:a19b01509a17a6b446e87bf4b9efbfb62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom user cursor.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a19b01509a17a6b446e87bf4b9efbfb62">More...</a><br /></td></tr>
+<tr class="separator:a19b01509a17a6b446e87bf4b9efbfb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e4e711df45b6f9c79ee25361c02a68"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a07e4e711df45b6f9c79ee25361c02a68">m_pointer</a></td></tr>
+<tr class="memdesc:a07e4e711df45b6f9c79ee25361c02a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default system pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a07e4e711df45b6f9c79ee25361c02a68">More...</a><br /></td></tr>
+<tr class="separator:a07e4e711df45b6f9c79ee25361c02a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeb358a8d4576739949753e29a6485b7"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#adeb358a8d4576739949753e29a6485b7">m_cross</a></td></tr>
+<tr class="memdesc:adeb358a8d4576739949753e29a6485b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default system cross pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#adeb358a8d4576739949753e29a6485b7">More...</a><br /></td></tr>
+<tr class="separator:adeb358a8d4576739949753e29a6485b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6d3fb02483b3c93fe1594fbbb681375"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ac6d3fb02483b3c93fe1594fbbb681375">m_hand</a></td></tr>
+<tr class="memdesc:ac6d3fb02483b3c93fe1594fbbb681375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default system hand cursor.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ac6d3fb02483b3c93fe1594fbbb681375">More...</a><br /></td></tr>
+<tr class="separator:ac6d3fb02483b3c93fe1594fbbb681375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04f20ce002058e8d8977097abc49246"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ae04f20ce002058e8d8977097abc49246">m_text</a></td></tr>
+<tr class="memdesc:ae04f20ce002058e8d8977097abc49246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default system text pointer.  <a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ae04f20ce002058e8d8977097abc49246">More...</a><br /></td></tr>
+<tr class="separator:ae04f20ce002058e8d8977097abc49246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -233,7 +266,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -242,7 +275,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_ab8c023aa17a34a69a3071a228cac94f2_cgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab8c023aa17a34a69a3071a228cac94f2_cgraph" alt=""/></div>
 <map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab8c023aa17a34a69a3071a228cac94f2_cgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab8c023aa17a34a69a3071a228cac94f2_cgraph">
 <area shape="rect" title="Destructor." alt="" coords="5,5,161,47"/>
-<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clear up all used data." alt="" coords="209,5,365,47"/>
+<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clean up custom cursor." alt="" coords="209,5,365,47"/>
 </map>
 </div>
 
@@ -358,7 +391,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -375,39 +408,39 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a5939eb5f543804b0fd677ebaf80628d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5939eb5f543804b0fd677ebaf80628d1">&#9670;&nbsp;</a></span>set_cursor_icon() <span class="overload">[1/2]</span></h2>
+<a id="a61bfce3f76b3c8fcaf1b89f44ef3784b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bfce3f76b3c8fcaf1b89f44ef3784b">&#9670;&nbsp;</a></span>load_custom()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::input::Cursor::set_cursor_icon </td>
+          <td class="memname">void galaxy::input::Cursor::load_custom </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>icon</em></td><td>)</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set cursor icon. </p>
+<p>Load custom cursor data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">icon</td><td>Icon to load. </td></tr>
+    <tr><td class="paramname">file</td><td><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management.">Cursor</a> texture file to load. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_cgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_cgraph" alt=""/></div>
-<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_cgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_cgraph">
-<area shape="rect" title="Set cursor icon." alt="" coords="5,5,161,47"/>
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_cgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_cgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_cgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_cgraph">
+<area shape="rect" title="Load custom cursor data." alt="" coords="5,5,161,47"/>
 <area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="209,13,440,39"/>
 </map>
 </div>
@@ -416,9 +449,9 @@ Additional Inherited Members</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_icgraph" alt=""/></div>
-<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5939eb5f543804b0fd677ebaf80628d1_icgraph">
-<area shape="rect" title="Set cursor icon." alt="" coords="421,5,577,47"/>
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a61bfce3f76b3c8fcaf1b89f44ef3784b_icgraph">
+<area shape="rect" title="Load custom cursor data." alt="" coords="421,5,577,47"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
@@ -426,14 +459,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a922b7f26c17920bea7f8488efb1878eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a922b7f26c17920bea7f8488efb1878eb">&#9670;&nbsp;</a></span>set_cursor_icon() <span class="overload">[2/2]</span></h2>
+<a id="af1fe90b437cd8a043f17e5165e159c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fe90b437cd8a043f17e5165e159c1b">&#9670;&nbsp;</a></span>load_custom_mem()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::input::Cursor::set_cursor_icon </td>
+          <td class="memname">void galaxy::input::Cursor::load_custom_mem </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; unsigned char &gt;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
@@ -442,15 +475,214 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set cursor icon. </p>
+<p>Load custom cursor data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Memory buffer containing pixels. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Memory buffer containing pixel data. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a674d16dccffec7705b060f8ca13f5a5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674d16dccffec7705b060f8ca13f5a5d">&#9670;&nbsp;</a></span>use_custom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_custom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set cursor to custom cursor if loaded. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00112">112</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a674d16dccffec7705b060f8ca13f5a5d_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a674d16dccffec7705b060f8ca13f5a5d_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a674d16dccffec7705b060f8ca13f5a5d_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a674d16dccffec7705b060f8ca13f5a5d_icgraph">
+<area shape="rect" title="Set cursor to custom cursor if loaded." alt="" coords="421,5,577,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5101c7ba2fb0c162d2125ba57eb10c60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5101c7ba2fb0c162d2125ba57eb10c60">&#9670;&nbsp;</a></span>use_pointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_pointer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OS default pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a5101c7ba2fb0c162d2125ba57eb10c60_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5101c7ba2fb0c162d2125ba57eb10c60_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5101c7ba2fb0c162d2125ba57eb10c60_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5101c7ba2fb0c162d2125ba57eb10c60_icgraph">
+<area shape="rect" title="OS default pointer." alt="" coords="421,5,577,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1f5f51125f8657cd56867fe5af44723d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5f51125f8657cd56867fe5af44723d">&#9670;&nbsp;</a></span>use_hand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_hand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OS default hand pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00129">129</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a1f5f51125f8657cd56867fe5af44723d_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a1f5f51125f8657cd56867fe5af44723d_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a1f5f51125f8657cd56867fe5af44723d_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a1f5f51125f8657cd56867fe5af44723d_icgraph">
+<area shape="rect" title="OS default hand pointer." alt="" coords="455,39,611,80"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="253,5,390,47"/>
+<area shape="rect" href="../../d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2888c5fc4d42a6b0389f1c5e82983038" title="Set mouse cursor." alt="" coords="236,71,407,112"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="add11ffc8f98140f7a081ef2c46987240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add11ffc8f98140f7a081ef2c46987240">&#9670;&nbsp;</a></span>use_cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_cross </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OS default cross pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_add11ffc8f98140f7a081ef2c46987240_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_add11ffc8f98140f7a081ef2c46987240_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_add11ffc8f98140f7a081ef2c46987240_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_add11ffc8f98140f7a081ef2c46987240_icgraph">
+<area shape="rect" title="OS default cross pointer." alt="" coords="421,5,577,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad9d8ae2e759528dd126a4c7cd3b20926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d8ae2e759528dd126a4c7cd3b20926">&#9670;&nbsp;</a></span>use_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_text </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OS default I-Beam cursor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_ad9d8ae2e759528dd126a4c7cd3b20926_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_ad9d8ae2e759528dd126a4c7cd3b20926_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ad9d8ae2e759528dd126a4c7cd3b20926_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ad9d8ae2e759528dd126a4c7cd3b20926_icgraph">
+<area shape="rect" title="OS default I&#45;Beam cursor." alt="" coords="421,5,577,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab2b4fd213896f2ffbf8196c36c07fa88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b4fd213896f2ffbf8196c36c07fa88">&#9670;&nbsp;</a></span>use_custom_else_pointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::use_custom_else_pointer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uses custom cursor if available, otherwise uses default OS pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00144">144</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_ab2b4fd213896f2ffbf8196c36c07fa88_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab2b4fd213896f2ffbf8196c36c07fa88_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab2b4fd213896f2ffbf8196c36c07fa88_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_ab2b4fd213896f2ffbf8196c36c07fa88_icgraph">
+<area shape="rect" title="Uses custom cursor if available, otherwise uses default OS pointer." alt="" coords="421,5,616,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -472,12 +704,12 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks if cursor is within window. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if cursor is within the content area of the window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00156">156</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a5fd1af46c2ce9976895cd4898ad26740_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5fd1af46c2ce9976895cd4898ad26740_icgraph" alt=""/></div>
 <map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5fd1af46c2ce9976895cd4898ad26740_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a5fd1af46c2ce9976895cd4898ad26740_icgraph">
 <area shape="rect" title="Checks if cursor is within window." alt="" coords="421,5,577,47"/>
@@ -503,20 +735,23 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clear up all used data. </p>
+<p>Clean up custom cursor. </p>
+<p>Does not destroy default cursors. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00112">112</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a30e5a132fef8dfadc28942a87351353b_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a30e5a132fef8dfadc28942a87351353b_icgraph" alt=""/></div>
 <map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a30e5a132fef8dfadc28942a87351353b_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a30e5a132fef8dfadc28942a87351353b_icgraph">
-<area shape="rect" title="Clear up all used data." alt="" coords="424,39,580,80"/>
-<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="215,5,376,47"/>
-<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2" title="Destructor." alt="" coords="217,71,373,112"/>
-<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="5,5,167,47"/>
+<area shape="rect" title="Clean up custom cursor." alt="" coords="445,71,601,112"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="236,5,397,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="248,71,385,112"/>
+<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2" title="Destructor." alt="" coords="239,136,395,177"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="16,5,177,47"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
 </map>
 </div>
 
@@ -578,6 +813,47 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a77c5cad9d2a83a0a7d393cdbb21fc783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77c5cad9d2a83a0a7d393cdbb21fc783">&#9670;&nbsp;</a></span>destroy_system_cursors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::input::Cursor::destroy_system_cursors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroy system cursor data. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d37/Cursor_8cpp_source.html#l00170">170</a> of file <a class="el" href="../../d3/d37/Cursor_8cpp_source.html">Cursor.cpp</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/dc8/classgalaxy_1_1input_1_1Cursor_a77c5cad9d2a83a0a7d393cdbb21fc783_icgraph.png" border="0" usemap="#ad5/dc8/classgalaxy_1_1input_1_1Cursor_a77c5cad9d2a83a0a7d393cdbb21fc783_icgraph" alt=""/></div>
+<map name="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a77c5cad9d2a83a0a7d393cdbb21fc783_icgraph" id="ad5/dc8/classgalaxy_1_1input_1_1Cursor_a77c5cad9d2a83a0a7d393cdbb21fc783_icgraph">
+<area shape="rect" title="Destroy system cursor data." alt="" coords="424,5,612,47"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="215,5,376,47"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="5,5,167,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="a5396cb4f5c3bde7f5fd05b04207065d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5396cb4f5c3bde7f5fd05b04207065d4">&#9670;&nbsp;</a></span>core::Window</h2>
@@ -604,21 +880,133 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad921f843428d0351a9017342d8fd05a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad921f843428d0351a9017342d8fd05a8">&#9670;&nbsp;</a></span>m_data</h2>
+<a id="a19b01509a17a6b446e87bf4b9efbfb62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b01509a17a6b446e87bf4b9efbfb62">&#9670;&nbsp;</a></span>m_custom</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_data</td>
+          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_custom</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Allows for custom cursor properties. </p>
+<p>Custom user cursor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00135">135</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a07e4e711df45b6f9c79ee25361c02a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e4e711df45b6f9c79ee25361c02a68">&#9670;&nbsp;</a></span>m_pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_pointer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default system pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00140">140</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adeb358a8d4576739949753e29a6485b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb358a8d4576739949753e29a6485b7">&#9670;&nbsp;</a></span>m_cross</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_cross</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default system cross pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac6d3fb02483b3c93fe1594fbbb681375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6d3fb02483b3c93fe1594fbbb681375">&#9670;&nbsp;</a></span>m_hand</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_hand</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default system hand cursor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae04f20ce002058e8d8977097abc49246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04f20ce002058e8d8977097abc49246">&#9670;&nbsp;</a></span>m_text</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWcursor* galaxy::input::Cursor::m_text</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default system text pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/ddb/Cursor_8hpp_source.html#l00155">155</a> of file <a class="el" href="../../de/ddb/Cursor_8hpp_source.html">Cursor.hpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +1020,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dd/d59/namespacegalaxy_1_1input.html">input</a></li><li class="navelem"><a class="el" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">Cursor</a></li>
-    <li class="footer">Generated on Wed May 3 2023 09:23:30 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 4 2023 12:30:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

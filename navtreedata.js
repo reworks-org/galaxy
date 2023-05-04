@@ -63,19 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a6fb3bf4be983a23b5d0fbccb1ebb138d",
-"d3/d84/Concepts_8hpp_source.html",
-"d4/da5/InputDevice_8hpp.html",
-"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a922b7f26c17920bea7f8488efb1878eb",
-"d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a89d79c90252f0b8ac4cf435b4452b34a",
-"d8/d9f/PostProcess_8cpp_source.html",
-"da/d19/classgalaxy_1_1graphics_1_1Animation.html#abe56aee7b0da5ea8059253a761ea56b8",
-"db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6ba5be68175be14dfaa080165456c2e9555",
-"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ab28db4d25f36819f8234fe3db09002d8",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab213ce22ca6ad4eda8db82966b9b6e5a",
-"de/d92/Lua_8hpp.html#a3d08fb94526e5927f64c1a39ba483818",
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a5ea2bd53ff1a8b4b79346de838d6cc8c"
+"",
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a5629c7dc03ea930d8e18b3193c7e2c4f",
+"d3/d84/Concepts_8hpp.html#a682ee767ec58c054e47bb57f051d4b30",
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3",
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a07e4e711df45b6f9c79ee25361c02a68",
+"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aefcf250821117728d9b23ffa4fd327a1",
+"d8/d8a/classgalaxy_1_1components_1_1Transform.html#ad24ed377d939e506b9aa8622a8bf6ace",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#a804058d0de3fdced9c8db1db0039cdd5",
+"db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aaebdbcb765394d25d6a604589a890f82",
+"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a422312a3e056ea7ac3580872d1d7d9a6",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea71f42e8faf0fb7cb14174c8481461c00",
+"de/d5f/BasicScript_8hpp.html",
+"df/dcc/namespacegalaxy_1_1state.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

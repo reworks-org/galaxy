@@ -37,6 +37,7 @@ var classgalaxy_1_1core_1_1Window =
     [ "handle", "d5/d25/classgalaxy_1_1core_1_1Window.html#ad37f2fa07bf5cbb2290d66b4329df371", null ],
     [ "operator=", "d5/d25/classgalaxy_1_1core_1_1Window.html#a5310e8e4bbe6c955f71440d8de970999", null ],
     [ "operator=", "d5/d25/classgalaxy_1_1core_1_1Window.html#a41c81eee0cf7a03b12f97302ca7abbb7", null ],
+    [ "m_glfw_allocator", "d5/d25/classgalaxy_1_1core_1_1Window.html#af7220bf000331426832487374b4d2f76", null ],
     [ "m_window", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa64f75342c0e93c7c27925d2d47d5a5d", null ],
     [ "m_width", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa132f7a8100877e8e2a08314e8f2ecf2", null ],
     [ "m_height", "d5/d25/classgalaxy_1_1core_1_1Window.html#a5f695e4464514abd6b8e207947d38811", null ],
