@@ -147,6 +147,7 @@ namespace sc
 			// First update current_dir will always be root.
 			if (m_update_directories)
 			{
+				m_selected           = {};
 				m_update_directories = false;
 				update_directories(m_current_dir);
 			}
@@ -316,9 +317,18 @@ namespace sc
 							}
 						}
 
-						ImGui::PushStyleColor(ImGuiCol_Button, {0, 0, 0, 0});
+						if (m_selected.m_path == path)
+						{
+							ImGui::PushStyleColor(ImGuiCol_Button, {1, 1, 1, 0.1});
+						}
+						else
+						{
+							ImGui::PushStyleColor(ImGuiCol_Button, {0, 0, 0, 0});
+						}
+
 						ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ((ImGui::GetColumnWidth() / 2.0f) - (m_size_vec.x / 2.0f)));
 						ui::imgui_imagebutton(*m_icon, m_size_vec);
+
 						ImGui::PopStyleColor();
 
 						if (ImGui::BeginDragDropSource())
@@ -327,15 +337,16 @@ namespace sc
 							ImGui::EndDragDropSource();
 						}
 
-						if (path.has_extension() && ImGui::IsItemHovered())
+						if (!ImGui::IsItemHovered() && (ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
 						{
-							m_selected.m_path       = path;
-							m_selected.m_extension  = ext;
-							m_selected.m_is_hovered = true;
+							m_selected = {};
 						}
-						else
+
+						if (path.has_extension() && ImGui::IsItemHovered() &&
+							(ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
 						{
-							m_selected.m_is_hovered = false;
+							m_selected.m_path      = path;
+							m_selected.m_extension = ext;
 						}
 
 						if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
@@ -459,7 +470,7 @@ namespace sc
 						ImGui::EndMenu();
 					}
 
-					if (m_selected.m_is_hovered)
+					if (!m_selected.m_extension.empty())
 					{
 						if (m_selected.m_extension == ".lua")
 						{

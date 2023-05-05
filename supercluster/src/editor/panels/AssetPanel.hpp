@@ -21,6 +21,7 @@ namespace sc
 {
 	namespace panel
 	{
+		// currently doesnt support deleting or selecting folders, or files without extensions.
 		class AssetPanel final
 		{
 		public:

@@ -9,7 +9,6 @@ add onload and on unload scene support and add to scripting
 
 add game stuff like ui and tilemap to lua.
 
-
 add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 editor camera
 better editor play mode
@@ -21,7 +20,7 @@ have an editor specific camera
 enable/disable with buttons on viewport.
 overrides game camera when not in play mode
 switch to game camera in play mode also have button to enable setting that camera & controls for it.
-buff4er editor camera or game camera based on mode.
+buffer editor camera or game camera based on mode.
 
 lua script reloading
 rml file reloading
@@ -30,12 +29,7 @@ larger text font icons
 
 replace search with imgui text filters
 
-merge settings and json editor
-
 wrap some imgui code into reusable functions
 
 more drag/drop support for tree view, body, etc
-delete folder support for asset panel
-
-fix context menu not selecting item
 fix scrolling treeview scrolling folder view
