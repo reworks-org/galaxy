@@ -152,14 +152,13 @@ namespace sc
 				update_directories(m_current_dir);
 			}
 
-			if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser"))
+			if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser", nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 			{
 				top(updates);
 
 				if (ImGui::BeginTable("AssetPanelLayoutTable",
 						2,
-						ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX |
-							ImGuiTableFlags_ScrollY,
+						ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX,
 						ImGui::GetContentRegionAvail()))
 				{
 					ImGui::TableNextRow();
@@ -270,15 +269,26 @@ namespace sc
 
 		void AssetPanel::tree()
 		{
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2 {0.0f, 0.0f});
+			constexpr const ImGuiTableFlags flags =
+				ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_ScrollY;
 
-			if (ImGui::CollapsingHeader("Assets", ImGuiTreeNodeFlags_SpanAvailWidth))
+			if (ImGui::BeginTable("AssetPanelTreeViewTable", 1, flags))
 			{
-				auto count = static_cast<unsigned int>(m_directories.size());
-				directory_tree_view_recursive(m_root, &count);
-			}
+				ImGui::TableNextRow();
+				ImGui::TableNextColumn();
 
-			ImGui::PopStyleVar();
+				ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2 {0.0f, 0.0f});
+
+				if (ImGui::CollapsingHeader("Assets", ImGuiTreeNodeFlags_SpanAvailWidth))
+				{
+					auto count = static_cast<unsigned int>(m_directories.size());
+					directory_tree_view_recursive(m_root, &count);
+				}
+
+				ImGui::PopStyleVar();
+
+				ImGui::EndTable();
+			}
 		}
 
 		void AssetPanel::body(CodeEditor& editor)
@@ -286,7 +296,7 @@ namespace sc
 			const auto columns = static_cast<int>((ImGui::GetContentRegionAvail().x - ImGui::GetStyle().ScrollbarSize) / (m_size_vec.x + m_padding));
 
 			constexpr const ImGuiTableFlags flags =
-				ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_NoClip;
+				ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_NoClip | ImGuiTableFlags_ScrollY;
 
 			if (ImGui::BeginTable("AssetPanelColumns", std::max(columns, 1), flags))
 			{
@@ -362,7 +372,13 @@ namespace sc
 							}
 						}
 
-						ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ((ImGui::GetColumnWidth() / 2.0f) - (ImGui::CalcTextSize(file.c_str()).x / 2.0f)));
+						auto text_x = ImGui::GetCursorPosX() + ((ImGui::GetColumnWidth() / 2.0f) - (ImGui::CalcTextSize(file.c_str()).x / 2.0f));
+						if (text_x < ImGui::GetCursorPosX())
+						{
+							text_x = ImGui::GetCursorPosX();
+						}
+
+						ImGui::SetCursorPosX(text_x);
 						ImGui::TextUnformatted(file.c_str());
 
 						ImGui::PopID();

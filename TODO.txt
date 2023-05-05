@@ -32,4 +32,3 @@ replace search with imgui text filters
 wrap some imgui code into reusable functions
 
 more drag/drop support for tree view, body, etc
-fix scrolling treeview scrolling folder view
