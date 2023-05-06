@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5":[1,0,0,9,28,8],
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ae5456809c357f7123295cdcbc4bf43ff":[1,0,0,9,28,0],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf":[1,0,0,9,28,14],
 "df/dc3/AudioEngine_8cpp.html":[2,0,0,0,0,2,0],
 "df/dc3/AudioEngine_8cpp_source.html":[2,0,0,0,0,2,0],
@@ -91,8 +93,8 @@ var NAVTREEINDEX12 =
 "functions_e.html":[1,3,0,4],
 "functions_enum.html":[1,3,4],
 "functions_f.html":[1,3,0,5],
-"functions_func.html":[1,3,1],
 "functions_func.html":[1,3,1,0],
+"functions_func.html":[1,3,1],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -135,8 +137,8 @@ var NAVTREEINDEX12 =
 "functions_type.html":[1,3,3],
 "functions_u.html":[1,3,0,20],
 "functions_v.html":[1,3,0,21],
-"functions_vars.html":[1,3,2],
 "functions_vars.html":[1,3,2,0],
+"functions_vars.html":[1,3,2],
 "functions_vars_c.html":[1,3,2,1],
 "functions_vars_d.html":[1,3,2,2],
 "functions_vars_f.html":[1,3,2,3],
@@ -174,6 +176,5 @@ var NAVTREEINDEX12 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[],
-"":[0,0,4]
+"pages.html":[]
 };
