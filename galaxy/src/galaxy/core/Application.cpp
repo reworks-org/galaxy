@@ -400,6 +400,9 @@ namespace galaxy
 			try
 			{
 #endif
+				GALAXY_CUR_UPS = 0;
+				GALAXY_CUR_FPS = 0;
+
 				auto& config  = ServiceLocator<Config>::ref();
 				auto& window  = ServiceLocator<Window>::ref();
 				auto& manager = ServiceLocator<scene::SceneManager>::ref();
@@ -428,10 +431,7 @@ namespace galaxy
 
 					auto& scene = manager.current();
 
-					if (log_perf)
-					{
-						perf_counter += elapsed;
-					}
+					perf_counter += elapsed;
 
 					while (accumulator >= GALAXY_UPS)
 					{
@@ -442,27 +442,28 @@ namespace galaxy
 
 						accumulator -= ups_as_nano;
 
-						if (log_perf)
-						{
-							updates++;
-						}
+						updates++;
 					}
 
 					window.begin();
 					scene.render();
 					window.end();
 
-					if (log_perf)
-					{
-						frames++;
+					frames++;
 
-						if (perf_counter >= one_second)
+					if (perf_counter >= one_second)
+					{
+						if (log_perf)
 						{
 							GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
-							frames       = 0;
-							updates      = 0;
-							perf_counter = std::chrono::nanoseconds {0};
 						}
+
+						GALAXY_CUR_UPS = updates;
+						GALAXY_CUR_FPS = frames;
+
+						frames       = 0;
+						updates      = 0;
+						perf_counter = std::chrono::nanoseconds {0};
 					}
 				}
 #ifdef NDEBUG

@@ -652,6 +652,11 @@ namespace sc
 				}
 			}
 
+			const auto info = std::format("UPS: {0}, FPS: {1}", GALAXY_CUR_UPS, GALAXY_CUR_FPS);
+
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - ImGui::CalcTextSize(info.c_str()).x - m_padding.x);
+			ImGui::TextUnformatted(info.c_str());
+
 			ImGui::EndMenuBar();
 		}
 

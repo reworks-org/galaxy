@@ -23,6 +23,9 @@ namespace galaxy
 			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
 		static bool GALAXY_RESTART_FLAG;
+
+		static unsigned int GALAXY_CUR_UPS_VAR;
+		static unsigned int GALAXY_CUR_FPS_VAR;
 	};
 } // namespace galaxy
 
@@ -50,6 +53,16 @@ namespace galaxy
 /// Galaxy Delta-Time.
 ///
 #define GALAXY_DT galaxy::doNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
+
+///
+/// GALAXY current UPS.
+///
+#define GALAXY_CUR_UPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_CUR_UPS_VAR
+
+///
+/// Galaxy current FPS.
+///
+#define GALAXY_CUR_FPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_CUR_FPS_VAR
 
 ///
 /// Number of bits in a flag bitset.
