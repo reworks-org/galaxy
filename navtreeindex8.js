@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870":[0,0,0,10,35,1],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aaebdbcb765394d25d6a604589a890f82":[0,0,0,10,35,3],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aeaa8e11478ccd5c257fe6f8bb5591c89":[0,0,0,10,35,4],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc":[0,0,0,10,35,5],
@@ -62,8 +63,10 @@ var NAVTREEINDEX8 =
 "db/dd2/Colour_8hpp_source.html":[2,0,0,0,0,10,9],
 "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html":[1,0,0,20],
 "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a4f893ca0bd094d697074eaf587b64922":[1,0,0,20,1],
+"db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a4fb054534de4ba8e326adf80c7498542":[1,0,0,20,4],
 "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a60418f88ca8c3ea1e7c4c19282c2c56d":[1,0,0,20,0],
 "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a869aeac50ab3730ae386853bbebae3dc":[1,0,0,20,2],
+"db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#aa722552af871d374ef0cbafb4ffe0e1a":[1,0,0,20,3],
 "db/de2/ImGuiTheme_8cpp.html":[2,0,0,0,0,20,2],
 "db/de2/ImGuiTheme_8cpp.html#a1cf2fc9ad5cc58af83cb1bab81ae751a":[2,0,0,0,0,20,2,3],
 "db/de2/ImGuiTheme_8cpp.html#a52d063c3ffe3e6ec5f38b1a1131c5f78":[2,0,0,0,0,20,2,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9":[1,0,0,3,4,18],
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#af95061df48e572986481518f8b4d5727":[1,0,0,3,4,17],
 "dc/d97/structgalaxy_1_1events_1_1KeyChar.html":[1,0,0,6,1],
-"dc/d97/structgalaxy_1_1events_1_1KeyChar.html#a88d81328a066e4e956b65beb0d153f13":[1,0,0,6,1,0],
-"dc/d97/structgalaxy_1_1events_1_1KeyChar.html#ac55187b3357f362c752e71b6cc6a5f8e":[1,0,0,6,1,1],
-"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html":[1,0,0,5,0],
-"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a366fc58ab8f05f1b78b56c645d30c056":[1,0,0,5,0,1]
+"dc/d97/structgalaxy_1_1events_1_1KeyChar.html#a88d81328a066e4e956b65beb0d153f13":[1,0,0,6,1,0]
 };

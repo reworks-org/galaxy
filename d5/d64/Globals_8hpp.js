@@ -6,6 +6,8 @@ var Globals_8hpp =
     [ "GALAXY_RESTART", "d5/d64/Globals_8hpp.html#aaf42a6f59bc131363f8bbd0a3482cfd9", null ],
     [ "GALAXY_UPS", "d5/d64/Globals_8hpp.html#aa4898e150d235277c00c918ab605459c", null ],
     [ "GALAXY_DT", "d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146", null ],
+    [ "GALAXY_CUR_UPS", "d5/d64/Globals_8hpp.html#ad3c20283f7b79a630c4649986fec89e1", null ],
+    [ "GALAXY_CUR_FPS", "d5/d64/Globals_8hpp.html#adb0880c177fc8823c5b92821cb14d507", null ],
     [ "GALAXY_FLAG_BITSET_COUNT", "d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76", null ],
     [ "GALAXY_VERTEX_EXT", "d5/d64/Globals_8hpp.html#a08b3c0f07e03b16a2bc316a69ba2eb16", null ],
     [ "GALAXY_FRAGMENT_EXT", "d5/d64/Globals_8hpp.html#aa0185565065398a7b5bb27a720e6304a", null ],

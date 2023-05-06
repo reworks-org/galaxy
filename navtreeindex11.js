@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html":[1,0,0,9,3,0],
+"de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#a6e2d7eef4c72eed98c2aac946d91af90":[1,0,0,9,3,0,0],
+"de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#ae977cd3fd18e29cfec99b1f324aefd8b":[1,0,0,9,3,0,1],
 "de/d5f/BasicScript_8hpp.html":[2,0,0,0,0,17,2],
 "de/d5f/BasicScript_8hpp_source.html":[2,0,0,0,0,17,2],
 "de/d66/PostEffect_8cpp.html":[2,0,0,0,0,10,22],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ac273f17974444a28c23b26fbe94936a4":[1,0,0,9,28,1],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b":[1,0,0,9,28,11],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5":[1,0,0,9,28,8],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ae5456809c357f7123295cdcbc4bf43ff":[1,0,0,9,28,0],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf":[1,0,0,9,28,14],
-"df/dc3/AudioEngine_8cpp.html":[2,0,0,0,0,2,0],
-"df/dc3/AudioEngine_8cpp_source.html":[2,0,0,0,0,2,0]
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ae5456809c357f7123295cdcbc4bf43ff":[1,0,0,9,28,0]
 };

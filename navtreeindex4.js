@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html":[1,0,0,10,1],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a07e4e711df45b6f9c79ee25361c02a68":[1,0,0,10,1,20],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a19b01509a17a6b446e87bf4b9efbfb62":[1,0,0,10,1,19],
 "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a1f5f51125f8657cd56867fe5af44723d":[1,0,0,10,1,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a9146312f8107a144634402d12370111a":[1,0,0,9,15,12],
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad":[1,0,0,9,15,0],
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ad85bb3527e7297e162994f5e466d7c40":[1,0,0,9,15,1],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ae27624ab4671efcfbdb1ae95dfb47b44":[1,0,0,9,15,3],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aeefda1a8d4941e4fb9ce5755bf892b95":[1,0,0,9,15,2]
+"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ae27624ab4671efcfbdb1ae95dfb47b44":[1,0,0,9,15,3]
 };
