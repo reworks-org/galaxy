@@ -132,27 +132,264 @@ namespace galaxy
 			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
 
 			/* GLM */
-			auto vec2_type = lua.new_usertype<glm::vec2>("vec2", sol::constructors<glm::vec2()>());
+			auto vec2_type = lua.new_usertype<glm::vec2>(
+				"vec2",
+				sol::constructors<glm::vec2(), glm::vec2(float, float)>(),
+				sol::meta_function::addition,
+				[](const glm::vec2& a, const glm::vec2& b) {
+					return a + b;
+				},
+				sol::meta_function::multiplication,
+				[](const glm::vec2& a, const glm::vec2& b) {
+					return a * b;
+				},
+				sol::meta_function::subtraction,
+				[](const glm::vec2& a, const glm::vec2& b) {
+					return a - b;
+				},
+				sol::meta_function::division,
+				[](const glm::vec2& a, const glm::vec2& b) {
+					return a / b;
+				},
+				sol::meta_function::equal_to,
+				[](const glm::vec2& a, const glm::vec2& b) {
+					return a == b;
+				});
+
 			vec2_type["x"] = &glm::vec2::x;
 			vec2_type["y"] = &glm::vec2::y;
 
-			auto dvec2_type = lua.new_usertype<glm::dvec2>("dvec2", sol::constructors<glm::dvec2()>());
+			auto mult_overloads = sol::overload(
+				[](const glm::vec3& v1, const glm::vec3& v2) -> glm::vec3 {
+					return v1 * v2;
+				},
+				[](const glm::vec3& v1, float f) -> glm::vec3 {
+					return v1 * f;
+				},
+				[](float f, const glm::vec3& v1) -> glm::vec3 {
+					return f * v1;
+				});
+
+			auto dvec2_type = lua.new_usertype<glm::dvec2>(
+				"dvec2",
+				sol::constructors<glm::dvec2(), glm::dvec2(double, double)>(),
+				sol::meta_function::addition,
+				[](const glm::dvec2& a, const glm::dvec2& b) {
+					return a + b;
+				},
+				sol::meta_function::multiplication,
+				[](const glm::dvec2& a, const glm::dvec2& b) {
+					return a * b;
+				},
+				sol::meta_function::subtraction,
+				[](const glm::dvec2& a, const glm::dvec2& b) {
+					return a - b;
+				},
+				sol::meta_function::division,
+				[](const glm::dvec2& a, const glm::dvec2& b) {
+					return a / b;
+				},
+				sol::meta_function::equal_to,
+				[](const glm::dvec2& a, const glm::dvec2& b) {
+					return a == b;
+				});
+
 			dvec2_type["x"] = &glm::dvec2::x;
 			dvec2_type["y"] = &glm::dvec2::y;
 
-			auto vec3_type = lua.new_usertype<glm::vec3>("vec3", sol::constructors<glm::vec3()>());
+			auto vec3_type = lua.new_usertype<glm::vec3>(
+				"vec3",
+				sol::constructors<glm::vec3(), glm::vec3(float, float, float)>(),
+				sol::meta_function::addition,
+				[](const glm::vec3& a, const glm::vec3& b) {
+					return a + b;
+				},
+				sol::meta_function::multiplication,
+				mult_overloads,
+				sol::meta_function::subtraction,
+				[](const glm::vec3& a, const glm::vec3& b) {
+					return a - b;
+				},
+				sol::meta_function::unary_minus,
+				[](glm::vec3& v) -> glm::vec3 {
+					return -v;
+				},
+				sol::meta_function::division,
+				[](const glm::vec3& a, const glm::vec3& b) {
+					return a / b;
+				},
+				sol::meta_function::equal_to,
+				[](const glm::vec3& a, const glm::vec3& b) {
+					return a == b;
+				});
+
 			vec3_type["x"] = &glm::vec3::x;
 			vec3_type["y"] = &glm::vec3::y;
 			vec3_type["z"] = &glm::vec3::z;
 
-			auto vec4_type = lua.new_usertype<glm::vec4>("vec4", sol::constructors<glm::vec4()>());
+			auto vec4_type = lua.new_usertype<glm::vec4>(
+				"vec4",
+				sol::constructors<glm::vec4(), glm::vec4(float, float, float, float)>(),
+				sol::meta_function::addition,
+				[](const glm::vec4& a, const glm::vec4& b) {
+					return a + b;
+				},
+				sol::meta_function::multiplication,
+				[](const glm::vec4& a, const glm::vec4& b) {
+					return a * b;
+				},
+				sol::meta_function::multiplication,
+				sol::overload(
+					[](const glm::vec4& v1, const glm::vec4& v2) -> glm::vec4 {
+						return v1 * v2;
+					},
+					[](const glm::vec4& v1, float f) -> glm::vec4 {
+						return v1 * f;
+					},
+					[](float f, const glm::vec4& v1) -> glm::vec4 {
+						return f * v1;
+					}),
+				sol::meta_function::multiplication,
+				[](float a, const glm::vec4& b) {
+					return a * b;
+				},
+				sol::meta_function::subtraction,
+				[](const glm::vec4& a, const glm::vec4& b) {
+					return a - b;
+				},
+				sol::meta_function::division,
+				[](const glm::vec4& a, const glm::vec4& b) {
+					return a / b;
+				},
+				sol::meta_function::equal_to,
+				[](const glm::vec4& a, const glm::vec4& b) {
+					return a == b;
+				});
+
 			vec4_type["x"] = &glm::vec4::x;
 			vec4_type["y"] = &glm::vec4::y;
 			vec4_type["z"] = &glm::vec4::z;
 			vec4_type["w"] = &glm::vec4::w;
 
-			auto mat4_type      = lua.new_usertype<glm::mat4>("mat4", sol::constructors<glm::mat4()>());
+			auto mat3_type = lua.new_usertype<glm::mat3>("mat3",
+				sol::constructors<glm::mat3(), glm::mat3(float, float, float, float, float, float, float, float, float)>(),
+				sol::meta_function::multiplication,
+				[](const glm::mat3& a, const glm::mat3& b) {
+					return a * b;
+				});
+
+			auto mat4_type = lua.new_usertype<glm::mat4>(
+				"mat4",
+				sol::constructors<glm::mat4(), glm::mat4(float)>(),
+				sol::meta_function::multiplication,
+				[](const glm::mat4& a, const glm::mat4& b) {
+					return a * b;
+				},
+				sol::meta_function::addition,
+				[](const glm::mat4& a, const glm::mat4& b) {
+					return a + b;
+				},
+				sol::meta_function::subtraction,
+				[](const glm::mat4& a, const glm::mat4& b) {
+					return a - b;
+				});
+
+			mat3_type["length"] = &glm::mat3::length;
 			mat4_type["length"] = &glm::mat4::length;
+
+			/* Box2D */
+			// clang-format off
+			lua.new_enum<b2BodyType>("b2BodyType",
+			{
+				{"b2_dynamicBody", b2BodyType::b2_dynamicBody},
+				{"b2_kinematicBody", b2BodyType::b2_kinematicBody},
+				{"b2_staticBody", b2BodyType::b2_staticBody}
+			});
+			// clang-format on
+
+			lua.new_usertype<b2Vec2>("b2Vec2",
+				"x",
+				&b2Vec2::x,
+				"y",
+				&b2Vec2::y,
+				"SetZero",
+				&b2Vec2::SetZero,
+				"Set",
+				&b2Vec2::Set,
+				"Length",
+				&b2Vec2::Length,
+				"LengthSquared",
+				&b2Vec2::LengthSquared,
+				"Normalise",
+				&b2Vec2::Normalize,
+				"IsValid",
+				&b2Vec2::IsValid,
+				"Skew",
+				&b2Vec2::Skew,
+				sol::call_constructor,
+				sol::constructors<b2Vec2(), b2Vec2(float, float)>(),
+				sol::meta_function::addition,
+				sol::overload([](b2Vec2& left, const b2Vec2& right) {
+					b2Vec2 ret = left;
+					ret += right;
+					return ret;
+				}),
+				sol::meta_function::subtraction,
+				sol::overload([](b2Vec2& left, const b2Vec2& right) {
+					b2Vec2 ret = left;
+					ret -= right;
+					return ret;
+				}),
+				sol::meta_function::multiplication,
+				sol::overload(
+					[](const float& left, b2Vec2& right) {
+						b2Vec2 ret = right;
+						ret *= left;
+						return ret;
+					},
+					[](b2Vec2& left, const float& right) {
+						b2Vec2 ret = left;
+						ret *= right;
+						return ret;
+					}));
+
+			lua.new_usertype<b2Vec3>("b2Vec3",
+				"x",
+				&b2Vec3::x,
+				"y",
+				&b2Vec3::y,
+				"z",
+				&b2Vec3::z,
+				"SetZero",
+				&b2Vec3::SetZero,
+				"Set",
+				&b2Vec3::Set,
+				sol::call_constructor,
+				sol::constructors<b2Vec3(), b2Vec3(float, float, float)>(),
+				sol::meta_function::addition,
+				sol::overload([](b2Vec3& left, const b2Vec3& right) {
+					b2Vec3 ret = left;
+					ret += right;
+					return ret;
+				}),
+				sol::meta_function::subtraction,
+				sol::overload([](b2Vec3& left, const b2Vec3& right) {
+					b2Vec3 ret = left;
+					ret -= right;
+					return ret;
+				}),
+				sol::meta_function::multiplication,
+				sol::overload(
+					[](const float& left, b2Vec3& right) {
+						b2Vec3 ret = right;
+						ret *= left;
+						return ret;
+					},
+					[](b2Vec3& left, const float& right) {
+						b2Vec3 ret = left;
+						ret *= right;
+						return ret;
+					}));
 
 			/* ALGORITHM */
 			lua.set_function("normalize", &algorithm::normalize<float>);
@@ -317,15 +554,6 @@ namespace galaxy
 				sol::constructors<components::RigidBody()>(),
 				"type_id",
 				&entt::type_hash<components::RigidBody>::value);
-
-			// clang-format off
-			lua.new_enum<b2BodyType>("b2BodyType",
-			{
-				{"b2_dynamicBody", b2BodyType::b2_dynamicBody},
-				{"b2_kinematicBody", b2BodyType::b2_kinematicBody},
-				{"b2_staticBody", b2BodyType::b2_staticBody}
-			});
-			// clang-format on
 
 			rigidbody_type["get_density"]               = &components::RigidBody::get_density;
 			rigidbody_type["get_friction"]              = &components::RigidBody::get_friction;

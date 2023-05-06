@@ -32,3 +32,6 @@ replace search with imgui text filters
 wrap some imgui code into reusable functions
 
 more drag/drop support for tree view, body, etc
+
+phytsics collision + lua collision support
+	https://github.com/jmorton06/Lumos/blob/master/Lumos/Source/Lumos/Scripting/Lua/PhysicsLua.cpp
