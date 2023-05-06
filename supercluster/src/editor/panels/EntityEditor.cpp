@@ -608,6 +608,11 @@ namespace sc
 						{
 							core::ServiceLocator<core::Window>::ref().get_input<input::Clipboard>().set(script->file().c_str());
 						}
+
+						if (ImGui::Button("Reload"))
+						{
+							script->reload();
+						}
 					});
 
 					draw_component<components::Sprite>(selected, "Sprite", [&](components::Sprite* sprite) {

@@ -57,6 +57,13 @@ namespace galaxy
 			void load(std::string_view file);
 
 			///
+			/// \brief Reloads script from file.
+			///
+			/// Only works if load() has already been called.
+			///
+			void reload();
+
+			///
 			/// Get script file path.
 			///
 			/// \return Const string reference.

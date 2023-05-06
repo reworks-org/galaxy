@@ -74,6 +74,21 @@ namespace galaxy
 			}
 		}
 
+		void Script::reload()
+		{
+			if (!m_file.empty())
+			{
+				sol::function destruct = m_self["destruct"];
+				if (destruct.valid())
+				{
+					destruct(m_self);
+					m_self.abandon();
+
+					load(m_file);
+				}
+			}
+		}
+
 		const std::string& Script::file() const
 		{
 			return m_file;
