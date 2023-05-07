@@ -592,6 +592,11 @@ namespace sc
 					});
 
 					draw_component<components::Script>(selected, "Script", [&](components::Script* script) {
+						thread_local constexpr const ImGuiInputTextFlags lua_double_flags =
+							ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank;
+						thread_local constexpr const ImGuiInputTextFlags lua_text_flags =
+							ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll;
+
 						if (ImGui::Button("Load"))
 						{
 							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.lua"});
@@ -624,9 +629,15 @@ namespace sc
 
 						if (ImGui::CollapsingHeader("Data", ImGuiTreeNodeFlags_SpanAvailWidth))
 						{
-							ImGui::Checkbox("Show Functions", &script->m_show_functions);
-							ImGui::Checkbox("Show Userdata", &script->m_show_userdata);
-							ImGui::Checkbox("Show Unknown", &script->m_show_unknown);
+							ImGui::TextUnformatted("Show:");
+							ImGui::Checkbox("Functions", &script->m_show_functions);
+							ImGui::SameLine();
+							ImGui::Checkbox("Userdata", &script->m_show_userdata);
+							ImGui::SameLine();
+							ImGui::Checkbox("Other", &script->m_show_unknown);
+
+							ImGui::Spacing();
+							ImGui::Spacing();
 
 							if (script->m_self.valid())
 							{
@@ -637,31 +648,38 @@ namespace sc
 									{
 										case sol::type::number:
 											{
-												auto num = value.as<float>();
-												ImGui::InputFloat(name.c_str(),
-													&num,
-													0.1f,
-													1.0f,
-													"%.1f",
-													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+												auto num = value.as<double>();
+												if (ImGui::InputDouble(name.c_str(), &num, 0.1, 1.0, "%.1f", lua_double_flags))
+												{
+													script->m_self[name] = num;
+												}
 											}
 											break;
 
 										case sol::type::boolean:
 											{
 												auto var = value.as<bool>();
-												ImGui::Checkbox(name.c_str(), &var);
+												if (ImGui::Checkbox(name.c_str(), &var))
+												{
+													script->m_self[name] = var;
+												}
 											}
 											break;
 
 										case sol::type::string:
-											ImGui::LabelText(name.c_str(), value.as<const char*>());
+											{
+												auto str = value.as<std::string>();
+												if (ImGui::InputText(name.c_str(), &str, lua_text_flags))
+												{
+													script->m_self[name] = str;
+												}
+											}
 											break;
 
 										case sol::type::function:
 											if (script->m_show_functions)
 											{
-												ImGui::TextUnformatted(name.c_str());
+												ImGui::Text("Function: %s", name.c_str());
 											}
 											break;
 
@@ -669,7 +687,7 @@ namespace sc
 										case sol::type::lightuserdata:
 											if (script->m_show_userdata)
 											{
-												ImGui::TextUnformatted(name.c_str());
+												ImGui::Text("Userdata: %s", name.c_str());
 											}
 											break;
 
@@ -677,7 +695,7 @@ namespace sc
 											if (script->m_show_unknown)
 											{
 												const auto type = std::string {magic_enum::enum_name(value.get_type())};
-												ImGui::LabelText(name.c_str(), type.c_str());
+												ImGui::Text("%s: %s", type.c_str(), name.c_str());
 											}
 											break;
 									}
