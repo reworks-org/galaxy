@@ -362,10 +362,14 @@ namespace galaxy
 		{
 			auto& script = registry.get<components::Script>(entity);
 
-			sol::function destruct = script.m_self["destruct"];
-			if (destruct.valid())
+			if (script.m_self.valid())
 			{
-				destruct(script.m_self);
+				sol::function destruct = script.m_self["destruct"];
+				if (destruct.valid())
+				{
+					destruct(script.m_self);
+				}
+
 				script.m_self.abandon();
 			}
 		}

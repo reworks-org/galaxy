@@ -580,7 +580,6 @@ namespace galaxy
 				&entt::type_hash<components::Script>::value);
 
 			script_type["file"]   = &components::Script::file;
-			script_type["load"]   = &components::Script::load;
 			script_type["self"]   = &components::Script::m_self;
 			script_type["update"] = &components::Script::m_update;
 

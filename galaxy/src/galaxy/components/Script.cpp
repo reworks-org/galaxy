@@ -27,18 +27,24 @@ namespace galaxy
 
 		Script::Script(Script&& s)
 		{
-			this->m_file   = std::move(s.m_file);
-			this->m_self   = std::move(s.m_self);
-			this->m_update = std::move(s.m_update);
+			this->m_file           = std::move(s.m_file);
+			this->m_self           = std::move(s.m_self);
+			this->m_update         = std::move(s.m_update);
+			this->m_show_functions = s.m_show_functions;
+			this->m_show_userdata  = s.m_show_userdata;
+			this->m_show_unknown   = s.m_show_unknown;
 		}
 
 		Script& Script::operator=(Script&& s)
 		{
 			if (this != &s)
 			{
-				this->m_file   = std::move(s.m_file);
-				this->m_self   = std::move(s.m_self);
-				this->m_update = std::move(s.m_update);
+				this->m_file           = std::move(s.m_file);
+				this->m_self           = std::move(s.m_self);
+				this->m_update         = std::move(s.m_update);
+				this->m_show_functions = s.m_show_functions;
+				this->m_show_userdata  = s.m_show_userdata;
+				this->m_show_unknown   = s.m_show_unknown;
 			}
 
 			return *this;
@@ -48,8 +54,19 @@ namespace galaxy
 		{
 		}
 
-		void Script::load(std::string_view file)
+		void Script::load_internal(std::string_view file)
 		{
+			if (m_self.valid())
+			{
+				sol::function destruct = m_self["destruct"];
+				if (destruct.valid())
+				{
+					destruct(m_self);
+				}
+
+				m_self.abandon();
+			}
+
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(file);
@@ -74,21 +91,6 @@ namespace galaxy
 			}
 		}
 
-		void Script::reload()
-		{
-			if (!m_file.empty())
-			{
-				sol::function destruct = m_self["destruct"];
-				if (destruct.valid())
-				{
-					destruct(m_self);
-					m_self.abandon();
-
-					load(m_file);
-				}
-			}
-		}
-
 		const std::string& Script::file() const
 		{
 			return m_file;
@@ -96,15 +98,33 @@ namespace galaxy
 
 		nlohmann::json Script::serialize()
 		{
-			nlohmann::json json = "{}"_json;
-			json["file"]        = m_file;
+			nlohmann::json json    = "{}"_json;
+			json["file"]           = m_file;
+			json["show_functions"] = m_show_functions;
+			json["show_userdata"]  = m_show_userdata;
+			json["show_unknown"]   = m_show_unknown;
 
 			return json;
 		}
 
 		void Script::deserialize(const nlohmann::json& json)
 		{
-			load(json.at("file").get<std::string>());
+			load_internal(json.at("file").get<std::string>());
+
+			if (json.contains("show_functions"))
+			{
+				m_show_functions = json.at("show_functions");
+			}
+
+			if (json.contains("show_userdata"))
+			{
+				m_show_userdata = json.at("show_userdata");
+			}
+
+			if (json.contains("show_unknown"))
+			{
+				m_show_unknown = json.at("show_unknown");
+			}
 		}
 	} // namespace components
 } // namespace galaxy

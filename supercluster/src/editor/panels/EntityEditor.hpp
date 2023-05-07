@@ -10,9 +10,11 @@
 
 #include <imgui_internal.h>
 #include <imgui_addons/material_design_icons.h>
+#include <nlohmann/json.hpp>
 
 #include <galaxy/components/Script.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/utils/StringUtils.hpp>
 
 #include "editor/Selected.hpp"
 #include "editor/UpdateStack.hpp"
@@ -51,8 +53,9 @@ namespace sc
 						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
 						if (!path.empty())
 						{
-							auto& script = selected.m_world->m_registry.emplace<components::Script>(selected.m_selected);
-							script.load(path);
+							auto str = "{\"file\":\"" + path + "\"}";
+							strutils::replace_all(str, "\\", "/");
+							selected.m_world->m_registry.emplace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
 						}
 					}
 					else

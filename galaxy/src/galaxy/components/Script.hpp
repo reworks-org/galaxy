@@ -12,6 +12,14 @@
 
 #include "galaxy/fs/Serializable.hpp"
 
+namespace sc
+{
+	namespace panel
+	{
+		class EntityEditor;
+	} // namespace panel
+} // namespace sc
+
 namespace galaxy
 {
 	namespace components
@@ -21,6 +29,8 @@ namespace galaxy
 		///
 		class Script final : public fs::Serializable
 		{
+			friend class sc::panel::EntityEditor;
+
 		public:
 			////
 			/// Constructor.
@@ -50,20 +60,6 @@ namespace galaxy
 			virtual ~Script();
 
 			///
-			/// Load a script.
-			///
-			/// \param file File in VFS to load as a script.
-			///
-			void load(std::string_view file);
-
-			///
-			/// \brief Reloads script from file.
-			///
-			/// Only works if load() has already been called.
-			///
-			void reload();
-
-			///
 			/// Get script file path.
 			///
 			/// \return Const string reference.
@@ -84,6 +80,14 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
+		private:
+			///
+			/// Load a script.
+			///
+			/// \param file File in VFS to load as a script.
+			///
+			void load_internal(std::string_view file);
+
 		public:
 			///
 			/// The script object (table) returned by a lua script.
@@ -100,6 +104,21 @@ namespace galaxy
 			/// Script file.
 			///
 			std::string m_file;
+
+			///
+			/// For editor. Show functions.
+			///
+			bool m_show_functions = false;
+
+			///
+			/// For editor. Shows userdata types.
+			///
+			bool m_show_userdata = false;
+
+			///
+			/// For editor. Show unknown type data.
+			///
+			bool m_show_unknown = false;
 		};
 	} // namespace components
 } // namespace galaxy

@@ -597,8 +597,21 @@ namespace sc
 							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.lua"});
 							if (!path.empty())
 							{
-								auto& script = selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected);
-								script.load(path);
+								auto str = "{\"file\":\"" + path + "\"}";
+								strutils::replace_all(str, "\\", "/");
+								selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+							}
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Reload"))
+						{
+							if (!script->file().empty())
+							{
+								auto str = "{\"file\":\"" + script->file() + "\"}";
+								strutils::replace_all(str, "\\", "/");
+								selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
 							}
 						}
 
@@ -609,9 +622,67 @@ namespace sc
 							core::ServiceLocator<core::Window>::ref().get_input<input::Clipboard>().set(script->file().c_str());
 						}
 
-						if (ImGui::Button("Reload"))
+						if (ImGui::CollapsingHeader("Data", ImGuiTreeNodeFlags_SpanAvailWidth))
 						{
-							script->reload();
+							ImGui::Checkbox("Show Functions", &script->m_show_functions);
+							ImGui::Checkbox("Show Userdata", &script->m_show_userdata);
+							ImGui::Checkbox("Show Unknown", &script->m_show_unknown);
+
+							if (script->m_self.valid())
+							{
+								for (auto& [id, value] : script->m_self)
+								{
+									const auto name = id.as<std::string>();
+									switch (value.get_type())
+									{
+										case sol::type::number:
+											{
+												auto num = value.as<float>();
+												ImGui::InputFloat(name.c_str(),
+													&num,
+													0.1f,
+													1.0f,
+													"%.1f",
+													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank);
+											}
+											break;
+
+										case sol::type::boolean:
+											{
+												auto var = value.as<bool>();
+												ImGui::Checkbox(name.c_str(), &var);
+											}
+											break;
+
+										case sol::type::string:
+											ImGui::LabelText(name.c_str(), value.as<const char*>());
+											break;
+
+										case sol::type::function:
+											if (script->m_show_functions)
+											{
+												ImGui::TextUnformatted(name.c_str());
+											}
+											break;
+
+										case sol::type::userdata:
+										case sol::type::lightuserdata:
+											if (script->m_show_userdata)
+											{
+												ImGui::TextUnformatted(name.c_str());
+											}
+											break;
+
+										default:
+											if (script->m_show_unknown)
+											{
+												const auto type = std::string {magic_enum::enum_name(value.get_type())};
+												ImGui::LabelText(name.c_str(), type.c_str());
+											}
+											break;
+									}
+								}
+							}
 						}
 					});
 
