@@ -410,6 +410,8 @@ namespace sc
 								ui::imgui_notify_error("Failed to save new script.");
 							}
 
+							m_update_directories = true;
+
 							ImGui::CloseCurrentPopup();
 						}
 
@@ -530,6 +532,8 @@ namespace sc
 
 							str.clear();
 							ImGui::CloseCurrentPopup();
+
+							m_update_directories = true;
 						}
 					}
 
