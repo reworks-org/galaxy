@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"d3/d84/Concepts_8hpp.html#a682ee767ec58c054e47bb57f051d4b30":[2,0,0,0,0,12,3,5],
 "d3/d84/Concepts_8hpp.html#a88f506856e2f1fe112ba7f224e41d6d8":[2,0,0,0,0,12,3,3],
 "d3/d84/Concepts_8hpp.html#a9b29a3202da0f5cf5da5df4749e156fb":[2,0,0,0,0,12,3,6],
 "d3/d84/Concepts_8hpp.html#aa5fedc1237e43edeb8f1a1c4c79ff353":[2,0,0,0,0,12,3,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0":[1,0,0,15,1,3],
 "d4/d98/InputMods_8hpp.html":[2,0,0,0,0,11,9],
 "d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75ea":[2,0,0,0,0,11,9,0],
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1]
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c":[2,0,0,0,0,11,9,0,1],
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3":[2,0,0,0,0,11,9,0,0]
 };
