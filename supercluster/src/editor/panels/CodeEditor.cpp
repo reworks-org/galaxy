@@ -116,21 +116,21 @@ namespace sc
 
 				if (ImGui::MenuItem("Save"))
 				{
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
 					if (m_file.empty())
 					{
-						auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
 						const auto path = fs.open_save_dialog("untitled.lua", {"*.lua"});
 
 						if (!path.empty())
 						{
 							m_file = path;
-
-							if (!fs.save(m_editor.GetText(), m_file.string()))
-							{
-								ui::imgui_notify_error("Failed to save script.");
-							}
 						}
+					}
+
+					if (!fs.save(m_editor.GetText(), m_file.string()))
+					{
+						ui::imgui_notify_error("Failed to save script.");
 					}
 				}
 
