@@ -55,6 +55,7 @@ namespace sc
 	private:
 		async::Timer m_autosave;
 		platform::Subprocess m_tiled_process;
+		platform::Subprocess m_bfxr_process;
 
 		panel::LuaConsole m_lua_console;
 		panel::LogConsole m_log_console;

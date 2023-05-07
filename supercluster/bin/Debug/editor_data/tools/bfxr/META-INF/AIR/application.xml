@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.1">
+
+
+<!-- 
+
+BUILD COMMANDS SOME MIX OF
+
+~/progs/airsdk/bin/adt  -certificate -cn SelfSign -ou QE -o "increpare" -c US 2048-RSA SigningCert.p12 PASS123 
+
+~/progs/airsdk/bin/adt  -certificate -cn ADigitalID 1024-RSA SigningCert.p12 PASS123
+
+~/progs/airsdk/bin/adt -package -storetype pkcs12 -keystore SigningCert.p12 -storepass PASS123  -tsa "http://sha256timestamp.ws.symantec.com/sha256/timestamp" -target bundle Bfxr.bundle Bfxr_AIR.airi
+
+
+~/progs/airsdk/bin/adt -package  -keystore SigningCert.p12 -storepass PASS123 -storetype pkcs12 -tsa "http://sha256timestamp.ws.symantec.com/sha256/timestamp" -target native Bfxr.app Bfxr_AIR.airi
+
+
+THIS WORKS:
+
+increpare-macbook:bfxr-air stephenlavelle$ ~/progs/airsdk/bin/adt  -certificate -cn ADigitalID 1024-RSA SigningCert.p12 PASS123
+Warning: 1024-RSA key type is not supported. Switching to 2048-RSA.
+increpare-macbook:bfxr-air stephenlavelle$ ~/progs/airsdk/bin/adt -package  -keystore SigningCert.p12 -storepass PASS123 -storetype pkcs12 -tsa "http://sha256timestamp.ws.symantec.com/sha256/timestamp" -target bundle Bfxr.app Bfxr_AIR.airi
+
+WINDOWS:
+
+C:\Users\locus\Adobe Flash Builder 4.7b\bfxr-air-master>"C:\Program Files\Adobe\Adobe Flash Builder 4.7 (64 Bit)\eclipse\plugins\com.adobe.flash.compiler_4.7.0.349722\AIRSDK\bin\adt"  -certificate -cn SelfSign -ou QE -o "increpare" -c US 2048-RSA SigningCert.p12 PASS123
+
+C:\Users\locus\Adobe Flash Builder 4.7b\bfxr-air-master>"C:\Program Files\Adobe\Adobe Flash Builder 4.7 (64 Bit)\eclipse\plugins\com.adobe.flash.compiler_4.7.0.349722\AIRSDK\bin\adt"  -package  -keystore SigningCert.p12 -storepass PASS123 -storetype pkcs12 -tsa "http://sha256timestamp.ws.symantec.com/sha256/timestamp" -target bundle Bfxrapp Bfxr.airi
+
+ -->
+ 
+<!-- Adobe AIR Application Descriptor File Template.
+
+
+	Specifies parameters for identifying, installing, and launching AIR applications.
+
+	xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/2.0
+			The last segment of the namespace specifies the version 
+			of the AIR runtime required for this application to run.
+			
+	minimumPatchLevel - The minimum patch level of the AIR runtime required to run 
+			the application. Optional.
+-->
+
+	<!-- A universally unique application identifier. Must be unique across all AIR applications.
+	     Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+	<id>com.increpare.bfxr</id>
+
+	<!-- Used as the filename for the application. Required. -->
+	<filename>Bfxr</filename>
+
+	<!-- The name that is displayed in the AIR application installer. 
+	     May have multiple values for each language. See samples or xsd schema file. Optional. -->
+	<name>Bfxr</name>
+
+	<!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required. -->
+	<versionNumber>1.5.1</versionNumber>
+
+	<!-- Description, displayed in the AIR application installer.
+	     May have multiple values for each language. See samples or xsd schema file. Optional. -->
+	<description>Sound effects generator.</description>
+
+	<!-- Copyright information. Optional -->
+	<!-- <copyright></copyright> -->
+
+	<!-- Publisher ID. Used if you're updating an application created prior to 1.5.3 -->
+	<!-- <publisherID></publisherID> -->
+
+	<!-- Settings for the application's initial window. Required. -->
+	<initialWindow>
+		<!-- The main SWF or HTML file of the application. Required. -->
+	<!-- Note: In Flash Builder, the SWF reference is set automatically. -->
+		<content>Bfxr_AIR.swf</content>
+		
+		<!-- The title of the main window. Optional. -->
+		<title>Bfxr</title>
+
+		<!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
+		<!-- <systemChrome></systemChrome> -->
+
+		<!-- Whether the window is transparent. Only applicable when systemChrome is none. Optional. Default false. -->
+		<!-- <transparent></transparent> -->
+
+		<!-- Whether the window is initially visible. Optional. Default false. -->
+		<!-- <visible></visible> -->
+
+		<!-- Whether the user can minimize the window. Optional. Default true. -->
+		<!-- <minimizable></minimizable> -->
+
+		<!-- Whether the user can maximize the window. Optional. Default true. -->
+		<maximizable>false</maximizable> 
+
+		<!-- Whether the user can resize the window. Optional. Default true. -->
+		<resizable>true</resizable> 
+
+		<!-- The window's initial width in pixels. Optional. -->
+		<!-- <width></width> -->
+
+		<!-- The window's initial height in pixels. Optional. -->
+		<!-- <height></height> -->
+
+		<!-- The window's initial x position. Optional. -->
+		<!-- <x></x> -->
+
+		<!-- The window's initial y position. Optional. -->
+		<!-- <y></y> -->
+
+		<!-- The window's minimum size, specified as a width/height pair in pixels, such as "400 200". Optional. -->
+		<!-- <minSize></minSize> -->
+
+		<!-- The window's initial maximum size, specified as a width/height pair in pixels, such as "1600 1200". Optional. -->
+		<!-- <maxSize></maxSize> -->
+	</initialWindow>
+
+    <!-- We recommend omitting the supportedProfiles element, -->
+    <!-- which in turn permits your application to be deployed to all -->
+    <!-- devices supported by AIR. If you wish to restrict deployment -->
+    <!-- (i.e., to only mobile devices) then add this element and list -->
+    <!-- only the profiles which your application does support. -->
+    <!-- <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles> -->
+
+	<!-- The subpath of the standard default installation location to use. Optional. -->
+	<!-- <installFolder></installFolder> -->
+
+	<!-- The subpath of the Programs menu to use. (Ignored on operating systems without a Programs menu.) Optional. -->
+	<!-- <programMenuFolder></programMenuFolder> -->
+
+	<!-- The icon the system uses for the application. For at least one resolution,
+		 specify the path to a PNG file included in the AIR package. Optional. -->
+	<icon>
+		<image128x128>resources/icon.png</image128x128>
+	</icon> 
+
+	<!-- Whether the application handles the update when a user double-clicks an update version
+	of the AIR file (true), or the default AIR application installer handles the update (false).
+	Optional. Default false. -->
+	<!-- <customUpdateUI></customUpdateUI> -->
+	
+	<!-- Whether the application can be launched when the user clicks a link in a web browser.
+	Optional. Default false. -->
+	<!-- <allowBrowserInvocation></allowBrowserInvocation> -->
+
+	<!-- Listing of file types for which the application can register. Optional. -->
+	<fileTypes> 
+		<fileType>
+			<name>BfxrSound</name>
+			<extension>bfxrsound</extension>
+			<description>Individual Bfxr sound effect (either a synth or a mix).</description>
+			<contentType>text/plain</contentType>
+			<icon>				
+				<image128x128>resources/fileicon.png</image128x128>
+			</icon>
+		</fileType>
+
+		<fileType>
+			<name>BfxrLibrary</name>
+			<extension>bfxrlibrary</extension>
+			<description>Collection of Bfxr sound effects (synths and mixes).</description>
+			<contentType>text/plain</contentType>
+			<icon>				
+				<image128x128>resources/fileicon2.png</image128x128>
+			</icon>
+		</fileType>
+		
+		<!-- Defines one file type. Optional. -->
+		<!-- <fileType> -->
+
+			<!-- The name that the system displays for the registered file type. Required. -->
+			<!-- <name></name> -->
+
+			<!-- The extension to register. Required. -->
+			<!-- <extension></extension> -->
+			
+			<!-- The description of the file type. Optional. -->
+			<!-- <description></description> -->
+			
+			<!-- The MIME content type. -->
+			<!-- <contentType></contentType> -->
+			
+			<!-- The icon to display for the file type. Optional. -->
+			<!-- <icon>
+				<image16x16></image16x16>
+				<image32x32></image32x32>
+				<image48x48></image48x48>
+				<image128x128></image128x128>
+			</icon> -->
+			
+		<!-- </fileType> -->
+	</fileTypes>
+
+</application>

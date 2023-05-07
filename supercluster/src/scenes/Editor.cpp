@@ -357,6 +357,7 @@ namespace sc
 	void Editor::exit()
 	{
 		m_tiled_process.terminate();
+		m_bfxr_process.terminate();
 		core::ServiceLocator<core::Window>::ref().close();
 	}
 
@@ -522,9 +523,14 @@ namespace sc
 
 			if (ImGui::BeginMenu("Tools"))
 			{
-				if (ImGui::MenuItem("Tiled", "Ctrl+Shift+T"))
+				if (ImGui::MenuItem("Tiled"))
 				{
 					m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/tiled/tiled.exe");
+				}
+
+				if (ImGui::MenuItem("Bfxr"))
+				{
+					m_bfxr_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/bfxr/Bfxr.exe");
 				}
 
 				ImGui::EndMenu();
@@ -720,11 +726,6 @@ namespace sc
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_S))
 		{
 			save_project(true);
-		}
-
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_T))
-		{
-			m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/tiled/tiled.exe");
 		}
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_R))
