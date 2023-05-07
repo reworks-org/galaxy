@@ -47,9 +47,25 @@ namespace sc
 
 				if (ImGui::BeginPopup("NewScenePopup"))
 				{
+					static auto make = false;
+
 					static std::string s_buff;
-					if (ImGui::InputText("Name", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
+					if (ImGui::InputText("##Name", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue))
 					{
+						make = true;
+					}
+
+					ImGui::SameLine();
+
+					if (ImGui::Button("Create"))
+					{
+						make = true;
+					}
+
+					if (make)
+					{
+						make = false;
+
 						if (s_buff.empty())
 						{
 							GALAXY_LOG(GALAXY_ERROR, "Scene name cannot be empty.");
