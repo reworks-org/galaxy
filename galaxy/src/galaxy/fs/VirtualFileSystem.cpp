@@ -43,7 +43,9 @@ namespace galaxy
 		FileInfo VirtualFileSystem::find(std::string_view file)
 		{
 			FileInfo info;
-			const auto path = std::filesystem::path(file);
+
+			auto path = std::filesystem::path(file);
+			path      = path.make_preferred();
 
 			if (path.has_extension())
 			{
