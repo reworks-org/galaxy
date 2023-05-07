@@ -1,6 +1,0 @@
-<map id="galaxy::components::Script::reload" name="galaxy::components::Script::reload">
-<area shape="rect" id="node1" title="Reloads script from file." alt="" coords="5,35,159,76"/>
-<area shape="rect" id="node2" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="207,35,360,76"/>
-<area shape="rect" id="node3" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="447,5,600,47"/>
-<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,71,639,98"/>
-</map>

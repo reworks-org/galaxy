@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deque_3054',['deque',['../d3/d12/namespacegalaxy_1_1meta.html#a0e58d096d51e7adfd002f0002654adfc',1,'galaxy::meta']]]
+  ['deque_3062',['deque',['../d3/d12/namespacegalaxy_1_1meta.html#a0e58d096d51e7adfd002f0002654adfc',1,'galaxy::meta']]]
 ];

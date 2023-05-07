@@ -63,19 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a5629c7dc03ea930d8e18b3193c7e2c4f",
-"d3/d84/Concepts_8hpp.html#a682ee767ec58c054e47bb57f051d4b30",
-"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3",
-"d5/daa/DefaultShaders_8cpp_source.html",
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ae27624ab4671efcfbdb1ae95dfb47b44",
-"d8/d8a/classgalaxy_1_1components_1_1Transform.html#aae6a2383ff64850f5c8b326ed936e081",
-"da/d18/classgalaxy_1_1components_1_1Animated.html#a7499a6383038356ef3b6660615fd1d95",
-"db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491",
-"dc/d97/structgalaxy_1_1events_1_1KeyChar.html",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea684d325a7303f52e64011467ff5c5758",
-"de/d59/KeyDown_8cpp.html",
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5"
+"annotated.html",
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a6fb3bf4be983a23b5d0fbccb1ebb138d",
+"d3/d84/Concepts_8hpp.html#a88f506856e2f1fe112ba7f224e41d6d8",
+"d4/d98/InputMods_8hpp.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130",
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html",
+"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aeefda1a8d4941e4fb9ce5755bf892b95",
+"d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#a750b046d82112366425c389040eeaed6",
+"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5",
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea646da671ca01bb5d84dbb5fb2238dc8e",
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#aaf11b8d29f9bb3c82129f495d5aa8dc7",
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ac273f17974444a28c23b26fbe94936a4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
