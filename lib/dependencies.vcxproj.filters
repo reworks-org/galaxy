@@ -1403,6 +1403,29 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\BasicGenerators.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Blends.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Cellular.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\DomainWarp.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\DomainWarpFractal.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Fractal.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Generator.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Modifiers.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Perlin.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Simplex.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Value.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_C.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Config.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Export.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Metadata.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\SmartNode.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Config.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Export.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FunctionList.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
@@ -1554,5 +1577,18 @@
     <None Include="rmlui\Include\RmlUi\Core\Vector3.inl" />
     <None Include="rmlui\Include\RmlUi\Core\Vector4.inl" />
     <None Include="rmlui\Include\RmlUi\Lua\LuaType.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\BasicGenerators.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Blends.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Cellular.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\DomainWarp.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\DomainWarpFractal.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Fractal.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Generator.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Modifiers.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Perlin.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Simplex.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Utils.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Value.inl" />
+    <None Include="fastnoise2\include\FastNoise\FastNoise_BuildList.inl" />
   </ItemGroup>
 </Project>

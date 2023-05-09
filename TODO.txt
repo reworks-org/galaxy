@@ -35,3 +35,5 @@ more drag/drop support for tree view, body, etc
 
 phytsics collision + lua collision support
 	https://github.com/jmorton06/Lumos/blob/master/Lumos/Source/Lumos/Scripting/Lua/PhysicsLua.cpp
+
+add fastnoise2 to lua

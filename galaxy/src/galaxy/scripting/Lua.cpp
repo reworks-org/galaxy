@@ -9,6 +9,8 @@
 #include <entt/addons/sol/dispatcher.hpp>
 #include <entt/addons/sol/registry.hpp>
 
+#include <FastNoise/FastNoise.h>
+
 #include "galaxy/algorithm/Generic.hpp"
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/Random.hpp"
@@ -126,6 +128,10 @@ namespace galaxy
 		void inject_galaxy_into_lua()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			/* FASTNOISE */
+			auto fnSimplex = FastNoise::New<FastNoise::Simplex>();
+			auto fnFractal = FastNoise::New<FastNoise::FractalFBm>();
 
 			/* ENTT */
 			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);

@@ -500,6 +500,29 @@
     <ClInclude Include="entt\include\entt\signal\emitter.hpp" />
     <ClInclude Include="entt\include\entt\signal\fwd.hpp" />
     <ClInclude Include="entt\include\entt\signal\sigh.hpp" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_C.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Config.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Export.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\BasicGenerators.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Blends.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Cellular.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\DomainWarp.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\DomainWarpFractal.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Fractal.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Generator.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Modifiers.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Perlin.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Simplex.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Generators\Value.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\Metadata.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\SmartNode.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Config.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Export.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\FunctionList.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
+    <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
     <ClInclude Include="freetype2_win\include\freetype\config\ftheader.h" />
     <ClInclude Include="freetype2_win\include\freetype\config\ftmodule.h" />
@@ -1411,6 +1434,19 @@
     <ClInclude Include="zlib_ng_win\include\zlib.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fastnoise2\include\FastNoise\FastNoise_BuildList.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\BasicGenerators.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Blends.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Cellular.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\DomainWarp.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\DomainWarpFractal.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Fractal.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Generator.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Modifiers.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Perlin.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Simplex.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Utils.inl" />
+    <None Include="fastnoise2\include\FastNoise\Generators\Value.inl" />
     <None Include="glm\glm\detail\func_common.inl" />
     <None Include="glm\glm\detail\func_common_simd.inl" />
     <None Include="glm\glm\detail\func_exponential.inl" />
@@ -1620,7 +1656,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLFW_PLATFORM_WIN32;RMLUI_STATIC_LIB;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;RMLUI_STATIC_LIB;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1655,7 +1691,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1669,7 +1705,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng_win\lib\Debug\zlibstaticd.lib;$(SolutionDir)lib\freetype2_win\lib\Debug\freetyped.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)lib\fastnoise2\lib\Debug\FastNoiseD.lib;$(SolutionDir)lib\zlib_ng_win\lib\Debug\zlibstaticd.lib;$(SolutionDir)lib\freetype2_win\lib\Debug\freetyped.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -1685,7 +1721,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLFW_PLATFORM_WIN32;RMLUI_STATIC_LIB;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;RMLUI_STATIC_LIB;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1716,7 +1752,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1731,7 +1767,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)lib\zlib_ng_win\lib\Release\zlibstatic.lib;$(SolutionDir)lib\freetype2_win\lib\Release\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)lib\fastnoise2\lib\Release\FastNoise.lib;$(SolutionDir)lib\zlib_ng_win\lib\Release\zlibstatic.lib;$(SolutionDir)lib\freetype2_win\lib\Release\freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
