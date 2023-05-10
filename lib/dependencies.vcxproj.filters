@@ -371,6 +371,7 @@
     <ClCompile Include="imgui\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1426,6 +1427,8 @@
     <ClInclude Include="fastnoise2\include\FastSIMD\FunctionList.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
