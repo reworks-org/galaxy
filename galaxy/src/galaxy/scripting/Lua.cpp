@@ -129,10 +129,6 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			/* FASTNOISE */
-			auto fnSimplex = FastNoise::New<FastNoise::Simplex>();
-			auto fnFractal = FastNoise::New<FastNoise::FractalFBm>();
-
 			/* ENTT */
 			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
 			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);

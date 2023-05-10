@@ -21,6 +21,7 @@
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/LogConsole.hpp"
+#include "editor/panels/noise/NoisePanel.hpp"
 
 #include "editor/Settings.hpp"
 
@@ -64,6 +65,7 @@ namespace sc
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
 		panel::CodeEditor m_code_editor;
+		panel::NoisePanel m_noise_panel;
 
 		Settings m_settings;
 		UpdateStack m_update_stack;
@@ -79,13 +81,15 @@ namespace sc
 		bool m_show_settings       = false;
 		bool m_show_exportprogress = false;
 		bool m_show_about          = false;
-		bool m_about_control       = true;
-		bool m_stopped             = true;
-		bool m_viewport_focused    = false;
-		bool m_viewport_hovered    = false;
-		bool m_game_mode           = false;
-		bool m_editor_cam_enabled  = true;
-		bool m_use_hand            = false;
+		bool m_show_noisepanel     = false;
+
+		bool m_about_control      = true;
+		bool m_stopped            = true;
+		bool m_viewport_focused   = false;
+		bool m_viewport_hovered   = false;
+		bool m_game_mode          = false;
+		bool m_editor_cam_enabled = true;
+		bool m_use_hand           = false;
 
 		ImVec2 m_icon_size       = {24, 24};
 		ImVec2 m_icon_size_large = {32, 32};
