@@ -38,7 +38,7 @@ namespace sc
 			mNodeEditor.reset();
 		}
 
-		void NoisePanel::render(bool* show)
+		void NoisePanel::render(bool* show, UpdateStack& updates)
 		{
 			mNodeEditor->Draw(show);
 
@@ -53,12 +53,12 @@ namespace sc
 
 				ImGui::SameLine();
 
-				if (ImGui::Button("Reset State"))
+				if (ImGui::Button("RESET GRAPH"))
 				{
-					// ImGui::ClearIniSettings();
-					mNodeEditor.reset();
-					mNodeEditor = std::make_unique<FastNoiseNodeEditor>();
-					// ImGui::SaveIniSettingsToDisk(ImGui::GetIO().IniFilename);
+					updates.push_back([&]() {
+						mNodeEditor.reset();
+						mNodeEditor = std::make_unique<FastNoiseNodeEditor>();
+					});
 				}
 
 				mNodeEditor->DrawStats();

@@ -11,6 +11,8 @@
 
 #include <FastNoise/Metadata.h>
 
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "NoiseTexture.h"
@@ -25,7 +27,7 @@ NoiseTexture::NoiseTexture()
 	mBuildData.offset         = {};
 	mBuildData.generationType = GenType_2D;
 
-	mExportBuildData.size = {4096, 4096};
+	mExportBuildData.size = {512, 512};
 
 	for (size_t i = 0; i < 2; i++)
 	{
@@ -41,11 +43,6 @@ NoiseTexture::~NoiseTexture()
 	{
 		mGenerateQueue.KillThreads();
 		thread.join();
-	}
-
-	if (mExportThread.joinable())
-	{
-		mExportThread.join();
 	}
 }
 
@@ -63,7 +60,7 @@ void NoiseTexture::Draw(bool* show)
 
 	ImGui::SetNextWindowSize(ImVec2(768, 768), ImGuiCond_FirstUseEver);
 	ImGui::SetNextWindowPos(ImVec2(1143, 305), ImGuiCond_FirstUseEver);
-	if (ImGui::Begin("Noise Texture Preview", show, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
+	if (ImGui::Begin("Graph Preview", show, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 	{
 		ImGui::PushItemWidth(82.0f);
 		bool edited = false;
@@ -78,13 +75,15 @@ void NoiseTexture::Draw(bool* show)
 
 		if (ImGui::DragInt2("Size", glm::value_ptr(texSize), 2, 4, 8192))
 		{
-			auto d = texSize - mBuildData.size;
-			ImVec2 delta(d.x, d.y);
+			auto delta = texSize - mBuildData.size;
 
 			ImVec2 windowSize = ImGui::GetWindowSize();
 
-			windowSize += delta;
-			contentSize += delta;
+			windowSize.x += delta.x;
+			windowSize.y += delta.y;
+
+			contentSize.x += delta.x;
+			contentSize.y += delta.y;
 
 			ImGui::SetWindowSize(windowSize);
 		}
@@ -96,12 +95,12 @@ void NoiseTexture::Draw(bool* show)
 		edited |= ImGui::DragFloat("Frequency", &mBuildData.frequency, 0.001f);
 		ImGui::SameLine();
 
-		if (mBuildData.generator && ImGui::Button("Export BMP"))
+		if (mBuildData.generator && ImGui::Button("Export Texture"))
 		{
 			auto size             = mExportBuildData.size;
 			mExportBuildData      = mBuildData;
 			mExportBuildData.size = size;
-			ImGui::OpenPopup("Export BMP");
+			ImGui::OpenPopup("Exporter");
 		}
 
 		ImGui::PopItemWidth();
@@ -169,7 +168,7 @@ void NoiseTexture::Draw(bool* show)
 
 void NoiseTexture::DoExport()
 {
-	if (ImGui::BeginPopupModal("Export BMP", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings))
+	if (ImGui::BeginPopupModal("Exporter", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings))
 	{
 		ImGui::PushItemWidth(82.0f);
 		if (ImGui::DragInt2("Size", glm::value_ptr(mExportBuildData.size), 2, 4, 8192 * 4))
@@ -177,98 +176,27 @@ void NoiseTexture::DoExport()
 			ImGuiExtra::MarkSettingsDirty();
 		}
 
-		if (ImGui::Button("Export (async)"))
+		if (ImGui::Button("Export"))
 		{
-			ImGui::CloseCurrentPopup();
-
-			float relativeScale = (float)(mExportBuildData.size.x + mExportBuildData.size.y) / (float)(mBuildData.size.x + mBuildData.size.y);
-
+			const auto relativeScale = (float)(mExportBuildData.size.x + mExportBuildData.size.y) / (float)(mBuildData.size.x + mBuildData.size.y);
 			mExportBuildData.frequency /= relativeScale;
 			mExportBuildData.offset *= relativeScale;
 
-			if (mExportThread.joinable())
+			auto data = BuildTexture(mExportBuildData);
+			mNoiseTexture.load_raw(data.size.x, data.size.y, GL_SRGB8_ALPHA8, GL_RGBA, GL_UNSIGNED_BYTE, data.textureData.data());
+
+			std::string nodeName = mExportBuildData.generator->GetMetadata().name;
+			nodeName += ".png";
+
+			auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			const auto path = fs.open_save_dialog(nodeName, {"*.png"});
+
+			if (!path.empty())
 			{
-				mExportThread.join();
+				mNoiseTexture.save(path);
 			}
-			mExportThread = std::thread([buildData = mExportBuildData]() {
-				auto data = BuildTexture(buildData);
 
-				const char* nodeName = buildData.generator->GetMetadata().name;
-				std::string filename = nodeName;
-				filename += ".bmp";
-
-				// Iterate through file names if filename exists
-				for (int i = 1; i < 1024; i++)
-				{
-					if (!std::filesystem::exists(filename.c_str()))
-					{
-						break;
-					}
-					filename = nodeName;
-					filename += '_' + std::to_string(i) + ".bmp";
-				}
-
-				std::ofstream file(filename.c_str(), std::ofstream::binary | std::ofstream::out | std::ofstream::trunc);
-
-				if (file.is_open())
-				{
-					struct BmpHeader
-					{
-						// File header (14)
-						// char b = 'B';
-						// char m = 'M';
-						uint32_t fileSize;
-						uint32_t reserved   = 0;
-						uint32_t dataOffset = 14u + 12u + (256u * 3u);
-						// Bmp Info Header (12)
-						uint32_t headerSize = 12u;
-						uint16_t sizeX;
-						uint16_t sizeY;
-						uint16_t colorPlanes = 1u;
-						uint16_t bitDepth    = 8u;
-					};
-
-					int paddedSizeX = buildData.size.x;
-					int padding     = paddedSizeX % 4;
-					if (padding)
-					{
-						padding = 4 - padding;
-						paddedSizeX += padding;
-					}
-
-					BmpHeader header;
-					header.fileSize = header.dataOffset + (uint32_t)(paddedSizeX * buildData.size.y);
-					header.sizeX    = (uint16_t)buildData.size.x;
-					header.sizeY    = (uint16_t)buildData.size.y;
-
-					file << 'B' << 'M';
-					file.write(reinterpret_cast<char*>(&header), sizeof(BmpHeader));
-
-					// Colour map
-					for (int i = 0; i < 256; i++)
-					{
-						glm::u8vec2 b3((uint8_t)i);
-						file.write(reinterpret_cast<char*>(glm::value_ptr(b3)), 3);
-					}
-
-					int xIdx = padding ? buildData.size.x : 0;
-
-					for (uint32_t pix : data.textureData)
-					{
-						file.write(reinterpret_cast<char*>(&pix), 1);
-
-						if (--xIdx == 0)
-						{
-							xIdx = buildData.size.x;
-
-							glm::u8vec2 b3(0);
-							file.write(reinterpret_cast<char*>(glm::value_ptr(b3)), padding);
-						}
-					}
-
-					file.close();
-				}
-			});
+			ImGui::CloseCurrentPopup();
 		}
 
 		ImGui::PopItemWidth();

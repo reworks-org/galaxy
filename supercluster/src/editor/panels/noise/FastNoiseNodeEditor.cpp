@@ -506,10 +506,6 @@ FastNoiseNodeEditor::FastNoiseNodeEditor()
 
 	ImNodes::GetStyle().MiniMapPadding = ImVec2(8, 8);
 
-#ifndef NDEBUG
-	mNodeBenchmarkMax = 1;
-#endif
-
 	SetupSettingsHandlers();
 
 	// Create Metadata context menu tree
@@ -550,41 +546,11 @@ FastNoiseNodeEditor::FastNoiseNodeEditor()
 	}
 }
 
-void FastNoiseNodeEditor::DoNodeBenchmarks()
-{
-	// Benchmark overhead every frame to keep it accurate
-	if (mOverheadNode.generateAverages.size() >= 512)
-	{
-		std::default_random_engine engine((uint32_t)mOverheadNode.totalGenerateNs);
-		std::uniform_int_distribution<size_t> randomInt {0ul, mOverheadNode.generateAverages.size() - 1};
-
-		mOverheadNode.generateAverages.erase(mOverheadNode.generateAverages.begin() + randomInt(engine));
-	}
-
-	mOverheadNode.GeneratePreview(false, true);
-
-	// 1 node benchmark per frame
-	if (mNodeBenchmarkIndex >= (int32_t)mNodes.size())
-	{
-		mNodeBenchmarkIndex = 0;
-	}
-
-	for (auto itr = std::next(mNodes.begin(), mNodeBenchmarkIndex); itr != mNodes.end(); ++itr)
-	{
-		mNodeBenchmarkIndex++;
-		if (!itr->second.serialised.empty() && itr->second.generateAverages.size() < mNodeBenchmarkMax)
-		{
-			itr->second.GeneratePreview(false, true);
-			break;
-		}
-	}
-}
-
 void FastNoiseNodeEditor::Draw(bool* show)
 {
 	ImGui::SetNextWindowSize(ImVec2(963, 634), ImGuiCond_FirstUseEver);
 	ImGui::SetNextWindowPos(ImVec2(8, 439), ImGuiCond_FirstUseEver);
-	if (ImGui::Begin(ICON_MDI_QRCODE_EDIT " Noise Editor", show))
+	if (ImGui::Begin(ICON_MDI_QRCODE_EDIT " Noise Graph", show))
 	{
 		UpdateSelected();
 
@@ -598,21 +564,6 @@ void FastNoiseNodeEditor::Draw(bool* show)
 		edited |= ImGui::DragInt("Seed", &mNodeSeed);
 		ImGui::SameLine();
 		edited |= ImGui::DragFloat("Frequency", &mNodeFrequency, 0.001f);
-		ImGui::SameLine();
-
-		if (ImGui::Button("Retest Node Performance"))
-		{
-			for (auto& node : mNodes)
-			{
-				node.second.generateAverages.clear();
-			}
-		}
-		if (ImGui::IsItemHovered())
-		{
-			ImGui::BeginTooltip();
-			ImGui::TextUnformatted("Disable \"Generate Mesh Preview\" for more accurate results");
-			ImGui::EndTooltip();
-		}
 
 		ImGui::PopItemWidth();
 
@@ -650,8 +601,6 @@ void FastNoiseNodeEditor::Draw(bool* show)
 	}
 	ImGui::End();
 
-	DoNodeBenchmarks();
-
 	mNoiseTexture.Draw(show);
 }
 
@@ -660,8 +609,6 @@ void FastNoiseNodeEditor::DrawStats()
 	std::string simdTxt = "Current SIMD Level: ";
 	simdTxt += GetSIMDLevelName(mActualSIMDLevel);
 	ImGui::TextUnformatted(simdTxt.c_str());
-
-	ImGui::DragInt("Node Benchmark Count", &mNodeBenchmarkMax, 8, 8, 64 * 1024);
 }
 
 void FastNoiseNodeEditor::CheckLinks()
@@ -793,7 +740,6 @@ void FastNoiseNodeEditor::SetSIMDLevel(FastSIMD::eLevel lvl)
 	mMaxSIMDLevel = lvl;
 
 	mOverheadNode.generateAverages.clear();
-	DoNodeBenchmarks();
 
 	for (auto& node : mNodes)
 	{

@@ -11,6 +11,8 @@
 #include <FastNoise/FastNoise.h>
 #include "FastNoiseNodeEditor.h"
 
+#include "editor/UpdateStack.hpp"
+
 namespace sc
 {
 	namespace panel
@@ -23,7 +25,7 @@ namespace sc
 			NoisePanel();
 			~NoisePanel();
 
-			void render(bool* show);
+			void render(bool* show, UpdateStack& updates);
 
 		private:
 			int mMaxSIMDLevel = 0;

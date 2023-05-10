@@ -119,7 +119,6 @@ private:
 	int GetFreeNodeId();
 	void ChangeSelectedNode(FastNoise::NodeData* newId);
 	void DeleteNode(FastNoise::NodeData* nodeData);
-	void DoNodeBenchmarks();
 	void SetupSettingsHandlers();
 
 	void CheckLinks();
@@ -141,8 +140,6 @@ private:
 
 	FastNoise::NodeData* mSelectedNode = nullptr;
 	Node mOverheadNode;
-	int32_t mNodeBenchmarkIndex = 0;
-	int32_t mNodeBenchmarkMax   = 128;
 
 	float mNodeFrequency               = 0.02f;
 	int mNodeSeed                      = 1337;

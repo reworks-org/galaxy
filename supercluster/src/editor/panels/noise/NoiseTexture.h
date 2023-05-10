@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <memory>
-#include <thread>
 #include <cstring>
 #include <span>
 
@@ -81,7 +80,6 @@ private:
 	BuildData mExportBuildData;
 	FastNoise::OutputMinMax mMinMax;
 
-	std::thread mExportThread;
 	std::vector<std::thread> mThreads;
 	GenerateQueue<BuildData> mGenerateQueue;
 	CompleteQueue<TextureData> mCompleteQueue;

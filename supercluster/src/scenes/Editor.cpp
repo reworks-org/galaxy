@@ -512,7 +512,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Toggle Noise Editor", "Ctrl+Alt+N"))
 				{
-					m_show_noisepanel = !m_show_noisepanel;
+					m_show_noisegraph = !m_show_noisegraph;
 				}
 
 #ifdef _DEBUG
@@ -780,7 +780,7 @@ namespace sc
 
 		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_N))
 		{
-			m_show_noisepanel = !m_show_noisepanel;
+			m_show_noisegraph = !m_show_noisegraph;
 		}
 
 		if (m_show_luapanel)
@@ -803,9 +803,9 @@ namespace sc
 			m_code_editor.render();
 		}
 
-		if (m_show_noisepanel)
+		if (m_show_noisegraph)
 		{
-			m_noise_panel.render(&m_show_noisepanel);
+			m_noise_graph.render(&m_show_noisegraph, m_update_stack);
 		}
 
 		if (m_show_viewport)
