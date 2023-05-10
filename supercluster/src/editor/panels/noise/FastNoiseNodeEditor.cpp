@@ -180,9 +180,6 @@ void FastNoiseNodeEditor::Node::GeneratePreview(bool nodeTreeChanged, bool bench
 		{
 			editor.ChangeSelectedNode(data.get());
 		}
-
-		// Save nodes to ini
-		ImGuiExtra::MarkSettingsDirty();
 	}
 }
 
@@ -316,186 +313,6 @@ const FastNoise::Metadata* FastNoiseNodeEditor::MetadataMenuGroup::DrawUI(std::f
 	return returnPressed;
 }
 
-void FastNoiseNodeEditor::Node::SerialiseIncludingDependancies(ImGuiSettingsHandler* handler,
-	ImGuiTextBuffer* buffer,
-	std::unordered_set<int>& serialisedNodeIds)
-{
-	if (serialisedNodeIds.find(nodeId) != serialisedNodeIds.end())
-	{
-		return;
-	}
-
-	for (FastNoise::NodeData* nodeData : GetNodeIDLinks())
-	{
-		if (nodeData)
-		{
-			editor.mNodes.at(nodeData).SerialiseIncludingDependancies(handler, buffer, serialisedNodeIds);
-		}
-	}
-
-	buffer->appendf("\n[%s][Node:%d]\n", handler->TypeName, data->metadata->id);
-
-	for (const auto& var : data->variables)
-	{
-		buffer->appendf("variable=%d\n", var.i);
-	}
-	for (const auto& node : data->nodeLookups)
-	{
-		buffer->appendf("node=%d\n", node ? editor.mNodes.at(node).nodeId : 0);
-	}
-	for (const auto& hybrid : data->hybrids)
-	{
-		buffer->appendf("hybrid=%i:%f\n", hybrid.first ? editor.mNodes.at(hybrid.first).nodeId : 0, hybrid.second);
-	}
-
-	// id must be after setting all members, it verifies and creates the node
-	buffer->appendf("id=%i\n", nodeId);
-
-	// Must be after node creation
-	ImVec2 gridPos = ImNodes::GetNodeGridSpacePos(nodeId);
-	buffer->appendf("grid_pos=%f:%f\n", gridPos.x, gridPos.y);
-
-	serialisedNodeIds.emplace(nodeId);
-}
-
-void FastNoiseNodeEditor::SetupSettingsHandlers()
-{
-	ImGuiSettingsHandler nodeSettings;
-	nodeSettings.TypeName   = "NoiseToolNodeData";
-	nodeSettings.TypeHash   = ImHashStr(nodeSettings.TypeName);
-	nodeSettings.UserData   = this;
-	nodeSettings.WriteAllFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, ImGuiTextBuffer* outBuf) {
-		auto* nodeEditor = (FastNoiseNodeEditor*)handler->UserData;
-
-		std::unordered_set<int> serialisedNodeIds;
-
-		// Save all root nodes
-		for (auto& node : nodeEditor->mNodes)
-		{
-			bool hasReference = false;
-
-			for (auto& linkNode : nodeEditor->mNodes)
-			{
-				auto links = linkNode.second.GetNodeIDLinks();
-
-				if (std::find(links.begin(), links.end(), node.first) != links.end())
-				{
-					hasReference = true;
-					break;
-				}
-			}
-
-			if (!hasReference)
-			{
-				node.second.SerialiseIncludingDependancies(handler, outBuf, serialisedNodeIds);
-			}
-		}
-	};
-	nodeSettings.ReadOpenFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, const char* name) -> void* {
-		int metadataId;
-		if (sscanf(name, "Node:%d", &metadataId) == 1)
-		{
-			if (const FastNoise::Metadata* metadata = FastNoise::Metadata::GetFromId(metadataId))
-			{
-				FastNoise::NodeData* nodeData = new FastNoise::NodeData(metadata);
-				nodeData->nodeLookups.clear();
-				nodeData->variables.clear();
-				nodeData->hybrids.clear();
-				return nodeData;
-			}
-		}
-
-		return nullptr;
-	};
-	nodeSettings.ReadLineFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, void* entry, const char* line) {
-		auto* nodeEditor = (FastNoiseNodeEditor*)handler->UserData;
-		auto* nodeData   = (FastNoise::NodeData*)entry;
-
-		ImVec2 imVec2;
-		float f;
-		int i;
-		if (sscanf(line, "grid_pos=%f:%f", &imVec2.x, &imVec2.y) == 2)
-		{
-			auto find = nodeEditor->mNodes.find(nodeData);
-			if (find != nodeEditor->mNodes.end())
-			{
-				ImNodes::SetNodeGridSpacePos(find->second.nodeId, imVec2);
-			}
-		}
-		else if (sscanf(line, "variable=%d", &i) == 1)
-		{
-			nodeData->variables.push_back(i);
-		}
-		else if (sscanf(line, "node=%d", &i) == 1)
-		{
-			Node* link = nodeEditor->FindNodeFromId(i);
-
-			nodeData->nodeLookups.push_back(link ? link->data.get() : nullptr);
-		}
-		else if (sscanf(line, "hybrid=%d:%f", &i, &f) == 2)
-		{
-			Node* link = nodeEditor->FindNodeFromId(i);
-
-			nodeData->hybrids.emplace_back(link ? link->data.get() : nullptr, f);
-		}
-		else if (sscanf(line, "id=%d", &i) == 1)
-		{
-			// Check the data is valid (node class may have changed)
-			if (nodeData->variables.size() == nodeData->metadata->memberVariables.size() &&
-				nodeData->nodeLookups.size() == nodeData->metadata->memberNodeLookups.size() &&
-				nodeData->hybrids.size() == nodeData->metadata->memberHybrids.size())
-			{
-				if (!nodeEditor->FindNodeFromId(i) && nodeEditor->mNodes.try_emplace(nodeData, *nodeEditor, nodeData, true, i).second)
-				{
-					return;
-				}
-			}
-
-			delete nodeData;
-		}
-	};
-
-	ImGuiSettingsHandler editorSettings;
-	editorSettings.TypeName   = "NoiseToolNodeGraph";
-	editorSettings.TypeHash   = ImHashStr(editorSettings.TypeName);
-	editorSettings.UserData   = this;
-	editorSettings.WriteAllFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, ImGuiTextBuffer* outBuf) {
-		auto* nodeEditor = (FastNoiseNodeEditor*)handler->UserData;
-		outBuf->appendf("\n[%s][Settings]\n", handler->TypeName);
-
-		ImVec2 gridOffset = ImNodes::EditorContextGetPanning();
-		outBuf->appendf("grid_offset=%f:%f\n", gridOffset.x, gridOffset.y);
-
-		outBuf->appendf("frequency=%f\n", nodeEditor->mNodeFrequency);
-		outBuf->appendf("seed=%d\n", nodeEditor->mNodeSeed);
-		outBuf->appendf("gen_type=%d\n", (int)nodeEditor->mNodeGenType);
-	};
-	editorSettings.ReadOpenFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, const char* name) -> void* {
-		if (strcmp(name, "Settings") == 0)
-		{
-			return handler->UserData;
-		}
-
-		return nullptr;
-	};
-	editorSettings.ReadLineFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, void* entry, const char* line) {
-		auto* nodeEditor = (FastNoiseNodeEditor*)handler->UserData;
-
-		ImVec2 imVec2;
-		if (sscanf(line, "grid_offset=%f:%f", &imVec2.x, &imVec2.y) == 2)
-		{
-			ImNodes::EditorContextResetPanning(imVec2);
-		}
-
-		sscanf(line, "frequency=%f", &nodeEditor->mNodeFrequency);
-		sscanf(line, "seed=%d", &nodeEditor->mNodeSeed);
-		sscanf(line, "gen_type=%d", (int*)&nodeEditor->mNodeGenType);
-	};
-
-	ImGuiExtra::AddOrReplaceSettingsHandler(editorSettings);
-	ImGuiExtra::AddOrReplaceSettingsHandler(nodeSettings);
-}
-
 FastNoiseNodeEditor::FastNoiseNodeEditor()
 	: mOverheadNode(*this, new FastNoise::NodeData(&FastNoise::Metadata::Get<FastNoise::Constant>()), false)
 {
@@ -505,8 +322,6 @@ FastNoiseNodeEditor::FastNoiseNodeEditor()
 	ImNodes::StyleColorsDark();
 
 	ImNodes::GetStyle().MiniMapPadding = ImVec2(8, 8);
-
-	SetupSettingsHandlers();
 
 	// Create Metadata context menu tree
 	std::unordered_map<std::string, MetadataMenuGroup*> groupMap;
@@ -573,8 +388,6 @@ void FastNoiseNodeEditor::Draw(bool* show)
 			{
 				node.second.GeneratePreview(false);
 			}
-
-			ImGuiExtra::MarkSettingsDirty();
 		}
 
 		ImNodes::BeginNodeEditor();

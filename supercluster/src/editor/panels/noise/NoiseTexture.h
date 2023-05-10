@@ -71,7 +71,6 @@ private:
 	static void GenerateLoopThread(GenerateQueue<BuildData>& generateQueue, CompleteQueue<TextureData>& completeQueue);
 
 	void DoExport();
-	void SetupSettingsHandlers();
 
 	graphics::Texture mNoiseTexture;
 	uint64_t mCurrentIteration = 0;

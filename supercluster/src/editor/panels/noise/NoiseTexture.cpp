@@ -33,8 +33,6 @@ NoiseTexture::NoiseTexture()
 	{
 		mThreads.emplace_back(GenerateLoopThread, std::ref(mGenerateQueue), std::ref(mCompleteQueue));
 	}
-
-	SetupSettingsHandlers();
 }
 
 NoiseTexture::~NoiseTexture()
@@ -118,11 +116,6 @@ void NoiseTexture::Draw(bool* show)
 			ReGenerate(mBuildData.generator);
 		}
 
-		if (edited)
-		{
-			ImGuiExtra::MarkSettingsDirty();
-		}
-
 		ImGui::PushStyleColor(ImGuiCol_Button, 0);
 		ImGui::PushStyleColor(ImGuiCol_ButtonActive, 0);
 		ImGui::PushStyleColor(ImGuiCol_ButtonHovered, 0);
@@ -171,10 +164,7 @@ void NoiseTexture::DoExport()
 	if (ImGui::BeginPopupModal("Exporter", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings))
 	{
 		ImGui::PushItemWidth(82.0f);
-		if (ImGui::DragInt2("Size", glm::value_ptr(mExportBuildData.size), 2, 4, 8192 * 4))
-		{
-			ImGuiExtra::MarkSettingsDirty();
-		}
+		ImGui::DragInt2("Size", glm::value_ptr(mExportBuildData.size), 2, 4, 8192 * 4);
 
 		if (ImGui::Button("Export"))
 		{
@@ -301,39 +291,4 @@ void NoiseTexture::GenerateLoopThread(GenerateQueue<BuildData>& generateQueue, C
 		TextureData texData = BuildTexture(buildData);
 		completeQueue.Push(texData);
 	}
-}
-
-void NoiseTexture::SetupSettingsHandlers()
-{
-	ImGuiSettingsHandler editorSettings;
-	editorSettings.TypeName   = "NoiseToolNoiseTexture";
-	editorSettings.TypeHash   = ImHashStr(editorSettings.TypeName);
-	editorSettings.UserData   = this;
-	editorSettings.WriteAllFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, ImGuiTextBuffer* outBuf) {
-		auto* noiseTexture = (NoiseTexture*)handler->UserData;
-		outBuf->appendf("\n[%s][Settings]\n", handler->TypeName);
-
-		outBuf->appendf("frequency=%f\n", noiseTexture->mBuildData.frequency);
-		outBuf->appendf("seed=%d\n", noiseTexture->mBuildData.seed);
-		outBuf->appendf("gen_type=%d\n", (int)noiseTexture->mBuildData.generationType);
-		outBuf->appendf("export_size=%d:%d\n", noiseTexture->mExportBuildData.size.x, noiseTexture->mExportBuildData.size.y);
-	};
-	editorSettings.ReadOpenFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, const char* name) -> void* {
-		if (strcmp(name, "Settings") == 0)
-		{
-			return handler->UserData;
-		}
-
-		return nullptr;
-	};
-	editorSettings.ReadLineFn = [](ImGuiContext* ctx, ImGuiSettingsHandler* handler, void* entry, const char* line) {
-		auto* noiseTexture = (NoiseTexture*)handler->UserData;
-
-		sscanf(line, "frequency=%f", &noiseTexture->mBuildData.frequency);
-		sscanf(line, "seed=%d", &noiseTexture->mBuildData.seed);
-		sscanf(line, "gen_type=%d", (int*)&noiseTexture->mBuildData.generationType);
-		sscanf(line, "export_size=%d:%d", &noiseTexture->mExportBuildData.size.x, &noiseTexture->mExportBuildData.size.y);
-	};
-
-	ImGuiExtra::AddOrReplaceSettingsHandler(editorSettings);
 }

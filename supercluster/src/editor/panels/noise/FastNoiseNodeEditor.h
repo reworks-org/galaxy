@@ -36,7 +36,6 @@ private:
 		int64_t GetLocalGenerateNs();
 		FastNoise::NodeData*& GetNodeLink(int attributeId);
 		void AutoPositionChildNodes(ImVec2 nodePos, float verticalSpacing = 380.0f);
-		void SerialiseIncludingDependancies(struct ImGuiSettingsHandler* handler, struct ImGuiTextBuffer* buffer, std::unordered_set<int>& serialisedNodeIds);
 
 		static constexpr int AttributeBitCount = 8;
 		static constexpr int AttributeBitMask  = (1 << AttributeBitCount) - 1;
@@ -119,7 +118,6 @@ private:
 	int GetFreeNodeId();
 	void ChangeSelectedNode(FastNoise::NodeData* newId);
 	void DeleteNode(FastNoise::NodeData* nodeData);
-	void SetupSettingsHandlers();
 
 	void CheckLinks();
 	void DoHelp();
