@@ -82,4 +82,5 @@ private:
 	std::vector<std::thread> mThreads;
 	GenerateQueue<BuildData> mGenerateQueue;
 	CompleteQueue<TextureData> mCompleteQueue;
+	bool mPopupControl = false;
 };

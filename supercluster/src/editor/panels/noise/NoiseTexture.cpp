@@ -99,6 +99,7 @@ void NoiseTexture::Draw(bool* show)
 			mExportBuildData      = mBuildData;
 			mExportBuildData.size = size;
 			ImGui::OpenPopup("Exporter");
+			mPopupControl = true;
 		}
 
 		ImGui::PopItemWidth();
@@ -161,12 +162,12 @@ void NoiseTexture::Draw(bool* show)
 
 void NoiseTexture::DoExport()
 {
-	if (ImGui::BeginPopupModal("Exporter", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings))
+	if (ImGui::BeginPopupModal("Exporter", &mPopupControl, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
 	{
-		ImGui::PushItemWidth(82.0f);
+		ImGui::TextUnformatted("Warning: Larger the size, slower this will run!");
 		ImGui::DragInt2("Size", glm::value_ptr(mExportBuildData.size), 2, 4, 8192 * 4);
 
-		if (ImGui::Button("Export"))
+		if (ImGui::Button("Run"))
 		{
 			const auto relativeScale = (float)(mExportBuildData.size.x + mExportBuildData.size.y) / (float)(mBuildData.size.x + mBuildData.size.y);
 			mExportBuildData.frequency /= relativeScale;
@@ -189,7 +190,6 @@ void NoiseTexture::DoExport()
 			ImGui::CloseCurrentPopup();
 		}
 
-		ImGui::PopItemWidth();
 		ImGui::EndPopup();
 	}
 }
