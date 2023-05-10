@@ -61,13 +61,29 @@ namespace galaxy
 			[[maybe_unused]] bool load(std::string_view file);
 
 			///
-			/// Loads texture from memory.
+			/// \brief Loads texture from memory.
+			///
+			/// Loads from standard unsigned char array.
 			///
 			/// \param buffer Memory buffer to load from.
 			///
 			/// \return True if texture loaded successfully.
 			///
 			[[maybe_unused]] bool load_mem(std::span<unsigned char> buffer);
+
+			///
+			/// \brief Load raw pixel data from memory.
+			///
+			/// You need to ensure you call mode/filter/ansio to configure properly.
+			///
+			/// \param width Width of texture.
+			/// \param height Height of texture.
+			/// \param storage_format Opengl TextureStorage format.
+			/// \param pixel_format Opengl Pixel data format.
+			/// \param type Type of data i.e. GL_FLOAT, GL_UNSIGNED_BYTE, etc.
+			/// \param buffer Raw pixel data.
+			///
+			void load_raw(const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void* buffer);
 
 			///
 			/// Saves texture to file on disk.
@@ -103,7 +119,7 @@ namespace galaxy
 			///
 			/// Set ansiotropic filtering level.
 			///
-			/// \param level 2, 4, 8, etc...
+			/// \param level 1 to 16.
 			///
 			void set_anisotropy(const int level);
 

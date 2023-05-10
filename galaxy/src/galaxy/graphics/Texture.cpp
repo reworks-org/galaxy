@@ -178,6 +178,26 @@ namespace galaxy
 			return result;
 		}
 
+		void Texture::load_raw(const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void* buffer)
+		{
+			glDeleteTextures(1, &m_texture);
+			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
+
+			m_width  = width;
+			m_height = height;
+
+			glTextureStorage2D(m_texture, 1, storage_format, m_width, m_height);
+			glTextureSubImage2D(m_texture, 0, 0, 0, m_width, m_height, pixel_format, type, buffer);
+			glGenerateTextureMipmap(m_texture);
+
+			glTextureParameteri(m_texture, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+			glTextureParameteri(m_texture, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+			glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
+		}
+
 		void Texture::save(std::string_view filepath)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
@@ -239,7 +259,7 @@ namespace galaxy
 
 		void Texture::set_anisotropy(const int level)
 		{
-			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(level));
+			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, std::clamp(static_cast<float>(level), 1.0f, 16.0f));
 		}
 
 		int Texture::get_width() const
