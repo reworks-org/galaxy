@@ -133,6 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad63ef34500717a0e3b83cc208d9a9612"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad63ef34500717a0e3b83cc208d9a9612">load_mem</a> (std::span&lt; unsigned char &gt; buffer)</td></tr>
 <tr class="memdesc:ad63ef34500717a0e3b83cc208d9a9612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads texture from memory.  <a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad63ef34500717a0e3b83cc208d9a9612">More...</a><br /></td></tr>
 <tr class="separator:ad63ef34500717a0e3b83cc208d9a9612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d69aad8789abccc7f992cdf44fae7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f">load_raw</a> (const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void *buffer)</td></tr>
+<tr class="memdesc:ab7d69aad8789abccc7f992cdf44fae7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load raw pixel data from memory.  <a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f">More...</a><br /></td></tr>
+<tr class="separator:ab7d69aad8789abccc7f992cdf44fae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a4a6e77e8b801d0c61358cebbce9bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#af0a4a6e77e8b801d0c61358cebbce9bd">save</a> (std::string_view filepath)</td></tr>
 <tr class="memdesc:af0a4a6e77e8b801d0c61358cebbce9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves texture to file on disk.  <a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#af0a4a6e77e8b801d0c61358cebbce9bd">More...</a><br /></td></tr>
 <tr class="separator:af0a4a6e77e8b801d0c61358cebbce9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -424,6 +427,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads texture from memory. </p>
+<p>Loads from standard unsigned char array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>Memory buffer to load from.</td></tr>
@@ -444,6 +448,74 @@ Private Member Functions</h2></td></tr>
 <area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="237,13,468,39"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ab7d69aad8789abccc7f992cdf44fae7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d69aad8789abccc7f992cdf44fae7f">&#9670;&nbsp;</a></span>load_raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Texture::load_raw </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>storage_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pixel_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load raw pixel data from memory. </p>
+<p>You need to ensure you call mode/filter/ansio to configure properly.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of texture. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of texture. </td></tr>
+    <tr><td class="paramname">storage_format</td><td>Opengl TextureStorage format. </td></tr>
+    <tr><td class="paramname">pixel_format</td><td>Opengl Pixel data format. </td></tr>
+    <tr><td class="paramname">type</td><td>Type of data i.e. GL_FLOAT, GL_UNSIGNED_BYTE, etc. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Raw pixel data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +543,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00201">201</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -503,7 +575,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Activate texture context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00202">202</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00222">222</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -540,7 +612,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Deactivate texture context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00207">207</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00227">227</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -568,7 +640,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00212">212</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00232">232</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -596,7 +668,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00218">218</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00238">238</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -619,12 +691,12 @@ Private Member Functions</h2></td></tr>
 <p>Set ansiotropic filtering level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">level</td><td>2, 4, 8, etc... </td></tr>
+    <tr><td class="paramname">level</td><td>1 to 16. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00240">240</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00260">260</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -647,7 +719,7 @@ Private Member Functions</h2></td></tr>
 <p>Is cached for performance.</p>
 <dl class="section return"><dt>Returns</dt><dd>Width as int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00245">245</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -686,7 +758,7 @@ Private Member Functions</h2></td></tr>
 <p>Is cached for performance.</p>
 <dl class="section return"><dt>Returns</dt><dd>Height as int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00250">250</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00270">270</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -725,7 +797,7 @@ Private Member Functions</h2></td></tr>
 <p>Is cached for performance.</p>
 <dl class="section return"><dt>Returns</dt><dd>Width as float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00255">255</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00275">275</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -748,7 +820,7 @@ Private Member Functions</h2></td></tr>
 <p>Is cached for performance.</p>
 <dl class="section return"><dt>Returns</dt><dd>Height as float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00260">260</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00280">280</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -770,7 +842,7 @@ Private Member Functions</h2></td></tr>
 <p>Get Textures current Ansiotrophy level. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00285">285</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -792,7 +864,7 @@ Private Member Functions</h2></td></tr>
 <p>Gets internal OpenGL id. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const unsigned int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00273">273</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d87/Texture_8cpp_source.html#l00293">293</a> of file <a class="el" href="../../d5/d87/Texture_8cpp_source.html">Texture.cpp</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -859,7 +931,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Cached texture width. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00175">175</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00191">191</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +957,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Cached texture height. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00180">180</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00196">196</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
 
 </div>
 </div>
@@ -911,7 +983,7 @@ Private Member Functions</h2></td></tr>
 
 <p>OpenGL texture handle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00185">185</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/Texture_8hpp_source.html#l00201">201</a> of file <a class="el" href="../../d0/ddc/Texture_8hpp_source.html">Texture.hpp</a>.</p>
 
 </div>
 </div>
@@ -925,7 +997,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a></li>
-    <li class="footer">Generated on Tue May 9 2023 14:40:52 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 10 2023 08:46:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -14,7 +14,7 @@ var searchData=
   ['load_5fmap_2333',['load_map',['../dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438',1,'galaxy::core::TiledMap']]],
   ['load_5fmem_2334',['load_mem',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad63ef34500717a0e3b83cc208d9a9612',1,'galaxy::graphics::Texture::load_mem()'],['../db/dc3/classgalaxy_1_1resource_1_1Language.html#aa98f7d5eef7d044f51494e858a4633a5',1,'galaxy::resource::Language::load_mem()']]],
   ['load_5fmusic_2335',['load_music',['../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a728e1a13419e82668d34d8c280003e49',1,'galaxy::resource::Sounds']]],
-  ['load_5fraw_2336',['load_raw',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92',1,'galaxy::graphics::Shader']]],
+  ['load_5fraw_2336',['load_raw',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92',1,'galaxy::graphics::Shader::load_raw()'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f',1,'galaxy::graphics::Texture::load_raw()']]],
   ['load_5fscene_2337',['load_scene',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d',1,'galaxy::scene::SceneManager']]],
   ['load_5fsfx_2338',['load_sfx',['../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#a015bf6e2747aa02595411f988e3f024d',1,'galaxy::resource::Sounds']]],
   ['loader_2339',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e',1,'galaxy::core::Loader']]],

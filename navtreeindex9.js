@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0":[1,0,0,3,4,15],
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9":[1,0,0,3,4,18],
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#af95061df48e572986481518f8b4d5727":[1,0,0,3,4,17],
 "dc/d97/structgalaxy_1_1events_1_1KeyChar.html":[1,0,0,6,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea61e9c06ea9a85a5088a499df6458d276":[0,0,0,11,8,41],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea61ee777e7f71dc466c3b2c685d8d313b":[0,0,0,11,8,55],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea62e75b78c155e8549c5c5edb434a7757":[0,0,0,11,8,103],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea63a707029860972efa1c44ac6016e098":[0,0,0,11,8,116],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea643b0662422d1d0dffa3fca2e2bf28a8":[0,0,0,11,8,80]
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea63a707029860972efa1c44ac6016e098":[0,0,0,11,8,116]
 };
