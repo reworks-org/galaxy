@@ -8,10 +8,8 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_NOISEPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_NOISEPANEL_HPP_
 
-#include <FastNoise/FastNoise.h>
-#include "FastNoiseNodeEditor.h"
-
 #include "editor/UpdateStack.hpp"
+#include "noise/FastNoiseNodeEditor.h"
 
 namespace sc
 {
@@ -28,10 +26,10 @@ namespace sc
 			void render(bool* show, UpdateStack& updates);
 
 		private:
-			int mMaxSIMDLevel = 0;
-			std::vector<const char*> mLevelNames;
-			std::vector<FastSIMD::eLevel> mLevelEnums;
-			std::unique_ptr<FastNoiseNodeEditor> mNodeEditor;
+			int m_max_simd_level;
+			std::vector<const char*> m_level_names;
+			std::vector<FastSIMD::eLevel> m_level_enums;
+			std::unique_ptr<FastNoiseNodeEditor> m_node_editor;
 		};
 	} // namespace panel
 } // namespace sc

@@ -517,6 +517,7 @@
     <ClInclude Include="fastnoise2\include\FastNoise\Generators\Simplex.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\Generators\Value.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\Metadata.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\MultiThreadQueues.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\SmartNode.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Config.h" />

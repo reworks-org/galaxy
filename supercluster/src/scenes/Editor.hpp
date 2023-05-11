@@ -21,7 +21,7 @@
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/LogConsole.hpp"
-#include "editor/panels/noise/NoisePanel.hpp"
+#include "editor/panels/NoisePanel.hpp"
 
 #include "editor/Settings.hpp"
 

@@ -1429,6 +1429,7 @@
     <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
     <ClInclude Include="imgui\imgui_addons\imnodes.h" />
     <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
+    <ClInclude Include="fastnoise2\include\FastNoise\MultiThreadQueues.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

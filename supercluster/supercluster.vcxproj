@@ -188,7 +188,7 @@
     <ClCompile Include="src\editor\panels\CodeEditor.cpp" />
     <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
     <ClCompile Include="src\editor\panels\noise\FastNoiseNodeEditor.cpp" />
-    <ClCompile Include="src\editor\panels\noise\NoisePanel.cpp" />
+    <ClCompile Include="src\editor\panels\NoisePanel.cpp" />
     <ClCompile Include="src\editor\panels\noise\NoiseTexture.cpp" />
     <ClCompile Include="src\editor\SelectedAsset.cpp" />
     <ClCompile Include="src\editor\Settings.cpp" />
@@ -208,9 +208,7 @@
     <ClInclude Include="src\editor\panels\CodeEditor.hpp" />
     <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
     <ClInclude Include="src\editor\panels\noise\FastNoiseNodeEditor.h" />
-    <ClInclude Include="src\editor\panels\noise\ImGuiExtra.h" />
-    <ClInclude Include="src\editor\panels\noise\MultiThreadQueues.h" />
-    <ClInclude Include="src\editor\panels\noise\NoisePanel.hpp" />
+    <ClInclude Include="src\editor\panels\NoisePanel.hpp" />
     <ClInclude Include="src\editor\panels\noise\NoiseTexture.h" />
     <ClInclude Include="src\editor\SelectedAsset.hpp" />
     <ClInclude Include="src\editor\Settings.hpp" />
@@ -224,9 +222,6 @@
     <ClInclude Include="src\editor\UpdateStack.hpp" />
     <ClInclude Include="src\scenes\Menu.hpp" />
     <ClInclude Include="src\scenes\Editor.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\editor\panels\noise\DemoNodeTrees.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
