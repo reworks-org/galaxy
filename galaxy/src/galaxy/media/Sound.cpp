@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/audio/AudioEngine.hpp"
+#include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
@@ -13,7 +13,7 @@
 
 namespace galaxy
 {
-	namespace audio
+	namespace media
 	{
 		Sound::Sound()
 			: m_sound {}
@@ -36,7 +36,7 @@ namespace galaxy
 
 		void Sound::load(Sound::Type type, std::string_view file)
 		{
-			auto& ae = core::ServiceLocator<audio::AudioEngine>::ref();
+			auto& ae = core::ServiceLocator<media::AudioEngine>::ref();
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			ma_engine* engine  = nullptr;
@@ -205,5 +205,5 @@ namespace galaxy
 		{
 			return ma_sound_at_end(&m_sound);
 		}
-	} // namespace audio
+	} // namespace media
 } // namespace galaxy

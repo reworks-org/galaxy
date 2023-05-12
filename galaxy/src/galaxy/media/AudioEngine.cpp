@@ -18,7 +18,7 @@
 
 namespace galaxy
 {
-	namespace audio
+	namespace media
 	{
 		AudioEngine::AudioEngine(const int listener_count)
 			: m_sfx_engine {}
@@ -178,5 +178,5 @@ namespace galaxy
 		{
 			return &m_dialogue_engine;
 		}
-	} // namespace audio
+	} // namespace media
 } // namespace galaxy

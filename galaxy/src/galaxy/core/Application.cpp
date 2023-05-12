@@ -11,7 +11,6 @@
 #include <tinyfiledialogs.h>
 #include <zip.h>
 
-#include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Window.hpp"
@@ -22,6 +21,7 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -344,7 +344,7 @@ namespace galaxy
 			//
 			// Services.
 			//
-			ServiceLocator<audio::AudioEngine>::make(config.get<int>("listener_count", "audio"));
+			ServiceLocator<media::AudioEngine>::make(config.get<int>("listener_count", "audio"));
 			ServiceLocator<resource::Sounds>::make();
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
@@ -382,7 +382,7 @@ namespace galaxy
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<resource::Sounds>::del();
-			ServiceLocator<audio::AudioEngine>::del();
+			ServiceLocator<media::AudioEngine>::del();
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();

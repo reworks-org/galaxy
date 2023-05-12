@@ -16,9 +16,6 @@
 #include "galaxy/algorithm/Random.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
 
-#include "galaxy/audio/AudioEngine.hpp"
-#include "galaxy/audio/Sound.hpp"
-
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
@@ -68,6 +65,9 @@
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
 #include "galaxy/input/MouseButtons.hpp"
+
+#include "galaxy/media/AudioEngine.hpp"
+#include "galaxy/media/Sound.hpp"
 
 #include "galaxy/physics/Constants.hpp"
 #include "galaxy/platform/Subprocess.hpp"
@@ -414,70 +414,6 @@ namespace galaxy
 			zlibclass_type["compress"]   = &algorithm::ZLib::compress;
 			zlibclass_type["decompress"] = &algorithm::ZLib::decompress;
 			zlibclass_type["finish"]     = &algorithm::ZLib::finish;
-
-			/* AUDIO */
-			// clang-format off
-			lua.new_enum<audio::Sound::Type>("SoundType",
-			{
-				{"DIALOGUE", audio::Sound::Type::DIALOGUE},
-				{"MUSIC", audio::Sound::Type::MUSIC},
-				{"SFX", audio::Sound::Type::SFX}
-			});
-			
-			lua.new_enum<ma_positioning>("ma_positioning",
-			{
-				{"ma_positioning_absolute", ma_positioning::ma_positioning_absolute},
-				{"ma_positioning_relative", ma_positioning::ma_positioning_relative}
-			});
-			
-			lua.new_enum<ma_attenuation_model>("ma_attenuation_model",
-			{
-				{"ma_attenuation_model_exponential", ma_attenuation_model::ma_attenuation_model_exponential},
-				{"ma_attenuation_model_inverse", ma_attenuation_model::ma_attenuation_model_inverse},
-				{"ma_attenuation_model_linear", ma_attenuation_model::ma_attenuation_model_linear},
-				{"ma_attenuation_model_none", ma_attenuation_model::ma_attenuation_model_none}
-			});
-			// clang-format on
-
-			auto sound_type = lua.new_usertype<audio::Sound>("Sound", sol::constructors<audio::Sound(), audio::Sound(audio::Sound::Type, std::string_view)>());
-			sound_type["fade_in"]               = &audio::Sound::fade_in;
-			sound_type["fade_out"]              = &audio::Sound::fade_out;
-			sound_type["is_finished"]           = &audio::Sound::is_finished;
-			sound_type["is_looping"]            = &audio::Sound::is_looping;
-			sound_type["is_playing"]            = &audio::Sound::is_playing;
-			sound_type["load"]                  = &audio::Sound::load;
-			sound_type["set_attenuation_model"] = &audio::Sound::set_attenuation_model;
-			sound_type["set_cone"]              = &audio::Sound::set_cone;
-			sound_type["set_direction"]         = &audio::Sound::set_direction;
-			sound_type["set_doppler_factor"]    = &audio::Sound::set_doppler_factor;
-			sound_type["set_looping"]           = &audio::Sound::set_looping;
-			sound_type["set_max_distance"]      = &audio::Sound::set_max_distance;
-			sound_type["set_max_gain"]          = &audio::Sound::set_max_gain;
-			sound_type["set_min_distance"]      = &audio::Sound::set_min_distance;
-			sound_type["set_min_gain"]          = &audio::Sound::set_min_gain;
-			sound_type["set_pan"]               = &audio::Sound::set_pan;
-			sound_type["set_pinned_listener"]   = &audio::Sound::set_pinned_listener;
-			sound_type["set_pitch"]             = &audio::Sound::set_pitch;
-			sound_type["set_position"]          = &audio::Sound::set_position;
-			sound_type["set_positioning"]       = &audio::Sound::set_positioning;
-			sound_type["set_rolloff"]           = &audio::Sound::set_rolloff;
-			sound_type["set_velocity"]          = &audio::Sound::set_velocity;
-			sound_type["set_volume"]            = &audio::Sound::set_volume;
-			sound_type["play"]                  = &audio::Sound::play;
-			sound_type["pause"]                 = &audio::Sound::pause;
-			sound_type["stop"]                  = &audio::Sound::stop;
-			sound_type["toggle_spatialization"] = &audio::Sound::toggle_spatialization;
-
-			auto audioengine_type                      = lua.new_usertype<audio::AudioEngine>("AudioEngine", sol::no_constructor);
-			audioengine_type["set_sfx_volume"]         = &audio::AudioEngine::set_sfx_volume;
-			audioengine_type["set_music_volume"]       = &audio::AudioEngine::set_music_volume;
-			audioengine_type["set_dialogue_volume"]    = &audio::AudioEngine::set_dialogue_volume;
-			audioengine_type["set_listener_cone"]      = &audio::AudioEngine::set_listener_cone;
-			audioengine_type["set_listener_direction"] = &audio::AudioEngine::set_listener_direction;
-			audioengine_type["set_listener_position"]  = &audio::AudioEngine::set_listener_position;
-			audioengine_type["set_listener_world_up"]  = &audio::AudioEngine::set_listener_world_up;
-			audioengine_type["toggle_listener"]        = &audio::AudioEngine::toggle_listener;
-			audioengine_type["stop"]                   = &audio::AudioEngine::stop;
 
 			/* COMPONENTS */
 			auto animated_type = lua.new_usertype<components::Animated>("Animated",
@@ -1151,6 +1087,70 @@ namespace galaxy
 			lua["galaxy_keyboard"]  = std::ref(window.get_input<input::Keyboard>());
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
 
+			/* MEDIA */
+			// clang-format off
+			lua.new_enum<media::Sound::Type>("SoundType",
+			{
+				{"DIALOGUE", media::Sound::Type::DIALOGUE},
+				{"MUSIC", media::Sound::Type::MUSIC},
+				{"SFX", media::Sound::Type::SFX}
+			});
+			
+			lua.new_enum<ma_positioning>("ma_positioning",
+			{
+				{"ma_positioning_absolute", ma_positioning::ma_positioning_absolute},
+				{"ma_positioning_relative", ma_positioning::ma_positioning_relative}
+			});
+			
+			lua.new_enum<ma_attenuation_model>("ma_attenuation_model",
+			{
+				{"ma_attenuation_model_exponential", ma_attenuation_model::ma_attenuation_model_exponential},
+				{"ma_attenuation_model_inverse", ma_attenuation_model::ma_attenuation_model_inverse},
+				{"ma_attenuation_model_linear", ma_attenuation_model::ma_attenuation_model_linear},
+				{"ma_attenuation_model_none", ma_attenuation_model::ma_attenuation_model_none}
+			});
+			// clang-format on
+
+			auto sound_type = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound(), media::Sound(media::Sound::Type, std::string_view)>());
+			sound_type["fade_in"]               = &media::Sound::fade_in;
+			sound_type["fade_out"]              = &media::Sound::fade_out;
+			sound_type["is_finished"]           = &media::Sound::is_finished;
+			sound_type["is_looping"]            = &media::Sound::is_looping;
+			sound_type["is_playing"]            = &media::Sound::is_playing;
+			sound_type["load"]                  = &media::Sound::load;
+			sound_type["set_attenuation_model"] = &media::Sound::set_attenuation_model;
+			sound_type["set_cone"]              = &media::Sound::set_cone;
+			sound_type["set_direction"]         = &media::Sound::set_direction;
+			sound_type["set_doppler_factor"]    = &media::Sound::set_doppler_factor;
+			sound_type["set_looping"]           = &media::Sound::set_looping;
+			sound_type["set_max_distance"]      = &media::Sound::set_max_distance;
+			sound_type["set_max_gain"]          = &media::Sound::set_max_gain;
+			sound_type["set_min_distance"]      = &media::Sound::set_min_distance;
+			sound_type["set_min_gain"]          = &media::Sound::set_min_gain;
+			sound_type["set_pan"]               = &media::Sound::set_pan;
+			sound_type["set_pinned_listener"]   = &media::Sound::set_pinned_listener;
+			sound_type["set_pitch"]             = &media::Sound::set_pitch;
+			sound_type["set_position"]          = &media::Sound::set_position;
+			sound_type["set_positioning"]       = &media::Sound::set_positioning;
+			sound_type["set_rolloff"]           = &media::Sound::set_rolloff;
+			sound_type["set_velocity"]          = &media::Sound::set_velocity;
+			sound_type["set_volume"]            = &media::Sound::set_volume;
+			sound_type["play"]                  = &media::Sound::play;
+			sound_type["pause"]                 = &media::Sound::pause;
+			sound_type["stop"]                  = &media::Sound::stop;
+			sound_type["toggle_spatialization"] = &media::Sound::toggle_spatialization;
+
+			auto audioengine_type                      = lua.new_usertype<media::AudioEngine>("AudioEngine", sol::no_constructor);
+			audioengine_type["set_sfx_volume"]         = &media::AudioEngine::set_sfx_volume;
+			audioengine_type["set_music_volume"]       = &media::AudioEngine::set_music_volume;
+			audioengine_type["set_dialogue_volume"]    = &media::AudioEngine::set_dialogue_volume;
+			audioengine_type["set_listener_cone"]      = &media::AudioEngine::set_listener_cone;
+			audioengine_type["set_listener_direction"] = &media::AudioEngine::set_listener_direction;
+			audioengine_type["set_listener_position"]  = &media::AudioEngine::set_listener_position;
+			audioengine_type["set_listener_world_up"]  = &media::AudioEngine::set_listener_world_up;
+			audioengine_type["toggle_listener"]        = &media::AudioEngine::toggle_listener;
+			audioengine_type["stop"]                   = &media::AudioEngine::stop;
+
 			/* PHYSICS */
 			lua.set("GALAXY_PHYSICS_GRAVITY_X", physics::Constants::gravity.x);
 			lua.set("GALAXY_PHYSICS_GRAVITY_Y", physics::Constants::gravity.y);
@@ -1330,7 +1330,7 @@ namespace galaxy
 			lua["galaxy_textureatlas"]  = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
 			lua["galaxy_prefabs"]       = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
 			lua["galaxy_materials"]     = std::ref(core::ServiceLocator<resource::Materials>::ref());
-			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<audio::AudioEngine>::ref());
+			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<media::AudioEngine>::ref());
 			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 			lua["service_fs"]           = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());

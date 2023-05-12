@@ -5,14 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_AUDIOENGINE_HPP_
-#define GALAXY_AUDIO_AUDIOENGINE_HPP_
+#ifndef GALAXY_MEDIA_AUDIOENGINE_HPP_
+#define GALAXY_MEDIA_AUDIOENGINE_HPP_
 
 #include <miniaudio.h>
 
 namespace galaxy
 {
-	namespace audio
+	namespace media
 	{
 		///
 		/// MiniAudio high level API engine.
@@ -190,7 +190,7 @@ namespace galaxy
 			///
 			ma_log_callback m_callback;
 		};
-	} // namespace audio
+	} // namespace media
 } // namespace galaxy
 
 #endif

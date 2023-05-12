@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_SOUNDS_HPP_
 #define GALAXY_RESOURCE_SOUNDS_HPP_
 
-#include "galaxy/audio/Sound.hpp"
+#include "galaxy/media/Sound.hpp"
 #include "galaxy/resource/Cache.hpp"
 
 namespace galaxy
@@ -18,7 +18,7 @@ namespace galaxy
 		///
 		/// Resource cache for sounds.
 		///
-		class Sounds final : public Cache<audio::Sound>
+		class Sounds final : public Cache<media::Sound>
 		{
 		public:
 			///

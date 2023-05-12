@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_SOUND_HPP_
-#define GALAXY_AUDIO_SOUND_HPP_
+#ifndef GALAXY_MEDIA_SOUND_HPP_
+#define GALAXY_MEDIA_SOUND_HPP_
 
 #include <string_view>
 
@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace audio
+	namespace media
 	{
 		///
 		/// An audio file to play.
@@ -275,7 +275,7 @@ namespace galaxy
 			///
 			ma_sound m_sound;
 		};
-	} // namespace audio
+	} // namespace media
 } // namespace galaxy
 
 #endif

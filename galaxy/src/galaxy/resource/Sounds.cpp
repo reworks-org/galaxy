@@ -35,7 +35,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::SFX, std::string(file));
+					m_cache[key]   = std::make_shared<media::Sound>(media::Sound::Type::SFX, std::string(file));
 				}
 			}
 			else
@@ -56,7 +56,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::MUSIC, std::string(file));
+					m_cache[key]   = std::make_shared<media::Sound>(media::Sound::Type::MUSIC, std::string(file));
 				}
 			}
 			else
@@ -77,7 +77,7 @@ namespace galaxy
 				for (const auto& file : contents)
 				{
 					const auto key = std::filesystem::path(file).stem().string();
-					m_cache[key]   = std::make_shared<audio::Sound>(audio::Sound::Type::DIALOGUE, std::string(file));
+					m_cache[key]   = std::make_shared<media::Sound>(media::Sound::Type::DIALOGUE, std::string(file));
 				}
 			}
 			else

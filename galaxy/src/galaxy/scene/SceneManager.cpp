@@ -9,7 +9,6 @@
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
-#include "galaxy/audio/AudioEngine.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -17,6 +16,7 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/physics/Constants.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -58,7 +58,7 @@ namespace galaxy
 					//
 					auto& config    = core::ServiceLocator<core::Config>::ref();
 					auto& window    = core::ServiceLocator<core::Window>::ref();
-					auto& ae        = core::ServiceLocator<audio::AudioEngine>::ref();
+					auto& ae        = core::ServiceLocator<media::AudioEngine>::ref();
 					auto& maps      = core::ServiceLocator<resource::Maps>::ref();
 					auto& prefabs   = core::ServiceLocator<resource::Prefabs>::ref();
 					auto& materials = core::ServiceLocator<resource::Materials>::ref();
