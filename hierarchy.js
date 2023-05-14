@@ -2,12 +2,9 @@ var hierarchy =
 [
     [ "galaxy::flags::AllowSerialize", "d4/dd3/structgalaxy_1_1flags_1_1AllowSerialize.html", null ],
     [ "galaxy::core::Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", null ],
-    [ "galaxy::audio::AudioEngine", "d9/dbe/classgalaxy_1_1audio_1_1AudioEngine.html", null ],
+    [ "galaxy::media::AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::lua::BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", null ],
     [ "galaxy::resource::Cache< Resource >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
-    [ "galaxy::resource::Cache< audio::Sound >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
-      [ "galaxy::resource::Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html", null ]
-    ] ],
     [ "galaxy::resource::Cache< core::Prefab >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Prefabs", "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html", null ]
     ] ],
@@ -19,6 +16,9 @@ var hierarchy =
     ] ],
     [ "galaxy::resource::Cache< lua::BasicScript >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Scripts", "d8/d35/classgalaxy_1_1resource_1_1Scripts.html", null ]
+    ] ],
+    [ "galaxy::resource::Cache< media::Sound >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
+      [ "galaxy::resource::Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html", null ]
     ] ],
     [ "galaxy::resource::Cache< physics::Material >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", null ]
@@ -118,7 +118,7 @@ var hierarchy =
       [ "galaxy::error::ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", null ],
       [ "galaxy::error::FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", null ]
     ] ],
-    [ "galaxy::audio::Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", null ],
+    [ "galaxy::media::Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", null ],
     [ "galaxy::graphics::SpriteBatch", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html", null ],
     [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
     [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
@@ -144,6 +144,7 @@ var hierarchy =
     [ "galaxy::graphics::Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html", null ],
     [ "galaxy::graphics::VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", null ],
     [ "galaxy::graphics::VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", null ],
+    [ "galaxy::media::Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", null ],
     [ "galaxy::fs::VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", null ],
     [ "galaxy::core::Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", null ],
     [ "galaxy::events::WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", null ],

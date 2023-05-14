@@ -1,5 +1,5 @@
-<map id="galaxy/src/galaxy/audio/Sound.hpp" name="galaxy/src/galaxy/audio/Sound.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="27,5,204,47"/>
+<map id="galaxy/src/galaxy/media/Sound.hpp" name="galaxy/src/galaxy/media/Sound.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="24,5,207,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,103,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="127,95,226,121"/>
 </map>

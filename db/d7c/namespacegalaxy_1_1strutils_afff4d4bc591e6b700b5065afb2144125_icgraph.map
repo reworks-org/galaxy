@@ -1,5 +1,5 @@
 <map id="galaxy::strutils::ltrim" name="galaxy::strutils::ltrim">
-<area shape="rect" id="node1" title="Trim string from end." alt="" coords="453,13,611,39"/>
-<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b" title="Trim both ends of string." alt="" coords="252,13,405,39"/>
-<area shape="rect" id="node3" href="$d9/dbe/classgalaxy_1_1audio_1_1AudioEngine.html#a3035c928ea20b6e9e1b79be1dabfa15d" title="Argument constructor." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node1" title="Trim string from end." alt="" coords="457,13,615,39"/>
+<area shape="rect" id="node2" href="$db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b" title="Trim both ends of string." alt="" coords="256,13,409,39"/>
+<area shape="rect" id="node3" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a1595cacf06e5c4a738412b9e11cb05c2" title="Argument constructor." alt="" coords="5,5,208,47"/>
 </map>

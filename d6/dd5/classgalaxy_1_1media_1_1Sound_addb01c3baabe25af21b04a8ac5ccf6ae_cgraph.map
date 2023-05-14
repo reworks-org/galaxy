@@ -1,0 +1,4 @@
+<map id="galaxy::media::Sound::load" name="galaxy::media::Sound::load">
+<area shape="rect" id="node1" title="Load a sound from disk." alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="216,13,447,39"/>
+</map>

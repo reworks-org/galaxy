@@ -2,7 +2,6 @@ var namespacegalaxy =
 [
     [ "algorithm", "d8/d3a/namespacegalaxy_1_1algorithm.html", "d8/d3a/namespacegalaxy_1_1algorithm" ],
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
-    [ "audio", "d9/dde/namespacegalaxy_1_1audio.html", "d9/dde/namespacegalaxy_1_1audio" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
     [ "embedded", "d0/d0a/namespacegalaxy_1_1embedded.html", [
@@ -21,6 +20,7 @@ var namespacegalaxy =
       [ "save_to_disk", "de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d", null ]
     ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
+    [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
       [ "ref", "d3/d12/namespacegalaxy_1_1meta.html#a7b957eec35fbc8ac5f594a6e3f3d14eb", null ],
       [ "optional_ref", "d3/d12/namespacegalaxy_1_1meta.html#a36fc665a32a7a5ef8c418f2c84e25147", null ],
@@ -71,7 +71,9 @@ var namespacegalaxy =
       [ "render_to_texture_vert", "dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f", null ],
       [ "render_to_texture_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01", null ],
       [ "text_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a6bf1b7f75498533e0b863b694e24b5f7", null ],
-      [ "text_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a6ff0f814adf9156ea4d9ae2e48c75873", null ]
+      [ "text_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a6ff0f814adf9156ea4d9ae2e48c75873", null ],
+      [ "video_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3", null ],
+      [ "video_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1", null ]
     ] ],
     [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
     [ "strutils", "db/d7c/namespacegalaxy_1_1strutils.html", [

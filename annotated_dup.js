@@ -9,10 +9,6 @@ var annotated_dup =
         [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ],
         [ "TimerAsync", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync" ]
       ] ],
-      [ "audio", "d9/dde/namespacegalaxy_1_1audio.html", [
-        [ "AudioEngine", "d9/dbe/classgalaxy_1_1audio_1_1AudioEngine.html", "d9/dbe/classgalaxy_1_1audio_1_1AudioEngine" ],
-        [ "Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", "da/ddd/classgalaxy_1_1audio_1_1Sound" ]
-      ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "DrawShader", "d2/d46/classgalaxy_1_1components_1_1DrawShader.html", "d2/d46/classgalaxy_1_1components_1_1DrawShader" ],
@@ -107,6 +103,11 @@ var annotated_dup =
       ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ]
+      ] ],
+      [ "media", "dc/d80/namespacegalaxy_1_1media.html", [
+        [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ],
+        [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ],
+        [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", [
         [ "Constants", "d4/d8a/structgalaxy_1_1physics_1_1Constants.html", "d4/d8a/structgalaxy_1_1physics_1_1Constants" ],

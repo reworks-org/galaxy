@@ -1,0 +1,4 @@
+<map id="galaxy::media::Video::create_texture" name="galaxy::media::Video::create_texture">
+<area shape="rect" id="node1" title="Internal function to generate video frame texture." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="212,5,393,47"/>
+</map>

@@ -1,10 +1,11 @@
 <map id="galaxy::graphics::Shader::bind" name="galaxy::graphics::Shader::bind">
-<area shape="rect" id="node1" title="Enable this shader for rendering." alt="" coords="548,169,729,211"/>
-<area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="271,5,474,47"/>
-<area shape="rect" id="node3" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="245,71,500,112"/>
-<area shape="rect" id="node4" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="275,136,471,177"/>
-<area shape="rect" id="node5" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="278,201,467,243"/>
-<area shape="rect" id="node6" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="285,267,460,308"/>
-<area shape="rect" id="node7" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="265,332,480,373"/>
-<area shape="rect" id="node8" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="5,339,197,366"/>
+<area shape="rect" id="node1" title="Enable this shader for rendering." alt="" coords="548,201,729,243"/>
+<area shape="rect" id="node2" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a30dd7837a5da9fc454d9c052d5dd7076" title="Render video." alt="" coords="293,5,452,47"/>
+<area shape="rect" id="node3" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="271,71,474,112"/>
+<area shape="rect" id="node4" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="245,136,500,177"/>
+<area shape="rect" id="node5" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="275,201,471,243"/>
+<area shape="rect" id="node6" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="278,267,467,308"/>
+<area shape="rect" id="node7" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="285,332,460,373"/>
+<area shape="rect" id="node8" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="265,397,480,439"/>
+<area shape="rect" id="node9" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="5,405,197,431"/>
 </map>

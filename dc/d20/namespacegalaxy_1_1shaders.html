@@ -130,6 +130,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a6ff0f814adf9156ea4d9ae2e48c75873"><td class="memItemLeft" align="right" valign="top">constexpr const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6ff0f814adf9156ea4d9ae2e48c75873">text_frag</a></td></tr>
 <tr class="memdesc:a6ff0f814adf9156ea4d9ae2e48c75873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text fragment shader.  <a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6ff0f814adf9156ea4d9ae2e48c75873">More...</a><br /></td></tr>
 <tr class="separator:a6ff0f814adf9156ea4d9ae2e48c75873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b6d1a2b26436b99b4ebb48860e28e3"><td class="memItemLeft" align="right" valign="top">constexpr const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">video_vert</a></td></tr>
+<tr class="memdesc:a35b6d1a2b26436b99b4ebb48860e28e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Video vertex shader.  <a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">More...</a><br /></td></tr>
+<tr class="separator:a35b6d1a2b26436b99b4ebb48860e28e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a45c75c00c38b8c9dfc7d74621f9eb1"><td class="memItemLeft" align="right" valign="top">constexpr const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">video_frag</a></td></tr>
+<tr class="memdesc:a6a45c75c00c38b8c9dfc7d74621f9eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Video frag shader.  <a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">More...</a><br /></td></tr>
+<tr class="separator:a6a45c75c00c38b8c9dfc7d74621f9eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a69dace452e8738841652abad9e9ab971"></a>
@@ -662,13 +668,104 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a35b6d1a2b26436b99b4ebb48860e28e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b6d1a2b26436b99b4ebb48860e28e3">&#9670;&nbsp;</a></span>video_vert</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const auto galaxy::shaders::video_vert</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><span class="stringliteral">            #version 460 core</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            layout(location = 0) in vec2 vertex;</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            out vec2 io_texels;</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            void main()</span></div>
+<div class="line"><span class="stringliteral">            {</span></div>
+<div class="line"><span class="stringliteral">                io_texels = vertex;</span></div>
+<div class="line"><span class="stringliteral">                gl_Position = vec4((vertex * 2.0 - 1.0) * vec2(1, -1), 0.0, 1.0);</span></div>
+<div class="line"><span class="stringliteral">            }</span></div>
+<div class="line"><span class="stringliteral">        )&quot;</span></div>
+</div><!-- fragment -->
+<p>Video vertex shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../d4/d5c/DefaultShaders_8hpp_source.html">DefaultShaders.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6a45c75c00c38b8c9dfc7d74621f9eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a45c75c00c38b8c9dfc7d74621f9eb1">&#9670;&nbsp;</a></span>video_frag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const auto galaxy::shaders::video_frag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><span class="stringliteral">            #version 460 core</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            in vec2 io_texels;</span></div>
+<div class="line"><span class="stringliteral">            out vec4 io_frag;</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            uniform sampler2D u_texture_y;</span></div>
+<div class="line"><span class="stringliteral">            uniform sampler2D u_texture_cb;</span></div>
+<div class="line"><span class="stringliteral">            uniform sampler2D u_texture_cr;</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            mat4 rec601 = mat4(</span></div>
+<div class="line"><span class="stringliteral">                1.16438,  0.00000,  1.59603, -0.87079,</span></div>
+<div class="line"><span class="stringliteral">                1.16438, -0.39176, -0.81297,  0.52959,</span></div>
+<div class="line"><span class="stringliteral">                1.16438,  2.01723,  0.00000, -1.08139,</span></div>
+<div class="line"><span class="stringliteral">                0, 0, 0, 1</span></div>
+<div class="line"><span class="stringliteral">            );</span></div>
+<div class="line"><span class="stringliteral">            </span></div>
+<div class="line"><span class="stringliteral">            void main()</span></div>
+<div class="line"><span class="stringliteral">            {</span></div>
+<div class="line"><span class="stringliteral">                float y = texture2D(texture_y, tex_coord).r;</span></div>
+<div class="line"><span class="stringliteral">                float cb = texture2D(texture_cb, tex_coord).r;</span></div>
+<div class="line"><span class="stringliteral">                float cr = texture2D(texture_cr, tex_coord).r;</span></div>
+<div class="line"><span class="stringliteral"></span> </div>
+<div class="line"><span class="stringliteral">                io_frag = vec4(y, cb, cr, 1.0) * rec601;</span></div>
+<div class="line"><span class="stringliteral">            }</span></div>
+<div class="line"><span class="stringliteral">        )&quot;</span></div>
+</div><!-- fragment -->
+<p>Video frag shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00301">301</a> of file <a class="el" href="../../d4/d5c/DefaultShaders_8hpp_source.html">DefaultShaders.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dc/d20/namespacegalaxy_1_1shaders.html">shaders</a></li>
-    <li class="footer">Generated on Wed May 10 2023 14:40:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 14 2023 11:33:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

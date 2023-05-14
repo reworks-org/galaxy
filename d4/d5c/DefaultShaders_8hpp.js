@@ -11,5 +11,7 @@ var DefaultShaders_8hpp =
     [ "render_to_texture_vert", "d4/d5c/DefaultShaders_8hpp.html#aeb93ae4c55e1978aca934dec2597667f", null ],
     [ "render_to_texture_frag", "d4/d5c/DefaultShaders_8hpp.html#a7387a817b7df31b4d205b973a4a26c01", null ],
     [ "text_vert", "d4/d5c/DefaultShaders_8hpp.html#a6bf1b7f75498533e0b863b694e24b5f7", null ],
-    [ "text_frag", "d4/d5c/DefaultShaders_8hpp.html#a6ff0f814adf9156ea4d9ae2e48c75873", null ]
+    [ "text_frag", "d4/d5c/DefaultShaders_8hpp.html#a6ff0f814adf9156ea4d9ae2e48c75873", null ],
+    [ "video_vert", "d4/d5c/DefaultShaders_8hpp.html#a35b6d1a2b26436b99b4ebb48860e28e3", null ],
+    [ "video_frag", "d4/d5c/DefaultShaders_8hpp.html#a6a45c75c00c38b8c9dfc7d74621f9eb1", null ]
 ];

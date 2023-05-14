@@ -433,14 +433,14 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#af0627c2239e5d0885eddbdcd119c5cd0">scissoring_state</a> = <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aefe0cec5bb643b66091e453ac08b6c70abcfaccebf745acfd5e75351095a5394a">ScissoringState::Disable</a>;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        }</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">  352</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">RMLRenderer::RenderGeometry</a>(Rml::Vertex* vertices,</div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">  352</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">RMLRenderer::RenderGeometry</a>(Rml::Vertex* <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>,</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordtype">int</span> num_vertices,</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="keywordtype">int</span>* indices,</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="keywordtype">int</span>* <a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>,</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <span class="keywordtype">int</span> num_indices,</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            Rml::TextureHandle texture,</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            <span class="keyword">const</span> Rml::Vector2f&amp; translation)</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            Rml::CompiledGeometryHandle geometry = <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">CompileGeometry</a>(vertices, num_vertices, indices, num_indices, texture);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            Rml::CompiledGeometryHandle geometry = <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">CompileGeometry</a>(<a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>, num_vertices, <a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>, num_indices, texture);</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">if</span> (geometry)</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            {</div>
@@ -450,7 +450,7 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        }</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        Rml::CompiledGeometryHandle</div>
-<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">  369</a></span>&#160;        <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">RMLRenderer::CompileGeometry</a>(Rml::Vertex* vertices, <span class="keywordtype">int</span> num_vertices, <span class="keywordtype">int</span>* indices, <span class="keywordtype">int</span> num_indices, Rml::TextureHandle texture)</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">  369</a></span>&#160;        <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f">RMLRenderer::CompileGeometry</a>(Rml::Vertex* <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>, <span class="keywordtype">int</span> num_vertices, <span class="keywordtype">int</span>* <a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>, <span class="keywordtype">int</span> num_indices, Rml::TextureHandle texture)</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        {</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            constexpr GLenum draw_usage = GL_STATIC_DRAW;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
@@ -464,7 +464,7 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            glBindVertexArray(vao);</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            glBindBuffer(GL_ARRAY_BUFFER, vbo);</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            glBufferData(GL_ARRAY_BUFFER, <span class="keyword">sizeof</span>(Rml::Vertex) * num_vertices, (<span class="keyword">const</span> <span class="keywordtype">void</span>*)vertices, draw_usage);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            glBufferData(GL_ARRAY_BUFFER, <span class="keyword">sizeof</span>(Rml::Vertex) * num_vertices, (<span class="keyword">const</span> <span class="keywordtype">void</span>*)<a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>, draw_usage);</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            glEnableVertexAttribArray((GLuint)<a class="code" href="../../d2/dad/namespaceGfx.html#a18823fdafde60692d4eeac379b903b06a52f5e0bc3859bc5f5e25130b6c7e8881">Gfx::VertexAttribute::Position</a>);</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            glVertexAttribPointer((GLuint)<a class="code" href="../../d2/dad/namespaceGfx.html#a18823fdafde60692d4eeac379b903b06a52f5e0bc3859bc5f5e25130b6c7e8881">Gfx::VertexAttribute::Position</a>,</div>
@@ -491,7 +491,7 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                (<span class="keyword">const</span> GLvoid*)(offsetof(Rml::Vertex, tex_coord)));</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            glBufferData(GL_ELEMENT_ARRAY_BUFFER, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * num_indices, (<span class="keyword">const</span> <span class="keywordtype">void</span>*)indices, draw_usage);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            glBufferData(GL_ELEMENT_ARRAY_BUFFER, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * num_indices, (<span class="keyword">const</span> <span class="keywordtype">void</span>*)<a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>, draw_usage);</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            glBindVertexArray(0);</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            glBindBuffer(GL_ARRAY_BUFFER, 0);</div>
@@ -579,20 +579,20 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> top    = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y);</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> bottom = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y + height);</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                Rml::Vertex vertices[4];</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                vertices[0].position = {left, top};</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                vertices[1].position = {right, top};</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                vertices[2].position = {right, bottom};</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                vertices[3].position = {left, bottom};</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                Rml::Vertex <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>[4];</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>[0].position = {left, top};</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>[1].position = {right, top};</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>[2].position = {right, bottom};</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                <a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>[3].position = {left, bottom};</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                <span class="keywordtype">int</span> indices[6] = {0, 2, 1, 0, 3, 2};</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                <span class="keywordtype">int</span> <a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>[6] = {0, 2, 1, 0, 3, 2};</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                glClear(GL_STENCIL_BUFFER_BIT);</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                glStencilFunc(GL_ALWAYS, 1, GLuint(-1));</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">RenderGeometry</a>(vertices, 4, indices, 6, 0, Rml::Vector2f(0, 0));</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <a class="code" href="../../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe">RenderGeometry</a>(<a class="code" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>, 4, <a class="code" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>, 6, 0, Rml::Vector2f(0, 0));</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                glStencilFunc(GL_EQUAL, 1, GLuint(-1));</div>
@@ -695,6 +695,8 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div class="ttc" id="aRMLRenderer_8cpp_html_a98f547eeaf1a7e69897bab98b4d9f501"><div class="ttname"><a href="../../df/d8d/RMLRenderer_8cpp.html#a98f547eeaf1a7e69897bab98b4d9f501">shader_main_fragment_texture</a></div><div class="ttdeci">static const char * shader_main_fragment_texture</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d8d/RMLRenderer_8cpp_source.html#l00051">RMLRenderer.cpp:51</a></div></div>
 <div class="ttc" id="aRMLRenderer_8hpp_html"><div class="ttname"><a href="../../d1/d92/RMLRenderer_8hpp.html">RMLRenderer.hpp</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
+<div class="ttc" id="aVideo_8cpp_html_a4b117e202e3ac00ce888fa5b0fd1e9e9"><div class="ttname"><a href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a></div><div class="ttdeci">thread_local const float vertices[]</div><div class="ttdoc">Video.cpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da9/Video_8cpp_source.html#l00016">Video.cpp:16</a></div></div>
+<div class="ttc" id="aVideo_8cpp_html_a59e7a338750b32d1bf967eea0cdd293b"><div class="ttname"><a href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a></div><div class="ttdeci">thread_local const unsigned int indices[]</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da9/Video_8cpp_source.html#l00018">Video.cpp:18</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">galaxy::core::ServiceLocator</a></div><div class="ttdoc">Provides access to registered services. Cannot be created, copied or moved.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00026">ServiceLocator.hpp:27</a></div></div>
@@ -776,7 +778,7 @@ $(document).ready(function(){initNavTree('df/d8d/RMLRenderer_8cpp_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_330652aa214d4f712fc3581a9ff507d7.html">ui</a></li><li class="navelem"><a class="el" href="../../df/d8d/RMLRenderer_8cpp.html">RMLRenderer.cpp</a></li>
-    <li class="footer">Generated on Wed May 10 2023 14:40:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 14 2023 11:33:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

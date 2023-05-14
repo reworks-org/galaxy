@@ -1,9 +1,9 @@
 <map id="galaxy/src/galaxy/resource/Sounds.hpp" name="galaxy/src/galaxy/resource/Sounds.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="374,5,571,47"/>
-<area shape="rect" id="node2" href="$d9/db9/Sound_8hpp.html" title=" " alt="" coords="277,95,455,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="373,5,570,47"/>
+<area shape="rect" id="node2" href="$d9/db9/Sound_8hpp.html" title=" " alt="" coords="273,95,456,121"/>
 <area shape="rect" id="node5" href="$d4/d1e/Cache_8hpp.html" title=" " alt="" coords="480,95,679,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="217,169,315,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="339,169,438,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="216,169,313,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="338,169,437,196"/>
 <area shape="rect" id="node6" title=" " alt="" coords="505,169,611,196"/>
 <area shape="rect" id="node7" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="636,169,824,196"/>
 <area shape="rect" id="node8" title=" " alt="" coords="5,319,97,345"/>
