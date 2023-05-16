@@ -39,6 +39,11 @@ namespace sc
 
 			template<meta::valid_component Component, typename Func>
 			void draw_component(Selected& selected, const std::string& name, Func&& func);
+
+		private:
+			ImGuiTextFilter m_filter_shaders;
+			ImGuiTextFilter m_filter_textures;
+			ImGuiTextFilter m_filter_fonts;
 		};
 
 		template<meta::valid_component Component>

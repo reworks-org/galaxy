@@ -2527,7 +2527,7 @@ bool ImGuiTextFilter::DrawWithHint(const char* label, const char* hint, float wi
 {
     if (width != 0.0f)
         ImGui::SetNextItemWidth(width);
-    bool value_changed = ImGui::InputTextWithHint(label, hint, InputBuf, IM_ARRAYSIZE(InputBuf));
+    bool value_changed = ImGui::InputTextWithHint(label, hint, InputBuf, IM_ARRAYSIZE(InputBuf), ImGuiInputTextFlags_AutoSelectAll);
     if (value_changed)
         Build();
     return value_changed;

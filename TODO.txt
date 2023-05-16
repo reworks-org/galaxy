@@ -14,14 +14,6 @@ editor camera
 better editor play mode
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 
-make search generic + have clear btn
-
-have an editor specific camera
-enable/disable with buttons on viewport.
-overrides game camera when not in play mode
-switch to game camera in play mode also have button to enable setting that camera & controls for it.
-buffer editor camera or game camera based on mode.
-
 lua script reloading
 rml file reloading
 
@@ -33,8 +25,7 @@ wrap some imgui code into reusable functions
 
 more drag/drop support for tree view, body, etc
 
-phytsics collision + lua collision support
-	https://github.com/jmorton06/Lumos/blob/master/Lumos/Source/Lumos/Scripting/Lua/PhysicsLua.cpp
-
 add fastnoise2 to lua
 update imnodes and add zooming to fastnoise graph
+
+imgui physics panel

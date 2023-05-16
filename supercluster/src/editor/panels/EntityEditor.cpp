@@ -245,15 +245,14 @@ namespace sc
 						}
 					});
 
-					draw_component<components::DrawShader>(selected, "Draw Shader", [](components::DrawShader* ds) {
-						static std::string s_search = "";
-						ImGui::InputTextWithHint("##EntityShaderSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+					draw_component<components::DrawShader>(selected, "Draw Shader", [&](components::DrawShader* ds) {
+						m_filter_shaders.DrawWithHint("###EntityShaderSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 						if (ImGui::BeginCombo("Shader", ds->m_id.c_str()))
 						{
 							for (const auto& key : core::ServiceLocator<resource::Shaders>::ref().keys())
 							{
-								if (key.find(s_search) != std::string::npos)
+								if (m_filter_shaders.PassFilter(key.c_str()))
 								{
 									const bool selected = (ds->m_id == key);
 									if (ImGui::Selectable(key.c_str(), selected))
@@ -709,14 +708,13 @@ namespace sc
 						ImGui::SameLine(0.0f, 5.0f);
 						ImGui::Text("Height: %.0f", sprite->get_height());
 
-						static std::string s_search = "";
-						ImGui::InputTextWithHint("##EntityTextureSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+						m_filter_textures.DrawWithHint("###EntityTextureSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 						if (ImGui::BeginCombo("Texture", sprite->m_texture.c_str()))
 						{
 							for (const auto& key : core::ServiceLocator<resource::TextureAtlas>::ref().keys())
 							{
-								if (key.find(s_search) != std::string::npos)
+								if (m_filter_textures.PassFilter(key.c_str()))
 								{
 									const bool selected = (sprite->m_texture == key);
 									if (ImGui::Selectable(key.c_str(), selected))
@@ -813,14 +811,13 @@ namespace sc
 							text->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
 						}
 
-						static std::string s_search = "";
-						ImGui::InputTextWithHint("##EntityFontSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+						m_filter_fonts.DrawWithHint("###EntityFontSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 						if (ImGui::BeginCombo("Font", text->m_font_id.c_str()))
 						{
 							for (const auto& key : core::ServiceLocator<resource::Fonts>::ref().keys())
 							{
-								if (key.find(s_search) != std::string::npos)
+								if (m_filter_fonts.PassFilter(key.c_str()))
 								{
 									const bool selected = (text->m_font_id == key);
 									if (ImGui::Selectable(key.c_str(), selected))

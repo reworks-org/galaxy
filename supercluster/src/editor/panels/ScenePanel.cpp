@@ -217,15 +217,14 @@ namespace sc
 							ImGui::Separator();
 							ImGui::Spacing();
 
-							static std::string s_search = "";
-							ImGui::InputTextWithHint("##ModalLoadMapSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+							m_filter_maps.DrawWithHint("###ModalLoadMapSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 							static std::string s_selected = scene->m_map.get_name();
 							if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
 							{
 								for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
 								{
-									if (key.find(s_search) != std::string::npos)
+									if (m_filter_maps.PassFilter(key.c_str()))
 									{
 										const bool selected = (s_selected == key);
 										if (ImGui::Selectable(key.c_str(), selected))
@@ -300,15 +299,14 @@ namespace sc
 
 						if (ImGui::BeginPopup("PrefabListPopup"))
 						{
-							static std::string s_search = "";
-							ImGui::InputTextWithHint("##PrefabSearch", "Search...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+							m_filter_prefabs.DrawWithHint("###PrefabSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 							static std::string s_selected = "";
 							if (ImGui::BeginCombo("##PrefabList", s_selected.c_str()))
 							{
 								for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
 								{
-									if (key.find(s_selected) != std::string::npos)
+									if (m_filter_prefabs.PassFilter(key.c_str()))
 									{
 										const bool selected = (s_selected == key);
 										if (ImGui::Selectable(key.c_str(), selected))
@@ -341,8 +339,7 @@ namespace sc
 							ImGui::EndPopup();
 						}
 
-						static std::string s_search = "";
-						ImGui::InputTextWithHint("##EntitySearch", "Search Entity by Tag...", &s_search, ImGuiInputTextFlags_AutoSelectAll);
+						m_filter_tags.DrawWithHint("###EntitySearch", ICON_MDI_MAGNIFY "Search by tag...", ImGui::GetContentRegionAvail().x);
 
 						const auto entity_listbox_item = [&](entt::entity entity, components::Tag* tag) {
 							const auto is_selected = (selected.m_selected == entity);
@@ -385,13 +382,14 @@ namespace sc
 							}
 						};
 
+						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
 						if (ImGui::BeginListBox("##EntityList"))
 						{
 							scene->m_world.m_registry.each([&](const entt::entity entity) {
 								auto tag = scene->m_world.m_registry.try_get<components::Tag>(entity);
 								if (tag)
 								{
-									if (tag->m_tag.find(s_search) != std::string::npos)
+									if (m_filter_tags.PassFilter(tag->m_tag.c_str()))
 									{
 										entity_listbox_item(entity, tag);
 									}
