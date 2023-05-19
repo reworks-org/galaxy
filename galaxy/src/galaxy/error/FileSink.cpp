@@ -60,7 +60,14 @@ namespace galaxy
 			std::string_view line,
 			std::string_view message)
 		{
-			m_file_stream << std::format("[{0}] {1}: [{2}] {3}\n", time, level, std::format("{0}, Ln {1}", file, line), message);
+			auto level_spaced = static_cast<std::string>(level);
+			level_spaced.push_back(':');
+			while (level_spaced.length() < 9)
+			{
+				level_spaced.push_back(' ');
+			}
+
+			m_file_stream << std::format("[{0}] {1}[{2}] {3}\n", time, level_spaced, std::format("{0}, Ln {1}", file, line), message);
 		}
 	} // namespace error
 } // namespace galaxy

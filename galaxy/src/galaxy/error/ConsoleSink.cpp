@@ -21,7 +21,14 @@ namespace galaxy
 			std::string_view line,
 			std::string_view message)
 		{
-			std::cout << std::format("{0}[{1}] {2}: [{3}] {4}\n", colour, time, level, std::format("{0}, Ln {1}", file, line), message);
+			auto level_spaced = static_cast<std::string>(level);
+			level_spaced.push_back(':');
+			while (level_spaced.length() < 9)
+			{
+				level_spaced.push_back(' ');
+			}
+
+			std::cout << std::format("{0}[{1}] {2}[{3}] {4}\n", colour, time, level_spaced, std::format("{0}, Ln {1}", file, line), message);
 		}
 	} // namespace error
 } // namespace galaxy
