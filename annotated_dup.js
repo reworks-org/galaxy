@@ -110,7 +110,6 @@ var annotated_dup =
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", [
-        [ "Constants", "d4/d8a/structgalaxy_1_1physics_1_1Constants.html", "d4/d8a/structgalaxy_1_1physics_1_1Constants" ],
         [ "Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", "d4/d7e/classgalaxy_1_1physics_1_1Material" ]
       ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [

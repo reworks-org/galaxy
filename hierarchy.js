@@ -30,7 +30,6 @@ var hierarchy =
     [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
     [ "Gfx::CompiledGeometryData", "d1/daa/structGfx_1_1CompiledGeometryData.html", null ],
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
-    [ "galaxy::physics::Constants", "d4/d8a/structgalaxy_1_1physics_1_1Constants.html", null ],
     [ "galaxy::events::ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", null ],
     [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
     [ "galaxy::doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", null ],

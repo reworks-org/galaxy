@@ -1,10 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019":[0,0,0,9,32],
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939":[0,0,0,9,32,3],
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d":[0,0,0,9,32,1],
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb":[0,0,0,9,32,2],
-"db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5":[0,0,0,9,32,0],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578":[0,0,0,9,35],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491":[0,0,0,9,35,0],
 "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a17b8ef2c330f1430e00c9de5469fc7e7":[0,0,0,9,35,2],
@@ -249,5 +244,10 @@ var NAVTREEINDEX8 =
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4704c39e33d1e3784699d670e551825b":[1,0,0,2,4,6],
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4a0daf5ad89c8ef66333ddd6d526e154":[1,0,0,2,4,23],
 "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4cbce219713092d37c419296dae870bb":[1,0,0,2,4,10],
-"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a55599ac77bb5bc2a01a7bb4b727d3519":[1,0,0,2,4,13]
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a55599ac77bb5bc2a01a7bb4b727d3519":[1,0,0,2,4,13],
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a771ec047cae73516d8284c5c22c7e729":[1,0,0,2,4,1],
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a81deccba11bc6bd12f4cdd3f95cdf9c5":[1,0,0,2,4,21],
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a9c31c85c0b42e8713ac2ab818c20ee81":[1,0,0,2,4,9],
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa45cac22f9fde22973e5973ea91e72df":[1,0,0,2,4,12],
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#ab6dedddb3d590c0afe534c60a3bf1478":[1,0,0,2,4,19]
 };

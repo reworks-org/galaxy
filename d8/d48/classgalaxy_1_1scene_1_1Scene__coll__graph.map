@@ -1,7 +1,7 @@
 <map id="galaxy::scene::Scene" name="galaxy::scene::Scene">
 <area shape="rect" id="node1" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="341,2255,499,2449"/>
-<area shape="rect" id="node5" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="131,2512,325,3000"/>
-<area shape="rect" id="node9" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html" title=" " alt="" coords="1360,2637,1539,2875"/>
+<area shape="rect" id="node5" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="131,2512,325,2985"/>
+<area shape="rect" id="node9" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html" title=" " alt="" coords="1360,2629,1539,2868"/>
 <area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="239,1491,409,1641"/>
 <area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="361,1821,548,2192"/>
 <area shape="rect" id="node4" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="433,1513,620,1619"/>

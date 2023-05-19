@@ -145,10 +145,17 @@ $(document).ready(function(){initNavTree('d3/dcc/FileSink_8cpp_source.html','../
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::string_view line,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::string_view message)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a58a4a232764ee7f1591585461f8269b5">m_file_stream</a> &lt;&lt; std::format(<span class="stringliteral">&quot;[{0}] {1}: [{2}] {3}\n&quot;</span>, time, level, std::format(<span class="stringliteral">&quot;{0}, Ln {1}&quot;</span>, file, line), message);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    } <span class="comment">// namespace error</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">auto</span> level_spaced = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(level);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            level_spaced.push_back(<span class="charliteral">&#39;:&#39;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">while</span> (level_spaced.length() &lt; 9)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                level_spaced.push_back(<span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a58a4a232764ee7f1591585461f8269b5">m_file_stream</a> &lt;&lt; std::format(<span class="stringliteral">&quot;[{0}] {1}[{2}] {3}\n&quot;</span>, time, level_spaced, std::format(<span class="stringliteral">&quot;{0}, Ln {1}&quot;</span>, file, line), message);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    } <span class="comment">// namespace error</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aFileSink_8hpp_html"><div class="ttname"><a href="../../dd/d0e/FileSink_8hpp.html">FileSink.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1error_1_1FileSink_html_a0ecff2d7ba65815168cb393337b9560f"><div class="ttname"><a href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f">galaxy::error::FileSink::FileSink</a></div><div class="ttdeci">FileSink(std::string_view file)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcc/FileSink_8cpp_source.html#l00018">FileSink.cpp:18</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1error_1_1FileSink_html_a34d9758ddf3f1f9640b73495428d1d5c"><div class="ttname"><a href="../../de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c">galaxy::error::FileSink::~FileSink</a></div><div class="ttdeci">virtual ~FileSink()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcc/FileSink_8cpp_source.html#l00051">FileSink.cpp:51</a></div></div>
@@ -162,7 +169,7 @@ $(document).ready(function(){initNavTree('d3/dcc/FileSink_8cpp_source.html','../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_48f77a4e21c16676ac8bbd98db82dd44.html">error</a></li><li class="navelem"><a class="el" href="../../d3/dcc/FileSink_8cpp.html">FileSink.cpp</a></li>
-    <li class="footer">Generated on Sun May 14 2023 11:33:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri May 19 2023 12:52:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

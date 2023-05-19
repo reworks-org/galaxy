@@ -1,12 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/d8a/structgalaxy_1_1physics_1_1Constants.html#a31e6ddd96088d0613479d1d1452428d5":[1,0,0,12,0,3],
-"d4/d92/AudioEngine_8hpp.html":[2,0,0,0,0,11,1],
-"d4/d92/AudioEngine_8hpp_source.html":[2,0,0,0,0,11,1],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html":[1,0,0,15,1],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969":[1,0,0,15,1,8],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765":[1,0,0,15,1,7],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d":[1,0,0,15,1,10],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab":[1,0,0,15,1,4],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b":[1,0,0,15,1,1],
 "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb":[1,0,0,15,1,9],
@@ -249,5 +242,12 @@ var NAVTREEINDEX3 =
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a724256249a07e19a6d83d6194b9a85ec":[1,0,0,0,0,1],
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a90a31b987c8e8d571ee0398a55d01a31":[1,0,0,0,0,8],
 "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#aba1e60dc0624ba27170ecb3f7aa351a5":[1,0,0,0,0,2],
-"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ac4f10efadcb02d6520f0aa256633e705":[1,0,0,0,0,5]
+"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ac4f10efadcb02d6520f0aa256633e705":[1,0,0,0,0,5],
+"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#acf6fca39b8f6e6fd4ebab8ce5d1d64cb":[1,0,0,0,0,9],
+"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ae78fa42a923a9d2ef5edfc2816d0f788":[1,0,0,0,0,3],
+"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#afbf98c57192a72521fc9cdb6e2ca8b4b":[1,0,0,0,0,0],
+"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#afd780464194a62fdf0c0c53f505c152e":[1,0,0,0,0,10],
+"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html":[1,0,0,18,4],
+"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2888c5fc4d42a6b0389f1c5e82983038":[1,0,0,18,4,4],
+"d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html#a2b87969458b9fda2c75dc133f0fd8528":[1,0,0,18,4,0]
 };
