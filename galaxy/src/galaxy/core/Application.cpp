@@ -71,6 +71,8 @@ namespace galaxy
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
 
+			GALAXY_LOG(GALAXY_INFO, "Application started.");
+
 			//
 			// CONFIG.
 			//
@@ -386,6 +388,7 @@ namespace galaxy
 			ServiceLocator<Window>::del();
 			ServiceLocator<Config>::del();
 
+			GALAXY_LOG(GALAXY_INFO, "Application closed.");
 			GALAXY_LOG_FINISH();
 		}
 
