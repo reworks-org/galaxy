@@ -69,7 +69,6 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/media/Sound.hpp"
 
-#include "galaxy/physics/Constants.hpp"
 #include "galaxy/platform/Subprocess.hpp"
 
 #include "galaxy/resource/Fonts.hpp"
@@ -393,6 +392,29 @@ namespace galaxy
 						return ret;
 					}));
 
+			auto b2world_type                  = lua.new_usertype<b2World>("b2World", sol::no_constructor);
+			b2world_type["ClearForces"]        = &b2World::ClearForces;
+			b2world_type["SetAllowSleeping"]   = &b2World::SetAllowSleeping;
+			b2world_type["GetAllowSleeping"]   = &b2World::GetAllowSleeping;
+			b2world_type["SetWarmStarting"]    = &b2World::SetWarmStarting;
+			b2world_type["GetWarmStarting"]    = &b2World::GetWarmStarting;
+			b2world_type["SetSubStepping"]     = &b2World::SetSubStepping;
+			b2world_type["GetSubStepping"]     = &b2World::GetSubStepping;
+			b2world_type["GetProxyCount"]      = &b2World::GetProxyCount;
+			b2world_type["GetBodyCount"]       = &b2World::GetBodyCount;
+			b2world_type["GetJointCount"]      = &b2World::GetJointCount;
+			b2world_type["GetContactCount"]    = &b2World::GetContactCount;
+			b2world_type["GetTreeHeight"]      = &b2World::GetTreeHeight;
+			b2world_type["GetTreeBalance"]     = &b2World::GetTreeBalance;
+			b2world_type["GetTreeQuality"]     = &b2World::GetTreeQuality;
+			b2world_type["SetGravity"]         = &b2World::SetGravity;
+			b2world_type["GetGravity"]         = &b2World::GetGravity;
+			b2world_type["IsLocked"]           = &b2World::IsLocked;
+			b2world_type["SetAutoClearForces"] = &b2World::SetAutoClearForces;
+			b2world_type["GetAutoClearForces"] = &b2World::GetAutoClearForces;
+			b2world_type["ShiftOrigin"]        = &b2World::ShiftOrigin;
+			b2world_type["Dump"]               = &b2World::Dump;
+
 			/* ALGORITHM */
 			lua.set_function("normalize", &algorithm::normalize<float>);
 			lua.set_function("encode_base64", &algorithm::encode_base64);
@@ -622,12 +644,16 @@ namespace galaxy
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
 			// Cannot be created in lua, accessed from scene instead.
-			auto world_type                  = lua.new_usertype<core::World>("World", sol::no_constructor);
-			world_type["clear"]              = &core::World::clear;
-			world_type["registry"]           = &core::World::m_registry;
-			world_type["create"]             = &core::World::create;
-			world_type["create_from_prefab"] = &core::World::create_from_prefab;
-			world_type["is_valid"]           = &core::World::is_valid;
+			auto world_type                   = lua.new_usertype<core::World>("World", sol::no_constructor);
+			world_type["clear"]               = &core::World::clear;
+			world_type["registry"]            = &core::World::m_registry;
+			world_type["create"]              = &core::World::create;
+			world_type["create_from_prefab"]  = &core::World::create_from_prefab;
+			world_type["is_valid"]            = &core::World::is_valid;
+			world_type["pixels_per_meter"]    = &core::World::m_pixels_per_meter;
+			world_type["velocity_iterations"] = &core::World::m_velocity_iterations;
+			world_type["position_iterations"] = &core::World::m_position_iterations;
+			world_type["b2world"]             = &core::World::b2world;
 
 			auto tiledmap_type           = lua.new_usertype<core::TiledMap>("TiledMap", sol::no_constructor);
 			tiledmap_type["disable_map"] = &core::TiledMap::disable_map;
@@ -1152,12 +1178,6 @@ namespace galaxy
 			audioengine_type["stop"]                   = &media::AudioEngine::stop;
 
 			/* PHYSICS */
-			lua.set("GALAXY_PHYSICS_GRAVITY_X", physics::Constants::gravity.x);
-			lua.set("GALAXY_PHYSICS_GRAVITY_Y", physics::Constants::gravity.y);
-			lua.set("GALAXY_PHYSICS_VELOCITY_ITERATIONS", physics::Constants::velocity_iterations);
-			lua.set("GALAXY_PHYSICS_POSITION_ITERATIONS", physics::Constants::position_iterations);
-			lua.set("GALAXY_PHYSICS_PIXELS_PER_METER", physics::Constants::pixels_per_meter);
-
 			auto material_type                     = lua.new_usertype<physics::Material>("Material", sol::constructors<physics::Material()>());
 			material_type["density"]               = &physics::Material::density;
 			material_type["friction"]              = &physics::Material::friction;

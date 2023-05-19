@@ -8,15 +8,6 @@
             "music_volume": 1.0,
             "sfx_volume": 1.0
         },
-        "box2d": {
-            "gravity": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "position_iterations": 3,
-            "ppm": 64.0,
-            "velocity_iterations": 8
-        },
         "compressed_assets": "assets.zip",
         "default_lang": "en_au",
         "editor": {

@@ -138,6 +138,15 @@ namespace galaxy
 			void clear();
 
 			///
+			/// \brief Get b2World as a raw pointer.
+			///
+			/// Prefer accessing the unique ptr.
+			///
+			/// \return Raw pointer. Do NOT delete.
+			///
+			[[nodiscard]] b2World* b2world();
+
+			///
 			/// Serialise a single entity.
 			///
 			/// \param entity Entity to serialize.
@@ -223,6 +232,21 @@ namespace galaxy
 			/// Box2D physics world.
 			///
 			std::unique_ptr<b2World> m_b2world;
+
+			///
+			/// Box2D world velocity iterations.
+			///
+			int m_velocity_iterations;
+
+			///
+			/// Box2d world position iterations.
+			///
+			int m_position_iterations;
+
+			///
+			/// Scale for converting from box2d units to opengl pixels.
+			///
+			float m_pixels_per_meter;
 
 		private:
 			///

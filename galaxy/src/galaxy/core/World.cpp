@@ -25,7 +25,6 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
-#include "galaxy/physics/Constants.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
@@ -42,8 +41,11 @@ namespace galaxy
 			, m_b2world {nullptr}
 			, m_rendersystem_index {-1}
 			, m_scene {scene}
+			, m_velocity_iterations {8}
+			, m_position_iterations {3}
+			, m_pixels_per_meter {64.0f}
 		{
-			m_b2world = std::make_unique<b2World>(physics::Constants::gravity);
+			m_b2world = std::make_unique<b2World>(b2Vec2 {0.0f, 0.0f});
 
 			register_component<components::Animated>("Animated");
 			register_component<components::DrawShader>("DrawShader");
@@ -180,8 +182,8 @@ namespace galaxy
 			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
 			{
 				b2BodyDef def {};
-				def.position.x    = transform->get_pos().x / physics::Constants::pixels_per_meter;
-				def.position.y    = transform->get_pos().y / physics::Constants::pixels_per_meter;
+				def.position.x    = transform->get_pos().x / m_pixels_per_meter;
+				def.position.y    = transform->get_pos().y / m_pixels_per_meter;
 				def.angle         = glm::radians(transform->get_rotation());
 				def.type          = rigidbody->m_type;
 				def.fixedRotation = rigidbody->m_fixed_rotation;
@@ -203,7 +205,7 @@ namespace galaxy
 			}
 
 			m_bodies_to_construct.clear();
-			m_b2world->Step(GALAXY_DT, physics::Constants::velocity_iterations, physics::Constants::position_iterations);
+			m_b2world->Step(GALAXY_DT, m_velocity_iterations, m_position_iterations);
 
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
@@ -227,6 +229,11 @@ namespace galaxy
 			m_bodies_to_construct.clear();
 
 			m_rendersystem_index = -1;
+		}
+
+		b2World* World::b2world()
+		{
+			return m_b2world.get();
 		}
 
 		nlohmann::json World::serialize_entity(const entt::entity entity)
@@ -314,12 +321,36 @@ namespace galaxy
 				}
 			});
 
+			json["physics"] = nlohmann::json::object();
+			auto& physics   = json.at("physics");
+
+			auto gravity            = m_b2world->GetGravity();
+			physics["gravity"]["x"] = gravity.x;
+			physics["gravity"]["y"] = gravity.y;
+
+			physics["allow_sleeping"]        = m_b2world->GetAllowSleeping();
+			physics["allow_autoclearforces"] = m_b2world->GetAutoClearForces();
+			physics["pixels_per_meter"]      = m_pixels_per_meter;
+			physics["velocity_iterations"]   = m_velocity_iterations;
+			physics["position_iterations"]   = m_position_iterations;
+
 			return json;
 		}
 
 		void World::deserialize(const nlohmann::json& json)
 		{
+			m_bodies_to_construct.clear();
 			m_registry.clear();
+
+			const auto& physics = json.at("physics");
+			const auto& gravity = json.at("gravity");
+
+			m_b2world->SetGravity({gravity.at("x"), gravity.at("y")});
+			m_b2world->SetAllowSleeping(physics.at("allow_sleeping"));
+			m_b2world->SetAutoClearForces(physics.at("allow_autoclearforces"));
+			m_pixels_per_meter    = physics.at("pixels_per_meter");
+			m_velocity_iterations = physics.at("velocity_iterations");
+			m_position_iterations = physics.at("position_iterations");
 
 			const auto& entity_json = json.at("entities");
 			for (const auto& entity : entity_json)

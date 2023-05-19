@@ -122,11 +122,6 @@ namespace galaxy
 			config.restore<int>("camera_right", static_cast<int>(input::Keys::D), "input");
 			config.restore<int>("camera_rotate_left", static_cast<int>(input::Keys::Q), "input");
 			config.restore<int>("camera_rotate_right", static_cast<int>(input::Keys::E), "input");
-			config.restore<float>("ppm", 64.0f, "box2d");
-			config.restore<float>("x", 0.0f, "box2d.gravity");
-			config.restore<float>("y", 0.0f, "box2d.gravity");
-			config.restore<int>("velocity_iterations", 8, "box2d");
-			config.restore<int>("position_iterations", 3, "box2d");
 
 			config.save();
 

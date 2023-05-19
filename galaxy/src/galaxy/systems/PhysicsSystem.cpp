@@ -11,7 +11,6 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/flags/Enabled.hpp"
-#include "galaxy/physics/Constants.hpp"
 #include "galaxy/scene/Scene.hpp"
 
 #include "PhysicsSystem.hpp"
@@ -41,7 +40,7 @@ namespace galaxy
 					}
 
 					const auto& pos = body.m_body->GetPosition();
-					transform.set_pos(pos.x * physics::Constants::pixels_per_meter, pos.y * physics::Constants::pixels_per_meter);
+					transform.set_pos(pos.x * scene->m_world.m_pixels_per_meter, pos.y * scene->m_world.m_pixels_per_meter);
 					transform.set_rotation(glm::degrees(body.m_body->GetAngle()));
 				}
 				else

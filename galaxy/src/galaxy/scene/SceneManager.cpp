@@ -17,7 +17,6 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
-#include "galaxy/physics/Constants.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
@@ -124,15 +123,6 @@ namespace galaxy
 					{
 						cursor.use_pointer();
 					}
-
-					//
-					// Physics constants.
-					//
-					physics::Constants::gravity.x           = config.get<float>("x", "box2d.gravity");
-					physics::Constants::gravity.y           = config.get<float>("y", "box2d.gravity");
-					physics::Constants::velocity_iterations = config.get<int>("velocity_iterations", "box2d");
-					physics::Constants::position_iterations = config.get<int>("position_iterations", "box2d");
-					physics::Constants::pixels_per_meter    = config.get<float>("ppm", "box2d");
 
 					//
 					// Resources.
