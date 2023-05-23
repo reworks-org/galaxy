@@ -93,6 +93,11 @@ namespace galaxy
 			void save(std::string_view filepath);
 
 			///
+			/// Deletes texture data and configuration in OpenGL and creates new texture handle.
+			///
+			void recreate();
+
+			///
 			/// Activate texture context.
 			///
 			void bind();

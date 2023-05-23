@@ -369,9 +369,18 @@ namespace sc
 								m_current_dir /= file;
 								m_update_directories = true;
 							}
-							else if (ext == ".lua")
+							else
 							{
-								load_lua_script(editor);
+								switch (m_ext_map[ext])
+								{
+									case FileType::LUA:
+										load_lua_script(editor);
+										break;
+
+									case FileType::TEXTURE:
+										load_preview();
+										break;
+								}
 							}
 						}
 
@@ -492,14 +501,21 @@ namespace sc
 
 					if (!m_selected.m_extension.empty())
 					{
-						if (m_selected.m_extension == ".lua")
+						switch (m_ext_map[m_selected.m_extension])
 						{
-							if (ImGui::MenuItem(ICON_MDI_FILE_EDIT " Edit"))
-							{
-								load_lua_script(editor);
+							case FileType::LUA:
+								if (ImGui::MenuItem(ICON_MDI_FILE_EDIT " Edit"))
+								{
+									load_lua_script(editor);
+								}
+								break;
 
-								ImGui::CloseCurrentPopup();
-							}
+							case FileType::TEXTURE:
+								if (ImGui::MenuItem(ICON_MDI_FILE_SEARCH " Preview"))
+								{
+									load_preview();
+								}
+								break;
 						}
 
 						if (ImGui::MenuItem(ICON_MDI_DELETE_ALERT " Delete"))
@@ -549,6 +565,23 @@ namespace sc
 					std::filesystem::remove(m_selected.m_path);
 				});
 
+				if (m_open_preview)
+				{
+					thread_local constexpr const auto flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings |
+															  ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoCollapse;
+
+					ui::imgui_center_next_window();
+					ImGui::SetNextWindowSize({256, 256});
+
+					if (ImGui::Begin("Preview", &m_open_preview, flags))
+
+					{
+						ui::imgui_image(m_preview, {m_preview.get_widthf(), m_preview.get_heightf()});
+					}
+
+					ImGui::End();
+				}
+
 				if (m_open_config)
 				{
 					m_open_config = false;
@@ -588,6 +621,13 @@ namespace sc
 				editor.m_editor.SetText(data);
 				editor.m_file = m_selected.m_path;
 			}
+		}
+
+		void AssetPanel::load_preview()
+		{
+			m_preview.recreate();
+			m_preview.load(m_selected.m_path.string());
+			m_open_preview = true;
 		}
 
 		void AssetPanel::import_files(const std::string& folder_from_config)

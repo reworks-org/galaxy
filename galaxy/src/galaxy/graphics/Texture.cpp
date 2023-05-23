@@ -180,8 +180,7 @@ namespace galaxy
 
 		void Texture::load_raw(const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void* buffer)
 		{
-			glDeleteTextures(1, &m_texture);
-			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
+			recreate();
 
 			m_width  = width;
 			m_height = height;
@@ -217,6 +216,12 @@ namespace galaxy
 
 			stbi_flip_vertically_on_write(true);
 			stbi_write_png(full.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+		}
+
+		void Texture::recreate()
+		{
+			glDeleteTextures(1, &m_texture);
+			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
 		}
 
 		void Texture::bind()

@@ -50,6 +50,7 @@ namespace sc
 
 		private:
 			void load_lua_script(CodeEditor& editor);
+			void load_preview();
 			void import_files(const std::string& folder_from_config);
 
 			// https://gist.github.com/OverShifted/13aec504dfe376dcc2171e8b7451c5b5
@@ -83,6 +84,7 @@ namespace sc
 			graphics::Texture m_folder;
 			graphics::Texture m_forward;
 			graphics::Texture m_reload;
+			graphics::Texture m_preview;
 
 			graphics::Texture* m_icon;
 
