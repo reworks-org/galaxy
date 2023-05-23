@@ -67,8 +67,10 @@ namespace sc
 			float m_thumb_size;
 
 			bool m_open_config;
+			bool m_open_preview;
 			bool m_create_folder_popup;
 			bool m_update_directories;
+			bool m_contextmenu_opened;
 
 			std::filesystem::path m_root;
 			std::filesystem::path m_current_dir;

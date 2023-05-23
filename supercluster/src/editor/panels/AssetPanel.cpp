@@ -32,8 +32,10 @@ namespace sc
 			: m_toolbar_vec {24, 24}
 			, m_icon {nullptr}
 			, m_open_config {false}
+			, m_open_preview {false}
 			, m_create_folder_popup {false}
 			, m_update_directories {true}
+			, m_contextmenu_opened {false}
 		{
 			auto& fs      = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			m_root        = fs.root_path();
@@ -347,7 +349,8 @@ namespace sc
 							ImGui::EndDragDropSource();
 						}
 
-						if (!ImGui::IsItemHovered() && (ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
+						if (!ImGui::IsItemHovered() && !m_contextmenu_opened &&
+							(ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
 						{
 							m_selected = {};
 						}
@@ -392,12 +395,13 @@ namespace sc
 
 				if (ImGui::BeginPopupContextWindow("AssetPanelContextMenu"))
 				{
+					m_contextmenu_opened = true;
+
 					if (ImGui::BeginMenu(ICON_MDI_PLUS " Create"))
 					{
 						if (ImGui::MenuItem(ICON_MDI_FOLDER_PLUS " Folder"))
 						{
 							m_create_folder_popup = true;
-							ImGui::CloseCurrentPopup();
 						}
 
 						if (ImGui::MenuItem(ICON_MDI_LANGUAGE_LUA " Script"))
@@ -411,8 +415,6 @@ namespace sc
 							}
 
 							m_update_directories = true;
-
-							ImGui::CloseCurrentPopup();
 						}
 
 						ImGui::EndMenu();
@@ -509,10 +511,13 @@ namespace sc
 					if (ImGui::MenuItem(ICON_MDI_COG " Settings"))
 					{
 						m_open_config = true;
-						ImGui::CloseCurrentPopup();
 					}
 
 					ImGui::EndPopup();
+				}
+				else
+				{
+					m_contextmenu_opened = false;
 				}
 
 				if (m_create_folder_popup)
@@ -607,6 +612,8 @@ namespace sc
 						ui::imgui_notify_error(e.what());
 					}
 				}
+
+				m_update_directories = true;
 			}
 		}
 
