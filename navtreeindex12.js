@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c":[1,0,0,8,7,16],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad76a8d5316c44a7171cfd9d5013d096f":[1,0,0,8,7,28],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8":[1,0,0,8,7,14],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#adb87a9775de3694c1396016529628032":[1,0,0,8,7,20],
@@ -115,8 +116,8 @@ var NAVTREEINDEX12 =
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],

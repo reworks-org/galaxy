@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea61ee777e7f71dc466c3b2c685d8d313b":[0,0,0,10,8,55],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea62e75b78c155e8549c5c5edb434a7757":[0,0,0,10,8,103],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea63a707029860972efa1c44ac6016e098":[0,0,0,10,8,116],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea643b0662422d1d0dffa3fca2e2bf28a8":[0,0,0,10,8,80],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "de/d12/namespacegalaxy_1_1lua.html#a3d08fb94526e5927f64c1a39ba483818":[0,0,0,12,3],
 "de/d12/namespacegalaxy_1_1lua.html#a5b37ad12deede39b862706b20125934a":[0,0,0,12,2],
 "de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f":[0,0,0,12,1],
-"de/d15/Scene_8cpp.html":[2,0,0,0,0,16,0],
-"de/d15/Scene_8cpp_source.html":[2,0,0,0,0,16,0]
+"de/d15/Scene_8cpp.html":[2,0,0,0,0,16,0]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"de/d15/Scene_8cpp_source.html":[2,0,0,0,0,16,0],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html":[1,0,0,4,1],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[1,0,0,4,1,0],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c":[1,0,0,4,1,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ac83c12f8ee5e9169519c42d3776aab77":[1,0,0,8,7,32],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ac88e01304e90bf500d63d3ff34289f6a":[1,0,0,8,7,34],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ace9d2534db4c0e09192e454594b016cf":[1,0,0,8,7,4],
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb":[1,0,0,8,7,15],
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c":[1,0,0,8,7,16]
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb":[1,0,0,8,7,15]
 };

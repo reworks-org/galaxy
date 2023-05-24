@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::Texture::load_raw" name="galaxy::graphics::Texture::load_raw">
+<area shape="rect" id="node1" title="Load raw pixel data from memory." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node2" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a11b66f273612c42143e6417254e6dcd5" title="Deletes texture data and configuration in OpenGL and creates new texture handle." alt="" coords="237,5,421,47"/>
+</map>
