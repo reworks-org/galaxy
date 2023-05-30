@@ -365,7 +365,7 @@ namespace galaxy
 
 		void Framebuffer::set_clear_colour(graphics::Colour& col)
 		{
-			m_clear_colour = col.normalized();
+			m_clear_colour = col.to_array();
 		}
 
 		void Framebuffer::clear_storagebuffer(const unsigned int index, const int val)

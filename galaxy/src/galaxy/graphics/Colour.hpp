@@ -11,6 +11,8 @@
 #include <array>
 #include <compare>
 
+#include <glm/vec4.hpp>
+
 #undef OPAQUE
 #undef TRANSPARENT
 
@@ -73,7 +75,15 @@ namespace galaxy
 			///
 			/// \return Array of floats.
 			///
-			[[nodiscard]] std::array<float, 4> normalized();
+			[[nodiscard]] std::array<float, 4> to_array();
+
+			// \brief Normalizes values and returns as floats.
+			///
+			/// Floats are in range 0.0f - 1.0f.
+			///
+			/// \return Vec4.
+			///
+			[[nodiscard]] glm::vec4 to_vec4();
 
 			///
 			/// Comparison operator.

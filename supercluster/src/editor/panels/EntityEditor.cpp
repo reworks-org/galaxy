@@ -344,7 +344,7 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						auto colour = primitive->m_colour.normalized();
+						auto colour = primitive->m_colour.to_array();
 						if (ImGui::ColorEdit4("Colour", &colour[0]))
 						{
 							primitive->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
@@ -805,7 +805,7 @@ namespace sc
 							ImGui::EndCombo();
 						}
 
-						auto colour = text->m_colour.normalized();
+						auto colour = text->m_colour.to_array();
 						if (ImGui::ColorEdit4("Colour", &colour[0]))
 						{
 							text->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
