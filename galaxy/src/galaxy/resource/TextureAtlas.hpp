@@ -248,7 +248,7 @@ namespace galaxy
 		template<meta::is_arithmetic Type>
 		inline float TextureAtlas::map_x_texel(const Type x, const Type width)
 		{
-			if constexpr (std::is_same<Type, float>::value)
+			if constexpr (std::is_floating_point<Type>::value)
 			{
 				return x / width;
 			}
@@ -261,7 +261,7 @@ namespace galaxy
 		template<meta::is_arithmetic Type>
 		inline float TextureAtlas::map_y_texel(const Type y, const Type height)
 		{
-			if constexpr (std::is_same<Type, float>::value)
+			if constexpr (std::is_floating_point<Type>::value)
 			{
 				return y / height;
 			}

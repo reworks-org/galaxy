@@ -29,3 +29,5 @@ add fastnoise2 to lua
 update imnodes and add zooming to fastnoise graph
 
 implement b2_debugdraw?
+
+make sure all operator= are being called correctly when virtual

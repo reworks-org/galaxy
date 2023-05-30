@@ -27,8 +27,6 @@ namespace galaxy
 		class System
 		{
 		public:
-			using Id = entt::family<System>;
-
 			///
 			/// Destructor.
 			///

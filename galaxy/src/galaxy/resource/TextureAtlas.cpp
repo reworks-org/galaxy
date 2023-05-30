@@ -199,7 +199,7 @@ namespace galaxy
 
 			for (const auto& [key, _] : m_data)
 			{
-				keys.push_back(key);
+				keys.emplace_back(key);
 			}
 
 			return keys;

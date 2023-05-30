@@ -103,7 +103,7 @@ namespace galaxy
 /// Amount of items in a meta::vector to initially reserve for the renderer
 /// This is to help prevent needless reallocations.
 ///
-#define GALAXY_DEFAULT_RENDERER_RESERVED 1000
+#define GALAXY_DEFAULT_RENDERER_RESERVED 100
 
 ///
 /// Specifies the width of the range around the shape between the minimum and maximum

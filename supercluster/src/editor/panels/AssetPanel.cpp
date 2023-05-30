@@ -574,7 +574,6 @@ namespace sc
 					ImGui::SetNextWindowSize({256, 256});
 
 					if (ImGui::Begin("Preview", &m_open_preview, flags))
-
 					{
 						ui::imgui_image(m_preview, {m_preview.get_widthf(), m_preview.get_heightf()});
 					}
