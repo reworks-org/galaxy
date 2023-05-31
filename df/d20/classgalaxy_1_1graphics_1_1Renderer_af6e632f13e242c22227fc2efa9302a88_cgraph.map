@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Renderer::draw_texture_to_target" name="galaxy::graphics::Renderer::draw_texture_to_target">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,200,211"/>
+<area shape="rect" id="node1" title="Draw a texture to a render texture." alt="" coords="5,169,200,211"/>
 <area shape="rect" id="node2" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aaade16e4973e304e334efa12d509cec9" title="Activate texture context." alt="" coords="271,5,455,47"/>
 <area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="274,71,453,112"/>
 <area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="272,136,455,177"/>

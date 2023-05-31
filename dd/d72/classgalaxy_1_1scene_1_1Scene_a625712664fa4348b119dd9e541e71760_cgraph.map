@@ -1,6 +1,6 @@
 <map id="galaxy::scene::Scene::update" name="galaxy::scene::Scene::update">
 <area shape="rect" id="node1" title="Process events and updates." alt="" coords="5,71,164,112"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title=" " alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
 <area shape="rect" id="node5" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#ab165212b7aa8bf0f80239c890ccc7603" title="Trigger all queued events for a dispatcher." alt="" coords="220,71,399,112"/>
 <area shape="rect" id="node6" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e" title="Update world data." alt="" coords="236,136,383,177"/>
 <area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="455,5,641,47"/>

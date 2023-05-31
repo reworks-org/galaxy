@@ -1,4 +1,4 @@
 <map id="galaxy::graphics::Renderer::submit" name="galaxy::graphics::Renderer::submit">
-<area shape="rect" id="node1" title=" " alt="" coords="284,5,479,47"/>
+<area shape="rect" id="node1" title="Submit render data to renderer." alt="" coords="284,5,479,47"/>
 <area shape="rect" id="node2" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,47"/>
 </map>

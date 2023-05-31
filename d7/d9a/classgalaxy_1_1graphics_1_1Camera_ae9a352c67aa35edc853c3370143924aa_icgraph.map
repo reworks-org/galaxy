@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Camera::get_data" name="galaxy::graphics::Camera::get_data">
 <area shape="rect" id="node1" title="Get camera view and proj." alt="" coords="455,5,641,47"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title=" " alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
 <area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
 </map>

@@ -4,7 +4,7 @@
 <area shape="rect" id="node20" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a88dc3093add32c320ff725e88c40c69a" title="Clear all data." alt="" coords="239,616,424,657"/>
 <area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="472,267,657,308"/>
 <area shape="rect" id="node11" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="948,470,1179,497"/>
-<area shape="rect" id="node4" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88" title=" " alt="" coords="705,267,900,308"/>
+<area shape="rect" id="node4" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88" title="Draw a texture to a render texture." alt="" coords="705,267,900,308"/>
 <area shape="rect" id="node12" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504" title="Get texture height." alt="" coords="711,332,895,373"/>
 <area shape="rect" id="node13" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0" title="Get texture width." alt="" coords="711,397,895,439"/>
 <area shape="rect" id="node14" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ac0abb1fc5bdafc8d0f0829f02d59aba7" title="Loads texture from file." alt="" coords="711,463,895,504"/>

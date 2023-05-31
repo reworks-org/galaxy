@@ -1,4 +1,4 @@
 <map id="galaxy::scene::Scene::render" name="galaxy::scene::Scene::render">
 <area shape="rect" id="node1" title="Render scene." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title=" " alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted data to screen." alt="" coords="212,5,407,47"/>
 </map>

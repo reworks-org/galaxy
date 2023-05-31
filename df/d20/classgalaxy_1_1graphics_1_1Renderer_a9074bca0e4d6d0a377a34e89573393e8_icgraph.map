@@ -1,4 +1,4 @@
 <map id="galaxy::graphics::Renderer::flush" name="galaxy::graphics::Renderer::flush">
-<area shape="rect" id="node1" title=" " alt="" coords="264,5,459,47"/>
+<area shape="rect" id="node1" title="Delete any data stored by the renderer." alt="" coords="264,5,459,47"/>
 <area shape="rect" id="node2" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#a2ad347d92d89ae527681274048146af0" title="Runs the application." alt="" coords="5,13,216,39"/>
 </map>

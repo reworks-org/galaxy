@@ -1,4 +1,4 @@
 <map id="galaxy::graphics::Renderer::buffer_camera" name="galaxy::graphics::Renderer::buffer_camera">
-<area shape="rect" id="node1" title=" " alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node1" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
 <area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
 </map>
