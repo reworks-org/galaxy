@@ -40,32 +40,42 @@ namespace galaxy
 			~Renderer() = default;
 
 			///
-			///
+			/// Update the camera uniform buffer.
 			///
 			static void buffer_camera(Camera& camera);
 
 			///
-			///
+			/// Submit render data to renderer.
 			///
 			static void submit(RenderCommand& command);
 
 			///
-			///
+			/// Draw all submitted data to screen.
 			///
 			static void draw();
 
 			///
-			///
+			/// Delete any data stored by the renderer.
 			///
 			static void flush();
 
 			///
+			/// Draw a texture to a render texture.
 			///
+			/// \param target Target to draw texture to.
+			/// \param texture Texture to draw to the target.
+			/// \param va Vertex array object.
+			/// \param transform Orthographic transform component.
 			///
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 
 			///
+			/// Draw a texture to a framebuffer.
 			///
+			/// \param texture OpenGL texture handlr.
+			/// \param va Vertex array object.
+			/// \param transform Orthographic transform component.
+			/// \param proj Orthographic projection matrix.
 			///
 			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
 
@@ -104,7 +114,7 @@ namespace galaxy
 			static meta::vector<RenderCommand> s_data;
 
 			///
-			///
+			/// Shader used when drawing with renderer.
 			///
 			static graphics::Shader s_r2d_shader;
 
