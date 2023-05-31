@@ -104,7 +104,7 @@ namespace galaxy
 			/// \param texture GL texture handle.
 			/// \param plane PLM decoder data.
 			///
-			void update_texture(unsigned int unit, unsigned int texture, plm_plane_t* plane);
+			void update_texture(unsigned int unit, unsigned int texture, const plm_plane_t* plane);
 
 		private:
 			///

@@ -81,7 +81,7 @@ namespace galaxy
 					plm_set_video_decode_callback(
 						m_plm,
 						[](plm_t* self, plm_frame_t* frame, void* user) {
-							auto video = reinterpret_cast<Video*>(user);
+							auto video = static_cast<Video*>(user);
 
 							video->update_texture(GL_TEXTURE0, video->m_texture_y, &frame->y);
 							video->update_texture(GL_TEXTURE1, video->m_texture_cb, &frame->cb);
@@ -134,7 +134,7 @@ namespace galaxy
 		{
 			m_shader.bind();
 			glBindVertexArray(m_vao);
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 			glBindVertexArray(0);
 			glUseProgram(0);
 		}
@@ -190,7 +190,7 @@ namespace galaxy
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-			GLint swizzleMask[] = {GL_ZERO, GL_ZERO, GL_ZERO, GL_RED};
+			constexpr const int swizzleMask[] = {GL_ZERO, GL_ZERO, GL_ZERO, GL_RED};
 			glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -200,7 +200,7 @@ namespace galaxy
 			return texture;
 		}
 
-		void Video::update_texture(unsigned int unit, unsigned int texture, plm_plane_t* plane)
+		void Video::update_texture(unsigned int unit, unsigned int texture, const plm_plane_t* plane)
 		{
 			glActiveTexture(unit);
 			glBindTexture(GL_TEXTURE_2D, texture);
