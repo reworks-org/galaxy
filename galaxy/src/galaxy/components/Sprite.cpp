@@ -42,11 +42,11 @@ namespace galaxy
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
-			this->m_vao     = std::move(s.m_vao);
-			this->m_texture = std::move(s.m_texture);
-			this->m_opacity = s.m_opacity;
-			this->m_width   = s.m_width;
-			this->m_height  = s.m_height;
+			this->m_vao      = std::move(s.m_vao);
+			this->m_tex_name = std::move(s.m_tex_name);
+			this->m_opacity  = s.m_opacity;
+			this->m_width    = s.m_width;
+			this->m_height   = s.m_height;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s)
@@ -54,12 +54,11 @@ namespace galaxy
 			if (this != &s)
 			{
 				this->Renderable::operator=(std::move(s));
-
-				this->m_vao     = std::move(s.m_vao);
-				this->m_texture = std::move(s.m_texture);
-				this->m_opacity = s.m_opacity;
-				this->m_width   = s.m_width;
-				this->m_height  = s.m_height;
+				this->m_vao      = std::move(s.m_vao);
+				this->m_tex_name = std::move(s.m_tex_name);
+				this->m_opacity  = s.m_opacity;
+				this->m_width    = s.m_width;
+				this->m_height   = s.m_height;
 			}
 
 			return *this;
@@ -78,12 +77,12 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = static_cast<float>(info.m_region.m_width);
-				m_height = static_cast<float>(info.m_region.m_height);
-
-				m_layer = layer;
-				set_opacity(opacity);
-				m_texture_id = info.m_handle;
+				m_tex_name       = texture;
+				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
+				m_width          = static_cast<float>(info.m_region.m_width);
+				m_height         = static_cast<float>(info.m_region.m_height);
+				m_layer          = layer;
+				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -100,9 +99,6 @@ namespace galaxy
 				vertices[3].m_texels = info.m_texel_region.bl_texels();
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-				m_texture = texture;
-
-				configure();
 			}
 			else
 			{
@@ -119,12 +115,12 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = static_cast<float>(texture_rect.m_width);
-				m_height = static_cast<float>(texture_rect.m_height);
-
-				m_layer = layer;
-				set_opacity(opacity);
-				m_texture_id = info.m_handle;
+				m_tex_name       = texture;
+				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
+				m_width          = static_cast<float>(info.m_region.m_width);
+				m_height         = static_cast<float>(info.m_region.m_height);
+				m_layer          = layer;
+				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -148,9 +144,6 @@ namespace galaxy
 				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-				m_texture = texture;
-
-				configure();
 			}
 			else
 			{
@@ -167,10 +160,10 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = static_cast<float>(info.m_region.m_width);
-				m_height = static_cast<float>(info.m_region.m_height);
-
-				m_texture_id = info.m_handle;
+				m_tex_name       = texture;
+				m_width          = static_cast<float>(info.m_region.m_width);
+				m_height         = static_cast<float>(info.m_region.m_height);
+				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -187,7 +180,6 @@ namespace galaxy
 				vertices[3].m_texels = info.m_texel_region.bl_texels();
 
 				m_vao.sub_buffer(0, vertices);
-				m_texture = texture;
 			}
 			else
 			{
@@ -204,10 +196,10 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_width  = static_cast<float>(texture_rect.m_width);
-				m_height = static_cast<float>(texture_rect.m_height);
-
-				m_texture_id = info.m_handle;
+				m_tex_name       = texture;
+				m_width          = static_cast<float>(info.m_region.m_width);
+				m_height         = static_cast<float>(info.m_region.m_height);
+				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -231,7 +223,6 @@ namespace galaxy
 				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
 				m_vao.sub_buffer(0, vertices);
-				m_texture = texture;
 			}
 			else
 			{
@@ -259,25 +250,22 @@ namespace galaxy
 			return m_height;
 		}
 
-		const std::string& Sprite::texture_id() const
+		const std::string& Sprite::get_texture_name() const
 		{
-			return m_texture;
+			return m_tex_name;
 		}
 
-		void Sprite::configure()
+		const graphics::VertexArray& Sprite::get_vao() const
 		{
-			m_vao_id      = m_vao.id();
-			m_index_count = m_vao.index_count();
-			m_instances   = 1;
-			set_primitive_type(graphics::Primitives::TRIANGLE);
+			return m_vao;
 		}
 
 		nlohmann::json Sprite::serialize()
 		{
-			nlohmann::json json = "{}"_json;
-			json["texture"]     = m_texture;
-			json["opacity"]     = m_opacity;
-			json["layer"]       = m_layer;
+			nlohmann::json json  = "{}"_json;
+			json["texture_name"] = m_tex_name;
+			json["opacity"]      = m_opacity;
+			json["layer"]        = m_layer;
 
 			return json;
 		}

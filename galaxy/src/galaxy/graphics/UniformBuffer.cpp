@@ -17,13 +17,6 @@ namespace galaxy
 			glGenBuffers(1, &m_ubo);
 		}
 
-		UniformBuffer::UniformBuffer(const unsigned int index)
-			: m_ubo {0}
-		{
-			glGenBuffers(1, &m_ubo);
-			create(index);
-		}
-
 		UniformBuffer::UniformBuffer(UniformBuffer&& ub)
 		{
 			if (this->m_ubo != 0)
@@ -60,29 +53,6 @@ namespace galaxy
 				glDeleteBuffers(1, &m_ubo);
 				m_ubo = 0;
 			}
-		}
-
-		void UniformBuffer::create(const unsigned int index)
-		{
-			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
-			glBindBufferBase(GL_UNIFORM_BUFFER, index, m_ubo);
-			glBindBuffer(GL_UNIFORM_BUFFER, 0);
-		}
-
-		void UniformBuffer::reserve(const unsigned int size)
-		{
-			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
-
-			GLint64 buffer_size = 0;
-			glGetBufferParameteri64v(GL_UNIFORM_BUFFER, GL_BUFFER_SIZE, &buffer_size);
-
-			if (buffer_size != size)
-			{
-				glInvalidateBufferData(m_ubo);
-				glBufferData(GL_UNIFORM_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
-			}
-
-			glBindBuffer(GL_UNIFORM_BUFFER, 0);
 		}
 
 		void UniformBuffer::bind()

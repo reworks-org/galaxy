@@ -6,8 +6,8 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/graphics/DefaultShaders.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/utils/Globals.hpp"
 
 #include "Renderer.hpp"
 
@@ -15,91 +15,82 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		std::unique_ptr<UniformBuffer> Renderer::s_ubo = nullptr;
-		meta::vector<Renderable*> Renderer::s_data;
-		int Renderer::s_prev_shader  = -1;
+		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo = nullptr;
+		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo    = nullptr;
+		meta::vector<RenderCommand> Renderer::s_data;
+		graphics::Shader Renderer::s_r2d_shader;
 		int Renderer::s_prev_texture = -1;
 
 		void Renderer::init()
 		{
-			s_ubo = std::make_unique<UniformBuffer>();
-			s_ubo->create(GAlAXY_CAMERA_UBO_INDEX);
-			s_ubo->reserve(sizeof(Camera::Data));
+			s_camera_ubo = std::make_unique<UniformBuffer>();
+			s_r2d_ubo    = std::make_unique<UniformBuffer>();
+
+			s_camera_ubo->create<Camera::Data>(GAlAXY_CAMERA_UBO_INDEX);
+			s_r2d_ubo->create<Render2DUniform>(GAlAXY_CAMERA_R2D_INDEX);
 
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
+
+			s_r2d_shader.load_raw(shaders::r2d_vert, shaders::r2d_frag);
+			s_r2d_shader.compile();
 		}
 
 		void Renderer::destroy()
 		{
 			s_data.clear();
+			s_camera_ubo.reset();
+			s_r2d_ubo.reset();
+			s_r2d_shader.destroy();
 
-			s_ubo.reset();
-			s_ubo = nullptr;
-
-			s_prev_shader  = -1;
 			s_prev_texture = -1;
+			s_camera_ubo   = nullptr;
+			s_r2d_ubo      = nullptr;
 		}
 
 		void Renderer::buffer_camera(Camera& camera)
 		{
-			s_ubo->sub_buffer<Camera::Data>(0, 1, &camera.get_data());
+			s_camera_ubo->buffer<Camera::Data>(0, 1, &camera.get_data());
 		}
 
-		void Renderer::submit(Renderable* renderable)
+		void Renderer::submit(RenderCommand& command)
 		{
-			s_data.push_back(renderable);
+			s_data.emplace_back(std::move(command));
 		}
 
 		void Renderer::draw()
 		{
-			s_prev_shader  = -1;
 			s_prev_texture = -1;
 
 			// I don't think we would ever sort the amount of renderable data required to do this in parallel faster.
 			// std::execution::par maybe used when > 1000? But 1000 draw calls is too slow anyway.
 
-			std::sort(s_data.begin(), s_data.end(), [](const Renderable* left, const Renderable* right) -> bool {
-				if (left->m_layer == right->m_layer)
+			std::sort(s_data.begin(), s_data.end(), [](const RenderCommand& left, const RenderCommand& right) -> bool {
+				if (left.layer == right.layer)
 				{
-					if (left->m_texture_id == right->m_texture_id)
-					{
-						return left->m_shader_sort_id < right->m_shader_sort_id;
-					}
-					else
-					{
-						return left->m_texture_id < right->m_texture_id;
-					}
+					return left.texture < right.texture;
 				}
 				else
 				{
-					return left->m_layer < right->m_layer;
+					return left.layer < right.layer;
 				}
 			});
 
-			glActiveTexture(GL_TEXTURE0);
+			s_r2d_shader.bind();
 
-			for (auto i = 0; i < s_data.size(); i++)
+			for (auto& cmd : s_data)
 			{
-				auto renderable = s_data[i];
+				s_r2d_ubo->buffer<Render2DUniform>(0, 1, &cmd.uniform_data);
 
-				const auto shader = renderable->m_configure_shader();
-				if (s_prev_shader != shader)
+				glBindVertexArray(cmd.vao);
+
+				if (s_prev_texture != cmd.texture)
 				{
-					glUseProgram(shader);
-					s_prev_shader = shader;
-				}
-
-				// Don't need to check, usually will always be different.
-				glBindVertexArray(renderable->m_vao_id);
-
-				if (s_prev_texture != renderable->m_texture_id)
-				{
-					glBindTexture(GL_TEXTURE_2D, renderable->m_texture_id);
-					s_prev_texture = renderable->m_texture_id;
+					glBindTextureUnit(GL_TEXTURE0, cmd.texture);
+					s_prev_texture = cmd.texture;
 				}
 
 				// Instances = 1 is the same as glDrawElements.
-				glDrawElementsInstanced(renderable->m_type, renderable->m_index_count, GL_UNSIGNED_INT, nullptr, renderable->m_instances);
+				glDrawElementsInstanced(cmd.mode, cmd.count, GL_UNSIGNED_INT, nullptr, cmd.instances);
 			}
 		}
 
@@ -159,11 +150,6 @@ namespace galaxy
 			glBindVertexArray(0);
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glUseProgram(0);
-		}
-
-		meta::vector<Renderable*>& Renderer::get_data()
-		{
-			return s_data;
 		}
 	} // namespace graphics
 } // namespace galaxy

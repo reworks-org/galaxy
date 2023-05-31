@@ -22,7 +22,7 @@ namespace galaxy
 			, m_width {0}
 			, m_height {0}
 			, m_shape {graphics::Shape::POLYGON}
-			, m_colour {0, 0, 0, 255}
+			, m_mode {0}
 		{
 		}
 
@@ -32,7 +32,7 @@ namespace galaxy
 			, m_width {0}
 			, m_height {0}
 			, m_shape {graphics::Shape::POLYGON}
-			, m_colour {0, 0, 0, 255}
+			, m_mode {0}
 		{
 			deserialize(json);
 		}
@@ -43,14 +43,15 @@ namespace galaxy
 			, m_width {0}
 			, m_height {0}
 			, m_shape {graphics::Shape::POLYGON}
-			, m_colour {0, 0, 0, 255}
+			, m_mode {0}
 		{
+			this->m_colour = std::move(p.m_colour);
 			this->m_width  = p.m_width;
 			this->m_height = p.m_height;
 			this->m_shape  = p.m_shape;
 			this->m_data   = std::move(p.m_data);
 			this->m_vao    = std::move(p.m_vao);
-			this->m_colour = std::move(p.m_colour);
+			this->m_mode   = p.m_mode;
 		}
 
 		Primitive& Primitive::operator=(Primitive&& p)
@@ -59,12 +60,13 @@ namespace galaxy
 			{
 				this->Renderable::operator=(std::move(p));
 
+				this->m_colour = std::move(p.m_colour);
 				this->m_width  = p.m_width;
 				this->m_height = p.m_height;
 				this->m_shape  = p.m_shape;
 				this->m_data   = std::move(p.m_data);
 				this->m_vao    = std::move(p.m_vao);
-				this->m_colour = std::move(p.m_colour);
+				this->m_mode   = p.m_mode;
 			}
 
 			return *this;
@@ -94,11 +96,14 @@ namespace galaxy
 			return m_height;
 		}
 
-		void Primitive::configure()
+		unsigned int Primitive::get_mode() const
 		{
-			m_vao_id      = m_vao.id();
-			m_index_count = m_vao.index_count();
-			m_instances   = 1;
+			return m_mode;
+		}
+
+		const graphics::VertexArray& Primitive::get_vao() const
+		{
+			return m_vao;
 		}
 
 		nlohmann::json Primitive::serialize()

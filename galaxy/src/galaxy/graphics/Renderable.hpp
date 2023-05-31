@@ -8,23 +8,18 @@
 #ifndef GALAXY_GRAPHICS_RENDERABLE_HPP_
 #define GALAXY_GRAPHICS_RENDERABLE_HPP_
 
-#include <functional>
-
 #include "galaxy/graphics/Primitives.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		class Renderer;
-
 		///
 		/// Data to submit to renderer.
 		///
 		class Renderable
 		{
-			friend class Renderer;
-
 		public:
 			///
 			/// Move constructor.
@@ -41,59 +36,32 @@ namespace galaxy
 			///
 			virtual ~Renderable();
 
+			///
+			/// Gets OpenGL texture id.
+			///
+			/// \return unsigned int. 0 if no texture.
+			///
+			[[nodiscard]] unsigned int get_texture_handle() const;
+
+			///
+			/// Get rendering layer.
+			///
+			/// \return Integer. 0 is valid as a layer. So are negatives.
+			///
+			[[nodiscard]] int get_layer() const;
+
+			///
+			/// Get VAO object.
+			///
+			/// \return Reference to this renderable's VAO.
+			///
+			[[nodiscard]] virtual const graphics::VertexArray& get_vao() const = 0;
+
 		protected:
 			///
 			/// Constructor.
 			///
 			Renderable();
-
-			///
-			/// Configure renderable.
-			///
-			virtual void configure() = 0;
-
-			///
-			/// Set primitive draw type.
-			///
-			/// \param type Primitive OpenGL draw type.
-			///
-			void set_primitive_type(const Primitives type);
-
-		protected:
-			///
-			/// Vertex Array Object to bind.
-			///
-			unsigned int m_vao_id;
-
-			///
-			/// Texture ID.
-			///
-			unsigned int m_texture_id;
-
-			///
-			/// Index (element) buffer count.
-			///
-			int m_index_count;
-
-			///
-			/// Number of instances to render.
-			///
-			int m_instances;
-
-			///
-			/// Object z-level for drawing.
-			///
-			int m_layer;
-
-			///
-			/// Shader config function.
-			///
-			std::function<unsigned int(void)> m_configure_shader;
-
-			///
-			/// Shader id to sort by.
-			///
-			unsigned int m_shader_sort_id;
 
 		private:
 			///
@@ -106,11 +74,16 @@ namespace galaxy
 			///
 			Renderable& operator=(const Renderable&) = delete;
 
-		private:
+		protected:
 			///
-			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
+			/// Opengl texture id.
 			///
-			unsigned int m_type;
+			unsigned int m_texture_handle;
+
+			///
+			/// Object z-level for drawing.
+			///
+			int m_layer;
 		};
 	} // namespace graphics
 } // namespace galaxy

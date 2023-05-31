@@ -41,46 +41,46 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Text::Text(Text&& s)
-			: Renderable {std::move(s)}
+		Text::Text(Text&& t)
+			: Renderable {std::move(t)}
 			, Serializable {}
 			, m_font {nullptr}
 			, m_width {0.0f}
 			, m_height {0.0f}
 			, m_size {0.0f}
 		{
-			this->m_colour    = std::move(s.m_colour);
-			this->m_vao       = std::move(s.m_vao);
-			this->m_rt        = std::move(s.m_rt);
-			this->m_font_id   = std::move(s.m_font_id);
-			this->m_font      = s.m_font;
-			this->m_width     = s.m_width;
-			this->m_height    = s.m_height;
-			this->m_text      = std::move(s.m_text);
-			this->m_size      = s.m_size;
-			this->m_alignment = s.m_alignment;
+			this->m_vao       = std::move(t.m_vao);
+			this->m_colour    = std::move(t.m_colour);
+			this->m_rt        = std::move(t.m_rt);
+			this->m_font_name = t.m_font_name;
+			this->m_font      = t.m_font;
+			this->m_width     = t.m_width;
+			this->m_height    = t.m_height;
+			this->m_text      = std::move(t.m_text);
+			this->m_size      = t.m_size;
+			this->m_alignment = t.m_alignment;
 
-			s.m_font = nullptr;
+			t.m_font = nullptr;
 		}
 
-		Text& Text::operator=(Text&& s)
+		Text& Text::operator=(Text&& t)
 		{
-			if (this != &s)
+			if (this != &t)
 			{
-				this->Renderable::operator=(std::move(s));
+				this->Renderable::operator=(std::move(t));
 
-				this->m_colour    = std::move(s.m_colour);
-				this->m_vao       = std::move(s.m_vao);
-				this->m_rt        = std::move(s.m_rt);
-				this->m_font_id   = std::move(s.m_font_id);
-				this->m_font      = s.m_font;
-				this->m_width     = s.m_width;
-				this->m_height    = s.m_height;
-				this->m_text      = std::move(s.m_text);
-				this->m_size      = s.m_size;
-				this->m_alignment = s.m_alignment;
+				this->m_vao       = std::move(t.m_vao);
+				this->m_colour    = std::move(t.m_colour);
+				this->m_rt        = std::move(t.m_rt);
+				this->m_font_name = t.m_font_name;
+				this->m_font      = t.m_font;
+				this->m_width     = t.m_width;
+				this->m_height    = t.m_height;
+				this->m_text      = std::move(t.m_text);
+				this->m_size      = t.m_size;
+				this->m_alignment = t.m_alignment;
 
-				s.m_font = nullptr;
+				t.m_font = nullptr;
 			}
 
 			return *this;
@@ -95,26 +95,25 @@ namespace galaxy
 		Text::create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, const int layer, Alignment alignment)
 		{
 			m_colour    = colour;
-			m_font_id   = font;
+			m_font_name = font;
+			m_text      = text;
 			m_size      = size;
 			m_alignment = alignment;
+			m_layer     = layer;
 
-			m_layer = layer;
-
-			m_text = text;
 			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
 
 			if (!font.empty())
 			{
 				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
-				m_font      = fonts.get(m_font_id);
+				m_font      = fonts.get(m_font_name);
 
 				const auto vec = m_font->get_text_size(m_text, m_size);
 				m_width        = vec.x;
 				m_height       = vec.y;
 
 				m_rt.create(static_cast<int>(m_width), static_cast<int>(m_height));
-				m_texture_id = m_rt.get_texture();
+				m_texture_handle = m_rt.get_texture();
 
 				m_rt.bind(true);
 
@@ -156,8 +155,6 @@ namespace galaxy
 
 				auto vertices = graphics::Vertex::gen_quad_vertices(static_cast<int>(m_width), static_cast<int>(m_height));
 				m_vao.create(vertices, graphics::StorageFlag::DYNAMIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
-
-				configure();
 			}
 			else
 			{
@@ -170,10 +167,10 @@ namespace galaxy
 			m_text = text;
 			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
 
-			if (!m_font_id.empty())
+			if (!m_font_name.empty())
 			{
 				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
-				m_font      = fonts.get(m_font_id);
+				m_font      = fonts.get(m_font_name);
 
 				const auto vec = m_font->get_text_size(m_text, m_size);
 				m_width        = vec.x;
@@ -308,15 +305,12 @@ namespace galaxy
 
 		const std::string& Text::get_font() const
 		{
-			return m_font_id;
+			return m_font_name;
 		}
 
-		void Text::configure()
+		const graphics::VertexArray& Text::get_vao() const
 		{
-			m_vao_id      = m_vao.id();
-			m_index_count = m_vao.index_count();
-			m_instances   = 1;
-			set_primitive_type(graphics::Primitives::TRIANGLE);
+			return m_vao;
 		}
 
 		nlohmann::json Text::serialize()
@@ -325,7 +319,7 @@ namespace galaxy
 
 			json["text"]      = m_text;
 			json["size"]      = m_size;
-			json["font"]      = m_font_id;
+			json["font"]      = m_font_name;
 			json["layer"]     = m_layer;
 			json["alignment"] = static_cast<int>(m_alignment);
 

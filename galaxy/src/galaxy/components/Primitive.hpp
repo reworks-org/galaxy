@@ -149,6 +149,20 @@ namespace galaxy
 			[[nodiscard]] float get_height() const;
 
 			///
+			/// Get OpenGL rendering mode.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] unsigned int get_mode() const;
+
+			///
+			/// Get VAO object.
+			///
+			/// \return Reference to this renderable's VAO.
+			///
+			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -172,11 +186,6 @@ namespace galaxy
 			/// Copy constructor.
 			///
 			Primitive(const Primitive&) = delete;
-
-			///
-			/// Configure renderable.
-			///
-			void configure() override;
 
 		public:
 			///
@@ -206,17 +215,23 @@ namespace galaxy
 			PrimitiveData m_data;
 
 			///
-			/// GPU vertex data.
+			/// Vertex Array Object.
 			///
 			graphics::VertexArray m_vao;
+
+			///
+			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
+			///
+			unsigned int m_mode;
 		};
 
 		template<graphics::Shape shape>
 		inline void Primitive::create(const PrimitiveData& data, const graphics::Colour& colour, const int layer)
 		{
-			m_shape = shape;
-			m_data  = data;
-			m_layer = layer;
+			m_shape          = shape;
+			m_data           = data;
+			m_layer          = layer;
+			m_texture_handle = 0;
 
 			meta::vector<unsigned int> indices;
 			meta::vector<graphics::Vertex> vertices;
@@ -242,8 +257,7 @@ namespace galaxy
 					count++;
 				}
 
-				set_primitive_type(graphics::Primitives::LINE_LOOP);
-
+				m_mode   = graphics::primitive_to_gl(graphics::Primitives::LINE_LOOP);
 				m_width  = data.radius * 2.0f;
 				m_height = data.radius * 2.0f;
 			}
@@ -276,8 +290,7 @@ namespace galaxy
 					y    = sine * temp + cosine * y;
 				}
 
-				set_primitive_type(graphics::Primitives::LINE_LOOP);
-
+				m_mode   = graphics::primitive_to_gl(graphics::Primitives::LINE_LOOP);
 				m_width  = m_data.radii.x * 2.0f;
 				m_height = m_data.radii.y * 2.0f;
 			}
@@ -296,8 +309,7 @@ namespace galaxy
 				indices.push_back(0);
 				indices.push_back(1);
 
-				set_primitive_type(graphics::Primitives::LINE);
-
+				m_mode   = graphics::primitive_to_gl(graphics::Primitives::LINE);
 				m_width  = 0.0f;
 				m_height = 0.0f;
 			}
@@ -309,8 +321,7 @@ namespace galaxy
 				vertices.emplace_back(vertex);
 				indices.push_back(0);
 
-				set_primitive_type(graphics::Primitives::POINT);
-
+				m_mode   = graphics::primitive_to_gl(graphics::Primitives::POINT);
 				m_width  = 0.0f;
 				m_height = 0.0f;
 			}
@@ -345,11 +356,10 @@ namespace galaxy
 					count++;
 				}
 
-				set_primitive_type(graphics::Primitives::LINE_LOOP);
+				m_mode = graphics::primitive_to_gl(graphics::Primitives::LINE_LOOP);
 			}
 
 			m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, indices, graphics::StorageFlag::STATIC_DRAW);
-			configure();
 		}
 	} // namespace components
 } // namespace galaxy

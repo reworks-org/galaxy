@@ -137,7 +137,14 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& texture_id() const;
+			[[nodiscard]] const std::string& get_texture_name() const;
+
+			///
+			/// Get VAO object.
+			///
+			/// \return Reference to this renderable's VAO.
+			///
+			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
 
 			///
 			/// Serializes object.
@@ -164,11 +171,6 @@ namespace galaxy
 			///
 			Sprite& operator=(const Sprite&) = delete;
 
-			///
-			/// Configure renderable.
-			///
-			void configure() override;
-
 		private:
 			///
 			/// Vertex Array Object.
@@ -178,7 +180,7 @@ namespace galaxy
 			///
 			/// Texture Name.
 			///
-			std::string m_texture;
+			std::string m_tex_name;
 
 			///
 			/// Sprite opacity.

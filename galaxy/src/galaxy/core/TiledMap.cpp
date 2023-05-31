@@ -7,7 +7,6 @@
 
 #include <entt/entt.hpp>
 
-#include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Map.hpp"
@@ -145,9 +144,6 @@ namespace galaxy
 			{
 				tag.m_tag = "Unnamed Tile Layer";
 			}
-
-			auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-			shader.set_shader("TiledMap");
 
 			auto& map = m_scene->m_world.m_registry.emplace<components::Map>(entity, layer.getTileObjects().size());
 
@@ -324,9 +320,6 @@ namespace galaxy
 
 								auto& sprite = m_scene->m_world.m_registry.emplace<components::Sprite>(entity);
 								sprite.create(image.stem().string(), {offset.x, offset.y, tx, ty}, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Sprite");
 							}
 							break;
 
@@ -340,9 +333,6 @@ namespace galaxy
 								data.radii.y   = obj.getSize().y / 2.0f;
 
 								primitive.create<graphics::Shape::ELLIPSE>(data, colour, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Line");
 							}
 							break;
 
@@ -357,9 +347,6 @@ namespace galaxy
 								data.points.emplace_back(0.0f, obj.getSize().y);
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Line");
 							}
 							break;
 
@@ -367,9 +354,6 @@ namespace galaxy
 							{
 								auto& primitive = m_scene->m_world.m_registry.emplace<components::Primitive>(entity);
 								primitive.create<graphics::Shape::POINT>({}, colour, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Point");
 							}
 							break;
 
@@ -384,9 +368,6 @@ namespace galaxy
 								}
 
 								primitive.create<graphics::Shape::POLYGON>(data, colour, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Line");
 							}
 							break;
 
@@ -401,9 +382,6 @@ namespace galaxy
 								}
 
 								primitive.create<graphics::Shape::POLYLINE>(data, colour, level);
-
-								auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-								shader.set_shader("Line");
 							}
 							break;
 
@@ -444,9 +422,6 @@ namespace galaxy
 
 			auto& tf = m_scene->m_world.m_registry.emplace<components::Transform>(entity);
 			tf.set_pos(layer.getOffset().x, layer.getOffset().y);
-
-			auto& shader = m_scene->m_world.m_registry.emplace<components::DrawShader>(entity);
-			shader.set_shader("Sprite");
 		}
 
 		glm::ivec2 TiledMap::get_tile_offset(const int tile_id, const tson::Map* map, const tson::Tileset* tileset)

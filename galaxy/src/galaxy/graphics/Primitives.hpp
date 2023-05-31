@@ -54,6 +54,18 @@ namespace galaxy
 			///
 			TRIANGLE_FAN = GL_TRIANGLE_FAN
 		};
+
+		///
+		/// Convert a primitive enum to OpenGL draw type.
+		///
+		/// \param type Primitive enum.
+		///
+		/// \return OpenGL glDraw* mode.
+		///
+		[[nodiscard]] inline constexpr unsigned int primitive_to_gl(const Primitives type)
+		{
+			return static_cast<unsigned int>(type);
+		}
 	} // namespace graphics
 } // namespace galaxy
 

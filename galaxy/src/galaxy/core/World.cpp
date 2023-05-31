@@ -11,7 +11,6 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -48,7 +47,6 @@ namespace galaxy
 			m_b2world = std::make_unique<b2World>(b2Vec2 {0.0f, 0.0f});
 
 			register_component<components::Animated>("Animated");
-			register_component<components::DrawShader>("DrawShader");
 			register_component<components::Flag>("Flag");
 			register_component<components::Primitive>("Primitive");
 			register_component<components::RigidBody>("RigidBody");
@@ -64,7 +62,9 @@ namespace galaxy
 			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
 
 			// Handle validation.
-			register_dependencies<components::Sprite, components::Transform, components::DrawShader>();
+			register_dependencies<components::Sprite, components::Transform>();
+			register_dependencies<components::Primitive, components::Transform>();
+			register_dependencies<components::Text, components::Transform>();
 			register_dependencies<components::Animated, components::Sprite>();
 			register_dependencies<components::RigidBody, components::Transform>();
 
@@ -245,12 +245,6 @@ namespace galaxy
 			if (animated != nullptr)
 			{
 				json["components"]["Animated"] = animated->serialize();
-			}
-
-			auto draw_shader = m_registry.try_get<components::DrawShader>(entity);
-			if (draw_shader != nullptr)
-			{
-				json["components"]["DrawShader"] = draw_shader->serialize();
 			}
 
 			auto flag = m_registry.try_get<components::Flag>(entity);

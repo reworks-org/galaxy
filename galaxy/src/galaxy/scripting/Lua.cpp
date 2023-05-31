@@ -17,7 +17,6 @@
 #include "galaxy/algorithm/ZLib.hpp"
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/DrawShader.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -456,17 +455,6 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::Animated>();
 
-			auto drawshader_type = lua.new_usertype<components::DrawShader>("DrawShader",
-				sol::constructors<components::DrawShader()>(),
-				"type_id",
-				&entt::type_hash<components::DrawShader>::value);
-
-			drawshader_type["shader"]     = &components::DrawShader::m_shader;
-			drawshader_type["set_shader"] = &components::DrawShader::set_shader;
-			drawshader_type["id"]         = &components::DrawShader::id;
-
-			entt_sol::register_meta_component<components::DrawShader>();
-
 			auto flag_type =
 				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Animated>::value);
 			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
@@ -822,13 +810,14 @@ namespace galaxy
 			});
 			// clang-format on
 
-			auto colour_type          = lua.new_usertype<graphics::Colour>("Colour",
+			auto colour_type        = lua.new_usertype<graphics::Colour>("Colour",
                 sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
-			colour_type["alpha"]      = &graphics::Colour::m_alpha;
-			colour_type["blue"]       = &graphics::Colour::m_blue;
-			colour_type["green"]      = &graphics::Colour::m_green;
-			colour_type["red"]        = &graphics::Colour::m_red;
-			colour_type["normalized"] = &graphics::Colour::normalized;
+			colour_type["alpha"]    = &graphics::Colour::m_alpha;
+			colour_type["blue"]     = &graphics::Colour::m_blue;
+			colour_type["green"]    = &graphics::Colour::m_green;
+			colour_type["red"]      = &graphics::Colour::m_red;
+			colour_type["to_array"] = &graphics::Colour::to_array;
+			colour_type["to_vec4"]  = &graphics::Colour::to_vec4;
 
 			auto irect_type =
 				lua.new_usertype<graphics::iRect>("iRect", sol::constructors<graphics::iRect(), graphics::iRect(const int, const int, const int, const int)>());

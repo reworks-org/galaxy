@@ -213,6 +213,13 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_font() const;
 
 			///
+			/// Get VAO object.
+			///
+			/// \return Reference to this renderable's VAO.
+			///
+			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -237,11 +244,6 @@ namespace galaxy
 			///
 			Text& operator=(const Text&) = delete;
 
-			///
-			/// Configure renderable.
-			///
-			void configure() override;
-
 		public:
 			///
 			/// Text colour.
@@ -262,7 +264,7 @@ namespace galaxy
 			///
 			/// Font Name.
 			///
-			std::string m_font_id;
+			std::string m_font_name;
 
 			///
 			/// Pointer to font resource.

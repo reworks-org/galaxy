@@ -8,13 +8,12 @@
 #ifndef GALAXY_GRAPHICS_RENDERER_HPP_
 #define GALAXY_GRAPHICS_RENDERER_HPP_
 
-#include <string>
-
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/Renderable.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/Texture.hpp"
+#include "galaxy/graphics/RenderCommand.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/UniformBuffer.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
@@ -40,15 +39,35 @@ namespace galaxy
 			///
 			~Renderer() = default;
 
+			///
+			///
+			///
 			static void buffer_camera(Camera& camera);
 
-			static void submit(Renderable* renderable);
-			static void draw();
-			static void flush();
-			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
-			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
+			///
+			///
+			///
+			static void submit(RenderCommand& command);
 
-			static meta::vector<Renderable*>& get_data();
+			///
+			///
+			///
+			static void draw();
+
+			///
+			///
+			///
+			static void flush();
+
+			///
+			///
+			///
+			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
+
+			///
+			///
+			///
+			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
 
 		private:
 			///
@@ -70,19 +89,24 @@ namespace galaxy
 
 		private:
 			///
-			/// Uniform buffer for camera and other general shader data.
+			/// Uniform buffer for camera.
 			///
-			static std::unique_ptr<UniformBuffer> s_ubo;
+			static std::unique_ptr<UniformBuffer> s_camera_ubo;
+
+			///
+			/// 2D renderer UBO.
+			///
+			static std::unique_ptr<UniformBuffer> s_r2d_ubo;
 
 			///
 			/// Storage for renderables submitted.
 			///
-			static meta::vector<Renderable*> s_data;
+			static meta::vector<RenderCommand> s_data;
 
 			///
-			/// Cache previous shader to prevent rebinding.
 			///
-			static int s_prev_shader;
+			///
+			static graphics::Shader s_r2d_shader;
 
 			///
 			/// Cache previous texture to prevent rebinding.

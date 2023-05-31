@@ -12,7 +12,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
-#include <galaxy/components/DrawShader.hpp>
 #include <galaxy/components/Flag.hpp>
 #include <galaxy/components/Map.hpp>
 #include <galaxy/components/Primitive.hpp>
@@ -90,7 +89,6 @@ namespace sc
 					if (ImGui::BeginPopup("AddNewComponent"))
 					{
 						draw_entry<components::Animated>(selected, "Animated");
-						draw_entry<components::DrawShader>(selected, "Draw Shader");
 						draw_entry<components::Flag>(selected, "Flag");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
@@ -238,32 +236,6 @@ namespace sc
 								if (selected)
 								{
 									ImGui::SetItemDefaultFocus();
-								}
-							}
-
-							ImGui::EndCombo();
-						}
-					});
-
-					draw_component<components::DrawShader>(selected, "Draw Shader", [&](components::DrawShader* ds) {
-						m_filter_shaders.DrawWithHint("###EntityShaderSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
-
-						if (ImGui::BeginCombo("Shader", ds->m_id.c_str()))
-						{
-							for (const auto& key : core::ServiceLocator<resource::Shaders>::ref().keys())
-							{
-								if (m_filter_shaders.PassFilter(key.c_str()))
-								{
-									const bool selected = (ds->m_id == key);
-									if (ImGui::Selectable(key.c_str(), selected))
-									{
-										ds->set_shader(key);
-									}
-
-									if (selected)
-									{
-										ImGui::SetItemDefaultFocus();
-									}
 								}
 							}
 
@@ -710,16 +682,16 @@ namespace sc
 
 						m_filter_textures.DrawWithHint("###EntityTextureSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
-						if (ImGui::BeginCombo("Texture", sprite->m_texture.c_str()))
+						if (ImGui::BeginCombo("Texture", sprite->m_tex_name.c_str()))
 						{
 							for (const auto& key : core::ServiceLocator<resource::TextureAtlas>::ref().keys())
 							{
 								if (m_filter_textures.PassFilter(key.c_str()))
 								{
-									const bool selected = (sprite->m_texture == key);
+									const bool selected = (sprite->m_tex_name == key);
 									if (ImGui::Selectable(key.c_str(), selected))
 									{
-										sprite->m_texture = key;
+										sprite->m_tex_name = key;
 									}
 
 									if (selected)
@@ -737,10 +709,10 @@ namespace sc
 
 						if (ImGui::Button("Create Sprite"))
 						{
-							if (!sprite->m_texture.empty())
+							if (!sprite->m_tex_name.empty())
 							{
 								updates.emplace_back([sprite]() {
-									sprite->create(sprite->m_texture, sprite->m_layer, sprite->m_opacity);
+									sprite->create(sprite->m_tex_name, sprite->m_layer, sprite->m_opacity);
 								});
 
 								ui::imgui_notify_success("New sprite created.");
@@ -755,10 +727,10 @@ namespace sc
 
 						if (ImGui::Button("Update Texture"))
 						{
-							if (!sprite->m_texture.empty())
+							if (!sprite->m_tex_name.empty())
 							{
 								updates.emplace_back([sprite]() {
-									sprite->update(sprite->m_texture);
+									sprite->update(sprite->m_tex_name);
 								});
 
 								ui::imgui_notify_success("Sprite updated.");
@@ -813,16 +785,16 @@ namespace sc
 
 						m_filter_fonts.DrawWithHint("###EntityFontSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
-						if (ImGui::BeginCombo("Font", text->m_font_id.c_str()))
+						if (ImGui::BeginCombo("Font", text->m_font_name.c_str()))
 						{
 							for (const auto& key : core::ServiceLocator<resource::Fonts>::ref().keys())
 							{
 								if (m_filter_fonts.PassFilter(key.c_str()))
 								{
-									const bool selected = (text->m_font_id == key);
+									const bool selected = (text->m_font_name == key);
 									if (ImGui::Selectable(key.c_str(), selected))
 									{
-										text->m_font_id = key;
+										text->m_font_name = key;
 									}
 
 									if (selected)
@@ -838,7 +810,7 @@ namespace sc
 						if (ImGui::Button("Create"))
 						{
 							updates.emplace_back([text]() {
-								text->create(text->m_text, text->m_size, text->m_font_id, text->m_colour, text->m_layer, text->m_alignment);
+								text->create(text->m_text, text->m_size, text->m_font_name, text->m_colour, text->m_layer, text->m_alignment);
 							});
 
 							ui::imgui_notify_success("Text created.");

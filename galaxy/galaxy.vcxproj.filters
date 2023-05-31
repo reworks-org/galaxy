@@ -46,7 +46,6 @@
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
@@ -102,7 +101,6 @@
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
-    <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
     <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
     <ClCompile Include="src\galaxy\graphics\DefaultShaders.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
@@ -145,6 +143,9 @@
     <ClCompile Include="src\galaxy\physics\Material.cpp" />
     <ClCompile Include="src\galaxy\resource\Materials.cpp" />
     <ClCompile Include="src\galaxy\media\Video.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -192,7 +193,6 @@
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
@@ -248,7 +248,6 @@
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
-    <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
     <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
     <ClInclude Include="src\galaxy\graphics\DefaultShaders.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
@@ -291,5 +290,8 @@
     <ClInclude Include="src\galaxy\physics\Material.hpp" />
     <ClInclude Include="src\galaxy\resource\Materials.hpp" />
     <ClInclude Include="src\galaxy\media\Video.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
   </ItemGroup>
 </Project>

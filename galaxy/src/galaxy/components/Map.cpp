@@ -52,23 +52,13 @@ namespace galaxy
 
 		void Map::configure(const unsigned int texture_id, const int layer)
 		{
-			m_vao_id      = m_spritebatch.vao().id();
-			m_texture_id  = texture_id;
-			m_index_count = m_spritebatch.count();
-			m_instances   = 1;
-			m_layer       = layer;
-			set_primitive_type(graphics::Primitives::TRIANGLE);
+			m_layer          = layer;
+			m_texture_handle = texture_id;
 		}
 
-		int Map::get_layer() const
+		const graphics::VertexArray& Map::get_vao() const
 		{
-			return m_layer;
-		}
-
-		void Map::configure()
-		{
-			GALAXY_LOG(GALAXY_FATAL, "Should not be called.");
-			static_assert("Map::configure() Should not be called.");
+			return m_spritebatch.vao();
 		}
 	} // namespace components
 } // namespace galaxy

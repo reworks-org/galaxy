@@ -12,6 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
@@ -43,7 +46,6 @@
     <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
-    <ClCompile Include="src\galaxy\components\DrawShader.cpp" />
     <ClCompile Include="src\galaxy\components\Flag.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
@@ -106,7 +108,6 @@
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
@@ -158,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />
     <ClInclude Include="src\galaxy\media\Sound.hpp" />
     <ClInclude Include="src\galaxy\media\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
@@ -189,7 +193,6 @@
     <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
-    <ClInclude Include="src\galaxy\components\DrawShader.hpp" />
     <ClInclude Include="src\galaxy\components\Flag.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
@@ -252,7 +255,6 @@
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />

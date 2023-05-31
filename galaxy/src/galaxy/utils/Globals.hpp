@@ -90,6 +90,11 @@ namespace galaxy
 #define GAlAXY_CAMERA_UBO_INDEX 0
 
 ///
+/// Index of render 2d uniform buffer in shaders.
+///
+#define GAlAXY_CAMERA_R2D_INDEX 1
+
+///
 /// Minimum zoom allowed on orthographic camera.
 ///
 #define GALAXY_MIN_CAMERA_ZOOM 0.1f

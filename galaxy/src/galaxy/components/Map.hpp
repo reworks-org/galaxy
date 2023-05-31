@@ -77,11 +77,11 @@ namespace galaxy
 			void configure(const unsigned int texture_id, const int layer);
 
 			///
-			/// Get render layer.
+			/// Get VAO object.
 			///
-			/// \return Integer.
+			/// \return Reference to this renderable's VAO.
 			///
-			[[nodiscard]] int get_layer() const;
+			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
 
 		public:
 			///
@@ -104,11 +104,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Map& operator=(const Map&) = delete;
-
-			///
-			/// Stubbed function. We don't need this here.
-			///
-			void configure() override;
 		};
 	} // namespace components
 } // namespace galaxy

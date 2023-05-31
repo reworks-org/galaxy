@@ -11,6 +11,7 @@
 #include <glad/glad.h>
 
 #include "galaxy/meta/Concepts.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 namespace galaxy
 {
@@ -26,15 +27,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			UniformBuffer();
-
-			///
-			/// \brief Argument Constructor.
-			///
-			/// Calls create().
-			///
-			/// \param index Index of UBO in shader.
-			///
-			UniformBuffer(const unsigned int index);
 
 			///
 			/// Move constructor.
@@ -54,16 +46,12 @@ namespace galaxy
 			///
 			/// Create the buffer.
 			///
+			/// \tparam Object The data structure to use with this buffer.
+			///
 			/// \param index Index of UBO in shader.
 			///
+			template<meta::is_class Object>
 			void create(const unsigned int index);
-
-			///
-			/// Reserve the buffer space.
-			///
-			/// \param size Size in bytes to reserve.
-			///
-			void reserve(const unsigned int size);
 
 			///
 			/// Sub buffer data into UBO.
@@ -75,7 +63,7 @@ namespace galaxy
 			/// \param data Pointer to the data to buffer.
 			///
 			template<meta::is_object Type>
-			void sub_buffer(const unsigned int offset, const unsigned int count, Type* data);
+			void buffer(const unsigned int offset, const unsigned int count, Type* data);
 
 			///
 			/// Bind UBO.
@@ -118,8 +106,28 @@ namespace galaxy
 			unsigned int m_ubo;
 		};
 
+		template<meta::is_class Object>
+		inline void UniformBuffer::create(const unsigned int index)
+		{
+			constexpr auto size = sizeof(Object);
+
+			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
+			glBindBufferBase(GL_UNIFORM_BUFFER, index, m_ubo);
+
+			GLint64 buffer_size = 0;
+			glGetBufferParameteri64v(GL_UNIFORM_BUFFER, GL_BUFFER_SIZE, &buffer_size);
+
+			if (buffer_size != size)
+			{
+				glInvalidateBufferData(m_ubo);
+				glBufferData(GL_UNIFORM_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
+			}
+
+			glBindBuffer(GL_UNIFORM_BUFFER, 0);
+		}
+
 		template<meta::is_object Type>
-		inline void UniformBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Type* data)
+		inline void UniformBuffer::buffer(const unsigned int offset, const unsigned int count, Type* data)
 		{
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 			glBufferSubData(GL_UNIFORM_BUFFER, offset, count * sizeof(Type), data);
