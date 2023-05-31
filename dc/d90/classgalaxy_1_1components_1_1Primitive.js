@@ -12,10 +12,11 @@ var classgalaxy_1_1components_1_1Primitive =
     [ "get_shape", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a9c31c85c0b42e8713ac2ab818c20ee81", null ],
     [ "get_width", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4cbce219713092d37c419296dae870bb", null ],
     [ "get_height", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a23772401bed09504212c7e1e310ca5a4", null ],
+    [ "get_mode", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa799dc55a5f272cf0ff9ecfe44d701a5", null ],
+    [ "get_vao", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a22b7bcb170a1be2d795adce570d3fe24", null ],
     [ "serialize", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa45cac22f9fde22973e5973ea91e72df", null ],
     [ "deserialize", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a55599ac77bb5bc2a01a7bb4b727d3519", null ],
     [ "operator=", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a131730ea6740c1f26c3ff79386aa831c", null ],
-    [ "configure", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0", null ],
     [ "sc::panel::EntityEditor", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a1b1d68ac5d0d7cd913742abe9c127b8f", null ],
     [ "systems::RenderSystem", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#af95061df48e572986481518f8b4d5727", null ],
     [ "m_colour", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9", null ],
@@ -23,5 +24,6 @@ var classgalaxy_1_1components_1_1Primitive =
     [ "m_height", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a102f8ec53299e19f1176bfb201c7e925", null ],
     [ "m_shape", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a81deccba11bc6bd12f4cdd3f95cdf9c5", null ],
     [ "m_data", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a3c77045700e1cf3e9d1d9ce7ae1c6b8d", null ],
-    [ "m_vao", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4a0daf5ad89c8ef66333ddd6d526e154", null ]
+    [ "m_vao", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4a0daf5ad89c8ef66333ddd6d526e154", null ],
+    [ "m_mode", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ad11dff2cf0a7e47d406c4b9b739f0cb1", null ]
 ];

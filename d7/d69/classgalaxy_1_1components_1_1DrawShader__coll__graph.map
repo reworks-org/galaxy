@@ -1,9 +1,0 @@
-<map id="galaxy::components::DrawShader" name="galaxy::components::DrawShader">
-<area shape="rect" id="node1" title="Shader to draw a renderable entity with." alt="" coords="165,528,319,767"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,315,175,465"/>
-<area shape="rect" id="node3" title=" " alt="" coords="199,351,285,429"/>
-<area shape="rect" id="node4" title=" " alt="" coords="171,145,310,237"/>
-<area shape="rect" id="node5" title=" " alt="" coords="317,344,495,436"/>
-<area shape="rect" id="node6" title=" " alt="" coords="334,153,491,230"/>
-<area shape="rect" id="node7" title=" " alt="" coords="393,5,432,83"/>
-</map>

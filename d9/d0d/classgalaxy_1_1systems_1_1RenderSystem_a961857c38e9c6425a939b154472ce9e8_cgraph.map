@@ -1,4 +1,5 @@
 <map id="galaxy::systems::RenderSystem::update" name="galaxy::systems::RenderSystem::update">
-<area shape="rect" id="node1" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,47"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#abab0bd48e1ebdac272645ee77f6f054d" title=" " alt="" coords="284,5,479,47"/>
+<area shape="rect" id="node1" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,39,236,80"/>
+<area shape="rect" id="node2" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,5,479,47"/>
+<area shape="rect" id="node3" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4" title=" " alt="" coords="284,71,479,112"/>
 </map>

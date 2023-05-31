@@ -77,12 +77,14 @@ var hierarchy =
     [ "Gfx::ProgramData", "d8/d9d/structGfx_1_1ProgramData.html", null ],
     [ "galaxy::graphics::Rect< Type >", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", null ],
     [ "galaxy::algorithm::RectPack", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html", null ],
+    [ "galaxy::graphics::Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", null ],
     [ "galaxy::graphics::Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", [
       [ "galaxy::components::Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
       [ "galaxy::components::Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", null ]
     ] ],
+    [ "galaxy::graphics::RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", null ],
     [ "galaxy::graphics::Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", null ],
     [ "Rml::RenderInterface", null, [
       [ "galaxy::ui::RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", null ]
@@ -92,7 +94,6 @@ var hierarchy =
     [ "galaxy::ui::RMLInput", "df/d1c/classgalaxy_1_1ui_1_1RMLInput.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
-      [ "galaxy::components::DrawShader", "d2/d46/classgalaxy_1_1components_1_1DrawShader.html", null ],
       [ "galaxy::components::Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
       [ "galaxy::components::RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", null ],

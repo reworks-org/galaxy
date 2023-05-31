@@ -8,5 +8,6 @@ var Primitives_8hpp =
       [ "TRIANGLE", "d2/d5e/Primitives_8hpp.html#a407936cc7d3153f747b045b598fd4930a9bcd89070cae224dce305f5011659ef4", null ],
       [ "TRIANGLE_STRIP", "d2/d5e/Primitives_8hpp.html#a407936cc7d3153f747b045b598fd4930a708de017e3b83ccba21dfc9f6367d46f", null ],
       [ "TRIANGLE_FAN", "d2/d5e/Primitives_8hpp.html#a407936cc7d3153f747b045b598fd4930aa9f047dff7e4cd4d8d3bdeafc4029d47", null ]
-    ] ]
+    ] ],
+    [ "primitive_to_gl", "d2/d5e/Primitives_8hpp.html#a5f8c433419059375e3d84deeaa3b0092", null ]
 ];

@@ -47,9 +47,17 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "Primitives.hpp", "d2/d5e/Primitives_8hpp.html", "d2/d5e/Primitives_8hpp" ],
     [ "Rect.cpp", "da/d9f/Rect_8cpp.html", null ],
     [ "Rect.hpp", "dc/dd2/Rect_8hpp.html", "dc/dd2/Rect_8hpp" ],
+    [ "Render2DUniform.cpp", "dd/db9/Render2DUniform_8cpp.html", null ],
+    [ "Render2DUniform.hpp", "d4/d07/Render2DUniform_8hpp.html", [
+      [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ]
+    ] ],
     [ "Renderable.cpp", "db/d19/Renderable_8cpp.html", null ],
     [ "Renderable.hpp", "d5/d1a/Renderable_8hpp.html", [
       [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", "d3/db6/classgalaxy_1_1graphics_1_1Renderable" ]
+    ] ],
+    [ "RenderCommand.cpp", "d0/db7/RenderCommand_8cpp.html", null ],
+    [ "RenderCommand.hpp", "d4/d1f/RenderCommand_8hpp.html", [
+      [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ]
     ] ],
     [ "Renderer.cpp", "d3/d28/Renderer_8cpp.html", null ],
     [ "Renderer.hpp", "dd/db8/Renderer_8hpp.html", [

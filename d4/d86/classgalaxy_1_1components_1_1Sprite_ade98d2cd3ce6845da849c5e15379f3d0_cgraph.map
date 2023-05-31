@@ -1,16 +1,10 @@
 <map id="galaxy::components::Sprite::create" name="galaxy::components::Sprite::create">
-<area shape="rect" id="node1" title="Creates the internal vertex array." alt="" coords="5,332,159,373"/>
-<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3d0b412828929aa240cfaf4864b0a9a6" title="Configure renderable." alt="" coords="245,104,399,145"/>
-<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="233,267,411,308"/>
-<area shape="rect" id="node12" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="233,332,411,373"/>
-<area shape="rect" id="node13" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,398,437,425"/>
-<area shape="rect" id="node14" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aaaf98fa9ccdd98c38eea417f9c657736" title="Set opacity." alt="" coords="245,449,399,491"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="511,5,690,47"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="511,71,690,112"/>
-<area shape="rect" id="node6" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="495,136,706,177"/>
-<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="764,71,975,112"/>
-<area shape="rect" id="node8" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="495,201,706,243"/>
-<area shape="rect" id="node9" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="511,267,690,308"/>
-<area shape="rect" id="node10" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="485,333,716,359"/>
-<area shape="rect" id="node11" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="511,384,690,425"/>
+<area shape="rect" id="node1" title="Creates the internal vertex array." alt="" coords="5,165,159,207"/>
+<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="233,100,411,141"/>
+<area shape="rect" id="node7" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="233,165,411,207"/>
+<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,231,437,258"/>
+<area shape="rect" id="node3" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="495,5,706,47"/>
+<area shape="rect" id="node4" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="511,71,690,112"/>
+<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="485,137,716,163"/>
+<area shape="rect" id="node6" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="511,188,690,229"/>
 </map>

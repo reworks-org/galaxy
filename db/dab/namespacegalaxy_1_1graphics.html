@@ -151,8 +151,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d0a/classgalaxy_1_1graphics_1_1Rect.html">Rect</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a rectangle object.  <a href="../../d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html">Render2DUniform</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform data passed to shader from entity.  <a href="../../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data to submit to renderer.  <a href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data to be passed to the renderer.  <a href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D OpenGL renderer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#details">More...</a><br /></td></tr>
@@ -258,6 +264,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5f8c433419059375e3d84deeaa3b0092"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092">primitive_to_gl</a> (const <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930">Primitives</a> type)</td></tr>
+<tr class="memdesc:a5f8c433419059375e3d84deeaa3b0092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a primitive enum to OpenGL draw type.  <a href="../../db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092">More...</a><br /></td></tr>
+<tr class="separator:a5f8c433419059375e3d84deeaa3b0092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#ad8a63088a93168a7ea4e4ca2beac9b96">Shader::set_uniform&lt; glm::mat3 &gt;</a> (const std::string &amp;name, const glm::mat3 &amp;a)</td></tr>
 <tr class="separator:ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -578,6 +587,61 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a5f8c433419059375e3d84deeaa3b0092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8c433419059375e3d84deeaa3b0092">&#9670;&nbsp;</a></span>primitive_to_gl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned int galaxy::graphics::primitive_to_gl </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930">Primitives</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a primitive enum to OpenGL draw type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Primitive enum.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>OpenGL glDraw* mode. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d5e/Primitives_8hpp_source.html#l00065">65</a> of file <a class="el" href="../../d2/d5e/Primitives_8hpp_source.html">Primitives.hpp</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph" alt=""/></div>
+<map name="adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph">
+<area shape="rect" title="Convert a primitive enum to OpenGL draw type." alt="" coords="1373,72,1568,113"/>
+<area shape="rect" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="1133,39,1287,80"/>
+<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="1095,104,1325,145"/>
+<area shape="rect" href="../../dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="877,39,1047,80"/>
+<area shape="rect" href="../../dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf01eba37e0fa58ef5b9d77ed8acc7a4" title="Recursive function to process tiled map layers." alt="" coords="660,39,829,80"/>
+<area shape="rect" href="../../dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438" title="Load map into scene." alt="" coords="443,39,612,80"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="236,5,395,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,71,384,112"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ad8a63088a93168a7ea4e4ca2beac9b96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8a63088a93168a7ea4e4ca2beac9b96">&#9670;&nbsp;</a></span>Shader::set_uniform&lt; glm::mat3 &gt;()</h2>
 
@@ -891,7 +955,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li>
-    <li class="footer">Generated on Wed May 24 2023 05:46:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 31 2023 06:56:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,36 +1,28 @@
 <map id="galaxy::core::TiledMap::process_layer" name="galaxy::core::TiledMap::process_layer">
-<area shape="rect" id="node1" title="Recursive function to process tiled map layers." alt="" coords="5,421,175,463"/>
-<area shape="rect" id="node2" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a932d798721f5fa4b97370babd9747c2d" title="Recursive function to process image layer." alt="" coords="223,421,392,463"/>
-<area shape="rect" id="node21" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="223,356,392,397"/>
-<area shape="rect" id="node25" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a7f465a1dbdcff1cb321254be9f16a533" title="Recursive function to process tile layer." alt="" coords="223,719,392,760"/>
-<area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="461,291,614,332"/>
-<area shape="rect" id="node17" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="461,421,614,463"/>
-<area shape="rect" id="node18" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a5e863ac6dd646ab49324697c59338cf2" title="Set shader." alt="" coords="443,487,631,528"/>
-<area shape="rect" id="node20" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="461,356,614,397"/>
-<area shape="rect" id="node4" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3d0b412828929aa240cfaf4864b0a9a6" title="Configure renderable." alt="" coords="721,101,875,143"/>
-<area shape="rect" id="node9" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="709,243,887,284"/>
-<area shape="rect" id="node14" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="709,308,887,349"/>
-<area shape="rect" id="node15" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="683,523,913,550"/>
-<area shape="rect" id="node16" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aaaf98fa9ccdd98c38eea417f9c657736" title="Set opacity." alt="" coords="721,373,875,415"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="987,5,1166,47"/>
-<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="987,71,1166,112"/>
-<area shape="rect" id="node8" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="971,136,1182,177"/>
-<area shape="rect" id="node7" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="1240,71,1451,112"/>
-<area shape="rect" id="node10" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="971,267,1182,308"/>
-<area shape="rect" id="node11" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="987,332,1166,373"/>
-<area shape="rect" id="node12" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="961,398,1192,425"/>
-<area shape="rect" id="node13" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="987,201,1166,243"/>
-<area shape="rect" id="node19" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a0db0c34f31e2d35f9491e99d6e39695f" title="Get shader id." alt="" coords="721,457,875,499"/>
-<area shape="rect" id="node22" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="461,160,614,201"/>
-<area shape="rect" id="node24" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a71446c641e0a3e301dbd704b91cf47d6" title="Fetch tile offset in tileset." alt="" coords="453,225,622,267"/>
-<area shape="rect" id="node23" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#adea251a95bdb745192ddcdc04ddc53d0" title="Configure renderable." alt="" coords="719,36,877,77"/>
-<area shape="rect" id="node26" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae758c13eb44771849aaad9c9998c8056" title="Get stored rotation." alt="" coords="446,909,629,951"/>
-<area shape="rect" id="node27" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a82c3f8f58cad54c0d5d48b9f5072be13" title="Get stored scale." alt="" coords="455,1027,620,1068"/>
-<area shape="rect" id="node28" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="440,1092,635,1133"/>
-<area shape="rect" id="node29" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="445,1157,630,1199"/>
-<area shape="rect" id="node30" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="445,552,630,593"/>
-<area shape="rect" id="node31" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="454,617,621,659"/>
-<area shape="rect" id="node32" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="447,683,628,724"/>
-<area shape="rect" id="node33" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="455,749,619,805"/>
-<area shape="rect" id="node34" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="455,829,619,885"/>
+<area shape="rect" id="node1" title="Recursive function to process tiled map layers." alt="" coords="5,231,175,272"/>
+<area shape="rect" id="node2" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a932d798721f5fa4b97370babd9747c2d" title="Recursive function to process image layer." alt="" coords="223,231,392,272"/>
+<area shape="rect" id="node13" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#acac9ebd7a169d4a5f6a6650e0e7360da" title="Recursive function to process object layer." alt="" coords="223,165,392,207"/>
+<area shape="rect" id="node17" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a7f465a1dbdcff1cb321254be9f16a533" title="Recursive function to process tile layer." alt="" coords="223,565,392,607"/>
+<area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="461,165,614,207"/>
+<area shape="rect" id="node11" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="461,296,614,337"/>
+<area shape="rect" id="node12" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="461,231,614,272"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="709,100,887,141"/>
+<area shape="rect" id="node9" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="709,165,887,207"/>
+<area shape="rect" id="node10" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="683,474,913,501"/>
+<area shape="rect" id="node5" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="971,5,1182,47"/>
+<area shape="rect" id="node6" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="987,71,1166,112"/>
+<area shape="rect" id="node7" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="961,137,1192,163"/>
+<area shape="rect" id="node8" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="987,188,1166,229"/>
+<area shape="rect" id="node14" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="461,35,614,76"/>
+<area shape="rect" id="node16" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a71446c641e0a3e301dbd704b91cf47d6" title="Fetch tile offset in tileset." alt="" coords="453,100,622,141"/>
+<area shape="rect" id="node15" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="701,35,895,76"/>
+<area shape="rect" id="node18" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae758c13eb44771849aaad9c9998c8056" title="Get stored rotation." alt="" coords="446,769,629,811"/>
+<area shape="rect" id="node19" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a82c3f8f58cad54c0d5d48b9f5072be13" title="Get stored scale." alt="" coords="455,835,620,876"/>
+<area shape="rect" id="node20" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="440,900,635,941"/>
+<area shape="rect" id="node21" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="445,965,630,1007"/>
+<area shape="rect" id="node22" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="445,361,630,403"/>
+<area shape="rect" id="node23" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="454,427,621,468"/>
+<area shape="rect" id="node24" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="447,492,628,533"/>
+<area shape="rect" id="node25" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="455,558,619,614"/>
+<area shape="rect" id="node26" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="455,638,619,694"/>
 </map>

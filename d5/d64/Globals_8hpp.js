@@ -13,6 +13,7 @@ var Globals_8hpp =
     [ "GALAXY_FRAGMENT_EXT", "d5/d64/Globals_8hpp.html#aa0185565065398a7b5bb27a720e6304a", null ],
     [ "GALAXY_IDENTITY_MATRIX", "d5/d64/Globals_8hpp.html#a197ca1fdda8be833505d3cbfa6bdb9d0", null ],
     [ "GAlAXY_CAMERA_UBO_INDEX", "d5/d64/Globals_8hpp.html#a573fd7dcb1486fd33cc5384048876f92", null ],
+    [ "GAlAXY_CAMERA_R2D_INDEX", "d5/d64/Globals_8hpp.html#abf2a0fd7bed374422fe3fdb49ada6774", null ],
     [ "GALAXY_MIN_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#afc07e5528fc7b4c2bb70298680c56b2f", null ],
     [ "GALAXY_MAX_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#a3a5ea250c1cec6acf77a07210d90469d", null ],
     [ "GALAXY_DEFAULT_RENDERER_RESERVED", "d5/d64/Globals_8hpp.html#ade2d80e6efbc023f0d2bbe3119e9092e", null ],

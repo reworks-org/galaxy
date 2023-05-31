@@ -1,0 +1,4 @@
+<map id="galaxy::components::Map::get_vao" name="galaxy::components::Map::get_vao">
+<area shape="rect" id="node1" title="Get VAO object." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82" title="Get vertex array object." alt="" coords="207,5,381,47"/>
+</map>

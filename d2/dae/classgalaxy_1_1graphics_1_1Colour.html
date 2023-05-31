@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('d2/dae/classgalaxy_1_1graphics_1_1Colo
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d8c/classgalaxy_1_1graphics_1_1Colour__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Colour_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Colour_coll__map" id="agalaxy_1_1graphics_1_1Colour_coll__map">
-<area shape="rect" title="Represents an RGBA colour." alt="" coords="5,5,191,229"/>
+<area shape="rect" title="Represents an RGBA colour." alt="" coords="5,5,191,244"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -124,9 +124,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a723bd2060f539154c0333974ae0432f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a723bd2060f539154c0333974ae0432f7">set_from_normalized</a> (const float r, const float g, const float b, const float a)</td></tr>
 <tr class="memdesc:a723bd2060f539154c0333974ae0432f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set using normalized values.  <a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a723bd2060f539154c0333974ae0432f7">More...</a><br /></td></tr>
 <tr class="separator:a723bd2060f539154c0333974ae0432f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a573bda4ae3ee9103bb2176ba77cfcc1e"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a573bda4ae3ee9103bb2176ba77cfcc1e">normalized</a> ()</td></tr>
-<tr class="memdesc:a573bda4ae3ee9103bb2176ba77cfcc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes values and returns as floats.  <a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a573bda4ae3ee9103bb2176ba77cfcc1e">More...</a><br /></td></tr>
-<tr class="separator:a573bda4ae3ee9103bb2176ba77cfcc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b54f8869e3b7a818e0eb80e466c25b5"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6b54f8869e3b7a818e0eb80e466c25b5">to_array</a> ()</td></tr>
+<tr class="memdesc:a6b54f8869e3b7a818e0eb80e466c25b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes values and returns as floats.  <a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6b54f8869e3b7a818e0eb80e466c25b5">More...</a><br /></td></tr>
+<tr class="separator:a6b54f8869e3b7a818e0eb80e466c25b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979ca40cb2d91ac4f8aaf0df470eb863"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a979ca40cb2d91ac4f8aaf0df470eb863">to_vec4</a> ()</td></tr>
+<tr class="memdesc:a979ca40cb2d91ac4f8aaf0df470eb863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floats are in range 0.0f - 1.0f.  <a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a979ca40cb2d91ac4f8aaf0df470eb863">More...</a><br /></td></tr>
+<tr class="separator:a979ca40cb2d91ac4f8aaf0df470eb863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00eb50c19486a976b6899526670c484f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a00eb50c19486a976b6899526670c484f">operator&lt;=&gt;</a> (const <a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a> &amp;) const =default</td></tr>
 <tr class="memdesc:a00eb50c19486a976b6899526670c484f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator.  <a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a00eb50c19486a976b6899526670c484f">More...</a><br /></td></tr>
 <tr class="separator:a00eb50c19486a976b6899526670c484f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,7 +161,7 @@ Static Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents an RGBA colour. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a688318e06485cf10031ea500dc727569"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a688318e06485cf10031ea500dc727569">&#9670;&nbsp;</a></span>Colour() <span class="overload">[1/2]</span></h2>
@@ -310,14 +313,14 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a573bda4ae3ee9103bb2176ba77cfcc1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a573bda4ae3ee9103bb2176ba77cfcc1e">&#9670;&nbsp;</a></span>normalized()</h2>
+<a id="a6b54f8869e3b7a818e0eb80e466c25b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b54f8869e3b7a818e0eb80e466c25b5">&#9670;&nbsp;</a></span>to_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; float, 4 &gt; galaxy::graphics::Colour::normalized </td>
+          <td class="memname">std::array&lt; float, 4 &gt; galaxy::graphics::Colour::to_array </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -335,11 +338,57 @@ Static Public Attributes</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d2/dae/classgalaxy_1_1graphics_1_1Colour_a573bda4ae3ee9103bb2176ba77cfcc1e_icgraph.png" border="0" usemap="#ad2/dae/classgalaxy_1_1graphics_1_1Colour_a573bda4ae3ee9103bb2176ba77cfcc1e_icgraph" alt=""/></div>
-<map name="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a573bda4ae3ee9103bb2176ba77cfcc1e_icgraph" id="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a573bda4ae3ee9103bb2176ba77cfcc1e_icgraph">
-<area shape="rect" title="Normalizes values and returns as floats." alt="" coords="499,39,677,80"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="275,5,412,47"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9c5b11993443d9d7ef0151647ac51639" title="Set clear colour." alt="" coords="236,71,451,112"/>
+<div class="center"><img src="../../d2/dae/classgalaxy_1_1graphics_1_1Colour_a6b54f8869e3b7a818e0eb80e466c25b5_icgraph.png" border="0" usemap="#ad2/dae/classgalaxy_1_1graphics_1_1Colour_a6b54f8869e3b7a818e0eb80e466c25b5_icgraph" alt=""/></div>
+<map name="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a6b54f8869e3b7a818e0eb80e466c25b5_icgraph" id="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a6b54f8869e3b7a818e0eb80e466c25b5_icgraph">
+<area shape="rect" title="Normalizes values and returns as floats." alt="" coords="684,28,863,69"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,32,373,73"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9c5b11993443d9d7ef0151647ac51639" title="Set clear colour." alt="" coords="421,28,636,69"/>
+<area shape="rect" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a979ca40cb2d91ac4f8aaf0df470eb863" title="Floats are in range 0.0f &#45; 1.0f." alt="" coords="439,93,618,135"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,32,188,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a979ca40cb2d91ac4f8aaf0df470eb863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979ca40cb2d91ac4f8aaf0df470eb863">&#9670;&nbsp;</a></span>to_vec4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec4 galaxy::graphics::Colour::to_vec4 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Floats are in range 0.0f - 1.0f. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vec4. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/db2/Colour_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../dd/db2/Colour_8cpp_source.html">Colour.cpp</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_cgraph.png" border="0" usemap="#ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_cgraph" alt=""/></div>
+<map name="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_cgraph" id="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_cgraph">
+<area shape="rect" title="Floats are in range 0.0f &#45; 1.0f." alt="" coords="5,5,184,47"/>
+<area shape="rect" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6b54f8869e3b7a818e0eb80e466c25b5" title="Normalizes values and returns as floats." alt="" coords="232,5,411,47"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_icgraph.png" border="0" usemap="#ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_icgraph" alt=""/></div>
+<map name="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_icgraph" id="ad2/dae/classgalaxy_1_1graphics_1_1Colour_a979ca40cb2d91ac4f8aaf0df470eb863_icgraph">
+<area shape="rect" title="Floats are in range 0.0f &#45; 1.0f." alt="" coords="421,5,600,47"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -397,7 +446,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Opaque colour. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +472,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Transparent colour. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -441,7 +490,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Red. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +508,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Green. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -477,7 +526,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Blue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +544,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Alpha. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00112">112</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -509,7 +558,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a></li>
-    <li class="footer">Generated on Wed May 24 2023 05:46:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 31 2023 06:56:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

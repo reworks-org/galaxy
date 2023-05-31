@@ -1,13 +1,12 @@
 <map id="galaxy::core::World::serialize_entity" name="galaxy::core::World::serialize_entity">
-<area shape="rect" id="node1" title="Serialise a single entity." alt="" coords="5,300,152,341"/>
-<area shape="rect" id="node2" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab9521b60626a93eaa9bedab18ce44c6b" title="Serializes object." alt="" coords="208,5,364,47"/>
-<area shape="rect" id="node3" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#ab3e145c72ec3bdc0364187462c6d729f" title="Serializes object." alt="" coords="200,71,372,112"/>
-<area shape="rect" id="node4" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1" title="Serializes object." alt="" coords="209,136,363,177"/>
-<area shape="rect" id="node5" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa45cac22f9fde22973e5973ea91e72df" title="Serializes object." alt="" coords="209,201,363,243"/>
-<area shape="rect" id="node6" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0" title="Serializes object." alt="" coords="207,267,365,308"/>
-<area shape="rect" id="node7" href="$db/d40/classgalaxy_1_1components_1_1Script.html#abf2d721c0ee885756c4f9085f8ff3900" title="Serializes object." alt="" coords="209,332,363,373"/>
-<area shape="rect" id="node8" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aabb40d44c4e4f602e6937b99816559bf" title="Serializes object." alt="" coords="209,397,363,439"/>
-<area shape="rect" id="node9" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html#aeea42063baecbebce2f1804f9c2d5f87" title="Serializes object." alt="" coords="209,463,363,504"/>
-<area shape="rect" id="node10" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872" title="Serializes object." alt="" coords="209,528,363,569"/>
-<area shape="rect" id="node11" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#af99221c730584c670ba61f6fa7cf593e" title="Serializes object." alt="" coords="207,593,365,635"/>
+<area shape="rect" id="node1" title="Serialise a single entity." alt="" coords="5,267,152,308"/>
+<area shape="rect" id="node2" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab9521b60626a93eaa9bedab18ce44c6b" title="Serializes object." alt="" coords="201,5,357,47"/>
+<area shape="rect" id="node3" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1" title="Serializes object." alt="" coords="203,71,356,112"/>
+<area shape="rect" id="node4" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa45cac22f9fde22973e5973ea91e72df" title="Serializes object." alt="" coords="203,136,356,177"/>
+<area shape="rect" id="node5" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0" title="Serializes object." alt="" coords="200,201,359,243"/>
+<area shape="rect" id="node6" href="$db/d40/classgalaxy_1_1components_1_1Script.html#abf2d721c0ee885756c4f9085f8ff3900" title="Serializes object." alt="" coords="203,267,356,308"/>
+<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aabb40d44c4e4f602e6937b99816559bf" title="Serializes object." alt="" coords="203,332,356,373"/>
+<area shape="rect" id="node8" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html#aeea42063baecbebce2f1804f9c2d5f87" title="Serializes object." alt="" coords="203,397,356,439"/>
+<area shape="rect" id="node9" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872" title="Serializes object." alt="" coords="203,463,356,504"/>
+<area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#af99221c730584c670ba61f6fa7cf593e" title="Serializes object." alt="" coords="200,528,359,569"/>
 </map>

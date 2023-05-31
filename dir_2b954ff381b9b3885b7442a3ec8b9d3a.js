@@ -4,10 +4,6 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Animated.hpp", "d2/df5/Animated_8hpp.html", [
       [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ]
     ] ],
-    [ "DrawShader.cpp", "d2/d71/DrawShader_8cpp.html", null ],
-    [ "DrawShader.hpp", "de/d0d/DrawShader_8hpp.html", [
-      [ "DrawShader", "d2/d46/classgalaxy_1_1components_1_1DrawShader.html", "d2/d46/classgalaxy_1_1components_1_1DrawShader" ]
-    ] ],
     [ "Flag.cpp", "dd/dae/Flag_8cpp.html", null ],
     [ "Flag.hpp", "d0/dda/Flag_8hpp.html", [
       [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ]

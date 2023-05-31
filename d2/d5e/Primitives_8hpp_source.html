@@ -115,10 +115,15 @@ $(document).ready(function(){initNavTree('d2/d5e/Primitives_8hpp_source.html','.
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aa9f047dff7e4cd4d8d3bdeafc4029d47">TRIANGLE_FAN</a> = GL_TRIANGLE_FAN</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        };</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    } <span class="comment">// namespace graphics</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092">   65</a></span>&#160;        [[nodiscard]] <span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092">primitive_to_gl</a>(<span class="keyword">const</span> <a class="code" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930">Primitives</a> type)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(type);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    } <span class="comment">// namespace graphics</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930">galaxy::graphics::Primitives</a></div><div class="ttdeci">Primitives</div><div class="ttdoc">Primitive OpenGL renderable types.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5e/Primitives_8hpp_source.html#l00020">Primitives.hpp:21</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7">galaxy::graphics::Primitives::LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">GL_LINES.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930a708de017e3b83ccba21dfc9f6367d46f"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a708de017e3b83ccba21dfc9f6367d46f">galaxy::graphics::Primitives::TRIANGLE_STRIP</a></div><div class="ttdeci">@ TRIANGLE_STRIP</div><div class="ttdoc">GL_TRIANGLE_STRIP.</div></div>
@@ -127,6 +132,7 @@ $(document).ready(function(){initNavTree('d2/d5e/Primitives_8hpp_source.html','.
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930aa9f047dff7e4cd4d8d3bdeafc4029d47"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aa9f047dff7e4cd4d8d3bdeafc4029d47">galaxy::graphics::Primitives::TRIANGLE_FAN</a></div><div class="ttdeci">@ TRIANGLE_FAN</div><div class="ttdoc">GL_TRIANGLE_FAN.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82">galaxy::graphics::Primitives::POINT</a></div><div class="ttdeci">@ POINT</div><div class="ttdoc">GL_POINTS.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930ae64a4d2159ed46d077e21a505575c814"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930ae64a4d2159ed46d077e21a505575c814">galaxy::graphics::Primitives::LINE_STRIP</a></div><div class="ttdeci">@ LINE_STRIP</div><div class="ttdoc">GL_LINE_STRIP.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a5f8c433419059375e3d84deeaa3b0092"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092">galaxy::graphics::primitive_to_gl</a></div><div class="ttdeci">constexpr unsigned int primitive_to_gl(const Primitives type)</div><div class="ttdoc">Convert a primitive enum to OpenGL draw type.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5e/Primitives_8hpp_source.html#l00065">Primitives.hpp:65</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -134,7 +140,7 @@ $(document).ready(function(){initNavTree('d2/d5e/Primitives_8hpp_source.html','.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d2/d5e/Primitives_8hpp.html">Primitives.hpp</a></li>
-    <li class="footer">Generated on Wed May 24 2023 05:46:38 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 31 2023 06:56:03 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

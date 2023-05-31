@@ -1,21 +1,13 @@
 <map id="galaxy::core::TiledMap::process_image_layer" name="galaxy::core::TiledMap::process_image_layer">
-<area shape="rect" id="node1" title="Recursive function to process image layer." alt="" coords="5,431,175,472"/>
-<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="240,332,393,373"/>
-<area shape="rect" id="node16" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="240,397,393,439"/>
-<area shape="rect" id="node17" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a5e863ac6dd646ab49324697c59338cf2" title="Set shader." alt="" coords="223,463,411,504"/>
-<area shape="rect" id="node19" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="240,528,393,569"/>
-<area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3d0b412828929aa240cfaf4864b0a9a6" title="Configure renderable." alt="" coords="497,103,651,144"/>
-<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="485,267,663,308"/>
-<area shape="rect" id="node13" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="485,332,663,373"/>
-<area shape="rect" id="node14" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="459,463,689,490"/>
-<area shape="rect" id="node15" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#aaaf98fa9ccdd98c38eea417f9c657736" title="Set opacity." alt="" coords="497,397,651,439"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="763,5,942,47"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="763,71,942,112"/>
-<area shape="rect" id="node7" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a26a7c9f5e9764f4fc68917a7ccb61b3c" title="Set primitive draw type." alt="" coords="747,136,958,177"/>
-<area shape="rect" id="node6" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="1016,71,1227,112"/>
-<area shape="rect" id="node9" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="747,201,958,243"/>
-<area shape="rect" id="node10" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="763,267,942,308"/>
-<area shape="rect" id="node11" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="737,333,968,359"/>
-<area shape="rect" id="node12" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="763,384,942,425"/>
-<area shape="rect" id="node18" href="$d2/d46/classgalaxy_1_1components_1_1DrawShader.html#a0db0c34f31e2d35f9491e99d6e39695f" title="Get shader id." alt="" coords="497,515,651,556"/>
+<area shape="rect" id="node1" title="Recursive function to process image layer." alt="" coords="5,231,175,272"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="223,165,376,207"/>
+<area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="223,231,376,272"/>
+<area shape="rect" id="node11" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="223,296,376,337"/>
+<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="450,100,629,141"/>
+<area shape="rect" id="node8" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="450,165,629,207"/>
+<area shape="rect" id="node9" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="424,231,655,258"/>
+<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="713,5,923,47"/>
+<area shape="rect" id="node5" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="729,71,907,112"/>
+<area shape="rect" id="node6" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="703,137,933,163"/>
+<area shape="rect" id="node7" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="729,188,907,229"/>
 </map>

@@ -1,61 +1,61 @@
 <map id="galaxy/src/galaxy/components/Sprite.cpp" name="galaxy/src/galaxy/components/Sprite.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="1716,5,1938,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="1568,95,1715,121"/>
-<area shape="rect" id="node3" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="1789,95,2014,121"/>
-<area shape="rect" id="node32" href="$db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="1614,169,1853,196"/>
-<area shape="rect" id="node56" href="$da/da5/Sprite_8hpp.html" title=" " alt="" coords="2064,169,2152,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="2014,326,2091,353"/>
-<area shape="rect" id="node5" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="462,169,618,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="30,408,120,435"/>
-<area shape="rect" id="node7" title=" " alt="" coords="325,244,449,271"/>
-<area shape="rect" id="node8" title=" " alt="" coords="473,244,608,271"/>
-<area shape="rect" id="node9" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="632,244,822,271"/>
-<area shape="rect" id="node10" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="846,244,1008,271"/>
-<area shape="rect" id="node12" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="92,244,300,271"/>
-<area shape="rect" id="node11" title=" " alt="" coords="865,326,962,353"/>
-<area shape="rect" id="node13" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="107,326,286,353"/>
-<area shape="rect" id="node14" title=" " alt="" coords="163,408,230,435"/>
-<area shape="rect" id="node15" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="737,408,925,435"/>
-<area shape="rect" id="node16" title=" " alt="" coords="280,557,372,584"/>
-<area shape="rect" id="node17" title=" " alt="" coords="794,483,868,509"/>
-<area shape="rect" id="node18" title=" " alt="" coords="970,557,1028,584"/>
-<area shape="rect" id="node19" title=" " alt="" coords="1560,483,1622,509"/>
-<area shape="rect" id="node20" title=" " alt="" coords="893,483,956,509"/>
-<area shape="rect" id="node21" title=" " alt="" coords="980,483,1079,509"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1103,483,1146,509"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1170,483,1212,509"/>
-<area shape="rect" id="node24" title=" " alt="" coords="32,483,83,509"/>
-<area shape="rect" id="node25" title=" " alt="" coords="108,483,232,509"/>
-<area shape="rect" id="node26" title=" " alt="" coords="256,483,371,509"/>
-<area shape="rect" id="node27" title=" " alt="" coords="396,483,453,509"/>
-<area shape="rect" id="node28" title=" " alt="" coords="477,483,540,509"/>
-<area shape="rect" id="node29" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="1237,483,1433,509"/>
-<area shape="rect" id="node31" title=" " alt="" coords="564,483,719,509"/>
-<area shape="rect" id="node30" title=" " alt="" coords="1295,557,1375,584"/>
-<area shape="rect" id="node33" title=" " alt="" coords="2208,408,2262,435"/>
-<area shape="rect" id="node34" title=" " alt="" coords="1680,244,1787,271"/>
-<area shape="rect" id="node35" href="$da/d8d/RectPack_8hpp.html" title=" " alt="" coords="987,326,1211,353"/>
-<area shape="rect" id="node38" href="$da/d83/Transform_8hpp.html" title=" " alt="" coords="1409,244,1656,271"/>
-<area shape="rect" id="node42" href="$d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="1134,244,1384,271"/>
-<area shape="rect" id="node46" href="$dc/dbb/TexelRegion_8hpp.html" title=" " alt="" coords="1886,408,2120,435"/>
-<area shape="rect" id="node48" href="$dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="2078,244,2310,271"/>
-<area shape="rect" id="node36" href="$dc/dd2/Rect_8hpp.html" title=" " alt="" coords="1270,408,1456,435"/>
-<area shape="rect" id="node37" title=" " alt="" coords="1477,557,1556,584"/>
-<area shape="rect" id="node39" title=" " alt="" coords="1493,326,1622,353"/>
-<area shape="rect" id="node40" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="1646,326,1837,353"/>
-<area shape="rect" id="node41" title=" " alt="" coords="1660,408,1836,435"/>
-<area shape="rect" id="node43" href="$d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="1235,326,1470,353"/>
-<area shape="rect" id="node44" title=" " alt="" coords="1671,557,1727,584"/>
-<area shape="rect" id="node45" href="$db/dd2/Colour_8hpp.html" title=" " alt="" coords="1646,483,1845,509"/>
-<area shape="rect" id="node47" title=" " alt="" coords="2116,483,2226,509"/>
-<area shape="rect" id="node49" href="$d0/d6a/IndexBuffer_8hpp.html" title=" " alt="" coords="2585,326,2816,353"/>
-<area shape="rect" id="node52" href="$dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="2115,319,2299,360"/>
-<area shape="rect" id="node53" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="2323,326,2560,353"/>
-<area shape="rect" id="node50" href="$d6/d9c/StorageFlags_8hpp.html" title=" " alt="" coords="2579,408,2822,435"/>
-<area shape="rect" id="node51" title=" " alt="" coords="2782,483,2877,509"/>
-<area shape="rect" id="node54" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="2336,408,2534,435"/>
-<area shape="rect" id="node55" title=" " alt="" coords="2380,483,2490,509"/>
-<area shape="rect" id="node57" href="$d5/d1a/Renderable_8hpp.html" title=" " alt="" coords="2768,244,2998,271"/>
-<area shape="rect" id="node58" title=" " alt="" coords="2840,326,2926,353"/>
-<area shape="rect" id="node59" href="$d2/d5e/Primitives_8hpp.html" title=" " alt="" coords="2849,408,3072,435"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1814,5,2036,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="1666,95,1813,121"/>
+<area shape="rect" id="node3" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="1887,95,2112,121"/>
+<area shape="rect" id="node32" href="$db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="1731,169,1970,196"/>
+<area shape="rect" id="node57" href="$da/da5/Sprite_8hpp.html" title=" " alt="" coords="2137,95,2225,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="2168,326,2245,353"/>
+<area shape="rect" id="node5" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="612,169,768,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="180,408,270,435"/>
+<area shape="rect" id="node7" title=" " alt="" coords="475,244,599,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="623,244,758,271"/>
+<area shape="rect" id="node9" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="782,244,972,271"/>
+<area shape="rect" id="node10" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="1064,244,1226,271"/>
+<area shape="rect" id="node12" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="242,244,450,271"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1294,326,1391,353"/>
+<area shape="rect" id="node13" href="$d5/d64/Globals_8hpp.html" title=" " alt="" coords="257,326,436,353"/>
+<area shape="rect" id="node14" title=" " alt="" coords="313,408,380,435"/>
+<area shape="rect" id="node15" href="$d4/d18/Memory_8hpp.html" title=" " alt="" coords="655,408,843,435"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1159,557,1251,584"/>
+<area shape="rect" id="node17" title=" " alt="" coords="25,483,100,509"/>
+<area shape="rect" id="node18" title=" " alt="" coords="512,557,570,584"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1502,483,1564,509"/>
+<area shape="rect" id="node20" title=" " alt="" coords="124,483,187,509"/>
+<area shape="rect" id="node21" title=" " alt="" coords="212,483,310,509"/>
+<area shape="rect" id="node22" title=" " alt="" coords="334,483,377,509"/>
+<area shape="rect" id="node23" title=" " alt="" coords="401,483,444,509"/>
+<area shape="rect" id="node24" title=" " alt="" coords="468,483,518,509"/>
+<area shape="rect" id="node25" title=" " alt="" coords="543,483,667,509"/>
+<area shape="rect" id="node26" title=" " alt="" coords="692,483,806,509"/>
+<area shape="rect" id="node27" title=" " alt="" coords="831,483,888,509"/>
+<area shape="rect" id="node28" title=" " alt="" coords="912,483,975,509"/>
+<area shape="rect" id="node29" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="1230,483,1426,509"/>
+<area shape="rect" id="node31" title=" " alt="" coords="1000,483,1154,509"/>
+<area shape="rect" id="node30" title=" " alt="" coords="1288,557,1368,584"/>
+<area shape="rect" id="node33" title=" " alt="" coords="2338,408,2392,435"/>
+<area shape="rect" id="node34" title=" " alt="" coords="1910,244,2017,271"/>
+<area shape="rect" id="node35" href="$da/d8d/RectPack_8hpp.html" title=" " alt="" coords="1045,326,1269,353"/>
+<area shape="rect" id="node38" href="$da/d83/Transform_8hpp.html" title=" " alt="" coords="1639,244,1886,271"/>
+<area shape="rect" id="node42" href="$d7/dc3/RenderTexture_8hpp.html" title=" " alt="" coords="1364,244,1614,271"/>
+<area shape="rect" id="node47" href="$dc/dbb/TexelRegion_8hpp.html" title=" " alt="" coords="2029,408,2264,435"/>
+<area shape="rect" id="node49" href="$dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="2245,244,2477,271"/>
+<area shape="rect" id="node36" href="$dc/dd2/Rect_8hpp.html" title=" " alt="" coords="1149,408,1336,435"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1447,557,1526,584"/>
+<area shape="rect" id="node39" title=" " alt="" coords="1674,326,1803,353"/>
+<area shape="rect" id="node40" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="1827,326,2018,353"/>
+<area shape="rect" id="node41" title=" " alt="" coords="1829,408,2005,435"/>
+<area shape="rect" id="node43" href="$d9/d2c/Framebuffer_8hpp.html" title=" " alt="" coords="1416,326,1650,353"/>
+<area shape="rect" id="node44" title=" " alt="" coords="1588,557,1644,584"/>
+<area shape="rect" id="node45" href="$db/dd2/Colour_8hpp.html" title=" " alt="" coords="1639,483,1838,509"/>
+<area shape="rect" id="node46" title=" " alt="" coords="1683,557,1794,584"/>
+<area shape="rect" id="node48" title=" " alt="" coords="2246,483,2356,509"/>
+<area shape="rect" id="node50" href="$d0/d6a/IndexBuffer_8hpp.html" title=" " alt="" coords="2739,326,2970,353"/>
+<area shape="rect" id="node53" href="$dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="2269,319,2453,360"/>
+<area shape="rect" id="node54" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="2477,326,2714,353"/>
+<area shape="rect" id="node51" href="$d6/d9c/StorageFlags_8hpp.html" title=" " alt="" coords="2689,408,2932,435"/>
+<area shape="rect" id="node52" title=" " alt="" coords="2891,483,2986,509"/>
+<area shape="rect" id="node55" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="2466,408,2664,435"/>
+<area shape="rect" id="node56" title=" " alt="" coords="2510,483,2620,509"/>
+<area shape="rect" id="node58" href="$d5/d1a/Renderable_8hpp.html" title=" " alt="" coords="2295,169,2526,196"/>
+<area shape="rect" id="node59" href="$d2/d5e/Primitives_8hpp.html" title=" " alt="" coords="2956,408,3179,435"/>
 </map>

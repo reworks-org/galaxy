@@ -18,7 +18,9 @@ var namespacegalaxy_1_1graphics =
     [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
     [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
     [ "Rect", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", "d4/d0a/classgalaxy_1_1graphics_1_1Rect" ],
+    [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
     [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", "d3/db6/classgalaxy_1_1graphics_1_1Renderable" ],
+    [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ],
     [ "Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", "df/d20/classgalaxy_1_1graphics_1_1Renderer" ],
     [ "RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture" ],
     [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
@@ -75,6 +77,7 @@ var namespacegalaxy_1_1graphics =
       [ "CLAMP_TO_EDGE", "db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6baca305cdc5d749d643055111218063f26", null ],
       [ "CLAMP_TO_BORDER", "db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6bafcb162090f81b0a56721e5aa01b880c3", null ]
     ] ],
+    [ "primitive_to_gl", "db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092", null ],
     [ "Shader::set_uniform< glm::mat3 >", "db/dab/namespacegalaxy_1_1graphics.html#ad8a63088a93168a7ea4e4ca2beac9b96", null ],
     [ "Shader::set_uniform< glm::mat4 >", "db/dab/namespacegalaxy_1_1graphics.html#af93070a213485d139ed3f27c0d2f82c0", null ],
     [ "Shader::set_uniform< glm::vec2 >", "db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e", null ],

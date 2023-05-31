@@ -1,7 +1,6 @@
 var namespacegalaxy_1_1components =
 [
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
-    [ "DrawShader", "d2/d46/classgalaxy_1_1components_1_1DrawShader.html", "d2/d46/classgalaxy_1_1components_1_1DrawShader" ],
     [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
     [ "Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", "d3/d19/classgalaxy_1_1components_1_1Map" ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],

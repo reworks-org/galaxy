@@ -11,7 +11,6 @@ var annotated_dup =
       ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
-        [ "DrawShader", "d2/d46/classgalaxy_1_1components_1_1DrawShader.html", "d2/d46/classgalaxy_1_1components_1_1DrawShader" ],
         [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
         [ "Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", "d3/d19/classgalaxy_1_1components_1_1Map" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
@@ -79,7 +78,9 @@ var annotated_dup =
         [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
         [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
         [ "Rect", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", "d4/d0a/classgalaxy_1_1graphics_1_1Rect" ],
+        [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
         [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", "d3/db6/classgalaxy_1_1graphics_1_1Renderable" ],
+        [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ],
         [ "Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", "df/d20/classgalaxy_1_1graphics_1_1Renderer" ],
         [ "RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture" ],
         [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],

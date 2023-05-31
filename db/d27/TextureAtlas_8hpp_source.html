@@ -191,7 +191,7 @@ $(document).ready(function(){initNavTree('db/d27/TextureAtlas_8hpp_source.html',
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keyword">template</span>&lt;meta::is_arithmetic Type&gt;</div>
 <div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515">  249</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515">TextureAtlas::map_x_texel</a>(<span class="keyword">const</span> Type x, <span class="keyword">const</span> Type width)</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same&lt;Type, float&gt;::value)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;Type&gt;::value)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            {</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                <span class="keywordflow">return</span> x / width;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            }</div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('db/d27/TextureAtlas_8hpp_source.html',
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keyword">template</span>&lt;meta::is_arithmetic Type&gt;</div>
 <div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d">  262</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d">TextureAtlas::map_y_texel</a>(<span class="keyword">const</span> Type y, <span class="keyword">const</span> Type height)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same&lt;Type, float&gt;::value)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;Type&gt;::value)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            {</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <span class="keywordflow">return</span> y / height;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            }</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('db/d27/TextureAtlas_8hpp_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../db/d27/TextureAtlas_8hpp.html">TextureAtlas.hpp</a></li>
-    <li class="footer">Generated on Wed May 24 2023 05:46:38 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed May 31 2023 06:56:03 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,6 +1,0 @@
-<map id="galaxy::components::Primitive::configure" name="galaxy::components::Primitive::configure">
-<area shape="rect" id="node1" title="Configure renderable." alt="" coords="5,39,163,80"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get VAO GL id." alt="" coords="211,5,389,47"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="211,71,389,112"/>
-<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="437,71,648,112"/>
-</map>
