@@ -207,12 +207,11 @@ namespace galaxy
 
 		void TextureAtlas::init()
 		{
-			glGetIntegerv(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, &m_max_bindings);
+			glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &m_max_bindings);
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
-			// Hard limit size to support older hardware.
+			// Hard limit bindings count.
 			m_max_bindings = std::min(m_max_bindings, 32);
-			m_size         = std::min(m_size, 4096);
 
 			m_sheets.resize(m_max_bindings);
 
