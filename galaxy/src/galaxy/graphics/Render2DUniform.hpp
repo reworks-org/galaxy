@@ -11,6 +11,13 @@
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
 
+#include "galaxy/platform/Pragma.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26495)
+#endif
+
 namespace galaxy
 {
 	namespace graphics
@@ -47,5 +54,9 @@ namespace galaxy
 		};
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif
 
 #endif

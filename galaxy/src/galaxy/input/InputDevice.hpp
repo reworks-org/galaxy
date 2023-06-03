@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			InputDevice& operator=(InputDevice&&) = default;
+			virtual InputDevice& operator=(InputDevice&&) = default;
 
 			///
 			/// Copy constructor.
@@ -53,7 +53,7 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			InputDevice& operator=(const InputDevice&) = default;
+			virtual InputDevice& operator=(const InputDevice&) = default;
 
 			///
 			/// Sets the window pointer.

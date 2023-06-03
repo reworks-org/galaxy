@@ -20,22 +20,27 @@ namespace galaxy
 			///
 			/// Position data.
 			///
-			POSITION_POINT = 0,
+			POSITION_POINT = 0u,
 
 			///
 			/// Texel data.
 			///
-			TEXEL_POINT = 1,
+			TEXEL_POINT = 1u,
+
+			///
+			/// Normal map texels.
+			///
+			NORMALS_POINT = 2u,
 
 			///
 			/// Colour data.
 			///
-			COLOUR_POINT = 2,
+			COLOUR_POINT = 3u,
 
 			///
 			/// Instance offset data.
 			///
-			OFFSET_POINT = 3
+			OFFSET_POINT = 4u
 		};
 	} // namespace graphics
 } // namespace galaxy
