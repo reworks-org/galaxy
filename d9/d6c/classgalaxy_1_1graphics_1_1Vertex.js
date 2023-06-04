@@ -1,10 +1,7 @@
 var classgalaxy_1_1graphics_1_1Vertex =
 [
     [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7d9e424bad9d5a95c6bc7789ddd58697", null ],
-    [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#af28dbfb66c1cf93ba383aee3070d7081", null ],
-    [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a84532fd31dd58e8935ed8e8d8e0eb207", null ],
-    [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a96b54c8f66db3cd60defb98b0664d8b6", null ],
-    [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#aea1fb67692c7632451590596e4f5d2df", null ],
+    [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#acc8891b388fbe98c0966897f490e0373", null ],
     [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#af508f20ca05a7066d4249f36e493d0d5", null ],
     [ "Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a0e428805c2f0f8abdfa74d02ea768a0f", null ],
     [ "~Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a975370ca69036624fe4bfef70a582ace", null ],
@@ -15,5 +12,6 @@ var classgalaxy_1_1graphics_1_1Vertex =
     [ "operator<=>", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a46c4ab21909a1b461a3205079d4688fe", null ],
     [ "m_pos", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a5490f7315196c511fc62a7ec8a4c29d5", null ],
     [ "m_texels", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ae09a0b3f844b9c06c1e3a37abdadf12a", null ],
+    [ "m_normals", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a1c600fd57a674c3060ea9d193f0e2acb", null ],
     [ "m_colour", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ab869398410ca1b483ef5740202566376", null ]
 ];

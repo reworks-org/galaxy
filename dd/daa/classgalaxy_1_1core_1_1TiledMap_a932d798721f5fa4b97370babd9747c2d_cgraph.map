@@ -1,6 +1,6 @@
 <map id="galaxy::core::TiledMap::process_image_layer" name="galaxy::core::TiledMap::process_image_layer">
 <area shape="rect" id="node1" title="Recursive function to process image layer." alt="" coords="5,231,175,272"/>
-<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="223,165,376,207"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a62ef8767ee24c312560b1d8de04cde66" title="Creates the internal vertex array." alt="" coords="223,165,376,207"/>
 <area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="223,231,376,272"/>
 <area shape="rect" id="node11" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="223,296,376,337"/>
 <area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="450,100,629,141"/>

@@ -1,12 +1,13 @@
 <map id="galaxy/src/galaxy/graphics/PostEffect.hpp" name="galaxy/src/galaxy/graphics/PostEffect.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="999,5,1195,47"/>
-<area shape="rect" id="node2" href="$de/d66/PostEffect_8cpp.html" title=" " alt="" coords="392,95,588,136"/>
-<area shape="rect" id="node3" href="$d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="613,95,847,136"/>
-<area shape="rect" id="node18" href="$d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="871,95,1090,136"/>
-<area shape="rect" id="node20" href="$dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="1115,95,1311,136"/>
-<area shape="rect" id="node22" href="$d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="1335,95,1531,136"/>
-<area shape="rect" id="node24" href="$d3/d37/SMAA_8hpp.html" title=" " alt="" coords="1555,95,1751,136"/>
-<area shape="rect" id="node4" href="$dc/d11/ChromaticAberration_8cpp.html" title=" " alt="" coords="504,184,737,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1003,5,1199,47"/>
+<area shape="rect" id="node2" href="$de/d66/PostEffect_8cpp.html" title=" " alt="" coords="280,95,476,136"/>
+<area shape="rect" id="node3" href="$d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="501,95,735,136"/>
+<area shape="rect" id="node18" href="$da/da6/FilmicGrain_8hpp.html" title=" " alt="" coords="1663,95,1859,136"/>
+<area shape="rect" id="node20" href="$d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="759,95,978,136"/>
+<area shape="rect" id="node22" href="$dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="1003,95,1199,136"/>
+<area shape="rect" id="node24" href="$d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="1223,95,1419,136"/>
+<area shape="rect" id="node26" href="$d3/d37/SMAA_8hpp.html" title=" " alt="" coords="1443,95,1639,136"/>
+<area shape="rect" id="node4" href="$dc/d11/ChromaticAberration_8cpp.html" title=" " alt="" coords="284,184,517,225"/>
 <area shape="rect" id="node5" href="$d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="1003,184,1199,225"/>
 <area shape="rect" id="node6" href="$d0/de3/Window_8hpp.html" title=" " alt="" coords="912,273,1081,315"/>
 <area shape="rect" id="node17" href="$d8/d9f/PostProcess_8cpp.html" title=" " alt="" coords="1105,273,1301,315"/>
@@ -20,8 +21,9 @@
 <area shape="rect" id="node14" href="$d5/df3/ImGuiHelpers_8cpp.html" title=" " alt="" coords="1433,363,1587,404"/>
 <area shape="rect" id="node15" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="1611,363,1764,404"/>
 <area shape="rect" id="node16" href="$dc/d3a/RMLSystem_8cpp.html" title=" " alt="" coords="1788,363,1941,404"/>
-<area shape="rect" id="node19" href="$d0/d3f/GammaCorrection_8cpp.html" title=" " alt="" coords="761,184,979,225"/>
-<area shape="rect" id="node21" href="$d8/d53/GaussianBlur_8cpp.html" title=" " alt="" coords="1223,184,1419,225"/>
-<area shape="rect" id="node23" href="$d2/d44/Sharpen_8cpp.html" title=" " alt="" coords="1443,184,1639,225"/>
-<area shape="rect" id="node25" href="$d4/dad/SMAA_8cpp.html" title=" " alt="" coords="1663,184,1859,225"/>
+<area shape="rect" id="node19" href="$d3/dd7/FilmicGrain_8cpp.html" title=" " alt="" coords="1663,184,1859,225"/>
+<area shape="rect" id="node21" href="$d0/d3f/GammaCorrection_8cpp.html" title=" " alt="" coords="541,184,759,225"/>
+<area shape="rect" id="node23" href="$d8/d53/GaussianBlur_8cpp.html" title=" " alt="" coords="783,184,979,225"/>
+<area shape="rect" id="node25" href="$d2/d44/Sharpen_8cpp.html" title=" " alt="" coords="1223,184,1419,225"/>
+<area shape="rect" id="node27" href="$d4/dad/SMAA_8cpp.html" title=" " alt="" coords="1443,184,1639,225"/>
 </map>

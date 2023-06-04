@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['forward_2761',['FORWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a505dce37ac37840d08eecfed64003d6f',1,'galaxy::input::CameraKeys']]],
-  ['fragments_2762',['fragments',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a1d5a9f6694ec4f15dae8527c718ee884',1,'galaxy::components::Primitive::PrimitiveData']]],
-  ['friction_2763',['friction',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab2fe19949fd600a80713d2f1b5ed7a99',1,'galaxy::physics::Material']]]
+  ['encoding_5ftable_2816',['encoding_table',['../d4/de5/Base64_8cpp.html#ab95a027176f2877dedfdc0768ffa88f2',1,'Base64.cpp']]],
+  ['entity_2817',['entity',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a6d09f5df0fc22dde445e67a16c2bcdf6',1,'galaxy::graphics::Render2DUniform']]]
 ];

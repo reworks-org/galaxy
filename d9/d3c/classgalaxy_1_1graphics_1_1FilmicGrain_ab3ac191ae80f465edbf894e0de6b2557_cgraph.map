@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::FilmicGrain::render" name="galaxy::graphics::FilmicGrain::render">
+<area shape="rect" id="node1" title="Render effect to input texture." alt="" coords="5,104,180,145"/>
+<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="229,5,410,47"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="228,71,411,112"/>
+<area shape="rect" id="node7" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="228,136,411,177"/>
+<area shape="rect" id="node9" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="229,201,410,243"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="459,5,673,47"/>
+<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="475,71,657,112"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="721,39,936,80"/>
+<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="459,136,673,177"/>
+</map>

@@ -1,4 +1,6 @@
 <map id="galaxy::scene::Scene::Scene" name="galaxy::scene::Scene::Scene">
-<area shape="rect" id="node1" title="Constructor." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d" title="Add a system to the manager." alt="" coords="212,5,359,47"/>
+<area shape="rect" id="node1" title="Constructor." alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d" title="Add a system to the manager." alt="" coords="219,5,366,47"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a14cdfe462b18a8cd7de08dd457c321ad" title="Get window height." alt="" coords="212,71,373,112"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a837de79087ab9ba880c84c3db901263c" title="Get window width." alt="" coords="212,136,373,177"/>
 </map>

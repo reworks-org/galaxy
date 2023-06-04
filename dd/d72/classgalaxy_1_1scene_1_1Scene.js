@@ -14,5 +14,6 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "m_context", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae232c5a0a5678debcd9ccf4bb7d150c2", null ],
     [ "m_map", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a52c27f9f74dad5fdbfb8470e681fa207", null ],
     [ "m_name", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258", null ],
+    [ "m_light_ssbo", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8666bacbc82e962a53d9e957936c0f8b", null ],
     [ "m_window", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afdff2876fbb0326e363945cb627fe105", null ]
 ];

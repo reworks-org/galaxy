@@ -4,6 +4,10 @@ var dir_c5644d256e768a430e8a7ae590b7b4db =
     [ "ChromaticAberration.hpp", "d5/d73/ChromaticAberration_8hpp.html", [
       [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ]
     ] ],
+    [ "FilmicGrain.cpp", "d3/dd7/FilmicGrain_8cpp.html", "d3/dd7/FilmicGrain_8cpp" ],
+    [ "FilmicGrain.hpp", "da/da6/FilmicGrain_8hpp.html", [
+      [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ]
+    ] ],
     [ "GammaCorrection.cpp", "d0/d3f/GammaCorrection_8cpp.html", "d0/d3f/GammaCorrection_8cpp" ],
     [ "GammaCorrection.hpp", "d2/dd2/GammaCorrection_8hpp.html", [
       [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ]

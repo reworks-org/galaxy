@@ -1,7 +1,7 @@
 <map id="galaxy::resource::TextureAtlas::map_y_texel" name="galaxy::resource::TextureAtlas::map_y_texel">
 <area shape="rect" id="node1" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="1160,157,1345,199"/>
 <area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="918,27,1103,68"/>
-<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a1726ffd5c3d18014e7a8efac26dd8409" title="Creates the internal vertex array." alt="" coords="934,92,1087,133"/>
+<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac8a798f56f338714104ead72590aa058" title="Creates the internal vertex array." alt="" coords="934,92,1087,133"/>
 <area shape="rect" id="node8" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a7f465a1dbdcff1cb321254be9f16a533" title="Recursive function to process tile layer." alt="" coords="926,157,1095,199"/>
 <area shape="rect" id="node12" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a4771cfdb3ad27c9235e63270aac3e4cb" title="Updates texture and internal vertex array." alt="" coords="934,223,1087,264"/>
 <area shape="rect" id="node13" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="909,288,1112,329"/>

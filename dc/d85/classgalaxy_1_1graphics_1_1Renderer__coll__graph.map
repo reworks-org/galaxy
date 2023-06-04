@@ -1,9 +1,9 @@
 <map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
-<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="93,660,331,884"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,403,205,495"/>
-<area shape="rect" id="node3" title=" " alt="" coords="27,160,184,237"/>
-<area shape="rect" id="node4" title=" " alt="" coords="86,13,125,90"/>
-<area shape="rect" id="node5" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="229,315,411,583"/>
-<area shape="rect" id="node6" title=" " alt="" coords="277,160,363,237"/>
-<area shape="rect" id="node7" title=" " alt="" coords="251,5,389,97"/>
+<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="77,675,315,928"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,403,184,495"/>
+<area shape="rect" id="node3" title=" " alt="" coords="16,160,173,237"/>
+<area shape="rect" id="node4" title=" " alt="" coords="75,13,114,90"/>
+<area shape="rect" id="node5" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="208,315,389,583"/>
+<area shape="rect" id="node6" title=" " alt="" coords="255,160,342,237"/>
+<area shape="rect" id="node7" title=" " alt="" coords="229,5,368,97"/>
 </map>

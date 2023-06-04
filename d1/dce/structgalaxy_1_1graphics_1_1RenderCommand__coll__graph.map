@@ -1,4 +1,6 @@
 <map id="galaxy::graphics::RenderCommand" name="galaxy::graphics::RenderCommand">
-<area shape="rect" id="node1" title="Data to be passed to the renderer." alt="" coords="9,219,192,384"/>
-<area shape="rect" id="node2" href="$dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html" title="Uniform data passed to shader from entity." alt="" coords="5,5,196,156"/>
+<area shape="rect" id="node1" title="Data to be passed to the renderer." alt="" coords="235,277,417,384"/>
+<area shape="rect" id="node2" href="$dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html" title="Uniform data passed to shader from entity." alt="" coords="5,27,196,193"/>
+<area shape="rect" id="node3" href="$d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html" title="Virtual class for allowing a renderable to have normal mapping." alt="" coords="220,13,432,207"/>
+<area shape="rect" id="node4" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="455,5,666,215"/>
 </map>

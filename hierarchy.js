@@ -4,6 +4,7 @@ var hierarchy =
     [ "galaxy::core::Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", null ],
     [ "galaxy::media::AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::lua::BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", null ],
+    [ "galaxy::graphics::Buffer< gl_buffer_type >", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html", null ],
     [ "galaxy::resource::Cache< Resource >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
     [ "galaxy::resource::Cache< core::Prefab >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Prefabs", "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html", null ]
@@ -58,14 +59,20 @@ var hierarchy =
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],
     [ "galaxy::events::KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", null ],
     [ "galaxy::resource::Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", null ],
+    [ "galaxy::graphics::Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", null ],
+    [ "galaxy::graphics::LightSSBO", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
     [ "galaxy::events::MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", null ],
     [ "galaxy::events::MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", null ],
+    [ "galaxy::graphics::NormalMap", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html", [
+      [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ]
+    ] ],
     [ "galaxy::graphics::PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", [
       [ "galaxy::graphics::ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", null ],
+      [ "galaxy::graphics::FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", null ],
       [ "galaxy::graphics::GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", null ],
       [ "galaxy::graphics::GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", null ],
       [ "galaxy::graphics::SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", null ],
@@ -139,7 +146,6 @@ var hierarchy =
     [ "galaxy::core::TiledMap", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html", null ],
     [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
     [ "galaxy::async::TimerAsync", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html", null ],
-    [ "galaxy::graphics::UniformBuffer", "d8/d6a/classgalaxy_1_1graphics_1_1UniformBuffer.html", null ],
     [ "galaxy::graphics::UniformInfo", "d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html", null ],
     [ "galaxy::graphics::Vertex", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html", null ],
     [ "galaxy::graphics::VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", null ],

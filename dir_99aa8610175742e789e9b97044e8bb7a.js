@@ -4,6 +4,8 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "postfx", "dir_c5644d256e768a430e8a7ae590b7b4db.html", "dir_c5644d256e768a430e8a7ae590b7b4db" ],
     [ "AttributeBindings.cpp", "dc/df8/AttributeBindings_8cpp.html", null ],
     [ "AttributeBindings.hpp", "d6/d32/AttributeBindings_8hpp.html", "d6/d32/AttributeBindings_8hpp" ],
+    [ "Buffer.cpp", "db/d98/Buffer_8cpp.html", null ],
+    [ "Buffer.hpp", "d8/d36/Buffer_8hpp.html", "d8/d36/Buffer_8hpp" ],
     [ "BufferBindings.cpp", "dd/dce/BufferBindings_8cpp.html", null ],
     [ "BufferBindings.hpp", "de/d3d/BufferBindings_8hpp.html", "de/d3d/BufferBindings_8hpp" ],
     [ "Camera.cpp", "da/d8c/Camera_8cpp.html", "da/d8c/Camera_8cpp" ],
@@ -36,6 +38,18 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "InstanceBuffer.cpp", "d7/d7f/InstanceBuffer_8cpp.html", null ],
     [ "InstanceBuffer.hpp", "dd/d53/InstanceBuffer_8hpp.html", [
       [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ]
+    ] ],
+    [ "Light.cpp", "d2/d41/Light_8cpp.html", null ],
+    [ "Light.hpp", "d5/dd5/Light_8hpp.html", [
+      [ "Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", "dd/d03/structgalaxy_1_1graphics_1_1Light" ]
+    ] ],
+    [ "LightSSBO.cpp", "d5/d3f/LightSSBO_8cpp.html", null ],
+    [ "LightSSBO.hpp", "d6/d79/LightSSBO_8hpp.html", [
+      [ "LightSSBO", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO" ]
+    ] ],
+    [ "NormalMap.cpp", "d7/dca/NormalMap_8cpp.html", null ],
+    [ "NormalMap.hpp", "df/d6e/NormalMap_8hpp.html", [
+      [ "NormalMap", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap" ]
     ] ],
     [ "PostEffect.cpp", "de/d66/PostEffect_8cpp.html", null ],
     [ "PostEffect.hpp", "d7/d2d/PostEffect_8hpp.html", "d7/d2d/PostEffect_8hpp" ],
@@ -89,10 +103,6 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "TextureFilters.hpp", "df/d23/TextureFilters_8hpp.html", "df/d23/TextureFilters_8hpp" ],
     [ "TextureModes.cpp", "da/dba/TextureModes_8cpp.html", null ],
     [ "TextureModes.hpp", "df/d19/TextureModes_8hpp.html", "df/d19/TextureModes_8hpp" ],
-    [ "UniformBuffer.cpp", "d6/dfb/UniformBuffer_8cpp.html", null ],
-    [ "UniformBuffer.hpp", "d1/d3c/UniformBuffer_8hpp.html", [
-      [ "UniformBuffer", "d8/d6a/classgalaxy_1_1graphics_1_1UniformBuffer.html", "d8/d6a/classgalaxy_1_1graphics_1_1UniformBuffer" ]
-    ] ],
     [ "UniformInfo.cpp", "d7/d7b/UniformInfo_8cpp.html", null ],
     [ "UniformInfo.hpp", "d2/d31/UniformInfo_8hpp.html", [
       [ "UniformInfo", "d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html", "d2/d30/structgalaxy_1_1graphics_1_1UniformInfo" ]

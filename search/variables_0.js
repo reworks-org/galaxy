@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['backward_2744',['BACKWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0',1,'galaxy::input::CameraKeys']]],
-  ['button_2745',['button',['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#a8a041f95eabfcb32a468d6943a82c71e',1,'galaxy::events::MousePressed::button()'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#a739bed01d0e7044b1e9e66d04a121d17',1,'galaxy::events::MouseReleased::button()']]]
+  ['ambient_5flight_5fcolour_2799',['ambient_light_colour',['../d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html#a8b45c79dba8db589370ce9da1babd82c',1,'galaxy::graphics::LightSSBO']]]
 ];

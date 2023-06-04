@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['chromaticaberration_5ffrag_2746',['chromaticaberration_frag',['../dc/d11/ChromaticAberration_8cpp.html#aba75585dfd6796d99725a28be5e72fe7',1,'ChromaticAberration.cpp']]],
-  ['chromaticaberration_5fvert_2747',['chromaticaberration_vert',['../dc/d11/ChromaticAberration_8cpp.html#ac42485dd9d7f6248ef0b0b806254d846',1,'ChromaticAberration.cpp']]],
-  ['clear_5fdepth_2748',['CLEAR_DEPTH',['../d2/dad/Framebuffer_8cpp.html#a71b0b7f2095ef284e2c3aeb382c79090',1,'Framebuffer.cpp']]],
-  ['code_2749',['code',['../d0/de8/structgalaxy_1_1fs_1_1FileInfo.html#a47ead70d16b2faef3811345d2afb72fe',1,'galaxy::fs::FileInfo']]],
-  ['codepoint_2750',['codepoint',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html#a88d81328a066e4e956b65beb0d153f13',1,'galaxy::events::KeyChar']]],
-  ['colour_2751',['colour',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#aad42cf16b84638652f72c400ec8a2ba9',1,'galaxy::graphics::Render2DUniform']]],
-  ['colour_5foffset_2752',['COLOUR_OFFSET',['../dd/db2/Colour_8cpp.html#ac872fe49721f86c8d422e88f383c220f',1,'Colour.cpp']]],
-  ['count_2753',['count',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a16deeaa49deaf28f83e513cdcd89a8dd',1,'galaxy::graphics::RenderCommand::count()'],['../d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html#a0c26952632a75528b51065211296a402',1,'galaxy::graphics::UniformInfo::count()']]]
+  ['backward_2800',['BACKWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0',1,'galaxy::input::CameraKeys']]],
+  ['button_2801',['button',['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#a8a041f95eabfcb32a468d6943a82c71e',1,'galaxy::events::MousePressed::button()'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#a739bed01d0e7044b1e9e66d04a121d17',1,'galaxy::events::MouseReleased::button()']]]
 ];

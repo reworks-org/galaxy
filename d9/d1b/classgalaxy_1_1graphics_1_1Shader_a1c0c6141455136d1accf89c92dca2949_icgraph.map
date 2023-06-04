@@ -1,18 +1,21 @@
 <map id="galaxy::graphics::Shader::set_uniform" name="galaxy::graphics::Shader::set_uniform">
-<area shape="rect" id="node1" title="Specialized variadic template for setting shader uniforms." alt="" coords="515,431,696,472"/>
+<area shape="rect" id="node1" title="Specialized variadic template for setting shader uniforms." alt="" coords="515,528,696,569"/>
 <area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="223,5,456,47"/>
 <area shape="rect" id="node3" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#adad32168338ab8785bf9104d1f4e3860" title="Internal function to generate video frame texture." alt="" coords="260,71,419,112"/>
-<area shape="rect" id="node5" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="212,136,467,177"/>
-<area shape="rect" id="node6" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="241,201,437,243"/>
-<area shape="rect" id="node7" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="241,267,437,308"/>
-<area shape="rect" id="node8" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a267e818bc73fe7b822793a16f1c65dea" title="Set sharpening amount." alt="" coords="245,332,434,373"/>
-<area shape="rect" id="node9" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af7d50585c8247d2fa3cbffadc85814b8" title="Set chromatic r offset." alt="" coords="238,397,441,439"/>
-<area shape="rect" id="node10" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a81c0f30cb89fb4d430a5e34745973bb7" title="Set chromatic r offset." alt="" coords="238,463,441,504"/>
-<area shape="rect" id="node11" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a3472b63448d76f82bbd98b36c89454ec" title="Set gamma modifier." alt="" coords="212,528,467,569"/>
-<area shape="rect" id="node12" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a9606017ca6970fa6b8b5f86baaae13c3" title="Set chromatic r offset." alt="" coords="238,593,441,635"/>
-<area shape="rect" id="node13" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ab01ff8c14c873ceff579794d9ff3ff82" title="Set chromatic rgb offset." alt="" coords="238,659,441,700"/>
-<area shape="rect" id="node14" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf" title="Set gaussian blur strength." alt="" coords="241,724,437,765"/>
-<area shape="rect" id="node15" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="245,789,434,831"/>
-<area shape="rect" id="node16" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="252,855,427,896"/>
+<area shape="rect" id="node5" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="252,136,427,177"/>
+<area shape="rect" id="node6" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="212,201,467,243"/>
+<area shape="rect" id="node7" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="241,267,437,308"/>
+<area shape="rect" id="node8" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="252,332,427,373"/>
+<area shape="rect" id="node9" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="241,397,437,439"/>
+<area shape="rect" id="node10" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9d9cd0292a128bb4c6833b75f1448124" title="Set intensity of film grain effect." alt="" coords="252,463,427,504"/>
+<area shape="rect" id="node11" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a267e818bc73fe7b822793a16f1c65dea" title="Set sharpening amount." alt="" coords="245,528,434,569"/>
+<area shape="rect" id="node12" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af7d50585c8247d2fa3cbffadc85814b8" title="Set chromatic r offset." alt="" coords="238,593,441,635"/>
+<area shape="rect" id="node13" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a81c0f30cb89fb4d430a5e34745973bb7" title="Set chromatic r offset." alt="" coords="238,659,441,700"/>
+<area shape="rect" id="node14" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a3472b63448d76f82bbd98b36c89454ec" title="Set gamma modifier." alt="" coords="212,724,467,765"/>
+<area shape="rect" id="node15" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a9606017ca6970fa6b8b5f86baaae13c3" title="Set chromatic r offset." alt="" coords="238,789,441,831"/>
+<area shape="rect" id="node16" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ab01ff8c14c873ceff579794d9ff3ff82" title="Set chromatic rgb offset." alt="" coords="238,855,441,896"/>
+<area shape="rect" id="node17" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf" title="Set gaussian blur strength." alt="" coords="241,920,437,961"/>
+<area shape="rect" id="node18" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="245,985,434,1027"/>
+<area shape="rect" id="node19" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="252,1051,427,1092"/>
 <area shape="rect" id="node4" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a1791972c8cc2d43824c3de6c1be30a0b" title="Load a MPEG&#45;1 from video file." alt="" coords="5,71,164,112"/>
 </map>

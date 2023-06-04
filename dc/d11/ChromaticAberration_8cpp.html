@@ -241,15 +241,15 @@ Variables</h2></td></tr>
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">    void main()</span></div>
 <div class="line"><span class="stringliteral">    {</span></div>
-<div class="line"><span class="stringliteral">        vec2 texSize = textureSize(u_texture, 0).xy;</span></div>
-<div class="line"><span class="stringliteral">        vec2 texCoord = gl_FragCoord.xy / texSize;</span></div>
+<div class="line"><span class="stringliteral">        vec2 tex_size = textureSize(u_texture, 0).xy;</span></div>
+<div class="line"><span class="stringliteral">        vec2 tex_coord = gl_FragCoord.xy / tex_size;</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
-<div class="line"><span class="stringliteral">        vec2 direction = texCoord - u_direction;</span></div>
+<div class="line"><span class="stringliteral">        vec2 direction = tex_coord - u_direction;</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
-<div class="line"><span class="stringliteral">        io_frag_colour = texture(u_texture, texCoord);</span></div>
-<div class="line"><span class="stringliteral">        io_frag_colour.r = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.x))).r;</span></div>
-<div class="line"><span class="stringliteral">        io_frag_colour.g = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.y))).g;</span></div>
-<div class="line"><span class="stringliteral">        io_frag_colour.b = texture(u_texture, texCoord + (direction * vec2(u_rgb_offset.z))).b;</span></div>
+<div class="line"><span class="stringliteral">        io_frag_colour = texture(u_texture, tex_coord);</span></div>
+<div class="line"><span class="stringliteral">        io_frag_colour.r = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.x))).r;</span></div>
+<div class="line"><span class="stringliteral">        io_frag_colour.g = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.y))).g;</span></div>
+<div class="line"><span class="stringliteral">        io_frag_colour.b = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.z))).b;</span></div>
 <div class="line"><span class="stringliteral">    }</span></div>
 <div class="line"><span class="stringliteral">)&quot;</span></div>
 </div><!-- fragment -->
@@ -274,7 +274,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_c5644d256e768a430e8a7ae590b7b4db.html">postfx</a></li><li class="navelem"><a class="el" href="../../dc/d11/ChromaticAberration_8cpp.html">ChromaticAberration.cpp</a></li>
-    <li class="footer">Generated on Wed May 31 2023 09:43:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jun 4 2023 14:21:17 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

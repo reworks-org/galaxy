@@ -1,0 +1,4 @@
+<map id="galaxy::graphics::FilmicGrain" name="galaxy::graphics::FilmicGrain">
+<area shape="rect" id="node1" title="Film grain effect." alt="" coords="19,248,193,457"/>
+<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,5,207,200"/>
+</map>

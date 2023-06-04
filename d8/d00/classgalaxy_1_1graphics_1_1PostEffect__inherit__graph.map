@@ -1,8 +1,9 @@
 <map id="galaxy::graphics::PostEffect" name="galaxy::graphics::PostEffect">
-<area shape="rect" id="node1" title="Manages post processing effects to apply to combined scene." alt="" coords="522,5,723,200"/>
+<area shape="rect" id="node1" title="Manages post processing effects to apply to combined scene." alt="" coords="589,5,790,200"/>
 <area shape="rect" id="node2" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html" title="Chromatic Aberration pass." alt="" coords="5,255,208,538"/>
-<area shape="rect" id="node3" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html" title="GammaCorrection effect." alt="" coords="233,292,487,501"/>
-<area shape="rect" id="node4" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html" title="Gaussian Blur pass." alt="" coords="511,292,734,501"/>
-<area shape="rect" id="node5" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html" title="Submorphological Anti Aliasing." alt="" coords="758,248,949,545"/>
-<area shape="rect" id="node6" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html" title="Sharpening effect." alt="" coords="973,292,1163,501"/>
+<area shape="rect" id="node3" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html" title="Film grain effect." alt="" coords="233,292,407,501"/>
+<area shape="rect" id="node4" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html" title="GammaCorrection effect." alt="" coords="431,292,686,501"/>
+<area shape="rect" id="node5" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html" title="Gaussian Blur pass." alt="" coords="710,292,933,501"/>
+<area shape="rect" id="node6" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html" title="Submorphological Anti Aliasing." alt="" coords="957,248,1147,545"/>
+<area shape="rect" id="node7" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html" title="Sharpening effect." alt="" coords="1172,292,1361,501"/>
 </map>

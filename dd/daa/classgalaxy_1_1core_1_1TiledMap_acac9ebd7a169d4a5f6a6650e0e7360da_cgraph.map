@@ -1,7 +1,7 @@
 <map id="galaxy::core::TiledMap::process_object_layer" name="galaxy::core::TiledMap::process_object_layer">
 <area shape="rect" id="node1" title="Recursive function to process object layer." alt="" coords="5,231,175,272"/>
 <area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="231,100,384,141"/>
-<area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade98d2cd3ce6845da849c5e15379f3d0" title="Creates the internal vertex array." alt="" coords="231,165,384,207"/>
+<area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a62ef8767ee24c312560b1d8de04cde66" title="Creates the internal vertex array." alt="" coords="231,165,384,207"/>
 <area shape="rect" id="node12" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a71446c641e0a3e301dbd704b91cf47d6" title="Fetch tile offset in tileset." alt="" coords="223,231,392,272"/>
 <area shape="rect" id="node13" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="231,296,384,337"/>
 <area shape="rect" id="node14" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13" title="Unset a flag on an entity." alt="" coords="231,361,384,403"/>
