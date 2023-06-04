@@ -1,21 +1,22 @@
 ///
-/// ChromaticAberration.cpp
+/// FilmicGrain.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
-#include "ChromaticAberration.hpp"
+#include "FilmicGrain.hpp"
 
 ///
 /// Basic vertex shader.
 ///
-constexpr const char* const chromaticaberration_vert = R"(
+constexpr const char* const filmicgrain_vert = R"(
 	#version 460 core
 	layout (location = 0) in vec2 l_pos;
 	layout (location = 1) in vec2 l_texels;
@@ -27,7 +28,7 @@ constexpr const char* const chromaticaberration_vert = R"(
 )";
 
 ///
-/// \brief Chromatic Aberration fragment shader.
+/// \brief Filmic Grain fragment shader.
 ///
 /// BSD 3-Clause License
 ///
@@ -59,26 +60,29 @@ constexpr const char* const chromaticaberration_vert = R"(
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///
-constexpr const char* const chromaticaberration_frag = R"(
+constexpr const char* const filmicgrain_frag = R"(
 	#version 460 core
-
+	#define PI 3.1415926535897932384626433832795
+	
 	out vec4 io_frag_colour;
-
-	uniform vec2 u_direction;
-	uniform vec3 u_rgb_offset;
+	
+	uniform float u_amount;
+	uniform float u_time;
 	uniform sampler2D u_texture;
-
+	
 	void main()
 	{
 		vec2 tex_size = textureSize(u_texture, 0).xy;
 	    vec2 tex_coord = gl_FragCoord.xy / tex_size;
 
-		vec2 direction = tex_coord - u_direction;
+		vec4 colour = texture(u_texture, tex_coord);
 
-		io_frag_colour = texture(u_texture, tex_coord);
-		io_frag_colour.r = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.x))).r;
-		io_frag_colour.g = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.y))).g;
-		io_frag_colour.b = texture(u_texture, tex_coord + (direction * vec2(u_rgb_offset.z))).b;
+		float intensity = fract(10000 * sin((gl_FragCoord.x + gl_FragCoord.y * u_time) * PI));
+
+		amount *= intensity;
+		colour.rgb += amount;
+		
+		io_frag_colour = colour;
 	}
 )";
 
@@ -86,30 +90,30 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		ChromaticAberration::ChromaticAberration(const int width, const int height)
-			: m_r_offset {0.009f}
-			, m_g_offset {0.006f}
-			, m_b_offset {-0.006f}
+		FilmicGrain::FilmicGrain(const int width, const int height)
+			: m_amount {0.01}
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(chromaticaberration_vert, chromaticaberration_frag);
+			m_shader.load_raw(filmicgrain_vert, filmicgrain_frag);
 			m_shader.compile();
 
 			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-			m_shader.set_uniform("u_direction", 0.509167f, 0.598f); // may need tweaking, in general 0.5, 0.5 is default, adjust to change direction.
+			m_shader.set_uniform("u_amount", m_amount);
+			m_shader.set_uniform("u_time", static_cast<float>(glfwGetTime()));
 		}
 
-		void ChromaticAberration::resize(const int width, const int height)
+		void FilmicGrain::resize(const int width, const int height)
 		{
 			m_fb.resize(width, height);
 		}
 
-		unsigned int ChromaticAberration::render(const unsigned int input)
+		unsigned int FilmicGrain::render(const unsigned int input)
 		{
 			m_fb.bind(true);
 			m_shader.bind();
+
+			m_shader.set_uniform("u_time", static_cast<float>(glfwGetTime()));
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, input);
@@ -118,34 +122,13 @@ namespace galaxy
 			return m_fb.get_texture();
 		}
 
-		void ChromaticAberration::set_r_offset(const float r)
+		void FilmicGrain::set_amount(const float amount)
 		{
-			m_r_offset = std::clamp(r, -1.0f, 1.0f);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
+			m_amount = amount;
+			m_shader.set_uniform("u_amount", m_amount);
 		}
 
-		void ChromaticAberration::set_g_offset(const float g)
-		{
-			m_g_offset = std::clamp(g, -1.0f, 1.0f);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-		}
-
-		void ChromaticAberration::set_b_offset(const float b)
-		{
-			m_b_offset = std::clamp(b, -1.0f, 1.0f);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-		}
-
-		void ChromaticAberration::set_rgb_offset(const float r, const float g, const float b)
-		{
-			m_r_offset = std::clamp(r, -1.0f, 1.0f);
-			m_g_offset = std::clamp(g, -1.0f, 1.0f);
-			m_b_offset = std::clamp(b, -1.0f, 1.0f);
-
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-		}
-
-		bool ChromaticAberration::is_enabled()
+		bool FilmicGrain::is_enabled()
 		{
 			return core::ServiceLocator<core::Config>::ref().get<bool>("chromatic_abberation", "graphics.effects");
 		}
