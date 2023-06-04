@@ -17,18 +17,14 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite()
-			: Renderable {}
-			, Serializable {}
-			, m_opacity {1.0f}
+			: m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-			: Renderable {}
-			, Serializable {}
-			, m_opacity {1.0f}
+			: m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
@@ -37,6 +33,7 @@ namespace galaxy
 
 		Sprite::Sprite(Sprite&& s)
 			: Renderable {std::move(s)}
+			, NormalMap {std::move(s)}
 			, Serializable {}
 			, m_opacity {1.0f}
 			, m_width {0.0f}
@@ -54,6 +51,8 @@ namespace galaxy
 			if (this != &s)
 			{
 				this->Renderable::operator=(std::move(s));
+				this->NormalMap::operator=(std::move(s));
+
 				this->m_vao      = std::move(s.m_vao);
 				this->m_tex_name = std::move(s.m_tex_name);
 				this->m_opacity  = s.m_opacity;
@@ -68,7 +67,7 @@ namespace galaxy
 		{
 		}
 
-		void Sprite::create(const std::string& texture, const int layer, const float opacity)
+		void Sprite::create(const std::string& texture, const int layer, const float opacity, const bool normal_mapped)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -83,6 +82,7 @@ namespace galaxy
 				m_height         = static_cast<float>(info.m_region.m_height);
 				m_layer          = layer;
 				m_texture_handle = info.m_handle;
+				m_normal_mapped  = normal_mapped;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -98,6 +98,30 @@ namespace galaxy
 				vertices[3].m_pos    = {0.0f, m_height};
 				vertices[3].m_texels = info.m_texel_region.bl_texels();
 
+				if (m_normal_mapped)
+				{
+					const auto normalmap_path = std::filesystem::path(m_tex_name);
+					const auto normalmap      = normalmap_path.stem().string() + "_n" + normalmap_path.extension().string();
+
+					const auto info_opt_nm = atlas.query(normalmap);
+					if (info_opt_nm.has_value())
+					{
+						const auto& info_nm = info_opt_nm.value().get();
+
+						vertices[0].m_normals = info_nm.m_texel_region.ul_texels();
+						vertices[1].m_normals = info_nm.m_texel_region.ur_texels();
+						vertices[2].m_normals = info_nm.m_texel_region.br_texels();
+						vertices[3].m_normals = info_nm.m_texel_region.bl_texels();
+
+						m_nm_texture_handle = info_nm.m_handle;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to find normal map for sprite '{0}'. Make sure normal map has a _n suffix.", m_tex_name);
+						m_normal_mapped = false;
+					}
+				}
+
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 			}
 			else
@@ -106,7 +130,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity)
+		void Sprite::create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity, const bool normal_mapped)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -121,6 +145,7 @@ namespace galaxy
 				m_height         = static_cast<float>(info.m_region.m_height);
 				m_layer          = layer;
 				m_texture_handle = info.m_handle;
+				m_normal_mapped  = normal_mapped;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -142,6 +167,39 @@ namespace galaxy
 				vertices[3].m_pos      = {0.0f, m_height};
 				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
 				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
+
+				if (m_normal_mapped)
+				{
+					const auto normalmap_path = std::filesystem::path(m_tex_name);
+					const auto normalmap      = normalmap_path.stem().string() + "_n" + normalmap_path.extension().string();
+
+					const auto info_opt_nm = atlas.query(normalmap);
+					if (info_opt_nm.has_value())
+					{
+						const auto& info_nm = info_opt_nm.value().get();
+						const auto nm_off_x = info_nm.m_region.m_x + texture_rect.m_x;
+						const auto nm_off_y = info_nm.m_region.m_y + texture_rect.m_y;
+
+						vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x, info_nm.m_sheet_width);
+						vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y, info_nm.m_sheet_height);
+
+						vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x + texture_rect.m_width, info_nm.m_sheet_width);
+						vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y, info_nm.m_sheet_height);
+
+						vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x + texture_rect.m_width, info_nm.m_sheet_width);
+						vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y + texture_rect.m_height, info_nm.m_sheet_height);
+
+						vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x, info_nm.m_sheet_width);
+						vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y + texture_rect.m_height, info_nm.m_sheet_height);
+
+						m_nm_texture_handle = info_nm.m_handle;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to find normal map for sprite '{0}'. Make sure normal map has a _n suffix.", m_tex_name);
+						m_normal_mapped = false;
+					}
+				}
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 			}
@@ -178,6 +236,30 @@ namespace galaxy
 
 				vertices[3].m_pos    = {0.0f, m_height};
 				vertices[3].m_texels = info.m_texel_region.bl_texels();
+
+				if (m_normal_mapped)
+				{
+					const auto normalmap_path = std::filesystem::path(m_tex_name);
+					const auto normalmap      = normalmap_path.stem().string() + "_n" + normalmap_path.extension().string();
+
+					const auto info_opt_nm = atlas.query(normalmap);
+					if (info_opt_nm.has_value())
+					{
+						const auto& info_nm = info_opt_nm.value().get();
+
+						vertices[0].m_normals = info_nm.m_texel_region.ul_texels();
+						vertices[1].m_normals = info_nm.m_texel_region.ur_texels();
+						vertices[2].m_normals = info_nm.m_texel_region.br_texels();
+						vertices[3].m_normals = info_nm.m_texel_region.bl_texels();
+
+						m_nm_texture_handle = info_nm.m_handle;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to find normal map for sprite '{0}'. Make sure normal map has a _n suffix.", m_tex_name);
+						m_normal_mapped = false;
+					}
+				}
 
 				m_vao.sub_buffer(0, vertices);
 			}
@@ -222,6 +304,39 @@ namespace galaxy
 				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
 				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
 
+				if (m_normal_mapped)
+				{
+					const auto normalmap_path = std::filesystem::path(m_tex_name);
+					const auto normalmap      = normalmap_path.stem().string() + "_n" + normalmap_path.extension().string();
+
+					const auto info_opt_nm = atlas.query(normalmap);
+					if (info_opt_nm.has_value())
+					{
+						const auto& info_nm = info_opt_nm.value().get();
+						const auto nm_off_x = info_nm.m_region.m_x + texture_rect.m_x;
+						const auto nm_off_y = info_nm.m_region.m_y + texture_rect.m_y;
+
+						vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x, info_nm.m_sheet_width);
+						vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y, info_nm.m_sheet_height);
+
+						vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x + texture_rect.m_width, info_nm.m_sheet_width);
+						vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y, info_nm.m_sheet_height);
+
+						vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x + texture_rect.m_width, info_nm.m_sheet_width);
+						vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y + texture_rect.m_height, info_nm.m_sheet_height);
+
+						vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(nm_off_x, info_nm.m_sheet_width);
+						vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(nm_off_y + texture_rect.m_height, info_nm.m_sheet_height);
+
+						m_nm_texture_handle = info_nm.m_handle;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to find normal map for sprite '{0}'. Make sure normal map has a _n suffix.", m_tex_name);
+						m_normal_mapped = false;
+					}
+				}
+
 				m_vao.sub_buffer(0, vertices);
 			}
 			else
@@ -262,17 +377,18 @@ namespace galaxy
 
 		nlohmann::json Sprite::serialize()
 		{
-			nlohmann::json json  = "{}"_json;
-			json["texture_name"] = m_tex_name;
-			json["opacity"]      = m_opacity;
-			json["layer"]        = m_layer;
+			nlohmann::json json   = "{}"_json;
+			json["texture_name"]  = m_tex_name;
+			json["opacity"]       = m_opacity;
+			json["layer"]         = m_layer;
+			json["normal_mapped"] = m_normal_mapped;
 
 			return json;
 		}
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			create(json.at("texture"), json.at("layer"), json.at("opacity"));
+			create(json.at("texture"), json.at("layer"), json.at("opacity"), json.at("normal_mapped"));
 		}
 	} // namespace components
 } // namespace galaxy

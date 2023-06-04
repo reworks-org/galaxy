@@ -8,7 +8,9 @@
 #ifndef GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 #define GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 
+#include "galaxy/graphics/NormalMap.hpp"
 #include "galaxy/graphics/Render2DUniform.hpp"
+#include "galaxy/graphics/Renderable.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
@@ -27,29 +29,9 @@ namespace galaxy
 		struct RenderCommand final
 		{
 			///
-			/// Vertex Array Object.
-			///
-			unsigned int vao;
-
-			///
-			/// Index count.
-			///
-			unsigned int count;
-
-			///
-			/// Opengl texture id.
-			///
-			unsigned int texture;
-
-			///
 			/// Number of instances to render.
 			///
 			int instances;
-
-			///
-			/// Object z-level for drawing.
-			///
-			int layer;
 
 			///
 			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
@@ -60,6 +42,16 @@ namespace galaxy
 			/// Render2D shader uniform data block.
 			///
 			Render2DUniform uniform_data;
+
+			///
+			/// Renderable data;
+			///
+			Renderable* renderable;
+
+			///
+			/// Normal map data.
+			///
+			NormalMap* normalmap;
 		};
 	} // namespace graphics
 } // namespace galaxy

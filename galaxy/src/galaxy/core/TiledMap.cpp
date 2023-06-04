@@ -319,7 +319,7 @@ namespace galaxy
 								tf.set_pos(static_cast<float>(obj.getPosition().x), static_cast<float>(obj.getPosition().y - obj.getSize().y));
 
 								auto& sprite = m_scene->m_world.m_registry.emplace<components::Sprite>(entity);
-								sprite.create(image.stem().string(), {offset.x, offset.y, tx, ty}, level);
+								sprite.create(image.stem().string(), {offset.x, offset.y, tx, ty}, level, layer.getOpacity(), false);
 							}
 							break;
 
@@ -418,7 +418,7 @@ namespace galaxy
 			// Image must be in texture atlas.
 			auto& sprite   = m_scene->m_world.m_registry.emplace<components::Sprite>(entity);
 			const auto img = std::filesystem::path(layer.getImage()).stem().string();
-			sprite.create(img, level, layer.getOpacity());
+			sprite.create(img, level, layer.getOpacity(), false);
 
 			auto& tf = m_scene->m_world.m_registry.emplace<components::Transform>(entity);
 			tf.set_pos(layer.getOffset().x, layer.getOffset().y);

@@ -9,12 +9,13 @@
 #define GALAXY_GRAPHICS_RENDERER_HPP_
 
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/graphics/Buffer.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/LightSSBO.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/UniformBuffer.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
 namespace galaxy
@@ -42,10 +43,21 @@ namespace galaxy
 			///
 			/// Update the camera uniform buffer.
 			///
+			/// \param camera Camera object to buffer.
+			///
 			static void buffer_camera(Camera& camera);
 
 			///
+			/// Update the light shader storage buffer.
+			///
+			/// \param data Light SSBO data.
+			///
+			static void buffer_light_data(LightSSBO& data);
+
+			///
 			/// Submit render data to renderer.
+			///
+			/// \param command Data from an entity to render.
 			///
 			static void submit(RenderCommand& command);
 
@@ -109,6 +121,11 @@ namespace galaxy
 			static std::unique_ptr<UniformBuffer> s_r2d_ubo;
 
 			///
+			/// Light data.
+			///
+			static std::unique_ptr<ShaderStorageBuffer> s_light_ssbo;
+
+			///
 			/// Storage for renderables submitted.
 			///
 			static meta::vector<RenderCommand> s_data;
@@ -122,6 +139,11 @@ namespace galaxy
 			/// Cache previous texture to prevent rebinding.
 			///
 			static int s_prev_texture;
+
+			///
+			/// Cache previous nm texture to prevent rebinding.
+			///
+			static int s_prev_nm;
 		};
 	} // namespace graphics
 } // namespace galaxy

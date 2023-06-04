@@ -36,6 +36,9 @@ namespace galaxy
 
 			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
+
+			m_light_ssbo.ambient_light_colour = {0.5, 0.5, 0.5, 1.0};
+			m_light_ssbo.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
 		}
 
 		Scene::~Scene()
@@ -57,7 +60,10 @@ namespace galaxy
 			m_window->trigger_queued_events(m_dispatcher);
 			m_world.update();
 
+			m_light_ssbo.resolution = {m_window->get_widthf(), m_window->get_heightf()};
+
 			graphics::Renderer::buffer_camera(m_camera);
+			graphics::Renderer::buffer_light_data(m_light_ssbo);
 		}
 
 		void Scene::render()

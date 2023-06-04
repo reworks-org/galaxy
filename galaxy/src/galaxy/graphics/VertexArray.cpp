@@ -55,10 +55,7 @@ namespace galaxy
 			destroy();
 		}
 
-		void VertexArray::create(std::span<Vertex> vertices,
-			const StorageFlag vertices_flag,
-			std::span<unsigned int> indices,
-			const StorageFlag indices_flag)
+		void VertexArray::create(std::span<Vertex> vertices, const StorageFlag vertices_flag, std::span<unsigned int> indices, const StorageFlag indices_flag)
 		{
 			m_vbo.create(vertices, vertices_flag);
 			m_ibo.create(indices, indices_flag);
@@ -69,11 +66,13 @@ namespace galaxy
 
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT)); // Pos
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT));    // Texels
+			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::NORMALS_POINT));  // Normals
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT));   // Colour
 
 			// bind point, size (i.e. vec2, vec3, etc) floats not unsigned ints, not normalized, offset in data structure.
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_pos));
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
+			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::NORMALS_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_normals));
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT), 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_colour));
 
 			// VAO, attribute bind point, vertex buffer bind point.
@@ -82,6 +81,9 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 			glVertexArrayAttribBinding(m_vao,
 				static_cast<unsigned int>(AttributeBinding::TEXEL_POINT),
+				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+			glVertexArrayAttribBinding(m_vao,
+				static_cast<unsigned int>(AttributeBinding::NORMALS_POINT),
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 			glVertexArrayAttribBinding(m_vao,
 				static_cast<unsigned int>(AttributeBinding::COLOUR_POINT),
@@ -99,11 +101,13 @@ namespace galaxy
 
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT)); // Pos
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT));    // Texels
+			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::NORMALS_POINT));  // Normals
 			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT));   // Colour
 
 			// bind point, size (i.e. vec2, vec3, etc) floats not unsigned ints, not normalized, offset in data structure.
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::POSITION_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_pos));
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::TEXEL_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
+			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::NORMALS_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_normals));
 			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::COLOUR_POINT), 4, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_colour));
 
 			// VAO, attribute bind point, vertex buffer bind point.
@@ -112,6 +116,9 @@ namespace galaxy
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 			glVertexArrayAttribBinding(m_vao,
 				static_cast<unsigned int>(AttributeBinding::TEXEL_POINT),
+				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
+			glVertexArrayAttribBinding(m_vao,
+				static_cast<unsigned int>(AttributeBinding::NORMALS_POINT),
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
 			glVertexArrayAttribBinding(m_vao,
 				static_cast<unsigned int>(AttributeBinding::COLOUR_POINT),

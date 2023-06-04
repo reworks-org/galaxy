@@ -32,33 +32,11 @@ namespace galaxy
 			/// Argument constructor.
 			///
 			/// \param pos Position of vertex.
-			///
-			Vertex(const glm::vec2& pos);
-
-			///
-			/// Reverse argument constructor.
-			///
-			/// \param pos Position of vertex.
 			/// \param texels Vertex texture coordinates.
-			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels);
-
-			///
-			/// Reverse argument constructor.
-			///
-			/// \param pos Position of vertex.
+			/// \param normals Vertex Normalmap texels.
 			/// \param colour Colour of vertex, and opacity.
 			///
-			Vertex(const glm::vec2& pos, const graphics::Colour& colour);
-
-			///
-			/// Reverse argument constructor.
-			///
-			/// \param pos Position of vertex.
-			/// \param texels Vertex texture coordinates.
-			/// \param colour Colour of vertex, and opacity.
-			///
-			Vertex(const glm::vec2& pos, const glm::vec2& texels, const graphics::Colour& colour);
+			Vertex(const glm::vec2& pos, const glm::vec2& texels = {}, const glm::vec2& normals = {}, const graphics::Colour& colour = {});
 
 			///
 			/// Move constructor.
@@ -117,6 +95,11 @@ namespace galaxy
 			/// Vertex texels.
 			///
 			glm::vec2 m_texels;
+
+			///
+			/// Normalmap texels.
+			///
+			glm::vec2 m_normals;
 
 			///
 			/// RGBA colour.

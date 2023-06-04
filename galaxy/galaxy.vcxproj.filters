@@ -54,7 +54,7 @@
     <ClCompile Include="src\galaxy\resource\TextureAtlas.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureFilters.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureModes.cpp" />
-    <ClCompile Include="src\galaxy\graphics\UniformBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Buffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\UniformInfo.cpp" />
     <ClCompile Include="src\galaxy\graphics\Vertex.cpp" />
     <ClCompile Include="src\galaxy\graphics\VertexArray.cpp" />
@@ -146,6 +146,10 @@
     <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
     <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
+    <ClCompile Include="src\galaxy\graphics\NormalMap.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Light.cpp" />
+    <ClCompile Include="src\galaxy\graphics\LightSSBO.cpp" />
+    <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -201,7 +205,7 @@
     <ClInclude Include="src\galaxy\resource\TextureAtlas.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureFilters.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureModes.hpp" />
-    <ClInclude Include="src\galaxy\graphics\UniformBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Buffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\UniformInfo.hpp" />
     <ClInclude Include="src\galaxy\graphics\Vertex.hpp" />
     <ClInclude Include="src\galaxy\graphics\VertexArray.hpp" />
@@ -293,5 +297,9 @@
     <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />
     <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
+    <ClInclude Include="src\galaxy\graphics\NormalMap.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Light.hpp" />
+    <ClInclude Include="src\galaxy\graphics\LightSSBO.hpp" />
+    <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
   </ItemGroup>
 </Project>

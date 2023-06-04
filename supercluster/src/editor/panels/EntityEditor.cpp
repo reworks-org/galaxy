@@ -706,13 +706,14 @@ namespace sc
 
 						ImGui::InputFloat("Opacity", &sprite->m_opacity, 0.01f, 0.1f, "%.1f", numeric_input_flags);
 						ImGui::InputInt("Layer", &sprite->m_layer, 1, 2, numeric_input_flags);
+						ImGui::Checkbox("Normal Mapped", &sprite->m_normal_mapped);
 
 						if (ImGui::Button("Create Sprite"))
 						{
 							if (!sprite->m_tex_name.empty())
 							{
 								updates.emplace_back([sprite]() {
-									sprite->create(sprite->m_tex_name, sprite->m_layer, sprite->m_opacity);
+									sprite->create(sprite->m_tex_name, sprite->m_layer, sprite->m_opacity, sprite->m_normal_mapped);
 								});
 
 								ui::imgui_notify_success("New sprite created.");

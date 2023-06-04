@@ -10,6 +10,7 @@
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Rect.hpp"
+#include "galaxy/graphics/NormalMap.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
@@ -33,7 +34,7 @@ namespace galaxy
 		///
 		/// A sprite is a texture with vertex data.
 		///
-		class Sprite final : public graphics::Renderable, public fs::Serializable
+		class Sprite final : public graphics::Renderable, public graphics::NormalMap, public fs::Serializable
 		{
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
@@ -72,8 +73,11 @@ namespace galaxy
 			/// \param texture Texture file in VFS.
 			/// \param layer Rendering layer.
 			/// \param opacity Opacity from 0.0f to 1.0f.
+			/// \param normal_mapped Use normal maps when rendering this sprite.
+			/// Looks for a texture with the same name but appended with a '_n'.
+			/// If not found, does not use normal mapping.
 			///
-			void create(const std::string& texture, const int layer, const float opacity = 1.0f);
+			void create(const std::string& texture, const int layer, const float opacity, const bool normal_mapped);
 
 			///
 			/// Creates the internal vertex array.
@@ -82,8 +86,11 @@ namespace galaxy
 			/// \param texture_rect Custom region on a texture to render from.
 			/// \param layer Rendering layer.
 			/// \param opacity Opacity from 0.0f to 1.0f.
+			/// \param normal_mapped Use normal maps when rendering this sprite.
+			/// Looks for a texture with the same name but appended with a '_n'.
+			/// If not found, does not use normal mapping.
 			///
-			void create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity = 1.0f);
+			void create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity, const bool normal_mapped);
 
 			///
 			/// Updates texture and internal vertex array.

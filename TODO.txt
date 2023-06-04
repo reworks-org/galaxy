@@ -10,18 +10,13 @@ add onload and on unload scene support and add to scripting
 add game stuff like ui and tilemap to lua.
 
 add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
+	- scene heirarchy / scene tree thingy?
 editor camera
 better editor play mode
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 
 lua script reloading
 rml file reloading
-
-larger text font icons
-
-replace search with imgui text filters
-
-wrap some imgui code into reusable functions
 
 more drag/drop support for tree view, body, etc
 
@@ -32,6 +27,8 @@ implement b2_debugdraw?
 
 make sure all operator= are being called correctly when virtual
 
+normal mapping support for tilemap.cpp
+
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.cpp
 
@@ -39,3 +36,9 @@ https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
 
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
+
+https://github.com/idea4good/GuiLite
+https://github.com/mattdesl/kami-demos/tree/master/src/normals-pixel
+
+window size independant renderer.
+move light data buffering out of scene update loop.
