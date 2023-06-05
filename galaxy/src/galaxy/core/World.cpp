@@ -12,7 +12,7 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/Light.hpp"
+#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -49,7 +49,7 @@ namespace galaxy
 
 			register_component<components::Animated>("Animated");
 			register_component<components::Flag>("Flag");
-			register_component<components::Light>("Light");
+			register_component<components::LightSource>("LightSource");
 			register_component<components::Primitive>("Primitive");
 			register_component<components::RigidBody>("RigidBody");
 			register_component<components::Script>("Script");
@@ -255,10 +255,10 @@ namespace galaxy
 				json["components"]["Flag"] = flag->serialize();
 			}
 
-			auto light = m_registry.try_get<components::Light>(entity);
-			if (light != nullptr)
+			auto lightsource = m_registry.try_get<components::LightSource>(entity);
+			if (lightsource != nullptr)
 			{
-				json["components"]["Light"] = light->serialize();
+				json["components"]["LightSource"] = lightsource->serialize();
 			}
 
 			auto primitive = m_registry.try_get<components::Primitive>(entity);

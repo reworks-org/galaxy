@@ -14,7 +14,7 @@
 #include "galaxy/core/World.hpp"
 #include "galaxy/core/TiledMap.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/LightSSBO.hpp"
+#include "galaxy/graphics/Lighting.hpp"
 
 namespace galaxy
 {
@@ -117,7 +117,7 @@ namespace galaxy
 			///
 			/// Scene lighting.
 			///
-			graphics::LightSSBO m_light_ssbo;
+			graphics::Lighting m_lighting;
 
 		protected:
 			///

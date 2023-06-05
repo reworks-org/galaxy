@@ -1,8 +1,8 @@
 ///
-/// LightSSBO.cpp
+/// Lighting.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "LightSSBO.hpp"
+#include "Lighting.hpp"

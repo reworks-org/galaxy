@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\components\Light.cpp" />
+    <ClCompile Include="src\galaxy\components\LightSource.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Light.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
-    <ClCompile Include="src\galaxy\graphics\LightSSBO.cpp" />
-    <ClCompile Include="src\galaxy\graphics\LightData.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Lighting.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
     <ClCompile Include="src\galaxy\graphics\NormalMap.cpp" />
     <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
@@ -163,10 +163,10 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\components\Light.hpp" />
+    <ClInclude Include="src\galaxy\components\LightSource.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Light.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
-    <ClInclude Include="src\galaxy\graphics\LightSSBO.hpp" />
-    <ClInclude Include="src\galaxy\graphics\LightData.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Lighting.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
     <ClInclude Include="src\galaxy\graphics\NormalMap.hpp" />
     <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />

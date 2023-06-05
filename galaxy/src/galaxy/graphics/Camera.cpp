@@ -180,7 +180,7 @@ namespace galaxy
 
 		void Camera::on_window_resized(const events::WindowResized& e)
 		{
-			set_viewport(e.width, e.height);
+			set_viewport(static_cast<float>(e.width), static_cast<float>(e.height));
 		}
 
 		void Camera::set_viewport(const float width, const float height)

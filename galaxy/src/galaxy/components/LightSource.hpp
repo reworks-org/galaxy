@@ -1,52 +1,52 @@
 ///
-/// Light.hpp
+/// LightSource.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_COMPONENTS_LIGHT_HPP_
-#define GALAXY_COMPONENTS_LIGHT_HPP_
+#ifndef GALAXY_COMPONENTS_LIGHTSOURCE_HPP_
+#define GALAXY_COMPONENTS_LIGHTSOURCE_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/LightData.hpp"
+#include "galaxy/graphics/Light.hpp"
 
 namespace galaxy
 {
 	namespace components
 	{
 		///
-		/// A lightsource in a scene.
+		/// A LightSource in a scene.
 		///
-		class Light final : public fs::Serializable
+		class LightSource final : public fs::Serializable
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Light();
+			LightSource();
 
 			///
 			/// JSON constructor.
 			///
 			/// \param json JSON defining object.
 			///
-			Light(const nlohmann::json& json);
+			LightSource(const nlohmann::json& json);
 
 			///
 			/// Move constructor.
 			///
-			Light(Light&&);
+			LightSource(LightSource&&);
 
 			///
 			/// Move assignment operator.
 			///
-			Light& operator=(Light&&);
+			LightSource& operator=(LightSource&&);
 
 			///
 			/// Destructor.
 			///
-			virtual ~Light();
+			virtual ~LightSource();
 			///
 			/// Serializes object.
 			///
@@ -65,18 +65,18 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			Light& operator=(const Light&) = delete;
+			LightSource& operator=(const LightSource&) = delete;
 
 			///
 			/// Copy constructor.
 			///
-			Light(const Light&) = delete;
+			LightSource(const LightSource&) = delete;
 
 		public:
 			///
 			/// GPU compatible data structure.
 			///
-			graphics::LightData m_data;
+			graphics::Light m_light;
 		};
 	} // namespace components
 } // namespace galaxy

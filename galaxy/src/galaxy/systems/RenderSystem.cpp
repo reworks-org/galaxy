@@ -6,7 +6,7 @@
 ///
 
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/Light.hpp"
+#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -123,14 +123,14 @@ namespace galaxy
 				}
 			}
 
-			scene->m_light_ssbo.lights.clear();
+			scene->m_lighting.lights.clear();
 
-			const auto light_group = scene->m_world.m_registry.group<components::Light>(entt::get<components::Flag>);
+			const auto light_group = scene->m_world.m_registry.group<components::LightSource>(entt::get<components::Flag>);
 			for (auto&& [entity, light, flag] : light_group.each())
 			{
 				if (flag.is_flag_set<flags::Enabled>())
 				{
-					scene->m_light_ssbo.lights.push_back(light.m_data);
+					scene->m_lighting.lights.push_back(light.m_light);
 				}
 			}
 		}

@@ -18,7 +18,7 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/Light.hpp"
+#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -467,17 +467,20 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::Flag>();
 
-			auto lightdata_type       = lua.new_usertype<graphics::LightData>("LightData", sol::constructors<graphics::LightData()>());
-			lightdata_type["colour"]  = &graphics::LightData::colour;
-			lightdata_type["pos"]     = &graphics::LightData::pos;
-			lightdata_type["falloff"] = &graphics::LightData::falloff;
-			lightdata_type["depth"]   = &graphics::LightData::depth;
+			auto lightdata_type        = lua.new_usertype<graphics::Light>("Light", sol::constructors<graphics::Light()>());
+			lightdata_type["colour"]   = &graphics::Light::colour;
+			lightdata_type["pos"]      = &graphics::Light::pos;
+			lightdata_type["falloff"]  = &graphics::Light::falloff;
+			lightdata_type["depth"]    = &graphics::Light::depth;
+			lightdata_type["diameter"] = &graphics::Light::diameter;
 
-			auto light_type =
-				lua.new_usertype<components::Light>("Light", sol::constructors<components::Light()>(), "type_id", &entt::type_hash<components::Light>::value);
-			light_type["data"] = &components::Light::m_data;
+			auto light_type     = lua.new_usertype<components::LightSource>("Light",
+                sol::constructors<components::LightSource()>(),
+                "type_id",
+                &entt::type_hash<components::LightSource>::value);
+			light_type["light"] = &components::LightSource::m_light;
 
-			entt_sol::register_meta_component<components::Light>();
+			entt_sol::register_meta_component<components::LightSource>();
 
 			auto mapcomponent_type =
 				lua.new_usertype<components::Map>("Map", sol::constructors<components::Map()>(), "type_id", &entt::type_hash<components::Map>::value);

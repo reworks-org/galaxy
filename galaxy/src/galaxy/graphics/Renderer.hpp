@@ -11,7 +11,7 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Buffer.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/LightSSBO.hpp"
+#include "galaxy/graphics/Lighting.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
@@ -50,9 +50,9 @@ namespace galaxy
 			///
 			/// Update the light shader storage buffer.
 			///
-			/// \param data Light SSBO data.
+			/// \param data Lighting data.
 			///
-			static void buffer_light_data(LightSSBO& data);
+			static void buffer_light_data(Lighting& lighting);
 
 			///
 			/// Submit render data to renderer.
@@ -123,7 +123,7 @@ namespace galaxy
 			///
 			/// Light data.
 			///
-			static std::unique_ptr<ShaderStorageBuffer> s_light_ssbo;
+			static std::unique_ptr<ShaderStorageBuffer> s_lighting;
 
 			///
 			/// Storage for renderables submitted.

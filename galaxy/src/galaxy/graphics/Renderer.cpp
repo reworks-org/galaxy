@@ -15,9 +15,9 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo       = nullptr;
-		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo          = nullptr;
-		std::unique_ptr<ShaderStorageBuffer> Renderer::s_light_ssbo = nullptr;
+		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo     = nullptr;
+		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo        = nullptr;
+		std::unique_ptr<ShaderStorageBuffer> Renderer::s_lighting = nullptr;
 		meta::vector<RenderCommand> Renderer::s_data;
 		graphics::Shader Renderer::s_r2d_shader;
 		int Renderer::s_prev_texture = -1;
@@ -27,11 +27,11 @@ namespace galaxy
 		{
 			s_camera_ubo = std::make_unique<UniformBuffer>();
 			s_r2d_ubo    = std::make_unique<UniformBuffer>();
-			s_light_ssbo = std::make_unique<ShaderStorageBuffer>();
+			s_lighting   = std::make_unique<ShaderStorageBuffer>();
 
 			s_camera_ubo->create<Camera::Data>(GAlAXY_UBO_CAMERA_INDEX);
 			s_r2d_ubo->create<Render2DUniform>(GAlAXY_UBO_R2D_INDEX);
-			s_light_ssbo->create<LightSSBO>(GALAXY_SSBO_LIGHT_INDEX);
+			s_lighting->create<Lighting>(GALAXY_SSBO_LIGHTING_INDEX);
 
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 
@@ -44,14 +44,14 @@ namespace galaxy
 			s_data.clear();
 			s_camera_ubo.reset();
 			s_r2d_ubo.reset();
-			s_light_ssbo.reset();
+			s_lighting.reset();
 			s_r2d_shader.destroy();
 
 			s_prev_texture = -1;
 			s_prev_nm      = -1;
 			s_camera_ubo   = nullptr;
 			s_r2d_ubo      = nullptr;
-			s_light_ssbo   = nullptr;
+			s_lighting     = nullptr;
 		}
 
 		void Renderer::buffer_camera(Camera& camera)
@@ -59,18 +59,18 @@ namespace galaxy
 			s_camera_ubo->buffer<Camera::Data>(0, 1, &camera.get_data());
 		}
 
-		void Renderer::buffer_light_data(LightSSBO& data)
+		void Renderer::buffer_light_data(Lighting& lighting)
 		{
 			thread_local const constexpr std::size_t vec2_size  = sizeof(glm::vec2);
 			thread_local const constexpr std::size_t vec4_size  = sizeof(glm::vec4);
-			thread_local const constexpr std::size_t light_size = sizeof(LightData);
+			thread_local const constexpr std::size_t light_size = sizeof(Light);
 
-			const auto total = static_cast<unsigned int>(vec2_size + vec4_size + (light_size * data.lights.size()));
+			const auto total = static_cast<unsigned int>(vec2_size + vec4_size + (light_size * lighting.lights.size()));
 
-			s_light_ssbo->resize(total);
-			s_light_ssbo->buffer<glm::vec4>(0, 1, &data.ambient_light_colour);
-			s_light_ssbo->buffer<glm::vec2>(vec4_size, 1, &data.resolution);
-			s_light_ssbo->buffer<LightData>(vec2_size + vec4_size, static_cast<unsigned int>(data.lights.size()), data.lights.data());
+			s_lighting->resize(total);
+			s_lighting->buffer<glm::vec4>(0, 1, &lighting.ambient_light_colour);
+			s_lighting->buffer<glm::vec2>(vec4_size, 1, &lighting.resolution);
+			s_lighting->buffer<Light>(vec2_size + vec4_size, static_cast<unsigned int>(lighting.lights.size()), lighting.lights.data());
 		}
 
 		void Renderer::submit(RenderCommand& command)

@@ -1,8 +1,8 @@
 ///
-/// LightData.cpp
+/// Light.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "LightData.hpp"
+#include "Light.hpp"

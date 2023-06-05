@@ -69,12 +69,18 @@ namespace galaxy
 			precision highp int;
 			precision highp float;
 
+			#define STEP_A 0.4
+			#define STEP_B 0.6
+			#define STEP_C 0.8
+			#define STEP_D 1.0
+
 			struct Light
             {
 	            vec4 colour;
 				vec3 falloff;
 				vec2 pos;
 				float depth;
+				float diameter;
             };
 
 			layout(std140, binding = 0) uniform camera_data
@@ -123,18 +129,29 @@ namespace galaxy
 							Light light = s_lights[i];
 							
 							vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / s_resolution), light.depth);
-							light_dir *= s_resolution.x / s_resolution.y;
+							light_dir.x /= (light.diameter / s_resolution.x);
+							light_dir.y /= (light.diameter / s_resolution.y);
 
 							float D = length(light_dir);
 							
 							vec3 N = normalize(normals * 2.0 - 1.0);
 							vec3 L = normalize(light_dir);
 
+							N = mix(N, vec3(0), 0.5);
+
 							vec3 diffuse = (light.colour.xyz * light.colour.w) * max(dot(N, L), 0.0);
 							vec3 ambient = s_ambient_colour.xyz * s_ambient_colour.w;
 							
 							float attenuation = 1.0 / (light.falloff.x + (light.falloff.y * D) + (light.falloff.z * D * D));
-							
+							if (attenuation < STEP_A) 
+								attenuation = 0.0;
+							else if (attenuation < STEP_B) 
+								attenuation = STEP_B;
+							else if (attenuation < STEP_C) 
+								attenuation = STEP_C;
+							else 
+								attenuation = STEP_D;
+
 							sum += (diffuse_colour * (ambient + diffuse * attenuation));
 						}
 					}
