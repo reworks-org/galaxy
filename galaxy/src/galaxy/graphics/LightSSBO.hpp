@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "galaxy/graphics/Light.hpp"
+#include "galaxy/graphics/LightData.hpp"
 
 namespace galaxy
 {
@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Array of lights in the scene.
 			///
-			std::vector<Light> lights;
+			std::vector<LightData> lights;
 		};
 	} // namespace graphics
 } // namespace galaxy

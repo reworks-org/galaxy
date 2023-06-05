@@ -147,9 +147,10 @@
     <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
     <ClCompile Include="src\galaxy\graphics\NormalMap.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Light.cpp" />
+    <ClCompile Include="src\galaxy\graphics\LightData.cpp" />
     <ClCompile Include="src\galaxy\graphics\LightSSBO.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
+    <ClCompile Include="src\galaxy\components\Light.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -298,8 +299,9 @@
     <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
     <ClInclude Include="src\galaxy\graphics\NormalMap.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Light.hpp" />
+    <ClInclude Include="src\galaxy\graphics\LightData.hpp" />
     <ClInclude Include="src\galaxy\graphics\LightSSBO.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
+    <ClInclude Include="src\galaxy\components\Light.hpp" />
   </ItemGroup>
 </Project>

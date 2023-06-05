@@ -61,16 +61,16 @@ namespace galaxy
 
 		void Renderer::buffer_light_data(LightSSBO& data)
 		{
-			thread_local const constexpr auto vec2_size  = sizeof(glm::vec2);
-			thread_local const constexpr auto vec4_size  = sizeof(glm::vec4);
-			thread_local const constexpr auto light_size = sizeof(Light);
+			thread_local const constexpr std::size_t vec2_size  = sizeof(glm::vec2);
+			thread_local const constexpr std::size_t vec4_size  = sizeof(glm::vec4);
+			thread_local const constexpr std::size_t light_size = sizeof(LightData);
 
-			const auto total = vec2_size + vec4_size + (light_size * data.lights.size());
+			const auto total = static_cast<unsigned int>(vec2_size + vec4_size + (light_size * data.lights.size()));
 
 			s_light_ssbo->resize(total);
 			s_light_ssbo->buffer<glm::vec4>(0, 1, &data.ambient_light_colour);
-			s_light_ssbo->buffer<glm::vec2>(sizeof(glm::vec4), 1, &data.resolution);
-			s_light_ssbo->buffer<Light>(sizeof(glm::vec4) + sizeof(glm::vec2), data.lights.size(), data.lights.data());
+			s_light_ssbo->buffer<glm::vec2>(vec4_size, 1, &data.resolution);
+			s_light_ssbo->buffer<LightData>(vec2_size + vec4_size, static_cast<unsigned int>(data.lights.size()), data.lights.data());
 		}
 
 		void Renderer::submit(RenderCommand& command)

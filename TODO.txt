@@ -41,4 +41,6 @@ https://github.com/idea4good/GuiLite
 https://github.com/mattdesl/kami-demos/tree/master/src/normals-pixel
 
 window size independant renderer.
-move light data buffering out of scene update loop.
+
+avoid serializing map entities
+	- allow serialize flag

@@ -13,6 +13,7 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/Flag.hpp>
+#include <galaxy/components/Light.hpp>
 #include <galaxy/components/Map.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
@@ -90,6 +91,7 @@ namespace sc
 					{
 						draw_entry<components::Animated>(selected, "Animated");
 						draw_entry<components::Flag>(selected, "Flag");
+						draw_entry<components::Light>(selected, "Light");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
 						draw_entry<components::Script>(selected, "Script");
@@ -278,6 +280,30 @@ namespace sc
 								flag->unset_flag<flags::AllowSerialize>();
 							}
 						}
+					});
+
+					draw_component<components::Light>(selected, "Light", [&](components::Light* light) {
+						float col[4] = {light->m_data.colour.x, light->m_data.colour.y, light->m_data.colour.z, light->m_data.colour.w};
+
+						if (ImGui::ColorEdit4("Colour", col))
+						{
+							light->m_data.colour.x = col[0];
+							light->m_data.colour.y = col[1];
+							light->m_data.colour.z = col[2];
+							light->m_data.colour.w = col[3];
+						}
+
+						ImGui::TextUnformatted("Falloff");
+						ImGui::InputFloat("X", &light->m_data.falloff.x, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Y", &light->m_data.falloff.y, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Z", &light->m_data.falloff.z, 0.1f, 1.0f, "%.1f");
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Position");
+						ImGui::InputFloat("X", &light->m_data.pos.x, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Y", &light->m_data.pos.y, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Depth", &light->m_data.depth, 0.01f, 0.1f, "%.3f");
 					});
 
 					draw_component<components::Map>(selected, "Map", [&](components::Map* map) {

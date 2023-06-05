@@ -5,12 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Light.hpp"
 #include "galaxy/components/Map.hpp"
+#include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Transform.hpp"
 #include "galaxy/components/Text.hpp"
+#include "galaxy/components/Transform.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/scene/Scene.hpp"
@@ -119,6 +120,17 @@ namespace galaxy
 					cmd.normalmap                  = nullptr;
 
 					graphics::Renderer::submit(cmd);
+				}
+			}
+
+			scene->m_light_ssbo.lights.clear();
+
+			const auto light_group = scene->m_world.m_registry.group<components::Light>(entt::get<components::Flag>);
+			for (auto&& [entity, light, flag] : light_group.each())
+			{
+				if (flag.is_flag_set<flags::Enabled>())
+				{
+					scene->m_light_ssbo.lights.push_back(light.m_data);
 				}
 			}
 		}

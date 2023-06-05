@@ -18,6 +18,7 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
+#include "galaxy/components/Light.hpp"
 #include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -456,7 +457,7 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Animated>();
 
 			auto flag_type =
-				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Animated>::value);
+				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Flag>::value);
 			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
 			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
 			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
@@ -465,6 +466,18 @@ namespace galaxy
 			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
 
 			entt_sol::register_meta_component<components::Flag>();
+
+			auto lightdata_type       = lua.new_usertype<graphics::LightData>("LightData", sol::constructors<graphics::LightData()>());
+			lightdata_type["colour"]  = &graphics::LightData::colour;
+			lightdata_type["pos"]     = &graphics::LightData::pos;
+			lightdata_type["falloff"] = &graphics::LightData::falloff;
+			lightdata_type["depth"]   = &graphics::LightData::depth;
+
+			auto light_type =
+				lua.new_usertype<components::Light>("Light", sol::constructors<components::Light()>(), "type_id", &entt::type_hash<components::Light>::value);
+			light_type["data"] = &components::Light::m_data;
+
+			entt_sol::register_meta_component<components::Light>();
 
 			auto mapcomponent_type =
 				lua.new_usertype<components::Map>("Map", sol::constructors<components::Map()>(), "type_id", &entt::type_hash<components::Map>::value);
