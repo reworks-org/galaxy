@@ -36,8 +36,10 @@ namespace galaxy
 
 			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
+			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
+			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
 
-			m_light_ssbo.ambient_light_colour = {0.5, 0.5, 0.5, 1.0};
+			m_light_ssbo.ambient_light_colour = {0.0, 0.0, 0.0, 0.2};
 			m_light_ssbo.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
 		}
 
@@ -55,12 +57,16 @@ namespace galaxy
 			core::ServiceLocator<sol::state>::ref().collect_garbage();
 		}
 
+		void Scene::on_window_resized(const events::WindowResized& e)
+		{
+			m_light_ssbo.resolution.x = e.width;
+			m_light_ssbo.resolution.y = e.height;
+		}
+
 		void Scene::update()
 		{
 			m_window->trigger_queued_events(m_dispatcher);
 			m_world.update();
-
-			m_light_ssbo.resolution = {m_window->get_widthf(), m_window->get_heightf()};
 
 			graphics::Renderer::buffer_camera(m_camera);
 			graphics::Renderer::buffer_light_data(m_light_ssbo);

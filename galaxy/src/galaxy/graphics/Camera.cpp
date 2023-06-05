@@ -178,6 +178,11 @@ namespace galaxy
 			}
 		}
 
+		void Camera::on_window_resized(const events::WindowResized& e)
+		{
+			set_viewport(e.width, e.height);
+		}
+
 		void Camera::set_viewport(const float width, const float height)
 		{
 			set_projection(0.0f, width, height, 0.0f);

@@ -53,6 +53,13 @@ namespace galaxy
 			virtual void unload();
 
 			///
+			/// Event processing method for window size change.
+			///
+			/// \param e Takes in a window resized event.
+			///
+			void on_window_resized(const events::WindowResized& e);
+
+			///
 			/// Process events and updates.
 			///
 			virtual void update();

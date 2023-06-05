@@ -96,6 +96,13 @@ namespace galaxy
 			void on_mouse_wheel(events::MouseWheel& e);
 
 			///
+			/// Event processing method for window size change.
+			///
+			/// \param e Takes in a window resized event.
+			///
+			void on_window_resized(const events::WindowResized& e);
+
+			///
 			/// \brief Set Viewport.
 			///
 			/// Calls set_projection().
