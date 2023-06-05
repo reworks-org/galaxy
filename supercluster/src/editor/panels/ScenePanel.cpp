@@ -152,6 +152,19 @@ namespace sc
 						ImGui::Separator();
 						ImGui::Spacing();
 
+						float al[4] = {scene->m_light_ssbo.ambient_light_colour.x,
+							scene->m_light_ssbo.ambient_light_colour.y,
+							scene->m_light_ssbo.ambient_light_colour.z,
+							scene->m_light_ssbo.ambient_light_colour.w};
+
+						if (ImGui::ColorPicker4("Ambient Light", al))
+						{
+							scene->m_light_ssbo.ambient_light_colour.x = al[0];
+							scene->m_light_ssbo.ambient_light_colour.y = al[1];
+							scene->m_light_ssbo.ambient_light_colour.z = al[2];
+							scene->m_light_ssbo.ambient_light_colour.w = al[3];
+						}
+
 						ImGui::TextUnformatted("Camera:");
 						ImGui::Text("Pos: %.2f, %.2f", scene->m_camera.get_x(), scene->m_camera.get_y());
 						ImGui::SameLine();
