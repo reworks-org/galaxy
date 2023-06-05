@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zlib_1826',['ZLib',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html',1,'galaxy::algorithm']]]
+  ['zlib_1834',['ZLib',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html',1,'galaxy::algorithm']]]
 ];

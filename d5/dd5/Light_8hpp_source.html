@@ -95,41 +95,42 @@ $(document).ready(function(){initNavTree('d5/dd5/Light_8hpp_source.html','../../
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;glm/vec2.hpp&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;glm/vec3.hpp&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/dd2/Colour_8hpp.html">galaxy/graphics/Colour.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">namespace </span>graphics</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">   23</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">Light</a> final</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">   28</a></span>&#160;            glm::vec4 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">colour</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">   33</a></span>&#160;            glm::vec3 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">falloff</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">   38</a></span>&#160;            glm::vec2 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">pos</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">   43</a></span>&#160;            <span class="keywordtype">float</span> <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">depth</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    } <span class="comment">// namespace graphics</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aColour_8hpp_html"><div class="ttname"><a href="../../db/dd2/Colour_8hpp.html">Colour.hpp</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;glm/vec4.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">namespace </span>graphics</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">   22</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">Light</a> final</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">   27</a></span>&#160;            glm::vec4 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">colour</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">   32</a></span>&#160;            glm::vec3 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">falloff</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">   37</a></span>&#160;            glm::vec2 <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">pos</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">   42</a></span>&#160;            <span class="keywordtype">float</span> <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">depth</a> = 0.075f;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12">   47</a></span>&#160;            <span class="keywordtype">float</span> <a class="code" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12">diameter</a> = 256.0f;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    } <span class="comment">// namespace graphics</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">galaxy::graphics::Light</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00023">Light.hpp:24</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_a6b6bef8aac724846681b1e3a44d73b06"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">galaxy::graphics::Light::depth</a></div><div class="ttdeci">float depth</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00043">Light.hpp:43</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_acb14f31f78fdf3a55c6d1b5ff78e9cfb"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">galaxy::graphics::Light::pos</a></div><div class="ttdeci">glm::vec2 pos</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00038">Light.hpp:38</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_ace0bac85c0b5c930a346eb96ce00a22f"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">galaxy::graphics::Light::falloff</a></div><div class="ttdeci">glm::vec3 falloff</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00033">Light.hpp:33</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_acfb12972a1e18dc7b12516fbec95c779"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">galaxy::graphics::Light::colour</a></div><div class="ttdeci">glm::vec4 colour</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00028">Light.hpp:28</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html">galaxy::graphics::Light</a></div><div class="ttdoc">Light data to upload to gpu.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00022">Light.hpp:23</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_a6b6bef8aac724846681b1e3a44d73b06"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06">galaxy::graphics::Light::depth</a></div><div class="ttdeci">float depth</div><div class="ttdoc">Depth of light.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00042">Light.hpp:42</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_a81bccdf342bb31e712d95f73d45d9b12"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12">galaxy::graphics::Light::diameter</a></div><div class="ttdeci">float diameter</div><div class="ttdoc">Size of LightSource area.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00047">Light.hpp:47</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_acb14f31f78fdf3a55c6d1b5ff78e9cfb"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acb14f31f78fdf3a55c6d1b5ff78e9cfb">galaxy::graphics::Light::pos</a></div><div class="ttdeci">glm::vec2 pos</div><div class="ttdoc">Position.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00037">Light.hpp:37</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_ace0bac85c0b5c930a346eb96ce00a22f"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f">galaxy::graphics::Light::falloff</a></div><div class="ttdeci">glm::vec3 falloff</div><div class="ttdoc">Falloff range.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00032">Light.hpp:32</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1graphics_1_1Light_html_acfb12972a1e18dc7b12516fbec95c779"><div class="ttname"><a href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html#acfb12972a1e18dc7b12516fbec95c779">galaxy::graphics::Light::colour</a></div><div class="ttdeci">glm::vec4 colour</div><div class="ttdoc">Colour.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd5/Light_8hpp_source.html#l00027">Light.hpp:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d5/dd5/Light_8hpp.html">Light.hpp</a></li>
-    <li class="footer">Generated on Sun Jun 4 2023 14:21:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jun 5 2023 12:00:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

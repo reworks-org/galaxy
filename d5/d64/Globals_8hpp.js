@@ -14,7 +14,7 @@ var Globals_8hpp =
     [ "GALAXY_IDENTITY_MATRIX", "d5/d64/Globals_8hpp.html#a197ca1fdda8be833505d3cbfa6bdb9d0", null ],
     [ "GAlAXY_UBO_CAMERA_INDEX", "d5/d64/Globals_8hpp.html#afbfb253ed89b3023a371fedb276980a3", null ],
     [ "GAlAXY_UBO_R2D_INDEX", "d5/d64/Globals_8hpp.html#a6df5c9e0ea837401becd4e69e9ced8ad", null ],
-    [ "GALAXY_SSBO_LIGHT_INDEX", "d5/d64/Globals_8hpp.html#a3c6bdce455de819fb898ba283605acc4", null ],
+    [ "GALAXY_SSBO_LIGHTING_INDEX", "d5/d64/Globals_8hpp.html#a5ea1b3e51121a8ce3a2ee84869d44935", null ],
     [ "GALAXY_MIN_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#afc07e5528fc7b4c2bb70298680c56b2f", null ],
     [ "GALAXY_MAX_CAMERA_ZOOM", "d5/d64/Globals_8hpp.html#a3a5ea250c1cec6acf77a07210d90469d", null ],
     [ "GALAXY_DEFAULT_RENDERER_RESERVED", "d5/d64/Globals_8hpp.html#ade2d80e6efbc023f0d2bbe3119e9092e", null ],

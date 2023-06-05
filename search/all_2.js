@@ -36,7 +36,7 @@ var searchData=
   ['buffer_2ecpp_93',['Buffer.cpp',['../db/d98/Buffer_8cpp.html',1,'']]],
   ['buffer_2ehpp_94',['Buffer.hpp',['../d8/d36/Buffer_8hpp.html',1,'']]],
   ['buffer_5fcamera_95',['buffer_camera',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc',1,'galaxy::graphics::Renderer']]],
-  ['buffer_5flight_5fdata_96',['buffer_light_data',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a8254cc64c25e5c3417b9070c626e082c',1,'galaxy::graphics::Renderer']]],
+  ['buffer_5flight_5fdata_96',['buffer_light_data',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a4134428501b768d4055ff613437ac3f3',1,'galaxy::graphics::Renderer']]],
   ['bufferbinding_97',['BufferBinding',['../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b',1,'galaxy::graphics']]],
   ['bufferbindings_2ecpp_98',['BufferBindings.cpp',['../dd/dce/BufferBindings_8cpp.html',1,'']]],
   ['bufferbindings_2ehpp_99',['BufferBindings.hpp',['../de/d3d/BufferBindings_8hpp.html',1,'']]],

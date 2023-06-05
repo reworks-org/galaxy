@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Lighting" name="galaxy::graphics::Lighting">
+<area shape="rect" id="node1" title="Data needed to light a scene." alt="" coords="49,513,237,605"/>
+<area shape="rect" id="node2" title=" " alt="" coords="67,359,218,451"/>
+<area shape="rect" id="node3" href="$dd/d03/structgalaxy_1_1graphics_1_1Light.html" title="Light data to upload to gpu." alt="" coords="5,145,173,281"/>
+<area shape="rect" id="node4" title=" " alt="" coords="198,175,327,252"/>
+<area shape="rect" id="node5" title=" " alt="" coords="243,5,282,83"/>
+</map>

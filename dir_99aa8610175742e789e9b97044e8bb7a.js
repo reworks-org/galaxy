@@ -43,9 +43,9 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "Light.hpp", "d5/dd5/Light_8hpp.html", [
       [ "Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", "dd/d03/structgalaxy_1_1graphics_1_1Light" ]
     ] ],
-    [ "LightSSBO.cpp", "d5/d3f/LightSSBO_8cpp.html", null ],
-    [ "LightSSBO.hpp", "d6/d79/LightSSBO_8hpp.html", [
-      [ "LightSSBO", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO" ]
+    [ "Lighting.cpp", "d9/d9f/Lighting_8cpp.html", null ],
+    [ "Lighting.hpp", "d7/d2e/Lighting_8hpp.html", [
+      [ "Lighting", "d9/d24/structgalaxy_1_1graphics_1_1Lighting.html", "d9/d24/structgalaxy_1_1graphics_1_1Lighting" ]
     ] ],
     [ "NormalMap.cpp", "d7/dca/NormalMap_8cpp.html", null ],
     [ "NormalMap.hpp", "df/d6e/NormalMap_8hpp.html", [

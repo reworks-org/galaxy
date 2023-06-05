@@ -148,174 +148,191 @@ $(document).ready(function(){initNavTree('d4/d5c/DefaultShaders_8hpp_source.html
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">            precision highp int;</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">            precision highp float;</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">            struct Light</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">                vec4 colour;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">                vec3 falloff;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">                vec2 pos;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">                float depth;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">            };</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">            layout(std140, binding = 0) uniform camera_data</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                mat4 u_camera_model_view;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">                mat4 u_camera_proj;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">            #define STEP_A 0.4</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">            #define STEP_B 0.6</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">            #define STEP_C 0.8</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">            #define STEP_D 1.0</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">            struct Light</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral">                vec4 colour;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">                vec3 falloff;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">                vec2 pos;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                float depth;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">                float diameter;</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">            };</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">            layout(std140, binding = 1) uniform render_data</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">            layout(std140, binding = 0) uniform camera_data</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">                mat4 u_transform;</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">                vec4 u_colour;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">                int u_entity;</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">                bool u_point;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">                bool u_textured;</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">                bool u_normal_mapped;</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">            };</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">            layout(std430, binding = 0) readonly buffer light_data {</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">                vec2 s_resolution;</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral">                vec4 s_ambient_colour;</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">                Light s_lights[];</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">                mat4 u_camera_model_view;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">                mat4 u_camera_proj;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">            };</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">            layout(std140, binding = 1) uniform render_data</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">                mat4 u_transform;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">                vec4 u_colour;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">                int u_entity;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">                bool u_point;</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral">                bool u_textured;</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">                bool u_normal_mapped;</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="stringliteral">            };</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">            layout (location = 0) out vec4 io_frag_colour;</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="stringliteral">            layout (location = 1) out int io_entity;</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="stringliteral">            in vec2 io_normals;</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="stringliteral">            layout (location = 0) uniform sampler2D u_texture;</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">            layout (location = 1) uniform sampler2D u_normals;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">            layout(std430, binding = 0) readonly buffer light_data {</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="stringliteral">                vec2 s_resolution;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="stringliteral">                vec4 s_ambient_colour;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="stringliteral">                Light s_lights[];</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="stringliteral">            };</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="stringliteral">            layout (location = 0) out vec4 io_frag_colour;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">            layout (location = 1) out int io_entity;</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">            void main()</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="stringliteral">                if (u_textured)</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="stringliteral">                {</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">                    vec3 diffuse_colour = texture(u_texture, io_texels).rgb * u_colour.rgb;</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral">                    vec3 sum = vec3(0.0);</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="stringliteral">                    if (u_normal_mapped)</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="stringliteral">                    {</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="stringliteral">                        vec3 normals = texture(u_normals, io_normals).rgb;</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="stringliteral">                        for (int i = 0; i &lt; s_lights.length(); i++)</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="stringliteral">                        {</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="stringliteral">                            Light light = s_lights[i];</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="stringliteral">                            </span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="stringliteral">                            vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / s_resolution), light.depth);</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="stringliteral">                            light_dir *= s_resolution.x / s_resolution.y;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="stringliteral">                            float D = length(light_dir);</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="stringliteral">                            </span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="stringliteral">                            vec3 N = normalize(normals * 2.0 - 1.0);</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="stringliteral">                            vec3 L = normalize(light_dir);</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="stringliteral">                            vec3 diffuse = (light.colour.xyz * light.colour.w) * max(dot(N, L), 0.0);</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral">                            vec3 ambient = s_ambient_colour.xyz * s_ambient_colour.w;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="stringliteral">                            </span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="stringliteral">                            float attenuation = 1.0 / (light.falloff.x + (light.falloff.y * D) + (light.falloff.z * D * D));</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="stringliteral">                            </span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="stringliteral">                            sum += (diffuse_colour * (ambient + diffuse * attenuation));</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="stringliteral">                        }</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="stringliteral">                    }</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="stringliteral">                    else</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="stringliteral">                    {</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="stringliteral">                        sum = diffuse_colour;</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="stringliteral">                    }</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="stringliteral">                    </span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="stringliteral">                    io_frag_colour = vec4(sum, u_colour.a);</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="stringliteral">                }</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="stringliteral">                else</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="stringliteral">                {</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="stringliteral">                    io_frag_colour = u_colour;</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="stringliteral">                }</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="stringliteral">                io_entity = u_entity;</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="stringliteral">            }</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">  160</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">render_to_texture_vert</a> = R<span class="stringliteral">&quot;(</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">            layout(location = 0) in vec2 l_pos;</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">            layout(location = 1) in vec2 l_texels;</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">            out vec2 io_texels;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">    </span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral">            uniform mat4 u_projection;</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="stringliteral">            uniform mat4 u_transform;</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">            in vec2 io_normals;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="stringliteral">            layout (location = 0) uniform sampler2D u_texture;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">            layout (location = 1) uniform sampler2D u_normals;</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="stringliteral">            void main()</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="stringliteral">                if (u_textured)</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="stringliteral">                {</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="stringliteral">                    vec3 diffuse_colour = texture(u_texture, io_texels).rgb * u_colour.rgb;</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="stringliteral">                    vec3 sum = vec3(0.0);</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="stringliteral">                    if (u_normal_mapped)</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="stringliteral">                    {</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="stringliteral">                        vec3 normals = texture(u_normals, io_normals).rgb;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="stringliteral">                        for (int i = 0; i &lt; s_lights.length(); i++)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="stringliteral">                        {</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="stringliteral">                            Light light = s_lights[i];</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="stringliteral">                            </span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="stringliteral">                            vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / s_resolution), light.depth);</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="stringliteral">                            light_dir.x /= (light.diameter / s_resolution.x);</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="stringliteral">                            light_dir.y /= (light.diameter / s_resolution.y);</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="stringliteral">                            float D = length(light_dir);</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="stringliteral">                            </span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="stringliteral">                            vec3 N = normalize(normals * 2.0 - 1.0);</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="stringliteral">                            vec3 L = normalize(light_dir);</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="stringliteral">                            N = mix(N, vec3(0), 0.5);</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="stringliteral">                            vec3 diffuse = (light.colour.xyz * light.colour.w) * max(dot(N, L), 0.0);</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="stringliteral">                            vec3 ambient = s_ambient_colour.xyz * s_ambient_colour.w;</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="stringliteral">                            </span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="stringliteral">                            float attenuation = 1.0 / (light.falloff.x + (light.falloff.y * D) + (light.falloff.z * D * D));</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="stringliteral">                            if (attenuation &lt; STEP_A) </span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="stringliteral">                                attenuation = 0.0;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="stringliteral">                            else if (attenuation &lt; STEP_B) </span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="stringliteral">                                attenuation = STEP_B;</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="stringliteral">                            else if (attenuation &lt; STEP_C) </span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="stringliteral">                                attenuation = STEP_C;</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="stringliteral">                            else </span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="stringliteral">                                attenuation = STEP_D;</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="stringliteral">                            sum += (diffuse_colour * (ambient + diffuse * attenuation));</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="stringliteral">                        }</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="stringliteral">                    }</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="stringliteral">                    else</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="stringliteral">                    {</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">                        sum = diffuse_colour;</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">                    }</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">                    </span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">                    io_frag_colour = vec4(sum, u_colour.a);</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral">                }</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">                else</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">                {</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral">                    io_frag_colour = u_colour;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="stringliteral">                }</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="stringliteral">            void main()</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="stringliteral">                gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="stringliteral">                io_entity = u_entity;</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="stringliteral">            }</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="stringliteral">                io_texels = l_texels;</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="stringliteral">                io_texels.y = 1.0 - io_texels.y;</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="stringliteral">            }</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">  182</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">render_to_texture_frag</a> = R<span class="stringliteral">&quot;(</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="stringliteral">            out vec4 io_frag_colour;</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture;</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="stringliteral">            void main()</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="stringliteral">                io_frag_colour = texture(u_texture, io_texels);</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">  177</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">render_to_texture_vert</a> = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="stringliteral">            layout(location = 0) in vec2 l_pos;</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="stringliteral">            layout(location = 1) in vec2 l_texels;</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="stringliteral">            out vec2 io_texels;</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="stringliteral">    </span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="stringliteral">            uniform mat4 u_projection;</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="stringliteral">            uniform mat4 u_transform;</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="stringliteral">            void main()</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="stringliteral">                gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="stringliteral">                io_texels = l_texels;</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="stringliteral">                io_texels.y = 1.0 - io_texels.y;</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="stringliteral">            }</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">  199</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">video_vert</a> = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">  199</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">render_to_texture_frag</a> = R<span class="stringliteral">&quot;(</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">            layout(location = 0) in vec2 vertex;</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral">            out vec2 io_texels;</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral">            void main()</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">                io_texels = vertex;</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="stringliteral">                gl_Position = vec4((vertex * 2.0 - 1.0) * vec2(1, -1), 0.0, 1.0);</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">            out vec4 io_frag_colour;</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture;</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">            void main()</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="stringliteral">                io_frag_colour = texture(u_texture, io_texels);</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="stringliteral">            }</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">  216</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">video_frag</a> = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">  216</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">video_vert</a> = R<span class="stringliteral">&quot;(</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="stringliteral">            out vec4 io_frag;</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_y;</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_cb;</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_cr;</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="stringliteral">            mat4 rec601 = mat4(</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="stringliteral">                1.16438,  0.00000,  1.59603, -0.87079,</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral">                1.16438, -0.39176, -0.81297,  0.52959,</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral">                1.16438,  2.01723,  0.00000, -1.08139,</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="stringliteral">                0, 0, 0, 1</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="stringliteral">            );</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">            </span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="stringliteral">            void main()</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="stringliteral">            {</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="stringliteral">                float y = texture2D(texture_y, tex_coord).r;</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="stringliteral">                float cb = texture2D(texture_cb, tex_coord).r;</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="stringliteral">                float cr = texture2D(texture_cr, tex_coord).r;</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="stringliteral">                io_frag = vec4(y, cb, cr, 1.0) * rec601;</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="stringliteral">            }</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="stringliteral">    } </span><span class="comment">// namespace shaders</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral">            layout(location = 0) in vec2 vertex;</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="stringliteral">            out vec2 io_texels;</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="stringliteral">            void main()</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="stringliteral">                io_texels = vertex;</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="stringliteral">                gl_Position = vec4((vertex * 2.0 - 1.0) * vec2(1, -1), 0.0, 1.0);</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="stringliteral">            }</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">  233</a></span>&#160;<span class="stringliteral">        constexpr </span><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">video_frag</a> = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="stringliteral">            #version 460 core</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="stringliteral">            in vec2 io_texels;</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="stringliteral">            out vec4 io_frag;</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_y;</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_cb;</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="stringliteral">            uniform sampler2D u_texture_cr;</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="stringliteral">            mat4 rec601 = mat4(</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="stringliteral">                1.16438,  0.00000,  1.59603, -0.87079,</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">                1.16438, -0.39176, -0.81297,  0.52959,</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="stringliteral">                1.16438,  2.01723,  0.00000, -1.08139,</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="stringliteral">                0, 0, 0, 1</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="stringliteral">            );</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral">            </span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="stringliteral">            void main()</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="stringliteral">            {</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="stringliteral">                float y = texture2D(texture_y, tex_coord).r;</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="stringliteral">                float cb = texture2D(texture_cb, tex_coord).r;</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="stringliteral">                float cr = texture2D(texture_cr, tex_coord).r;</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="stringliteral">                io_frag = vec4(y, cb, cr, 1.0) * rec601;</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="stringliteral">            }</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="stringliteral">        )&quot;;</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="stringliteral">    } </span><span class="comment">// namespace shaders</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_1_1shaders_html_a088c0c5edb097d7da843946924f3d35d"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a088c0c5edb097d7da843946924f3d35d">galaxy::shaders::r2d_frag</a></div><div class="ttdeci">constexpr const auto r2d_frag</div><div class="ttdoc">Basic fragment shader for the 2d renderer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00066">DefaultShaders.hpp:66</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a35b6d1a2b26436b99b4ebb48860e28e3"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">galaxy::shaders::video_vert</a></div><div class="ttdeci">constexpr const auto video_vert</div><div class="ttdoc">Video vertex shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00199">DefaultShaders.hpp:199</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a35b6d1a2b26436b99b4ebb48860e28e3"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3">galaxy::shaders::video_vert</a></div><div class="ttdeci">constexpr const auto video_vert</div><div class="ttdoc">Video vertex shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00216">DefaultShaders.hpp:216</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1shaders_html_a3986ce61a0d54da18877737d37737f3c"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a3986ce61a0d54da18877737d37737f3c">galaxy::shaders::r2d_vert</a></div><div class="ttdeci">constexpr const auto r2d_vert</div><div class="ttdoc">Basic vertex shader for the 2d renderer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00018">DefaultShaders.hpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a6a45c75c00c38b8c9dfc7d74621f9eb1"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">galaxy::shaders::video_frag</a></div><div class="ttdeci">constexpr const auto video_frag</div><div class="ttdoc">Video frag shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00216">DefaultShaders.hpp:216</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a7387a817b7df31b4d205b973a4a26c01"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">galaxy::shaders::render_to_texture_frag</a></div><div class="ttdeci">constexpr const auto render_to_texture_frag</div><div class="ttdoc">Render To Texture fragment shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00182">DefaultShaders.hpp:182</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1shaders_html_aeb93ae4c55e1978aca934dec2597667f"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">galaxy::shaders::render_to_texture_vert</a></div><div class="ttdeci">constexpr const auto render_to_texture_vert</div><div class="ttdoc">Render To Texture vertex shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00160">DefaultShaders.hpp:160</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a6a45c75c00c38b8c9dfc7d74621f9eb1"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1">galaxy::shaders::video_frag</a></div><div class="ttdeci">constexpr const auto video_frag</div><div class="ttdoc">Video frag shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00233">DefaultShaders.hpp:233</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1shaders_html_a7387a817b7df31b4d205b973a4a26c01"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01">galaxy::shaders::render_to_texture_frag</a></div><div class="ttdeci">constexpr const auto render_to_texture_frag</div><div class="ttdoc">Render To Texture fragment shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00199">DefaultShaders.hpp:199</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1shaders_html_aeb93ae4c55e1978aca934dec2597667f"><div class="ttname"><a href="../../dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f">galaxy::shaders::render_to_texture_vert</a></div><div class="ttdeci">constexpr const auto render_to_texture_vert</div><div class="ttdoc">Render To Texture vertex shader.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5c/DefaultShaders_8hpp_source.html#l00177">DefaultShaders.hpp:177</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -323,7 +340,7 @@ $(document).ready(function(){initNavTree('d4/d5c/DefaultShaders_8hpp_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d4/d5c/DefaultShaders_8hpp.html">DefaultShaders.hpp</a></li>
-    <li class="footer">Generated on Sun Jun 4 2023 14:21:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jun 5 2023 12:00:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -4,6 +4,7 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "~Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a36e4158093600a6fa9a0826e26cb79ca", null ],
     [ "load", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4", null ],
     [ "unload", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c", null ],
+    [ "on_window_resized", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac6142bd7410789dd0c94346ad4c12bb8", null ],
     [ "update", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760", null ],
     [ "render", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98", null ],
     [ "serialize", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388", null ],
@@ -14,6 +15,6 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "m_context", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae232c5a0a5678debcd9ccf4bb7d150c2", null ],
     [ "m_map", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a52c27f9f74dad5fdbfb8470e681fa207", null ],
     [ "m_name", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258", null ],
-    [ "m_light_ssbo", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8666bacbc82e962a53d9e957936c0f8b", null ],
+    [ "m_lighting", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac0fd4aec61ebb9ccdd9376de0fcb54e3", null ],
     [ "m_window", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afdff2876fbb0326e363945cb627fe105", null ]
 ];

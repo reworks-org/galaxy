@@ -8,6 +8,10 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Flag.hpp", "d0/dda/Flag_8hpp.html", [
       [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ]
     ] ],
+    [ "LightSource.cpp", "df/d3b/LightSource_8cpp.html", null ],
+    [ "LightSource.hpp", "d5/d80/LightSource_8hpp.html", [
+      [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html", "d1/d85/classgalaxy_1_1components_1_1LightSource" ]
+    ] ],
     [ "Map.cpp", "d3/d92/Map_8cpp.html", null ],
     [ "Map.hpp", "dc/dbe/Map_8hpp.html", [
       [ "Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", "d3/d19/classgalaxy_1_1components_1_1Map" ]

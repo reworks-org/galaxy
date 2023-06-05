@@ -1,11 +1,9 @@
 <map id="galaxy::scene::Scene::update" name="galaxy::scene::Scene::update">
-<area shape="rect" id="node1" title="Process events and updates." alt="" coords="5,169,164,211"/>
+<area shape="rect" id="node1" title="Process events and updates." alt="" coords="5,104,164,145"/>
 <area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
-<area shape="rect" id="node5" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a8254cc64c25e5c3417b9070c626e082c" title="Update the light shader storage buffer." alt="" coords="212,71,407,112"/>
-<area shape="rect" id="node6" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a14cdfe462b18a8cd7de08dd457c321ad" title="Get window height." alt="" coords="229,136,390,177"/>
-<area shape="rect" id="node7" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a837de79087ab9ba880c84c3db901263c" title="Get window width." alt="" coords="229,201,390,243"/>
-<area shape="rect" id="node8" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#ab165212b7aa8bf0f80239c890ccc7603" title="Trigger all queued events for a dispatcher." alt="" coords="220,267,399,308"/>
-<area shape="rect" id="node9" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e" title="Update world data." alt="" coords="236,332,383,373"/>
+<area shape="rect" id="node5" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a4134428501b768d4055ff613437ac3f3" title="Update the light shader storage buffer." alt="" coords="212,71,407,112"/>
+<area shape="rect" id="node6" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#ab165212b7aa8bf0f80239c890ccc7603" title="Trigger all queued events for a dispatcher." alt="" coords="220,136,399,177"/>
+<area shape="rect" id="node7" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e" title="Update world data." alt="" coords="236,201,383,243"/>
 <area shape="rect" id="node3" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="455,5,641,47"/>
 <area shape="rect" id="node4" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="689,5,876,47"/>
 </map>

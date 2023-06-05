@@ -12,6 +12,7 @@ var annotated_dup =
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
+        [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html", "d1/d85/classgalaxy_1_1components_1_1LightSource" ],
         [ "Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", "d3/d19/classgalaxy_1_1components_1_1Map" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
         [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
@@ -72,7 +73,7 @@ var annotated_dup =
         [ "IndexBuffer", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer" ],
         [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
         [ "Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", "dd/d03/structgalaxy_1_1graphics_1_1Light" ],
-        [ "LightSSBO", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html", "d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO" ],
+        [ "Lighting", "d9/d24/structgalaxy_1_1graphics_1_1Lighting.html", "d9/d24/structgalaxy_1_1graphics_1_1Lighting" ],
         [ "NormalMap", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap" ],
         [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
         [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ambient_5flight_5fcolour_2799',['ambient_light_colour',['../d1/d4e/structgalaxy_1_1graphics_1_1LightSSBO.html#a8b45c79dba8db589370ce9da1babd82c',1,'galaxy::graphics::LightSSBO']]]
+  ['ambient_5flight_5fcolour_2812',['ambient_light_colour',['../d9/d24/structgalaxy_1_1graphics_1_1Lighting.html#a396b0f9294eb8ddaa453013f71ea5098',1,'galaxy::graphics::Lighting']]]
 ];
