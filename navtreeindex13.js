@@ -1,6 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"functions_vars_x.html":[1,3,2,21],
 "functions_vars_y.html":[1,3,2,22],
 "functions_w.html":[1,3,0,22],
 "functions_x.html":[1,3,0,23],
@@ -20,5 +19,6 @@ var NAVTREEINDEX13 =
 "namespacemembers_type.html":[0,1,3],
 "namespacemembers_vars.html":[0,1,2],
 "namespaces.html":[0,0],
-"pages.html":[]
+"pages.html":[],
+"":[0,0,4]
 };

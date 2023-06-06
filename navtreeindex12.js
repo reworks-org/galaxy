@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"df/d8d/RMLRenderer_8cpp.html#a49bb28b36c995d984c4403390c998e61":[2,0,0,0,0,20,10,3],
 "df/d8d/RMLRenderer_8cpp.html#a541e61525d44f29695430046fe722d75":[2,0,0,0,0,20,10,15],
 "df/d8d/RMLRenderer_8cpp.html#a606f22f3dc7a7a708afc98c4b5e178a7":[2,0,0,0,0,20,10,13],
 "df/d8d/RMLRenderer_8cpp.html#a6ff86f6a2599ec450f169dcf4c0c0c1a":[2,0,0,0,0,20,10,11],
@@ -176,16 +175,16 @@ var NAVTREEINDEX12 =
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
 "files.html":[2,0],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],
 "functions_e.html":[1,3,0,4],
 "functions_enum.html":[1,3,4],
 "functions_f.html":[1,3,0,5],
-"functions_func.html":[1,3,1,0],
 "functions_func.html":[1,3,1],
+"functions_func.html":[1,3,1,0],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX12 =
 "functions_vars_t.html":[1,3,2,17],
 "functions_vars_u.html":[1,3,2,18],
 "functions_vars_v.html":[1,3,2,19],
-"functions_vars_w.html":[1,3,2,20]
+"functions_vars_w.html":[1,3,2,20],
+"functions_vars_x.html":[1,3,2,21]
 };

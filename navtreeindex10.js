@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea17de1e647789892e1fb512bf04db4866":[0,0,0,10,8,108],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1a9c94725005bc4759507db8acc8da33":[0,0,0,10,8,105],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1ab6dcd85380f2d3e882fbd2f6fda566":[0,0,0,10,8,49],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1faf42f2823f184eb2c9f0dffe5d73f2":[0,0,0,10,8,75],
@@ -249,5 +248,6 @@ var NAVTREEINDEX10 =
 "dd/dd7/MouseWheel_8hpp.html":[2,0,0,0,0,6,19],
 "dd/dd7/MouseWheel_8hpp_source.html":[2,0,0,0,0,6,19],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html":[1,0,0,3,2],
-"dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677":[1,0,0,3,2,2]
+"dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677":[1,0,0,3,2,2],
+"dd/ddf/classgalaxy_1_1core_1_1Loader.html#a130a52786709ecc4e9dfce6672709558":[1,0,0,3,2,5]
 };

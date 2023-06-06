@@ -430,7 +430,7 @@ $(document).ready(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <a class="code" href="../../da/dc8/classgalaxy_1_1core_1_1World.html#ae8bab595f5cea9f203686c6cf3977a6a">m_registry</a>.clear();</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; physics = json.at(<span class="stringliteral">&quot;physics&quot;</span>);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; gravity = json.at(<span class="stringliteral">&quot;gravity&quot;</span>);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; gravity = physics.at(<span class="stringliteral">&quot;gravity&quot;</span>);</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <a class="code" href="../../da/dc8/classgalaxy_1_1core_1_1World.html#af9f56d06358036acd8bce06094ee82e9">m_b2world</a>-&gt;SetGravity({gravity.at(<span class="stringliteral">&quot;x&quot;</span>), gravity.at(<span class="stringliteral">&quot;y&quot;</span>)});</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <a class="code" href="../../da/dc8/classgalaxy_1_1core_1_1World.html#af9f56d06358036acd8bce06094ee82e9">m_b2world</a>-&gt;SetAllowSleeping(physics.at(<span class="stringliteral">&quot;allow_sleeping&quot;</span>));</div>
@@ -607,7 +607,7 @@ $(document).ready(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d7/dfe/World_8cpp.html">World.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 5 2023 12:00:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jun 6 2023 05:12:31 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
