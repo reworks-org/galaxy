@@ -20,6 +20,7 @@
             "ansiotrophic_filtering": 16,
             "effects": {
                 "chromatic_abberation": false,
+                "film_grain": false,
                 "gamma_correction": false,
                 "gaussian_blur": false,
                 "sharpen": false,

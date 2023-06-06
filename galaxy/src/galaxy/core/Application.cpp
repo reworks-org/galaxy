@@ -105,6 +105,7 @@ namespace galaxy
 			config.restore<bool>("gamma_correction", false, "graphics.effects");
 			config.restore<bool>("chromatic_abberation", false, "graphics.effects");
 			config.restore<bool>("gaussian_blur", false, "graphics.effects");
+			config.restore<bool>("film_grain", false, "graphics.effects");
 			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
 			config.restore<std::string>("materials_folder", "materials/", "resource_folders");
 			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");

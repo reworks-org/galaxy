@@ -388,7 +388,7 @@ namespace galaxy
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			create(json.at("texture"), json.at("layer"), json.at("opacity"), json.at("normal_mapped"));
+			create(json.at("texture_name"), json.at("layer"), json.at("opacity"), json.at("normal_mapped"));
 		}
 	} // namespace components
 } // namespace galaxy

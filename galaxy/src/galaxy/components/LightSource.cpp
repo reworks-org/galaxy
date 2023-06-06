@@ -78,10 +78,10 @@ namespace galaxy
 		void LightSource::deserialize(const nlohmann::json& json)
 		{
 			const auto& colour = json.at("colour");
-			m_light.colour.x   = colour.at("x");
-			m_light.colour.y   = colour.at("y");
-			m_light.colour.z   = colour.at("z");
-			m_light.colour.w   = colour.at("w");
+			m_light.colour.x   = colour.at("r");
+			m_light.colour.y   = colour.at("g");
+			m_light.colour.z   = colour.at("b");
+			m_light.colour.w   = colour.at("a");
 
 			const auto& falloff = json.at("falloff");
 			m_light.falloff.x   = falloff.at("x");

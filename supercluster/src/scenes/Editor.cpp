@@ -138,6 +138,8 @@ namespace sc
 				if (m_project_sm.has_current())
 				{
 					m_project_sm.current().m_world.update_rendersystem();
+					graphics::Renderer::buffer_camera(m_project_sm.current().m_camera);
+					graphics::Renderer::buffer_light_data(m_project_sm.current().m_lighting);
 				}
 			}
 			else

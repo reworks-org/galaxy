@@ -294,16 +294,16 @@ namespace sc
 						}
 
 						ImGui::TextUnformatted("Falloff");
-						ImGui::InputFloat("X", &ls->m_light.falloff.x, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Y", &ls->m_light.falloff.y, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Z", &ls->m_light.falloff.z, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("X##1", &ls->m_light.falloff.x, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Y##2", &ls->m_light.falloff.y, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Z##3", &ls->m_light.falloff.z, 0.1f, 1.0f, "%.1f");
 
 						ImGui::Spacing();
 
 						ImGui::TextUnformatted("Position");
-						ImGui::InputFloat("X", &ls->m_light.pos.x, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Y", &ls->m_light.pos.y, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Depth", &ls->m_light.depth, 0.01f, 0.1f, "%.3f");
+						ImGui::InputFloat("X##4", &ls->m_light.pos.x, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Y##5", &ls->m_light.pos.y, 0.1f, 1.0f, "%.1f");
+						ImGui::InputFloat("Depth##6", &ls->m_light.depth, 0.01f, 0.1f, "%.3f");
 
 						ImGui::Spacing();
 

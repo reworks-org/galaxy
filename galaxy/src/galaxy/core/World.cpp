@@ -345,7 +345,7 @@ namespace galaxy
 			m_registry.clear();
 
 			const auto& physics = json.at("physics");
-			const auto& gravity = json.at("gravity");
+			const auto& gravity = physics.at("gravity");
 
 			m_b2world->SetGravity({gravity.at("x"), gravity.at("y")});
 			m_b2world->SetAllowSleeping(physics.at("allow_sleeping"));

@@ -130,7 +130,7 @@ namespace galaxy
 
 		bool FilmicGrain::is_enabled()
 		{
-			return core::ServiceLocator<core::Config>::ref().get<bool>("chromatic_abberation", "graphics.effects");
+			return core::ServiceLocator<core::Config>::ref().get<bool>("film_grain", "graphics.effects");
 		}
 	} // namespace graphics
 } // namespace galaxy

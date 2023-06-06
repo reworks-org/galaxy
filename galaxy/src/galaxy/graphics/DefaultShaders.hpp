@@ -121,7 +121,7 @@ namespace galaxy
 					vec3 diffuse_colour = texture(u_texture, io_texels).rgb * u_colour.rgb;
 					vec3 sum = vec3(0.0);
 
-					if (u_normal_mapped)
+					if (u_normal_mapped && (s_lights.length() > 0))
 					{
 						vec3 normals = texture(u_normals, io_normals).rgb;
 						for (int i = 0; i < s_lights.length(); i++)

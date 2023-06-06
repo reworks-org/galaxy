@@ -44,3 +44,7 @@ window size independant renderer.
 
 avoid serializing map entities
 	- allow serialize flag
+
+fix weirdge flickering in editor
+fix play/pause shenanigans
+fix weirdge issue with different camera sizes in editor

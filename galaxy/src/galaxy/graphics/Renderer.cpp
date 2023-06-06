@@ -108,7 +108,7 @@ namespace galaxy
 				const auto tex = cmd.renderable->get_texture_handle();
 				if (s_prev_texture != tex)
 				{
-					glBindTextureUnit(GL_TEXTURE0, tex);
+					glBindTextureUnit(0, tex);
 					s_prev_texture = tex;
 				}
 
@@ -117,7 +117,7 @@ namespace galaxy
 					const auto nm = cmd.normalmap->normal_map_texture();
 					if (s_prev_nm != nm)
 					{
-						glBindTextureUnit(GL_TEXTURE1, nm);
+						glBindTextureUnit(1, nm);
 						s_prev_nm = nm;
 					}
 				}
