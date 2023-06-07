@@ -38,7 +38,6 @@ https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
 
 https://github.com/idea4good/GuiLite
-https://github.com/mattdesl/kami-demos/tree/master/src/normals-pixel
 
 window size independant renderer.
 

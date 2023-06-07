@@ -387,8 +387,6 @@ namespace sc
 			m_project_sm.current().render();
 		}
 
-		graphics::Renderer::flush();
-
 		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
 		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
 
