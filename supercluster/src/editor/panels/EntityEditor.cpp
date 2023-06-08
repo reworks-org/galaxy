@@ -62,14 +62,10 @@ namespace sc
 					ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.f, 0.2f, 0.2f, 1.f));
 					if (ImGui::Button("Destroy"))
 					{
-						selected.m_world->m_registry.destroy(selected.m_selected);
-						selected.m_selected = entt::null;
-
-						// Update stack for early exit.
-						ImGui::PopStyleColor(3);
-						ImGui::End();
-
-						return;
+						updates.push_back([&]() {
+							selected.m_world->m_registry.destroy(selected.m_selected);
+							selected.m_selected = entt::null;
+						});
 					}
 					ImGui::PopStyleColor(3);
 
