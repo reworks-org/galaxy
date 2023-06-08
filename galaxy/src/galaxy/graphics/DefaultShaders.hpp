@@ -99,9 +99,7 @@ namespace galaxy
 				bool u_normal_mapped;
 			};
 
-			layout(std430, binding = 0) readonly buffer light_data {
-				vec2 s_resolution;
-				vec4 s_ambient_colour;
+			layout(std430, binding = 2) readonly buffer light_data {
 				Light s_lights[];
 			};
 			
@@ -110,7 +108,10 @@ namespace galaxy
 
 			in vec2 io_texels;
 			in vec2 io_normals;
-
+			
+			uniform vec2 u_resolution;
+			uniform vec4 u_ambient_colour;
+			
 			layout (location = 0) uniform sampler2D u_texture;
 			layout (location = 1) uniform sampler2D u_normals;
 
@@ -128,9 +129,9 @@ namespace galaxy
 						{
 							Light light = s_lights[i];
 							
-							vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / s_resolution), light.depth);
-							light_dir.x /= (light.diameter / s_resolution.x);
-							light_dir.y /= (light.diameter / s_resolution.y);
+							vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / u_resolution), light.depth);
+							light_dir.x /= (light.diameter / u_resolution.x);
+							light_dir.y /= (light.diameter / u_resolution.y);
 
 							float D = length(light_dir);
 							
@@ -140,7 +141,7 @@ namespace galaxy
 							N = mix(N, vec3(0), 0.5);
 
 							vec3 diffuse = (light.colour.xyz * light.colour.w) * max(dot(N, L), 0.0);
-							vec3 ambient = s_ambient_colour.xyz * s_ambient_colour.w;
+							vec3 ambient = u_ambient_colour.xyz * u_ambient_colour.w;
 							
 							float attenuation = 1.0 / (light.falloff.x + (light.falloff.y * D) + (light.falloff.z * D * D));
 							if (attenuation < STEP_A) 

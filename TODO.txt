@@ -47,3 +47,5 @@ avoid serializing map entities
 fix weirdge flickering in editor
 fix play/pause shenanigans
 fix weirdge issue with different camera sizes in editor
+fix camera movement going brrr
+fix no ambient light when no lights in scene

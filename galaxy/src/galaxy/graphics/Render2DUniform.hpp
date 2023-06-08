@@ -25,17 +25,17 @@ namespace galaxy
 		///
 		/// Uniform data passed to shader from entity.
 		///
-		struct Render2DUniform final
+		struct alignas(16) Render2DUniform final
 		{
 			///
 			/// Orthographic transform.
 			///
-			alignas(16) glm::mat4 transform;
+			glm::mat4 transform;
 
 			///
 			/// Colour / tint.
 			///
-			alignas(16) glm::vec4 colour;
+			glm::vec4 colour;
 
 			///
 			/// Entity ID.

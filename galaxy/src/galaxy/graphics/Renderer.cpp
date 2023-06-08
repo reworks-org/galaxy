@@ -61,16 +61,14 @@ namespace galaxy
 
 		void Renderer::buffer_light_data(Lighting& lighting)
 		{
-			thread_local const constexpr std::size_t vec2_size  = sizeof(glm::vec2);
-			thread_local const constexpr std::size_t vec4_size  = sizeof(glm::vec4);
-			thread_local const constexpr std::size_t light_size = sizeof(Light);
+			thread_local const constexpr unsigned int light_size = sizeof(Light);
+			const unsigned int count                             = static_cast<unsigned int>(lighting.lights.size());
 
-			const auto total = static_cast<unsigned int>(vec2_size + vec4_size + (light_size * lighting.lights.size()));
+			s_r2d_shader.set_uniform("u_resolution", lighting.resolution);
+			s_r2d_shader.set_uniform("u_ambient_colour", lighting.ambient_light_colour);
 
-			s_lighting->resize(total);
-			s_lighting->buffer<glm::vec4>(0, 1, &lighting.ambient_light_colour);
-			s_lighting->buffer<glm::vec2>(vec4_size, 1, &lighting.resolution);
-			s_lighting->buffer<Light>(vec2_size + vec4_size, static_cast<unsigned int>(lighting.lights.size()), lighting.lights.data());
+			s_lighting->resize(count * light_size);
+			s_lighting->buffer<Light>(0, count, lighting.lights.data());
 		}
 
 		void Renderer::submit(RenderCommand& command)

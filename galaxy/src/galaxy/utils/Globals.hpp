@@ -97,7 +97,7 @@ namespace galaxy
 ///
 /// Index for SSBO light data.
 ///
-#define GALAXY_SSBO_LIGHTING_INDEX 0
+#define GALAXY_SSBO_LIGHTING_INDEX 2
 
 ///
 /// Minimum zoom allowed on orthographic camera.

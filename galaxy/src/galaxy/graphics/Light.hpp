@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		/// Light data to upload to gpu.
 		///
-		struct Light final
+		struct alignas(16) Light final
 		{
 			///
 			/// Colour.

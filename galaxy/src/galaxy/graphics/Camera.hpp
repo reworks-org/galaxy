@@ -29,17 +29,17 @@ namespace galaxy
 			///
 			/// Camera data.
 			///
-			struct Data final
+			struct alignas(16) Data final
 			{
 				///
 				/// Combined transformation matrix.
 				///
-				alignas(16) glm::mat4 m_model_view = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+				glm::mat4 m_model_view = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 
 				///
 				/// Camera projection matrix.
 				///
-				alignas(16) glm::mat4 m_projection = glm::mat4 {GALAXY_IDENTITY_MATRIX};
+				glm::mat4 m_projection = glm::mat4 {GALAXY_IDENTITY_MATRIX};
 			};
 
 			///
