@@ -75,6 +75,8 @@ namespace sc
 		window.resize(1280, 720);
 		window.maximize();
 
+		m_editor_camera.set_viewport(window.get_widthf(), window.get_heightf());
+
 		m_autosave.start();
 	}
 
@@ -131,7 +133,7 @@ namespace sc
 
 						m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
 						m_editor_camera.translate(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
-						m_imgui_mouse_delta = {0.0f, 0.0f};
+						ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 					}
 				}
 
@@ -931,7 +933,6 @@ namespace sc
 			{
 				m_viewport_size = size_avail;
 				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
-				m_editor_camera.set_viewport(m_viewport_size.x, m_viewport_size.y);
 			}
 
 			if (m_stopped)

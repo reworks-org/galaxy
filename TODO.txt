@@ -37,15 +37,11 @@ https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
 
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
 
-https://github.com/idea4good/GuiLite
-
 window size independant renderer.
+sort out threading
 
-avoid serializing map entities
-	- allow serialize flag
-
-fix weirdge flickering in editor
 fix play/pause shenanigans
-fix weirdge issue with different camera sizes in editor
-fix camera movement going brrr
 fix no ambient light when no lights in scene
+
+https://old.reddit.com/r/opengl/comments/3m9u36/how_to_render_using_glmultidrawarraysindirect/
+https://litasa.github.io/blog/2017/09/04/OpenGL-MultiDrawIndirect-with-Individual-Textures

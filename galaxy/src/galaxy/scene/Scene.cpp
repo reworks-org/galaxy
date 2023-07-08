@@ -57,12 +57,6 @@ namespace galaxy
 			core::ServiceLocator<sol::state>::ref().collect_garbage();
 		}
 
-		void Scene::on_window_resized(const events::WindowResized& e)
-		{
-			m_lighting.resolution.x = static_cast<float>(e.width);
-			m_lighting.resolution.y = static_cast<float>(e.height);
-		}
-
 		void Scene::update()
 		{
 			m_window->trigger_queued_events(m_dispatcher);
@@ -75,6 +69,12 @@ namespace galaxy
 		void Scene::render()
 		{
 			graphics::Renderer::draw();
+		}
+
+		void Scene::on_window_resized(const events::WindowResized& e)
+		{
+			m_lighting.resolution.x = static_cast<float>(e.width);
+			m_lighting.resolution.y = static_cast<float>(e.height);
 		}
 
 		nlohmann::json Scene::serialize()
