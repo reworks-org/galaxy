@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b":[0,0,0,22,6],
 "db/d7c/namespacegalaxy_1_1strutils.html#a22d4d4217db71614abc57b1d4aa3a9a0":[0,0,0,22,7],
 "db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324":[0,0,0,22,0],
 "db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f":[0,0,0,22,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "dc/d7a/Font_8hpp.html":[2,0,0,0,0,9,15],
 "dc/d7a/Font_8hpp_source.html":[2,0,0,0,0,9,15],
 "dc/d7a/Prefabs_8cpp.html":[2,0,0,0,0,15,10],
-"dc/d7a/Prefabs_8cpp_source.html":[2,0,0,0,0,15,10],
-"dc/d7b/RMLInput_8hpp.html":[2,0,0,0,0,20,9]
+"dc/d7a/Prefabs_8cpp_source.html":[2,0,0,0,0,15,10]
 };

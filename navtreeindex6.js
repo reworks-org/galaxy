@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html":[1,0,0,8,21],
 "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737":[1,0,0,8,21,5],
 "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1a0e85d8afedb0aa62e897caac98d025":[1,0,0,8,21,10],
 "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008":[1,0,0,8,21,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "d9/d94/MouseWheel_8cpp_source.html":[2,0,0,0,0,6,18],
 "d9/d9f/Lighting_8cpp.html":[2,0,0,0,0,9,26],
 "d9/d9f/Lighting_8cpp_source.html":[2,0,0,0,0,9,26],
-"d9/db9/Sound_8hpp.html":[2,0,0,0,0,11,3],
-"d9/db9/Sound_8hpp_source.html":[2,0,0,0,0,11,3]
+"d9/db9/Sound_8hpp.html":[2,0,0,0,0,11,3]
 };

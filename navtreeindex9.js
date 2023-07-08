@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"dc/d7b/RMLInput_8hpp.html":[2,0,0,0,0,20,9],
 "dc/d7b/RMLInput_8hpp_source.html":[2,0,0,0,0,20,9],
 "dc/d80/namespacegalaxy_1_1media.html":[0,0,0,13],
 "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html":[1,0,0,17,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea02129bb861061d1a052c592e2dc6b383":[0,0,0,10,8,42],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea0c2629e56daed25c9df918961d0cc03f":[0,0,0,10,8,45],
 "dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea0d61f8370cad1d412f80b84d143e1257":[0,0,0,10,8,21],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1547ad05c44be2cc614be32159bf666b":[0,0,0,10,8,48],
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea17de1e647789892e1fb512bf04db4866":[0,0,0,10,8,108]
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1547ad05c44be2cc614be32159bf666b":[0,0,0,10,8,48]
 };

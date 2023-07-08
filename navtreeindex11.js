@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"dd/ddf/classgalaxy_1_1core_1_1Loader.html#a130a52786709ecc4e9dfce6672709558":[1,0,0,3,2,5],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#a4108c7d333fde1266d1bb0ce81431336":[1,0,0,3,2,1],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#aa808cda5b50d3b0677f2f9f42ac7e4fe":[1,0,0,3,2,4],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e":[1,0,0,3,2,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "df/d8d/RMLRenderer_8cpp.html#a18823fdafde60692d4eeac379b903b06aa0a1f5336d1ce1e6ed36df3ae4ea3a5a":[2,0,0,0,0,20,10,5,1],
 "df/d8d/RMLRenderer_8cpp.html#a18823fdafde60692d4eeac379b903b06ae93f994f01c537c4e2f7d8528c3eb5e9":[2,0,0,0,0,20,10,5,3],
 "df/d8d/RMLRenderer_8cpp.html#a211cc9bfffac25510160f23273dd8117":[2,0,0,0,0,20,10,9],
-"df/d8d/RMLRenderer_8cpp.html#a285389c80809e2d37256a2af08a2184a":[2,0,0,0,0,20,10,8],
-"df/d8d/RMLRenderer_8cpp.html#a49bb28b36c995d984c4403390c998e61":[2,0,0,0,0,20,10,3]
+"df/d8d/RMLRenderer_8cpp.html#a285389c80809e2d37256a2af08a2184a":[2,0,0,0,0,20,10,8]
 };

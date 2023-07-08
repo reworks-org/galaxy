@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"d9/db9/Sound_8hpp_source.html":[2,0,0,0,0,11,3],
 "d9/dc2/TiledMap_8hpp.html":[2,0,0,0,0,3,11],
 "d9/dc2/TiledMap_8hpp_source.html":[2,0,0,0,0,3,11],
 "d9/dd1/MouseReleased_8cpp.html":[2,0,0,0,0,6,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "db/d6a/classgalaxy_1_1state_1_1State.html#a9144c678237ca00ad2e3f985577d1fc0":[1,0,0,16,0,0],
 "db/d78/Concepts_8cpp.html":[2,0,0,0,0,12,2],
 "db/d78/Concepts_8cpp_source.html":[2,0,0,0,0,12,2],
-"db/d7c/namespacegalaxy_1_1strutils.html":[0,0,0,22],
-"db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b":[0,0,0,22,6]
+"db/d7c/namespacegalaxy_1_1strutils.html":[0,0,0,22]
 };
