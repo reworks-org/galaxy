@@ -83,6 +83,8 @@ namespace galaxy
 			}
 			else
 			{
+				m_cursor.init();
+
 				// Configure window setup using hints.
 				// If not here, then default is the preference.
 				glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, GLFW_FALSE);

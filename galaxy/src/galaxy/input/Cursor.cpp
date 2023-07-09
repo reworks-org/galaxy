@@ -22,15 +22,19 @@ namespace galaxy
 			: InputDevice {}
 			, m_custom {nullptr}
 		{
-			m_pointer = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
-			m_cross   = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
-			m_hand    = glfwCreateStandardCursor(GLFW_HAND_CURSOR);
-			m_text    = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);
 		}
 
 		Cursor::~Cursor()
 		{
 			destroy();
+		}
+
+		void Cursor::init()
+		{
+			m_pointer = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
+			m_cross   = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
+			m_hand    = glfwCreateStandardCursor(GLFW_HAND_CURSOR);
+			m_text    = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);
 		}
 
 		void Cursor::toggle(const bool visible)

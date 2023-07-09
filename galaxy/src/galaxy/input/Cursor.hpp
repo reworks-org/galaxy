@@ -33,6 +33,11 @@ namespace galaxy
 			virtual ~Cursor();
 
 			///
+			/// Initialize cursor data.
+			///
+			void init();
+
+			///
 			/// Set cursor visibility.
 			///
 			/// \param visible True for cursor to be visible, otherwise false.
