@@ -1,5 +1,10 @@
 var NAVTREEINDEX11 =
 {
+"de/d3d/BufferBindings_8hpp_source.html":[2,0,0,0,0,9,7],
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html":[1,0,0,8,1],
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#a198775f6656232c8347e3e527be91429":[1,0,0,8,1,8],
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#a34104c9e378da70ce8cfec709801be68":[1,0,0,8,1,10],
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#a6d9c6ad64f12436b7a86ac725ed5f062":[1,0,0,8,1,7],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#a70abe9a6a3e51ce253e056665d2b8e6b":[1,0,0,8,1,1],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#a724552057aa2f5c91548c8e98658ee60":[1,0,0,8,1,2],
 "de/d57/classgalaxy_1_1graphics_1_1Frame.html#a765fce8695e7688d2400aceabebbcf7f":[1,0,0,8,1,4],
@@ -65,10 +70,6 @@ var NAVTREEINDEX11 =
 "de/dd1/Primitive_8hpp.html":[2,0,0,0,0,2,7],
 "de/dd1/Primitive_8hpp_source.html":[2,0,0,0,0,2,7],
 "de/dd6/namespacegalaxy_1_1json.html":[0,0,0,11],
-"d0/d7f/namespacegalaxy_1_1async.html":[0,0,0,1],
-"d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57":[1,0,0,3,6,5],
-"d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a8f8f63476652f5275018e88f1f321d78":[1,0,0,0,1,4],
-"d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#ad0f368ab44c28d5b32e410b9200b3266":[1,0,0,0,1,8],
 "de/dd6/namespacegalaxy_1_1json.html#a374942cb62ef4191f23f775d937ecc60":[0,0,0,11,1],
 "de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d":[0,0,0,11,2],
 "de/dd6/namespacegalaxy_1_1json.html#a845ac678cb9b858d88e0556f285dbfd2":[0,0,0,11,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#adb87a9775de3694c1396016529628032":[1,0,0,8,7,20],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#add1b59925a874c1dd3e42a5cfacf2115":[1,0,0,8,7,19],
 "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae327a001b7cb9903f080b3b3b1ed81f9":[1,0,0,8,7,0],
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae463986e77ba4638cf18a0df456f10f8":[1,0,0,8,7,30],
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30":[1,0,0,8,7,10]
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae463986e77ba4638cf18a0df456f10f8":[1,0,0,8,7,30]
 };
