@@ -1,11 +1,11 @@
 <h1 align="center">galaxy</h1>
 
 <div align="center">
-[![Windows](https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
-[![Documentation Status](https://travis-ci.com/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
-[![Code Quality](https://app.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/gh/DomRe/galaxy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4377/badge)](https://bestpractices.coreinfrastructure.org/projects/4377)
-[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
+	<a href="https://ci.appveyor.com/project/reworks/galaxy"><img src="https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true" /></a>
+	<a href="https://domre.github.io/galaxy/"><img src="https://travis-ci.com/DomRe/galaxy.svg?branch=master" /></a>
+	<a href="https://www.codacy.com/gh/DomRe/galaxy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030" /></a>
+	<a href="https://bestpractices.coreinfrastructure.org/projects/4377"><img src="https://bestpractices.coreinfrastructure.org/projects/4377/badge" /></a>
+	<a href="./LICENSE.txt"><img src="https://img.shields.io/badge/license-apache-blue.svg" /></a>
 </div>
 
 Real-Time C++20 Game/App Engine. Built on data-driven design principles and agile software engineering. 
