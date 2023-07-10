@@ -80,8 +80,12 @@ void TextEditor::SetPalette(const Palette& aValue)
 
 std::string TextEditor::GetText(const Coordinates& aStart, const Coordinates& aEnd) const
 {
-	assert(aEnd > aStart);
 	std::string result;
+
+	if (aEnd > aStart)
+	{
+		return result;
+	}
 
 	auto lstart = aStart.mLine;
 	auto lend   = aEnd.mLine;

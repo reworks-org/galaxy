@@ -7,6 +7,7 @@
 
 #include <imgui_internal.h>
 #include <imgui_addons/material_design_icons.h>
+#include <imgui_addons/code_editor/ImGuiController.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -144,7 +145,7 @@ namespace sc
 			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
 
-		void AssetPanel::render(CodeEditor& editor, UpdateStack& updates)
+		void AssetPanel::render(UpdateStack& updates)
 		{
 			// First update current_dir will always be root.
 			if (m_update_directories)
@@ -168,7 +169,7 @@ namespace sc
 					tree();
 
 					ImGui::TableNextColumn();
-					body(editor);
+					body();
 
 					ImGui::EndTable();
 				}
@@ -293,7 +294,7 @@ namespace sc
 			}
 		}
 
-		void AssetPanel::body(CodeEditor& editor)
+		void AssetPanel::body()
 		{
 			const auto columns = static_cast<int>((ImGui::GetContentRegionAvail().x - ImGui::GetStyle().ScrollbarSize) / (m_size_vec.x + m_padding));
 
@@ -374,7 +375,7 @@ namespace sc
 								switch (m_ext_map[ext])
 								{
 									case FileType::LUA:
-										load_lua_script(editor);
+										load_lua_script();
 										break;
 
 									case FileType::TEXTURE:
@@ -506,7 +507,7 @@ namespace sc
 							case FileType::LUA:
 								if (ImGui::MenuItem(ICON_MDI_FILE_EDIT " Edit"))
 								{
-									load_lua_script(editor);
+									load_lua_script();
 								}
 								break;
 
@@ -610,16 +611,9 @@ namespace sc
 			}
 		}
 
-		void AssetPanel::load_lua_script(CodeEditor& editor)
+		void AssetPanel::load_lua_script()
 		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			const auto data = fs.open(m_selected.m_path.string());
-			if (!data.empty())
-			{
-				editor.m_editor.SetText(data);
-				editor.m_file = m_selected.m_path;
-			}
+			ste::CodeEditor::Load(m_selected.m_path.string());
 		}
 
 		void AssetPanel::load_preview()

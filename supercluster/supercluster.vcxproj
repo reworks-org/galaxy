@@ -185,7 +185,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\editor\panels\CodeEditor.cpp" />
     <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
     <ClCompile Include="src\editor\SelectedAsset.cpp" />
     <ClCompile Include="src\editor\Settings.cpp" />
@@ -202,7 +201,6 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\editor\panels\CodeEditor.hpp" />
     <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
     <ClInclude Include="src\editor\SelectedAsset.hpp" />
     <ClInclude Include="src\editor\Settings.hpp" />

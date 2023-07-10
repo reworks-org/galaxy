@@ -361,8 +361,6 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="imgui\imgui_addons\ImCoolbar.cpp" />
-    <ClCompile Include="imgui\imgui_addons\LanguageDefinitions.cpp" />
-    <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="tmxlite\tmxlite\src\detail\pugixml.cpp" />
     <ClCompile Include="tmxlite\tmxlite\src\FreeFuncs.cpp" />
     <ClCompile Include="tmxlite\tmxlite\src\ImageLayer.cpp" />
@@ -375,6 +373,15 @@
     <ClCompile Include="tmxlite\tmxlite\src\Property.cpp" />
     <ClCompile Include="tmxlite\tmxlite\src\TileLayer.cpp" />
     <ClCompile Include="tmxlite\tmxlite\src\Tileset.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\ImGuiController.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\LanguageDefinitions.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\PathUtils.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\TextEditor.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\Trie.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1364,7 +1371,6 @@
     <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
     <ClInclude Include="imgui\imgui_addons\ImCoolbar.h" />
-    <ClInclude Include="imgui\imgui_addons\TextEditor.h" />
     <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Log.hpp" />
     <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Config.hpp" />
     <ClInclude Include="tmxlite\tmxlite\include\tmxlite\FreeFuncs.hpp" />
@@ -1383,6 +1389,14 @@
     <ClInclude Include="tmxlite\tmxlite\src\detail\pugixml.hpp" />
     <ClInclude Include="tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Android.hpp" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\ImGuiController.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\PathUtils.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

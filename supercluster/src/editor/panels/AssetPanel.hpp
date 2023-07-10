@@ -11,7 +11,6 @@
 #include <galaxy/graphics/Texture.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
-#include "editor/panels/CodeEditor.hpp"
 #include "editor/SelectedAsset.hpp"
 #include "editor/UpdateStack.hpp"
 
@@ -42,14 +41,14 @@ namespace sc
 			AssetPanel();
 			~AssetPanel() = default;
 
-			void render(CodeEditor& editor, UpdateStack& updates);
+			void render(UpdateStack& updates);
 
 			void top(UpdateStack& updates);
 			void tree();
-			void body(CodeEditor& editor);
+			void body();
 
 		private:
-			void load_lua_script(CodeEditor& editor);
+			void load_lua_script();
 			void load_preview();
 			void import_files(const std::string& folder_from_config);
 

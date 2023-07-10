@@ -48,3 +48,7 @@ https://litasa.github.io/blog/2017/09/04/OpenGL-MultiDrawIndirect-with-Individua
 
 to update:
 https://github.com/DomRe/galaxy/tree/master/lib/robin_hood
+
+to use:
+https://github.com/aiekick/ImCoolBar
+https://github.com/fallahn/tmxlite

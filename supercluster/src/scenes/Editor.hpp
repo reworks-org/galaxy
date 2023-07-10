@@ -63,7 +63,6 @@ namespace sc
 		panel::EntityEditor m_entity_panel;
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
-		panel::CodeEditor m_code_editor;
 
 		Settings m_settings;
 		UpdateStack m_update_stack;

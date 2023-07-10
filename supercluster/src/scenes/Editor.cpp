@@ -9,6 +9,7 @@
 
 #include <BS_thread_pool.hpp>
 #include <imgui_impl_glfw.h>
+#include <imgui_addons/code_editor/ImGuiController.h>
 #include <imgui_addons/imgui_notify.h>
 #include <nlohmann/json.hpp>
 
@@ -31,8 +32,7 @@ namespace sc
 		: Scene()
 		, m_editor_camera {true}
 	{
-		m_code_editor.m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
-		m_code_editor.m_editor.SetPalette(TextEditor::GetDarkPalette());
+		ste::CodeEditor::Setup(core::ServiceLocator<fs::VirtualFileSystem>::ref().root());
 
 #ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
@@ -792,7 +792,7 @@ namespace sc
 
 		if (m_show_codeeditor)
 		{
-			m_code_editor.render();
+			ste::CodeEditor::Tick();
 		}
 
 		if (m_show_viewport)
@@ -802,7 +802,7 @@ namespace sc
 
 		if (m_show_assetpanel)
 		{
-			m_asset_panel.render(m_code_editor, m_update_stack);
+			m_asset_panel.render(m_update_stack);
 		}
 
 		if (m_show_scenes)
