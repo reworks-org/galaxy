@@ -12,7 +12,6 @@
 #include <RmlUi/Core/Context.h>
 
 #include "galaxy/core/World.hpp"
-#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Lighting.hpp"
 
@@ -103,11 +102,6 @@ namespace galaxy
 			/// UI rendering context.
 			///
 			Rml::Context* m_context;
-
-			///
-			/// Manages the maps for this layer.
-			///
-			core::TiledMap m_map;
 
 			///
 			/// Scene name for debug purposes.

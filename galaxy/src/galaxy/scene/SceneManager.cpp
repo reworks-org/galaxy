@@ -19,7 +19,6 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
@@ -58,7 +57,6 @@ namespace galaxy
 					auto& config    = core::ServiceLocator<core::Config>::ref();
 					auto& window    = core::ServiceLocator<core::Window>::ref();
 					auto& ae        = core::ServiceLocator<media::AudioEngine>::ref();
-					auto& maps      = core::ServiceLocator<resource::Maps>::ref();
 					auto& prefabs   = core::ServiceLocator<resource::Prefabs>::ref();
 					auto& materials = core::ServiceLocator<resource::Materials>::ref();
 					auto& scripts   = core::ServiceLocator<resource::Scripts>::ref();
@@ -67,7 +65,6 @@ namespace galaxy
 					auto& fonts     = core::ServiceLocator<resource::Fonts>::ref();
 					auto& shaders   = core::ServiceLocator<resource::Shaders>::ref();
 
-					maps.clear();
 					prefabs.clear();
 					materials.clear();
 					scripts.clear();
@@ -139,7 +136,6 @@ namespace galaxy
 					sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
 					scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
 					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
-					maps.load(config.get<std::string>("maps_folder", "resource_folders"));
 					materials.load(config.get<std::string>("materials_folder", "resource_folders"));
 				}
 				catch (const std::exception& e)

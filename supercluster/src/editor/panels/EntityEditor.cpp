@@ -14,7 +14,6 @@
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/Flag.hpp>
 #include <galaxy/components/LightSource.hpp>
-#include <galaxy/components/Map.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
@@ -305,13 +304,6 @@ namespace sc
 
 						ImGui::TextUnformatted("Diameter");
 						ImGui::InputFloat("In Pixels", &ls->m_light.diameter, 1.0f, 10.0f, "%.1f");
-					});
-
-					draw_component<components::Map>(selected, "Map", [&](components::Map* map) {
-						ImGui::Text("Reference component, not directly editable.");
-						ImGui::Spacing();
-						ImGui::Text("Animated Tile Count: %zu", map->m_animations.size());
-						ImGui::Text("Render Layer: %i", map->get_layer());
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {

@@ -25,7 +25,6 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
@@ -347,7 +346,6 @@ namespace galaxy
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::TextureAtlas>::make();
-			ServiceLocator<resource::Maps>::make();
 			ServiceLocator<resource::Materials>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
@@ -375,7 +373,6 @@ namespace galaxy
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
-			ServiceLocator<resource::Maps>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();

@@ -13,7 +13,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/LightSource.hpp"
-#include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
@@ -73,19 +72,12 @@ namespace galaxy
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Map>>();
 			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Animated>>();
 			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Sprite>>();
 			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Primitive>>();
-			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Map>>();
 			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Animated>>();
 			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Sprite>>();
 			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Map>>();
-			m_registry.on_construct<components::Map>().connect<&entt::registry::remove<components::Animated>>();
-			m_registry.on_construct<components::Map>().connect<&entt::registry::remove<components::Sprite>>();
-			m_registry.on_construct<components::Map>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::Map>().connect<&entt::registry::remove<components::Primitive>>();
 		}
 
 		World::~World()

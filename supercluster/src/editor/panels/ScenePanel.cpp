@@ -12,7 +12,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -262,79 +261,9 @@ namespace sc
 							ui::imgui_open_confirm("ClearWorldPopup");
 						}
 
-						ImGui::SameLine();
-
-						if (ImGui::Button("Map Settings"))
-						{
-							ImGui::OpenPopup("LoadMapPopup");
-						}
-
 						ui::imgui_confirm("ClearWorldPopup", [&]() {
 							scene->m_world.clear();
 						});
-
-						if (ImGui::BeginPopup("LoadMapPopup"))
-						{
-							ImGui::Text("Select Map to Load.");
-
-							ImGui::Separator();
-							ImGui::Spacing();
-
-							m_filter_maps.DrawWithHint("###ModalLoadMapSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
-
-							static std::string s_selected = scene->m_map.get_name();
-							if (ImGui::BeginCombo("##ModalLoadMapComboList", s_selected.c_str()))
-							{
-								for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
-								{
-									if (m_filter_maps.PassFilter(key.c_str()))
-									{
-										const bool selected = (s_selected == key);
-										if (ImGui::Selectable(key.c_str(), selected))
-										{
-											s_selected = key;
-										}
-
-										if (selected)
-										{
-											ImGui::SetItemDefaultFocus();
-										}
-									}
-								}
-
-								ImGui::EndCombo();
-							}
-
-							if (ImGui::Button("Load Selected Map"))
-							{
-								if (!s_selected.empty())
-								{
-									updates.emplace_back([scene]() {
-										scene->m_map.load_map(s_selected);
-									});
-								}
-								else
-								{
-									ui::imgui_notify_warning("Please select a map before loading.");
-								}
-							}
-
-							ImGui::Spacing();
-
-							if (ImGui::Button("Enable Map"))
-							{
-								scene->m_map.enable_map();
-							}
-
-							ImGui::SameLine();
-
-							if (ImGui::Button("Disable Map"))
-							{
-								scene->m_map.disable_map();
-							}
-
-							ImGui::EndPopup();
-						}
 
 						if (ImGui::Button("Load Prefab"))
 						{

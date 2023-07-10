@@ -25,7 +25,6 @@ namespace galaxy
 			: m_camera {false}
 			, m_world {this}
 			, m_context {nullptr}
-			, m_map {this}
 			, m_name {"Untitled"}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
@@ -83,7 +82,6 @@ namespace galaxy
 			json["camera"]      = m_camera.serialize();
 			json["world"]       = m_world.serialize();
 			json["name"]        = m_name;
-			json["active_map"]  = m_map.get_name();
 
 			json["ambient_light_colour"]["r"] = m_lighting.ambient_light_colour.x;
 			json["ambient_light_colour"]["g"] = m_lighting.ambient_light_colour.y;
@@ -98,7 +96,6 @@ namespace galaxy
 			m_camera.deserialize(json.at("camera"));
 			m_world.deserialize(json.at("world"));
 			m_name = json.at("name");
-			m_map.load_map(json.at("active_map"));
 
 			const auto& ambient_light_colour  = json.at("ambient_light_colour");
 			m_lighting.ambient_light_colour.x = ambient_light_colour.at("r");

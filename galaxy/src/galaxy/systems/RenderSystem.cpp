@@ -7,7 +7,6 @@
 
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/LightSource.hpp"
-#include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
@@ -37,7 +36,6 @@ namespace galaxy
 			const auto spr_group  = scene->m_world.m_registry.group<components::Sprite>(entt::get<components::Transform, components::Flag>);
 			const auto prim_group = scene->m_world.m_registry.group<components::Primitive>(entt::get<components::Transform, components::Flag>);
 			const auto text_group = scene->m_world.m_registry.group<components::Text>(entt::get<components::Transform, components::Flag>);
-			const auto map_group  = scene->m_world.m_registry.group<components::Map>(entt::get<components::Transform, components::Flag>);
 
 			graphics::RenderCommand cmd;
 
@@ -98,25 +96,6 @@ namespace galaxy
 					cmd.uniform_data.textured      = true;
 					cmd.uniform_data.normal_mapped = false;
 					cmd.renderable                 = &text;
-					cmd.normalmap                  = nullptr;
-
-					graphics::Renderer::submit(cmd);
-				}
-			}
-
-			for (auto&& [entity, map, transform, flag] : map_group.each())
-			{
-				if (flag.is_flag_set<flags::Enabled>())
-				{
-					cmd.instances                  = 1;
-					cmd.mode                       = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-					cmd.uniform_data.entity        = -1; // static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour        = {1.0f, 1.0f, 1.0f, 1.0f};
-					cmd.uniform_data.transform     = transform.get_transform();
-					cmd.uniform_data.point         = false;
-					cmd.uniform_data.textured      = true;
-					cmd.uniform_data.normal_mapped = false;
-					cmd.renderable                 = &map;
 					cmd.normalmap                  = nullptr;
 
 					graphics::Renderer::submit(cmd);

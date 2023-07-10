@@ -19,7 +19,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/LightSource.hpp"
-#include "galaxy/components/Map.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
@@ -30,7 +29,6 @@
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/TiledMap.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/World.hpp"
 
@@ -73,7 +71,6 @@
 
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
@@ -482,11 +479,6 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::LightSource>();
 
-			auto mapcomponent_type =
-				lua.new_usertype<components::Map>("Map", sol::constructors<components::Map()>(), "type_id", &entt::type_hash<components::Map>::value);
-
-			entt_sol::register_meta_component<components::Map>();
-
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
 			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::fragments;
@@ -659,12 +651,6 @@ namespace galaxy
 			world_type["velocity_iterations"] = &core::World::m_velocity_iterations;
 			world_type["position_iterations"] = &core::World::m_position_iterations;
 			world_type["b2world"]             = &core::World::b2world;
-
-			auto tiledmap_type           = lua.new_usertype<core::TiledMap>("TiledMap", sol::no_constructor);
-			tiledmap_type["disable_map"] = &core::TiledMap::disable_map;
-			tiledmap_type["enable_map"]  = &core::TiledMap::enable_map;
-			tiledmap_type["get_name"]    = &core::TiledMap::get_name;
-			tiledmap_type["load_map"]    = &core::TiledMap::load_map;
 
 			/* ERROR */
 			// clang-format off
@@ -1207,14 +1193,6 @@ namespace galaxy
 			lang_type["translate"] = &resource::Language::translate;
 			lang_type["clear"]     = &resource::Language::clear;
 
-			auto maps_type     = lua.new_usertype<resource::Maps>("Maps", sol::no_constructor);
-			maps_type["clear"] = &resource::Maps::clear;
-			maps_type["empty"] = &resource::Maps::empty;
-			maps_type["get"]   = &resource::Maps::get;
-			maps_type["has"]   = &resource::Maps::has;
-			maps_type["load"]  = &resource::Maps::load;
-			maps_type["keys"]  = &resource::Maps::keys;
-
 			auto materials_type     = lua.new_usertype<resource::Materials>("Materials", sol::no_constructor);
 			materials_type["clear"] = &resource::Materials::clear;
 			materials_type["empty"] = &resource::Materials::empty;
@@ -1298,7 +1276,6 @@ namespace galaxy
 			scene_type["camera"]     = &scene::Scene::m_camera;
 			scene_type["context"]    = &scene::Scene::m_context;
 			scene_type["dispatcher"] = &scene::Scene::m_dispatcher;
-			scene_type["map"]        = &scene::Scene::m_map;
 			scene_type["name"]       = &scene::Scene::m_name;
 			scene_type["world"]      = &scene::Scene::m_world;
 
@@ -1348,7 +1325,6 @@ namespace galaxy
 
 			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
 			lua["galaxy_language"]      = std::ref(core::ServiceLocator<resource::Language>::ref());
-			lua["galaxy_maps"]          = std::ref(core::ServiceLocator<resource::Maps>::ref());
 			lua["galaxy_shaders"]       = std::ref(core::ServiceLocator<resource::Shaders>::ref());
 			lua["galaxy_fonts"]         = std::ref(core::ServiceLocator<resource::Fonts>::ref());
 			lua["galaxy_sounds"]        = std::ref(core::ServiceLocator<resource::Sounds>::ref());
