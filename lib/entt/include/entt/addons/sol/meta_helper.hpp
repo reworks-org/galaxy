@@ -35,15 +35,14 @@ namespace entt_sol
 	template<typename... Args>
 	inline auto invoke_meta_func(entt::meta_type meta_type, entt::id_type function_id, Args&&... args)
 	{
-		if (!meta_type)
+		if (meta_type)
 		{
-			// TODO: Warning message
-		}
-		else
-		{
-			if (auto meta_function = meta_type.func(function_id); meta_function)
+			if (const auto meta_function = meta_type.func(function_id); meta_function)
+			{
 				return meta_function.invoke({}, std::forward<Args>(args)...);
+			}
 		}
+
 		return entt::meta_any {};
 	}
 

@@ -5,8 +5,6 @@
 
 namespace entt_sol
 {
-	using namespace entt::literals;
-
 	template<typename Event>
 	auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
 	{
@@ -79,7 +77,6 @@ namespace entt_sol
 		using namespace entt::literals;
 
 		entt::meta<Event>()
-			.type()
 			.template func<&connect_listener<Event>>("connect_listener"_hs)
 			.template func<&trigger_event<Event>>("trigger_event"_hs)
 			.template func<&enqueue_event<Event>>("enqueue_event"_hs)
@@ -138,12 +135,17 @@ namespace entt_sol
 			entt::connection connection;
 		};
 
-		auto dispatcher_type       = entt_module.new_usertype<entt::dispatcher>("dispatcher", sol::constructors<entt::dispatcher()>());
+		using namespace entt::literals;
+
+		auto dispatcher_type = entt_module.new_usertype<entt::dispatcher>("dispatcher", sol::meta_function::construct, sol::factories([] {
+			return entt::dispatcher {};
+		}));
+
 		dispatcher_type["trigger"] = [](entt::dispatcher& self, const sol::table& evt) {
 			const auto event_id = get_type_id(evt);
 			if (event_id == entt::type_hash<base_script_event>::value())
 			{
-				self.trigger<base_script_event>({.self = evt});
+				self.trigger(base_script_event {evt});
 			}
 			else
 			{
@@ -155,7 +157,7 @@ namespace entt_sol
 			const auto event_id = get_type_id(evt);
 			if (event_id == entt::type_hash<base_script_event>::value())
 			{
-				self.enqueue<base_script_event>(evt);
+				self.enqueue(base_script_event {evt});
 			}
 			else
 			{
@@ -187,11 +189,9 @@ namespace entt_sol
 				return invoke_meta_func(event_id, "connect_listener"_hs, &self, listener);
 		};
 
-		dispatcher_type["disconnect"] = [](const sol::table& connector) {
-			entt::meta_any& any = connector.as<entt::meta_any>();
-			any.reset();
-
-			const_cast<sol::table&>(connector) = sol::nil;
+		dispatcher_type["disconnect"] = [](const sol::table& connection) {
+			connection.as<entt::meta_any>().reset();
+			const_cast<sol::table&>(connection) = sol::nil;
 		};
 
 		return entt_module;

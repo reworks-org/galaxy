@@ -1,8 +1,8 @@
 #ifndef ENTT_CORE_UTILITY_HPP
 #define ENTT_CORE_UTILITY_HPP
 
+#include <type_traits>
 #include <utility>
-#include "../config/config.h"
 
 namespace entt {
 
@@ -17,8 +17,8 @@ struct identity {
      * @param value The actual argument.
      * @return The submitted value as-is.
      */
-    template<class Type>
-    [[nodiscard]] constexpr Type &&operator()(Type &&value) const ENTT_NOEXCEPT {
+    template<typename Type>
+    [[nodiscard]] constexpr Type &&operator()(Type &&value) const noexcept {
         return std::forward<Type>(value);
     }
 };
@@ -31,7 +31,7 @@ struct identity {
  * @return Pointer to the member.
  */
 template<typename Type, typename Class>
-[[nodiscard]] constexpr auto overload(Type Class::*member) ENTT_NOEXCEPT {
+[[nodiscard]] constexpr auto overload(Type Class::*member) noexcept {
     return member;
 }
 
@@ -42,7 +42,7 @@ template<typename Type, typename Class>
  * @return Pointer to the function.
  */
 template<typename Func>
-[[nodiscard]] constexpr auto overload(Func *func) ENTT_NOEXCEPT {
+[[nodiscard]] constexpr auto overload(Func *func) noexcept {
     return func;
 }
 
@@ -50,7 +50,7 @@ template<typename Func>
  * @brief Helper type for visitors.
  * @tparam Func Types of function objects.
  */
-template<class... Func>
+template<typename... Func>
 struct overloaded: Func... {
     using Func::operator()...;
 };
@@ -59,20 +59,20 @@ struct overloaded: Func... {
  * @brief Deduction guide.
  * @tparam Func Types of function objects.
  */
-template<class... Func>
+template<typename... Func>
 overloaded(Func...) -> overloaded<Func...>;
 
 /**
  * @brief Basic implementation of a y-combinator.
  * @tparam Func Type of a potentially recursive function.
  */
-template<class Func>
+template<typename Func>
 struct y_combinator {
     /**
      * @brief Constructs a y-combinator from a given function.
      * @param recursive A potentially recursive function.
      */
-    y_combinator(Func recursive)
+    constexpr y_combinator(Func recursive) noexcept(std::is_nothrow_move_constructible_v<Func>)
         : func{std::move(recursive)} {}
 
     /**
@@ -81,14 +81,14 @@ struct y_combinator {
      * @param args Parameters to use to invoke the underlying function.
      * @return Return value of the underlying function, if any.
      */
-    template<class... Args>
-    decltype(auto) operator()(Args &&...args) const {
+    template<typename... Args>
+    constexpr decltype(auto) operator()(Args &&...args) const noexcept(std::is_nothrow_invocable_v<Func, const y_combinator &, Args...>) {
         return func(*this, std::forward<Args>(args)...);
     }
 
     /*! @copydoc operator()() */
-    template<class... Args>
-    decltype(auto) operator()(Args &&...args) {
+    template<typename... Args>
+    constexpr decltype(auto) operator()(Args &&...args) noexcept(std::is_nothrow_invocable_v<Func, y_combinator &, Args...>) {
         return func(*this, std::forward<Args>(args)...);
     }
 

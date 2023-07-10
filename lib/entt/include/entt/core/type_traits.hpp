@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <iterator>
+#include <tuple>
 #include <type_traits>
 #include <utility>
 #include "../config/config.h"
@@ -55,7 +56,6 @@ using type_identity_t = typename type_identity<Type>::type;
 /**
  * @brief A type-only `sizeof` wrapper that returns 0 where `sizeof` complains.
  * @tparam Type The type of which to return the size.
- * @tparam The size of the type if `sizeof` accepts it, 0 otherwise.
  */
 template<typename Type, typename = void>
 struct size_of: std::integral_constant<std::size_t, 0u> {};
@@ -121,22 +121,22 @@ struct type_list_element;
 /**
  * @brief Provides compile-time indexed access to the types of a type list.
  * @tparam Index Index of the type to return.
- * @tparam Type First type provided by the type list.
+ * @tparam First First type provided by the type list.
  * @tparam Other Other types provided by the type list.
  */
-template<std::size_t Index, typename Type, typename... Other>
-struct type_list_element<Index, type_list<Type, Other...>>
+template<std::size_t Index, typename First, typename... Other>
+struct type_list_element<Index, type_list<First, Other...>>
     : type_list_element<Index - 1u, type_list<Other...>> {};
 
 /**
  * @brief Provides compile-time indexed access to the types of a type list.
- * @tparam Type First type provided by the type list.
+ * @tparam First First type provided by the type list.
  * @tparam Other Other types provided by the type list.
  */
-template<typename Type, typename... Other>
-struct type_list_element<0u, type_list<Type, Other...>> {
+template<typename First, typename... Other>
+struct type_list_element<0u, type_list<First, Other...>> {
     /*! @brief Searched type. */
-    using type = Type;
+    using type = First;
 };
 
 /**
@@ -146,6 +146,58 @@ struct type_list_element<0u, type_list<Type, Other...>> {
  */
 template<std::size_t Index, typename List>
 using type_list_element_t = typename type_list_element<Index, List>::type;
+
+/*! @brief Primary template isn't defined on purpose. */
+template<typename, typename>
+struct type_list_index;
+
+/**
+ * @brief Provides compile-time type access to the types of a type list.
+ * @tparam Type Type to look for and for which to return the index.
+ * @tparam First First type provided by the type list.
+ * @tparam Other Other types provided by the type list.
+ */
+template<typename Type, typename First, typename... Other>
+struct type_list_index<Type, type_list<First, Other...>> {
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given type in the sublist. */
+    static constexpr value_type value = 1u + type_list_index<Type, type_list<Other...>>::value;
+};
+
+/**
+ * @brief Provides compile-time type access to the types of a type list.
+ * @tparam Type Type to look for and for which to return the index.
+ * @tparam Other Other types provided by the type list.
+ */
+template<typename Type, typename... Other>
+struct type_list_index<Type, type_list<Type, Other...>> {
+    static_assert(type_list_index<Type, type_list<Other...>>::value == sizeof...(Other), "Non-unique type");
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given type in the sublist. */
+    static constexpr value_type value = 0u;
+};
+
+/**
+ * @brief Provides compile-time type access to the types of a type list.
+ * @tparam Type Type to look for and for which to return the index.
+ */
+template<typename Type>
+struct type_list_index<Type, type_list<>> {
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given type in the sublist. */
+    static constexpr value_type value = 0u;
+};
+
+/**
+ * @brief Helper variable template.
+ * @tparam List Type list.
+ * @tparam Type Type to look for and for which to return the index.
+ */
+template<typename Type, typename List>
+inline constexpr std::size_t type_list_index_v = type_list_index<Type, List>::value;
 
 /**
  * @brief Concatenates multiple type lists.
@@ -245,7 +297,8 @@ struct type_list_contains;
  * @tparam Other Type to look for.
  */
 template<typename... Type, typename Other>
-struct type_list_contains<type_list<Type...>, Other>: std::disjunction<std::is_same<Type, Other>...> {};
+struct type_list_contains<type_list<Type...>, Other>
+    : std::bool_constant<(std::is_same_v<Type, Other> || ...)> {};
 
 /**
  * @brief Helper variable template.
@@ -276,6 +329,29 @@ struct type_list_diff<type_list<Type...>, type_list<Other...>> {
  */
 template<typename... List>
 using type_list_diff_t = typename type_list_diff<List...>::type;
+
+/*! @brief Primary template isn't defined on purpose. */
+template<typename, template<typename...> class>
+struct type_list_transform;
+
+/**
+ * @brief Applies a given _function_ to a type list and generate a new list.
+ * @tparam Type Types provided by the type list.
+ * @tparam Op Unary operation as template class with a type member named `type`.
+ */
+template<typename... Type, template<typename...> class Op>
+struct type_list_transform<type_list<Type...>, Op> {
+    /*! @brief Resulting type list after applying the transform function. */
+    using type = type_list<typename Op<Type>::type...>;
+};
+
+/**
+ * @brief Helper type.
+ * @tparam List Type list.
+ * @tparam Op Unary operation as template class with a type member named `type`.
+ */
+template<typename List, template<typename...> class Op>
+using type_list_transform_t = typename type_list_transform<List, Op>::type;
 
 /**
  * @brief A class to use to push around lists of constant values, nothing more.
@@ -310,9 +386,19 @@ struct value_list_element<Index, value_list<Value, Other...>>
  */
 template<auto Value, auto... Other>
 struct value_list_element<0u, value_list<Value, Other...>> {
+    /*! @brief Searched type. */
+    using type = decltype(Value);
     /*! @brief Searched value. */
     static constexpr auto value = Value;
 };
+
+/**
+ * @brief Helper type.
+ * @tparam Index Index of the type to return.
+ * @tparam List Value list to search into.
+ */
+template<std::size_t Index, typename List>
+using value_list_element_t = typename value_list_element<Index, List>::type;
 
 /**
  * @brief Helper type.
@@ -321,6 +407,58 @@ struct value_list_element<0u, value_list<Value, Other...>> {
  */
 template<std::size_t Index, typename List>
 inline constexpr auto value_list_element_v = value_list_element<Index, List>::value;
+
+/*! @brief Primary template isn't defined on purpose. */
+template<auto, typename>
+struct value_list_index;
+
+/**
+ * @brief Provides compile-time type access to the values of a value list.
+ * @tparam Value Value to look for and for which to return the index.
+ * @tparam First First value provided by the value list.
+ * @tparam Other Other values provided by the value list.
+ */
+template<auto Value, auto First, auto... Other>
+struct value_list_index<Value, value_list<First, Other...>> {
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given value in the sublist. */
+    static constexpr value_type value = 1u + value_list_index<Value, value_list<Other...>>::value;
+};
+
+/**
+ * @brief Provides compile-time type access to the values of a value list.
+ * @tparam Value Value to look for and for which to return the index.
+ * @tparam Other Other values provided by the value list.
+ */
+template<auto Value, auto... Other>
+struct value_list_index<Value, value_list<Value, Other...>> {
+    static_assert(value_list_index<Value, value_list<Other...>>::value == sizeof...(Other), "Non-unique type");
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given value in the sublist. */
+    static constexpr value_type value = 0u;
+};
+
+/**
+ * @brief Provides compile-time type access to the values of a value list.
+ * @tparam Value Value to look for and for which to return the index.
+ */
+template<auto Value>
+struct value_list_index<Value, value_list<>> {
+    /*! @brief Unsigned integer type. */
+    using value_type = std::size_t;
+    /*! @brief Compile-time position of the given type in the sublist. */
+    static constexpr value_type value = 0u;
+};
+
+/**
+ * @brief Helper variable template.
+ * @tparam List Value list.
+ * @tparam Value Value to look for and for which to return the index.
+ */
+template<auto Value, typename List>
+inline constexpr std::size_t value_list_index_v = value_list_index<Value, List>::value;
 
 /**
  * @brief Concatenates multiple value lists.
@@ -372,6 +510,89 @@ struct value_list_cat<value_list<Value...>> {
  */
 template<typename... List>
 using value_list_cat_t = typename value_list_cat<List...>::type;
+
+/*! @brief Primary template isn't defined on purpose. */
+template<typename>
+struct value_list_unique;
+
+/**
+ * @brief Removes duplicates values from a value list.
+ * @tparam Value One of the values provided by the given value list.
+ * @tparam Other The other values provided by the given value list.
+ */
+template<auto Value, auto... Other>
+struct value_list_unique<value_list<Value, Other...>> {
+    /*! @brief A value list without duplicate types. */
+    using type = std::conditional_t<
+        ((Value == Other) || ...),
+        typename value_list_unique<value_list<Other...>>::type,
+        value_list_cat_t<value_list<Value>, typename value_list_unique<value_list<Other...>>::type>>;
+};
+
+/*! @brief Removes duplicates values from a value list. */
+template<>
+struct value_list_unique<value_list<>> {
+    /*! @brief A value list without duplicate types. */
+    using type = value_list<>;
+};
+
+/**
+ * @brief Helper type.
+ * @tparam Type A value list.
+ */
+template<typename Type>
+using value_list_unique_t = typename value_list_unique<Type>::type;
+
+/**
+ * @brief Provides the member constant `value` to true if a value list contains
+ * a given value, false otherwise.
+ * @tparam List Value list.
+ * @tparam Value Value to look for.
+ */
+template<typename List, auto Value>
+struct value_list_contains;
+
+/**
+ * @copybrief value_list_contains
+ * @tparam Value Values provided by the value list.
+ * @tparam Other Value to look for.
+ */
+template<auto... Value, auto Other>
+struct value_list_contains<value_list<Value...>, Other>
+    : std::bool_constant<((Value == Other) || ...)> {};
+
+/**
+ * @brief Helper variable template.
+ * @tparam List Value list.
+ * @tparam Value Value to look for.
+ */
+template<typename List, auto Value>
+inline constexpr bool value_list_contains_v = value_list_contains<List, Value>::value;
+
+/*! @brief Primary template isn't defined on purpose. */
+template<typename...>
+class value_list_diff;
+
+/**
+ * @brief Computes the difference between two value lists.
+ * @tparam Value Values provided by the first value list.
+ * @tparam Other Values provided by the second value list.
+ */
+template<auto... Value, auto... Other>
+class value_list_diff<value_list<Value...>, value_list<Other...>> {
+    using v141_toolset_workaround = value_list<Other...>;
+
+public:
+    /*! @brief A value list that is the difference between the two value lists. */
+    using type = value_list_cat_t<std::conditional_t<value_list_contains_v<v141_toolset_workaround, Value>, value_list<>, value_list<Value>>...>;
+};
+
+/**
+ * @brief Helper type.
+ * @tparam List Value lists between which to compute the difference.
+ */
+template<typename... List>
+using value_list_diff_t = typename value_list_diff<List...>::type;
 
 /*! @brief Same as std::is_invocable, but with tuples. */
 template<typename, typename>
@@ -476,7 +697,7 @@ struct has_iterator_category<Type, std::void_t<typename std::iterator_traits<Typ
 
 /*! @copydoc is_iterator */
 template<typename Type>
-struct is_iterator<Type, std::enable_if_t<!std::is_same_v<std::remove_const_t<std::remove_pointer_t<Type>>, void>>>
+struct is_iterator<Type, std::enable_if_t<!std::is_same_v<std::remove_cv_t<std::remove_pointer_t<Type>>, void>>>
     : internal::has_iterator_category<Type> {};
 
 /**
@@ -493,7 +714,7 @@ inline constexpr bool is_iterator_v = is_iterator<Type>::value;
  */
 template<typename Type>
 struct is_ebco_eligible
-    : std::conjunction<std::is_empty<Type>, std::negation<std::is_final<Type>>> {};
+    : std::bool_constant<std::is_empty_v<Type> && !std::is_final_v<Type>> {};
 
 /**
  * @brief Helper variable template.
@@ -564,7 +785,7 @@ template<typename Type>
 }
 
 template<typename Type>
-[[nodiscard]] constexpr std::enable_if_t<is_complete_v<std::tuple_size<std::remove_const_t<Type>>>, bool> maybe_equality_comparable(choice_t<2>) {
+[[nodiscard]] constexpr std::enable_if_t<is_complete_v<std::tuple_size<std::remove_cv_t<Type>>>, bool> maybe_equality_comparable(choice_t<2>) {
     if constexpr(has_tuple_size_value<Type>::value) {
         return unpack_maybe_equality_comparable<Type>(std::make_index_sequence<std::tuple_size<Type>::value>{});
     } else {
@@ -583,6 +804,10 @@ template<typename Type>
 template<typename Type>
 struct is_equality_comparable<Type, std::void_t<decltype(std::declval<Type>() == std::declval<Type>())>>
     : std::bool_constant<internal::maybe_equality_comparable<Type>(choice<2>)> {};
+
+/*! @copydoc is_equality_comparable */
+template<typename Type, auto N>
+struct is_equality_comparable<Type[N]>: std::false_type {};
 
 /**
  * @brief Helper variable template.
@@ -606,7 +831,7 @@ struct constness_as {
 template<typename To, typename From>
 struct constness_as<To, const From> {
     /*! @brief The type resulting from the transcription of the constness. */
-    using type = std::add_const_t<To>;
+    using type = const To;
 };
 
 /**
@@ -646,6 +871,50 @@ public:
 template<typename Member>
 using member_class_t = typename member_class<Member>::type;
 
+/**
+ * @brief Extracts the n-th argument of a given function or member function.
+ * @tparam Index The index of the argument to extract.
+ * @tparam Candidate A valid function, member function or data member.
+ */
+template<std::size_t Index, auto Candidate>
+class nth_argument {
+    template<typename Ret, typename... Args>
+    static constexpr type_list<Args...> pick_up(Ret (*)(Args...));
+
+    template<typename Ret, typename Class, typename... Args>
+    static constexpr type_list<Args...> pick_up(Ret (Class ::*)(Args...));
+
+    template<typename Ret, typename Class, typename... Args>
+    static constexpr type_list<Args...> pick_up(Ret (Class ::*)(Args...) const);
+
+    template<typename Type, typename Class>
+    static constexpr type_list<Type> pick_up(Type Class ::*);
+
+public:
+    /*! @brief N-th argument of the given function or member function. */
+    using type = type_list_element_t<Index, decltype(pick_up(Candidate))>;
+};
+
+/**
+ * @brief Helper type.
+ * @tparam Index The index of the argument to extract.
+ * @tparam Candidate A valid function, member function or data member.
+ */
+template<std::size_t Index, auto Candidate>
+using nth_argument_t = typename nth_argument<Index, Candidate>::type;
+
 } // namespace entt
+
+template<typename... Type>
+struct std::tuple_size<entt::type_list<Type...>>: std::integral_constant<std::size_t, entt::type_list<Type...>::size> {};
+
+template<std::size_t Index, typename... Type>
+struct std::tuple_element<Index, entt::type_list<Type...>>: entt::type_list_element<Index, entt::type_list<Type...>> {};
+
+template<auto... Value>
+struct std::tuple_size<entt::value_list<Value...>>: std::integral_constant<std::size_t, entt::value_list<Value...>::size> {};
+
+template<std::size_t Index, auto... Value>
+struct std::tuple_element<Index, entt::value_list<Value...>>: entt::value_list_element<Index, entt::value_list<Value...>> {};
 
 #endif

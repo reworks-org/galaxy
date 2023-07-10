@@ -78,7 +78,7 @@ namespace sc
 		{
 			const constexpr auto spacing             = ImVec2 {4, 4};
 			const constexpr ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
-													   ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_FramePadding;
+													   ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
 			auto component = selected.m_world->m_registry.try_get<Component>(selected.m_selected);
 			if (component)

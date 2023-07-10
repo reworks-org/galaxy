@@ -4,8 +4,8 @@
 #include "macro.h"
 
 #define ENTT_VERSION_MAJOR 3
-#define ENTT_VERSION_MINOR 10
-#define ENTT_VERSION_PATCH 3
+#define ENTT_VERSION_MINOR 12
+#define ENTT_VERSION_PATCH 2
 
 #define ENTT_VERSION \
     ENTT_XSTR(ENTT_VERSION_MAJOR) \

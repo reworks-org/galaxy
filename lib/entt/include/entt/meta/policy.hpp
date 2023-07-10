@@ -6,7 +6,7 @@
 namespace entt {
 
 /*! @brief Empty class type used to request the _as ref_ policy. */
-struct as_ref_t {
+struct as_ref_t final {
     /**
      * @cond TURN_OFF_DOXYGEN
      * Internal details not to be documented.
@@ -20,7 +20,7 @@ struct as_ref_t {
 };
 
 /*! @brief Empty class type used to request the _as cref_ policy. */
-struct as_cref_t {
+struct as_cref_t final {
     /**
      * @cond TURN_OFF_DOXYGEN
      * Internal details not to be documented.
@@ -34,7 +34,7 @@ struct as_cref_t {
 };
 
 /*! @brief Empty class type used to request the _as-is_ policy. */
-struct as_is_t {
+struct as_is_t final {
     /**
      * @cond TURN_OFF_DOXYGEN
      * Internal details not to be documented.
@@ -48,7 +48,7 @@ struct as_is_t {
 };
 
 /*! @brief Empty class type used to request the _as void_ policy. */
-struct as_void_t {
+struct as_void_t final {
     /**
      * @cond TURN_OFF_DOXYGEN
      * Internal details not to be documented.
@@ -60,6 +60,22 @@ struct as_void_t {
      * @endcond
      */
 };
+
+/**
+ * @brief Provides the member constant `value` to true if a type also is a meta
+ * policy, false otherwise.
+ * @tparam Type Type to check.
+ */
+template<typename Type>
+struct is_meta_policy
+    : std::bool_constant<std::is_same_v<Type, as_ref_t> || std::is_same_v<Type, as_cref_t> || std::is_same_v<Type, as_is_t> || std::is_same_v<Type, as_void_t>> {};
+
+/**
+ * @brief Helper variable template.
+ * @tparam Type Type to check.
+ */
+template<typename Type>
+inline constexpr bool is_meta_policy_v = is_meta_policy<Type>::value;
 
 } // namespace entt
 

@@ -75,7 +75,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -136,7 +136,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -187,9 +187,6 @@
   <ItemGroup>
     <ClCompile Include="src\editor\panels\CodeEditor.cpp" />
     <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
-    <ClCompile Include="src\editor\panels\noise\FastNoiseNodeEditor.cpp" />
-    <ClCompile Include="src\editor\panels\NoisePanel.cpp" />
-    <ClCompile Include="src\editor\panels\noise\NoiseTexture.cpp" />
     <ClCompile Include="src\editor\SelectedAsset.cpp" />
     <ClCompile Include="src\editor\Settings.cpp" />
     <ClCompile Include="src\editor\Selected.cpp" />
@@ -207,9 +204,6 @@
   <ItemGroup>
     <ClInclude Include="src\editor\panels\CodeEditor.hpp" />
     <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
-    <ClInclude Include="src\editor\panels\noise\FastNoiseNodeEditor.h" />
-    <ClInclude Include="src\editor\panels\NoisePanel.hpp" />
-    <ClInclude Include="src\editor\panels\noise\NoiseTexture.h" />
     <ClInclude Include="src\editor\SelectedAsset.hpp" />
     <ClInclude Include="src\editor\Settings.hpp" />
     <ClInclude Include="src\editor\Selected.hpp" />

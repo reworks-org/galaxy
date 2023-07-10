@@ -45,3 +45,6 @@ fix no ambient light when no lights in scene
 
 https://old.reddit.com/r/opengl/comments/3m9u36/how_to_render_using_glmultidrawarraysindirect/
 https://litasa.github.io/blog/2017/09/04/OpenGL-MultiDrawIndirect-with-Individual-Textures
+
+to update:
+https://github.com/DomRe/galaxy/tree/master/lib/robin_hood

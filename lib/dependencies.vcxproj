@@ -94,12 +94,12 @@
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_addons\ImCoolbar.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui-knobs.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_presets.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_renderer.cpp" />
-    <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
     <ClCompile Include="imgui\imgui_addons\LanguageDefinitions.cpp" />
     <ClCompile Include="imgui\imgui_addons\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
@@ -193,17 +193,8 @@
     <ClCompile Include="rmlui\Source\Core\ElementInstancer.cpp" />
     <ClCompile Include="rmlui\Source\Core\ElementScroll.cpp" />
     <ClCompile Include="rmlui\Source\Core\ElementStyle.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\DataFormatter.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\DataQuery.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\DataSource.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\DataSourceListener.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\ElementDataGrid.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\ElementDataGridCell.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\ElementDataGridExpandButton.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\ElementDataGridRow.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\ElementForm.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\ElementFormControl.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\ElementFormControlDataSelect.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\ElementFormControlInput.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\ElementFormControlSelect.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\ElementFormControlTextArea.cpp" />
@@ -225,7 +216,6 @@
     <ClCompile Include="rmlui\Source\Core\Elements\WidgetTextInputMultiLine.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\WidgetTextInputSingleLine.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\WidgetTextInputSingleLinePassword.cpp" />
-    <ClCompile Include="rmlui\Source\Core\Elements\XMLNodeHandlerDataGrid.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\XMLNodeHandlerSelect.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\XMLNodeHandlerTabSet.cpp" />
     <ClCompile Include="rmlui\Source\Core\Elements\XMLNodeHandlerTextArea.cpp" />
@@ -258,16 +248,23 @@
     <ClCompile Include="rmlui\Source\Core\GeometryBackgroundBorder.cpp" />
     <ClCompile Include="rmlui\Source\Core\GeometryDatabase.cpp" />
     <ClCompile Include="rmlui\Source\Core\GeometryUtilities.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutBlockBox.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutBlockBoxSpace.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutDetails.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutEngine.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutFlex.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutInlineBox.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutInlineBoxText.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutLineBox.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutTable.cpp" />
-    <ClCompile Include="rmlui\Source\Core\LayoutTableDetails.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\BlockContainer.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\BlockFormattingContext.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\ContainerBox.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\FlexFormattingContext.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\FloatedBoxSpace.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\FormattingContext.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\InlineBox.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\InlineContainer.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\InlineLevelBox.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\LayoutBox.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\LayoutDetails.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\LayoutEngine.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\LayoutPools.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\LineBox.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\ReplacedFormattingContext.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\TableFormattingContext.cpp" />
+    <ClCompile Include="rmlui\Source\Core\Layout\TableFormattingDetails.cpp" />
     <ClCompile Include="rmlui\Source\Core\Log.cpp" />
     <ClCompile Include="rmlui\Source\Core\Math.cpp" />
     <ClCompile Include="rmlui\Source\Core\Memory.cpp" />
@@ -346,19 +343,12 @@
     <ClCompile Include="rmlui\Source\Lua\ElementChildNodesProxy.cpp" />
     <ClCompile Include="rmlui\Source\Lua\ElementInstancer.cpp" />
     <ClCompile Include="rmlui\Source\Lua\ElementStyleProxy.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\DataFormatter.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\DataSource.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\ElementDataGrid.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\ElementDataGridRow.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementForm.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementFormControl.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\ElementFormControlDataSelect.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementFormControlInput.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementFormControlSelect.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementFormControlTextArea.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\ElementTabSet.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\LuaDataFormatter.cpp" />
-    <ClCompile Include="rmlui\Source\Lua\Elements\LuaDataSource.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Elements\SelectOptionsProxy.cpp" />
     <ClCompile Include="rmlui\Source\Lua\ElementText.cpp" />
     <ClCompile Include="rmlui\Source\Lua\Event.cpp" />
@@ -382,6 +372,18 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="stb\include\stb_vorbis.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="tmxlite\tmxlite\src\detail\pugixml.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\FreeFuncs.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\ImageLayer.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\LayerGroup.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\Map.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\miniz.c" />
+    <ClCompile Include="tmxlite\tmxlite\src\Object.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\ObjectGroup.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\ObjectTypes.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\Property.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\TileLayer.cpp" />
+    <ClCompile Include="tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
@@ -434,74 +436,6 @@
     <ClInclude Include="box2d\src\dynamics\b2_island.h" />
     <ClInclude Include="box2d\src\dynamics\b2_polygon_circle_contact.h" />
     <ClInclude Include="box2d\src\dynamics\b2_polygon_contact.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\body.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\entt-box2d.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\fixture.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\mruby-bindings.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\registry-mixin.h" />
-    <ClInclude Include="entt\include\entt\addons\entt-box2d\world.h" />
-    <ClInclude Include="entt\include\entt\addons\sol\dispatcher.hpp" />
-    <ClInclude Include="entt\include\entt\addons\sol\meta_helper.hpp" />
-    <ClInclude Include="entt\include\entt\addons\sol\registry.hpp" />
-    <ClInclude Include="entt\include\entt\config\config.h" />
-    <ClInclude Include="entt\include\entt\config\macro.h" />
-    <ClInclude Include="entt\include\entt\config\version.h" />
-    <ClInclude Include="entt\include\entt\container\dense_map.hpp" />
-    <ClInclude Include="entt\include\entt\container\dense_set.hpp" />
-    <ClInclude Include="entt\include\entt\container\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\core\algorithm.hpp" />
-    <ClInclude Include="entt\include\entt\core\any.hpp" />
-    <ClInclude Include="entt\include\entt\core\attribute.h" />
-    <ClInclude Include="entt\include\entt\core\compressed_pair.hpp" />
-    <ClInclude Include="entt\include\entt\core\enum.hpp" />
-    <ClInclude Include="entt\include\entt\core\family.hpp" />
-    <ClInclude Include="entt\include\entt\core\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\core\hashed_string.hpp" />
-    <ClInclude Include="entt\include\entt\core\ident.hpp" />
-    <ClInclude Include="entt\include\entt\core\iterator.hpp" />
-    <ClInclude Include="entt\include\entt\core\memory.hpp" />
-    <ClInclude Include="entt\include\entt\core\monostate.hpp" />
-    <ClInclude Include="entt\include\entt\core\tuple.hpp" />
-    <ClInclude Include="entt\include\entt\core\type_info.hpp" />
-    <ClInclude Include="entt\include\entt\core\type_traits.hpp" />
-    <ClInclude Include="entt\include\entt\core\utility.hpp" />
-    <ClInclude Include="entt\include\entt\entity\component.hpp" />
-    <ClInclude Include="entt\include\entt\entity\entity.hpp" />
-    <ClInclude Include="entt\include\entt\entity\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\entity\group.hpp" />
-    <ClInclude Include="entt\include\entt\entity\handle.hpp" />
-    <ClInclude Include="entt\include\entt\entity\helper.hpp" />
-    <ClInclude Include="entt\include\entt\entity\observer.hpp" />
-    <ClInclude Include="entt\include\entt\entity\organizer.hpp" />
-    <ClInclude Include="entt\include\entt\entity\registry.hpp" />
-    <ClInclude Include="entt\include\entt\entity\runtime_view.hpp" />
-    <ClInclude Include="entt\include\entt\entity\sigh_storage_mixin.hpp" />
-    <ClInclude Include="entt\include\entt\entity\snapshot.hpp" />
-    <ClInclude Include="entt\include\entt\entity\sparse_set.hpp" />
-    <ClInclude Include="entt\include\entt\entity\storage.hpp" />
-    <ClInclude Include="entt\include\entt\entity\utility.hpp" />
-    <ClInclude Include="entt\include\entt\entity\view.hpp" />
-    <ClInclude Include="entt\include\entt\entt.hpp" />
-    <ClInclude Include="entt\include\entt\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\meta\adl_pointer.hpp" />
-    <ClInclude Include="entt\include\entt\meta\container.hpp" />
-    <ClInclude Include="entt\include\entt\meta\ctx.hpp" />
-    <ClInclude Include="entt\include\entt\meta\factory.hpp" />
-    <ClInclude Include="entt\include\entt\meta\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\meta\meta.hpp" />
-    <ClInclude Include="entt\include\entt\meta\node.hpp" />
-    <ClInclude Include="entt\include\entt\meta\pointer.hpp" />
-    <ClInclude Include="entt\include\entt\meta\policy.hpp" />
-    <ClInclude Include="entt\include\entt\meta\range.hpp" />
-    <ClInclude Include="entt\include\entt\meta\resolve.hpp" />
-    <ClInclude Include="entt\include\entt\meta\template.hpp" />
-    <ClInclude Include="entt\include\entt\meta\type_traits.hpp" />
-    <ClInclude Include="entt\include\entt\meta\utility.hpp" />
-    <ClInclude Include="entt\include\entt\signal\delegate.hpp" />
-    <ClInclude Include="entt\include\entt\signal\dispatcher.hpp" />
-    <ClInclude Include="entt\include\entt\signal\emitter.hpp" />
-    <ClInclude Include="entt\include\entt\signal\fwd.hpp" />
-    <ClInclude Include="entt\include\entt\signal\sigh.hpp" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_C.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Config.h" />
@@ -518,7 +452,6 @@
     <ClInclude Include="fastnoise2\include\FastNoise\Generators\Simplex.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\Generators\Value.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\Metadata.h" />
-    <ClInclude Include="fastnoise2\include\FastNoise\MultiThreadQueues.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\SmartNode.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\FastSIMD_Config.h" />
@@ -766,6 +699,7 @@
     <ClInclude Include="glm\glm\ext\vector_uint4.hpp" />
     <ClInclude Include="glm\glm\ext\vector_uint4_sized.hpp" />
     <ClInclude Include="glm\glm\ext\vector_ulp.hpp" />
+    <ClInclude Include="glm\glm\ext\_matrix_vectorize.hpp" />
     <ClInclude Include="glm\glm\fwd.hpp" />
     <ClInclude Include="glm\glm\geometric.hpp" />
     <ClInclude Include="glm\glm\glm.hpp" />
@@ -921,6 +855,7 @@
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_addons\ImCoolbar.h" />
     <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
@@ -929,8 +864,6 @@
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_palette.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
-    <ClInclude Include="imgui\imgui_addons\imnodes.h" />
-    <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
     <ClInclude Include="imgui\imgui_addons\imspinner.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
@@ -1014,8 +947,14 @@
     <ClInclude Include="lua\src\lvm.h" />
     <ClInclude Include="lua\src\lzio.h" />
     <ClInclude Include="magic_enum\include\magic_enum.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_all.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_containers.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_flags.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_iostream.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_switch.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum_utility.hpp" />
     <ClInclude Include="mimalloc\include\mimalloc-new-delete.h" />
     <ClInclude Include="mimalloc\include\mimalloc-override.h" />
     <ClInclude Include="mimalloc\include\mimalloc.h" />
@@ -1037,8 +976,6 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\Box.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Colour.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ComputedValues.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\chobo\flat_map.hpp" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\chobo\flat_set.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_map.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\itlib\flat_set.hpp" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Containers\robin_hood.h" />
@@ -1059,17 +996,8 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\ElementDocument.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ElementInstancer.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ElementScroll.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\DataFormatter.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\DataQuery.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\DataSource.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\DataSourceListener.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementDataGrid.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementDataGridCell.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementDataGridExpandButton.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementDataGridRow.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementForm.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementFormControl.h" />
-    <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementFormControlDataSelect.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementFormControlInput.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementFormControlSelect.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Elements\ElementFormControlTextArea.h" />
@@ -1087,6 +1015,7 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\FontEffectInstancer.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\FontEngineInterface.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\FontGlyph.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\FontMetrics.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Geometry.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\GeometryUtilities.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Header.h" />
@@ -1095,6 +1024,7 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\Log.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Math.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Matrix4.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\NumericValue.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ObserverPtr.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Platform.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Plugin.h" />
@@ -1106,6 +1036,7 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\PropertyIdSet.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\PropertyParser.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\PropertySpecification.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Rectangle.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\RenderInterface.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ScriptInterface.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\ScrollTypes.h" />
@@ -1126,6 +1057,7 @@
     <ClInclude Include="rmlui\Include\RmlUi\Core\Tween.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\TypeConverter.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Types.h" />
+    <ClInclude Include="rmlui\Include\RmlUi\Core\Unit.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\URL.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Utilities.h" />
     <ClInclude Include="rmlui\Include\RmlUi\Core\Variant.h" />
@@ -1189,7 +1121,6 @@
     <ClInclude Include="rmlui\Source\Core\Elements\WidgetTextInputMultiLine.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\WidgetTextInputSingleLine.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\WidgetTextInputSingleLinePassword.h" />
-    <ClInclude Include="rmlui\Source\Core\Elements\XMLNodeHandlerDataGrid.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\XMLNodeHandlerSelect.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\XMLNodeHandlerTabSet.h" />
     <ClInclude Include="rmlui\Source\Core\Elements\XMLNodeHandlerTextArea.h" />
@@ -1212,16 +1143,24 @@
     <ClInclude Include="rmlui\Source\Core\GeometryBackgroundBorder.h" />
     <ClInclude Include="rmlui\Source\Core\GeometryDatabase.h" />
     <ClInclude Include="rmlui\Source\Core\IdNameMap.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutBlockBox.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutBlockBoxSpace.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutDetails.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutEngine.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutFlex.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutInlineBox.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutInlineBoxText.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutLineBox.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutTable.h" />
-    <ClInclude Include="rmlui\Source\Core\LayoutTableDetails.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\BlockContainer.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\BlockFormattingContext.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\ContainerBox.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\FlexFormattingContext.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\FloatedBoxSpace.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\FormattingContext.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\InlineBox.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\InlineContainer.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\InlineLevelBox.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\InlineTypes.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\LayoutBox.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\LayoutDetails.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\LayoutEngine.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\LayoutPools.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\LineBox.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\ReplacedFormattingContext.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\TableFormattingContext.h" />
+    <ClInclude Include="rmlui\Source\Core\Layout\TableFormattingDetails.h" />
     <ClInclude Include="rmlui\Source\Core\Memory.h" />
     <ClInclude Include="rmlui\Source\Core\PluginRegistry.h" />
     <ClInclude Include="rmlui\Source\Core\Pool.h" />
@@ -1282,19 +1221,12 @@
     <ClInclude Include="rmlui\Source\Lua\ElementInstancer.h" />
     <ClInclude Include="rmlui\Source\Lua\ElementStyleProxy.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\As.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\DataFormatter.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\DataSource.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\ElementDataGrid.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\ElementDataGridRow.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementForm.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementFormControl.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\ElementFormControlDataSelect.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementFormControlInput.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementFormControlSelect.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementFormControlTextArea.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\ElementTabSet.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\LuaDataFormatter.h" />
-    <ClInclude Include="rmlui\Source\Lua\Elements\LuaDataSource.h" />
     <ClInclude Include="rmlui\Source\Lua\Elements\SelectOptionsProxy.h" />
     <ClInclude Include="rmlui\Source\Lua\ElementText.h" />
     <ClInclude Include="rmlui\Source\Lua\Event.h" />
@@ -1432,8 +1364,27 @@
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
-    <ClInclude Include="tileson\include\tileson.hpp" />
+    <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
+    <ClInclude Include="threadpool\include\BS_thread_pool_light.hpp" />
     <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Config.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Android.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Log.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\FreeFuncs.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ImageLayer.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Layer.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\LayerGroup.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Map.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Object.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectGroup.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectTypes.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Property.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\TileLayer.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Tileset.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Types.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\src\detail\pugiconfig.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\src\detail\pugixml.hpp" />
+    <ClInclude Include="tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
     <ClInclude Include="zlib_ng_win\include\zconf.h" />
@@ -1602,6 +1553,7 @@
     <None Include="rmlui\Include\RmlUi\Core\Vector4.inl" />
     <None Include="rmlui\Include\RmlUi\Lua\LuaType.inl" />
     <None Include="rmlui\Source\Core\Pool.inl" />
+    <None Include="tmxlite\tmxlite\include\tmxlite\Types.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -1697,7 +1649,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1758,7 +1710,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

@@ -21,7 +21,6 @@
 #include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/LogConsole.hpp"
-#include "editor/panels/NoisePanel.hpp"
 
 #include "editor/Settings.hpp"
 
@@ -65,7 +64,6 @@ namespace sc
 		panel::ScenePanel m_scene_panel;
 		panel::AssetPanel m_asset_panel;
 		panel::CodeEditor m_code_editor;
-		panel::NoisePanel m_noise_graph;
 
 		Settings m_settings;
 		UpdateStack m_update_stack;
@@ -81,7 +79,6 @@ namespace sc
 		bool m_show_settings       = false;
 		bool m_show_exportprogress = false;
 		bool m_show_about          = false;
-		bool m_show_noisegraph     = false;
 
 		bool m_about_control      = true;
 		bool m_stopped            = true;

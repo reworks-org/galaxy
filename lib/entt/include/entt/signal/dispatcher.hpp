@@ -1,13 +1,12 @@
 #ifndef ENTT_SIGNAL_DISPATCHER_HPP
 #define ENTT_SIGNAL_DISPATCHER_HPP
 
-#include <algorithm>
 #include <cstddef>
+#include <functional>
 #include <memory>
 #include <type_traits>
 #include <utility>
 #include <vector>
-#include "../config/config.h"
 #include "../container/dense_map.hpp"
 #include "../core/compressed_pair.hpp"
 #include "../core/fwd.hpp"
@@ -29,17 +28,17 @@ struct basic_dispatcher_handler {
     virtual ~basic_dispatcher_handler() = default;
     virtual void publish() = 0;
     virtual void disconnect(void *) = 0;
-    virtual void clear() ENTT_NOEXCEPT = 0;
-    virtual std::size_t size() const ENTT_NOEXCEPT = 0;
+    virtual void clear() noexcept = 0;
+    virtual std::size_t size() const noexcept = 0;
 };
 
-template<typename Event, typename Allocator>
+template<typename Type, typename Allocator>
 class dispatcher_handler final: public basic_dispatcher_handler {
-    static_assert(std::is_same_v<Event, std::decay_t<Event>>, "Invalid event type");
+    static_assert(std::is_same_v<Type, std::decay_t<Type>>, "Invalid type");
 
     using alloc_traits = std::allocator_traits<Allocator>;
-    using signal_type = sigh<void(Event &), typename alloc_traits::template rebind_alloc<void (*)(Event &)>>;
-    using container_type = std::vector<Event, typename alloc_traits::template rebind_alloc<Event>>;
+    using signal_type = sigh<void(Type &), Allocator>;
+    using container_type = std::vector<Type, typename alloc_traits::template rebind_alloc<Type>>;
 
 public:
     using allocator_type = Allocator;
@@ -62,29 +61,28 @@ public:
         bucket().disconnect(instance);
     }
 
-    void clear() ENTT_NOEXCEPT override {
+    void clear() noexcept override {
         events.clear();
     }
 
-    [[nodiscard]] auto bucket() ENTT_NOEXCEPT {
-        using sink_type = typename sigh<void(Event &)>::sink_type;
-        return sink_type{signal};
+    [[nodiscard]] auto bucket() noexcept {
+        return typename signal_type::sink_type{signal};
     }
 
-    void trigger(Event event) {
+    void trigger(Type event) {
         signal.publish(event);
     }
 
     template<typename... Args>
     void enqueue(Args &&...args) {
-        if constexpr(std::is_aggregate_v<Event>) {
-            events.push_back(Event{std::forward<Args>(args)...});
+        if constexpr(std::is_aggregate_v<Type> && (sizeof...(Args) != 0u || !std::is_default_constructible_v<Type>)) {
+            events.push_back(Type{std::forward<Args>(args)...});
         } else {
             events.emplace_back(std::forward<Args>(args)...);
         }
     }
 
-    std::size_t size() const ENTT_NOEXCEPT override {
+    std::size_t size() const noexcept override {
         return events.size();
     }
 
@@ -106,8 +104,8 @@ private:
  * A dispatcher can be used either to trigger an immediate event or to enqueue
  * events to be published all together once per tick.<br/>
  * Listeners are provided in the form of member functions. For each event of
- * type `Event`, listeners are such that they can be invoked with an argument of
- * type `Event &`, no matter what the return type is.
+ * type `Type`, listeners are such that they can be invoked with an argument of
+ * type `Type &`, no matter what the return type is.
  *
  * The dispatcher creates instances of the `sigh` class internally. Refer to the
  * documentation of the latter for more details.
@@ -116,35 +114,36 @@ private:
  */
 template<typename Allocator>
 class basic_dispatcher {
-    template<typename Event>
-    using handler_type = internal::dispatcher_handler<Event, Allocator>;
+    template<typename Type>
+    using handler_type = internal::dispatcher_handler<Type, Allocator>;
 
     using key_type = id_type;
-    // std::shared_ptr because of its type erased allocator which is pretty useful here
+    // std::shared_ptr because of its type erased allocator which is useful here
     using mapped_type = std::shared_ptr<internal::basic_dispatcher_handler>;
 
     using alloc_traits = std::allocator_traits<Allocator>;
     using container_allocator = typename alloc_traits::template rebind_alloc<std::pair<const key_type, mapped_type>>;
-    using container_type = dense_map<id_type, mapped_type, identity, std::equal_to<id_type>, container_allocator>;
+    using container_type = dense_map<key_type, mapped_type, identity, std::equal_to<key_type>, container_allocator>;
 
-    template<typename Event>
-    [[nodiscard]] handler_type<Event> &assure(const id_type id) {
+    template<typename Type>
+    [[nodiscard]] handler_type<Type> &assure(const id_type id) {
+        static_assert(std::is_same_v<Type, std::decay_t<Type>>, "Non-decayed types not allowed");
         auto &&ptr = pools.first()[id];
 
         if(!ptr) {
-            const auto &allocator = pools.second();
-            ptr = std::allocate_shared<handler_type<Event>>(allocator, allocator);
+            const auto &allocator = get_allocator();
+            ptr = std::allocate_shared<handler_type<Type>>(allocator, allocator);
         }
 
-        return static_cast<handler_type<Event> &>(*ptr);
+        return static_cast<handler_type<Type> &>(*ptr);
     }
 
-    template<typename Event>
-    [[nodiscard]] const handler_type<Event> *assure(const id_type id) const {
-        auto &container = pools.first();
+    template<typename Type>
+    [[nodiscard]] const handler_type<Type> *assure(const id_type id) const {
+        static_assert(std::is_same_v<Type, std::decay_t<Type>>, "Non-decayed types not allowed");
 
-        if(const auto it = container.find(id); it != container.end()) {
-            return static_cast<const handler_type<Event> *>(it->second.get());
+        if(auto it = pools.first().find(id); it != pools.first().cend()) {
+            return static_cast<const handler_type<Type> *>(it->second.get());
         }
 
         return nullptr;
@@ -171,7 +170,7 @@ public:
      * @brief Move constructor.
      * @param other The instance to move from.
      */
-    basic_dispatcher(basic_dispatcher &&other) ENTT_NOEXCEPT
+    basic_dispatcher(basic_dispatcher &&other) noexcept
         : pools{std::move(other.pools)} {}
 
     /**
@@ -179,15 +178,19 @@ public:
      * @param other The instance to move from.
      * @param allocator The allocator to use.
      */
-    basic_dispatcher(basic_dispatcher &&other, const allocator_type &allocator) ENTT_NOEXCEPT
-        : pools{container_type{std::move(other.pools.first()), allocator}, allocator} {}
+    basic_dispatcher(basic_dispatcher &&other, const allocator_type &allocator) noexcept
+        : pools{container_type{std::move(other.pools.first()), allocator}, allocator} {
+        ENTT_ASSERT(alloc_traits::is_always_equal::value || pools.second() == other.pools.second(), "Copying a dispatcher is not allowed");
+    }
 
     /**
      * @brief Move assignment operator.
      * @param other The instance to move from.
      * @return This dispatcher.
      */
-    basic_dispatcher &operator=(basic_dispatcher &&other) ENTT_NOEXCEPT {
+    basic_dispatcher &operator=(basic_dispatcher &&other) noexcept {
+        ENTT_ASSERT(alloc_traits::is_always_equal::value || pools.second() == other.pools.second(), "Copying a dispatcher is not allowed");
+
         pools = std::move(other.pools);
         return *this;
     }
@@ -205,19 +208,19 @@ public:
      * @brief Returns the associated allocator.
      * @return The associated allocator.
      */
-    [[nodiscard]] constexpr allocator_type get_allocator() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr allocator_type get_allocator() const noexcept {
         return pools.second();
     }
 
     /**
      * @brief Returns the number of pending events for a given type.
-     * @tparam Event Type of event for which to return the count.
+     * @tparam Type Type of event for which to return the count.
      * @param id Name used to map the event queue within the dispatcher.
      * @return The number of pending events for the given type.
      */
-    template<typename Event>
-    size_type size(const id_type id = type_hash<Event>::value()) const ENTT_NOEXCEPT {
-        const auto *cpool = assure<Event>(id);
+    template<typename Type>
+    size_type size(const id_type id = type_hash<Type>::value()) const noexcept {
+        const auto *cpool = assure<std::decay_t<Type>>(id);
         return cpool ? cpool->size() : 0u;
     }
 
@@ -225,7 +228,7 @@ public:
      * @brief Returns the total number of pending events.
      * @return The total number of pending events.
      */
-    size_type size() const ENTT_NOEXCEPT {
+    size_type size() const noexcept {
         size_type count{};
 
         for(auto &&cpool: pools.first()) {
@@ -241,86 +244,87 @@ public:
      * A sink is an opaque object used to connect listeners to events.
      *
      * The function type for a listener is _compatible_ with:
+     *
      * @code{.cpp}
-     * void(Event &);
+     * void(Type &);
      * @endcode
      *
      * The order of invocation of the listeners isn't guaranteed.
      *
      * @sa sink
      *
-     * @tparam Event Type of event of which to get the sink.
+     * @tparam Type Type of event of which to get the sink.
      * @param id Name used to map the event queue within the dispatcher.
      * @return A temporary sink object.
      */
-    template<typename Event>
-    [[nodiscard]] auto sink(const id_type id = type_hash<Event>::value()) {
-        return assure<Event>(id).bucket();
+    template<typename Type>
+    [[nodiscard]] auto sink(const id_type id = type_hash<Type>::value()) {
+        return assure<Type>(id).bucket();
     }
 
     /**
      * @brief Triggers an immediate event of a given type.
-     * @tparam Event Type of event to trigger.
-     * @param event An instance of the given type of event.
+     * @tparam Type Type of event to trigger.
+     * @param value An instance of the given type of event.
      */
-    template<typename Event>
-    void trigger(Event &&event = {}) {
-        trigger(type_hash<std::decay_t<Event>>::value(), std::forward<Event>(event));
+    template<typename Type>
+    void trigger(Type &&value = {}) {
+        trigger(type_hash<std::decay_t<Type>>::value(), std::forward<Type>(value));
     }
 
     /**
      * @brief Triggers an immediate event on a queue of a given type.
-     * @tparam Event Type of event to trigger.
-     * @param event An instance of the given type of event.
+     * @tparam Type Type of event to trigger.
+     * @param value An instance of the given type of event.
      * @param id Name used to map the event queue within the dispatcher.
      */
-    template<typename Event>
-    void trigger(const id_type id, Event &&event = {}) {
-        assure<std::decay_t<Event>>(id).trigger(std::forward<Event>(event));
+    template<typename Type>
+    void trigger(const id_type id, Type &&value = {}) {
+        assure<std::decay_t<Type>>(id).trigger(std::forward<Type>(value));
     }
 
     /**
      * @brief Enqueues an event of the given type.
-     * @tparam Event Type of event to enqueue.
+     * @tparam Type Type of event to enqueue.
      * @tparam Args Types of arguments to use to construct the event.
      * @param args Arguments to use to construct the event.
      */
-    template<typename Event, typename... Args>
+    template<typename Type, typename... Args>
     void enqueue(Args &&...args) {
-        enqueue_hint<Event>(type_hash<Event>::value(), std::forward<Args>(args)...);
+        enqueue_hint<Type>(type_hash<Type>::value(), std::forward<Args>(args)...);
     }
 
     /**
      * @brief Enqueues an event of the given type.
-     * @tparam Event Type of event to enqueue.
-     * @param event An instance of the given type of event.
+     * @tparam Type Type of event to enqueue.
+     * @param value An instance of the given type of event.
      */
-    template<typename Event>
-    void enqueue(Event &&event) {
-        enqueue_hint(type_hash<std::decay_t<Event>>::value(), std::forward<Event>(event));
+    template<typename Type>
+    void enqueue(Type &&value) {
+        enqueue_hint(type_hash<std::decay_t<Type>>::value(), std::forward<Type>(value));
     }
 
     /**
      * @brief Enqueues an event of the given type.
-     * @tparam Event Type of event to enqueue.
+     * @tparam Type Type of event to enqueue.
      * @tparam Args Types of arguments to use to construct the event.
      * @param id Name used to map the event queue within the dispatcher.
      * @param args Arguments to use to construct the event.
      */
-    template<typename Event, typename... Args>
+    template<typename Type, typename... Args>
     void enqueue_hint(const id_type id, Args &&...args) {
-        assure<Event>(id).enqueue(std::forward<Args>(args)...);
+        assure<Type>(id).enqueue(std::forward<Args>(args)...);
     }
 
     /**
      * @brief Enqueues an event of the given type.
-     * @tparam Event Type of event to enqueue.
+     * @tparam Type Type of event to enqueue.
      * @param id Name used to map the event queue within the dispatcher.
-     * @param event An instance of the given type of event.
+     * @param value An instance of the given type of event.
      */
-    template<typename Event>
-    void enqueue_hint(const id_type id, Event &&event) {
-        assure<std::decay_t<Event>>(id).enqueue(std::forward<Event>(event));
+    template<typename Type>
+    void enqueue_hint(const id_type id, Type &&value) {
+        assure<std::decay_t<Type>>(id).enqueue(std::forward<Type>(value));
     }
 
     /**
@@ -349,16 +353,16 @@ public:
 
     /**
      * @brief Discards all the events stored so far in a given queue.
-     * @tparam Event Type of event to discard.
+     * @tparam Type Type of event to discard.
      * @param id Name used to map the event queue within the dispatcher.
      */
-    template<typename Event>
-    void clear(const id_type id = type_hash<Event>::value()) {
-        assure<Event>(id).clear();
+    template<typename Type>
+    void clear(const id_type id = type_hash<Type>::value()) {
+        assure<Type>(id).clear();
     }
 
     /*! @brief Discards all the events queued so far. */
-    void clear() ENTT_NOEXCEPT {
+    void clear() noexcept {
         for(auto &&cpool: pools.first()) {
             cpool.second->clear();
         }
@@ -366,12 +370,12 @@ public:
 
     /**
      * @brief Delivers all the pending events of a given queue.
-     * @tparam Event Type of event to send.
+     * @tparam Type Type of event to send.
      * @param id Name used to map the event queue within the dispatcher.
      */
-    template<typename Event>
-    void update(const id_type id = type_hash<Event>::value()) {
-        assure<Event>(id).publish();
+    template<typename Type>
+    void update(const id_type id = type_hash<Type>::value()) {
+        assure<Type>(id).publish();
     }
 
     /*! @brief Delivers all the pending events. */

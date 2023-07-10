@@ -1,6 +1,7 @@
 #pragma once
 
 #include <entt/entity/registry.hpp>
+#include <entt/entity/runtime_view.hpp>
 #include "meta_helper.hpp"
 #include <set>
 
@@ -56,7 +57,6 @@ namespace entt_sol
 		using namespace entt::literals;
 
 		entt::meta<Component>()
-			.type()
 			.template func<&is_valid<Component>>("valid"_hs)
 			.template func<&emplace_component<Component>>("emplace"_hs)
 			.template func<&get_component<Component>>("get"_hs)
@@ -90,10 +90,11 @@ namespace entt_sol
 			&entt::runtime_view::contains,
 			"each",
 			[](const entt::runtime_view& self, const sol::function& callback) {
-				if (!callback.valid())
-					return;
-				for (auto entity : self)
-					callback(entity);
+				if (callback.valid())
+				{
+					for (auto entity : self)
+						callback(entity);
+				}
 			});
 
 		using namespace entt::literals;
@@ -162,8 +163,22 @@ namespace entt_sol
 				}),
 
 			"orphan",
-			&entt::registry::orphan);
+			&entt::registry::orphan,
 
+			"runtime_view",
+			[](entt::registry& self, const sol::variadic_args& va) {
+				const auto types = collect_types(va);
+
+				auto view = entt::runtime_view {};
+				for (auto&& [componentId, storage] : self.storage())
+				{
+					if (types.find(componentId) != types.cend())
+					{
+						view.iterate(storage);
+					}
+				}
+				return view;
+			});
 		return entt_module;
 	}
 } // namespace entt_sol

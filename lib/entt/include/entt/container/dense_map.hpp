@@ -1,7 +1,6 @@
 #ifndef ENTT_CONTAINER_DENSE_MAP_HPP
 #define ENTT_CONTAINER_DENSE_MAP_HPP
 
-#include <algorithm>
 #include <cmath>
 #include <cstddef>
 #include <functional>
@@ -71,109 +70,109 @@ public:
     using difference_type = std::ptrdiff_t;
     using iterator_category = std::input_iterator_tag;
 
-    dense_map_iterator() ENTT_NOEXCEPT
+    constexpr dense_map_iterator() noexcept
         : it{} {}
 
-    dense_map_iterator(const It iter) ENTT_NOEXCEPT
+    constexpr dense_map_iterator(const It iter) noexcept
         : it{iter} {}
 
     template<typename Other, typename = std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>
-    dense_map_iterator(const dense_map_iterator<Other> &other) ENTT_NOEXCEPT
+    constexpr dense_map_iterator(const dense_map_iterator<Other> &other) noexcept
         : it{other.it} {}
 
-    dense_map_iterator &operator++() ENTT_NOEXCEPT {
+    constexpr dense_map_iterator &operator++() noexcept {
         return ++it, *this;
     }
 
-    dense_map_iterator operator++(int) ENTT_NOEXCEPT {
+    constexpr dense_map_iterator operator++(int) noexcept {
         dense_map_iterator orig = *this;
         return ++(*this), orig;
     }
 
-    dense_map_iterator &operator--() ENTT_NOEXCEPT {
+    constexpr dense_map_iterator &operator--() noexcept {
         return --it, *this;
     }
 
-    dense_map_iterator operator--(int) ENTT_NOEXCEPT {
+    constexpr dense_map_iterator operator--(int) noexcept {
         dense_map_iterator orig = *this;
         return operator--(), orig;
     }
 
-    dense_map_iterator &operator+=(const difference_type value) ENTT_NOEXCEPT {
+    constexpr dense_map_iterator &operator+=(const difference_type value) noexcept {
         it += value;
         return *this;
     }
 
-    dense_map_iterator operator+(const difference_type value) const ENTT_NOEXCEPT {
+    constexpr dense_map_iterator operator+(const difference_type value) const noexcept {
         dense_map_iterator copy = *this;
         return (copy += value);
     }
 
-    dense_map_iterator &operator-=(const difference_type value) ENTT_NOEXCEPT {
+    constexpr dense_map_iterator &operator-=(const difference_type value) noexcept {
         return (*this += -value);
     }
 
-    dense_map_iterator operator-(const difference_type value) const ENTT_NOEXCEPT {
+    constexpr dense_map_iterator operator-(const difference_type value) const noexcept {
         return (*this + -value);
     }
 
-    [[nodiscard]] reference operator[](const difference_type value) const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr reference operator[](const difference_type value) const noexcept {
         return {it[value].element.first, it[value].element.second};
     }
 
-    [[nodiscard]] pointer operator->() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr pointer operator->() const noexcept {
         return operator*();
     }
 
-    [[nodiscard]] reference operator*() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr reference operator*() const noexcept {
         return {it->element.first, it->element.second};
     }
 
-    template<typename ILhs, typename IRhs>
-    friend std::ptrdiff_t operator-(const dense_map_iterator<ILhs> &, const dense_map_iterator<IRhs> &) ENTT_NOEXCEPT;
+    template<typename Lhs, typename Rhs>
+    friend constexpr std::ptrdiff_t operator-(const dense_map_iterator<Lhs> &, const dense_map_iterator<Rhs> &) noexcept;
 
-    template<typename ILhs, typename IRhs>
-    friend bool operator==(const dense_map_iterator<ILhs> &, const dense_map_iterator<IRhs> &) ENTT_NOEXCEPT;
+    template<typename Lhs, typename Rhs>
+    friend constexpr bool operator==(const dense_map_iterator<Lhs> &, const dense_map_iterator<Rhs> &) noexcept;
 
-    template<typename ILhs, typename IRhs>
-    friend bool operator<(const dense_map_iterator<ILhs> &, const dense_map_iterator<IRhs> &) ENTT_NOEXCEPT;
+    template<typename Lhs, typename Rhs>
+    friend constexpr bool operator<(const dense_map_iterator<Lhs> &, const dense_map_iterator<Rhs> &) noexcept;
 
 private:
     It it;
 };
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] std::ptrdiff_t operator-(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr std::ptrdiff_t operator-(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return lhs.it - rhs.it;
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator==(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator==(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return lhs.it == rhs.it;
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator!=(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator!=(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return !(lhs == rhs);
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator<(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator<(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return lhs.it < rhs.it;
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator>(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator>(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return rhs < lhs;
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator<=(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator<=(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return !(lhs > rhs);
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator>=(const dense_map_iterator<ILhs> &lhs, const dense_map_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator>=(const dense_map_iterator<Lhs> &lhs, const dense_map_iterator<Rhs> &rhs) noexcept {
     return !(lhs < rhs);
 }
 
@@ -192,37 +191,37 @@ public:
     using difference_type = std::ptrdiff_t;
     using iterator_category = std::input_iterator_tag;
 
-    dense_map_local_iterator() ENTT_NOEXCEPT
+    constexpr dense_map_local_iterator() noexcept
         : it{},
           offset{} {}
 
-    dense_map_local_iterator(It iter, const std::size_t pos) ENTT_NOEXCEPT
+    constexpr dense_map_local_iterator(It iter, const std::size_t pos) noexcept
         : it{iter},
           offset{pos} {}
 
     template<typename Other, typename = std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>
-    dense_map_local_iterator(const dense_map_local_iterator<Other> &other) ENTT_NOEXCEPT
+    constexpr dense_map_local_iterator(const dense_map_local_iterator<Other> &other) noexcept
         : it{other.it},
           offset{other.offset} {}
 
-    dense_map_local_iterator &operator++() ENTT_NOEXCEPT {
+    constexpr dense_map_local_iterator &operator++() noexcept {
         return offset = it[offset].next, *this;
     }
 
-    dense_map_local_iterator operator++(int) ENTT_NOEXCEPT {
+    constexpr dense_map_local_iterator operator++(int) noexcept {
         dense_map_local_iterator orig = *this;
         return ++(*this), orig;
     }
 
-    [[nodiscard]] pointer operator->() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr pointer operator->() const noexcept {
         return operator*();
     }
 
-    [[nodiscard]] reference operator*() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr reference operator*() const noexcept {
         return {it[offset].element.first, it[offset].element.second};
     }
 
-    [[nodiscard]] std::size_t index() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr std::size_t index() const noexcept {
         return offset;
     }
 
@@ -231,13 +230,13 @@ private:
     std::size_t offset;
 };
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator==(const dense_map_local_iterator<ILhs> &lhs, const dense_map_local_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator==(const dense_map_local_iterator<Lhs> &lhs, const dense_map_local_iterator<Rhs> &rhs) noexcept {
     return lhs.index() == rhs.index();
 }
 
-template<typename ILhs, typename IRhs>
-[[nodiscard]] bool operator!=(const dense_map_local_iterator<ILhs> &lhs, const dense_map_local_iterator<IRhs> &rhs) ENTT_NOEXCEPT {
+template<typename Lhs, typename Rhs>
+[[nodiscard]] constexpr bool operator!=(const dense_map_local_iterator<Lhs> &lhs, const dense_map_local_iterator<Rhs> &rhs) noexcept {
     return !(lhs == rhs);
 }
 
@@ -267,14 +266,14 @@ class dense_map {
     static constexpr std::size_t minimum_capacity = 8u;
 
     using node_type = internal::dense_map_node<Key, Type>;
-    using alloc_traits = typename std::allocator_traits<Allocator>;
+    using alloc_traits = std::allocator_traits<Allocator>;
     static_assert(std::is_same_v<typename alloc_traits::value_type, std::pair<const Key, Type>>, "Invalid value type");
     using sparse_container_type = std::vector<std::size_t, typename alloc_traits::template rebind_alloc<std::size_t>>;
     using packed_container_type = std::vector<node_type, typename alloc_traits::template rebind_alloc<node_type>>;
 
     template<typename Other>
-    [[nodiscard]] std::size_t key_to_bucket(const Other &key) const ENTT_NOEXCEPT {
-        return fast_mod(sparse.second()(key), bucket_count());
+    [[nodiscard]] std::size_t key_to_bucket(const Other &key) const noexcept {
+        return fast_mod(static_cast<size_type>(sparse.second()(key)), bucket_count());
     }
 
     template<typename Other>
@@ -332,8 +331,8 @@ class dense_map {
 
     void move_and_pop(const std::size_t pos) {
         if(const auto last = size() - 1u; pos != last) {
-            packed.first()[pos] = std::move(packed.first().back());
             size_type *curr = sparse.first().data() + key_to_bucket(packed.first().back().element.first);
+            packed.first()[pos] = std::move(packed.first().back());
             for(; *curr != last; curr = &packed.first()[*curr].next) {}
             *curr = pos;
         }
@@ -373,7 +372,7 @@ public:
 
     /*! @brief Default constructor. */
     dense_map()
-        : dense_map(minimum_capacity) {}
+        : dense_map{minimum_capacity} {}
 
     /**
      * @brief Constructs an empty container with a given allocator.
@@ -385,35 +384,35 @@ public:
     /**
      * @brief Constructs an empty container with a given allocator and user
      * supplied minimal number of buckets.
-     * @param bucket_count Minimal number of buckets.
+     * @param cnt Minimal number of buckets.
      * @param allocator The allocator to use.
      */
-    dense_map(const size_type bucket_count, const allocator_type &allocator)
-        : dense_map{bucket_count, hasher{}, key_equal{}, allocator} {}
+    dense_map(const size_type cnt, const allocator_type &allocator)
+        : dense_map{cnt, hasher{}, key_equal{}, allocator} {}
 
     /**
      * @brief Constructs an empty container with a given allocator, hash
      * function and user supplied minimal number of buckets.
-     * @param bucket_count Minimal number of buckets.
+     * @param cnt Minimal number of buckets.
      * @param hash Hash function to use.
      * @param allocator The allocator to use.
      */
-    dense_map(const size_type bucket_count, const hasher &hash, const allocator_type &allocator)
-        : dense_map{bucket_count, hash, key_equal{}, allocator} {}
+    dense_map(const size_type cnt, const hasher &hash, const allocator_type &allocator)
+        : dense_map{cnt, hash, key_equal{}, allocator} {}
 
     /**
      * @brief Constructs an empty container with a given allocator, hash
      * function, compare function and user supplied minimal number of buckets.
-     * @param bucket_count Minimal number of buckets.
+     * @param cnt Minimal number of buckets.
      * @param hash Hash function to use.
      * @param equal Compare function to use.
      * @param allocator The allocator to use.
      */
-    explicit dense_map(const size_type bucket_count, const hasher &hash = hasher{}, const key_equal &equal = key_equal{}, const allocator_type &allocator = allocator_type{})
+    explicit dense_map(const size_type cnt, const hasher &hash = hasher{}, const key_equal &equal = key_equal{}, const allocator_type &allocator = allocator_type{})
         : sparse{allocator, hash},
           packed{allocator, equal},
           threshold{default_threshold} {
-        rehash(bucket_count);
+        rehash(cnt);
     }
 
     /*! @brief Default copy constructor. */
@@ -430,7 +429,7 @@ public:
           threshold{other.threshold} {}
 
     /*! @brief Default move constructor. */
-    dense_map(dense_map &&) = default;
+    dense_map(dense_map &&) noexcept(std::is_nothrow_move_constructible_v<compressed_pair<sparse_container_type, hasher>> &&std::is_nothrow_move_constructible_v<compressed_pair<packed_container_type, key_equal>>) = default;
 
     /**
      * @brief Allocator-extended move constructor.
@@ -452,59 +451,53 @@ public:
      * @brief Default move assignment operator.
      * @return This container.
      */
-    dense_map &operator=(dense_map &&) = default;
+    dense_map &operator=(dense_map &&) noexcept(std::is_nothrow_move_assignable_v<compressed_pair<sparse_container_type, hasher>> &&std::is_nothrow_move_assignable_v<compressed_pair<packed_container_type, key_equal>>) = default;
 
     /**
      * @brief Returns the associated allocator.
      * @return The associated allocator.
      */
-    [[nodiscard]] constexpr allocator_type get_allocator() const ENTT_NOEXCEPT {
+    [[nodiscard]] constexpr allocator_type get_allocator() const noexcept {
         return sparse.first().get_allocator();
     }
 
     /**
      * @brief Returns an iterator to the beginning.
      *
-     * The returned iterator points to the first instance of the internal array.
      * If the array is empty, the returned iterator will be equal to `end()`.
      *
      * @return An iterator to the first instance of the internal array.
      */
-    [[nodiscard]] const_iterator cbegin() const ENTT_NOEXCEPT {
+    [[nodiscard]] const_iterator cbegin() const noexcept {
         return packed.first().begin();
     }
 
     /*! @copydoc cbegin */
-    [[nodiscard]] const_iterator begin() const ENTT_NOEXCEPT {
+    [[nodiscard]] const_iterator begin() const noexcept {
         return cbegin();
     }
 
     /*! @copydoc begin */
-    [[nodiscard]] iterator begin() ENTT_NOEXCEPT {
+    [[nodiscard]] iterator begin() noexcept {
         return packed.first().begin();
     }
 
     /**
      * @brief Returns an iterator to the end.
-     *
-     * The returned iterator points to the element following the last instance
-     * of the internal array. Attempting to dereference the returned iterator
-     * results in undefined behavior.
-     *
      * @return An iterator to the element following the last instance of the
      * internal array.
      */
-    [[nodiscard]] const_iterator cend() const ENTT_NOEXCEPT {
+    [[nodiscard]] const_iterator cend() const noexcept {
         return packed.first().end();
     }
 
     /*! @copydoc cend */
-    [[nodiscard]] const_iterator end() const ENTT_NOEXCEPT {
+    [[nodiscard]] const_iterator end() const noexcept {
         return cend();
     }
 
     /*! @copydoc end */
-    [[nodiscard]] iterator end() ENTT_NOEXCEPT {
+    [[nodiscard]] iterator end() noexcept {
         return packed.first().end();
     }
 
@@ -512,7 +505,7 @@ public:
      * @brief Checks whether a container is empty.
      * @return True if the container is empty, false otherwise.
      */
-    [[nodiscard]] bool empty() const ENTT_NOEXCEPT {
+    [[nodiscard]] bool empty() const noexcept {
         return packed.first().empty();
     }
 
@@ -520,12 +513,20 @@ public:
      * @brief Returns the number of elements in a container.
      * @return Number of elements in a container.
      */
-    [[nodiscard]] size_type size() const ENTT_NOEXCEPT {
+    [[nodiscard]] size_type size() const noexcept {
         return packed.first().size();
     }
 
+    /**
+     * @brief Returns the maximum possible number of elements.
+     * @return Maximum possible number of elements.
+     */
+    [[nodiscard]] size_type max_size() const noexcept {
+        return packed.first().max_size();
+    }
+
     /*! @brief Clears the container. */
-    void clear() ENTT_NOEXCEPT {
+    void clear() noexcept {
         sparse.first().clear();
         packed.first().clear();
         rehash(0u);
@@ -742,6 +743,27 @@ public:
     }
 
     /**
+     * @brief Returns the number of elements matching a key (either 1 or 0).
+     * @param key Key value of an element to search for.
+     * @return Number of elements matching the key (either 1 or 0).
+     */
+    [[nodiscard]] size_type count(const key_type &key) const {
+        return find(key) != end();
+    }
+
+    /**
+     * @brief Returns the number of elements matching a key (either 1 or 0).
+     * @tparam Other Type of the key value of an element to search for.
+     * @param key Key value of an element to search for.
+     * @return Number of elements matching the key (either 1 or 0).
+     */
+    template<typename Other>
+    [[nodiscard]] std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type>>
+    count(const Other &key) const {
+        return find(key) != end();
+    }
+
+    /**
      * @brief Finds an element with a given key.
      * @param key Key value of an element to search for.
      * @return An iterator to an element with the given key. If no such element
@@ -758,7 +780,7 @@ public:
 
     /**
      * @brief Finds an element with a key that compares _equivalent_ to a given
-     * value.
+     * key.
      * @tparam Other Type of the key value of an element to search for.
      * @param key Key value of an element to search for.
      * @return An iterator to an element with the given key. If no such element
@@ -775,6 +797,46 @@ public:
     [[nodiscard]] std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator>>
     find(const Other &key) const {
         return constrained_find(key, key_to_bucket(key));
+    }
+
+    /**
+     * @brief Returns a range containing all elements with a given key.
+     * @param key Key value of an element to search for.
+     * @return A pair of iterators pointing to the first element and past the
+     * last element of the range.
+     */
+    [[nodiscard]] std::pair<iterator, iterator> equal_range(const key_type &key) {
+        const auto it = find(key);
+        return {it, it + !(it == end())};
+    }
+
+    /*! @copydoc equal_range */
+    [[nodiscard]] std::pair<const_iterator, const_iterator> equal_range(const key_type &key) const {
+        const auto it = find(key);
+        return {it, it + !(it == cend())};
+    }
+
+    /**
+     * @brief Returns a range containing all elements that compare _equivalent_
+     * to a given key.
+     * @tparam Other Type of an element to search for.
+     * @param key Key value of an element to search for.
+     * @return A pair of iterators pointing to the first element and past the
+     * last element of the range.
+     */
+    template<typename Other>
+    [[nodiscard]] std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator>>>
+    equal_range(const Other &key) {
+        const auto it = find(key);
+        return {it, it + !(it == end())};
+    }
+
+    /*! @copydoc equal_range */
+    template<typename Other>
+    [[nodiscard]] std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator>>>
+    equal_range(const Other &key) const {
+        const auto it = find(key);
+        return {it, it + !(it == cend())};
     }
 
     /**
@@ -840,7 +902,7 @@ public:
      * @param index An index of a bucket to access.
      * @return An iterator to the end of the given bucket.
      */
-    [[nodiscard]] const_local_iterator end([[maybe_unused]] const size_type index) const {
+    [[nodiscard]] const_local_iterator end(const size_type index) const {
         return cend(index);
     }
 
@@ -916,15 +978,19 @@ public:
     /**
      * @brief Reserves at least the specified number of buckets and regenerates
      * the hash table.
-     * @param count New number of buckets.
+     * @param cnt New number of buckets.
      */
-    void rehash(const size_type count) {
-        auto value = (std::max)(count, minimum_capacity);
-        value = (std::max)(value, static_cast<size_type>(size() / max_load_factor()));
+    void rehash(const size_type cnt) {
+        auto value = cnt > minimum_capacity ? cnt : minimum_capacity;
+        const auto cap = static_cast<size_type>(size() / max_load_factor());
+        value = value > cap ? value : cap;
 
         if(const auto sz = next_power_of_two(value); sz != bucket_count()) {
             sparse.first().resize(sz);
-            std::fill(sparse.first().begin(), sparse.first().end(), (std::numeric_limits<size_type>::max)());
+
+            for(auto &&elem: sparse.first()) {
+                elem = std::numeric_limits<size_type>::max();
+            }
 
             for(size_type pos{}, last = size(); pos < last; ++pos) {
                 const auto index = key_to_bucket(packed.first()[pos].element.first);
@@ -936,11 +1002,11 @@ public:
     /**
      * @brief Reserves space for at least the specified number of elements and
      * regenerates the hash table.
-     * @param count New number of elements.
+     * @param cnt New number of elements.
      */
-    void reserve(const size_type count) {
-        packed.first().reserve(count);
-        rehash(static_cast<size_type>(std::ceil(count / max_load_factor())));
+    void reserve(const size_type cnt) {
+        packed.first().reserve(cnt);
+        rehash(static_cast<size_type>(std::ceil(cnt / max_load_factor())));
     }
 
     /**

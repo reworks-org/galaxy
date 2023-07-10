@@ -147,10 +147,10 @@ namespace sc
 
 			if (ImGui::BeginMenu("Edit"))
 			{
-				auto ro = m_editor.IsReadOnly();
+				auto ro = m_editor.IsReadOnlyEnabled();
 				if (ImGui::MenuItem("Read only", nullptr, &ro))
 				{
-					m_editor.SetReadOnly(ro);
+					m_editor.SetReadOnlyEnabled(ro);
 				}
 
 				ImGui::Separator();
