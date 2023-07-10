@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gammacorrection_1740',['GammaCorrection',['../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html',1,'galaxy::graphics']]],
-  ['gaussianblur_1741',['GaussianBlur',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html',1,'galaxy::graphics']]],
-  ['guid_1742',['Guid',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html',1,'galaxy::utils']]]
+  ['gammacorrection_1708',['GammaCorrection',['../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html',1,'galaxy::graphics']]],
+  ['gaussianblur_1709',['GaussianBlur',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html',1,'galaxy::graphics']]],
+  ['guid_1710',['Guid',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html',1,'galaxy::utils']]]
 ];

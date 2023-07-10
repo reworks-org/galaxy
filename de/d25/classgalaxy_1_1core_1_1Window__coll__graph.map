@@ -1,11 +1,11 @@
 <map id="galaxy::core::Window" name="galaxy::core::Window">
-<area shape="rect" id="node1" title="Handles events, input &amp; display." alt="" coords="443,1696,604,2052"/>
-<area shape="rect" id="node2" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1307,196,1575"/>
+<area shape="rect" id="node1" title="Handles events, input &amp; display." alt="" coords="443,1711,604,2067"/>
+<area shape="rect" id="node2" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1314,196,1582"/>
 <area shape="rect" id="node3" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="281,969,473,1134"/>
-<area shape="rect" id="node4" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="220,1343,411,1538"/>
-<area shape="rect" id="node14" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="435,1351,611,1531"/>
-<area shape="rect" id="node15" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="636,1248,848,1633"/>
-<area shape="rect" id="node5" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="872,1314,1087,1567"/>
+<area shape="rect" id="node4" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="220,1351,411,1545"/>
+<area shape="rect" id="node14" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="435,1358,611,1538"/>
+<area shape="rect" id="node15" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="636,1248,848,1648"/>
+<area shape="rect" id="node5" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="872,1321,1087,1575"/>
 <area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="784,917,967,1185"/>
 <area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="768,440,983,840"/>
 <area shape="rect" id="node8" title=" " alt="" coords="796,293,955,370"/>

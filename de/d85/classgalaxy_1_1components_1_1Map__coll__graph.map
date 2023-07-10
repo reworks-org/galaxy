@@ -1,9 +1,0 @@
-<map id="galaxy::components::Map" name="galaxy::components::Map">
-<area shape="rect" id="node1" title="Tilemap component." alt="" coords="37,1041,227,1236"/>
-<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,718,216,927"/>
-<area shape="rect" id="node3" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html" title="Batches together vertex data to reduce draw calls." alt="" coords="241,667,415,979"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="239,336,417,604"/>
-<area shape="rect" id="node5" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="7,13,198,266"/>
-<area shape="rect" id="node6" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="223,13,433,266"/>
-<area shape="rect" id="node7" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="457,5,636,273"/>
-</map>

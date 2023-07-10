@@ -12,10 +12,6 @@ var dir_6861e931fb99faa1379ff4c0e1a1bd9e =
     [ "Language.hpp", "dd/d8e/Language_8hpp.html", [
       [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ]
     ] ],
-    [ "Maps.cpp", "d7/d5e/Maps_8cpp.html", null ],
-    [ "Maps.hpp", "db/d05/Maps_8hpp.html", [
-      [ "Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html", "da/d87/classgalaxy_1_1resource_1_1Maps" ]
-    ] ],
     [ "Materials.cpp", "dc/dd7/Materials_8cpp.html", null ],
     [ "Materials.hpp", "d2/dce/Materials_8hpp.html", [
       [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", "d3/dbb/classgalaxy_1_1resource_1_1Materials" ]

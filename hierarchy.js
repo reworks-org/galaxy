@@ -24,9 +24,6 @@ var hierarchy =
     [ "galaxy::resource::Cache< physics::Material >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
       [ "galaxy::resource::Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", null ]
     ] ],
-    [ "galaxy::resource::Cache< tson::Map >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", [
-      [ "galaxy::resource::Maps", "da/d87/classgalaxy_1_1resource_1_1Maps.html", null ]
-    ] ],
     [ "galaxy::input::CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", null ],
     [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
     [ "Gfx::CompiledGeometryData", "d1/daa/structGfx_1_1CompiledGeometryData.html", null ],
@@ -86,7 +83,6 @@ var hierarchy =
     [ "galaxy::algorithm::RectPack", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html", null ],
     [ "galaxy::graphics::Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", null ],
     [ "galaxy::graphics::Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", [
-      [ "galaxy::components::Map", "d3/d19/classgalaxy_1_1components_1_1Map.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
       [ "galaxy::components::Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", null ]
@@ -143,8 +139,6 @@ var hierarchy =
     [ "galaxy::graphics::TexelRegion", "de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html", null ],
     [ "galaxy::graphics::Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", null ],
     [ "galaxy::resource::TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", null ],
-    [ "galaxy::graphics::TileAnim", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html", null ],
-    [ "galaxy::core::TiledMap", "dd/daa/classgalaxy_1_1core_1_1TiledMap.html", null ],
     [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
     [ "galaxy::async::TimerAsync", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html", null ],
     [ "galaxy::graphics::UniformInfo", "d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html", null ],

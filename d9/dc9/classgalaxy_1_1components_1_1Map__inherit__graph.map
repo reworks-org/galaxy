@@ -1,4 +1,0 @@
-<map id="galaxy::components::Map" name="galaxy::components::Map">
-<area shape="rect" id="node1" title="Tilemap component." alt="" coords="16,263,205,472"/>
-<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,5,216,215"/>
-</map>

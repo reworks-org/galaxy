@@ -13,7 +13,6 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "m_dispatcher", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#aa0b90e12824692268535d7aecffc3328", null ],
     [ "m_world", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#adae83a13c106e004dad42b5032d7fe51", null ],
     [ "m_context", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae232c5a0a5678debcd9ccf4bb7d150c2", null ],
-    [ "m_map", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a52c27f9f74dad5fdbfb8470e681fa207", null ],
     [ "m_name", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258", null ],
     [ "m_lighting", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac0fd4aec61ebb9ccdd9376de0fcb54e3", null ],
     [ "m_window", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afdff2876fbb0326e363945cb627fe105", null ]

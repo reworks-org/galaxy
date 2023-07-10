@@ -63,20 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d2/d0d/FontContext_8hpp_source.html",
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b",
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2",
-"d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#ae78fa42a923a9d2ef5edfc2816d0f788",
-"d6/dea/VertexBuffer_8cpp.html",
-"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html",
-"d9/db9/Sound_8hpp_source.html",
-"db/d7c/namespacegalaxy_1_1strutils.html#a08031ceb7b289eae2739e4528489da4b",
-"dc/d7b/RMLInput_8hpp.html",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea17de1e647789892e1fb512bf04db4866",
-"dd/ddf/classgalaxy_1_1core_1_1Loader.html#a130a52786709ecc4e9dfce6672709558",
-"df/d8d/RMLRenderer_8cpp.html#a49bb28b36c995d984c4403390c998e61",
-"functions_vars_x.html"
+"classes.html",
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f",
+"d3/dae/Frame_8hpp_source.html",
+"d4/dad/SMAA_8cpp.html#abdfd8981a984040b4833f38d21444abb",
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a850abe1d71d91b80664261a2d035095a",
+"d7/d2d/PostEffect_8hpp_source.html",
+"d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#a62b5eb7bf0768bc6f4ec8556a2195163",
+"db/dab/namespacegalaxy_1_1graphics.html#ab2faabf6d2aedbcb421132f115566b52",
+"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea810b30cdfc07fd7fff553a94b828ff78",
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#a70abe9a6a3e51ce253e056665d2b8e6b",
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae7af40ffd30c504f20aa5ad027e5769d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

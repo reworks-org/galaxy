@@ -1,8 +1,0 @@
-<map id="galaxy::core::TiledMap::process_image_layer" name="galaxy::core::TiledMap::process_image_layer">
-<area shape="rect" id="node1" title="Recursive function to process image layer." alt="" coords="877,39,1047,80"/>
-<area shape="rect" id="node2" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#abf01eba37e0fa58ef5b9d77ed8acc7a4" title="Recursive function to process tiled map layers." alt="" coords="660,39,829,80"/>
-<area shape="rect" id="node3" href="$dd/daa/classgalaxy_1_1core_1_1TiledMap.html#a5fb58dfdd25e1c8217675e2941809438" title="Load map into scene." alt="" coords="443,39,612,80"/>
-<area shape="rect" id="node4" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="236,5,395,47"/>
-<area shape="rect" id="node5" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="247,71,384,112"/>
-<area shape="rect" id="node6" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
-</map>

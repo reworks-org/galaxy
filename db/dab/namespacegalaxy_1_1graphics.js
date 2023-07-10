@@ -2,7 +2,6 @@ var namespacegalaxy_1_1graphics =
 [
     [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
     [ "Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", "de/d57/classgalaxy_1_1graphics_1_1Frame" ],
-    [ "TileAnim", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim.html", "d9/de4/classgalaxy_1_1graphics_1_1TileAnim" ],
     [ "Buffer", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer" ],
     [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
     [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],
