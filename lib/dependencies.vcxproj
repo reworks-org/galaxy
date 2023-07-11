@@ -379,18 +379,6 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="stb\include\stb_vorbis.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
-    <ClCompile Include="tmxlite\tmxlite\src\detail\pugixml.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\FreeFuncs.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ImageLayer.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\LayerGroup.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Map.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\miniz.c" />
-    <ClCompile Include="tmxlite\tmxlite\src\Object.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ObjectGroup.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ObjectTypes.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Property.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\TileLayer.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
@@ -1380,25 +1368,8 @@
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
     <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
     <ClInclude Include="threadpool\include\BS_thread_pool_light.hpp" />
+    <ClInclude Include="tileson\include\tileson.hpp" />
     <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Config.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Android.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Log.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\FreeFuncs.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ImageLayer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Layer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\LayerGroup.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Map.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Object.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectGroup.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectTypes.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Property.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\TileLayer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Tileset.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Types.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\detail\pugiconfig.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\detail\pugixml.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
     <ClInclude Include="zlib_ng_win\include\zconf.h" />
@@ -1567,7 +1538,6 @@
     <None Include="rmlui\Include\RmlUi\Core\Vector4.inl" />
     <None Include="rmlui\Include\RmlUi\Lua\LuaType.inl" />
     <None Include="rmlui\Source\Core\Pool.inl" />
-    <None Include="tmxlite\tmxlite\include\tmxlite\Types.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -1663,7 +1633,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /D_ITERATOR_DEBUG_LEVEL=0 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1724,7 +1694,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /D_ITERATOR_DEBUG_LEVEL=0 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tmxlite/tmxlite/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/rmlui/Include;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

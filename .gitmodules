@@ -37,6 +37,3 @@
 [submodule "lib/mimalloc"]
 	path = lib/mimalloc
 	url = https://github.com/microsoft/mimalloc.git
-[submodule "lib/tmxlite"]
-	path = lib/tmxlite
-	url = https://github.com/fallahn/tmxlite.git

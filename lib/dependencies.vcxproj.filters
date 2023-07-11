@@ -361,18 +361,6 @@
     <ClCompile Include="rmlui\Source\Lua\Vector2i.cpp" />
     <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="imgui\imgui_addons\ImCoolbar.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\detail\pugixml.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\FreeFuncs.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ImageLayer.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\LayerGroup.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Map.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\miniz.c" />
-    <ClCompile Include="tmxlite\tmxlite\src\Object.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ObjectGroup.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\ObjectTypes.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Property.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\TileLayer.cpp" />
-    <ClCompile Include="tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.cpp" />
@@ -1371,24 +1359,6 @@
     <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
     <ClInclude Include="imgui\imgui_addons\ImCoolbar.h" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Log.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Config.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\FreeFuncs.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ImageLayer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Layer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\LayerGroup.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Map.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Object.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectGroup.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\ObjectTypes.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Property.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\TileLayer.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Tileset.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\Types.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\detail\pugiconfig.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\detail\pugixml.hpp" />
-    <ClInclude Include="tmxlite\tmxlite\src\miniz.h" />
-    <ClInclude Include="tmxlite\tmxlite\include\tmxlite\detail\Android.hpp" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />
@@ -1397,6 +1367,7 @@
     <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
+    <ClInclude Include="tileson\include\tileson.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
@@ -1561,6 +1532,5 @@
     <None Include="fastnoise2\include\FastNoise\Generators\Utils.inl" />
     <None Include="fastnoise2\include\FastNoise\Generators\Value.inl" />
     <None Include="fastnoise2\include\FastNoise\FastNoise_BuildList.inl" />
-    <None Include="tmxlite\tmxlite\include\tmxlite\Types.inl" />
   </ItemGroup>
 </Project>

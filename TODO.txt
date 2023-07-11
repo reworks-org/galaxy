@@ -1,3 +1,4 @@
+--[=====[
 worldspace/tilemap transitions/loadings separate from loader.
 loading screens in scene manager where needed.
 add load screen when switching maps in scene.
@@ -27,6 +28,8 @@ implement b2_debugdraw?
 
 make sure all operator= are being called correctly when virtual
 
+load in parallell
+
 normal mapping support for tilemap.cpp
 
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
@@ -51,6 +54,8 @@ https://github.com/fallahn/tmxlite
 loading a map should generate prefabs and store them.
 we can then on the fly create new entities from these prefabs.
 perhaps prefabs should be components without entities, rather than json objects
+I.e. load all data beforehand and just assign/copy into a component.
 
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
+--]=====]
