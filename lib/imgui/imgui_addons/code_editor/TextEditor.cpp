@@ -41,9 +41,6 @@ TextEditor::TextEditor()
 	, mColorRangeMin(0)
 	, mColorRangeMax(0)
 	, mCheckComments(true)
-	, mHandleKeyboardInputs(true)
-	, mHandleMouseInputs(true)
-	, mIgnoreImGuiChild(false)
 	, mShowWhitespaces(true)
 	, mShowShortTabGlyphs(false)
 	, mStartTime(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count())
@@ -80,12 +77,8 @@ void TextEditor::SetPalette(const Palette& aValue)
 
 std::string TextEditor::GetText(const Coordinates& aStart, const Coordinates& aEnd) const
 {
+	assert(aEnd > aStart);
 	std::string result;
-
-	if (aEnd > aStart)
-	{
-		return result;
-	}
 
 	auto lstart = aStart.mLine;
 	auto lend   = aEnd.mLine;
@@ -965,9 +958,8 @@ void TextEditor::HandleMouseInputs()
 	/*
 	Pan with middle mouse button
 	*/
-	if (ImGui::IsMouseReleased(2))
-		mState.mPanning = false;
-	if (mState.mPanning)
+	mState.mPanning &= ImGui::IsMouseDown(2);
+	if (mState.mPanning && ImGui::IsMouseDragging(2))
 	{
 		ImVec2 scroll          = {ImGui::GetScrollX(), ImGui::GetScrollY()};
 		ImVec2 currentMousePos = ImGui::GetMouseDragDelta(2);
@@ -978,9 +970,9 @@ void TextEditor::HandleMouseInputs()
 	}
 
 	// Mouse left button dragging (=> update selection)
-	if (ImGui::IsMouseDragging(0) && ImGui::IsMouseDown(0))
+	mState.mDraggingSelection &= ImGui::IsMouseDown(0);
+	if (mState.mDraggingSelection && ImGui::IsMouseDragging(0))
 	{
-		mDraggingSelection       = true;
 		io.WantCaptureMouse      = true;
 		Coordinates cursorCoords = ScreenPosToCoordinates(ImGui::GetMousePos(), !mOverwrite);
 		SetCursorPosition(cursorCoords, mState.GetLastAddedCursorIndex(), false);
@@ -994,12 +986,14 @@ void TextEditor::HandleMouseInputs()
 			auto doubleClick = ImGui::IsMouseDoubleClicked(0);
 			auto t           = ImGui::GetTime();
 			auto tripleClick = click && !doubleClick && (mLastClick != -1.0f && (t - mLastClick) < io.MouseDoubleClickTime);
+			if (click)
+				mState.mDraggingSelection = true;
 
 			/*
 			Pan with middle mouse button
 			*/
 
-			if (!mState.mPanning && ImGui::IsMouseDown(2))
+			if (ImGui::IsMouseClicked(2))
 			{
 				mState.mPanning      = true;
 				mState.mLastMousePos = ImGui::GetMouseDragDelta(2);
@@ -1067,7 +1061,6 @@ void TextEditor::HandleMouseInputs()
 			}
 			else if (ImGui::IsMouseReleased(0))
 			{
-				mDraggingSelection = false;
 				mState.SortCursorsFromTopToBottom();
 				MergeCursorsIfPossible();
 			}
@@ -1441,27 +1434,16 @@ bool TextEditor::Render(const char* aTitle, bool aParentIsFocused, const ImVec2&
 
 	ImGui::PushStyleColor(ImGuiCol_ChildBg, ImGui::ColorConvertU32ToFloat4(mPalette[(int)PaletteIndex::Background]));
 	ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0.0f, 0.0f));
-	if (!mIgnoreImGuiChild)
-		ImGui::BeginChild(aTitle, aSize, aBorder, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoNavInputs);
+
+	ImGui::BeginChild(aTitle, aSize, aBorder, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoNavInputs);
 
 	bool isFocused = ImGui::IsWindowFocused();
-	if (mHandleKeyboardInputs)
-	{
-		HandleKeyboardInputs(aParentIsFocused);
-		ImGui::PushAllowKeyboardFocus(true);
-	}
-
-	if (mHandleMouseInputs)
-		HandleMouseInputs();
-
+	HandleKeyboardInputs(aParentIsFocused);
+	HandleMouseInputs();
 	ColorizeInternal();
 	Render(aParentIsFocused);
 
-	if (mHandleKeyboardInputs)
-		ImGui::PopAllowKeyboardFocus();
-
-	if (!mIgnoreImGuiChild)
-		ImGui::EndChild();
+	ImGui::EndChild();
 
 	ImGui::PopStyleVar();
 	ImGui::PopStyleColor();
@@ -1863,7 +1845,7 @@ void TextEditor::SetAutoIndentEnabled(bool aValue)
 
 void TextEditor::OnCursorPositionChanged()
 {
-	if (mDraggingSelection)
+	if (mState.mDraggingSelection)
 		return;
 
 	// std::cout << "Cursor position changed\n";

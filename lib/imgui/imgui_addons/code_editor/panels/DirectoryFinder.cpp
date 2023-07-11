@@ -56,17 +56,23 @@ bool DirectoryFinder::OnImGui()
 			std::lock_guard<std::mutex> guard(finderThreadMutex);
 			for (int i = 0; i < resultFiles.size(); i++)
 			{
+				resultsInFile.clear();
 				DirectoryFinderSearchResultFile& file = resultFiles[i];
-				ImGui::Separator();
-				ImGui::TextUnformatted(file.fileName.c_str());
 				for (int j = 0; j < file.results.size(); j++)
 				{
 					DirectoryFinderSearchResult& res = file.results[j];
 					std::smatch resultFilterMatch;
-					if (resultFilter[0] != '\0' && !std::regex_match(res.displayText, resultFilterMatch, resultFilterRegex))
-						continue;
-					if (ImGui::Selectable(res.displayText.c_str()) && onResultClickCallback != nullptr)
-						onResultClickCallback(file.filePath, res, createdFromFolderView);
+					if (resultFilter[0] == '\0' || std::regex_search(res.displayText, resultFilterMatch, resultFilterRegex))
+						resultsInFile.push_back(&res);
+				}
+
+				if (resultsInFile.size() > 0)
+				{
+					ImGui::Separator();
+					ImGui::TextUnformatted(file.fileName.c_str());
+					for (DirectoryFinderSearchResult* res : resultsInFile)
+						if (ImGui::Selectable(res->displayText.c_str()) && onResultClickCallback != nullptr)
+							onResultClickCallback(file.filePath, *res, createdFromFolderView);
 				}
 			}
 		}

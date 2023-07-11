@@ -56,6 +56,7 @@ private:
 	std::regex resultFilterRegex;
 
 	std::vector<DirectoryFinderSearchResultFile> resultFiles;
+	std::vector<DirectoryFinderSearchResult*> resultsInFile;
 
 	OnResultClickCallback onResultClickCallback       = nullptr;
 	OnResultFoundCallback onResultFoundCallback       = nullptr;
