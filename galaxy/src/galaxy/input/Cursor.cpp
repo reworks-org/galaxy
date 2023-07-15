@@ -21,6 +21,10 @@ namespace galaxy
 		Cursor::Cursor()
 			: InputDevice {}
 			, m_custom {nullptr}
+			, m_pointer {nullptr}
+			, m_cross {nullptr}
+			, m_hand {nullptr}
+			, m_text {nullptr}
 		{
 		}
 
