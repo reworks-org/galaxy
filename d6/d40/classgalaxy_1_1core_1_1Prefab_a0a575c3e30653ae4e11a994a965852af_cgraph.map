@@ -1,0 +1,5 @@
+<map id="galaxy::core::Prefab::Prefab" name="galaxy::core::Prefab::Prefab">
+<area shape="rect" id="node1" title="Entity constructor." alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node2" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056" title="Creates the prefab from an entity." alt="" coords="204,5,355,47"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="403,13,633,39"/>
+</map>

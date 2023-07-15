@@ -1,5 +1,5 @@
 <map id="galaxy::components::LightSource" name="galaxy::components::LightSource">
-<area shape="rect" id="node1" title="A LightSource in a scene." alt="" coords="109,219,263,428"/>
+<area shape="rect" id="node1" title="A LightSource in a scene." alt="" coords="109,219,263,443"/>
 <area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,175,156"/>
 <area shape="rect" id="node3" href="$dd/d03/structgalaxy_1_1graphics_1_1Light.html" title="Light data to upload to gpu." alt="" coords="199,13,367,149"/>
 </map>

@@ -32,6 +32,7 @@ var hierarchy =
     [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
     [ "galaxy::doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", null ],
     [ "galaxy::flags::Enabled", "d9/d3c/structgalaxy_1_1flags_1_1Enabled.html", null ],
+    [ "galaxy::meta::EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", null ],
     [ "galaxy::fs::FileInfo", "d0/de8/structgalaxy_1_1fs_1_1FileInfo.html", null ],
     [ "Rml::FileInterface", null, [
       [ "galaxy::ui::RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html", null ]
@@ -76,7 +77,7 @@ var hierarchy =
       [ "galaxy::graphics::Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", null ]
     ] ],
     [ "galaxy::graphics::PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", null ],
-    [ "galaxy::core::Prefab", "d2/d2b/structgalaxy_1_1core_1_1Prefab.html", null ],
+    [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
     [ "galaxy::components::Primitive::PrimitiveData", "d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html", null ],
     [ "Gfx::ProgramData", "d8/d9d/structGfx_1_1ProgramData.html", null ],
     [ "galaxy::graphics::Rect< Type >", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", null ],

@@ -93,30 +93,60 @@ $(document).ready(function(){initNavTree('d1/d98/Prefab_8hpp_source.html','../..
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef GALAXY_CORE_PREFAB_HPP_</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define GALAXY_CORE_PREFAB_HPP_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">namespace </span>core</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html">   20</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html">Prefab</a> final</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html#a48e339f35a2ca306077a310abc625d0f">   25</a></span>&#160;            nlohmann::json <a class="code" href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html#a48e339f35a2ca306077a310abc625d0f">m_data</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    } <span class="comment">// namespace core</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;entt/fwd.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;robin_hood.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">namespace </span>core</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html">   22</a></span>&#160;        <span class="keyword">class </span><a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html">Prefab</a> final</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">Prefab</a>(entt::entity entity, entt::registry&amp; registry);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">Prefab</a>(<span class="keyword">const</span> nlohmann::json&amp; json);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76">~Prefab</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">from_entity</a>(entt::entity entity, entt::registry&amp; registry);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">from_json</a>(<span class="keyword">const</span> nlohmann::json&amp; json);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            [[nodiscard]] entt::entity <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">to_entity</a>(entt::registry&amp; registry);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            [[nodiscard]] <span class="keyword">const</span> nlohmann::json&amp; <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">to_json</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">   82</a></span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">Prefab</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">   88</a></span>&#160;            nlohmann::json <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">m_json</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">   93</a></span>&#160;            robin_hood::unordered_flat_map&lt;entt::id_type, entt::any&gt; <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        };</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    } <span class="comment">// namespace core</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html">galaxy::core::Prefab</a></div><div class="ttdoc">Preconstructed entity definition that can be loaded at any time.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00022">Prefab.hpp:23</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a0a9df04473e253ce8748c6414eaf6ac5"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">galaxy::core::Prefab::to_json</a></div><div class="ttdeci">const nlohmann::json &amp; to_json() const</div><div class="ttdoc">Gets the json representation of this prefab.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00074">Prefab.cpp:74</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a42a06cd2bb41aefef7518c8ede82f820"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">galaxy::core::Prefab::Prefab</a></div><div class="ttdeci">Prefab()=delete</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a58ade311c54235ba5accc6e8bbd69307"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">galaxy::core::Prefab::m_json</a></div><div class="ttdeci">nlohmann::json m_json</div><div class="ttdoc">Prefab as json data.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00088">Prefab.hpp:88</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a9fe3ec4f861bd657e69c332a58b80b76"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76">galaxy::core::Prefab::~Prefab</a></div><div class="ttdeci">~Prefab()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00027">Prefab.cpp:27</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_aa2c2fd598aff19fa9b6a9ee965869d66"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">galaxy::core::Prefab::from_json</a></div><div class="ttdeci">void from_json(const nlohmann::json &amp;json)</div><div class="ttdoc">Creates the prefab from a json object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00048">Prefab.cpp:48</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_ab26043cadc2b69727cc00636ed094d73"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">galaxy::core::Prefab::m_data</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; entt::id_type, entt::any &gt; m_data</div><div class="ttdoc">Maps the meta id of the component to the component data.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00093">Prefab.hpp:93</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_acea040dc562e3a603c6880ef8ab455ac"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">galaxy::core::Prefab::to_entity</a></div><div class="ttdeci">entt::entity to_entity(entt::registry &amp;registry)</div><div class="ttdoc">Creates an entity from this prefab.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00061">Prefab.cpp:61</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_aec2ecec1eae86529cac56632fc8b7056"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">galaxy::core::Prefab::from_entity</a></div><div class="ttdeci">void from_entity(entt::entity entity, entt::registry &amp;registry)</div><div class="ttdoc">Creates the prefab from an entity.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00031">Prefab.cpp:31</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1core_1_1Prefab_html"><div class="ttname"><a href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html">galaxy::core::Prefab</a></div><div class="ttdoc">Custom entity definition that can be loaded at any time.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00020">Prefab.hpp:21</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1core_1_1Prefab_html_a48e339f35a2ca306077a310abc625d0f"><div class="ttname"><a href="../../d2/d2b/structgalaxy_1_1core_1_1Prefab.html#a48e339f35a2ca306077a310abc625d0f">galaxy::core::Prefab::m_data</a></div><div class="ttdeci">nlohmann::json m_data</div><div class="ttdoc">Required json data to construct entity from.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00025">Prefab.hpp:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d1/d98/Prefab_8hpp.html">Prefab.hpp</a></li>
-    <li class="footer">Generated on Tue Jul 11 2023 09:09:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 15 2023 13:17:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

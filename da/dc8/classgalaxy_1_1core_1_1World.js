@@ -1,7 +1,7 @@
 var classgalaxy_1_1core_1_1World =
 [
     [ "SystemContainer", "da/dc8/classgalaxy_1_1core_1_1World.html#a1d2119e394cfc9be0837c4edb2cd4cf8", null ],
-    [ "ComponentFactory", "da/dc8/classgalaxy_1_1core_1_1World.html#a097d896295cf8f2bf4bc1b05e6214a97", null ],
+    [ "B2BodyFactory", "da/dc8/classgalaxy_1_1core_1_1World.html#ae87b8dafc4a38464e3785b47a3335dc6", null ],
     [ "World", "da/dc8/classgalaxy_1_1core_1_1World.html#a73945566f5c95c7f421af7dcdf15697c", null ],
     [ "~World", "da/dc8/classgalaxy_1_1core_1_1World.html#aa660c83003fa85a17bc78db1a60e64f3", null ],
     [ "World", "da/dc8/classgalaxy_1_1core_1_1World.html#a4bb68014abf1f1c91e86d9be9d61588f", null ],
@@ -9,15 +9,12 @@ var classgalaxy_1_1core_1_1World =
     [ "create", "da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7", null ],
     [ "create_from_prefab", "da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85", null ],
     [ "create_from_json", "da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568", null ],
-    [ "register_dependencies", "da/dc8/classgalaxy_1_1core_1_1World.html#a0d4eac03d3bbc701c7c8fbb576e6c319", null ],
-    [ "is_valid", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb5afcb0baf13e98fb7cbb85154189f4", null ],
-    [ "register_component", "da/dc8/classgalaxy_1_1core_1_1World.html#aceafca7eafdcbfc087e7ba572d8960f4", null ],
     [ "create_system", "da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d", null ],
     [ "update", "da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e", null ],
     [ "update_rendersystem", "da/dc8/classgalaxy_1_1core_1_1World.html#a28111bcbbb37a36988aaa5c47e5c36bc", null ],
     [ "clear", "da/dc8/classgalaxy_1_1core_1_1World.html#abd82bcc6ebb3c73036731d493a4a7bf9", null ],
+    [ "is_valid", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb5afcb0baf13e98fb7cbb85154189f4", null ],
     [ "b2world", "da/dc8/classgalaxy_1_1core_1_1World.html#ace2880546b55342e886a733616b2a884", null ],
-    [ "serialize_entity", "da/dc8/classgalaxy_1_1core_1_1World.html#a02952ae0d4a435e2d14c5884b3a23f1f", null ],
     [ "serialize", "da/dc8/classgalaxy_1_1core_1_1World.html#a97c19ecc0ac0e5fe70791dae767c27bf", null ],
     [ "deserialize", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28", null ],
     [ "operator=", "da/dc8/classgalaxy_1_1core_1_1World.html#abb734cfea8f8a48370361f0fa1b7eaec", null ],
@@ -32,10 +29,7 @@ var classgalaxy_1_1core_1_1World =
     [ "m_position_iterations", "da/dc8/classgalaxy_1_1core_1_1World.html#a98ef2792e0d1c8b0a58e181b6a81f6c3", null ],
     [ "m_pixels_per_meter", "da/dc8/classgalaxy_1_1core_1_1World.html#a3d9d7bd51ed29f22424df7191dac9ec9", null ],
     [ "m_systems", "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf", null ],
-    [ "m_component_factory", "da/dc8/classgalaxy_1_1core_1_1World.html#ad06f17e6b07d8ac87912f40d84c0676c", null ],
-    [ "m_validations", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb88688f2ab04056dd9536052dc5030c", null ],
-    [ "m_validations_to_run", "da/dc8/classgalaxy_1_1core_1_1World.html#ab0fb55fb689cb190aba0846778034693", null ],
     [ "m_rendersystem_index", "da/dc8/classgalaxy_1_1core_1_1World.html#afa5ccdc23a78f4bc83b401836a3867dc", null ],
-    [ "m_bodies_to_construct", "da/dc8/classgalaxy_1_1core_1_1World.html#ab3a31cdb7cd9f2e84fc9688b643b466d", null ],
+    [ "m_bodies_to_construct", "da/dc8/classgalaxy_1_1core_1_1World.html#ae556f937fc428add3b6e75f79023f35f", null ],
     [ "m_scene", "da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e", null ]
 ];

@@ -1,0 +1,6 @@
+<map id="galaxy::components::Script::Script" name="galaxy::components::Script::Script">
+<area shape="rect" id="node1" title="Pointer constructor." alt="" coords="5,35,159,76"/>
+<area shape="rect" id="node2" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="453,5,607,47"/>
+<area shape="rect" id="node3" href="$db/d40/classgalaxy_1_1components_1_1Script.html#adfe30c610b3d408abb91137b541e5edd" title="Load a script." alt="" coords="207,64,367,105"/>
+<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="415,71,645,98"/>
+</map>

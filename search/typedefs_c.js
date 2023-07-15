@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['uniformbuffer_3143',['UniformBuffer',['../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b',1,'galaxy::graphics']]],
-  ['unordered_5fmap_3144',['unordered_map',['../d3/d12/namespacegalaxy_1_1meta.html#a152b756782b3d70d4c22d7dc03b4a14f',1,'galaxy::meta']]],
-  ['unordered_5fmultimap_3145',['unordered_multimap',['../d3/d12/namespacegalaxy_1_1meta.html#a2826d25f532038ac2d032d65bd89400b',1,'galaxy::meta']]],
-  ['unordered_5fmultiset_3146',['unordered_multiset',['../d3/d12/namespacegalaxy_1_1meta.html#a03b9ad1783c973ed9f9e99868a96ed21',1,'galaxy::meta']]],
-  ['unordered_5fset_3147',['unordered_set',['../d3/d12/namespacegalaxy_1_1meta.html#a79743c01a3c91ecbeae6d1a819f25148',1,'galaxy::meta']]]
+  ['scenecontainer_3185',['SceneContainer',['../de/d3c/namespacegalaxy_1_1scene.html#a9c013efbb7c220bfca3a21aecfe8a11f',1,'galaxy::scene']]],
+  ['set_3186',['set',['../d3/d12/namespacegalaxy_1_1meta.html#a1cc0752f10843db9eab5855ef1dea903',1,'galaxy::meta']]],
+  ['shaderstoragebuffer_3187',['ShaderStorageBuffer',['../db/dab/namespacegalaxy_1_1graphics.html#a5d5409faff54258ee123932bb7290160',1,'galaxy::graphics']]],
+  ['stack_3188',['Stack',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a',1,'galaxy::state::StateMachine']]],
+  ['stack_3189',['stack',['../d3/d12/namespacegalaxy_1_1meta.html#aa26abbeaeafa4180322490b3abbf0937',1,'galaxy::meta']]],
+  ['subprocess_3190',['subprocess',['../d8/d31/Subprocess_8hpp.html#a66f186e3667c8b27629c8654bf38e242',1,'Subprocess.hpp']]],
+  ['systemcontainer_3191',['SystemContainer',['../da/dc8/classgalaxy_1_1core_1_1World.html#a1d2119e394cfc9be0837c4edb2cd4cf8',1,'galaxy::core::World']]]
 ];

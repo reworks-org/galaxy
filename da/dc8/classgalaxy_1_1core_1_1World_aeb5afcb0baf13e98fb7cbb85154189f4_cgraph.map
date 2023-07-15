@@ -1,0 +1,4 @@
+<map id="galaxy::core::World::is_valid" name="galaxy::core::World::is_valid">
+<area shape="rect" id="node1" title="Validate an entity to make sure all components have met their requirements as defined by register_dep..." alt="" coords="5,5,152,47"/>
+<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,13,431,39"/>
+</map>

@@ -90,15 +90,98 @@ $(document).ready(function(){initNavTree('d7/de1/Prefab_8cpp_source.html','../..
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/de1/Prefab_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d98/Prefab_8hpp.html">Prefab.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d95/EntityMeta_8hpp.html">galaxy/meta/EntityMeta.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d98/Prefab_8hpp.html">Prefab.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">namespace </span>core</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af">   17</a></span>&#160;        <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">Prefab::Prefab</a>(entt::entity entity, entt::registry&amp; registry)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">from_entity</a>(entity, registry);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#af297078bae7d05b1056a431e526679e5">   22</a></span>&#160;        <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">Prefab::Prefab</a>(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">from_json</a>(json);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76">   27</a></span>&#160;        <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76">Prefab::~Prefab</a>()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">   31</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">Prefab::from_entity</a>(entt::entity entity, entt::registry&amp; registry)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a>.clear();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keyword">auto</span>&amp; em = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">ServiceLocator&lt;meta::EntityMeta&gt;::ref</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp;&amp; [<span class="keywordtype">id</span>, storage] : registry.storage())</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span> (storage.contains(entity))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a>[id] = em.copy_to_any(<span class="keywordtype">id</span>, storage.value(entity));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">m_json</a> = em.serialize_entity(entity, registry);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">Prefab::from_json</a>(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; components = json.at(<span class="stringliteral">&quot;components&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (!components.empty())</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">auto</span>&amp; em = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;meta::EntityMeta&gt;::ref</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : components.items())</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a>[em.get_typeid(key)] = em.any_from_json(key, value);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">   61</a></span>&#160;        entt::entity <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">Prefab::to_entity</a>(entt::registry&amp; registry)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">auto</span>&amp; em = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">ServiceLocator&lt;meta::EntityMeta&gt;::ref</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> entity = registry.create();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [<span class="keywordtype">id</span>, component] : <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                em.any_factory(em.get_type(<span class="keywordtype">id</span>), entity, registry, component);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> entity;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">   74</a></span>&#160;        <span class="keyword">const</span> nlohmann::json&amp; <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">Prefab::to_json</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">m_json</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    } <span class="comment">// namespace core</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="ttc" id="aEntityMeta_8hpp_html"><div class="ttname"><a href="../../d4/d95/EntityMeta_8hpp.html">EntityMeta.hpp</a></div></div>
 <div class="ttc" id="aPrefab_8hpp_html"><div class="ttname"><a href="../../d1/d98/Prefab_8hpp.html">Prefab.hpp</a></div></div>
+<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a0a9df04473e253ce8748c6414eaf6ac5"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">galaxy::core::Prefab::to_json</a></div><div class="ttdeci">const nlohmann::json &amp; to_json() const</div><div class="ttdoc">Gets the json representation of this prefab.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00074">Prefab.cpp:74</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a42a06cd2bb41aefef7518c8ede82f820"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a42a06cd2bb41aefef7518c8ede82f820">galaxy::core::Prefab::Prefab</a></div><div class="ttdeci">Prefab()=delete</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a58ade311c54235ba5accc6e8bbd69307"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">galaxy::core::Prefab::m_json</a></div><div class="ttdeci">nlohmann::json m_json</div><div class="ttdoc">Prefab as json data.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00088">Prefab.hpp:88</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_a9fe3ec4f861bd657e69c332a58b80b76"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76">galaxy::core::Prefab::~Prefab</a></div><div class="ttdeci">~Prefab()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00027">Prefab.cpp:27</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_aa2c2fd598aff19fa9b6a9ee965869d66"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">galaxy::core::Prefab::from_json</a></div><div class="ttdeci">void from_json(const nlohmann::json &amp;json)</div><div class="ttdoc">Creates the prefab from a json object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00048">Prefab.cpp:48</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_ab26043cadc2b69727cc00636ed094d73"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">galaxy::core::Prefab::m_data</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; entt::id_type, entt::any &gt; m_data</div><div class="ttdoc">Maps the meta id of the component to the component data.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/Prefab_8hpp_source.html#l00093">Prefab.hpp:93</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_acea040dc562e3a603c6880ef8ab455ac"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">galaxy::core::Prefab::to_entity</a></div><div class="ttdeci">entt::entity to_entity(entt::registry &amp;registry)</div><div class="ttdoc">Creates an entity from this prefab.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00061">Prefab.cpp:61</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Prefab_html_aec2ecec1eae86529cac56632fc8b7056"><div class="ttname"><a href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056">galaxy::core::Prefab::from_entity</a></div><div class="ttdeci">void from_entity(entt::entity entity, entt::registry &amp;registry)</div><div class="ttdoc">Creates the prefab from an entity.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de1/Prefab_8cpp_source.html#l00031">Prefab.cpp:31</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00109">ServiceLocator.hpp:109</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d7/de1/Prefab_8cpp.html">Prefab.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 11 2023 09:09:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 15 2023 13:17:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

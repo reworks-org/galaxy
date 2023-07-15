@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['map_3128',['map',['../d3/d12/namespacegalaxy_1_1meta.html#ac7aba3cec1166a1129a22c13ef79b9f1',1,'galaxy::meta']]],
-  ['multimap_3129',['multimap',['../d3/d12/namespacegalaxy_1_1meta.html#a895c2ddcade12ba298e1b77b6e2dc853',1,'galaxy::meta']]],
-  ['multiset_3130',['multiset',['../d3/d12/namespacegalaxy_1_1meta.html#aa54604bec3949da6a55673302bdeb7bd',1,'galaxy::meta']]]
+  ['list_3176',['list',['../d3/d12/namespacegalaxy_1_1meta.html#a74c1c9eb06de198b067dff9eec2c59f9',1,'galaxy::meta']]]
 ];

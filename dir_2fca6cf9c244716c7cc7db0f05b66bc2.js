@@ -14,7 +14,7 @@ var dir_2fca6cf9c244716c7cc7db0f05b66bc2 =
     ] ],
     [ "Prefab.cpp", "d7/de1/Prefab_8cpp.html", null ],
     [ "Prefab.hpp", "d1/d98/Prefab_8hpp.html", [
-      [ "Prefab", "d2/d2b/structgalaxy_1_1core_1_1Prefab.html", "d2/d2b/structgalaxy_1_1core_1_1Prefab" ]
+      [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ]
     ] ],
     [ "ServiceLocator.cpp", "d8/d6b/ServiceLocator_8cpp.html", null ],
     [ "ServiceLocator.hpp", "da/ddf/ServiceLocator_8hpp.html", [

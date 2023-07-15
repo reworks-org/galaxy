@@ -1,4 +1,4 @@
 <map id="galaxy::core::World" name="galaxy::core::World">
-<area shape="rect" id="node1" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,204,200,707"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="18,5,187,156"/>
+<area shape="rect" id="node1" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,204,195,692"/>
+<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="15,5,185,156"/>
 </map>

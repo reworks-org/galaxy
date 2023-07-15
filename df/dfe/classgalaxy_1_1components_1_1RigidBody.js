@@ -2,6 +2,7 @@ var classgalaxy_1_1components_1_1RigidBody =
 [
     [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#ac981ac0fd9823f131c70f974de6a399a", null ],
     [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a23069d9ac9872a056e061a0ef0a5548e", null ],
+    [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#adb6b96ff78f55de7c850eeafdf57318f", null ],
     [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#adc83c0f9911f1e8a8b7f0ff39975dead", null ],
     [ "~RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#ac3fa029a00aa9605c26a196c99cc684c", null ],
     [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a003a202f2d42dc883547320083b8df2f", null ],

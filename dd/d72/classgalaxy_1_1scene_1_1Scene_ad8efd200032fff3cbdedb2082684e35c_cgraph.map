@@ -1,9 +1,10 @@
 <map id="galaxy::scene::Scene::deserialize" name="galaxy::scene::Scene::deserialize">
-<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,39,164,80"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="232,5,379,47"/>
-<area shape="rect" id="node5" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="212,71,399,112"/>
-<area shape="rect" id="node3" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="467,5,613,47"/>
-<area shape="rect" id="node4" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#aee9525f06e042810887bda89bf91ff1f" title="Set a flag on an entity." alt="" coords="698,5,851,47"/>
-<area shape="rect" id="node6" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="447,71,633,112"/>
-<area shape="rect" id="node7" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="681,71,868,112"/>
+<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,90,164,131"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="232,57,379,98"/>
+<area shape="rect" id="node6" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="212,122,399,163"/>
+<area shape="rect" id="node3" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="467,57,613,98"/>
+<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="681,5,912,32"/>
+<area shape="rect" id="node5" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#aee9525f06e042810887bda89bf91ff1f" title="Set a flag on an entity." alt="" coords="720,57,873,98"/>
+<area shape="rect" id="node7" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="447,122,633,163"/>
+<area shape="rect" id="node8" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="703,122,890,163"/>
 </map>

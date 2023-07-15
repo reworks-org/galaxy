@@ -1,11 +1,12 @@
 <map id="galaxy/src/galaxy/graphics/animation/Frame.hpp" name="galaxy/src/galaxy/graphics/animation/Frame.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="567,5,763,47"/>
-<area shape="rect" id="node2" href="$d0/d36/Animation_8hpp.html" title=" " alt="" coords="458,95,654,136"/>
-<area shape="rect" id="node9" href="$d5/de0/Frame_8cpp.html" title=" " alt="" coords="678,95,874,136"/>
-<area shape="rect" id="node3" href="$d2/df5/Animated_8hpp.html" title=" " alt="" coords="329,184,551,225"/>
-<area shape="rect" id="node8" href="$d3/da9/Animation_8cpp.html" title=" " alt="" coords="575,184,771,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="657,5,853,47"/>
+<area shape="rect" id="node2" href="$d0/d36/Animation_8hpp.html" title=" " alt="" coords="547,95,743,136"/>
+<area shape="rect" id="node10" href="$d5/de0/Frame_8cpp.html" title=" " alt="" coords="767,95,963,136"/>
+<area shape="rect" id="node3" href="$d2/df5/Animated_8hpp.html" title=" " alt="" coords="419,184,640,225"/>
+<area shape="rect" id="node9" href="$d3/da9/Animation_8cpp.html" title=" " alt="" coords="665,184,861,225"/>
 <area shape="rect" id="node4" href="$d0/d0a/Animated_8cpp.html" title=" " alt="" coords="5,273,227,315"/>
-<area shape="rect" id="node5" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="251,273,421,315"/>
-<area shape="rect" id="node6" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="445,273,643,315"/>
-<area shape="rect" id="node7" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="667,273,863,315"/>
+<area shape="rect" id="node5" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="251,273,421,315"/>
+<area shape="rect" id="node6" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="445,273,614,315"/>
+<area shape="rect" id="node7" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="639,273,836,315"/>
+<area shape="rect" id="node8" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="861,273,1057,315"/>
 </map>

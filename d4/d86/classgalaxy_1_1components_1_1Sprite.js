@@ -2,6 +2,7 @@ var classgalaxy_1_1components_1_1Sprite =
 [
     [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#af50963141dcac230749bddfbf9c6d764", null ],
     [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7", null ],
+    [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3cf4b139737656b2d1844d7020109f25", null ],
     [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a322d3ac9dedbe89d34a8dc853c11ae71", null ],
     [ "~Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad4db7d78d660d88f125b668840406a1c", null ],
     [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a48a902651a366272b368deee4d66a0af", null ],

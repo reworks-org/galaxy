@@ -2,6 +2,7 @@ var classgalaxy_1_1components_1_1LightSource =
 [
     [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#a815ca3e9240672e2a3fa7205155d0b5c", null ],
     [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#a7aa3482266d923a5a3cbcf0b9d84f422", null ],
+    [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#ad9880b7b005d30fdd60fba2ea6e81834", null ],
     [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#a337f4e1462da0dee2aab391cc5f252a4", null ],
     [ "~LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#a13c4c3a40ca113d184be2e4682b9c6e6", null ],
     [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html#a30ad2112bd08ace51390c7fa74cc6444", null ],

@@ -2,6 +2,7 @@ var classgalaxy_1_1components_1_1Flag =
 [
     [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a7d8f75fa6df49ce782765c3ea399119d", null ],
     [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae1ddda7732bb160188cf397a1025e4eb", null ],
+    [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a33257b0c7b2320c7141fedbe8282ca06", null ],
     [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a16a5bac2988c9d04f67f0e9cee24b102", null ],
     [ "~Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739", null ],
     [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1bd52242be7b97277a10d6e10f02c7ce", null ],

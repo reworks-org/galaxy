@@ -25,7 +25,7 @@ var annotated_dup =
         [ "Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", "d5/da2/classgalaxy_1_1core_1_1Application" ],
         [ "Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", "d6/de9/classgalaxy_1_1core_1_1Config" ],
         [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
-        [ "Prefab", "d2/d2b/structgalaxy_1_1core_1_1Prefab.html", "d2/d2b/structgalaxy_1_1core_1_1Prefab" ],
+        [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ],
         [ "ServiceLocator", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator" ],
         [ "Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", "d5/d25/classgalaxy_1_1core_1_1Window" ],
         [ "WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings" ],
@@ -111,6 +111,9 @@ var annotated_dup =
         [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ],
         [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ],
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
+      ] ],
+      [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
+        [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
       ] ],
       [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", [
         [ "Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", "d4/d7e/classgalaxy_1_1physics_1_1Material" ]

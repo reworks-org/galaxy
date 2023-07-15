@@ -2,6 +2,7 @@ var classgalaxy_1_1components_1_1Transform =
 [
     [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#a35367caf5e9b0bab9626b7a23bca85b8", null ],
     [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192", null ],
+    [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#aff799888c556307eeb32b4e55a0706f7", null ],
     [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#a01135e6bf6df48cb75c5ff993006c883", null ],
     [ "~Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#aa60a770a70deb069fab04ff9b22aa5f8", null ],
     [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae5b7b0c8a735c07309daa5da1dbb2efb", null ],

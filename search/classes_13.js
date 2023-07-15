@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['window_1794',['Window',['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core']]],
-  ['windowresized_1795',['WindowResized',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html',1,'galaxy::events']]],
-  ['windowsettings_1796',['WindowSettings',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html',1,'galaxy::core']]],
-  ['world_1797',['World',['../da/dc8/classgalaxy_1_1core_1_1World.html',1,'galaxy::core']]]
+  ['window_1817',['Window',['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core']]],
+  ['windowresized_1818',['WindowResized',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html',1,'galaxy::events']]],
+  ['windowsettings_1819',['WindowSettings',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html',1,'galaxy::core']]],
+  ['world_1820',['World',['../da/dc8/classgalaxy_1_1core_1_1World.html',1,'galaxy::core']]]
 ];

@@ -1,5 +1,5 @@
 <map id="galaxy::components::Primitive" name="galaxy::components::Primitive">
-<area shape="rect" id="node1" title="2D primitive shape." alt="" coords="451,667,605,1023"/>
+<area shape="rect" id="node1" title="2D primitive shape." alt="" coords="451,667,605,1037"/>
 <area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,365,216,575"/>
 <area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,395,410,545"/>
 <area shape="rect" id="node4" href="$d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="435,395,621,545"/>

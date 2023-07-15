@@ -109,57 +109,65 @@ $(document).ready(function(){initNavTree('dd/dae/Flag_8cpp_source.html','../../'
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">deserialize</a>(json);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a16a5bac2988c9d04f67f0e9cee24b102">   27</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a7d8f75fa6df49ce782765c3ea399119d">Flag::Flag</a>(<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp;&amp; t)</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a33257b0c7b2320c7141fedbe8282ca06">   27</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a7d8f75fa6df49ce782765c3ea399119d">Flag::Flag</a>(<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>* ptr)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            : Serializable {}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            this-&gt;<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a> = std::move(t.m_flags);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">   33</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp; <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">Flag::operator=</a>(<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp;&amp; t)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;t)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                this-&gt;<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a> = std::move(t.m_flags);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">   43</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">Flag::~Flag</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">   47</a></span>&#160;        nlohmann::json <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">Flag::serialize</a>()</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            nlohmann::json json = <span class="stringliteral">&quot;{}&quot;</span>_json;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; copy = *ptr;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            this-&gt;<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a> = copy.m_flags;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a16a5bac2988c9d04f67f0e9cee24b102">   35</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a7d8f75fa6df49ce782765c3ea399119d">Flag::Flag</a>(<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp;&amp; t)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : Serializable {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            this-&gt;<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a> = std::move(t.m_flags);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">   41</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp; <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">Flag::operator=</a>(<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">Flag</a>&amp;&amp; t)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;t)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                this-&gt;<a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a> = std::move(t.m_flags);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code" href="../../d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76">GALAXY_FLAG_BITSET_COUNT</a>; i++)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                json[<span class="stringliteral">&quot;flags&quot;</span>][std::to_string(i)] = <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a>.test(i);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> json;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">   51</a></span>&#160;        <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">Flag::~Flag</a>()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">   55</a></span>&#160;        nlohmann::json <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">Flag::serialize</a>()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            nlohmann::json json = <span class="stringliteral">&quot;{}&quot;</span>_json;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">   59</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">Flag::deserialize</a>(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; flags = json.at(<span class="stringliteral">&quot;flags&quot;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [index, value] : flags.items())</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a>.set(std::stoi(index), value);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    } <span class="comment">// namespace components</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code" href="../../d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76">GALAXY_FLAG_BITSET_COUNT</a>; i++)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                json[<span class="stringliteral">&quot;flags&quot;</span>][std::to_string(i)] = <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a>.test(i);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> json;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">   67</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">Flag::deserialize</a>(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; flags = json.at(<span class="stringliteral">&quot;flags&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [index, value] : flags.items())</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">m_flags</a>.set(std::stoi(index), value);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    } <span class="comment">// namespace components</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aFlag_8hpp_html"><div class="ttname"><a href="../../d0/dda/Flag_8hpp.html">Flag.hpp</a></div></div>
 <div class="ttc" id="aGlobals_8hpp_html_a185ab3d46b5712aeaca2afb36eb9ea76"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76">GALAXY_FLAG_BITSET_COUNT</a></div><div class="ttdeci">#define GALAXY_FLAG_BITSET_COUNT</div><div class="ttdoc">Number of bits in a flag bitset.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00070">Globals.hpp:70</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html">galaxy::components::Flag</a></div><div class="ttdoc">Flag an entity.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dda/Flag_8hpp_source.html#l00026">Flag.hpp:27</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_a6c7a820bdad9fd14bc4b3eeb7bf0e7b5"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">galaxy::components::Flag::m_flags</a></div><div class="ttdeci">std::bitset&lt; GALAXY_FLAG_BITSET_COUNT &gt; m_flags</div><div class="ttdoc">Stores entity flags.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dda/Flag_8hpp_source.html#l00115">Flag.hpp:115</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_a6c7a820bdad9fd14bc4b3eeb7bf0e7b5"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5">galaxy::components::Flag::m_flags</a></div><div class="ttdeci">std::bitset&lt; GALAXY_FLAG_BITSET_COUNT &gt; m_flags</div><div class="ttdoc">Stores entity flags.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dda/Flag_8hpp_source.html#l00122">Flag.hpp:122</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_a7d8f75fa6df49ce782765c3ea399119d"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a7d8f75fa6df49ce782765c3ea399119d">galaxy::components::Flag::Flag</a></div><div class="ttdeci">Flag()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00016">Flag.cpp:16</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_a8d8a4183a678bcdb45bd7d6b2962f62f"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">galaxy::components::Flag::deserialize</a></div><div class="ttdeci">void deserialize(const nlohmann::json &amp;json) override</div><div class="ttdoc">Deserializes from object.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00059">Flag.cpp:59</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_acc1880e1c9ed6f76849d8f6e4fa11739"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">galaxy::components::Flag::~Flag</a></div><div class="ttdeci">virtual ~Flag()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00043">Flag.cpp:43</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_ae2010337eea684004cd4b8281cdc40d1"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">galaxy::components::Flag::serialize</a></div><div class="ttdeci">nlohmann::json serialize() override</div><div class="ttdoc">Serializes object.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00047">Flag.cpp:47</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_aff6a82bf629becf3a2dca0425f00d6d0"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">galaxy::components::Flag::operator=</a></div><div class="ttdeci">Flag &amp; operator=(Flag &amp;&amp;)</div><div class="ttdoc">Move assignment operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00033">Flag.cpp:33</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_a8d8a4183a678bcdb45bd7d6b2962f62f"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f">galaxy::components::Flag::deserialize</a></div><div class="ttdeci">void deserialize(const nlohmann::json &amp;json) override</div><div class="ttdoc">Deserializes from object.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00067">Flag.cpp:67</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_acc1880e1c9ed6f76849d8f6e4fa11739"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#acc1880e1c9ed6f76849d8f6e4fa11739">galaxy::components::Flag::~Flag</a></div><div class="ttdeci">virtual ~Flag()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00051">Flag.cpp:51</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_ae2010337eea684004cd4b8281cdc40d1"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1">galaxy::components::Flag::serialize</a></div><div class="ttdeci">nlohmann::json serialize() override</div><div class="ttdoc">Serializes object.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00055">Flag.cpp:55</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1components_1_1Flag_html_aff6a82bf629becf3a2dca0425f00d6d0"><div class="ttname"><a href="../../d7/dc7/classgalaxy_1_1components_1_1Flag.html#aff6a82bf629becf3a2dca0425f00d6d0">galaxy::components::Flag::operator=</a></div><div class="ttdeci">Flag &amp; operator=(Flag &amp;&amp;)</div><div class="ttdoc">Move assignment operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/Flag_8cpp_source.html#l00041">Flag.cpp:41</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -167,7 +175,7 @@ $(document).ready(function(){initNavTree('dd/dae/Flag_8cpp_source.html','../../'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2b954ff381b9b3885b7442a3ec8b9d3a.html">components</a></li><li class="navelem"><a class="el" href="../../dd/dae/Flag_8cpp.html">Flag.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 11 2023 09:09:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 15 2023 13:17:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
