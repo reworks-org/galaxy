@@ -34,6 +34,13 @@ namespace galaxy
 			LightSource(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			LightSource(LightSource* ptr);
+
+			///
 			/// Move constructor.
 			///
 			LightSource(LightSource&&);

@@ -17,12 +17,20 @@ namespace galaxy
 	namespace components
 	{
 		Script::Script()
+			: Serializable {}
 		{
 		}
 
 		Script::Script(const nlohmann::json& json)
+			: Serializable {}
 		{
 			deserialize(json);
+		}
+
+		Script::Script(Script* ptr)
+			: Serializable {}
+		{
+			this->load_internal(ptr->file());
 		}
 
 		Script::Script(Script&& s)

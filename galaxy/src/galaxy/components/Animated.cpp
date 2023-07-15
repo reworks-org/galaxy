@@ -32,6 +32,17 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		Animated::Animated(Animated* ptr)
+			: Serializable {}
+			, m_active {nullptr}
+			, m_paused {true}
+			, m_time_spent_on_frame {0.0}
+		{
+			const auto& copy = *ptr;
+
+			this->m_animations = copy.m_animations;
+		}
+
 		Animated::Animated(Animated&& a)
 			: Serializable {}
 			, m_active {nullptr}

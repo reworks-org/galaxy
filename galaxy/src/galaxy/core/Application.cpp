@@ -15,6 +15,16 @@
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/components/Animated.hpp"
+#include "galaxy/components/Flag.hpp"
+#include "galaxy/components/LightSource.hpp"
+#include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/RigidBody.hpp"
+#include "galaxy/components/Script.hpp"
+#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Tag.hpp"
+#include "galaxy/components/Text.hpp"
+#include "galaxy/components/Transform.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
@@ -22,6 +32,7 @@
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
+#include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
@@ -293,6 +304,27 @@ namespace galaxy
 			ServiceLocator<graphics::FontContext>::make();
 
 			//
+			// Set up entity metadata.
+			//
+			auto& em = ServiceLocator<meta::EntityMeta>::make();
+			em.register_component<components::Animated>("Animated");
+			em.register_component<components::Flag>("Flag");
+			em.register_component<components::LightSource>("LightSource");
+			em.register_component<components::Primitive>("Primitive");
+			em.register_component<components::RigidBody>("RigidBody");
+			em.register_component<components::Script>("Script");
+			em.register_component<components::Sprite>("Sprite");
+			em.register_component<components::Tag>("Tag");
+			em.register_component<components::Text>("Text");
+			em.register_component<components::Transform>("Transform");
+
+			em.register_dependencies<components::Sprite, components::Transform>();
+			em.register_dependencies<components::Primitive, components::Transform>();
+			em.register_dependencies<components::Text, components::Transform>();
+			em.register_dependencies<components::Animated, components::Sprite>();
+			em.register_dependencies<components::RigidBody, components::Transform>();
+
+			//
 			// Initialize Lua.
 			//
 			auto& lua = ServiceLocator<sol::state>::make();
@@ -380,6 +412,7 @@ namespace galaxy
 			ServiceLocator<media::AudioEngine>::del();
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<graphics::FontContext>::del();
+			ServiceLocator<meta::EntityMeta>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();

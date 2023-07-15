@@ -63,6 +63,13 @@ namespace galaxy
 			Text(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			Text(Text* ptr);
+
+			///
 			/// Move constructor.
 			///
 			Text(Text&&);

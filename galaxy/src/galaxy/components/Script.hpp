@@ -45,6 +45,13 @@ namespace galaxy
 			Script(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			Script(Script* ptr);
+
+			///
 			/// Move constructor.
 			///
 			Script(Script&&);

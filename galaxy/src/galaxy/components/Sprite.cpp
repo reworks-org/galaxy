@@ -17,18 +17,29 @@ namespace galaxy
 	namespace components
 	{
 		Sprite::Sprite()
-			: m_opacity {1.0f}
+			: Serializable {}
+			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
-			: m_opacity {1.0f}
+			: Serializable {}
+			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
 		{
 			deserialize(json);
+		}
+
+		Sprite::Sprite(Sprite* ptr)
+			: Serializable {}
+			, m_opacity {1.0f}
+			, m_width {0.0f}
+			, m_height {0.0f}
+		{
+			create(ptr->m_tex_name, ptr->m_layer, ptr->m_opacity, ptr->m_normal_mapped);
 		}
 
 		Sprite::Sprite(Sprite&& s)

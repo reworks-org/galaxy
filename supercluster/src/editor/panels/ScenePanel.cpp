@@ -276,8 +276,8 @@ namespace sc
 						{
 							if (selected.m_selected != entt::null && selected.m_world != nullptr)
 							{
-								const auto data   = scene->m_world.serialize_entity(selected.m_selected);
-								const auto base64 = algorithm::encode_base64(data.dump(4));
+								core::Prefab prefab {selected.m_selected, selected.m_world->m_registry};
+								const auto base64 = algorithm::encode_base64(prefab.to_json().dump(4));
 								const auto zlib   = algorithm::encode_zlib(base64);
 
 								auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();

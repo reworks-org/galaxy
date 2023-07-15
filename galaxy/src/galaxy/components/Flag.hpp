@@ -39,6 +39,13 @@ namespace galaxy
 			Flag(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			Flag(Flag* ptr);
+
+			///
 			/// Move constructor.
 			///
 			Flag(Flag&&);

@@ -41,6 +41,18 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		Text::Text(Text* ptr)
+			: Renderable {}
+			, Serializable {}
+			, m_font {nullptr}
+			, m_width {0.0f}
+			, m_height {0.0f}
+			, m_size {0.0f}
+			, m_alignment {Alignment::LEFT}
+		{
+			create(ptr->m_text, ptr->m_size, ptr->m_font_name, ptr->m_colour, ptr->m_layer, ptr->m_alignment);
+		}
+
 		Text::Text(Text&& t)
 			: Renderable {std::move(t)}
 			, Serializable {}

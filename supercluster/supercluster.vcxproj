@@ -104,7 +104,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <ErrorReporting>None</ErrorReporting>
-      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /D_ITERATOR_DEBUG_LEVEL=0 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,7 +162,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <ErrorReporting>None</ErrorReporting>
-      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /D_ITERATOR_DEBUG_LEVEL=0 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>

@@ -37,6 +37,42 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		Primitive::Primitive(Primitive* ptr)
+			: Renderable {}
+			, Serializable {}
+			, m_width {0}
+			, m_height {0}
+			, m_shape {graphics::Shape::POLYGON}
+			, m_mode {0}
+		{
+			switch (ptr->m_shape)
+			{
+				case graphics::Shape::CIRCLE:
+					create<graphics::Shape::CIRCLE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+
+				case graphics::Shape::ELLIPSE:
+					create<graphics::Shape::ELLIPSE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+
+				case graphics::Shape::LINE:
+					create<graphics::Shape::LINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+
+				case graphics::Shape::POINT:
+					create<graphics::Shape::POINT>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+
+				case graphics::Shape::POLYGON:
+					create<graphics::Shape::POLYGON>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+
+				case graphics::Shape::POLYLINE:
+					create<graphics::Shape::POLYLINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+					break;
+			}
+		}
+
 		Primitive::Primitive(Primitive&& p)
 			: Renderable {std::move(p)}
 			, Serializable {}
@@ -45,13 +81,17 @@ namespace galaxy
 			, m_shape {graphics::Shape::POLYGON}
 			, m_mode {0}
 		{
-			this->m_colour = std::move(p.m_colour);
-			this->m_width  = p.m_width;
-			this->m_height = p.m_height;
-			this->m_shape  = p.m_shape;
-			this->m_data   = std::move(p.m_data);
-			this->m_vao    = std::move(p.m_vao);
-			this->m_mode   = p.m_mode;
+			this->m_colour         = std::move(p.m_colour);
+			this->m_width          = p.m_width;
+			this->m_height         = p.m_height;
+			this->m_shape          = p.m_shape;
+			this->m_data.fragments = p.m_data.fragments;
+			this->m_data.points    = std::move(p.m_data.points);
+			this->m_data.radii     = std::move(p.m_data.radii);
+			this->m_data.radius    = p.m_data.radius;
+			this->m_data.start_end = std::move(p.m_data.start_end);
+			this->m_vao            = std::move(p.m_vao);
+			this->m_mode           = p.m_mode;
 		}
 
 		Primitive& Primitive::operator=(Primitive&& p)
@@ -60,13 +100,17 @@ namespace galaxy
 			{
 				this->Renderable::operator=(std::move(p));
 
-				this->m_colour = std::move(p.m_colour);
-				this->m_width  = p.m_width;
-				this->m_height = p.m_height;
-				this->m_shape  = p.m_shape;
-				this->m_data   = std::move(p.m_data);
-				this->m_vao    = std::move(p.m_vao);
-				this->m_mode   = p.m_mode;
+				this->m_colour         = std::move(p.m_colour);
+				this->m_width          = p.m_width;
+				this->m_height         = p.m_height;
+				this->m_shape          = p.m_shape;
+				this->m_data.fragments = p.m_data.fragments;
+				this->m_data.points    = std::move(p.m_data.points);
+				this->m_data.radii     = std::move(p.m_data.radii);
+				this->m_data.radius    = p.m_data.radius;
+				this->m_data.start_end = std::move(p.m_data.start_end);
+				this->m_vao            = std::move(p.m_vao);
+				this->m_mode           = p.m_mode;
 			}
 
 			return *this;

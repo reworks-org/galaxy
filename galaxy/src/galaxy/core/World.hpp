@@ -11,10 +11,9 @@
 #include <typeindex>
 
 #include <box2d/b2_world.h>
-#include <entt/entity/registry.hpp>
+#include <entt/entt.hpp>
 #include <robin_hood.h>
 
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/systems/RenderSystem.hpp"
 
@@ -39,8 +38,8 @@ namespace galaxy
 		///
 		class World final : public fs::Serializable
 		{
-			using SystemContainer  = meta::vector<std::shared_ptr<systems::System>>;
-			using ComponentFactory = robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, const nlohmann::json&)>>;
+			using SystemContainer = meta::vector<std::shared_ptr<systems::System>>;
+			using B2BodyFactory   = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
 
 		public:
 			///
@@ -63,9 +62,7 @@ namespace galaxy
 			[[maybe_unused]] entt::entity create();
 
 			///
-			/// \brief Create an entity from a prefab.
-			///
-			/// If your using this make sure you have called register_component().
+			/// Create an entity from a prefab.
 			///
 			/// \param name Name of the prefab to load.
 			///
@@ -83,29 +80,6 @@ namespace galaxy
 			/// \return Created entity, or entt::null if failed.
 			///
 			[[maybe_unused]] entt::entity create_from_json(const nlohmann::json& json);
-
-			///
-			/// Defines a dependency validation for components.
-			///
-			template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
-			void register_dependencies();
-
-			///
-			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
-			///
-			/// \return True if entity is valid.
-			///
-			[[nodiscard]] bool is_valid(const entt::entity entity);
-
-			///
-			/// Registers a component definition.
-			///
-			/// \tparam Component A valid component type is required. Must be move assignable/constructible and a class with a json constructor.
-			///
-			/// \param name Name of component class in string format i.e. "Transform" or "Tag".
-			///
-			template<meta::valid_component Component>
-			void register_component(const std::string& name);
 
 			///
 			/// \brief Add a system to the manager.
@@ -138,6 +112,15 @@ namespace galaxy
 			void clear();
 
 			///
+			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
+			///
+			/// \param entity Entity to validate.
+			///
+			/// \return True if entity is valid.
+			///
+			[[nodiscard]] bool is_valid(const entt::entity entity);
+
+			///
 			/// \brief Get b2World as a raw pointer.
 			///
 			/// Prefer accessing the unique ptr.
@@ -145,15 +128,6 @@ namespace galaxy
 			/// \return Raw pointer. Do NOT delete.
 			///
 			[[nodiscard]] b2World* b2world();
-
-			///
-			/// Serialise a single entity.
-			///
-			/// \param entity Entity to serialize.
-			///
-			/// \return JSON entity data.
-			///
-			[[nodiscard]] nlohmann::json serialize_entity(const entt::entity entity);
 
 			///
 			/// Serializes object.
@@ -255,21 +229,6 @@ namespace galaxy
 			SystemContainer m_systems;
 
 			///
-			/// Used to allow for component creation without having to know the compile time type.
-			///
-			ComponentFactory m_component_factory;
-
-			///
-			/// Stores validation configurations.
-			///
-			robin_hood::unordered_flat_map<std::type_index, std::function<bool(const entt::entity)>> m_validations;
-
-			///
-			/// Validations to run upon request.
-			///
-			meta::vector<std::type_index> m_validations_to_run;
-
-			///
 			/// Rendersystem index.
 			///
 			int m_rendersystem_index;
@@ -277,55 +236,13 @@ namespace galaxy
 			///
 			/// List of rigid bodies that need to be constructed.
 			///
-			meta::vector<std::pair<components::RigidBody*, components::Transform*>> m_bodies_to_construct;
+			B2BodyFactory m_bodies_to_construct;
 
 			///
 			/// Pointer to scene this world belongs to.
 			///
 			scene::Scene* m_scene;
 		};
-
-		template<meta::valid_component ToValidate, meta::valid_component... Dependencies>
-		inline void World::register_dependencies()
-		{
-			const auto index = std::type_index(typeid(ToValidate));
-			if (!m_validations.contains(index))
-			{
-				m_validations[index] = [this](const entt::entity entity) -> bool {
-					const ToValidate* component = m_registry.try_get<ToValidate>(entity);
-					if (component)
-					{
-						return m_registry.all_of<Dependencies...>(entity);
-					}
-					else
-					{
-						// If we dont have component needing to be validated, then entity is valid.
-						return true;
-					}
-				};
-
-				m_validations_to_run.push_back(index);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to register duplicate validation of a component dependency.");
-			}
-		}
-
-		template<meta::valid_component Component>
-		inline void World::register_component(const std::string& name)
-		{
-			if (!m_component_factory.contains(name))
-			{
-				m_component_factory.emplace(name, [this](const entt::entity entity, const nlohmann::json& json) {
-					this->m_registry.emplace<Component>(entity, json);
-				});
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Attempted to register duplicate component of type '{0}'.", name);
-			}
-		}
 
 		template<meta::is_system System, typename... Args>
 		inline std::weak_ptr<System> World::create_system(Args&&... args)

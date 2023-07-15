@@ -24,6 +24,14 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		Flag::Flag(Flag* ptr)
+			: Serializable {}
+		{
+			const auto& copy = *ptr;
+
+			this->m_flags = copy.m_flags;
+		}
+
 		Flag::Flag(Flag&& t)
 			: Serializable {}
 		{

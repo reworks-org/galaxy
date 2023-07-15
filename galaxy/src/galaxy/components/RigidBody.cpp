@@ -39,6 +39,22 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		RigidBody::RigidBody(RigidBody* ptr)
+			: Serializable {}
+		{
+			const auto& copy = *ptr;
+
+			this->m_shape                 = copy.m_shape;
+			this->m_type                  = copy.m_type;
+			this->m_density               = copy.m_density;
+			this->m_friction              = copy.m_friction;
+			this->m_restitution           = copy.m_restitution;
+			this->m_restitution_threshold = copy.m_restitution_threshold;
+			this->m_bullet                = copy.m_bullet;
+			this->m_fixed_rotation        = copy.m_fixed_rotation;
+			this->m_material              = copy.m_material;
+		}
+
 		RigidBody::RigidBody(RigidBody&& rb)
 			: Serializable {}
 		{

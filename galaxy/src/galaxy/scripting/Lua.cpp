@@ -67,6 +67,8 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/media/Sound.hpp"
 
+#include "galaxy/meta/EntityMeta.hpp"
+
 #include "galaxy/platform/Subprocess.hpp"
 
 #include "galaxy/resource/Fonts.hpp"
@@ -622,8 +624,12 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Transform>();
 
 			/* CORE */
-			auto prefab_type    = lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab()>());
-			prefab_type["data"] = &core::Prefab::m_data;
+			auto prefab_type =
+				lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab(entt::entity, entt::registry&), core::Prefab(const nlohmann::json&)>());
+			prefab_type["from_entity"] = &core::Prefab::from_entity;
+			prefab_type["from_json"]   = &core::Prefab::from_json;
+			prefab_type["to_entity"]   = &core::Prefab::to_entity;
+			prefab_type["to_json"]     = &core::Prefab::to_json;
 
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
 			config_type["load"]              = &core::Config::load;
@@ -1169,6 +1175,23 @@ namespace galaxy
 			audioengine_type["toggle_listener"]        = &media::AudioEngine::toggle_listener;
 			audioengine_type["stop"]                   = &media::AudioEngine::stop;
 
+			/* META */
+			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
+			entt_anytype["owner"] = &entt::any::owner;
+			entt_anytype["reset"] = &entt::any::reset;
+			entt_anytype["type"]  = &entt::any::type;
+
+			auto entitymeta_type                   = lua.new_usertype<meta::EntityMeta>("EntityMeta", sol::no_constructor);
+			entitymeta_type["any_factory"]         = &meta::EntityMeta::any_factory;
+			entitymeta_type["any_from_json"]       = &meta::EntityMeta::any_from_json;
+			entitymeta_type["copy_to_any"]         = &meta::EntityMeta::copy_to_any;
+			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
+			entitymeta_type["get_typeid"]          = &meta::EntityMeta::get_typeid;
+			entitymeta_type["get_validations"]     = &meta::EntityMeta::get_validations;
+			entitymeta_type["get_validation_list"] = &meta::EntityMeta::get_validation_list;
+			entitymeta_type["json_factory"]        = &meta::EntityMeta::json_factory;
+			entitymeta_type["serialize_entity"]    = &meta::EntityMeta::serialize_entity;
+
 			/* PHYSICS */
 			auto material_type                     = lua.new_usertype<physics::Material>("Material", sol::constructors<physics::Material()>());
 			material_type["density"]               = &physics::Material::density;
@@ -1335,6 +1358,7 @@ namespace galaxy
 			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 			lua["service_fs"]           = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
+			lua["service_entitymeta"]   = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
 		}
 
 		void load_external_libs()

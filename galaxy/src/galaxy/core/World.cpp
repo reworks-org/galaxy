@@ -7,12 +7,10 @@
 
 #include <box2d/b2_fixture.h>
 #include <box2d/b2_polygon_shape.h>
-#include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
@@ -21,9 +19,9 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
+#include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
@@ -46,28 +44,10 @@ namespace galaxy
 		{
 			m_b2world = std::make_unique<b2World>(b2Vec2 {0.0f, 0.0f});
 
-			register_component<components::Animated>("Animated");
-			register_component<components::Flag>("Flag");
-			register_component<components::LightSource>("LightSource");
-			register_component<components::Primitive>("Primitive");
-			register_component<components::RigidBody>("RigidBody");
-			register_component<components::Script>("Script");
-			register_component<components::Sprite>("Sprite");
-			register_component<components::Tag>("Tag");
-			register_component<components::Text>("Text");
-			register_component<components::Transform>("Transform");
-
 			m_registry.on_construct<components::Script>().connect<&World::construct_script>(this);
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
 			m_registry.on_construct<components::RigidBody>().connect<&World::construct_rigidbody>(this);
 			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
-
-			// Handle validation.
-			register_dependencies<components::Sprite, components::Transform>();
-			register_dependencies<components::Primitive, components::Transform>();
-			register_dependencies<components::Text, components::Transform>();
-			register_dependencies<components::Animated, components::Sprite>();
-			register_dependencies<components::RigidBody, components::Transform>();
 
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
@@ -118,7 +98,7 @@ namespace galaxy
 			auto& prefabs = core::ServiceLocator<resource::Prefabs>::ref();
 			if (prefabs.has(name))
 			{
-				return create_from_json(prefabs.get(name)->m_data);
+				return prefabs.get(name)->to_entity(m_registry);
 			}
 			else
 			{
@@ -132,13 +112,13 @@ namespace galaxy
 			const auto entity      = m_registry.create();
 			const auto& components = json.at("components");
 
-			// Loop over components
 			if (!components.empty())
 			{
+				auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 				for (const auto& [key, value] : components.items())
 				{
 					// Use the assign function to create components for entities without having to know the type.
-					m_component_factory[key](entity, value);
+					em.json_factory(key, entity, m_registry, value);
 				}
 			}
 
@@ -156,19 +136,6 @@ namespace galaxy
 			}
 
 			return entity;
-		}
-
-		bool World::is_valid(const entt::entity entity)
-		{
-			for (const auto& index : m_validations_to_run)
-			{
-				if (!m_validations[index](entity))
-				{
-					return false;
-				}
-			}
-
-			return true;
 		}
 
 		void World::update()
@@ -215,10 +182,24 @@ namespace galaxy
 			}
 		}
 
+		bool World::is_valid(const entt::entity entity)
+		{
+			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
+
+			for (const auto& hash : em.get_validation_list())
+			{
+				if (!(em.get_validations().at(hash)(entity, m_registry)))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
 		void World::clear()
 		{
 			m_systems.clear();
-			m_component_factory.clear();
 			m_registry.clear();
 			m_bodies_to_construct.clear();
 
@@ -230,79 +211,12 @@ namespace galaxy
 			return m_b2world.get();
 		}
 
-		nlohmann::json World::serialize_entity(const entt::entity entity)
-		{
-			nlohmann::json json = nlohmann::json::object();
-			json["components"]  = nlohmann::json::object();
-
-			auto animated = m_registry.try_get<components::Animated>(entity);
-			if (animated != nullptr)
-			{
-				json["components"]["Animated"] = animated->serialize();
-			}
-
-			auto flag = m_registry.try_get<components::Flag>(entity);
-			if (flag != nullptr)
-			{
-				json["components"]["Flag"] = flag->serialize();
-			}
-
-			auto lightsource = m_registry.try_get<components::LightSource>(entity);
-			if (lightsource != nullptr)
-			{
-				json["components"]["LightSource"] = lightsource->serialize();
-			}
-
-			auto primitive = m_registry.try_get<components::Primitive>(entity);
-			if (primitive != nullptr)
-			{
-				json["components"]["Primitive"] = primitive->serialize();
-			}
-
-			auto rigidbody = m_registry.try_get<components::RigidBody>(entity);
-			if (rigidbody != nullptr)
-			{
-				json["components"]["RigidBody"] = rigidbody->serialize();
-			}
-
-			auto script = m_registry.try_get<components::Script>(entity);
-			if (script != nullptr)
-			{
-				json["components"]["Script"] = script->serialize();
-			}
-
-			auto sprite = m_registry.try_get<components::Sprite>(entity);
-			if (sprite != nullptr)
-			{
-				json["components"]["Sprite"] = sprite->serialize();
-			}
-
-			auto tag = m_registry.try_get<components::Tag>(entity);
-			if (tag != nullptr)
-			{
-				json["components"]["Tag"] = tag->serialize();
-			}
-
-			auto text = m_registry.try_get<components::Text>(entity);
-			if (text != nullptr)
-			{
-				json["components"]["Text"] = text->serialize();
-			}
-
-			auto transform = m_registry.try_get<components::Transform>(entity);
-			if (transform != nullptr)
-			{
-				json["components"]["Transform"] = transform->serialize();
-			}
-
-			return json;
-		}
-
 		nlohmann::json World::serialize()
 		{
 			nlohmann::json json = "{}"_json;
+			json["entities"]    = nlohmann::json::array();
 
-			json["entities"] = nlohmann::json::array();
+			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
 			m_registry.each([&](const entt::entity entity) -> void {
 				auto flag = m_registry.try_get<components::Flag>(entity);
@@ -310,7 +224,7 @@ namespace galaxy
 				{
 					if (flag->is_flag_set<flags::AllowSerialize>())
 					{
-						json["entities"].push_back(serialize_entity(entity));
+						json["entities"].push_back(em.serialize_entity(entity, m_registry));
 					}
 				}
 			});

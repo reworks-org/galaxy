@@ -40,6 +40,21 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		Transform::Transform(Transform* ptr)
+			: Serializable {}
+			, m_pos {0.0f, 0.0f, 0.0f}
+			, m_rotation {0.0f}
+			, m_scale {1.0f, 1.0f}
+			, m_origin {0.0f, 0.0f, 0.0f}
+		{
+			const auto& copy = *ptr;
+
+			this->m_pos      = copy.m_pos;
+			this->m_rotation = copy.m_rotation;
+			this->m_scale    = copy.m_scale;
+			this->m_origin   = copy.m_origin;
+		}
+
 		Transform::Transform(Transform&& t)
 			: Serializable {}
 		{

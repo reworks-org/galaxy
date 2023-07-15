@@ -44,8 +44,7 @@ namespace galaxy
 						const auto base64       = algorithm::decode_zlib(data);
 						const auto decompressed = algorithm::decode_base64(base64);
 
-						m_cache[name]         = std::make_shared<core::Prefab>();
-						m_cache[name]->m_data = nlohmann::json::parse(decompressed);
+						m_cache[name] = std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
 					}
 				}
 			}

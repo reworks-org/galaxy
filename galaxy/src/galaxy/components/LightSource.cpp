@@ -28,6 +28,17 @@ namespace galaxy
 			deserialize(json);
 		}
 
+		LightSource::LightSource(LightSource* ptr)
+			: Serializable {}
+		{
+			const auto& copy = *ptr;
+
+			this->m_light.colour  = copy.m_light.colour;
+			this->m_light.falloff = copy.m_light.falloff;
+			this->m_light.pos     = copy.m_light.pos;
+			this->m_light.depth   = copy.m_light.depth;
+		}
+
 		LightSource::LightSource(LightSource&& l)
 			: Serializable {}
 		{

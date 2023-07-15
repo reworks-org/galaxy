@@ -147,6 +147,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
     <ClCompile Include="src\galaxy\components\LightSource.cpp" />
     <ClCompile Include="src\galaxy\graphics\Light.cpp" />
+    <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -295,5 +296,6 @@
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
     <ClInclude Include="src\galaxy\components\LightSource.hpp" />
     <ClInclude Include="src\galaxy\graphics\Light.hpp" />
+    <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
   </ItemGroup>
 </Project>

@@ -50,6 +50,13 @@ namespace galaxy
 			RigidBody(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			RigidBody(RigidBody* ptr);
+
+			///
 			/// Move constructor.
 			///
 			RigidBody(RigidBody&&);

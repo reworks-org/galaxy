@@ -53,6 +53,13 @@ namespace galaxy
 			Sprite(const nlohmann::json& json);
 
 			///
+			/// Pointer constructor.
+			///
+			/// \param ptr Data to COPY into this component.
+			///
+			Sprite(Sprite* ptr);
+
+			///
 			/// Move constructor.
 			///
 			Sprite(Sprite&&);
