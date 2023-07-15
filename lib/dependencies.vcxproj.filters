@@ -370,6 +370,7 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Trie.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -1368,6 +1369,8 @@
     <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
     <ClInclude Include="tileson\include\tileson.hpp" />
+    <ClInclude Include="imgui\imgui_addons\imnodes.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

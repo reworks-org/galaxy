@@ -15,6 +15,9 @@
     <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
     <ClCompile Include="src\editor\Settings.cpp" />
     <ClCompile Include="src\editor\SelectedAsset.cpp" />
+    <ClCompile Include="src\editor\panels\noise\FastNoiseNodeEditor.cpp" />
+    <ClCompile Include="src\editor\panels\noise\NoisePanel.cpp" />
+    <ClCompile Include="src\editor\panels\noise\NoiseTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\Editor.hpp" />
@@ -30,5 +33,8 @@
     <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
     <ClInclude Include="src\editor\Settings.hpp" />
     <ClInclude Include="src\editor\SelectedAsset.hpp" />
+    <ClInclude Include="src\editor\panels\noise\FastNoiseNodeEditor.h" />
+    <ClInclude Include="src\editor\panels\noise\NoisePanel.hpp" />
+    <ClInclude Include="src\editor\panels\noise\NoiseTexture.h" />
   </ItemGroup>
 </Project>

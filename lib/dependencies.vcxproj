@@ -109,6 +109,7 @@
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_presets.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_renderer.cpp" />
+    <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui_freetype.cpp" />
@@ -867,6 +868,8 @@
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_palette.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
     <ClInclude Include="imgui\imgui_addons\imspinner.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
