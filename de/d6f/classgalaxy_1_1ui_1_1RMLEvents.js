@@ -9,6 +9,7 @@ var classgalaxy_1_1ui_1_1RMLEvents =
     [ "on_mouse_pressed", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a8681bef3bfbb3bf18623f57b66139314", null ],
     [ "on_mouse_released", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a31be0675ccd09b1b9721c90658056c5f", null ],
     [ "on_mouse_wheel", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aad8ecd35e6a043c82dd27c36d098ea16", null ],
+    [ "on_mouse_enter", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a108706bebad5fae55fdc9ebf04f277ff", null ],
     [ "on_key_down", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#ab19931d64a7196b7a164c5068e7c94d2", null ],
     [ "on_key_repeat", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#abac7a6e32235e372546dfe108100009d", null ],
     [ "on_key_up", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#abe0a77158803e5157d03868dd8bc2155", null ],

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_1718',['Data',['../de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html',1,'galaxy::graphics::Camera']]],
-  ['donotuserefertoconfigformacronames_1719',['doNotUseReferToConfigForMacroNames',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html',1,'galaxy']]]
+  ['data_1747',['Data',['../de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html',1,'galaxy::graphics::Camera']]],
+  ['donotuserefertoconfigformacronames_1748',['doNotUseReferToConfigForMacroNames',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html',1,'galaxy']]]
 ];

@@ -22,6 +22,10 @@ var dir_e4e12536003b5868dacffd6be6350da8 =
     [ "KeyUp.hpp", "d9/df2/KeyUp_8hpp.html", [
       [ "KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", "d1/d16/structgalaxy_1_1events_1_1KeyUp" ]
     ] ],
+    [ "MouseEnter.cpp", "dd/de8/MouseEnter_8cpp.html", null ],
+    [ "MouseEnter.hpp", "d6/d34/MouseEnter_8hpp.html", [
+      [ "MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", "d0/d34/structgalaxy_1_1events_1_1MouseEnter" ]
+    ] ],
     [ "MouseMoved.cpp", "d9/d32/MouseMoved_8cpp.html", null ],
     [ "MouseMoved.hpp", "d3/d08/MouseMoved_8hpp.html", [
       [ "MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", "db/da7/structgalaxy_1_1events_1_1MouseMoved" ]

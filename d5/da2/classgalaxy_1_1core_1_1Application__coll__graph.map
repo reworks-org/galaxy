@@ -1,24 +1,13 @@
 <map id="galaxy::core::Application" name="galaxy::core::Application">
-<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="627,2533,809,2713"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="381,2129,610,2471"/>
-<area shape="rect" id="node3" title=" " alt="" coords="258,1850,418,1927"/>
-<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="443,1711,604,2067"/>
-<area shape="rect" id="node5" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1314,196,1582"/>
-<area shape="rect" id="node6" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="271,969,463,1134"/>
-<area shape="rect" id="node7" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="220,1351,411,1545"/>
-<area shape="rect" id="node17" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="435,1358,611,1538"/>
-<area shape="rect" id="node18" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="636,1248,848,1648"/>
-<area shape="rect" id="node8" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="872,1321,1087,1575"/>
-<area shape="rect" id="node9" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="743,917,925,1185"/>
-<area shape="rect" id="node10" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="727,440,941,840"/>
-<area shape="rect" id="node11" title=" " alt="" coords="755,293,913,370"/>
-<area shape="rect" id="node12" title=" " alt="" coords="773,145,895,223"/>
-<area shape="rect" id="node13" title=" " alt="" coords="815,5,853,83"/>
-<area shape="rect" id="node14" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="950,917,1131,1185"/>
-<area shape="rect" id="node15" title=" " alt="" coords="997,601,1084,679"/>
-<area shape="rect" id="node16" title=" " alt="" coords="971,285,1110,377"/>
-<area shape="rect" id="node19" href="$d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html" title="Custom RML system interface." alt="" coords="634,2217,805,2383"/>
-<area shape="rect" id="node20" title=" " alt="" coords="638,1850,801,1927"/>
-<area shape="rect" id="node21" href="$d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html" title="Custom RML file interface." alt="" coords="854,2217,998,2383"/>
-<area shape="rect" id="node22" title=" " alt="" coords="857,1850,995,1927"/>
+<area shape="rect" id="node1" title="Base level class for any galaxy application." alt="" coords="626,939,809,1119"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="290,579,510,876"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,343,165,421"/>
+<area shape="rect" id="node4" href="$d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html" title=" " alt="" coords="189,314,387,450"/>
+<area shape="rect" id="node5" href="$dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData.html" title=" " alt="" coords="185,42,391,134"/>
+<area shape="rect" id="node6" href="$d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html" title=" " alt="" coords="411,248,629,516"/>
+<area shape="rect" id="node7" href="$da/deb/structgalaxy_1_1ui_1_1RMLStencil.html" title=" " alt="" coords="437,5,603,171"/>
+<area shape="rect" id="node8" href="$d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html" title="Custom RML system interface." alt="" coords="640,645,811,810"/>
+<area shape="rect" id="node9" title=" " alt="" coords="653,343,816,421"/>
+<area shape="rect" id="node10" href="$d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html" title="Custom RML file interface." alt="" coords="853,645,997,810"/>
+<area shape="rect" id="node11" title=" " alt="" coords="857,343,994,421"/>
 </map>

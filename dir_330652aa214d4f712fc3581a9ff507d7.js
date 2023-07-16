@@ -17,9 +17,7 @@ var dir_330652aa214d4f712fc3581a9ff507d7 =
       [ "RMLInput", "df/d1c/classgalaxy_1_1ui_1_1RMLInput.html", "df/d1c/classgalaxy_1_1ui_1_1RMLInput" ]
     ] ],
     [ "RMLRenderer.cpp", "df/d8d/RMLRenderer_8cpp.html", "df/d8d/RMLRenderer_8cpp" ],
-    [ "RMLRenderer.hpp", "d1/d92/RMLRenderer_8hpp.html", [
-      [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer" ]
-    ] ],
+    [ "RMLRenderer.hpp", "d1/d92/RMLRenderer_8hpp.html", "d1/d92/RMLRenderer_8hpp" ],
     [ "RMLSystem.cpp", "dc/d3a/RMLSystem_8cpp.html", null ],
     [ "RMLSystem.hpp", "d9/d53/RMLSystem_8hpp.html", [
       [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem" ]

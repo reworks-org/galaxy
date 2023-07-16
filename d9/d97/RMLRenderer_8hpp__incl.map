@@ -1,4 +1,5 @@
 <map id="galaxy/src/galaxy/ui/RMLRenderer.hpp" name="galaxy/src/galaxy/ui/RMLRenderer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="37,5,190,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,221,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="65,5,219,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,100,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="125,95,341,121"/>
 </map>

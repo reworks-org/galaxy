@@ -1,6 +1,5 @@
 <map id="galaxy::ui::RMLRenderer::SetTransform" name="galaxy::ui::RMLRenderer::SetTransform">
-<area shape="rect" id="node1" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="663,5,843,47"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5db20547c78699cbd70b0f19b4486e73" title="Update transform and projections." alt="" coords="435,5,615,47"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="207,5,387,47"/>
-<area shape="rect" id="node4" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node1" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="435,5,615,47"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="207,5,387,47"/>
+<area shape="rect" id="node3" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="5,5,159,47"/>
 </map>

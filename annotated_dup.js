@@ -43,6 +43,7 @@ var annotated_dup =
         [ "KeyDown", "d7/d91/structgalaxy_1_1events_1_1KeyDown.html", "d7/d91/structgalaxy_1_1events_1_1KeyDown" ],
         [ "KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat" ],
         [ "KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", "d1/d16/structgalaxy_1_1events_1_1KeyUp" ],
+        [ "MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", "d0/d34/structgalaxy_1_1events_1_1MouseEnter" ],
         [ "MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", "db/da7/structgalaxy_1_1events_1_1MouseMoved" ],
         [ "MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", "d5/d15/structgalaxy_1_1events_1_1MousePressed" ],
         [ "MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", "dc/d78/structgalaxy_1_1events_1_1MouseReleased" ],
@@ -151,6 +152,11 @@ var annotated_dup =
         [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents" ],
         [ "RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile" ],
         [ "RMLInput", "df/d1c/classgalaxy_1_1ui_1_1RMLInput.html", "df/d1c/classgalaxy_1_1ui_1_1RMLInput" ],
+        [ "RMLCompiledGeometryData", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData" ],
+        [ "RMLProgramData", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData.html", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData" ],
+        [ "RMLShaderData", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData" ],
+        [ "RMLStencil", "da/deb/structgalaxy_1_1ui_1_1RMLStencil.html", "da/deb/structgalaxy_1_1ui_1_1RMLStencil" ],
+        [ "RMLGLStateBackup", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup" ],
         [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer" ],
         [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem" ]
       ] ],
@@ -158,11 +164,6 @@ var annotated_dup =
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
       [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ]
-    ] ],
-    [ "Gfx", "d2/dad/namespaceGfx.html", [
-      [ "CompiledGeometryData", "d1/daa/structGfx_1_1CompiledGeometryData.html", "d1/daa/structGfx_1_1CompiledGeometryData" ],
-      [ "ProgramData", "d8/d9d/structGfx_1_1ProgramData.html", "d8/d9d/structGfx_1_1ProgramData" ],
-      [ "ShadersData", "d2/d93/structGfx_1_1ShadersData.html", "d2/d93/structGfx_1_1ShadersData" ]
     ] ],
     [ "std", null, [
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]

@@ -1,10 +1,8 @@
 <map id="galaxy::core::Loader::load" name="galaxy::core::Loader::load">
-<area shape="rect" id="node1" title="Start loading job in task pool." alt="" coords="5,129,159,171"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="232,35,412,76"/>
-<area shape="rect" id="node6" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aced949f4f579082d62c38ee9abe040f1" title="Finish isolated rendering." alt="" coords="232,100,412,141"/>
-<area shape="rect" id="node7" href="$d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754" title="Check if an async thread has finished or not." alt="" coords="220,166,424,193"/>
-<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,217,437,243"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a7109dce6b8e40dcc7082792156b3afad" title="Get framebuffer size taking into account DPI." alt="" coords="719,5,887,47"/>
-<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5db20547c78699cbd70b0f19b4486e73" title="Update transform and projections." alt="" coords="485,64,665,105"/>
-<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="713,71,893,112"/>
+<area shape="rect" id="node1" title="Start loading job in task pool." alt="" coords="5,90,159,131"/>
+<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="219,57,399,98"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="459,5,689,32"/>
+<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#aced949f4f579082d62c38ee9abe040f1" title="Finish isolated rendering." alt="" coords="219,122,399,163"/>
+<area shape="rect" id="node6" href="$d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754" title="Check if an async thread has finished or not." alt="" coords="207,188,411,215"/>
+<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="484,57,664,98"/>
 </map>

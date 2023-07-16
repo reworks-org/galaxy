@@ -295,7 +295,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:aa5fedc1237e43edeb8f1a1c4c79ff353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only class concept.  <a href="../../d3/d12/namespacegalaxy_1_1meta.html#aa5fedc1237e43edeb8f1a1c4c79ff353">More...</a><br /></td></tr>
 <tr class="separator:aa5fedc1237e43edeb8f1a1c4c79ff353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0423de0a964f918c01546a9be89af5"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a3d0423de0a964f918c01546a9be89af5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a3d0423de0a964f918c01546a9be89af5">galaxy::meta::not_memory</a></td></tr>
+<tr class="memitem:a3d0423de0a964f918c01546a9be89af5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a3d0423de0a964f918c01546a9be89af5">galaxy::meta::not_memory</a> = !std::is_pointer&lt;Type&gt;::value &amp;&amp; !std::is_reference&lt;Type&gt;::value</td></tr>
 <tr class="memdesc:a3d0423de0a964f918c01546a9be89af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept to restrict templates to not pointers and not references.  <a href="../../d3/d12/namespacegalaxy_1_1meta.html#a3d0423de0a964f918c01546a9be89af5">More...</a><br /></td></tr>
 <tr class="separator:a3d0423de0a964f918c01546a9be89af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50d879db953b2baa96d79a4aa5dcc298"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
@@ -311,7 +311,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a07b5953089a1146025d8f3d92d3c0d12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for a type being a class, union, array, scalar or integral constant.  <a href="../../d3/d12/namespacegalaxy_1_1meta.html#a07b5953089a1146025d8f3d92d3c0d12">More...</a><br /></td></tr>
 <tr class="separator:a07b5953089a1146025d8f3d92d3c0d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a682ee767ec58c054e47bb57f051d4b30"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a682ee767ec58c054e47bb57f051d4b30"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a682ee767ec58c054e47bb57f051d4b30">galaxy::meta::is_bitset_flag</a> = requires(Type type) { Type::value &gt;= 0 &amp;&amp; Type::value &lt;= 7 &amp;&amp; std::is_same&lt;decltype(Type::value), unsigned short&gt;::value; }</td></tr>
+<tr class="memitem:a682ee767ec58c054e47bb57f051d4b30"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a682ee767ec58c054e47bb57f051d4b30">galaxy::meta::is_bitset_flag</a></td></tr>
 <tr class="memdesc:a682ee767ec58c054e47bb57f051d4b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure a value is a valid value for a std::bitset.  <a href="../../d3/d12/namespacegalaxy_1_1meta.html#a682ee767ec58c054e47bb57f051d4b30">More...</a><br /></td></tr>
 <tr class="separator:a682ee767ec58c054e47bb57f051d4b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b29a3202da0f5cf5da5df4749e156fb"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
@@ -325,7 +325,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7f735fbad00ad2f3f96d935c571f321a.html">meta</a></li><li class="navelem"><a class="el" href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></li>
-    <li class="footer">Generated on Sat Jul 15 2023 13:17:05 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jul 16 2023 08:48:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
