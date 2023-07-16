@@ -18,7 +18,7 @@ namespace galaxy
 		void configure_terminal()
 		{
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-			DWORD  mode   = 0;
+			DWORD mode    = 0;
 
 			if (handle != nullptr)
 			{

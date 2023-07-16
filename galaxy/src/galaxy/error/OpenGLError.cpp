@@ -64,12 +64,8 @@ namespace galaxy
 			return errors;
 		}
 
-		void gl_add_error(const unsigned int source,
-			const unsigned int type,
-			const unsigned int id,
-			const unsigned int severity,
-			const int length,
-			const char* buf)
+		void
+		gl_add_error(const unsigned int source, const unsigned int type, const unsigned int id, const unsigned int severity, const int length, const char* buf)
 		{
 			glDebugMessageInsert(source, type, id, severity, length, buf);
 		}

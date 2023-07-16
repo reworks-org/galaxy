@@ -1,0 +1,1 @@
+find galaxy/src/ -iname *.cpp | xargs clang-format -i -style=file

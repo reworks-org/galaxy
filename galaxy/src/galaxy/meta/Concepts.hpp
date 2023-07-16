@@ -34,8 +34,7 @@ namespace galaxy
 		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept not_memory = !
-		std::is_pointer<Type>::value && !std::is_reference<Type>::value;
+		concept not_memory = !std::is_pointer<Type>::value && !std::is_reference<Type>::value;
 
 		///
 		/// Arithmetic concept.
@@ -75,7 +74,10 @@ namespace galaxy
 		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept is_bitset_flag = requires(Type type) { Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value; };
+		concept is_bitset_flag = requires(Type type)
+		{
+			Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value;
+		};
 
 		///
 		/// \brief Makes sure a type is a valid component.

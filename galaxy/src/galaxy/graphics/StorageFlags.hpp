@@ -19,8 +19,8 @@ namespace galaxy
 		///
 		enum class StorageFlag : GLenum
 		{
-			STATIC_DRAW     = GL_STATIC_DRAW,
-			DYNAMIC_DRAW    = GL_DYNAMIC_DRAW
+			STATIC_DRAW  = GL_STATIC_DRAW,
+			DYNAMIC_DRAW = GL_DYNAMIC_DRAW
 		};
 	} // namespace graphics
 } // namespace galaxy
