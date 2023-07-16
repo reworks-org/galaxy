@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
     <ClCompile Include="src\galaxy\components\LightSource.cpp" />
     <ClCompile Include="src\galaxy\graphics\Light.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\components\LightSource.hpp" />
     <ClInclude Include="src\galaxy\graphics\Light.hpp" />

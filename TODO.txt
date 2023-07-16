@@ -1,10 +1,8 @@
---[=====[
 worldspace/tilemap transitions/loadings separate from loader.
 loading screens in scene manager where needed.
 add load screen when switching maps in scene.
 
 need to add game ui events > layer events -> perhaps a dispatcher for ui and a dispatcher for game?
-rewrite rml integration to support this.
 
 add onload and on unload scene support and add to scripting
 
@@ -22,13 +20,14 @@ rml file reloading
 more drag/drop support for tree view, body, etc
 
 add fastnoise2 to lua
-update imnodes and add zooming to fastnoise graph
+
+camera viewport vs glViewport vs window viewport
 
 implement b2_debugdraw?
 
 make sure all operator= are being called correctly when virtual
 
-load in parallell
+parallaxx support
 
 normal mapping support for tilemap.cpp
 
@@ -42,7 +41,7 @@ https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
 
 window size independant renderer.
 sort out threading
-
+	- load resources in parallell
 fix play/pause shenanigans
 fix no ambient light when no lights in scene
 
@@ -58,4 +57,4 @@ I.e. load all data beforehand and just assign/copy into a component.
 
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
---]=====]
+https://github.com/albin-johansson/wanderer/tree/dev/source/wanderer/systems

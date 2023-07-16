@@ -301,6 +301,20 @@ namespace galaxy
 						}
 					});
 
+					// Mouse entered callback.
+					glfwSetCursorEnterCallback(m_window, [](GLFWwindow* window, int entered) {
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+						// clang-format off
+						events::MouseEnter me
+						{
+							.entered = static_cast<bool>(entered)
+						};
+						// clang-format on
+
+						win->m_event_queue.emplace_back<events::MouseEnter>(std::move(me));
+					});
+
 					// Mouse movement callback.
 					glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
 						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));

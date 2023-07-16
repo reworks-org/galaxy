@@ -56,6 +56,14 @@ namespace galaxy
 			}
 		}
 
+		void RMLEvents::on_mouse_enter(events::MouseEnter& e)
+		{
+			if (!e.handled && !e.entered)
+			{
+				e.handled = !m_context->ProcessMouseLeave();
+			}
+		}
+
 		void RMLEvents::on_key_down(events::KeyDown& e)
 		{
 			if (!e.handled)

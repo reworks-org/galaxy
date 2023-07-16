@@ -148,6 +148,7 @@
     <ClCompile Include="src\galaxy\components\LightSource.cpp" />
     <ClCompile Include="src\galaxy\graphics\Light.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -297,5 +298,6 @@
     <ClInclude Include="src\galaxy\components\LightSource.hpp" />
     <ClInclude Include="src\galaxy\graphics\Light.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
   </ItemGroup>
 </Project>

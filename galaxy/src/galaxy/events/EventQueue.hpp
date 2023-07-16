@@ -15,6 +15,7 @@
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/MouseEnter.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
@@ -35,6 +36,7 @@ namespace galaxy
 			events::KeyRepeat,
 			events::KeyUp,
 			events::KeyChar,
+			events::MouseEnter,
 			events::MouseMoved,
 			events::MousePressed,
 			events::MouseReleased,

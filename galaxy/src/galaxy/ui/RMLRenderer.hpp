@@ -2,29 +2,136 @@
 /// RMLRenderer.hpp
 /// galaxy
 ///
-/// Originally from https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Renderer_GL3.h
-/// Code has been modified to work in galaxy.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_UI_RMLRENDERER_HPP_
 #define GALAXY_UI_RMLRENDERER_HPP_
 
+#include <glad/glad.h>
 #include <RmlUi/Core/RenderInterface.h>
-
-namespace Gfx
-{
-	struct ShadersData;
-}
 
 namespace galaxy
 {
-	namespace core
-	{
-		class Window;
-	} // namespace core
-
 	namespace ui
 	{
+		///
+		///
+		///
+		enum class RMLProgramUniform
+		{
+			Translate,
+			Transform,
+			Tex,
+			Count
+		};
+
+		///
+		///
+		///
+		enum class RMLVertexAttribute
+		{
+			Position,
+			Color0,
+			TexCoord0,
+			Count
+		};
+
+		///
+		///
+		///
+		enum class RMLScissoringState
+		{
+			Disable,
+			Scissor,
+			RMLStencil
+		};
+
+		///
+		///
+		///
+		enum class RMLProgramId
+		{
+			None,
+			Texture = 1,
+			Color   = 2,
+			All     = (Texture | Color)
+		};
+
+		///
+		///
+		///
+		struct RMLCompiledGeometryData
+		{
+			Rml::TextureHandle texture;
+			GLuint vao;
+			GLuint vbo;
+			GLuint ibo;
+			GLsizei draw_count;
+		};
+
+		///
+		///
+		///
+		struct RMLProgramData
+		{
+			GLuint id;
+			GLint uniform_locations[(size_t)RMLProgramUniform::Count];
+		};
+
+		///
+		///
+		///
+		struct RMLShaderData
+		{
+			RMLProgramData program_color;
+			RMLProgramData program_texture;
+			GLuint shader_main_vertex;
+			GLuint shader_main_fragment_color;
+			GLuint shader_main_fragment_texture;
+		};
+
+		///
+		///
+		///
+		struct RMLStencil
+		{
+			int func;
+			int ref;
+			int value_mask;
+			int writemask;
+			int fail;
+			int pass_depth_fail;
+			int pass_depth_pass;
+		};
+
+		///
+		///
+		///
+		struct RMLGLStateBackup
+		{
+			bool enable_cull_face;
+			bool enable_blend;
+			bool enable_stencil_test;
+			bool enable_scissor_test;
+
+			int viewport[4];
+			int scissor[4];
+
+			int stencil_clear_value;
+			float color_clear_value[4];
+
+			int blend_equation_rgb;
+			int blend_equation_alpha;
+			int blend_src_rgb;
+			int blend_dst_rgb;
+			int blend_src_alpha;
+			int blend_dst_alpha;
+
+			RMLStencil stencil_front;
+			RMLStencil stencil_back;
+		};
+
 		///
 		/// Custom RML rendering interface.
 		///
@@ -52,11 +159,6 @@ namespace galaxy
 			void destroy();
 
 			///
-			/// Update transform and projections.
-			///
-			void update_transform();
-
-			///
 			/// \brief Begin isolated rendering.
 			///
 			/// Used for things like load screens, drawing to a framebuffer, etc.
@@ -67,6 +169,11 @@ namespace galaxy
 			/// Finish isolated rendering.
 			///
 			void end_frame();
+
+			///
+			/// Clear viewport.
+			///
+			void clear();
 
 			///
 			/// \brief Called by RmlUi when it wants to render geometry that the application does not wish to optimise.
@@ -162,9 +269,9 @@ namespace galaxy
 			///
 			/// Called by RmlUi when a loaded texture is no longer required.
 			///
-			/// \param texture The texture handle to release.
+			/// \param texture_handle The texture handle to release.
 			///
-			void ReleaseTexture(Rml::TextureHandle texture) override;
+			void ReleaseTexture(Rml::TextureHandle texture_handle) override;
 
 			///
 			/// \brief Called by RmlUi when it wants the renderer to use a new transform matrix.
@@ -176,34 +283,6 @@ namespace galaxy
 			///
 			void SetTransform(const Rml::Matrix4f* new_transform) override;
 
-		public:
-			///
-			/// Can be passed to RenderGeometry() to enable texture rendering without changing the bound texture.
-			///
-			static const Rml::TextureHandle TextureEnableWithoutBinding = Rml::TextureHandle(-1);
-
-			///
-			/// Rml renderer scissor state.
-			///
-			enum class ScissoringState
-			{
-				Disable,
-				Scissor,
-				Stencil
-			};
-
-		private:
-			///
-			/// Types of rml shaders.
-			///
-			enum class ProgramId
-			{
-				None,
-				Texture = 1,
-				Color   = 2,
-				All     = (Texture | Color)
-			};
-
 		private:
 			///
 			/// Update rml transform.
@@ -211,23 +290,7 @@ namespace galaxy
 			/// \param program_id Shader to modify.
 			/// \param uniform_location Location of uniform to modify.
 			///
-			void SubmitTransformUniform(ProgramId program_id, int uniform_location);
-
-		public:
-			///
-			/// Current rml renderer scissor state.
-			///
-			ScissoringState scissoring_state;
-
-			///
-			/// Pointer to window.
-			///
-			core::Window* m_window;
-
-			///
-			/// Backup existing viewport before rendering.
-			///
-			int m_viewport_backup[4] = {0, 0, 0, 0};
+			void submit_transform_uniform(RMLProgramId program_id, int uniform_location);
 
 		private:
 			///
@@ -243,17 +306,27 @@ namespace galaxy
 			///
 			/// Shader Id for updating a dirty transform.
 			///
-			ProgramId transform_dirty_state;
+			RMLProgramId transform_dirty_state = RMLProgramId::All;
 
 			///
 			/// Is there a transform applied.
 			///
-			bool transform_active;
+			bool transform_active = false;
+
+			///
+			/// Current rml renderer scissor state.
+			///
+			RMLScissoringState scissoring_state = RMLScissoringState::Disable;
 
 			///
 			/// Rml shader data.
 			///
-			Rml::UniquePtr<Gfx::ShadersData> shaders;
+			RMLShaderData shaders;
+
+			///
+			/// OpenGL state backed before rendering.
+			///
+			RMLGLStateBackup glstate_backup = {};
 		};
 	} // namespace ui
 } // namespace galaxy

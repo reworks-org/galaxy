@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <RmlUi/Core/StringUtilities.h>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 
@@ -65,15 +67,7 @@ namespace galaxy
 			auto& window        = core::ServiceLocator<core::Window>::ref();
 			auto& window_cursor = window.get_input<input::Cursor>();
 
-			if (cursor_name == "move")
-			{
-				window_cursor.use_hand();
-			}
-			else if (cursor_name == "pointer")
-			{
-				window_cursor.use_pointer();
-			}
-			else if (cursor_name == "resize")
+			if (cursor_name == "move" || cursor_name == "pointer" || cursor_name == "resize" || Rml::StringUtilities::StartsWith(cursor_name, "rmlui-scroll"))
 			{
 				window_cursor.use_hand();
 			}

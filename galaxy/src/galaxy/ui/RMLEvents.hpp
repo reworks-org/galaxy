@@ -67,6 +67,13 @@ namespace galaxy
 			void on_mouse_wheel(events::MouseWheel& e);
 
 			///
+			/// On mouse enter event handler.
+			///
+			/// \param e Event to process.
+			///
+			void on_mouse_enter(events::MouseEnter& e);
+
+			///
 			/// On key down event handler.
 			///
 			/// \param e Event to process.
