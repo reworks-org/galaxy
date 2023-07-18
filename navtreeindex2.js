@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa30f4e573342742cd04f1508c787ffcc":[1,0,0,8,34,12],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98":[1,0,0,8,34,10],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aca7166ab522d8d9766f9d127a7457cad":[1,0,0,8,34,2],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae50f58ab8eccb51f23687d5ec2dfc43a":[1,0,0,8,34,1],
@@ -48,9 +49,9 @@ var NAVTREEINDEX2 =
 "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ae3ac7edd795f8448ceaa80a28f210ea1":[1,0,0,8,23,5],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html":[1,0,0,15,3],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a11cd07ee80dc935d82641d2f4caf2877":[1,0,0,15,3,1],
+"d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a2d7c7f875a0baa21b9e9c33ece575a3b":[1,0,0,15,3,4],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a6ab936034b79ce0ddcc488b8c546e0f4":[1,0,0,15,3,6],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a93adc2d11a2c41068a0297cb38df5bcc":[1,0,0,15,3,3],
-"d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a9b2e50de499e85325c834cd2243e028a":[1,0,0,15,3,4],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0":[1,0,0,15,3,7],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#ad540e541597fcae2e7de4d0b13a55898":[1,0,0,15,3,0],
 "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#aefbf28b7d40053259a5bd0d753b14e0e":[1,0,0,15,3,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a8ac9f6f86d296711fb41610d532905c2":[1,0,0,2,6,6],
 "d4/d86/classgalaxy_1_1components_1_1Sprite.html#aaaf98fa9ccdd98c38eea417f9c657736":[1,0,0,2,6,11],
 "d4/d86/classgalaxy_1_1components_1_1Sprite.html#aabb40d44c4e4f602e6937b99816559bf":[1,0,0,2,6,17],
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1525a02050ed98cc68e14f2a4ebc6dc":[1,0,0,2,6,23],
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1a9043752ef0f83d4da60d5638b8a19":[1,0,0,2,6,24]
+"d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1525a02050ed98cc68e14f2a4ebc6dc":[1,0,0,2,6,23]
 };

@@ -1,8 +1,10 @@
 var NAVTREEINDEX12 =
 {
+"df/d3b/LightSource_8cpp.html":[2,0,0,0,0,2,4],
+"df/d3b/LightSource_8cpp_source.html":[2,0,0,0,0,2,4],
+"df/d3c/Application_8hpp.html":[2,0,0,0,0,3,1],
 "df/d3c/Application_8hpp_source.html":[2,0,0,0,0,3,1],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html":[1,0,0,15,1],
-"df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3b3decebcce92b386e4fe7a128d1f64a":[1,0,0,15,1,4],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401":[1,0,0,15,1,1],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6":[1,0,0,15,1,5],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e571eb0ef862788aa68a5a52036edc8":[1,0,0,15,1,7],
@@ -11,6 +13,7 @@ var NAVTREEINDEX12 =
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aaec8fb402890aa69fbe17640617c31be":[1,0,0,15,1,3],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#ac3415025625d06af608b7cb10f066558":[1,0,0,15,1,6],
 "df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff":[1,0,0,15,1,8],
+"df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac":[1,0,0,15,1,4],
 "df/d6e/NormalMap_8hpp.html":[2,0,0,0,0,9,29],
 "df/d6e/NormalMap_8hpp_source.html":[2,0,0,0,0,9,29],
 "df/d74/SceneManager_8hpp.html":[2,0,0,0,0,16,3],
@@ -193,8 +196,8 @@ var NAVTREEINDEX12 =
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
 "files.html":[2,0],
-"functions.html":[1,3,0,0],
 "functions.html":[1,3,0],
+"functions.html":[1,3,0,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "functions_u.html":[1,3,0,20],
 "functions_v.html":[1,3,0,21],
 "functions_vars.html":[1,3,2,0],
-"functions_vars.html":[1,3,2],
-"functions_vars_b.html":[1,3,2,1],
-"functions_vars_c.html":[1,3,2,2],
-"functions_vars_d.html":[1,3,2,3]
+"functions_vars.html":[1,3,2]
 };

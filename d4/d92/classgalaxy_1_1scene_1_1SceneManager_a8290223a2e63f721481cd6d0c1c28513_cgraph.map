@@ -1,4 +1,0 @@
-<map id="galaxy::scene::SceneManager::clear" name="galaxy::scene::SceneManager::clear">
-<area shape="rect" id="node1" title="Destroys all scenes." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node2" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204" title="Remove a specific scene." alt="" coords="268,5,483,47"/>
-</map>

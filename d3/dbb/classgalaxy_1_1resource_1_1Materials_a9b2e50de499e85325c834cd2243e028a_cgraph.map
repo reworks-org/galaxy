@@ -1,4 +1,0 @@
-<map id="galaxy::resource::Materials::load" name="galaxy::resource::Materials::load">
-<area shape="rect" id="node1" title="Load materials in a folder." alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="252,13,483,39"/>
-</map>

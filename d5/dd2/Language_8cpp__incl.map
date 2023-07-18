@@ -1,10 +1,10 @@
 <map id="galaxy/src/galaxy/resource/Language.cpp" name="galaxy/src/galaxy/resource/Language.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="830,5,1027,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="625,95,717,121"/>
-<area shape="rect" id="node3" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="741,95,967,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="583,5,781,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="379,95,471,121"/>
+<area shape="rect" id="node3" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="495,95,720,121"/>
 <area shape="rect" id="node32" href="$de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="995,244,1225,271"/>
-<area shape="rect" id="node37" href="$dd/d8e/Language_8hpp.html" title=" " alt="" coords="1045,95,1159,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="815,169,893,196"/>
+<area shape="rect" id="node37" href="$dd/d8e/Language_8hpp.html" title=" " alt="" coords="889,95,1003,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="427,169,505,196"/>
 <area shape="rect" id="node5" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="529,169,685,196"/>
 <area shape="rect" id="node6" title=" " alt="" coords="942,393,1033,420"/>
 <area shape="rect" id="node7" title=" " alt="" coords="5,244,129,271"/>
@@ -36,6 +36,7 @@
 <area shape="rect" id="node34" href="$d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="1073,319,1264,345"/>
 <area shape="rect" id="node35" href="$d5/d4b/FileInfo_8hpp.html" title=" " alt="" coords="1289,319,1451,345"/>
 <area shape="rect" id="node36" href="$d7/d75/FileCode_8hpp.html" title=" " alt="" coords="1285,393,1455,420"/>
-<area shape="rect" id="node38" title=" " alt="" coords="1187,169,1294,196"/>
-<area shape="rect" id="node39" title=" " alt="" coords="1041,169,1163,196"/>
+<area shape="rect" id="node38" title=" " alt="" coords="795,169,945,196"/>
+<area shape="rect" id="node39" title=" " alt="" coords="970,169,1077,196"/>
+<area shape="rect" id="node40" title=" " alt="" coords="1101,169,1223,196"/>
 </map>

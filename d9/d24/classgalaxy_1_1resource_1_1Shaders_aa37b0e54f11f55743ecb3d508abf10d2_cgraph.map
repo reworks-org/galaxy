@@ -1,5 +1,0 @@
-<map id="galaxy::resource::Shaders::load" name="galaxy::resource::Shaders::load">
-<area shape="rect" id="node1" title="Loads shaders in a folder." alt="" coords="5,27,195,69"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="243,5,473,32"/>
-<area shape="rect" id="node3" href="$db/d7c/namespacegalaxy_1_1strutils.html#aadb96bbbbd51e3761290151baf3bcd3d" title="Replace first occurance of a string." alt="" coords="271,57,445,98"/>
-</map>

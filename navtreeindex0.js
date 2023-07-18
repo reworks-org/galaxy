@@ -1,5 +1,6 @@
 var NAVTREEINDEX0 =
 {
+"":[0,0,3],
 "annotated.html":[1,0],
 "classes.html":[1,1],
 "d0/d0a/Animated_8cpp.html":[2,0,0,0,0,2,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d1/dac/LuaExternalLibs_8cpp.html":[2,0,0,0,0,17,7],
 "d1/dac/LuaExternalLibs_8cpp_source.html":[2,0,0,0,0,17,7],
 "d1/dcb/namespacegalaxy_1_1core.html":[0,0,0,3],
-"d1/dd8/AllowSerialize_8hpp.html":[2,0,0,0,0,7,1],
-"d1/dd8/AllowSerialize_8hpp_source.html":[2,0,0,0,0,7,1]
+"d1/dd8/AllowSerialize_8hpp.html":[2,0,0,0,0,7,1]
 };

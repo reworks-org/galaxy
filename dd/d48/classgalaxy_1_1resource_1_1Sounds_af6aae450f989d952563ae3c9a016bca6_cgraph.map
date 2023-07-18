@@ -1,0 +1,5 @@
+<map id="galaxy::resource::Sounds::load" name="galaxy::resource::Sounds::load">
+<area shape="rect" id="node1" title="Loads resources from a folder." alt="" coords="5,35,189,76"/>
+<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136" title="Clean up resources." alt="" coords="262,5,443,47"/>
+<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="237,71,468,98"/>
+</map>

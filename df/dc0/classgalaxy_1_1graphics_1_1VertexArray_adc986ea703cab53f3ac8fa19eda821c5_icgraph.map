@@ -5,7 +5,7 @@
 <area shape="rect" id="node8" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a727f0d8a1342a6edde991509ba572a78" title="Sub&#45;buffer vertex object." alt="" coords="911,141,1085,183"/>
 <area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade0d507a65163400a87e9ea2e0290179" title="Updates texture and internal vertex array." alt="" coords="921,207,1075,248"/>
 <area shape="rect" id="node11" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="921,272,1075,313"/>
-<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Load textures in a folder." alt="" coords="663,11,849,52"/>
+<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Loads textures from a folder." alt="" coords="663,11,849,52"/>
 <area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,97,373,139"/>
 <area shape="rect" id="node6" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,39,607,80"/>
 <area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,97,188,139"/>

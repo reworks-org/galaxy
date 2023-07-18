@@ -1,5 +1,4 @@
 <map id="galaxy::scene::SceneManager::~SceneManager" name="galaxy::scene::SceneManager::~SceneManager">
 <area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,220,47"/>
 <area shape="rect" id="node2" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="268,5,483,47"/>
-<area shape="rect" id="node3" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204" title="Remove a specific scene." alt="" coords="531,5,745,47"/>
 </map>

@@ -1,6 +1,4 @@
 <map id="galaxy::strutils::replace_first" name="galaxy::strutils::replace_first">
-<area shape="rect" id="node1" title="Replace first occurance of a string." alt="" coords="659,5,833,47"/>
-<area shape="rect" id="node2" href="$d9/d24/classgalaxy_1_1resource_1_1Shaders.html#aa37b0e54f11f55743ecb3d508abf10d2" title="Loads shaders in a folder." alt="" coords="421,5,611,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
-<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node1" title="Replace first occurance of a string." alt="" coords="243,5,417,47"/>
+<area shape="rect" id="node2" href="$d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a025fdcd9413cde50e126b7c7f8c246e9" title="Loads resources from a folder." alt="" coords="5,5,195,47"/>
 </map>

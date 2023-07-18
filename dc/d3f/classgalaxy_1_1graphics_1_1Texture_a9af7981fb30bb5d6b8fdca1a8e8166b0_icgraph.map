@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Get texture width." alt="" coords="1156,83,1340,125"/>
 <area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="905,54,1091,95"/>
 <area shape="rect" id="node7" href="$d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151" title="Render an imgui image button with a galaxy texture." alt="" coords="888,120,1108,147"/>
-<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Load textures in a folder." alt="" coords="655,25,840,66"/>
+<area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Loads textures from a folder." alt="" coords="655,25,840,66"/>
 <area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,25,373,66"/>
 <area shape="rect" id="node6" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a36eec720a746bbff7fa7bd288fd59526" title="Reload textures from folder." alt="" coords="421,25,607,66"/>
 <area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,25,188,66"/>

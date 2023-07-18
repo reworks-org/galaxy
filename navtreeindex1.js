@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"d1/dd8/AllowSerialize_8hpp_source.html":[2,0,0,0,0,7,1],
 "d1/de7/RMLEvents_8hpp.html":[2,0,0,0,0,20,5],
 "d1/de7/RMLEvents_8hpp_source.html":[2,0,0,0,0,20,5],
 "d1/df0/RobotoLight_8hpp.html":[2,0,0,0,0,4,1],
@@ -161,7 +162,7 @@ var NAVTREEINDEX1 =
 "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a3aa5a86d542cb32af15933a157d46a4d":[1,0,0,15,4,2],
 "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a4332c1fb6e1a56269343e287895af580":[1,0,0,15,4,0],
 "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a95962dc460ab8bf154439148e315e295":[1,0,0,15,4,5],
-"d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad2eca8d9fefa905ae99042d747791bef":[1,0,0,15,4,4],
+"d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad07e6401cf804f179c86bde9ba937af5":[1,0,0,15,4,4],
 "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#afa2fdcd209f8db5d6e8be0306cda0d01":[1,0,0,15,4,3],
 "d2/db6/Application_8cpp.html":[2,0,0,0,0,3,0],
 "d2/db6/Application_8cpp_source.html":[2,0,0,0,0,3,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a47752a3252c62a2b821ba268e9864872":[1,0,0,8,34,13],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a64ce2991b0677e9a7ba906b51bda39bb":[1,0,0,8,34,9],
 "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba":[1,0,0,8,34,7],
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b":[1,0,0,8,34,6],
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa30f4e573342742cd04f1508c787ffcc":[1,0,0,8,34,12]
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8f289ee98d6175ab9bbfe8582c6d168b":[1,0,0,8,34,6]
 };

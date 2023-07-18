@@ -102,64 +102,64 @@ $(document).ready(function(){initNavTree('db/d4b/Fonts_8cpp_source.html','../../
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">namespace </span>resource</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e67e23e6e8e406f80dcc697a81d0485">   19</a></span>&#160;        <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e67e23e6e8e406f80dcc697a81d0485">Fonts::Fonts</a>()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            : m_folder {<span class="stringliteral">&quot;&quot;</span>}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">   24</a></span>&#160;        <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">Fonts::~Fonts</a>()</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3b3decebcce92b386e4fe7a128d1f64a">   28</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3b3decebcce92b386e4fe7a128d1f64a">Fonts::load</a>(std::string_view folder)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">m_folder</a> = std::string(folder);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">auto</span>&amp; fs = <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="comment">// Load default font(s) first, incase of override.</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[<span class="stringliteral">&quot;RobotoLight&quot;</span>] = std::make_shared&lt;graphics::Font&gt;(<a class="code" href="../../d0/d0a/namespacegalaxy_1_1embedded.html#a4712f2298464f90261c76f90b267418c">embedded::roboto_light</a>, <a class="code" href="../../d0/d0a/namespacegalaxy_1_1embedded.html#aebf40663131328e28a1f5803be080eac">embedded::roboto_light_len</a>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">auto</span> contents = fs.list_directory(<a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">m_folder</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (!contents.empty())</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : contents)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> path = std::filesystem::path(file);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> name = path.stem().string();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>[name] = std::make_shared&lt;graphics::Font&gt;(path.string());</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, <span class="stringliteral">&quot;Found no fonts to load in &#39;{0}&#39;.&quot;</span>, <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">m_folder</a>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6">Fonts::build</a>()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [key, font] : <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                font-&gt;build();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    } <span class="comment">// namespace resource</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">   23</a></span>&#160;        <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">Fonts::~Fonts</a>()</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac">   27</a></span>&#160;        std::future&lt;void&gt; <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac">Fonts::load</a>(std::string_view folder)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">clear</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (!folder.empty())</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    m_folder = folder;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    auto&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <span class="comment">// Load default font(s) first, incase of override.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    m_cache[<span class="stringliteral">&quot;RobotoLight&quot;</span>] = std::make_shared&lt;graphics::Font&gt;(embedded::roboto_light, embedded::roboto_light_len);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    auto contents = fs.list_directory(m_folder);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    if (!contents.empty())</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        for (const auto&amp; file : contents)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                            const auto path = std::filesystem::path(file);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            const auto name = path.stem().string();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                            m_cache[name] = std::make_shared&lt;graphics::Font&gt;(path.string());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        GALAXY_LOG(GALAXY_WARNING, <span class="stringliteral">&quot;Found no fonts to load in &#39;{0}&#39;.&quot;</span>, m_folder);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            });</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6">   60</a></span>&#160;        <span class="keywordtype">void</span> Fonts::build()</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [key, font] : m_cache)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                font-&gt;build();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    } <span class="comment">// namespace resource</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aFonts_8hpp_html"><div class="ttname"><a href="../../d9/d7d/Fonts_8hpp.html">Fonts.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d82/Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d82/Log_8hpp_source.html#l00042">Log.hpp:42</a></div></div>
 <div class="ttc" id="aRobotoLight_8hpp_html"><div class="ttname"><a href="../../d1/df0/RobotoLight_8hpp.html">RobotoLight.hpp</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00109">ServiceLocator.hpp:109</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html_a11821dc939bbdd5f496741c2bd78648c"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">galaxy::resource::Cache&lt; graphics::Font &gt;::m_cache</a></div><div class="ttdeci">CacheMap m_cache</div><div class="ttdoc">Contiguous resource array.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00092">Cache.hpp:92</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a3b3decebcce92b386e4fe7a128d1f64a"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3b3decebcce92b386e4fe7a128d1f64a">galaxy::resource::Fonts::load</a></div><div class="ttdeci">void load(std::string_view folder)</div><div class="ttdoc">Loads fonts in a folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00028">Fonts.cpp:28</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a3fcea8080fceab91d265c622f36ee401"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">galaxy::resource::Fonts::~Fonts</a></div><div class="ttdeci">virtual ~Fonts()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00024">Fonts.cpp:24</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a5553a63f01c784b5b6c4a1253d7955f6"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a5553a63f01c784b5b6c4a1253d7955f6">galaxy::resource::Fonts::build</a></div><div class="ttdeci">void build()</div><div class="ttdoc">Build all font altas'.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00054">Fonts.cpp:54</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html_a9a5c7a733c4673f2b1e244a5bd5ac136"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">galaxy::resource::Cache&lt; graphics::Font &gt;::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clean up resources.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00042">Cache.hpp:133</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a3fcea8080fceab91d265c622f36ee401"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">galaxy::resource::Fonts::~Fonts</a></div><div class="ttdeci">virtual ~Fonts()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00023">Fonts.cpp:23</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a6e67e23e6e8e406f80dcc697a81d0485"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e67e23e6e8e406f80dcc697a81d0485">galaxy::resource::Fonts::Fonts</a></div><div class="ttdeci">Fonts()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00019">Fonts.cpp:19</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_aeef99293b863805be7d7050f8e0495ff"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">galaxy::resource::Fonts::m_folder</a></div><div class="ttdeci">std::string m_folder</div><div class="ttdoc">Font resource folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7d/Fonts_8hpp_source.html#l00073">Fonts.hpp:73</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1embedded_html_a4712f2298464f90261c76f90b267418c"><div class="ttname"><a href="../../d0/d0a/namespacegalaxy_1_1embedded.html#a4712f2298464f90261c76f90b267418c">galaxy::embedded::roboto_light</a></div><div class="ttdeci">static unsigned char roboto_light[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df0/RobotoLight_8hpp_source.html#l00213">RobotoLight.hpp:213</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1embedded_html_aebf40663131328e28a1f5803be080eac"><div class="ttname"><a href="../../d0/d0a/namespacegalaxy_1_1embedded.html#aebf40663131328e28a1f5803be080eac">galaxy::embedded::roboto_light_len</a></div><div class="ttdeci">static constexpr const unsigned int roboto_light_len</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df0/RobotoLight_8hpp_source.html#l14133">RobotoLight.hpp:14133</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_af4735503fa99a8d36ecc737cf47531ac"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac">galaxy::resource::Fonts::load</a></div><div class="ttdeci">std::future&lt; void &gt; load(std::string_view folder) override</div><div class="ttdoc">Loads resources from a folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00027">Fonts.cpp:27</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('db/d4b/Fonts_8cpp_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../db/d4b/Fonts_8cpp.html">Fonts.cpp</a></li>
-    <li class="footer">Generated on Sun Jul 16 2023 08:48:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jul 18 2023 11:27:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

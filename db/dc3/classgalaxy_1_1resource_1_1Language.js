@@ -4,7 +4,7 @@ var classgalaxy_1_1resource_1_1Language =
     [ "~Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d", null ],
     [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a56d60c1a334b99996ba7cba5657cf9fd", null ],
     [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#adf9b70c8762def506c4faed82035840e", null ],
-    [ "load", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a758a508dc4eb54b0fc40121db981060c", null ],
+    [ "load", "db/dc3/classgalaxy_1_1resource_1_1Language.html#ac9af356793983ce14b8ab4a8c6f29975", null ],
     [ "load_mem", "db/dc3/classgalaxy_1_1resource_1_1Language.html#aa98f7d5eef7d044f51494e858a4633a5", null ],
     [ "set", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a15e49c4261c2368ddbc5d006cc145028", null ],
     [ "translate", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a08bdeb667856d66025897e669d2e3774", null ],

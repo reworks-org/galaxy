@@ -63,20 +63,20 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d1/de7/RMLEvents_8hpp.html",
-"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab36bc88560bd79e32761db28a4a8de56",
-"d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html#a67f9c76f0a8c3f9d16eb8c8d1a6a72e6",
-"d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab11fa86a5ec0c49ee11cc0080efd9bbc",
-"d8/d2a/structgalaxy_1_1events_1_1ContentScale.html#a29bc15b68c2abe6ff8105da8b594ccd0",
-"d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9",
-"db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b",
-"dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a5c8483a8a7b93699670955461295ebce",
-"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142eafc335adb3d69d3d8270769e1923ea4dc",
-"dd/daa/OpenGLError_8cpp.html#a992b35658b4009f3246e8a19a294f9b5",
-"df/d3c/Application_8hpp_source.html",
-"functions_vars_e.html"
+"",
+"d1/dd8/AllowSerialize_8hpp_source.html",
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa30f4e573342742cd04f1508c787ffcc",
+"d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1a9043752ef0f83d4da60d5638b8a19",
+"d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html#a5b76d5209ff9d7344f86f80f46388aaa",
+"d6/dd5/classgalaxy_1_1media_1_1Sound.html#aa72c85dcc89302345514fab1a05a77be",
+"d8/d2a/structgalaxy_1_1events_1_1ContentScale.html",
+"d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a5396cb4f5c3bde7f5fd05b04207065d4",
+"db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6",
+"dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a32cbed22f363bb61ec2aefbe7254cb2e",
+"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142eaf806252045a28179caaf0ec8f0b5f298",
+"dd/da6/Windows_8cpp_source.html",
+"df/d3b/LightSource_8cpp.html",
+"functions_vars_b.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

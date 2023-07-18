@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"d8/d2a/structgalaxy_1_1events_1_1ContentScale.html":[1,0,0,5,0],
 "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html#a29bc15b68c2abe6ff8105da8b594ccd0":[1,0,0,5,0,1],
 "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html#a6b61dc6b0ffa5a776f8844b108d9bd99":[1,0,0,5,0,0],
 "d8/d2c/Generic_8hpp.html":[2,0,0,0,0,0,3],
@@ -15,9 +16,9 @@ var NAVTREEINDEX6 =
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a07a7f3918180f1d2155fc96ca9b22625":[1,0,0,15,5,0],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a6e612092e1673185632cf45f417df28e":[1,0,0,15,5,6],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a6eb8ce0cd9259acd32b9e74b7ac06d3b":[1,0,0,15,5,3],
-"d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a7cafe3369b9940bf57fa2efbc8e084d1":[1,0,0,15,5,4],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#a92da5081180941fa55a327c03e67650a":[1,0,0,15,5,1],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#ad0db7ae18d06ac0868412ed84eadbd60":[1,0,0,15,5,5],
+"d8/d35/classgalaxy_1_1resource_1_1Scripts.html#adc0e3c1a44ced75af9845502dd55cc81":[1,0,0,15,5,4],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#adf02d6124a3c179db954ad853fa55aae":[1,0,0,15,5,7],
 "d8/d35/classgalaxy_1_1resource_1_1Scripts.html#adfb625a50555a0f64b5529acb642a088":[1,0,0,15,5,2],
 "d8/d36/Buffer_8hpp.html":[2,0,0,0,0,9,5],
@@ -209,10 +210,10 @@ var NAVTREEINDEX6 =
 "d9/d1d/EventQueue_8hpp.html#afcf0d7233ab9b560af4b68bd70405401":[2,0,0,0,0,6,3,1],
 "d9/d1d/EventQueue_8hpp_source.html":[2,0,0,0,0,6,3],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html":[1,0,0,15,6],
+"d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a025fdcd9413cde50e126b7c7f8c246e9":[1,0,0,15,6,4],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a885384858065d0ffc5e239437a238696":[1,0,0,15,6,5],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a902eac038b2e011ffac68f59754b3895":[1,0,0,15,6,2],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a9e7deafdba476e0fdba00bc2c3b93a73":[1,0,0,15,6,6],
-"d9/d24/classgalaxy_1_1resource_1_1Shaders.html#aa37b0e54f11f55743ecb3d508abf10d2":[1,0,0,15,6,4],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#acfb5d60abb3ae104496ed9f152a90aec":[1,0,0,15,6,3],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#ad4af3ab3cc36fd3a282a1b4f0b1390ed":[1,0,0,15,6,0],
 "d9/d24/classgalaxy_1_1resource_1_1Shaders.html#ae159116c234e8dd4b6d6a17490a55094":[1,0,0,15,6,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b":[1,0,0,9,5,8],
 "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0":[1,0,0,9,5,4],
 "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4":[1,0,0,9,5,11],
-"d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418":[1,0,0,9,5,15],
-"d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a5396cb4f5c3bde7f5fd05b04207065d4":[1,0,0,9,5,14]
+"d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418":[1,0,0,9,5,15]
 };

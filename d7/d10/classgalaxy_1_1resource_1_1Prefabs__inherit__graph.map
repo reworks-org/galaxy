@@ -1,5 +1,5 @@
 <map id="galaxy::resource::Prefabs" name="galaxy::resource::Prefabs">
-<area shape="rect" id="node1" title="Resource manager for lua Prefabs." alt="" coords="5,624,192,789"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="10,321,187,575"/>
-<area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="10,5,187,259"/>
+<area shape="rect" id="node1" title="Resource manager for lua Prefabs." alt="" coords="5,653,192,819"/>
+<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="10,336,187,604"/>
+<area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="10,5,187,273"/>
 </map>
