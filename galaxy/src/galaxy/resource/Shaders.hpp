@@ -36,13 +36,13 @@ namespace galaxy
 			virtual ~Shaders();
 
 			///
-			/// \brief Loads shaders in a folder.
-			///
-			/// Paired shaders must share a common filename.
+			/// \brief Loads resources from a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///
-			void load(std::string_view folder);
+			/// \return Thread handle of loading thread.
+			///
+			std::future<void> load(std::string_view folder) override;
 
 			///
 			/// \brief Compiles the shaders in OpenGL.

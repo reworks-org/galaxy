@@ -8,6 +8,7 @@
 #ifndef GALAXY_RESOURCE_CACHE_HPP_
 #define GALAXY_RESOURCE_CACHE_HPP_
 
+#include <BS_thread_pool.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/meta/Memory.hpp"
@@ -39,6 +40,15 @@ namespace galaxy
 			/// Clean up resources.
 			///
 			void clear();
+
+			///
+			/// Loads resources from a folder.
+			///
+			/// \param folder Folder located in the VFS.
+			///
+			/// \return Thread handle of loading thread.
+			///
+			virtual std::future<void> load(std::string_view folder) = 0;
 
 			///
 			/// Check if a resource exists.

@@ -51,31 +51,9 @@ namespace galaxy
 			loader.load([]() {
 				try
 				{
-					//
-					// Fetch services.
-					//
-					auto& config    = core::ServiceLocator<core::Config>::ref();
-					auto& window    = core::ServiceLocator<core::Window>::ref();
-					auto& ae        = core::ServiceLocator<media::AudioEngine>::ref();
-					auto& prefabs   = core::ServiceLocator<resource::Prefabs>::ref();
-					auto& materials = core::ServiceLocator<resource::Materials>::ref();
-					auto& scripts   = core::ServiceLocator<resource::Scripts>::ref();
-					auto& sounds    = core::ServiceLocator<resource::Sounds>::ref();
-					auto& lang      = core::ServiceLocator<resource::Language>::ref();
-					auto& fonts     = core::ServiceLocator<resource::Fonts>::ref();
-					auto& shaders   = core::ServiceLocator<resource::Shaders>::ref();
+					auto& config = core::ServiceLocator<core::Config>::ref();
+					auto& window = core::ServiceLocator<core::Window>::ref();
 
-					prefabs.clear();
-					materials.clear();
-					scripts.clear();
-					sounds.clear();
-					lang.clear();
-					fonts.clear();
-					shaders.clear();
-
-					//
-					// Set inputs from config.
-					//
 					input::CameraKeys::FORWARD      = input::int_to_key(config.get<int>("camera_foward", "input"));
 					input::CameraKeys::BACKWARD     = input::int_to_key(config.get<int>("camera_backward", "input"));
 					input::CameraKeys::LEFT         = input::int_to_key(config.get<int>("camera_left", "input"));
@@ -83,18 +61,12 @@ namespace galaxy
 					input::CameraKeys::ROTATE_LEFT  = input::int_to_key(config.get<int>("camera_rotate_left", "input"));
 					input::CameraKeys::ROTATE_RIGHT = input::int_to_key(config.get<int>("camera_rotate_right", "input"));
 
-					//
-					// Window Icon.
-					//
 					auto icon = config.get<std::string>("icon", "window");
 					if (!icon.empty())
 					{
 						window.set_icon(icon);
 					}
 
-					//
-					// Window closing config.
-					//
 					if (config.get<bool>("allow_native_closing", "window"))
 					{
 						window.allow_native_closing();
@@ -104,9 +76,6 @@ namespace galaxy
 						window.prevent_native_closing();
 					}
 
-					//
-					// Window cursor.
-					//
 					auto& cursor = window.get_input<input::Cursor>();
 					cursor.toggle(config.get<bool>("visible_cursor", "window"));
 
@@ -121,22 +90,48 @@ namespace galaxy
 						cursor.use_pointer();
 					}
 
-					//
-					// Resources.
-					//
-					shaders.load(config.get<std::string>("shader_folder", "resource_folders"));
-					fonts.load(config.get<std::string>("font_folder", "resource_folders"));
-					lang.load(config.get<std::string>("lang_folder", "resource_folders"));
-					lang.set(config.get<std::string>("default_lang"));
+					auto& ae = core::ServiceLocator<media::AudioEngine>::ref();
 					ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
 					ae.set_music_volume(config.get<float>("music_volume", "audio"));
 					ae.set_dialogue_volume(config.get<float>("dialogue_volume", "audio"));
-					sounds.load_sfx(config.get<std::string>("sfx_folder", "resource_folders"));
-					sounds.load_music(config.get<std::string>("music_folder", "resource_folders"));
-					sounds.load_dialogue(config.get<std::string>("dialogue_folder", "resource_folders"));
-					scripts.load(config.get<std::string>("scripts_folder", "resource_folders"));
-					prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders"));
-					materials.load(config.get<std::string>("materials_folder", "resource_folders"));
+
+					auto& prefabs   = core::ServiceLocator<resource::Prefabs>::ref();
+					auto& materials = core::ServiceLocator<resource::Materials>::ref();
+					auto& scripts   = core::ServiceLocator<resource::Scripts>::ref();
+					auto& sounds    = core::ServiceLocator<resource::Sounds>::ref();
+					auto& lang      = core::ServiceLocator<resource::Language>::ref();
+					auto& fonts     = core::ServiceLocator<resource::Fonts>::ref();
+					auto& shaders   = core::ServiceLocator<resource::Shaders>::ref();
+
+					std::vector<std::future<void>> futures;
+					futures.emplace_back(prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders")));
+					futures.emplace_back(materials.load(config.get<std::string>("materials_folder", "resource_folders")));
+					futures.emplace_back(scripts.load(config.get<std::string>("scripts_folder", "resource_folders")));
+					futures.emplace_back(sounds.load(config.get<std::string>("audio_folder", "resource_folders")));
+					futures.emplace_back(lang.load(config.get<std::string>("lang_folder", "resource_folders")));
+					futures.emplace_back(fonts.load(config.get<std::string>("font_folder", "resource_folders")));
+					futures.emplace_back(shaders.load(config.get<std::string>("shader_folder", "resource_folders")));
+
+					auto total_done = 0;
+					while (total_done < 7)
+					{
+						// clang-format off
+						futures.erase(std::remove_if(futures.begin(), futures.end(),
+							[&](const auto& future) -> bool {
+								if (meta::is_work_done(future))
+								{
+                                    total_done++;
+									return true;
+								}
+								else
+								{
+                                    return false;
+								}
+                            }), futures.end());
+						// clang-format on
+					}
+
+					lang.set(config.get<std::string>("default_lang"));
 				}
 				catch (const std::exception& e)
 				{

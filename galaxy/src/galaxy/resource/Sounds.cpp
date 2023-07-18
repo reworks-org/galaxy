@@ -23,9 +23,24 @@ namespace galaxy
 		{
 		}
 
+		std::future<void> Sounds::load(std::string_view folder)
+		{
+			clear();
+
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
+				{
+					const auto stem = static_cast<std::string>(folder);
+					load_sfx(stem + "sfx/");
+					load_music(stem + "music/");
+					load_dialogue(stem + "dialogue/");
+				}
+			});
+		}
+
 		void Sounds::load_sfx(std::string_view folder)
 		{
-			m_sfx_path = std::string(folder);
+			m_sfx_path = folder;
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -46,7 +61,7 @@ namespace galaxy
 
 		void Sounds::load_music(std::string_view folder)
 		{
-			m_music_path = std::string(folder);
+			m_music_path = folder;
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -67,7 +82,7 @@ namespace galaxy
 
 		void Sounds::load_dialogue(std::string_view folder)
 		{
-			m_dialogue_path = std::string(folder);
+			m_dialogue_path = folder;
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 

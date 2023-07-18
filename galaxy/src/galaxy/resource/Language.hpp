@@ -8,6 +8,7 @@
 #ifndef GALAXY_RESOURCE_LANGUAGE_HPP_
 #define GALAXY_RESOURCE_LANGUAGE_HPP_
 
+#include <BS_thread_pool.hpp>
 #include <robin_hood.h>
 #include <sol/forward.hpp>
 
@@ -32,11 +33,13 @@ namespace galaxy
 			~Language();
 
 			///
-			/// Loads all language files in a folder into galaxy.
+			/// Loads resources from a folder.
 			///
-			/// \param folder Folder that contains lua language files.
+			/// \param folder Folder located in the VFS.
 			///
-			void load(std::string_view folder);
+			/// \return Thread handle of loading thread.
+			///
+			std::future<void> load(std::string_view folder);
 
 			///
 			/// Loads a lua script containing language definitions.

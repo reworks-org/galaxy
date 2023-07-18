@@ -15,7 +15,6 @@ namespace galaxy
 	namespace resource
 	{
 		Scripts::Scripts()
-			: m_folder {""}
 		{
 		}
 
@@ -23,25 +22,32 @@ namespace galaxy
 		{
 		}
 
-		void Scripts::load(std::string_view folder)
+		std::future<void> Scripts::load(std::string_view folder)
 		{
-			m_folder = std::string(folder);
+			clear();
 
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto contents = fs.list_directory(m_folder);
-			if (!contents.empty())
-			{
-				for (const auto& file : contents)
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
 				{
-					const auto name = std::filesystem::path(file).stem().string();
-					m_cache[name]   = std::make_shared<lua::BasicScript>(file);
+					m_folder = folder;
+
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					auto contents = fs.list_directory(m_folder);
+					if (!contents.empty())
+					{
+						for (const auto& file : contents)
+						{
+							const auto name = std::filesystem::path(file).stem().string();
+							m_cache[name]   = std::make_shared<lua::BasicScript>(file);
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no scripts to load in '{0}'.", m_folder);
+					}
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Found no scripts to load in '{0}'.", m_folder);
-			}
+			});
 		}
 	} // namespace resource
 } // namespace galaxy

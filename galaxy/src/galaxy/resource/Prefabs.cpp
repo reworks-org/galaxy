@@ -18,7 +18,6 @@ namespace galaxy
 	namespace resource
 	{
 		Prefabs::Prefabs()
-			: m_folder {""}
 		{
 		}
 
@@ -26,32 +25,39 @@ namespace galaxy
 		{
 		}
 
-		void Prefabs::load(std::string_view folder)
+		std::future<void> Prefabs::load(std::string_view folder)
 		{
-			m_folder = std::string(folder);
+			clear();
 
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			const auto contents = fs.list_directory(m_folder);
-			if (!contents.empty())
-			{
-				for (const auto& file : contents)
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
 				{
-					const auto data = fs.open(file);
-					if (!data.empty())
-					{
-						const auto name         = std::filesystem::path(file).stem().string();
-						const auto base64       = algorithm::decode_zlib(data);
-						const auto decompressed = algorithm::decode_base64(base64);
+					m_folder = folder;
 
-						m_cache[name] = std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					const auto contents = fs.list_directory(m_folder);
+					if (!contents.empty())
+					{
+						for (const auto& file : contents)
+						{
+							const auto data = fs.open(file);
+							if (!data.empty())
+							{
+								const auto name         = std::filesystem::path(file).stem().string();
+								const auto base64       = algorithm::decode_zlib(data);
+								const auto decompressed = algorithm::decode_base64(base64);
+
+								m_cache[name] = std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
+							}
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no Prefabs to load in '{0}'.", m_folder);
 					}
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Found no Prefabs to load in '{0}'.", m_folder);
-			}
+			});
 		}
 	} // namespace resource
 } // namespace galaxy

@@ -60,13 +60,6 @@ namespace galaxy
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-			// Make sure there is enough cores to run.
-			const auto hardware_count = std::thread::hardware_concurrency();
-			if (hardware_count < 4)
-			{
-				GALAXY_LOG(GALAXY_FATAL, "You do not have enough hardware threads. 4 is the minimum required.");
-			}
-
 			//
 			// LOGGING.
 			//
@@ -125,9 +118,7 @@ namespace galaxy
 			config.restore<std::string>("prefabs_folder", "prefabs/", "resource_folders");
 			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
 			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
-			config.restore<std::string>("music_folder", "audio/music/", "resource_folders");
-			config.restore<std::string>("sfx_folder", "audio/sfx/", "resource_folders");
-			config.restore<std::string>("dialogue_folder", "audio/dialogue/", "resource_folders");
+			config.restore<std::string>("audio_folder", "audio/", "resource_folders");
 			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
@@ -258,9 +249,12 @@ namespace galaxy
 				create_asset_layout(root, "");
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
 
-				create_asset_layout(root, config.get<std::string>("music_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("sfx_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("dialogue_folder", "resource_folders"));
+				const auto audio_folder = config.get<std::string>("audio_folder", "resource_folders");
+				create_asset_layout(root, audio_folder);
+				create_asset_layout(root, audio_folder + "music/");
+				create_asset_layout(root, audio_folder + "sfx/");
+				create_asset_layout(root, audio_folder + "dialogue/");
+
 				create_asset_layout(root, config.get<std::string>("font_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("scripts_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));

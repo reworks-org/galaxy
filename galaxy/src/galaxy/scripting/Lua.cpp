@@ -1221,7 +1221,6 @@ namespace galaxy
 			materials_type["empty"] = &resource::Materials::empty;
 			materials_type["get"]   = &resource::Materials::get;
 			materials_type["has"]   = &resource::Materials::has;
-			materials_type["load"]  = &resource::Materials::load;
 			materials_type["keys"]  = &resource::Materials::keys;
 
 			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
@@ -1229,7 +1228,6 @@ namespace galaxy
 			prefabs_type["empty"] = &resource::Prefabs::empty;
 			prefabs_type["get"]   = &resource::Prefabs::get;
 			prefabs_type["has"]   = &resource::Prefabs::has;
-			prefabs_type["load"]  = &resource::Prefabs::load;
 			prefabs_type["keys"]  = &resource::Prefabs::keys;
 
 			auto scripts_type     = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
@@ -1237,7 +1235,6 @@ namespace galaxy
 			scripts_type["empty"] = &resource::Scripts::empty;
 			scripts_type["get"]   = &resource::Scripts::get;
 			scripts_type["has"]   = &resource::Scripts::has;
-			scripts_type["load"]  = &resource::Scripts::load;
 			scripts_type["keys"]  = &resource::Scripts::keys;
 
 			auto shaders_type       = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
@@ -1245,19 +1242,15 @@ namespace galaxy
 			shaders_type["empty"]   = &resource::Shaders::empty;
 			shaders_type["get"]     = &resource::Shaders::get;
 			shaders_type["has"]     = &resource::Shaders::has;
-			shaders_type["load"]    = &resource::Shaders::load;
 			shaders_type["compile"] = &resource::Shaders::compile;
 			shaders_type["keys"]    = &resource::Shaders::keys;
 
-			auto sounds_type             = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
-			sounds_type["clear"]         = &resource::Sounds::clear;
-			sounds_type["empty"]         = &resource::Sounds::empty;
-			sounds_type["get"]           = &resource::Sounds::get;
-			sounds_type["has"]           = &resource::Sounds::has;
-			sounds_type["load_music"]    = &resource::Sounds::load_music;
-			sounds_type["load_sfx"]      = &resource::Sounds::load_sfx;
-			sounds_type["load_dialogue"] = &resource::Sounds::load_dialogue;
-			sounds_type["keys"]          = &resource::Sounds::keys;
+			auto sounds_type     = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
+			sounds_type["clear"] = &resource::Sounds::clear;
+			sounds_type["empty"] = &resource::Sounds::empty;
+			sounds_type["get"]   = &resource::Sounds::get;
+			sounds_type["has"]   = &resource::Sounds::has;
+			sounds_type["keys"]  = &resource::Sounds::keys;
 
 			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
 			textureatlas_type["add_file"]   = &resource::TextureAtlas::add_file;
@@ -1274,7 +1267,6 @@ namespace galaxy
 			fonts_type["empty"] = &resource::Fonts::empty;
 			fonts_type["get"]   = &resource::Fonts::get;
 			fonts_type["has"]   = &resource::Fonts::has;
-			fonts_type["load"]  = &resource::Fonts::load;
 			fonts_type["build"] = &resource::Fonts::build;
 			fonts_type["keys"]  = &resource::Fonts::keys;
 

@@ -32,25 +32,13 @@ namespace galaxy
 			virtual ~Sounds();
 
 			///
-			/// Load sound effects from VFS.
+			/// \brief Loads resources from a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///
-			void load_sfx(std::string_view folder);
-
+			/// \return Thread handle of loading thread.
 			///
-			/// Load music from VFS.
-			///
-			/// \param folder Folder located in the VFS.
-			///
-			void load_music(std::string_view folder);
-
-			///
-			/// Load dialogue from VFS.
-			///
-			/// \param folder Folder located in the VFS.
-			///
-			void load_dialogue(std::string_view folder);
+			std::future<void> load(std::string_view folder) override;
 
 		private:
 			///
@@ -72,6 +60,27 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Sounds& operator=(Sounds&&) = delete;
+
+			///
+			/// Load sound effects from VFS.
+			///
+			/// \param folder Folder located in the VFS.
+			///
+			void load_sfx(std::string_view folder);
+
+			///
+			/// Load music from VFS.
+			///
+			/// \param folder Folder located in the VFS.
+			///
+			void load_music(std::string_view folder);
+
+			///
+			/// Load dialogue from VFS.
+			///
+			/// \param folder Folder located in the VFS.
+			///
+			void load_dialogue(std::string_view folder);
 
 		private:
 			///

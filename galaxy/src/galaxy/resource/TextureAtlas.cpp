@@ -20,8 +20,7 @@ namespace galaxy
 	namespace resource
 	{
 		TextureAtlas::TextureAtlas()
-			: m_folder {""}
-			, m_max_bindings {0}
+			: m_max_bindings {0}
 			, m_size {0}
 		{
 			init();
@@ -128,21 +127,26 @@ namespace galaxy
 
 		void TextureAtlas::add_folder(std::string_view folder)
 		{
-			m_folder = std::string(folder);
+			clear();
 
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto contents = fs.list_directory(m_folder);
-			if (!contents.empty())
+			if (!folder.empty())
 			{
-				for (const auto& file : contents)
+				m_folder = folder;
+
+				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+				auto contents = fs.list_directory(m_folder);
+				if (!contents.empty())
 				{
-					add_file(file);
+					for (const auto& file : contents)
+					{
+						add_file(file);
+					}
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Failed to load any textures from '{0}'.", m_folder);
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Failed to load any textures from '{0}'.", m_folder);
+				}
 			}
 		}
 

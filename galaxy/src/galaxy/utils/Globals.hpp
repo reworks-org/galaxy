@@ -139,9 +139,7 @@ namespace galaxy
 ///
 /// Number of threads for the threadpool to use.
 ///
-/// On a 4 core system, you have 1 for main thread, 1 for audio and 2 for tasks.
-///
-#define GALAXY_WORKER_THREADS 2
+#define GALAXY_WORKER_THREADS 4
 
 ///
 /// ZLib inflate/deflate chunk size.

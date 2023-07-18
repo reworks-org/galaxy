@@ -104,9 +104,7 @@ namespace galaxy
 			void add_file(std::string_view file);
 
 			///
-			/// \brief Load textures in a folder.
-			///
-			/// Paired shaders must share a common filename.
+			/// Loads textures from a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///

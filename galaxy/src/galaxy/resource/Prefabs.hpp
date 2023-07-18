@@ -32,11 +32,13 @@ namespace galaxy
 			virtual ~Prefabs();
 
 			///
-			/// Load Prefabs in a folder.
+			/// Loads resources from a folder.
 			///
 			/// \param folder Folder located in the VFS.
 			///
-			void load(std::string_view folder);
+			/// \return Thread handle of loading thread.
+			///
+			std::future<void> load(std::string_view folder) override;
 
 		private:
 			///

@@ -17,7 +17,6 @@ namespace galaxy
 	namespace resource
 	{
 		Fonts::Fonts()
-			: m_folder {""}
 		{
 		}
 
@@ -25,30 +24,37 @@ namespace galaxy
 		{
 		}
 
-		void Fonts::load(std::string_view folder)
+		std::future<void> Fonts::load(std::string_view folder)
 		{
-			m_folder = std::string(folder);
+			clear();
 
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			// Load default font(s) first, incase of override.
-			m_cache["RobotoLight"] = std::make_shared<graphics::Font>(embedded::roboto_light, embedded::roboto_light_len);
-
-			auto contents = fs.list_directory(m_folder);
-			if (!contents.empty())
-			{
-				for (const auto& file : contents)
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
 				{
-					const auto path = std::filesystem::path(file);
-					const auto name = path.stem().string();
+					m_folder = folder;
 
-					m_cache[name] = std::make_shared<graphics::Font>(path.string());
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					// Load default font(s) first, incase of override.
+					m_cache["RobotoLight"] = std::make_shared<graphics::Font>(embedded::roboto_light, embedded::roboto_light_len);
+
+					auto contents = fs.list_directory(m_folder);
+					if (!contents.empty())
+					{
+						for (const auto& file : contents)
+						{
+							const auto path = std::filesystem::path(file);
+							const auto name = path.stem().string();
+
+							m_cache[name] = std::make_shared<graphics::Font>(path.string());
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load in '{0}'.", m_folder);
+					}
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Found no fonts to load in '{0}'.", m_folder);
-			}
+			});
 		}
 
 		void Fonts::build()

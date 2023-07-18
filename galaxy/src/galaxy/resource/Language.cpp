@@ -17,7 +17,6 @@ namespace galaxy
 	namespace resource
 	{
 		Language::Language()
-			: m_cur_lang {""}
 		{
 		}
 
@@ -26,31 +25,35 @@ namespace galaxy
 			clear();
 		}
 
-		void Language::load(std::string_view folder)
+		std::future<void> Language::load(std::string_view folder)
 		{
-			if (!folder.empty())
-			{
-				m_folder = folder;
+			clear();
 
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-				const auto files = fs.list_directory(m_folder);
-				for (const auto& file : files)
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
 				{
-					const auto key = std::filesystem::path(file).stem().string();
+					m_folder = folder;
 
-					if (!m_languages.contains(key))
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					const auto files = fs.list_directory(m_folder);
+					for (const auto& file : files)
 					{
-						m_languages.emplace(key, sol::state {});
-						m_languages[key].open_libraries(sol::lib::base, sol::lib::string, sol::lib::table, sol::lib::utf8);
-						m_languages[key].script_file(file);
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Attemped to add duplicate language '{0}'.", key);
+						const auto key = std::filesystem::path(file).stem().string();
+
+						if (!m_languages.contains(key))
+						{
+							m_languages.emplace(key, sol::state {});
+							m_languages[key].open_libraries(sol::lib::base, sol::lib::string, sol::lib::table, sol::lib::utf8);
+							m_languages[key].script_file(file);
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_WARNING, "Attemped to add duplicate language '{0}'.", key);
+						}
 					}
 				}
-			}
+			});
 		}
 
 		void Language::load_mem(const std::string& key, const std::string& lang_script)

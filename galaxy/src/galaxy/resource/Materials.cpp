@@ -17,7 +17,6 @@ namespace galaxy
 	namespace resource
 	{
 		Materials::Materials()
-			: m_folder {""}
 		{
 		}
 
@@ -25,29 +24,36 @@ namespace galaxy
 		{
 		}
 
-		void Materials::load(std::string_view folder)
+		std::future<void> Materials::load(std::string_view folder)
 		{
-			m_folder = std::string(folder);
+			clear();
 
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto contents = fs.list_directory(m_folder);
-			if (!contents.empty())
-			{
-				for (const auto& file : contents)
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!folder.empty())
 				{
-					const auto data = fs.open(file);
-					if (!data.empty())
+					m_folder = folder;
+
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					auto contents = fs.list_directory(m_folder);
+					if (!contents.empty())
 					{
-						const auto name = std::filesystem::path(file).stem().string();
-						m_cache[name]   = std::make_shared<physics::Material>(nlohmann::json::parse(file));
+						for (const auto& file : contents)
+						{
+							const auto data = fs.open(file);
+							if (!data.empty())
+							{
+								const auto name = std::filesystem::path(file).stem().string();
+								m_cache[name]   = std::make_shared<physics::Material>(nlohmann::json::parse(file));
+							}
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no physics materials to load in '{0}'.", m_folder);
 					}
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Found no physics materials to load in '{0}'.", m_folder);
-			}
+			});
 		}
 	} // namespace resource
 } // namespace galaxy
