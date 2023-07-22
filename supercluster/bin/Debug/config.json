@@ -44,15 +44,13 @@
         "log_performance": false,
         "resource_folders": {
             "atlas_folder": "atlas/",
-            "dialogue_folder": "audio/dialogue/",
+            "audio_folder": "audio/",
             "font_folder": "fonts/",
             "lang_folder": "lang/",
             "maps_folder": "maps/",
             "materials_folder": "materials/",
-            "music_folder": "audio/music/",
             "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",
-            "sfx_folder": "audio/sfx/",
             "shader_folder": "shaders/",
             "texture_folder": "textures/",
             "ui_folder": "ui/"

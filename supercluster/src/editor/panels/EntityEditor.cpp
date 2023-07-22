@@ -16,6 +16,7 @@
 #include <galaxy/components/LightSource.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
+#include <galaxy/components/RML.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
@@ -28,6 +29,7 @@
 #include <galaxy/resource/Materials.hpp>
 #include <galaxy/resource/Shaders.hpp>
 #include <galaxy/resource/TextureAtlas.hpp>
+#include <galaxy/scene/Scene.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "EntityEditor.hpp"
@@ -578,6 +580,29 @@ namespace sc
 						if (ImGui::Checkbox("Rotation Fixed", &rf))
 						{
 							body->set_fixed_rotation(rf);
+						}
+					});
+
+					draw_component<components::RML>(selected, "RML", [&](components::RML* rml) {
+						ImGui::Text("Current File: %s", rml->m_file);
+						ImGui::SameLine();
+						if (ImGui::Button("Load"))
+						{
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.rml"});
+							if (!path.empty())
+							{
+								rml->m_file = path;
+								rml->m_doc  = selected.m_world->scene()->m_context->LoadDocument(rml->m_file);
+								if (rml->m_doc)
+								{
+									rml->m_doc->Show();
+								}
+								else
+								{
+									GALAXY_LOG(GALAXY_ERROR, "Failed to load rml document '{0}'", rml->m_file);
+									rml->m_doc = nullptr;
+								}
+							}
 						}
 					});
 

@@ -20,6 +20,7 @@
 #include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
+#include "galaxy/components/RML.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -306,6 +307,7 @@ namespace galaxy
 			em.register_component<components::LightSource>("LightSource");
 			em.register_component<components::Primitive>("Primitive");
 			em.register_component<components::RigidBody>("RigidBody");
+			em.register_component<components::RML>("RML");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
 			em.register_component<components::Tag>("Tag");

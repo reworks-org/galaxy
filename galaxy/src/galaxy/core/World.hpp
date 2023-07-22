@@ -130,6 +130,13 @@ namespace galaxy
 			[[nodiscard]] b2World* b2world();
 
 			///
+			/// Get scene this world belongs to.
+			///
+			/// \return Raw pointer. Do NOT delete.
+			///
+			[[nodiscard]] const scene::Scene* const scene() const;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
@@ -195,6 +202,22 @@ namespace galaxy
 			/// \param entity Entity component belongs to.
 			///
 			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates RML init with entt on construct event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void construct_rml(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates RML destroy with entt on destruction event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void destruct_rml(entt::registry& registry, entt::entity entity);
 
 		public:
 			///

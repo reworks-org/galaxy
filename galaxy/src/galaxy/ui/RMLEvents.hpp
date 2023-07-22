@@ -27,16 +27,21 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Argument constructor.
+			/// Constructor.
 			///
-			/// \param context Pointer to RML context.
-			///
-			RMLEvents(Rml::Context* context);
+			RMLEvents();
 
 			///
 			/// Destructor.
 			///
 			~RMLEvents();
+
+			///
+			/// Set RML context.
+			///
+			/// \param context Pointer to RML context.
+			///
+			void set_context(Rml::Context* context);
 
 			///
 			/// On mouse moved event handler.
@@ -125,11 +130,6 @@ namespace galaxy
 			[[nodiscard]] int convert_key_modifier(int glfw_mods);
 
 		private:
-			///
-			/// Constructor.
-			///
-			RMLEvents() = delete;
-
 			///
 			/// Move constructor.
 			///

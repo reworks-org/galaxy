@@ -21,6 +21,7 @@
 #include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
+#include "galaxy/components/RML.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -532,11 +533,16 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::RigidBody>();
 
-			auto script_type = lua.new_usertype<components::Script>("Script",
-				sol::constructors<components::Script()>(),
-				"type_id",
-				&entt::type_hash<components::Script>::value);
+			auto rml_type =
+				lua.new_usertype<components::RML>("RML", sol::constructors<components::RML()>(), "type_id", &entt::type_hash<components::RML>::value);
+			rml_type["file"] = &components::RML::m_file;
 
+			entt_sol::register_meta_component<components::RML>();
+
+			auto script_type      = lua.new_usertype<components::Script>("Script",
+                sol::constructors<components::Script()>(),
+                "type_id",
+                &entt::type_hash<components::Script>::value);
 			script_type["file"]   = &components::Script::file;
 			script_type["self"]   = &components::Script::m_self;
 			script_type["update"] = &components::Script::m_update;

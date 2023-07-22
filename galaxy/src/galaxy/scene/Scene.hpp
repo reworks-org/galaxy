@@ -14,6 +14,7 @@
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Lighting.hpp"
+#include "galaxy/ui/RMLEvents.hpp"
 
 namespace galaxy
 {
@@ -118,6 +119,11 @@ namespace galaxy
 			/// Pointer to window.
 			///
 			core::Window* m_window;
+
+			///
+			/// RML event handler.
+			///
+			ui::RMLEvents m_rml_events;
 		};
 	} // namespace scene
 } // namespace galaxy

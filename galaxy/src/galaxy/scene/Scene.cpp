@@ -14,8 +14,10 @@
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
+#include "galaxy/systems/RMLSystem.hpp"
 
 #include "Scene.hpp"
+#include <RmlUi/Core/Core.h>
 
 namespace galaxy
 {
@@ -29,6 +31,7 @@ namespace galaxy
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
 			m_world.create_system<systems::ScriptSystem>();
+			m_world.create_system<systems::RMLSystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::PhysicsSystem>();
 			m_world.create_system<systems::RenderSystem>();
@@ -40,6 +43,9 @@ namespace galaxy
 
 			m_lighting.ambient_light_colour = {0.0, 0.0, 0.0, 0.2};
 			m_lighting.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
+
+			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
+			m_rml_events.set_context(m_context);
 		}
 
 		Scene::~Scene()
@@ -59,6 +65,7 @@ namespace galaxy
 		void Scene::update()
 		{
 			m_window->trigger_queued_events(m_dispatcher);
+			m_context->Update();
 			m_world.update();
 
 			graphics::Renderer::buffer_camera(m_camera);

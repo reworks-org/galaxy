@@ -14,14 +14,19 @@ namespace galaxy
 {
 	namespace ui
 	{
-		RMLEvents::RMLEvents(Rml::Context* context)
-			: m_context {context}
+		RMLEvents::RMLEvents()
+			: m_context {nullptr}
 		{
 		}
 
 		RMLEvents::~RMLEvents()
 		{
 			m_context = nullptr;
+		}
+
+		void RMLEvents::set_context(Rml::Context* context)
+		{
+			m_context = context;
 		}
 
 		void RMLEvents::on_mouse_move(events::MouseMoved& e)
