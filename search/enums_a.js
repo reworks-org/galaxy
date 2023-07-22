@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['shape_3272',['Shape',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578',1,'galaxy::graphics']]],
-  ['storageflag_3273',['StorageFlag',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c',1,'galaxy::graphics']]],
-  ['strength_3274',['Strength',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3fed',1,'galaxy::graphics::GaussianBlur']]]
+  ['shape_3301',['Shape',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578',1,'galaxy::graphics']]],
+  ['storageflag_3302',['StorageFlag',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c',1,'galaxy::graphics']]],
+  ['strength_3303',['Strength',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3fed',1,'galaxy::graphics::GaussianBlur']]]
 ];

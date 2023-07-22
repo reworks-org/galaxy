@@ -1,10 +1,10 @@
 var classgalaxy_1_1ui_1_1RMLEvents =
 [
-    [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa0108d1e69a496a9939db4f26960c6c6", null ],
+    [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#ade58fe568cf8c7ffa71353064be14330", null ],
     [ "~RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a94143b3b2923c3da1218f0039edc2141", null ],
-    [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aa855e310801266b30c1fa51d2fdedea8", null ],
     [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a43811b72c011b929ee3999a0b37d2efa", null ],
     [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a9a81e927d88eec2e498f17881c2d980d", null ],
+    [ "set_context", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aaad65aab2257c9eb531e5bce12441ad8", null ],
     [ "on_mouse_move", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#ae1d75d0e4c83f6380862552652057685", null ],
     [ "on_mouse_pressed", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a8681bef3bfbb3bf18623f57b66139314", null ],
     [ "on_mouse_released", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a31be0675ccd09b1b9721c90658056c5f", null ],

@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"":[0,0,3],
 "annotated.html":[1,0],
 "classes.html":[1,1],
 "d0/d0a/Animated_8cpp.html":[2,0,0,0,0,2,0],
@@ -48,12 +47,12 @@ var NAVTREEINDEX0 =
 "d0/d46/namespacegalaxy.html#a6801894d137b69973d5ad5c6d565b54e":[0,0,0,27],
 "d0/d4a/Serializable_8cpp.html":[2,0,0,0,0,8,6],
 "d0/d4a/Serializable_8cpp_source.html":[2,0,0,0,0,8,6],
-"d0/d59/Transform_8cpp.html":[2,0,0,0,0,2,18],
-"d0/d59/Transform_8cpp.html#a04f932f50f427af370746863c922b7fe":[2,0,0,0,0,2,18,0],
-"d0/d59/Transform_8cpp.html#a58836da6e54868a2ebe2b9e64a9ad799":[2,0,0,0,0,2,18,1],
-"d0/d59/Transform_8cpp_source.html":[2,0,0,0,0,2,18],
-"d0/d5a/Tag_8hpp.html":[2,0,0,0,0,2,15],
-"d0/d5a/Tag_8hpp_source.html":[2,0,0,0,0,2,15],
+"d0/d59/Transform_8cpp.html":[2,0,0,0,0,2,20],
+"d0/d59/Transform_8cpp.html#a04f932f50f427af370746863c922b7fe":[2,0,0,0,0,2,20,0],
+"d0/d59/Transform_8cpp.html#a58836da6e54868a2ebe2b9e64a9ad799":[2,0,0,0,0,2,20,1],
+"d0/d59/Transform_8cpp_source.html":[2,0,0,0,0,2,20],
+"d0/d5a/Tag_8hpp.html":[2,0,0,0,0,2,17],
+"d0/d5a/Tag_8hpp_source.html":[2,0,0,0,0,2,17],
 "d0/d5e/KeyChar_8cpp.html":[2,0,0,0,0,6,4],
 "d0/d5e/KeyChar_8cpp_source.html":[2,0,0,0,0,6,4],
 "d0/d6a/IndexBuffer_8hpp.html":[2,0,0,0,0,9,21],
@@ -155,8 +154,8 @@ var NAVTREEINDEX0 =
 "d0/de8/structgalaxy_1_1fs_1_1FileInfo.html#ad7e33f2bece44fa0f483a475cc1ff591":[1,0,0,7,0,2],
 "d0/def/Loader_8cpp.html":[2,0,0,0,0,3,4],
 "d0/def/Loader_8cpp_source.html":[2,0,0,0,0,3,4],
-"d0/dff/Sprite_8cpp.html":[2,0,0,0,0,2,12],
-"d0/dff/Sprite_8cpp_source.html":[2,0,0,0,0,2,12],
+"d0/dff/Sprite_8cpp.html":[2,0,0,0,0,2,14],
+"d0/dff/Sprite_8cpp_source.html":[2,0,0,0,0,2,14],
 "d1/d16/ZLib_8cpp.html":[2,0,0,0,0,0,8],
 "d1/d16/ZLib_8cpp.html#a3c26778d0e08613c2475af67be968a2a":[2,0,0,0,0,0,8,0],
 "d1/d16/ZLib_8cpp.html#a65ecede7f95188b9b959e4b36b3c4795":[2,0,0,0,0,0,8,1],
@@ -170,6 +169,8 @@ var NAVTREEINDEX0 =
 "d1/d2a/TimerAsync_8cpp_source.html":[2,0,0,0,0,1,2],
 "d1/d36/Input_8hpp.html":[2,0,0,0,0,10,5],
 "d1/d36/Input_8hpp_source.html":[2,0,0,0,0,10,5],
+"d1/d38/ui_2RMLSystem_8cpp.html":[2,0,0,0,0,20,12],
+"d1/d38/ui_2RMLSystem_8cpp_source.html":[2,0,0,0,0,20,12],
 "d1/d44/StringUtils_8cpp.html":[2,0,0,0,0,21,4],
 "d1/d44/StringUtils_8cpp.html#a08031ceb7b289eae2739e4528489da4b":[2,0,0,0,0,21,4,6],
 "d1/d44/StringUtils_8cpp.html#a22d4d4217db71614abc57b1d4aa3a9a0":[2,0,0,0,0,21,4,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d1/d98/Prefab_8hpp_source.html":[2,0,0,0,0,3,7],
 "d1/dac/LuaExternalLibs_8cpp.html":[2,0,0,0,0,17,7],
 "d1/dac/LuaExternalLibs_8cpp_source.html":[2,0,0,0,0,17,7],
-"d1/dcb/namespacegalaxy_1_1core.html":[0,0,0,3],
-"d1/dd8/AllowSerialize_8hpp.html":[2,0,0,0,0,7,1]
+"d1/dcb/namespacegalaxy_1_1core.html":[0,0,0,3]
 };

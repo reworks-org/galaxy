@@ -1,6 +1,9 @@
 <map id="galaxy::scene::Scene::Scene" name="galaxy::scene::Scene::Scene">
-<area shape="rect" id="node1" title="Constructor." alt="" coords="5,71,164,112"/>
-<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d" title="Add a system to the manager." alt="" coords="219,5,366,47"/>
-<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a14cdfe462b18a8cd7de08dd457c321ad" title="Get window height." alt="" coords="212,71,373,112"/>
-<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a837de79087ab9ba880c84c3db901263c" title="Get window width." alt="" coords="212,136,373,177"/>
+<area shape="rect" id="node1" title="Constructor." alt="" coords="5,169,164,211"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d" title="Add a system to the manager." alt="" coords="221,5,368,47"/>
+<area shape="rect" id="node3" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a2b9f2a01b03387b7930d1e37ed34852a" title="Get window height." alt="" coords="214,71,375,112"/>
+<area shape="rect" id="node4" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a14cdfe462b18a8cd7de08dd457c321ad" title="Get window height." alt="" coords="214,136,375,177"/>
+<area shape="rect" id="node5" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a0ab8b02b3baa1a765a36d0dcfa9b5f86" title="Get window width." alt="" coords="214,201,375,243"/>
+<area shape="rect" id="node6" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a837de79087ab9ba880c84c3db901263c" title="Get window width." alt="" coords="214,267,375,308"/>
+<area shape="rect" id="node7" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#aaad65aab2257c9eb531e5bce12441ad8" title="Set RML context." alt="" coords="212,332,377,373"/>
 </map>

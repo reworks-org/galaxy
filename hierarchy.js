@@ -105,6 +105,7 @@ var hierarchy =
       [ "galaxy::components::Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", null ],
       [ "galaxy::components::LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
+      [ "galaxy::components::RML", "db/d26/classgalaxy_1_1components_1_1RML.html", null ],
       [ "galaxy::components::RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", null ],
       [ "galaxy::components::Script", "db/d40/classgalaxy_1_1components_1_1Script.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
@@ -134,6 +135,7 @@ var hierarchy =
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
+      [ "galaxy::systems::RMLSystem", "df/d79/classgalaxy_1_1systems_1_1RMLSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
     ] ],

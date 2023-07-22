@@ -113,11 +113,11 @@ $(document).ready(function(){initNavTree('dc/dd7/Materials_8cpp_source.html','..
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">clear</a>();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (!folder.empty())</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    m_folder = folder;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0">m_folder</a> = folder;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0">m_folder</a>.empty())</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    auto&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    auto contents = fs.list_directory(m_folder);</div>
@@ -149,6 +149,7 @@ $(document).ready(function(){initNavTree('dc/dd7/Materials_8cpp_source.html','..
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html_a9a5c7a733c4673f2b1e244a5bd5ac136"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">galaxy::resource::Cache&lt; physics::Material &gt;::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clean up resources.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00042">Cache.hpp:133</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Materials_html_a11cd07ee80dc935d82641d2f4caf2877"><div class="ttname"><a href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a11cd07ee80dc935d82641d2f4caf2877">galaxy::resource::Materials::~Materials</a></div><div class="ttdeci">virtual ~Materials()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd7/Materials_8cpp_source.html#l00023">Materials.cpp:23</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Materials_html_a2d7c7f875a0baa21b9e9c33ece575a3b"><div class="ttname"><a href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a2d7c7f875a0baa21b9e9c33ece575a3b">galaxy::resource::Materials::load</a></div><div class="ttdeci">std::future&lt; void &gt; load(std::string_view folder) override</div><div class="ttdoc">Loads resources from a folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd7/Materials_8cpp_source.html#l00027">Materials.cpp:27</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Materials_html_acd9dcfcc1bbdedd7342075fb4c2843c0"><div class="ttname"><a href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0">galaxy::resource::Materials::m_folder</a></div><div class="ttdeci">std::string m_folder</div><div class="ttdoc">Material resource folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dce/Materials_8hpp_source.html#l00068">Materials.hpp:68</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Materials_html_ad540e541597fcae2e7de4d0b13a55898"><div class="ttname"><a href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#ad540e541597fcae2e7de4d0b13a55898">galaxy::resource::Materials::Materials</a></div><div class="ttdeci">Materials()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd7/Materials_8cpp_source.html#l00019">Materials.cpp:19</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -157,7 +158,7 @@ $(document).ready(function(){initNavTree('dc/dd7/Materials_8cpp_source.html','..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../dc/dd7/Materials_8cpp.html">Materials.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 18 2023 11:27:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 22 2023 14:59:19 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

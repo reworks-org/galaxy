@@ -113,11 +113,11 @@ $(document).ready(function(){initNavTree('db/d4b/Fonts_8cpp_source.html','../../
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">clear</a>();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (!folder.empty())</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    m_folder = folder;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">m_folder</a> = folder;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">m_folder</a>.empty())</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    auto&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <span class="comment">// Load default font(s) first, incase of override.</span></div>
@@ -159,6 +159,7 @@ $(document).ready(function(){initNavTree('db/d4b/Fonts_8cpp_source.html','../../
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html_a9a5c7a733c4673f2b1e244a5bd5ac136"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">galaxy::resource::Cache&lt; graphics::Font &gt;::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clean up resources.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00042">Cache.hpp:133</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a3fcea8080fceab91d265c622f36ee401"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a3fcea8080fceab91d265c622f36ee401">galaxy::resource::Fonts::~Fonts</a></div><div class="ttdeci">virtual ~Fonts()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00023">Fonts.cpp:23</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_a6e67e23e6e8e406f80dcc697a81d0485"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#a6e67e23e6e8e406f80dcc697a81d0485">galaxy::resource::Fonts::Fonts</a></div><div class="ttdeci">Fonts()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00019">Fonts.cpp:19</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_aeef99293b863805be7d7050f8e0495ff"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#aeef99293b863805be7d7050f8e0495ff">galaxy::resource::Fonts::m_folder</a></div><div class="ttdeci">std::string m_folder</div><div class="ttdoc">Font resource folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7d/Fonts_8hpp_source.html#l00075">Fonts.hpp:75</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Fonts_html_af4735503fa99a8d36ecc737cf47531ac"><div class="ttname"><a href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac">galaxy::resource::Fonts::load</a></div><div class="ttdeci">std::future&lt; void &gt; load(std::string_view folder) override</div><div class="ttdoc">Loads resources from a folder.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4b/Fonts_8cpp_source.html#l00027">Fonts.cpp:27</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -167,7 +168,7 @@ $(document).ready(function(){initNavTree('db/d4b/Fonts_8cpp_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../db/d4b/Fonts_8cpp.html">Fonts.cpp</a></li>
-    <li class="footer">Generated on Tue Jul 18 2023 11:27:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 22 2023 14:59:19 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 <map id="galaxy::resource::Sounds" name="galaxy::resource::Sounds">
-<area shape="rect" id="node1" title="Resource cache for sounds." alt="" coords="86,696,270,905"/>
+<area shape="rect" id="node1" title="Resource cache for sounds." alt="" coords="86,711,270,920"/>
 <area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="12,336,189,604"/>
 <area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="5,5,183,273"/>
 <area shape="rect" id="node4" title=" " alt="" coords="227,431,313,509"/>

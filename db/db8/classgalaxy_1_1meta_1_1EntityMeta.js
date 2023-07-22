@@ -5,6 +5,7 @@ var classgalaxy_1_1meta_1_1EntityMeta =
     [ "ComponentPtrFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a658d95c310be297941605ed282014382", null ],
     [ "ComponentAnyFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aeddd36bc45ae96ab6eb3ad353b6c2fe5", null ],
     [ "AnyJSONFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad5e2bbfdebe9d349027c4f1c56025c1f", null ],
+    [ "SerializeFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed", null ],
     [ "register_dependencies", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a70b771ffaa7c6d36349bd5c481d7baea", null ],
     [ "register_component", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a061cdea5ce40a553eb1a23265236a6ed", null ],
     [ "json_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3405211ab1eaa3ee9ce5a7e7bb7f32d6", null ],
@@ -22,6 +23,7 @@ var classgalaxy_1_1meta_1_1EntityMeta =
     [ "m_ptr_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a629349ae067c78045c90c5e132c0201c", null ],
     [ "m_any_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a443628159cf0fd0d0c081fa8b6bee706", null ],
     [ "m_json_any_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a9aa64ff95a75428b759b1fe4d0f754c3", null ],
+    [ "m_serialize_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf", null ],
     [ "m_validations", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ab23f9f7a17f72800e7cbf806256582c4", null ],
     [ "m_validations_to_run", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa43dcac4662e593aa11255d0bad07b95", null ]
 ];

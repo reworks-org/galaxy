@@ -15,6 +15,7 @@ var annotated_dup =
         [ "LightSource", "d1/d85/classgalaxy_1_1components_1_1LightSource.html", "d1/d85/classgalaxy_1_1components_1_1LightSource" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
         [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
+        [ "RML", "db/d26/classgalaxy_1_1components_1_1RML.html", "db/d26/classgalaxy_1_1components_1_1RML" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
@@ -145,6 +146,7 @@ var annotated_dup =
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
         [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
+        [ "RMLSystem", "df/d79/classgalaxy_1_1systems_1_1RMLSystem.html", "df/d79/classgalaxy_1_1systems_1_1RMLSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
       ] ],
