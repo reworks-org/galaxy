@@ -54,8 +54,6 @@ namespace sc
 						make = true;
 					}
 
-					ImGui::SameLine();
-
 					if (ImGui::Button("Create"))
 					{
 						make = true;

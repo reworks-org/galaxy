@@ -129,10 +129,10 @@ namespace galaxy
 		{
 			clear();
 
-			if (!folder.empty())
-			{
-				m_folder = folder;
+			m_folder = folder;
 
+			if (!m_folder.empty())
+			{
 				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 				auto contents = fs.list_directory(m_folder);

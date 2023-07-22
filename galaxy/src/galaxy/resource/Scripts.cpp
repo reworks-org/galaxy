@@ -26,11 +26,11 @@ namespace galaxy
 		{
 			clear();
 
-			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				if (!folder.empty())
-				{
-					m_folder = folder;
+			m_folder = folder;
 
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!m_folder.empty())
+				{
 					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 					auto contents = fs.list_directory(m_folder);

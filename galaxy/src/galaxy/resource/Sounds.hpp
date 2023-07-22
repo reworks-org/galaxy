@@ -84,6 +84,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Stem of folder paths.
+			///
+			std::string m_stem;
+
+			///
 			/// SFX folder path.
 			///
 			std::string m_sfx_path;

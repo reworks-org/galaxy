@@ -27,13 +27,14 @@ namespace galaxy
 		{
 			clear();
 
+			m_stem = folder;
+
 			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				if (!folder.empty())
+				if (!m_stem.empty())
 				{
-					const auto stem = static_cast<std::string>(folder);
-					load_sfx(stem + "sfx/");
-					load_music(stem + "music/");
-					load_dialogue(stem + "dialogue/");
+					load_sfx(m_stem + "sfx/");
+					load_music(m_stem + "music/");
+					load_dialogue(m_stem + "dialogue/");
 				}
 			});
 		}

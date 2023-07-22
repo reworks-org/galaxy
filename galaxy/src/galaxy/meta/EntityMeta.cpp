@@ -39,9 +39,7 @@ namespace galaxy
 			{
 				if (storage.contains(entity))
 				{
-					const auto& name         = get_type(id);
-					auto component           = static_cast<fs::Serializable*>(storage.value(entity));
-					json["components"][name] = component->serialize();
+					return m_serialize_factory[get_type(id)](storage.value(entity));
 				}
 			}
 

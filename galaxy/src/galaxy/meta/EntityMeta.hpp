@@ -13,6 +13,7 @@
 #include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
@@ -29,6 +30,7 @@ namespace galaxy
 			using ComponentPtrFactory = robin_hood::unordered_flat_map<std::string, std::function<entt::any(void*)>>;
 			using ComponentAnyFactory = robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, entt::any&)>>;
 			using AnyJSONFactory      = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
+			using SerializeFactory    = robin_hood::unordered_flat_map<std::string, std::function<nlohmann::json(void*)>>;
 
 		public:
 			///
@@ -164,6 +166,11 @@ namespace galaxy
 			AnyJSONFactory m_json_any_factory;
 
 			///
+			/// Serializes an entity from a void* pointer.
+			///
+			SerializeFactory m_serialize_factory;
+
+			///
 			/// Stores validation configurations.
 			///
 			Validations m_validations;
@@ -224,6 +231,15 @@ namespace galaxy
 
 				m_json_any_factory.emplace(name, [](const nlohmann::json& json) -> entt::any {
 					return entt::make_any<Component>(json);
+				});
+
+				m_serialize_factory.emplace(name, [](void* component) -> nlohmann::json {
+					if constexpr (std::derived_from<Component, fs::Serializable>)
+					{
+						return static_cast<Component*>(component)->serialize();
+					}
+
+					return nlohmann::json::object();
 				});
 			}
 			else

@@ -31,41 +31,44 @@ namespace galaxy
 		{
 			clear();
 
+			m_folder = folder;
+
 			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				m_folder = folder;
-
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-				auto contents = fs.list_directory(m_folder);
-				if (!contents.empty())
+				if (!m_folder.empty())
 				{
-					for (auto& file : contents)
+					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+					auto contents = fs.list_directory(m_folder);
+					if (!contents.empty())
 					{
-						strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
-						strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
+						for (auto& file : contents)
+						{
+							strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
+							strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
+						}
+
+						auto unique_range = std::ranges::unique(contents);
+						contents.erase(unique_range.begin(), unique_range.end());
+
+						std::ranges::sort(contents);
+						unique_range = std::ranges::unique(contents);
+						contents.erase(unique_range.begin(), unique_range.end());
+
+						for (const auto& file : contents)
+						{
+							const auto name = std::filesystem::path(file).stem().string();
+							m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_WARNING, "Found no shaders to load in '{0}'.", m_folder);
 					}
 
-					auto unique_range = std::ranges::unique(contents);
-					contents.erase(unique_range.begin(), unique_range.end());
-
-					std::ranges::sort(contents);
-					unique_range = std::ranges::unique(contents);
-					contents.erase(unique_range.begin(), unique_range.end());
-
-					for (const auto& file : contents)
-					{
-						const auto name = std::filesystem::path(file).stem().string();
-						m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
-					}
+					// Now load default shaders.
+					m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
+					m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Found no shaders to load in '{0}'.", m_folder);
-				}
-
-				// Now load default shaders.
-				m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
-				m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
 			});
 		}
 

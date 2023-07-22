@@ -44,3 +44,5 @@ TileMap:
 
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
+
+add instance rendering

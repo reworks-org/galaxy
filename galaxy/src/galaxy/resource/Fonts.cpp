@@ -28,11 +28,11 @@ namespace galaxy
 		{
 			clear();
 
-			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				if (!folder.empty())
-				{
-					m_folder = folder;
+			m_folder = folder;
 
+			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
+				if (!m_folder.empty())
+				{
 					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 					// Load default font(s) first, incase of override.
