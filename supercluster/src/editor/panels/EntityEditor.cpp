@@ -585,8 +585,8 @@ namespace sc
 					});
 
 					draw_component<components::RML>(selected, "RML", [&](components::RML* rml) {
-						ImGui::Text("Current File: %s", rml->m_file);
-						ImGui::SameLine();
+						ImGui::Text("Current File: %s", rml->m_file.c_str());
+
 						if (ImGui::Button("Load"))
 						{
 							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.rml"});
@@ -603,6 +603,16 @@ namespace sc
 									GALAXY_LOG(GALAXY_ERROR, "Failed to load rml document '{0}'", rml->m_file);
 									rml->m_doc = nullptr;
 								}
+							}
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Reload"))
+						{
+							if (!rml->m_file.empty())
+							{
+								rml->m_doc = selected.m_world->scene()->m_context->LoadDocument(rml->m_file);
 							}
 						}
 					});

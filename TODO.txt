@@ -9,9 +9,6 @@ add entity heirachy. i.e. u can attach entities to each other. This can then be 
 better editor play mode
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 
-lua script reloading
-rml file reloading
-
 more drag/drop support for tree view, body, etc
 
 implement b2_debugdraw?
@@ -46,3 +43,4 @@ https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
 
 add instance rendering
+fix normal map rendering
