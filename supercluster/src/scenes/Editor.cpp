@@ -28,8 +28,8 @@
 
 namespace sc
 {
-	Editor::Editor()
-		: Scene()
+	Editor::Editor(const std::string& name)
+		: Scene(name)
 		, m_editor_camera {true}
 	{
 		ste::CodeEditor::Setup(core::ServiceLocator<fs::VirtualFileSystem>::ref().root());

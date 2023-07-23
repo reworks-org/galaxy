@@ -32,7 +32,7 @@ namespace sc
 	class Editor final : public scene::Scene
 	{
 	public:
-		Editor();
+		Editor(const std::string& name);
 		virtual ~Editor();
 
 		void load() override;

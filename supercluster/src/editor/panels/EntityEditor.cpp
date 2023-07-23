@@ -91,6 +91,7 @@ namespace sc
 						draw_entry<components::LightSource>(selected, "Light");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
+						draw_entry<components::RML>(selected, "RML");
 						draw_entry<components::Script>(selected, "Script");
 						draw_entry<components::Sprite>(selected, "Sprite");
 						draw_entry<components::Tag>(selected, "Tag");

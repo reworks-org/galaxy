@@ -19,7 +19,7 @@ namespace sc
 	class Menu final : public scene::Scene
 	{
 	public:
-		Menu();
+		Menu(const std::string& name);
 		virtual ~Menu();
 
 		void load() override;

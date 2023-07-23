@@ -6,6 +6,7 @@
 ///
 
 #include <nlohmann/json.hpp>
+#include <RmlUi/Core/Core.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -17,7 +18,6 @@
 #include "galaxy/systems/RMLSystem.hpp"
 
 #include "Scene.hpp"
-#include <RmlUi/Core/Core.h>
 
 namespace galaxy
 {
@@ -28,6 +28,31 @@ namespace galaxy
 			, m_world {this}
 			, m_context {nullptr}
 			, m_name {"Untitled"}
+			, m_window {&core::ServiceLocator<core::Window>::ref()}
+		{
+			m_world.create_system<systems::ScriptSystem>();
+			m_world.create_system<systems::RMLSystem>();
+			m_world.create_system<systems::AnimationSystem>();
+			m_world.create_system<systems::PhysicsSystem>();
+			m_world.create_system<systems::RenderSystem>();
+
+			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
+			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
+			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
+			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
+
+			m_lighting.ambient_light_colour = {0.0, 0.0, 0.0, 0.2};
+			m_lighting.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
+
+			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
+			m_rml_events.set_context(m_context);
+		}
+
+		Scene::Scene(const std::string& name)
+			: m_camera {false}
+			, m_world {this}
+			, m_context {nullptr}
+			, m_name {name}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
 			m_world.create_system<systems::ScriptSystem>();

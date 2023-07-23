@@ -18,8 +18,8 @@
 
 namespace sc
 {
-	Menu::Menu()
-		: Scene()
+	Menu::Menu(const std::string& name)
+		: Scene(name)
 		, m_load {false}
 	{
 		m_bg.load("../editor_data/sc.png");

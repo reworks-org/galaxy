@@ -38,6 +38,13 @@ namespace galaxy
 			Scene();
 
 			///
+			/// Name constructor.
+			///
+			/// \param name Name of the scene for debug / editor purposes.
+			///
+			Scene(const std::string& name);
+
+			///
 			/// Destructor.
 			///
 			virtual ~Scene();
