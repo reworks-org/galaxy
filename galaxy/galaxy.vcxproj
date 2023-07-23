@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\systems\RMLSystem.cpp" />
+    <ClCompile Include="src\galaxy\systems\UISystem.cpp" />
     <ClCompile Include="src\galaxy\components\RML.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
@@ -163,7 +163,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\systems\RMLSystem.hpp" />
+    <ClInclude Include="src\galaxy\systems\UISystem.hpp" />
     <ClInclude Include="src\galaxy\components\RML.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />

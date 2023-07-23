@@ -1,5 +1,5 @@
 ///
-/// RMLSystem.cpp
+/// UISystem.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -10,21 +10,21 @@
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scene/Scene.hpp"
 
-#include "RMLSystem.hpp"
+#include "UISystem.hpp"
 
 namespace galaxy
 {
 	namespace systems
 	{
-		RMLSystem::RMLSystem()
+		UISystem::UISystem()
 		{
 		}
 
-		RMLSystem::~RMLSystem()
+		UISystem::~UISystem()
 		{
 		}
 
-		void RMLSystem::update(scene::Scene* scene)
+		void UISystem::update(scene::Scene* scene)
 		{
 			const auto view = scene->m_world.m_registry.view<components::RML, components::Flag>();
 			for (auto&& [entity, rml, flag] : view.each())

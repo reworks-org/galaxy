@@ -1,12 +1,12 @@
 ///
-/// RMLSystem.hpp
+/// UISystem.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SYSTEMS_RMLSYSTEM_HPP_
-#define GALAXY_SYSTEMS_RMLSYSTEM_HPP_
+#ifndef GALAXY_SYSTEMS_UISYSTEM_HPP_
+#define GALAXY_SYSTEMS_UISYSTEM_HPP_
 
 #include "galaxy/systems/System.hpp"
 
@@ -17,18 +17,18 @@ namespace galaxy
 		///
 		/// Update entities with an rml ui component.
 		///
-		class RMLSystem final : public systems::System
+		class UISystem final : public systems::System
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			RMLSystem();
+			UISystem();
 
 			///
 			/// Destructor.
 			///
-			virtual ~RMLSystem();
+			virtual ~UISystem();
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.

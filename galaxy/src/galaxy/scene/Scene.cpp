@@ -15,7 +15,7 @@
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
-#include "galaxy/systems/RMLSystem.hpp"
+#include "galaxy/systems/UISystem.hpp"
 
 #include "Scene.hpp"
 
@@ -31,7 +31,7 @@ namespace galaxy
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
 			m_world.create_system<systems::ScriptSystem>();
-			m_world.create_system<systems::RMLSystem>();
+			m_world.create_system<systems::UISystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::PhysicsSystem>();
 			m_world.create_system<systems::RenderSystem>();
@@ -56,7 +56,7 @@ namespace galaxy
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
 			m_world.create_system<systems::ScriptSystem>();
-			m_world.create_system<systems::RMLSystem>();
+			m_world.create_system<systems::UISystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::PhysicsSystem>();
 			m_world.create_system<systems::RenderSystem>();
