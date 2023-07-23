@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['debug_2864',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
-  ['decoding_5ftable_2865',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
-  ['default_5findices_2866',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]],
-  ['density_2867',['density',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab6c17cb636a3a030938640077e23422a',1,'galaxy::physics::Material']]],
-  ['depth_2868',['depth',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06',1,'galaxy::graphics::Light']]],
-  ['diameter_2869',['diameter',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12',1,'galaxy::graphics::Light']]],
-  ['draw_5fcount_2870',['draw_count',['../d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html#a4a896b4bd67373043f1943e589cf3ef6',1,'galaxy::ui::RMLCompiledGeometryData']]]
+  ['enable_5fblend_2820',['enable_blend',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a7ff9f8d365e35a0068dba8ead1399c6c',1,'galaxy::ui::RMLGLStateBackup']]],
+  ['enable_5fcull_5fface_2821',['enable_cull_face',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a579da6bb1e408edf513372f9733563fb',1,'galaxy::ui::RMLGLStateBackup']]],
+  ['enable_5fscissor_5ftest_2822',['enable_scissor_test',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a942601d345da975bdc46a4f1eaf997d7',1,'galaxy::ui::RMLGLStateBackup']]],
+  ['enable_5fstencil_5ftest_2823',['enable_stencil_test',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a706c98c3cfd9c67e2117af93e004d5ae',1,'galaxy::ui::RMLGLStateBackup']]],
+  ['encoding_5ftable_2824',['encoding_table',['../d4/de5/Base64_8cpp.html#ab95a027176f2877dedfdc0768ffa88f2',1,'Base64.cpp']]],
+  ['entered_2825',['entered',['../d0/d34/structgalaxy_1_1events_1_1MouseEnter.html#a971a1c8e72958d830b5d67e2b73eef12',1,'galaxy::events::MouseEnter']]],
+  ['entity_2826',['entity',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a6d09f5df0fc22dde445e67a16c2bcdf6',1,'galaxy::graphics::Render2DUniform']]]
 ];

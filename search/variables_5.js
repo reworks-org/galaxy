@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['fail_2878',['fail',['../da/deb/structgalaxy_1_1ui_1_1RMLStencil.html#a8e231c685ffd94033c96b18f79e1a9b2',1,'galaxy::ui::RMLStencil']]],
-  ['falloff_2879',['falloff',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#ace0bac85c0b5c930a346eb96ce00a22f',1,'galaxy::graphics::Light']]],
-  ['filmicgrain_5ffrag_2880',['filmicgrain_frag',['../d3/dd7/FilmicGrain_8cpp.html#ae61e95b6fdd0c123b36b5ccda96b0d94',1,'FilmicGrain.cpp']]],
-  ['filmicgrain_5fvert_2881',['filmicgrain_vert',['../d3/dd7/FilmicGrain_8cpp.html#a2451141456d364ea5c221cc5b893c59c',1,'FilmicGrain.cpp']]],
-  ['forward_2882',['FORWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a505dce37ac37840d08eecfed64003d6f',1,'galaxy::input::CameraKeys']]],
-  ['fragments_2883',['fragments',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a1d5a9f6694ec4f15dae8527c718ee884',1,'galaxy::components::Primitive::PrimitiveData']]],
-  ['friction_2884',['friction',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab2fe19949fd600a80713d2f1b5ed7a99',1,'galaxy::physics::Material']]],
-  ['func_2885',['func',['../da/deb/structgalaxy_1_1ui_1_1RMLStencil.html#a6b979a0f2982c36259a881d487891cbc',1,'galaxy::ui::RMLStencil']]]
+  ['galaxy_5fcur_5ffps_5fvar_2834',['GALAXY_CUR_FPS_VAR',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a4fb054534de4ba8e326adf80c7498542',1,'galaxy::doNotUseReferToConfigForMacroNames']]],
+  ['galaxy_5fcur_5fups_5fvar_2835',['GALAXY_CUR_UPS_VAR',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#aa722552af871d374ef0cbafb4ffe0e1a',1,'galaxy::doNotUseReferToConfigForMacroNames']]],
+  ['galaxy_5fdt_5fvar_2836',['GALAXY_DT_VAR',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a4f893ca0bd094d697074eaf587b64922',1,'galaxy::doNotUseReferToConfigForMacroNames']]],
+  ['galaxy_5frestart_5fflag_2837',['GALAXY_RESTART_FLAG',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a869aeac50ab3730ae386853bbebae3dc',1,'galaxy::doNotUseReferToConfigForMacroNames']]],
+  ['galaxy_5fups_5fvar_2838',['GALAXY_UPS_VAR',['../db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html#a60418f88ca8c3ea1e7c4c19282c2c56d',1,'galaxy::doNotUseReferToConfigForMacroNames']]],
+  ['gammacorrection_5ffrag_2839',['gammacorrection_frag',['../d0/d3f/GammaCorrection_8cpp.html#a649d8ebcdac30b6d8f3b3108eab5b81b',1,'GammaCorrection.cpp']]],
+  ['gammacorrection_5fvert_2840',['gammacorrection_vert',['../d0/d3f/GammaCorrection_8cpp.html#a10a3335c8fd2275ea0ba95af56787ca0',1,'GammaCorrection.cpp']]],
+  ['gaussianblur_5ffrag_2841',['gaussianblur_frag',['../d8/d53/GaussianBlur_8cpp.html#a7087a5c6ea220c2c049606b9d6f430de',1,'GaussianBlur.cpp']]],
+  ['gaussianblur_5fvert_2842',['gaussianblur_vert',['../d8/d53/GaussianBlur_8cpp.html#a4ba3ee756c5368ce3ae3ff232974aec3',1,'GaussianBlur.cpp']]],
+  ['glstate_5fbackup_2843',['glstate_backup',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a307d9b1cfdc90b57f8953a1f6330e473',1,'galaxy::ui::RMLRenderer']]]
 ];

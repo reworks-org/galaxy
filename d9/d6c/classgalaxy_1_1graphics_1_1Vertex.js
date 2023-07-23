@@ -12,6 +12,5 @@ var classgalaxy_1_1graphics_1_1Vertex =
     [ "operator<=>", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a46c4ab21909a1b461a3205079d4688fe", null ],
     [ "m_pos", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a5490f7315196c511fc62a7ec8a4c29d5", null ],
     [ "m_texels", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ae09a0b3f844b9c06c1e3a37abdadf12a", null ],
-    [ "m_normals", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a1c600fd57a674c3060ea9d193f0e2acb", null ],
     [ "m_colour", "d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#ab869398410ca1b483ef5740202566376", null ]
 ];

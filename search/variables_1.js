@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['backward_2847',['BACKWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0',1,'galaxy::input::CameraKeys']]],
-  ['blend_5fdst_5falpha_2848',['blend_dst_alpha',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a910b3f7883f8976da8f5a1ff707582f7',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['blend_5fdst_5frgb_2849',['blend_dst_rgb',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a7c0d56fa45e4a507efd8dc7d3bc76c96',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['blend_5fequation_5falpha_2850',['blend_equation_alpha',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a7958cac844a2f7a838ca75ac497188a3',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['blend_5fequation_5frgb_2851',['blend_equation_rgb',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#adc3212e360817b9d468e08559947386b',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['blend_5fsrc_5falpha_2852',['blend_src_alpha',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#abf2c2dc0edb32709f21ab49fb0ad65a8',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['blend_5fsrc_5frgb_2853',['blend_src_rgb',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a5829857929262becef8607bef60e8eca',1,'galaxy::ui::RMLGLStateBackup']]],
-  ['button_2854',['button',['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#a8a041f95eabfcb32a468d6943a82c71e',1,'galaxy::events::MousePressed::button()'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#a739bed01d0e7044b1e9e66d04a121d17',1,'galaxy::events::MouseReleased::button()']]]
+  ['chromaticaberration_5ffrag_2806',['chromaticaberration_frag',['../dc/d11/ChromaticAberration_8cpp.html#aba75585dfd6796d99725a28be5e72fe7',1,'ChromaticAberration.cpp']]],
+  ['chromaticaberration_5fvert_2807',['chromaticaberration_vert',['../dc/d11/ChromaticAberration_8cpp.html#ac42485dd9d7f6248ef0b0b806254d846',1,'ChromaticAberration.cpp']]],
+  ['clear_5fdepth_2808',['CLEAR_DEPTH',['../d2/dad/Framebuffer_8cpp.html#a71b0b7f2095ef284e2c3aeb382c79090',1,'Framebuffer.cpp']]],
+  ['code_2809',['code',['../d0/de8/structgalaxy_1_1fs_1_1FileInfo.html#a47ead70d16b2faef3811345d2afb72fe',1,'galaxy::fs::FileInfo']]],
+  ['codepoint_2810',['codepoint',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html#a88d81328a066e4e956b65beb0d153f13',1,'galaxy::events::KeyChar']]],
+  ['color_5fclear_5fvalue_2811',['color_clear_value',['../d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html#a84826a384a336a85ec4cd73234800126',1,'galaxy::ui::RMLGLStateBackup']]],
+  ['colour_2812',['colour',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#aad42cf16b84638652f72c400ec8a2ba9',1,'galaxy::graphics::Render2DUniform']]],
+  ['colour_5foffset_2813',['COLOUR_OFFSET',['../dd/db2/Colour_8cpp.html#ac872fe49721f86c8d422e88f383c220f',1,'Colour.cpp']]],
+  ['count_2814',['count',['../d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html#a0c26952632a75528b51065211296a402',1,'galaxy::graphics::UniformInfo']]]
 ];

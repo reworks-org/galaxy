@@ -10,9 +10,6 @@ var namespacegalaxy_1_1graphics =
     [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
     [ "IndexBuffer", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer" ],
     [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
-    [ "Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", "dd/d03/structgalaxy_1_1graphics_1_1Light" ],
-    [ "Lighting", "d9/d24/structgalaxy_1_1graphics_1_1Lighting.html", "d9/d24/structgalaxy_1_1graphics_1_1Lighting" ],
-    [ "NormalMap", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap" ],
     [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
     [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
     [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
@@ -42,7 +39,6 @@ var namespacegalaxy_1_1graphics =
     [ "AttributeBinding", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019", [
       [ "POSITION_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "NORMALS_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aedffdf862e74b68a3c9f47afbc81204f", null ],
       [ "COLOUR_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb", null ],
       [ "OFFSET_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939", null ]
     ] ],

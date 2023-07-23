@@ -39,18 +39,6 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "InstanceBuffer.hpp", "dd/d53/InstanceBuffer_8hpp.html", [
       [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ]
     ] ],
-    [ "Light.cpp", "d2/d41/Light_8cpp.html", null ],
-    [ "Light.hpp", "d5/dd5/Light_8hpp.html", [
-      [ "Light", "dd/d03/structgalaxy_1_1graphics_1_1Light.html", "dd/d03/structgalaxy_1_1graphics_1_1Light" ]
-    ] ],
-    [ "Lighting.cpp", "d9/d9f/Lighting_8cpp.html", null ],
-    [ "Lighting.hpp", "d7/d2e/Lighting_8hpp.html", [
-      [ "Lighting", "d9/d24/structgalaxy_1_1graphics_1_1Lighting.html", "d9/d24/structgalaxy_1_1graphics_1_1Lighting" ]
-    ] ],
-    [ "NormalMap.cpp", "d7/dca/NormalMap_8cpp.html", null ],
-    [ "NormalMap.hpp", "df/d6e/NormalMap_8hpp.html", [
-      [ "NormalMap", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html", "d5/d72/classgalaxy_1_1graphics_1_1NormalMap" ]
-    ] ],
     [ "PostEffect.cpp", "de/d66/PostEffect_8cpp.html", null ],
     [ "PostEffect.hpp", "d7/d2d/PostEffect_8hpp.html", "d7/d2d/PostEffect_8hpp" ],
     [ "PostProcess.cpp", "d8/d9f/PostProcess_8cpp.html", "d8/d9f/PostProcess_8cpp" ],

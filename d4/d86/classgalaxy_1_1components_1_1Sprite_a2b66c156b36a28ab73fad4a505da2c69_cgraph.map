@@ -1,6 +1,6 @@
 <map id="galaxy::components::Sprite::deserialize" name="galaxy::components::Sprite::deserialize">
 <area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,165,159,207"/>
-<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a62ef8767ee24c312560b1d8de04cde66" title="Creates the internal vertex array." alt="" coords="207,165,360,207"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="207,165,360,207"/>
 <area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="434,100,613,141"/>
 <area shape="rect" id="node8" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="434,165,613,207"/>
 <area shape="rect" id="node9" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,231,639,258"/>

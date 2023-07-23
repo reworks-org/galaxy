@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('df/d20/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d85/classgalaxy_1_1graphics_1_1Renderer__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderer_coll__map" id="agalaxy_1_1graphics_1_1Renderer_coll__map">
-<area shape="rect" title="2D OpenGL renderer." alt="" coords="77,675,315,928"/>
+<area shape="rect" title="2D OpenGL renderer." alt="" coords="77,660,315,899"/>
 <area shape="rect" title=" " alt="" coords="5,403,184,495"/>
 <area shape="rect" title=" " alt="" coords="16,160,173,237"/>
 <area shape="rect" title=" " alt="" coords="75,13,114,90"/>
@@ -130,9 +130,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af46f9b3b3abaf17d7ba4449c596f75fc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc">buffer_camera</a> (<a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">Camera</a> &amp;camera)</td></tr>
 <tr class="memdesc:af46f9b3b3abaf17d7ba4449c596f75fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the camera uniform buffer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc">More...</a><br /></td></tr>
 <tr class="separator:af46f9b3b3abaf17d7ba4449c596f75fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4134428501b768d4055ff613437ac3f3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a4134428501b768d4055ff613437ac3f3">buffer_light_data</a> (<a class="el" href="../../d9/d24/structgalaxy_1_1graphics_1_1Lighting.html">Lighting</a> &amp;lighting)</td></tr>
-<tr class="memdesc:a4134428501b768d4055ff613437ac3f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the light shader storage buffer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a4134428501b768d4055ff613437ac3f3">More...</a><br /></td></tr>
-<tr class="separator:a4134428501b768d4055ff613437ac3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bc60c4def4bf7bd5772d5b8947060b4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4">submit</a> (<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &amp;command)</td></tr>
 <tr class="memdesc:a6bc60c4def4bf7bd5772d5b8947060b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submit render data to renderer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4">More...</a><br /></td></tr>
 <tr class="separator:a6bc60c4def4bf7bd5772d5b8947060b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +169,6 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:aaa0234b8472d651f8efa294fa0964bdd"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aaa0234b8472d651f8efa294fa0964bdd">s_r2d_ubo</a> = nullptr</td></tr>
 <tr class="memdesc:aaa0234b8472d651f8efa294fa0964bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D renderer UBO.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aaa0234b8472d651f8efa294fa0964bdd">More...</a><br /></td></tr>
 <tr class="separator:aaa0234b8472d651f8efa294fa0964bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa606f8dd55ef0300e39cbfb4dd83dba1"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a5d5409faff54258ee123932bb7290160">ShaderStorageBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa606f8dd55ef0300e39cbfb4dd83dba1">s_lighting</a> = nullptr</td></tr>
-<tr class="memdesc:aa606f8dd55ef0300e39cbfb4dd83dba1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html" title="Light data to upload to gpu.">Light</a> data.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa606f8dd55ef0300e39cbfb4dd83dba1">More...</a><br /></td></tr>
-<tr class="separator:aa606f8dd55ef0300e39cbfb4dd83dba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33c798f86bb226e668a46df34663cf71"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a33c798f86bb226e668a46df34663cf71">s_data</a></td></tr>
 <tr class="memdesc:a33c798f86bb226e668a46df34663cf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage for renderables submitted.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a33c798f86bb226e668a46df34663cf71">More...</a><br /></td></tr>
 <tr class="separator:a33c798f86bb226e668a46df34663cf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,7 +190,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2D OpenGL renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7f4c60fec4166a43f28aaeddb4c7c4d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f4c60fec4166a43f28aaeddb4c7c4d0">&#9670;&nbsp;</a></span>~Renderer()</h2>
@@ -286,7 +280,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -307,64 +301,6 @@ Friends</h2></td></tr>
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_icgraph">
 <area shape="rect" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
-<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a4134428501b768d4055ff613437ac3f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4134428501b768d4055ff613437ac3f3">&#9670;&nbsp;</a></span>buffer_light_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::buffer_light_data </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/d24/structgalaxy_1_1graphics_1_1Lighting.html">Lighting</a> &amp;&#160;</td>
-          <td class="paramname"><em>lighting</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Update the light shader storage buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td><a class="el" href="../../d9/d24/structgalaxy_1_1graphics_1_1Lighting.html" title="Data needed to light a scene.">Lighting</a> data. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_cgraph">
-<area shape="rect" title="Update the light shader storage buffer." alt="" coords="5,5,200,47"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="248,5,429,47"/>
-</map>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_icgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a4134428501b768d4055ff613437ac3f3_icgraph">
-<area shape="rect" title="Update the light shader storage buffer." alt="" coords="212,5,407,47"/>
 <area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
 </map>
 </div>
@@ -403,12 +339,12 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph">
 <area shape="rect" title="Submit render data to renderer." alt="" coords="284,5,479,47"/>
@@ -443,12 +379,12 @@ Friends</h2></td></tr>
 
 <p>Draw all submitted data to screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00079">79</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph">
 <area shape="rect" title="Draw all submitted data to screen." alt="" coords="212,5,407,47"/>
@@ -483,12 +419,12 @@ Friends</h2></td></tr>
 
 <p>Delete any data stored by the renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00128">128</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00101">101</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph">
 <area shape="rect" title="Delete any data stored by the renderer." alt="" coords="264,5,459,47"/>
@@ -555,12 +491,12 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00133">133</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00106">106</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph">
 <area shape="rect" title="Draw a texture to a render texture." alt="" coords="5,169,200,211"/>
@@ -573,11 +509,11 @@ Friends</h2></td></tr>
 <area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="527,267,737,308"/>
 </map>
 </div>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_icgraph">
 <area shape="rect" title="Draw a texture to a render texture." alt="" coords="1121,54,1316,95"/>
@@ -648,12 +584,12 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00159">159</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00132">132</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph">
 <area shape="rect" title="Draw a texture to a framebuffer." alt="" coords="5,104,225,145"/>
@@ -692,12 +628,12 @@ Friends</h2></td></tr>
 
 <p>Initialize renderer resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph">
 <area shape="rect" title="Initialize renderer resources." alt="" coords="5,39,200,80"/>
@@ -705,11 +641,11 @@ Friends</h2></td></tr>
 <area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="248,71,429,112"/>
 </map>
 </div>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph">
 <area shape="rect" title="Initialize renderer resources." alt="" coords="424,5,619,47"/>
@@ -745,23 +681,23 @@ Friends</h2></td></tr>
 
 <p>Destroy renderer resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00042">42</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph">
 <area shape="rect" title="Destroy renderer resources." alt="" coords="5,5,200,47"/>
 <area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="248,5,429,47"/>
 </map>
 </div>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph">
 <area shape="rect" title="Destroy renderer resources." alt="" coords="424,5,619,47"/>
@@ -793,7 +729,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -820,7 +756,7 @@ Friends</h2></td></tr>
 
 <p>Uniform buffer for camera. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00116">116</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -846,33 +782,7 @@ Friends</h2></td></tr>
 
 <p>2D renderer UBO. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa606f8dd55ef0300e39cbfb4dd83dba1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa606f8dd55ef0300e39cbfb4dd83dba1">&#9670;&nbsp;</a></span>s_lighting</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a5d5409faff54258ee123932bb7290160">ShaderStorageBuffer</a> &gt; galaxy::graphics::Renderer::s_lighting = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../dd/d03/structgalaxy_1_1graphics_1_1Light.html" title="Light data to upload to gpu.">Light</a> data. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00126">126</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -898,7 +808,7 @@ Friends</h2></td></tr>
 
 <p>Storage for renderables submitted. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -924,7 +834,7 @@ Friends</h2></td></tr>
 
 <p><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> used when drawing with renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -950,7 +860,7 @@ Friends</h2></td></tr>
 
 <p>Cache previous texture to prevent rebinding. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00141">141</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -976,7 +886,7 @@ Friends</h2></td></tr>
 
 <p>Cache previous nm texture to prevent rebinding. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -990,7 +900,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Sun Jul 23 2023 03:45:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jul 23 2023 08:01:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

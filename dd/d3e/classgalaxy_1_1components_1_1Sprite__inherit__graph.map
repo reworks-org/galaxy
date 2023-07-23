@@ -1,6 +1,5 @@
 <map id="galaxy::components::Sprite" name="galaxy::components::Sprite">
-<area shape="rect" id="node1" title="A sprite is a texture with vertex data." alt="" coords="269,263,422,589"/>
+<area shape="rect" id="node1" title="A sprite is a texture with vertex data." alt="" coords="141,263,294,589"/>
 <area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,5,216,215"/>
-<area shape="rect" id="node3" href="$d5/d72/classgalaxy_1_1graphics_1_1NormalMap.html" title="Virtual class for allowing a renderable to have normal mapping." alt="" coords="239,13,451,207"/>
-<area shape="rect" id="node4" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="475,35,645,185"/>
+<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,35,410,185"/>
 </map>

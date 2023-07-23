@@ -1,7 +1,7 @@
 <map id="galaxy::resource::TextureAtlas::map_y_texel" name="galaxy::resource::TextureAtlas::map_y_texel">
 <area shape="rect" id="node1" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="1121,119,1307,161"/>
 <area shape="rect" id="node2" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a342b38d8615c2d98915a13aee9f1e2e1" title="Add a single file." alt="" coords="888,54,1073,95"/>
-<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac8a798f56f338714104ead72590aa058" title="Creates the internal vertex array." alt="" coords="904,119,1057,161"/>
+<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad9048feec3c6550880e5758fba6ca3ce" title="Creates the internal vertex array." alt="" coords="904,119,1057,161"/>
 <area shape="rect" id="node8" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a4771cfdb3ad27c9235e63270aac3e4cb" title="Updates texture and internal vertex array." alt="" coords="904,185,1057,226"/>
 <area shape="rect" id="node3" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a07ffb7fe8b11eb8079abd484046ba420" title="Loads textures from a folder." alt="" coords="655,25,840,66"/>
 <area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,25,373,66"/>

@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
-<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="77,675,315,928"/>
+<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="77,660,315,899"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,403,184,495"/>
 <area shape="rect" id="node3" title=" " alt="" coords="16,160,173,237"/>
 <area shape="rect" id="node4" title=" " alt="" coords="75,13,114,90"/>

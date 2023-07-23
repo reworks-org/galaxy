@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Vertex::get_default_indices" name="galaxy::graphics::Vertex::get_default_indices">
 <area shape="rect" id="node1" title="Generate some default indicies." alt="" coords="1355,240,1533,281"/>
-<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a62ef8767ee24c312560b1d8de04cde66" title="Creates the internal vertex array." alt="" coords="1137,93,1291,135"/>
+<area shape="rect" id="node2" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="1137,93,1291,135"/>
 <area shape="rect" id="node8" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="1137,240,1291,281"/>
 <area shape="rect" id="node12" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="1121,371,1307,412"/>
 <area shape="rect" id="node3" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="904,5,1057,47"/>

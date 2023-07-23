@@ -10,7 +10,7 @@
 <area shape="rect" id="node22" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a2fa9cf086113788b168f4aa5361d760d" title="Begin isolated rendering." alt="" coords="1357,775,1537,816"/>
 <area shape="rect" id="node23" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="1094,664,1247,706"/>
 <area shape="rect" id="node24" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html#ac3d604f1f9ad6653e0dbeac0dcefaeb9" title="Build the font atlas." alt="" coords="529,1180,693,1222"/>
-<area shape="rect" id="node25" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a62ef8767ee24c312560b1d8de04cde66" title="Creates the internal vertex array." alt="" coords="1371,906,1524,947"/>
+<area shape="rect" id="node25" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="1371,906,1524,947"/>
 <area shape="rect" id="node29" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="1374,971,1521,1012"/>
 <area shape="rect" id="node32" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85" title="Create an entity from a prefab." alt="" coords="532,1326,691,1367"/>
 <area shape="rect" id="node33" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04" title="Draw a texture to a framebuffer." alt="" coords="1337,1139,1557,1180"/>
