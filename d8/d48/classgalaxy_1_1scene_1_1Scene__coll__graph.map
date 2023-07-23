@@ -1,6 +1,6 @@
 <map id="galaxy::scene::Scene" name="galaxy::scene::Scene">
-<area shape="rect" id="node1" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="1247,2343,1421,2552"/>
-<area shape="rect" id="node10" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1509,2615,1698,3117"/>
+<area shape="rect" id="node1" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="1247,2343,1421,2567"/>
+<area shape="rect" id="node10" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1509,2629,1698,3132"/>
 <area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="1628,1571,1797,1722"/>
 <area shape="rect" id="node8" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="1417,1909,1603,2280"/>
 <area shape="rect" id="node3" href="$d9/d24/structgalaxy_1_1graphics_1_1Lighting.html" title="Data needed to light a scene." alt="" coords="1344,1000,1532,1092"/>

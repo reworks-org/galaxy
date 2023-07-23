@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc":[1,0,0,8,25,2],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88":[1,0,0,8,25,7],
 "df/d23/TextureFilters_8hpp.html":[2,0,0,0,0,9,61],
 "df/d23/TextureFilters_8hpp.html#a7b6b971c4075b7e93106b552a0264e45":[2,0,0,0,0,9,61,0],
@@ -235,8 +236,8 @@ var NAVTREEINDEX12 =
 "functions_e.html":[1,3,0,4],
 "functions_enum.html":[1,3,4],
 "functions_f.html":[1,3,0,5],
-"functions_func.html":[1,3,1,0],
 "functions_func.html":[1,3,1],
+"functions_func.html":[1,3,1,0],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "functions_func_j.html":[1,3,1,9],
 "functions_func_k.html":[1,3,1,10],
 "functions_func_l.html":[1,3,1,11],
-"functions_func_m.html":[1,3,1,12],
-"functions_func_n.html":[1,3,1,13]
+"functions_func_m.html":[1,3,1,12]
 };

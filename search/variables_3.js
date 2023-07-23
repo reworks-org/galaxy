@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['debug_2863',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
-  ['decoding_5ftable_2864',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
-  ['default_5findices_2865',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]],
-  ['density_2866',['density',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab6c17cb636a3a030938640077e23422a',1,'galaxy::physics::Material']]],
-  ['depth_2867',['depth',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06',1,'galaxy::graphics::Light']]],
-  ['diameter_2868',['diameter',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12',1,'galaxy::graphics::Light']]],
-  ['draw_5fcount_2869',['draw_count',['../d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html#a4a896b4bd67373043f1943e589cf3ef6',1,'galaxy::ui::RMLCompiledGeometryData']]]
+  ['debug_2864',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
+  ['decoding_5ftable_2865',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
+  ['default_5findices_2866',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]],
+  ['density_2867',['density',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab6c17cb636a3a030938640077e23422a',1,'galaxy::physics::Material']]],
+  ['depth_2868',['depth',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a6b6bef8aac724846681b1e3a44d73b06',1,'galaxy::graphics::Light']]],
+  ['diameter_2869',['diameter',['../dd/d03/structgalaxy_1_1graphics_1_1Light.html#a81bccdf342bb31e712d95f73d45d9b12',1,'galaxy::graphics::Light']]],
+  ['draw_5fcount_2870',['draw_count',['../d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html#a4a896b4bd67373043f1943e589cf3ef6',1,'galaxy::ui::RMLCompiledGeometryData']]]
 ];

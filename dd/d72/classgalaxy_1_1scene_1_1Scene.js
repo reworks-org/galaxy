@@ -1,6 +1,7 @@
 var classgalaxy_1_1scene_1_1Scene =
 [
     [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2e7e33ec8e9007b62dcd2be275b298b6", null ],
+    [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#abeb10711646276e1ddf72d9d5f3595df", null ],
     [ "~Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a36e4158093600a6fa9a0826e26cb79ca", null ],
     [ "load", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4", null ],
     [ "unload", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ab06c87c8edd72daa18e98765305f6b74":[1,0,0,8,6,1],
 "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ad3d814c1053fb05c5100a530f329426c":[1,0,0,8,6,2],
 "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ae825ada12745ee16e5481cea7e80a604":[1,0,0,8,6,0],
 "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html":[1,0,0,8,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aaa0234b8472d651f8efa294fa0964bdd":[1,0,0,8,25,13],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ad507e7da0e7827919a71170ece77d95c":[1,0,0,8,25,16],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe":[1,0,0,8,25,10],
-"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aec686de60136174df7af76488cc0d083":[1,0,0,8,25,12],
-"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc":[1,0,0,8,25,2]
+"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aec686de60136174df7af76488cc0d083":[1,0,0,8,25,12]
 };
