@@ -6,7 +6,6 @@
 ///
 
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
@@ -45,16 +44,14 @@ namespace galaxy
 				{
 					transform.set_origin(sprite.get_width() * 0.5f, sprite.get_height() * 0.5f);
 
-					cmd.instances                  = 1;
-					cmd.mode                       = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-					cmd.uniform_data.entity        = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour        = {1.0f, 1.0f, 1.0f, sprite.get_opacity()};
-					cmd.uniform_data.transform     = transform.get_transform();
-					cmd.uniform_data.point         = false;
-					cmd.uniform_data.textured      = true;
-					cmd.uniform_data.normal_mapped = sprite.is_normal_mapped();
-					cmd.renderable                 = &sprite;
-					cmd.normalmap                  = &sprite;
+					cmd.instances              = 1;
+					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = {1.0f, 1.0f, 1.0f, sprite.get_opacity()};
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = false;
+					cmd.uniform_data.textured  = true;
+					cmd.renderable             = &sprite;
 
 					graphics::Renderer::submit(cmd);
 				}
@@ -66,16 +63,14 @@ namespace galaxy
 				{
 					transform.set_origin(primitive.get_width() * 0.5f, primitive.get_height() * 0.5f);
 
-					cmd.instances                  = 1;
-					cmd.mode                       = primitive.get_mode();
-					cmd.uniform_data.entity        = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour        = primitive.m_colour.to_vec4();
-					cmd.uniform_data.transform     = transform.get_transform();
-					cmd.uniform_data.point         = primitive.get_shape() == graphics::Shape::POINT;
-					cmd.uniform_data.textured      = false;
-					cmd.uniform_data.normal_mapped = false;
-					cmd.renderable                 = &primitive;
-					cmd.normalmap                  = nullptr;
+					cmd.instances              = 1;
+					cmd.mode                   = primitive.get_mode();
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = primitive.m_colour.to_vec4();
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = primitive.get_shape() == graphics::Shape::POINT;
+					cmd.uniform_data.textured  = false;
+					cmd.renderable             = &primitive;
 
 					graphics::Renderer::submit(cmd);
 				}
@@ -87,29 +82,16 @@ namespace galaxy
 				{
 					transform.set_origin(text.get_width() * 0.5f, text.get_height() * 0.5f);
 
-					cmd.instances                  = 1;
-					cmd.mode                       = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-					cmd.uniform_data.entity        = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour        = text.m_colour.to_vec4();
-					cmd.uniform_data.transform     = transform.get_transform();
-					cmd.uniform_data.point         = false;
-					cmd.uniform_data.textured      = true;
-					cmd.uniform_data.normal_mapped = false;
-					cmd.renderable                 = &text;
-					cmd.normalmap                  = nullptr;
+					cmd.instances              = 1;
+					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = text.m_colour.to_vec4();
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = false;
+					cmd.uniform_data.textured  = true;
+					cmd.renderable             = &text;
 
 					graphics::Renderer::submit(cmd);
-				}
-			}
-
-			scene->m_lighting.lights.clear();
-
-			const auto light_group = scene->m_world.m_registry.group<components::LightSource>(entt::get<components::Flag>);
-			for (auto&& [entity, light, flag] : light_group.each())
-			{
-				if (flag.is_flag_set<flags::Enabled>())
-				{
-					scene->m_lighting.lights.push_back(light.m_light);
 				}
 			}
 		}

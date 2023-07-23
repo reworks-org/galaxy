@@ -15,12 +15,8 @@
     <ClCompile Include="src\galaxy\components\RML.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
-    <ClCompile Include="src\galaxy\components\LightSource.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Light.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Lighting.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
-    <ClCompile Include="src\galaxy\graphics\NormalMap.cpp" />
     <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderable.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
@@ -167,12 +163,8 @@
     <ClInclude Include="src\galaxy\components\RML.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
-    <ClInclude Include="src\galaxy\components\LightSource.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Light.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Lighting.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
-    <ClInclude Include="src\galaxy\graphics\NormalMap.hpp" />
     <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderable.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />

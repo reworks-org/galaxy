@@ -13,7 +13,6 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/Flag.hpp>
-#include <galaxy/components/LightSource.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/RML.hpp>
@@ -88,7 +87,6 @@ namespace sc
 					{
 						draw_entry<components::Animated>(selected, "Animated");
 						draw_entry<components::Flag>(selected, "Flag");
-						draw_entry<components::LightSource>(selected, "Light");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
 						draw_entry<components::RML>(selected, "RML");
@@ -278,35 +276,6 @@ namespace sc
 								flag->unset_flag<flags::AllowSerialize>();
 							}
 						}
-					});
-
-					draw_component<components::LightSource>(selected, "Light Source", [&](components::LightSource* ls) {
-						float col[4] = {ls->m_light.colour.x, ls->m_light.colour.y, ls->m_light.colour.z, ls->m_light.colour.w};
-
-						if (ImGui::ColorEdit4("Colour", col))
-						{
-							ls->m_light.colour.x = col[0];
-							ls->m_light.colour.y = col[1];
-							ls->m_light.colour.z = col[2];
-							ls->m_light.colour.w = col[3];
-						}
-
-						ImGui::TextUnformatted("Falloff");
-						ImGui::InputFloat("X##1", &ls->m_light.falloff.x, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Y##2", &ls->m_light.falloff.y, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Z##3", &ls->m_light.falloff.z, 0.1f, 1.0f, "%.1f");
-
-						ImGui::Spacing();
-
-						ImGui::TextUnformatted("Position");
-						ImGui::InputFloat("X##4", &ls->m_light.pos.x, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Y##5", &ls->m_light.pos.y, 0.1f, 1.0f, "%.1f");
-						ImGui::InputFloat("Depth##6", &ls->m_light.depth, 0.01f, 0.1f, "%.3f");
-
-						ImGui::Spacing();
-
-						ImGui::TextUnformatted("Diameter");
-						ImGui::InputFloat("In Pixels", &ls->m_light.diameter, 1.0f, 10.0f, "%.1f");
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {
@@ -761,14 +730,13 @@ namespace sc
 
 						ImGui::InputFloat("Opacity", &sprite->m_opacity, 0.01f, 0.1f, "%.1f", numeric_input_flags);
 						ImGui::InputInt("Layer", &sprite->m_layer, 1, 2, numeric_input_flags);
-						ImGui::Checkbox("Normal Mapped", &sprite->m_normal_mapped);
 
 						if (ImGui::Button("Create Sprite"))
 						{
 							if (!sprite->m_tex_name.empty())
 							{
 								updates.emplace_back([sprite]() {
-									sprite->create(sprite->m_tex_name, sprite->m_layer, sprite->m_opacity, sprite->m_normal_mapped);
+									sprite->create(sprite->m_tex_name, sprite->m_layer, sprite->m_opacity);
 								});
 
 								ui::imgui_notify_success("New sprite created.");

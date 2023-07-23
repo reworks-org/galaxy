@@ -216,23 +216,6 @@ namespace sc
 						ImGui::Separator();
 						ImGui::Spacing();
 
-						float al[4] = {scene->m_lighting.ambient_light_colour.x,
-							scene->m_lighting.ambient_light_colour.y,
-							scene->m_lighting.ambient_light_colour.z,
-							scene->m_lighting.ambient_light_colour.w};
-
-						if (ImGui::ColorEdit4("Ambient Light", al))
-						{
-							scene->m_lighting.ambient_light_colour.x = al[0];
-							scene->m_lighting.ambient_light_colour.y = al[1];
-							scene->m_lighting.ambient_light_colour.z = al[2];
-							scene->m_lighting.ambient_light_colour.w = al[3];
-						}
-
-						ImGui::Spacing();
-						ImGui::Separator();
-						ImGui::Spacing();
-
 						// Right-click on blank space.
 						if (ImGui::BeginPopupContextWindow("##CreateNewEntityContext",
 								ImGuiPopupFlags_MouseButtonRight | ImGuiPopupFlags_NoOpenOverExistingPopup))

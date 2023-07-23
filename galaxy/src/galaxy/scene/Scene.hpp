@@ -13,7 +13,6 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/Lighting.hpp"
 #include "galaxy/ui/RMLEvents.hpp"
 
 namespace galaxy
@@ -115,11 +114,6 @@ namespace galaxy
 			/// Scene name for debug purposes.
 			///
 			std::string m_name;
-
-			///
-			/// Scene lighting.
-			///
-			graphics::Lighting m_lighting;
 
 		protected:
 			///

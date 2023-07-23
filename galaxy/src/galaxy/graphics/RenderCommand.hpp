@@ -8,7 +8,6 @@
 #ifndef GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 #define GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 
-#include "galaxy/graphics/NormalMap.hpp"
 #include "galaxy/graphics/Render2DUniform.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 
@@ -47,11 +46,6 @@ namespace galaxy
 			/// Renderable data;
 			///
 			Renderable* renderable;
-
-			///
-			/// Normal map data.
-			///
-			NormalMap* normalmap;
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -51,11 +51,6 @@ namespace galaxy
 			/// Does this renderable use a texture.
 			///
 			bool textured;
-
-			///
-			/// Does this renderable use a normal map.
-			///
-			bool normal_mapped;
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -28,19 +28,14 @@ namespace galaxy
 			TEXEL_POINT = 1u,
 
 			///
-			/// Normal map texels.
-			///
-			NORMALS_POINT = 2u,
-
-			///
 			/// Colour data.
 			///
-			COLOUR_POINT = 3u,
+			COLOUR_POINT = 2u,
 
 			///
 			/// Instance offset data.
 			///
-			OFFSET_POINT = 4u
+			OFFSET_POINT = 3u
 		};
 	} // namespace graphics
 } // namespace galaxy

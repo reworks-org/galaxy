@@ -19,7 +19,6 @@ namespace galaxy
 			#version 460 core
 			layout(location = 0) in vec2 l_pos;
 			layout(location = 1) in vec2 l_texels;
-			layout(location = 2) in vec2 l_normals;
 
 			precision highp int;
 			precision highp float;
@@ -37,11 +36,9 @@ namespace galaxy
 				int u_entity;
 				bool u_point;
 				bool u_textured;
-				bool u_normal_mapped;
 			};
 
 			out vec2 io_texels;
-			out vec2 io_normals;
 	
 			void main()
 			{
@@ -50,9 +47,6 @@ namespace galaxy
 				io_texels = l_texels;
 				io_texels.y = 1.0 - io_texels.y;
 
-				io_normals = l_normals;
-				io_normals.y = 1.0 - io_normals.y;
-	
 				if (u_point)
 				{
 					gl_PointSize = 4;
@@ -69,20 +63,6 @@ namespace galaxy
 			precision highp int;
 			precision highp float;
 
-			#define STEP_A 0.4
-			#define STEP_B 0.6
-			#define STEP_C 0.8
-			#define STEP_D 1.0
-
-			struct Light
-            {
-	            vec4 colour;
-				vec3 falloff;
-				vec2 pos;
-				float depth;
-				float diameter;
-            };
-
 			layout(std140, binding = 0) uniform camera_data
 			{
 				mat4 u_camera_model_view;
@@ -96,72 +76,21 @@ namespace galaxy
 				int u_entity;
 				bool u_point;
 				bool u_textured;
-				bool u_normal_mapped;
-			};
-
-			layout(std430, binding = 2) readonly buffer light_data {
-				Light s_lights[];
 			};
 			
 			layout (location = 0) out vec4 io_frag_colour;
 			layout (location = 1) out int io_entity;
 
 			in vec2 io_texels;
-			in vec2 io_normals;
-			
-			uniform vec2 u_resolution;
-			uniform vec4 u_ambient_colour;
 			
 			layout (location = 0) uniform sampler2D u_texture;
-			layout (location = 1) uniform sampler2D u_normals;
 
 			void main()
 			{
 				if (u_textured)
 				{
 					vec3 diffuse_colour = texture(u_texture, io_texels).rgb * u_colour.rgb;
-					vec3 sum = vec3(0.0);
-
-					if (u_normal_mapped && (s_lights.length() > 0))
-					{
-						vec3 normals = texture(u_normals, io_normals).rgb;
-						for (int i = 0; i < s_lights.length(); i++)
-						{
-							Light light = s_lights[i];
-							
-							vec3 light_dir = vec3(light.pos - (gl_FragCoord.xy / u_resolution), light.depth);
-							light_dir.x /= (light.diameter / u_resolution.x);
-							light_dir.y /= (light.diameter / u_resolution.y);
-
-							float D = length(light_dir);
-							
-							vec3 N = normalize(normals * 2.0 - 1.0);
-							vec3 L = normalize(light_dir);
-
-							N = mix(N, vec3(0), 0.5);
-
-							vec3 diffuse = (light.colour.xyz * light.colour.w) * max(dot(N, L), 0.0);
-							vec3 ambient = u_ambient_colour.xyz * u_ambient_colour.w;
-							
-							float attenuation = 1.0 / (light.falloff.x + (light.falloff.y * D) + (light.falloff.z * D * D));
-							if (attenuation < STEP_A) 
-								attenuation = 0.0;
-							else if (attenuation < STEP_B) 
-								attenuation = STEP_B;
-							else if (attenuation < STEP_C) 
-								attenuation = STEP_C;
-							else 
-								attenuation = STEP_D;
-
-							sum += (diffuse_colour * (ambient + diffuse * attenuation));
-						}
-					}
-					else
-					{
-						sum = diffuse_colour;
-					}
-					
-					io_frag_colour = vec4(sum, u_colour.a);
+					io_frag_colour = vec4(diffuse_colour, u_colour.a);
 				}
 				else
 				{

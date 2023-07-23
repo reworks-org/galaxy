@@ -20,27 +20,24 @@ namespace galaxy
 		Vertex::Vertex(const glm::vec2& pos, const glm::vec2& texels, const glm::vec2& normals, const graphics::Colour& colour)
 			: m_pos {pos}
 			, m_texels {texels}
-			, m_normals {normals}
 			, m_colour {colour}
 		{
 		}
 
 		Vertex::Vertex(Vertex&& v)
 		{
-			this->m_pos     = std::move(v.m_pos);
-			this->m_texels  = std::move(v.m_texels);
-			this->m_normals = std::move(v.m_normals);
-			this->m_colour  = std::move(v.m_colour);
+			this->m_pos    = std::move(v.m_pos);
+			this->m_texels = std::move(v.m_texels);
+			this->m_colour = std::move(v.m_colour);
 		}
 
 		Vertex& Vertex::operator=(Vertex&& v)
 		{
 			if (this != &v)
 			{
-				this->m_pos     = std::move(v.m_pos);
-				this->m_texels  = std::move(v.m_texels);
-				this->m_normals = std::move(v.m_normals);
-				this->m_colour  = std::move(v.m_colour);
+				this->m_pos    = std::move(v.m_pos);
+				this->m_texels = std::move(v.m_texels);
+				this->m_colour = std::move(v.m_colour);
 			}
 
 			return *this;
@@ -48,20 +45,18 @@ namespace galaxy
 
 		Vertex::Vertex(const Vertex& v)
 		{
-			this->m_pos     = v.m_pos;
-			this->m_texels  = v.m_texels;
-			this->m_normals = v.m_normals;
-			this->m_colour  = v.m_colour;
+			this->m_pos    = v.m_pos;
+			this->m_texels = v.m_texels;
+			this->m_colour = v.m_colour;
 		}
 
 		Vertex& Vertex::operator=(const Vertex& v)
 		{
 			if (this != &v)
 			{
-				this->m_pos     = v.m_pos;
-				this->m_texels  = v.m_texels;
-				this->m_normals = v.m_normals;
-				this->m_colour  = v.m_colour;
+				this->m_pos    = v.m_pos;
+				this->m_texels = v.m_texels;
+				this->m_colour = v.m_colour;
 			}
 
 			return *this;

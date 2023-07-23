@@ -97,11 +97,6 @@ namespace galaxy
 			glm::vec2 m_texels;
 
 			///
-			/// Normalmap texels.
-			///
-			glm::vec2 m_normals;
-
-			///
 			/// RGBA colour.
 			///
 			graphics::Colour m_colour;

@@ -41,9 +41,6 @@ namespace galaxy
 			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
 
-			m_lighting.ambient_light_colour = {0.0, 0.0, 0.0, 0.2};
-			m_lighting.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
-
 			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
 			m_rml_events.set_context(m_context);
 		}
@@ -65,9 +62,6 @@ namespace galaxy
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
-
-			m_lighting.ambient_light_colour = {0.0, 0.0, 0.0, 0.2};
-			m_lighting.resolution           = {m_window->get_widthf(), m_window->get_heightf()};
 
 			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
 			m_rml_events.set_context(m_context);
@@ -94,7 +88,6 @@ namespace galaxy
 			m_world.update();
 
 			graphics::Renderer::buffer_camera(m_camera);
-			graphics::Renderer::buffer_light_data(m_lighting);
 		}
 
 		void Scene::render()
@@ -104,8 +97,6 @@ namespace galaxy
 
 		void Scene::on_window_resized(const events::WindowResized& e)
 		{
-			m_lighting.resolution.x = static_cast<float>(e.width);
-			m_lighting.resolution.y = static_cast<float>(e.height);
 		}
 
 		nlohmann::json Scene::serialize()
@@ -115,11 +106,6 @@ namespace galaxy
 			json["world"]       = m_world.serialize();
 			json["name"]        = m_name;
 
-			json["ambient_light_colour"]["r"] = m_lighting.ambient_light_colour.x;
-			json["ambient_light_colour"]["g"] = m_lighting.ambient_light_colour.y;
-			json["ambient_light_colour"]["b"] = m_lighting.ambient_light_colour.z;
-			json["ambient_light_colour"]["a"] = m_lighting.ambient_light_colour.w;
-
 			return json;
 		}
 
@@ -128,12 +114,6 @@ namespace galaxy
 			m_camera.deserialize(json.at("camera"));
 			m_world.deserialize(json.at("world"));
 			m_name = json.at("name");
-
-			const auto& ambient_light_colour  = json.at("ambient_light_colour");
-			m_lighting.ambient_light_colour.x = ambient_light_colour.at("r");
-			m_lighting.ambient_light_colour.y = ambient_light_colour.at("g");
-			m_lighting.ambient_light_colour.z = ambient_light_colour.at("b");
-			m_lighting.ambient_light_colour.w = ambient_light_colour.at("a");
 		}
 	} // namespace scene
 } // namespace galaxy

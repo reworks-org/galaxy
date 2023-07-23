@@ -18,7 +18,6 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
-#include "galaxy/components/LightSource.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/RML.hpp"
@@ -467,21 +466,6 @@ namespace galaxy
 
 			entt_sol::register_meta_component<components::Flag>();
 
-			auto lightdata_type        = lua.new_usertype<graphics::Light>("Light", sol::constructors<graphics::Light()>());
-			lightdata_type["colour"]   = &graphics::Light::colour;
-			lightdata_type["pos"]      = &graphics::Light::pos;
-			lightdata_type["falloff"]  = &graphics::Light::falloff;
-			lightdata_type["depth"]    = &graphics::Light::depth;
-			lightdata_type["diameter"] = &graphics::Light::diameter;
-
-			auto light_type     = lua.new_usertype<components::LightSource>("Light",
-                sol::constructors<components::LightSource()>(),
-                "type_id",
-                &entt::type_hash<components::LightSource>::value);
-			light_type["light"] = &components::LightSource::m_light;
-
-			entt_sol::register_meta_component<components::LightSource>();
-
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
 			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::fragments;
@@ -554,16 +538,15 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Sprite>::value);
 
-			sprite_type["create"] = sol::resolve<void(const std::string&, const int, const float, const bool)>(&components::Sprite::create);
+			sprite_type["create"] = sol::resolve<void(const std::string&, const int, const float)>(&components::Sprite::create);
 			sprite_type["create_texturerect"] =
-				sol::resolve<void(const std::string&, const graphics::iRect&, const int, const float, const bool)>(&components::Sprite::create);
+				sol::resolve<void(const std::string&, const graphics::iRect&, const int, const float)>(&components::Sprite::create);
 			sprite_type["update"]             = sol::resolve<void(const std::string&)>(&components::Sprite::update);
 			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const graphics::iRect&)>(&components::Sprite::update);
 			sprite_type["get_height"]         = &components::Sprite::get_height;
 			sprite_type["get_opacity"]        = &components::Sprite::get_opacity;
 			sprite_type["get_width"]          = &components::Sprite::get_width;
 			sprite_type["set_opacity"]        = &components::Sprite::set_opacity;
-			sprite_type["is_normal_mapped"]   = &components::Sprite::is_normal_mapped;
 
 			entt_sol::register_meta_component<components::Sprite>();
 

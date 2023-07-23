@@ -15,9 +15,8 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo     = nullptr;
-		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo        = nullptr;
-		std::unique_ptr<ShaderStorageBuffer> Renderer::s_lighting = nullptr;
+		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo = nullptr;
+		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo    = nullptr;
 		meta::vector<RenderCommand> Renderer::s_data;
 		graphics::Shader Renderer::s_r2d_shader;
 		int Renderer::s_prev_texture = -1;
@@ -27,11 +26,9 @@ namespace galaxy
 		{
 			s_camera_ubo = std::make_unique<UniformBuffer>();
 			s_r2d_ubo    = std::make_unique<UniformBuffer>();
-			s_lighting   = std::make_unique<ShaderStorageBuffer>();
 
 			s_camera_ubo->create<Camera::Data>(GAlAXY_UBO_CAMERA_INDEX);
 			s_r2d_ubo->create<Render2DUniform>(GAlAXY_UBO_R2D_INDEX);
-			s_lighting->create<Lighting>(GALAXY_SSBO_LIGHTING_INDEX);
 
 			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 
@@ -44,31 +41,17 @@ namespace galaxy
 			s_data.clear();
 			s_camera_ubo.reset();
 			s_r2d_ubo.reset();
-			s_lighting.reset();
 			s_r2d_shader.destroy();
 
 			s_prev_texture = -1;
 			s_prev_nm      = -1;
 			s_camera_ubo   = nullptr;
 			s_r2d_ubo      = nullptr;
-			s_lighting     = nullptr;
 		}
 
 		void Renderer::buffer_camera(Camera& camera)
 		{
 			s_camera_ubo->buffer<Camera::Data>(0, 1, &camera.get_data());
-		}
-
-		void Renderer::buffer_light_data(Lighting& lighting)
-		{
-			thread_local const constexpr unsigned int light_size = sizeof(Light);
-			const unsigned int count                             = static_cast<unsigned int>(lighting.lights.size());
-
-			s_r2d_shader.set_uniform("u_resolution", lighting.resolution);
-			s_r2d_shader.set_uniform("u_ambient_colour", lighting.ambient_light_colour);
-
-			s_lighting->resize(count * light_size);
-			s_lighting->buffer<Light>(0, count, lighting.lights.data());
 		}
 
 		void Renderer::submit(RenderCommand& command)
@@ -108,16 +91,6 @@ namespace galaxy
 				{
 					glBindTextureUnit(0, tex);
 					s_prev_texture = tex;
-				}
-
-				if (cmd.uniform_data.normal_mapped)
-				{
-					const auto nm = cmd.normalmap->normal_map_texture();
-					if (s_prev_nm != nm)
-					{
-						glBindTextureUnit(1, nm);
-						s_prev_nm = nm;
-					}
 				}
 
 				// Instances = 1 is the same as glDrawElements.

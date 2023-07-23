@@ -11,7 +11,6 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Buffer.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/Lighting.hpp"
 #include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
@@ -46,13 +45,6 @@ namespace galaxy
 			/// \param camera Camera object to buffer.
 			///
 			static void buffer_camera(Camera& camera);
-
-			///
-			/// Update the light shader storage buffer.
-			///
-			/// \param data Lighting data.
-			///
-			static void buffer_light_data(Lighting& lighting);
 
 			///
 			/// Submit render data to renderer.
@@ -119,11 +111,6 @@ namespace galaxy
 			/// 2D renderer UBO.
 			///
 			static std::unique_ptr<UniformBuffer> s_r2d_ubo;
-
-			///
-			/// Light data.
-			///
-			static std::unique_ptr<ShaderStorageBuffer> s_lighting;
 
 			///
 			/// Storage for renderables submitted.

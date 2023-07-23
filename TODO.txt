@@ -15,8 +15,6 @@ implement b2_debugdraw?
 
 parallaxx support
 
-normal mapping support for tilemap.cpp
-
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.cpp
 
@@ -38,9 +36,12 @@ TileMap:
 	I.e. load all data beforehand and just assign/copy into a component.
 	worldspace/tilemap transitions/loadings separate from loader.
 	add load screen when switching maps in scene.
+	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
+		prerendering lets us to fancy lighting and stuff.
+		i.e. create tilemap in tiled, then export to use as bg image.
+
 
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
 
 add instance rendering
-fix normal map rendering
