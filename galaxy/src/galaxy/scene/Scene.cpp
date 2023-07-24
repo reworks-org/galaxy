@@ -30,19 +30,7 @@ namespace galaxy
 			, m_name {"Untitled"}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
-			m_world.create_system<systems::ScriptSystem>();
-			m_world.create_system<systems::UISystem>();
-			m_world.create_system<systems::AnimationSystem>();
-			m_world.create_system<systems::PhysicsSystem>();
-			m_world.create_system<systems::RenderSystem>();
-
-			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
-			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
-			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
-			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
-
-			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
-			m_rml_events.set_context(m_context);
+			init();
 		}
 
 		Scene::Scene(const std::string& name)
@@ -52,6 +40,15 @@ namespace galaxy
 			, m_name {name}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
+			init();
+		}
+
+		Scene::~Scene()
+		{
+		}
+
+		void Scene::init()
+		{
 			m_world.create_system<systems::ScriptSystem>();
 			m_world.create_system<systems::UISystem>();
 			m_world.create_system<systems::AnimationSystem>();
@@ -65,10 +62,7 @@ namespace galaxy
 
 			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
 			m_rml_events.set_context(m_context);
-		}
-
-		Scene::~Scene()
-		{
+			m_rml_renderer = dynamic_cast<ui::RMLRenderer*>(Rml::GetRenderInterface());
 		}
 
 		void Scene::load()
@@ -93,6 +87,10 @@ namespace galaxy
 		void Scene::render()
 		{
 			graphics::Renderer::draw();
+
+			m_rml_renderer->begin_frame();
+			m_context->Render();
+			m_rml_renderer->end_frame();
 		}
 
 		void Scene::on_window_resized(const events::WindowResized& e)

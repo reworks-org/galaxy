@@ -14,6 +14,7 @@
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/ui/RMLEvents.hpp"
+#include "galaxy/ui/RMLRenderer.hpp"
 
 namespace galaxy
 {
@@ -89,6 +90,12 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
+		private:
+			///
+			/// Shared init function for constructors.
+			///
+			void init();
+
 		public:
 			///
 			/// Camera.
@@ -125,6 +132,11 @@ namespace galaxy
 			/// RML event handler.
 			///
 			ui::RMLEvents m_rml_events;
+
+			///
+			/// Pointer to rml renderer.
+			///
+			ui::RMLRenderer* m_rml_renderer;
 		};
 	} // namespace scene
 } // namespace galaxy
