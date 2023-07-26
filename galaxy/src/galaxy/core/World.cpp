@@ -224,16 +224,13 @@ namespace galaxy
 
 			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
-			m_registry.each([&](const entt::entity entity) -> void {
-				auto flag = m_registry.try_get<components::Flag>(entity);
-				if (flag != nullptr)
+			for (auto&& [entity, flag] : m_registry.view<components::Flag>().each())
+			{
+				if (flag.is_flag_set<flags::AllowSerialize>())
 				{
-					if (flag->is_flag_set<flags::AllowSerialize>())
-					{
-						json["entities"].push_back(em.serialize_entity(entity, m_registry));
-					}
+					json["entities"].push_back(em.serialize_entity(entity, m_registry));
 				}
-			});
+			}
 
 			json["physics"] = nlohmann::json::object();
 			auto& physics   = json.at("physics");

@@ -1,76 +1,37 @@
 ///
-/// Lua.cpp
+/// LuaGalaxy.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <entt/entt.hpp>
-#include <entt/addons/sol/dispatcher.hpp>
-#include <entt/addons/sol/registry.hpp>
-
-#include <FastNoise/FastNoise.h>
-
 #include "galaxy/algorithm/Generic.hpp"
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/Random.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
-
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/RML.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
-
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Prefab.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/core/World.hpp"
-
-#include "galaxy/error/Log.hpp"
-
-#include "galaxy/events/ContentScale.hpp"
-#include "galaxy/events/KeyDown.hpp"
-#include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/KeyChar.hpp"
-#include "galaxy/events/MouseMoved.hpp"
-#include "galaxy/events/MousePressed.hpp"
-#include "galaxy/events/MouseReleased.hpp"
-#include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowResized.hpp"
-
-#include "galaxy/fs/FileInfo.hpp"
-#include "galaxy/fs/VirtualFileSystem.hpp"
-
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
-
-#include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/Rect.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
-
-#include "galaxy/input/Clipboard.hpp"
-#include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Input.hpp"
-#include "galaxy/input/InputMods.hpp"
-#include "galaxy/input/Keyboard.hpp"
-#include "galaxy/input/Keys.hpp"
-#include "galaxy/input/Mouse.hpp"
-#include "galaxy/input/MouseButtons.hpp"
-
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/media/Sound.hpp"
-
+#include "galaxy/media/Video.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
-
 #include "galaxy/platform/Subprocess.hpp"
-
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Materials.hpp"
@@ -79,340 +40,45 @@
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-
 #include "galaxy/scene/SceneManager.hpp"
-
-#include "galaxy/scripting/BasicScript.hpp"
-#include "galaxy/scripting/LuaExternalLibs.hpp"
-
 #include "galaxy/state/StateMachine.hpp"
-
-#include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/Guid.hpp"
-#include "galaxy/utils/StringUtils.hpp"
 
 #include "Lua.hpp"
 
 namespace galaxy
 {
-	void log_wrapper(error::LogLevel error_level, std::string_view message)
-	{
-		switch (error_level)
-		{
-			case error::LogLevel::INFO:
-				GALAXY_LOG(GALAXY_INFO, "{0}", message);
-				break;
-
-			case error::LogLevel::DEBUG:
-				GALAXY_LOG(GALAXY_DEBUG, "{0}", message);
-				break;
-
-			case error::LogLevel::WARNING:
-				GALAXY_LOG(GALAXY_WARNING, "{0}", message);
-				break;
-
-			case error::LogLevel::ERROR:
-				GALAXY_LOG(GALAXY_ERROR, "{0}", message);
-				break;
-
-			case error::LogLevel::FATAL:
-				GALAXY_LOG(GALAXY_FATAL, "{0}", message);
-				break;
-		}
-	}
-
 	namespace lua
 	{
+		void log_wrapper(error::LogLevel error_level, std::string_view message)
+		{
+			switch (error_level)
+			{
+				case error::LogLevel::INFO:
+					GALAXY_LOG(GALAXY_INFO, "{0}", message);
+					break;
+
+				case error::LogLevel::DEBUG:
+					GALAXY_LOG(GALAXY_DEBUG, "{0}", message);
+					break;
+
+				case error::LogLevel::WARNING:
+					GALAXY_LOG(GALAXY_WARNING, "{0}", message);
+					break;
+
+				case error::LogLevel::ERROR:
+					GALAXY_LOG(GALAXY_ERROR, "{0}", message);
+					break;
+
+				case error::LogLevel::FATAL:
+					GALAXY_LOG(GALAXY_FATAL, "{0}", message);
+					break;
+			}
+		}
+
 		void inject_galaxy_into_lua()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
-
-			/* ENTT */
-			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
-			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
-
-			/* GLM */
-			auto vec2_type = lua.new_usertype<glm::vec2>(
-				"vec2",
-				sol::constructors<glm::vec2(), glm::vec2(float, float)>(),
-				sol::meta_function::addition,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a + b;
-				},
-				sol::meta_function::multiplication,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a * b;
-				},
-				sol::meta_function::subtraction,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a - b;
-				},
-				sol::meta_function::division,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a / b;
-				},
-				sol::meta_function::equal_to,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a == b;
-				});
-
-			vec2_type["x"] = &glm::vec2::x;
-			vec2_type["y"] = &glm::vec2::y;
-
-			auto mult_overloads = sol::overload(
-				[](const glm::vec3& v1, const glm::vec3& v2) -> glm::vec3 {
-					return v1 * v2;
-				},
-				[](const glm::vec3& v1, float f) -> glm::vec3 {
-					return v1 * f;
-				},
-				[](float f, const glm::vec3& v1) -> glm::vec3 {
-					return f * v1;
-				});
-
-			auto dvec2_type = lua.new_usertype<glm::dvec2>(
-				"dvec2",
-				sol::constructors<glm::dvec2(), glm::dvec2(double, double)>(),
-				sol::meta_function::addition,
-				[](const glm::dvec2& a, const glm::dvec2& b) {
-					return a + b;
-				},
-				sol::meta_function::multiplication,
-				[](const glm::dvec2& a, const glm::dvec2& b) {
-					return a * b;
-				},
-				sol::meta_function::subtraction,
-				[](const glm::dvec2& a, const glm::dvec2& b) {
-					return a - b;
-				},
-				sol::meta_function::division,
-				[](const glm::dvec2& a, const glm::dvec2& b) {
-					return a / b;
-				},
-				sol::meta_function::equal_to,
-				[](const glm::dvec2& a, const glm::dvec2& b) {
-					return a == b;
-				});
-
-			dvec2_type["x"] = &glm::dvec2::x;
-			dvec2_type["y"] = &glm::dvec2::y;
-
-			auto vec3_type = lua.new_usertype<glm::vec3>(
-				"vec3",
-				sol::constructors<glm::vec3(), glm::vec3(float, float, float)>(),
-				sol::meta_function::addition,
-				[](const glm::vec3& a, const glm::vec3& b) {
-					return a + b;
-				},
-				sol::meta_function::multiplication,
-				mult_overloads,
-				sol::meta_function::subtraction,
-				[](const glm::vec3& a, const glm::vec3& b) {
-					return a - b;
-				},
-				sol::meta_function::unary_minus,
-				[](glm::vec3& v) -> glm::vec3 {
-					return -v;
-				},
-				sol::meta_function::division,
-				[](const glm::vec3& a, const glm::vec3& b) {
-					return a / b;
-				},
-				sol::meta_function::equal_to,
-				[](const glm::vec3& a, const glm::vec3& b) {
-					return a == b;
-				});
-
-			vec3_type["x"] = &glm::vec3::x;
-			vec3_type["y"] = &glm::vec3::y;
-			vec3_type["z"] = &glm::vec3::z;
-
-			auto vec4_type = lua.new_usertype<glm::vec4>(
-				"vec4",
-				sol::constructors<glm::vec4(), glm::vec4(float, float, float, float)>(),
-				sol::meta_function::addition,
-				[](const glm::vec4& a, const glm::vec4& b) {
-					return a + b;
-				},
-				sol::meta_function::multiplication,
-				[](const glm::vec4& a, const glm::vec4& b) {
-					return a * b;
-				},
-				sol::meta_function::multiplication,
-				sol::overload(
-					[](const glm::vec4& v1, const glm::vec4& v2) -> glm::vec4 {
-						return v1 * v2;
-					},
-					[](const glm::vec4& v1, float f) -> glm::vec4 {
-						return v1 * f;
-					},
-					[](float f, const glm::vec4& v1) -> glm::vec4 {
-						return f * v1;
-					}),
-				sol::meta_function::multiplication,
-				[](float a, const glm::vec4& b) {
-					return a * b;
-				},
-				sol::meta_function::subtraction,
-				[](const glm::vec4& a, const glm::vec4& b) {
-					return a - b;
-				},
-				sol::meta_function::division,
-				[](const glm::vec4& a, const glm::vec4& b) {
-					return a / b;
-				},
-				sol::meta_function::equal_to,
-				[](const glm::vec4& a, const glm::vec4& b) {
-					return a == b;
-				});
-
-			vec4_type["x"] = &glm::vec4::x;
-			vec4_type["y"] = &glm::vec4::y;
-			vec4_type["z"] = &glm::vec4::z;
-			vec4_type["w"] = &glm::vec4::w;
-
-			auto mat3_type = lua.new_usertype<glm::mat3>("mat3",
-				sol::constructors<glm::mat3(), glm::mat3(float, float, float, float, float, float, float, float, float)>(),
-				sol::meta_function::multiplication,
-				[](const glm::mat3& a, const glm::mat3& b) {
-					return a * b;
-				});
-
-			auto mat4_type = lua.new_usertype<glm::mat4>(
-				"mat4",
-				sol::constructors<glm::mat4(), glm::mat4(float)>(),
-				sol::meta_function::multiplication,
-				[](const glm::mat4& a, const glm::mat4& b) {
-					return a * b;
-				},
-				sol::meta_function::addition,
-				[](const glm::mat4& a, const glm::mat4& b) {
-					return a + b;
-				},
-				sol::meta_function::subtraction,
-				[](const glm::mat4& a, const glm::mat4& b) {
-					return a - b;
-				});
-
-			mat3_type["length"] = &glm::mat3::length;
-			mat4_type["length"] = &glm::mat4::length;
-
-			/* Box2D */
-			// clang-format off
-			lua.new_enum<b2BodyType>("b2BodyType",
-			{
-				{"b2_dynamicBody", b2BodyType::b2_dynamicBody},
-				{"b2_kinematicBody", b2BodyType::b2_kinematicBody},
-				{"b2_staticBody", b2BodyType::b2_staticBody}
-			});
-			// clang-format on
-
-			lua.new_usertype<b2Vec2>("b2Vec2",
-				"x",
-				&b2Vec2::x,
-				"y",
-				&b2Vec2::y,
-				"SetZero",
-				&b2Vec2::SetZero,
-				"Set",
-				&b2Vec2::Set,
-				"Length",
-				&b2Vec2::Length,
-				"LengthSquared",
-				&b2Vec2::LengthSquared,
-				"Normalise",
-				&b2Vec2::Normalize,
-				"IsValid",
-				&b2Vec2::IsValid,
-				"Skew",
-				&b2Vec2::Skew,
-				sol::call_constructor,
-				sol::constructors<b2Vec2(), b2Vec2(float, float)>(),
-				sol::meta_function::addition,
-				sol::overload([](b2Vec2& left, const b2Vec2& right) {
-					b2Vec2 ret = left;
-					ret += right;
-					return ret;
-				}),
-				sol::meta_function::subtraction,
-				sol::overload([](b2Vec2& left, const b2Vec2& right) {
-					b2Vec2 ret = left;
-					ret -= right;
-					return ret;
-				}),
-				sol::meta_function::multiplication,
-				sol::overload(
-					[](const float& left, b2Vec2& right) {
-						b2Vec2 ret = right;
-						ret *= left;
-						return ret;
-					},
-					[](b2Vec2& left, const float& right) {
-						b2Vec2 ret = left;
-						ret *= right;
-						return ret;
-					}));
-
-			lua.new_usertype<b2Vec3>("b2Vec3",
-				"x",
-				&b2Vec3::x,
-				"y",
-				&b2Vec3::y,
-				"z",
-				&b2Vec3::z,
-				"SetZero",
-				&b2Vec3::SetZero,
-				"Set",
-				&b2Vec3::Set,
-				sol::call_constructor,
-				sol::constructors<b2Vec3(), b2Vec3(float, float, float)>(),
-				sol::meta_function::addition,
-				sol::overload([](b2Vec3& left, const b2Vec3& right) {
-					b2Vec3 ret = left;
-					ret += right;
-					return ret;
-				}),
-				sol::meta_function::subtraction,
-				sol::overload([](b2Vec3& left, const b2Vec3& right) {
-					b2Vec3 ret = left;
-					ret -= right;
-					return ret;
-				}),
-				sol::meta_function::multiplication,
-				sol::overload(
-					[](const float& left, b2Vec3& right) {
-						b2Vec3 ret = right;
-						ret *= left;
-						return ret;
-					},
-					[](b2Vec3& left, const float& right) {
-						b2Vec3 ret = left;
-						ret *= right;
-						return ret;
-					}));
-
-			auto b2world_type                  = lua.new_usertype<b2World>("b2World", sol::no_constructor);
-			b2world_type["ClearForces"]        = &b2World::ClearForces;
-			b2world_type["SetAllowSleeping"]   = &b2World::SetAllowSleeping;
-			b2world_type["GetAllowSleeping"]   = &b2World::GetAllowSleeping;
-			b2world_type["SetWarmStarting"]    = &b2World::SetWarmStarting;
-			b2world_type["GetWarmStarting"]    = &b2World::GetWarmStarting;
-			b2world_type["SetSubStepping"]     = &b2World::SetSubStepping;
-			b2world_type["GetSubStepping"]     = &b2World::GetSubStepping;
-			b2world_type["GetProxyCount"]      = &b2World::GetProxyCount;
-			b2world_type["GetBodyCount"]       = &b2World::GetBodyCount;
-			b2world_type["GetJointCount"]      = &b2World::GetJointCount;
-			b2world_type["GetContactCount"]    = &b2World::GetContactCount;
-			b2world_type["GetTreeHeight"]      = &b2World::GetTreeHeight;
-			b2world_type["GetTreeBalance"]     = &b2World::GetTreeBalance;
-			b2world_type["GetTreeQuality"]     = &b2World::GetTreeQuality;
-			b2world_type["SetGravity"]         = &b2World::SetGravity;
-			b2world_type["GetGravity"]         = &b2World::GetGravity;
-			b2world_type["IsLocked"]           = &b2World::IsLocked;
-			b2world_type["SetAutoClearForces"] = &b2World::SetAutoClearForces;
-			b2world_type["GetAutoClearForces"] = &b2World::GetAutoClearForces;
-			b2world_type["ShiftOrigin"]        = &b2World::ShiftOrigin;
-			b2world_type["Dump"]               = &b2World::Dump;
 
 			/* ALGORITHM */
 			lua.set_function("normalize", &algorithm::normalize<float>);
@@ -453,8 +119,6 @@ namespace galaxy
 			animated_type["set"]                 = &components::Animated::set;
 			animated_type["stop"]                = &components::Animated::stop;
 
-			entt_sol::register_meta_component<components::Animated>();
-
 			auto flag_type =
 				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Flag>::value);
 			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
@@ -463,8 +127,6 @@ namespace galaxy
 			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
 			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
 			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
-
-			entt_sol::register_meta_component<components::Flag>();
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
@@ -491,8 +153,6 @@ namespace galaxy
 			primitive_type["get_width"]       = &components::Primitive::get_width;
 			primitive_type["colour"]          = &components::Primitive::m_colour;
 
-			entt_sol::register_meta_component<components::Primitive>();
-
 			auto rigidbody_type = lua.new_usertype<components::RigidBody>("RigidBody",
 				sol::constructors<components::RigidBody()>(),
 				"type_id",
@@ -515,14 +175,6 @@ namespace galaxy
 			rigidbody_type["set_shape"]                 = &components::RigidBody::set_shape;
 			rigidbody_type["set_type"]                  = &components::RigidBody::set_type;
 
-			entt_sol::register_meta_component<components::RigidBody>();
-
-			auto rml_type =
-				lua.new_usertype<components::RML>("RML", sol::constructors<components::RML()>(), "type_id", &entt::type_hash<components::RML>::value);
-			rml_type["file"] = &components::RML::m_file;
-
-			entt_sol::register_meta_component<components::RML>();
-
 			auto script_type      = lua.new_usertype<components::Script>("Script",
                 sol::constructors<components::Script()>(),
                 "type_id",
@@ -530,8 +182,6 @@ namespace galaxy
 			script_type["file"]   = &components::Script::file;
 			script_type["self"]   = &components::Script::m_self;
 			script_type["update"] = &components::Script::m_update;
-
-			entt_sol::register_meta_component<components::Script>();
 
 			auto sprite_type = lua.new_usertype<components::Sprite>("Sprite",
 				sol::constructors<components::Sprite()>(),
@@ -548,13 +198,9 @@ namespace galaxy
 			sprite_type["get_width"]          = &components::Sprite::get_width;
 			sprite_type["set_opacity"]        = &components::Sprite::set_opacity;
 
-			entt_sol::register_meta_component<components::Sprite>();
-
 			auto tag_type =
 				lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
 			tag_type["tag"] = &components::Tag::m_tag;
-
-			entt_sol::register_meta_component<components::Tag>();
 
 			// clang-format off
 			lua.new_enum<components::Text::Alignment>("TextAlignment",
@@ -588,8 +234,6 @@ namespace galaxy
 			text_type["update_text_size_colour_alignment"] =
 				sol::resolve<void(std::string_view, const float, const graphics::Colour&, const components::Text::Alignment)>(&components::Text::update);
 
-			entt_sol::register_meta_component<components::Text>();
-
 			auto transform_type = lua.new_usertype<components::Transform>("Transform",
 				sol::constructors<components::Transform()>(),
 				"type_id",
@@ -609,8 +253,6 @@ namespace galaxy
 			transform_type["set_pos"]              = &components::Transform::set_pos;
 			transform_type["set_rotation"]         = &components::Transform::set_rotation;
 			transform_type["translate"]            = &components::Transform::translate;
-
-			entt_sol::register_meta_component<components::Transform>();
 
 			/* CORE */
 			auto prefab_type =
@@ -667,14 +309,10 @@ namespace galaxy
 			contentscale_type["xscale"]  = &events::ContentScale::xscale;
 			contentscale_type["yscale"]  = &events::ContentScale::yscale;
 
-			entt_sol::register_meta_event<events::ContentScale>();
-
 			auto keychar_type         = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
 			keychar_type["type_id"]   = &entt::type_hash<events::KeyChar>::value;
 			keychar_type["codepoint"] = &events::KeyChar::codepoint;
 			keychar_type["handled"]   = &events::KeyChar::handled;
-
-			entt_sol::register_meta_event<events::KeyChar>();
 
 			auto keydown_type        = lua.new_usertype<events::KeyDown>("KeyDown", sol::constructors<events::KeyDown()>());
 			keydown_type["type_id"]  = &entt::type_hash<events::KeyDown>::value;
@@ -683,7 +321,12 @@ namespace galaxy
 			keydown_type["scancode"] = &events::KeyDown::scancode;
 			keydown_type["handled"]  = &events::KeyDown::handled;
 
-			entt_sol::register_meta_event<events::KeyDown>();
+			auto keyrepeat_type        = lua.new_usertype<events::KeyRepeat>("KeyRepeat", sol::constructors<events::KeyRepeat()>());
+			keyrepeat_type["type_id"]  = &entt::type_hash<events::KeyRepeat>::value;
+			keyrepeat_type["keycode"]  = &events::KeyRepeat::keycode;
+			keyrepeat_type["mod"]      = &events::KeyRepeat::mod;
+			keyrepeat_type["scancode"] = &events::KeyRepeat::scancode;
+			keyrepeat_type["handled"]  = &events::KeyRepeat::handled;
 
 			auto keyup_type        = lua.new_usertype<events::KeyUp>("KeyUp", sol::constructors<events::KeyUp()>());
 			keyup_type["type_id"]  = &entt::type_hash<events::KeyUp>::value;
@@ -692,15 +335,16 @@ namespace galaxy
 			keyup_type["scancode"] = &events::KeyUp::scancode;
 			keyup_type["handled"]  = &events::KeyUp::handled;
 
-			entt_sol::register_meta_event<events::KeyUp>();
+			auto mouseentered_type       = lua.new_usertype<events::MouseEnter>("MouseEnter", sol::constructors<events::MouseEnter()>());
+			mouseentered_type["type_id"] = &entt::type_hash<events::MouseEnter>::value;
+			mouseentered_type["entered"] = &events::MouseEnter::entered;
+			mouseentered_type["handled"] = &events::MouseEnter::handled;
 
 			auto mousemoved_type       = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
 			mousemoved_type["type_id"] = &entt::type_hash<events::MouseMoved>::value;
 			mousemoved_type["xpos"]    = &events::MouseMoved::xpos;
 			mousemoved_type["ypos"]    = &events::MouseMoved::ypos;
 			mousemoved_type["handled"] = &events::MouseMoved::handled;
-
-			entt_sol::register_meta_event<events::MouseMoved>();
 
 			auto mousepressed_type       = lua.new_usertype<events::MousePressed>("MousePressed", sol::constructors<events::MousePressed()>());
 			mousepressed_type["type_id"] = &entt::type_hash<events::MousePressed>::value;
@@ -710,8 +354,6 @@ namespace galaxy
 			mousepressed_type["ypos"]    = &events::MousePressed::ypos;
 			mousepressed_type["handled"] = &events::MousePressed::handled;
 
-			entt_sol::register_meta_event<events::MousePressed>();
-
 			auto mousereleased_type       = lua.new_usertype<events::MouseReleased>("MouseReleased", sol::constructors<events::MouseReleased()>());
 			mousereleased_type["type_id"] = &entt::type_hash<events::MouseReleased>::value;
 			mousereleased_type["button"]  = &events::MouseReleased::button;
@@ -720,22 +362,16 @@ namespace galaxy
 			mousereleased_type["ypos"]    = &events::MouseReleased::ypos;
 			mousereleased_type["handled"] = &events::MouseReleased::handled;
 
-			entt_sol::register_meta_event<events::MouseReleased>();
-
 			auto mousewheel_type       = lua.new_usertype<events::MouseWheel>("MouseWheel", sol::constructors<events::MouseWheel()>());
 			mousewheel_type["type_id"] = &entt::type_hash<events::MouseWheel>::value;
 			mousewheel_type["xoff"]    = &events::MouseWheel::xoff;
 			mousewheel_type["yoff"]    = &events::MouseWheel::yoff;
 			mousewheel_type["handled"] = &events::MouseWheel::handled;
 
-			entt_sol::register_meta_event<events::MouseWheel>();
-
 			auto windowresized_type       = lua.new_usertype<events::WindowResized>("WindowResized", sol::constructors<events::WindowResized()>());
 			windowresized_type["type_id"] = &entt::type_hash<events::WindowResized>::value;
 			windowresized_type["width"]   = &events::WindowResized::width;
 			windowresized_type["height"]  = &events::WindowResized::height;
-
-			entt_sol::register_meta_event<events::WindowResized>();
 
 			/* FS */
 			// clang-format off
@@ -1124,6 +760,17 @@ namespace galaxy
 			});
 			// clang-format on
 
+			auto audioengine_type                      = lua.new_usertype<media::AudioEngine>("AudioEngine", sol::no_constructor);
+			audioengine_type["set_sfx_volume"]         = &media::AudioEngine::set_sfx_volume;
+			audioengine_type["set_music_volume"]       = &media::AudioEngine::set_music_volume;
+			audioengine_type["set_dialogue_volume"]    = &media::AudioEngine::set_dialogue_volume;
+			audioengine_type["set_listener_cone"]      = &media::AudioEngine::set_listener_cone;
+			audioengine_type["set_listener_direction"] = &media::AudioEngine::set_listener_direction;
+			audioengine_type["set_listener_position"]  = &media::AudioEngine::set_listener_position;
+			audioengine_type["set_listener_world_up"]  = &media::AudioEngine::set_listener_world_up;
+			audioengine_type["toggle_listener"]        = &media::AudioEngine::toggle_listener;
+			audioengine_type["stop"]                   = &media::AudioEngine::stop;
+
 			auto sound_type = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound(), media::Sound(media::Sound::Type, std::string_view)>());
 			sound_type["fade_in"]               = &media::Sound::fade_in;
 			sound_type["fade_out"]              = &media::Sound::fade_out;
@@ -1153,16 +800,15 @@ namespace galaxy
 			sound_type["stop"]                  = &media::Sound::stop;
 			sound_type["toggle_spatialization"] = &media::Sound::toggle_spatialization;
 
-			auto audioengine_type                      = lua.new_usertype<media::AudioEngine>("AudioEngine", sol::no_constructor);
-			audioengine_type["set_sfx_volume"]         = &media::AudioEngine::set_sfx_volume;
-			audioengine_type["set_music_volume"]       = &media::AudioEngine::set_music_volume;
-			audioengine_type["set_dialogue_volume"]    = &media::AudioEngine::set_dialogue_volume;
-			audioengine_type["set_listener_cone"]      = &media::AudioEngine::set_listener_cone;
-			audioengine_type["set_listener_direction"] = &media::AudioEngine::set_listener_direction;
-			audioengine_type["set_listener_position"]  = &media::AudioEngine::set_listener_position;
-			audioengine_type["set_listener_world_up"]  = &media::AudioEngine::set_listener_world_up;
-			audioengine_type["toggle_listener"]        = &media::AudioEngine::toggle_listener;
-			audioengine_type["stop"]                   = &media::AudioEngine::stop;
+			auto video_type              = lua.new_usertype<media::Video>("Video", sol::constructors<media::Video()>());
+			video_type["enable_loop"]    = &media::Video::enable_loop;
+			video_type["get_duration"]   = &media::Video::get_duration;
+			video_type["get_framerate"]  = &media::Video::get_framerate;
+			video_type["get_samplerate"] = &media::Video::get_samplerate;
+			video_type["is_finished"]    = &media::Video::is_finished;
+			video_type["load"]           = &media::Video::load;
+			video_type["update"]         = &media::Video::update;
+			video_type["render"]         = &media::Video::render;
 
 			/* META */
 			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
@@ -1180,6 +826,7 @@ namespace galaxy
 			entitymeta_type["get_validation_list"] = &meta::EntityMeta::get_validation_list;
 			entitymeta_type["json_factory"]        = &meta::EntityMeta::json_factory;
 			entitymeta_type["serialize_entity"]    = &meta::EntityMeta::serialize_entity;
+			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
 
 			/* PHYSICS */
 			auto material_type                     = lua.new_usertype<physics::Material>("Material", sol::constructors<physics::Material()>());
@@ -1278,7 +925,6 @@ namespace galaxy
 			// Use scenemanager to create.
 			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
 			scene_type["camera"]     = &scene::Scene::m_camera;
-			scene_type["context"]    = &scene::Scene::m_context;
 			scene_type["dispatcher"] = &scene::Scene::m_dispatcher;
 			scene_type["name"]       = &scene::Scene::m_name;
 			scene_type["world"]      = &scene::Scene::m_world;
@@ -1321,34 +967,6 @@ namespace galaxy
 			lua.set("GALAXY_EXIT_FAILURE", GALAXY_EXIT_FAILURE);
 
 			lua.set_function("galaxy_str_begins_with", &strutils::begins_with);
-		}
-
-		void inject_services_into_lua()
-		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
-
-			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
-			lua["galaxy_language"]      = std::ref(core::ServiceLocator<resource::Language>::ref());
-			lua["galaxy_shaders"]       = std::ref(core::ServiceLocator<resource::Shaders>::ref());
-			lua["galaxy_fonts"]         = std::ref(core::ServiceLocator<resource::Fonts>::ref());
-			lua["galaxy_sounds"]        = std::ref(core::ServiceLocator<resource::Sounds>::ref());
-			lua["galaxy_textureatlas"]  = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
-			lua["galaxy_prefabs"]       = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
-			lua["galaxy_materials"]     = std::ref(core::ServiceLocator<resource::Materials>::ref());
-			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<media::AudioEngine>::ref());
-			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
-			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
-			lua["service_fs"]           = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
-			lua["service_entitymeta"]   = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
-		}
-
-		void load_external_libs()
-		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
-
-			lua.script(scripting::inspect);
-			lua.script(scripting::middleclass);
-			lua.script(scripting::serpent);
 		}
 	} // namespace lua
 } // namespace galaxy

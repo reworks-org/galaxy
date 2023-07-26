@@ -358,7 +358,8 @@ namespace sc
 						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
 						if (ImGui::BeginListBox("##EntityList"))
 						{
-							scene->m_world.m_registry.each([&](const entt::entity entity) {
+							for (const auto& [entity] : scene->m_world.m_registry.storage<entt::entity>().each())
+							{
 								auto tag = scene->m_world.m_registry.try_get<components::Tag>(entity);
 								if (tag)
 								{
@@ -371,7 +372,7 @@ namespace sc
 								{
 									entity_listbox_item(entity, tag);
 								}
-							});
+							}
 
 							ImGui::EndListBox();
 						}

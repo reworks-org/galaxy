@@ -335,7 +335,8 @@ namespace galaxy
 			// Inject all configured galaxy into Lua.
 			// Add engine services to lua.
 			//
-			lua::load_external_libs();
+			lua::inject_external_modules();
+			lua::inject_dependencies_into_lua();
 			lua::inject_galaxy_into_lua();
 			lua::inject_services_into_lua();
 		}
