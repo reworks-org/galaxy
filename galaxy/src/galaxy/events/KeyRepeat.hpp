@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Keycode for the key that is repeating.
 			///
-			input::Keys keycode;
+			input::Keys keycode = input::Keys::UNKNOWN;
 
 			///
 			/// Modifier Key.
 			///
-			input::InputMods mod;
+			input::InputMods mod = input::InputMods::UNKNOWN;
 
 			///
 			/// Platform scancode.

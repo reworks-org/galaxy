@@ -11,10 +11,10 @@
 #include <variant>
 
 #include "galaxy/events/ContentScale.hpp"
+#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
 #include "galaxy/events/KeyUp.hpp"
-#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MouseEnter.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -32,10 +32,10 @@ namespace galaxy
 		///
 		using Variant = std::variant<std::monostate,
 			events::ContentScale,
+			events::KeyChar,
 			events::KeyDown,
 			events::KeyRepeat,
 			events::KeyUp,
-			events::KeyChar,
 			events::MouseEnter,
 			events::MouseMoved,
 			events::MousePressed,
