@@ -203,22 +203,6 @@ namespace galaxy
 			///
 			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
 
-			///
-			/// Function that integrates RML init with entt on construct event.
-			///
-			/// \param registry Registry component belongs to.
-			/// \param entity Entity component belongs to.
-			///
-			void construct_rml(entt::registry& registry, entt::entity entity);
-
-			///
-			/// Function that integrates RML destroy with entt on destruction event.
-			///
-			/// \param registry Registry component belongs to.
-			/// \param entity Entity component belongs to.
-			///
-			void destruct_rml(entt::registry& registry, entt::entity entity);
-
 		public:
 			///
 			/// The main entt entity registry.

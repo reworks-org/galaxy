@@ -15,7 +15,6 @@
 #include <galaxy/components/Flag.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/RML.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
@@ -89,7 +88,6 @@ namespace sc
 						draw_entry<components::Flag>(selected, "Flag");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
-						draw_entry<components::RML>(selected, "RML");
 						draw_entry<components::Script>(selected, "Script");
 						draw_entry<components::Sprite>(selected, "Sprite");
 						draw_entry<components::Tag>(selected, "Tag");
@@ -550,39 +548,6 @@ namespace sc
 						if (ImGui::Checkbox("Rotation Fixed", &rf))
 						{
 							body->set_fixed_rotation(rf);
-						}
-					});
-
-					draw_component<components::RML>(selected, "RML", [&](components::RML* rml) {
-						ImGui::Text("Current File: %s", rml->m_file.c_str());
-
-						if (ImGui::Button("Load"))
-						{
-							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.rml"});
-							if (!path.empty())
-							{
-								rml->m_file = path;
-								rml->m_doc  = selected.m_world->scene()->m_context->LoadDocument(rml->m_file);
-								if (rml->m_doc)
-								{
-									rml->m_doc->Show();
-								}
-								else
-								{
-									GALAXY_LOG(GALAXY_ERROR, "Failed to load rml document '{0}'", rml->m_file);
-									rml->m_doc = nullptr;
-								}
-							}
-						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Reload"))
-						{
-							if (!rml->m_file.empty())
-							{
-								rml->m_doc = selected.m_world->scene()->m_context->LoadDocument(rml->m_file);
-							}
 						}
 					});
 

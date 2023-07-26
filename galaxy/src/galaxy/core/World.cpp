@@ -13,7 +13,6 @@
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/RML.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -50,8 +49,6 @@ namespace galaxy
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
 			m_registry.on_construct<components::RigidBody>().connect<&World::construct_rigidbody>(this);
 			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
-			m_registry.on_construct<components::RML>().connect<&World::construct_rml>(this);
-			m_registry.on_destroy<components::RML>().connect<&World::construct_rml>(this);
 
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
@@ -341,40 +338,6 @@ namespace galaxy
 				{
 					m_b2world->DestroyBody(rigidbody->m_body);
 					rigidbody->m_body = nullptr;
-				}
-			}
-		}
-
-		void World::construct_rml(entt::registry& registry, entt::entity entity)
-		{
-			const auto rml = registry.try_get<components::RML>(entity);
-			if (rml)
-			{
-				if (!rml->m_file.empty())
-				{
-					rml->m_doc = m_scene->m_context->LoadDocument(rml->m_file);
-					if (rml->m_doc)
-					{
-						rml->m_doc->Show();
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to load rml document '{0}'", rml->m_file);
-						rml->m_doc = nullptr;
-					}
-				}
-			}
-		}
-
-		void World::destruct_rml(entt::registry& registry, entt::entity entity)
-		{
-			const auto rml = registry.try_get<components::RML>(entity);
-			if (rml)
-			{
-				if (rml->m_doc)
-				{
-					rml->m_doc->Close();
-					rml->m_doc = nullptr;
 				}
 			}
 		}

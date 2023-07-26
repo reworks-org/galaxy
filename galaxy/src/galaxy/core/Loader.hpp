@@ -9,7 +9,6 @@
 #define GALAXY_CORE_LOADING_HPP_
 
 #include "galaxy/meta/Async.hpp"
-#include "galaxy/ui/RMLRenderer.hpp"
 
 namespace galaxy
 {
@@ -45,16 +44,6 @@ namespace galaxy
 			/// Handle to thread loading assets.
 			///
 			std::future<void> m_thread_handle;
-
-			///
-			/// RML context.
-			///
-			Rml::Context* m_context;
-
-			///
-			/// RML rendering interface.
-			///
-			ui::RMLRenderer m_renderer;
 		};
 	} // namespace core
 } // namespace galaxy

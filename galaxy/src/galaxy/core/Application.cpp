@@ -6,8 +6,6 @@
 ///
 
 #include <BS_thread_pool.hpp>
-#include <RmlUi/Core.h>
-#include <RmlUi/Lua.h>
 #include <tinyfiledialogs.h>
 #include <zip.h>
 
@@ -19,7 +17,6 @@
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/RML.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -84,7 +81,6 @@ namespace galaxy
 			config.restore<std::string>("compressed_assets", "assets.zip");
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("app_data", "default.galaxy");
-			config.restore<std::string>("load_screen_rml", "ui/load.rml");
 			config.restore<bool>("log_performance", true);
 			config.restore<std::string>("title", "Title", "window");
 			config.restore<std::string>("icon", "", "window");
@@ -119,7 +115,6 @@ namespace galaxy
 			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
 			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
 			config.restore<std::string>("audio_folder", "audio/", "resource_folders");
-			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -263,23 +258,12 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("ui_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
 
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
-				}
-
-				// Generate default RML for load screen.
-				if (!fs.exists(config.get<std::string>("load_screen_rml")))
-				{
-					if (!fs.save("<rml><head><title>Loading</title><style>p{font-family: Roboto;}</style></head><body><p>Loading</p></body></rml>",
-							config.get<std::string>("load_screen_rml")))
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to save default load screen rml.");
-					}
 				}
 			}
 			else
@@ -305,7 +289,6 @@ namespace galaxy
 			em.register_component<components::Flag>("Flag");
 			em.register_component<components::Primitive>("Primitive");
 			em.register_component<components::RigidBody>("RigidBody");
-			em.register_component<components::RML>("RML");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
 			em.register_component<components::Tag>("Tag");
@@ -331,38 +314,6 @@ namespace galaxy
 				sol::lib::table,
 				sol::lib::io,
 				sol::lib::utf8);
-
-			//
-			// UI.
-			//
-			m_rml_rendering_interface.init();
-			Rml::SetSystemInterface(&m_rml_system_interface);
-			Rml::SetFileInterface(&m_rml_file_interface);
-			Rml::SetRenderInterface(&m_rml_rendering_interface);
-
-			if (Rml::Initialise())
-			{
-				// Initialize lua support.
-				Rml::Lua::Initialise(lua.lua_state());
-
-				const auto dir      = config.get<std::string>("font_folder", "resource_folders");
-				const auto contents = ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
-
-				// Load default font first.
-				Rml::LoadFontFace(reinterpret_cast<Rml::byte*>(&embedded::roboto_light), embedded::roboto_light_len, "Roboto", Rml::Style::FontStyle::Normal);
-
-				for (const auto& file : contents)
-				{
-					if (!Rml::LoadFontFace(file))
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to load '{0}' from '{1}' into RmlUi.", file, dir);
-					}
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize RmlUi.");
-			}
 
 			//
 			// Services.
@@ -391,9 +342,6 @@ namespace galaxy
 
 		Application::~Application()
 		{
-			Rml::Shutdown();
-			m_rml_rendering_interface.destroy();
-
 			ServiceLocator<scene::SceneManager>::del();
 			ServiceLocator<Loader>::del();
 			ServiceLocator<resource::Language>::del();

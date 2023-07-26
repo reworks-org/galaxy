@@ -126,11 +126,6 @@
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
     <ClCompile Include="src\galaxy\embedded\RobotoLight.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\GaussianBlur.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\ChromaticAberration.cpp" />
@@ -274,11 +269,6 @@
     <ClInclude Include="src\galaxy\media\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\media\Sound.hpp" />
     <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
     <ClInclude Include="src\galaxy\embedded\RobotoLight.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\GaussianBlur.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\ChromaticAberration.hpp" />
@@ -293,7 +283,5 @@
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
-    <ClInclude Include="src\galaxy\components\RML.hpp" />
-    <ClInclude Include="src\galaxy\systems\UISystem.hpp" />
   </ItemGroup>
 </Project>

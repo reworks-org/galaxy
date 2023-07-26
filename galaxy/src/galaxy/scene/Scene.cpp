@@ -6,7 +6,6 @@
 ///
 
 #include <nlohmann/json.hpp>
-#include <RmlUi/Core/Core.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -15,7 +14,6 @@
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
-#include "galaxy/systems/UISystem.hpp"
 
 #include "Scene.hpp"
 
@@ -26,7 +24,6 @@ namespace galaxy
 		Scene::Scene()
 			: m_camera {false}
 			, m_world {this}
-			, m_context {nullptr}
 			, m_name {"Untitled"}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
@@ -36,7 +33,6 @@ namespace galaxy
 		Scene::Scene(const std::string& name)
 			: m_camera {false}
 			, m_world {this}
-			, m_context {nullptr}
 			, m_name {name}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
 		{
@@ -50,7 +46,6 @@ namespace galaxy
 		void Scene::init()
 		{
 			m_world.create_system<systems::ScriptSystem>();
-			m_world.create_system<systems::UISystem>();
 			m_world.create_system<systems::AnimationSystem>();
 			m_world.create_system<systems::PhysicsSystem>();
 			m_world.create_system<systems::RenderSystem>();
@@ -59,10 +54,6 @@ namespace galaxy
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
-
-			m_context = Rml::CreateContext("GalaxyScene" + m_name, Rml::Vector2i(m_window->get_width(), m_window->get_height()));
-			m_rml_events.set_context(m_context);
-			m_rml_renderer = dynamic_cast<ui::RMLRenderer*>(Rml::GetRenderInterface());
 		}
 
 		void Scene::load()
@@ -78,7 +69,6 @@ namespace galaxy
 		void Scene::update()
 		{
 			m_window->trigger_queued_events(m_dispatcher);
-			m_context->Update();
 			m_world.update();
 
 			graphics::Renderer::buffer_camera(m_camera);
@@ -87,10 +77,6 @@ namespace galaxy
 		void Scene::render()
 		{
 			graphics::Renderer::draw();
-
-			m_rml_renderer->begin_frame();
-			m_context->Render();
-			m_rml_renderer->end_frame();
 		}
 
 		void Scene::on_window_resized(const events::WindowResized& e)

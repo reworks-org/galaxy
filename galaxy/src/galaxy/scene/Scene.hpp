@@ -9,12 +9,9 @@
 #define GALAXY_STATE_SCENE_HPP_
 
 #include <entt/signal/dispatcher.hpp>
-#include <RmlUi/Core/Context.h>
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/ui/RMLEvents.hpp"
-#include "galaxy/ui/RMLRenderer.hpp"
 
 namespace galaxy
 {
@@ -113,11 +110,6 @@ namespace galaxy
 			core::World m_world;
 
 			///
-			/// UI rendering context.
-			///
-			Rml::Context* m_context;
-
-			///
 			/// Scene name for debug purposes.
 			///
 			std::string m_name;
@@ -127,16 +119,6 @@ namespace galaxy
 			/// Pointer to window.
 			///
 			core::Window* m_window;
-
-			///
-			/// RML event handler.
-			///
-			ui::RMLEvents m_rml_events;
-
-			///
-			/// Pointer to rml renderer.
-			///
-			ui::RMLRenderer* m_rml_renderer;
 		};
 	} // namespace scene
 } // namespace galaxy

@@ -11,8 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\systems\UISystem.cpp" />
-    <ClCompile Include="src\galaxy\components\RML.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
@@ -138,11 +136,6 @@
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLEvents.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLFile.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLInput.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLRenderer.cpp" />
-    <ClCompile Include="src\galaxy\ui\RMLSystem.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
@@ -153,14 +146,11 @@
     <ClCompile Include="src\galaxy\resource\Language.cpp" />
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
-    <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\systems\UISystem.hpp" />
-    <ClInclude Include="src\galaxy\components\RML.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
@@ -286,11 +276,6 @@
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLEvents.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLFile.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLInput.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLRenderer.hpp" />
-    <ClInclude Include="src\galaxy\ui\RMLSystem.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />

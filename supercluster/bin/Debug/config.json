@@ -36,11 +36,6 @@
             "camera_rotate_left": 81,
             "camera_rotate_right": 69
         },
-        "load_screen_rml": "ui/load.rml",
-        "loading": {
-            "bg": "../editor_data/load.png",
-            "font": "../editor_data/secret_code.ttf"
-        },
         "log_performance": false,
         "resource_folders": {
             "atlas_folder": "atlas/",
@@ -52,8 +47,7 @@
             "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",
             "shader_folder": "shaders/",
-            "texture_folder": "textures/",
-            "ui_folder": "ui/"
+            "texture_folder": "textures/"
         },
         "window": {
             "allow_native_closing": false,
