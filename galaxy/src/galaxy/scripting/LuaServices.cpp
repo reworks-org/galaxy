@@ -28,7 +28,7 @@ namespace galaxy
 {
 	namespace lua
 	{
-		void inject_services_into_lua()
+		void inject_services()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 

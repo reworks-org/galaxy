@@ -41,6 +41,7 @@
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/ui/ImGuiTheme.hpp"
 
@@ -115,6 +116,7 @@ namespace galaxy
 			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
 			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
 			config.restore<std::string>("audio_folder", "audio/", "resource_folders");
+			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -260,6 +262,11 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
 
+				const auto ui_folder = config.get<std::string>("ui_folder", "resource_folders");
+				create_asset_layout(root, ui_folder);
+				create_asset_layout(root, ui_folder + "fonts/");
+				create_asset_layout(root, ui_folder + "scripts/");
+
 				// Generate default language file.
 				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
 				{
@@ -327,6 +334,7 @@ namespace galaxy
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
 			ServiceLocator<resource::Language>::make();
+			ServiceLocator<ui::NuklearUI>::make();
 			ServiceLocator<Loader>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
@@ -336,15 +344,17 @@ namespace galaxy
 			// Add engine services to lua.
 			//
 			lua::inject_external_modules();
-			lua::inject_dependencies_into_lua();
-			lua::inject_galaxy_into_lua();
-			lua::inject_services_into_lua();
+			lua::inject_dependencies();
+			lua::inject_nuklear();
+			lua::inject_galaxy();
+			lua::inject_services();
 		}
 
 		Application::~Application()
 		{
 			ServiceLocator<scene::SceneManager>::del();
 			ServiceLocator<Loader>::del();
+			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
@@ -378,6 +388,7 @@ namespace galaxy
 				auto& config  = ServiceLocator<Config>::ref();
 				auto& window  = ServiceLocator<Window>::ref();
 				auto& manager = ServiceLocator<scene::SceneManager>::ref();
+				auto& nui     = ServiceLocator<ui::NuklearUI>::ref();
 
 				const auto log_perf = config.get<bool>("log_performance");
 
@@ -417,9 +428,18 @@ namespace galaxy
 						updates++;
 					}
 
+					nui.new_frame();
+					nui.process_scripts();
 					window.begin();
 					scene.render();
 					window.end();
+					nui.render();
+
+					glfwSwapBuffers(window.handle());
+
+					glBindTexture(GL_TEXTURE_2D, 0);
+					glBindVertexArray(0);
+					glUseProgram(0);
 
 					frames++;
 

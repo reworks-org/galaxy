@@ -16,6 +16,7 @@
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
 #include "galaxy/utils/StringUtils.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Window.hpp"
 
@@ -297,6 +298,7 @@ namespace galaxy
 							};
 							// clang-format on
 
+							ServiceLocator<ui::NuklearUI>::ref().on_key_char(window, kc);
 							win->m_event_queue.emplace_back<events::KeyChar>(std::move(kc));
 						}
 					});
@@ -348,6 +350,7 @@ namespace galaxy
 									.mod = input::int_to_keymod(mods)
 								};
 								
+								ServiceLocator<ui::NuklearUI>::ref().on_mouse_pressed(window, mp);
 								win->m_event_queue.emplace_back<events::MousePressed>(std::move(mp));
 							}
 							break;
@@ -385,6 +388,7 @@ namespace galaxy
 						};
 						// clang-format on
 
+						ServiceLocator<ui::NuklearUI>::ref().on_mouse_wheel(window, mw);
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
@@ -618,12 +622,6 @@ namespace galaxy
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			m_postprocess.render_output();
-
-			glfwSwapBuffers(m_window);
-
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glBindVertexArray(0);
-			glUseProgram(0);
 		}
 
 		void Window::resize(const int width, const int height)

@@ -142,6 +142,9 @@
     <ClCompile Include="src\galaxy\scripting\LuaGalaxy.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaDependencies.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaServices.cpp" />
+    <ClCompile Include="src\galaxy\ui\NuklearUI.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaNuklear.cpp" />
+    <ClCompile Include="src\galaxy\scripting\UIScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -282,5 +285,7 @@
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
+    <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
+    <ClInclude Include="src\galaxy\scripting\UIScript.hpp" />
   </ItemGroup>
 </Project>

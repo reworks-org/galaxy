@@ -34,17 +34,22 @@ namespace galaxy
 		///
 		/// Load the dependencies galaxy uses into lua.
 		///
-		void inject_dependencies_into_lua();
+		void inject_dependencies();
+
+		///
+		/// Load nuklear ui into lua.
+		///
+		void inject_nuklear();
 
 		///
 		/// Registers galaxy_engine into Lua.
 		///
-		void inject_galaxy_into_lua();
+		void inject_galaxy();
 
 		///
 		/// Regsiter static engine services into lua.
 		///
-		void inject_services_into_lua();
+		void inject_services();
 
 	} // namespace lua
 } // namespace galaxy

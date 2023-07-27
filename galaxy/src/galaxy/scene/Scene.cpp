@@ -14,6 +14,7 @@
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Scene.hpp"
 
@@ -62,8 +63,8 @@ namespace galaxy
 
 		void Scene::unload()
 		{
-			// Cleanup loaded lua data from entities.
 			core::ServiceLocator<sol::state>::ref().collect_garbage();
+			core::ServiceLocator<ui::NuklearUI>::ref().disable_all();
 		}
 
 		void Scene::update()

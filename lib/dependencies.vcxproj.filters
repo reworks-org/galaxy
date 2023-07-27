@@ -150,6 +150,7 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\Trie.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
     <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
+    <ClCompile Include="nuklear\nuklear.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -874,6 +875,9 @@
     <ClInclude Include="tileson\include\tileson.hpp" />
     <ClInclude Include="imgui\imgui_addons\imnodes.h" />
     <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
+    <ClInclude Include="nuklear\nuklear.h" />
+    <ClInclude Include="nuklear\Nuklear.hpp" />
+    <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
