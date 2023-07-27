@@ -1,5 +1,5 @@
 <map id="galaxy/src/galaxy/fs/VirtualFileSystem.hpp" name="galaxy/src/galaxy/fs/VirtualFileSystem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2642,5,2811,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2753,5,2922,47"/>
 <area shape="rect" id="node2" href="$d8/d80/Script_8cpp.html" title=" " alt="" coords="5,95,227,136"/>
 <area shape="rect" id="node3" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="251,95,421,136"/>
 <area shape="rect" id="node4" href="$d0/def/Loader_8cpp.html" title=" " alt="" coords="445,95,614,136"/>
@@ -23,7 +23,8 @@
 <area shape="rect" id="node22" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="4288,95,4467,136"/>
 <area shape="rect" id="node23" href="$d3/da8/BasicScript_8cpp.html" title=" " alt="" coords="4491,95,4688,136"/>
 <area shape="rect" id="node24" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="4712,95,4909,136"/>
-<area shape="rect" id="node25" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="4933,95,5131,136"/>
-<area shape="rect" id="node26" href="$de/d0b/RMLFile_8cpp.html" title=" " alt="" coords="5155,95,5309,136"/>
-<area shape="rect" id="node27" href="$df/d8d/RMLRenderer_8cpp.html" title=" " alt="" coords="5333,95,5486,136"/>
+<area shape="rect" id="node25" href="$db/dac/LuaGalaxy_8cpp.html" title=" " alt="" coords="4933,95,5131,136"/>
+<area shape="rect" id="node26" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="5155,95,5352,136"/>
+<area shape="rect" id="node27" href="$dd/de9/UIScript_8cpp.html" title=" " alt="" coords="5376,95,5573,136"/>
+<area shape="rect" id="node28" href="$d8/d99/NuklearUI_8cpp.html" title=" " alt="" coords="5598,95,5751,136"/>
 </map>

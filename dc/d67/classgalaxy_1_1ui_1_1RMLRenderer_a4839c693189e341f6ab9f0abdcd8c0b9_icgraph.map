@@ -1,4 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::GenerateTexture" name="galaxy::ui::RMLRenderer::GenerateTexture">
-<area shape="rect" id="node1" title="Called by RmlUi when a texture is required to be built from an internally&#45;generated sequence of pixel..." alt="" coords="233,5,413,47"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a925911e4b4abe1f20f9fc8a0b9ca4ba6" title="Called by RmlUi when a texture is required by the library." alt="" coords="5,5,185,47"/>
-</map>

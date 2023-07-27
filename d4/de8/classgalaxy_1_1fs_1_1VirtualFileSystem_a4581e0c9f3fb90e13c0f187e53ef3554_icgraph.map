@@ -1,7 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::find" name="galaxy::fs::VirtualFileSystem::find">
 <area shape="rect" id="node1" title="Retrieve the absolute position of a file to load." alt="" coords="933,203,1141,244"/>
 <area shape="rect" id="node2" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa33826f483d049db8ad776c3508a3611" title="Creates an empty file in the filesystem relative to the root." alt="" coords="421,5,629,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,283,373,324"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,283,373,324"/>
 <area shape="rect" id="node5" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368" title="Check if a file exists." alt="" coords="677,129,885,171"/>
 <area shape="rect" id="node6" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abe931442476975b3e68378479252223b" title="Open a file and store contents in std::string." alt="" coords="677,203,885,244"/>
 <area shape="rect" id="node8" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a653287c28a3ad04b26714601b48c59f8" title="Open a binary file and store in std::span." alt="" coords="677,283,885,324"/>

@@ -1,5 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::begin_frame" name="galaxy::ui::RMLRenderer::begin_frame">
-<area shape="rect" id="node1" title="Begin isolated rendering." alt="" coords="5,27,185,69"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,5,464,32"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a615cfed38cacb5199acc3d4da661c44a" title="Called by RmlUi when it wants the renderer to use a new transform matrix." alt="" coords="259,57,439,98"/>
-</map>

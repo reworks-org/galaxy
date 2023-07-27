@@ -14,7 +14,6 @@ var annotated_dup =
         [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
         [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
-        [ "RML", "db/d26/classgalaxy_1_1components_1_1RML.html", "db/d26/classgalaxy_1_1components_1_1RML" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
@@ -134,6 +133,9 @@ var annotated_dup =
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
         [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", "d4/d92/classgalaxy_1_1scene_1_1SceneManager" ]
       ] ],
+      [ "scripting", "d8/dc2/namespacegalaxy_1_1scripting.html", [
+        [ "UIScript", "dd/d61/classgalaxy_1_1scripting_1_1UIScript.html", "dd/d61/classgalaxy_1_1scripting_1_1UIScript" ]
+      ] ],
       [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
         [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],
         [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
@@ -143,20 +145,10 @@ var annotated_dup =
         [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
-        [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ],
-        [ "UISystem", "d8/da2/classgalaxy_1_1systems_1_1UISystem.html", "d8/da2/classgalaxy_1_1systems_1_1UISystem" ]
+        [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
       ] ],
       [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
-        [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents" ],
-        [ "RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile" ],
-        [ "RMLInput", "df/d1c/classgalaxy_1_1ui_1_1RMLInput.html", "df/d1c/classgalaxy_1_1ui_1_1RMLInput" ],
-        [ "RMLCompiledGeometryData", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData" ],
-        [ "RMLProgramData", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData.html", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData" ],
-        [ "RMLShaderData", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData" ],
-        [ "RMLStencil", "da/deb/structgalaxy_1_1ui_1_1RMLStencil.html", "da/deb/structgalaxy_1_1ui_1_1RMLStencil" ],
-        [ "RMLGLStateBackup", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup" ],
-        [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer" ],
-        [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem" ]
+        [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ]
       ] ],
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]

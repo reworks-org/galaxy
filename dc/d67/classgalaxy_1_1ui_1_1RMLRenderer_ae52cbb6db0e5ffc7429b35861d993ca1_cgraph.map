@@ -1,7 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::init" name="galaxy::ui::RMLRenderer::init">
-<area shape="rect" id="node1" title="Initialize rml renderer." alt="" coords="5,39,185,80"/>
-<area shape="rect" id="node2" href="$d3/dd9/namespacegalaxy_1_1ui.html#aaf969a5887755b7a7496132987f67d64" title=" " alt="" coords="233,39,368,80"/>
-<area shape="rect" id="node3" href="$d3/dd9/namespacegalaxy_1_1ui.html#ad180c3dc2f6a3fa26e26dc2abb637c47" title=" " alt="" coords="416,5,551,47"/>
-<area shape="rect" id="node5" href="$d3/dd9/namespacegalaxy_1_1ui.html#ab230e181c029f9617b54e81842789bfa" title=" " alt="" coords="416,71,551,112"/>
-<area shape="rect" id="node4" href="$d3/dd9/namespacegalaxy_1_1ui.html#a71462b2cd4aa8bf0cda423d941d4fd4d" title=" " alt="" coords="599,5,761,47"/>
-</map>

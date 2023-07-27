@@ -1,5 +1,0 @@
-<map id="galaxy::ui::RMLSystem::SetMouseCursor" name="galaxy::ui::RMLSystem::SetMouseCursor">
-<area shape="rect" id="node1" title="Set mouse cursor." alt="" coords="5,27,176,69"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="224,5,455,32"/>
-<area shape="rect" id="node3" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a1f5f51125f8657cd56867fe5af44723d" title="OS default hand pointer." alt="" coords="261,57,417,98"/>
-</map>

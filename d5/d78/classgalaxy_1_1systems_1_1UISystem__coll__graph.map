@@ -1,4 +1,0 @@
-<map id="galaxy::systems::UISystem" name="galaxy::systems::UISystem">
-<area shape="rect" id="node1" title="Update entities with an rml ui component." alt="" coords="5,160,204,267"/>
-<area shape="rect" id="node2" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="12,5,197,112"/>
-</map>

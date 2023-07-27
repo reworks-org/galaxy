@@ -1,15 +1,6 @@
 var namespacegalaxy_1_1ui =
 [
-    [ "RMLEvents", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html", "de/d6f/classgalaxy_1_1ui_1_1RMLEvents" ],
-    [ "RMLFile", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile.html", "d8/dc6/classgalaxy_1_1ui_1_1RMLFile" ],
-    [ "RMLInput", "df/d1c/classgalaxy_1_1ui_1_1RMLInput.html", "df/d1c/classgalaxy_1_1ui_1_1RMLInput" ],
-    [ "RMLCompiledGeometryData", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html", "d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData" ],
-    [ "RMLProgramData", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData.html", "dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData" ],
-    [ "RMLShaderData", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html", "d8/d65/structgalaxy_1_1ui_1_1RMLShaderData" ],
-    [ "RMLStencil", "da/deb/structgalaxy_1_1ui_1_1RMLStencil.html", "da/deb/structgalaxy_1_1ui_1_1RMLStencil" ],
-    [ "RMLGLStateBackup", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html", "d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup" ],
-    [ "RMLRenderer", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html", "dc/d67/classgalaxy_1_1ui_1_1RMLRenderer" ],
-    [ "RMLSystem", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem.html", "d5/d99/classgalaxy_1_1ui_1_1RMLSystem" ],
+    [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ],
     [ "ImguiThemeId", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08e", [
       [ "DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaacaef50d33fc86532c260a045c672f3e", null ],
       [ "DRACULA", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d", null ],
@@ -18,29 +9,6 @@ var namespacegalaxy_1_1ui =
       [ "FANCY_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0d515c5fb3a08473299741def918fa8c", null ],
       [ "DARK_EMBRACE", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0275132ebf2c592c60cd3228cd77ba99", null ],
       [ "ENHANCED_DARK", "d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaea0263b117e1728c2a77ba4418226613", null ]
-    ] ],
-    [ "RMLProgramUniform", "d3/dd9/namespacegalaxy_1_1ui.html#a90e6e296e4f3b737314629cefc44eabd", [
-      [ "Translate", "d3/dd9/namespacegalaxy_1_1ui.html#a90e6e296e4f3b737314629cefc44eabdadeccbe4e9083c3b5f7cd2632722765bb", null ],
-      [ "Transform", "d3/dd9/namespacegalaxy_1_1ui.html#a90e6e296e4f3b737314629cefc44eabda2ff4148554480a37f85efd299df04850", null ],
-      [ "Tex", "d3/dd9/namespacegalaxy_1_1ui.html#a90e6e296e4f3b737314629cefc44eabda2abb5076c9cc0f40b2b6031bcbfb6090", null ],
-      [ "Count", "d3/dd9/namespacegalaxy_1_1ui.html#a90e6e296e4f3b737314629cefc44eabdae93f994f01c537c4e2f7d8528c3eb5e9", null ]
-    ] ],
-    [ "RMLVertexAttribute", "d3/dd9/namespacegalaxy_1_1ui.html#a5aa838675b891bae23ba5d8b7d949d2c", [
-      [ "Position", "d3/dd9/namespacegalaxy_1_1ui.html#a5aa838675b891bae23ba5d8b7d949d2ca52f5e0bc3859bc5f5e25130b6c7e8881", null ],
-      [ "Color0", "d3/dd9/namespacegalaxy_1_1ui.html#a5aa838675b891bae23ba5d8b7d949d2caa0a1f5336d1ce1e6ed36df3ae4ea3a5a", null ],
-      [ "TexCoord0", "d3/dd9/namespacegalaxy_1_1ui.html#a5aa838675b891bae23ba5d8b7d949d2ca4ac00b6292b9c8d63d0a11df581bd399", null ],
-      [ "Count", "d3/dd9/namespacegalaxy_1_1ui.html#a5aa838675b891bae23ba5d8b7d949d2cae93f994f01c537c4e2f7d8528c3eb5e9", null ]
-    ] ],
-    [ "RMLScissoringState", "d3/dd9/namespacegalaxy_1_1ui.html#a19a34d3daff753d45bd5948e1a13ab2b", [
-      [ "Disable", "d3/dd9/namespacegalaxy_1_1ui.html#a19a34d3daff753d45bd5948e1a13ab2babcfaccebf745acfd5e75351095a5394a", null ],
-      [ "Scissor", "d3/dd9/namespacegalaxy_1_1ui.html#a19a34d3daff753d45bd5948e1a13ab2ba5a173331e5b2368b8e9179cbf32c429b", null ],
-      [ "RMLStencil", "d3/dd9/namespacegalaxy_1_1ui.html#a19a34d3daff753d45bd5948e1a13ab2bac9f4f8614cb2fb4fb4dc8277f0a2c77c", null ]
-    ] ],
-    [ "RMLProgramId", "d3/dd9/namespacegalaxy_1_1ui.html#a6c8b4156eec621f4d157ca04f51e29d3", [
-      [ "None", "d3/dd9/namespacegalaxy_1_1ui.html#a6c8b4156eec621f4d157ca04f51e29d3a6adf97f83acf6453d4a6a4b1070f3754", null ],
-      [ "Texture", "d3/dd9/namespacegalaxy_1_1ui.html#a6c8b4156eec621f4d157ca04f51e29d3aa3e8ae43188ae76d38f414b2bdb0077b", null ],
-      [ "Color", "d3/dd9/namespacegalaxy_1_1ui.html#a6c8b4156eec621f4d157ca04f51e29d3acb5feb1b7314637725a2e73bdc9f7295", null ],
-      [ "All", "d3/dd9/namespacegalaxy_1_1ui.html#a6c8b4156eec621f4d157ca04f51e29d3ab1c94ca2fbc3e78fc30069c8d0f01680", null ]
     ] ],
     [ "imgui_init_context", "d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db", null ],
     [ "imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
@@ -62,15 +30,5 @@ var namespacegalaxy_1_1ui =
     [ "imgui_theme_visual_dark", "d3/dd9/namespacegalaxy_1_1ui.html#ab66bb91bd86c9a7b8ea279327c659992", null ],
     [ "imgui_theme_fancy_dark", "d3/dd9/namespacegalaxy_1_1ui.html#a1cf2fc9ad5cc58af83cb1bab81ae751a", null ],
     [ "imgui_theme_dark_embrace", "d3/dd9/namespacegalaxy_1_1ui.html#aae1e0fc3b8f44f5381db416b4d84d94e", null ],
-    [ "imgui_theme_enhanced_dark", "d3/dd9/namespacegalaxy_1_1ui.html#aacdac9efb274ac360d676372c4f10dd9", null ],
-    [ "create_shader", "d3/dd9/namespacegalaxy_1_1ui.html#ab230e181c029f9617b54e81842789bfa", null ],
-    [ "bind_attrib_locations", "d3/dd9/namespacegalaxy_1_1ui.html#a71462b2cd4aa8bf0cda423d941d4fd4d", null ],
-    [ "create_program", "d3/dd9/namespacegalaxy_1_1ui.html#ad180c3dc2f6a3fa26e26dc2abb637c47", null ],
-    [ "create_shaders", "d3/dd9/namespacegalaxy_1_1ui.html#aaf969a5887755b7a7496132987f67d64", null ],
-    [ "destroy_shaders", "d3/dd9/namespacegalaxy_1_1ui.html#a43083d30780fc2d83efbfb8e4c94fa99", null ],
-    [ "shader_main_vertex", "d3/dd9/namespacegalaxy_1_1ui.html#ae3149a24421b251116ac7487d9fca699", null ],
-    [ "shader_main_fragment_texture", "d3/dd9/namespacegalaxy_1_1ui.html#a5bad4ffe165fd228db40347f1638c15f", null ],
-    [ "shader_main_fragment_color", "d3/dd9/namespacegalaxy_1_1ui.html#a60d1ddd7c1e1fb690a3c9e8ee413f0c6", null ],
-    [ "program_uniform_names", "d3/dd9/namespacegalaxy_1_1ui.html#a399fa1786b8a27b184e731546c2aaaf2", null ],
-    [ "vertex_attribute_names", "d3/dd9/namespacegalaxy_1_1ui.html#a5f2d62e0356d965087b0f362cd1067fa", null ]
+    [ "imgui_theme_enhanced_dark", "d3/dd9/namespacegalaxy_1_1ui.html#aacdac9efb274ac360d676372c4f10dd9", null ]
 ];

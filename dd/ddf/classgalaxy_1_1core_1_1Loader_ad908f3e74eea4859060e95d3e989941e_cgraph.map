@@ -1,9 +1,0 @@
-<map id="galaxy::core::Loader::Loader" name="galaxy::core::Loader::Loader">
-<area shape="rect" id="node1" title="Constructor." alt="" coords="5,68,159,109"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ae52cbb6db0e5ffc7429b35861d993ca1" title="Initialize rml renderer." alt="" coords="232,39,412,80"/>
-<area shape="rect" id="node7" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,105,437,131"/>
-<area shape="rect" id="node3" href="$d3/dd9/namespacegalaxy_1_1ui.html#aaf969a5887755b7a7496132987f67d64" title=" " alt="" coords="485,39,620,80"/>
-<area shape="rect" id="node4" href="$d3/dd9/namespacegalaxy_1_1ui.html#ad180c3dc2f6a3fa26e26dc2abb637c47" title=" " alt="" coords="668,5,803,47"/>
-<area shape="rect" id="node6" href="$d3/dd9/namespacegalaxy_1_1ui.html#ab230e181c029f9617b54e81842789bfa" title=" " alt="" coords="668,71,803,112"/>
-<area shape="rect" id="node5" href="$d3/dd9/namespacegalaxy_1_1ui.html#a71462b2cd4aa8bf0cda423d941d4fd4d" title=" " alt="" coords="851,5,1013,47"/>
-</map>

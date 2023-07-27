@@ -1,0 +1,4 @@
+<map id="galaxy::scene::Scene::init" name="galaxy::scene::Scene::init">
+<area shape="rect" id="node1" title="Shared init function for constructors." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d" title="Add a system to the manager." alt="" coords="212,5,359,47"/>
+</map>

@@ -7,7 +7,7 @@
 <area shape="rect" id="node14" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f" title="Initialize atlas." alt="" coords="1121,337,1307,379"/>
 <area shape="rect" id="node20" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a73aead35b857e14b3fb10cd37ebe23e2" title="Initialize spritebatch buffers." alt="" coords="1127,403,1301,444"/>
 <area shape="rect" id="node5" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="904,5,1057,47"/>
-<area shape="rect" id="node7" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,299,373,340"/>
+<area shape="rect" id="node7" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,299,373,340"/>
 <area shape="rect" id="node9" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3cf4b139737656b2d1844d7020109f25" title="Pointer constructor." alt="" coords="904,123,1057,164"/>
 <area shape="rect" id="node6" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7" title="JSON constructor." alt="" coords="671,5,824,47"/>
 <area shape="rect" id="node8" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,299,188,340"/>

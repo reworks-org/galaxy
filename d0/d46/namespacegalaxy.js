@@ -26,11 +26,7 @@ var namespacegalaxy =
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
-    [ "scripting", "d8/dc2/namespacegalaxy_1_1scripting.html", [
-      [ "inspect", "d8/dc2/namespacegalaxy_1_1scripting.html#acbc92327d8bcbfdf913b42595b55a686", null ],
-      [ "middleclass", "d8/dc2/namespacegalaxy_1_1scripting.html#ad0efa450da87d0684d4bd8325964b391", null ],
-      [ "serpent", "d8/dc2/namespacegalaxy_1_1scripting.html#a88426c3251183124a95a58a875dd0c5a", null ]
-    ] ],
+    [ "scripting", "d8/dc2/namespacegalaxy_1_1scripting.html", "d8/dc2/namespacegalaxy_1_1scripting" ],
     [ "shaders", "dc/d20/namespacegalaxy_1_1shaders.html", [
       [ "r2d_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a3986ce61a0d54da18877737d37737f3c", null ],
       [ "r2d_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a088c0c5edb097d7da843946924f3d35d", null ],
@@ -53,6 +49,5 @@ var namespacegalaxy =
     [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", "d2/d27/namespacegalaxy_1_1systems" ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
-    [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ],
-    [ "log_wrapper", "d0/d46/namespacegalaxy.html#a6801894d137b69973d5ad5c6d565b54e", null ]
+    [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ]
 ];

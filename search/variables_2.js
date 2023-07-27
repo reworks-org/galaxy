@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['debug_2815',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
-  ['decoding_5ftable_2816',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
-  ['default_5findices_2817',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]],
-  ['density_2818',['density',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab6c17cb636a3a030938640077e23422a',1,'galaxy::physics::Material']]],
-  ['draw_5fcount_2819',['draw_count',['../d2/dd7/structgalaxy_1_1ui_1_1RMLCompiledGeometryData.html#a4a896b4bd67373043f1943e589cf3ef6',1,'galaxy::ui::RMLCompiledGeometryData']]]
+  ['debug_2633',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
+  ['decoding_5ftable_2634',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
+  ['default_5findices_2635',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]],
+  ['density_2636',['density',['../d4/d7e/classgalaxy_1_1physics_1_1Material.html#ab6c17cb636a3a030938640077e23422a',1,'galaxy::physics::Material']]]
 ];

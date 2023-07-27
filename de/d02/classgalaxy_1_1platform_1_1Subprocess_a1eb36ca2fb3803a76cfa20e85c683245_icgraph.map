@@ -1,6 +1,6 @@
 <map id="galaxy::platform::Subprocess::create" name="galaxy::platform::Subprocess::create">
 <area shape="rect" id="node1" title="Launch a subprocess." alt="" coords="495,39,705,80"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="273,5,410,47"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="273,5,410,47"/>
 <area shape="rect" id="node4" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99e8b2e5aa213978836dddf2c370e49a" title="Create constructor." alt="" coords="236,71,447,112"/>
 <area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>

@@ -1,9 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::SetScissorRegion" name="galaxy::ui::RMLRenderer::SetScissorRegion">
-<area shape="rect" id="node1" title="Called by RmlUi when it wants to change the scissor region." alt="" coords="5,41,185,83"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,19,464,46"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ade579ff15b88a1bbf4cc099d8453b0fe" title="Called by RmlUi when it wants to render geometry that the application does not wish to optimise." alt="" coords="259,71,439,112"/>
-<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f" title="Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable futur..." alt="" coords="527,5,707,47"/>
-<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a8bc35e720fa3b3484deb9062a4893780" title="Called by RmlUi when it wants to release application&#45;compiled geometry." alt="" coords="512,71,721,112"/>
-<area shape="rect" id="node6" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad825b118783fe8b1f9896d0fe5b16823" title="Called by RmlUi when it wants to render application&#45;compiled geometry." alt="" coords="515,136,718,177"/>
-<area shape="rect" id="node7" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a32cbed22f363bb61ec2aefbe7254cb2e" title="Update rml transform." alt="" coords="769,136,973,177"/>
-</map>

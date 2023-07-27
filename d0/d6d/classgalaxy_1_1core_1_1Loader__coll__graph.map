@@ -1,9 +1,3 @@
 <map id="galaxy::core::Loader" name="galaxy::core::Loader">
-<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="211,939,365,1060"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html" title="Custom RML rendering interface." alt="" coords="178,579,398,876"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,343,165,421"/>
-<area shape="rect" id="node4" href="$d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html" title=" " alt="" coords="189,314,387,450"/>
-<area shape="rect" id="node5" href="$dc/dbf/structgalaxy_1_1ui_1_1RMLProgramData.html" title=" " alt="" coords="185,42,391,134"/>
-<area shape="rect" id="node6" href="$d0/d6c/structgalaxy_1_1ui_1_1RMLGLStateBackup.html" title=" " alt="" coords="411,248,629,516"/>
-<area shape="rect" id="node7" href="$da/deb/structgalaxy_1_1ui_1_1RMLStencil.html" title=" " alt="" coords="437,5,603,171"/>
+<area shape="rect" id="node1" title="Simple customizable loading screen." alt="" coords="5,5,159,112"/>
 </map>

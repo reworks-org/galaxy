@@ -1,8 +1,7 @@
 <map id="galaxy::systems::System" name="galaxy::systems::System">
-<area shape="rect" id="node1" title="Represents a system that operates on sets of components." alt="" coords="465,5,650,112"/>
+<area shape="rect" id="node1" title="Represents a system that operates on sets of components." alt="" coords="349,5,534,112"/>
 <area shape="rect" id="node2" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html" title="Processess entities with a renderable component." alt="" coords="5,160,208,281"/>
 <area shape="rect" id="node3" href="$df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html" title="Update entities with a rigid body component." alt="" coords="233,160,418,281"/>
 <area shape="rect" id="node4" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html" title="Processess entities with a renderable component." alt="" coords="442,167,673,274"/>
 <area shape="rect" id="node5" href="$dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html" title="Update entities with a script component." alt="" coords="697,167,919,274"/>
-<area shape="rect" id="node6" href="$d8/da2/classgalaxy_1_1systems_1_1UISystem.html" title="Update entities with an rml ui component." alt="" coords="943,167,1142,274"/>
 </map>

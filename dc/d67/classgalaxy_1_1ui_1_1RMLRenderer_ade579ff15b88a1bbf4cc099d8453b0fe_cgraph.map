@@ -1,7 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::RenderGeometry" name="galaxy::ui::RMLRenderer::RenderGeometry">
-<area shape="rect" id="node1" title="Called by RmlUi when it wants to render geometry that the application does not wish to optimise." alt="" coords="5,71,185,112"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a75a3aa78fd0a8c595fa74387e2d8bb0f" title="Called by RmlUi when it wants to compile geometry it believes will be static for the forseeable futur..." alt="" coords="248,5,428,47"/>
-<area shape="rect" id="node3" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a8bc35e720fa3b3484deb9062a4893780" title="Called by RmlUi when it wants to release application&#45;compiled geometry." alt="" coords="233,71,443,112"/>
-<area shape="rect" id="node4" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#ad825b118783fe8b1f9896d0fe5b16823" title="Called by RmlUi when it wants to render application&#45;compiled geometry." alt="" coords="237,136,439,177"/>
-<area shape="rect" id="node5" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a32cbed22f363bb61ec2aefbe7254cb2e" title="Update rml transform." alt="" coords="491,136,695,177"/>
-</map>

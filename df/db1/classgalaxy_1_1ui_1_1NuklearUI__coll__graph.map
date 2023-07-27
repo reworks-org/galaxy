@@ -1,0 +1,6 @@
+<map id="galaxy::ui::NuklearUI" name="galaxy::ui::NuklearUI">
+<area shape="rect" id="node1" title="Manages the nuklear ui state." alt="" coords="5,425,177,737"/>
+<area shape="rect" id="node2" title=" " alt="" coords="18,285,165,363"/>
+<area shape="rect" id="node3" title=" " alt="" coords="30,145,153,223"/>
+<area shape="rect" id="node4" title=" " alt="" coords="72,5,111,83"/>
+</map>

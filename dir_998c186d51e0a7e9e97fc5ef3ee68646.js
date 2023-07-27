@@ -17,9 +17,5 @@ var dir_998c186d51e0a7e9e97fc5ef3ee68646 =
       [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ]
     ] ],
     [ "System.cpp", "d3/d7c/System_8cpp.html", null ],
-    [ "System.hpp", "d4/d25/System_8hpp.html", "d4/d25/System_8hpp" ],
-    [ "UISystem.cpp", "d3/dd8/UISystem_8cpp.html", null ],
-    [ "UISystem.hpp", "d9/d25/UISystem_8hpp.html", [
-      [ "UISystem", "d8/da2/classgalaxy_1_1systems_1_1UISystem.html", "d8/da2/classgalaxy_1_1systems_1_1UISystem" ]
-    ] ]
+    [ "System.hpp", "d4/d25/System_8hpp.html", "d4/d25/System_8hpp" ]
 ];

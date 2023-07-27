@@ -1,12 +1,14 @@
 <map id="galaxy::graphics::Shader::bind" name="galaxy::graphics::Shader::bind">
-<area shape="rect" id="node1" title="Enable this shader for rendering." alt="" coords="548,235,729,276"/>
-<area shape="rect" id="node2" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a30dd7837a5da9fc454d9c052d5dd7076" title="Render video." alt="" coords="293,5,452,47"/>
-<area shape="rect" id="node3" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="271,71,474,112"/>
-<area shape="rect" id="node4" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="285,136,460,177"/>
-<area shape="rect" id="node5" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="245,201,500,243"/>
-<area shape="rect" id="node6" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="275,267,471,308"/>
-<area shape="rect" id="node7" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="278,332,467,373"/>
-<area shape="rect" id="node8" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="285,397,460,439"/>
-<area shape="rect" id="node9" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="265,463,480,504"/>
-<area shape="rect" id="node10" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="5,470,197,497"/>
+<area shape="rect" id="node1" title="Enable this shader for rendering." alt="" coords="779,235,960,276"/>
+<area shape="rect" id="node2" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a30dd7837a5da9fc454d9c052d5dd7076" title="Render video." alt="" coords="524,5,683,47"/>
+<area shape="rect" id="node5" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="502,71,705,112"/>
+<area shape="rect" id="node6" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="516,136,691,177"/>
+<area shape="rect" id="node7" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="476,201,731,243"/>
+<area shape="rect" id="node8" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="505,267,701,308"/>
+<area shape="rect" id="node9" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="509,332,698,373"/>
+<area shape="rect" id="node10" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="516,397,691,439"/>
+<area shape="rect" id="node11" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="496,463,711,504"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="263,5,401,47"/>
+<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node12" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="236,470,428,497"/>
 </map>

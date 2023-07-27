@@ -17,10 +17,6 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "RigidBody.hpp", "d3/def/RigidBody_8hpp.html", [
       [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ]
     ] ],
-    [ "RML.cpp", "d2/dfb/RML_8cpp.html", null ],
-    [ "RML.hpp", "d9/d16/RML_8hpp.html", [
-      [ "RML", "db/d26/classgalaxy_1_1components_1_1RML.html", "db/d26/classgalaxy_1_1components_1_1RML" ]
-    ] ],
     [ "Script.cpp", "d8/d80/Script_8cpp.html", null ],
     [ "Script.hpp", "d5/d17/Script_8hpp.html", [
       [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ]

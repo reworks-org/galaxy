@@ -1,7 +1,7 @@
 <map id="galaxy::meta::EntityMeta::get_type" name="galaxy::meta::EntityMeta::get_type">
 <area shape="rect" id="node1" title="Get a string representation of an entity type id." alt="" coords="656,64,843,105"/>
 <area shape="rect" id="node2" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#adb63a1eb9d336323d4f35a1a70017f7f" title="Creates an entt::any from a component pointer." alt="" coords="421,5,608,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,64,373,105"/>
+<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,64,373,105"/>
 <area shape="rect" id="node5" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ac96e4426d2aa26beff10bf1c163d3920" title="Serialise a single entity." alt="" coords="421,123,608,164"/>
 <area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,64,188,105"/>
 </map>

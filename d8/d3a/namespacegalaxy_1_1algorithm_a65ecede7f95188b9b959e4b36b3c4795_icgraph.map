@@ -1,6 +1,6 @@
 <map id="galaxy::algorithm::decode_zlib" name="galaxy::algorithm::decode_zlib">
 <area shape="rect" id="node1" title="Decompresses string into ZLib." alt="" coords="684,5,828,47"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#abf4b5ce82f3ec06ebf544209f92ec00f" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
 <area shape="rect" id="node4" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969" title="Load app data file into scene manager." alt="" coords="421,35,636,76"/>
 <area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
 </map>

@@ -1,13 +1,7 @@
 var searchData=
 [
-  ['pass_5fdepth_5ffail_3089',['pass_depth_fail',['../da/deb/structgalaxy_1_1ui_1_1RMLStencil.html#ab5d2bd2b16cda98fec5dca96eb1203fb',1,'galaxy::ui::RMLStencil']]],
-  ['pass_5fdepth_5fpass_3090',['pass_depth_pass',['../da/deb/structgalaxy_1_1ui_1_1RMLStencil.html#aa339ab841eff3cb41987e36b3a8f4bb8',1,'galaxy::ui::RMLStencil']]],
-  ['path_3091',['path',['../d0/de8/structgalaxy_1_1fs_1_1FileInfo.html#ad7e33f2bece44fa0f483a475cc1ff591',1,'galaxy::fs::FileInfo']]],
-  ['point_3092',['point',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a66e66c91c5e61403e6b69b3757780204',1,'galaxy::graphics::Render2DUniform']]],
-  ['points_3093',['points',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a9cb508a9cce1ba1c7e2c06f0d78c73dd',1,'galaxy::components::Primitive::PrimitiveData']]],
-  ['popup_5fstate_3094',['popup_state',['../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2',1,'ImGuiHelpers.cpp']]],
-  ['program_5fcolor_3095',['program_color',['../d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html#aad9d37db4b2298688fc25326a90c8719',1,'galaxy::ui::RMLShaderData']]],
-  ['program_5ftexture_3096',['program_texture',['../d8/d65/structgalaxy_1_1ui_1_1RMLShaderData.html#ac006fe8dc67f2c7fbd3ce6ff3498a67d',1,'galaxy::ui::RMLShaderData']]],
-  ['program_5funiform_5fnames_3097',['program_uniform_names',['../d3/dd9/namespacegalaxy_1_1ui.html#a399fa1786b8a27b184e731546c2aaaf2',1,'galaxy::ui']]],
-  ['projection_3098',['projection',['../dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#acf19fb221036ce6ff73fdb580158db3c',1,'galaxy::ui::RMLRenderer']]]
+  ['path_2893',['path',['../d0/de8/structgalaxy_1_1fs_1_1FileInfo.html#ad7e33f2bece44fa0f483a475cc1ff591',1,'galaxy::fs::FileInfo']]],
+  ['point_2894',['point',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a66e66c91c5e61403e6b69b3757780204',1,'galaxy::graphics::Render2DUniform']]],
+  ['points_2895',['points',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a9cb508a9cce1ba1c7e2c06f0d78c73dd',1,'galaxy::components::Primitive::PrimitiveData']]],
+  ['popup_5fstate_2896',['popup_state',['../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2',1,'ImGuiHelpers.cpp']]]
 ];

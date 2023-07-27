@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>m_active
 : <a class="el" href="da/d18/classgalaxy_1_1components_1_1Animated.html#a097ce4624451a2bbaa074446f49f5309">galaxy::components::Animated</a>
+, <a class="el" href="dd/d61/classgalaxy_1_1scripting_1_1UIScript.html#a983d4fc57de39649875f6af028b2a81d">galaxy::scripting::UIScript</a>
 </li>
 <li>m_active_frame
 : <a class="el" href="da/d19/classgalaxy_1_1graphics_1_1Animation.html#a524371c06fa72529ab65b8ccdbf31582">galaxy::graphics::Animation</a>
@@ -115,6 +116,9 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_area_tex
 : <a class="el" href="d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a9146312f8107a144634402d12370111a">galaxy::graphics::SMAA</a>
+</li>
+<li>m_atlas
+: <a class="el" href="d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab8205c5f9164608179eb5842f0a8eedc">galaxy::ui::NuklearUI</a>
 </li>
 <li>m_attachments
 : <a class="el" href="df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a13c3e31ae987bc24014699373bb50149">galaxy::graphics::Framebuffer</a>
@@ -179,16 +183,16 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 : <a class="el" href="d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">galaxy::core::Config</a>
 </li>
 <li>m_context
-: <a class="el" href="dd/ddf/classgalaxy_1_1core_1_1Loader.html#aa808cda5b50d3b0677f2f9f42ac7e4fe">galaxy::core::Loader</a>
-, <a class="el" href="dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a48491fe7f86cd81f5efc78041753f435">galaxy::graphics::FontContext</a>
-, <a class="el" href="dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae232c5a0a5678debcd9ccf4bb7d150c2">galaxy::scene::Scene</a>
-, <a class="el" href="de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#af1999acc4a9e90a4742938376f1eba5c">galaxy::ui::RMLEvents</a>
+: <a class="el" href="dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a48491fe7f86cd81f5efc78041753f435">galaxy::graphics::FontContext</a>
 </li>
 <li>m_count
 : <a class="el" href="d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a9dcafaff19ccf7fc9527ee491ddbce90">galaxy::graphics::IndexBuffer</a>
 </li>
 <li>m_cross
 : <a class="el" href="d5/dc8/classgalaxy_1_1input_1_1Cursor.html#adeb358a8d4576739949753e29a6485b7">galaxy::input::Cursor</a>
+</li>
+<li>m_ctx
+: <a class="el" href="d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abff213095d3b02b4ba14a7b50e4f58d2">galaxy::ui::NuklearUI</a>
 </li>
 <li>m_cur_lang
 : <a class="el" href="db/dc3/classgalaxy_1_1resource_1_1Language.html#a08d37a25dc0ed721d1991e5b319dab82">galaxy::resource::Language</a>
@@ -233,9 +237,6 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_dispatcher
 : <a class="el" href="dd/d72/classgalaxy_1_1scene_1_1Scene.html#aa0b90e12824692268535d7aecffc3328">galaxy::scene::Scene</a>
 </li>
-<li>m_doc
-: <a class="el" href="db/d26/classgalaxy_1_1components_1_1RML.html#a5ac75f4ce8de1dea90b9aba29cceab72">galaxy::components::RML</a>
-</li>
 <li>m_drop_paths
 : <a class="el" href="d5/d25/classgalaxy_1_1core_1_1Window.html#a0b2da29ced012f536464f3f3c9585c69">galaxy::core::Window</a>
 </li>
@@ -265,8 +266,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 : <a class="el" href="df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a30eac9796394843080a898ec80feca9e">galaxy::graphics::Framebuffer</a>
 </li>
 <li>m_file
-: <a class="el" href="db/d26/classgalaxy_1_1components_1_1RML.html#a55e0e6ece4ea2bf5eaf583768577b0bf">galaxy::components::RML</a>
-, <a class="el" href="db/d40/classgalaxy_1_1components_1_1Script.html#aec1f202a7a42c41bc95f696adada0f56">galaxy::components::Script</a>
+: <a class="el" href="db/d40/classgalaxy_1_1components_1_1Script.html#aec1f202a7a42c41bc95f696adada0f56">galaxy::components::Script</a>
 </li>
 <li>m_file_stream
 : <a class="el" href="de/d18/classgalaxy_1_1error_1_1FileSink.html#a58a4a232764ee7f1591585461f8269b5">galaxy::error::FileSink</a>
@@ -295,6 +295,9 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_font_name
 : <a class="el" href="d2/d81/classgalaxy_1_1components_1_1Text.html#a6d329a872cef9766a45cf462a90b1469">galaxy::components::Text</a>
+</li>
+<li>m_fonts
+: <a class="el" href="d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a9f796cd394497344447c75b4900fe50e">galaxy::ui::NuklearUI</a>
 </li>
 <li>m_fragment_src
 : <a class="el" href="d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a880512f00f3927bedb75904f34d153f2">galaxy::graphics::Shader</a>
@@ -383,9 +386,6 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_keyboard
 : <a class="el" href="d5/d25/classgalaxy_1_1core_1_1Window.html#a02c54e024b5d0f91ab3903cad2b2d00d">galaxy::core::Window</a>
 </li>
-<li>m_keymap
-: <a class="el" href="df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#af9ad7717a0a34e426113ccc86857cc52">galaxy::ui::RMLInput</a>
-</li>
 <li>m_lang_map
 : <a class="el" href="db/dc3/classgalaxy_1_1resource_1_1Language.html#abf0d4cd9479149339653ba9ed9c906cf">galaxy::resource::Language</a>
 </li>
@@ -426,9 +426,6 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_model_view
 : <a class="el" href="de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#a6e2d7eef4c72eed98c2aac946d91af90">galaxy::graphics::Camera::Data</a>
-</li>
-<li>m_modmap
-: <a class="el" href="df/d1c/classgalaxy_1_1ui_1_1RMLInput.html#aa44262ea0356e7d3cb26a537c2bb56b7">galaxy::ui::RMLInput</a>
 </li>
 <li>m_mouse
 : <a class="el" href="d5/d25/classgalaxy_1_1core_1_1Window.html#aa8b93def4be190b82a6648334c623ee0">galaxy::core::Window</a>
@@ -528,9 +525,6 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_renderbuffers
 : <a class="el" href="df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae93770fd57db9c54ba6fd273682a589b">galaxy::graphics::Framebuffer</a>
 </li>
-<li>m_renderer
-: <a class="el" href="dd/ddf/classgalaxy_1_1core_1_1Loader.html#a130a52786709ecc4e9dfce6672709558">galaxy::core::Loader</a>
-</li>
 <li>m_rendersystem_index
 : <a class="el" href="da/dc8/classgalaxy_1_1core_1_1World.html#afa5ccdc23a78f4bc83b401836a3867dc">galaxy::core::World</a>
 </li>
@@ -543,18 +537,6 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_restitution_threshold
 : <a class="el" href="df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aeda247aedcabb8aad1ff8f8f8f74abaa">galaxy::components::RigidBody</a>
-</li>
-<li>m_rml_events
-: <a class="el" href="dd/d72/classgalaxy_1_1scene_1_1Scene.html#a7e60ffed27985cab489755fd711d1b8c">galaxy::scene::Scene</a>
-</li>
-<li>m_rml_file_interface
-: <a class="el" href="d5/da2/classgalaxy_1_1core_1_1Application.html#a8075d4495040414effb7e61f91fbcb3d">galaxy::core::Application</a>
-</li>
-<li>m_rml_rendering_interface
-: <a class="el" href="d5/da2/classgalaxy_1_1core_1_1Application.html#acbb0eb3162455c6373f90d45d9c236b6">galaxy::core::Application</a>
-</li>
-<li>m_rml_system_interface
-: <a class="el" href="d5/da2/classgalaxy_1_1core_1_1Application.html#a874c6f54d13272f033b02926e1b92711">galaxy::core::Application</a>
 </li>
 <li>m_root
 : <a class="el" href="d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ab2a7089fcc5358441c2a297b741fe0d9">galaxy::fs::VirtualFileSystem</a>
@@ -587,11 +569,15 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_script
 : <a class="el" href="d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a0d501d113f80c4b86ed0c2a6cb044374">galaxy::lua::BasicScript</a>
 </li>
+<li>m_scripts
+: <a class="el" href="d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a1ac20b7d40f5ecc4cd0190532317b111">galaxy::ui::NuklearUI</a>
+</li>
 <li>m_search_tex
 : <a class="el" href="d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#af715f0052e0068028a7fbe0c3c02185f">galaxy::graphics::SMAA</a>
 </li>
 <li>m_self
 : <a class="el" href="db/d40/classgalaxy_1_1components_1_1Script.html#ac5ff7d4245b6cd450df037576ce7c68c">galaxy::components::Script</a>
+, <a class="el" href="dd/d61/classgalaxy_1_1scripting_1_1UIScript.html#ab6469ea4ad08c38dd488b83d101805e4">galaxy::scripting::UIScript</a>
 </li>
 <li>m_serialize_factory
 : <a class="el" href="db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">galaxy::meta::EntityMeta</a>
@@ -751,6 +737,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_update
 : <a class="el" href="db/d40/classgalaxy_1_1components_1_1Script.html#afddf29111e585b9ab4493229f96d6731">galaxy::components::Script</a>
+, <a class="el" href="dd/d61/classgalaxy_1_1scripting_1_1UIScript.html#a0b054335c1bf51f455dd913df656db52">galaxy::scripting::UIScript</a>
 </li>
 <li>m_ur_texels
 : <a class="el" href="de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html#ab089e11d1431509817134b8eeb62d787">galaxy::graphics::TexelRegion</a>
@@ -792,6 +779,9 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </li>
 <li>m_viewport
 : <a class="el" href="d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9ccb407a9e907bf9e57af0d574332697">galaxy::graphics::Camera</a>
+</li>
+<li>m_viewport_backup
+: <a class="el" href="d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#adc8828175fe38b28a82e94305e92cf4a">galaxy::ui::NuklearUI</a>
 </li>
 <li>m_width
 : <a class="el" href="d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html#a90a31b987c8e8d571ee0398a55d01a31">galaxy::algorithm::RectPack</a>
@@ -872,7 +862,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 23 2023 08:01:25 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jul 27 2023 12:38:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

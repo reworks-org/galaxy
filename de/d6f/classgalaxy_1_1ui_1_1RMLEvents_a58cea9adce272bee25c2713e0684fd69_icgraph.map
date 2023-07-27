@@ -1,5 +1,0 @@
-<map id="galaxy::ui::RMLEvents::convert_key_modifier" name="galaxy::ui::RMLEvents::convert_key_modifier">
-<area shape="rect" id="node1" title="Converts the GLFW key modifiers to RmlUi key modifiers." alt="" coords="219,39,389,80"/>
-<area shape="rect" id="node2" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a8681bef3bfbb3bf18623f57b66139314" title="On mouse pressed event handler." alt="" coords="5,5,171,47"/>
-<area shape="rect" id="node3" href="$de/d6f/classgalaxy_1_1ui_1_1RMLEvents.html#a31be0675ccd09b1b9721c90658056c5f" title="On mouse released event handler." alt="" coords="5,71,171,112"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="galaxy::ui::RMLRenderer::LoadTexture" name="galaxy::ui::RMLRenderer::LoadTexture">
-<area shape="rect" id="node1" title="Called by RmlUi when a texture is required by the library." alt="" coords="5,35,185,76"/>
-<area shape="rect" id="node2" href="$dc/d67/classgalaxy_1_1ui_1_1RMLRenderer.html#a4839c693189e341f6ab9f0abdcd8c0b9" title="Called by RmlUi when a texture is required to be built from an internally&#45;generated sequence of pixel..." alt="" coords="259,5,439,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,71,464,98"/>
-</map>
