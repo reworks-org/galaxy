@@ -23,6 +23,7 @@
 #include <galaxy/input/Input.hpp>
 #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
+#include <galaxy/ui/NuklearUI.hpp>
 
 #include "Editor.hpp"
 
@@ -369,11 +370,6 @@ namespace sc
 #ifdef _DEBUG
 		static bool s_show_demo = false;
 #endif
-		static GLint s_cur_fbo = 0;
-		glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_cur_fbo);
-
-		static GLint s_viewport[4] = {0, 0, 0, 0};
-		glGetIntegerv(GL_VIEWPORT, s_viewport);
 
 		m_framebuffer.bind(true);
 		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
@@ -385,11 +381,14 @@ namespace sc
 				graphics::Renderer::buffer_camera(m_editor_camera);
 			}
 
-			m_project_sm.current().render();
+			graphics::Renderer::draw();
+
+			m_nui->new_frame();
+			m_nui->process_scripts(m_project_sm.current().m_world.m_registry);
+			m_nui->render();
 		}
 
-		glBindFramebuffer(GL_FRAMEBUFFER, s_cur_fbo);
-		glViewport(s_viewport[0], s_viewport[1], s_viewport[2], s_viewport[3]);
+		m_window->begin();
 
 		ui::imgui_new_frame();
 
@@ -908,6 +907,7 @@ namespace sc
 		ImGui::PopStyleColor(1);
 
 		ui::imgui_render();
+		m_window->end();
 	}
 
 	void Editor::viewport()

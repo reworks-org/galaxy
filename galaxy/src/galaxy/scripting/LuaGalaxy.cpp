@@ -43,6 +43,7 @@
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/state/StateMachine.hpp"
 #include "galaxy/utils/Guid.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Lua.hpp"
 
@@ -942,6 +943,13 @@ namespace galaxy
 			statemachine_type["pop"]    = &state::StateMachine::pop;
 			statemachine_type["push"]   = &state::StateMachine::push;
 			statemachine_type["update"] = &state::StateMachine::update;
+
+			/* UI */
+			auto nui_type             = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);
+			nui_type["ctx"]           = &ui::NuklearUI::ctx;
+			nui_type["disable_input"] = &ui::NuklearUI::disable_input;
+			nui_type["enables_input"] = &ui::NuklearUI::enables_input;
+			nui_type["set_font"]      = &ui::NuklearUI::set_font;
 
 			/* UTILS */
 			auto guid_type         = lua.new_usertype<utils::Guid>("Guid", sol::constructors<utils::Guid()>());

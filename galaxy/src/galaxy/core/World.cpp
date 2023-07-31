@@ -18,6 +18,7 @@
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
@@ -26,6 +27,7 @@
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/resource/Prefabs.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "World.hpp"
 
@@ -49,6 +51,8 @@ namespace galaxy
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
 			m_registry.on_construct<components::RigidBody>().connect<&World::construct_rigidbody>(this);
 			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
+			m_registry.on_construct<components::UIScript>().connect<&World::construct_nui>(this);
+			m_registry.on_destroy<components::UIScript>().connect<&World::construct_nui>(this);
 
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
@@ -350,12 +354,46 @@ namespace galaxy
 				rigidbody.m_body = nullptr;
 			}
 		}
+
+		void World::construct_nui(entt::registry& registry, entt::entity entity)
+		{
+			auto& ui    = registry.get<components::UIScript>(entity);
+			auto& state = core::ServiceLocator<sol::state>::ref();
+			auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
+
+			auto result = state.load_file(ui.file());
+			if (result.valid())
 			{
-				if (rigidbody->m_body != nullptr)
+				ui.m_self = result.call();
+
+				if (ui.m_self.valid())
 				{
-					m_b2world->DestroyBody(rigidbody->m_body);
-					rigidbody->m_body = nullptr;
+					ui.m_self["ctx"]        = nui.ctx();
+					ui.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
+
+					ui.m_update = ui.m_self["update"];
+					if (!ui.m_update.valid())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", ui.file());
+					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to validate ui script '{0}'. Make sure its in the correct format.", ui.file());
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load ui script '{0}' because '{1}'.", ui.file(), magic_enum::enum_name(result.status()));
+			}
+		}
+
+		void World::destruct_nui(entt::registry& registry, entt::entity entity)
+		{
+			auto& ui = registry.get<components::UIScript>(entity);
+			if (ui.m_self.valid())
+			{
+				ui.m_self.abandon();
 			}
 		}
 	} // namespace core

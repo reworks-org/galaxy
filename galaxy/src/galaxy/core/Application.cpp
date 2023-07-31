@@ -428,12 +428,7 @@ namespace galaxy
 						updates++;
 					}
 
-					nui.new_frame();
-					nui.process_scripts();
-					window.begin();
 					scene.render();
-					window.end();
-					nui.render();
 
 					glfwSwapBuffers(window.handle());
 

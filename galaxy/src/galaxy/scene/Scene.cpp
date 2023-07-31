@@ -27,6 +27,7 @@ namespace galaxy
 			, m_world {this}
 			, m_name {"Untitled"}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
+			, m_nui {&core::ServiceLocator<ui::NuklearUI>::ref()}
 		{
 			init();
 		}
@@ -36,6 +37,7 @@ namespace galaxy
 			, m_world {this}
 			, m_name {name}
 			, m_window {&core::ServiceLocator<core::Window>::ref()}
+			, m_nui {&core::ServiceLocator<ui::NuklearUI>::ref()}
 		{
 			init();
 		}
@@ -64,7 +66,6 @@ namespace galaxy
 		void Scene::unload()
 		{
 			core::ServiceLocator<sol::state>::ref().collect_garbage();
-			core::ServiceLocator<ui::NuklearUI>::ref().disable_all();
 		}
 
 		void Scene::update()
@@ -77,7 +78,13 @@ namespace galaxy
 
 		void Scene::render()
 		{
+			m_window->begin();
 			graphics::Renderer::draw();
+			m_window->end();
+
+			m_nui->new_frame();
+			m_nui->process_scripts(m_world.m_registry);
+			m_nui->render();
 		}
 
 		void Scene::on_window_resized(const events::WindowResized& e)

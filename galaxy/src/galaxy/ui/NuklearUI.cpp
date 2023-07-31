@@ -7,11 +7,14 @@
 
 #define NK_GLFW_GL4_IMPLEMENTATION
 
-#include <BS_thread_pool.hpp>
+#include <entt/entity/registry.hpp>
 
+#include "galaxy/components/Flag.hpp"
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/flags/Enabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "NuklearUI.hpp"
@@ -27,21 +30,8 @@ namespace galaxy
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 			auto& config = core::ServiceLocator<core::Config>::ref();
-			auto& tp     = core::ServiceLocator<BS::thread_pool>::ref();
 
 			m_ctx = nk_glfw3_init(window.handle(), NK_GLFW3_DEFAULT, NK_MAX_VERTEX_BUFFER, NK_MAX_ELEMENT_BUFFER);
-
-			auto handle = tp.submit([&]() {
-				auto dir      = config.get<std::string>("ui_folder", "resource_folders") + "scripts/";
-				auto contents = core::ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
-				for (std::filesystem::path file : contents)
-				{
-					auto name = file.stem().string();
-
-					m_scripts.emplace(name, scripting::UIScript {});
-					m_scripts[name].load(file.string(), &m_ctx->ctx);
-				}
-			});
 
 			nk_glfw3_font_stash_begin(&m_atlas);
 
@@ -54,8 +44,6 @@ namespace galaxy
 
 			nk_glfw3_font_stash_end();
 			nk_style_load_all_cursors(&m_ctx->ctx, m_atlas->cursors);
-
-			handle.get();
 		}
 
 		NuklearUI::~NuklearUI()
@@ -88,12 +76,12 @@ namespace galaxy
 			nk_glfw3_new_frame();
 		}
 
-		void NuklearUI::process_scripts()
+		void NuklearUI::process_scripts(entt::registry& registry)
 		{
-			// TODO: make parallel?
-			for (const auto& [key, script] : m_scripts)
+			const auto view = registry.view<components::UIScript, components::Flag>();
+			for (auto&& [entity, script, flag] : view.each())
 			{
-				if (script.m_active)
+				if (flag.is_flag_set<flags::Enabled>() && script.m_update.valid())
 				{
 					script.m_update(script.m_self);
 				}
@@ -123,32 +111,6 @@ namespace galaxy
 			}
 		}
 
-		void NuklearUI::enable_ui(const std::string& name)
-		{
-			if (m_scripts.contains(name))
-			{
-				m_ctx->is_input_allowed  = true;
-				m_scripts[name].m_active = true;
-			}
-		}
-
-		void NuklearUI::disable_ui(const std::string& name)
-		{
-			if (m_scripts.contains(name))
-			{
-				m_scripts[name].m_active = false;
-			}
-		}
-
-		void NuklearUI::disable_all()
-		{
-			for (auto& [key, script] : m_scripts)
-			{
-				m_ctx->is_input_allowed = false;
-				script.m_active         = false;
-			}
-		}
-
 		void NuklearUI::enables_input()
 		{
 			m_ctx->is_input_allowed = true;
@@ -157,6 +119,11 @@ namespace galaxy
 		void NuklearUI::disable_input()
 		{
 			m_ctx->is_input_allowed = false;
+		}
+
+		nk_context* NuklearUI::ctx() const
+		{
+			return &m_ctx->ctx;
 		}
 	} // namespace ui
 } // namespace galaxy

@@ -20,6 +20,11 @@ namespace galaxy
 		class Window;
 	} // namespace core
 
+	namespace ui
+	{
+		class NuklearUI;
+	} // namespace ui
+
 	namespace scene
 	{
 		///
@@ -119,6 +124,11 @@ namespace galaxy
 			/// Pointer to window.
 			///
 			core::Window* m_window;
+
+			///
+			/// Pointer to NuklearUI.
+			///
+			ui::NuklearUI* m_nui;
 		};
 	} // namespace scene
 } // namespace galaxy

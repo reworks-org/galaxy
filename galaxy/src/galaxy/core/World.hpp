@@ -203,6 +203,22 @@ namespace galaxy
 			///
 			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
 
+			///
+			/// Function that integrates nuklear init with entt on construct event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void construct_nui(entt::registry& registry, entt::entity entity);
+
+			///
+			/// Function that integrates nuklear destroy with entt on destruction event.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
+			void destruct_nui(entt::registry& registry, entt::entity entity);
+
 		public:
 			///
 			/// The main entt entity registry.

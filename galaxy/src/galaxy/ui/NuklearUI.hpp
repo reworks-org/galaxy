@@ -8,12 +8,13 @@
 #ifndef GALAXY_UI_NUKLEARUI_HPP_
 #define GALAXY_UI_NUKLEARUI_HPP_
 
+#include <entt/entity/fwd.hpp>
+#include <Nuklear.hpp>
 #include <robin_hood.h>
 
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/KeyChar.hpp"
-#include "galaxy/scripting/UIScript.hpp"
 
 namespace galaxy
 {
@@ -67,7 +68,9 @@ namespace galaxy
 			///
 			/// Update scripts and call ui functions.
 			///
-			void process_scripts();
+			/// \param registry Entity registry with scripts to run.
+			///
+			void process_scripts(entt::registry& registry);
 
 			///
 			/// Render nuklear.
@@ -77,28 +80,9 @@ namespace galaxy
 			///
 			/// Change the active font.
 			///
-			/// \param id
+			/// \param id Font file name without extension.
 			///
 			void set_font(const std::string& id);
-
-			///
-			/// Enable a script (ui).
-			///
-			/// \param name Name of the UI script file.
-			///
-			void enable_ui(const std::string& name);
-
-			///
-			/// Disable a script (ui).
-			///
-			/// \param name Name of the UI script file.
-			///
-			void disable_ui(const std::string& name);
-
-			///
-			/// Disable all scripts (ui).
-			///
-			void disable_all();
 
 			///
 			/// Enables nuklear input.
@@ -109,6 +93,13 @@ namespace galaxy
 			/// Disables nuklear input.
 			///
 			void disable_input();
+
+			///
+			/// Nuklear Context.
+			///
+			/// \return Pointer to context. DO NOT FREE.
+			///
+			[[nodiscard]] nk_context* ctx() const;
 
 		private:
 			///
@@ -130,11 +121,6 @@ namespace galaxy
 			/// Fonts used by nuklear.
 			///
 			robin_hood::unordered_flat_map<std::string, nk_font*> m_fonts;
-
-			///
-			/// UI scripts to use when rendering.
-			///
-			robin_hood::unordered_flat_map<std::string, scripting::UIScript> m_scripts;
 		};
 	} // namespace ui
 } // namespace galaxy

@@ -21,6 +21,7 @@
 #include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Lua.hpp"
 
