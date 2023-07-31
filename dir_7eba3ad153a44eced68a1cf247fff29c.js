@@ -12,9 +12,5 @@ var dir_7eba3ad153a44eced68a1cf247fff29c =
     [ "LuaExternalModules.cpp", "d8/dbe/LuaExternalModules_8cpp.html", "d8/dbe/LuaExternalModules_8cpp" ],
     [ "LuaGalaxy.cpp", "db/dac/LuaGalaxy_8cpp.html", "db/dac/LuaGalaxy_8cpp" ],
     [ "LuaNuklear.cpp", "d9/d2b/LuaNuklear_8cpp.html", "d9/d2b/LuaNuklear_8cpp" ],
-    [ "LuaServices.cpp", "d1/d50/LuaServices_8cpp.html", "d1/d50/LuaServices_8cpp" ],
-    [ "UIScript.cpp", "dd/de9/UIScript_8cpp.html", null ],
-    [ "UIScript.hpp", "dd/d34/UIScript_8hpp.html", [
-      [ "UIScript", "dd/d61/classgalaxy_1_1scripting_1_1UIScript.html", "dd/d61/classgalaxy_1_1scripting_1_1UIScript" ]
-    ] ]
+    [ "LuaServices.cpp", "d1/d50/LuaServices_8cpp.html", "d1/d50/LuaServices_8cpp" ]
 ];

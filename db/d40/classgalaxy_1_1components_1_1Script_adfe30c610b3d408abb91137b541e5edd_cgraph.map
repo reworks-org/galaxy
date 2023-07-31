@@ -1,5 +1,0 @@
-<map id="galaxy::components::Script::load_internal" name="galaxy::components::Script::load_internal">
-<area shape="rect" id="node1" title="Load a script." alt="" coords="5,35,165,76"/>
-<area shape="rect" id="node2" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="252,5,405,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="213,71,444,98"/>
-</map>

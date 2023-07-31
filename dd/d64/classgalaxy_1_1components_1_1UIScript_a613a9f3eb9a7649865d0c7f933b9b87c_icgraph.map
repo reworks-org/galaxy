@@ -1,0 +1,6 @@
+<map id="galaxy::components::UIScript::load" name="galaxy::components::UIScript::load">
+<area shape="rect" id="node1" title="Load script and set context." alt="" coords="415,39,568,80"/>
+<area shape="rect" id="node2" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a1e168536955fe04f5d969ea79f6fe254" title="Deserializes from object." alt="" coords="207,5,367,47"/>
+<area shape="rect" id="node4" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a4da1f668e6037f33c9134fbea21c8eff" title="Pointer constructor." alt="" coords="210,71,363,112"/>
+<area shape="rect" id="node3" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#ade343d82257de60bb52498bfbc537001" title="JSON constructor." alt="" coords="5,5,159,47"/>
+</map>

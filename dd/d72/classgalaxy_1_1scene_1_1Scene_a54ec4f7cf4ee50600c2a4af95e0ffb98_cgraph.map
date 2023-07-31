@@ -1,4 +1,19 @@
 <map id="galaxy::scene::Scene::render" name="galaxy::scene::Scene::render">
-<area shape="rect" id="node1" title="Render scene." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted data to screen." alt="" coords="212,5,407,47"/>
+<area shape="rect" id="node1" title="Render scene." alt="" coords="5,209,164,251"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a81dd3c34245ea23bacaf147e497e6134" title="Prepare window for rendering." alt="" coords="229,56,390,97"/>
+<area shape="rect" id="node8" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted data to screen." alt="" coords="212,121,407,163"/>
+<area shape="rect" id="node9" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="213,187,405,214"/>
+<area shape="rect" id="node15" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ace9596eaa4daf51faafd1c66be98bb2f" title="Called before any nuklear code." alt="" coords="230,239,389,280"/>
+<area shape="rect" id="node16" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a0fa0bac630812c6428b1c09700c8027d" title="Update scripts and call ui functions." alt="" coords="230,304,389,345"/>
+<area shape="rect" id="node17" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ad8edda1bbc289d6886c36d7e3b6abcef" title="Render nuklear." alt="" coords="230,369,389,411"/>
+<area shape="rect" id="node3" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="455,56,669,97"/>
+<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="717,56,900,97"/>
+<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="948,5,1163,47"/>
+<area shape="rect" id="node7" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="964,71,1147,112"/>
+<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="1211,39,1425,80"/>
+<area shape="rect" id="node10" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="455,151,669,192"/>
+<area shape="rect" id="node13" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="455,216,669,257"/>
+<area shape="rect" id="node11" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="717,151,900,192"/>
+<area shape="rect" id="node12" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="948,151,1163,192"/>
+<area shape="rect" id="node14" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="718,216,899,257"/>
 </map>

@@ -1,12 +1,11 @@
 <map id="galaxy/src/galaxy/ui/NuklearUI.hpp" name="galaxy/src/galaxy/ui/NuklearUI.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="439,5,593,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,112,121"/>
-<area shape="rect" id="node3" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="136,95,376,121"/>
-<area shape="rect" id="node6" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="401,95,631,121"/>
-<area shape="rect" id="node7" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="655,95,854,121"/>
-<area shape="rect" id="node8" href="$dd/d34/UIScript_8hpp.html" title=" " alt="" coords="878,95,1087,121"/>
-<area shape="rect" id="node4" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="35,169,237,196"/>
-<area shape="rect" id="node5" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="262,169,490,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="873,169,973,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="997,169,1089,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="375,5,528,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,151,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="175,95,275,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="299,95,406,121"/>
+<area shape="rect" id="node5" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="430,95,670,121"/>
+<area shape="rect" id="node8" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="695,95,925,121"/>
+<area shape="rect" id="node9" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="949,95,1148,121"/>
+<area shape="rect" id="node6" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="329,169,531,196"/>
+<area shape="rect" id="node7" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="556,169,784,196"/>
 </map>

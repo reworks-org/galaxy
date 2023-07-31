@@ -1,5 +1,0 @@
-<map id="galaxy::scripting::UIScript::UIScript" name="galaxy::scripting::UIScript::UIScript">
-<area shape="rect" id="node1" title="Argument constructor." alt="" coords="5,5,143,47"/>
-<area shape="rect" id="node2" href="$dd/d61/classgalaxy_1_1scripting_1_1UIScript.html#a6b52c75681d6a9d3a0d529f49bb9b95b" title="Load script and set context." alt="" coords="191,5,328,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="376,13,607,39"/>
-</map>

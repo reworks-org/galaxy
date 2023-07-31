@@ -1,0 +1,6 @@
+<map id="galaxy::components::UIScript::deserialize" name="galaxy::components::UIScript::deserialize">
+<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,35,165,76"/>
+<area shape="rect" id="node2" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a613a9f3eb9a7649865d0c7f933b9b87c" title="Load script and set context." alt="" coords="213,35,367,76"/>
+<area shape="rect" id="node3" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a03066d747b8a81cd5d575a1a6d3abed1" title="Get script file path." alt="" coords="453,5,607,47"/>
+<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="415,71,645,98"/>
+</map>

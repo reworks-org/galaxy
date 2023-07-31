@@ -1,0 +1,6 @@
+<map id="galaxy::components::Script::load" name="galaxy::components::Script::load">
+<area shape="rect" id="node1" title="Load a script." alt="" coords="408,39,561,80"/>
+<area shape="rect" id="node2" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="207,5,360,47"/>
+<area shape="rect" id="node4" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="207,71,360,112"/>
+<area shape="rect" id="node3" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3" title="JSON constructor." alt="" coords="5,5,159,47"/>
+</map>

@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['e_224',['E',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a3ea00cfc35332cedf6e5e9a32e94da',1,'galaxy::input']]],
-  ['ellipse_225',['ELLIPSE',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870',1,'galaxy::graphics']]],
-  ['empty_226',['empty',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aba3a6a517d246e2a9e714384535c9f33',1,'galaxy::resource::Cache::empty()'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()']]],
-  ['enable_5floop_227',['enable_loop',['../de/d0b/classgalaxy_1_1media_1_1Video.html#a06e57231f888ce6edc1095ead02e59e5',1,'galaxy::media::Video']]],
-  ['enable_5fsticky_5fkeys_228',['enable_sticky_keys',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366',1,'galaxy::input::Keyboard']]],
-  ['enable_5fsticky_5fmouse_229',['enable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf',1,'galaxy::input::Mouse']]],
-  ['enable_5fui_230',['enable_ui',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a0c4bd8cb8f8d5f448b8ca3c4408f7ce6',1,'galaxy::ui::NuklearUI']]],
+  ['e_225',['E',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a3ea00cfc35332cedf6e5e9a32e94da',1,'galaxy::input']]],
+  ['ellipse_226',['ELLIPSE',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870',1,'galaxy::graphics']]],
+  ['empty_227',['empty',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aba3a6a517d246e2a9e714384535c9f33',1,'galaxy::resource::Cache::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()']]],
+  ['enable_5floop_228',['enable_loop',['../de/d0b/classgalaxy_1_1media_1_1Video.html#a06e57231f888ce6edc1095ead02e59e5',1,'galaxy::media::Video']]],
+  ['enable_5fsticky_5fkeys_229',['enable_sticky_keys',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366',1,'galaxy::input::Keyboard']]],
+  ['enable_5fsticky_5fmouse_230',['enable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf',1,'galaxy::input::Mouse']]],
   ['enabled_231',['Enabled',['../d9/d3c/structgalaxy_1_1flags_1_1Enabled.html',1,'galaxy::flags']]],
   ['enabled_2ecpp_232',['Enabled.cpp',['../d3/d28/Enabled_8cpp.html',1,'']]],
   ['enabled_2ehpp_233',['Enabled.hpp',['../dc/d41/Enabled_8hpp.html',1,'']]],

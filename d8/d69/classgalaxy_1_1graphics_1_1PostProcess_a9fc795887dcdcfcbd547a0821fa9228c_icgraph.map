@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::PostProcess::render_effects" name="galaxy::graphics::PostProcess::render_effects">
-<area shape="rect" id="node1" title="Draw post effects to stored framebuffer." alt="" coords="245,5,460,47"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="5,13,197,39"/>
+<area shape="rect" id="node1" title="Draw post effects to stored framebuffer." alt="" coords="452,5,667,47"/>
+<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#af23e5c8661b864eedc58d2147a5d1093" title="Finalize rendering." alt="" coords="212,13,404,39"/>
+<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,47"/>
 </map>

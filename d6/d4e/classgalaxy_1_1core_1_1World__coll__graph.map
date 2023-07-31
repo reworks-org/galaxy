@@ -1,24 +1,26 @@
 <map id="galaxy::core::World" name="galaxy::core::World">
-<area shape="rect" id="node1" title="Provides an additional set of functionality around an entt::registry." alt="" coords="41,1773,231,2247"/>
-<area shape="rect" id="node6" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="261,2309,435,2533"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="126,1435,295,1586"/>
-<area shape="rect" id="node7" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="320,1825,507,2195"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,401,208,479"/>
-<area shape="rect" id="node4" title=" " alt="" coords="163,145,320,223"/>
-<area shape="rect" id="node5" title=" " alt="" coords="303,5,342,83"/>
-<area shape="rect" id="node19" title=" " alt="" coords="367,145,489,223"/>
-<area shape="rect" id="node8" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="320,1457,507,1564"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1465,664,1551,741"/>
-<area shape="rect" id="node20" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="685,980,867,1248"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1439,285,1577,377"/>
-<area shape="rect" id="node11" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="853,1832,1014,2188"/>
-<area shape="rect" id="node12" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="1221,1377,1411,1645"/>
-<area shape="rect" id="node13" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="1097,1031,1289,1197"/>
-<area shape="rect" id="node14" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="1006,1413,1197,1608"/>
-<area shape="rect" id="node21" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="1436,1421,1612,1601"/>
-<area shape="rect" id="node22" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="770,1311,982,1711"/>
-<area shape="rect" id="node15" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="531,1384,746,1637"/>
-<area shape="rect" id="node16" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="477,980,659,1248"/>
-<area shape="rect" id="node17" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="389,503,603,903"/>
-<area shape="rect" id="node18" title=" " alt="" coords="401,293,559,370"/>
+<area shape="rect" id="node1" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,2012,195,2515"/>
+<area shape="rect" id="node6" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="305,2577,479,2801"/>
+<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="99,1674,269,1825"/>
+<area shape="rect" id="node10" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="299,2078,485,2449"/>
+<area shape="rect" id="node3" title=" " alt="" coords="196,401,399,479"/>
+<area shape="rect" id="node4" title=" " alt="" coords="545,145,703,223"/>
+<area shape="rect" id="node5" title=" " alt="" coords="686,5,725,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="801,145,924,223"/>
+<area shape="rect" id="node7" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html" title="Manages the nuklear ui state." alt="" coords="1323,927,1495,1195"/>
+<area shape="rect" id="node8" title=" " alt="" coords="977,293,1124,370"/>
+<area shape="rect" id="node21" title=" " alt="" coords="783,293,942,370"/>
+<area shape="rect" id="node11" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="293,1696,480,1803"/>
+<area shape="rect" id="node12" title=" " alt="" coords="529,664,615,741"/>
+<area shape="rect" id="node22" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="565,1219,747,1487"/>
+<area shape="rect" id="node13" title=" " alt="" coords="503,285,641,377"/>
+<area shape="rect" id="node14" href="$d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display." alt="" coords="939,2085,1101,2441"/>
+<area shape="rect" id="node15" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="865,1615,1055,1883"/>
+<area shape="rect" id="node16" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="1167,1270,1359,1435"/>
+<area shape="rect" id="node17" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="1517,1652,1707,1847"/>
+<area shape="rect" id="node23" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="1080,1659,1256,1839"/>
+<area shape="rect" id="node24" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="1281,1549,1493,1949"/>
+<area shape="rect" id="node18" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="626,1623,841,1876"/>
+<area shape="rect" id="node19" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="771,1219,954,1487"/>
+<area shape="rect" id="node20" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="755,503,970,903"/>
 </map>

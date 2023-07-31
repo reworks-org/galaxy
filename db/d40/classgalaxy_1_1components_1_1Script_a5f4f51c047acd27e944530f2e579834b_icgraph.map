@@ -1,7 +1,7 @@
 <map id="galaxy::components::Script::file" name="galaxy::components::Script::file">
-<area shape="rect" id="node1" title="Get script file path." alt="" coords="645,73,799,115"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="449,7,586,48"/>
-<area shape="rect" id="node4" href="$db/d40/classgalaxy_1_1components_1_1Script.html#adfe30c610b3d408abb91137b541e5edd" title="Load a script." alt="" coords="437,73,597,115"/>
+<area shape="rect" id="node1" title="Get script file path." alt="" coords="639,73,792,115"/>
+<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="445,7,583,48"/>
+<area shape="rect" id="node4" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="437,73,591,115"/>
 <area shape="rect" id="node7" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="221,136,375,177"/>
 <area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="207,5,389,47"/>
 <area shape="rect" id="node5" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="221,71,375,112"/>

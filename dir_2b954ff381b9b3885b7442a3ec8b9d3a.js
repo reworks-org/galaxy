@@ -36,5 +36,9 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Transform.cpp", "d0/d59/Transform_8cpp.html", "d0/d59/Transform_8cpp" ],
     [ "Transform.hpp", "da/d83/Transform_8hpp.html", [
       [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
+    ] ],
+    [ "UIScript.cpp", "dd/de9/UIScript_8cpp.html", null ],
+    [ "UIScript.hpp", "dd/d34/UIScript_8hpp.html", [
+      [ "UIScript", "dd/d64/classgalaxy_1_1components_1_1UIScript.html", "dd/d64/classgalaxy_1_1components_1_1UIScript" ]
     ] ]
 ];

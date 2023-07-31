@@ -26,7 +26,6 @@ var namespacegalaxy =
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
-    [ "scripting", "d8/dc2/namespacegalaxy_1_1scripting.html", "d8/dc2/namespacegalaxy_1_1scripting" ],
     [ "shaders", "dc/d20/namespacegalaxy_1_1shaders.html", [
       [ "r2d_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a3986ce61a0d54da18877737d37737f3c", null ],
       [ "r2d_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a088c0c5edb097d7da843946924f3d35d", null ],

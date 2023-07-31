@@ -18,7 +18,8 @@ var annotated_dup =
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
         [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", "d2/d81/classgalaxy_1_1components_1_1Text" ],
-        [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
+        [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ],
+        [ "UIScript", "dd/d64/classgalaxy_1_1components_1_1UIScript.html", "dd/d64/classgalaxy_1_1components_1_1UIScript" ]
       ] ],
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
         [ "Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", "d5/da2/classgalaxy_1_1core_1_1Application" ],
@@ -132,9 +133,6 @@ var annotated_dup =
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
         [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", "d4/d92/classgalaxy_1_1scene_1_1SceneManager" ]
-      ] ],
-      [ "scripting", "d8/dc2/namespacegalaxy_1_1scripting.html", [
-        [ "UIScript", "dd/d61/classgalaxy_1_1scripting_1_1UIScript.html", "dd/d61/classgalaxy_1_1scripting_1_1UIScript" ]
       ] ],
       [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
         [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],

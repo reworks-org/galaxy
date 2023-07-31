@@ -8,5 +8,6 @@ var namespacegalaxy_1_1components =
     [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
     [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
     [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", "d2/d81/classgalaxy_1_1components_1_1Text" ],
-    [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
+    [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ],
+    [ "UIScript", "dd/d64/classgalaxy_1_1components_1_1UIScript.html", "dd/d64/classgalaxy_1_1components_1_1UIScript" ]
 ];

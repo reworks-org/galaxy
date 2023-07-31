@@ -1,8 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/dad/SMAA_8cpp.html#ade83426ad41bac14affedd95865fc3f6":[2,0,0,0,0,9,1,10,9],
-"d4/dad/SMAA_8cpp.html#adef7f3c817e823f6bedfd0e5375d2606":[2,0,0,0,0,9,1,10,20],
-"d4/dad/SMAA_8cpp.html#af6fc8fe14e3b3d1307d81c17adbbde90":[2,0,0,0,0,9,1,10,0],
 "d4/dad/SMAA_8cpp.html#afe57d350f6c416ba9c8294f656453b26":[2,0,0,0,0,9,1,10,12],
 "d4/dad/SMAA_8cpp_source.html":[2,0,0,0,0,9,1,10],
 "d4/dd3/structgalaxy_1_1flags_1_1AllowSerialize.html":[1,0,0,6,0],
@@ -137,10 +134,10 @@ var NAVTREEINDEX3 =
 "d5/d42/AnimationSystem_8hpp_source.html":[2,0,0,0,0,19,1],
 "d5/d4b/FileInfo_8hpp.html":[2,0,0,0,0,8,5],
 "d5/d4b/FileInfo_8hpp_source.html":[2,0,0,0,0,8,5],
-"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html":[1,0,0,19,0],
-"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#abe4b779bb1d4174a16e875e881872c22":[1,0,0,19,0,0],
-"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21":[1,0,0,19,0,2],
-"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131":[1,0,0,19,0,1],
+"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html":[1,0,0,18,0],
+"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#abe4b779bb1d4174a16e875e881872c22":[1,0,0,18,0,0],
+"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21":[1,0,0,18,0,2],
+"d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131":[1,0,0,18,0,1],
 "d5/d64/Globals_8hpp.html":[2,0,0,0,0,21,1],
 "d5/d64/Globals_8hpp.html#a08b3c0f07e03b16a2bc316a69ba2eb16":[2,0,0,0,0,21,1,9],
 "d5/d64/Globals_8hpp.html#a185ab3d46b5712aeaca2afb36eb9ea76":[2,0,0,0,0,21,1,8],
@@ -249,5 +246,8 @@ var NAVTREEINDEX3 =
 "d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2":[2,0,0,0,0,20,0,16],
 "d5/df3/ImGuiHelpers_8cpp.html#a07ea7645484387d4e690f8efc3a9b8e4":[2,0,0,0,0,20,0,14],
 "d5/df3/ImGuiHelpers_8cpp.html#a3378247f83641a1709f12f96715d25b6":[2,0,0,0,0,20,0,5],
-"d5/df3/ImGuiHelpers_8cpp.html#a67865b34fe34c0f136768dc267b0e151":[2,0,0,0,0,20,0,8]
+"d5/df3/ImGuiHelpers_8cpp.html#a67865b34fe34c0f136768dc267b0e151":[2,0,0,0,0,20,0,8],
+"d5/df3/ImGuiHelpers_8cpp.html#a6c64426a2357bdcdd6991be9483dc7e1":[2,0,0,0,0,20,0,1],
+"d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f":[2,0,0,0,0,20,0,15],
+"d5/df3/ImGuiHelpers_8cpp.html#a7ff5e05d5cf8281ac3a5fd5805dec67e":[2,0,0,0,0,20,0,6]
 };
