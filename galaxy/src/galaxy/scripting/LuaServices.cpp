@@ -43,8 +43,9 @@ namespace galaxy
 			lua["galaxy_audioengine"]   = std::ref(core::ServiceLocator<media::AudioEngine>::ref());
 			lua["galaxy_scripts"]       = std::ref(core::ServiceLocator<resource::Scripts>::ref());
 			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
-			lua["service_fs"]           = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
-			lua["service_entitymeta"]   = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
+			lua["galaxy_fs"]            = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
+			lua["galaxy_entitymeta"]    = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
+			lua["galaxy_nui"]           = std::ref(core::ServiceLocator<ui::NuklearUI>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy

@@ -30,7 +30,7 @@ namespace galaxy
 		Script::Script(Script* ptr)
 			: Serializable {}
 		{
-			this->load_internal(ptr->file());
+			load(ptr->file());
 		}
 
 		Script::Script(Script&& s)
@@ -62,7 +62,7 @@ namespace galaxy
 		{
 		}
 
-		void Script::load_internal(std::string_view file)
+		void Script::load(std::string_view file)
 		{
 			if (m_self.valid())
 			{
@@ -80,18 +80,7 @@ namespace galaxy
 			const auto info = fs.find(file);
 			if (info.code == fs::FileCode::FOUND)
 			{
-				m_file      = info.string;
-				auto& state = core::ServiceLocator<sol::state>::ref();
-
-				auto result = state.load_file(m_file);
-				if (result.valid())
-				{
-					m_self = result.call();
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", file, magic_enum::enum_name(result.status()));
-				}
+				m_file = info.string;
 			}
 			else
 			{
@@ -117,7 +106,7 @@ namespace galaxy
 
 		void Script::deserialize(const nlohmann::json& json)
 		{
-			load_internal(json.at("file").get<std::string>());
+			load(json.at("file"));
 
 			if (json.contains("show_functions"))
 			{

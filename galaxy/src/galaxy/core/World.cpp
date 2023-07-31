@@ -273,30 +273,42 @@ namespace galaxy
 		void World::construct_script(entt::registry& registry, entt::entity entity)
 		{
 			auto& script = registry.get<components::Script>(entity);
-			if (script.m_self.valid())
+			auto& state  = core::ServiceLocator<sol::state>::ref();
+
+			auto result = state.load_file(script.file());
+			if (result.valid())
 			{
-				script.m_update = script.m_self["update"];
+				script.m_self = result.call();
 
-				if (!script.m_update.valid())
+				if (script.m_self.valid())
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Update function not present in '{0}'.", script.file());
+					script.m_update = script.m_self["update"];
+
+					if (!script.m_update.valid())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Update function not present in '{0}'.", script.file());
+					}
+
+					script.m_self["owner"]      = std::ref(registry);
+					script.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
+					script.m_self["id"]         = sol::readonly_property([entity] {
+                        return entity;
+                    });
+
+					sol::function init = script.m_self["construct"];
+					if (init.valid())
+					{
+						init(script.m_self);
+					}
 				}
-
-				script.m_self["owner"]      = std::ref(registry);
-				script.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
-				script.m_self["id"]         = sol::readonly_property([entity] {
-                    return entity;
-                });
-
-				sol::function init = script.m_self["construct"];
-				if (init.valid())
+				else
 				{
-					init(script.m_self);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to validate script '{0}'. Make sure its in the correct format.", script.file());
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to validate script '{0}'. Make sure its in the correct format.", script.file());
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", script.file(), magic_enum::enum_name(result.status()));
 			}
 		}
 
@@ -318,18 +330,26 @@ namespace galaxy
 
 		void World::construct_rigidbody(entt::registry& registry, entt::entity entity)
 		{
-			const auto rigidbody = registry.try_get<components::RigidBody>(entity);
-			const auto transform = registry.try_get<components::Transform>(entity);
-			if (rigidbody && transform)
+			auto transform = registry.try_get<components::Transform>(entity);
+			if (!transform)
 			{
-				m_bodies_to_construct.emplace_back(rigidbody, transform);
+				transform = &registry.emplace<components::Transform>(entity);
 			}
+
+			components::RigidBody* rigidbody = &registry.get<components::RigidBody>(entity);
+			m_bodies_to_construct.emplace_back(rigidbody, transform);
 		}
 
 		void World::destroy_rigidbody(entt::registry& registry, entt::entity entity)
 		{
-			const auto rigidbody = registry.try_get<components::RigidBody>(entity);
-			if (rigidbody)
+			auto& rigidbody = registry.get<components::RigidBody>(entity);
+
+			if (rigidbody.m_body != nullptr)
+			{
+				m_b2world->DestroyBody(rigidbody.m_body);
+				rigidbody.m_body = nullptr;
+			}
+		}
 			{
 				if (rigidbody->m_body != nullptr)
 				{

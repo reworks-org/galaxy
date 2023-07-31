@@ -437,10 +437,6 @@ namespace galaxy
 
 					glfwSwapBuffers(window.handle());
 
-					glBindTexture(GL_TEXTURE_2D, 0);
-					glBindVertexArray(0);
-					glUseProgram(0);
-
 					frames++;
 
 					if (perf_counter >= one_second)

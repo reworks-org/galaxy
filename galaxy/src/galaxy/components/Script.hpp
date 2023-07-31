@@ -93,7 +93,17 @@ namespace galaxy
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			void load_internal(std::string_view file);
+			void load(std::string_view file);
+
+			///
+			/// Copy assignment operator.
+			///
+			Script& operator=(const Script&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Script(const Script&) = delete;
 
 		public:
 			///
