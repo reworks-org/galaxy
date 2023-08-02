@@ -18,6 +18,7 @@
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Prefab.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -202,6 +203,12 @@ namespace galaxy
 			auto tag_type =
 				lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
 			tag_type["tag"] = &components::Tag::m_tag;
+
+			auto uiscript_type    = lua.new_usertype<components::UIScript>("UIScript",
+                sol::constructors<components::UIScript()>(),
+                "type_id",
+                &entt::type_hash<components::UIScript>::value);
+			uiscript_type["file"] = &components::UIScript::file;
 
 			// clang-format off
 			lua.new_enum<components::Text::Alignment>("TextAlignment",

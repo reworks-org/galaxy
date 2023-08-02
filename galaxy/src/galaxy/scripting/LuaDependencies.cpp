@@ -23,6 +23,7 @@
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/events/EventQueue.hpp"
 
@@ -60,6 +61,7 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Primitive>();
 			entt_sol::register_meta_component<components::Flag>();
 			entt_sol::register_meta_component<components::Animated>();
+			entt_sol::register_meta_component<components::UIScript>();
 
 			/* GLM */
 			auto vec2_type = lua.new_usertype<glm::vec2>(

@@ -22,6 +22,7 @@
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
@@ -301,6 +302,7 @@ namespace galaxy
 			em.register_component<components::Tag>("Tag");
 			em.register_component<components::Text>("Text");
 			em.register_component<components::Transform>("Transform");
+			em.register_component<components::UIScript>("UIScript");
 
 			em.register_dependencies<components::Sprite, components::Transform>();
 			em.register_dependencies<components::Primitive, components::Transform>();
