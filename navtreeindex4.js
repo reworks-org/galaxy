@@ -95,6 +95,9 @@ var NAVTREEINDEX4 =
 "d6/d80/Camera_8hpp_source.html":[2,0,0,0,0,9,9],
 "d6/d82/StateMachine_8cpp.html":[2,0,0,0,0,18,2],
 "d6/d82/StateMachine_8cpp_source.html":[2,0,0,0,0,18,2],
+"d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html":[1,0,0,12,0,0],
+"d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#ac15e3c259754552b37625169eb47d9f6":[1,0,0,12,0,0,1],
+"d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#af5c666c48723c89011a6750427beacd2":[1,0,0,12,0,0,0],
 "d6/d9c/StorageFlags_8hpp.html":[2,0,0,0,0,9,49],
 "d6/d9c/StorageFlags_8hpp.html#aad45da8135ffda874b1aaba7dca7d66c":[2,0,0,0,0,9,49,0],
 "d6/d9c/StorageFlags_8hpp.html#aad45da8135ffda874b1aaba7dca7d66ca0c5234f5830e196c1079d1fdcf3f9aba":[2,0,0,0,0,9,49,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a49adf0404563764e3ba6ba6f7638fabd":[1,0,0,8,16,7],
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5c4bb7048536fc793fc82da45d238750":[1,0,0,8,16,16],
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5e9869cbca77ef4099035de8369268a5":[1,0,0,8,16,5],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5fcc4b73f2879862ae314e3bad9f976a":[1,0,0,8,16,6],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a9146312f8107a144634402d12370111a":[1,0,0,8,16,12],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad":[1,0,0,8,16,0],
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ad85bb3527e7297e162994f5e466d7c40":[1,0,0,8,16,1]
+"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5fcc4b73f2879862ae314e3bad9f976a":[1,0,0,8,16,6]
 };

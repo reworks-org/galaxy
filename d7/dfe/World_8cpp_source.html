@@ -456,7 +456,7 @@ $(document).ready(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                    ui.m_self[<span class="stringliteral">&quot;ctx&quot;</span>]        = nui.ctx();</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    ui.m_self[<span class="stringliteral">&quot;dispatcher&quot;</span>] = <a class="code" href="../../d3/d12/namespacegalaxy_1_1meta.html#a7b957eec35fbc8ac5f594a6e3f3d14eb">std::ref</a>(<a class="code" href="../../da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e">m_scene</a>-&gt;<a class="code" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#aa0b90e12824692268535d7aecffc3328">m_dispatcher</a>);</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    ui.m_update = ui.m_self[<span class="stringliteral">&quot;update&quot;</span>];</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    ui.m_update = ui.m_self[<span class="stringliteral">&quot;do_ui&quot;</span>];</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    <span class="keywordflow">if</span> (!ui.m_update.valid())</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                    {</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                        <a class="code" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Update function not present in ui script &#39;{0}&#39;.&quot;</span>, ui.file());</div>
@@ -561,7 +561,7 @@ $(document).ready(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d7/dfe/World_8cpp.html">World.cpp</a></li>
-    <li class="footer">Generated on Wed Aug 2 2023 08:30:45 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 08:56:46 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

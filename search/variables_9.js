@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['left_2662',['LEFT',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115',1,'galaxy::input::CameraKeys']]],
-  ['location_2663',['location',['../d2/d30/structgalaxy_1_1graphics_1_1UniformInfo.html#a826e312b5f5fca8d3dd72a4e0d30ae11',1,'galaxy::graphics::UniformInfo']]]
+  ['keycode_2666',['keycode',['../d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e',1,'galaxy::events::KeyDown::keycode()'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#ad658ddc816aafafbe49376ad716b19bf',1,'galaxy::events::KeyRepeat::keycode()'],['../d1/d16/structgalaxy_1_1events_1_1KeyUp.html#a9ffa8354ea7e1d755ac6e08af28cdbb0',1,'galaxy::events::KeyUp::keycode()']]]
 ];

@@ -102,6 +102,7 @@ var hierarchy =
       [ "galaxy::scene::Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", null ],
       [ "galaxy::scene::SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", null ]
     ] ],
+    [ "galaxy::meta::EntityMeta::SerializationData", "d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html", null ],
     [ "galaxy::core::ServiceLocator< Service >", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html", null ],
     [ "galaxy::graphics::Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", null ],
     [ "galaxy::resource::TextureAtlas::Sheet", "d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet.html", null ],

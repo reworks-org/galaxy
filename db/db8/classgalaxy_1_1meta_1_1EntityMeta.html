@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('db/db8/classgalaxy_1_1meta_1_1EntityMe
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -110,6 +111,12 @@ $(document).ready(function(){initNavTree('db/db8/classgalaxy_1_1meta_1_1EntityMe
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">SerializationData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data needed to serialize an entity.  <a href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a70b771ffaa7c6d36349bd5c481d7baea"><td class="memTemplParams" colspan="2">template&lt;valid_component ToValidate, valid_component... Dependencies&gt; </td></tr>
@@ -160,8 +167,8 @@ Private Types</h2></td></tr>
 <tr class="separator:aeddd36bc45ae96ab6eb3ad353b6c2fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e2bbfdebe9d349027c4f1c56025c1f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad5e2bbfdebe9d349027c4f1c56025c1f">AnyJSONFactory</a> = robin_hood::unordered_flat_map&lt; std::string, std::function&lt; entt::any(const nlohmann::json &amp;)&gt; &gt;</td></tr>
 <tr class="separator:ad5e2bbfdebe9d349027c4f1c56025c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3a683aca765b0956593212b689383ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed">SerializeFactory</a> = robin_hood::unordered_flat_map&lt; std::string, std::function&lt; nlohmann::json(void *)&gt; &gt;</td></tr>
-<tr class="separator:ad3a683aca765b0956593212b689383ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b064edeb06ec6a064a00b98e849e91"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#af8b064edeb06ec6a064a00b98e849e91">SerializeFactory</a> = robin_hood::unordered_flat_map&lt; std::string, std::function&lt; <a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void *)&gt; &gt;</td></tr>
+<tr class="separator:af8b064edeb06ec6a064a00b98e849e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -183,7 +190,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9aa64ff95a75428b759b1fe4d0f754c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad5e2bbfdebe9d349027c4f1c56025c1f">AnyJSONFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a9aa64ff95a75428b759b1fe4d0f754c3">m_json_any_factory</a></td></tr>
 <tr class="memdesc:a9aa64ff95a75428b759b1fe4d0f754c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entt::any from a json component data.  <a href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a9aa64ff95a75428b759b1fe4d0f754c3">More...</a><br /></td></tr>
 <tr class="separator:a9aa64ff95a75428b759b1fe4d0f754c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326c01f228d59a68a69d95e1e8cd69cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed">SerializeFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">m_serialize_factory</a></td></tr>
+<tr class="memitem:a326c01f228d59a68a69d95e1e8cd69cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#af8b064edeb06ec6a064a00b98e849e91">SerializeFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">m_serialize_factory</a></td></tr>
 <tr class="memdesc:a326c01f228d59a68a69d95e1e8cd69cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an entity from a void* pointer.  <a href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">More...</a><br /></td></tr>
 <tr class="separator:a326c01f228d59a68a69d95e1e8cd69cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab23f9f7a17f72800e7cbf806256582c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa1be704d6e94870efc700236b103c3a3">Validations</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ab23f9f7a17f72800e7cbf806256582c4">m_validations</a></td></tr>
@@ -218,7 +225,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00043">43</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +249,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -266,7 +273,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +297,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -314,12 +321,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00048">48</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ad3a683aca765b0956593212b689383ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a683aca765b0956593212b689383ed">&#9670;&nbsp;</a></span>SerializeFactory</h2>
+<a id="af8b064edeb06ec6a064a00b98e849e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b064edeb06ec6a064a00b98e849e91">&#9670;&nbsp;</a></span>SerializeFactory</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,7 +335,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed">galaxy::meta::EntityMeta::SerializeFactory</a> =  robin_hood::unordered_flat_map&lt;std::string, std::function&lt;nlohmann::json(void*)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#af8b064edeb06ec6a064a00b98e849e91">galaxy::meta::EntityMeta::SerializeFactory</a> =  robin_hood::unordered_flat_map&lt;std::string, std::function&lt;<a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void*)&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -338,7 +345,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +381,7 @@ template&lt;valid_component ToValidate, valid_component... Dependencies&gt; </di
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00185">185</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00201">201</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +425,7 @@ template&lt;valid_component Component&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00212">212</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00228">228</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -703,7 +710,7 @@ template&lt;valid_component Component&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Newly constructed entt::any. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00053">53</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -755,7 +762,7 @@ template&lt;valid_component Component&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String name of component. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00054">54</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -798,7 +805,7 @@ template&lt;valid_component Component&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Entt meta type id of a component. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -832,7 +839,7 @@ template&lt;valid_component Component&gt; </div>
 <p>Get a list of configurations. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const reference to Validations map. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00064">64</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -866,7 +873,7 @@ template&lt;valid_component Component&gt; </div>
 <p>Get a list of validations to run. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const reference to list of validations to run. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00069">69</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00073">73</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -905,7 +912,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Maps an entt type id to a string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00141">141</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00157">157</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -931,7 +938,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Maps a string name to an entt id. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -957,7 +964,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Used to allow for component creation from json. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00151">151</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00167">167</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -983,7 +990,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Creates a component object from a pointer of the same type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00156">156</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00172">172</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +1016,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Creates a component from an entt::any object. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00161">161</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00177">177</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1035,7 +1042,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Creates an entt::any from a json component data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00166">166</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00182">182</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1049,7 +1056,7 @@ template&lt;valid_component Component&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed">SerializeFactory</a> galaxy::meta::EntityMeta::m_serialize_factory</td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#af8b064edeb06ec6a064a00b98e849e91">SerializeFactory</a> galaxy::meta::EntityMeta::m_serialize_factory</td>
         </tr>
       </table>
   </td>
@@ -1061,7 +1068,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Serializes an entity from a void* pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00171">171</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00187">187</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1094,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Stores validation configurations. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00176">176</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1120,7 @@ template&lt;valid_component Component&gt; </div>
 
 <p>Validations to run upon request. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00181">181</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00197">197</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1134,7 @@ template&lt;valid_component Component&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li><li class="navelem"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html">EntityMeta</a></li>
-    <li class="footer">Generated on Wed Aug 2 2023 08:30:46 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 08:56:48 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

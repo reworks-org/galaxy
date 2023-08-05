@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"de/dd6/namespacegalaxy_1_1json.html#a845ac678cb9b858d88e0556f285dbfd2":[0,0,0,11,0],
+"de/ddb/Cursor_8hpp.html":[2,0,0,0,0,10,3],
+"de/ddb/Cursor_8hpp_source.html":[2,0,0,0,0,10,3],
 "de/df1/Subprocess_8cpp.html":[2,0,0,0,0,14,5],
 "de/df1/Subprocess_8cpp_source.html":[2,0,0,0,0,14,5],
 "de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html":[1,0,0,8,26],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "dir_d3c4af17bd947ce0a543d597ca1cfb63.html":[2,0,0,0,0,11],
 "dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
 "dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
-"files.html":[2,0],
-"functions.html":[1,3,0,0],
-"functions.html":[1,3,0],
-"functions_b.html":[1,3,0,1]
+"files.html":[2,0]
 };

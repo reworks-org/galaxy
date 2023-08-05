@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['s_3177',['S',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea5dbc98dcc983a70728bd082d1a47546e',1,'galaxy::input']]],
-  ['scroll_5flock_3178',['SCROLL_LOCK',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea324bf1f059b99e2882bc1d567080d8ed',1,'galaxy::input']]],
-  ['semicolon_3179',['SEMICOLON',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eabaaceccc27b1d4e0968c999583f97de5',1,'galaxy::input']]],
-  ['sfx_3180',['SFX',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html#af3d26e204a5fafb2bbf9841d2d82f566ada101052f6ba998ab41d571a6fff1708',1,'galaxy::media::Sound']]],
-  ['shift_3181',['SHIFT',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c',1,'galaxy::input']]],
-  ['slash_3182',['SLASH',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea646da671ca01bb5d84dbb5fb2238dc8e',1,'galaxy::input']]],
-  ['space_3183',['SPACE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea6506ae39fdca9845e3a6de3865183e57',1,'galaxy::input']]],
-  ['static_5fdraw_3184',['STATIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca0c5234f5830e196c1079d1fdcf3f9aba',1,'galaxy::graphics']]],
-  ['strong_3185',['STRONG',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda3dfb3ae3cdaa322f0388f1a531c39520',1,'galaxy::graphics::GaussianBlur']]],
-  ['super_3186',['SUPER',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea',1,'galaxy::input']]]
+  ['s_3183',['S',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea5dbc98dcc983a70728bd082d1a47546e',1,'galaxy::input']]],
+  ['scroll_5flock_3184',['SCROLL_LOCK',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea324bf1f059b99e2882bc1d567080d8ed',1,'galaxy::input']]],
+  ['semicolon_3185',['SEMICOLON',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eabaaceccc27b1d4e0968c999583f97de5',1,'galaxy::input']]],
+  ['sfx_3186',['SFX',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html#af3d26e204a5fafb2bbf9841d2d82f566ada101052f6ba998ab41d571a6fff1708',1,'galaxy::media::Sound']]],
+  ['shift_3187',['SHIFT',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c',1,'galaxy::input']]],
+  ['slash_3188',['SLASH',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea646da671ca01bb5d84dbb5fb2238dc8e',1,'galaxy::input']]],
+  ['space_3189',['SPACE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea6506ae39fdca9845e3a6de3865183e57',1,'galaxy::input']]],
+  ['static_5fdraw_3190',['STATIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca0c5234f5830e196c1079d1fdcf3f9aba',1,'galaxy::graphics']]],
+  ['strong_3191',['STRONG',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda3dfb3ae3cdaa322f0388f1a531c39520',1,'galaxy::graphics::GaussianBlur']]],
+  ['super_3192',['SUPER',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea',1,'galaxy::input']]]
 ];

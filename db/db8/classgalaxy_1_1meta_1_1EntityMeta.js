@@ -1,11 +1,12 @@
 var classgalaxy_1_1meta_1_1EntityMeta =
 [
+    [ "SerializationData", "d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html", "d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData" ],
     [ "Validations", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa1be704d6e94870efc700236b103c3a3", null ],
     [ "ComponentJSONFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3bcd5b54f496d580f3769111c60fd8eb", null ],
     [ "ComponentPtrFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a658d95c310be297941605ed282014382", null ],
     [ "ComponentAnyFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aeddd36bc45ae96ab6eb3ad353b6c2fe5", null ],
     [ "AnyJSONFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad5e2bbfdebe9d349027c4f1c56025c1f", null ],
-    [ "SerializeFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad3a683aca765b0956593212b689383ed", null ],
+    [ "SerializeFactory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#af8b064edeb06ec6a064a00b98e849e91", null ],
     [ "register_dependencies", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a70b771ffaa7c6d36349bd5c481d7baea", null ],
     [ "register_component", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a061cdea5ce40a553eb1a23265236a6ed", null ],
     [ "json_factory", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3405211ab1eaa3ee9ce5a7e7bb7f32d6", null ],
