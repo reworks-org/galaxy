@@ -24,13 +24,29 @@ namespace galaxy
 		///
 		class EntityMeta final
 		{
+			///
+			/// Data needed to serialize an entity.
+			///
+			struct SerializationData final
+			{
+				///
+				/// Name of the component.
+				///
+				std::string name;
+
+				///
+				/// Component data as a json object.
+				///
+				nlohmann::json json;
+			};
+
 			using Validations = robin_hood::unordered_flat_map<entt::id_type, std::function<bool(const entt::entity, entt::registry&)>>;
 			using ComponentJSONFactory =
 				robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
 			using ComponentPtrFactory = robin_hood::unordered_flat_map<std::string, std::function<entt::any(void*)>>;
 			using ComponentAnyFactory = robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, entt::any&)>>;
 			using AnyJSONFactory      = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory    = robin_hood::unordered_flat_map<std::string, std::function<nlohmann::json(void*)>>;
+			using SerializeFactory    = robin_hood::unordered_flat_map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
 
 		public:
 			///
@@ -217,7 +233,7 @@ namespace galaxy
 				m_id_to_name.emplace(hash, name);
 				m_name_to_id.emplace(name, hash);
 
-				m_json_factory.emplace(name, [this](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
+				m_json_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
 					registry.emplace<Component>(entity, json);
 				});
 
@@ -233,13 +249,13 @@ namespace galaxy
 					return entt::make_any<Component>(json);
 				});
 
-				m_serialize_factory.emplace(name, [](void* component) -> nlohmann::json {
+				m_serialize_factory.emplace(name, [name](void* component) -> SerializationData {
 					if constexpr (std::derived_from<Component, fs::Serializable>)
 					{
-						return static_cast<Component*>(component)->serialize();
+						return SerializationData {.name = name, .json = static_cast<Component*>(component)->serialize()};
 					}
 
-					return nlohmann::json::object();
+					return SerializationData {.name = ""};
 				});
 			}
 			else

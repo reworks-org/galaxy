@@ -68,6 +68,8 @@ namespace sc
 
 	Editor::~Editor()
 	{
+		m_tiled_process.terminate();
+		m_bfxr_process.terminate();
 	}
 
 	void Editor::load()
@@ -360,8 +362,6 @@ namespace sc
 
 	void Editor::exit()
 	{
-		m_tiled_process.terminate();
-		m_bfxr_process.terminate();
 		core::ServiceLocator<core::Window>::ref().close();
 	}
 

@@ -53,9 +53,6 @@ int main(int argsc, char* argsv[])
 			Supercluster app;
 
 			{
-				auto& window = core::ServiceLocator<core::Window>::ref();
-				window.prevent_native_closing();
-
 				auto& config = core::ServiceLocator<core::Config>::ref();
 				auto root    = config.get<std::string>("asset_dir");
 

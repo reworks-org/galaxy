@@ -39,7 +39,11 @@ namespace galaxy
 			{
 				if (storage.contains(entity))
 				{
-					return m_serialize_factory[get_type(id)](storage.value(entity));
+					SerializationData data = m_serialize_factory[get_type(id)](storage.value(entity));
+					if (!data.name.empty())
+					{
+						json["components"][data.name] = data.json;
+					}
 				}
 			}
 

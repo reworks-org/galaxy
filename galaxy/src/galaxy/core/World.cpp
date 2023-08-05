@@ -371,7 +371,7 @@ namespace galaxy
 					ui.m_self["ctx"]        = nui.ctx();
 					ui.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
 
-					ui.m_update = ui.m_self["update"];
+					ui.m_update = ui.m_self["do_ui"];
 					if (!ui.m_update.valid())
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", ui.file());

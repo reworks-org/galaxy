@@ -20,6 +20,7 @@
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
+#include <galaxy/components/UIScript.hpp>
 #include <galaxy/flags/AllowSerialize.hpp>
 #include <galaxy/flags/Enabled.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -42,9 +43,12 @@ namespace sc
 
 		void EntityEditor::render(Selected& selected, UpdateStack& updates)
 		{
+			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
+
 			static constexpr const auto numeric_input_flags =
 				ImGuiInputTextFlags_CharsDecimal | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll;
-			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
+			thread_local constexpr const ImGuiInputTextFlags lua_double_flags = ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank;
+			thread_local constexpr const ImGuiInputTextFlags lua_text_flags   = ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll;
 
 			if (ImGui::Begin(ICON_MDI_DATABASE " Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 			{
@@ -93,6 +97,7 @@ namespace sc
 						draw_entry<components::Tag>(selected, "Tag");
 						draw_entry<components::Text>(selected, "Text");
 						draw_entry<components::Transform>(selected, "Transform");
+						draw_entry<components::UIScript>(selected, "UIScript");
 
 						ImGui::EndPopup();
 					}
@@ -552,14 +557,9 @@ namespace sc
 					});
 
 					draw_component<components::Script>(selected, "Script", [&](components::Script* script) {
-						thread_local constexpr const ImGuiInputTextFlags lua_double_flags =
-							ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank;
-						thread_local constexpr const ImGuiInputTextFlags lua_text_flags =
-							ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll;
-
 						if (ImGui::Button("Load"))
 						{
-							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.lua"});
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
 							if (!path.empty())
 							{
 								auto str = "{\"file\":\"" + path + "\"}";
@@ -836,6 +836,40 @@ namespace sc
 							tf->set_scale_horizontal(scale[0]);
 							tf->set_scale_vertical(scale[1]);
 						}
+					});
+
+					draw_component<components::UIScript>(selected, "UIScript", [&](components::UIScript* ui) {
+						if (ImGui::Button("Load"))
+						{
+							const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
+							if (!path.empty())
+							{
+								auto str = "{\"file\":\"" + path + "\"}";
+								strutils::replace_all(str, "\\", "/");
+								selected.m_world->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+							}
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Reload"))
+						{
+							if (!ui->file().empty())
+							{
+								auto str = "{\"file\":\"" + ui->file() + "\"}";
+								strutils::replace_all(str, "\\", "/");
+								selected.m_world->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+							}
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Copy Path to Clipboard"))
+						{
+							core::ServiceLocator<core::Window>::ref().get_input<input::Clipboard>().set(ui->file().c_str());
+						}
+
+						ImGui::Text("Loaded file: %s", ui->file().c_str());
 					});
 
 					ImGui::PopID();
