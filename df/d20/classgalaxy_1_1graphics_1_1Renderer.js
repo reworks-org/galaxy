@@ -7,7 +7,7 @@ var classgalaxy_1_1graphics_1_1Renderer =
     [ "draw", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b", null ],
     [ "flush", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8", null ],
     [ "draw_texture_to_target", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88", null ],
-    [ "draw_texture_to_framebuffer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04", null ],
+    [ "draw_texture", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763", null ],
     [ "init", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd", null ],
     [ "destroy", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe", null ],
     [ "core::Window", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5396cb4f5c3bde7f5fd05b04207065d4", null ],

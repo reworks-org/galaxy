@@ -1,20 +1,20 @@
 <map id="galaxy::fs::Serializable" name="galaxy::fs::Serializable">
 <area shape="rect" id="node1" title="Allows a class to be serialized." alt="" coords="1539,5,1708,156"/>
-<area shape="rect" id="node2" href="$da/d18/classgalaxy_1_1components_1_1Animated.html" title="Allows for an entity to be animated." alt="" coords="5,314,204,626"/>
-<area shape="rect" id="node3" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html" title="Flag an entity." alt="" coords="228,336,381,604"/>
-<area shape="rect" id="node4" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="405,263,559,677"/>
-<area shape="rect" id="node5" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html" title="Box2D physics body." alt="" coords="583,270,770,670"/>
-<area shape="rect" id="node6" href="$db/d40/classgalaxy_1_1components_1_1Script.html" title="High level abstraction of a lua script." alt="" coords="795,307,948,633"/>
-<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="972,307,1125,633"/>
-<area shape="rect" id="node8" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html" title="Tag an entity." alt="" coords="1149,358,1332,582"/>
-<area shape="rect" id="node9" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="1356,270,1509,670"/>
-<area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="1533,314,1713,626"/>
-<area shape="rect" id="node11" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html" title="Script for running an active UI." alt="" coords="1737,329,1891,611"/>
-<area shape="rect" id="node12" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1915,204,2105,736"/>
-<area shape="rect" id="node13" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html" title="Basic keyframe animation." alt="" coords="2129,292,2331,648"/>
-<area shape="rect" id="node14" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="2355,277,2542,663"/>
-<area shape="rect" id="node15" href="$de/d57/classgalaxy_1_1graphics_1_1Frame.html" title="A single frame of an animation." alt="" coords="2567,365,2744,575"/>
-<area shape="rect" id="node16" href="$d4/d7e/classgalaxy_1_1physics_1_1Material.html" title=" " alt="" coords="2769,380,2953,560"/>
-<area shape="rect" id="node17" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="2977,321,3152,619"/>
-<area shape="rect" id="node18" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="3176,351,3391,589"/>
+<area shape="rect" id="node2" href="$da/d18/classgalaxy_1_1components_1_1Animated.html" title="Allows for an entity to be animated." alt="" coords="5,307,204,619"/>
+<area shape="rect" id="node3" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html" title="Flag an entity." alt="" coords="228,329,381,597"/>
+<area shape="rect" id="node4" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="405,255,559,670"/>
+<area shape="rect" id="node5" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html" title="Box2D physics body." alt="" coords="583,263,770,663"/>
+<area shape="rect" id="node6" href="$db/d40/classgalaxy_1_1components_1_1Script.html" title="High level abstraction of a lua script." alt="" coords="795,299,948,626"/>
+<area shape="rect" id="node7" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="972,299,1125,626"/>
+<area shape="rect" id="node8" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html" title="Tag an entity." alt="" coords="1149,351,1332,575"/>
+<area shape="rect" id="node9" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="1356,263,1509,663"/>
+<area shape="rect" id="node10" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="1533,307,1713,619"/>
+<area shape="rect" id="node11" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html" title="Script for running an active UI." alt="" coords="1737,321,1891,604"/>
+<area shape="rect" id="node12" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="1915,204,2105,721"/>
+<area shape="rect" id="node13" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html" title="Basic keyframe animation." alt="" coords="2129,285,2331,641"/>
+<area shape="rect" id="node14" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="2355,270,2542,655"/>
+<area shape="rect" id="node15" href="$de/d57/classgalaxy_1_1graphics_1_1Frame.html" title="A single frame of an animation." alt="" coords="2567,358,2744,567"/>
+<area shape="rect" id="node16" href="$d4/d7e/classgalaxy_1_1physics_1_1Material.html" title=" " alt="" coords="2769,373,2953,553"/>
+<area shape="rect" id="node17" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="2977,314,3152,611"/>
+<area shape="rect" id="node18" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="3176,343,3391,582"/>
 </map>

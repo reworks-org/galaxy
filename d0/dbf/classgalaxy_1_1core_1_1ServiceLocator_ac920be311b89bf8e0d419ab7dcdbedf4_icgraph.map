@@ -13,7 +13,7 @@
 <area shape="rect" id="node25" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="1312,1028,1465,1069"/>
 <area shape="rect" id="node29" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568" title="Create an entity from a JSON object." alt="" coords="1315,963,1462,1004"/>
 <area shape="rect" id="node32" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85" title="Create an entity from a prefab." alt="" coords="473,1613,632,1655"/>
-<area shape="rect" id="node33" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04" title="Draw a texture to a framebuffer." alt="" coords="1279,1145,1499,1187"/>
+<area shape="rect" id="node33" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763" title="Draws a texture to the active framebuffer." alt="" coords="1291,1145,1486,1187"/>
 <area shape="rect" id="node34" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88" title="Draw a texture to a render texture." alt="" coords="1291,2252,1486,2293"/>
 <area shape="rect" id="node36" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056" title="Creates the prefab from an entity." alt="" coords="1313,1328,1464,1369"/>
 <area shape="rect" id="node38" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66" title="Creates the prefab from a json object." alt="" coords="1313,1496,1464,1537"/>

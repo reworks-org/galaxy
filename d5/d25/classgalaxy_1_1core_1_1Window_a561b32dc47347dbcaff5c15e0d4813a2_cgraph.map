@@ -1,0 +1,5 @@
+<map id="galaxy::core::Window::render_postprocessing" name="galaxy::core::Window::render_postprocessing">
+<area shape="rect" id="node1" title="Render post processing data." alt="" coords="5,5,183,47"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="231,5,445,47"/>
+<area shape="rect" id="node3" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="493,5,675,47"/>
+</map>

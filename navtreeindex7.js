@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"da/d64/classgalaxy_1_1resource_1_1Cache.html#ab7eed57dda10a101a86c28151ed058ef":[1,0,0,15,0,11],
+"da/d64/classgalaxy_1_1resource_1_1Cache.html#aba3a6a517d246e2a9e714384535c9f33":[1,0,0,15,0,9],
+"da/d64/classgalaxy_1_1resource_1_1Cache.html#ac351cf3d703f257a00656fafd22e7a8f":[1,0,0,15,0,6],
 "da/d64/classgalaxy_1_1resource_1_1Cache.html#ac60bfdc6f6d4dd1b2e271f3b0e8240aa":[1,0,0,15,0,13],
 "da/d64/classgalaxy_1_1resource_1_1Cache.html#ad2a1d9d9c537479a95410afd0481140c":[1,0,0,15,0,7],
 "da/d64/classgalaxy_1_1resource_1_1Cache.html#af93103ccdf4566dc55a2156e9bc52616":[1,0,0,15,0,12],
@@ -45,7 +48,7 @@ var NAVTREEINDEX7 =
 "da/dc8/classgalaxy_1_1core_1_1World.html#a2cdf7025868b0d1a17e947be263bc5d1":[1,0,0,3,7,24],
 "da/dc8/classgalaxy_1_1core_1_1World.html#a3d5ccf9b2fc8e480b50fc462ae860ed0":[1,0,0,3,7,25],
 "da/dc8/classgalaxy_1_1core_1_1World.html#a3d9d7bd51ed29f22424df7191dac9ec9":[1,0,0,3,7,30],
-"da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e":[1,0,0,3,7,34],
+"da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e":[1,0,0,3,7,33],
 "da/dc8/classgalaxy_1_1core_1_1World.html#a4bb68014abf1f1c91e86d9be9d61588f":[1,0,0,3,7,4],
 "da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568":[1,0,0,3,7,8],
 "da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7":[1,0,0,3,7,6],
@@ -64,7 +67,7 @@ var NAVTREEINDEX7 =
 "da/dc8/classgalaxy_1_1core_1_1World.html#ac742c878058f0c42acca14013e8cdab2":[1,0,0,3,7,15],
 "da/dc8/classgalaxy_1_1core_1_1World.html#ac7f3d1781d3df9eece716dae38832418":[1,0,0,3,7,21],
 "da/dc8/classgalaxy_1_1core_1_1World.html#ace2880546b55342e886a733616b2a884":[1,0,0,3,7,14],
-"da/dc8/classgalaxy_1_1core_1_1World.html#ae556f937fc428add3b6e75f79023f35f":[1,0,0,3,7,33],
+"da/dc8/classgalaxy_1_1core_1_1World.html#ae556f937fc428add3b6e75f79023f35f":[1,0,0,3,7,32],
 "da/dc8/classgalaxy_1_1core_1_1World.html#ae87b8dafc4a38464e3785b47a3335dc6":[1,0,0,3,7,1],
 "da/dc8/classgalaxy_1_1core_1_1World.html#ae8bab595f5cea9f203686c6cf3977a6a":[1,0,0,3,7,26],
 "da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28":[1,0,0,3,7,17],
@@ -73,7 +76,6 @@ var NAVTREEINDEX7 =
 "da/dc8/classgalaxy_1_1core_1_1World.html#aeef1fb5b668881b8f2efa479a8fa803c":[1,0,0,3,7,5],
 "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf":[1,0,0,3,7,31],
 "da/dc8/classgalaxy_1_1core_1_1World.html#af9f56d06358036acd8bce06094ee82e9":[1,0,0,3,7,27],
-"da/dc8/classgalaxy_1_1core_1_1World.html#afa5ccdc23a78f4bc83b401836a3867dc":[1,0,0,3,7,32],
 "da/ddf/ServiceLocator_8hpp.html":[2,0,0,0,0,3,9],
 "da/ddf/ServiceLocator_8hpp_source.html":[2,0,0,0,0,3,9],
 "da/def/classgalaxy_1_1input_1_1InputDevice.html":[1,0,0,9,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "db/dc3/classgalaxy_1_1resource_1_1Language.html#a34d6eb35719de437e49ade19f9f094f6":[1,0,0,15,2,13],
 "db/dc3/classgalaxy_1_1resource_1_1Language.html#a4553e79ec31a396eadacd56f36e4fe31":[1,0,0,15,2,9],
 "db/dc3/classgalaxy_1_1resource_1_1Language.html#a56d60c1a334b99996ba7cba5657cf9fd":[1,0,0,15,2,2],
-"db/dc3/classgalaxy_1_1resource_1_1Language.html#a5f9688663067fe344a38bce50c9c866b":[1,0,0,15,2,11],
-"db/dc3/classgalaxy_1_1resource_1_1Language.html#a71a9c4c1ea473b777e2896da3485b5f1":[1,0,0,15,2,0],
-"db/dc3/classgalaxy_1_1resource_1_1Language.html#a9408ca48b2cf0ea57bb72ea70445ea73":[1,0,0,15,2,10]
+"db/dc3/classgalaxy_1_1resource_1_1Language.html#a5f9688663067fe344a38bce50c9c866b":[1,0,0,15,2,11]
 };

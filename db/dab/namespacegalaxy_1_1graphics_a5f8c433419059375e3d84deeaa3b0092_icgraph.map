@@ -1,5 +1,6 @@
 <map id="galaxy::graphics::primitive_to_gl" name="galaxy::graphics::primitive_to_gl">
-<area shape="rect" id="node1" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,39,479,80"/>
+<area shape="rect" id="node1" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,71,479,112"/>
 <area shape="rect" id="node2" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="44,5,197,47"/>
 <area shape="rect" id="node3" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,71,236,112"/>
+<area shape="rect" id="node4" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a28111bcbbb37a36988aaa5c47e5c36bc" title="Only update the rendersystem." alt="" coords="35,136,207,177"/>
 </map>

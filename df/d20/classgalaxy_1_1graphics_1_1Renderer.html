@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('df/d20/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d85/classgalaxy_1_1graphics_1_1Renderer__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderer_coll__map" id="agalaxy_1_1graphics_1_1Renderer_coll__map">
-<area shape="rect" title="2D OpenGL renderer." alt="" coords="77,660,315,899"/>
+<area shape="rect" title="2D OpenGL renderer." alt="" coords="97,660,295,899"/>
 <area shape="rect" title=" " alt="" coords="5,403,184,495"/>
 <area shape="rect" title=" " alt="" coords="16,160,173,237"/>
 <area shape="rect" title=" " alt="" coords="75,13,114,90"/>
@@ -142,9 +142,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af6e632f13e242c22227fc2efa9302a88"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88">draw_texture_to_target</a> (<a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;target, <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a> &amp;texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;transform)</td></tr>
 <tr class="memdesc:af6e632f13e242c22227fc2efa9302a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture to a render texture.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88">More...</a><br /></td></tr>
 <tr class="separator:af6e632f13e242c22227fc2efa9302a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08b2ef72a7ed8ce495e1954ceafe5e04"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04">draw_texture_to_framebuffer</a> (const unsigned int texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;transform, const glm::mat4 &amp;proj)</td></tr>
-<tr class="memdesc:a08b2ef72a7ed8ce495e1954ceafe5e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture to a framebuffer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04">More...</a><br /></td></tr>
-<tr class="separator:a08b2ef72a7ed8ce495e1954ceafe5e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70afa16b909fcb2cfc063c41ebe65763"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763">draw_texture</a> (const unsigned int texture, const int width, const int height)</td></tr>
+<tr class="memdesc:a70afa16b909fcb2cfc063c41ebe65763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a texture to the active framebuffer.  <a href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763">More...</a><br /></td></tr>
+<tr class="separator:a70afa16b909fcb2cfc063c41ebe65763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -347,8 +347,9 @@ Friends</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph" alt=""/></div>
 <map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a6bc60c4def4bf7bd5772d5b8947060b4_icgraph">
-<area shape="rect" title="Submit render data to renderer." alt="" coords="284,5,479,47"/>
+<area shape="rect" title="Submit render data to renderer." alt="" coords="284,39,479,80"/>
 <area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,47"/>
+<area shape="rect" href="../../da/dc8/classgalaxy_1_1core_1_1World.html#a28111bcbbb37a36988aaa5c47e5c36bc" title="Only update the rendersystem." alt="" coords="35,71,207,112"/>
 </map>
 </div>
 
@@ -527,8 +528,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a08b2ef72a7ed8ce495e1954ceafe5e04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b2ef72a7ed8ce495e1954ceafe5e04">&#9670;&nbsp;</a></span>draw_texture_to_framebuffer()</h2>
+<a id="a70afa16b909fcb2cfc063c41ebe65763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70afa16b909fcb2cfc063c41ebe65763">&#9670;&nbsp;</a></span>draw_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -537,7 +538,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::draw_texture_to_framebuffer </td>
+          <td class="memname">void galaxy::graphics::Renderer::draw_texture </td>
           <td>(</td>
           <td class="paramtype">const unsigned int&#160;</td>
           <td class="paramname"><em>texture</em>, </td>
@@ -545,20 +546,14 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>va</em>, </td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;&#160;</td>
-          <td class="paramname"><em>transform</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
-          <td class="paramname"><em>proj</em>&#160;</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -573,13 +568,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Draw a texture to a framebuffer. </p>
+<p>Draws a texture to the active framebuffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">texture</td><td>OpenGL texture handlr. </td></tr>
-    <tr><td class="paramname">va</td><td><a class="el" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html" title="Represents a single vertex point.">Vertex</a> array object. </td></tr>
-    <tr><td class="paramname">transform</td><td>Orthographic transform component. </td></tr>
-    <tr><td class="paramname">proj</td><td>Orthographic projection matrix. </td></tr>
+    <tr><td class="paramname">width</td><td>Width of texture. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of texture. </td></tr>
   </table>
   </dd>
 </dl>
@@ -590,14 +584,21 @@ Friends</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a08b2ef72a7ed8ce495e1954ceafe5e04_cgraph">
-<area shape="rect" title="Draw a texture to a framebuffer." alt="" coords="5,104,225,145"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="299,5,478,47"/>
-<area shape="rect" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="291,71,486,112"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="299,136,478,177"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="273,202,504,229"/>
-<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="552,136,763,177"/>
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph">
+<area shape="rect" title="Draws a texture to the active framebuffer." alt="" coords="5,231,200,272"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="274,35,453,76"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="274,100,453,141"/>
+<area shape="rect" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a2a63886dc9055942bfb4f424fe28f404" title="Generate some default verticies." alt="" coords="274,165,453,207"/>
+<area shape="rect" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="274,231,453,272"/>
+<area shape="rect" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="266,296,461,337"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="274,361,453,403"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="248,427,479,454"/>
+<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="537,5,747,47"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="553,71,731,112"/>
+<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="527,137,757,163"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="553,188,731,229"/>
+<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="537,361,747,403"/>
 </map>
 </div>
 
@@ -756,7 +757,7 @@ Friends</h2></td></tr>
 
 <p>Uniform buffer for camera. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -782,7 +783,7 @@ Friends</h2></td></tr>
 
 <p>2D renderer UBO. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00112">112</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -808,7 +809,7 @@ Friends</h2></td></tr>
 
 <p>Storage for renderables submitted. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -834,7 +835,7 @@ Friends</h2></td></tr>
 
 <p><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> used when drawing with renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -860,7 +861,7 @@ Friends</h2></td></tr>
 
 <p>Cache previous texture to prevent rebinding. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00127">127</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -886,7 +887,7 @@ Friends</h2></td></tr>
 
 <p>Cache previous nm texture to prevent rebinding. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00132">132</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -900,7 +901,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 08:56:47 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 6 2023 09:14:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

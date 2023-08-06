@@ -1,0 +1,6 @@
+<map id="galaxy::core::Window::end_postprocessing" name="galaxy::core::Window::end_postprocessing">
+<area shape="rect" id="node1" title="Finalize post processing." alt="" coords="5,5,167,47"/>
+<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="215,5,429,47"/>
+<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="477,5,660,47"/>
+<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="708,5,923,47"/>
+</map>

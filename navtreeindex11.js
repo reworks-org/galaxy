@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"de/dd6/namespacegalaxy_1_1json.html#a374942cb62ef4191f23f775d937ecc60":[0,0,0,11,1],
+"de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d":[0,0,0,11,2],
 "de/dd6/namespacegalaxy_1_1json.html#a845ac678cb9b858d88e0556f285dbfd2":[0,0,0,11,0],
 "de/ddb/Cursor_8hpp.html":[2,0,0,0,0,10,3],
 "de/ddb/Cursor_8hpp_source.html":[2,0,0,0,0,10,3],
@@ -30,12 +32,12 @@ var NAVTREEINDEX11 =
 "df/d19/TextureModes_8hpp.html#aaead3fd60db663ca5d8b11598a7dbb6bafcb162090f81b0a56721e5aa01b880c3":[2,0,0,0,0,9,57,0,3],
 "df/d19/TextureModes_8hpp_source.html":[2,0,0,0,0,9,57],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html":[1,0,0,8,22],
-"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04":[1,0,0,8,22,7],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a09b04b2eb4da3777e702389f0d12d35c":[1,0,0,8,22,15],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a1151c4001d85bd50e0bd8269dc2ef250":[1,0,0,8,22,1],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a33c798f86bb226e668a46df34663cf71":[1,0,0,8,22,13],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5396cb4f5c3bde7f5fd05b04207065d4":[1,0,0,8,22,10],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4":[1,0,0,8,22,3],
+"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763":[1,0,0,8,22,7],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a7f4c60fec4166a43f28aaeddb4c7c4d0":[1,0,0,8,22,0],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a86fdc65a39ff5c99164d0a1078fbf7cf":[1,0,0,8,22,16],
 "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8":[1,0,0,8,22,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "dir_caa41ed0a60054fdd7b2b558dac6ab70.html":[2,0,0,0],
 "dir_cebe55f57625f5854f71e5affcfc3075.html":[2,0,0,0,0,14,0],
 "dir_d3c4af17bd947ce0a543d597ca1cfb63.html":[2,0,0,0,0,11],
-"dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
-"dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13],
-"files.html":[2,0]
+"dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6]
 };

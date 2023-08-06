@@ -36,7 +36,7 @@ var searchData=
   ['down_219',['DOWN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac4e0e4e3118472beeb2ae75827450f1f',1,'galaxy::input']]],
   ['dracula_220',['DRACULA',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d',1,'galaxy::ui']]],
   ['draw_221',['draw',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b',1,'galaxy::graphics::Renderer']]],
-  ['draw_5ftexture_5fto_5fframebuffer_222',['draw_texture_to_framebuffer',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a08b2ef72a7ed8ce495e1954ceafe5e04',1,'galaxy::graphics::Renderer']]],
+  ['draw_5ftexture_222',['draw_texture',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763',1,'galaxy::graphics::Renderer']]],
   ['draw_5ftexture_5fto_5ftarget_223',['draw_texture_to_target',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88',1,'galaxy::graphics::Renderer']]],
   ['dynamic_5fdraw_224',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
 ];

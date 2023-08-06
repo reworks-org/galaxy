@@ -32,7 +32,6 @@ var classgalaxy_1_1core_1_1World =
     [ "m_position_iterations", "da/dc8/classgalaxy_1_1core_1_1World.html#a98ef2792e0d1c8b0a58e181b6a81f6c3", null ],
     [ "m_pixels_per_meter", "da/dc8/classgalaxy_1_1core_1_1World.html#a3d9d7bd51ed29f22424df7191dac9ec9", null ],
     [ "m_systems", "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf", null ],
-    [ "m_rendersystem_index", "da/dc8/classgalaxy_1_1core_1_1World.html#afa5ccdc23a78f4bc83b401836a3867dc", null ],
     [ "m_bodies_to_construct", "da/dc8/classgalaxy_1_1core_1_1World.html#ae556f937fc428add3b6e75f79023f35f", null ],
     [ "m_scene", "da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e", null ]
 ];

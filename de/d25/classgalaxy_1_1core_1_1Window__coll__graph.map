@@ -1,5 +1,5 @@
 <map id="galaxy::core::Window" name="galaxy::core::Window">
-<area shape="rect" id="node1" title="Handles events, input &amp; display." alt="" coords="443,1711,604,2067"/>
+<area shape="rect" id="node1" title="Handles events, input &amp; display." alt="" coords="429,1711,617,2067"/>
 <area shape="rect" id="node2" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="5,1314,196,1582"/>
 <area shape="rect" id="node3" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="281,969,473,1134"/>
 <area shape="rect" id="node4" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="220,1351,411,1545"/>

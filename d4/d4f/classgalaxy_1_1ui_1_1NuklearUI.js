@@ -9,7 +9,7 @@ var classgalaxy_1_1ui_1_1NuklearUI =
     [ "process_scripts", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a0fa0bac630812c6428b1c09700c8027d", null ],
     [ "render", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ad8edda1bbc289d6886c36d7e3b6abcef", null ],
     [ "set_font", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#af380f4368758244de1504b1d6fee76e9", null ],
-    [ "enables_input", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a6da8725bda633cd7314a3f77e5e05688", null ],
+    [ "enable_input", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a54512250c55b600300d55aaf3dd0dc8f", null ],
     [ "disable_input", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a975c17d399451f6fa3acbf4af32d97bf", null ],
     [ "ctx", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6", null ],
     [ "m_ctx", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abff213095d3b02b4ba14a7b50e4f58d2", null ],

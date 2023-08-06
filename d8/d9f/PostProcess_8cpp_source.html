@@ -239,12 +239,13 @@ $(document).ready(function(){initNavTree('d8/d9f/PostProcess_8cpp_source.html','
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        {</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <a class="code" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aa5ffdfd9f7167d210d734fb29574f36b">m_output</a>.<a class="code" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233">bind</a>();</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            glActiveTexture(GL_TEXTURE0);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            glBindTexture(GL_TEXTURE_2D, <a class="code" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af1e3dfa082d1d739db1b82a02711f660">m_output_fb</a>);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    } <span class="comment">// namespace graphics</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            glBindVertexArray(<a class="code" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a6f512c26335754520e26915614f76a79">m_screen_vao</a>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            glActiveTexture(GL_TEXTURE0);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            glBindTexture(GL_TEXTURE_2D, <a class="code" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af1e3dfa082d1d739db1b82a02711f660">m_output_fb</a>);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    } <span class="comment">// namespace graphics</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aAttributeBindings_8hpp_html"><div class="ttname"><a href="../../d6/d32/AttributeBindings_8hpp.html">AttributeBindings.hpp</a></div></div>
 <div class="ttc" id="aBufferBindings_8hpp_html"><div class="ttname"><a href="../../de/d3d/BufferBindings_8hpp.html">BufferBindings.hpp</a></div></div>
 <div class="ttc" id="aPostProcess_8cpp_html_a06608241f1a03db3a40a0cb2228353f5"><div class="ttname"><a href="../../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5">vao_vert</a></div><div class="ttdeci">constexpr const auto vao_vert</div><div class="ttdoc">PostProcess.cpp galaxy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d9f/PostProcess_8cpp_source.html#l00016">PostProcess.cpp:16</a></div></div>
@@ -281,7 +282,7 @@ $(document).ready(function(){initNavTree('d8/d9f/PostProcess_8cpp_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d8/d9f/PostProcess_8cpp.html">PostProcess.cpp</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 08:56:47 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 6 2023 09:14:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
