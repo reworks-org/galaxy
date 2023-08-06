@@ -44,6 +44,7 @@ namespace galaxy
 
 			nk_glfw3_font_stash_end();
 			nk_style_load_all_cursors(&m_ctx->ctx, m_atlas->cursors);
+			nk_style_default(&m_ctx->ctx);
 		}
 
 		NuklearUI::~NuklearUI()
@@ -111,7 +112,7 @@ namespace galaxy
 			}
 		}
 
-		void NuklearUI::enables_input()
+		void NuklearUI::enable_input()
 		{
 			m_ctx->is_input_allowed = true;
 		}

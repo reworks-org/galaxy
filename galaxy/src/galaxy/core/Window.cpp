@@ -392,7 +392,7 @@ namespace galaxy
 						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
 					});
 
-// clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_PUSH
 					GALAXY_DISABLE_WARNING(26487)
@@ -419,7 +419,7 @@ namespace galaxy
 						}
 					});
 
-// clang-format off
+					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
 					#endif
@@ -605,23 +605,33 @@ namespace galaxy
 			glfwPollEvents();
 		}
 
-		void Window::begin()
+		void Window::begin_postprocessing()
 		{
 			m_postprocess.bind();
 		}
 
-		void Window::end()
+		void Window::end_postprocessing()
 		{
 			m_postprocess.render_effects();
+		}
 
+		void Window::prepare_screen_for_rendering()
+		{
 			// Final Output.
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, m_width, m_height);
 
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}
 
+		void Window::render_postprocessing()
+		{
 			m_postprocess.render_output();
+
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+			glUseProgram(0);
 		}
 
 		void Window::resize(const int width, const int height)

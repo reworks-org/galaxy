@@ -22,6 +22,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/AllowSerialize.hpp"
 #include "galaxy/flags/Enabled.hpp"
+#include "galaxy/graphics/RenderCommand.hpp"
+#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
@@ -38,7 +40,6 @@ namespace galaxy
 		World::World(scene::Scene* scene)
 			: Serializable {}
 			, m_b2world {nullptr}
-			, m_rendersystem_index {-1}
 			, m_scene {scene}
 			, m_velocity_iterations {8}
 			, m_position_iterations {3}
@@ -181,9 +182,69 @@ namespace galaxy
 
 		void World::update_rendersystem()
 		{
-			if (m_rendersystem_index < m_systems.size() && m_rendersystem_index != -1)
+			// Possible to do this in parallel but overhead would cost more than perf saved.
+
+			const auto spr_group  = m_registry.group<components::Sprite>(entt::get<components::Transform, components::Flag>);
+			const auto prim_group = m_registry.group<components::Primitive>(entt::get<components::Transform, components::Flag>);
+			const auto text_group = m_registry.group<components::Text>(entt::get<components::Transform, components::Flag>);
+
+			graphics::RenderCommand cmd;
+
+			for (auto&& [entity, sprite, transform, flag] : spr_group.each())
 			{
-				m_systems[m_rendersystem_index]->update(m_scene);
+				if (flag.is_flag_set<flags::Enabled>())
+				{
+					transform.set_origin(sprite.get_width() * 0.5f, sprite.get_height() * 0.5f);
+
+					cmd.instances              = 1;
+					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = {1.0f, 1.0f, 1.0f, sprite.get_opacity()};
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = false;
+					cmd.uniform_data.textured  = true;
+					cmd.renderable             = &sprite;
+
+					graphics::Renderer::submit(cmd);
+				}
+			}
+
+			for (auto&& [entity, primitive, transform, flag] : prim_group.each())
+			{
+				if (flag.is_flag_set<flags::Enabled>())
+				{
+					transform.set_origin(primitive.get_width() * 0.5f, primitive.get_height() * 0.5f);
+
+					cmd.instances              = 1;
+					cmd.mode                   = primitive.get_mode();
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = primitive.m_colour.to_vec4();
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = primitive.get_shape() == graphics::Shape::POINT;
+					cmd.uniform_data.textured  = false;
+					cmd.renderable             = &primitive;
+
+					graphics::Renderer::submit(cmd);
+				}
+			}
+
+			for (auto&& [entity, text, transform, flag] : text_group.each())
+			{
+				if (flag.is_flag_set<flags::Enabled>())
+				{
+					transform.set_origin(text.get_width() * 0.5f, text.get_height() * 0.5f);
+
+					cmd.instances              = 1;
+					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
+					cmd.uniform_data.colour    = text.m_colour.to_vec4();
+					cmd.uniform_data.transform = transform.get_transform();
+					cmd.uniform_data.point     = false;
+					cmd.uniform_data.textured  = true;
+					cmd.renderable             = &text;
+
+					graphics::Renderer::submit(cmd);
+				}
 			}
 		}
 
@@ -207,8 +268,6 @@ namespace galaxy
 			m_systems.clear();
 			m_registry.clear();
 			m_bodies_to_construct.clear();
-
-			m_rendersystem_index = -1;
 		}
 
 		b2World* World::b2world()

@@ -1,11 +1,9 @@
 local test = {}
 
-function test:do_ui(self)
-	if nk_begin(self.ctx, "Test", nk_rect(50, 50, 220, 220), 0) then
-		nk_layout_row_static(self.ctx, 30, 80, 1)
-		if nk_button_label(self.ctx, "button") then
-			print("test")
-		end
+function test:do_ui()
+	local flags = nk_panel_flags.NK_WINDOW_BORDER | nk_panel_flags.NK_WINDOW_MOVABLE | nk_panel_flags.NK_WINDOW_SCALABLE | nk_panel_flags.NK_WINDOW_MINIMIZABLE | nk_panel_flags.NK_WINDOW_TITLE
+
+	if nk_begin(self.ctx, "Test", nk_rect(50, 50, 220, 220), flags) then
 	end
 	nk_end(self.ctx)
 end

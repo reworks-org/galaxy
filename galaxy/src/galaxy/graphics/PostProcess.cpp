@@ -160,6 +160,7 @@ namespace galaxy
 		{
 			m_output.bind();
 
+			glBindVertexArray(m_screen_vao);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, m_output_fb);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

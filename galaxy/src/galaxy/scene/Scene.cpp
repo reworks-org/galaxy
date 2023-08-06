@@ -55,7 +55,6 @@ namespace galaxy
 
 			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
 			m_dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
-			m_dispatcher.sink<events::WindowResized>().connect<&graphics::Camera::on_window_resized>(m_camera);
 			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
 		}
 
@@ -78,9 +77,11 @@ namespace galaxy
 
 		void Scene::render()
 		{
-			m_window->begin();
+			m_window->begin_postprocessing();
 			graphics::Renderer::draw();
-			m_window->end();
+			m_window->end_postprocessing();
+			m_window->prepare_screen_for_rendering();
+			m_window->render_postprocessing();
 
 			m_nui->new_frame();
 			m_nui->process_scripts(m_world.m_registry);
@@ -89,6 +90,7 @@ namespace galaxy
 
 		void Scene::on_window_resized(const events::WindowResized& e)
 		{
+			m_camera.on_window_resized(e);
 		}
 
 		nlohmann::json Scene::serialize()

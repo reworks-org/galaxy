@@ -81,14 +81,24 @@ namespace galaxy
 			void poll_events();
 
 			///
-			/// Prepare window for rendering.
+			/// Begin post processing.
 			///
-			void begin();
+			void begin_postprocessing();
 
 			///
-			/// Finalize rendering.
+			/// Finalize post processing.
 			///
-			void end();
+			void end_postprocessing();
+
+			///
+			/// Prepare render to screen.
+			///
+			void prepare_screen_for_rendering();
+
+			///
+			/// Render post processing data.
+			///
+			void render_postprocessing();
 
 			///
 			/// Resizes window.

@@ -1,6 +1,6 @@
 {
     "app_data": {
-        "current_scene": "",
+        "current_scene": "test",
         "scenes": {
             "test": {
                 "camera": {
@@ -25,7 +25,7 @@
                             "components": {
                                 "Flag": {
                                     "flags": {
-                                        "0": false,
+                                        "0": true,
                                         "1": true,
                                         "2": false,
                                         "3": false,
@@ -40,6 +40,41 @@
                                 },
                                 "UIScript": {
                                     "file": "C:/Users/Dom/git/galaxy/supercluster/bin/Debug/assets/ui/scripts/test.lua"
+                                }
+                            }
+                        },
+                        {
+                            "components": {
+                                "Flag": {
+                                    "flags": {
+                                        "0": true,
+                                        "1": true,
+                                        "2": false,
+                                        "3": false,
+                                        "4": false,
+                                        "5": false,
+                                        "6": false,
+                                        "7": false
+                                    }
+                                },
+                                "Sprite": {
+                                    "layer": 0,
+                                    "opacity": 1.0,
+                                    "texture_name": "bg_forest"
+                                },
+                                "Tag": {
+                                    "tag": "forest"
+                                },
+                                "Transform": {
+                                    "pos": {
+                                        "x": 0.0,
+                                        "y": 0.0
+                                    },
+                                    "rotation": 0.0,
+                                    "scale": {
+                                        "x": 1.0,
+                                        "y": 1.0
+                                    }
                                 }
                             }
                         }

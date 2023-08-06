@@ -129,31 +129,36 @@ namespace galaxy
 			glUseProgram(0);
 		}
 
-		void Renderer::draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj)
+		void Renderer::draw_texture(const unsigned int texture, const int width, const int height)
 		{
-			va.bind();
-
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, texture);
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 			auto rtt = core::ServiceLocator<resource::Shaders>::ref().get("RenderToTexture");
 			if (rtt != nullptr)
 			{
+				VertexArray va;
+				components::Transform tf;
+
+				const auto proj = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
+
+				auto v = graphics::Vertex::gen_quad_vertices(width, height);
+				va.create(v, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+				va.bind();
+
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, texture);
+
 				rtt->bind();
 				rtt->set_uniform("u_projection", proj);
-				rtt->set_uniform("u_transform", transform.get_transform());
+				rtt->set_uniform("u_transform", tf.get_transform());
 
 				glDrawElements(GL_TRIANGLES, va.index_count(), GL_UNSIGNED_INT, nullptr);
+				glBindVertexArray(0);
+				glBindTexture(GL_TEXTURE_2D, 0);
+				glUseProgram(0);
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to fetch default draw_texture_to_framebuffer shader.");
 			}
-
-			glBindVertexArray(0);
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glUseProgram(0);
 		}
 	} // namespace graphics
 } // namespace galaxy

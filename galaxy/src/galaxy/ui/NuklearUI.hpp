@@ -87,7 +87,7 @@ namespace galaxy
 			///
 			/// Enables nuklear input.
 			///
-			void enables_input();
+			void enable_input();
 
 			///
 			/// Disables nuklear input.

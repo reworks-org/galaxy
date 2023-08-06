@@ -74,14 +74,13 @@ namespace galaxy
 			static void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
 
 			///
-			/// Draw a texture to a framebuffer.
+			/// Draws a texture to the active framebuffer.
 			///
 			/// \param texture OpenGL texture handlr.
-			/// \param va Vertex array object.
-			/// \param transform Orthographic transform component.
-			/// \param proj Orthographic projection matrix.
+			/// \param width Width of texture.
+			/// \param height Height of texture.
 			///
-			static void draw_texture_to_framebuffer(const unsigned int texture, VertexArray& va, components::Transform& transform, const glm::mat4& proj);
+			static void draw_texture(const unsigned int texture, const int width, const int height);
 
 		private:
 			///

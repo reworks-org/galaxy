@@ -90,17 +90,40 @@ namespace sc
 
 	void Editor::update()
 	{
-		for (const auto& update : m_update_stack)
-		{
-			update();
-		}
+		do_updates();
 
-		m_update_stack.clear();
-
-		if (!m_game_mode)
+		if (m_game_mode || !m_stopped)
 		{
-			if (m_stopped)
+			m_nui->enable_input();
+			if (m_project_sm.has_current())
 			{
+				m_project_sm.current().update();
+			}
+
+			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
+			{
+				ImGui_ImplGlfw_ToggleInput(false);
+
+				m_update_stack.push_back([&]() {
+					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+					m_game_mode = false;
+					m_stopped   = true;
+					m_project_sm.deserialize(m_backup);
+				});
+			}
+		}
+		else
+		{
+			m_nui->disable_input();
+			m_autosave.update();
+
+			if (m_project_sm.has_current())
+			{
+				m_project_sm.current().m_world.update_rendersystem();
+				// m_project_sm.current().m_world.update();
+
+				graphics::Renderer::buffer_camera(m_project_sm.current().m_camera);
+
 				if (m_viewport_focused && m_viewport_hovered)
 				{
 					if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
@@ -139,45 +162,6 @@ namespace sc
 						ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 					}
 				}
-
-				if (m_project_sm.has_current())
-				{
-					m_project_sm.current().m_world.update_rendersystem();
-					graphics::Renderer::buffer_camera(m_project_sm.current().m_camera);
-				}
-			}
-			else
-			{
-				m_project_sm.current().update();
-
-				if (input::Input::key_down(input::Keys::LEFT_ALT))
-				{
-					ImGui_ImplGlfw_ToggleInput(false);
-				}
-				else
-				{
-					ImGui_ImplGlfw_ToggleInput(true);
-				}
-			}
-
-			m_autosave.update();
-		}
-		else
-		{
-			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
-			{
-				ImGui_ImplGlfw_ToggleInput(false);
-				ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
-
-				m_game_mode = false;
-
-				m_update_stack.push_back([&]() {
-					m_project_sm.deserialize(m_backup);
-				});
-			}
-			else
-			{
-				m_project_sm.current().update();
 			}
 		}
 	}
@@ -383,12 +367,15 @@ namespace sc
 
 			graphics::Renderer::draw();
 
+			m_nui->enable_input();
 			m_nui->new_frame();
 			m_nui->process_scripts(m_project_sm.current().m_world.m_registry);
+
 			m_nui->render();
+			m_nui->disable_input();
 		}
 
-		m_window->begin();
+		m_window->prepare_screen_for_rendering();
 
 		ui::imgui_new_frame();
 
@@ -907,7 +894,6 @@ namespace sc
 		ImGui::PopStyleColor(1);
 
 		ui::imgui_render();
-		m_window->end();
 	}
 
 	void Editor::viewport()
@@ -931,7 +917,7 @@ namespace sc
 			if (size_avail != m_viewport_size)
 			{
 				m_viewport_size = size_avail;
-				m_framebuffer.resize(static_cast<int>(m_viewport_size.x), static_cast<int>(m_viewport_size.y));
+				m_framebuffer.resize((int)m_viewport_size.x, (int)m_viewport_size.y);
 			}
 
 			if (m_stopped)
@@ -983,5 +969,15 @@ namespace sc
 				zip_entry_close(zip);
 			}
 		}
+	}
+
+	void Editor::do_updates()
+	{
+		for (const auto& update : m_update_stack)
+		{
+			update();
+		}
+
+		m_update_stack.clear();
 	}
 } // namespace sc

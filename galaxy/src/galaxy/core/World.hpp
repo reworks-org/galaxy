@@ -252,11 +252,6 @@ namespace galaxy
 			SystemContainer m_systems;
 
 			///
-			/// Rendersystem index.
-			///
-			int m_rendersystem_index;
-
-			///
 			/// List of rigid bodies that need to be constructed.
 			///
 			B2BodyFactory m_bodies_to_construct;
@@ -272,11 +267,6 @@ namespace galaxy
 		{
 			auto ptr = std::make_shared<System>(std::forward<Args>(args)...);
 			m_systems.push_back(std::static_pointer_cast<systems::System>(ptr));
-
-			if constexpr (std::is_same<System, systems::RenderSystem>::value)
-			{
-				m_rendersystem_index = static_cast<int>(m_systems.size()) - 1;
-			}
 
 			return ptr;
 		}
