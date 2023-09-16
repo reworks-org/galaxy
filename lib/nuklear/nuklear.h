@@ -2154,7 +2154,7 @@ NK_API void nk_window_show_if(struct nk_context*, const char *name, enum nk_show
 ///     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~c
 ///     if (nk_begin_xxx(...) {
 ///         // two rows with height: 30 composed of two widgets with width 60 and 40
-///         const float size[] = {60,40};
+///         const float ratio[] = {60,40};
 ///         nk_layout_row(ctx, NK_STATIC, 30, 2, ratio);
 ///         nk_widget(...);
 ///         nk_widget(...);
@@ -6097,14 +6097,14 @@ NK_LIB void nk_property(struct nk_context *ctx, const char *name, struct nk_prop
 #ifndef STBTT_malloc
 static void*
 nk_stbtt_malloc(nk_size size, void *user_data) {
-	struct nk_allocator *alloc = (struct nk_allocator *) user_data;
-	return alloc->alloc(alloc->userdata, 0, size);
+  struct nk_allocator *alloc = (struct nk_allocator *) user_data;
+  return alloc->alloc(alloc->userdata, 0, size);
 }
 
 static void
 nk_stbtt_free(void *ptr, void *user_data) {
-	struct nk_allocator *alloc = (struct nk_allocator *) user_data;
-	alloc->free(alloc->userdata, ptr);
+  struct nk_allocator *alloc = (struct nk_allocator *) user_data;
+  alloc->free(alloc->userdata, ptr);
 }
 
 #define STBTT_malloc(x,u)  nk_stbtt_malloc(x,u)
@@ -16794,7 +16794,6 @@ nk_font_bake(struct nk_font_baker *baker, void *image_memory, int width, int hei
 
                     /* query glyph bounds from stb_truetype */
                     const stbtt_packedchar *pc = &range->chardata_for_range[char_idx];
-                    if (!pc->x0 && !pc->x1 && !pc->y0 && !pc->y1) continue;
                     codepoint = (nk_rune)(range->first_unicode_codepoint_in_range + char_idx);
                     stbtt_GetPackedQuad(range->chardata_for_range, (int)width,
                         (int)height, char_idx, &dummy_x, &dummy_y, &q, 0);
@@ -17898,6 +17897,10 @@ nk_input_button(struct nk_context *ctx, enum nk_buttons id, int x, int y, nk_boo
     btn->clicked_pos.y = (float)y;
     btn->down = down;
     btn->clicked++;
+
+    /* Fix Click-Drag for touch events. */
+    in->mouse.delta.x = 0;
+    in->mouse.delta.y = 0;
 #ifdef NK_BUTTON_TRIGGER_ON_RELEASE
     if (down == 1 && id == NK_BUTTON_LEFT)
     {
@@ -29669,6 +29672,7 @@ nk_tooltipfv(struct nk_context *ctx, const char *fmt, va_list args)
 ///   - [y]: Minor version with non-breaking API and library changes
 ///   - [z]: Patch version with no direct changes to the API
 ///
+/// - 2022/12/23 (4.10.6) - Fix incorrect glyph index in nk_font_bake()
 /// - 2022/12/17 (4.10.5) - Fix nk_font_bake_pack() using TTC font offset incorrectly
 /// - 2022/10/24 (4.10.4) - Fix nk_str_{append,insert}_str_utf8 always returning 0
 /// - 2022/09/03 (4.10.3) - Renamed the `null` texture variable to `tex_null`
