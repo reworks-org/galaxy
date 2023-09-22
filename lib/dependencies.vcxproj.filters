@@ -135,11 +135,10 @@
     <ClCompile Include="imgui\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
-    <ClCompile Include="pl_mpeg\pl_mpeg.c" />
+    <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
     <ClCompile Include="zip\src\zip.c" />
     <ClCompile Include="mimalloc\src\static.c" />
-    <ClCompile Include="imgui\imgui_addons\ImCoolbar.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.cpp" />
@@ -151,6 +150,7 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
     <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
     <ClCompile Include="nuklear\nuklear.c" />
+    <ClCompile Include="stb\include\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
@@ -863,7 +863,6 @@
     <ClInclude Include="fastnoise2\include\FastSIMD\FunctionList.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\InlInclude.h" />
     <ClInclude Include="fastnoise2\include\FastSIMD\SIMDTypeList.h" />
-    <ClInclude Include="imgui\imgui_addons\ImCoolbar.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />

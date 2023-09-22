@@ -103,7 +103,6 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Trie.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
-    <ClCompile Include="imgui\imgui_addons\ImCoolbar.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui-knobs.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
@@ -157,7 +156,8 @@
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="nuklear\nuklear.c" />
-    <ClCompile Include="pl_mpeg\pl_mpeg.c" />
+    <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
+    <ClCompile Include="stb\include\stb_image.cpp" />
     <ClCompile Include="stb\include\stb_vorbis.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
@@ -639,7 +639,6 @@
     <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
-    <ClInclude Include="imgui\imgui_addons\ImCoolbar.h" />
     <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
@@ -1096,7 +1095,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1157,7 +1156,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_IMPLEMENTATION;STB_IMAGE_WRITE_IMPLEMENTATION;STB_IMAGE_RESIZE_IMPLEMENTATION;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;STB_IMAGE_STATIC;STB_IMAGE_WRITE_STATIC;STB_IMAGE_RESIZE_STATIC;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
