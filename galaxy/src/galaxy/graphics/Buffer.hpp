@@ -130,12 +130,14 @@ namespace galaxy
 
 		template<unsigned int gl_buffer_type>
 		inline Buffer<gl_buffer_type>::Buffer()
+			: m_obj {0}
 		{
 			glGenBuffers(1, &m_obj);
 		}
 
 		template<unsigned int gl_buffer_type>
 		inline Buffer<gl_buffer_type>::Buffer(Buffer&& b)
+			: m_obj {0}
 		{
 			if (this->m_obj != 0)
 			{

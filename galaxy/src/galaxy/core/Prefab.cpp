@@ -10,6 +10,11 @@
 
 #include "Prefab.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26496)
+#endif
+
 namespace galaxy
 {
 	namespace core
@@ -34,7 +39,7 @@ namespace galaxy
 
 			auto& em = ServiceLocator<meta::EntityMeta>::ref();
 
-			for (const auto&& [id, storage] : registry.storage())
+			for (auto&& [id, storage] : registry.storage())
 			{
 				if (storage.contains(entity))
 				{
@@ -77,3 +82,7 @@ namespace galaxy
 		}
 	} // namespace core
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif
