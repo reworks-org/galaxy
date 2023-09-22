@@ -1,15 +1,8 @@
-loading screens in scene manager where needed.
-
-need to add game ui events > layer events -> perhaps a dispatcher for ui and a dispatcher for game?
-
-add onload and on unload scene support and add to scripting
-
+more drag/drop support for tree view, body, etc
 add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
-better editor play mode
-more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 
-more drag/drop support for tree view, body, etc
+more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 
 implement b2_debugdraw?
 
@@ -23,11 +16,8 @@ https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
 
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
 
-fix play/pause shenanigans
 fix no ambient light when no lights in scene
 
-to use:
-https://github.com/aiekick/ImCoolBar
 https://github.com/albin-johansson/wanderer/tree/dev/source/wanderer/systems
 
 TileMap:
