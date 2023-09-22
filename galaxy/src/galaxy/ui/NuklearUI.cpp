@@ -43,7 +43,6 @@ namespace galaxy
 			}
 
 			nk_glfw3_font_stash_end();
-			nk_style_load_all_cursors(&m_ctx->ctx, m_atlas->cursors);
 			nk_style_default(&m_ctx->ctx);
 		}
 
