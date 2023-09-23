@@ -67,6 +67,8 @@ See [online documentation](https://domre.github.io/galaxy/).
 ## Features
 ```
 todo
+- Supports ogg vorbis for sound effects and music.
+- Supports videos containing MPEG1 Video ("mpeg1") and MPEG1 Audio Layer II ("mp2").
 ```
 
 

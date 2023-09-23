@@ -79,20 +79,6 @@
     <ClCompile Include="glfw\src\win32_window.c" />
     <ClCompile Include="glfw\src\window.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
-    <ClCompile Include="googletest\googlemock\src\gmock-cardinalities.cc" />
-    <ClCompile Include="googletest\googlemock\src\gmock-internal-utils.cc" />
-    <ClCompile Include="googletest\googlemock\src\gmock-matchers.cc" />
-    <ClCompile Include="googletest\googlemock\src\gmock-spec-builders.cc" />
-    <ClCompile Include="googletest\googlemock\src\gmock.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-assertion-result.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-death-test.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-filepath.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-matchers.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-port.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-printers.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
-    <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\ImGuiController.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\LanguageDefinitions.cpp" />
@@ -590,45 +576,6 @@
     <ClInclude Include="glm\glm\vec3.hpp" />
     <ClInclude Include="glm\glm\vec4.hpp" />
     <ClInclude Include="glm\glm\vector_relational.hpp" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-actions.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-cardinalities.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-function-mocker.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-matchers.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-more-actions.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-more-matchers.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-nice-strict.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock-spec-builders.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\gmock.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-generated-actions.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-matchers.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-port.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-internal-utils.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-port.h" />
-    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-pp.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-assertion-result.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-death-test.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-matchers.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-message.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-param-test.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-printers.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-spi.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-test-part.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest-typed-test.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest_pred_impl.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\gtest_prod.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest-port.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest-printers.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-death-test-internal.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-filepath.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-internal.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-param-util.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-port-arch.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-port.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-string.h" />
-    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-type-util.h" />
-    <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\ImGuiController.h" />
@@ -1130,7 +1077,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1187,7 +1134,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/googletest/googlemock/include;$(SolutionDir)lib/googletest/googletest;$(SolutionDir)lib/googletest/googletest/include;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

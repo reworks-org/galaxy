@@ -36,3 +36,5 @@ https://github.com/fallahn/tmxlite/issues/131
 
 add instance rendering
 improve animation system
+
+cache should be stored in vector with index and handle as object with custom hash function.
