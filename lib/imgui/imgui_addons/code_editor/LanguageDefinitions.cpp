@@ -388,7 +388,7 @@ static bool TokenizeLuaStylePunctuation(const char* in_begin, const char* in_end
 	return false;
 }
 
-const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::CPlusPlus()
+const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Cpp()
 {
 	static bool inited = false;
 	static LanguageDefinition langDef;
@@ -456,7 +456,7 @@ const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::CPlusPlus(
 	return langDef;
 }
 
-const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::HLSL()
+const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Hlsl()
 {
 	static bool inited = false;
 	static LanguageDefinition langDef;
@@ -527,7 +527,7 @@ const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::HLSL()
 	return langDef;
 }
 
-const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::GLSL()
+const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Glsl()
 {
 	static bool inited = false;
 	static LanguageDefinition langDef;
@@ -684,7 +684,7 @@ const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::C()
 	return langDef;
 }
 
-const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::SQL()
+const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Sql()
 {
 	static bool inited = false;
 	static LanguageDefinition langDef;
@@ -866,7 +866,7 @@ const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Lua()
 	return langDef;
 }
 
-const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::CSharp()
+const TextEditor::LanguageDefinition& TextEditor::LanguageDefinition::Cs()
 {
 	static bool inited = false;
 	static LanguageDefinition langDef;

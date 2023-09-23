@@ -2,10 +2,11 @@
 
 #include <string>
 
-namespace ste::CodeEditor
+namespace scex::ImGuiController
 {
 	void Setup(const std::string& root);
 	bool HasControl();
-	void Tick();
 	void Load(const std::string& file);
-} // namespace ste::CodeEditor
+	void OnPathsDropped(const char** paths, int pathCount);
+	void Tick(double deltaTime);
+} // namespace scex::ImGuiController

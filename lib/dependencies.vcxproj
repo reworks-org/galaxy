@@ -89,7 +89,6 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\TextEditor.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Trie.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
-    <ClCompile Include="imgui\imgui_addons\imgui-knobs.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_presets.cpp" />
@@ -583,10 +582,10 @@
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\PathUtils.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\portable-file-dialogs.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
-    <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle.h" />
@@ -596,7 +595,6 @@
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
     <ClInclude Include="imgui\imgui_addons\imnodes.h" />
     <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
-    <ClInclude Include="imgui\imgui_addons\imspinner.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
     <ClInclude Include="imgui\imgui_freetype.h" />

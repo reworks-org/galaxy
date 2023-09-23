@@ -34,13 +34,11 @@ bool DirectoryFinder::OnImGui()
 			onFocusedCallback(this->createdFromFolderView);
 
 		ImGui::InputText("Folder", directoryPath, MAX_PATH_LENGTH);
-		ImGui::Checkbox(".*", &regexEnabled);
-		ImGui::Checkbox("Aa", &caseSensitiveEnabled);
+		ImGui::Checkbox("Regular expression", &regexEnabled);
+		ImGui::Checkbox("Case sensitive", &caseSensitiveEnabled);
 		ImGui::InputText("To find", toFind, INPUT_BUFFER_SIZE);
 		ImGui::InputText("To include", toInclude, INPUT_BUFFER_SIZE);
 		ImGui::InputText("To exclude", toExclude, INPUT_BUFFER_SIZE);
-		if (ImGui::InputText("Result filter", resultFilter, INPUT_BUFFER_SIZE) && resultFilter[0] != '\0')
-			resultFilterRegex = std::regex(resultFilter);
 		if (finderThread == nullptr)
 		{
 			if (ImGui::Button("Find"))
@@ -51,6 +49,9 @@ bool DirectoryFinder::OnImGui()
 			if (ImGui::Button("Cancel search"))
 				finderThread = nullptr;
 		}
+		ImGui::Separator();
+		if (ImGui::InputText("Result filter", resultFilter, INPUT_BUFFER_SIZE) && resultFilter[0] != '\0')
+			resultFilterRegex = std::regex(resultFilter);
 
 		{
 			std::lock_guard<std::mutex> guard(finderThreadMutex);

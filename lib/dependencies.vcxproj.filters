@@ -111,7 +111,6 @@
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_palette.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_presets.cpp" />
     <ClCompile Include="imgui\imgui_addons\imgui_toggle_renderer.cpp" />
-    <ClCompile Include="imgui\imgui_addons\imgui-knobs.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -466,8 +465,6 @@
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_palette.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
-    <ClInclude Include="imgui\imgui_addons\imgui-knobs.h" />
-    <ClInclude Include="imgui\imgui_addons\imspinner.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
     <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
     <ClInclude Include="imgui\imconfig.h" />
@@ -815,6 +812,7 @@
     <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\ImGuiController.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\PathUtils.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\portable-file-dialogs.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />

@@ -3,11 +3,17 @@
 #include <filesystem>
 #include <iostream>
 
+#ifdef SCEX_PLATFORM_WINDOWS
+#define PATH_SEP '\\'
+#else
+#define PATH_SEP '/'
+#endif
+
 namespace PathUtils
 {
 	std::string programDirectory;
 	std::string assetsDirectory;
-} // namespace PathUtils
+}
 
 void PathUtils::SetProgramDirectory(const std::string& executableFilePath)
 {
@@ -51,13 +57,8 @@ std::string PathUtils::GetRelativePath(const std::string& fileRelativeTo, const 
 		j--;
 	}
 
-	i = 0;
-	j = 0;
-	while (pathA[i].compare(pathB[j]) == 0)
-	{
-		i++;
-		j++;
-	}
+	i = 0; j = 0;
+	while (pathA[i].compare(pathB[j]) == 0) { i++; j++; }
 
 	while (i < pathA.size() - 1)
 	{
@@ -77,8 +78,6 @@ std::string PathUtils::GetRelativePath(const std::string& fileRelativeTo, const 
 std::string PathUtils::GetFolderPath(const std::string& filePath)
 {
 	int i = filePath.length() - 1;
-	for (; i > -1 && filePath[i] != '/' && filePath[i] != '\\'; i--)
-	{
-	};
+	for (; i > -1 && filePath[i] != '/' && filePath[i] != '\\'; i--) {};
 	return filePath.substr(0, i + 1);
 }
