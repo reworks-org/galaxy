@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"de/dd6/namespacegalaxy_1_1json.html#a374942cb62ef4191f23f775d937ecc60":[0,0,0,11,1],
 "de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d":[0,0,0,11,2],
 "de/dd6/namespacegalaxy_1_1json.html#a845ac678cb9b858d88e0556f285dbfd2":[0,0,0,11,0],
 "de/ddb/Cursor_8hpp.html":[2,0,0,0,0,10,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX11 =
 "dir_caa41ed0a60054fdd7b2b558dac6ab70.html":[2,0,0,0],
 "dir_cebe55f57625f5854f71e5affcfc3075.html":[2,0,0,0,0,14,0],
 "dir_d3c4af17bd947ce0a543d597ca1cfb63.html":[2,0,0,0,0,11],
-"dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6]
+"dir_e4e12536003b5868dacffd6be6350da8.html":[2,0,0,0,0,6],
+"dir_f8dd915d034f4aa6b8baaf480040c90e.html":[2,0,0,0,0,13]
 };
