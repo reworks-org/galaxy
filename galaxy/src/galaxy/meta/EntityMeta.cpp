@@ -11,6 +11,11 @@
 
 #include "EntityMeta.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26496)
+#endif
+
 namespace galaxy
 {
 	namespace meta
@@ -35,7 +40,7 @@ namespace galaxy
 			nlohmann::json json = nlohmann::json::object();
 			json["components"]  = nlohmann::json::object();
 
-			for (const auto&& [id, storage] : registry.storage())
+			for (auto&& [id, storage] : registry.storage())
 			{
 				if (storage.contains(entity))
 				{
@@ -76,3 +81,7 @@ namespace galaxy
 		}
 	} // namespace meta
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

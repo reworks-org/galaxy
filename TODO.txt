@@ -36,5 +36,22 @@ https://github.com/fallahn/tmxlite/issues/131
 
 add instance rendering
 improve animation system
-
-cache should be stored in vector with index and handle as object with custom hash function.
+split audio engines up
+add physfs?
+https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
+https://slembcke.github.io/SuperFastSoftShadows
+https://github.com/voldien/spritebatch-library
+https://github.com/dario-loi/staplegl
+https://github.com/AntonioModer/2d-lighting-engine
+https://github.com/edgarMeinart/opengl-2d-light-example
+https://github.com/StefanKubsch/NARC
+https://github.com/zenex/skeletongl
+https://github.com/pplux/px/blob/master/README_px_render.md
+https://github.com/ands/lightmapper#lightmapper
+https://github.com/Caerind/AwesomeCppGameDev
+https://github.com/swr06/GLGame
+https://github.com/RandyGaul/cute_headers/blob/master/cute_spritebatch.h
+https://github.com/jharler/ZeroTolerance/tree/master
+https://old.reddit.com/r/opengl/comments/16oo7we/2d_sprite_animation/
+https://github.com/KTStephano/StratusGFX
+https://github.com/leaf3d/leaf3d/tree/master

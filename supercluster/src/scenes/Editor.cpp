@@ -33,7 +33,7 @@ namespace sc
 		: Scene(name)
 		, m_editor_camera {true}
 	{
-		ste::CodeEditor::Setup(core::ServiceLocator<fs::VirtualFileSystem>::ref().root());
+		scex::ImGuiController::Setup(core::ServiceLocator<fs::VirtualFileSystem>::ref().root());
 
 #ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
@@ -792,7 +792,7 @@ namespace sc
 
 		if (m_show_codeeditor)
 		{
-			ste::CodeEditor::Tick();
+			scex::ImGuiController::Tick(GALAXY_DT);
 		}
 
 		if (m_show_viewport)

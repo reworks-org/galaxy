@@ -613,7 +613,7 @@ namespace sc
 
 		void AssetPanel::load_lua_script()
 		{
-			ste::CodeEditor::Load(m_selected.m_path.string());
+			scex::ImGuiController::Load(m_selected.m_path.string());
 		}
 
 		void AssetPanel::load_preview()
