@@ -21,11 +21,37 @@ namespace galaxy
 {
 	namespace media
 	{
+		void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
+		{
+			auto buffer = static_cast<RingBuffer*>(pDevice->pUserData);
+
+			const int frames_needed = frameCount * 2;
+			if (buffer->available_bytes() >= frames_needed)
+			{
+				const auto read = buffer->direct_read_pointer(frames_needed);
+				auto output     = static_cast<float*>(pOutput);
+
+				for (auto i = 0; i < frames_needed; i++)
+				{
+					output[i] = read[i] * buffer->get_volume();
+				}
+			}
+			else
+			{
+				std::memset(pOutput, 0, frames_needed * sizeof(float));
+			}
+		}
+
 		Video::Video()
 			: m_plm {nullptr}
+			, m_audio {nullptr}
+			, m_audio_buffer {nullptr}
 			, m_texture_y {0}
 			, m_texture_cb {0}
 			, m_texture_cr {0}
+			, m_vao {0}
+			, m_vbo {0}
+			, m_ibo {0}
 		{
 			glCreateVertexArrays(1, &m_vao);
 			glCreateBuffers(1, &m_vbo);
@@ -52,6 +78,18 @@ namespace galaxy
 			{
 				plm_destroy(m_plm);
 				m_plm = nullptr;
+			}
+
+			if (m_audio)
+			{
+				ma_device_uninit(m_audio);
+				m_audio = nullptr;
+			}
+
+			if (m_audio_buffer)
+			{
+				m_audio_buffer.reset();
+				m_audio_buffer = nullptr;
 			}
 
 			if (m_texture_y != 0)
@@ -92,12 +130,10 @@ namespace galaxy
 					plm_set_audio_decode_callback(
 						m_plm,
 						[](plm_t* self, plm_samples_t* samples, void* user) {
+							auto buffer = static_cast<RingBuffer*>(user);
+							buffer->write(samples->interleaved, samples->count * 2);
 						},
-						this);
-
-					plm_set_loop(m_plm, false);
-					plm_set_audio_enabled(m_plm, false);
-					plm_set_audio_stream(m_plm, 0);
+						m_audio_buffer.get());
 
 					m_texture_y  = create_texture(0, "texture_y");
 					m_texture_cb = create_texture(1, "texture_cb");
@@ -105,20 +141,45 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load video '{0}'.", file);
+					// GALAXY_LOG(GALAXY_ERROR, "Failed to load video '{0}'.", file);
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find video '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
+				// GALAXY_LOG(GALAXY_ERROR, "Failed to find video '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
 			}
 		}
 
-		void Video::enable_loop(const bool loop) const
+		void Video::play()
 		{
-			if (m_plm)
+			plm_set_loop(m_plm, false);
+			plm_set_audio_stream(m_plm, 0);
+
+			if (plm_get_num_audio_streams(m_plm) > 0)
 			{
-				plm_set_loop(m_plm, loop);
+				m_audio_buffer = std::make_unique<RingBuffer>(plm_get_samplerate(m_plm));
+
+				ma_device_config config  = ma_device_config_init(ma_device_type_playback);
+				config.playback.format   = ma_format_f32;
+				config.playback.channels = 2;
+				config.sampleRate        = plm_get_samplerate(m_plm);
+				config.pUserData         = m_audio_buffer.get();
+				config.dataCallback      = data_callback;
+
+				if (ma_device_init(nullptr, &config, m_audio) != MA_SUCCESS)
+				{
+					// GALAXY_LOG(GALAXY_ERROR, "Failed to open audio device for '{0}'.", file);
+					plm_set_audio_enabled(m_plm, false);
+				}
+				else
+				{
+					plm_set_audio_enabled(m_plm, true);
+					ma_device_start(m_audio);
+				}
+			}
+			else
+			{
+				plm_set_audio_enabled(m_plm, false);
 			}
 		}
 
@@ -147,6 +208,16 @@ namespace galaxy
 			}
 
 			return true;
+		}
+
+		double Video::get_time() const
+		{
+			if (m_plm)
+			{
+				return plm_get_time(m_plm);
+			}
+
+			return 0.0;
 		}
 
 		double Video::get_framerate() const
@@ -181,7 +252,7 @@ namespace galaxy
 
 		unsigned int Video::create_texture(unsigned int index, const char* uniform)
 		{
-			unsigned int texture;
+			unsigned int texture = 0;
 			glCreateTextures(GL_TEXTURE_2D, 1, &texture);
 
 			glBindTexture(GL_TEXTURE_2D, texture);

@@ -34,6 +34,8 @@ TileMap:
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
 
+DECOUPLE RENDERING FROM WINDOW
+
 add instance rendering
 improve animation system
 split audio engines up

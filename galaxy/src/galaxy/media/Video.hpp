@@ -9,8 +9,10 @@
 #define GALAXY_MEDIA_VIDEO_HPP_
 
 #include <pl_mpeg.h>
+#include <miniaudio.h>
 
 #include "galaxy/graphics/Shader.hpp"
+#include "galaxy/media/RingBuffer.hpp"
 
 namespace galaxy
 {
@@ -42,11 +44,9 @@ namespace galaxy
 			void load(const std::string& file);
 
 			///
-			/// Enable video looping.
+			/// Start playing the video.
 			///
-			/// \param loop True to enable looping. False to disable.
-			///
-			void enable_loop(const bool loop) const;
+			void play();
 
 			///
 			/// Update video decoder.
@@ -64,6 +64,13 @@ namespace galaxy
 			/// \return True if finished.
 			///
 			[[nodiscard]] bool is_finished() const;
+
+			///
+			/// Get current playtime.
+			///
+			/// \return In seconds.
+			///
+			[[nodiscard]] double get_time() const;
 
 			///
 			/// Get video framerate.
@@ -111,6 +118,16 @@ namespace galaxy
 			/// PLM decoder data.
 			///
 			plm_t* m_plm;
+
+			///
+			/// Audio data.
+			///
+			ma_device* m_audio;
+
+			///
+			/// Buffer for audio decoding.
+			///
+			std::unique_ptr<RingBuffer> m_audio_buffer;
 
 			///
 			/// PLM video frame y.

@@ -809,14 +809,15 @@ namespace galaxy
 			sound_type["toggle_spatialization"] = &media::Sound::toggle_spatialization;
 
 			auto video_type              = lua.new_usertype<media::Video>("Video", sol::constructors<media::Video()>());
-			video_type["enable_loop"]    = &media::Video::enable_loop;
 			video_type["get_duration"]   = &media::Video::get_duration;
 			video_type["get_framerate"]  = &media::Video::get_framerate;
 			video_type["get_samplerate"] = &media::Video::get_samplerate;
 			video_type["is_finished"]    = &media::Video::is_finished;
 			video_type["load"]           = &media::Video::load;
-			video_type["update"]         = &media::Video::update;
 			video_type["render"]         = &media::Video::render;
+			video_type["update"]         = &media::Video::update;
+			video_type["get_time"]       = &media::Video::get_time;
+			video_type["play"]           = &media::Video::play;
 
 			/* META */
 			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
