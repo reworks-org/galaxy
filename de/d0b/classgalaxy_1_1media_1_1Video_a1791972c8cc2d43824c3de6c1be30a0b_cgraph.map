@@ -1,7 +1,8 @@
 <map id="galaxy::media::Video::load" name="galaxy::media::Video::load">
-<area shape="rect" id="node1" title="Load a MPEG&#45;1 from video file." alt="" coords="5,64,164,105"/>
+<area shape="rect" id="node1" title="Load a MPEG&#45;1 from video file." alt="" coords="5,93,164,135"/>
 <area shape="rect" id="node2" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#adad32168338ab8785bf9104d1f4e3860" title="Internal function to generate video frame texture." alt="" coords="248,5,407,47"/>
 <area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,71,443,98"/>
 <area shape="rect" id="node5" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="248,123,407,164"/>
+<area shape="rect" id="node6" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b" title=" " alt="" coords="232,188,423,229"/>
 <area shape="rect" id="node3" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="491,5,672,47"/>
 </map>

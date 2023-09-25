@@ -1,0 +1,7 @@
+<map id="galaxy::media::RingBuffer::direct_read_pointer" name="galaxy::media::RingBuffer::direct_read_pointer">
+<area shape="rect" id="node1" title=" " alt="" coords="827,5,1017,47"/>
+<area shape="rect" id="node2" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="628,5,779,47"/>
+<area shape="rect" id="node3" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a4b192fd9744fa3481a15a8bc5586efdf" title="Start playing the video." alt="" coords="421,5,580,47"/>
+<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,47"/>
+<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+</map>

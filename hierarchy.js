@@ -83,6 +83,7 @@ var hierarchy =
     [ "galaxy::graphics::RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", null ],
     [ "galaxy::graphics::Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", null ],
     [ "galaxy::graphics::RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", null ],
+    [ "galaxy::media::RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
       [ "galaxy::components::Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", null ],

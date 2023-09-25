@@ -1,6 +1,9 @@
 <map id="galaxy::media::Video" name="galaxy::media::Video">
-<area shape="rect" id="node1" title="Plays an MPEG&#45;1 video." alt="" coords="17,632,175,959"/>
-<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="5,301,187,569"/>
-<area shape="rect" id="node3" title=" " alt="" coords="53,147,139,224"/>
-<area shape="rect" id="node4" title=" " alt="" coords="27,5,165,97"/>
+<area shape="rect" id="node1" title="Plays an MPEG&#45;1 video." alt="" coords="121,645,279,1001"/>
+<area shape="rect" id="node2" title=" " alt="" coords="9,403,188,495"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,160,163,237"/>
+<area shape="rect" id="node4" title=" " alt="" coords="65,13,103,90"/>
+<area shape="rect" id="node5" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="219,315,400,583"/>
+<area shape="rect" id="node6" title=" " alt="" coords="274,160,361,237"/>
+<area shape="rect" id="node7" title=" " alt="" coords="248,5,387,97"/>
 </map>

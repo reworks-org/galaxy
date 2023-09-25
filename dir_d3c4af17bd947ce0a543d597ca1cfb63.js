@@ -4,6 +4,10 @@ var dir_d3c4af17bd947ce0a543d597ca1cfb63 =
     [ "AudioEngine.hpp", "d4/d92/AudioEngine_8hpp.html", [
       [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ]
     ] ],
+    [ "RingBuffer.cpp", "d0/dc1/RingBuffer_8cpp.html", null ],
+    [ "RingBuffer.hpp", "d4/ded/RingBuffer_8hpp.html", [
+      [ "RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", "d5/df7/classgalaxy_1_1media_1_1RingBuffer" ]
+    ] ],
     [ "Sound.cpp", "d1/d8a/Sound_8cpp.html", null ],
     [ "Sound.hpp", "d9/db9/Sound_8hpp.html", [
       [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ]

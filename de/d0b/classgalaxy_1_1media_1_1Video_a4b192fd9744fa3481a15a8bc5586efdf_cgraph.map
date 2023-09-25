@@ -1,0 +1,5 @@
+<map id="galaxy::media::Video::play" name="galaxy::media::Video::play">
+<area shape="rect" id="node1" title="Start playing the video." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node2" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="212,5,363,47"/>
+<area shape="rect" id="node3" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a4ae6813a18b4d2eb5c0854806211e8e7" title=" " alt="" coords="411,5,601,47"/>
+</map>

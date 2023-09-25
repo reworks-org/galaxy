@@ -1,5 +1,6 @@
 var NAVTREEINDEX0 =
 {
+"":[0,0,2],
 "annotated.html":[1,0],
 "classes.html":[1,1],
 "d0/d0a/Animated_8cpp.html":[2,0,0,0,0,2,0],
@@ -106,6 +107,8 @@ var NAVTREEINDEX0 =
 "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#aa03f65f2c56db570346035ae51791c9e":[1,0,0,3,4,3],
 "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ab1aee18c326706483180529b3e0e6b3b":[1,0,0,3,4,7],
 "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4":[1,0,0,3,4,5],
+"d0/dc1/RingBuffer_8cpp.html":[2,0,0,0,0,11,2],
+"d0/dc1/RingBuffer_8cpp_source.html":[2,0,0,0,0,11,2],
 "d0/dc2/Timer_8cpp.html":[2,0,0,0,0,1,0],
 "d0/dc2/Timer_8cpp_source.html":[2,0,0,0,0,1,0],
 "d0/dd1/MouseButtons_8cpp.html":[2,0,0,0,0,10,16],
@@ -189,8 +192,8 @@ var NAVTREEINDEX0 =
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad81c9b0caa75f542361947fefb087e91":[1,0,0,8,5,4],
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ae6fe3fd4c3b2aef1923585cc6e3b49af":[1,0,0,8,5,10],
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#aee47cb35e1670ab369f00b09349302a6":[1,0,0,8,5,9],
-"d1/d8a/Sound_8cpp.html":[2,0,0,0,0,11,2],
-"d1/d8a/Sound_8cpp_source.html":[2,0,0,0,0,11,2],
+"d1/d8a/Sound_8cpp.html":[2,0,0,0,0,11,4],
+"d1/d8a/Sound_8cpp_source.html":[2,0,0,0,0,11,4],
 "d1/d91/PhysicsSystem_8hpp.html":[2,0,0,0,0,19,3],
 "d1/d91/PhysicsSystem_8hpp_source.html":[2,0,0,0,0,19,3],
 "d1/d98/Prefab_8hpp.html":[2,0,0,0,0,3,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f":[1,0,0,20,0,0],
 "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a3dea78cb40402c0fbdf7cc61f52e81e6":[1,0,0,20,0,3],
 "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a4fc3c6ee8e5670f33e080a3520489fc8":[1,0,0,20,0,9],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a5629c7dc03ea930d8e18b3193c7e2c4f":[1,0,0,20,0,2],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a6fb3bf4be983a23b5d0fbccb1ebb138d":[1,0,0,20,0,4],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a7f4ab990ea2164efa25a34c7a55c0195":[1,0,0,20,0,5],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a8d032569c7e820d08e6b0153de18a6b0":[1,0,0,20,0,8]
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a5629c7dc03ea930d8e18b3193c7e2c4f":[1,0,0,20,0,2]
 };

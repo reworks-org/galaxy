@@ -50,5 +50,6 @@ var searchData=
   ['attributebindings_2ehpp_57',['AttributeBindings.hpp',['../d6/d32/AttributeBindings_8hpp.html',1,'']]],
   ['audioengine_58',['AudioEngine',['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#aff8444b9799ee0317f233f45f25c2a45',1,'galaxy::media::AudioEngine::AudioEngine(AudioEngine &amp;&amp;)=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a79c04d19a103c190b5fd4d384d685fd1',1,'galaxy::media::AudioEngine::AudioEngine(const AudioEngine &amp;)=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a2c9f30caf49997f7d4d534327f1ea5fa',1,'galaxy::media::AudioEngine::AudioEngine()=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a1595cacf06e5c4a738412b9e11cb05c2',1,'galaxy::media::AudioEngine::AudioEngine(const int listener_count)'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html',1,'galaxy::media::AudioEngine']]],
   ['audioengine_2ecpp_59',['AudioEngine.cpp',['../df/dc3/AudioEngine_8cpp.html',1,'']]],
-  ['audioengine_2ehpp_60',['AudioEngine.hpp',['../d4/d92/AudioEngine_8hpp.html',1,'']]]
+  ['audioengine_2ehpp_60',['AudioEngine.hpp',['../d4/d92/AudioEngine_8hpp.html',1,'']]],
+  ['available_5fbytes_61',['available_bytes',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a32f1d940ddcd3205ec79a640c00b95c8',1,'galaxy::media::RingBuffer']]]
 ];
