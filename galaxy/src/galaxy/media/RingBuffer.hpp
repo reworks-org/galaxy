@@ -13,48 +13,70 @@ namespace galaxy
 	namespace media
 	{
 		///
-		///
+		/// Ring buffer to manage audio for mpeg videos.
 		///
 		class RingBuffer
 		{
 		public:
 			///
+			/// Constructor.
 			///
+			/// \param capacity Usually you want 1 second of audio reserved.
 			///
 			RingBuffer(const int capacity);
 
 			///
-			///
+			/// Destructor.
 			///
 			~RingBuffer();
 
 			///
+			/// Write data to ring buffer.
 			///
+			/// \param data Pointer to beginning of section to write from.
+			/// \param count Amount of data to write.
+			///
+			/// \return Updated write index.
 			///
 			int write(const float* data, const int count);
 
 			///
+			/// Read data from buffer.
 			///
+			/// \param data Buffer to read into.
+			/// \param count Amount of data to write.
+			///
+			/// \return Updated read index.
 			///
 			int read(float* data, int count);
 
 			///
+			/// Read the ring buffer.
 			///
+			/// \param count Amount of data to read from internal buffer.
 			///
-			float* direct_read_pointer(int ACount);
+			/// \return Section of data read.
+			///
+			float* direct_read_pointer(const int count);
 
 			///
+			/// Available bytes left in the ring buffer.
 			///
+			/// \return Amount of space left in bytes.
 			///
 			int available_bytes();
 
 			///
+			/// Sets audio volume of the buffer.
 			///
+			/// \param volume Between 0 and 1.
 			///
 			void set_volume(const float volume);
 
 			///
+			/// Gets current buffer volume.
 			///
+			/// \return Float from 0 to 1.
 			///
 			float get_volume() const;
 
@@ -86,22 +108,22 @@ namespace galaxy
 
 		private:
 			///
-			///
+			/// Data buffer.
 			///
 			float* m_buffer;
 
 			///
-			///
+			/// Current index for reading from buffer.
 			///
 			int m_read_index;
 
 			///
-			///
+			/// Current index for writing to buffer.
 			///
 			int m_write_index;
 
 			///
-			///
+			/// Amount of data buffer can hold in total.
 			///
 			int m_capacity;
 

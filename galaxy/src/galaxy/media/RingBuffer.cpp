@@ -55,7 +55,7 @@ namespace galaxy
 			return count;
 		}
 
-		float* RingBuffer::direct_read_pointer(int count)
+		float* RingBuffer::direct_read_pointer(const int count)
 		{
 			float* result = &m_buffer[m_read_index % m_capacity];
 			m_read_index  = (m_read_index + count) % m_capacity;
