@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/algorithm/FNV1a.hpp"
 #include "galaxy/algorithm/Generic.hpp"
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/Random.hpp"
@@ -90,6 +91,8 @@ namespace galaxy
 			lua.set_function("random_float", &algorithm::random<float>);
 			lua.set_function("encode_zlib", &algorithm::encode_zlib);
 			lua.set_function("decode_zlib", &algorithm::decode_zlib);
+			lua.set_function("fnv1a_32", &algorithm::fnv1a_32);
+			lua.set_function("fnv1a_64", &algorithm::fnv1a_64);
 
 			// clang-format off
 			lua.new_enum<algorithm::ZLib::Mode>("ZLibMode",

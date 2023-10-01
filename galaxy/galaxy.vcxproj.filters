@@ -146,6 +146,7 @@
     <ClCompile Include="src\galaxy\scripting\LuaNuklear.cpp" />
     <ClCompile Include="src\galaxy\components\UIScript.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
+    <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -289,5 +290,6 @@
     <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
     <ClInclude Include="src\galaxy\components\UIScript.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
+    <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
   </ItemGroup>
 </Project>

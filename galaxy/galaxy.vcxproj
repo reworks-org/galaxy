@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
