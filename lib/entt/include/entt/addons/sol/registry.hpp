@@ -105,13 +105,12 @@ namespace entt_sol
 			sol::factories([] {
 				return entt::registry {};
 			}),
-
-			"size",
-			&entt::registry::size,
-
-			"alive",
-			&entt::registry::alive,
-
+			"size", [](const entt::registry &self) {
+				return self.storage<entt::entity>()->size();
+		    },
+		    "alive", [](const entt::registry &self) {
+				return self.storage<entt::entity>()->in_use();
+		    },
 			"valid",
 			&entt::registry::valid,
 			"current",
