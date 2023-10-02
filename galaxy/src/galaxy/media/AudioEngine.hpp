@@ -33,6 +33,20 @@ namespace galaxy
 			~AudioEngine();
 
 			///
+			/// \brief Start device.
+			///
+			/// Device is started for you.
+			///
+			void start_device();
+
+			///
+			/// \brief Stop device.
+			///
+			/// Device is stopped in destructor.
+			///
+			void stop_device();
+
+			///
 			/// Stop all playing audio.
 			///
 			void stop();
@@ -48,6 +62,16 @@ namespace galaxy
 			/// \param z Z Coord.
 			///
 			void set_listener_position(const unsigned int id, const float x, const float y, const float z);
+
+			///
+			/// Set the velocity of a sound used for doppler effect.
+			///
+			/// \param id Listener index / id.
+			/// \param x X velocity.
+			/// \param y Y velocity.
+			/// \param z Z velocity.
+			///
+			void set_listener_velocity(const unsigned int id, const float x, const float y, const float z);
 
 			///
 			/// \brief Set a listeners direction.
@@ -89,6 +113,13 @@ namespace galaxy
 			void set_listener_cone(const unsigned int id, const float inner_angle, const float outer_angle, const float outer_gain);
 
 			///
+			/// Sets master volume.
+			///
+			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
+			///
+			void set_volume(const float volume);
+
+			///
 			/// Toggle a listener.
 			///
 			/// \param id Listener index / id.
@@ -97,46 +128,53 @@ namespace galaxy
 			void toggle_listener(const unsigned int id, const bool enable);
 
 			///
-			/// Sets master sound effect volume.
+			/// Check if a listener is enabled.
 			///
-			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
+			/// \param id Listener index / id.
 			///
-			void set_sfx_volume(const float volume);
+			[[nodiscard]] bool is_listener_enabled(const unsigned int id);
 
 			///
-			/// Sets master music volume.
+			/// \brief Gets the nearest listener.
 			///
-			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
+			/// Coordinate system is where positive X points right, positive Y points up and negative Z points forward.
 			///
-			void set_music_volume(const float volume);
+			/// \param id Listener index / id.
+			/// \param x Absolute Pos X.
+			/// \param y Absolute Pos Y.
+			/// \param z Absolute Pos Z.
+			///
+			/// \return Listener index / id.
+			///
+			[[nodiscard]] unsigned int find_closest_listener(const float x, const float y, const float z);
 
 			///
-			/// Sets master dialogue volume.
+			/// Get the total number of listeners.
 			///
-			/// \param volume Scales linearly. 0 is muted. 1 is default. 1+ is gain.
+			/// \return Unsigned integer.
 			///
-			void set_dialogue_volume(const float volume);
+			[[nodiscard]] unsigned int get_listener_count() const;
+
+			///
+			/// Get sample rate of engine.
+			///
+			/// \return Unsigned int. Most devices default to 48000.
+			///
+			[[nodiscard]] std::uint32_t get_samplerate() const;
+
+			///
+			/// Get number of channels audio is using.
+			///
+			/// \return Unsigned int. Most devices default to 2.
+			///
+			[[nodiscard]] std::uint32_t get_channels() const;
 
 			///
 			/// Get SFX engine.
 			///
 			/// \return Pointer to ma_engine structure.
 			///
-			[[nodiscard]] ma_engine* get_sfx_engine();
-
-			///
-			/// Get music engine.
-			///
-			/// \return Pointer to ma_engine structure.
-			///
-			[[nodiscard]] ma_engine* get_music_engine();
-
-			///
-			/// Get dialogue engine.
-			///
-			/// \return Pointer to ma_engine structure.
-			///
-			[[nodiscard]] ma_engine* get_dialogue_engine();
+			[[nodiscard]] ma_engine* get_engine();
 
 		private:
 			///
@@ -168,17 +206,7 @@ namespace galaxy
 			///
 			/// Handles sound effects.
 			///
-			ma_engine m_sfx_engine;
-
-			///
-			/// Handles music.
-			///
-			ma_engine m_music_engine;
-
-			///
-			/// Handles dialogue sounds.
-			///
-			ma_engine m_dialogue_engine;
+			ma_engine m_engine;
 
 			///
 			/// Log structure.

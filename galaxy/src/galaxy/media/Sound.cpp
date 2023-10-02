@@ -75,11 +75,6 @@ namespace galaxy
 			}
 		}
 
-		void Sound::toggle_spatialization(const bool enable)
-		{
-			ma_sound_set_spatialization_enabled(&m_sound, enable);
-		}
-
 		void Sound::play()
 		{
 			ma_sound_start(&m_sound);
@@ -96,16 +91,6 @@ namespace galaxy
 			ma_sound_seek_to_pcm_frame(&m_sound, 0);
 		}
 
-		void Sound::set_looping(const bool loop)
-		{
-			ma_sound_set_looping(&m_sound, loop);
-		}
-
-		void Sound::set_volume(const float volume)
-		{
-			ma_sound_set_volume(&m_sound, volume);
-		}
-
 		void Sound::fade_in(const ma_uint64 ms)
 		{
 			ma_sound_set_fade_in_milliseconds(&m_sound, 0.0f, 1.0f, ms);
@@ -116,9 +101,29 @@ namespace galaxy
 			ma_sound_set_fade_in_milliseconds(&m_sound, -1.0f, 0.0f, ms);
 		}
 
+		void Sound::on_finish(ma_sound_end_proc callback, void* user_data)
+		{
+			ma_sound_set_end_callback(&m_sound, callback, user_data);
+		}
+
+		void Sound::set_looping(const bool loop)
+		{
+			ma_sound_set_looping(&m_sound, loop);
+		}
+
+		void Sound::set_volume(const float volume)
+		{
+			ma_sound_set_volume(&m_sound, volume);
+		}
+
 		void Sound::set_pan(const float pan)
 		{
 			ma_sound_set_pan(&m_sound, std::clamp(pan, -1.0f, 1.0f));
+		}
+
+		void Sound::set_pan_mode(ma_pan_mode mode)
+		{
+			ma_sound_set_pan_mode(&m_sound, mode);
 		}
 
 		void Sound::set_pitch(const float pitch)
@@ -161,6 +166,11 @@ namespace galaxy
 			ma_sound_set_attenuation_model(&m_sound, model);
 		}
 
+		void Sound::set_spatialization_enabled(const bool enable)
+		{
+			ma_sound_set_spatialization_enabled(&m_sound, enable);
+		}
+
 		void Sound::set_rolloff(const float rolloff)
 		{
 			ma_sound_set_rolloff(&m_sound, rolloff);
@@ -189,6 +199,147 @@ namespace galaxy
 		void Sound::set_doppler_factor(const float factor)
 		{
 			ma_sound_set_doppler_factor(&m_sound, factor);
+		}
+
+		void Sound::set_directional_attenuation_factor(const float factor)
+		{
+			ma_sound_set_directional_attenuation_factor(&m_sound, factor);
+		}
+
+		void Sound::set_start_time_in_milliseconds(const ma_uint64 ms)
+		{
+			ma_sound_set_start_time_in_milliseconds(&m_sound, ms);
+		}
+
+		void Sound::set_stop_time_in_milliseconds(const ma_uint64 ms)
+		{
+			ma_sound_set_stop_time_in_milliseconds(&m_sound, ms);
+		}
+
+		float Sound::get_volume() const
+		{
+			return ma_sound_get_volume(&m_sound);
+		}
+
+		float Sound::get_pan() const
+		{
+			return ma_sound_get_pan(&m_sound);
+		}
+
+		ma_pan_mode Sound::get_pan_mode() const
+		{
+			return ma_sound_get_pan_mode(&m_sound);
+		}
+
+		float Sound::get_pitch() const
+		{
+			return ma_sound_get_pitch(&m_sound);
+		}
+
+		ma_vec3f Sound::get_position() const
+		{
+			return ma_sound_get_position(&m_sound);
+		}
+
+		ma_vec3f Sound::get_direction() const
+		{
+			return ma_sound_get_direction(&m_sound);
+		}
+
+		ma_vec3f Sound::get_velocity() const
+		{
+			return ma_sound_get_velocity(&m_sound);
+		}
+
+		void Sound::get_cone(float* inner_angle, float* outer_angle, float* outer_gain) const
+		{
+			ma_sound_get_cone(&m_sound, inner_angle, outer_angle, outer_gain);
+		}
+
+		ma_attenuation_model Sound::get_attenuation_model() const
+		{
+			return ma_sound_get_attenuation_model(&m_sound);
+		}
+
+		ma_positioning Sound::get_positioning() const
+		{
+			return ma_sound_get_positioning(&m_sound);
+		}
+
+		unsigned int Sound::get_pinned_listener_index() const
+		{
+			return ma_sound_get_pinned_listener_index(&m_sound);
+		}
+
+		unsigned int Sound::get_listener_index() const
+		{
+			return ma_sound_get_listener_index(&m_sound);
+		}
+
+		ma_vec3f Sound::get_direction_to_listener() const
+		{
+			return ma_sound_get_direction_to_listener(&m_sound);
+		}
+
+		float Sound::get_rolloff() const
+		{
+			return ma_sound_get_rolloff(&m_sound);
+		}
+
+		float Sound::get_min_gain() const
+		{
+			return ma_sound_get_min_gain(&m_sound);
+		}
+
+		float Sound::get_max_gain() const
+		{
+			return ma_sound_get_max_gain(&m_sound);
+		}
+
+		float Sound::get_min_distance() const
+		{
+			return ma_sound_get_min_distance(&m_sound);
+		}
+
+		float Sound::get_doppler_factor() const
+		{
+			return ma_sound_get_doppler_factor(&m_sound);
+		}
+
+		float Sound::get_max_distance() const
+		{
+			return ma_sound_get_max_distance(&m_sound);
+		}
+
+		float Sound::get_directional_attenuation_factor() const
+		{
+			return ma_sound_get_directional_attenuation_factor(&m_sound);
+		}
+
+		float Sound::get_current_fade_volume() const
+		{
+			return ma_sound_get_current_fade_volume(&m_sound);
+		}
+
+		float Sound::get_cursor_in_seconds()
+		{
+			float cursor = 0.0f;
+			ma_sound_get_cursor_in_seconds(&m_sound, &cursor);
+
+			return cursor;
+		}
+
+		float Sound::get_length_in_seconds()
+		{
+			float length = 0.0f;
+			ma_sound_get_length_in_seconds(&m_sound, &length);
+
+			return length;
+		}
+
+		bool Sound::is_spatialization_enabled() const
+		{
+			return ma_sound_is_spatialization_enabled(&m_sound);
 		}
 
 		bool Sound::is_playing() const
