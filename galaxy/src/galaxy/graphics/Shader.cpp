@@ -8,7 +8,6 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "Shader.hpp"
@@ -27,29 +26,13 @@ namespace galaxy
 		{
 		}
 
-		Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
-			: m_id {0}
-		{
-			if (!load_file(vertex_file, frag_file))
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to construct shader with files: {0} | {1}.", vertex_file, frag_file);
-			}
-		}
-
 		Shader::Shader(const nlohmann::json& json)
 			: m_id {0}
 		{
-			if ((json.count("vertex_file") > 0) && (json.count("fragment_file") > 0))
+			if (json.count("file") > 0)
 			{
-				std::string vert = json.at("vertex_file");
-				std::string frag = json.at("fragment_file");
-				load_file(vert, frag);
-			}
-			else if ((json.count("vertex_raw") > 0) && (json.count("fragment_raw") > 0))
-			{
-				std::string vert = json.at("vertex_raw");
-				std::string frag = json.at("fragment_raw");
-				load_raw(vert, frag);
+				std::string file = json.at("file");
+				load(file);
 			}
 			else
 			{
@@ -91,38 +74,48 @@ namespace galaxy
 			destroy();
 		}
 
-		bool Shader::load_file(std::string_view vertex_file, std::string_view frag_file)
+		bool Shader::load(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto vertex = fs.open(vertex_file);
-			if (vertex.empty())
+			const auto src = fs.open(file);
+			if (!src.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load vertex shader '{0}'.", vertex_file);
+				return load_raw(src);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load shader '{0}'.", file);
 				return false;
 			}
-
-			const auto fragment = fs.open(frag_file);
-			if (fragment.empty())
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load fragment shader '{0}'.", frag_file);
-				return false;
-			}
-
-			return load_raw(vertex, fragment);
 		}
 
-		bool Shader::load_raw(std::string_view vertex_str, std::string_view fragment_str)
+		bool Shader::load_raw(const std::string& src)
+		{
+			const auto paired_src = preprocess(src);
+
+			if (paired_src.has_value())
+			{
+				const auto& pair = paired_src.value();
+				return load_raw(pair.first, pair.second);
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		bool Shader::load_raw(const std::string& vertex_src, const std::string& fragment_src)
 		{
 			bool result = true;
 
-			if (vertex_str.empty())
+			if (vertex_src.empty())
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Shader was passed an empty vertex shader.");
 				result = false;
 			}
 
-			if (fragment_str.empty())
+			if (fragment_src.empty())
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Shader was passed an empty fragment shader.");
 				result = false;
@@ -130,8 +123,8 @@ namespace galaxy
 
 			if (result)
 			{
-				m_vertex_src   = vertex_str;
-				m_fragment_src = fragment_str;
+				m_vertex_src   = vertex_src;
+				m_fragment_src = fragment_src;
 			}
 
 			return result;
@@ -294,6 +287,53 @@ namespace galaxy
 		unsigned int Shader::id() const
 		{
 			return m_id;
+		}
+
+		std::optional<std::pair<std::string, std::string>> Shader::preprocess(const std::string& src)
+		{
+			std::pair<std::string, std::string> source;
+
+			const auto token = "#type";
+			const auto len   = std::strlen(token);
+
+			auto pos = src.find(token, 0);
+			while (pos != std::string::npos)
+			{
+				const auto eol   = src.find_first_of("\r\n", pos);
+				const auto begin = pos + len + 1;
+
+				auto type = src.substr(begin, eol - begin);
+
+				if (type != "vertex" && type != "fragment")
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to parse shader type. Must be 'vertex' or 'fragment'.");
+					return std::nullopt;
+				}
+				else
+				{
+					const auto next_line = src.find_first_not_of("\r\n", eol);
+					pos                  = src.find(token, next_line);
+
+					if (type == "vertex")
+					{
+						source.first = (pos == std::string::npos) ? src.substr(next_line) : src.substr(next_line, pos - next_line);
+					}
+					else
+					{
+						source.second = (pos == std::string::npos) ? src.substr(next_line) : src.substr(next_line, pos - next_line);
+					}
+				}
+			}
+
+			if (source.first.empty() || source.second.empty())
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to parse a combined shader.");
+				return std::nullopt;
+			}
+			else
+			{
+				return std::make_optional(source);
+			}
 		}
 	} // namespace graphics
 } // namespace galaxy

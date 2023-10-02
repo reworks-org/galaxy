@@ -25,7 +25,10 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Class for managing OpenGL shader programs.
+		/// \brief Class for managing OpenGL shader programs.
+		///
+		/// Shaders are parsed from a combied .glsl shader.
+		/// Each section of the shader is separated by using #type fragment and #type vertex.
 		///
 		class Shader final
 		{
@@ -34,14 +37,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			Shader();
-
-			///
-			/// Path Constructor.
-			///
-			/// \param vertex_file Path to vertex shader source code.
-			/// \param frag_file Path to fragment shader source code.
-			///
-			Shader(std::string_view vertex_file, std::string_view frag_file);
 
 			///
 			/// JSON Constructor.
@@ -66,24 +61,32 @@ namespace galaxy
 			~Shader();
 
 			///
-			/// Loads a shader into OpenGL from source and sets up the shader program.
+			/// Loads a shader into OpenGL from source.
 			///
-			/// \param vertex_file Path to vertex shader source code.
-			/// \param fragment_file Path to fragment shader source code.
+			/// \param file Path to A combined shader source.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load_file(std::string_view vertex_file, std::string_view fragment_file);
+			[[maybe_unused]] bool load(std::string_view file);
 
 			///
-			/// Loads a shader into OpenGL from raw strings and sets up the shader program.
+			/// Loads a combined raw shader.
 			///
-			/// \param vertex_str Raw vertex shader code.
-			/// \param fragment_str Raw fragment shader code.
+			/// \param src Raw shader code.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load_raw(std::string_view vertex_str, std::string_view fragment_str);
+			[[maybe_unused]] bool load_raw(const std::string& src);
+
+			///
+			/// Loads a shader into OpenGL from raw strings.
+			///
+			/// \param vertex_src Raw vertex shader code.
+			/// \param fragment_src Raw fragment shader code.
+			///
+			/// \return True if successful.
+			///
+			[[maybe_unused]] bool load_raw(const std::string& vertex_src, const std::string& fragment_src);
 
 			///
 			/// Compiles shader into OpenGL.
@@ -161,6 +164,15 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Shader& operator=(const Shader&) = delete;
+
+			///
+			/// Extract source code from a combined shader.
+			///
+			/// \param src Raw source code.
+			///
+			/// \return Pair of strings. First is vertex, second is fragment. Will be nullopt if there was an error.
+			///
+			[[nodiscard]] std::optional<std::pair<std::string, std::string>> preprocess(const std::string& src);
 
 		private:
 			///
