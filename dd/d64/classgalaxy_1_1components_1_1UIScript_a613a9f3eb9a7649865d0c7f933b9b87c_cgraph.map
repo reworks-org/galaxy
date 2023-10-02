@@ -1,5 +1,7 @@
 <map id="galaxy::components::UIScript::load" name="galaxy::components::UIScript::load">
-<area shape="rect" id="node1" title="Load script and set context." alt="" coords="5,35,159,76"/>
-<area shape="rect" id="node2" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a03066d747b8a81cd5d575a1a6d3abed1" title="Get script file path." alt="" coords="245,5,399,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,71,437,98"/>
+<area shape="rect" id="Node000001" title="Load script and set context." alt="" coords="5,35,159,75"/>
+<area shape="rect" id="Node000002" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a03066d747b8a81cd5d575a1a6d3abed1" title="Get script file path." alt="" coords="245,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,43,231,34,232,39,159,48"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,70,437,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,61,200,66,200,71,159,66"/>
 </map>

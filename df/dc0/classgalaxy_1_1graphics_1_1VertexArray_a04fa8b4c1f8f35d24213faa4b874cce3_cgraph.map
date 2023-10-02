@@ -1,7 +1,11 @@
 <map id="galaxy::graphics::VertexArray::create" name="galaxy::graphics::VertexArray::create">
-<area shape="rect" id="node1" title="Create vertex array." alt="" coords="5,100,184,141"/>
-<area shape="rect" id="node2" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="242,5,453,47"/>
-<area shape="rect" id="node3" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="258,71,437,112"/>
-<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="232,137,463,163"/>
-<area shape="rect" id="node5" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="258,188,437,229"/>
+<area shape="rect" id="Node000001" title="Create vertex array." alt="" coords="5,99,184,139"/>
+<area shape="rect" id="Node000002" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="242,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,96,231,55,254,47,256,52,233,60,137,101"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="258,69,437,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,106,244,99,244,104,184,111"/>
+<area shape="rect" id="Node000004" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="232,134,463,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,126,220,130,219,135,184,131"/>
+<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="258,184,437,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="147,136,233,168,262,177,260,182,231,173,145,141"/>
 </map>

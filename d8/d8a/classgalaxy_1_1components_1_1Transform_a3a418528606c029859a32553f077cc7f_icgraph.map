@@ -1,7 +1,11 @@
 <map id="galaxy::components::Transform::set_scale_horizontal" name="galaxy::components::Transform::set_scale_horizontal">
-<area shape="rect" id="node1" title="Set entity scale." alt="" coords="459,31,623,87"/>
-<area shape="rect" id="node2" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="236,5,411,47"/>
-<area shape="rect" id="node4" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,71,392,112"/>
-<area shape="rect" id="node3" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="13,5,181,47"/>
-<area shape="rect" id="node5" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,71,188,112"/>
+<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="459,30,623,85"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="236,5,411,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,46,411,41,411,36,445,41"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,69,392,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="445,74,393,82,392,77,444,69"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="13,5,181,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,181,28,181,23,222,23"/>
+<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,69,188,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="241,92,188,92,188,87,241,87"/>
 </map>

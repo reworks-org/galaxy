@@ -1,6 +1,6 @@
 var Globals_8hpp =
 [
-    [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ],
+    [ "galaxy::doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ],
     [ "GALAXY_UNUSED", "d5/d64/Globals_8hpp.html#aeea47fcf9ec981a261237221194b033f", null ],
     [ "GALAXY_ENTITY_SIZE", "d5/d64/Globals_8hpp.html#a2b0e41d8efaaff495d68ecf3d8c8ff9b", null ],
     [ "GALAXY_RESTART", "d5/d64/Globals_8hpp.html#aaf42a6f59bc131363f8bbd0a3482cfd9", null ],

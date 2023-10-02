@@ -1,9 +1,16 @@
 <map id="galaxy::components::Script::file" name="galaxy::components::Script::file">
-<area shape="rect" id="node1" title="Get script file path." alt="" coords="639,73,792,115"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="445,7,583,48"/>
-<area shape="rect" id="node4" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="437,73,591,115"/>
-<area shape="rect" id="node7" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="221,136,375,177"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="207,5,389,47"/>
-<area shape="rect" id="node5" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="221,71,375,112"/>
-<area shape="rect" id="node6" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3" title="JSON constructor." alt="" coords="5,71,159,112"/>
+<area shape="rect" id="Node000001" title="Get script file path." alt="" coords="639,72,792,112"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="445,7,583,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="639,70,576,49,577,44,641,65"/>
+<area shape="rect" id="Node000004" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="437,72,591,112"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="625,95,591,95,591,89,625,89"/>
+<area shape="rect" id="Node000007" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="221,133,375,173"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="631,118,591,127,478,142,375,152,375,146,478,137,590,121,630,113"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="207,5,389,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,29,389,29,389,23,432,23"/>
+<area shape="rect" id="Node000005" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="221,69,375,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="423,94,375,93,375,88,423,88"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="431,118,370,136,368,131,429,113"/>
+<area shape="rect" id="Node000006" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3" title="JSON constructor." alt="" coords="5,69,159,109"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="207,92,159,92,159,87,207,87"/>
 </map>

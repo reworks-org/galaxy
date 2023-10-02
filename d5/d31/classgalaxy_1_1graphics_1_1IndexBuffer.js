@@ -11,7 +11,7 @@ var classgalaxy_1_1graphics_1_1IndexBuffer =
     [ "destroy", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a8087ad3c1d93e08319f0915fd04a4dc4", null ],
     [ "index_count", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6", null ],
     [ "id", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6", null ],
-    [ "operator=", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#af028ce06609402b1eb74f50669862993", null ],
+    [ "operator=", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#aaa0597b41ce969ec7519c165a89d9cbb", null ],
     [ "m_ibo", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#adeaef5e8df929dd504c55344648a5053", null ],
     [ "m_count", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a9dcafaff19ccf7fc9527ee491ddbce90", null ]
 ];

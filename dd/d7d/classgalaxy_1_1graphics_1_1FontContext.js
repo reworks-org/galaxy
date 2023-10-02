@@ -6,7 +6,7 @@ var classgalaxy_1_1graphics_1_1FontContext =
     [ "FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a83f3e7eb59e06d56726b05421cf0fb08", null ],
     [ "context", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a5eddb16aab238a5d9317ec6037f38313", null ],
     [ "set_dpi", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a23e465afbec901a969f3055cccc83941", null ],
-    [ "operator=", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a05ee332fa45d61778b91bea268868bd8", null ],
-    [ "operator=", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a065fc0526bfbca4124fe5735baeb540c", null ],
+    [ "operator=", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ac6d9415afda9814f93c5901a41cd8263", null ],
+    [ "operator=", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ae0ee02e389cc255d00f47be052794fbf", null ],
     [ "m_context", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#a48491fe7f86cd81f5efc78041753f435", null ]
 ];

@@ -1,4 +1,5 @@
 <map id="galaxy::components::Script" name="galaxy::components::Script">
-<area shape="rect" id="node1" title="High level abstraction of a lua script." alt="" coords="13,204,167,531"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,175,156"/>
+<area shape="rect" id="Node000001" title="High level abstraction of a lua script." alt="" coords="11,219,161,619"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,167,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,184,89,218,83,218,83,184"/>
 </map>

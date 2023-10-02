@@ -1,10 +1,17 @@
 <map id="galaxy::graphics::RenderTexture::save" name="galaxy::graphics::RenderTexture::save">
-<area shape="rect" id="node1" title="Saves texture to file on disk." alt="" coords="5,104,188,145"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ae4f4985575fc2054a0afcce3c26eb0aa" title="Get texture height." alt="" coords="260,5,443,47"/>
-<area shape="rect" id="node4" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="260,71,443,112"/>
-<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="260,136,443,177"/>
-<area shape="rect" id="node8" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,202,467,229"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="515,5,729,47"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="515,71,729,112"/>
-<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a" title="Get width." alt="" coords="515,136,729,177"/>
+<area shape="rect" id="Node000001" title="Saves texture to file on disk." alt="" coords="5,101,188,141"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ae4f4985575fc2054a0afcce3c26eb0aa" title="Get texture height." alt="" coords="260,5,443,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,99,235,55,258,47,260,52,237,60,138,104"/>
+<area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="260,69,443,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,107,246,100,247,105,189,113"/>
+<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="260,133,443,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="189,130,247,138,246,143,188,135"/>
+<area shape="rect" id="Node000008" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,198,467,223"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="137,139,184,162,237,183,269,192,267,197,235,188,182,167,135,144"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="515,5,729,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="443,23,501,23,501,28,443,28"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="515,69,729,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="443,87,501,87,501,92,443,92"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a" title="Get width." alt="" coords="515,133,729,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="443,151,501,151,501,156,443,156"/>
 </map>

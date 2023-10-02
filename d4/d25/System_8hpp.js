@@ -1,5 +1,5 @@
 var System_8hpp =
 [
-    [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ],
-    [ "is_system", "d4/d25/System_8hpp.html#a955a3c9f07ec906b37c0feeb686d9c6c", null ]
+    [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ],
+    [ "galaxy::meta::is_system", "dd/d60/conceptgalaxy_1_1meta_1_1is__system.html", null ]
 ];

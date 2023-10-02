@@ -12,7 +12,7 @@ var classgalaxy_1_1graphics_1_1SpriteBatch =
     [ "flush", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9", null ],
     [ "count", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a1ae66e0c281af933fc5317ad9624cd24", null ],
     [ "vao", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82", null ],
-    [ "operator=", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a1d56b06b4e28d1d38b8d785c35f517f5", null ],
+    [ "operator=", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a6977a9cec797a4d8259f4312f9ab71ea", null ],
     [ "m_vao", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a8c039142d44cbdd909a1c6be2f3fae10", null ],
     [ "m_max_bytes", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aba2c8879aaa50efec800102b3cf53d04", null ],
     [ "m_bytes_used", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#ae1c0723be2f1fb7ee386458c97cf1b2b", null ],

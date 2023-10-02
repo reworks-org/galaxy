@@ -1,8 +1,14 @@
 <map id="galaxy::core::Window::begin_postprocessing" name="galaxy::core::Window::begin_postprocessing">
-<area shape="rect" id="node1" title="Begin post processing." alt="" coords="5,39,176,80"/>
-<area shape="rect" id="node2" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="224,39,439,80"/>
-<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="487,39,669,80"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="717,5,932,47"/>
-<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="733,71,916,112"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="980,39,1195,80"/>
+<area shape="rect" id="Node000001" title="Begin post processing." alt="" coords="5,37,176,77"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="224,37,439,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,55,210,55,210,60,176,60"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="487,37,669,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,55,473,55,473,60,439,60"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="717,5,932,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="669,43,703,38,704,44,670,48"/>
+<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="733,69,916,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="670,67,720,73,719,78,669,72"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="980,37,1195,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="932,36,967,40,966,45,932,41"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="916,76,966,69,967,75,917,81"/>
 </map>

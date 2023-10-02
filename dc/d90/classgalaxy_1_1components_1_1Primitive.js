@@ -17,7 +17,7 @@ var classgalaxy_1_1components_1_1Primitive =
     [ "get_vao", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a22b7bcb170a1be2d795adce570d3fe24", null ],
     [ "serialize", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#aa45cac22f9fde22973e5973ea91e72df", null ],
     [ "deserialize", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a55599ac77bb5bc2a01a7bb4b727d3519", null ],
-    [ "operator=", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a131730ea6740c1f26c3ff79386aa831c", null ],
+    [ "operator=", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#aad6419f741d7a9447cd8b80656ac8a58", null ],
     [ "sc::panel::EntityEditor", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a1b1d68ac5d0d7cd913742abe9c127b8f", null ],
     [ "systems::RenderSystem", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#af95061df48e572986481518f8b4d5727", null ],
     [ "m_colour", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ae4746003533135c0c54a12e937d108a9", null ],

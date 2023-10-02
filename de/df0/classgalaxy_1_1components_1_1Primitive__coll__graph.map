@@ -1,11 +1,19 @@
 <map id="galaxy::components::Primitive" name="galaxy::components::Primitive">
-<area shape="rect" id="node1" title="2D primitive shape." alt="" coords="451,667,605,1037"/>
-<area shape="rect" id="node2" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,365,216,575"/>
-<area shape="rect" id="node3" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="241,395,410,545"/>
-<area shape="rect" id="node4" href="$d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="435,395,621,545"/>
-<area shape="rect" id="node5" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="646,351,831,589"/>
-<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="856,336,1035,604"/>
-<area shape="rect" id="node7" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="625,13,815,266"/>
-<area shape="rect" id="node8" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="840,13,1051,266"/>
-<area shape="rect" id="node9" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="1075,5,1253,273"/>
+<area shape="rect" id="Node000001" title="2D primitive shape." alt="" coords="434,771,579,1231"/>
+<area shape="rect" id="Node000002" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,425,208,671"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,680,222,706,332,827,436,930,432,934,328,831,218,710,197,683"/>
+<area shape="rect" id="Node000003" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="233,465,394,631"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="356,642,436,829,431,831,351,644"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="418,405,595,691"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="509,691,509,754,504,754,504,691"/>
+<area shape="rect" id="Node000005" href="$d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html" title="Holds variables relating to constructing primitive&#39;s vertexs." alt="" coords="620,468,799,628"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="676,629,588,824,584,822,671,627"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="823,388,993,708"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="825,694,813,710,759,771,702,830,593,931,590,927,698,826,756,768,809,706,820,691"/>
+<area shape="rect" id="Node000007" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="612,5,783,325"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="785,319,817,377,812,379,780,322"/>
+<area shape="rect" id="Node000008" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="807,13,1009,318"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="911,318,911,371,905,371,905,318"/>
+<area shape="rect" id="Node000009" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="1034,15,1217,315"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="1042,317,1004,385,999,382,1038,314"/>
 </map>

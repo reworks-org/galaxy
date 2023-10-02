@@ -1,5 +1,7 @@
 <map id="galaxy::resource::Materials" name="galaxy::resource::Materials">
-<area shape="rect" id="node1" title="Resource manager for a physics material." alt="" coords="5,653,204,819"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="16,336,193,604"/>
-<area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="16,5,193,273"/>
+<area shape="rect" id="Node000001" title="Resource manager for a physics material." alt="" coords="5,757,196,943"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="16,388,185,708"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,722,103,757,98,757,98,722"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="16,5,185,325"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,339,103,388,98,388,98,339"/>
 </map>

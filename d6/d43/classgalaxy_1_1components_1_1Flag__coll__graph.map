@@ -1,6 +1,9 @@
 <map id="galaxy::components::Flag" name="galaxy::components::Flag">
-<area shape="rect" id="node1" title="Flag an entity." alt="" coords="75,373,228,641"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,160,175,311"/>
-<area shape="rect" id="node3" title=" " alt="" coords="199,189,384,281"/>
-<area shape="rect" id="node4" title=" " alt="" coords="220,5,363,83"/>
+<area shape="rect" id="Node000001" title="Flag an entity." alt="" coords="72,376,217,696"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,148,167,313"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,326,117,375,111,376,102,328"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="191,191,368,271"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,272,224,362,219,360,260,270"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="212,5,347,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="282,84,282,190,277,190,277,84"/>
 </map>

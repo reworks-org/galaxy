@@ -1,7 +1,11 @@
 <map id="galaxy::graphics::SMAA" name="galaxy::graphics::SMAA">
-<area shape="rect" id="node1" title="Submorphological Anti Aliasing." alt="" coords="40,661,215,915"/>
-<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,338,207,533"/>
-<area shape="rect" id="node3" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="231,301,413,569"/>
-<area shape="rect" id="node4" title=" " alt="" coords="279,147,365,224"/>
-<area shape="rect" id="node5" title=" " alt="" coords="253,5,391,97"/>
+<area shape="rect" id="Node000001" title="Submorphological Anti Aliasing." alt="" coords="40,695,207,1000"/>
+<area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,327,199,553"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,566,118,694,113,695,106,567"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="223,277,397,603"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,604,202,681,198,679,233,602"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="271,135,349,200"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,200,313,261,307,261,307,200"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="245,5,375,85"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="313,99,313,134,307,134,307,99"/>
 </map>

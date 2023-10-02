@@ -1,5 +1,7 @@
 <map id="galaxy::graphics::Shader::load_file" name="galaxy::graphics::Shader::load_file">
-<area shape="rect" id="node1" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="5,35,187,76"/>
-<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="259,5,441,47"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="235,71,465,98"/>
+<area shape="rect" id="Node000001" title="Loads a shader into OpenGL from source and sets up the shader program." alt="" coords="5,35,187,75"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="259,5,441,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,42,245,35,246,40,187,47"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="235,70,465,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,62,222,66,221,71,187,67"/>
 </map>

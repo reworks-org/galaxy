@@ -1,5 +1,7 @@
 <map id="galaxy::graphics::Camera::get_data" name="galaxy::graphics::Camera::get_data">
-<area shape="rect" id="node1" title="Get camera view and proj." alt="" coords="455,5,641,47"/>
-<area shape="rect" id="node2" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title="Update the camera uniform buffer." alt="" coords="212,5,407,47"/>
-<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Get camera view and proj." alt="" coords="455,5,641,45"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc" title="Update the camera uniform buffer." alt="" coords="212,5,407,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="441,28,407,28,407,23,441,23"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>

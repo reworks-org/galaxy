@@ -1,5 +1,7 @@
 <map id="galaxy::graphics::PostProcess::render_effects" name="galaxy::graphics::PostProcess::render_effects">
-<area shape="rect" id="node1" title="Draw post effects to stored framebuffer." alt="" coords="421,5,636,47"/>
-<area shape="rect" id="node2" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a9c19f817dacff0c4f1806cce0354136e" title="Finalize post processing." alt="" coords="212,5,373,47"/>
-<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Draw post effects to stored framebuffer." alt="" coords="421,5,636,45"/>
+<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a9c19f817dacff0c4f1806cce0354136e" title="Finalize post processing." alt="" coords="212,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,28,164,28,164,23,199,23"/>
 </map>

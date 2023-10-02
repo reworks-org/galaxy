@@ -1,6 +1,9 @@
 <map id="galaxy/src/galaxy/meta/Concepts.hpp" name="galaxy/src/galaxy/meta/Concepts.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="51,5,226,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,85,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,95,168,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="193,95,285,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,5,226,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,85,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,72,86,68,82,114,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,168,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,46,141,79,136,79,136,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="193,93,285,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,43,214,82,211,87,161,48"/>
 </map>

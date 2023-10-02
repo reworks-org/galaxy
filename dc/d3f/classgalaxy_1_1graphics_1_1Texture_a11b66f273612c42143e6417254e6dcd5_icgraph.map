@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::Texture::recreate" name="galaxy::graphics::Texture::recreate">
-<area shape="rect" id="node1" title="Deletes texture data and configuration in OpenGL and creates new texture handle." alt="" coords="237,5,421,47"/>
-<area shape="rect" id="node2" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f" title="Load raw pixel data from memory." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="Node000001" title="Deletes texture data and configuration in OpenGL and creates new texture handle." alt="" coords="237,5,421,45"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f" title="Load raw pixel data from memory." alt="" coords="5,5,189,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,28,190,28,190,23,223,23"/>
 </map>

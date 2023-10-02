@@ -1,9 +1,17 @@
 <map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
-<area shape="rect" id="node1" title="2D OpenGL renderer." alt="" coords="97,660,295,899"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,403,184,495"/>
-<area shape="rect" id="node3" title=" " alt="" coords="16,160,173,237"/>
-<area shape="rect" id="node4" title=" " alt="" coords="75,13,114,90"/>
-<area shape="rect" id="node5" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="208,315,389,583"/>
-<area shape="rect" id="node6" title=" " alt="" coords="255,160,342,237"/>
-<area shape="rect" id="node7" title=" " alt="" coords="229,5,368,97"/>
+<area shape="rect" id="Node000001" title="2D OpenGL renderer." alt="" coords="224,968,415,1253"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="137,688,307,768"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,768,271,943,274,952,268,953,266,945,227,769"/>
+<area shape="rect" id="Node000003" href="$dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html" title="Abstraction for OpenGL buffer objects." alt="" coords="5,148,172,488"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="147,488,207,671,202,673,142,489"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="197,285,346,351"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="269,365,229,688,224,687,263,364"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="260,13,283,78"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="274,78,274,269,269,269,269,78"/>
+<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="331,565,505,891"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="388,892,375,945,373,953,368,951,370,943,383,890"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="379,285,457,351"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="421,351,421,549,415,549,415,351"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="353,5,483,85"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="421,99,421,285,415,285,415,99"/>
 </map>

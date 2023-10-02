@@ -17,7 +17,7 @@ var classgalaxy_1_1graphics_1_1VertexArray =
     [ "id", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf", null ],
     [ "vbo", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89", null ],
     [ "ibo", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a028c9e8cc413cca1e8a53d2f3642c32c", null ],
-    [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a72ebaecd5d59b0e3e00625ff0fd716a9", null ],
+    [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a6ea90ebb19f4b8a7ad052b79f61e3c96", null ],
     [ "m_vao", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a4cbd4aa3bf0ec97b635253788acb9f1d", null ],
     [ "m_vbo", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a392a8ba04f7276a7ac421b7207201317", null ],
     [ "m_ibo", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a794ca7a1cb6203ac3213edab17829492", null ],

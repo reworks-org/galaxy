@@ -1,6 +1,9 @@
 <map id="galaxy::components::Script::load" name="galaxy::components::Script::load">
-<area shape="rect" id="node1" title="Load a script." alt="" coords="408,39,561,80"/>
-<area shape="rect" id="node2" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="207,5,360,47"/>
-<area shape="rect" id="node4" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="207,71,360,112"/>
-<area shape="rect" id="node3" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3" title="JSON constructor." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="Node000001" title="Load a script." alt="" coords="408,37,561,77"/>
+<area shape="rect" id="Node000002" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a7a69437f46bf9a06a71ac54cf180ea78" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,46,360,40,361,35,395,40"/>
+<area shape="rect" id="Node000004" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a46a64c37ce7dd0021c0486d546d5e1a6" title="Pointer constructor." alt="" coords="207,69,360,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="395,74,361,80,360,75,394,69"/>
+<area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="galaxy::core::World::update_rendersystem" name="galaxy::core::World::update_rendersystem">
-<area shape="rect" id="node1" title="Only update the rendersystem." alt="" coords="5,39,177,80"/>
-<area shape="rect" id="node2" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="225,5,420,47"/>
-<area shape="rect" id="node3" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4" title="Submit render data to renderer." alt="" coords="225,71,420,112"/>
+<area shape="rect" id="Node000001" title="Only update the rendersystem." alt="" coords="5,37,177,77"/>
+<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="225,5,420,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,43,211,38,212,43,178,48"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4" title="Submit render data to renderer." alt="" coords="225,69,420,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,67,212,71,211,77,177,72"/>
 </map>

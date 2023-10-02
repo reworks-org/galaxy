@@ -1,4 +1,5 @@
 <map id="galaxy::components::Animated" name="galaxy::components::Animated">
-<area shape="rect" id="node1" title="Allows for an entity to be animated." alt="" coords="5,204,204,516"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="20,5,189,156"/>
+<area shape="rect" id="Node000001" title="Allows for an entity to be animated." alt="" coords="5,219,196,599"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="20,5,181,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,184,103,218,98,218,98,184"/>
 </map>

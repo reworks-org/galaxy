@@ -13,6 +13,6 @@ var classgalaxy_1_1graphics_1_1Buffer =
     [ "unbind", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#af98419f6a200bd9ed9b81e04d00db90e", null ],
     [ "reset", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#a5f19569ee565236bcce4fc5bf5c9b9c0", null ],
     [ "id", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#a03fd4af94fd966c43fb788c86da6feda", null ],
-    [ "operator=", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#ad4d42fc0aa6e50c79f25844e2b308d26", null ],
+    [ "operator=", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#a7befca73b54ddd4e99114ba795de4dda", null ],
     [ "m_obj", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#a3fa53acc7d1e706f343c985926a3c126", null ]
 ];

@@ -1,4 +1,5 @@
 <map id="galaxy::core::World::serialize" name="galaxy::core::World::serialize">
-<area shape="rect" id="node1" title="Serializes object." alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,13,431,39"/>
+<area shape="rect" id="Node000001" title="Serializes object." alt="" coords="5,5,152,45"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,13,431,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,23,187,23,187,28,152,28"/>
 </map>

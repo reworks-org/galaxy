@@ -1,4 +1,5 @@
 <map id="galaxy::async::Timer::update" name="galaxy::async::Timer::update">
-<area shape="rect" id="node1" title="Call to update timer count." alt="" coords="5,5,163,47"/>
-<area shape="rect" id="node2" href="$da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0" title="Stop timer." alt="" coords="211,5,368,47"/>
+<area shape="rect" id="Node000001" title="Call to update timer count." alt="" coords="5,5,163,45"/>
+<area shape="rect" id="Node000002" href="$da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0" title="Stop timer." alt="" coords="211,5,368,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,23,197,23,197,28,163,28"/>
 </map>

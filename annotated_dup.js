@@ -61,22 +61,20 @@ var annotated_dup =
       ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
         [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
-        [ "Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", "de/d57/classgalaxy_1_1graphics_1_1Frame" ],
         [ "Buffer", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html", "dd/d7e/classgalaxy_1_1graphics_1_1Buffer" ],
         [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
+        [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
         [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],
+        [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
         [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", "d1/d70/classgalaxy_1_1graphics_1_1Font" ],
         [ "FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext" ],
+        [ "Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", "de/d57/classgalaxy_1_1graphics_1_1Frame" ],
         [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
+        [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
+        [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
         [ "IndexBuffer", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer" ],
         [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
         [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
-        [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
-        [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
-        [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
-        [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
-        [ "Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen" ],
-        [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
         [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
         [ "Rect", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", "d4/d0a/classgalaxy_1_1graphics_1_1Rect" ],
         [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
@@ -85,6 +83,8 @@ var annotated_dup =
         [ "Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", "df/d20/classgalaxy_1_1graphics_1_1Renderer" ],
         [ "RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture" ],
         [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
+        [ "Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen" ],
+        [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
         [ "SpriteBatch", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch" ],
         [ "TexelRegion", "de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html", "de/df9/classgalaxy_1_1graphics_1_1TexelRegion" ],
         [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", "dc/d3f/classgalaxy_1_1graphics_1_1Texture" ],
@@ -94,10 +94,10 @@ var annotated_dup =
         [ "VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
+        [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
         [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", "db/d0b/classgalaxy_1_1input_1_1Clipboard" ],
         [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", "d5/dc8/classgalaxy_1_1input_1_1Cursor" ],
         [ "Input", "db/df9/classgalaxy_1_1input_1_1Input.html", "db/df9/classgalaxy_1_1input_1_1Input" ],
-        [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
         [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html", "da/def/classgalaxy_1_1input_1_1InputDevice" ],
         [ "Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", "d9/d50/classgalaxy_1_1input_1_1Keyboard" ],
         [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", "dd/d15/classgalaxy_1_1input_1_1Mouse" ]
@@ -154,7 +154,7 @@ var annotated_dup =
       ] ],
       [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ]
     ] ],
-    [ "std", null, [
+    [ "std", "d8/dcc/namespacestd.html", [
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]
     ] ]
 ];

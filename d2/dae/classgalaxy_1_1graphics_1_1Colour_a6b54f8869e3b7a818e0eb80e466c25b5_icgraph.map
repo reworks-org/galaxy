@@ -1,7 +1,12 @@
 <map id="galaxy::graphics::Colour::to_array" name="galaxy::graphics::Colour::to_array">
-<area shape="rect" id="node1" title="Normalizes values and returns as floats." alt="" coords="684,28,863,69"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,32,373,73"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9c5b11993443d9d7ef0151647ac51639" title="Set clear colour." alt="" coords="421,28,636,69"/>
-<area shape="rect" id="node5" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a979ca40cb2d91ac4f8aaf0df470eb863" title="Floats are in range 0.0f &#45; 1.0f." alt="" coords="439,93,618,135"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,32,188,73"/>
+<area shape="rect" id="Node000001" title="Normalizes values and returns as floats." alt="" coords="684,27,863,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,31,373,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="687,27,636,18,528,8,482,10,422,18,359,34,358,28,421,12,481,5,529,3,636,12,688,21"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9c5b11993443d9d7ef0151647ac51639" title="Set clear colour." alt="" coords="421,27,636,67"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="670,50,636,50,636,44,670,44"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a979ca40cb2d91ac4f8aaf0df470eb863" title="Floats are in range 0.0f &#45; 1.0f." alt="" coords="439,91,618,131"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="684,73,606,94,605,88,682,68"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,31,188,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,54,188,54,188,48,222,48"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="439,90,373,72,374,67,441,85"/>
 </map>

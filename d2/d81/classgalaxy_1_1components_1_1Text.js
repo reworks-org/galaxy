@@ -30,7 +30,7 @@ var classgalaxy_1_1components_1_1Text =
     [ "get_vao", "d2/d81/classgalaxy_1_1components_1_1Text.html#a8d0e010da9fe4da38fb7db4b9cbc4fc8", null ],
     [ "serialize", "d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872", null ],
     [ "deserialize", "d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed", null ],
-    [ "operator=", "d2/d81/classgalaxy_1_1components_1_1Text.html#a2a4e95520cfbc37f95bb9912156a43e8", null ],
+    [ "operator=", "d2/d81/classgalaxy_1_1components_1_1Text.html#a2449778c6632c44c31110f51483b4b50", null ],
     [ "sc::panel::EntityEditor", "d2/d81/classgalaxy_1_1components_1_1Text.html#a1b1d68ac5d0d7cd913742abe9c127b8f", null ],
     [ "systems::RenderSystem", "d2/d81/classgalaxy_1_1components_1_1Text.html#af95061df48e572986481518f8b4d5727", null ],
     [ "m_colour", "d2/d81/classgalaxy_1_1components_1_1Text.html#a5063b5e4f1c3b42ce10ac2e69fc43cf0", null ],

@@ -1,4 +1,5 @@
 <map id="galaxy::core::World::create" name="galaxy::core::World::create">
-<area shape="rect" id="node1" title="Create an entity with some default components." alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node2" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#aee9525f06e042810887bda89bf91ff1f" title="Set a flag on an entity." alt="" coords="200,5,353,47"/>
+<area shape="rect" id="Node000001" title="Create an entity with some default components." alt="" coords="5,5,152,45"/>
+<area shape="rect" id="Node000002" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#aee9525f06e042810887bda89bf91ff1f" title="Set a flag on an entity." alt="" coords="200,5,353,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,23,186,23,186,28,152,28"/>
 </map>

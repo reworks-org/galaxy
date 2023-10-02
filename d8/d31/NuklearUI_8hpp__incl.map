@@ -1,11 +1,19 @@
 <map id="galaxy/src/galaxy/ui/NuklearUI.hpp" name="galaxy/src/galaxy/ui/NuklearUI.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="375,5,528,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,151,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="175,95,275,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="299,95,406,121"/>
-<area shape="rect" id="node5" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="430,95,670,121"/>
-<area shape="rect" id="node8" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="695,95,925,121"/>
-<area shape="rect" id="node9" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="949,95,1148,121"/>
-<area shape="rect" id="node6" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="329,169,531,196"/>
-<area shape="rect" id="node7" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="556,169,784,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="375,5,528,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,151,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="375,45,146,93,145,88,374,40"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="175,93,275,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="398,48,272,91,270,86,396,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="299,93,406,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="429,48,380,87,377,82,426,43"/>
+<area shape="rect" id="Node000005" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="430,93,670,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="477,43,526,82,523,87,474,48"/>
+<area shape="rect" id="Node000008" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="695,93,925,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="529,41,745,88,744,93,528,46"/>
+<area shape="rect" id="Node000009" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="949,93,1148,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="529,34,948,89,948,94,528,39"/>
+<area shape="rect" id="Node000006" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="329,167,531,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="532,121,463,162,460,157,529,116"/>
+<area shape="rect" id="Node000007" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="556,167,784,192"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="571,116,640,157,637,162,568,121"/>
 </map>

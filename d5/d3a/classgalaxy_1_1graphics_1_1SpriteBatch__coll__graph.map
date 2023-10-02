@@ -1,7 +1,11 @@
 <map id="galaxy::graphics::SpriteBatch" name="galaxy::graphics::SpriteBatch">
-<area shape="rect" id="node1" title="Batches together vertex data to reduce draw calls." alt="" coords="239,667,413,979"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="237,336,415,604"/>
-<area shape="rect" id="node3" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="5,13,196,266"/>
-<area shape="rect" id="node4" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="221,13,431,266"/>
-<area shape="rect" id="node5" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="455,5,634,273"/>
+<area shape="rect" id="Node000001" title="Batches together vertex data to reduce draw calls." alt="" coords="218,771,385,1151"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="216,388,387,708"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,708,304,754,299,754,299,708"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="5,5,176,325"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,319,210,377,205,379,174,322"/>
+<area shape="rect" id="Node000004" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="200,13,403,318"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="304,318,304,371,299,371,299,318"/>
+<area shape="rect" id="Node000005" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="427,15,610,315"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="436,317,397,385,392,382,431,314"/>
 </map>

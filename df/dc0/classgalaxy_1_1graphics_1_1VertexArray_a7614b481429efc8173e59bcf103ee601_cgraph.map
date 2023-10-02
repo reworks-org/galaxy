@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::VertexArray::index_count" name="galaxy::graphics::VertexArray::index_count">
-<area shape="rect" id="node1" title="Get the count of indicies in the index buffer." alt="" coords="5,5,184,47"/>
-<area shape="rect" id="node2" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="232,5,443,47"/>
+<area shape="rect" id="Node000001" title="Get the count of indicies in the index buffer." alt="" coords="5,5,184,45"/>
+<area shape="rect" id="Node000002" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="232,5,443,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,23,218,23,218,28,184,28"/>
 </map>

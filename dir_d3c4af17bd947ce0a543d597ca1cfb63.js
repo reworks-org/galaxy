@@ -1,19 +1,11 @@
 var dir_d3c4af17bd947ce0a543d597ca1cfb63 =
 [
     [ "AudioEngine.cpp", "df/dc3/AudioEngine_8cpp.html", null ],
-    [ "AudioEngine.hpp", "d4/d92/AudioEngine_8hpp.html", [
-      [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ]
-    ] ],
+    [ "AudioEngine.hpp", "d4/d92/AudioEngine_8hpp.html", "d4/d92/AudioEngine_8hpp" ],
     [ "RingBuffer.cpp", "d0/dc1/RingBuffer_8cpp.html", null ],
-    [ "RingBuffer.hpp", "d4/ded/RingBuffer_8hpp.html", [
-      [ "RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", "d5/df7/classgalaxy_1_1media_1_1RingBuffer" ]
-    ] ],
+    [ "RingBuffer.hpp", "d4/ded/RingBuffer_8hpp.html", "d4/ded/RingBuffer_8hpp" ],
     [ "Sound.cpp", "d1/d8a/Sound_8cpp.html", null ],
-    [ "Sound.hpp", "d9/db9/Sound_8hpp.html", [
-      [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ]
-    ] ],
+    [ "Sound.hpp", "d9/db9/Sound_8hpp.html", "d9/db9/Sound_8hpp" ],
     [ "Video.cpp", "df/da9/Video_8cpp.html", "df/da9/Video_8cpp" ],
-    [ "Video.hpp", "d7/d4c/Video_8hpp.html", [
-      [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
-    ] ]
+    [ "Video.hpp", "d7/d4c/Video_8hpp.html", "d7/d4c/Video_8hpp" ]
 ];

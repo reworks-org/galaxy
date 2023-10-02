@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::GaussianBlur" name="galaxy::graphics::GaussianBlur">
-<area shape="rect" id="node1" title="Gaussian Blur pass." alt="" coords="5,248,228,457"/>
-<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="16,5,217,200"/>
+<area shape="rect" id="Node000001" title="Gaussian Blur pass." alt="" coords="5,279,220,524"/>
+<area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="16,5,209,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,245,115,279,110,279,110,245"/>
 </map>

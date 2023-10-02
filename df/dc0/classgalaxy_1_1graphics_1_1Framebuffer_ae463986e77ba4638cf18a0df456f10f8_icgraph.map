@@ -1,6 +1,9 @@
 <map id="galaxy::graphics::Framebuffer::destroy" name="galaxy::graphics::Framebuffer::destroy">
-<area shape="rect" id="node1" title="Destroy all data used by framebuffer." alt="" coords="268,71,483,112"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a34e325cdd30038d84b53d5b98fcbb7be" title="Move constructor." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8eaf891f0445e678096d6ba2578aa88c" title="Move assignment operator." alt="" coords="5,71,220,112"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa2caf9eb6240ceb9c5dfe5ec84a48f9a" title="Destructor." alt="" coords="5,136,220,177"/>
+<area shape="rect" id="Node000001" title="Destroy all data used by framebuffer." alt="" coords="268,69,483,109"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a34e325cdd30038d84b53d5b98fcbb7be" title="Move constructor." alt="" coords="5,5,220,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,69,195,48,196,43,280,63"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8eaf891f0445e678096d6ba2578aa88c" title="Move assignment operator." alt="" coords="5,69,220,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,92,220,92,220,87,255,87"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa2caf9eb6240ceb9c5dfe5ec84a48f9a" title="Destructor." alt="" coords="5,133,220,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="280,115,196,136,195,131,279,110"/>
 </map>

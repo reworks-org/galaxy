@@ -28,7 +28,7 @@ var classgalaxy_1_1graphics_1_1Framebuffer =
     [ "get_attachments", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef", null ],
     [ "get_renderbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a35cecca35ad8dc2f3a83ca5becd44a87", null ],
     [ "id", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6c06951b97ab3b720d267fb4ec12f9f6", null ],
-    [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad76a8d5316c44a7171cfd9d5013d096f", null ],
+    [ "operator=", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#afe22418b45432b2f934e3650b243d037", null ],
     [ "add_drawbuffers", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e", null ],
     [ "destroy", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae463986e77ba4638cf18a0df456f10f8", null ],
     [ "m_width", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a63198b9866d093c7b6c2be89ce1c3faa", null ],

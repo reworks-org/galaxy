@@ -1,7 +1,11 @@
 <map id="galaxy::resource::Shaders" name="galaxy::resource::Shaders">
-<area shape="rect" id="node1" title="Resource cache for shaders." alt="" coords="90,667,279,847"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="19,336,196,604"/>
-<area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="5,5,183,273"/>
-<area shape="rect" id="node4" title=" " alt="" coords="227,431,313,509"/>
-<area shape="rect" id="node5" title=" " alt="" coords="207,93,346,185"/>
+<area shape="rect" id="Node000001" title="Resource cache for shaders." alt="" coords="86,771,267,976"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="19,388,188,708"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,721,156,770,151,771,140,722"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="5,5,175,325"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,339,100,388,95,388,93,339"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="219,515,297,581"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="253,582,209,756,204,754,247,580"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="199,125,330,205"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="266,219,261,515,256,515,261,219"/>
 </map>

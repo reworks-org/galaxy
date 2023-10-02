@@ -1,9 +1,18 @@
 <map id="galaxy::platform::Subprocess::alive" name="galaxy::platform::Subprocess::alive">
-<area shape="rect" id="node1" title="Check if subprocess is still alive and executing." alt="" coords="753,93,964,135"/>
-<area shape="rect" id="node2" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a981ef4609b384922c477b2267073c887" title="Destroy process, preserving if alive." alt="" coords="495,5,705,47"/>
-<area shape="rect" id="node3" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="273,93,410,135"/>
-<area shape="rect" id="node5" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99a5a8c061bb2e7c8246f08be039d818" title="Wait for a process to finish execution." alt="" coords="495,123,705,164"/>
-<area shape="rect" id="node6" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a11a81f176a5835051868119fa2f2899c" title="Terminate process, killing if alive." alt="" coords="495,188,705,229"/>
-<area shape="rect" id="node4" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,93,188,135"/>
-<area shape="rect" id="node7" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a06cb5ae474cc488ad083d70f8d9df7c8" title="Destructor." alt="" coords="236,188,447,229"/>
+<area shape="rect" id="Node000001" title="Check if subprocess is still alive and executing." alt="" coords="753,92,964,132"/>
+<area shape="rect" id="Node000002" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a981ef4609b384922c477b2267073c887" title="Destroy process, preserving if alive." alt="" coords="495,5,705,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,90,660,48,662,43,786,85"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="273,92,410,132"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="739,111,705,111,495,111,410,113,410,107,495,105,705,105,740,106"/>
+<area shape="rect" id="Node000005" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99a5a8c061bb2e7c8246f08be039d818" title="Wait for a process to finish execution." alt="" coords="495,120,705,160"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="740,128,706,131,705,126,740,122"/>
+<area shape="rect" id="Node000006" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a11a81f176a5835051868119fa2f2899c" title="Terminate process, killing if alive." alt="" coords="495,184,705,224"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="798,140,706,175,670,186,668,181,704,169,796,135"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="527,52,403,94,401,89,525,47"/>
+<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,92,188,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="259,115,188,115,188,109,259,109"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="481,130,410,122,410,117,481,124"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="517,182,494,175,390,135,392,130,496,169,518,177"/>
+<area shape="rect" id="Node000007" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a06cb5ae474cc488ad083d70f8d9df7c8" title="Destructor." alt="" coords="236,184,447,224"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="481,207,447,207,447,201,481,201"/>
 </map>

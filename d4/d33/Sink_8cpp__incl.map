@@ -1,5 +1,7 @@
 <map id="galaxy/src/galaxy/error/Sink.cpp" name="galaxy/src/galaxy/error/Sink.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,177,47"/>
-<area shape="rect" id="node2" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="52,95,131,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="43,169,140,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,177,45"/>
+<area shape="rect" id="Node000002" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="52,93,131,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,46,94,79,89,79,89,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="43,167,140,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,119,94,153,89,153,89,119"/>
 </map>

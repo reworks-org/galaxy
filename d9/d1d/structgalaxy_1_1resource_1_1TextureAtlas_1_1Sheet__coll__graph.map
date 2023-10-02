@@ -1,9 +1,15 @@
 <map id="galaxy::resource::TextureAtlas::Sheet" name="galaxy::resource::TextureAtlas::Sheet">
-<area shape="rect" id="node1" title="A sheet of textures in the atlas." alt="" coords="115,1219,300,1311"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="21,888,204,1156"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="5,425,220,825"/>
-<area shape="rect" id="node4" title=" " alt="" coords="33,285,192,363"/>
-<area shape="rect" id="node5" title=" " alt="" coords="51,145,174,223"/>
-<area shape="rect" id="node6" title=" " alt="" coords="93,5,132,83"/>
-<area shape="rect" id="node7" href="$d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html" title="Rectangle 2D bin packing class." alt="" coords="229,910,375,1134"/>
+<area shape="rect" id="Node000001" title="A sheet of textures in the atlas." alt="" coords="57,1340,235,1420"/>
+<area shape="rect" id="Node000002" href="$d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html" title="Rectangle 2D bin packing class." alt="" coords="5,987,143,1247"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,1247,113,1315,116,1324,111,1326,107,1317,88,1248"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="167,957,341,1277"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,1279,191,1317,186,1327,181,1325,186,1315,203,1276"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="151,389,357,895"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="257,895,257,941,251,941,251,895"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,261,329,327"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="257,327,257,373,251,373,251,327"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="197,133,311,199"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="257,213,257,261,251,261,251,213"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="243,5,265,71"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="257,71,257,117,251,117,251,71"/>
 </map>

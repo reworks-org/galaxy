@@ -1,4 +1,5 @@
 <map id="galaxy::media::RingBuffer::set_volume" name="galaxy::media::RingBuffer::set_volume">
-<area shape="rect" id="node1" title=" " alt="" coords="244,5,435,47"/>
-<area shape="rect" id="node2" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a08ef6e728f95fbf83ac49af5bee55a1e" title=" " alt="" coords="5,5,196,47"/>
+<area shape="rect" id="Node000001" title="Sets audio volume of the buffer." alt="" coords="244,5,435,45"/>
+<area shape="rect" id="Node000002" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a08ef6e728f95fbf83ac49af5bee55a1e" title="Constructor." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,28,196,28,196,23,230,23"/>
 </map>

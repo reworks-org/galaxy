@@ -1,28 +1,55 @@
 <map id="galaxy::components::Text::deserialize" name="galaxy::components::Text::deserialize">
-<area shape="rect" id="node1" title="Deserializes from object." alt="" coords="5,548,159,589"/>
-<area shape="rect" id="node2" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="207,548,360,589"/>
-<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="415,71,598,112"/>
-<area shape="rect" id="node7" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="415,319,598,360"/>
-<area shape="rect" id="node9" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="932,231,1163,258"/>
-<area shape="rect" id="node14" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="417,449,596,491"/>
-<area shape="rect" id="node19" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a2a63886dc9055942bfb4f424fe28f404" title="Generate some default verticies." alt="" coords="417,515,596,556"/>
-<area shape="rect" id="node20" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="417,580,596,621"/>
-<area shape="rect" id="node21" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="415,645,598,687"/>
-<area shape="rect" id="node22" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="415,711,598,752"/>
-<area shape="rect" id="node24" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f" title="Replaces all occurances of a string." alt="" coords="408,777,605,803"/>
-<area shape="rect" id="node25" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Unbind framebuffer and texture." alt="" coords="415,828,598,869"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="661,5,876,47"/>
-<area shape="rect" id="node6" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="677,71,860,112"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="940,39,1155,80"/>
-<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="661,319,876,360"/>
-<area shape="rect" id="node10" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="661,253,876,295"/>
-<area shape="rect" id="node11" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="661,384,876,425"/>
-<area shape="rect" id="node13" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="661,188,876,229"/>
-<area shape="rect" id="node12" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="940,384,1155,425"/>
-<area shape="rect" id="node15" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="663,515,874,556"/>
-<area shape="rect" id="node16" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="679,580,858,621"/>
-<area shape="rect" id="node17" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="653,646,884,673"/>
-<area shape="rect" id="node18" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="679,449,858,491"/>
-<area shape="rect" id="node23" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="661,711,876,752"/>
-<area shape="rect" id="node26" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="661,828,876,869"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,536,159,576"/>
+<area shape="rect" id="Node000002" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="207,536,360,576"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,553,193,553,193,559,159,559"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="415,69,598,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,535,286,461,302,352,318,292,339,233,368,177,406,126,419,115,423,119,410,130,373,179,344,235,323,294,307,353,291,461,287,536"/>
+<area shape="rect" id="Node000007" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="415,312,598,352"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="302,534,406,426,473,360,477,364,410,430,306,538"/>
+<area shape="rect" id="Node000009" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="932,227,1163,253"/>
+<area shape="poly" id="edge24_Node000002_Node000009" title=" " alt="" coords="287,535,301,488,325,426,360,359,381,327,406,298,464,245,517,211,576,189,653,169,717,156,768,153,820,157,885,169,954,191,1013,218,1011,223,952,196,883,175,819,163,768,158,718,161,654,175,577,194,519,216,467,249,410,302,386,330,364,362,330,428,306,490,292,537"/>
+<area shape="rect" id="Node000014" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="417,440,596,480"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="318,534,407,490,425,482,427,487,409,494,321,538"/>
+<area shape="rect" id="Node000019" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a2a63886dc9055942bfb4f424fe28f404" title="Generate some default verticies." alt="" coords="417,504,596,544"/>
+<area shape="poly" id="edge19_Node000002_Node000019" title=" " alt="" coords="360,542,403,536,404,541,361,548"/>
+<area shape="rect" id="Node000020" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="417,568,596,608"/>
+<area shape="poly" id="edge20_Node000002_Node000020" title=" " alt="" coords="361,564,404,571,403,576,360,570"/>
+<area shape="rect" id="Node000021" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="415,632,598,672"/>
+<area shape="poly" id="edge21_Node000002_Node000021" title=" " alt="" coords="321,574,409,618,427,625,425,630,407,622,318,578"/>
+<area shape="rect" id="Node000022" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="415,696,598,736"/>
+<area shape="poly" id="edge22_Node000002_Node000022" title=" " alt="" coords="301,575,346,628,376,657,409,682,420,688,418,693,407,686,373,661,342,632,297,578"/>
+<area shape="rect" id="Node000024" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f" title="Replaces all occurances of a string." alt="" coords="408,761,605,786"/>
+<area shape="poly" id="edge25_Node000002_Node000024" title=" " alt="" coords="294,575,310,612,335,659,368,706,410,746,421,753,418,757,406,750,364,709,330,661,305,615,289,577"/>
+<area shape="rect" id="Node000025" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Unbind framebuffer and texture." alt="" coords="415,811,598,851"/>
+<area shape="poly" id="edge26_Node000002_Node000025" title=" " alt="" coords="292,575,305,621,328,680,363,743,385,771,410,797,416,801,413,806,406,801,381,775,358,746,324,683,300,623,287,577"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="661,5,876,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="589,67,672,46,674,51,590,72"/>
+<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="677,69,860,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="598,87,664,87,664,92,598,92"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="940,37,1155,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="877,35,927,41,926,46,876,40"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="860,76,926,69,926,74,861,82"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="661,312,876,352"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="598,329,647,329,647,335,598,335"/>
+<area shape="rect" id="Node000010" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="661,248,876,288"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="589,309,672,289,674,294,590,315"/>
+<area shape="rect" id="Node000011" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="661,376,876,416"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="590,349,674,370,672,375,589,355"/>
+<area shape="rect" id="Node000013" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="661,184,876,224"/>
+<area shape="poly" id="edge13_Node000007_Node000013" title=" " alt="" coords="532,310,585,271,652,234,670,226,672,231,654,238,588,276,535,314"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="844,309,883,297,1000,255,1002,260,885,303,846,314"/>
+<area shape="rect" id="Node000012" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="940,376,1155,416"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="876,393,926,393,926,399,876,399"/>
+<area shape="rect" id="Node000015" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="663,504,874,544"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="590,477,674,498,672,503,589,483"/>
+<area shape="rect" id="Node000016" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="679,568,858,608"/>
+<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="586,478,607,490,623,506,632,523,640,539,655,554,668,561,665,566,652,558,635,542,627,525,619,509,604,494,583,482"/>
+<area shape="rect" id="Node000017" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="653,633,884,658"/>
+<area shape="poly" id="edge17_Node000014_Node000017" title=" " alt="" coords="591,478,607,490,620,507,627,523,631,557,635,588,642,603,655,618,662,624,659,628,652,622,638,606,630,590,626,557,622,525,616,509,603,494,588,482"/>
+<area shape="rect" id="Node000018" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="679,440,858,480"/>
+<area shape="poly" id="edge18_Node000014_Node000018" title=" " alt="" coords="596,457,666,457,666,463,596,463"/>
+<area shape="rect" id="Node000023" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="661,696,876,736"/>
+<area shape="poly" id="edge23_Node000022_Node000023" title=" " alt="" coords="598,713,647,713,647,719,598,719"/>
+<area shape="rect" id="Node000026" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="661,811,876,851"/>
+<area shape="poly" id="edge27_Node000025_Node000026" title=" " alt="" coords="598,828,647,828,647,833,598,833"/>
 </map>

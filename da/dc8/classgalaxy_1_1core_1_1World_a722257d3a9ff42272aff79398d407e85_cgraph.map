@@ -1,4 +1,5 @@
 <map id="galaxy::core::World::create_from_prefab" name="galaxy::core::World::create_from_prefab">
-<area shape="rect" id="node1" title="Create an entity from a prefab." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,13,443,39"/>
+<area shape="rect" id="Node000001" title="Create an entity from a prefab." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,13,443,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,23,198,23,198,28,165,28"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="galaxy::json::save_to_disk" name="galaxy::json::save_to_disk">
-<area shape="rect" id="node1" title="Save a json file to disk." alt="" coords="5,5,144,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="192,13,423,39"/>
+<area shape="rect" id="Node000001" title="Save a json file to disk." alt="" coords="5,5,144,45"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="192,13,423,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,23,178,23,178,28,144,28"/>
 </map>

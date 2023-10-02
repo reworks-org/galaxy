@@ -1,6 +1,9 @@
 <map id="galaxy::scene::SceneManager::load_appdata" name="galaxy::scene::SceneManager::load_appdata">
-<area shape="rect" id="node1" title="Load app data file into scene manager." alt="" coords="5,71,220,112"/>
-<area shape="rect" id="node2" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243" title="Decompresses string into Base64." alt="" coords="311,5,455,47"/>
-<area shape="rect" id="node3" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795" title="Decompresses string into ZLib." alt="" coords="311,71,455,112"/>
-<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,137,499,163"/>
+<area shape="rect" id="Node000001" title="Load app data file into scene manager." alt="" coords="5,69,220,109"/>
+<area shape="rect" id="Node000002" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243" title="Decompresses string into Base64." alt="" coords="311,5,455,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,67,297,43,299,48,199,72"/>
+<area shape="rect" id="Node000003" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795" title="Decompresses string into ZLib." alt="" coords="311,69,455,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,87,298,87,298,92,220,92"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,134,499,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,107,310,129,309,134,207,112"/>
 </map>

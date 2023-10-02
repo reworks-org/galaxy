@@ -1,9 +1,15 @@
 <map id="galaxy/src/galaxy/algorithm/Random.cpp" name="galaxy/src/galaxy/algorithm/Random.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="18,5,222,47"/>
-<area shape="rect" id="node2" href="$dd/d6e/Random_8hpp.html" title=" " alt="" coords="68,95,172,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,77,196"/>
-<area shape="rect" id="node4" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="102,169,298,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="67,244,147,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="171,244,229,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="254,244,346,271"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="18,5,222,45"/>
+<area shape="rect" id="Node000002" href="$dd/d6e/Random_8hpp.html" title=" " alt="" coords="68,93,172,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,46,123,79,117,79,117,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,77,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,121,66,159,62,156,106,117"/>
+<area shape="rect" id="Node000004" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="102,167,298,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,117,179,156,175,160,131,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="67,240,147,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="187,194,134,234,131,229,183,190"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="171,240,229,265"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="203,192,203,226,197,226,197,192"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="254,240,346,265"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="218,190,274,230,271,234,215,194"/>
 </map>

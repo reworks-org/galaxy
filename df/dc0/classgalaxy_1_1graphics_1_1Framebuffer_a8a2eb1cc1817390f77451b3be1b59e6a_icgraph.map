@@ -1,5 +1,7 @@
 <map id="galaxy::graphics::Framebuffer::get_width" name="galaxy::graphics::Framebuffer::get_width">
-<area shape="rect" id="node1" title="Get width." alt="" coords="467,5,681,47"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="236,5,419,47"/>
-<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a997e5f87758f7003ab60dc7cda45c118" title="Saves texture to file on disk." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="Get width." alt="" coords="467,5,681,45"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="236,5,419,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,28,419,28,419,23,453,23"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a997e5f87758f7003ab60dc7cda45c118" title="Saves texture to file on disk." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
 </map>

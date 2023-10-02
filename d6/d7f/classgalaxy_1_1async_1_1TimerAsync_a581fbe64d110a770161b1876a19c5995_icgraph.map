@@ -1,4 +1,5 @@
 <map id="galaxy::async::TimerAsync::stop" name="galaxy::async::TimerAsync::stop">
-<area shape="rect" id="node1" title="Stop a repeating timer." alt="" coords="249,5,445,47"/>
-<area shape="rect" id="node2" href="$d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#afb8b0f4150fc7fc08fc433529a283b4a" title="Destructor." alt="" coords="5,5,201,47"/>
+<area shape="rect" id="Node000001" title="Stop a repeating timer." alt="" coords="249,5,445,45"/>
+<area shape="rect" id="Node000002" href="$d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#afb8b0f4150fc7fc08fc433529a283b4a" title="Destructor." alt="" coords="5,5,201,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,28,201,28,201,23,236,23"/>
 </map>

@@ -8,7 +8,7 @@ var classgalaxy_1_1async_1_1TimerAsync =
     [ "set", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#aaf5559a81463729fee5b1b1e8ea3abf6", null ],
     [ "start", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#a02f6b5c079f7fc7568f3b2cd011a4995", null ],
     [ "stop", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#a581fbe64d110a770161b1876a19c5995", null ],
-    [ "operator=", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#aeb59c6e4496ac1cb05dc9244f441276e", null ],
+    [ "operator=", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#ae9beb1db8f0c7582e559877a72cee583", null ],
     [ "m_repeat", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#ac1751645797fe73065f198ca0b05bae6", null ],
     [ "m_delay", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#a8fdffd5effe1bf8c315810e3b82cc1b6", null ],
     [ "m_handle", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#ae22bc64bf31f496b83babc14ce1c66b7", null ],

@@ -1,4 +1,5 @@
 <map id="galaxy::async::TimerAsync::TimerAsync" name="galaxy::async::TimerAsync::TimerAsync">
-<area shape="rect" id="node1" title="Set constructor." alt="" coords="5,5,201,47"/>
-<area shape="rect" id="node2" href="$d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#aaf5559a81463729fee5b1b1e8ea3abf6" title="Run a function on a precision timer." alt="" coords="249,13,473,39"/>
+<area shape="rect" id="Node000001" title="Set constructor." alt="" coords="5,5,201,45"/>
+<area shape="rect" id="Node000002" href="$d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html#aaf5559a81463729fee5b1b1e8ea3abf6" title="Run a function on a precision timer." alt="" coords="249,13,473,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,23,236,23,236,28,202,28"/>
 </map>

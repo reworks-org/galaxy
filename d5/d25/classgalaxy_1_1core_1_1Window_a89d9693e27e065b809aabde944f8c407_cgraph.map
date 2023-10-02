@@ -1,6 +1,9 @@
 <map id="galaxy::core::Window::Window" name="galaxy::core::Window::Window">
-<area shape="rect" id="node1" title="Constructor." alt="" coords="5,49,167,90"/>
-<area shape="rect" id="node2" href="$d2/d84/Window_8cpp.html#adcb69fb052fdcbf7c890b6fbc254316a" title="Window.cpp galaxy." alt="" coords="223,5,309,32"/>
-<area shape="rect" id="node3" href="$d2/d84/Window_8cpp.html#a91fadaf791c4b18395f2fff3ca66fde2" title=" " alt="" coords="215,56,317,83"/>
-<area shape="rect" id="node4" href="$d2/d84/Window_8cpp.html#aa7b7ec527cd5cc575ce27315bd36e07e" title=" " alt="" coords="216,107,316,133"/>
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,47,167,87"/>
+<area shape="rect" id="Node000002" href="$d2/d84/Window_8cpp.html#ae69dffd9738a07cf7915f97c280121bf" title="Window.cpp galaxy." alt="" coords="223,5,309,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,45,209,31,210,36,160,50"/>
+<area shape="rect" id="Node000003" href="$d2/d84/Window_8cpp.html#a91fadaf791c4b18395f2fff3ca66fde2" title=" " alt="" coords="215,55,317,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,65,201,65,201,70,167,70"/>
+<area shape="rect" id="Node000004" href="$d2/d84/Window_8cpp.html#ad23f1c8a44363e14052ac5103285462d" title=" " alt="" coords="216,104,316,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,85,207,98,205,103,159,90"/>
 </map>

@@ -18,8 +18,8 @@ var classgalaxy_1_1core_1_1Config =
     [ "empty", "d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae", null ],
     [ "raw", "d6/de9/classgalaxy_1_1core_1_1Config.html#ad04fd4db4b607bf68caa4608f42b5406", null ],
     [ "raw", "d6/de9/classgalaxy_1_1core_1_1Config.html#a443fe094e62b49d45e04064ddb94fc8a", null ],
-    [ "operator=", "d6/de9/classgalaxy_1_1core_1_1Config.html#a187ebcc5680eb343e6b9f2d6daee01d8", null ],
-    [ "operator=", "d6/de9/classgalaxy_1_1core_1_1Config.html#a6bc2302361ab6af5c5a7854e26ca0b69", null ],
+    [ "operator=", "d6/de9/classgalaxy_1_1core_1_1Config.html#a93f018b9a4154e0f74d6824cc2a1ca96", null ],
+    [ "operator=", "d6/de9/classgalaxy_1_1core_1_1Config.html#ae53d93746660df6d78d2aa4e70355fa5", null ],
     [ "m_loaded", "d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23", null ],
     [ "m_config", "d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa", null ],
     [ "m_path", "d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512", null ]

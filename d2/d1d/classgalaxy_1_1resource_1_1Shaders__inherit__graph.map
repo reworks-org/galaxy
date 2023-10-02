@@ -1,5 +1,7 @@
 <map id="galaxy::resource::Shaders" name="galaxy::resource::Shaders">
-<area shape="rect" id="node1" title="Resource cache for shaders." alt="" coords="5,653,195,833"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="11,336,189,604"/>
-<area shape="rect" id="node3" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="11,5,189,273"/>
+<area shape="rect" id="Node000001" title="Resource cache for shaders." alt="" coords="5,757,187,963"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="11,388,181,708"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,722,99,757,93,757,93,722"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Provides a useful set of functions around managing a resource cache." alt="" coords="11,5,181,325"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,339,99,388,93,388,93,339"/>
 </map>

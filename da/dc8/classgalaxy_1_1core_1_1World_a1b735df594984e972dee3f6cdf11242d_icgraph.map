@@ -1,5 +1,9 @@
 <map id="galaxy::core::World::create_system" name="galaxy::core::World::create_system">
-<area shape="rect" id="node1" title="Add a system to the manager." alt="" coords="419,5,565,47"/>
-<area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2f35a6028b621a3b2a8964b301a48e40" title="Shared init function for constructors." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2e7e33ec8e9007b62dcd2be275b298b6" title="Constructor." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Add a system to the manager." alt="" coords="419,37,565,77"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2f35a6028b621a3b2a8964b301a48e40" title="Shared init function for constructors." alt="" coords="212,37,371,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="405,60,371,60,371,55,405,55"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2e7e33ec8e9007b62dcd2be275b298b6" title="Constructor." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,46,164,40,164,35,199,40"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#abeb10711646276e1ddf72d9d5f3595df" title="Name constructor." alt="" coords="5,69,164,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,74,164,80,164,74,198,69"/>
 </map>

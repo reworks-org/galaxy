@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::VertexBuffer::~VertexBuffer" name="galaxy::graphics::VertexBuffer::~VertexBuffer">
-<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,184,47"/>
-<area shape="rect" id="node2" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a64ce2991b0677e9a7ba906b51bda39bb" title="Destroy Vertex Buffer Object." alt="" coords="232,5,411,47"/>
+<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,5,184,45"/>
+<area shape="rect" id="Node000002" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a64ce2991b0677e9a7ba906b51bda39bb" title="Destroy Vertex Buffer Object." alt="" coords="232,5,411,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,23,218,23,218,28,185,28"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="galaxy::ui::NuklearUI::new_frame" name="galaxy::ui::NuklearUI::new_frame">
-<area shape="rect" id="node1" title="Called before any nuklear code." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node2" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Called before any nuklear code." alt="" coords="212,5,371,45"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>

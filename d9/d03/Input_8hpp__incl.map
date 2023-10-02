@@ -1,6 +1,9 @@
 <map id="galaxy/src/galaxy/input/Input.hpp" name="galaxy/src/galaxy/input/Input.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="136,5,311,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node3" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="140,95,307,121"/>
-<area shape="rect" id="node4" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="331,95,559,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="136,5,311,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,116,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,48,98,90,96,85,183,43"/>
+<area shape="rect" id="Node000003" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="140,93,307,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,46,226,79,221,79,221,46"/>
+<area shape="rect" id="Node000004" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="331,93,559,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="277,43,400,86,398,91,275,48"/>
 </map>

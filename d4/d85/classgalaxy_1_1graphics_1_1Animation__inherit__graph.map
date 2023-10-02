@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::Animation" name="galaxy::graphics::Animation">
-<area shape="rect" id="node1" title="Basic keyframe animation." alt="" coords="5,204,208,560"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="22,5,191,156"/>
+<area shape="rect" id="Node000001" title="Basic keyframe animation." alt="" coords="5,219,200,664"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="22,5,183,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,185,105,219,100,219,100,185"/>
 </map>

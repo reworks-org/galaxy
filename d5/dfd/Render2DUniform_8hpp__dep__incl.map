@@ -1,14 +1,26 @@
 <map id="galaxy/src/galaxy/graphics/Render2DUniform.hpp" name="galaxy/src/galaxy/graphics/Render2DUniform.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="143,5,339,47"/>
-<area shape="rect" id="node2" href="$dd/db9/Render2DUniform_8cpp.html" title=" " alt="" coords="33,95,229,136"/>
-<area shape="rect" id="node3" href="$d4/d1f/RenderCommand_8hpp.html" title=" " alt="" coords="253,95,449,136"/>
-<area shape="rect" id="node4" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="5,273,175,315"/>
-<area shape="rect" id="node5" href="$d0/db7/RenderCommand_8cpp.html" title=" " alt="" coords="253,184,449,225"/>
-<area shape="rect" id="node6" href="$dd/db8/Renderer_8hpp.html" title=" " alt="" coords="481,184,677,225"/>
-<area shape="rect" id="node7" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="199,273,368,315"/>
-<area shape="rect" id="node8" href="$d2/d84/Window_8cpp.html" title=" " alt="" coords="392,273,561,315"/>
-<area shape="rect" id="node9" href="$d3/d28/Renderer_8cpp.html" title=" " alt="" coords="585,273,781,315"/>
-<area shape="rect" id="node10" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="806,273,1003,315"/>
-<area shape="rect" id="node11" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="1027,273,1206,315"/>
-<area shape="rect" id="node12" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="1231,273,1427,315"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="143,5,339,45"/>
+<area shape="rect" id="Node000002" href="$dd/db9/Render2DUniform_8cpp.html" title=" " alt="" coords="33,93,229,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,56,157,95,154,91,204,52"/>
+<area shape="rect" id="Node000003" href="$d4/d1f/RenderCommand_8hpp.html" title=" " alt="" coords="253,93,449,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,52,328,91,325,95,275,56"/>
+<area shape="rect" id="Node000004" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="5,269,175,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="308,143,242,184,117,271,114,267,239,179,306,138"/>
+<area shape="rect" id="Node000005" href="$d0/db7/RenderCommand_8cpp.html" title=" " alt="" coords="253,181,449,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="354,147,354,181,349,181,349,147"/>
+<area shape="rect" id="Node000006" href="$dd/db8/Renderer_8hpp.html" title=" " alt="" coords="481,181,677,221"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="415,136,530,179,528,184,413,141"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="468,223,186,272,175,274,174,269,186,267,467,218"/>
+<area shape="rect" id="Node000007" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="199,269,368,309"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="502,228,349,272,347,267,501,223"/>
+<area shape="rect" id="Node000008" href="$d2/d84/Window_8cpp.html" title=" " alt="" coords="392,269,561,309"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="548,232,501,271,498,267,544,228"/>
+<area shape="rect" id="Node000009" href="$d3/d28/Renderer_8cpp.html" title=" " alt="" coords="585,269,781,309"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="615,228,662,267,659,271,611,232"/>
+<area shape="rect" id="Node000010" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="806,269,1003,309"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="664,222,834,267,833,272,663,227"/>
+<area shape="rect" id="Node000011" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="1027,269,1206,309"/>
+<area shape="poly" id="edge11_Node000006_Node000011" title=" " alt="" coords="691,216,1016,267,1028,269,1027,274,1015,272,691,221"/>
+<area shape="rect" id="Node000012" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="1231,269,1427,309"/>
+<area shape="poly" id="edge12_Node000006_Node000012" title=" " alt="" coords="691,210,934,233,1218,267,1231,268,1230,274,1218,272,933,238,691,215"/>
 </map>

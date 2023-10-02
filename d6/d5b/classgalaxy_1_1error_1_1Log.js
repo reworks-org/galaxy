@@ -10,8 +10,8 @@ var classgalaxy_1_1error_1_1Log =
     [ "add_sink", "d6/d5b/classgalaxy_1_1error_1_1Log.html#ae3d148ba5c6bd1a8b4182008a8efbf4d", null ],
     [ "set_min_level", "d6/d5b/classgalaxy_1_1error_1_1Log.html#ab697c216f55a999b9dab3606d804db9b", null ],
     [ "log", "d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f", null ],
-    [ "operator=", "d6/d5b/classgalaxy_1_1error_1_1Log.html#a3b46d297ae9402dfd051762e83180304", null ],
-    [ "operator=", "d6/d5b/classgalaxy_1_1error_1_1Log.html#af58b2950b9534ae94bc33890b9cb8ed3", null ],
+    [ "operator=", "d6/d5b/classgalaxy_1_1error_1_1Log.html#a183a9163f1d9b011665af4894c5deaff", null ],
+    [ "operator=", "d6/d5b/classgalaxy_1_1error_1_1Log.html#a920a49ef015ddb77bc5f74e4c0f6438b", null ],
     [ "m_min_level", "d6/d5b/classgalaxy_1_1error_1_1Log.html#af10e0e9083dbdc658aa8b0a92aef5ef0", null ],
     [ "m_sinks", "d6/d5b/classgalaxy_1_1error_1_1Log.html#a21ec9168a79f4c33bbbda98fd3a54c99", null ]
 ];

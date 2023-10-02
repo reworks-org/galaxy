@@ -1,4 +1,5 @@
 <map id="galaxy::media::Video::render" name="galaxy::media::Video::render">
-<area shape="rect" id="node1" title="Render video." alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node2" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="212,5,393,47"/>
+<area shape="rect" id="Node000001" title="Render video." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="212,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
 </map>

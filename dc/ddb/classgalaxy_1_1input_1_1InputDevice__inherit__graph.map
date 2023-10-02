@@ -1,7 +1,11 @@
 <map id="galaxy::input::InputDevice" name="galaxy::input::InputDevice">
-<area shape="rect" id="node1" title=" " alt="" coords="328,5,520,171"/>
-<area shape="rect" id="node2" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="5,329,181,509"/>
-<area shape="rect" id="node3" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="206,219,418,619"/>
-<area shape="rect" id="node4" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="442,285,633,553"/>
-<area shape="rect" id="node5" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="657,321,847,516"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="316,5,500,191"/>
+<area shape="rect" id="Node000002" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="5,389,173,594"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,149,242,189,213,213,187,240,163,275,143,312,114,390,109,388,138,310,159,272,183,237,210,209,239,184,302,144"/>
+<area shape="rect" id="Node000003" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="198,239,402,744"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="382,205,372,239,367,238,376,203"/>
+<area shape="rect" id="Node000004" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="427,329,608,654"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="440,203,475,328,470,329,435,205"/>
+<area shape="rect" id="Node000005" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="632,379,813,604"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="513,148,571,188,622,237,645,270,665,305,696,377,691,379,661,307,641,272,618,240,568,192,510,153"/>
 </map>

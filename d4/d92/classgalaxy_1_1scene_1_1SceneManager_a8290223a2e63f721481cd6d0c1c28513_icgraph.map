@@ -1,6 +1,9 @@
 <map id="galaxy::scene::SceneManager::clear" name="galaxy::scene::SceneManager::clear">
-<area shape="rect" id="node1" title="Destroys all scenes." alt="" coords="499,39,713,80"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="275,5,412,47"/>
-<area shape="rect" id="node4" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b" title="Destructor." alt="" coords="236,71,451,112"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="Destroys all scenes." alt="" coords="499,37,713,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="275,5,412,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,45,412,36,412,31,485,40"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b" title="Destructor." alt="" coords="236,69,451,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="486,75,451,79,451,74,485,69"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,28,188,28,188,23,261,23"/>
 </map>

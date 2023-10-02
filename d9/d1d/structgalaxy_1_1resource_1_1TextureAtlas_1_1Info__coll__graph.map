@@ -1,4 +1,5 @@
 <map id="galaxy::resource::TextureAtlas::Info" name="galaxy::resource::TextureAtlas::Info">
-<area shape="rect" id="node1" title="Information about textures stored in atlas." alt="" coords="20,233,205,384"/>
-<area shape="rect" id="node2" href="$de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html" title="Represents a quad on a texture in OpenGL texels." alt="" coords="5,5,220,171"/>
+<area shape="rect" id="Node000001" title="Information about textures stored in atlas." alt="" coords="20,253,197,413"/>
+<area shape="rect" id="Node000002" href="$de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html" title="Represents a quad on a texture in OpenGL texels." alt="" coords="5,5,212,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,191,111,237,106,237,106,191"/>
 </map>

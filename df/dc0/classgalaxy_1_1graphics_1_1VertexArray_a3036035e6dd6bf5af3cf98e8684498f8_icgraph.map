@@ -1,6 +1,9 @@
 <map id="galaxy::graphics::VertexArray::destroy" name="galaxy::graphics::VertexArray::destroy">
-<area shape="rect" id="node1" title="Destroy Vertex Array Object." alt="" coords="232,71,411,112"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2fe2626b52a114eb07b65e9d6659eb1a" title="Move assignment operator." alt="" coords="5,5,184,47"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ac273f17974444a28c23b26fbe94936a4" title="Move constructor." alt="" coords="5,71,184,112"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa" title="Destructor." alt="" coords="5,136,184,177"/>
+<area shape="rect" id="Node000001" title="Destroy Vertex Array Object." alt="" coords="232,69,411,109"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a2fe2626b52a114eb07b65e9d6659eb1a" title="Move assignment operator." alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,68,165,48,167,43,237,63"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ac273f17974444a28c23b26fbe94936a4" title="Move constructor." alt="" coords="5,69,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,92,184,92,184,87,218,87"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa" title="Destructor." alt="" coords="5,133,184,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,116,167,136,165,131,236,111"/>
 </map>

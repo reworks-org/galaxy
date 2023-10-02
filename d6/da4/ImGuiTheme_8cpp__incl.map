@@ -1,6 +1,9 @@
 <map id="galaxy/src/galaxy/ui/ImGuiTheme.cpp" name="galaxy/src/galaxy/ui/ImGuiTheme.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="55,5,209,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,72,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,95,167,121"/>
-<area shape="rect" id="node4" href="$d9/df5/ImGuiTheme_8hpp.html" title=" " alt="" coords="191,95,326,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="55,5,209,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,72,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,48,65,86,62,82,108,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,93,167,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,46,135,79,129,79,129,46"/>
+<area shape="rect" id="Node000004" href="$d9/df5/ImGuiTheme_8hpp.html" title=" " alt="" coords="191,93,326,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,43,230,84,227,88,161,48"/>
 </map>

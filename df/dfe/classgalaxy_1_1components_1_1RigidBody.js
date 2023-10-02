@@ -27,7 +27,7 @@ var classgalaxy_1_1components_1_1RigidBody =
     [ "get_material", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a1c2e16458160b9d7e19299b1cc988f39", null ],
     [ "serialize", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0", null ],
     [ "deserialize", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aa8156f6136a80ec21225119bd7f79529", null ],
-    [ "operator=", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a5f0a3701ede0892ebca21a62bda794eb", null ],
+    [ "operator=", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a4e54b9e43d624269a88879ae8af29f85", null ],
     [ "core::World", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aaf3262cd848c6e316b2210f87da1c45c", null ],
     [ "systems::PhysicsSystem", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#ac34f3cbda64ea88f30ac382dc70efe59", null ],
     [ "m_shape", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a5ea2bd53ff1a8b4b79346de838d6cc8c", null ],

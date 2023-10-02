@@ -1,4 +1,5 @@
 <map id="galaxy::media::data_callback" name="galaxy::media::data_callback">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,156,47"/>
-<area shape="rect" id="node2" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a4ae6813a18b4d2eb5c0854806211e8e7" title=" " alt="" coords="204,5,395,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" id="Node000002" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a02d4321137e9d59e26b7807f3c66a675" title="Read the ring buffer." alt="" coords="204,5,395,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
 </map>

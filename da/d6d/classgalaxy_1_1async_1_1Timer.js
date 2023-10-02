@@ -10,7 +10,7 @@ var classgalaxy_1_1async_1_1Timer =
     [ "start", "da/d6d/classgalaxy_1_1async_1_1Timer.html#a46c687af58157cca1d9a7e8130e067b2", null ],
     [ "stop", "da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0", null ],
     [ "stopped", "da/d6d/classgalaxy_1_1async_1_1Timer.html#a0f645f081c4cae2796dc44aa19d67596", null ],
-    [ "operator=", "da/d6d/classgalaxy_1_1async_1_1Timer.html#a2cbff01adc285570d4d5d449f2c19a9c", null ],
+    [ "operator=", "da/d6d/classgalaxy_1_1async_1_1Timer.html#aaacadf66f7b2a20febc9d50502b32357", null ],
     [ "m_repeat", "da/d6d/classgalaxy_1_1async_1_1Timer.html#abe074cf878a4dfb6d860bce2a2c5297a", null ],
     [ "m_stopped", "da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9", null ],
     [ "m_time_passed", "da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92", null ],

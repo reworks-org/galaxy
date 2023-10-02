@@ -10,6 +10,6 @@ var classgalaxy_1_1components_1_1Tag =
     [ "operator=", "d8/d96/classgalaxy_1_1components_1_1Tag.html#a8840879d5689d0f522121676fc96a2a2", null ],
     [ "serialize", "d8/d96/classgalaxy_1_1components_1_1Tag.html#aeea42063baecbebce2f1804f9c2d5f87", null ],
     [ "deserialize", "d8/d96/classgalaxy_1_1components_1_1Tag.html#a6f8f521aef2a83f8134ebb9f66516c2b", null ],
-    [ "operator=", "d8/d96/classgalaxy_1_1components_1_1Tag.html#a6b9ae81a6c64cf36f6ac725e24145fb6", null ],
+    [ "operator=", "d8/d96/classgalaxy_1_1components_1_1Tag.html#aa1d81ac0f772c39e95ead01046ef0ac3", null ],
     [ "m_tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html#a87e3646257f62970588b0bd756f56344", null ]
 ];

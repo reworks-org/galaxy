@@ -1,9 +1,15 @@
 <map id="galaxy::components::Transform::Transform" name="galaxy::components::Transform::Transform">
-<area shape="rect" id="node1" title="JSON constructor." alt="" coords="5,136,173,177"/>
-<area shape="rect" id="node2" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,136,396,177"/>
-<area shape="rect" id="node3" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58a9c3d442504b309a745f6dbf16d0a9" title="Reset transform." alt="" coords="449,5,603,47"/>
-<area shape="rect" id="node4" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a78a4b7b36ee11c5e1a77e085d981a8cf" title="Rotate entity." alt="" coords="449,71,603,112"/>
-<area shape="rect" id="node5" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="449,136,603,177"/>
-<area shape="rect" id="node6" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="444,202,608,258"/>
-<area shape="rect" id="node7" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="444,282,608,338"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,133,173,173"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,133,396,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,151,208,151,208,156,174,156"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58a9c3d442504b309a745f6dbf16d0a9" title="Reset transform." alt="" coords="449,5,603,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,131,382,93,443,55,455,49,458,53,445,60,385,98,336,135"/>
+<area shape="rect" id="Node000004" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a78a4b7b36ee11c5e1a77e085d981a8cf" title="Rotate entity." alt="" coords="449,69,603,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="377,131,444,111,446,116,378,136"/>
+<area shape="rect" id="Node000005" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="449,133,603,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="396,151,436,151,436,156,396,156"/>
+<area shape="rect" id="Node000006" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="444,198,608,253"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="371,171,432,191,430,196,369,176"/>
+<area shape="rect" id="Node000007" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="444,277,608,331"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="333,171,383,215,445,262,454,267,452,272,443,266,379,219,329,175"/>
 </map>

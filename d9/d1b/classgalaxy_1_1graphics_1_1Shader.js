@@ -18,7 +18,7 @@ var classgalaxy_1_1graphics_1_1Shader =
     [ "get_uniform_count", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0c9a2deb51adadb9d92777a32ef4d131", null ],
     [ "get_uniform_info", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7c42cad9fd3ec0e2f5af19405a144e03", null ],
     [ "id", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a6eef9bea37fbd1c33903f460adfb4f32", null ],
-    [ "operator=", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a72388e15f27e4385f3278ef47af04a55", null ],
+    [ "operator=", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aa75d8f610dacda135c0a902d435e4113", null ],
     [ "set_uniform", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab07b958cb15123ce9f040676ce22afe1", null ],
     [ "set_uniform", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae53811bb2446d8e6b790e01382096467", null ],
     [ "set_uniform", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a41c189230dbe13384a6bcd4ec2e7ad4e", null ],

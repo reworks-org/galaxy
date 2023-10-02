@@ -1,5 +1,7 @@
 <map id="galaxy::resource::Materials::load" name="galaxy::resource::Materials::load">
-<area shape="rect" id="node1" title="Loads resources from a folder." alt="" coords="5,46,204,87"/>
-<area shape="rect" id="node2" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136" title="Clean up resources." alt="" coords="279,5,456,61"/>
-<area shape="rect" id="node3" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="252,85,483,112"/>
+<area shape="rect" id="Node000001" title="Loads resources from a folder." alt="" coords="5,45,204,85"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136" title="Clean up resources." alt="" coords="279,5,456,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,50,265,42,265,48,205,55"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="252,84,483,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,74,249,80,249,85,204,79"/>
 </map>

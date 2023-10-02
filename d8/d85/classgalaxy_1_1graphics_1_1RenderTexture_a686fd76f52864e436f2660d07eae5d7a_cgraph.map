@@ -1,10 +1,17 @@
 <map id="galaxy::graphics::RenderTexture::RenderTexture" name="galaxy::graphics::RenderTexture::RenderTexture">
-<area shape="rect" id="node1" title="Argument constructor." alt="" coords="5,104,188,145"/>
-<area shape="rect" id="node2" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="236,104,419,145"/>
-<area shape="rect" id="node3" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="467,5,681,47"/>
-<area shape="rect" id="node5" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="467,71,681,112"/>
-<area shape="rect" id="node6" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="467,136,681,177"/>
-<area shape="rect" id="node8" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="467,201,681,243"/>
-<area shape="rect" id="node4" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="729,13,960,39"/>
-<area shape="rect" id="node7" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="737,136,952,177"/>
+<area shape="rect" id="Node000001" title="Argument constructor." alt="" coords="5,101,188,141"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="236,101,419,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,119,222,119,222,124,188,124"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="467,5,681,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,99,466,55,487,47,489,52,468,60,370,103"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="467,69,681,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="418,107,453,102,453,108,419,112"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="467,133,681,173"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="419,131,453,135,453,140,418,136"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="467,197,681,237"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="370,139,468,183,489,190,487,195,466,188,367,144"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="729,13,960,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="682,23,716,23,716,28,682,28"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="737,133,952,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="682,151,724,151,724,156,682,156"/>
 </map>

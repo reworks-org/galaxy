@@ -1,6 +1,9 @@
 <map id="galaxy::core::Prefab::from_entity" name="galaxy::core::Prefab::from_entity">
-<area shape="rect" id="node1" title="Creates the prefab from an entity." alt="" coords="435,39,585,80"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="243,5,380,47"/>
-<area shape="rect" id="node4" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af" title="Entity constructor." alt="" coords="236,71,387,112"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="Creates the prefab from an entity." alt="" coords="435,37,585,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="243,5,380,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="421,46,380,39,381,34,421,40"/>
+<area shape="rect" id="Node000004" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af" title="Entity constructor." alt="" coords="236,69,387,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="422,74,387,80,386,75,421,69"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,28,188,28,188,23,229,23"/>
 </map>

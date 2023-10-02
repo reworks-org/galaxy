@@ -19,7 +19,7 @@ var classgalaxy_1_1components_1_1Sprite =
     [ "get_vao", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a851f808b6569e6c1c9bcca49ab49132e", null ],
     [ "serialize", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#aabb40d44c4e4f602e6937b99816559bf", null ],
     [ "deserialize", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69", null ],
-    [ "operator=", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a77f963680c94629718c5007e5ca9cc85", null ],
+    [ "operator=", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a19f7039aa3d2c8dcd5bb5d11a4050678", null ],
     [ "sc::panel::EntityEditor", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a1b1d68ac5d0d7cd913742abe9c127b8f", null ],
     [ "systems::RenderSystem", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#af95061df48e572986481518f8b4d5727", null ],
     [ "m_vao", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a754aec52224f994dff67c001cfdcc249", null ],

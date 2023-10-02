@@ -1,5 +1,7 @@
 <map id="galaxy/src/galaxy/fs/FileInfo.hpp" name="galaxy/src/galaxy/fs/FileInfo.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="51,5,205,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,96,121"/>
-<area shape="rect" id="node3" href="$d7/d75/FileCode_8hpp.html" title=" " alt="" coords="120,95,291,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,5,205,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,96,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,74,85,70,82,107,44"/>
+<area shape="rect" id="Node000003" href="$d7/d75/FileCode_8hpp.html" title=" " alt="" coords="120,93,291,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,44,186,82,182,85,145,47"/>
 </map>

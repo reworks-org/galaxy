@@ -1,6 +1,9 @@
 <map id="galaxy::utils::Guid::to_string" name="galaxy::utils::Guid::to_string">
-<area shape="rect" id="node1" title="Get the GUID as a string." alt="" coords="460,39,599,80"/>
-<area shape="rect" id="node2" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,5,393,47"/>
-<area shape="rect" id="node4" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html#a8ed67cf52598a7c589878d5f9146d107" title="Hash specialization function for Guid." alt="" coords="236,71,412,112"/>
-<area shape="rect" id="node3" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="Node000001" title="Get the GUID as a string." alt="" coords="460,37,599,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="446,47,392,39,393,33,447,42"/>
+<area shape="rect" id="Node000004" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html#a8ed67cf52598a7c589878d5f9146d107" title="Hash specialization function for Guid." alt="" coords="236,69,412,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="447,73,413,78,412,73,446,68"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,28,188,28,188,23,242,23"/>
 </map>

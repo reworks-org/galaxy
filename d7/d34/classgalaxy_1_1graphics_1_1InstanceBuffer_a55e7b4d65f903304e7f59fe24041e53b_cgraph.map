@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::InstanceBuffer::InstanceBuffer" name="galaxy::graphics::InstanceBuffer::InstanceBuffer">
-<area shape="rect" id="node1" title="Move constructor." alt="" coords="5,5,196,47"/>
-<area shape="rect" id="node2" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a8afbdb64b8d0e84e43e7d5f8d9ddca77" title="Destroy Instance Buffer Object." alt="" coords="244,5,435,47"/>
+<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,5,196,45"/>
+<area shape="rect" id="Node000002" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a8afbdb64b8d0e84e43e7d5f8d9ddca77" title="Destroy Instance Buffer Object." alt="" coords="244,5,435,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,23,230,23,230,28,196,28"/>
 </map>

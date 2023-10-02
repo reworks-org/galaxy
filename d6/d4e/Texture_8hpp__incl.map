@@ -1,8 +1,13 @@
 <map id="galaxy/src/galaxy/graphics/Texture.hpp" name="galaxy/src/galaxy/graphics/Texture.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="133,5,329,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,59,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="83,95,181,121"/>
-<area shape="rect" id="node4" href="$df/d19/TextureModes_8hpp.html" title=" " alt="" coords="205,95,453,121"/>
-<area shape="rect" id="node6" href="$df/d23/TextureFilters_8hpp.html" title=" " alt="" coords="477,95,723,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="282,169,377,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="133,5,329,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,59,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,48,72,92,71,87,182,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,93,181,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,48,159,87,156,82,205,43"/>
+<area shape="rect" id="Node000004" href="$df/d19/TextureModes_8hpp.html" title=" " alt="" coords="205,93,453,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,43,305,82,302,87,253,48"/>
+<area shape="rect" id="Node000006" href="$df/d23/TextureFilters_8hpp.html" title=" " alt="" coords="477,93,723,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="320,43,533,88,532,93,319,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="282,167,377,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="332,119,332,153,327,153,327,119"/>
 </map>

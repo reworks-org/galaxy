@@ -12,8 +12,8 @@ var classgalaxy_1_1input_1_1Keyboard =
     [ "get_scancode", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9", null ],
     [ "get_key_name", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a87e26a18b74d05110d1de9b08506c475", null ],
     [ "get_scancode_name", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4", null ],
-    [ "operator=", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a98f51f994ff1ab423e098fa9d4ed76d8", null ],
-    [ "operator=", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7fe249e2ad27d696de3aca2a9679a74b", null ],
+    [ "operator=", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#af7a5256d22106fc31ecd1350fc44b4a6", null ],
+    [ "operator=", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#adcf05aed85647fc7d97b4ed26908e9a5", null ],
     [ "core::Window", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a5396cb4f5c3bde7f5fd05b04207065d4", null ],
     [ "m_text_input_enabled", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418", null ]
 ];

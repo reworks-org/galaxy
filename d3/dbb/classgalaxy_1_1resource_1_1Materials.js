@@ -5,7 +5,7 @@ var classgalaxy_1_1resource_1_1Materials =
     [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#aefbf28b7d40053259a5bd0d753b14e0e", null ],
     [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a93adc2d11a2c41068a0297cb38df5bcc", null ],
     [ "load", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a2d7c7f875a0baa21b9e9c33ece575a3b", null ],
-    [ "operator=", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#afb6c9cbab678f25127a0c6d391f3f348", null ],
-    [ "operator=", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a6ab936034b79ce0ddcc488b8c546e0f4", null ],
+    [ "operator=", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a2e2bfab99ee960e939b1860e839d51fd", null ],
+    [ "operator=", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a8f15e5ab0e5d353937a5eff179a54a26", null ],
     [ "m_folder", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html#acd9dcfcc1bbdedd7342075fb4c2843c0", null ]
 ];

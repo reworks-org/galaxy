@@ -1,6 +1,6 @@
 var Log_8hpp =
 [
-    [ "Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", "d6/d5b/classgalaxy_1_1error_1_1Log" ],
+    [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", "d6/d5b/classgalaxy_1_1error_1_1Log" ],
     [ "GALAXY_INFO", "d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71", null ],
     [ "GALAXY_DEBUG", "d0/d82/Log_8hpp.html#a45c6466a45e13924b58af848a1851b47", null ],
     [ "GALAXY_WARNING", "d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a", null ],

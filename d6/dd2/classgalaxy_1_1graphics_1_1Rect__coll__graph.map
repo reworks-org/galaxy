@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::Rect&lt; Type &gt;" name="galaxy::graphics::Rect&lt; Type &gt;">
-<area shape="rect" id="node1" title="Represents a rectangle object." alt="" coords="5,189,171,384"/>
-<area shape="rect" id="node2" title=" " alt="" coords="62,5,114,83"/>
+<area shape="rect" id="Node000001" title="Represents a rectangle object." alt="" coords="5,177,163,397"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,5,106,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,71,87,161,81,161,81,71"/>
 </map>

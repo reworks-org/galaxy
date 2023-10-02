@@ -12,6 +12,6 @@ var classgalaxy_1_1components_1_1Flag =
     [ "unset_flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a1c5f6559bbb0d9436c723c8807f8eb13", null ],
     [ "serialize", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#ae2010337eea684004cd4b8281cdc40d1", null ],
     [ "deserialize", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a8d8a4183a678bcdb45bd7d6b2962f62f", null ],
-    [ "operator=", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a49845b94a18bf46a6567efb06f3a8f3f", null ],
+    [ "operator=", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a512aea45ad42d8c872d3f9a71e24fda0", null ],
     [ "m_flags", "d7/dc7/classgalaxy_1_1components_1_1Flag.html#a6c7a820bdad9fd14bc4b3eeb7bf0e7b5", null ]
 ];

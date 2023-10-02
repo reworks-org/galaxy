@@ -1,7 +1,11 @@
 <map id="galaxy::graphics::VertexBuffer::clear" name="galaxy::graphics::VertexBuffer::clear">
-<area shape="rect" id="node1" title="Clear all data from VBO." alt="" coords="677,39,856,80"/>
-<area shape="rect" id="node2" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a" title="Clear all data from the vertex buffer array." alt="" coords="451,39,629,80"/>
-<area shape="rect" id="node3" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9" title="Clears out vertex buffer." alt="" coords="228,39,403,80"/>
-<area shape="rect" id="node4" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a2179cf80f3920f5bf3f93f1a8eca2536" title="Buffer data into vertex object." alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node5" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a06aa60512fec17a4c21e54ee4e2d2e0c" title="Destructor." alt="" coords="5,71,180,112"/>
+<area shape="rect" id="Node000001" title="Clear all data from VBO." alt="" coords="677,37,856,77"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a" title="Clear all data from the vertex buffer array." alt="" coords="451,37,629,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="663,60,630,60,630,55,663,55"/>
+<area shape="rect" id="Node000003" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9" title="Clears out vertex buffer." alt="" coords="228,37,403,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,60,403,60,403,55,437,55"/>
+<area shape="rect" id="Node000004" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a2179cf80f3920f5bf3f93f1a8eca2536" title="Buffer data into vertex object." alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,45,180,40,180,35,215,40"/>
+<area shape="rect" id="Node000005" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a06aa60512fec17a4c21e54ee4e2d2e0c" title="Destructor." alt="" coords="5,69,180,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="215,74,180,79,180,74,214,69"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="galaxy::graphics::FilmicGrain::is_enabled" name="galaxy::graphics::FilmicGrain::is_enabled">
-<area shape="rect" id="node1" title="Is this effect enabled?" alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node2" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="228,13,459,39"/>
+<area shape="rect" id="Node000001" title="Is this effect enabled?" alt="" coords="5,5,180,45"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="228,13,459,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,23,214,23,214,28,180,28"/>
 </map>

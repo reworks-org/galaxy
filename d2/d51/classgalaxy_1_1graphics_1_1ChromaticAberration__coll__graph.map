@@ -1,12 +1,21 @@
 <map id="galaxy::graphics::ChromaticAberration" name="galaxy::graphics::ChromaticAberration">
-<area shape="rect" id="node1" title="Chromatic Aberration pass." alt="" coords="221,1248,423,1501"/>
-<area shape="rect" id="node2" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,954,207,1149"/>
-<area shape="rect" id="node3" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="231,917,413,1185"/>
-<area shape="rect" id="node4" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="215,440,429,840"/>
-<area shape="rect" id="node5" title=" " alt="" coords="243,293,401,370"/>
-<area shape="rect" id="node6" title=" " alt="" coords="261,145,383,223"/>
-<area shape="rect" id="node7" title=" " alt="" coords="303,5,341,83"/>
-<area shape="rect" id="node8" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="438,917,619,1185"/>
-<area shape="rect" id="node9" title=" " alt="" coords="485,601,572,679"/>
-<area shape="rect" id="node10" title=" " alt="" coords="459,285,598,377"/>
+<area shape="rect" id="Node000001" title="Chromatic Aberration pass." alt="" coords="213,1375,407,1675"/>
+<area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,1037,199,1262"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,1273,229,1373,225,1376,169,1275"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="223,987,397,1312"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,1312,313,1358,307,1358,307,1312"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="271,624,349,689"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,689,313,970,307,970,307,689"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="245,261,375,341"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="313,355,313,624,307,624,307,355"/>
+<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="421,989,596,1309"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="426,1311,400,1361,395,1358,421,1309"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="405,404,612,909"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="511,909,511,973,506,973,506,909"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="433,269,584,334"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="511,335,511,388,506,388,506,335"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="451,133,566,199"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="511,212,511,268,506,268,506,212"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="497,5,520,71"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="511,71,511,117,506,117,506,71"/>
 </map>

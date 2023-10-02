@@ -8,7 +8,7 @@ var classgalaxy_1_1core_1_1ServiceLocator =
     [ "ref", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4", null ],
     [ "empty", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c", null ],
     [ "del", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ab1aee18c326706483180529b3e0e6b3b", null ],
-    [ "operator=", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a44681df3ea2b09e2fe81fe5fed031166", null ],
-    [ "operator=", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a7b5ac1b7ae1b2037ee3415378682b1e8", null ],
+    [ "operator=", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a0bb19800a6518048d57ef6823926153e", null ],
+    [ "operator=", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a0d56166af870c57e3edb9240a7d31c16", null ],
     [ "m_service", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a6b6e2b93559ac47ae2d74a3919a62639", null ]
 ];

@@ -27,7 +27,7 @@ var classgalaxy_1_1fs_1_1VirtualFileSystem =
     [ "list_directory", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a903e82f91bdd8a637e10f3f4e4f98473", null ],
     [ "root", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aff531c6ec5fd6aeb95e2dd17708114ee", null ],
     [ "root_path", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#af03e62b440acf27eaab97132ab591267", null ],
-    [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae2a78eafb26b5ed0f36d5223358fd8be", null ],
-    [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1bd60ce24dcaac0486252f2a40d9ba22", null ],
+    [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac7ddea742a2628b6588ee7eda2ae1f2d", null ],
+    [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a564dcf34ba59bece241652cb0d2c300c", null ],
     [ "m_root", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ab2a7089fcc5358441c2a297b741fe0d9", null ]
 ];

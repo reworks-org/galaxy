@@ -6,7 +6,7 @@ var classgalaxy_1_1input_1_1Clipboard =
     [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#af65651fe6a2436fac98f57724fb80061", null ],
     [ "set", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#af5da3a2666b5cd027011b8dac64f3a89", null ],
     [ "get", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#a7922bca6ef5215174ed6669c94a4a122", null ],
-    [ "operator=", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#aade01b1fc51aa42664e67d42945653b5", null ],
-    [ "operator=", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#a649b911453e60d7b9a7747eba44b056a", null ],
+    [ "operator=", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#a3042d93489c44e2726e9499452927076", null ],
+    [ "operator=", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#aafe95c548b79f15047637dd5faa1edb9", null ],
     [ "core::Window", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html#a5396cb4f5c3bde7f5fd05b04207065d4", null ]
 ];

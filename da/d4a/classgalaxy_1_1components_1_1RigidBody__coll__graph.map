@@ -1,6 +1,9 @@
 <map id="galaxy::components::RigidBody" name="galaxy::components::RigidBody">
-<area shape="rect" id="node1" title="Box2D physics body." alt="" coords="45,360,231,745"/>
-<area shape="rect" id="node2" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,147,175,297"/>
-<area shape="rect" id="node3" title=" " alt="" coords="199,183,285,261"/>
-<area shape="rect" id="node4" title=" " alt="" coords="173,5,311,97"/>
+<area shape="rect" id="Node000001" title="Box2D physics body." alt="" coords="41,363,225,843"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,135,167,300"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,314,106,362,101,363,95,314"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="191,185,269,250"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,251,200,347,195,346,219,250"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="165,5,295,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,99,233,184,227,184,227,99"/>
 </map>
