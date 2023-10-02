@@ -26,6 +26,11 @@ namespace galaxy
 		{
 		}
 
+		Shader::Shader(const std::string& vertex_src, const std::string& fragment_src)
+		{
+			load_raw(vertex_src, fragment_src);
+		}
+
 		Shader::Shader(const nlohmann::json& json)
 			: m_id {0}
 		{

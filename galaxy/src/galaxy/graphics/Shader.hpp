@@ -39,6 +39,14 @@ namespace galaxy
 			Shader();
 
 			///
+			/// Raw Constructor.
+			///
+			/// \param vertex_src Raw vertex shader code.
+			/// \param fragment_src Raw fragment shader code.
+			///
+			Shader(const std::string& vertex_src, const std::string& fragment_src);
+
+			///
 			/// JSON Constructor.
 			///
 			/// \param json JSON defining object.
