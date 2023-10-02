@@ -10,6 +10,22 @@
 
 #include <string_view>
 
+#if _WIN32 || _WIN64
+extern "C"
+{
+	// http://developer.amd.com/community/blog/2015/10/02/amd-enduro-system-for-developers/
+	// http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf
+
+	inline __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+	inline __declspec(dllexport) DWORD NvOptimusEnablement                = 0x00000001;
+}
+#elif
+{
+	inline int AmdPowerXpressRequestHighPerformance = 1;
+	inline std::uint32_t NvOptimusEnablement        = 0x00000001;
+}
+#endif
+
 namespace galaxy
 {
 	namespace core
