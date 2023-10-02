@@ -25,9 +25,6 @@
 [submodule "lib/zip"]
 	path = lib/zip
 	url = https://github.com/kuba--/zip.git
-[submodule "lib/doxygen_dark_theme"]
-	path = lib/doxygen_dark_theme
-	url = https://github.com/MaJerle/doxygen-dark-theme.git
 [submodule "lib/mimalloc"]
 	path = lib/mimalloc
 	url = https://github.com/microsoft/mimalloc.git
