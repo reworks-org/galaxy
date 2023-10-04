@@ -17,7 +17,7 @@ extern "C"
 	// http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf
 
 	inline __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
-	inline __declspec(dllexport) DWORD NvOptimusEnablement                = 0x00000001;
+	inline __declspec(dllexport) std::uint32_t NvOptimusEnablement        = 0x00000001;
 }
 #elif
 {
