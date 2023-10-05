@@ -12,6 +12,8 @@
 
 #include <miniaudio.h>
 
+#include "galaxy/media/SoundType.hpp"
+
 namespace galaxy
 {
 	namespace media
@@ -22,27 +24,6 @@ namespace galaxy
 		class Sound final
 		{
 		public:
-			///
-			/// Sound type.
-			///
-			enum class Type : int
-			{
-				///
-				/// A sound effect. Is not streamed.
-				///
-				SFX = 0,
-
-				///
-				/// Music. Is streamed.
-				///
-				MUSIC = 1,
-
-				///
-				/// Dialogue. Is streamed.
-				///
-				DIALOGUE = 2
-			};
-
 			///
 			/// Constructor.
 			///
@@ -56,7 +37,7 @@ namespace galaxy
 			/// \param type Classification of the sound.
 			/// \param file File to load.
 			///
-			Sound(Sound::Type type, std::string_view file);
+			Sound(SoundType type, std::string_view file);
 
 			///
 			/// Destructor.
@@ -69,7 +50,7 @@ namespace galaxy
 			/// \param type Classification of the sound.
 			/// \param file File to load.
 			///
-			void load(Sound::Type type, std::string_view file);
+			void load(SoundType type, std::string_view file);
 
 			///
 			/// Start playing the sound.

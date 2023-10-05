@@ -8,98 +8,169 @@
 #ifndef GALAXY_RESOURCE_CACHE_HPP_
 #define GALAXY_RESOURCE_CACHE_HPP_
 
-#include <BS_thread_pool.hpp>
 #include <robin_hood.h>
 
-#include "galaxy/meta/Memory.hpp"
+#include "galaxy/algorithm/FNV1a.hpp"
+#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Provides a useful set of functions around managing a resource cache.
+		/// Cache for resources such as audio, fonts, etc.
 		///
-		/// \tparam Resource A resource can be anything that is not a pointer or a reference.
+		/// \tparam Resource Type of resource to manage.
+		/// \tparam Loader Loader to use when loading the resource.
+		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
-		template<meta::not_memory Resource>
-		class Cache
+		template<meta::not_memory Resource, typename Loader, bool needs_gl>
+		// requires meta::is_loader<Loader, Resource, needs_gl>
+		class Cache final
 		{
-			///
-			/// Defines the template syntax for a resource holder.
-			///
-			using CacheMap = robin_hood::unordered_node_map<std::string, std::shared_ptr<Resource>>;
+			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;
 
 		public:
 			///
+			/// Constructor.
+			///
+			inline Cache() noexcept
+			{
+			}
+
+			///
 			/// Destructor.
 			///
-			virtual ~Cache();
+			inline ~Cache()
+			{
+				clear();
+			}
 
 			///
-			/// Clean up resources.
+			/// Load a resource.
 			///
-			void clear();
+			/// \tparam Args Variable arg types.
+			///
+			/// \param id Key to store resource with.
+			/// \param args Arguments to pass to loader's operator().
+			///
+			template<typename... Args>
+			inline void load(const std::string& id, Args&&... args)
+			{
+				m_keys.push_back(id);
+				m_cache.emplace(hash(id), m_loader(std::forward<Args>(args)...));
+			}
 
 			///
-			/// Loads resources from a folder.
+			/// Load resources from a directory.
 			///
-			/// \param folder Folder located in the VFS.
+			/// \param dir Folder to load from within VFS.
 			///
-			/// \return Thread handle of loading thread.
-			///
-			virtual std::future<void> load(std::string_view folder) = 0;
+			inline void load_folder(const std::string& dir)
+			{
+				clear();
+
+				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+				for (const auto& file : fs.list_directory(dir))
+				{
+					const auto path = std::filesystem::path(file);
+					const auto name = path.stem().string();
+
+					load(name, path.string());
+				}
+			}
 
 			///
-			/// Check if a resource exists.
+			/// \brief Builds any OpenGL data.
 			///
-			/// \param key Key to use to access resource.
+			/// Does nothing if this class doesn't require it.
 			///
-			/// \return True if resource was found.
-			///
-			[[nodiscard]] bool has(const std::string& key);
+			inline void build()
+			{
+				if constexpr (needs_gl)
+				{
+					m_loader.build(m_cache);
+				}
+			}
 
 			///
 			/// Retrieve a resource.
 			///
-			/// \param key Key to use to access resource.
+			/// \param id Key to use to access resource.
 			///
-			/// \return Returns a pointer to the resource.
+			/// \return Returns a shared pointer to the resource.
 			///
-			[[nodiscard]] std::shared_ptr<Resource> get(const std::string& key);
+			[[nodiscard]] inline std::shared_ptr<Resource> get(std::string_view id)
+			{
+				const auto hashed = hash(id);
+
+				if (m_cache.contains(hashed))
+				{
+					return m_cache[hashed];
+				}
+
+				return nullptr;
+			}
 
 			///
-			/// Check if the cache has any resources in it.
+			/// Destroy resources.
+			///
+			inline void clear()
+			{
+				m_cache.clear();
+			}
+
+			///
+			/// Check if a resource exists.
+			///
+			/// \param id Key to use to access resource.
+			///
+			/// \return True if resource was found.
+			///
+			[[nodiscard]] inline bool has(std::string_view id)
+			{
+				return m_cache.contains(hash(id));
+			}
+
+			///
+			/// Does the cache have any resources.
 			///
 			/// \return True if empty, false otherwise.
 			///
-			[[nodiscard]] bool empty() const;
+			[[nodiscard]] inline bool empty() const
+			{
+				return size() == 0;
+			}
+
+			///
+			/// Get amount of resources cached.
+			///
+			[[nodiscard]] inline std::size_t size() const
+			{
+				return m_cache.size();
+			}
 
 			///
 			/// Get entire resource cache.
 			///
-			/// \return Reference to the resource holders cache.
+			/// \return Const reference to the resource cache.
 			///
-			[[nodiscard]] CacheMap& cache();
+			[[nodiscard]] inline const CacheType& cache() const
+			{
+				return m_cache;
+			}
 
 			///
 			/// Get a list of keys in the cache.
 			///
-			/// \return A vector of strings.
+			/// \return A vector of char pointers.
 			///
-			[[nodiscard]] meta::vector<std::string> keys();
-
-		protected:
-			///
-			/// Constructor.
-			///
-			Cache() = default;
-
-		protected:
-			///
-			/// Contiguous resource array.
-			///
-			CacheMap m_cache;
+			[[nodiscard]] inline const meta::vector<std::string>& keys()
+			{
+				return m_keys;
+			}
 
 		private:
 			///
@@ -121,62 +192,32 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Cache& operator=(Cache&&) = delete;
+
+			///
+			/// Hashes the key into an integer for faster map lookup time.
+			///
+			inline std::uint64_t hash(std::string_view str)
+			{
+				const auto hash = algorithm::fnv1a_64(str.data());
+				return hash;
+			}
+
+		private:
+			///
+			/// Used to load a resource into the cache. Allows for flexiblity.
+			///
+			Loader m_loader;
+
+			///
+			/// The actual data store.
+			///
+			CacheType m_cache;
+
+			///
+			/// A list of keys currently in the cache.
+			///
+			meta::vector<std::string> m_keys;
 		};
-
-		template<meta::not_memory Resource>
-		inline Cache<Resource>::~Cache()
-		{
-			clear();
-		}
-
-		template<meta::not_memory Resource>
-		inline void Cache<Resource>::clear()
-		{
-			m_cache.clear();
-		}
-
-		template<meta::not_memory Resource>
-		inline bool Cache<Resource>::has(const std::string& key)
-		{
-			return m_cache.contains(key);
-		}
-
-		template<meta::not_memory Resource>
-		inline std::shared_ptr<Resource> Cache<Resource>::get(const std::string& key)
-		{
-			if (has(key))
-			{
-				return m_cache[key];
-			}
-
-			return nullptr;
-		}
-
-		template<meta::not_memory Resource>
-		inline bool Cache<Resource>::empty() const
-		{
-			return m_cache.empty();
-		}
-
-		template<meta::not_memory Resource>
-		inline Cache<Resource>::CacheMap& Cache<Resource>::cache()
-		{
-			return m_cache;
-		}
-
-		template<meta::not_memory Resource>
-		inline meta::vector<std::string> Cache<Resource>::keys()
-		{
-			meta::vector<std::string> keys;
-			keys.reserve(m_cache.size());
-
-			for (const auto& [key, _] : m_cache)
-			{
-				keys.push_back(key);
-			}
-
-			return keys;
-		}
 	} // namespace resource
 } // namespace galaxy
 

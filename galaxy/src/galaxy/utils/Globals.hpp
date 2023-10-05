@@ -70,16 +70,6 @@ namespace galaxy
 #define GALAXY_FLAG_BITSET_COUNT 8
 
 ///
-/// Extension to use when loading vertex shaders.
-///
-#define GALAXY_VERTEX_EXT ".vs"
-
-///
-/// Extension to use when loading fragment shaders.
-///
-#define GALAXY_FRAGMENT_EXT ".fs"
-
-///
 /// Value used for identity matrix initialization.
 ///
 #define GALAXY_IDENTITY_MATRIX 1.0f

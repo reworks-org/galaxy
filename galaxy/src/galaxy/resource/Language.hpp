@@ -8,7 +8,6 @@
 #ifndef GALAXY_RESOURCE_LANGUAGE_HPP_
 #define GALAXY_RESOURCE_LANGUAGE_HPP_
 
-#include <BS_thread_pool.hpp>
 #include <robin_hood.h>
 #include <sol/forward.hpp>
 
@@ -33,21 +32,19 @@ namespace galaxy
 			~Language();
 
 			///
-			/// Loads resources from a folder.
+			/// Load all languages in a folder.
 			///
-			/// \param folder Folder located in the VFS.
+			/// \param folder A folder within the VFS to read from.
 			///
-			/// \return Thread handle of loading thread.
-			///
-			std::future<void> load(std::string_view folder);
+			void load(std::string_view folder);
 
 			///
-			/// Loads a lua script containing language definitions.
+			/// Load a specific file with a provided lua state.
 			///
-			/// \param key Key to store language under.
-			/// \param lang_script Lua script containing language definitions.
+			/// \param lua Lua state to load language with.
+			/// \param file Language file to load.
 			///
-			void load_mem(const std::string& key, const std::string& lang_script);
+			void load(sol::state& lua, const std::string& file);
 
 			///
 			/// Sets the currently active language.
@@ -66,14 +63,23 @@ namespace galaxy
 			[[nodiscard]] const std::string& translate(const std::string& key);
 
 			///
-			/// \brief Reload languages from folder.
+			/// Overloaded operator[] to translate a key into the active language's text.
 			///
-			/// Does nothing if load hasn't been called.
+			/// \param key Language key to retrieve translation from.
 			///
-			void reload();
+			/// \return Const string reference. If not found, returns key.
+			///
+			[[nodiscard]] const std::string& operator[](const std::string& key);
 
 			///
-			/// Clear all language data.
+			/// Erase specific language.
+			///
+			/// \param lang Language to clear.
+			///
+			void clear(const std::string& lang);
+
+			///
+			/// Erase all language data.
 			///
 			void clear();
 
@@ -105,19 +111,9 @@ namespace galaxy
 			std::string m_cur_lang;
 
 			///
-			/// Language data is stored in a lua table.
+			/// Language data.
 			///
-			robin_hood::unordered_flat_map<std::string, sol::state> m_languages;
-
-			///
-			/// Current language KVPs.
-			///
-			robin_hood::unordered_flat_map<std::string, std::string> m_lang_map;
-
-			///
-			/// Folder.
-			///
-			std::string m_folder;
+			robin_hood::unordered_flat_map<std::string, robin_hood::unordered_flat_map<std::string, std::string>> m_languages;
 		};
 	} // namespace resource
 } // namespace galaxy

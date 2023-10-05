@@ -16,57 +16,25 @@ namespace galaxy
 	namespace resource
 	{
 		///
-		/// Resource manager for lua Prefabs.
+		/// Resource manager for prefabs.
 		///
-		class Prefabs final : public Cache<core::Prefab>
+		class PrefabLoader final
 		{
 		public:
 			///
-			/// Constructor.
+			/// Overloaded operator() used to load a resource.
 			///
-			Prefabs();
-
+			/// \param file Path on disk to load file from. You don't need to check with the filesystem, already done by the cache.
 			///
-			/// Destructor.
+			/// \return Shared pointer to newly created resource.
 			///
-			virtual ~Prefabs();
-
-			///
-			/// Loads resources from a folder.
-			///
-			/// \param folder Folder located in the VFS.
-			///
-			/// \return Thread handle of loading thread.
-			///
-			std::future<void> load(std::string_view folder) override;
-
-		private:
-			///
-			/// Copy constructor.
-			///
-			Prefabs(const Prefabs&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Prefabs(Prefabs&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Prefabs& operator=(const Prefabs&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Prefabs& operator=(Prefabs&&) = delete;
-
-		private:
-			///
-			/// Prefab resource folder.
-			///
-			std::string m_folder;
+			std::shared_ptr<core::Prefab> operator()(const std::string& file);
 		};
+
+		///
+		/// Abbreviation for prefab cache type.
+		///
+		using Prefabs = Cache<core::Prefab, PrefabLoader, false>;
 	} // namespace resource
 } // namespace galaxy
 

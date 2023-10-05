@@ -17,47 +17,23 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Prefabs::Prefabs()
+		std::shared_ptr<core::Prefab> PrefabLoader::operator()(const std::string& file)
 		{
-		}
+			auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			const auto data = fs.open(file);
+			if (!data.empty())
+			{
+				const auto name         = std::filesystem::path(file).stem().string();
+				const auto base64       = algorithm::decode_zlib(data);
+				const auto decompressed = algorithm::decode_base64(base64);
 
-		Prefabs::~Prefabs()
-		{
-		}
-
-		std::future<void> Prefabs::load(std::string_view folder)
-		{
-			clear();
-
-			m_folder = folder;
-
-			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				if (!m_folder.empty())
-				{
-					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-					const auto contents = fs.list_directory(m_folder);
-					if (!contents.empty())
-					{
-						for (const auto& file : contents)
-						{
-							const auto data = fs.open(file);
-							if (!data.empty())
-							{
-								const auto name         = std::filesystem::path(file).stem().string();
-								const auto base64       = algorithm::decode_zlib(data);
-								const auto decompressed = algorithm::decode_base64(base64);
-
-								m_cache[name] = std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
-							}
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Found no Prefabs to load in '{0}'.", m_folder);
-					}
-				}
-			});
+				return std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to load empty prefab {0}.", file);
+				return nullptr;
+			}
 		}
 	} // namespace resource
 } // namespace galaxy

@@ -14,6 +14,7 @@
     <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
+    <ClCompile Include="src\galaxy\media\SoundType.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\FilmicGrain.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
@@ -35,7 +36,7 @@
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
-    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\resource\BasicScripts.cpp" />
     <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaGalaxy.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaDependencies.cpp" />
@@ -136,7 +137,7 @@
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
-    <ClCompile Include="src\galaxy\resource\Sounds.cpp" />
+    <ClCompile Include="src\galaxy\resource\Media.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
+    <ClInclude Include="src\galaxy\media\SoundType.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\FilmicGrain.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
@@ -182,7 +184,7 @@
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
-    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\resource\BasicScripts.hpp" />
     <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
     <ClInclude Include="src\galaxy\components\UIScript.hpp" />
     <ClInclude Include="src\galaxy\state\State.hpp" />
@@ -279,7 +281,7 @@
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
-    <ClInclude Include="src\galaxy\resource\Sounds.hpp" />
+    <ClInclude Include="src\galaxy\resource\Media.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />

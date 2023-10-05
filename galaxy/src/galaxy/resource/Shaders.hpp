@@ -16,68 +16,34 @@ namespace galaxy
 	namespace resource
 	{
 		///
-		/// \brief Resource cache for shaders.
+		/// Resource cache for shaders.
 		///
-		/// Shaders are required to have an extension of .vs for vertex shaders
-		/// and .fs for fragment shaders.
-		/// Or whatever has been configured in GALAXY GLOBALS CONFIG.
-		///
-		class Shaders final : public Cache<graphics::Shader>
+		class ShaderLoader final
 		{
 		public:
 			///
-			/// Constructor.
+			/// \brief Build shaders.
 			///
-			Shaders();
+			/// Not thread safe, calls OpenGL code.
+			///
+			/// \param cache Resource cache to build data from.
+			///
+			void build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<graphics::Shader>>& cache);
 
 			///
-			/// Destructor.
+			/// Overloaded operator() used to load a resource.
 			///
-			virtual ~Shaders();
-
+			/// \param file Path on disk to load file from. You don't need to check with the filesystem, already done by the cache.
 			///
-			/// \brief Loads resources from a folder.
+			/// \return Shared pointer to newly created resource.
 			///
-			/// \param folder Folder located in the VFS.
-			///
-			/// \return Thread handle of loading thread.
-			///
-			std::future<void> load(std::string_view folder) override;
-
-			///
-			/// \brief Compiles the shaders in OpenGL.
-			///
-			/// NOT THREAD SAFE.
-			///
-			void compile();
-
-		private:
-			///
-			/// Copy constructor.
-			///
-			Shaders(const Shaders&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Shaders(Shaders&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Shaders& operator=(const Shaders&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Shaders& operator=(Shaders&&) = delete;
-
-		private:
-			///
-			/// Shader resource folder.
-			///
-			std::string m_folder;
+			std::shared_ptr<graphics::Shader> operator()(const std::string& file);
 		};
+
+		///
+		/// Abbreviation for font cache type.
+		///
+		using Shaders = Cache<graphics::Shader, ShaderLoader, true>;
 	} // namespace resource
 } // namespace galaxy
 

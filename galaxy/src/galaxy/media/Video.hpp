@@ -44,9 +44,9 @@ namespace galaxy
 			void load(const std::string& file);
 
 			///
-			/// Start playing the video.
+			/// Build opengl data.
 			///
-			void play();
+			void build();
 
 			///
 			/// Update video decoder.

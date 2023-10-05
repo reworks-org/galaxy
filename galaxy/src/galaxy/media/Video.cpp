@@ -53,19 +53,6 @@ namespace galaxy
 			, m_vbo {0}
 			, m_ibo {0}
 		{
-			glCreateVertexArrays(1, &m_vao);
-			glCreateBuffers(1, &m_vbo);
-			glCreateBuffers(1, &m_ibo);
-
-			glNamedBufferData(m_vbo, sizeof(vertices), vertices, GL_STATIC_DRAW);
-			glNamedBufferData(m_ibo, sizeof(indices), indices, GL_STATIC_DRAW);
-
-			glVertexArrayVertexBuffer(m_vao, 0, m_vbo, 0, 2 * sizeof(float));
-			glVertexArrayElementBuffer(m_vao, m_ibo);
-
-			glEnableVertexArrayAttrib(m_vao, 0);
-			glVertexArrayAttribFormat(m_vao, 0, 2, GL_FLOAT, GL_FALSE, 0);
-			glVertexArrayAttribBinding(m_vao, 0, 0);
 		}
 
 		Video::~Video()
@@ -135,58 +122,63 @@ namespace galaxy
 						},
 						m_audio_buffer.get());
 
-					m_texture_y  = create_texture(0, "texture_y");
-					m_texture_cb = create_texture(1, "texture_cb");
-					m_texture_cr = create_texture(2, "texture_cr");
+					if (plm_get_num_audio_streams(m_plm) > 0)
+					{
+						m_audio_buffer = std::make_unique<RingBuffer>(plm_get_samplerate(m_plm));
+
+						ma_device_config config  = ma_device_config_init(ma_device_type_playback);
+						config.playback.format   = ma_format_f32;
+						config.playback.channels = 2;
+						config.sampleRate        = plm_get_samplerate(m_plm);
+						config.pUserData         = m_audio_buffer.get();
+						config.dataCallback      = data_callback;
+
+						if (ma_device_init(nullptr, &config, m_audio) != MA_SUCCESS)
+						{
+							plm_set_audio_enabled(m_plm, false);
+							plm_set_loop(m_plm, false);
+							plm_set_audio_stream(m_plm, 0);
+							plm_set_audio_enabled(m_plm, true);
+						}
+					}
+					else
+					{
+						plm_set_audio_enabled(m_plm, false);
+					}
 				}
-				else
-				{
-					// GALAXY_LOG(GALAXY_ERROR, "Failed to load video '{0}'.", file);
-				}
-			}
-			else
-			{
-				// GALAXY_LOG(GALAXY_ERROR, "Failed to find video '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
 			}
 		}
 
-		void Video::play()
+		void Video::build()
 		{
-			plm_set_loop(m_plm, false);
-			plm_set_audio_stream(m_plm, 0);
+			glCreateVertexArrays(1, &m_vao);
+			glCreateBuffers(1, &m_vbo);
+			glCreateBuffers(1, &m_ibo);
 
-			if (plm_get_num_audio_streams(m_plm) > 0)
-			{
-				m_audio_buffer = std::make_unique<RingBuffer>(plm_get_samplerate(m_plm));
+			glNamedBufferData(m_vbo, sizeof(vertices), vertices, GL_STATIC_DRAW);
+			glNamedBufferData(m_ibo, sizeof(indices), indices, GL_STATIC_DRAW);
 
-				ma_device_config config  = ma_device_config_init(ma_device_type_playback);
-				config.playback.format   = ma_format_f32;
-				config.playback.channels = 2;
-				config.sampleRate        = plm_get_samplerate(m_plm);
-				config.pUserData         = m_audio_buffer.get();
-				config.dataCallback      = data_callback;
+			glVertexArrayVertexBuffer(m_vao, 0, m_vbo, 0, 2 * sizeof(float));
+			glVertexArrayElementBuffer(m_vao, m_ibo);
 
-				if (ma_device_init(nullptr, &config, m_audio) != MA_SUCCESS)
-				{
-					// GALAXY_LOG(GALAXY_ERROR, "Failed to open audio device for '{0}'.", file);
-					plm_set_audio_enabled(m_plm, false);
-				}
-				else
-				{
-					plm_set_audio_enabled(m_plm, true);
-					ma_device_start(m_audio);
-				}
-			}
-			else
-			{
-				plm_set_audio_enabled(m_plm, false);
-			}
+			glEnableVertexArrayAttrib(m_vao, 0);
+			glVertexArrayAttribFormat(m_vao, 0, 2, GL_FLOAT, GL_FALSE, 0);
+			glVertexArrayAttribBinding(m_vao, 0, 0);
+
+			m_texture_y  = create_texture(0, "texture_y");
+			m_texture_cb = create_texture(1, "texture_cb");
+			m_texture_cr = create_texture(2, "texture_cr");
 		}
 
 		void Video::update()
 		{
 			if (m_plm)
 			{
+				if (!ma_device_is_started(m_audio))
+				{
+					ma_device_start(m_audio);
+				}
+
 				plm_decode(m_plm, GALAXY_DT);
 			}
 		}

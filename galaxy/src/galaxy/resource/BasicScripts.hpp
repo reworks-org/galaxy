@@ -1,24 +1,24 @@
 ///
-/// Materials.hpp
+/// BasicScripts.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RESOURCE_MATERIALS_HPP_
-#define GALAXY_RESOURCE_MATERIALS_HPP_
+#ifndef GALAXY_RESOURCE_BASICSCRIPTS_HPP_
+#define GALAXY_RESOURCE_BASICSCRIPTS_HPP_
 
-#include "galaxy/physics/Material.hpp"
 #include "galaxy/resource/Cache.hpp"
+#include "galaxy/scripting/BasicScript.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Resource manager for a physics material.
+		/// Resource manager for lua scripts.
 		///
-		class MaterialLoader final
+		class BasicScriptLoader final
 		{
 		public:
 			///
@@ -28,13 +28,13 @@ namespace galaxy
 			///
 			/// \return Shared pointer to newly created resource.
 			///
-			std::shared_ptr<physics::Material> operator()(const std::string& file);
+			std::shared_ptr<lua::BasicScript> operator()(const std::string& file);
 		};
 
 		///
-		/// Abbreviation for materials cache type.
+		/// Abbreviation for basic lua scripts cache.
 		///
-		using Materials = Cache<physics::Material, MaterialLoader, false>;
+		using BasicScripts = Cache<lua::BasicScript, BasicScriptLoader, false>;
 	} // namespace resource
 } // namespace galaxy
 

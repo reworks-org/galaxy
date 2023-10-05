@@ -32,16 +32,16 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Materials.hpp"
+#include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
-#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
-#include "galaxy/scripting/Lua.hpp"
 #include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/ui/ImGuiTheme.hpp"
@@ -118,6 +118,7 @@ namespace galaxy
 			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
 			config.restore<std::string>("audio_folder", "audio/", "resource_folders");
 			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
+			config.restore<std::string>("video_folder", "video/", "resource_folders");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -262,6 +263,7 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
+				create_asset_layout(root, config.get<std::string>("video_folder", "resource_folders"));
 
 				const auto ui_folder = config.get<std::string>("ui_folder", "resource_folders");
 				create_asset_layout(root, ui_folder);
@@ -327,17 +329,22 @@ namespace galaxy
 			//
 			// Services.
 			//
-			ServiceLocator<media::AudioEngine>::make(config.get<int>("listener_count", "audio"));
-			ServiceLocator<resource::Sounds>::make();
+			const auto listener_count = config.get<int>("listener_count", "audio");
+			ServiceLocator<media::SoundEngine>::make(listener_count);
+			ServiceLocator<media::MusicEngine>::make(listener_count);
+			ServiceLocator<media::DialogueEngine>::make(listener_count);
+			ServiceLocator<resource::SFXCache>::make();
+			ServiceLocator<resource::MusicCache>::make();
+			ServiceLocator<resource::DialogueCache>::make();
+			ServiceLocator<resource::VideoCache>::make();
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::TextureAtlas>::make();
 			ServiceLocator<resource::Materials>::make();
 			ServiceLocator<resource::Prefabs>::make();
-			ServiceLocator<resource::Scripts>::make();
+			ServiceLocator<resource::BasicScripts>::make();
 			ServiceLocator<resource::Language>::make();
 			ServiceLocator<ui::NuklearUI>::make();
-			ServiceLocator<Loader>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
 			//
@@ -355,22 +362,27 @@ namespace galaxy
 		Application::~Application()
 		{
 			ServiceLocator<scene::SceneManager>::del();
-			ServiceLocator<Loader>::del();
 			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<resource::Language>::del();
-			ServiceLocator<resource::Scripts>::del();
+			ServiceLocator<resource::BasicScripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
-			ServiceLocator<resource::Sounds>::del();
-			ServiceLocator<media::AudioEngine>::del();
+			ServiceLocator<resource::SFXCache>::del();
+			ServiceLocator<resource::MusicCache>::del();
+			ServiceLocator<resource::DialogueCache>::del();
+			ServiceLocator<resource::VideoCache>::del();
+			ServiceLocator<media::SoundEngine>::del();
+			ServiceLocator<media::MusicEngine>::del();
+			ServiceLocator<media::DialogueEngine>::del();
 			ServiceLocator<sol::state>::del();
-			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<meta::EntityMeta>::del();
+			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
+			ServiceLocator<Loader>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<Config>::del();
 

@@ -18,62 +18,32 @@ namespace galaxy
 		///
 		/// Resource manager for fonts.
 		///
-		class Fonts final : public Cache<graphics::Font>
+		class FontLoader final
 		{
 		public:
 			///
-			/// Constructor.
-			///
-			Fonts();
-
-			///
-			/// Destructor.
-			///
-			virtual ~Fonts();
-
-			///
-			/// Loads resources from a folder.
-			///
-			/// \param folder Folder located in the VFS.
-			///
-			/// \return Thread handle of loading thread.
-			///
-			std::future<void> load(std::string_view folder) override;
-
-			///
-			/// \brief Build all font altas'.
+			/// \brief Builds font atlas'.
 			///
 			/// Not thread safe, calls OpenGL code.
 			///
-			void build();
-
-		private:
+			/// \param cache Resource cache to build data from.
 			///
-			/// Copy constructor.
-			///
-			Fonts(const Fonts&) = delete;
+			void build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<graphics::Font>>& cache);
 
 			///
-			/// Move constructor.
+			/// Overloaded operator() used to load a resource.
 			///
-			Fonts(Fonts&&) = delete;
-
+			/// \param file Path on disk to load file from. You don't need to check with the filesystem, already done by the cache.
 			///
-			/// Copy assignment operator.
+			/// \return Shared pointer to newly created resource.
 			///
-			Fonts& operator=(const Fonts&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Fonts& operator=(Fonts&&) = delete;
-
-		private:
-			///
-			/// Font resource folder.
-			///
-			std::string m_folder;
+			std::shared_ptr<graphics::Font> operator()(const std::string& file);
 		};
+
+		///
+		/// Abbreviation for font cache type.
+		///
+		using Fonts = Cache<graphics::Font, FontLoader, true>;
 	} // namespace resource
 } // namespace galaxy
 

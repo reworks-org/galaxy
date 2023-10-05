@@ -20,7 +20,7 @@ namespace galaxy
 		{
 		}
 
-		Sound::Sound(Sound::Type type, std::string_view file)
+		Sound::Sound(SoundType type, std::string_view file)
 			: m_sound {}
 		{
 			load(type, file);
@@ -34,9 +34,8 @@ namespace galaxy
 			ma_sound_uninit(&m_sound);
 		}
 
-		void Sound::load(Sound::Type type, std::string_view file)
+		void Sound::load(SoundType type, std::string_view file)
 		{
-			auto& ae = core::ServiceLocator<media::AudioEngine>::ref();
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			ma_engine* engine  = nullptr;
@@ -44,17 +43,17 @@ namespace galaxy
 
 			switch (type)
 			{
-				case Sound::Type::SFX:
-					engine = ae.get_sfx_engine();
+				case SoundType::SFX:
+					engine = core::ServiceLocator<media::SoundEngine>::ref().get_engine();
 					break;
 
-				case Sound::Type::MUSIC:
-					engine = ae.get_music_engine();
+				case SoundType::MUSIC:
+					engine = core::ServiceLocator<media::MusicEngine>::ref().get_engine();
 					flags |= MA_SOUND_FLAG_STREAM;
 					break;
 
-				case Sound::Type::DIALOGUE:
-					engine = ae.get_dialogue_engine();
+				case SoundType::DIALOGUE:
+					engine = core::ServiceLocator<media::DialogueEngine>::ref().get_engine();
 					flags |= MA_SOUND_FLAG_STREAM;
 					break;
 			}

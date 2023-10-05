@@ -5,12 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <ranges>
-
-#include "galaxy/utils/StringUtils.hpp"
-
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/DefaultShaders.hpp"
 
 #include "Shaders.hpp"
@@ -19,65 +13,24 @@ namespace galaxy
 {
 	namespace resource
 	{
-		Shaders::Shaders()
+		void ShaderLoader::build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<graphics::Shader>>& cache)
 		{
-		}
+			// Load default shaders first.
+			cache.emplace(algorithm::fnv1a_64("RenderToTexture"),
+				std::make_shared<graphics::Shader>(shaders::render_to_texture_vert, shaders::render_to_texture_frag));
 
-		Shaders::~Shaders()
-		{
-		}
-
-		std::future<void> Shaders::load(std::string_view folder)
-		{
-			clear();
-
-			m_folder = folder;
-
-			return core::ServiceLocator<BS::thread_pool>::ref().submit([&]() {
-				if (!m_folder.empty())
-				{
-					auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-					auto contents = fs.list_directory(m_folder);
-					if (!contents.empty())
-					{
-						for (auto& file : contents)
-						{
-							strutils::replace_first(file, GALAXY_VERTEX_EXT, "");
-							strutils::replace_first(file, GALAXY_FRAGMENT_EXT, "");
-						}
-
-						auto unique_range = std::ranges::unique(contents);
-						contents.erase(unique_range.begin(), unique_range.end());
-
-						std::ranges::sort(contents);
-						unique_range = std::ranges::unique(contents);
-						contents.erase(unique_range.begin(), unique_range.end());
-
-						for (const auto& file : contents)
-						{
-							const auto name = std::filesystem::path(file).stem().string();
-							m_cache[name]   = std::make_shared<graphics::Shader>(file + GALAXY_VERTEX_EXT, file + GALAXY_FRAGMENT_EXT);
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_WARNING, "Found no shaders to load in '{0}'.", m_folder);
-					}
-
-					// Now load default shaders.
-					m_cache["RenderToTexture"] = std::make_shared<graphics::Shader>();
-					m_cache["RenderToTexture"]->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
-				}
-			});
-		}
-
-		void Shaders::compile()
-		{
-			for (auto&& [key, shader] : m_cache)
+			for (auto&& [key, shader] : cache)
 			{
 				shader->compile();
 			}
+		}
+
+		std::shared_ptr<graphics::Shader> ShaderLoader::operator()(const std::string& file)
+		{
+			auto ptr = std::make_shared<graphics::Shader>();
+			ptr->load(file);
+
+			return ptr;
 		}
 	} // namespace resource
 } // namespace galaxy
