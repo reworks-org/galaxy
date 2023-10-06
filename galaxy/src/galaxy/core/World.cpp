@@ -183,6 +183,7 @@ namespace galaxy
 		void World::update_rendersystem()
 		{
 			// Possible to do this in parallel but overhead would cost more than perf saved.
+			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
 
 			const auto spr_group  = m_registry.group<components::Sprite>(entt::get<components::Transform, components::Flag>);
 			const auto prim_group = m_registry.group<components::Primitive>(entt::get<components::Transform, components::Flag>);
@@ -205,7 +206,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = true;
 					cmd.renderable             = &sprite;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 
@@ -224,7 +225,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = false;
 					cmd.renderable             = &primitive;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 
@@ -243,7 +244,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = true;
 					cmd.renderable             = &text;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 		}

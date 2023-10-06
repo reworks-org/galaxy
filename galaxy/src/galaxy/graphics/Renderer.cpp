@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/DefaultShaders.hpp"
 #include "galaxy/resource/Shaders.hpp"
 
@@ -15,59 +16,62 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		std::unique_ptr<UniformBuffer> Renderer::s_camera_ubo = nullptr;
-		std::unique_ptr<UniformBuffer> Renderer::s_r2d_ubo    = nullptr;
-		meta::vector<RenderCommand> Renderer::s_data;
-		graphics::Shader Renderer::s_r2d_shader;
-		int Renderer::s_prev_texture = -1;
-		int Renderer::s_prev_nm      = -1;
-
-		void Renderer::init()
+		Renderer::Renderer()
+			: m_camera_ubo {nullptr}
+			, m_r2d_ubo {nullptr}
+			, m_prev_texture {-1}
+			, m_prev_nm {-1}
+			, m_width {1}
+			, m_height {1}
 		{
-			s_camera_ubo = std::make_unique<UniformBuffer>();
-			s_r2d_ubo    = std::make_unique<UniformBuffer>();
+			m_camera_ubo = std::make_unique<UniformBuffer>();
+			m_r2d_ubo    = std::make_unique<UniformBuffer>();
 
-			s_camera_ubo->create<Camera::Data>(GAlAXY_UBO_CAMERA_INDEX);
-			s_r2d_ubo->create<Render2DUniform>(GAlAXY_UBO_R2D_INDEX);
+			m_camera_ubo->create<Camera::Data>(GAlAXY_UBO_CAMERA_INDEX);
+			m_r2d_ubo->create<Render2DUniform>(GAlAXY_UBO_R2D_INDEX);
 
-			s_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
+			m_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
 
-			s_r2d_shader.load_raw(shaders::r2d_vert, shaders::r2d_frag);
-			s_r2d_shader.compile();
+			m_r2d_shader.load_raw(shaders::r2d_vert, shaders::r2d_frag);
+			m_r2d_shader.compile();
+
+			auto& window = core::ServiceLocator<core::Window>::ref();
+			m_width      = window.get_width();
+			m_height     = window.get_height();
+
+			m_postprocess.init(m_width, m_height);
+			m_postprocess.add<graphics::ChromaticAberration>(m_width, m_height);
+			m_postprocess.add<graphics::GammaCorrection>(m_width, m_height);
+			m_postprocess.add<graphics::GaussianBlur>(m_width, m_height);
+			m_postprocess.add<graphics::Sharpen>(m_width, m_height);
+			m_postprocess.add<graphics::SMAA>(m_width, m_height);
 		}
 
-		void Renderer::destroy()
+		Renderer::~Renderer()
 		{
-			s_data.clear();
-			s_camera_ubo.reset();
-			s_r2d_ubo.reset();
-			s_r2d_shader.destroy();
-
-			s_prev_texture = -1;
-			s_prev_nm      = -1;
-			s_camera_ubo   = nullptr;
-			s_r2d_ubo      = nullptr;
+			m_postprocess.destroy();
+			m_r2d_shader.destroy();
 		}
 
 		void Renderer::buffer_camera(Camera& camera)
 		{
-			s_camera_ubo->buffer<Camera::Data>(0, 1, &camera.get_data());
+			m_camera_ubo->buffer<Camera::Data>(0, 1, &camera.get_data());
 		}
 
 		void Renderer::submit(RenderCommand& command)
 		{
-			s_data.emplace_back(std::move(command));
+			m_data.emplace_back(std::move(command));
 		}
 
 		void Renderer::draw()
 		{
-			s_prev_texture = -1;
-			s_prev_nm      = -1;
+			m_prev_texture = -1;
+			m_prev_nm      = -1;
 
 			// I don't think we would ever sort the amount of renderable data required to do this in parallel faster.
 			// std::execution::par maybe used when > 1000? But 1000 draw calls is too slow anyway.
 
-			std::sort(s_data.begin(), s_data.end(), [](const RenderCommand& left, const RenderCommand& right) -> bool {
+			std::sort(m_data.begin(), m_data.end(), [](const RenderCommand& left, const RenderCommand& right) -> bool {
 				if (left.renderable->get_layer() == right.renderable->get_layer())
 				{
 					return left.renderable->get_texture_handle() < right.renderable->get_texture_handle();
@@ -78,19 +82,19 @@ namespace galaxy
 				}
 			});
 
-			s_r2d_shader.bind();
+			m_r2d_shader.bind();
 
-			for (auto& cmd : s_data)
+			for (auto& cmd : m_data)
 			{
-				s_r2d_ubo->buffer<Render2DUniform>(0, 1, &cmd.uniform_data);
+				m_r2d_ubo->buffer<Render2DUniform>(0, 1, &cmd.uniform_data);
 
 				glBindVertexArray(cmd.renderable->get_vao().id());
 
 				const auto tex = cmd.renderable->get_texture_handle();
-				if (s_prev_texture != tex)
+				if (m_prev_texture != tex)
 				{
 					glBindTextureUnit(0, tex);
-					s_prev_texture = tex;
+					m_prev_texture = tex;
 				}
 
 				// Instances = 1 is the same as glDrawElements.
@@ -100,7 +104,51 @@ namespace galaxy
 
 		void Renderer::flush()
 		{
-			s_data.clear();
+			m_data.clear();
+		}
+
+		void Renderer::begin_postprocessing()
+		{
+			m_postprocess.bind();
+		}
+
+		void Renderer::end_postprocessing()
+		{
+			m_postprocess.render_effects();
+		}
+
+		void Renderer::render_postprocessing()
+		{
+			m_postprocess.render_output();
+
+			// glBindVertexArray(0);
+			// glBindTexture(GL_TEXTURE_2D, 0);
+			// glUseProgram(0);
+		}
+
+		void Renderer::prepare_default()
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glViewport(0, 0, m_width, m_height);
+		}
+
+		void Renderer::clear()
+		{
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}
+
+		void Renderer::swap_buffers(GLFWwindow* window)
+		{
+			glfwSwapBuffers(window);
+		}
+
+		void Renderer::resize(const int width, const int height)
+		{
+			m_width  = width;
+			m_height = height;
+
+			m_postprocess.resize(m_width, m_height);
 		}
 
 		void Renderer::draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform)

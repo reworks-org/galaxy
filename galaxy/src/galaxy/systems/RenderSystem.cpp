@@ -10,6 +10,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/scene/Scene.hpp"
@@ -31,6 +32,7 @@ namespace galaxy
 		void RenderSystem::update(scene::Scene* scene)
 		{
 			// Possible to do this in parallel but overhead would cost more than perf saved.
+			auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
 
 			const auto spr_group  = scene->m_world.m_registry.group<components::Sprite>(entt::get<components::Transform, components::Flag>);
 			const auto prim_group = scene->m_world.m_registry.group<components::Primitive>(entt::get<components::Transform, components::Flag>);
@@ -53,7 +55,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = true;
 					cmd.renderable             = &sprite;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 
@@ -72,7 +74,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = false;
 					cmd.renderable             = &primitive;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 
@@ -91,7 +93,7 @@ namespace galaxy
 					cmd.uniform_data.textured  = true;
 					cmd.renderable             = &text;
 
-					graphics::Renderer::submit(cmd);
+					renderer.submit(cmd);
 				}
 			}
 		}

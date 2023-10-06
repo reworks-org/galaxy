@@ -26,8 +26,6 @@ namespace galaxy
 			: m_camera {false}
 			, m_world {this}
 			, m_name {"Untitled"}
-			, m_window {&core::ServiceLocator<core::Window>::ref()}
-			, m_nui {&core::ServiceLocator<ui::NuklearUI>::ref()}
 		{
 			init();
 		}
@@ -36,8 +34,6 @@ namespace galaxy
 			: m_camera {false}
 			, m_world {this}
 			, m_name {name}
-			, m_window {&core::ServiceLocator<core::Window>::ref()}
-			, m_nui {&core::ServiceLocator<ui::NuklearUI>::ref()}
 		{
 			init();
 		}
@@ -69,23 +65,29 @@ namespace galaxy
 
 		void Scene::update()
 		{
-			m_window->trigger_queued_events(m_dispatcher);
-			m_world.update();
+			auto& window   = core::ServiceLocator<core::Window>::ref();
+			auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
 
-			graphics::Renderer::buffer_camera(m_camera);
+			window.trigger_queued_events(m_dispatcher);
+			m_world.update();
+			renderer.buffer_camera(m_camera);
 		}
 
 		void Scene::render()
 		{
-			m_window->begin_postprocessing();
-			graphics::Renderer::draw();
-			m_window->end_postprocessing();
-			m_window->prepare_screen_for_rendering();
-			m_window->render_postprocessing();
+			auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
+			auto& nui      = core::ServiceLocator<ui::NuklearUI>::ref();
 
-			m_nui->new_frame();
-			m_nui->process_scripts(m_world.m_registry);
-			m_nui->render();
+			renderer.begin_postprocessing();
+			renderer.draw();
+			renderer.end_postprocessing();
+			renderer.prepare_default();
+			renderer.clear();
+			renderer.render_postprocessing();
+
+			nui.new_frame();
+			nui.process_scripts(m_world.m_registry);
+			nui.render();
 		}
 
 		void Scene::on_window_resized(const events::WindowResized& e)

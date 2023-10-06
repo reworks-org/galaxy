@@ -10,8 +10,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/graphics/FontContext.hpp"
+#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
@@ -214,6 +214,7 @@ namespace galaxy
 
 						win->m_event_queue.emplace_back(std::move(wr));
 						win->resize(width, height);
+						ServiceLocator<graphics::Renderer>::ref().resize(width, height);
 					});
 
 					// Content scale callback.
@@ -493,17 +494,6 @@ namespace galaxy
 						glDepthFunc(GL_LEQUAL);
 						glBlendEquation(GL_FUNC_ADD);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-						// Configure renderer and post processing.
-						m_postprocess.init(m_width, m_height);
-
-						m_postprocess.add<graphics::ChromaticAberration>(m_width, m_height);
-						m_postprocess.add<graphics::GammaCorrection>(m_width, m_height);
-						m_postprocess.add<graphics::GaussianBlur>(m_width, m_height);
-						m_postprocess.add<graphics::Sharpen>(m_width, m_height);
-						m_postprocess.add<graphics::SMAA>(m_width, m_height);
-
-						graphics::Renderer::init();
 					}
 				}
 			}
@@ -582,8 +572,6 @@ namespace galaxy
 		{
 			if (m_window != nullptr)
 			{
-				graphics::Renderer::destroy();
-				m_postprocess.destroy();
 				m_cursor.destroy();
 				m_cursor.destroy_system_cursors();
 
@@ -605,41 +593,11 @@ namespace galaxy
 			glfwPollEvents();
 		}
 
-		void Window::begin_postprocessing()
-		{
-			m_postprocess.bind();
-		}
-
-		void Window::end_postprocessing()
-		{
-			m_postprocess.render_effects();
-		}
-
-		void Window::prepare_screen_for_rendering()
-		{
-			// Final Output.
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, m_width, m_height);
-
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		}
-
-		void Window::render_postprocessing()
-		{
-			m_postprocess.render_output();
-
-			glBindVertexArray(0);
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glUseProgram(0);
-		}
-
 		void Window::resize(const int width, const int height)
 		{
 			m_width  = width;
 			m_height = height;
 
-			m_postprocess.resize(width, height);
 			glfwSetWindowSize(m_window, m_width, m_height);
 		}
 

@@ -14,7 +14,6 @@
 
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/EventQueue.hpp"
-#include "galaxy/graphics/PostProcess.hpp"
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
@@ -79,26 +78,6 @@ namespace galaxy
 			/// Poll for events.
 			///
 			void poll_events();
-
-			///
-			/// Begin post processing.
-			///
-			void begin_postprocessing();
-
-			///
-			/// Finalize post processing.
-			///
-			void end_postprocessing();
-
-			///
-			/// Prepare render to screen.
-			///
-			void prepare_screen_for_rendering();
-
-			///
-			/// Render post processing data.
-			///
-			void render_postprocessing();
 
 			///
 			/// Resizes window.
@@ -296,11 +275,6 @@ namespace galaxy
 			/// Height of window.
 			///
 			int m_height;
-
-			///
-			/// Post processor.
-			///
-			graphics::PostProcess m_postprocess;
 
 			///
 			/// Event queue.

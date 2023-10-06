@@ -63,7 +63,8 @@ namespace galaxy
 
 					if (packed.has_value())
 					{
-						auto& sheet = m_sheets[m_data[name].m_index];
+						auto& sheet    = m_sheets[m_data[name].m_index];
+						auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
 
 						m_data[name].m_handle = sheet.m_render_texture.get_texture();
 						m_data[name].m_region = packed.value();
@@ -107,7 +108,7 @@ namespace galaxy
 						m_vao.sub_buffer(0, vertices);
 
 						sheet.m_render_texture.bind(false);
-						graphics::Renderer::draw_texture_to_target(sheet.m_render_texture, texture, m_vao, m_transform);
+						renderer.draw_texture_to_target(sheet.m_render_texture, texture, m_vao, m_transform);
 						glBindFramebuffer(GL_FRAMEBUFFER, 0);
 					}
 					else

@@ -148,6 +148,7 @@ namespace galaxy
 			// Construct window and init glfw and OpenGL.
 			//
 			auto& window = ServiceLocator<Window>::make(window_settings);
+			ServiceLocator<graphics::Renderer>::make();
 
 			//
 			// VIRTUAL FILE SYSTEM.
@@ -383,6 +384,7 @@ namespace galaxy
 			ServiceLocator<BS::thread_pool>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Loader>::del();
+			ServiceLocator<graphics::Renderer>::del();
 			ServiceLocator<Window>::del();
 			ServiceLocator<Config>::del();
 
@@ -399,10 +401,11 @@ namespace galaxy
 				GALAXY_CUR_UPS = 0;
 				GALAXY_CUR_FPS = 0;
 
-				auto& config  = ServiceLocator<Config>::ref();
-				auto& window  = ServiceLocator<Window>::ref();
-				auto& manager = ServiceLocator<scene::SceneManager>::ref();
-				auto& nui     = ServiceLocator<ui::NuklearUI>::ref();
+				auto& config   = ServiceLocator<Config>::ref();
+				auto& window   = ServiceLocator<Window>::ref();
+				auto& manager  = ServiceLocator<scene::SceneManager>::ref();
+				auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
+				auto& renderer = ServiceLocator<graphics::Renderer>::ref();
 
 				const auto log_perf = config.get<bool>("log_performance");
 
@@ -432,7 +435,7 @@ namespace galaxy
 
 					while (accumulator >= GALAXY_UPS)
 					{
-						graphics::Renderer::flush();
+						renderer.flush();
 
 						window.poll_events();
 						scene.update();
@@ -443,8 +446,7 @@ namespace galaxy
 					}
 
 					scene.render();
-
-					glfwSwapBuffers(window.handle());
+					renderer.swap_buffers(window.handle());
 
 					frames++;
 
