@@ -39,6 +39,20 @@ namespace galaxy
 			[[maybe_unused]] static Service& make(Args&&... args);
 
 			///
+			/// \brief Re-construct a new service.
+			///
+			/// Deletes the service, then returns a NEW instance.
+			///
+			/// \tparam Args Packed cnstructor argument types.
+			///
+			/// \param args Packed constructor argument values.
+			///
+			/// \return Pointer to recreated service.
+			///
+			template<typename... Args>
+			[[maybe_unused]] static Service& remake(Args&&... args);
+
+			///
 			/// Get a reference to the service.
 			///
 			/// \return Reference to service.
@@ -103,6 +117,14 @@ namespace galaxy
 		{
 			m_service = std::make_unique<Service>(std::forward<Args>(args)...);
 			return ref();
+		}
+
+		template<meta::is_class Service>
+		template<typename... Args>
+		inline Service& ServiceLocator<Service>::remake(Args&&... args)
+		{
+			del();
+			return make(std::forward<Args>(args)...);
 		}
 
 		template<meta::is_class Service>
