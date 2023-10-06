@@ -36,7 +36,7 @@ namespace galaxy
 			///
 			/// \param folder A folder within the VFS to read from.
 			///
-			void load(std::string_view folder);
+			void load_folder(std::string_view folder);
 
 			///
 			/// Load a specific file with a provided lua state.

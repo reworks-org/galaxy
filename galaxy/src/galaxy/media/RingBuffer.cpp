@@ -8,7 +8,15 @@
 #include <cmath>
 #include <utility>
 
+#include "galaxy/platform/Platform.hpp"
+
 #include "RingBuffer.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26401)
+#pragma warning(disable : 26409)
+#endif
 
 namespace galaxy
 {
@@ -69,10 +77,10 @@ namespace galaxy
 
 		void RingBuffer::set_volume(const float volume)
 		{
-			const float gain   = (std::max(std::min(volume, 1.0f), 0.0f) * 50) - 50;
-			const float factor = std::pow(10, gain * 0.05f);
+			const auto gain   = (std::max(std::min(volume, 1.0f), 0.0f) * 50) - 50;
+			const auto factor = std::pow(10, gain * 0.05f);
 
-			m_volume = std::max(std::min(1.0f * factor, 1.0f), 0.0f);
+			m_volume = static_cast<float>(std::max(std::min(1.0 * factor, 1.0), 0.0));
 		}
 
 		float RingBuffer::get_volume() const
@@ -81,3 +89,7 @@ namespace galaxy
 		}
 	} // namespace media
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

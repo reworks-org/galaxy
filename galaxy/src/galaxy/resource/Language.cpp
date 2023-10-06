@@ -25,7 +25,7 @@ namespace galaxy
 			clear();
 		}
 
-		void Language::load(std::string_view folder)
+		void Language::load_folder(std::string_view folder)
 		{
 			clear();
 			if (!folder.empty())

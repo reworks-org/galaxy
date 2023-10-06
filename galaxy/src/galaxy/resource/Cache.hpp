@@ -27,7 +27,7 @@ namespace galaxy
 		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
 		template<meta::not_memory Resource, typename Loader, bool needs_gl>
-		// requires meta::is_loader<Loader, Resource, needs_gl>
+		requires meta::is_loader<Loader, Resource, needs_gl>
 		class Cache final
 		{
 			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;

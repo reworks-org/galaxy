@@ -44,7 +44,10 @@ namespace galaxy
 		///
 		/// \return Unsigned 32bit integer.
 		///
-		constexpr std::uint32_t fnv1a_32(const char* const str, const std::uint32_t value = val_32_const) noexcept;
+		constexpr inline std::uint32_t fnv1a_32(const char* const str, const std::uint32_t value = val_32_const) noexcept
+		{
+			return (str[0] == '\0') ? value : fnv1a_32(&str[1], (value ^ static_cast<uint32_t>(static_cast<uint8_t>(str[0]))) * prime_32_const);
+		}
 
 		///
 		/// Convert string to 64bit hash.
@@ -54,7 +57,10 @@ namespace galaxy
 		///
 		/// \return Unsigned 64bit integer.
 		///
-		constexpr std::uint64_t fnv1a_64(const char* const str, const std::uint64_t value = val_64_const) noexcept;
+		constexpr inline std::uint64_t fnv1a_64(const char* const str, const std::uint64_t value = val_64_const) noexcept
+		{
+			return (str[0] == '\0') ? value : fnv1a_64(&str[1], (value ^ static_cast<uint64_t>(static_cast<uint8_t>(str[0]))) * prime_64_const);
+		}
 
 	} // namespace algorithm
 } // namespace galaxy
