@@ -30,8 +30,6 @@ namespace galaxy
 			m_camera_ubo->create<Camera::Data>(GAlAXY_UBO_CAMERA_INDEX);
 			m_r2d_ubo->create<Render2DUniform>(GAlAXY_UBO_R2D_INDEX);
 
-			m_data.reserve(GALAXY_DEFAULT_RENDERER_RESERVED);
-
 			m_r2d_shader.load_raw(shaders::r2d_vert, shaders::r2d_frag);
 			m_r2d_shader.compile();
 
