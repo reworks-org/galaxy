@@ -28,3 +28,6 @@
 [submodule "lib/mimalloc"]
 	path = lib/mimalloc
 	url = https://github.com/microsoft/mimalloc.git
+[submodule "lib/variant"]
+	path = lib/variant
+	url = https://github.com/mpark/variant.git

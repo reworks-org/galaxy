@@ -8,7 +8,7 @@
 #ifndef GALAXY_EVENTS_EVENTQUEUE_HPP_
 #define GALAXY_EVENTS_EVENTQUEUE_HPP_
 
-#include <variant>
+#include <mpark/variant.hpp>
 
 #include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyChar.hpp"
@@ -30,7 +30,7 @@ namespace galaxy
 		///
 		/// Event type.
 		///
-		using Variant = std::variant<std::monostate,
+		using Variant = mpark::variant<mpark::monostate,
 			events::ContentScale,
 			events::KeyChar,
 			events::KeyDown,

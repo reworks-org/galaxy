@@ -606,7 +606,7 @@ namespace galaxy
 			for (auto i = 0; i < m_event_queue.size(); i++)
 			{
 				// clang-format off
-				std::visit([&](auto&& queued_event) {
+				mpark::visit([&](auto&& queued_event) {
                     dispatcher.trigger(queued_event);
                 }, m_event_queue[i]);
 				// clang-format on
