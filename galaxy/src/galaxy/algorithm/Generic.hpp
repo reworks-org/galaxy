@@ -9,7 +9,6 @@
 #define GALAXY_ALGORITHM_GENERIC_HPP_
 
 #include <algorithm>
-#include <execution>
 #include <vector>
 
 #include "galaxy/meta/Memory.hpp"
@@ -48,7 +47,7 @@ namespace galaxy
 		[[nodiscard]] inline bool contains(const meta::vector<Type>& cont, const Type& val)
 		{
 			auto out = false;
-			std::for_each(std::execution::par, cont.begin(), cont.end(), [&](const Type& var) {
+			std::for_each(cont.begin(), cont.end(), [&](const Type& var) {
 				if (val == var)
 				{
 					out = true;

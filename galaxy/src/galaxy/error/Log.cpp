@@ -16,17 +16,13 @@ namespace galaxy
 		Log::Log()
 			: m_min_level {LogLevel::INFO}
 		{
+			m_sinks.reserve(2);
 		}
 
 		Log& Log::handle()
 		{
 			static Log s_instance;
 			return s_instance;
-		}
-
-		void Log::start()
-		{
-			m_sinks.reserve(20);
 		}
 
 		void Log::finish()

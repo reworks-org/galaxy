@@ -24,7 +24,6 @@
 #define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
 #define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
 #define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
-#define GALAXY_LOG_START                galaxy::error::Log::handle().start
 #define GALAXY_LOG_FINISH               galaxy::error::Log::handle().finish
 #define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
 #define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
@@ -66,11 +65,6 @@ namespace galaxy
 			/// \return Returns static reference to Log class.
 			///
 			[[nodiscard]] static Log& handle();
-
-			///
-			/// Start logging thread.
-			///
-			void start();
 
 			///
 			/// Cleanup any static resources.

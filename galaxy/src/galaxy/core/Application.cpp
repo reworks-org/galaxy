@@ -285,7 +285,15 @@ namespace galaxy
 			//
 			// Threadpool.
 			//
-			ServiceLocator<BS::thread_pool>::make(GALAXY_WORKER_THREADS);
+
+			// We take 2 away, one is being used by audio and another by subprocesses/libs/stl.
+			auto threads = std::thread::hardware_concurrency() - 2;
+			if (threads <= 0)
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Not enough threads on CPU, performance will be impacted.");
+				threads = 3;
+			}
+			ServiceLocator<BS::thread_pool>::make(threads);
 
 			//
 			// Set up Font Context.

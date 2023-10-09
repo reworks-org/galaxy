@@ -127,11 +127,6 @@ namespace galaxy
 #define GALAXY_APP_DIR std::filesystem::current_path().string()
 
 ///
-/// Number of threads for the threadpool to use.
-///
-#define GALAXY_WORKER_THREADS 4
-
-///
 /// ZLib inflate/deflate chunk size.
 ///
 #define GALAXY_ZLIB_COMPLETE_CHUNK 16384
