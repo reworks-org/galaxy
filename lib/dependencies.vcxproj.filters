@@ -822,6 +822,8 @@
     <ClInclude Include="nuklear\nuklear.h" />
     <ClInclude Include="nuklear\Nuklear.hpp" />
     <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
+    <ClInclude Include="imgui\imgui_addons\ImTween.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
