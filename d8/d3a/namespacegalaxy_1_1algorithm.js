@@ -5,8 +5,6 @@ var namespacegalaxy_1_1algorithm =
     [ "conditional_distribution", "d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5", null ],
     [ "encode_base64", "d8/d3a/namespacegalaxy_1_1algorithm.html#af51b2738ee1cf60733c4681ff4ad825b", null ],
     [ "decode_base64", "d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243", null ],
-    [ "fnv1a_32", "d8/d3a/namespacegalaxy_1_1algorithm.html#a0e50269c119b362c78abbcc95bd65e40", null ],
-    [ "fnv1a_64", "d8/d3a/namespacegalaxy_1_1algorithm.html#ab03c65013e8fd74149082f159d78bf20", null ],
     [ "fnv1a_32", "d8/d3a/namespacegalaxy_1_1algorithm.html#ab1120c81b07b020f2a612ddaa271c7ab", null ],
     [ "fnv1a_64", "d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477", null ],
     [ "normalize", "d8/d3a/namespacegalaxy_1_1algorithm.html#af4e018556ce75e495e92004aeacf0b5c", null ],

@@ -1,0 +1,31 @@
+<map id="galaxy::graphics::Renderer::Renderer" name="galaxy::graphics::Renderer::Renderer">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,161,200,201"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4" title="Add an effect to process." alt="" coords="248,61,495,86"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,159,187,130,247,103,296,87,298,92,249,108,189,135,138,164"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="543,89,725,129"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,159,248,147,395,127,529,114,530,119,396,132,248,152,187,164"/>
+<area shape="rect" id="Node000004" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="264,161,479,201"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,179,250,179,250,184,200,184"/>
+<area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="1036,233,1267,258"/>
+<area shape="poly" id="edge16_Node000001_Node000007" title=" " alt="" coords="138,199,189,226,249,249,452,309,536,329,615,341,695,345,780,342,876,331,987,311,1056,289,1115,262,1117,267,1058,294,989,316,877,336,780,348,695,351,615,346,535,334,451,314,247,255,187,231,136,204"/>
+<area shape="rect" id="Node000012" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403" title="Loads a combined raw shader." alt="" coords="543,241,725,281"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="188,199,248,211,396,233,530,249,529,254,395,238,248,216,187,204"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="444,159,547,130,548,136,446,164"/>
+<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="543,153,725,193"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="479,175,529,174,529,179,479,181"/>
+<area shape="poly" id="edge12_Node000004_Node000012" title=" " alt="" coords="439,199,555,235,554,240,437,204"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="773,133,988,173"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="725,163,759,160,760,166,726,169"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="773,197,988,237"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="726,187,760,193,759,198,725,192"/>
+<area shape="rect" id="Node000009" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="773,5,988,45"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="706,151,724,139,740,119,747,98,754,77,772,55,778,50,782,55,775,59,759,79,752,100,744,122,727,143,709,155"/>
+<area shape="rect" id="Node000011" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="773,69,988,109"/>
+<area shape="poly" id="edge11_Node000005_Node000011" title=" " alt="" coords="692,151,724,139,772,119,795,111,797,116,774,124,726,144,694,156"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="951,171,989,183,1106,225,1104,230,987,188,950,176"/>
+<area shape="rect" id="Node000010" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="1044,5,1259,45"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="988,23,1030,23,1030,28,988,28"/>
+<area shape="poly" id="edge13_Node000012_Node000012" title=" " alt="" coords="588,242,586,232,593,222,609,217,634,215,663,218,678,225,676,230,661,223,634,220,610,222,596,227,591,233,593,240"/>
+<area shape="rect" id="Node000013" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab6218a2d58f67196138e097cc723cb86" title="Extract source code from a combined shader." alt="" coords="790,261,971,301"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="725,266,777,270,776,276,725,271"/>
+</map>

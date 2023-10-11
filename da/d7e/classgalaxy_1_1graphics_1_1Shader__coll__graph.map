@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Shader" name="galaxy::graphics::Shader">
-<area shape="rect" id="Node000001" title="Class for managing OpenGL shader programs." alt="" coords="5,277,179,603"/>
+<area shape="rect" id="Node000001" title="Class for managing OpenGL shader programs." alt="" coords="5,277,179,623"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="53,135,131,200"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,200,95,261,89,261,89,200"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="27,5,157,85"/>

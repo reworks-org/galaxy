@@ -3,7 +3,7 @@ var classgalaxy_1_1media_1_1Video =
     [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html#a397eaf4d72c34d34aec8bfe847cc1e99", null ],
     [ "~Video", "de/d0b/classgalaxy_1_1media_1_1Video.html#a5d53ccaaed6374bfd863362ae3e45b38", null ],
     [ "load", "de/d0b/classgalaxy_1_1media_1_1Video.html#a1791972c8cc2d43824c3de6c1be30a0b", null ],
-    [ "play", "de/d0b/classgalaxy_1_1media_1_1Video.html#a4b192fd9744fa3481a15a8bc5586efdf", null ],
+    [ "build", "de/d0b/classgalaxy_1_1media_1_1Video.html#a2b07380cb1b31f12defa395debb9c18f", null ],
     [ "update", "de/d0b/classgalaxy_1_1media_1_1Video.html#acf45b36945c58440f6719cf3154b1786", null ],
     [ "render", "de/d0b/classgalaxy_1_1media_1_1Video.html#a30dd7837a5da9fc454d9c052d5dd7076", null ],
     [ "is_finished", "de/d0b/classgalaxy_1_1media_1_1Video.html#abb6481acbcce8b307ed03b666c68bc3a", null ],

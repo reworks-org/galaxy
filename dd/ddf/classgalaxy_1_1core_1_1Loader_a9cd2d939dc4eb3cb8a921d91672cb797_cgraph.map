@@ -1,0 +1,7 @@
+<map id="galaxy::core::Loader::load_user_config" name="galaxy::core::Loader::load_user_config">
+<area shape="rect" id="Node000001" title="Only loads user config." alt="" coords="5,35,159,75"/>
+<area shape="rect" id="Node000002" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="257,5,387,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,43,243,32,243,38,159,48"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,70,437,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,61,200,66,200,71,159,66"/>
+</map>

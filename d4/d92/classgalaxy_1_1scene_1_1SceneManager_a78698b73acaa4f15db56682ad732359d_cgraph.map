@@ -1,0 +1,13 @@
+<map id="galaxy::scene::SceneManager::load_scene" name="galaxy::scene::SceneManager::load_scene">
+<area shape="rect" id="Node000001" title="Load data from memory into scenes." alt="" coords="5,69,220,109"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="268,69,483,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,87,254,87,254,92,220,92"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513" title="Destroys all scenes." alt="" coords="531,5,745,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,67,541,46,543,51,459,72"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0" title="Create a new scene." alt="" coords="531,69,745,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="483,87,517,87,517,92,483,92"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Set the currently active scene." alt="" coords="531,133,745,173"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="459,107,543,127,541,133,458,112"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204" title="Remove a specific scene." alt="" coords="793,5,1008,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="745,23,780,23,780,28,745,28"/>
+</map>

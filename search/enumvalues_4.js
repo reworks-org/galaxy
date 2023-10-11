@@ -7,7 +7,7 @@ var searchData=
   ['decompress_4',['DECOMPRESS',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a9ef47ba11e4fbc98914ad8cd60ac4d42ad99a99e787339258bd63bebb2445ffd5',1,'galaxy::algorithm::ZLib']]],
   ['default_5',['DEFAULT',['../d6/d19/namespacegalaxy_1_1fs.html#a57278a58a8457b4345127d2a627f9d1fa5b39c8b553c821e7cddc6da64b5bd2ee',1,'galaxy::fs']]],
   ['delete_6',['DELETE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea32f68a60cef40faedbc6af20298c1a1e',1,'galaxy::input']]],
-  ['dialogue_7',['DIALOGUE',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html#af3d26e204a5fafb2bbf9841d2d82f566afbc1136327d892c897c3b1e43d239140',1,'galaxy::media::Sound']]],
+  ['dialogue_7',['DIALOGUE',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140',1,'galaxy::media']]],
   ['down_8',['DOWN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac4e0e4e3118472beeb2ae75827450f1f',1,'galaxy::input']]],
   ['dracula_9',['DRACULA',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d',1,'galaxy::ui']]],
   ['dynamic_5fdraw_10',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]

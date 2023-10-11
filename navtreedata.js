@@ -64,25 +64,25 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d70/classgalaxy_1_1graphics_1_1Font.html#a4c0fae4efec63178359d96c32e9ea9b9",
-"d2/d81/classgalaxy_1_1components_1_1Text.html#ae7f042dbebc24ab51a6938a615c74d51",
-"d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#af95061df48e572986481518f8b4d5727",
+"d1/d50/LuaServices_8cpp_source.html",
+"d2/d81/classgalaxy_1_1components_1_1Text.html#aac707607be9ac032a371d64d6f6920e7",
+"d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a049903107301316cada4bcd0fed521f9",
+"d4/d86/classgalaxy_1_1components_1_1Sprite.html#af50963141dcac230749bddfbf9c6d764",
 "d5/d25/classgalaxy_1_1core_1_1Window.html#a89d9693e27e065b809aabde944f8c407",
-"d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f",
-"d6/dd5/classgalaxy_1_1media_1_1Sound.html#a55d5624024e3b19f44ec7f7ba6e2bff4",
-"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d",
-"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a6f512c26335754520e26915614f76a79",
-"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92",
-"da/d18/classgalaxy_1_1components_1_1Animated.html#ad9dade86f15c3ef866e210f1106129a3",
-"db/d19/Renderable_8cpp_source.html",
-"db/de2/ImGuiTheme_8cpp.html#aacdac9efb274ac360d676372c4f10dd9",
-"dc/d97/structgalaxy_1_1events_1_1KeyChar.html#ac55187b3357f362c752e71b6cc6a5f8e",
-"dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130",
-"dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c",
-"de/d92/Lua_8hpp.html#ac020a38778147ca1ce6b15befb93bf31",
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8",
-"functions_vars_k.html"
+"d5/df3/ImGuiHelpers_8cpp.html#a9b448428ad6a24f04383d3d99a76fb94",
+"d6/dd5/classgalaxy_1_1media_1_1Sound.html#a2d46cba6e307eccab468d0047bf9afba",
+"d7/d75/FileCode_8hpp.html",
+"d8/d31/Subprocess_8hpp_source.html",
+"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a62607224542d4fd1f4fba8a73aa6222e",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb",
+"da/def/classgalaxy_1_1input_1_1InputDevice.html#a0803a7b0db5e94eb70f3424c31824a59",
+"db/dc3/classgalaxy_1_1resource_1_1Language.html#a4553e79ec31a396eadacd56f36e4fe31",
+"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a23772401bed09504212c7e1e310ca5a4",
+"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142eafd816cf0346d4939b4cf3bed78dd7fde",
+"dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258",
+"de/d57/classgalaxy_1_1graphics_1_1Frame.html#aaf11b8d29f9bb3c82129f495d5aa8dc7",
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a",
+"functions_func_~.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

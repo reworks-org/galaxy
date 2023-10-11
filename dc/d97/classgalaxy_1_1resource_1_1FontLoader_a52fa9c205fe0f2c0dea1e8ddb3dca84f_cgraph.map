@@ -1,0 +1,6 @@
+<map id="galaxy::resource::FontLoader::build" name="galaxy::resource::FontLoader::build">
+<area shape="rect" id="Node000001" title="Builds font atlas&#39;." alt="" coords="5,29,215,69"/>
+<area shape="rect" id="Node000002" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="263,29,407,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,47,249,47,249,52,215,52"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="293,30,290,20,297,10,312,5,335,3,361,6,375,13,373,18,359,11,335,8,313,10,300,15,295,21,298,28"/>
+</map>

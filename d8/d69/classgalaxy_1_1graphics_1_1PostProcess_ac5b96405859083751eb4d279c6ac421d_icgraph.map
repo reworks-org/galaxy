@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::PostProcess::render_output" name="galaxy::graphics::PostProcess::render_output">
-<area shape="rect" id="Node000001" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="437,5,652,45"/>
-<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a561b32dc47347dbcaff5c15e0d4813a2" title="Render post processing data." alt="" coords="212,5,389,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,28,389,28,389,23,424,23"/>
-<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
-</map>

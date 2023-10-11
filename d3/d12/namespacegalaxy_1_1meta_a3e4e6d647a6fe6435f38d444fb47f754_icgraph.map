@@ -1,5 +1,0 @@
-<map id="galaxy::meta::is_work_done" name="galaxy::meta::is_work_done">
-<area shape="rect" id="Node000001" title="Check if an async thread has finished or not." alt="" coords="207,13,411,38"/>
-<area shape="rect" id="Node000002" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a1232508a29ccb3e2f6a2a06da755e677" title="Start loading job in task pool." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
-</map>

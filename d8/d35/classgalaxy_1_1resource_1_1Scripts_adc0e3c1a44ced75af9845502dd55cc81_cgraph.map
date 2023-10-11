@@ -1,7 +1,0 @@
-<map id="galaxy::resource::Scripts::load" name="galaxy::resource::Scripts::load">
-<area shape="rect" id="Node000001" title="Loads resources from a folder." alt="" coords="5,35,187,75"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136" title="Clean up resources." alt="" coords="254,5,446,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,42,240,35,241,41,187,47"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="235,70,465,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,62,222,66,221,71,187,67"/>
-</map>

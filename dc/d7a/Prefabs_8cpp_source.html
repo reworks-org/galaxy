@@ -114,66 +114,38 @@ $(document).ready(function(){initNavTree('dc/d7a/Prefabs_8cpp_source.html','../.
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">namespace </span>resource</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a4332c1fb6e1a56269343e287895af580">   20</a></span>        <a class="code hl_function" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a4332c1fb6e1a56269343e287895af580">Prefabs::Prefabs</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5">   20</a></span>        std::shared_ptr&lt;core::Prefab&gt; <a class="code hl_function" href="../../d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5">PrefabLoader::operator()</a>(<span class="keyword">const</span> std::string&amp; file)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keyword">auto</span>&amp; fs        = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">const</span> <span class="keyword">auto</span> data = fs.open(file);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">if</span> (!data.empty())</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                <span class="keyword">const</span> <span class="keyword">auto</span> name         = std::filesystem::path(file).stem().string();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <span class="keyword">const</span> <span class="keyword">auto</span> base64       = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">algorithm::decode_zlib</a>(data);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <span class="keyword">const</span> <span class="keyword">auto</span> decompressed = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">algorithm::decode_base64</a>(base64);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                <span class="keywordflow">return</span> std::make_shared&lt;core::Prefab&gt;(nlohmann::json::parse(decompressed));</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Attempted to load empty prefab {0}.&quot;</span>, file);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a0319e725d09f06b4641ce7365f7efad4">   24</a></span>        <a class="code hl_function" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a0319e725d09f06b4641ce7365f7efad4">Prefabs::~Prefabs</a>()</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
-</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad07e6401cf804f179c86bde9ba937af5">   28</a></span>        std::future&lt;void&gt; <a class="code hl_function" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad07e6401cf804f179c86bde9ba937af5">Prefabs::load</a>(std::string_view folder)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">clear</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_variable" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a09f2ea610c3cc848febb63695f8a5041">m_folder</a> = folder;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>().submit([&amp;]() {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a09f2ea610c3cc848febb63695f8a5041">m_folder</a>.empty())</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                    auto&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                    const auto contents = fs.list_directory(m_folder);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                    if (!contents.empty())</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                        for (const auto&amp; file : contents)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                        {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                            const auto data = fs.open(file);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                            if (!data.empty())</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                            {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                                const auto name         = std::filesystem::path(file).stem().string();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                const auto base64       = algorithm::decode_zlib(data);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                                const auto decompressed = algorithm::decode_base64(base64);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                                m_cache[name] = std::make_shared&lt;core::Prefab&gt;(nlohmann::json::parse(decompressed));</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                            }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                        }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                        GALAXY_LOG(GALAXY_WARNING, <span class="stringliteral">&quot;Found no Prefabs to load in &#39;{0}&#39;.&quot;</span>, m_folder);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            });</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
-</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    } <span class="comment">// namespace resource</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    } <span class="comment">// namespace resource</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aBase64_8hpp_html"><div class="ttname"><a href="../../d0/d79/Base64_8hpp.html">Base64.hpp</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00041">Log.hpp:41</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
 <div class="ttc" id="aPrefabs_8hpp_html"><div class="ttname"><a href="../../d3/d96/Prefabs_8hpp.html">Prefabs.hpp</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aZLib_8hpp_html"><div class="ttname"><a href="../../db/dba/ZLib_8hpp.html">ZLib.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00109">ServiceLocator.hpp:109</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html_a9a5c7a733c4673f2b1e244a5bd5ac136"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">galaxy::resource::Cache&lt; core::Prefab &gt;::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clean up resources.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00042">Cache.hpp:133</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Prefabs_html_a0319e725d09f06b4641ce7365f7efad4"><div class="ttname"><a href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a0319e725d09f06b4641ce7365f7efad4">galaxy::resource::Prefabs::~Prefabs</a></div><div class="ttdeci">virtual ~Prefabs()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d7a/Prefabs_8cpp_source.html#l00024">Prefabs.cpp:24</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Prefabs_html_a09f2ea610c3cc848febb63695f8a5041"><div class="ttname"><a href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a09f2ea610c3cc848febb63695f8a5041">galaxy::resource::Prefabs::m_folder</a></div><div class="ttdeci">std::string m_folder</div><div class="ttdoc">Prefab resource folder.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d96/Prefabs_8hpp_source.html#l00068">Prefabs.hpp:68</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Prefabs_html_a4332c1fb6e1a56269343e287895af580"><div class="ttname"><a href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#a4332c1fb6e1a56269343e287895af580">galaxy::resource::Prefabs::Prefabs</a></div><div class="ttdeci">Prefabs()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d7a/Prefabs_8cpp_source.html#l00020">Prefabs.cpp:20</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Prefabs_html_ad07e6401cf804f179c86bde9ba937af5"><div class="ttname"><a href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad07e6401cf804f179c86bde9ba937af5">galaxy::resource::Prefabs::load</a></div><div class="ttdeci">std::future&lt; void &gt; load(std::string_view folder) override</div><div class="ttdoc">Loads resources from a folder.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d7a/Prefabs_8cpp_source.html#l00028">Prefabs.cpp:28</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1PrefabLoader_html_a14188f921b47fd976c6ee141e9c9bfb5"><div class="ttname"><a href="../../d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5">galaxy::resource::PrefabLoader::operator()</a></div><div class="ttdeci">std::shared_ptr&lt; core::Prefab &gt; operator()(const std::string &amp;file)</div><div class="ttdoc">Overloaded operator() used to load a resource.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d7a/Prefabs_8cpp_source.html#l00020">Prefabs.cpp:20</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_a65ecede7f95188b9b959e4b36b3c4795"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">galaxy::algorithm::decode_zlib</a></div><div class="ttdeci">std::string decode_zlib(const std::string &amp;input)</div><div class="ttdoc">Decompresses string into ZLib.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d16/ZLib_8cpp_source.html#l00276">ZLib.cpp:276</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_aa1a4102763ede9a59182d62bc7f6e243"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">galaxy::algorithm::decode_base64</a></div><div class="ttdeci">std::string decode_base64(const std::string &amp;input)</div><div class="ttdoc">Decompresses string into Base64.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00104">Base64.cpp:104</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -181,7 +153,7 @@ $(document).ready(function(){initNavTree('dc/d7a/Prefabs_8cpp_source.html','../.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../dc/d7a/Prefabs_8cpp.html">Prefabs.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 06:40:38 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 11 2023 03:37:59 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

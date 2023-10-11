@@ -1,9 +1,17 @@
 <map id="galaxy::scene::SceneManager::clear" name="galaxy::scene::SceneManager::clear">
-<area shape="rect" id="Node000001" title="Destroys all scenes." alt="" coords="499,37,713,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="275,5,412,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,45,412,36,412,31,485,40"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b" title="Destructor." alt="" coords="236,69,451,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="486,75,451,79,451,74,485,69"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,28,188,28,188,23,261,23"/>
+<area shape="rect" id="Node000001" title="Destroys all scenes." alt="" coords="1209,83,1424,123"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="947,26,1161,66"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1211,83,1146,69,1147,63,1212,78"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,26,373,66"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="1196,112,1041,115,847,114,634,104,526,94,421,81,367,69,368,63,422,75,527,89,634,99,847,109,1041,110,1196,106"/>
+<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b" title="Destructor." alt="" coords="947,141,1161,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="1212,129,1147,143,1146,138,1211,124"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d" title="Load data from memory into scenes." alt="" coords="684,26,899,66"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="933,49,899,49,899,43,933,43"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="695,26,636,17,528,8,482,10,422,17,367,29,366,23,421,11,481,5,529,3,636,11,696,21"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969" title="Load app data file into scene manager." alt="" coords="421,26,636,66"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="671,49,636,49,636,43,671,43"/>
+<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,26,188,66"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,49,188,49,188,43,222,43"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="408,49,374,49,374,43,408,43"/>
 </map>

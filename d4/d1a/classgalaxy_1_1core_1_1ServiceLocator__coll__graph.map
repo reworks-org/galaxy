@@ -1,5 +1,5 @@
 <map id="galaxy::core::ServiceLocator&lt; Service &gt;" name="galaxy::core::ServiceLocator&lt; Service &gt;">
-<area shape="rect" id="Node000001" title="Provides access to registered services. Cannot be created, copied or moved." alt="" coords="5,389,203,649"/>
+<area shape="rect" id="Node000001" title="Provides access to registered services. Cannot be created, copied or moved." alt="" coords="5,389,203,669"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="9,261,199,327"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,327,107,373,101,373,101,327"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="29,133,179,199"/>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy::resource::Cache&lt; Resource &gt; Class Template Reference</title>
+<title>galaxy: galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -93,149 +93,132 @@ $(document).ready(function(){initNavTree('da/d64/classgalaxy_1_1resource_1_1Cach
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d6/dd5/classgalaxy_1_1resource_1_1Cache-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">galaxy::resource::Cache&lt; Resource &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides a useful set of functions around managing a resource cache.  
+<p><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Cache for resources such as audio, fonts, etc.">Cache</a> for resources such as audio, fonts, etc.  
  <a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for galaxy::resource::Cache&lt; Resource &gt;:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/db6/classgalaxy_1_1resource_1_1Cache__inherit__graph.png" border="0" usemap="#agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_inherit__map" id="agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_inherit__map">
-<area shape="rect" title="Provides a useful set of functions around managing a resource cache." alt="" coords="499,5,668,325"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="11,388,180,708"/>
-<area shape="poly" title=" " alt="" coords="487,206,418,238,343,279,270,330,205,390,182,418,178,414,201,386,267,326,341,274,416,233,484,201"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="216,388,385,708"/>
-<area shape="poly" title=" " alt="" coords="490,244,438,294,391,351,367,389,362,386,387,348,434,291,486,240"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="415,388,584,708"/>
-<area shape="poly" title=" " alt="" coords="546,339,543,350,535,388,530,387,538,349,540,338"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="611,388,780,708"/>
-<area shape="poly" title=" " alt="" coords="653,337,657,349,667,387,662,388,651,350,648,339"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="809,388,979,708"/>
-<area shape="poly" title=" " alt="" coords="681,232,743,285,800,348,826,386,822,389,796,351,739,289,677,236"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title=" " alt="" coords="1011,388,1180,708"/>
-<area shape="poly" title=" " alt="" coords="682,199,747,226,818,260,890,301,958,347,987,373,1013,401,1009,405,983,376,955,351,888,305,816,265,745,231,680,204"/>
-<area shape="rect" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html" title="Resource manager for fonts." alt="" coords="5,807,169,1013"/>
-<area shape="poly" title=" " alt="" coords="94,722,92,807,87,807,89,722"/>
-<area shape="rect" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html" title="Resource manager for a physics material." alt="" coords="193,817,384,1003"/>
-<area shape="poly" title=" " alt="" coords="298,722,294,817,289,817,292,722"/>
-<area shape="rect" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html" title="Resource manager for lua Prefabs." alt="" coords="409,817,587,1003"/>
-<area shape="poly" title=" " alt="" coords="501,722,501,817,496,817,496,722"/>
-<area shape="rect" href="../../d8/d35/classgalaxy_1_1resource_1_1Scripts.html" title="Resource manager for lua scripts." alt="" coords="611,817,785,1003"/>
-<area shape="poly" title=" " alt="" coords="699,722,700,817,695,817,694,722"/>
-<area shape="rect" href="../../d9/d24/classgalaxy_1_1resource_1_1Shaders.html" title="Resource cache for shaders." alt="" coords="809,807,990,1013"/>
-<area shape="poly" title=" " alt="" coords="899,722,900,807,895,807,894,722"/>
-<area shape="rect" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html" title="Resource cache for sounds." alt="" coords="1014,757,1190,1063"/>
-<area shape="poly" title=" " alt="" coords="1101,722,1102,757,1097,757,1096,722"/>
-</map>
-</div>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for galaxy::resource::Cache&lt; Resource &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/d12/classgalaxy_1_1resource_1_1Cache__coll__graph.png" border="0" usemap="#agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_coll__map" id="agalaxy_1_1resource_1_1Cache_3_01Resource_01_4_coll__map">
-<area shape="rect" title="Provides a useful set of functions around managing a resource cache." alt="" coords="5,5,175,325"/>
+<div class="center"><img src="../../d5/d12/classgalaxy_1_1resource_1_1Cache__coll__graph.png" border="0" usemap="#agalaxy_1_1resource_1_1Cache_3_01Resource_00_01Loader_00_01needs__gl_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="agalaxy_1_1resource_1_1Cache_3_01Resource_00_01Loader_00_01needs__gl_01_4_coll__map" id="agalaxy_1_1resource_1_1Cache_3_01Resource_00_01Loader_00_01needs__gl_01_4_coll__map">
+<area shape="rect" title="Cache for resources such as audio, fonts, etc." alt="" coords="5,5,228,445"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6495e3fda0c0072b7d11e367043beefd" id="r_a6495e3fda0c0072b7d11e367043beefd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6495e3fda0c0072b7d11e367043beefd">~Cache</a> ()</td></tr>
-<tr class="memdesc:a6495e3fda0c0072b7d11e367043beefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:a6495e3fda0c0072b7d11e367043beefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a5c7a733c4673f2b1e244a5bd5ac136" id="r_a9a5c7a733c4673f2b1e244a5bd5ac136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9a5c7a733c4673f2b1e244a5bd5ac136">clear</a> ()</td></tr>
-<tr class="memdesc:a9a5c7a733c4673f2b1e244a5bd5ac136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up resources.  <br /></td></tr>
-<tr class="separator:a9a5c7a733c4673f2b1e244a5bd5ac136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e0fbb98fd001ff6cf049fbb00e7f83" id="r_ab2e0fbb98fd001ff6cf049fbb00e7f83"><td class="memItemLeft" align="right" valign="top">virtual std::future&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ab2e0fbb98fd001ff6cf049fbb00e7f83">load</a> (std::string_view folder)=0</td></tr>
-<tr class="memdesc:ab2e0fbb98fd001ff6cf049fbb00e7f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads resources from a folder.  <br /></td></tr>
-<tr class="separator:ab2e0fbb98fd001ff6cf049fbb00e7f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a1d9d9c537479a95410afd0481140c" id="r_ad2a1d9d9c537479a95410afd0481140c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad2a1d9d9c537479a95410afd0481140c">has</a> (const std::string &amp;key)</td></tr>
-<tr class="memdesc:ad2a1d9d9c537479a95410afd0481140c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a resource exists.  <br /></td></tr>
-<tr class="separator:ad2a1d9d9c537479a95410afd0481140c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8361740b1709f7b74f8fd60d1009b351" id="r_a8361740b1709f7b74f8fd60d1009b351"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a8361740b1709f7b74f8fd60d1009b351">get</a> (const std::string &amp;key)</td></tr>
-<tr class="memdesc:a8361740b1709f7b74f8fd60d1009b351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a resource.  <br /></td></tr>
-<tr class="separator:a8361740b1709f7b74f8fd60d1009b351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba3a6a517d246e2a9e714384535c9f33" id="r_aba3a6a517d246e2a9e714384535c9f33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aba3a6a517d246e2a9e714384535c9f33">empty</a> () const</td></tr>
-<tr class="memdesc:aba3a6a517d246e2a9e714384535c9f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the cache has any resources in it.  <br /></td></tr>
-<tr class="separator:aba3a6a517d246e2a9e714384535c9f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab208952f432b30ed0d8df035c1963014" id="r_ab208952f432b30ed0d8df035c1963014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a63fcadc296e0e05086288610fc97ea6c">CacheMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ab208952f432b30ed0d8df035c1963014">cache</a> ()</td></tr>
-<tr class="memdesc:ab208952f432b30ed0d8df035c1963014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get entire resource cache.  <br /></td></tr>
-<tr class="separator:ab208952f432b30ed0d8df035c1963014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7eed57dda10a101a86c28151ed058ef" id="r_ab7eed57dda10a101a86c28151ed058ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ab7eed57dda10a101a86c28151ed058ef">keys</a> ()</td></tr>
-<tr class="memdesc:ab7eed57dda10a101a86c28151ed058ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of keys in the cache.  <br /></td></tr>
-<tr class="separator:ab7eed57dda10a101a86c28151ed058ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a36bbbb036eb814690ef538f885f061ee" id="r_a36bbbb036eb814690ef538f885f061ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a36bbbb036eb814690ef538f885f061ee">Cache</a> ()=default</td></tr>
-<tr class="memdesc:a36bbbb036eb814690ef538f885f061ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:a36bbbb036eb814690ef538f885f061ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a11821dc939bbdd5f496741c2bd78648c" id="r_a11821dc939bbdd5f496741c2bd78648c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a63fcadc296e0e05086288610fc97ea6c">CacheMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a11821dc939bbdd5f496741c2bd78648c">m_cache</a></td></tr>
-<tr class="memdesc:a11821dc939bbdd5f496741c2bd78648c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiguous resource array.  <br /></td></tr>
-<tr class="separator:a11821dc939bbdd5f496741c2bd78648c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afddfb6e938eacdae5bd3c82d31e557ed" id="r_afddfb6e938eacdae5bd3c82d31e557ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#afddfb6e938eacdae5bd3c82d31e557ed">Cache</a> () noexcept</td></tr>
+<tr class="memdesc:afddfb6e938eacdae5bd3c82d31e557ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:afddfb6e938eacdae5bd3c82d31e557ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d7623ee7dd6c0ec546b3e2a00c9a89b" id="r_a1d7623ee7dd6c0ec546b3e2a00c9a89b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1d7623ee7dd6c0ec546b3e2a00c9a89b">~Cache</a> ()</td></tr>
+<tr class="memdesc:a1d7623ee7dd6c0ec546b3e2a00c9a89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a1d7623ee7dd6c0ec546b3e2a00c9a89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82d73875cbeaaf8a7896c1edefff172b" id="r_a82d73875cbeaaf8a7896c1edefff172b"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a82d73875cbeaaf8a7896c1edefff172b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a82d73875cbeaaf8a7896c1edefff172b">load</a> (const std::string &amp;id, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a82d73875cbeaaf8a7896c1edefff172b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a resource.  <br /></td></tr>
+<tr class="separator:a82d73875cbeaaf8a7896c1edefff172b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8868a308ebc2e3f07fa09d28313fe7" id="r_a6b8868a308ebc2e3f07fa09d28313fe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6b8868a308ebc2e3f07fa09d28313fe7">load_folder</a> (const std::string &amp;dir)</td></tr>
+<tr class="memdesc:a6b8868a308ebc2e3f07fa09d28313fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load resources from a directory.  <br /></td></tr>
+<tr class="separator:a6b8868a308ebc2e3f07fa09d28313fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0c12c6495f294d702fe24cb7e5f7f5" id="r_aea0c12c6495f294d702fe24cb7e5f7f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aea0c12c6495f294d702fe24cb7e5f7f5">build</a> ()</td></tr>
+<tr class="memdesc:aea0c12c6495f294d702fe24cb7e5f7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds any OpenGL data.  <br /></td></tr>
+<tr class="separator:aea0c12c6495f294d702fe24cb7e5f7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd859ea086299104c60116ac30cddd68" id="r_abd859ea086299104c60116ac30cddd68"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abd859ea086299104c60116ac30cddd68">get</a> (std::string_view id)</td></tr>
+<tr class="memdesc:abd859ea086299104c60116ac30cddd68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a resource.  <br /></td></tr>
+<tr class="separator:abd859ea086299104c60116ac30cddd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc894a351c6c8604346cb5f9915d0f44" id="r_afc894a351c6c8604346cb5f9915d0f44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#afc894a351c6c8604346cb5f9915d0f44">clear</a> ()</td></tr>
+<tr class="memdesc:afc894a351c6c8604346cb5f9915d0f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy resources.  <br /></td></tr>
+<tr class="separator:afc894a351c6c8604346cb5f9915d0f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbcb6bbcd9df559338b1c3deaa056034" id="r_adbcb6bbcd9df559338b1c3deaa056034"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#adbcb6bbcd9df559338b1c3deaa056034">has</a> (std::string_view id)</td></tr>
+<tr class="memdesc:adbcb6bbcd9df559338b1c3deaa056034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a resource exists.  <br /></td></tr>
+<tr class="separator:adbcb6bbcd9df559338b1c3deaa056034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e930c2e3f1761c5d385a37e11c4fb41" id="r_a5e930c2e3f1761c5d385a37e11c4fb41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5e930c2e3f1761c5d385a37e11c4fb41">empty</a> () const</td></tr>
+<tr class="memdesc:a5e930c2e3f1761c5d385a37e11c4fb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the cache have any resources.  <br /></td></tr>
+<tr class="separator:a5e930c2e3f1761c5d385a37e11c4fb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec30b1f41b620dd9eba7933d87bba20" id="r_a0ec30b1f41b620dd9eba7933d87bba20"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a0ec30b1f41b620dd9eba7933d87bba20">size</a> () const</td></tr>
+<tr class="memdesc:a0ec30b1f41b620dd9eba7933d87bba20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get amount of resources cached.  <br /></td></tr>
+<tr class="separator:a0ec30b1f41b620dd9eba7933d87bba20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f803be43e36a99cee3606a8eedb7396" id="r_a1f803be43e36a99cee3606a8eedb7396"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75">CacheType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1f803be43e36a99cee3606a8eedb7396">cache</a> () const</td></tr>
+<tr class="memdesc:a1f803be43e36a99cee3606a8eedb7396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get entire resource cache.  <br /></td></tr>
+<tr class="separator:a1f803be43e36a99cee3606a8eedb7396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc98299f83938be438b9b6a1167bfb4c" id="r_acc98299f83938be438b9b6a1167bfb4c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#acc98299f83938be438b9b6a1167bfb4c">keys</a> ()</td></tr>
+<tr class="memdesc:acc98299f83938be438b9b6a1167bfb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of keys in the cache.  <br /></td></tr>
+<tr class="separator:acc98299f83938be438b9b6a1167bfb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a63fcadc296e0e05086288610fc97ea6c" id="r_a63fcadc296e0e05086288610fc97ea6c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a63fcadc296e0e05086288610fc97ea6c">CacheMap</a> = robin_hood::unordered_node_map&lt; std::string, std::shared_ptr&lt; Resource &gt; &gt;</td></tr>
-<tr class="memdesc:a63fcadc296e0e05086288610fc97ea6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the template syntax for a resource holder.  <br /></td></tr>
-<tr class="separator:a63fcadc296e0e05086288610fc97ea6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17949044039b4b023d24b324a1cba75" id="r_aa17949044039b4b023d24b324a1cba75"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75">CacheType</a> = robin_hood::unordered_node_map&lt; std::uint64_t, std::shared_ptr&lt; Resource &gt; &gt;</td></tr>
+<tr class="separator:aa17949044039b4b023d24b324a1cba75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a9f5f20e2a012d8329dbef14fd2bc2508" id="r_a9f5f20e2a012d8329dbef14fd2bc2508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9f5f20e2a012d8329dbef14fd2bc2508">Cache</a> (const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a9f5f20e2a012d8329dbef14fd2bc2508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
-<tr class="separator:a9f5f20e2a012d8329dbef14fd2bc2508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ca89ebbca966d305ced10d2f0797c99" id="r_a0ca89ebbca966d305ced10d2f0797c99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a0ca89ebbca966d305ced10d2f0797c99">Cache</a> (<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a0ca89ebbca966d305ced10d2f0797c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
-<tr class="separator:a0ca89ebbca966d305ced10d2f0797c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f02e0d52ddb00e1c299106b4fb7f65f" id="r_a4f02e0d52ddb00e1c299106b4fb7f65f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a4f02e0d52ddb00e1c299106b4fb7f65f">operator=</a> (const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a4f02e0d52ddb00e1c299106b4fb7f65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
-<tr class="separator:a4f02e0d52ddb00e1c299106b4fb7f65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2c482bfe0b21b63adbe3c5c82a7d9f" id="r_a0e2c482bfe0b21b63adbe3c5c82a7d9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a0e2c482bfe0b21b63adbe3c5c82a7d9f">operator=</a> (<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a0e2c482bfe0b21b63adbe3c5c82a7d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
-<tr class="separator:a0e2c482bfe0b21b63adbe3c5c82a7d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b0e8fd597bfdf49f0e3236af34a78f" id="r_a60b0e8fd597bfdf49f0e3236af34a78f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a60b0e8fd597bfdf49f0e3236af34a78f">Cache</a> (const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a60b0e8fd597bfdf49f0e3236af34a78f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
+<tr class="separator:a60b0e8fd597bfdf49f0e3236af34a78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22388888cf25db98e04a884f6711ddd0" id="r_a22388888cf25db98e04a884f6711ddd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a22388888cf25db98e04a884f6711ddd0">Cache</a> (<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a22388888cf25db98e04a884f6711ddd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="separator:a22388888cf25db98e04a884f6711ddd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38037be4a90fab66e967f4fd7ed463ea" id="r_a38037be4a90fab66e967f4fd7ed463ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a38037be4a90fab66e967f4fd7ed463ea">operator=</a> (const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a38037be4a90fab66e967f4fd7ed463ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
+<tr class="separator:a38037be4a90fab66e967f4fd7ed463ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4833c6a1f1a8f8468513d956d01017c7" id="r_a4833c6a1f1a8f8468513d956d01017c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a4833c6a1f1a8f8468513d956d01017c7">operator=</a> (<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a4833c6a1f1a8f8468513d956d01017c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="separator:a4833c6a1f1a8f8468513d956d01017c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b53d9f3bf8bbace01e43f1ecaff5152" id="r_a2b53d9f3bf8bbace01e43f1ecaff5152"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152">hash</a> (std::string_view str)</td></tr>
+<tr class="memdesc:a2b53d9f3bf8bbace01e43f1ecaff5152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes the key into an integer for faster map lookup time.  <br /></td></tr>
+<tr class="separator:a2b53d9f3bf8bbace01e43f1ecaff5152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad6972c07643bc42a605c0f4d0d165aba" id="r_ad6972c07643bc42a605c0f4d0d165aba"><td class="memItemLeft" align="right" valign="top">Loader&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad6972c07643bc42a605c0f4d0d165aba">m_loader</a></td></tr>
+<tr class="memdesc:ad6972c07643bc42a605c0f4d0d165aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to load a resource into the cache. Allows for flexiblity.  <br /></td></tr>
+<tr class="separator:ad6972c07643bc42a605c0f4d0d165aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaae2a7f3f9becf482a78cb121c1e4d7" id="r_acaae2a7f3f9becf482a78cb121c1e4d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75">CacheType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#acaae2a7f3f9becf482a78cb121c1e4d7">m_cache</a></td></tr>
+<tr class="memdesc:acaae2a7f3f9becf482a78cb121c1e4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual data store.  <br /></td></tr>
+<tr class="separator:acaae2a7f3f9becf482a78cb121c1e4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f62506bde2e6489ad5a791f68c3cd05" id="r_a4f62506bde2e6489ad5a791f68c3cd05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a4f62506bde2e6489ad5a791f68c3cd05">m_keys</a></td></tr>
+<tr class="memdesc:a4f62506bde2e6489ad5a791f68c3cd05"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of keys currently in the cache.  <br /></td></tr>
+<tr class="separator:a4f62506bde2e6489ad5a791f68c3cd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;meta::not_memory Resource&gt;<br />
-class galaxy::resource::Cache&lt; Resource &gt;</div><p>Provides a useful set of functions around managing a resource cache. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;meta::not_memory Resource, typename Loader, bool needs_gl&gt;<br />
+requires meta::is_loader&lt;Loader, Resource, needs_gl&gt;<br />
+class galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;</div><p><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html" title="Cache for resources such as audio, fonts, etc.">Cache</a> for resources such as audio, fonts, etc. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Resource</td><td>A resource can be anything that is not a pointer or a reference. </td></tr>
+    <tr><td class="paramname">Resource</td><td>Type of resource to manage. </td></tr>
+    <tr><td class="paramname">Loader</td><td>Loader to use when loading the resource. </td></tr>
+    <tr><td class="paramname">needs_gl</td><td>Does the loader need a opengl builder function. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a63fcadc296e0e05086288610fc97ea6c" name="a63fcadc296e0e05086288610fc97ea6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63fcadc296e0e05086288610fc97ea6c">&#9670;&#160;</a></span>CacheMap</h2>
+<a id="aa17949044039b4b023d24b324a1cba75" name="aa17949044039b4b023d24b324a1cba75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17949044039b4b023d24b324a1cba75">&#9670;&#160;</a></span>CacheType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::CacheMap =  robin_hood::unordered_node_map&lt;std::string, std::shared_ptr&lt;Resource&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::CacheType =  robin_hood::unordered_node_map&lt;std::uint64_t, std::shared_ptr&lt;Resource&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -245,26 +228,24 @@ template&lt;meta::not_memory Resource&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Defines the template syntax for a resource holder. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6495e3fda0c0072b7d11e367043beefd" name="a6495e3fda0c0072b7d11e367043beefd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6495e3fda0c0072b7d11e367043beefd">&#9670;&#160;</a></span>~Cache()</h2>
+<a id="afddfb6e938eacdae5bd3c82d31e557ed" name="afddfb6e938eacdae5bd3c82d31e557ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afddfb6e938eacdae5bd3c82d31e557ed">&#9670;&#160;</a></span>Cache() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::~<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> </td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::Cache </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -272,61 +253,75 @@ template&lt;meta::not_memory Resource&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00127">127</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a36bbbb036eb814690ef538f885f061ee" name="a36bbbb036eb814690ef538f885f061ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36bbbb036eb814690ef538f885f061ee">&#9670;&#160;</a></span>Cache() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::Cache </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
 
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+
 </div>
 </div>
-<a id="a9f5f20e2a012d8329dbef14fd2bc2508" name="a9f5f20e2a012d8329dbef14fd2bc2508"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f5f20e2a012d8329dbef14fd2bc2508">&#9670;&#160;</a></span>Cache() <span class="overload">[2/3]</span></h2>
+<a id="a1d7623ee7dd6c0ec546b3e2a00c9a89b" name="a1d7623ee7dd6c0ec546b3e2a00c9a89b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d7623ee7dd6c0ec546b3e2a00c9a89b">&#9670;&#160;</a></span>~Cache()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::Cache </td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::~<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a1d7623ee7dd6c0ec546b3e2a00c9a89b_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a1d7623ee7dd6c0ec546b3e2a00c9a89b_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a1d7623ee7dd6c0ec546b3e2a00c9a89b_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a1d7623ee7dd6c0ec546b3e2a00c9a89b_cgraph">
+<area shape="rect" title="Destructor." alt="" coords="5,5,183,45"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#afc894a351c6c8604346cb5f9915d0f44" title="Destroy resources." alt="" coords="231,5,408,45"/>
+<area shape="poly" title=" " alt="" coords="183,23,217,23,217,28,183,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a60b0e8fd597bfdf49f0e3236af34a78f" name="a60b0e8fd597bfdf49f0e3236af34a78f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b0e8fd597bfdf49f0e3236af34a78f">&#9670;&#160;</a></span>Cache() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::Cache </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource, Loader, needs_gl &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -342,21 +337,21 @@ template&lt;meta::not_memory Resource&gt; </div>
 
 </div>
 </div>
-<a id="a0ca89ebbca966d305ced10d2f0797c99" name="a0ca89ebbca966d305ced10d2f0797c99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ca89ebbca966d305ced10d2f0797c99">&#9670;&#160;</a></span>Cache() <span class="overload">[3/3]</span></h2>
+<a id="a22388888cf25db98e04a884f6711ddd0" name="a22388888cf25db98e04a884f6711ddd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22388888cf25db98e04a884f6711ddd0">&#9670;&#160;</a></span>Cache() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::Cache </td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::Cache </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource, Loader, needs_gl &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -373,19 +368,182 @@ template&lt;meta::not_memory Resource&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9a5c7a733c4673f2b1e244a5bd5ac136" name="a9a5c7a733c4673f2b1e244a5bd5ac136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a5c7a733c4673f2b1e244a5bd5ac136">&#9670;&#160;</a></span>clear()</h2>
+<a id="a82d73875cbeaaf8a7896c1edefff172b" name="a82d73875cbeaaf8a7896c1edefff172b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d73875cbeaaf8a7896c1edefff172b">&#9670;&#160;</a></span>load()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::clear </td>
+          <td class="memname">void <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::load </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load a resource. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>Variable arg types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Key to store resource with. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments to pass to loader's operator(). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_cgraph">
+<area shape="rect" title="Load a resource." alt="" coords="5,29,183,69"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152" title="Hashes the key into an integer for faster map lookup time." alt="" coords="231,29,408,69"/>
+<area shape="poly" title=" " alt="" coords="183,47,217,47,217,52,183,52"/>
+<area shape="poly" title=" " alt="" coords="280,30,278,20,284,10,298,5,319,3,344,6,357,13,354,18,342,11,319,8,299,10,287,15,283,21,285,28"/>
+<area shape="rect" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="456,29,600,69"/>
+<area shape="poly" title=" " alt="" coords="408,47,442,47,442,52,408,52"/>
+<area shape="poly" title=" " alt="" coords="489,30,487,20,493,10,507,5,528,3,552,6,566,13,563,18,551,11,528,8,508,10,496,15,492,21,494,28"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a82d73875cbeaaf8a7896c1edefff172b_icgraph">
+<area shape="rect" title="Load a resource." alt="" coords="647,5,824,45"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6b8868a308ebc2e3f07fa09d28313fe7" title="Load resources from a directory." alt="" coords="421,5,599,45"/>
+<area shape="poly" title=" " alt="" coords="633,28,599,28,599,23,633,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6b8868a308ebc2e3f07fa09d28313fe7" name="a6b8868a308ebc2e3f07fa09d28313fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b8868a308ebc2e3f07fa09d28313fe7">&#9670;&#160;</a></span>load_folder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::load_folder </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load resources from a directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>Folder to load from within VFS. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00071">71</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_cgraph">
+<area shape="rect" title="Load resources from a directory." alt="" coords="5,69,183,109"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#afc894a351c6c8604346cb5f9915d0f44" title="Destroy resources." alt="" coords="257,5,435,45"/>
+<area shape="poly" title=" " alt="" coords="173,67,253,46,254,51,174,72"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a82d73875cbeaaf8a7896c1edefff172b" title="Load a resource." alt="" coords="257,69,435,109"/>
+<area shape="poly" title=" " alt="" coords="183,87,244,87,244,92,183,92"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="231,134,461,159"/>
+<area shape="poly" title=" " alt="" coords="180,107,231,119,274,128,273,134,230,124,179,112"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152" title="Hashes the key into an integer for faster map lookup time." alt="" coords="509,69,687,109"/>
+<area shape="poly" title=" " alt="" coords="435,87,496,87,496,92,435,92"/>
+<area shape="poly" title=" " alt="" coords="559,70,557,60,563,50,577,45,598,43,622,46,636,53,633,58,621,51,598,48,578,50,566,55,562,61,564,68"/>
+<area shape="rect" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="735,69,879,109"/>
+<area shape="poly" title=" " alt="" coords="687,87,721,87,721,92,687,92"/>
+<area shape="poly" title=" " alt="" coords="768,70,765,60,771,50,785,45,807,43,831,46,844,53,842,58,829,51,807,48,787,50,775,55,770,61,773,68"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a6b8868a308ebc2e3f07fa09d28313fe7_icgraph">
+<area shape="rect" title="Load resources from a directory." alt="" coords="421,5,599,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aea0c12c6495f294d702fe24cb7e5f7f5" name="aea0c12c6495f294d702fe24cb7e5f7f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0c12c6495f294d702fe24cb7e5f7f5">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::build </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -398,106 +556,29 @@ template&lt;meta::not_memory Resource&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Clean up resources. </p>
+<p>Builds any OpenGL data. </p>
+<p>Does nothing if this class doesn't require it. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab2e0fbb98fd001ff6cf049fbb00e7f83" name="ab2e0fbb98fd001ff6cf049fbb00e7f83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2e0fbb98fd001ff6cf049fbb00e7f83">&#9670;&#160;</a></span>load()</h2>
+<a id="abd859ea086299104c60116ac30cddd68" name="abd859ea086299104c60116ac30cddd68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd859ea086299104c60116ac30cddd68">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::future&lt; void &gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::load </td>
+          <td class="memname">std::shared_ptr&lt; Resource &gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::get </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>folder</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads resources from a folder. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">folder</td><td>Folder located in the VFS.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Thread handle of loading thread. </dd></dl>
-
-<p>Implemented in <a class="el" href="../../df/d3d/classgalaxy_1_1resource_1_1Fonts.html#af4735503fa99a8d36ecc737cf47531ac">galaxy::resource::Fonts</a>, <a class="el" href="../../d3/dbb/classgalaxy_1_1resource_1_1Materials.html#a2d7c7f875a0baa21b9e9c33ece575a3b">galaxy::resource::Materials</a>, <a class="el" href="../../d2/daf/classgalaxy_1_1resource_1_1Prefabs.html#ad07e6401cf804f179c86bde9ba937af5">galaxy::resource::Prefabs</a>, <a class="el" href="../../d8/d35/classgalaxy_1_1resource_1_1Scripts.html#adc0e3c1a44ced75af9845502dd55cc81">galaxy::resource::Scripts</a>, <a class="el" href="../../d9/d24/classgalaxy_1_1resource_1_1Shaders.html#a025fdcd9413cde50e126b7c7f8c246e9">galaxy::resource::Shaders</a>, and <a class="el" href="../../dd/d48/classgalaxy_1_1resource_1_1Sounds.html#af6aae450f989d952563ae3c9a016bca6">galaxy::resource::Sounds</a>.</p>
-
-</div>
-</div>
-<a id="ad2a1d9d9c537479a95410afd0481140c" name="ad2a1d9d9c537479a95410afd0481140c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2a1d9d9c537479a95410afd0481140c">&#9670;&#160;</a></span>has()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::has </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if a resource exists. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>Key to use to access resource.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if resource was found. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8361740b1709f7b74f8fd60d1009b351" name="a8361740b1709f7b74f8fd60d1009b351"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8361740b1709f7b74f8fd60d1009b351">&#9670;&#160;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; Resource &gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::get </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -511,61 +592,59 @@ template&lt;meta::not_memory Resource&gt; </div>
 <p>Retrieve a resource. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td>Key to use to access resource.</td></tr>
+    <tr><td class="paramname">id</td><td>Key to use to access resource.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a pointer to the resource. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a shared pointer to the resource. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_cgraph">
+<area shape="rect" title="Retrieve a resource." alt="" coords="5,37,212,62"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152" title="Hashes the key into an integer for faster map lookup time." alt="" coords="260,29,437,69"/>
+<area shape="poly" title=" " alt="" coords="212,47,246,47,246,52,212,52"/>
+<area shape="poly" title=" " alt="" coords="310,30,307,20,313,10,327,5,349,3,373,6,386,13,384,18,371,11,349,8,329,10,317,15,312,21,315,28"/>
+<area shape="rect" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="485,29,629,69"/>
+<area shape="poly" title=" " alt="" coords="437,47,471,47,471,52,437,52"/>
+<area shape="poly" title=" " alt="" coords="518,30,516,20,522,10,536,5,557,3,582,6,595,13,592,18,580,11,557,8,537,10,525,15,521,21,523,28"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_abd859ea086299104c60116ac30cddd68_icgraph">
+<area shape="rect" title="Retrieve a resource." alt="" coords="421,13,628,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="407,28,374,28,374,23,407,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="aba3a6a517d246e2a9e714384535c9f33" name="aba3a6a517d246e2a9e714384535c9f33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba3a6a517d246e2a9e714384535c9f33">&#9670;&#160;</a></span>empty()</h2>
+<a id="afc894a351c6c8604346cb5f9915d0f44" name="afc894a351c6c8604346cb5f9915d0f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc894a351c6c8604346cb5f9915d0f44">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::empty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if the cache has any resources in it. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if empty, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00156">156</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab208952f432b30ed0d8df035c1963014" name="ab208952f432b30ed0d8df035c1963014"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab208952f432b30ed0d8df035c1963014">&#9670;&#160;</a></span>cache()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource &gt;<a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a63fcadc296e0e05086288610fc97ea6c">::CacheMap</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::cache </td>
+          <td class="memname">void <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -578,26 +657,251 @@ template&lt;meta::not_memory Resource&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get entire resource cache. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the resource holders cache. </dd></dl>
+<p>Destroy resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00120">120</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_afc894a351c6c8604346cb5f9915d0f44_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_afc894a351c6c8604346cb5f9915d0f44_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_afc894a351c6c8604346cb5f9915d0f44_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_afc894a351c6c8604346cb5f9915d0f44_icgraph">
+<area shape="rect" title="Destroy resources." alt="" coords="647,33,824,73"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="649,33,598,24,549,20,510,20,421,24,374,25,374,20,421,19,510,15,549,15,599,19,650,28"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6b8868a308ebc2e3f07fa09d28313fe7" title="Load resources from a directory." alt="" coords="421,33,599,73"/>
+<area shape="poly" title=" " alt="" coords="633,56,599,56,599,51,633,51"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1d7623ee7dd6c0ec546b3e2a00c9a89b" title="Destructor." alt="" coords="421,97,599,137"/>
+<area shape="poly" title=" " alt="" coords="652,80,582,100,580,95,650,75"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="poly" title=" " alt="" coords="407,42,373,37,374,32,408,37"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ab7eed57dda10a101a86c28151ed058ef" name="ab7eed57dda10a101a86c28151ed058ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7eed57dda10a101a86c28151ed058ef">&#9670;&#160;</a></span>keys()</h2>
+<a id="adbcb6bbcd9df559338b1c3deaa056034" name="adbcb6bbcd9df559338b1c3deaa056034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbcb6bbcd9df559338b1c3deaa056034">&#9670;&#160;</a></span>has()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::keys </td>
+          <td class="memname">bool <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::has </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if a resource exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Key to use to access resource.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if resource was found. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00132">132</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_cgraph">
+<area shape="rect" title="Check if a resource exists." alt="" coords="5,37,213,62"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152" title="Hashes the key into an integer for faster map lookup time." alt="" coords="261,29,439,69"/>
+<area shape="poly" title=" " alt="" coords="214,47,248,47,248,52,214,52"/>
+<area shape="poly" title=" " alt="" coords="311,30,309,20,315,10,329,5,350,3,374,6,388,13,385,18,373,11,350,8,330,10,318,15,314,21,316,28"/>
+<area shape="rect" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="487,29,631,69"/>
+<area shape="poly" title=" " alt="" coords="439,47,473,47,473,52,439,52"/>
+<area shape="poly" title=" " alt="" coords="520,30,517,20,523,10,537,5,559,3,583,6,596,13,594,18,581,11,559,8,539,10,527,15,522,21,525,28"/>
+</map>
+</div>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_adbcb6bbcd9df559338b1c3deaa056034_icgraph">
+<area shape="rect" title="Check if a resource exists." alt="" coords="421,13,629,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="407,28,373,28,373,23,407,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5e930c2e3f1761c5d385a37e11c4fb41" name="a5e930c2e3f1761c5d385a37e11c4fb41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e930c2e3f1761c5d385a37e11c4fb41">&#9670;&#160;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does the cache have any resources. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if empty, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00142">142</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_cgraph">
+<area shape="rect" title="Does the cache have any resources." alt="" coords="5,5,183,45"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a0ec30b1f41b620dd9eba7933d87bba20" title="Get amount of resources cached." alt="" coords="231,5,408,45"/>
+<area shape="poly" title=" " alt="" coords="183,23,217,23,217,28,183,28"/>
+</map>
+</div>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a5e930c2e3f1761c5d385a37e11c4fb41_icgraph">
+<area shape="rect" title="Does the cache have any resources." alt="" coords="421,5,599,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0ec30b1f41b620dd9eba7933d87bba20" name="a0ec30b1f41b620dd9eba7933d87bba20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec30b1f41b620dd9eba7933d87bba20">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get amount of resources cached. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a0ec30b1f41b620dd9eba7933d87bba20_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a0ec30b1f41b620dd9eba7933d87bba20_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a0ec30b1f41b620dd9eba7933d87bba20_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a0ec30b1f41b620dd9eba7933d87bba20_icgraph">
+<area shape="rect" title="Get amount of resources cached." alt="" coords="647,35,824,75"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5e930c2e3f1761c5d385a37e11c4fb41" title="Does the cache have any resources." alt="" coords="421,5,599,45"/>
+<area shape="poly" title=" " alt="" coords="633,44,598,40,599,34,634,39"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,35,373,75"/>
+<area shape="poly" title=" " alt="" coords="633,60,599,60,421,60,374,59,374,54,421,55,599,55,633,54"/>
+<area shape="poly" title=" " alt="" coords="408,43,374,48,373,42,407,37"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,35,188,75"/>
+<area shape="poly" title=" " alt="" coords="222,57,188,57,188,52,222,52"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1f803be43e36a99cee3606a8eedb7396" name="a1f803be43e36a99cee3606a8eedb7396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f803be43e36a99cee3606a8eedb7396">&#9670;&#160;</a></span>cache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75">CacheType</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::cache </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get entire resource cache. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the resource cache. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00160">160</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acc98299f83938be438b9b6a1167bfb4c" name="acc98299f83938be438b9b6a1167bfb4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc98299f83938be438b9b6a1167bfb4c">&#9670;&#160;</a></span>keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt; &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::keys </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -611,27 +915,41 @@ template&lt;meta::not_memory Resource&gt; </div>
 </div><div class="memdoc">
 
 <p>Get a list of keys in the cache. </p>
-<dl class="section return"><dt>Returns</dt><dd>A vector of strings. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of char pointers. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00168">168</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_acc98299f83938be438b9b6a1167bfb4c_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_acc98299f83938be438b9b6a1167bfb4c_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_acc98299f83938be438b9b6a1167bfb4c_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_acc98299f83938be438b9b6a1167bfb4c_icgraph">
+<area shape="rect" title="Get a list of keys in the cache." alt="" coords="421,5,599,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a4f02e0d52ddb00e1c299106b4fb7f65f" name="a4f02e0d52ddb00e1c299106b4fb7f65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f02e0d52ddb00e1c299106b4fb7f65f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a38037be4a90fab66e967f4fd7ed463ea" name="a38037be4a90fab66e967f4fd7ed463ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38037be4a90fab66e967f4fd7ed463ea">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource, Loader, needs_gl &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -647,21 +965,21 @@ template&lt;meta::not_memory Resource&gt; </div>
 
 </div>
 </div>
-<a id="a0e2c482bfe0b21b63adbe3c5c82a7d9f" name="a0e2c482bfe0b21b63adbe3c5c82a7d9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2c482bfe0b21b63adbe3c5c82a7d9f">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a4833c6a1f1a8f8468513d956d01017c7" name="a4833c6a1f1a8f8468513d956d01017c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4833c6a1f1a8f8468513d956d01017c7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::operator= </td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a>&lt; Resource, Loader, needs_gl &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -677,32 +995,159 @@ template&lt;meta::not_memory Resource&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a11821dc939bbdd5f496741c2bd78648c" name="a11821dc939bbdd5f496741c2bd78648c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11821dc939bbdd5f496741c2bd78648c">&#9670;&#160;</a></span>m_cache</h2>
+<a id="a2b53d9f3bf8bbace01e43f1ecaff5152" name="a2b53d9f3bf8bbace01e43f1ecaff5152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b53d9f3bf8bbace01e43f1ecaff5152">&#9670;&#160;</a></span>hash()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::not_memory Resource&gt; </div>
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a63fcadc296e0e05086288610fc97ea6c">CacheMap</a> <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource &gt;::m_cache</td>
+          <td class="memname">std::uint64_t <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::hash </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Contiguous resource array. </p>
+<p>Hashes the key into an integer for faster map lookup time. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00199">199</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_cgraph">
+<area shape="rect" title="Hashes the key into an integer for faster map lookup time." alt="" coords="5,29,183,69"/>
+<area shape="poly" title=" " alt="" coords="55,30,53,20,59,10,73,5,94,3,118,6,132,13,129,18,117,11,94,8,74,10,62,15,58,21,60,28"/>
+<area shape="rect" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="231,29,375,69"/>
+<area shape="poly" title=" " alt="" coords="183,47,217,47,217,52,183,52"/>
+<area shape="poly" title=" " alt="" coords="264,30,261,20,267,10,281,5,303,3,327,6,340,13,338,18,325,11,303,8,283,10,271,15,266,21,269,28"/>
+</map>
+</div>
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a2b53d9f3bf8bbace01e43f1ecaff5152_icgraph">
+<area shape="rect" title="Hashes the key into an integer for faster map lookup time." alt="" coords="932,49,1109,89"/>
+<area shape="poly" title=" " alt="" coords="1062,37,1047,30,1021,27,997,29,984,34,978,40,981,48,976,49,973,39,980,30,996,24,1021,22,1049,25,1064,32"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abd859ea086299104c60116ac30cddd68" title="Retrieve a resource." alt="" coords="421,5,628,31"/>
+<area shape="poly" title=" " alt="" coords="918,51,884,46,751,33,628,25,628,19,751,27,884,41,919,46"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#adbcb6bbcd9df559338b1c3deaa056034" title="Check if a resource exists." alt="" coords="676,56,884,81"/>
+<area shape="poly" title=" " alt="" coords="918,71,884,71,884,66,918,66"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a82d73875cbeaaf8a7896c1edefff172b" title="Load a resource." alt="" coords="691,106,869,146"/>
+<area shape="poly" title=" " alt="" coords="923,94,865,109,864,103,922,89"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,49,373,89"/>
+<area shape="poly" title=" " alt="" coords="456,36,374,55,373,50,455,31"/>
+<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,49,188,89"/>
+<area shape="poly" title=" " alt="" coords="222,71,188,71,188,66,222,66"/>
+<area shape="poly" title=" " alt="" coords="662,71,374,71,374,66,662,66"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6b8868a308ebc2e3f07fa09d28313fe7" title="Load resources from a directory." alt="" coords="436,106,613,146"/>
+<area shape="poly" title=" " alt="" coords="677,129,614,129,614,123,677,123"/>
+<area shape="poly" title=" " alt="" coords="434,105,373,89,374,84,435,100"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad6972c07643bc42a605c0f4d0d165aba" name="ad6972c07643bc42a605c0f4d0d165aba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6972c07643bc42a605c0f4d0d165aba">&#9670;&#160;</a></span>m_loader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Loader <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::m_loader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to load a resource into the cache. Allows for flexiblity. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00209">209</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acaae2a7f3f9becf482a78cb121c1e4d7" name="acaae2a7f3f9becf482a78cb121c1e4d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaae2a7f3f9becf482a78cb121c1e4d7">&#9670;&#160;</a></span>m_cache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75">CacheType</a> <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::m_cache</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The actual data store. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00214">214</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4f62506bde2e6489ad5a791f68c3cd05" name="a4f62506bde2e6489ad5a791f68c3cd05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f62506bde2e6489ad5a791f68c3cd05">&#9670;&#160;</a></span>m_keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;meta::not_memory Resource, typename Loader , bool needs_gl&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;std::string&gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, Loader, needs_gl &gt;::m_keys</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of keys currently in the cache. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
 
 </div>
 </div>
@@ -715,7 +1160,7 @@ template&lt;meta::not_memory Resource&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d4/d1b/namespacegalaxy_1_1resource.html">resource</a></li><li class="navelem"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 06:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 11 2023 03:38:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

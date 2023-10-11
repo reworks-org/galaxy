@@ -1,0 +1,5 @@
+<map id="galaxy::resource::Language::operator[]" name="galaxy::resource::Language::operator[]">
+<area shape="rect" id="Node000001" title="Overloaded operator[] to translate a key into the active language&#39;s text." alt="" coords="5,5,205,45"/>
+<area shape="rect" id="Node000002" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#a08bdeb667856d66025897e669d2e3774" title="Translates a key into the active language&#39;s text." alt="" coords="253,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,240,23,240,28,205,28"/>
+</map>

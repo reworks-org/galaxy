@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Renderer::draw" name="galaxy::graphics::Renderer::draw">
-<area shape="rect" id="Node000001" title="Draw all submitted data to screen." alt="" coords="212,5,407,45"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
-</map>

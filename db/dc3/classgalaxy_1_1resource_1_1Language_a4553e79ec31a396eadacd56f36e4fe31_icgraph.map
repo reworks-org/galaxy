@@ -1,8 +1,8 @@
 <map id="galaxy::resource::Language::clear" name="galaxy::resource::Language::clear">
-<area shape="rect" id="Node000001" title="Clear all language data." alt="" coords="669,33,869,73"/>
+<area shape="rect" id="Node000001" title="Erase all language data." alt="" coords="669,33,869,73"/>
 <area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="677,33,621,24,565,20,522,20,421,24,374,25,374,20,421,19,521,15,565,14,622,19,678,28"/>
-<area shape="rect" id="Node000004" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#ac9af356793983ce14b8ab4a8c6f29975" title="Loads resources from a folder." alt="" coords="421,33,621,73"/>
+<area shape="rect" id="Node000004" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5" title="Load all languages in a folder." alt="" coords="421,33,621,73"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="656,56,622,56,622,51,656,51"/>
 <area shape="rect" id="Node000005" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d" title="Destructor." alt="" coords="421,97,621,137"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="679,79,600,100,599,95,677,74"/>

@@ -2,7 +2,7 @@ var searchData=
 [
   ['e_0',['E',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a3ea00cfc35332cedf6e5e9a32e94da',1,'galaxy::input']]],
   ['ellipse_1',['ELLIPSE',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870',1,'galaxy::graphics']]],
-  ['empty_2',['empty',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aba3a6a517d246e2a9e714384535c9f33',1,'galaxy::resource::Cache::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()']]],
+  ['empty_2',['empty',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5e930c2e3f1761c5d385a37e11c4fb41',1,'galaxy::resource::Cache::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()']]],
   ['enable_5finput_3',['enable_input',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a54512250c55b600300d55aaf3dd0dc8f',1,'galaxy::ui::NuklearUI']]],
   ['enable_5fsticky_5fkeys_4',['enable_sticky_keys',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366',1,'galaxy::input::Keyboard']]],
   ['enable_5fsticky_5fmouse_5',['enable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf',1,'galaxy::input::Mouse']]],
@@ -13,7 +13,7 @@ var searchData=
   ['encode_5fzlib_10',['encode_zlib',['../d8/d3a/namespacegalaxy_1_1algorithm.html#a3c26778d0e08613c2475af67be968a2a',1,'galaxy::algorithm']]],
   ['encoding_5ftable_11',['encoding_table',['../d4/de5/Base64_8cpp.html#ab95a027176f2877dedfdc0768ffa88f2',1,'Base64.cpp']]],
   ['end_12',['END',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab1a326c06d88bf042f73d70f50197905',1,'galaxy::input']]],
-  ['end_5fpostprocessing_13',['end_postprocessing',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a9c19f817dacff0c4f1806cce0354136e',1,'galaxy::core::Window']]],
+  ['end_5fpostprocessing_13',['end_postprocessing',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a1494afd068d811122c93788e05a2c69f',1,'galaxy::graphics::Renderer']]],
   ['end_5ftext_5finput_14',['end_text_input',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197',1,'galaxy::input::Keyboard']]],
   ['enhanced_5fdark_15',['ENHANCED_DARK',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaea0263b117e1728c2a77ba4418226613',1,'galaxy::ui']]],
   ['enter_16',['ENTER',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea331b3100a485d8cacff1d3df8e9b0c13',1,'galaxy::input']]],
@@ -27,5 +27,6 @@ var searchData=
   ['escape_24',['ESCAPE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eadaaedac409335b869929ea43fa44be5d',1,'galaxy::input']]],
   ['eventqueue_2ecpp_25',['EventQueue.cpp',['../dd/d83/EventQueue_8cpp.html',1,'']]],
   ['eventqueue_2ehpp_26',['EventQueue.hpp',['../d9/d1d/EventQueue_8hpp.html',1,'']]],
-  ['exists_27',['exists',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368',1,'galaxy::fs::VirtualFileSystem']]]
+  ['exists_27',['exists',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a793783d06fcbceb4eb93567813d5f368',1,'galaxy::fs::VirtualFileSystem']]],
+  ['extract_5fassets_28',['extract_assets',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ab3fcb083fcfe9b76ec5c6e2d1ade6763',1,'galaxy::core::Loader']]]
 ];

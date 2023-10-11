@@ -121,15 +121,18 @@ var annotated_dup =
         [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
       ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
+        [ "BasicScriptLoader", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader.html", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader" ],
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
-        [ "Fonts", "df/d3d/classgalaxy_1_1resource_1_1Fonts.html", "df/d3d/classgalaxy_1_1resource_1_1Fonts" ],
+        [ "DialogueLoader", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader.html", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader" ],
+        [ "FontLoader", "dc/d97/classgalaxy_1_1resource_1_1FontLoader.html", "dc/d97/classgalaxy_1_1resource_1_1FontLoader" ],
         [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
-        [ "Materials", "d3/dbb/classgalaxy_1_1resource_1_1Materials.html", "d3/dbb/classgalaxy_1_1resource_1_1Materials" ],
-        [ "Prefabs", "d2/daf/classgalaxy_1_1resource_1_1Prefabs.html", "d2/daf/classgalaxy_1_1resource_1_1Prefabs" ],
-        [ "Scripts", "d8/d35/classgalaxy_1_1resource_1_1Scripts.html", "d8/d35/classgalaxy_1_1resource_1_1Scripts" ],
-        [ "Shaders", "d9/d24/classgalaxy_1_1resource_1_1Shaders.html", "d9/d24/classgalaxy_1_1resource_1_1Shaders" ],
-        [ "Sounds", "dd/d48/classgalaxy_1_1resource_1_1Sounds.html", "dd/d48/classgalaxy_1_1resource_1_1Sounds" ],
-        [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ]
+        [ "MaterialLoader", "d2/d3f/classgalaxy_1_1resource_1_1MaterialLoader.html", "d2/d3f/classgalaxy_1_1resource_1_1MaterialLoader" ],
+        [ "MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
+        [ "PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader" ],
+        [ "SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],
+        [ "ShaderLoader", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader.html", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader" ],
+        [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
+        [ "VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader" ]
       ] ],
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],

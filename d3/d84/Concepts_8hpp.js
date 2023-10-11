@@ -6,5 +6,7 @@ var Concepts_8hpp =
     [ "galaxy::meta::standard_type", "dc/df3/conceptgalaxy_1_1meta_1_1standard__type.html", null ],
     [ "galaxy::meta::is_object", "d1/d92/conceptgalaxy_1_1meta_1_1is__object.html", null ],
     [ "galaxy::meta::is_bitset_flag", "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html", null ],
-    [ "galaxy::meta::valid_component", "d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html", null ]
+    [ "galaxy::meta::valid_component", "d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html", null ],
+    [ "galaxy::meta::loader_build_check", "d5/dfa/conceptgalaxy_1_1meta_1_1loader__build__check.html", null ],
+    [ "galaxy::meta::is_loader", "db/dba/conceptgalaxy_1_1meta_1_1is__loader.html", null ]
 ];

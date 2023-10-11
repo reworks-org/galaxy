@@ -105,457 +105,342 @@ $(document).ready(function(){initNavTree('da/d2c/SceneManager_8cpp_source.html',
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d79/Base64_8hpp.html">galaxy/algorithm/Base64.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dba/ZLib_8hpp.html">galaxy/algorithm/ZLib.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/db4/Config_8hpp.html">galaxy/core/Config.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dde/Loader_8hpp.html">galaxy/core/Loader.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/de3/Window_8hpp.html">galaxy/core/Window.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/error/Log.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d36/Input_8hpp.html">galaxy/input/Input.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d92/AudioEngine_8hpp.html">galaxy/media/AudioEngine.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d7d/Fonts_8hpp.html">galaxy/resource/Fonts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d8e/Language_8hpp.html">galaxy/resource/Language.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dce/Materials_8hpp.html">galaxy/resource/Materials.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d96/Prefabs_8hpp.html">galaxy/resource/Prefabs.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d91/Scripts_8hpp.html">galaxy/resource/Scripts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/df6/Shaders_8hpp.html">galaxy/resource/Shaders.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d7c/Sounds_8hpp.html">galaxy/resource/Sounds.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d27/TextureAtlas_8hpp.html">galaxy/resource/TextureAtlas.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dea/JSON_8hpp.html">galaxy/scripting/JSON.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dde/Loader_8hpp.html">galaxy/core/Loader.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dea/JSON_8hpp.html">galaxy/scripting/JSON.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d74/SceneManager_8hpp.html">SceneManager.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">namespace </span>scene</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">   25</a></span>        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">SceneManager::SceneManager</a>()</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            : m_current {nullptr}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d74/SceneManager_8hpp.html">SceneManager.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">namespace </span>scene</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">   38</a></span>        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">SceneManager::SceneManager</a>()</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            : m_current {nullptr}</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">   30</a></span>        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">SceneManager::~SceneManager</a>()</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">clear</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">   43</a></span>        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">SceneManager::~SceneManager</a>()</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">clear</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">   35</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">SceneManager::load_assets</a>()</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keyword">auto</span>&amp; loader = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Loader&gt;::ref</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            loader.load_all();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
 </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0">   41</a></span>        std::weak_ptr&lt;Scene&gt; <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0">SceneManager::make_scene</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.contains(name))</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name]         = std::make_shared&lt;Scene&gt;();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name]-&gt;m_name = name;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">   48</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">SceneManager::load_assets</a>()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keyword">auto</span>&amp; loader = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Loader&gt;::ref</a>();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            loader.load([]() {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">try</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    <span class="keyword">auto</span>&amp; config = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Config&gt;::ref</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    <span class="keyword">auto</span>&amp; window = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Window&gt;::ref</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Tried to create a duplicate scene &#39;{0}&#39;.&quot;</span>, name);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
+</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a505dce37ac37840d08eecfed64003d6f">input::CameraKeys::FORWARD</a>      = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_foward&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0">input::CameraKeys::BACKWARD</a>     = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_backward&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115">input::CameraKeys::LEFT</a>         = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_left&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#abdb6c4e3bb685e0692b22a9657da0172">input::CameraKeys::RIGHT</a>        = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_right&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a5c5d9a8800cfb8746575f02dd753d730">input::CameraKeys::ROTATE_LEFT</a>  = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_rotate_left&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    <a class="code hl_variable" href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab5ca9ec89abc6e748041a942da2a73fa">input::CameraKeys::ROTATE_RIGHT</a> = <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">input::int_to_key</a>(config.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;camera_rotate_right&quot;</span>, <span class="stringliteral">&quot;input&quot;</span>));</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                    <span class="keyword">auto</span> icon = config.get&lt;std::string&gt;(<span class="stringliteral">&quot;icon&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                    <span class="keywordflow">if</span> (!icon.empty())</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                    {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                        window.set_icon(icon);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                    <span class="keywordflow">if</span> (config.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;allow_native_closing&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>))</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                    {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                        window.allow_native_closing();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                        window.prevent_native_closing();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    <span class="keyword">auto</span>&amp; cursor = window.get_input&lt;<a class="code hl_class" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">input::Cursor</a>&gt;();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    cursor.<a class="code hl_function" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">toggle</a>(config.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;visible_cursor&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>));</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    <span class="keyword">auto</span> cursor_icon = config.get&lt;std::string&gt;(<span class="stringliteral">&quot;cursor_icon&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    <span class="keywordflow">if</span> (!cursor_icon.empty())</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                        cursor.load_custom(cursor_icon);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                        cursor.use_custom_else_pointer();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                    {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                        cursor.use_pointer();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    <span class="keyword">auto</span>&amp; ae = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;media::AudioEngine&gt;::ref</a>();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    ae.set_sfx_volume(config.get&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;sfx_volume&quot;</span>, <span class="stringliteral">&quot;audio&quot;</span>));</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                    ae.set_music_volume(config.get&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;music_volume&quot;</span>, <span class="stringliteral">&quot;audio&quot;</span>));</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    ae.set_dialogue_volume(config.get&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;dialogue_volume&quot;</span>, <span class="stringliteral">&quot;audio&quot;</span>));</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                    <span class="keyword">auto</span>&amp; prefabs   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Prefabs&gt;::ref</a>();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                    <span class="keyword">auto</span>&amp; materials = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Materials&gt;::ref</a>();</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <span class="keyword">auto</span>&amp; scripts   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Scripts&gt;::ref</a>();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                    <span class="keyword">auto</span>&amp; sounds    = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Sounds&gt;::ref</a>();</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                    <span class="keyword">auto</span>&amp; lang      = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Language&gt;::ref</a>();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    <span class="keyword">auto</span>&amp; fonts     = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Fonts&gt;::ref</a>();</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    <span class="keyword">auto</span>&amp; shaders   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Shaders&gt;::ref</a>();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                    std::vector&lt;std::future&lt;void&gt;&gt; futures;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                    futures.emplace_back(prefabs.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;prefabs_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                    futures.emplace_back(materials.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;materials_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                    futures.emplace_back(scripts.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;scripts_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    futures.emplace_back(sounds.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;audio_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                    futures.emplace_back(lang.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;lang_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                    futures.emplace_back(fonts.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;font_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    futures.emplace_back(shaders.load(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;shader_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>)));</div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab">   57</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab">SceneManager::add_existing_scene</a>(<span class="keyword">const</span> std::string&amp; name, std::shared_ptr&lt;Scene&gt; scene)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.contains(name))</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name] = scene;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, <span class="stringliteral">&quot;Attempted to add duplicate scene.&quot;</span>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f">   69</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f">SceneManager::set_scene</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.contains(name))</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;unload();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a> = <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name];</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;load();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Tried to set a non-existent scene &#39;{0}&#39;.&quot;</span>, name);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">   87</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">SceneManager::load_scene</a>(<span class="keyword">const</span> std::string&amp; data)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">const</span> <span class="keyword">auto</span> parsed = nlohmann::json::parse(data);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span> (!parsed.empty())</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b">deserialize</a>(parsed);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to parse scenemanger JSON data from memory.&quot;</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        }</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765">  101</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765">SceneManager::unload_scene</a>()</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;unload();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969">  107</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969">SceneManager::load_appdata</a>(std::string_view appdata_file)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keyword">const</span> <span class="keyword">auto</span> data = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>().open(appdata_file);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">if</span> (!data.empty())</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <span class="keyword">const</span> <span class="keyword">auto</span> decoded_zlib = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">algorithm::decode_zlib</a>(data);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="keywordflow">if</span> (!decoded_zlib.empty())</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    <span class="keyword">auto</span> total_done = 0;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                    <span class="keywordflow">while</span> (total_done &lt; 7)</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                    {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                        <span class="comment">// clang-format off</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                        futures.erase(std::remove_if(futures.begin(), futures.end(),</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                            [&amp;](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; future) -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                                if (meta::is_work_done(future))</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                                {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                                    total_done++;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                                    return true;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                                }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                                {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                                    return false;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                                }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                            }), futures.end());</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                        <span class="comment">// clang-format on</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                    lang.set(config.get&lt;std::string&gt;(<span class="stringliteral">&quot;default_lang&quot;</span>));</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                }</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                {</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, e.what());</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                }</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            });</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Shaders&gt;::ref</a>().compile();</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Fonts&gt;::ref</a>().build();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::TextureAtlas&gt;::ref</a>().add_folder(</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                <a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;core::Config&gt;::ref</a>().get&lt;std::string&gt;(<span class="stringliteral">&quot;atlas_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>));</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                    <span class="keyword">const</span> <span class="keyword">auto</span> decoded_base64 = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">algorithm::decode_base64</a>(decoded_zlib);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                    <span class="keywordflow">if</span> (!decoded_base64.empty())</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                    {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">load_scene</a>(decoded_base64);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                        <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to decode base64 appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to decode zlib appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to load appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
 </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0">  149</a></span>        std::weak_ptr&lt;Scene&gt; SceneManager::make_scene(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">if</span> (!m_scenes.contains(name))</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                m_scenes[name]         = std::make_shared&lt;Scene&gt;();</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                m_scenes[name]-&gt;m_name = name;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">return</span> m_scenes[name];</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb">  137</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb">SceneManager::save_appdata</a>(std::string_view file)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">const</span> <span class="keyword">auto</span> json = <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e">serialize</a>();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d">json::save_to_disk</a>(file, json))</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to save &#39;{0}&#39; to disk.&quot;</span>, file);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
+</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d">  147</a></span>        std::weak_ptr&lt;Scene&gt; <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d">SceneManager::get</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.contains(name))</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>[name];</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to find &#39;{0}&#39;.&quot;</span>, name);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">return</span> {};</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Tried to create a duplicate scene &#39;{0}&#39;.&quot;</span>, name);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
 </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab">  165</a></span>        <span class="keywordtype">void</span> SceneManager::add_existing_scene(<span class="keyword">const</span> std::string&amp; name, std::shared_ptr&lt;Scene&gt; scene)</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">if</span> (!m_scenes.contains(name))</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                m_scenes[name] = scene;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, <span class="stringliteral">&quot;Attempted to add duplicate scene.&quot;</span>);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            }</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">  160</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">SceneManager::remove</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.contains(name))</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a> != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;m_name != name)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                    {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                        <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.erase(name);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                    }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                    {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                    }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                    <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.erase(name);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        }</div>
 </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f">  177</a></span>        <span class="keywordtype">void</span> SceneManager::set_scene(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">if</span> (m_scenes.contains(name))</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                <span class="keywordflow">if</span> (m_current)</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                    m_current-&gt;unload();</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                }</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                m_current = m_scenes[name];</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                m_current-&gt;load();</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Tried to set a non-existent scene &#39;{0}&#39;.&quot;</span>, name);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            }</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">  188</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">SceneManager::clear</a>(<span class="keywordtype">bool</span> clear_current)</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector&lt;std::string&gt;</a> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">remove</a>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">remove</a>.reserve(<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.size());</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, scene] : <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                    <span class="keywordflow">if</span> (name != <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;m_name || clear_current)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                    {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                        scene.reset();</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                        <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">remove</a>.push_back(name);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                    scene.reset();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                    <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">remove</a>.push_back(name);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">remove</a>)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>.erase(name);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        }</div>
 </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">  195</a></span>        <span class="keywordtype">void</span> SceneManager::load_scene(<span class="keyword">const</span> std::string&amp; data)</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keyword">const</span> <span class="keyword">auto</span> parsed = nlohmann::json::parse(data);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="keywordflow">if</span> (!parsed.empty())</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            {</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                deserialize(parsed);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            {</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to parse scenemanger JSON data from memory.&quot;</span>);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            }</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ac764e50907f503cb821fc7dea0198efe">  216</a></span>        <a class="code hl_class" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&amp; <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ac764e50907f503cb821fc7dea0198efe">SceneManager::current</a>()</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">return</span> *<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
 </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="foldopen" id="foldopen00209" data-start="{" data-end="}">
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765">  209</a></span>        <span class="keywordtype">void</span> SceneManager::unload_scene()</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        {</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            m_current-&gt;unload();</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            m_current = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a56dff14415c3386bab1264017ca88fa7">  221</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a56dff14415c3386bab1264017ca88fa7">SceneManager::has_current</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a> != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
 </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="foldopen" id="foldopen00215" data-start="{" data-end="}">
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969">  215</a></span>        <span class="keywordtype">void</span> SceneManager::load_appdata(std::string_view appdata_file)</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        {</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            <span class="keyword">const</span> <span class="keyword">auto</span> data = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>().open(appdata_file);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">if</span> (!data.empty())</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keyword">const</span> <span class="keyword">auto</span> decoded_zlib = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">algorithm::decode_zlib</a>(data);</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="keywordflow">if</span> (!decoded_zlib.empty())</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                    <span class="keyword">const</span> <span class="keyword">auto</span> decoded_base64 = <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">algorithm::decode_base64</a>(decoded_zlib);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                    <span class="keywordflow">if</span> (!decoded_base64.empty())</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                    {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                        load_scene(decoded_base64);</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                    }</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                    {</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                        <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to decode base64 appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                    }</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to decode zlib appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d">  226</a></span>        <a class="code hl_typedef" href="../../de/d3c/namespacegalaxy_1_1scene.html#a9c013efbb7c220bfca3a21aecfe8a11f">SceneContainer</a>&amp; <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d">SceneManager::all</a>()</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        }</div>
+</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e">  231</a></span>        nlohmann::json <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e">SceneManager::serialize</a>()</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            nlohmann::json json = <span class="stringliteral">&quot;{\&quot;current_scene\&quot;: \&quot;\&quot;, \&quot;scenes\&quot;: {}}&quot;</span>_json;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                json[<span class="stringliteral">&quot;current_scene&quot;</span>] = <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">m_current</a>-&gt;<a class="code hl_variable" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258">m_name</a>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, scene] : <a class="code hl_variable" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">m_scenes</a>)</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to load appdata &#39;{0}&#39;.&quot;</span>, appdata_file);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                json[<span class="stringliteral">&quot;scenes&quot;</span>][name] = scene-&gt;serialize();</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            }</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb">  245</a></span>        <span class="keywordtype">void</span> SceneManager::save_appdata(std::string_view file)</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            <span class="keyword">const</span> <span class="keyword">auto</span> json = serialize();</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d">json::save_to_disk</a>(file, json))</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to save &#39;{0}&#39; to disk.&quot;</span>, file);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            }</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        }</div>
-</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="foldopen" id="foldopen00255" data-start="{" data-end="}">
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d">  255</a></span>        std::weak_ptr&lt;Scene&gt; SceneManager::get(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">if</span> (m_scenes.contains(name))</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            {</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                <span class="keywordflow">return</span> m_scenes[name];</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="foldopen" id="foldopen00247" data-start="{" data-end="}">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b">  247</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b">SceneManager::deserialize</a>(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">clear</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; scenes = json.at(<span class="stringliteral">&quot;scenes&quot;</span>);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : scenes.items())</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <span class="keyword">auto</span> scene = <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0">make_scene</a>(key);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                <span class="keywordflow">if</span> (<span class="keyword">auto</span> ptr = scene.lock())</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                    ptr-&gt;deserialize(value);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                }</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            }</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to find &#39;{0}&#39;.&quot;</span>, name);</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            }</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <a class="code hl_function" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f">set_scene</a>(json.at(<span class="stringliteral">&quot;current_scene&quot;</span>));</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        }</div>
 </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">  268</a></span>        <span class="keywordtype">bool</span> SceneManager::remove(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        {</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">if</span> (m_scenes.contains(name))</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                <span class="keywordflow">if</span> (m_current != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                    <span class="keywordflow">if</span> (m_current-&gt;m_name != name)</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                    {</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                        m_scenes.erase(name);</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                    }</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                    {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                    }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                }</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                {</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                    m_scenes.erase(name);</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                }</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            }</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            {</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            }</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        }</div>
-</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="foldopen" id="foldopen00296" data-start="{" data-end="}">
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">  296</a></span>        <span class="keywordtype">void</span> SceneManager::clear(<span class="keywordtype">bool</span> clear_current)</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        {</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector&lt;std::string&gt;</a> remove;</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            remove.reserve(m_scenes.size());</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, scene] : m_scenes)</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            {</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>                <span class="keywordflow">if</span> (m_current)</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                {</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                    <span class="keywordflow">if</span> (name != m_current-&gt;m_name || clear_current)</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                    {</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                        scene.reset();</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                        remove.push_back(name);</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                    }</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>                }</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>                {</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>                    scene.reset();</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>                    remove.push_back(name);</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>                }</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            }</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : remove)</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            {</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                m_scenes.erase(name);</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            }</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        }</div>
-</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="foldopen" id="foldopen00324" data-start="{" data-end="}">
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ac764e50907f503cb821fc7dea0198efe">  324</a></span>        <a class="code hl_class" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&amp; SceneManager::current()</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        {</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            <span class="keywordflow">return</span> *m_current;</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        }</div>
-</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="foldopen" id="foldopen00329" data-start="{" data-end="}">
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a56dff14415c3386bab1264017ca88fa7">  329</a></span>        <span class="keywordtype">bool</span> SceneManager::has_current()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            <span class="keywordflow">return</span> m_current != <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        }</div>
-</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="foldopen" id="foldopen00334" data-start="{" data-end="}">
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d">  334</a></span>        <a class="code hl_typedef" href="../../de/d3c/namespacegalaxy_1_1scene.html#a9c013efbb7c220bfca3a21aecfe8a11f">SceneContainer</a>&amp; SceneManager::all()</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        {</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            <span class="keywordflow">return</span> m_scenes;</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        }</div>
-</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="foldopen" id="foldopen00339" data-start="{" data-end="}">
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e">  339</a></span>        nlohmann::json SceneManager::serialize()</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        {</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            nlohmann::json json = <span class="stringliteral">&quot;{\&quot;current_scene\&quot;: \&quot;\&quot;, \&quot;scenes\&quot;: {}}&quot;</span>_json;</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <span class="keywordflow">if</span> (m_current)</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            {</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>                json[<span class="stringliteral">&quot;current_scene&quot;</span>] = m_current-&gt;<a class="code hl_variable" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258">m_name</a>;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            }</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, scene] : m_scenes)</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>            {</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                json[<span class="stringliteral">&quot;scenes&quot;</span>][name] = scene-&gt;serialize();</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>            }</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            <span class="keywordflow">return</span> json;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        }</div>
-</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="foldopen" id="foldopen00355" data-start="{" data-end="}">
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b">  355</a></span>        <span class="keywordtype">void</span> SceneManager::deserialize(<span class="keyword">const</span> nlohmann::json&amp; json)</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        {</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            clear(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; scenes = json.at(<span class="stringliteral">&quot;scenes&quot;</span>);</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : scenes.items())</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            {</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                <span class="keyword">auto</span> scene = make_scene(key);</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>                <span class="keywordflow">if</span> (<span class="keyword">auto</span> ptr = scene.lock())</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>                {</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                    ptr-&gt;deserialize(value);</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                }</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            }</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            set_scene(json.at(<span class="stringliteral">&quot;current_scene&quot;</span>));</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        }</div>
-</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    } <span class="comment">// namespace scene</span></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="ttc" id="aAudioEngine_8hpp_html"><div class="ttname"><a href="../../d4/d92/AudioEngine_8hpp.html">AudioEngine.hpp</a></div></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    } <span class="comment">// namespace scene</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aBase64_8hpp_html"><div class="ttname"><a href="../../d0/d79/Base64_8hpp.html">Base64.hpp</a></div></div>
-<div class="ttc" id="aConfig_8hpp_html"><div class="ttname"><a href="../../df/db4/Config_8hpp.html">Config.hpp</a></div></div>
-<div class="ttc" id="aFonts_8hpp_html"><div class="ttname"><a href="../../d9/d7d/Fonts_8hpp.html">Fonts.hpp</a></div></div>
-<div class="ttc" id="aInput_8hpp_html"><div class="ttname"><a href="../../d1/d36/Input_8hpp.html">Input.hpp</a></div></div>
 <div class="ttc" id="aJSON_8hpp_html"><div class="ttname"><a href="../../df/dea/JSON_8hpp.html">JSON.hpp</a></div></div>
-<div class="ttc" id="aLanguage_8hpp_html"><div class="ttname"><a href="../../dd/d8e/Language_8hpp.html">Language.hpp</a></div></div>
 <div class="ttc" id="aLoader_8hpp_html"><div class="ttname"><a href="../../d0/dde/Loader_8hpp.html">Loader.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00042">Log.hpp:42</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00036">Log.hpp:36</a></div></div>
-<div class="ttc" id="aMaterials_8hpp_html"><div class="ttname"><a href="../../d2/dce/Materials_8hpp.html">Materials.hpp</a></div></div>
-<div class="ttc" id="aPrefabs_8hpp_html"><div class="ttname"><a href="../../d3/d96/Prefabs_8hpp.html">Prefabs.hpp</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00034">Log.hpp:34</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00041">Log.hpp:41</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
 <div class="ttc" id="aSceneManager_8hpp_html"><div class="ttname"><a href="../../df/d74/SceneManager_8hpp.html">SceneManager.hpp</a></div></div>
-<div class="ttc" id="aScripts_8hpp_html"><div class="ttname"><a href="../../d7/d91/Scripts_8hpp.html">Scripts.hpp</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
-<div class="ttc" id="aShaders_8hpp_html"><div class="ttname"><a href="../../d6/df6/Shaders_8hpp.html">Shaders.hpp</a></div></div>
-<div class="ttc" id="aSounds_8hpp_html"><div class="ttname"><a href="../../d6/d7c/Sounds_8hpp.html">Sounds.hpp</a></div></div>
-<div class="ttc" id="aTextureAtlas_8hpp_html"><div class="ttname"><a href="../../db/d27/TextureAtlas_8hpp.html">TextureAtlas.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
-<div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
 <div class="ttc" id="aZLib_8hpp_html"><div class="ttname"><a href="../../db/dba/ZLib_8hpp.html">ZLib.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">galaxy::core::ServiceLocator</a></div><div class="ttdoc">Provides access to registered services. Cannot be created, copied or moved.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00026">ServiceLocator.hpp:27</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00109">ServiceLocator.hpp:109</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Cursor_html"><div class="ttname"><a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">galaxy::input::Cursor</a></div><div class="ttdoc">Implementation of the mouse cursor and state management.</div><div class="ttdef"><b>Definition</b> <a href="../../de/ddb/Cursor_8hpp_source.html#l00025">Cursor.hpp:26</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Cursor_html_ad72f046e8bce8d95b18ebd561c477308"><div class="ttname"><a href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">galaxy::input::Cursor::toggle</a></div><div class="ttdeci">void toggle(const bool visible)</div><div class="ttdoc">Set cursor visibility.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d37/Cursor_8cpp_source.html#l00044">Cursor.cpp:44</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a46f4790b8ac97f7019a4245b41fdd81b"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">galaxy::scene::SceneManager::~SceneManager</a></div><div class="ttdeci">~SceneManager()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00043">SceneManager.cpp:43</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a5fc376de30ed190684787021a327e877"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">galaxy::scene::SceneManager::load_assets</a></div><div class="ttdeci">void load_assets()</div><div class="ttdoc">Load game assets.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00048">SceneManager.cpp:48</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a8290223a2e63f721481cd6d0c1c28513"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">galaxy::scene::SceneManager::clear</a></div><div class="ttdeci">void clear(bool clear_current=false)</div><div class="ttdoc">Destroys all scenes.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00296">SceneManager.cpp:296</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_acb5f4f55a4cedf3169c6948bbd76a410"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">galaxy::scene::SceneManager::SceneManager</a></div><div class="ttdeci">SceneManager()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00038">SceneManager.cpp:38</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">galaxy::scene::Scene</a></div><div class="ttdoc">Represents a scene in a game. Like the menu, game, etc. Does not share resources.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de8/Scene_8hpp_source.html#l00034">Scene.hpp:35</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html_a8d690db6322eba978eeee8482e55d258"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258">galaxy::scene::Scene::m_name</a></div><div class="ttdeci">std::string m_name</div><div class="ttdoc">Scene name for debug purposes.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de8/Scene_8hpp_source.html#l00120">Scene.hpp:120</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a014427bf693e51919edd5c3fbcbe0969"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a014427bf693e51919edd5c3fbcbe0969">galaxy::scene::SceneManager::load_appdata</a></div><div class="ttdeci">void load_appdata(std::string_view appdata_file)</div><div class="ttdoc">Load app data file into scene manager.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00107">SceneManager.cpp:107</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a087cc2c6be9ce84883d2f34c3e85c765"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a087cc2c6be9ce84883d2f34c3e85c765">galaxy::scene::SceneManager::unload_scene</a></div><div class="ttdeci">void unload_scene()</div><div class="ttdoc">Unloads the currently active scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00101">SceneManager.cpp:101</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a298823a35a0bb19ecbddcba5193da91d"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a298823a35a0bb19ecbddcba5193da91d">galaxy::scene::SceneManager::get</a></div><div class="ttdeci">std::weak_ptr&lt; Scene &gt; get(const std::string &amp;name)</div><div class="ttdoc">Gets a specific scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00147">SceneManager.cpp:147</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a39029fb02569441bf9a10337c81670ab"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab">galaxy::scene::SceneManager::add_existing_scene</a></div><div class="ttdeci">void add_existing_scene(const std::string &amp;name, std::shared_ptr&lt; Scene &gt; scene)</div><div class="ttdoc">Add an already existing scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00057">SceneManager.cpp:57</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a46f4790b8ac97f7019a4245b41fdd81b"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b">galaxy::scene::SceneManager::~SceneManager</a></div><div class="ttdeci">~SceneManager()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00030">SceneManager.cpp:30</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a47b90f750bee1d378cda3c1f473820fb"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a47b90f750bee1d378cda3c1f473820fb">galaxy::scene::SceneManager::save_appdata</a></div><div class="ttdeci">void save_appdata(std::string_view file)</div><div class="ttdoc">Save all active scenes and sub data within those scenes.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00137">SceneManager.cpp:137</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a56dff14415c3386bab1264017ca88fa7"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a56dff14415c3386bab1264017ca88fa7">galaxy::scene::SceneManager::has_current</a></div><div class="ttdeci">bool has_current() const</div><div class="ttdoc">Checks if there is a currently active scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00221">SceneManager.cpp:221</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a5b56d58678ddae90f325633fc5edca5f"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5b56d58678ddae90f325633fc5edca5f">galaxy::scene::SceneManager::m_current</a></div><div class="ttdeci">std::shared_ptr&lt; Scene &gt; m_current</div><div class="ttdoc">Currently active scene.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d74/SceneManager_8hpp_source.html#l00170">SceneManager.hpp:170</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a5fc376de30ed190684787021a327e877"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877">galaxy::scene::SceneManager::load_assets</a></div><div class="ttdeci">void load_assets()</div><div class="ttdoc">Load game assets.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00035">SceneManager.cpp:35</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a66ebd7917071f3f7864f2361310b580b"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b">galaxy::scene::SceneManager::deserialize</a></div><div class="ttdeci">void deserialize(const nlohmann::json &amp;json) override</div><div class="ttdoc">Deserializes from object.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00247">SceneManager.cpp:247</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a6c58ee20b277acb0d1ad87ea83b24204"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6c58ee20b277acb0d1ad87ea83b24204">galaxy::scene::SceneManager::remove</a></div><div class="ttdeci">bool remove(const std::string &amp;name)</div><div class="ttdoc">Remove a specific scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00160">SceneManager.cpp:160</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a78698b73acaa4f15db56682ad732359d"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d">galaxy::scene::SceneManager::load_scene</a></div><div class="ttdeci">void load_scene(const std::string &amp;data)</div><div class="ttdoc">Load data from memory into scenes.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00087">SceneManager.cpp:87</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a7e1e2c4694826f6f927c48542c72aed2"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7e1e2c4694826f6f927c48542c72aed2">galaxy::scene::SceneManager::m_scenes</a></div><div class="ttdeci">SceneContainer m_scenes</div><div class="ttdoc">Fast hashmap storing data.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d74/SceneManager_8hpp_source.html#l00165">SceneManager.hpp:165</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a8290223a2e63f721481cd6d0c1c28513"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513">galaxy::scene::SceneManager::clear</a></div><div class="ttdeci">void clear(bool clear_current=false)</div><div class="ttdoc">Destroys all scenes.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00188">SceneManager.cpp:188</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_a873057f00a609e38666151a40674710e"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e">galaxy::scene::SceneManager::serialize</a></div><div class="ttdeci">nlohmann::json serialize() override</div><div class="ttdoc">Serializes object.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00231">SceneManager.cpp:231</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_ab3eb3c90efaeec3cd5694adbc0d0167f"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f">galaxy::scene::SceneManager::set_scene</a></div><div class="ttdeci">void set_scene(const std::string &amp;name)</div><div class="ttdoc">Set the currently active scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00069">SceneManager.cpp:69</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_ac764e50907f503cb821fc7dea0198efe"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ac764e50907f503cb821fc7dea0198efe">galaxy::scene::SceneManager::current</a></div><div class="ttdeci">Scene &amp; current()</div><div class="ttdoc">Get currently active scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00216">SceneManager.cpp:216</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_acb5f4f55a4cedf3169c6948bbd76a410"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410">galaxy::scene::SceneManager::SceneManager</a></div><div class="ttdeci">SceneManager()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00025">SceneManager.cpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_ad8643350e7df37e13bf6292376e8b52d"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8643350e7df37e13bf6292376e8b52d">galaxy::scene::SceneManager::all</a></div><div class="ttdeci">SceneContainer &amp; all()</div><div class="ttdoc">Get all scenes.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00226">SceneManager.cpp:226</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1SceneManager_html_af90490de9c01813daf3af1914966ebc0"><div class="ttname"><a href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0">galaxy::scene::SceneManager::make_scene</a></div><div class="ttdeci">std::weak_ptr&lt; Scene &gt; make_scene(const std::string &amp;name)</div><div class="ttdoc">Create a new scene.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d2c/SceneManager_8cpp_source.html#l00041">SceneManager.cpp:41</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">galaxy::scene::Scene</a></div><div class="ttdoc">Represents a scene in a game. Like the menu, game, etc. Does not share resources.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de8/Scene_8hpp_source.html#l00024">Scene.hpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html_a8d690db6322eba978eeee8482e55d258"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258">galaxy::scene::Scene::m_name</a></div><div class="ttdeci">std::string m_name</div><div class="ttdoc">Scene name for debug purposes.</div><div class="ttdef"><b>Definition</b> <a href="../../db/de8/Scene_8hpp_source.html#l00110">Scene.hpp:110</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1algorithm_html_a65ecede7f95188b9b959e4b36b3c4795"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a65ecede7f95188b9b959e4b36b3c4795">galaxy::algorithm::decode_zlib</a></div><div class="ttdeci">std::string decode_zlib(const std::string &amp;input)</div><div class="ttdoc">Decompresses string into ZLib.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d16/ZLib_8cpp_source.html#l00276">ZLib.cpp:276</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1algorithm_html_aa1a4102763ede9a59182d62bc7f6e243"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aa1a4102763ede9a59182d62bc7f6e243">galaxy::algorithm::decode_base64</a></div><div class="ttdeci">std::string decode_base64(const std::string &amp;input)</div><div class="ttdoc">Decompresses string into Base64.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00104">Base64.cpp:104</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1input_html_a9305c56a5ddc61b7a4e6fa55b59ed99d"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d">galaxy::input::int_to_key</a></div><div class="ttdeci">constexpr input::Keys int_to_key(const int key)</div><div class="ttdoc">Converts an integer to a key enum.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d25/Keys_8hpp_source.html#l00154">Keys.hpp:154</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1json_html_a4f87fca0fcc9d1eb75d916a7d07b062d"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d">galaxy::json::save_to_disk</a></div><div class="ttdeci">bool save_to_disk(std::string_view path, const nlohmann::json &amp;json)</div><div class="ttdoc">Save a json file to disk.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00068">JSON.cpp:68</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1meta_html_a91b98bdf02f8524397102fa7301964db"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">galaxy::meta::vector</a></div><div class="ttdeci">std::vector&lt; T, mi_stl_allocator&lt; T &gt; &gt; vector</div><div class="ttdoc">std::vector with faster allocation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/Memory_8hpp_source.html#l00057">Memory.hpp:57</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1scene_html_a9c013efbb7c220bfca3a21aecfe8a11f"><div class="ttname"><a href="../../de/d3c/namespacegalaxy_1_1scene.html#a9c013efbb7c220bfca3a21aecfe8a11f">galaxy::scene::SceneContainer</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; std::string, std::shared_ptr&lt; Scene &gt; &gt; SceneContainer</div><div class="ttdoc">Typedef for scene container.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d74/SceneManager_8hpp_source.html#l00020">SceneManager.hpp:20</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_a4630d6212d38d89df496b5d5c2bbb115"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115">galaxy::input::CameraKeys::LEFT</a></div><div class="ttdeci">static input::Keys LEFT</div><div class="ttdoc">Key to move camera LEFT.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00115">Input.hpp:115</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_a505dce37ac37840d08eecfed64003d6f"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a505dce37ac37840d08eecfed64003d6f">galaxy::input::CameraKeys::FORWARD</a></div><div class="ttdeci">static input::Keys FORWARD</div><div class="ttdoc">Key used to move camera FORWARD.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00105">Input.hpp:105</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_a5c5d9a8800cfb8746575f02dd753d730"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a5c5d9a8800cfb8746575f02dd753d730">galaxy::input::CameraKeys::ROTATE_LEFT</a></div><div class="ttdeci">static input::Keys ROTATE_LEFT</div><div class="ttdoc">Key to rotate camera LEFT.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00125">Input.hpp:125</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_ab02df063fe794f660ab97aea7cb898b0"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0">galaxy::input::CameraKeys::BACKWARD</a></div><div class="ttdeci">static input::Keys BACKWARD</div><div class="ttdoc">Key to move camera BACKWARD.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00110">Input.hpp:110</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_ab5ca9ec89abc6e748041a942da2a73fa"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab5ca9ec89abc6e748041a942da2a73fa">galaxy::input::CameraKeys::ROTATE_RIGHT</a></div><div class="ttdeci">static input::Keys ROTATE_RIGHT</div><div class="ttdoc">Key to rotate camera RIGHT.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00130">Input.hpp:130</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1input_1_1CameraKeys_html_abdb6c4e3bb685e0692b22a9657da0172"><div class="ttname"><a href="../../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#abdb6c4e3bb685e0692b22a9657da0172">galaxy::input::CameraKeys::RIGHT</a></div><div class="ttdeci">static input::Keys RIGHT</div><div class="ttdoc">Key to move camera RIGHT.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d36/Input_8hpp_source.html#l00120">Input.hpp:120</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_9e0270b3885e0d3bc9dee23586b25531.html">scene</a></li><li class="navelem"><a class="el" href="../../da/d2c/SceneManager_8cpp.html">SceneManager.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 06:40:38 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 11 2023 03:37:59 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

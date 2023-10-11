@@ -1,40 +1,15 @@
 <map id="galaxy::core::Window::open" name="galaxy::core::Window::open">
-<area shape="rect" id="Node000001" title="Construct a Window." alt="" coords="5,255,167,295"/>
-<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4" title="Add an effect to process." alt="" coords="215,19,461,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,253,105,211,130,157,166,102,188,77,213,55,224,48,227,53,216,59,192,80,170,105,135,159,110,213,96,255"/>
-<area shape="rect" id="Node000003" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="259,69,417,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,253,141,187,174,150,213,119,245,104,247,109,216,124,178,154,146,190,101,256"/>
-<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer resources." alt="" coords="241,133,435,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="109,252,156,217,213,183,232,175,234,180,216,188,158,221,112,257"/>
-<area shape="rect" id="Node000007" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="260,312,416,352"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="168,290,248,309,246,314,166,296"/>
-<area shape="rect" id="Node000008" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="231,197,445,237"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="166,254,236,238,237,243,168,259"/>
-<area shape="rect" id="Node000011" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="1003,169,1233,194"/>
-<area shape="poly" id="edge19_Node000001_Node000011" title=" " alt="" coords="167,279,315,288,512,291,621,287,733,279,845,266,954,247,1022,225,1081,198,1083,203,1024,230,955,252,846,272,733,285,621,293,512,296,315,293,167,285"/>
-<area shape="rect" id="Node000016" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="273,376,403,416"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="112,293,158,328,216,362,260,378,258,383,214,366,156,332,109,297"/>
-<area shape="rect" id="Node000017" href="$dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4" title="Converts an integer to a key modifier enum." alt="" coords="273,440,403,480"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="101,294,146,359,178,395,216,426,260,445,258,450,213,430,174,399,141,363,96,297"/>
-<area shape="rect" id="Node000018" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="242,504,434,544"/>
-<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="96,294,111,336,136,389,171,444,192,468,216,490,231,499,228,504,213,494,188,472,166,447,131,391,106,338,91,296"/>
-<area shape="rect" id="Node000005" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="510,69,691,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="420,131,504,110,505,115,422,136"/>
-<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae93850beb3eff3e4840c8fa3d61fcf92" title="Loads a shader into OpenGL from raw strings and sets up the shader program." alt="" coords="510,133,691,173"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="435,151,496,151,496,156,435,156"/>
-<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="438,195,460,183,475,168,483,153,492,136,508,119,516,114,519,118,511,123,496,139,488,155,479,172,463,187,441,199"/>
-<area shape="poly" id="edge16_Node000008_Node000006" title=" " alt="" coords="420,195,504,174,505,179,422,200"/>
-<area shape="rect" id="Node000009" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="509,197,692,237"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="445,215,495,215,495,220,445,220"/>
-<area shape="rect" id="Node000010" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="740,69,955,109"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="671,195,690,183,705,168,713,152,722,135,738,119,747,114,750,118,742,123,726,139,718,154,710,171,694,187,673,199"/>
-<area shape="rect" id="Node000012" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="740,197,955,237"/>
-<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="692,215,726,215,726,220,692,220"/>
-<area shape="rect" id="Node000013" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="740,5,955,45"/>
-<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="675,195,690,183,702,168,709,153,713,121,717,88,725,72,738,55,744,51,747,55,742,59,729,74,722,90,718,121,714,154,707,171,694,187,678,199"/>
-<area shape="rect" id="Node000015" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="740,133,955,173"/>
-<area shape="poly" id="edge15_Node000009_Node000015" title=" " alt="" coords="678,195,756,174,757,179,679,200"/>
-<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="918,107,956,119,1072,161,1070,166,954,124,916,112"/>
-<area shape="rect" id="Node000014" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="1011,5,1225,45"/>
-<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="955,23,997,23,997,28,955,28"/>
+<area shape="rect" id="Node000001" title="Construct a Window." alt="" coords="5,165,167,205"/>
+<area shape="rect" id="Node000002" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="251,5,409,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,164,146,110,178,80,213,55,237,44,239,48,216,60,181,84,150,113,104,167"/>
+<area shape="rect" id="Node000003" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="252,69,408,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,163,214,119,238,110,240,115,216,124,124,168"/>
+<area shape="rect" id="Node000004" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="265,133,395,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,172,251,161,252,166,167,177"/>
+<area shape="rect" id="Node000005" href="$dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4" title="Converts an integer to a key modifier enum." alt="" coords="265,197,395,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="167,193,252,204,251,210,166,198"/>
+<area shape="rect" id="Node000006" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="215,262,445,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="123,203,166,226,216,247,246,256,245,261,214,252,164,231,120,208"/>
+<area shape="rect" id="Node000007" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="234,312,426,352"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="107,204,153,250,183,275,216,296,233,304,230,309,213,301,180,279,150,254,103,207"/>
 </map>

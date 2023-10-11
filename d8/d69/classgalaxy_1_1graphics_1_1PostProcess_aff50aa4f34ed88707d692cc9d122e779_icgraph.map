@@ -1,7 +1,5 @@
 <map id="galaxy::graphics::PostProcess::init" name="galaxy::graphics::PostProcess::init">
-<area shape="rect" id="Node000001" title="Initialize post processor and GL buffers." alt="" coords="424,5,639,45"/>
-<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,5,376,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,28,376,28,376,23,410,23"/>
-<area shape="rect" id="Node000003" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,28,167,28,167,23,200,23"/>
+<area shape="rect" id="Node000001" title="Initialize post processor and GL buffers." alt="" coords="248,5,463,45"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
 </map>

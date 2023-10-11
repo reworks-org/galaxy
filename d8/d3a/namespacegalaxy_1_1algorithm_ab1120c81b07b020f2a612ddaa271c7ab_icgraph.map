@@ -1,0 +1,8 @@
+<map id="galaxy::algorithm::fnv1a_32" name="galaxy::algorithm::fnv1a_32">
+<area shape="rect" id="Node000001" title="Convert string to 32bit hash." alt="" coords="421,29,565,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="525,17,514,11,493,8,476,10,465,15,461,21,463,28,458,30,456,20,462,11,474,5,493,3,515,6,527,13"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,29,373,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="408,52,374,52,374,47,408,47"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,29,188,69"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="222,52,188,52,188,47,222,47"/>
+</map>

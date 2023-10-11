@@ -1,0 +1,9 @@
+<map id="galaxy::resource::Cache::load" name="galaxy::resource::Cache::load">
+<area shape="rect" id="Node000001" title="Load a resource." alt="" coords="5,29,183,69"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a2b53d9f3bf8bbace01e43f1ecaff5152" title="Hashes the key into an integer for faster map lookup time." alt="" coords="231,29,408,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,47,217,47,217,52,183,52"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="280,30,278,20,284,10,298,5,319,3,344,6,357,13,354,18,342,11,319,8,299,10,287,15,283,21,285,28"/>
+<area shape="rect" id="Node000003" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="456,29,600,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,47,442,47,442,52,408,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="489,30,487,20,493,10,507,5,528,3,552,6,566,13,563,18,551,11,528,8,508,10,496,15,492,21,494,28"/>
+</map>

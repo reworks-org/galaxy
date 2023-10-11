@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Shader::load" name="galaxy::graphics::Shader::load">
+<area shape="rect" id="Node000001" title="Loads a shader into OpenGL from source." alt="" coords="465,37,647,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="258,5,395,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="451,45,395,38,396,32,452,40"/>
+<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abdd1427b50a9e9627323154533c1dcbf" title="JSON Constructor." alt="" coords="236,69,417,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="452,74,418,79,417,74,451,69"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="244,28,188,28,188,23,244,23"/>
+</map>

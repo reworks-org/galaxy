@@ -9,5 +9,5 @@ var searchData=
   ['min_5ftrilinear_6',['MIN_TRILINEAR',['../db/dab/namespacegalaxy_1_1graphics.html#a7b6b971c4075b7e93106b552a0264e45a1048a084255b5cb4ee78504331f31f43',1,'galaxy::graphics']]],
   ['minus_7',['MINUS',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaffc0d9b54a1fe677c4c9e6b050e67c81',1,'galaxy::input']]],
   ['mirrored_5frepeat_8',['MIRRORED_REPEAT',['../db/dab/namespacegalaxy_1_1graphics.html#aaead3fd60db663ca5d8b11598a7dbb6bacf6164235e7bfffb5c4c7c4b685f660a',1,'galaxy::graphics']]],
-  ['music_9',['MUSIC',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html#af3d26e204a5fafb2bbf9841d2d82f566ad74c735013cdd2b883e25ccca502a2e9',1,'galaxy::media::Sound']]]
+  ['music_9',['MUSIC',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9',1,'galaxy::media']]]
 ];

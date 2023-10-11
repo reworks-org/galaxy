@@ -1,17 +1,17 @@
 <map id="galaxy::media::Video" name="galaxy::media::Video">
-<area shape="rect" id="Node000001" title="Plays an MPEG&#45;1 video." alt="" coords="261,999,412,1444"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="154,733,325,813"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,813,287,982,282,983,245,814"/>
+<area shape="rect" id="Node000001" title="Plays an MPEG&#45;1 video." alt="" coords="261,1019,412,1464"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="154,743,325,823"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,823,289,1002,283,1003,245,824"/>
 <area shape="rect" id="Node000003" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html" title="Ring buffer to manage audio for mpeg videos." alt="" coords="5,148,188,533"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="163,533,224,717,219,719,158,535"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="161,533,224,727,219,728,156,535"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="213,308,362,373"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="282,387,258,558,244,733,239,733,253,557,277,386"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="282,387,258,558,244,743,239,743,253,557,277,386"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="276,13,299,78"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="290,79,290,292,285,292,285,79"/>
-<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="367,611,541,936"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="414,937,402,983,397,982,409,935"/>
+<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="367,611,541,956"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="412,957,400,1004,395,1002,407,955"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="433,308,512,373"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="474,374,464,594,459,594,469,374"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="474,374,465,594,459,594,469,374"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="407,5,538,85"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="475,99,475,308,470,308,470,99"/>
 </map>

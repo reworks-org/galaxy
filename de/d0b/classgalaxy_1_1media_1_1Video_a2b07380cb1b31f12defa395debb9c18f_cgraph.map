@@ -1,0 +1,7 @@
+<map id="galaxy::media::Video::build" name="galaxy::media::Video::build">
+<area shape="rect" id="Node000001" title="Build opengl data." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#adad32168338ab8785bf9104d1f4e3860" title="Internal function to generate video frame texture." alt="" coords="212,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="419,5,600,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,23,405,23,405,28,371,28"/>
+</map>

@@ -1,36 +1,22 @@
 <map id="galaxy::resource::TextureAtlas::add_file" name="galaxy::resource::TextureAtlas::add_file">
-<area shape="rect" id="Node000001" title="Add a single file." alt="" coords="5,357,191,397"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88" title="Draw a texture to a render texture." alt="" coords="239,133,433,173"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,356,125,319,154,273,192,225,237,183,246,177,249,182,240,187,196,228,159,276,130,322,111,359"/>
-<area shape="rect" id="Node000010" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504" title="Get texture height." alt="" coords="244,197,428,237"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="114,355,166,302,200,273,237,247,249,241,252,245,240,252,203,277,170,306,118,359"/>
-<area shape="rect" id="Node000011" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0" title="Get texture width." alt="" coords="244,261,428,301"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="139,355,238,311,257,303,259,308,240,316,141,360"/>
-<area shape="rect" id="Node000012" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ac0abb1fc5bdafc8d0f0829f02d59aba7" title="Loads texture from file." alt="" coords="244,325,428,365"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="191,362,230,357,231,362,191,368"/>
-<area shape="rect" id="Node000013" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="243,389,429,429"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="191,387,230,392,229,398,191,392"/>
-<area shape="rect" id="Node000014" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="243,453,429,493"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="141,395,240,439,259,446,257,451,238,444,139,400"/>
-<area shape="rect" id="Node000015" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="259,517,413,557"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="118,396,170,449,203,478,240,503,252,509,249,514,237,508,200,482,166,453,114,399"/>
-<area shape="rect" id="Node000016" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="247,581,425,621"/>
-<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="111,396,130,433,159,479,196,526,240,567,249,573,246,577,237,571,192,530,154,482,125,435,106,399"/>
-<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aaade16e4973e304e334efa12d509cec9" title="Activate texture context." alt="" coords="505,5,689,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,131,414,93,480,55,498,47,500,52,483,60,417,97,364,135"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="507,69,686,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="418,131,501,110,502,115,419,136"/>
-<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="505,133,688,173"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="433,151,491,151,491,156,433,156"/>
-<area shape="rect" id="Node000006" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="499,197,694,237"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="419,171,502,191,501,197,418,176"/>
-<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="507,261,686,301"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="414,171,435,183,451,200,460,216,468,232,483,247,496,255,493,259,480,251,463,235,455,219,447,203,432,187,412,176"/>
-<area shape="rect" id="Node000009" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="481,330,712,355"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="419,171,435,183,448,200,456,217,459,250,463,281,470,296,483,311,498,322,494,326,480,315,466,299,458,283,454,250,450,218,444,203,431,187,416,175"/>
-<area shape="rect" id="Node000008" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="760,261,971,301"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="686,279,746,279,746,284,686,284"/>
-<area shape="poly" id="edge12_Node000012_Node000009" title=" " alt="" coords="428,342,468,341,468,347,428,347"/>
-<area shape="rect" id="Node000017" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="507,581,686,621"/>
-<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="425,599,493,599,493,604,425,604"/>
+<area shape="rect" id="Node000001" title="Add a single file." alt="" coords="5,220,191,260"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504" title="Get texture height." alt="" coords="239,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,219,127,184,156,140,193,95,237,55,246,49,249,54,240,59,197,98,160,143,132,186,112,221"/>
+<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0" title="Get texture width." alt="" coords="239,69,423,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,218,168,169,202,143,237,119,250,112,252,117,240,124,205,147,172,173,120,222"/>
+<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ac0abb1fc5bdafc8d0f0829f02d59aba7" title="Loads texture from file." alt="" coords="239,133,423,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="152,217,263,176,265,181,154,222"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="472,170,703,195"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="191,227,465,194,465,200,191,232"/>
+<area shape="rect" id="Node000006" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="239,248,424,288"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="191,248,226,253,225,258,191,254"/>
+<area shape="rect" id="Node000007" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="239,312,424,352"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="145,258,240,298,259,305,257,310,238,302,143,263"/>
+<area shape="rect" id="Node000008" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="255,376,408,416"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="119,258,171,309,204,337,240,362,252,368,249,373,237,366,201,342,167,313,115,262"/>
+<area shape="rect" id="Node000009" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="242,440,421,480"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="111,259,131,295,160,339,196,386,240,426,249,431,246,436,237,430,193,389,155,342,126,297,107,261"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="424,161,463,166,463,171,423,166"/>
+<area shape="rect" id="Node000010" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="498,440,677,480"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="421,457,484,457,484,463,421,463"/>
 </map>

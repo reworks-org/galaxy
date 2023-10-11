@@ -4,16 +4,15 @@ var classgalaxy_1_1resource_1_1Language =
     [ "~Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d", null ],
     [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a56d60c1a334b99996ba7cba5657cf9fd", null ],
     [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html#adf9b70c8762def506c4faed82035840e", null ],
-    [ "load", "db/dc3/classgalaxy_1_1resource_1_1Language.html#ac9af356793983ce14b8ab4a8c6f29975", null ],
-    [ "load_mem", "db/dc3/classgalaxy_1_1resource_1_1Language.html#aa98f7d5eef7d044f51494e858a4633a5", null ],
+    [ "load_folder", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5", null ],
+    [ "load", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a1c87289772f5fc47445aedc1f8743f6d", null ],
     [ "set", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a15e49c4261c2368ddbc5d006cc145028", null ],
     [ "translate", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a08bdeb667856d66025897e669d2e3774", null ],
-    [ "reload", "db/dc3/classgalaxy_1_1resource_1_1Language.html#aaac5561386b82b38ce2998639e22e868", null ],
+    [ "operator[]", "db/dc3/classgalaxy_1_1resource_1_1Language.html#abda0ce3dce2f2436f911e3aa85e2e05f", null ],
+    [ "clear", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a7386077d4ee20befa8b128cd9b5a466d", null ],
     [ "clear", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a4553e79ec31a396eadacd56f36e4fe31", null ],
     [ "operator=", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a2a87b623e232f73a2972702a9e2ce4ae", null ],
     [ "operator=", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a5f0a203cb55d7894c4b51f20f2302aae", null ],
     [ "m_cur_lang", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a08d37a25dc0ed721d1991e5b319dab82", null ],
-    [ "m_languages", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a34d6eb35719de437e49ade19f9f094f6", null ],
-    [ "m_lang_map", "db/dc3/classgalaxy_1_1resource_1_1Language.html#abf0d4cd9479149339653ba9ed9c906cf", null ],
-    [ "m_folder", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a07b425f3d4a7a5f30cea90fb3c0a7a18", null ]
+    [ "m_languages", "db/dc3/classgalaxy_1_1resource_1_1Language.html#a6fc01ba7e1271f72be5b66d1eb5eac9c", null ]
 ];

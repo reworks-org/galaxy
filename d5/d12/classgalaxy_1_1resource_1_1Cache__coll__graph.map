@@ -1,3 +1,3 @@
-<map id="galaxy::resource::Cache&lt; Resource &gt;" name="galaxy::resource::Cache&lt; Resource &gt;">
-<area shape="rect" id="Node000001" title="Provides a useful set of functions around managing a resource cache." alt="" coords="5,5,175,325"/>
+<map id="galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;" name="galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;">
+<area shape="rect" id="Node000001" title="Cache for resources such as audio, fonts, etc." alt="" coords="5,5,228,445"/>
 </map>

@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('dc/d80/namespacegalaxy_1_1media.html',
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">galaxy::media Namespace Reference</div></div>
 </div><!--header-->
@@ -113,11 +115,122 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays an MPEG-1 video.  <a href="../../de/d0b/classgalaxy_1_1media_1_1Video.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a95ded79e8ddbb47f6f62890cbe692da0" id="r_a95ded79e8ddbb47f6f62890cbe692da0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a95ded79e8ddbb47f6f62890cbe692da0">SoundEngine</a> = <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt; <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708">SoundType::SFX</a> &gt;</td></tr>
+<tr class="memdesc:a95ded79e8ddbb47f6f62890cbe692da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine for playing sound effects.  <br /></td></tr>
+<tr class="separator:a95ded79e8ddbb47f6f62890cbe692da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612365c55a7fcdb7873bbad05a2441d1" id="r_a612365c55a7fcdb7873bbad05a2441d1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a612365c55a7fcdb7873bbad05a2441d1">MusicEngine</a> = <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt; <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9">SoundType::MUSIC</a> &gt;</td></tr>
+<tr class="memdesc:a612365c55a7fcdb7873bbad05a2441d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine for playing streaming audio like music.  <br /></td></tr>
+<tr class="separator:a612365c55a7fcdb7873bbad05a2441d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80f6f987e8bab85fc986f81d2f81861" id="r_ae80f6f987e8bab85fc986f81d2f81861"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#ae80f6f987e8bab85fc986f81d2f81861">DialogueEngine</a> = <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt; <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140">SoundType::DIALOGUE</a> &gt;</td></tr>
+<tr class="memdesc:ae80f6f987e8bab85fc986f81d2f81861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Separate streaming engine for dialogue, to control easier.  <br /></td></tr>
+<tr class="separator:ae80f6f987e8bab85fc986f81d2f81861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a9cd7c852e2b5b65aa4b888356c132034" id="r_a9cd7c852e2b5b65aa4b888356c132034"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034">SoundType</a> : int { <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708">SFX</a> = 0
+, <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9">MUSIC</a> = 1
+, <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140">DIALOGUE</a> = 2
+ }</td></tr>
+<tr class="memdesc:a9cd7c852e2b5b65aa4b888356c132034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sound type.  <a href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034">More...</a><br /></td></tr>
+<tr class="separator:a9cd7c852e2b5b65aa4b888356c132034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aba037f6e68f9b871d7d0856bebe71192" id="r_aba037f6e68f9b871d7d0856bebe71192"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192">data_callback</a> (ma_device *pDevice, void *pOutput, const void *pInput, ma_uint32 frameCount)</td></tr>
 <tr class="separator:aba037f6e68f9b871d7d0856bebe71192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a95ded79e8ddbb47f6f62890cbe692da0" name="a95ded79e8ddbb47f6f62890cbe692da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ded79e8ddbb47f6f62890cbe692da0">&#9670;&#160;</a></span>SoundEngine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a95ded79e8ddbb47f6f62890cbe692da0">galaxy::media::SoundEngine</a> = typedef <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt;<a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708">SoundType::SFX</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Engine for playing sound effects. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html#l00232">232</a> of file <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html">AudioEngine.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a612365c55a7fcdb7873bbad05a2441d1" name="a612365c55a7fcdb7873bbad05a2441d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612365c55a7fcdb7873bbad05a2441d1">&#9670;&#160;</a></span>MusicEngine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a612365c55a7fcdb7873bbad05a2441d1">galaxy::media::MusicEngine</a> = typedef <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt;<a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9">SoundType::MUSIC</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Engine for playing streaming audio like music. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html#l00237">237</a> of file <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html">AudioEngine.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae80f6f987e8bab85fc986f81d2f81861" name="ae80f6f987e8bab85fc986f81d2f81861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80f6f987e8bab85fc986f81d2f81861">&#9670;&#160;</a></span>DialogueEngine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#ae80f6f987e8bab85fc986f81d2f81861">galaxy::media::DialogueEngine</a> = typedef <a class="el" href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">media::AudioEngine</a>&lt;<a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140">SoundType::DIALOGUE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Separate streaming engine for dialogue, to control easier. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html#l00242">242</a> of file <a class="el" href="../../d4/d92/AudioEngine_8hpp_source.html">AudioEngine.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a9cd7c852e2b5b65aa4b888356c132034" name="a9cd7c852e2b5b65aa4b888356c132034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd7c852e2b5b65aa4b888356c132034">&#9670;&#160;</a></span>SoundType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034">galaxy::media::SoundType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html" title="An audio file to play.">Sound</a> type. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708" name="a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708"></a>SFX&#160;</td><td class="fielddoc"><p>A sound effect. Is not streamed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9" name="a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9"></a>MUSIC&#160;</td><td class="fielddoc"><p>Music. Is streamed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140" name="a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140"></a>DIALOGUE&#160;</td><td class="fielddoc"><p>Dialogue. Is streamed. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d7a/SoundType_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../d5/d7a/SoundType_8hpp_source.html">SoundType.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aba037f6e68f9b871d7d0856bebe71192" name="aba037f6e68f9b871d7d0856bebe71192"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba037f6e68f9b871d7d0856bebe71192">&#9670;&#160;</a></span>data_callback()</h2>
@@ -178,7 +291,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="../../dc/d80/namespacegalaxy_1_1media_aba037f6e68f9b871d7d0856bebe71192_icgraph.png" border="0" usemap="#adc/d80/namespacegalaxy_1_1media_aba037f6e68f9b871d7d0856bebe71192_icgraph" alt=""/></div>
 <map name="adc/d80/namespacegalaxy_1_1media_aba037f6e68f9b871d7d0856bebe71192_icgraph" id="adc/d80/namespacegalaxy_1_1media_aba037f6e68f9b871d7d0856bebe71192_icgraph">
 <area shape="rect" title=" " alt="" coords="628,5,779,45"/>
-<area shape="rect" href="../../de/d0b/classgalaxy_1_1media_1_1Video.html#a4b192fd9744fa3481a15a8bc5586efdf" title="Start playing the video." alt="" coords="421,5,580,45"/>
+<area shape="rect" href="../../de/d0b/classgalaxy_1_1media_1_1Video.html#a1791972c8cc2d43824c3de6c1be30a0b" title="Load a MPEG&#45;1 from video file." alt="" coords="421,5,580,45"/>
 <area shape="poly" title=" " alt="" coords="614,28,580,28,580,23,614,23"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
 <area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
@@ -195,7 +308,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html">media</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 06:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 11 2023 03:38:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

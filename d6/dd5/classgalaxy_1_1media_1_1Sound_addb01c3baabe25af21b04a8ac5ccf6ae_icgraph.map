@@ -1,9 +1,0 @@
-<map id="galaxy::media::Sound::load" name="galaxy::media::Sound::load">
-<area shape="rect" id="Node000001" title="Load a sound from disk." alt="" coords="447,37,609,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="249,5,386,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,46,386,38,386,33,433,40"/>
-<area shape="rect" id="Node000004" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a49e566ef4564d7b8dd5c6e981bc692b4" title="Argument constructor." alt="" coords="236,69,399,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="433,74,399,80,398,74,433,69"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,28,188,28,188,23,235,23"/>
-</map>

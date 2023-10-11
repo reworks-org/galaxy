@@ -1,7 +1,0 @@
-<map id="galaxy::core::Loader::load" name="galaxy::core::Loader::load">
-<area shape="rect" id="Node000001" title="Start loading job in task pool." alt="" coords="5,23,159,63"/>
-<area shape="rect" id="Node000002" href="$d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754" title="Check if an async thread has finished or not." alt="" coords="220,5,424,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,33,206,28,207,33,159,38"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,55,437,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,48,193,52,192,57,159,54"/>
-</map>

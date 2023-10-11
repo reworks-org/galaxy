@@ -1,7 +1,7 @@
 <map id="galaxy::systems::RenderSystem::update" name="galaxy::systems::RenderSystem::update">
-<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,37,236,77"/>
-<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,5,479,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,41,270,36,271,42,237,46"/>
-<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4" title="Submit render data to renderer." alt="" coords="284,69,479,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,69,271,73,270,78,236,74"/>
+<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,35,236,75"/>
+<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="302,5,497,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,40,288,34,289,40,237,45"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="284,70,515,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,64,271,67,270,72,236,69"/>
 </map>
