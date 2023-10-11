@@ -9,22 +9,9 @@
 
 #include "galaxy/algorithm/Base64.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
-#include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/input/Input.hpp"
-#include "galaxy/media/AudioEngine.hpp"
-#include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Materials.hpp"
-#include "galaxy/resource/Prefabs.hpp"
-#include "galaxy/resource/Scripts.hpp"
-#include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/Sounds.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scripting/JSON.hpp"
 
 #include "SceneManager.hpp"
@@ -48,102 +35,7 @@ namespace galaxy
 		void SceneManager::load_assets()
 		{
 			auto& loader = core::ServiceLocator<core::Loader>::ref();
-			loader.load([]() {
-				try
-				{
-					auto& config = core::ServiceLocator<core::Config>::ref();
-					auto& window = core::ServiceLocator<core::Window>::ref();
-
-					input::CameraKeys::FORWARD      = input::int_to_key(config.get<int>("camera_foward", "input"));
-					input::CameraKeys::BACKWARD     = input::int_to_key(config.get<int>("camera_backward", "input"));
-					input::CameraKeys::LEFT         = input::int_to_key(config.get<int>("camera_left", "input"));
-					input::CameraKeys::RIGHT        = input::int_to_key(config.get<int>("camera_right", "input"));
-					input::CameraKeys::ROTATE_LEFT  = input::int_to_key(config.get<int>("camera_rotate_left", "input"));
-					input::CameraKeys::ROTATE_RIGHT = input::int_to_key(config.get<int>("camera_rotate_right", "input"));
-
-					auto icon = config.get<std::string>("icon", "window");
-					if (!icon.empty())
-					{
-						window.set_icon(icon);
-					}
-
-					if (config.get<bool>("allow_native_closing", "window"))
-					{
-						window.allow_native_closing();
-					}
-					else
-					{
-						window.prevent_native_closing();
-					}
-
-					auto& cursor = window.get_input<input::Cursor>();
-					cursor.toggle(config.get<bool>("visible_cursor", "window"));
-
-					auto cursor_icon = config.get<std::string>("cursor_icon", "window");
-					if (!cursor_icon.empty())
-					{
-						cursor.load_custom(cursor_icon);
-						cursor.use_custom_else_pointer();
-					}
-					else
-					{
-						cursor.use_pointer();
-					}
-
-					auto& ae = core::ServiceLocator<media::AudioEngine>::ref();
-					ae.set_sfx_volume(config.get<float>("sfx_volume", "audio"));
-					ae.set_music_volume(config.get<float>("music_volume", "audio"));
-					ae.set_dialogue_volume(config.get<float>("dialogue_volume", "audio"));
-
-					auto& prefabs   = core::ServiceLocator<resource::Prefabs>::ref();
-					auto& materials = core::ServiceLocator<resource::Materials>::ref();
-					auto& scripts   = core::ServiceLocator<resource::Scripts>::ref();
-					auto& sounds    = core::ServiceLocator<resource::Sounds>::ref();
-					auto& lang      = core::ServiceLocator<resource::Language>::ref();
-					auto& fonts     = core::ServiceLocator<resource::Fonts>::ref();
-					auto& shaders   = core::ServiceLocator<resource::Shaders>::ref();
-
-					std::vector<std::future<void>> futures;
-					futures.emplace_back(prefabs.load(config.get<std::string>("prefabs_folder", "resource_folders")));
-					futures.emplace_back(materials.load(config.get<std::string>("materials_folder", "resource_folders")));
-					futures.emplace_back(scripts.load(config.get<std::string>("scripts_folder", "resource_folders")));
-					futures.emplace_back(sounds.load(config.get<std::string>("audio_folder", "resource_folders")));
-					futures.emplace_back(lang.load(config.get<std::string>("lang_folder", "resource_folders")));
-					futures.emplace_back(fonts.load(config.get<std::string>("font_folder", "resource_folders")));
-					futures.emplace_back(shaders.load(config.get<std::string>("shader_folder", "resource_folders")));
-
-					auto total_done = 0;
-					while (total_done < 7)
-					{
-						// clang-format off
-						futures.erase(std::remove_if(futures.begin(), futures.end(),
-							[&](const auto& future) -> bool {
-								if (meta::is_work_done(future))
-								{
-                                    total_done++;
-									return true;
-								}
-								else
-								{
-                                    return false;
-								}
-                            }), futures.end());
-						// clang-format on
-					}
-
-					lang.set(config.get<std::string>("default_lang"));
-				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, e.what());
-				}
-			});
-
-			core::ServiceLocator<resource::Shaders>::ref().compile();
-			core::ServiceLocator<resource::Fonts>::ref().build();
-
-			core::ServiceLocator<resource::TextureAtlas>::ref().add_folder(
-				core::ServiceLocator<core::Config>::ref().get<std::string>("atlas_folder", "resource_folders"));
+			loader.load_all();
 		}
 
 		std::weak_ptr<Scene> SceneManager::make_scene(const std::string& name)

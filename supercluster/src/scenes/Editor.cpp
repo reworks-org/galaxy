@@ -64,6 +64,10 @@ namespace sc
 		m_editor_cam_btn.load("../editor_data/icons/video.png");
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+
+		m_nui      = &core::ServiceLocator<ui::NuklearUI>::ref();
+		m_window   = &core::ServiceLocator<core::Window>::ref();
+		m_renderer = &core::ServiceLocator<graphics::Renderer>::ref();
 	}
 
 	Editor::~Editor()
@@ -122,7 +126,7 @@ namespace sc
 				m_project_sm.current().m_world.update_rendersystem();
 				// m_project_sm.current().m_world.update();
 
-				graphics::Renderer::buffer_camera(m_project_sm.current().m_camera);
+				m_renderer->buffer_camera(m_project_sm.current().m_camera);
 
 				if (m_viewport_focused && m_viewport_hovered)
 				{
@@ -362,10 +366,10 @@ namespace sc
 		{
 			if (m_stopped && m_editor_cam_enabled)
 			{
-				graphics::Renderer::buffer_camera(m_editor_camera);
+				m_renderer->buffer_camera(m_editor_camera);
 			}
 
-			graphics::Renderer::draw();
+			m_renderer->draw();
 
 			m_nui->enable_input();
 			m_nui->new_frame();
@@ -375,7 +379,8 @@ namespace sc
 			m_nui->disable_input();
 		}
 
-		m_window->prepare_screen_for_rendering();
+		m_renderer->prepare_default();
+		m_renderer->clear();
 
 		ui::imgui_new_frame();
 

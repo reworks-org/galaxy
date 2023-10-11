@@ -11,9 +11,12 @@
 #include <zip.h>
 
 #include <galaxy/async/Timer.hpp>
+#include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/graphics/Renderable.hpp>
+#include <galaxy/graphics/RenderTexture.hpp>
 #include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/ui/NuklearUI.hpp>
 
 #include "editor/panels/AssetPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
@@ -113,6 +116,10 @@ namespace sc
 
 		unsigned int m_mousepick_buffer;
 		Selected m_selected_entity;
+
+		ui::NuklearUI* m_nui;
+		core::Window* m_window;
+		graphics::Renderer* m_renderer;
 	};
 } // namespace sc
 

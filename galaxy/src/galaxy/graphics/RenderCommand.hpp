@@ -46,6 +46,13 @@ namespace galaxy
 			/// Renderable data;
 			///
 			Renderable* renderable;
+
+			/*
+			unsigned int m_vao;
+			unsigned int m_texture;
+			unsigned int m_index_count;
+			int m_layer;
+			*/
 		};
 	} // namespace graphics
 } // namespace galaxy

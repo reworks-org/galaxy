@@ -121,6 +121,32 @@ namespace galaxy
 			m_ctx->is_input_allowed = false;
 		}
 
+		void NuklearUI::show_loading_bar(const char* text, nk_size total, nk_size current)
+		{
+			auto& window = core::ServiceLocator<core::Window>::ref();
+
+			if (nk_begin(&m_ctx->ctx, text, nk_rect((window.get_widthf() / 2.0f) - 50, (window.get_heightf() / 2.0f) - 5, 100, 10), NK_WINDOW_NOT_INTERACTIVE))
+			{
+				nk_progress(&m_ctx->ctx, &current, total, false);
+			}
+
+			nk_end(&m_ctx->ctx);
+		}
+
+		void NuklearUI::show_building_atlas()
+		{
+			auto& window = core::ServiceLocator<core::Window>::ref();
+
+			if (nk_begin(&m_ctx->ctx,
+					"Building Atlas...",
+					nk_rect((window.get_widthf() / 2.0f) - 50, (window.get_heightf() / 2.0f) - 5, 100, 10),
+					NK_WINDOW_NOT_INTERACTIVE))
+			{
+			}
+
+			nk_end(&m_ctx->ctx);
+		}
+
 		nk_context* NuklearUI::ctx() const
 		{
 			return &m_ctx->ctx;

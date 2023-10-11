@@ -48,7 +48,8 @@
             "scripts_folder": "scripts/",
             "shader_folder": "shaders/",
             "texture_folder": "textures/",
-            "ui_folder": "ui/"
+            "ui_folder": "ui/",
+            "video_folder": "video/"
         },
         "window": {
             "allow_native_closing": false,

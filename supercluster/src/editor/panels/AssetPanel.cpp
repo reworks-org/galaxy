@@ -14,9 +14,7 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Fonts.hpp>
 #include <galaxy/resource/Language.hpp>
-#include <galaxy/resource/Scripts.hpp>
 #include <galaxy/resource/Shaders.hpp>
-#include <galaxy/resource/Sounds.hpp>
 #include <galaxy/resource/TextureAtlas.hpp>
 
 #include "AssetPanel.hpp"
@@ -78,8 +76,7 @@ namespace sc
 			m_ext_map.emplace(".mp3", FileType::AUDIO);
 			m_ext_map.emplace(".ttf", FileType::FONT);
 			m_ext_map.emplace(".otf", FileType::FONT);
-			m_ext_map.emplace(GALAXY_VERTEX_EXT, FileType::SHADER);
-			m_ext_map.emplace(GALAXY_FRAGMENT_EXT, FileType::SHADER);
+			m_ext_map.emplace(".glsl", FileType::SHADER);
 			m_ext_map.emplace(".json", FileType::JSON);
 			m_ext_map.emplace(".lang", FileType::LANG);
 			m_ext_map.emplace(".lua", FileType::LUA);
@@ -237,22 +234,7 @@ namespace sc
 
 			if (ImGui::BeginPopup("AssetReloadPopup"))
 			{
-				ImGui::Text("Select resource to reload");
-				ImGui::Separator();
-
-				if (ImGui::MenuItem("Languages"))
-				{
-					updates.push_back([]() {
-						core::ServiceLocator<resource::Language>::ref().reload();
-					});
-				}
-
-				if (ImGui::MenuItem("Texture Atlas"))
-				{
-					updates.push_back([]() {
-						core::ServiceLocator<resource::TextureAtlas>::ref().reload();
-					});
-				}
+				// todo: add load screen and reload resources
 
 				ImGui::EndPopup();
 			}

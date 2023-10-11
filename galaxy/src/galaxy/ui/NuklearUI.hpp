@@ -95,6 +95,20 @@ namespace galaxy
 			void disable_input();
 
 			///
+			/// Shows a progress bar for loading screens.
+			///
+			/// \param text Message to display when loading.
+			/// \param total Total size of loading bar.
+			/// \param current Current progress of loading bar.
+			///
+			void show_loading_bar(const char* text, nk_size total, nk_size current);
+
+			///
+			/// Part of the loading screen. Informs the user that the atlas is being built.
+			///
+			void show_building_atlas();
+
+			///
 			/// Nuklear Context.
 			///
 			/// \return Pointer to context. DO NOT FREE.

@@ -34,13 +34,13 @@
 #include "galaxy/media/Video.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Subprocess.hpp"
+#include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Materials.hpp"
+#include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
-#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/Sounds.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/state/StateMachine.hpp"
@@ -487,13 +487,11 @@ namespace galaxy
 			uniform_type["location"] = &graphics::UniformInfo::location;
 
 			auto shader_type =
-				lua.new_usertype<graphics::Shader>("Shader", sol::constructors<graphics::Shader(), graphics::Shader(std::string_view, std::string_view)>());
+				lua.new_usertype<graphics::Shader>("Shader", sol::constructors<graphics::Shader(), graphics::Shader(const std::string&, const std::string&)>());
 			shader_type["id"]                   = &graphics::Shader::id;
 			shader_type["get_uniform_count"]    = &graphics::Shader::get_uniform_count;
 			shader_type["get_uniform_info"]     = &graphics::Shader::get_uniform_info;
 			shader_type["get_uniform_location"] = &graphics::Shader::get_uniform_location;
-			shader_type["load_file"]            = &graphics::Shader::load_file;
-			shader_type["load_raw"]             = &graphics::Shader::load_raw;
 			shader_type["compile"]              = &graphics::Shader::compile;
 			shader_type["destroy"]              = &graphics::Shader::destroy;
 			shader_type["set_uniform_int"]      = &graphics::Shader::set_uniform<int>;
@@ -506,6 +504,9 @@ namespace galaxy
 			shader_type["set_uniform_float4"]   = &graphics::Shader::set_uniform<float, float, float, float>;
 			shader_type["set_uniform_bool"]     = &graphics::Shader::set_uniform<bool>;
 			shader_type["set_uniform_colour"]   = &graphics::Shader::set_uniform<graphics::Colour>;
+			shader_type["load"]                 = &graphics::Shader::load;
+			shader_type["load_raw"]             = sol::resolve<bool(const std::string&)>(&graphics::Shader::load_raw);
+			shader_type["load_raw_separate"]    = sol::resolve<bool(const std::string&, const std::string&)>(&graphics::Shader::load_raw);
 
 			auto camera_type                 = lua.new_usertype<graphics::Camera>("Camera", sol::constructors<graphics::Camera(bool)>());
 			camera_type["set_viewport"]      = &graphics::Camera::set_viewport;
@@ -749,67 +750,120 @@ namespace galaxy
 
 			/* MEDIA */
 			// clang-format off
-			lua.new_enum<media::Sound::Type>("SoundType",
+			lua.new_enum<media::SoundType>("SoundType",
 			{
-				{"DIALOGUE", media::Sound::Type::DIALOGUE},
-				{"MUSIC", media::Sound::Type::MUSIC},
-				{"SFX", media::Sound::Type::SFX}
-			});
-			
-			lua.new_enum<ma_positioning>("ma_positioning",
-			{
-				{"ma_positioning_absolute", ma_positioning::ma_positioning_absolute},
-				{"ma_positioning_relative", ma_positioning::ma_positioning_relative}
-			});
-			
-			lua.new_enum<ma_attenuation_model>("ma_attenuation_model",
-			{
-				{"ma_attenuation_model_exponential", ma_attenuation_model::ma_attenuation_model_exponential},
-				{"ma_attenuation_model_inverse", ma_attenuation_model::ma_attenuation_model_inverse},
-				{"ma_attenuation_model_linear", ma_attenuation_model::ma_attenuation_model_linear},
-				{"ma_attenuation_model_none", ma_attenuation_model::ma_attenuation_model_none}
+				{"DIALOGUE", media::SoundType::DIALOGUE},
+				{"MUSIC", media::SoundType::MUSIC},
+				{"SFX", media::SoundType::SFX}
 			});
 			// clang-format on
 
-			auto audioengine_type                      = lua.new_usertype<media::AudioEngine>("AudioEngine", sol::no_constructor);
-			audioengine_type["set_sfx_volume"]         = &media::AudioEngine::set_sfx_volume;
-			audioengine_type["set_music_volume"]       = &media::AudioEngine::set_music_volume;
-			audioengine_type["set_dialogue_volume"]    = &media::AudioEngine::set_dialogue_volume;
-			audioengine_type["set_listener_cone"]      = &media::AudioEngine::set_listener_cone;
-			audioengine_type["set_listener_direction"] = &media::AudioEngine::set_listener_direction;
-			audioengine_type["set_listener_position"]  = &media::AudioEngine::set_listener_position;
-			audioengine_type["set_listener_world_up"]  = &media::AudioEngine::set_listener_world_up;
-			audioengine_type["toggle_listener"]        = &media::AudioEngine::toggle_listener;
-			audioengine_type["stop"]                   = &media::AudioEngine::stop;
+			auto soundengine_type                      = lua.new_usertype<media::SoundEngine>("SoundEngine", sol::no_constructor);
+			soundengine_type["set_listener_cone"]      = &media::SoundEngine::set_listener_cone;
+			soundengine_type["set_listener_direction"] = &media::SoundEngine::set_listener_direction;
+			soundengine_type["set_listener_position"]  = &media::SoundEngine::set_listener_position;
+			soundengine_type["set_listener_world_up"]  = &media::SoundEngine::set_listener_world_up;
+			soundengine_type["toggle_listener"]        = &media::SoundEngine::toggle_listener;
+			soundengine_type["stop"]                   = &media::SoundEngine::stop;
+			soundengine_type["find_closest_listener"]  = &media::SoundEngine::find_closest_listener;
+			soundengine_type["get_channels"]           = &media::SoundEngine::get_channels;
+			soundengine_type["get_listener_count"]     = &media::SoundEngine::get_listener_count;
+			soundengine_type["get_samplerate"]         = &media::SoundEngine::get_samplerate;
+			soundengine_type["is_listener_enabled"]    = &media::SoundEngine::is_listener_enabled;
+			soundengine_type["set_listener_velocity"]  = &media::SoundEngine::set_listener_velocity;
+			soundengine_type["set_volume"]             = &media::SoundEngine::set_volume;
+			soundengine_type["start_device"]           = &media::SoundEngine::start_device;
+			soundengine_type["stop_device"]            = &media::SoundEngine::stop_device;
 
-			auto sound_type = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound(), media::Sound(media::Sound::Type, std::string_view)>());
-			sound_type["fade_in"]               = &media::Sound::fade_in;
-			sound_type["fade_out"]              = &media::Sound::fade_out;
-			sound_type["is_finished"]           = &media::Sound::is_finished;
-			sound_type["is_looping"]            = &media::Sound::is_looping;
-			sound_type["is_playing"]            = &media::Sound::is_playing;
-			sound_type["load"]                  = &media::Sound::load;
-			sound_type["set_attenuation_model"] = &media::Sound::set_attenuation_model;
-			sound_type["set_cone"]              = &media::Sound::set_cone;
-			sound_type["set_direction"]         = &media::Sound::set_direction;
-			sound_type["set_doppler_factor"]    = &media::Sound::set_doppler_factor;
-			sound_type["set_looping"]           = &media::Sound::set_looping;
-			sound_type["set_max_distance"]      = &media::Sound::set_max_distance;
-			sound_type["set_max_gain"]          = &media::Sound::set_max_gain;
-			sound_type["set_min_distance"]      = &media::Sound::set_min_distance;
-			sound_type["set_min_gain"]          = &media::Sound::set_min_gain;
-			sound_type["set_pan"]               = &media::Sound::set_pan;
-			sound_type["set_pinned_listener"]   = &media::Sound::set_pinned_listener;
-			sound_type["set_pitch"]             = &media::Sound::set_pitch;
-			sound_type["set_position"]          = &media::Sound::set_position;
-			sound_type["set_positioning"]       = &media::Sound::set_positioning;
-			sound_type["set_rolloff"]           = &media::Sound::set_rolloff;
-			sound_type["set_velocity"]          = &media::Sound::set_velocity;
-			sound_type["set_volume"]            = &media::Sound::set_volume;
-			sound_type["play"]                  = &media::Sound::play;
-			sound_type["pause"]                 = &media::Sound::pause;
-			sound_type["stop"]                  = &media::Sound::stop;
-			sound_type["toggle_spatialization"] = &media::Sound::toggle_spatialization;
+			auto musicengine_type                      = lua.new_usertype<media::MusicEngine>("MusicEngine", sol::no_constructor);
+			musicengine_type["set_listener_cone"]      = &media::MusicEngine::set_listener_cone;
+			musicengine_type["set_listener_direction"] = &media::MusicEngine::set_listener_direction;
+			musicengine_type["set_listener_position"]  = &media::MusicEngine::set_listener_position;
+			musicengine_type["set_listener_world_up"]  = &media::MusicEngine::set_listener_world_up;
+			musicengine_type["toggle_listener"]        = &media::MusicEngine::toggle_listener;
+			musicengine_type["stop"]                   = &media::MusicEngine::stop;
+			musicengine_type["find_closest_listener"]  = &media::MusicEngine::find_closest_listener;
+			musicengine_type["get_channels"]           = &media::MusicEngine::get_channels;
+			musicengine_type["get_listener_count"]     = &media::MusicEngine::get_listener_count;
+			musicengine_type["get_samplerate"]         = &media::MusicEngine::get_samplerate;
+			musicengine_type["is_listener_enabled"]    = &media::MusicEngine::is_listener_enabled;
+			musicengine_type["set_listener_velocity"]  = &media::MusicEngine::set_listener_velocity;
+			musicengine_type["set_volume"]             = &media::MusicEngine::set_volume;
+			musicengine_type["start_device"]           = &media::MusicEngine::start_device;
+			musicengine_type["stop_device"]            = &media::MusicEngine::stop_device;
+
+			auto dialogueengine_type                      = lua.new_usertype<media::DialogueEngine>("DialogueEngine", sol::no_constructor);
+			dialogueengine_type["set_listener_cone"]      = &media::DialogueEngine::set_listener_cone;
+			dialogueengine_type["set_listener_direction"] = &media::DialogueEngine::set_listener_direction;
+			dialogueengine_type["set_listener_position"]  = &media::DialogueEngine::set_listener_position;
+			dialogueengine_type["set_listener_world_up"]  = &media::DialogueEngine::set_listener_world_up;
+			dialogueengine_type["toggle_listener"]        = &media::DialogueEngine::toggle_listener;
+			dialogueengine_type["stop"]                   = &media::DialogueEngine::stop;
+			dialogueengine_type["find_closest_listener"]  = &media::DialogueEngine::find_closest_listener;
+			dialogueengine_type["get_channels"]           = &media::DialogueEngine::get_channels;
+			dialogueengine_type["get_listener_count"]     = &media::DialogueEngine::get_listener_count;
+			dialogueengine_type["get_samplerate"]         = &media::DialogueEngine::get_samplerate;
+			dialogueengine_type["is_listener_enabled"]    = &media::DialogueEngine::is_listener_enabled;
+			dialogueengine_type["set_listener_velocity"]  = &media::DialogueEngine::set_listener_velocity;
+			dialogueengine_type["set_volume"]             = &media::DialogueEngine::set_volume;
+			dialogueengine_type["start_device"]           = &media::DialogueEngine::start_device;
+			dialogueengine_type["stop_device"]            = &media::DialogueEngine::stop_device;
+
+			auto sound_type = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound(), media::Sound(media::SoundType, std::string_view)>());
+			sound_type["fade_in"]                            = &media::Sound::fade_in;
+			sound_type["fade_out"]                           = &media::Sound::fade_out;
+			sound_type["is_finished"]                        = &media::Sound::is_finished;
+			sound_type["is_looping"]                         = &media::Sound::is_looping;
+			sound_type["is_playing"]                         = &media::Sound::is_playing;
+			sound_type["load"]                               = &media::Sound::load;
+			sound_type["set_attenuation_model"]              = &media::Sound::set_attenuation_model;
+			sound_type["set_cone"]                           = &media::Sound::set_cone;
+			sound_type["set_direction"]                      = &media::Sound::set_direction;
+			sound_type["set_doppler_factor"]                 = &media::Sound::set_doppler_factor;
+			sound_type["set_looping"]                        = &media::Sound::set_looping;
+			sound_type["set_max_distance"]                   = &media::Sound::set_max_distance;
+			sound_type["set_max_gain"]                       = &media::Sound::set_max_gain;
+			sound_type["set_min_distance"]                   = &media::Sound::set_min_distance;
+			sound_type["set_min_gain"]                       = &media::Sound::set_min_gain;
+			sound_type["set_pan"]                            = &media::Sound::set_pan;
+			sound_type["set_pinned_listener"]                = &media::Sound::set_pinned_listener;
+			sound_type["set_pitch"]                          = &media::Sound::set_pitch;
+			sound_type["set_position"]                       = &media::Sound::set_position;
+			sound_type["set_positioning"]                    = &media::Sound::set_positioning;
+			sound_type["set_rolloff"]                        = &media::Sound::set_rolloff;
+			sound_type["set_velocity"]                       = &media::Sound::set_velocity;
+			sound_type["set_volume"]                         = &media::Sound::set_volume;
+			sound_type["play"]                               = &media::Sound::play;
+			sound_type["pause"]                              = &media::Sound::pause;
+			sound_type["stop"]                               = &media::Sound::stop;
+			sound_type["get_attenuation_model"]              = &media::Sound::get_attenuation_model;
+			sound_type["get_cone"]                           = &media::Sound::get_cone;
+			sound_type["get_current_fade_volume"]            = &media::Sound::get_current_fade_volume;
+			sound_type["get_cursor_in_seconds"]              = &media::Sound::get_cursor_in_seconds;
+			sound_type["get_direction"]                      = &media::Sound::get_direction;
+			sound_type["get_directional_attenuation_factor"] = &media::Sound::get_directional_attenuation_factor;
+			sound_type["get_direction_to_listener"]          = &media::Sound::get_direction_to_listener;
+			sound_type["get_doppler_factor"]                 = &media::Sound::get_doppler_factor;
+			sound_type["get_length_in_seconds"]              = &media::Sound::get_length_in_seconds;
+			sound_type["get_listener_index"]                 = &media::Sound::get_listener_index;
+			sound_type["get_max_distance"]                   = &media::Sound::get_max_distance;
+			sound_type["get_max_gain"]                       = &media::Sound::get_max_gain;
+			sound_type["get_min_distance"]                   = &media::Sound::get_min_distance;
+			sound_type["get_pan"]                            = &media::Sound::get_pan;
+			sound_type["get_pan_mode"]                       = &media::Sound::get_pan_mode;
+			sound_type["get_pinned_listener_index"]          = &media::Sound::get_pinned_listener_index;
+			sound_type["get_pitch"]                          = &media::Sound::get_pitch;
+			sound_type["get_position"]                       = &media::Sound::get_position;
+			sound_type["get_positioning"]                    = &media::Sound::get_positioning;
+			sound_type["get_rolloff"]                        = &media::Sound::get_rolloff;
+			sound_type["get_velocity"]                       = &media::Sound::get_velocity;
+			sound_type["get_volume"]                         = &media::Sound::get_volume;
+			sound_type["is_spatialization_enabled"]          = &media::Sound::is_spatialization_enabled;
+			sound_type["set_directional_attenuation_factor"] = &media::Sound::set_directional_attenuation_factor;
+			sound_type["set_pan_mode"]                       = &media::Sound::set_pan_mode;
+			sound_type["set_spatialization_enabled"]         = &media::Sound::set_spatialization_enabled;
+			sound_type["set_start_time_in_milliseconds"]     = &media::Sound::set_start_time_in_milliseconds;
+			sound_type["set_stop_time_in_milliseconds"]      = &media::Sound::set_stop_time_in_milliseconds;
 
 			auto video_type              = lua.new_usertype<media::Video>("Video", sol::constructors<media::Video()>());
 			video_type["get_duration"]   = &media::Video::get_duration;
@@ -820,7 +874,7 @@ namespace galaxy
 			video_type["render"]         = &media::Video::render;
 			video_type["update"]         = &media::Video::update;
 			video_type["get_time"]       = &media::Video::get_time;
-			video_type["play"]           = &media::Video::play;
+			video_type["build"]          = &media::Video::build;
 
 			/* META */
 			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
@@ -857,48 +911,57 @@ namespace galaxy
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
 
 			/* RESOURCE */
-			auto lang_type         = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
-			lang_type["load"]      = &resource::Language::load;
-			lang_type["reload"]    = &resource::Language::reload;
-			lang_type["set"]       = &resource::Language::set;
-			lang_type["translate"] = &resource::Language::translate;
-			lang_type["clear"]     = &resource::Language::clear;
+			auto basicscripts_type           = lua.new_usertype<resource::BasicScripts>("BasicScripts", sol::no_constructor);
+			basicscripts_type["clear"]       = &resource::BasicScripts::clear;
+			basicscripts_type["empty"]       = &resource::BasicScripts::empty;
+			basicscripts_type["get"]         = &resource::BasicScripts::get;
+			basicscripts_type["has"]         = &resource::BasicScripts::has;
+			basicscripts_type["keys"]        = &resource::BasicScripts::keys;
+			basicscripts_type["load_folder"] = &resource::BasicScripts::load_folder;
+			basicscripts_type["size"]        = &resource::BasicScripts::size;
 
-			auto materials_type     = lua.new_usertype<resource::Materials>("Materials", sol::no_constructor);
-			materials_type["clear"] = &resource::Materials::clear;
-			materials_type["empty"] = &resource::Materials::empty;
-			materials_type["get"]   = &resource::Materials::get;
-			materials_type["has"]   = &resource::Materials::has;
-			materials_type["keys"]  = &resource::Materials::keys;
+			auto fonts_type           = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
+			fonts_type["clear"]       = &resource::Fonts::clear;
+			fonts_type["empty"]       = &resource::Fonts::empty;
+			fonts_type["get"]         = &resource::Fonts::get;
+			fonts_type["has"]         = &resource::Fonts::has;
+			fonts_type["keys"]        = &resource::Fonts::keys;
+			fonts_type["load_folder"] = &resource::Fonts::load_folder;
+			fonts_type["size"]        = &resource::Fonts::size;
 
-			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
-			prefabs_type["clear"] = &resource::Prefabs::clear;
-			prefabs_type["empty"] = &resource::Prefabs::empty;
-			prefabs_type["get"]   = &resource::Prefabs::get;
-			prefabs_type["has"]   = &resource::Prefabs::has;
-			prefabs_type["keys"]  = &resource::Prefabs::keys;
+			auto lang_type              = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
+			lang_type["clear_specific"] = sol::resolve<void(const std::string&)>(&resource::Language::clear);
+			lang_type["clear"]          = sol::resolve<void(void)>(&resource::Language::clear);
+			lang_type["load_folder"]    = &resource::Language::load_folder;
+			lang_type["set"]            = &resource::Language::set;
+			lang_type["translate"]      = &resource::Language::translate;
 
-			auto scripts_type     = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
-			scripts_type["clear"] = &resource::Scripts::clear;
-			scripts_type["empty"] = &resource::Scripts::empty;
-			scripts_type["get"]   = &resource::Scripts::get;
-			scripts_type["has"]   = &resource::Scripts::has;
-			scripts_type["keys"]  = &resource::Scripts::keys;
+			auto materials_type           = lua.new_usertype<resource::Materials>("Materials", sol::no_constructor);
+			materials_type["clear"]       = &resource::Materials::clear;
+			materials_type["empty"]       = &resource::Materials::empty;
+			materials_type["get"]         = &resource::Materials::get;
+			materials_type["has"]         = &resource::Materials::has;
+			materials_type["keys"]        = &resource::Materials::keys;
+			materials_type["load_folder"] = &resource::Materials::load_folder;
+			materials_type["size"]        = &resource::Materials::size;
 
-			auto shaders_type       = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
-			shaders_type["clear"]   = &resource::Shaders::clear;
-			shaders_type["empty"]   = &resource::Shaders::empty;
-			shaders_type["get"]     = &resource::Shaders::get;
-			shaders_type["has"]     = &resource::Shaders::has;
-			shaders_type["compile"] = &resource::Shaders::compile;
-			shaders_type["keys"]    = &resource::Shaders::keys;
+			auto prefabs_type           = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
+			prefabs_type["clear"]       = &resource::Prefabs::clear;
+			prefabs_type["empty"]       = &resource::Prefabs::empty;
+			prefabs_type["get"]         = &resource::Prefabs::get;
+			prefabs_type["has"]         = &resource::Prefabs::has;
+			prefabs_type["keys"]        = &resource::Prefabs::keys;
+			prefabs_type["load_folder"] = &resource::Prefabs::load_folder;
+			prefabs_type["size"]        = &resource::Prefabs::size;
 
-			auto sounds_type     = lua.new_usertype<resource::Sounds>("Sounds", sol::no_constructor);
-			sounds_type["clear"] = &resource::Sounds::clear;
-			sounds_type["empty"] = &resource::Sounds::empty;
-			sounds_type["get"]   = &resource::Sounds::get;
-			sounds_type["has"]   = &resource::Sounds::has;
-			sounds_type["keys"]  = &resource::Sounds::keys;
+			auto shaders_type           = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
+			shaders_type["clear"]       = &resource::Shaders::clear;
+			shaders_type["empty"]       = &resource::Shaders::empty;
+			shaders_type["get"]         = &resource::Shaders::get;
+			shaders_type["has"]         = &resource::Shaders::has;
+			shaders_type["keys"]        = &resource::Shaders::keys;
+			shaders_type["load_folder"] = &resource::Shaders::load_folder;
+			shaders_type["size"]        = &resource::Shaders::size;
 
 			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
 			textureatlas_type["add_file"]   = &resource::TextureAtlas::add_file;
@@ -909,14 +972,6 @@ namespace galaxy
 			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
 			textureatlas_type["save"]       = &resource::TextureAtlas::save;
 			textureatlas_type["keys"]       = &resource::TextureAtlas::keys;
-
-			auto fonts_type     = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
-			fonts_type["clear"] = &resource::Fonts::clear;
-			fonts_type["empty"] = &resource::Fonts::empty;
-			fonts_type["get"]   = &resource::Fonts::get;
-			fonts_type["has"]   = &resource::Fonts::has;
-			fonts_type["build"] = &resource::Fonts::build;
-			fonts_type["keys"]  = &resource::Fonts::keys;
 
 			/* STATE */
 			auto scenemanager_type            = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);

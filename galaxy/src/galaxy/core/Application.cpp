@@ -163,89 +163,16 @@ namespace galaxy
 					config.save();
 				}
 
-				// Unpack assets if zip is present.
-				const auto compressed_assets = config.get<std::string>("compressed_assets");
-				const auto asset_dir         = config.get<std::string>("asset_dir");
-
-				if (std::filesystem::exists(compressed_assets))
-				{
-					GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
-					GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
-					std::filesystem::remove_all(asset_dir);
-
-					// Initialize imgui.
-					auto& io       = ui::imgui_init_context();
-					io.IniFilename = nullptr;
-					ui::imgui_theme_visual_dark();
-
-					// Get file count.
-					auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
-					int count = static_cast<int>(zip_entries_total(z));
-					zip_close(z);
-
-					GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
-
-					auto extractor = [](const char* filename, void* arg) {
-						auto& window = ServiceLocator<Window>::ref();
-
-						static int i = 0;
-						const int n  = *static_cast<int*>(arg);
-
-						ui::imgui_new_frame();
-						ui::imgui_center_next_window();
-
-						if (ImGui::Begin("AUP", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoSavedSettings))
-						{
-							++i;
-
-							const auto progress  = static_cast<float>(i) / static_cast<float>(n);
-							const auto text_size = ImGui::CalcTextSize("Extracted xxxx of yyyy").x;
-
-							static const auto progressbar_size = ImVec2(300, 20);
-
-							ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - progressbar_size.x) / 2);
-							ImGui::SetCursorPosY(((ImGui::GetCursorPosY() + ImGui::GetContentRegionAvail().y) - progressbar_size.y) / 2);
-							ImGui::ProgressBar(progress, progressbar_size);
-							ImGui::SetCursorPosX(((ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x) - text_size) / 2);
-							ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2.0f);
-							ImGui::Text("Extracted %d of %d", i, n);
-						}
-
-						ImGui::End();
-
-						glBindFramebuffer(GL_FRAMEBUFFER, 0);
-						glViewport(0, 0, window.get_width(), window.get_height());
-						glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-						ui::imgui_render();
-
-						glfwSwapBuffers(window.handle());
-
-						return 0;
-					};
-
-					if (zip_extract(compressed_assets.c_str(), "./", extractor, &count) == 0)
-					{
-						std::filesystem::remove(compressed_assets);
-						GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
-					}
-					else
-					{
-						std::filesystem::remove_all(asset_dir);
-						GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
-					}
-
-					ui::imgui_destroy_context();
-				}
-
-				// Clear popup.
-				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-				glfwSwapBuffers(window.handle());
-
 				create_asset_layout(root, "");
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
+
+				//
+				// Nuklear UI.
+				//
+				ServiceLocator<ui::NuklearUI>::make();
+
+				auto& loader = ServiceLocator<Loader>::make();
+				loader.extract_assets();
 
 				const auto audio_folder = config.get<std::string>("audio_folder", "resource_folders");
 				create_asset_layout(root, audio_folder);
@@ -270,7 +197,7 @@ namespace galaxy
 				create_asset_layout(root, ui_folder + "scripts/");
 
 				// Generate default language file.
-				if (!fs.save("lang={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
+				if (!fs.save("region='en_au'\ndata={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
 				}
@@ -351,7 +278,6 @@ namespace galaxy
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::BasicScripts>::make();
 			ServiceLocator<resource::Language>::make();
-			ServiceLocator<ui::NuklearUI>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
 			//
@@ -369,7 +295,6 @@ namespace galaxy
 		Application::~Application()
 		{
 			ServiceLocator<scene::SceneManager>::del();
-			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<resource::BasicScripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
@@ -388,6 +313,7 @@ namespace galaxy
 			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
 			ServiceLocator<BS::thread_pool>::del();
+			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Loader>::del();
 			ServiceLocator<graphics::Renderer>::del();
@@ -452,7 +378,7 @@ namespace galaxy
 					}
 
 					scene.render();
-					renderer.swap_buffers(window.handle());
+					renderer.swap_buffers();
 
 					frames++;
 

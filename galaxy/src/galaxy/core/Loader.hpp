@@ -15,7 +15,7 @@ namespace galaxy
 	namespace core
 	{
 		///
-		/// Simple customizable loading screen.
+		/// Asset and Config loader.
 		///
 		class Loader final
 		{
@@ -31,19 +31,29 @@ namespace galaxy
 			~Loader();
 
 			///
-			/// \brief Start loading job in task pool.
+			/// Extract a compressed asset archive.
 			///
-			/// Draws loading screen while loading.
-			///
-			/// \param loader_func Function called by the loading thread.
-			///
-			void load(const std::function<void(void)>& loader_func);
+			void extract_assets();
 
-		private:
 			///
-			/// Handle to thread loading assets.
+			/// Loads resources, user config and window settings.
 			///
-			std::future<void> m_thread_handle;
+			void load_all();
+
+			///
+			/// Only loads user config.
+			///
+			void load_user_config();
+
+			///
+			/// Only loads the window settings.
+			///
+			void load_window();
+
+			///
+			/// Builds opengl resources on the main thread.
+			///
+			void build_resources();
 		};
 	} // namespace core
 } // namespace galaxy

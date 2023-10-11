@@ -89,9 +89,7 @@ namespace galaxy
 			///
 			/// Swap backbuffer to draw to screen.
 			///
-			/// \param window Window backbuffer to use.
-			///
-			void swap_buffers(GLFWwindow* window);
+			void swap_buffers();
 
 			///
 			/// Resize any framebuffers the renderer uses.

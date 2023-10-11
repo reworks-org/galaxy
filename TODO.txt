@@ -1,24 +1,72 @@
+reduce memory consumption
+implement nuklear ui loading funcs
+rework scene manager and how assets are loaded
+make sure loader load screens shows when used
+
+editor:
 more drag/drop support for tree view, body, etc
 add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
+I need to reload the assets in asset panel and show a loading screen while this is happening
 
-more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
+asset manager:
+- should bundle loose assets into zip for deployment
+- so loose files are just for editor working
+- assets need to be manually added
+- then we use physfs to control the filesystem
+- OR
+- we just extract the zip after shipping
+- need to review how scenes are loaded and how assets are loaded into scenes.
+	- scene specific assets? or global assets? global kinda makes more sense for small 2d games.
+- fix map and ui loading
 
-implement b2_debugdraw?
+misc:
+https://github.com/Jaysmito101/cgl
+https://github.com/albin-johansson/wanderer/tree/dev/source/wanderer/systems
 
+editor stuff:
+https://github.com/Green-Sky/imgui_entt_entity_editor
+https://github.com/scottmudge/imgui_tabs
+
+animation:
+improve animation system
+https://github.com/sansumbrella/Choreograph
+https://github.com/mobius3/tweeny
+
+for ai pathfinding:
+https://github.com/Caerind/AwesomeCppGameDev#ai
+
+for ai combat?:
+https://github.com/BehaviorTree/BehaviorTree.CPP
+
+hd2d:
+https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
+https://slembcke.github.io/SuperFastSoftShadows
+https://github.com/voldien/spritebatch-library
+https://github.com/dario-loi/staplegl
+https://github.com/AntonioModer/2d-lighting-engine
+https://github.com/edgarMeinart/opengl-2d-light-example
+https://github.com/StefanKubsch/NARC
+https://github.com/zenex/skeletongl
+https://github.com/RandyGaul/cute_headers/blob/master/cute_spritebatch.h
+https://old.reddit.com/r/opengl/comments/16oo7we/2d_sprite_animation/
+https://github.com/KTStephano/StratusGFX
+https://github.com/leaf3d/leaf3d/tree/master
+https://learnopengl.com/Advanced-Lighting/Deferred-Shading
+https://github.com/grz0zrg/fbg
+https://github.com/buserror/libc3
+https://github.com/lettier/3d-game-shaders-for-beginners
+https://github.com/ands/lightmapper
 parallaxx support
-
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.cpp
-
 https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
-
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
-
 fix no ambient light when no lights in scene
-
-https://github.com/albin-johansson/wanderer/tree/dev/source/wanderer/systems
+add instance rendering
+more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
+	 - implement b2_debugdraw?
 
 TileMap:
 	loading a map should generate prefabs and store them.
@@ -29,31 +77,9 @@ TileMap:
 	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
 		prerendering lets us to fancy lighting and stuff.
 		i.e. create tilemap in tiled, then export to use as bg image.
-
-
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
 
-DECOUPLE RENDERING FROM WINDOW
-
-add instance rendering
-improve animation system
-split audio engines up
-add physfs?
-https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
-https://slembcke.github.io/SuperFastSoftShadows
-https://github.com/voldien/spritebatch-library
-https://github.com/dario-loi/staplegl
-https://github.com/AntonioModer/2d-lighting-engine
-https://github.com/edgarMeinart/opengl-2d-light-example
-https://github.com/StefanKubsch/NARC
-https://github.com/zenex/skeletongl
-https://github.com/pplux/px/blob/master/README_px_render.md
-https://github.com/ands/lightmapper#lightmapper
-https://github.com/Caerind/AwesomeCppGameDev
-https://github.com/swr06/GLGame
-https://github.com/RandyGaul/cute_headers/blob/master/cute_spritebatch.h
-https://github.com/jharler/ZeroTolerance/tree/master
-https://old.reddit.com/r/opengl/comments/16oo7we/2d_sprite_animation/
-https://github.com/KTStephano/StratusGFX
-https://github.com/leaf3d/leaf3d/tree/master
+2d physics library:
+https://github.com/slembcke/Chipmunk2D
+https://github.com/erincatto/box2c

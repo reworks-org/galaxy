@@ -13,6 +13,7 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
+#include <miniaudio.h>
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
@@ -345,6 +346,33 @@ namespace galaxy
 			b2world_type["GetAutoClearForces"] = &b2World::GetAutoClearForces;
 			b2world_type["ShiftOrigin"]        = &b2World::ShiftOrigin;
 			b2world_type["Dump"]               = &b2World::Dump;
+
+			// clang-format off
+			lua.new_enum<ma_pan_mode>("ma_pan_mode",
+			{
+				{"ma_pan_mode_balance", ma_pan_mode_balance},
+				{"ma_pan_mode_pan", ma_pan_mode_pan}
+			});
+
+			lua.new_enum<ma_positioning>("ma_positioning",
+            {
+				{"ma_positioning_absolute", ma_positioning_absolute},
+				{"ma_positioning_relative", ma_positioning_relative}
+            });
+
+			lua.new_enum<ma_attenuation_model>("ma_attenuation_model",
+            {
+				{"ma_attenuation_model_none", ma_attenuation_model_none},
+				{"ma_attenuation_model_inverse", ma_attenuation_model_inverse},
+				{"ma_attenuation_model_linear", ma_attenuation_model_linear},
+				{"ma_attenuation_model_exponential", ma_attenuation_model_exponential}
+            });
+			// clang-format on
+
+			auto ma_vec3f_type = lua.new_usertype<ma_vec3f>(sol::constructors<ma_vec3f()>());
+			ma_vec3f_type["x"] = &ma_vec3f::x;
+			ma_vec3f_type["y"] = &ma_vec3f::y;
+			ma_vec3f_type["z"] = &ma_vec3f::z;
 		}
 	} // namespace lua
 } // namespace galaxy
