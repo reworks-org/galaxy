@@ -43,7 +43,7 @@ namespace galaxy
 			}
 
 			nk_glfw3_font_stash_end();
-			nk_style_default(&m_ctx->ctx);
+			nk_style_default(ctx());
 		}
 
 		NuklearUI::~NuklearUI()
@@ -107,7 +107,7 @@ namespace galaxy
 		{
 			if (m_fonts.contains(id))
 			{
-				nk_style_set_font(&m_ctx->ctx, &m_fonts[id]->handle);
+				nk_style_set_font(ctx(), &m_fonts[id]->handle);
 			}
 		}
 
@@ -125,26 +125,36 @@ namespace galaxy
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
-			if (nk_begin(&m_ctx->ctx, text, nk_rect((window.get_widthf() / 2.0f) - 50, (window.get_heightf() / 2.0f) - 5, 100, 10), NK_WINDOW_NOT_INTERACTIVE))
+			if (nk_begin(ctx(),
+					"loading_window",
+					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 30, 400, 60),
+					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
 			{
-				nk_progress(&m_ctx->ctx, &current, total, false);
+				nk_layout_row_dynamic(ctx(), 20, 1);
+				nk_label(ctx(), text, NK_TEXT_CENTERED);
+				nk_layout_row_static(ctx(), 20, 400, 1);
+				nk_progress(ctx(), &current, total, NK_FIXED);
 			}
 
-			nk_end(&m_ctx->ctx);
+			nk_end(ctx());
 		}
 
 		void NuklearUI::show_building_atlas()
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
-			if (nk_begin(&m_ctx->ctx,
-					"Building Atlas...",
-					nk_rect((window.get_widthf() / 2.0f) - 50, (window.get_heightf() / 2.0f) - 5, 100, 10),
-					NK_WINDOW_NOT_INTERACTIVE))
+			if (nk_begin(ctx(),
+					"building_window",
+					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 30, 400, 60),
+					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
 			{
+				nk_layout_row_dynamic(ctx(), 20, 1);
+				nk_label(ctx(), "Building Textures", NK_TEXT_CENTERED);
+				// nk_layout_row_static(ctx(), 20, 400, 1);
+				// nk_progress(ctx(), &current, total, NK_FIXED);
 			}
 
-			nk_end(&m_ctx->ctx);
+			nk_end(ctx());
 		}
 
 		nk_context* NuklearUI::ctx() const

@@ -32,12 +32,6 @@ namespace galaxy
 			clear();
 		}
 
-		void SceneManager::load_assets()
-		{
-			auto& loader = core::ServiceLocator<core::Loader>::ref();
-			loader.load_all();
-		}
-
 		std::weak_ptr<Scene> SceneManager::make_scene(const std::string& name)
 		{
 			if (!m_scenes.contains(name))

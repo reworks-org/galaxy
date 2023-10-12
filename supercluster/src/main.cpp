@@ -115,7 +115,6 @@ int main(int argsc, char* argsv[])
 				}
 
 				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-				sm.load_assets();
 
 				auto menu   = std::make_shared<sc::Menu>("sc_menu");
 				auto editor = std::make_shared<sc::Editor>("sc_editor");

@@ -41,6 +41,11 @@ namespace galaxy
 			void load_all();
 
 			///
+			/// Load game resources.
+			///
+			void load_resources();
+
+			///
 			/// Only loads user config.
 			///
 			void load_user_config();

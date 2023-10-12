@@ -21,6 +21,7 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Prefab.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -79,9 +80,22 @@ namespace galaxy
 			}
 		}
 
+		void load_config_wrapper()
+		{
+			core::ServiceLocator<core::Loader>::ref().load_user_config();
+		}
+
+		void load_window_wrapper()
+		{
+			core::ServiceLocator<core::Loader>::ref().load_window();
+		}
+
 		void inject_galaxy()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			lua.set_function("galaxy_load_user_config", &load_config_wrapper);
+			lua.set_function("galaxy_load_window_config", &load_window_wrapper);
 
 			/* ALGORITHM */
 			lua.set_function("normalize", &algorithm::normalize<float>);
@@ -981,7 +995,6 @@ namespace galaxy
 			scenemanager_type["get"]          = &scene::SceneManager::get;
 			scenemanager_type["has_current"]  = &scene::SceneManager::has_current;
 			scenemanager_type["load_appdata"] = &scene::SceneManager::load_appdata;
-			scenemanager_type["load_assets"]  = &scene::SceneManager::load_assets;
 			scenemanager_type["load_scene"]   = &scene::SceneManager::load_scene;
 			scenemanager_type["make_scene"]   = &scene::SceneManager::make_scene;
 			scenemanager_type["remove"]       = &scene::SceneManager::remove;

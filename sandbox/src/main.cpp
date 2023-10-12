@@ -41,7 +41,6 @@ int main(int argsc, char* argsv[])
 
 			{
 				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-				sm.load_assets();
 
 				auto game    = std::make_shared<scene::Scene>();
 				game->m_name = "game";

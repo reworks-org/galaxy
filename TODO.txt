@@ -1,7 +1,4 @@
 reduce memory consumption
-implement nuklear ui loading funcs
-rework scene manager and how assets are loaded
-make sure loader load screens shows when used
 
 editor:
 more drag/drop support for tree view, body, etc

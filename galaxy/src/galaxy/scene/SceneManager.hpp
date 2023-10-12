@@ -36,11 +36,6 @@ namespace galaxy
 			~SceneManager();
 
 			///
-			/// Load game assets.
-			///
-			void load_assets();
-
-			///
 			/// Create a new scene.
 			///
 			/// \param name Scene name to assign.

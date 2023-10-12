@@ -103,13 +103,20 @@ namespace galaxy
 
 		void Loader::load_all()
 		{
+			auto& tp = ServiceLocator<BS::thread_pool>::ref();
+
+			tp.push_task(&Loader::load_user_config, this);
+			tp.push_task(&Loader::load_window, this);
+
+			load_resources();
+		}
+
+		void Loader::load_resources()
+		{
 			auto& tp       = ServiceLocator<BS::thread_pool>::ref();
 			auto& config   = ServiceLocator<Config>::ref();
 			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
 			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
-
-			tp.push_task(&Loader::load_user_config, this);
-			tp.push_task(&Loader::load_window, this);
 
 			const auto& audio_folder = config.get<std::string>("audio_folder", "resource_folders");
 
@@ -184,28 +191,31 @@ namespace galaxy
 				lang.set(config.get<std::string>("default_lang"));
 			});
 
+			nui.enable_input();
 			renderer.prepare_default();
 
 			for (std::size_t tasks; (tasks = tp.get_tasks_total()) != 0;)
+			// for (int tasks = 0; tasks < 10; tasks++)
 			{
 				glfwPollEvents();
+				nui.new_frame();
+				nui.show_loading_bar("Loading Assets...", 10, tasks);
 
 				renderer.clear();
-
-				nui.new_frame();
-				nui.show_loading_bar("Loading Assets...", 12, tasks);
 				nui.render();
 				renderer.swap_buffers();
+				// std::this_thread::sleep_for(.1s);
 			}
 
-			renderer.clear();
-
+			glfwPollEvents();
 			nui.new_frame();
 			nui.show_building_atlas();
+			renderer.clear();
 			nui.render();
 			renderer.swap_buffers();
 
 			build_resources();
+			nui.disable_input();
 		}
 
 		void Loader::load_user_config()

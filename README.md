@@ -43,10 +43,11 @@ Open galaxy.sln and go Build -> Rebuild Solution.
 
 [CMake v3.24](https://cmake.org/download/)
 
-[Ubuntu 22.04 LTS](https://ubuntu.com/download/desktop) OR [WSL2 - Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install)
+[Ubuntu 22.04.3 LTS](https://ubuntu.com/download/desktop) OR [WSL2 - Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 ```
-Coming Soon.
+sudo apt update && sudo apt upgrade -y
+sudo apt install git curl cmake llvm clang build-essential libfreetype-dev libz-dev pkg-config mesa-utils libglu1-mesa-dev mesa-common-dev
 ```
 
 ### MacOS:

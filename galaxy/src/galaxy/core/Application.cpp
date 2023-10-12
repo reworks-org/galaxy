@@ -290,6 +290,8 @@ namespace galaxy
 			lua::inject_nuklear();
 			lua::inject_galaxy();
 			lua::inject_services();
+
+			core::ServiceLocator<core::Loader>::ref().load_all();
 		}
 
 		Application::~Application()
