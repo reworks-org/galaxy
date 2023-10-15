@@ -10,7 +10,6 @@
 
 #include <typeindex>
 
-#include <box2d/b2_world.h>
 #include <entt/entt.hpp>
 #include <robin_hood.h>
 
@@ -19,12 +18,6 @@
 
 namespace galaxy
 {
-	namespace components
-	{
-		class RigidBody;
-		class Transform;
-	} // namespace components
-
 	namespace scene
 	{
 		class Scene;
@@ -39,7 +32,6 @@ namespace galaxy
 		class World final : public fs::Serializable
 		{
 			using SystemContainer = meta::vector<std::shared_ptr<systems::System>>;
-			using B2BodyFactory   = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
 
 		public:
 			///
@@ -121,15 +113,6 @@ namespace galaxy
 			[[nodiscard]] bool is_valid(const entt::entity entity);
 
 			///
-			/// \brief Get b2World as a raw pointer.
-			///
-			/// Prefer accessing the unique ptr.
-			///
-			/// \return Raw pointer. Do NOT delete.
-			///
-			[[nodiscard]] b2World* b2world();
-
-			///
 			/// Get scene this world belongs to.
 			///
 			/// \return Raw pointer. Do NOT delete.
@@ -188,22 +171,6 @@ namespace galaxy
 			void destruct_script(entt::registry& registry, entt::entity entity);
 
 			///
-			/// Function that integrates a box2d construction with entt.
-			///
-			/// \param registry Registry component belongs to.
-			/// \param entity Entity component belongs to.
-			///
-			void construct_rigidbody(entt::registry& registry, entt::entity entity);
-
-			///
-			/// Function that integrates a box2d destruction with entt.
-			///
-			/// \param registry Registry component belongs to.
-			/// \param entity Entity component belongs to.
-			///
-			void destroy_rigidbody(entt::registry& registry, entt::entity entity);
-
-			///
 			/// Function that integrates nuklear init with entt on construct event.
 			///
 			/// \param registry Registry component belongs to.
@@ -225,36 +192,11 @@ namespace galaxy
 			///
 			entt::registry m_registry;
 
-			///
-			/// Box2D physics world.
-			///
-			std::unique_ptr<b2World> m_b2world;
-
-			///
-			/// Box2D world velocity iterations.
-			///
-			int m_velocity_iterations;
-
-			///
-			/// Box2d world position iterations.
-			///
-			int m_position_iterations;
-
-			///
-			/// Scale for converting from box2d units to opengl pixels.
-			///
-			float m_pixels_per_meter;
-
 		private:
 			///
 			/// Stores systems.
 			///
 			SystemContainer m_systems;
-
-			///
-			/// List of rigid bodies that need to be constructed.
-			///
-			B2BodyFactory m_bodies_to_construct;
 
 			///
 			/// Pointer to scene this world belongs to.

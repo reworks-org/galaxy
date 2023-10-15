@@ -16,7 +16,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
-#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -35,7 +34,6 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -106,7 +104,6 @@ namespace galaxy
 			config.restore<bool>("gaussian_blur", false, "graphics.effects");
 			config.restore<bool>("film_grain", false, "graphics.effects");
 			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
-			config.restore<std::string>("materials_folder", "materials/", "resource_folders");
 			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
 			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
 			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
@@ -188,7 +185,6 @@ namespace galaxy
 				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("materials_folder", "resource_folders"));
 				create_asset_layout(root, config.get<std::string>("video_folder", "resource_folders"));
 
 				const auto ui_folder = config.get<std::string>("ui_folder", "resource_folders");
@@ -232,7 +228,6 @@ namespace galaxy
 			em.register_component<components::Animated>("Animated");
 			em.register_component<components::Flag>("Flag");
 			em.register_component<components::Primitive>("Primitive");
-			em.register_component<components::RigidBody>("RigidBody");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
 			em.register_component<components::Tag>("Tag");
@@ -244,7 +239,6 @@ namespace galaxy
 			em.register_dependencies<components::Primitive, components::Transform>();
 			em.register_dependencies<components::Text, components::Transform>();
 			em.register_dependencies<components::Animated, components::Sprite>();
-			em.register_dependencies<components::RigidBody, components::Transform>();
 
 			//
 			// Initialize Lua.
@@ -274,7 +268,6 @@ namespace galaxy
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::TextureAtlas>::make();
-			ServiceLocator<resource::Materials>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::BasicScripts>::make();
 			ServiceLocator<resource::Language>::make();

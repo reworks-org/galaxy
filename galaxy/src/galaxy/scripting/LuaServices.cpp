@@ -15,7 +15,6 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -35,7 +34,6 @@ namespace galaxy
 
 			lua["galaxy_basicscripts"]   = std::ref(core::ServiceLocator<resource::BasicScripts>::ref());
 			lua["galaxy_fonts"]          = std::ref(core::ServiceLocator<resource::Fonts>::ref());
-			lua["galaxy_materials"]      = std::ref(core::ServiceLocator<resource::Materials>::ref());
 			lua["galaxy_soundengine"]    = std::ref(core::ServiceLocator<media::SoundEngine>::ref());
 			lua["galaxy_dialogueengine"] = std::ref(core::ServiceLocator<media::DialogueEngine>::ref());
 			lua["galaxy_musicengine"]    = std::ref(core::ServiceLocator<media::MusicEngine>::ref());

@@ -18,7 +18,6 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
-#include "galaxy/resource/Materials.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
@@ -167,13 +166,6 @@ namespace galaxy
 				auto& basicscripts = ServiceLocator<resource::BasicScripts>::ref();
 
 				basicscripts.load_folder(config.get<std::string>("scripts_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config    = ServiceLocator<Config>::ref();
-				auto& materials = ServiceLocator<resource::Materials>::ref();
-
-				materials.load_folder(config.get<std::string>("materials_folder", "resource_folders"));
 			});
 
 			tp.push_task([]() {

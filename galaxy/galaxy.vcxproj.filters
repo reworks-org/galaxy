@@ -119,8 +119,6 @@
     <ClCompile Include="src\galaxy\scripting\LuaExternalModules.cpp" />
     <ClCompile Include="src\galaxy\state\State.cpp" />
     <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
-    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
-    <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
     <ClCompile Include="src\galaxy\resource\Media.cpp" />
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
@@ -130,8 +128,6 @@
     <ClCompile Include="src\galaxy\graphics\postfx\ChromaticAberration.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
-    <ClCompile Include="src\galaxy\physics\Material.cpp" />
-    <ClCompile Include="src\galaxy\resource\Materials.cpp" />
     <ClCompile Include="src\galaxy\media\Video.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
     <ClCompile Include="src\galaxy\graphics\Render2DUniform.cpp" />
@@ -268,8 +264,6 @@
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
     <ClInclude Include="src\galaxy\state\State.hpp" />
     <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
-    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
-    <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
     <ClInclude Include="src\galaxy\resource\Media.hpp" />
     <ClInclude Include="src\galaxy\media\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\media\Sound.hpp" />
@@ -279,8 +273,6 @@
     <ClInclude Include="src\galaxy\graphics\postfx\ChromaticAberration.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
-    <ClInclude Include="src\galaxy\physics\Material.hpp" />
-    <ClInclude Include="src\galaxy\resource\Materials.hpp" />
     <ClInclude Include="src\galaxy\media\Video.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />
     <ClInclude Include="src\galaxy\graphics\Render2DUniform.hpp" />
