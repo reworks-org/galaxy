@@ -91,6 +91,7 @@
     <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
     <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="stb\include\stb_image.cpp" />
+    <ClCompile Include="cute\cute_c2.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -730,6 +731,7 @@
     <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
     <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
     <ClInclude Include="imgui\imgui_addons\ImTween.h" />
+    <ClInclude Include="cute\cute_c2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

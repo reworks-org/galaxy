@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cute\cute_c2.c" />
     <ClCompile Include="glad\glad.c" />
     <ClCompile Include="glfw\src\context.c" />
     <ClCompile Include="glfw\src\egl_context.c" />
@@ -103,6 +104,7 @@
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cute\cute_c2.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_C.h" />
     <ClInclude Include="fastnoise2\include\FastNoise\FastNoise_Config.h" />
