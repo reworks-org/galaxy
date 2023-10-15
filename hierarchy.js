@@ -40,7 +40,6 @@ var hierarchy =
     [ "galaxy::resource::Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
-    [ "galaxy::resource::MaterialLoader", "d2/d3f/classgalaxy_1_1resource_1_1MaterialLoader.html", null ],
     [ "galaxy::events::MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
@@ -76,7 +75,6 @@ var hierarchy =
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
       [ "galaxy::components::Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
-      [ "galaxy::components::RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", null ],
       [ "galaxy::components::Script", "db/d40/classgalaxy_1_1components_1_1Script.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
       [ "galaxy::components::Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", null ],
@@ -87,7 +85,6 @@ var hierarchy =
       [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ],
       [ "galaxy::graphics::Frame", "de/d57/classgalaxy_1_1graphics_1_1Frame.html", null ],
-      [ "galaxy::physics::Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", null ],
       [ "galaxy::scene::Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", null ],
       [ "galaxy::scene::SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", null ]
     ] ],
@@ -108,7 +105,6 @@ var hierarchy =
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
-      [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
     ] ],

@@ -2,7 +2,6 @@ var classgalaxy_1_1scene_1_1SceneManager =
 [
     [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410", null ],
     [ "~SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b", null ],
-    [ "load_assets", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a5fc376de30ed190684787021a327e877", null ],
     [ "make_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af90490de9c01813daf3af1914966ebc0", null ],
     [ "add_existing_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39029fb02569441bf9a10337c81670ab", null ],
     [ "set_scene", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f", null ],

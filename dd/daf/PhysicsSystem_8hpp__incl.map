@@ -1,9 +1,0 @@
-<map id="galaxy/src/galaxy/systems/PhysicsSystem.hpp" name="galaxy/src/galaxy/systems/PhysicsSystem.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="17,5,213,45"/>
-<area shape="rect" id="Node000002" href="$d4/d25/System_8hpp.html" title=" " alt="" coords="11,93,218,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,46,117,79,112,79,112,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,85,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,121,68,159,64,155,101,117"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="109,167,261,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="128,117,166,155,162,159,124,121"/>
-</map>

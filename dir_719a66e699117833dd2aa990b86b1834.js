@@ -13,7 +13,6 @@ var dir_719a66e699117833dd2aa990b86b1834 =
     [ "input", "dir_b44bae1181d28134d9654f6dd7c8beaa.html", "dir_b44bae1181d28134d9654f6dd7c8beaa" ],
     [ "media", "dir_d3c4af17bd947ce0a543d597ca1cfb63.html", "dir_d3c4af17bd947ce0a543d597ca1cfb63" ],
     [ "meta", "dir_7f735fbad00ad2f3f96d935c571f321a.html", "dir_7f735fbad00ad2f3f96d935c571f321a" ],
-    [ "physics", "dir_f8dd915d034f4aa6b8baaf480040c90e.html", "dir_f8dd915d034f4aa6b8baaf480040c90e" ],
     [ "platform", "dir_539763b671f38b158c533952648703b5.html", "dir_539763b671f38b158c533952648703b5" ],
     [ "resource", "dir_6861e931fb99faa1379ff4c0e1a1bd9e.html", "dir_6861e931fb99faa1379ff4c0e1a1bd9e" ],
     [ "scene", "dir_9e0270b3885e0d3bc9dee23586b25531.html", "dir_9e0270b3885e0d3bc9dee23586b25531" ],

@@ -13,7 +13,6 @@ var annotated_dup =
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
-        [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
@@ -114,9 +113,6 @@ var annotated_dup =
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
       ] ],
-      [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", [
-        [ "Material", "d4/d7e/classgalaxy_1_1physics_1_1Material.html", "d4/d7e/classgalaxy_1_1physics_1_1Material" ]
-      ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
         [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
       ] ],
@@ -126,7 +122,6 @@ var annotated_dup =
         [ "DialogueLoader", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader.html", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader" ],
         [ "FontLoader", "dc/d97/classgalaxy_1_1resource_1_1FontLoader.html", "dc/d97/classgalaxy_1_1resource_1_1FontLoader" ],
         [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
-        [ "MaterialLoader", "d2/d3f/classgalaxy_1_1resource_1_1MaterialLoader.html", "d2/d3f/classgalaxy_1_1resource_1_1MaterialLoader" ],
         [ "MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
         [ "PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader" ],
         [ "SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],
@@ -144,7 +139,6 @@ var annotated_dup =
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
-        [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]

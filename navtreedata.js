@@ -64,25 +64,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d50/LuaServices_8cpp_source.html",
-"d2/d81/classgalaxy_1_1components_1_1Text.html#aac707607be9ac032a371d64d6f6920e7",
-"d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a049903107301316cada4bcd0fed521f9",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#af50963141dcac230749bddfbf9c6d764",
-"d5/d25/classgalaxy_1_1core_1_1Window.html#a89d9693e27e065b809aabde944f8c407",
-"d5/df3/ImGuiHelpers_8cpp.html#a9b448428ad6a24f04383d3d99a76fb94",
-"d6/dd5/classgalaxy_1_1media_1_1Sound.html#a2d46cba6e307eccab468d0047bf9afba",
-"d7/d75/FileCode_8hpp.html",
-"d8/d31/Subprocess_8hpp_source.html",
-"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a62607224542d4fd1f4fba8a73aa6222e",
-"da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb",
-"da/def/classgalaxy_1_1input_1_1InputDevice.html#a0803a7b0db5e94eb70f3424c31824a59",
-"db/dc3/classgalaxy_1_1resource_1_1Language.html#a4553e79ec31a396eadacd56f36e4fe31",
-"dc/d90/classgalaxy_1_1components_1_1Primitive.html#a23772401bed09504212c7e1e310ca5a4",
-"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142eafd816cf0346d4939b4cf3bed78dd7fde",
-"dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258",
-"de/d57/classgalaxy_1_1graphics_1_1Frame.html#aaf11b8d29f9bb3c82129f495d5aa8dc7",
-"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a",
-"functions_func_~.html"
+"d1/d67/LogLevel_8cpp_source.html",
+"d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1",
+"d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ab7febf220f1f50e53b65d7d3eceac9a0",
+"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a8290223a2e63f721481cd6d0c1c28513",
+"d5/d25/classgalaxy_1_1core_1_1Window.html#af2c221cb19cdfe08408b8b880c517022",
+"d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a8258436d75a08b81635fbd3976a3c447",
+"d6/dd5/classgalaxy_1_1media_1_1Sound.html#a82c205f945ccfbcbefdea0c11f0b92e8",
+"d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a26d6f2318aeab171321c8d99adbd79cc",
+"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390",
+"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aee2626777bf92891d4d41ea3e5e24c39",
+"da/d19/classgalaxy_1_1graphics_1_1Animation.html#a5e0a478184284e7a1d3c514dd9fcb292",
+"db/d40/classgalaxy_1_1components_1_1Script.html#a74a3f4be37e0291f55f2e835736be7f9",
+"db/df9/classgalaxy_1_1input_1_1Input.html#a577a5b86b819f166d701b713f143cdda",
+"dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html#a79badb40061af18c8fb1d4555b75b0a4",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea57cec4137b614c87cb4e24a3d003a3e0",
+"dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#ad19612d7bba4244b9afb40ccbc04fc2b",
+"de/db0/classgalaxy_1_1resource_1_1MusicLoader.html#a87ca0a09630d6d1d10b58c56bcd6d61c",
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

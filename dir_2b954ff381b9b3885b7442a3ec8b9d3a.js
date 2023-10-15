@@ -6,8 +6,6 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Flag.hpp", "d0/dda/Flag_8hpp.html", "d0/dda/Flag_8hpp" ],
     [ "Primitive.cpp", "d4/d25/Primitive_8cpp.html", null ],
     [ "Primitive.hpp", "de/dd1/Primitive_8hpp.html", "de/dd1/Primitive_8hpp" ],
-    [ "RigidBody.cpp", "db/d7e/RigidBody_8cpp.html", null ],
-    [ "RigidBody.hpp", "d3/def/RigidBody_8hpp.html", "d3/def/RigidBody_8hpp" ],
     [ "Script.cpp", "d8/d80/Script_8cpp.html", null ],
     [ "Script.hpp", "d5/d17/Script_8hpp.html", "d5/d17/Script_8hpp" ],
     [ "Sprite.cpp", "d0/dff/Sprite_8cpp.html", null ],

@@ -1,7 +1,6 @@
 var classgalaxy_1_1core_1_1World =
 [
     [ "SystemContainer", "da/dc8/classgalaxy_1_1core_1_1World.html#a1d2119e394cfc9be0837c4edb2cd4cf8", null ],
-    [ "B2BodyFactory", "da/dc8/classgalaxy_1_1core_1_1World.html#ae87b8dafc4a38464e3785b47a3335dc6", null ],
     [ "World", "da/dc8/classgalaxy_1_1core_1_1World.html#a73945566f5c95c7f421af7dcdf15697c", null ],
     [ "~World", "da/dc8/classgalaxy_1_1core_1_1World.html#aa660c83003fa85a17bc78db1a60e64f3", null ],
     [ "World", "da/dc8/classgalaxy_1_1core_1_1World.html#a4bb68014abf1f1c91e86d9be9d61588f", null ],
@@ -14,7 +13,6 @@ var classgalaxy_1_1core_1_1World =
     [ "update_rendersystem", "da/dc8/classgalaxy_1_1core_1_1World.html#a28111bcbbb37a36988aaa5c47e5c36bc", null ],
     [ "clear", "da/dc8/classgalaxy_1_1core_1_1World.html#abd82bcc6ebb3c73036731d493a4a7bf9", null ],
     [ "is_valid", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb5afcb0baf13e98fb7cbb85154189f4", null ],
-    [ "b2world", "da/dc8/classgalaxy_1_1core_1_1World.html#ace2880546b55342e886a733616b2a884", null ],
     [ "scene", "da/dc8/classgalaxy_1_1core_1_1World.html#ac742c878058f0c42acca14013e8cdab2", null ],
     [ "serialize", "da/dc8/classgalaxy_1_1core_1_1World.html#a97c19ecc0ac0e5fe70791dae767c27bf", null ],
     [ "deserialize", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28", null ],
@@ -22,16 +20,9 @@ var classgalaxy_1_1core_1_1World =
     [ "operator=", "da/dc8/classgalaxy_1_1core_1_1World.html#a1beb93170179b4951ece4c64dc3b7938", null ],
     [ "construct_script", "da/dc8/classgalaxy_1_1core_1_1World.html#a8e63e743af48acd5c8483447933733ef", null ],
     [ "destruct_script", "da/dc8/classgalaxy_1_1core_1_1World.html#ac7f3d1781d3df9eece716dae38832418", null ],
-    [ "construct_rigidbody", "da/dc8/classgalaxy_1_1core_1_1World.html#a659d75674844111a3b0dc1f2101e3beb", null ],
-    [ "destroy_rigidbody", "da/dc8/classgalaxy_1_1core_1_1World.html#aabee9647b9b52bf5d02635e0c8bf7b83", null ],
     [ "construct_nui", "da/dc8/classgalaxy_1_1core_1_1World.html#a2cdf7025868b0d1a17e947be263bc5d1", null ],
     [ "destruct_nui", "da/dc8/classgalaxy_1_1core_1_1World.html#a3d5ccf9b2fc8e480b50fc462ae860ed0", null ],
     [ "m_registry", "da/dc8/classgalaxy_1_1core_1_1World.html#ae8bab595f5cea9f203686c6cf3977a6a", null ],
-    [ "m_b2world", "da/dc8/classgalaxy_1_1core_1_1World.html#af9f56d06358036acd8bce06094ee82e9", null ],
-    [ "m_velocity_iterations", "da/dc8/classgalaxy_1_1core_1_1World.html#aed55fff915a606996143736042a5492e", null ],
-    [ "m_position_iterations", "da/dc8/classgalaxy_1_1core_1_1World.html#a98ef2792e0d1c8b0a58e181b6a81f6c3", null ],
-    [ "m_pixels_per_meter", "da/dc8/classgalaxy_1_1core_1_1World.html#a3d9d7bd51ed29f22424df7191dac9ec9", null ],
     [ "m_systems", "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf", null ],
-    [ "m_bodies_to_construct", "da/dc8/classgalaxy_1_1core_1_1World.html#ae556f937fc428add3b6e75f79023f35f", null ],
     [ "m_scene", "da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e", null ]
 ];

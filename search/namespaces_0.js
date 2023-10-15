@@ -16,14 +16,13 @@ var searchData=
   ['galaxy_3a_3alua_13',['lua',['../de/d12/namespacegalaxy_1_1lua.html',1,'galaxy']]],
   ['galaxy_3a_3amedia_14',['media',['../dc/d80/namespacegalaxy_1_1media.html',1,'galaxy']]],
   ['galaxy_3a_3ameta_15',['meta',['../d3/d12/namespacegalaxy_1_1meta.html',1,'galaxy']]],
-  ['galaxy_3a_3aphysics_16',['physics',['../d6/d48/namespacegalaxy_1_1physics.html',1,'galaxy']]],
-  ['galaxy_3a_3aplatform_17',['platform',['../dd/dfc/namespacegalaxy_1_1platform.html',1,'galaxy']]],
-  ['galaxy_3a_3aresource_18',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
-  ['galaxy_3a_3ascene_19',['scene',['../de/d3c/namespacegalaxy_1_1scene.html',1,'galaxy']]],
-  ['galaxy_3a_3ashaders_20',['shaders',['../dc/d20/namespacegalaxy_1_1shaders.html',1,'galaxy']]],
-  ['galaxy_3a_3astate_21',['state',['../df/dcc/namespacegalaxy_1_1state.html',1,'galaxy']]],
-  ['galaxy_3a_3astrutils_22',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
-  ['galaxy_3a_3asystems_23',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
-  ['galaxy_3a_3aui_24',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
-  ['galaxy_3a_3autils_25',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
+  ['galaxy_3a_3aplatform_16',['platform',['../dd/dfc/namespacegalaxy_1_1platform.html',1,'galaxy']]],
+  ['galaxy_3a_3aresource_17',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
+  ['galaxy_3a_3ascene_18',['scene',['../de/d3c/namespacegalaxy_1_1scene.html',1,'galaxy']]],
+  ['galaxy_3a_3ashaders_19',['shaders',['../dc/d20/namespacegalaxy_1_1shaders.html',1,'galaxy']]],
+  ['galaxy_3a_3astate_20',['state',['../df/dcc/namespacegalaxy_1_1state.html',1,'galaxy']]],
+  ['galaxy_3a_3astrutils_21',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
+  ['galaxy_3a_3asystems_22',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
+  ['galaxy_3a_3aui_23',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
+  ['galaxy_3a_3autils_24',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
 ];

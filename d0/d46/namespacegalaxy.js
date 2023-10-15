@@ -22,7 +22,6 @@ var namespacegalaxy =
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
-    [ "physics", "d6/d48/namespacegalaxy_1_1physics.html", "d6/d48/namespacegalaxy_1_1physics" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],

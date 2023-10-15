@@ -1,5 +1,7 @@
 <map id="galaxy::ui::NuklearUI::show_building_atlas" name="galaxy::ui::NuklearUI::show_building_atlas">
-<area shape="rect" id="Node000001" title="Part of the loading screen. Informs the user that the atlas is being built." alt="" coords="5,5,168,45"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="216,13,447,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
+<area shape="rect" id="Node000001" title="Part of the loading screen. Informs the user that the atlas is being built." alt="" coords="5,23,168,63"/>
+<area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="238,5,425,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,32,224,26,225,32,169,38"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="216,55,447,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,49,203,52,202,57,168,54"/>
 </map>

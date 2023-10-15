@@ -8,6 +8,5 @@ var searchData=
   ['renderer_5',['Renderer',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html',1,'galaxy::graphics']]],
   ['rendersystem_6',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]],
   ['rendertexture_7',['RenderTexture',['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html',1,'galaxy::graphics']]],
-  ['rigidbody_8',['RigidBody',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html',1,'galaxy::components']]],
-  ['ringbuffer_9',['RingBuffer',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html',1,'galaxy::media']]]
+  ['ringbuffer_8',['RingBuffer',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html',1,'galaxy::media']]]
 ];
