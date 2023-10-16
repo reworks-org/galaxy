@@ -29,6 +29,11 @@
 
 namespace sc
 {
+	void on_window_close(events::WindowClosed& e)
+	{
+		ui::imgui_open_confirm("ExitConfirm");
+	}
+
 	Editor::Editor(const std::string& name)
 		: Scene(name)
 		, m_editor_camera {true}
@@ -68,6 +73,8 @@ namespace sc
 		m_nui      = &core::ServiceLocator<ui::NuklearUI>::ref();
 		m_window   = &core::ServiceLocator<core::Window>::ref();
 		m_renderer = &core::ServiceLocator<graphics::Renderer>::ref();
+
+		m_dispatcher.sink<events::WindowClosed>().connect<&on_window_close>();
 	}
 
 	Editor::~Editor()
@@ -94,6 +101,9 @@ namespace sc
 
 	void Editor::update()
 	{
+		// Should be ok, since we only triggering window closed event.
+		m_window->trigger_queued_events(m_dispatcher);
+
 		do_updates();
 
 		if (m_game_mode || !m_stopped)

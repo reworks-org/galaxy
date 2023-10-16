@@ -26,6 +26,7 @@
                 "sharpen": false,
                 "smaa": false
             },
+            "texture_atlas_size": 4096,
             "trilinear_filtering": true
         },
         "input": {
@@ -43,7 +44,6 @@
             "font_folder": "fonts/",
             "lang_folder": "lang/",
             "maps_folder": "maps/",
-            "materials_folder": "materials/",
             "prefabs_folder": "prefabs/",
             "scripts_folder": "scripts/",
             "shader_folder": "shaders/",
@@ -52,7 +52,6 @@
             "video_folder": "video/"
         },
         "window": {
-            "allow_native_closing": false,
             "cursor_icon": "",
             "debug": true,
             "height": 512,

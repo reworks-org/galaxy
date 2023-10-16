@@ -370,6 +370,9 @@ namespace galaxy
 			windowresized_type["width"]   = &events::WindowResized::width;
 			windowresized_type["height"]  = &events::WindowResized::height;
 
+			auto windowclosed_type       = lua.new_usertype<events::WindowClosed>("WindowClosed", sol::constructors<events::WindowClosed()>());
+			windowclosed_type["type_id"] = &entt::type_hash<events::WindowClosed>::value;
+
 			/* FS */
 			// clang-format off
 			lua.new_enum<fs::FileCode>("FileInfoCodes",

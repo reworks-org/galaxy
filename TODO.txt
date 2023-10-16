@@ -1,4 +1,6 @@
 more integration with mi_malloc
+replace flags with basic structs and use entt::excluded
+like component::Disabled, component::NotSerializable...
 
 editor:
 more drag/drop support for tree view, body, etc

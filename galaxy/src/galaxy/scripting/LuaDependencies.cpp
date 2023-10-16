@@ -40,6 +40,7 @@ namespace galaxy
 			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
 
 			entt_sol::register_meta_event<events::WindowResized>();
+			entt_sol::register_meta_event<events::WindowClosed>();
 			entt_sol::register_meta_event<events::MouseWheel>();
 			entt_sol::register_meta_event<events::MouseReleased>();
 			entt_sol::register_meta_event<events::MousePressed>();

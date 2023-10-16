@@ -200,6 +200,12 @@ namespace galaxy
 					m_clipboard.set_window(m_window);
 					input::Input::s_window = m_window;
 
+					// Set close callback.
+					glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						win->m_event_queue.emplace_back(events::WindowClosed {});
+					});
+
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
 						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -641,20 +647,6 @@ namespace galaxy
 		void Window::minimize() const
 		{
 			glfwIconifyWindow(m_window);
-		}
-
-		void Window::allow_native_closing()
-		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
-				glfwSetWindowShouldClose(window, GLFW_TRUE);
-			});
-		}
-
-		void Window::prevent_native_closing()
-		{
-			glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
-				glfwSetWindowShouldClose(window, GLFW_FALSE);
-			});
 		}
 
 		bool Window::is_focused() const

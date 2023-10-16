@@ -87,7 +87,6 @@ namespace galaxy
 			config.restore<bool>("maximized", false, "window");
 			config.restore<bool>("debug", true, "window");
 			config.restore<bool>("visible_cursor", true, "window");
-			config.restore<bool>("allow_native_closing", true, "window");
 			config.restore<bool>("scale_to_monitor", true, "window");
 			config.restore<int>("width", 1280, "window");
 			config.restore<int>("height", 720, "window");

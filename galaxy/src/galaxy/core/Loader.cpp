@@ -242,15 +242,6 @@ namespace galaxy
 				window.set_icon(icon);
 			}
 
-			if (config.get<bool>("allow_native_closing", "window"))
-			{
-				window.allow_native_closing();
-			}
-			else
-			{
-				window.prevent_native_closing();
-			}
-
 			auto& cursor = window.get_input<input::Cursor>();
 			cursor.toggle(config.get<bool>("visible_cursor", "window"));
 

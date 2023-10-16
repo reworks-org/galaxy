@@ -20,6 +20,7 @@
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowClosed.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/meta/Memory.hpp"
 
@@ -41,6 +42,7 @@ namespace galaxy
 			events::MousePressed,
 			events::MouseReleased,
 			events::MouseWheel,
+			events::WindowClosed,
 			events::WindowResized>;
 
 		///

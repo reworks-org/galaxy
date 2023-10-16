@@ -127,20 +127,6 @@ namespace galaxy
 			void minimize() const;
 
 			///
-			/// \brief Allow the window to be closed by the OS.
-			///
-			/// I.e from ALT+F4 or the close button in the window frame.
-			///
-			void allow_native_closing();
-
-			///
-			/// \brief Prevent the window from being closed by the OS.
-			///
-			/// I.e from ALT+F4 or the close button in the window frame.
-			///
-			void prevent_native_closing();
-
-			///
 			/// Set window title.
 			///
 			/// \param title New title to set window to.
