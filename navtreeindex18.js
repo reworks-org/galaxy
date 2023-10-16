@@ -1,7 +1,5 @@
 var NAVTREEINDEX18 =
 {
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa":[0,0,0,9,30,2],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa":[2,0,0,8,30,2],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a4cbd4aa3bf0ec97b635253788acb9f1d":[0,0,0,9,30,18],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a4cbd4aa3bf0ec97b635253788acb9f1d":[2,0,0,8,30,18],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a6ea90ebb19f4b8a7ad052b79f61e3c96":[0,0,0,9,30,17],

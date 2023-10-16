@@ -1,7 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"de/db0/classgalaxy_1_1resource_1_1MusicLoader.html#a87ca0a09630d6d1d10b58c56bcd6d61c":[2,0,0,14,5,0],
-"de/db0/classgalaxy_1_1resource_1_1MusicLoader.html#a87ca0a09630d6d1d10b58c56bcd6d61c":[0,0,0,16,5,0],
 "de/db9/Keyboard_8cpp.html":[3,0,0,0,0,10,10],
 "de/db9/Keyboard_8cpp_source.html":[3,0,0,0,0,10,10],
 "de/dc7/VirtualFileSystem_8hpp.html":[3,0,0,0,0,8,9],
@@ -249,5 +247,7 @@ var NAVTREEINDEX17 =
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3036035e6dd6bf5af3cf98e8684498f8":[0,0,0,9,30,10],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3036035e6dd6bf5af3cf98e8684498f8":[2,0,0,8,30,10],
 "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a392a8ba04f7276a7ac421b7207201317":[0,0,0,9,30,19],
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a392a8ba04f7276a7ac421b7207201317":[2,0,0,8,30,19]
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a392a8ba04f7276a7ac421b7207201317":[2,0,0,8,30,19],
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa":[0,0,0,9,30,2],
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a3bd91ac5caa86f6af66f6136699418fa":[2,0,0,8,30,2]
 };

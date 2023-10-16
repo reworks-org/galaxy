@@ -22,7 +22,7 @@ var classgalaxy_1_1resource_1_1TextureAtlas =
     [ "m_folder", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#acb2124bee6f4684c2f4d0d1b42aa4e08", null ],
     [ "m_max_bindings", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a8a3e523efe163ab70ca0b9eb0415fc6d", null ],
     [ "m_size", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a3ce0c20611862acafbffd90396c9d9a3", null ],
-    [ "m_sheets", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a73cd8fa3c6da3b6a362bcb4ff13a6510", null ],
+    [ "m_sheets", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a9a217e5c98218be1e0e02f8649ffb8e0", null ],
     [ "m_data", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a152b6278e99aca04017a92035d3fa116", null ],
     [ "m_vao", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a61d6ca4dabf218ccb49017f341005b69", null ],
     [ "m_transform", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a4017b002955372e3517f4eb299b389a1", null ]
