@@ -10,29 +10,34 @@ output/
 sandbox/bin/Debug/*.exe
 sandbox/bin/Debug/*.pdb
 sandbox/bin/Debug/*.dll
-sandbox/bin/Debug/assets/editor_data/tools
+sandbox/bin/Debug/editor_data/tools/LDtk
+sandbox/bin/Debug/editor_data/tools/bfxr
 sandbox/bin/Debug/export
 sandbox/bin/Debug/logs
 
 sandbox/bin/Release/*.exe
 sandbox/bin/Release/*.pdb
 sandbox/bin/Release/*.dll
-sandbox/bin/Release/assets/editor_data/tools
+sandbox/bin/Release/editor_data/tools/LDtk
+sandbox/bin/Release/editor_data/tools/bfxr
 sandbox/bin/Release/export
 sandbox/bin/Release/logs
 
 supercluster/bin/Debug/*.exe
 supercluster/bin/Debug/*.pdb
 supercluster/bin/Debug/*.dll
-supercluster/bin/Debug/assets/editor_data/tools
+supercluster/bin/Debug/editor_data/tools/LDtk
+supercluster/bin/Debug/editor_data/tools/bfxr
 supercluster/bin/Debug/export
 supercluster/bin/Debug/logs
 
 supercluster/bin/Release/*.exe
 supercluster/bin/Release/*.pdb
 supercluster/bin/Release/*.dll
-supercluster/bin/Release/assets/editor_data/tools
+supercluster/bin/Release/editor_data/tools/LDtk
+supercluster/bin/Release/editor_data/tools/bfxr
 supercluster/bin/Release/export
 supercluster/bin/Release/logs
 
 tests/bin
+
