@@ -22,6 +22,8 @@ var dir_e4e12536003b5868dacffd6be6350da8 =
     [ "MouseReleased.hpp", "df/dd4/MouseReleased_8hpp.html", "df/dd4/MouseReleased_8hpp" ],
     [ "MouseWheel.cpp", "d9/d94/MouseWheel_8cpp.html", null ],
     [ "MouseWheel.hpp", "dd/dd7/MouseWheel_8hpp.html", "dd/dd7/MouseWheel_8hpp" ],
+    [ "WindowClosed.cpp", "d5/d84/WindowClosed_8cpp.html", null ],
+    [ "WindowClosed.hpp", "d2/ddb/WindowClosed_8hpp.html", "d2/ddb/WindowClosed_8hpp" ],
     [ "WindowResized.cpp", "dc/d23/WindowResized_8cpp.html", null ],
     [ "WindowResized.hpp", "d9/d3b/WindowResized_8hpp.html", "d9/d3b/WindowResized_8hpp" ]
 ];

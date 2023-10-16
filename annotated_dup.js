@@ -47,6 +47,7 @@ var annotated_dup =
         [ "MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", "d5/d15/structgalaxy_1_1events_1_1MousePressed" ],
         [ "MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", "dc/d78/structgalaxy_1_1events_1_1MouseReleased" ],
         [ "MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", "d6/d70/structgalaxy_1_1events_1_1MouseWheel" ],
+        [ "WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
         [ "WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", "d9/dd9/structgalaxy_1_1events_1_1WindowResized" ]
       ] ],
       [ "flags", "df/d31/namespacegalaxy_1_1flags.html", [

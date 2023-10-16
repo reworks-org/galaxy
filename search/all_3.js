@@ -1,7 +1,7 @@
 var searchData=
 [
   ['c_0',['C',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea0d61f8370cad1d412f80b84d143e1257',1,'galaxy::input']]],
-  ['cache_1',['cache',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a22388888cf25db98e04a884f6711ddd0',1,'galaxy::resource::Cache::Cache(Cache &amp;&amp;)=delete'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a60b0e8fd597bfdf49f0e3236af34a78f',1,'galaxy::resource::Cache::Cache(const Cache &amp;)=delete'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#afddfb6e938eacdae5bd3c82d31e557ed',1,'galaxy::resource::Cache::Cache() noexcept'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1f803be43e36a99cee3606a8eedb7396',1,'galaxy::resource::Cache::cache() const'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html',1,'galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;']]],
+  ['cache_1',['cache',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1f803be43e36a99cee3606a8eedb7396',1,'galaxy::resource::Cache::cache() const'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a22388888cf25db98e04a884f6711ddd0',1,'galaxy::resource::Cache::Cache(Cache &amp;&amp;)=delete'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a60b0e8fd597bfdf49f0e3236af34a78f',1,'galaxy::resource::Cache::Cache(const Cache &amp;)=delete'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#afddfb6e938eacdae5bd3c82d31e557ed',1,'galaxy::resource::Cache::Cache() noexcept'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html',1,'galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;']]],
   ['cache_2ecpp_2',['Cache.cpp',['../dd/df4/Cache_8cpp.html',1,'']]],
   ['cache_2ehpp_3',['Cache.hpp',['../d4/d1e/Cache_8hpp.html',1,'']]],
   ['cachetype_4',['CacheType',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa17949044039b4b023d24b324a1cba75',1,'galaxy::resource::Cache']]],
@@ -39,7 +39,7 @@ var searchData=
   ['componentanyfactory_36',['ComponentAnyFactory',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aeddd36bc45ae96ab6eb3ad353b6c2fe5',1,'galaxy::meta::EntityMeta']]],
   ['componentjsonfactory_37',['ComponentJSONFactory',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3bcd5b54f496d580f3769111c60fd8eb',1,'galaxy::meta::EntityMeta']]],
   ['componentptrfactory_38',['ComponentPtrFactory',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a658d95c310be297941605ed282014382',1,'galaxy::meta::EntityMeta']]],
-  ['compress_39',['compress',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#ac2284196157055e895c78f47ea352766',1,'galaxy::algorithm::ZLib::compress(const std::string &amp;input)'],['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a9ef47ba11e4fbc98914ad8cd60ac4d42a08c078f425b1925fb4be9d7d0ee118b1',1,'galaxy::algorithm::ZLib::COMPRESS']]],
+  ['compress_39',['compress',['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#a9ef47ba11e4fbc98914ad8cd60ac4d42a08c078f425b1925fb4be9d7d0ee118b1',1,'galaxy::algorithm::ZLib::COMPRESS'],['../d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html#ac2284196157055e895c78f47ea352766',1,'galaxy::algorithm::ZLib::compress(const std::string &amp;input)']]],
   ['concepts_2ecpp_40',['Concepts.cpp',['../db/d78/Concepts_8cpp.html',1,'']]],
   ['concepts_2ehpp_41',['Concepts.hpp',['../d3/d84/Concepts_8hpp.html',1,'']]],
   ['conditional_5fdistribution_42',['conditional_distribution',['../d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5',1,'galaxy::algorithm']]],

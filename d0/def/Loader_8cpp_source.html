@@ -351,43 +351,34 @@ $(document).ready(function(){initNavTree('d0/def/Loader_8cpp_source.html','../..
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                window.set_icon(icon);</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            }</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">if</span> (config.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;allow_native_closing&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>))</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                window.allow_native_closing();</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keyword">auto</span>&amp; cursor = window.get_input&lt;<a class="code hl_class" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">input::Cursor</a>&gt;();</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            cursor.<a class="code hl_function" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">toggle</a>(config.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;visible_cursor&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>));</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="keyword">auto</span> cursor_icon = config.get&lt;std::string&gt;(<span class="stringliteral">&quot;cursor_icon&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">if</span> (!cursor_icon.empty())</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                window.prevent_native_closing();</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            }</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keyword">auto</span>&amp; cursor = window.get_input&lt;<a class="code hl_class" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html">input::Cursor</a>&gt;();</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            cursor.<a class="code hl_function" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308">toggle</a>(config.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;visible_cursor&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>));</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keyword">auto</span> cursor_icon = config.get&lt;std::string&gt;(<span class="stringliteral">&quot;cursor_icon&quot;</span>, <span class="stringliteral">&quot;window&quot;</span>);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            <span class="keywordflow">if</span> (!cursor_icon.empty())</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                cursor.load_custom(cursor_icon);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                cursor.use_custom_else_pointer();</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            }</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            {</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                cursor.use_pointer();</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                cursor.load_custom(cursor_icon);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                cursor.use_custom_else_pointer();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                cursor.use_pointer();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        }</div>
+</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="foldopen" id="foldopen00260" data-start="{" data-end="}">
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">  260</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">Loader::build_resources</a>()</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Shaders&gt;::ref</a>().build();</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Fonts&gt;::ref</a>().build();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::TextureAtlas&gt;::ref</a>().add_folder(</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                <a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;core::Config&gt;::ref</a>().get&lt;std::string&gt;(<span class="stringliteral">&quot;atlas_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>));</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        }</div>
 </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="foldopen" id="foldopen00269" data-start="{" data-end="}">
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">  269</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">Loader::build_resources</a>()</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        {</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Shaders&gt;::ref</a>().build();</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::Fonts&gt;::ref</a>().build();</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;resource::TextureAtlas&gt;::ref</a>().add_folder(</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                <a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;core::Config&gt;::ref</a>().get&lt;std::string&gt;(<span class="stringliteral">&quot;atlas_folder&quot;</span>, <span class="stringliteral">&quot;resource_folders&quot;</span>));</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
-</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    } <span class="comment">// namespace core</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aAudioEngine_8hpp_html"><div class="ttname"><a href="../../d4/d92/AudioEngine_8hpp.html">AudioEngine.hpp</a></div></div>
 <div class="ttc" id="aBasicScripts_8hpp_html"><div class="ttname"><a href="../../de/d8e/BasicScripts_8hpp.html">BasicScripts.hpp</a></div></div>
 <div class="ttc" id="aConfig_8hpp_html"><div class="ttname"><a href="../../df/db4/Config_8hpp.html">Config.hpp</a></div></div>
@@ -408,7 +399,7 @@ $(document).ready(function(){initNavTree('d0/def/Loader_8cpp_source.html','../..
 <div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a0288c765e17c348296bef57c95a47e7d"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a0288c765e17c348296bef57c95a47e7d">galaxy::core::Loader::load_resources</a></div><div class="ttdeci">void load_resources()</div><div class="ttdoc">Load game resources.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00113">Loader.cpp:113</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a4108c7d333fde1266d1bb0ce81431336"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a4108c7d333fde1266d1bb0ce81431336">galaxy::core::Loader::~Loader</a></div><div class="ttdeci">~Loader()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00036">Loader.cpp:36</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a840a4d868d242380b46ae69886f165c5"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">galaxy::core::Loader::build_resources</a></div><div class="ttdeci">void build_resources()</div><div class="ttdoc">Builds opengl resources on the main thread.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00269">Loader.cpp:269</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a840a4d868d242380b46ae69886f165c5"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">galaxy::core::Loader::build_resources</a></div><div class="ttdeci">void build_resources()</div><div class="ttdoc">Builds opengl resources on the main thread.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00260">Loader.cpp:260</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a99516bb26a61c7f4a072383b7e550e09"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09">galaxy::core::Loader::load_all</a></div><div class="ttdeci">void load_all()</div><div class="ttdoc">Loads resources, user config and window settings.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00103">Loader.cpp:103</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_a9cd2d939dc4eb3cb8a921d91672cb797"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a9cd2d939dc4eb3cb8a921d91672cb797">galaxy::core::Loader::load_user_config</a></div><div class="ttdeci">void load_user_config()</div><div class="ttdoc">Only loads user config.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00213">Loader.cpp:213</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Loader_html_ab3fcb083fcfe9b76ec5c6e2d1ade6763"><div class="ttname"><a href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ab3fcb083fcfe9b76ec5c6e2d1ade6763">galaxy::core::Loader::extract_assets</a></div><div class="ttdeci">void extract_assets()</div><div class="ttdoc">Extract a compressed asset archive.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/def/Loader_8cpp_source.html#l00040">Loader.cpp:40</a></div></div>
@@ -432,7 +423,7 @@ $(document).ready(function(){initNavTree('d0/def/Loader_8cpp_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d0/def/Loader_8cpp.html">Loader.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 10:09:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 16 2023 13:57:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

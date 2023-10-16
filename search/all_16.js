@@ -9,7 +9,7 @@ var searchData=
   ['vao_6',['vao',['../dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82',1,'galaxy::graphics::SpriteBatch']]],
   ['vao_5ffrag_7',['vao_frag',['../d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4',1,'PostProcess.cpp']]],
   ['vao_5fvert_8',['vao_vert',['../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5',1,'PostProcess.cpp']]],
-  ['variant_9',['Variant',['../d6/d3d/namespacegalaxy_1_1events.html#abb4a30883ad972472468cd0fae11bff4',1,'galaxy::events']]],
+  ['variant_9',['Variant',['../d6/d3d/namespacegalaxy_1_1events.html#a2503685c4466dcacd33f811e7e6a9c43',1,'galaxy::events']]],
   ['vbo_10',['vbo',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89',1,'galaxy::graphics::VertexArray']]],
   ['vector_11',['vector',['../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db',1,'galaxy::meta']]],
   ['vertex_12',['vertex',['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7d9e424bad9d5a95c6bc7789ddd58697',1,'galaxy::graphics::Vertex::Vertex()'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html',1,'galaxy::graphics::Vertex'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#acc8891b388fbe98c0966897f490e0373',1,'galaxy::graphics::Vertex::Vertex(const glm::vec2 &amp;pos, const glm::vec2 &amp;texels={}, const glm::vec2 &amp;normals={}, const graphics::Colour &amp;colour={})'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#af508f20ca05a7066d4249f36e493d0d5',1,'galaxy::graphics::Vertex::Vertex(Vertex &amp;&amp;)'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a0e428805c2f0f8abdfa74d02ea768a0f',1,'galaxy::graphics::Vertex::Vertex(const Vertex &amp;)']]],

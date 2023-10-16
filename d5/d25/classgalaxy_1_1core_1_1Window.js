@@ -18,8 +18,6 @@ var classgalaxy_1_1core_1_1Window =
     [ "maximize", "d5/d25/classgalaxy_1_1core_1_1Window.html#af2c221cb19cdfe08408b8b880c517022", null ],
     [ "restore", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0d5b307ea436ec9f7eb18a352ed69e9b", null ],
     [ "minimize", "d5/d25/classgalaxy_1_1core_1_1Window.html#a39b3e5f64848d946d5a4b785cc5a7166", null ],
-    [ "allow_native_closing", "d5/d25/classgalaxy_1_1core_1_1Window.html#ac10cff04a66da01c2d1c727ce22ed6a7", null ],
-    [ "prevent_native_closing", "d5/d25/classgalaxy_1_1core_1_1Window.html#ad4320e67a2e1e7cb9afb76a60eb25f91", null ],
     [ "set_title", "d5/d25/classgalaxy_1_1core_1_1Window.html#a73fb0e92b1dae7e5faba3001c6a7eb66", null ],
     [ "set_icon", "d5/d25/classgalaxy_1_1core_1_1Window.html#ab160a44e8442e9ba5a12f9db33ed2f9b", null ],
     [ "set_icon", "d5/d25/classgalaxy_1_1core_1_1Window.html#aebd5887930a33b721f789d04b034a4e3", null ],

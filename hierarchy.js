@@ -121,6 +121,7 @@ var hierarchy =
     [ "galaxy::resource::VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", null ],
     [ "galaxy::fs::VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", null ],
     [ "galaxy::core::Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", null ],
+    [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
     [ "galaxy::events::WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", null ],
     [ "galaxy::core::WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", null ],
     [ "galaxy::algorithm::ZLib", "d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html", null ]
