@@ -1,6 +1,4 @@
-reduce memory consumption
-replace box2d with aabbcc/sat/c2 collisions
-
+more integration with mi_malloc
 
 editor:
 more drag/drop support for tree view, body, etc
@@ -42,7 +40,8 @@ https://github.com/Caerind/AwesomeCppGameDev#ai
 for ai combat?:
 https://github.com/BehaviorTree/BehaviorTree.CPP
 
-hd2d:
+renderer:
+https://github.com/Authlantech/2D_Lighting
 https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
 https://slembcke.github.io/SuperFastSoftShadows
 https://github.com/voldien/spritebatch-library
@@ -83,6 +82,9 @@ TileMap:
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
 
-2d physics library:
-https://github.com/slembcke/Chipmunk2D
-https://github.com/erincatto/box2c
+movement/collision:
+https://github.com/RandyGaul/cute_headers/blob/master/examples_cute_gl_and_c2/main.cpp
+https://github.com/RandyGaul/player2d
+
+linux:
+https://github.com/nackdai/makeitso

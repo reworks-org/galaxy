@@ -43,11 +43,6 @@ namespace galaxy
 				/// Texture to combine to.
 				///
 				graphics::RenderTexture m_render_texture;
-
-				///
-				/// Flag to determine if this sheet has been created.
-				///
-				bool m_sheet_created = false;
 			};
 
 			///
@@ -225,7 +220,7 @@ namespace galaxy
 			///
 			/// Texture atlas sheets.
 			///
-			meta::vector<Sheet> m_sheets;
+			meta::vector<std::unique_ptr<Sheet>> m_sheets;
 
 			///
 			/// Index'd list of textures on a sheet.

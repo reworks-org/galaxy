@@ -97,6 +97,7 @@ namespace galaxy
 			config.restore<int>("listener_count", 1, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
+			config.restore<int>("texture_atlas_size", 4096, "graphics");
 			config.restore<bool>("smaa", false, "graphics.effects");
 			config.restore<bool>("sharpen", false, "graphics.effects");
 			config.restore<bool>("gamma_correction", false, "graphics.effects");

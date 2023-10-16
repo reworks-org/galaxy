@@ -9,6 +9,7 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
@@ -46,14 +47,14 @@ namespace galaxy
 					std::optional<graphics::iRect> packed = std::nullopt;
 					for (auto i = 0; i < m_sheets.size(); i++)
 					{
-						if (!m_sheets[i].m_sheet_created)
+						if (!m_sheets[i])
 						{
-							m_sheets[i].m_packer.init(m_size, m_size);
-							m_sheets[i].m_render_texture.create(m_size, m_size);
-							m_sheets[i].m_sheet_created = true;
+							m_sheets[i] = std::make_unique<Sheet>();
+							m_sheets[i]->m_packer.init(m_size, m_size);
+							m_sheets[i]->m_render_texture.create(m_size, m_size);
 						}
 
-						packed = m_sheets[i].m_packer.pack(texture.get_width(), texture.get_height());
+						packed = m_sheets[i]->m_packer.pack(texture.get_width(), texture.get_height());
 						if (packed.has_value())
 						{
 							m_data[name].m_index = i;
@@ -66,12 +67,12 @@ namespace galaxy
 						auto& sheet    = m_sheets[m_data[name].m_index];
 						auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
 
-						m_data[name].m_handle = sheet.m_render_texture.get_texture();
+						m_data[name].m_handle = sheet->m_render_texture.get_texture();
 						m_data[name].m_region = packed.value();
 
 						// Convert to texel coords.
-						const auto sw = sheet.m_render_texture.get_width();
-						const auto sh = sheet.m_render_texture.get_height();
+						const auto sw = sheet->m_render_texture.get_width();
+						const auto sh = sheet->m_render_texture.get_height();
 
 						m_data[name].m_sheet_width  = sw;
 						m_data[name].m_sheet_height = sh;
@@ -107,8 +108,8 @@ namespace galaxy
 
 						m_vao.sub_buffer(0, vertices);
 
-						sheet.m_render_texture.bind(false);
-						renderer.draw_texture_to_target(sheet.m_render_texture, texture, m_vao, m_transform);
+						sheet->m_render_texture.bind(false);
+						renderer.draw_texture_to_target(sheet->m_render_texture, texture, m_vao, m_transform);
 						glBindFramebuffer(GL_FRAMEBUFFER, 0);
 					}
 					else
@@ -129,7 +130,6 @@ namespace galaxy
 		void TextureAtlas::add_folder(std::string_view folder)
 		{
 			clear();
-
 			m_folder = folder;
 
 			if (!m_folder.empty())
@@ -164,9 +164,9 @@ namespace galaxy
 		{
 			for (auto i = 0; i < m_sheets.size(); i++)
 			{
-				if (m_sheets[i].m_sheet_created)
+				if (m_sheets[i] != nullptr)
 				{
-					m_sheets[i].m_render_texture.save(std::format("dump/sheet{0}.png", i));
+					m_sheets[i]->m_render_texture.save(std::format("dump/sheet{0}.png", i));
 				}
 			}
 		}
@@ -214,6 +214,19 @@ namespace galaxy
 		{
 			glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &m_max_bindings);
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
+
+			auto& config   = core::ServiceLocator<core::Config>::ref();
+			auto user_size = config.get<int>("texture_atlas_size", "graphics");
+
+			if (user_size >= m_size)
+			{
+				user_size = m_size;
+			}
+
+			if (m_size != 1024 && m_size != 2048 && m_size != 4096 && m_size != 8192)
+			{
+				m_size = 4096;
+			}
 
 			// Hard limit bindings count.
 			m_max_bindings = std::min(m_max_bindings, 32);
