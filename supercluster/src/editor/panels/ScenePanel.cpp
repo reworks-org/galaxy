@@ -23,7 +23,7 @@ namespace sc
 {
 	namespace panel
 	{
-		void ScenePanel::render(scene::SceneManager& sm, Selected& selected, UpdateStack& updates)
+		void ScenePanel::render(scene::SceneManager& sm, Selected& selected_entity, UpdateStack& updates)
 		{
 			if (ImGui::Begin(ICON_MDI_LIST_BOX_OUTLINE " Scenes"))
 			{
@@ -176,8 +176,8 @@ namespace sc
 						{
 							if (ImGui::MenuItem("Create New Entity"))
 							{
-								selected.m_selected = scene->m_world.create();
-								selected.m_world    = &scene->m_world;
+								selected_entity.m_selected = scene->m_world.create();
+								selected_entity.m_world    = &scene->m_world;
 							}
 
 							ImGui::EndPopup();
@@ -185,8 +185,8 @@ namespace sc
 
 						if (ImGui::Button("New Entity"))
 						{
-							selected.m_selected = scene->m_world.create();
-							selected.m_world    = &scene->m_world;
+							selected_entity.m_selected = scene->m_world.create();
+							selected_entity.m_world    = &scene->m_world;
 						}
 
 						ImGui::SameLine();
@@ -209,9 +209,9 @@ namespace sc
 
 						if (ImGui::Button("Save as Prefab"))
 						{
-							if (selected.m_selected != entt::null && selected.m_world != nullptr)
+							if (selected_entity.m_selected != entt::null && selected_entity.m_world != nullptr)
 							{
-								core::Prefab prefab {selected.m_selected, selected.m_world->m_registry};
+								core::Prefab prefab {selected_entity.m_selected, selected_entity.m_world->m_registry};
 								const auto base64 = algorithm::encode_base64(prefab.to_json().dump(4));
 								const auto zlib   = algorithm::encode_zlib(base64);
 
@@ -269,7 +269,7 @@ namespace sc
 						m_filter_tags.DrawWithHint("###EntitySearch", ICON_MDI_MAGNIFY "Search by tag...", ImGui::GetContentRegionAvail().x);
 
 						const auto entity_listbox_item = [&](entt::entity entity, components::Tag* tag) {
-							const auto is_selected = (selected.m_selected == entity);
+							const auto is_selected = (selected_entity.m_selected == entity);
 							auto id                = std::to_string(static_cast<std::uint32_t>(entity));
 							if (tag)
 							{
@@ -278,8 +278,8 @@ namespace sc
 
 							if (ImGui::Selectable(id.c_str(), is_selected))
 							{
-								selected.m_selected = entity;
-								selected.m_world    = &scene->m_world;
+								selected_entity.m_selected = entity;
+								selected_entity.m_world    = &scene->m_world;
 							}
 
 							if (is_selected)
@@ -300,10 +300,10 @@ namespace sc
 								if (deleted)
 								{
 									scene->m_world.m_registry.destroy(entity);
-									if (selected.m_selected == entity)
+									if (selected_entity.m_selected == entity)
 									{
-										selected.m_selected = entt::null;
-										selected.m_world    = nullptr;
+										selected_entity.m_selected = entt::null;
+										selected_entity.m_world    = nullptr;
 									}
 								}
 							}

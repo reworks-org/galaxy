@@ -550,13 +550,13 @@ namespace sc
 
 				if (m_open_preview)
 				{
-					thread_local constexpr const auto flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings |
-															  ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoCollapse;
+					thread_local constexpr const auto s_flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings |
+																ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoCollapse;
 
 					ui::imgui_center_next_window();
 					ImGui::SetNextWindowSize({256, 256});
 
-					if (ImGui::Begin("Preview", &m_open_preview, flags))
+					if (ImGui::Begin("Preview", &m_open_preview, s_flags))
 					{
 						ui::imgui_image(m_preview, {m_preview.get_widthf(), m_preview.get_heightf()});
 					}
