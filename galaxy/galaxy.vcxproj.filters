@@ -145,7 +145,6 @@
     <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
-    <ClCompile Include="src\galaxy\events\WindowClosed.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -287,5 +286,6 @@
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\SoundType.hpp" />
+    <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
   </ItemGroup>
 </Project>
