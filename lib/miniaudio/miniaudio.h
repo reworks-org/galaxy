@@ -3693,6 +3693,8 @@ See below for some tips on improving performance.
 #ifndef miniaudio_h
 #define miniaudio_h
 
+#include <mimalloc-override.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

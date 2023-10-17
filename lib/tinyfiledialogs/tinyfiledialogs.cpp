@@ -47,6 +47,7 @@ Thanks for contributions, bug corrections & thorough testing to:
 - Paul Rouget
 */
 
+#include <mimalloc-override.h>
 
 #ifndef __sun
 #ifndef _POSIX_C_SOURCE

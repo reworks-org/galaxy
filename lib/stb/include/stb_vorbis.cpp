@@ -74,6 +74,8 @@
 #ifndef STB_VORBIS_INCLUDE_STB_VORBIS_H
 #define STB_VORBIS_INCLUDE_STB_VORBIS_H
 
+#include <mimalloc-override.h>
+
 #if defined(STB_VORBIS_NO_CRT) && !defined(STB_VORBIS_NO_STDIO)
 #define STB_VORBIS_NO_STDIO 1
 #endif
@@ -628,8 +630,6 @@ enum STBVorbisError
 #if STB_VORBIS_FAST_HUFFMAN_LENGTH > 24
 #error "Value of STB_VORBIS_FAST_HUFFMAN_LENGTH outside of allowed range"
 #endif
-
-#include <mimalloc-override.h>
 
 #if 0
 #include <crtdbg.h>

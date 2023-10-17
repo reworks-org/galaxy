@@ -29,6 +29,16 @@ robin_hood::unordered_flat_map<const char*, bool> popup_state;
 
 namespace galaxy
 {
+	void* ImGuiMemAllocFunc(size_t sz, void* user_data)
+	{
+		return mi_malloc(sz);
+	}
+
+	void ImGuiMemFreeFunc(void* ptr, void* user_data)
+	{
+		mi_free(ptr);
+	}
+
 	namespace ui
 	{
 		ImGuiIO& imgui_init_context()
@@ -37,6 +47,7 @@ namespace galaxy
 
 			// clang-format off
 			IMGUI_CHECKVERSION();
+			ImGui::SetAllocatorFunctions(ImGuiMemAllocFunc, ImGuiMemFreeFunc, nullptr);
 			ImGui::CreateContext();
 			ImGuiIO& io = ImGui::GetIO(); (void)io;
 			// clang-format on

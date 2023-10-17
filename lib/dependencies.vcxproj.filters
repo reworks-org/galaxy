@@ -34,12 +34,12 @@
     <ClCompile Include="lua\src\lutf8lib.c" />
     <ClCompile Include="lua\src\lvm.c" />
     <ClCompile Include="lua\src\lzio.c" />
-    <ClCompile Include="stb\include\stb_vorbis.c" />
+    <ClCompile Include="stb\include\stb_vorbis.cpp" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
-    <ClCompile Include="miniaudio\miniaudio.c" />
-    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="miniaudio\miniaudio.cpp" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.cpp" />
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="glfw\src\egl_context.c" />
     <ClCompile Include="glfw\src\context.c" />
@@ -90,7 +90,7 @@
     <ClCompile Include="imgui\imgui_addons\code_editor\Utils.cpp" />
     <ClCompile Include="imgui\imgui_addons\imnodes.cpp" />
     <ClCompile Include="nuklear\nuklear.c" />
-    <ClCompile Include="stb\include\stb_image.cpp" />
+    <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="cute\cute_c2.c" />
   </ItemGroup>
   <ItemGroup>

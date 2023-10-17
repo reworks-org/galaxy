@@ -168,6 +168,7 @@ See below for detailed the API documentation.
 #include <stdint.h>
 #include <stdio.h>
 
+#include <mimalloc-override.h>
 
 #ifdef __cplusplus
 extern "C" {

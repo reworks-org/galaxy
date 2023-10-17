@@ -8119,18 +8119,19 @@ nk_utf_at(const char *buffer, int length, int index,
  *
  * ===============================================================*/
 #ifdef NK_INCLUDE_DEFAULT_ALLOCATOR
+#include <mimalloc.h>
 NK_LIB void*
 nk_malloc(nk_handle unused, void *old,nk_size size)
 {
     NK_UNUSED(unused);
     NK_UNUSED(old);
-    return malloc(size);
+    return mi_malloc(size);
 }
 NK_LIB void
 nk_mfree(nk_handle unused, void *ptr)
 {
     NK_UNUSED(unused);
-    free(ptr);
+    mi_free(ptr);
 }
 NK_API void
 nk_buffer_init_default(struct nk_buffer *buffer)

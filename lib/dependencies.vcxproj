@@ -92,15 +92,15 @@
     <ClCompile Include="lua\src\lzio.c" />
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="mimalloc\src\static.c" />
-    <ClCompile Include="miniaudio\miniaudio.c" />
+    <ClCompile Include="miniaudio\miniaudio.cpp" />
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
-    <ClCompile Include="stb\include\stb_image.cpp" />
-    <ClCompile Include="stb\include\stb_vorbis.c" />
-    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="stb\include\stb_image.c" />
+    <ClCompile Include="stb\include\stb_vorbis.cpp" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.cpp" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
