@@ -23,7 +23,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -48,7 +48,7 @@ namespace galaxy
 			///
 			[[nodiscard]] glm::dvec2 get_pos();
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///

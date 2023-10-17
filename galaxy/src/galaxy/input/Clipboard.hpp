@@ -23,7 +23,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			[[nodiscard]] std::string get() const;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///

@@ -20,7 +20,7 @@ namespace galaxy
 	{
 		class Framebuffer final
 		{
-		public:
+		  public:
 			///
 			/// \brief Constructor.
 			///
@@ -210,7 +210,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int id() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -231,7 +231,7 @@ namespace galaxy
 			///
 			void destroy();
 
-		private:
+		  private:
 			///
 			/// Width cache.
 			///

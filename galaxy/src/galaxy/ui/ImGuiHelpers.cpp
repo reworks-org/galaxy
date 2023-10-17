@@ -24,7 +24,7 @@
 #pragma warning(disable : 4312)
 #endif
 
-constexpr const ImVec2 mid = {0.5f, 0.5f};
+constexpr const ImVec2                            mid = {0.5f, 0.5f};
 robin_hood::unordered_flat_map<const char*, bool> popup_state;
 
 namespace galaxy

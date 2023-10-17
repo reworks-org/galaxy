@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class RenderSystem final : public systems::System
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///

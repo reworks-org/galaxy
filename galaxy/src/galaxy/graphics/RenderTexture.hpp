@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class RenderTexture final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -141,7 +141,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int get_texture() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -152,7 +152,7 @@ namespace galaxy
 			///
 			RenderTexture& operator=(const RenderTexture&) = delete;
 
-		private:
+		  private:
 			///
 			/// Framebuffer to draw to.
 			///

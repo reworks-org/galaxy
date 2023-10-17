@@ -16,11 +16,11 @@ namespace sc
 {
 	class Selected
 	{
-	public:
+	  public:
 		Selected();
 		~Selected();
 
-	public:
+	  public:
 		entt::entity m_selected;
 		core::World* m_world;
 	};

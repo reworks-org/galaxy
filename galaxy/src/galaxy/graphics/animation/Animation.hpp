@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Animation final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -111,7 +111,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		public:
+		  public:
 			///
 			/// Name of the animation.
 			///
@@ -139,7 +139,7 @@ namespace galaxy
 			///
 			meta::vector<Frame> m_frames;
 
-		private:
+		  private:
 			///
 			/// The current frame the animation is on.
 			///

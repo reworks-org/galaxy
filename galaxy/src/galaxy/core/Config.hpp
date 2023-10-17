@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class Config final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -175,7 +175,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const nlohmann::json& raw() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -196,7 +196,7 @@ namespace galaxy
 			///
 			Config& operator=(Config&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Config loaded flag.
 			///

@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class PostEffect
 		{
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			[[nodiscard]] virtual bool is_enabled() = 0;
 
-		protected:
+		  protected:
 			///
 			/// Constructor.
 			///

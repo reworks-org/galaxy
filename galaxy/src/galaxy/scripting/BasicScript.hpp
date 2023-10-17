@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class BasicScript final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -58,7 +58,7 @@ namespace galaxy
 			///
 			[[nodiscard]] sol::protected_function_result run_and_return();
 
-		private:
+		  private:
 			///
 			/// Pointer to global lua state.
 			///

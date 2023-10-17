@@ -97,7 +97,7 @@ namespace galaxy
 
 		entt::entity World::create_from_json(const nlohmann::json& json)
 		{
-			const auto entity      = m_registry.create();
+			const auto  entity     = m_registry.create();
 			const auto& components = json.at("components");
 
 			if (!components.empty())

@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class SFXLoader final
 		{
-		public:
+		  public:
 			///
 			/// Overloaded operator() used to load a resource.
 			///
@@ -37,7 +37,7 @@ namespace galaxy
 		///
 		class MusicLoader final
 		{
-		public:
+		  public:
 			///
 			/// Overloaded operator() used to load a resource.
 			///
@@ -53,7 +53,7 @@ namespace galaxy
 		///
 		class DialogueLoader final
 		{
-		public:
+		  public:
 			///
 			/// Overloaded operator() used to load a resource.
 			///
@@ -69,7 +69,7 @@ namespace galaxy
 		///
 		class VideoLoader final
 		{
-		public:
+		  public:
 			///
 			/// \brief Build video data.
 			///

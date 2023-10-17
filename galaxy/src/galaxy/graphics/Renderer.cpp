@@ -180,7 +180,7 @@ namespace galaxy
 			auto rtt = core::ServiceLocator<resource::Shaders>::ref().get("RenderToTexture");
 			if (rtt != nullptr)
 			{
-				VertexArray va;
+				VertexArray           va;
 				components::Transform tf;
 
 				const auto proj = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);

@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class Language final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -83,7 +83,7 @@ namespace galaxy
 			///
 			void clear();
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -104,7 +104,7 @@ namespace galaxy
 			///
 			Language& operator=(Language&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Current language.
 			///

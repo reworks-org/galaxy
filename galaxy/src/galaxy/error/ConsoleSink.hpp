@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class ConsoleSink final : public Sink
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -41,11 +41,11 @@ namespace galaxy
 			/// \param message The actual message to record.
 			///
 			void sink_message(std::string_view colour,
-				std::string_view level,
-				std::string_view time,
-				std::string_view file,
-				std::string_view line,
-				std::string_view message) override;
+				std::string_view               level,
+				std::string_view               time,
+				std::string_view               file,
+				std::string_view               line,
+				std::string_view               message) override;
 		};
 	} // namespace error
 } // namespace galaxy

@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class GaussianBlur final : public PostEffect
 		{
-		public:
+		  public:
 			///
 			/// Pixel sample strength.
 			///
@@ -89,13 +89,13 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_enabled() override;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
 			GaussianBlur() = delete;
 
-		private:
+		  private:
 			///
 			/// Shader for post processing effect.
 			///

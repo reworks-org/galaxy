@@ -15,11 +15,11 @@ namespace sc
 	}
 
 	void EditorSink::sink_message(std::string_view colour,
-		std::string_view level,
-		std::string_view time,
-		std::string_view file,
-		std::string_view line,
-		std::string_view message)
+		std::string_view                           level,
+		std::string_view                           time,
+		std::string_view                           file,
+		std::string_view                           line,
+		std::string_view                           message)
 	{
 		// clang-format off
 		m_logs.emplace_back(EditorSinkMessage

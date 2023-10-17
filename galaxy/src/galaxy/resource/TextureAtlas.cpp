@@ -215,8 +215,8 @@ namespace galaxy
 			glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &m_max_bindings);
 			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
-			auto& config   = core::ServiceLocator<core::Config>::ref();
-			auto user_size = config.get<int>("texture_atlas_size", "graphics");
+			auto& config    = core::ServiceLocator<core::Config>::ref();
+			auto  user_size = config.get<int>("texture_atlas_size", "graphics");
 
 			if (user_size >= m_size)
 			{

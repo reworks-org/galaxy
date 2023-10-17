@@ -14,9 +14,9 @@ namespace sc
 {
 	struct SelectedAsset
 	{
-		std::string m_extension;
+		std::string           m_extension;
 		std::filesystem::path m_path;
-		bool m_is_hovered = false;
+		bool                  m_is_hovered = false;
 	};
 } // namespace sc
 

@@ -19,7 +19,7 @@ namespace galaxy
 	{
 		std::shared_ptr<core::Prefab> PrefabLoader::operator()(const std::string& file)
 		{
-			auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto&      fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			const auto data = fs.open(file);
 			if (!data.empty())
 			{

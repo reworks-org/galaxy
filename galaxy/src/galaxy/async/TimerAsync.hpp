@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class TimerAsync final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -68,7 +68,7 @@ namespace galaxy
 			///
 			void stop();
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -79,7 +79,7 @@ namespace galaxy
 			///
 			TimerAsync& operator=(const TimerAsync&) = delete;
 
-		private:
+		  private:
 			///
 			/// Is function repeating?
 			///

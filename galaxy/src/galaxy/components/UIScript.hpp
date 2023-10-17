@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class UIScript final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Load script and set context.
 			///
@@ -95,7 +95,7 @@ namespace galaxy
 			///
 			UIScript(const UIScript&) = delete;
 
-		public:
+		  public:
 			///
 			/// The script object (table) returned by a lua script.
 			///
@@ -106,7 +106,7 @@ namespace galaxy
 			///
 			sol::function m_update;
 
-		private:
+		  private:
 			///
 			/// Script file.
 			///

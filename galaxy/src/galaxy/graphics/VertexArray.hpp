@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class VertexArray final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -128,7 +128,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int ibo() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -139,7 +139,7 @@ namespace galaxy
 			///
 			VertexArray& operator=(const VertexArray&) = delete;
 
-		private:
+		  private:
 			///
 			/// OpenGL id.
 			///

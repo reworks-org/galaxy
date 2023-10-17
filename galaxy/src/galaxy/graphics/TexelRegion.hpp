@@ -26,7 +26,7 @@ namespace galaxy
 		{
 			friend class resource::TextureAtlas;
 
-		public:
+		  public:
 			///
 			/// Get Upper-left coords.
 			///
@@ -55,7 +55,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const glm::vec2& br_texels() const;
 
-		private:
+		  private:
 			///
 			/// UL region in OpenGL compatible texels.
 			///

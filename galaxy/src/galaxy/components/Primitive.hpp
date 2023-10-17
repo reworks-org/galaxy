@@ -44,7 +44,7 @@ namespace galaxy
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
 
-		public:
+		  public:
 			///
 			/// Holds variables relating to constructing primitive's vertexs.
 			///
@@ -76,7 +76,7 @@ namespace galaxy
 				meta::vector<glm::vec2> points;
 			};
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -183,7 +183,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy assignment operator.
 			///
@@ -194,13 +194,13 @@ namespace galaxy
 			///
 			Primitive(const Primitive&) = delete;
 
-		public:
+		  public:
 			///
 			/// Used by all primitives.
 			///
 			graphics::Colour m_colour;
 
-		private:
+		  private:
 			///
 			/// Cached width.
 			///
@@ -240,7 +240,7 @@ namespace galaxy
 			m_layer          = layer;
 			m_texture_handle = 0;
 
-			meta::vector<unsigned int> indices;
+			meta::vector<unsigned int>     indices;
 			meta::vector<graphics::Vertex> vertices;
 
 			if constexpr (shape == graphics::Shape::CIRCLE)
@@ -248,9 +248,9 @@ namespace galaxy
 				// Thanks to https://stackoverflow.com/a/33859443
 				// For help with maths.
 
-				auto count                     = 0u;
+				auto                 count     = 0u;
 				constexpr const auto incr_stat = 2.0f * glm::pi<float>();
-				const auto increment           = incr_stat / data.fragments;
+				const auto           increment = incr_stat / data.fragments;
 
 				for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 				{

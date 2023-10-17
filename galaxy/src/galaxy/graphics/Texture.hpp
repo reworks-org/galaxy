@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Texture final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -178,7 +178,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int handle() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -189,7 +189,7 @@ namespace galaxy
 			///
 			Texture& operator=(const Texture&) = delete;
 
-		protected:
+		  protected:
 			///
 			/// Cached texture width.
 			///

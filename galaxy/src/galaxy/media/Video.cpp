@@ -28,8 +28,8 @@ namespace galaxy
 			const int frames_needed = frameCount * 2;
 			if (buffer->available_bytes() >= frames_needed)
 			{
-				const float* read = buffer->direct_read_pointer(frames_needed);
-				auto output       = static_cast<float*>(pOutput);
+				const float* read   = buffer->direct_read_pointer(frames_needed);
+				auto         output = static_cast<float*>(pOutput);
 
 				for (auto i = 0; i < frames_needed; i++)
 				{

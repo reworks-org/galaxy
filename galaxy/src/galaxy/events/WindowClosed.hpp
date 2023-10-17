@@ -15,9 +15,9 @@ namespace galaxy
 		///
 		/// Blank "Tag" class/type to signal the window is being closed.
 		///
-		// clang-format off
-		struct WindowClosed {};
-		// clang-format on
+		struct WindowClosed
+		{
+		};
 	} // namespace events
 } // namespace galaxy
 

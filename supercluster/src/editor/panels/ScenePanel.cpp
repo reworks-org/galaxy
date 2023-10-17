@@ -212,8 +212,8 @@ namespace sc
 							if (selected_entity.m_selected != entt::null && selected_entity.m_world != nullptr)
 							{
 								core::Prefab prefab {selected_entity.m_selected, selected_entity.m_world->m_registry};
-								const auto base64 = algorithm::encode_base64(prefab.to_json().dump(4));
-								const auto zlib   = algorithm::encode_zlib(base64);
+								const auto   base64 = algorithm::encode_base64(prefab.to_json().dump(4));
+								const auto   zlib   = algorithm::encode_zlib(base64);
 
 								auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 								if (!fs.save_using_dialog(zlib, "untitled.gprefab", {"*.gprefab"}))
@@ -270,7 +270,7 @@ namespace sc
 
 						const auto entity_listbox_item = [&](entt::entity entity, components::Tag* tag) {
 							const auto is_selected = (selected_entity.m_selected == entity);
-							auto id                = std::to_string(static_cast<std::uint32_t>(entity));
+							auto       id          = std::to_string(static_cast<std::uint32_t>(entity));
 							if (tag)
 							{
 								id = tag->m_tag + "##" + id;

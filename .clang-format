@@ -1,14 +1,11 @@
 ---
-#BasedOnStyle: 'Microsoft'
-AccessModifierOffset: '-4'
+#AccessModifierOffset: "-4"
 AlignAfterOpenBracket: DontAlign
-AlignConsecutiveAssignments: Consecutive
-AlignConsecutiveBitFields: Consecutive
-AlignConsecutiveDeclarations: None
-AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Left
 AlignOperands: Align
-AlignTrailingComments: true
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 2
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
@@ -23,11 +20,12 @@ AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
-#AttributeMacros: []
 BinPackArguments: false
 BinPackParameters: false
 BitFieldColonSpacing: Both
+BreakAfterAttributes: Never
 BreakAfterJavaFieldAnnotations: true
+BreakArrays: false
 BreakBeforeBinaryOperators: None
 BreakBeforeBraces: Custom
 BraceWrapping:
@@ -49,17 +47,16 @@ BraceWrapping:
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
-BreakBeforeConceptDeclarations: true
+BreakBeforeConceptDeclarations: Always
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: AfterColon
 BreakStringLiterals: true
-ColumnLimit: '160'
-#CommentPragmas:
+ColumnLimit: "160"
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: '4'
-ContinuationIndentWidth: '4'
+ConstructorInitializerIndentWidth: "4"
+ContinuationIndentWidth: "4"
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: false
@@ -67,49 +64,23 @@ DisableFormat: false
 EmptyLineBeforeAccessModifier: LogicalBlock
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
-#ForEachMacros: []
 IncludeBlocks: Regroup
-#IncludeCategories:
-#IncludeIsMainRegex:
-#IncludeIsMainSourceRegex:
 IndentCaseBlocks: true
 IndentCaseLabels: true
 IndentExternBlock: AfterExternBlock
 IndentGotoLabels: true
 IndentPPDirectives: None
 IndentRequires: false
-IndentWidth: '4'
+IndentWidth: "4"
 IndentWrappedFunctionNames: false
 InsertTrailingCommas: None
-#JavaImportGroups:
-#JavaScriptQuotes:
-#JavaScriptWrapImports:
 KeepEmptyLinesAtTheStartOfBlocks: false
 Language: Cpp
-#MacroBlockBegin:
-#MacroBlockEnd:
-MaxEmptyLinesToKeep: '1'
+MaxEmptyLinesToKeep: "1"
 NamespaceIndentation: All
-#NamespaceMacros:
-#ObjCBinPackProtocolList:
-#ObjCBlockIndentWidth:
-#ObjCBreakBeforeNestedBlockParam:
-#ObjCSpaceAfterProperty:
-#ObjCSpaceBeforeProtocolList:
-#PenaltyBreakAssignment:
-#PenaltyBreakBeforeFirstCallParameter:
-#PenaltyBreakComment:
-#PenaltyBreakFirstLessLess:
-#PenaltyBreakString:
-#PenaltyBreakTemplateDeclaration:
-#PenaltyExcessCharacter:
-#PenaltyIndentedWhitespace:
-#PenaltyReturnTypeOnItsOwnLine:
 PointerAlignment: Left
-#RawStringFormats:
 ReflowComments: true
-SortIncludes: false
-#SortJavaStaticImport:
+SortIncludes: Never
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
@@ -120,24 +91,76 @@ SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
+SpaceBeforeParens: Custom
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: '1'
-SpacesInAngles: false
+SpacesBeforeTrailingComments: "1"
+SpacesInAngles: Never
 SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: true
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: c++20
-#StatementAttributeLikeMacros:
-#StatementMacros:
-TabWidth: '4'
-#TypenameMacros:
-#UseCRLF:
+TabWidth: "4"
 UseTab: ForContinuationAndIndentation
-#WhitespaceSensitiveMacros:
-...
+AlignArrayOfStructures: Right
+BreakBeforeInlineASMColon: OnlyMultiline
+EmptyLineAfterAccessModifier: Never
+IndentAccessModifiers: false
+IndentRequiresClause: false
+InsertBraces: false
+InsertNewlineAtEOF: true
+IntegerLiteralSeparator:
+  Binary: 0
+  Decimal: 0
+  Hex: 0
+LambdaBodyIndentation: Signature
+PPIndentWidth: 1
+PackConstructorInitializers: Never
+QualifierAlignment: Left
+ReferenceAlignment: Left
+RemoveBracesLLVM: false
+RemoveSemicolon: true
+RequiresClausePosition: WithPreceding
+RequiresExpressionIndentation: OuterScope
+SeparateDefinitionBlocks: Always
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterForeachMacros: true
+  AfterFunctionDeclarationName: false
+  AfterFunctionDefinitionName: false
+  AfterIfMacros: true
+  AfterOverloadedOperator: false
+  AfterRequiresInClause: true
+  AfterRequiresInExpression: true
+  BeforeNonEmptyParentheses: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: 1
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveBitFields:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  PadOperators: true

@@ -53,7 +53,7 @@ namespace sc
 
 		double f = time / 1e+3;
 
-		int d = (int)::ceil(::log10(::abs(f))); /*digits before decimal point*/
+		int               d = (int)::ceil(::log10(::abs(f))); /*digits before decimal point*/
 		std::stringstream ss;
 		ss.precision(std::max(significantDigits - d, 0));
 		ss << std::fixed << f << "us";
@@ -68,7 +68,7 @@ namespace sc
 		{
 			return "";
 		}
-		auto size = static_cast<size_t>(size_s);
+		auto        size = static_cast<size_t>(size_s);
 		std::string buf(size, 0);
 		std::snprintf(buf.data(), size, format, args...);
 		return buf;
@@ -318,7 +318,7 @@ namespace sc
 
 		// Create Metadata context menu tree
 		std::unordered_map<std::string, MetadataMenuGroup*> groupMap;
-		auto* root = new MetadataMenuGroup("");
+		auto*                                               root = new MetadataMenuGroup("");
 		mContextMetadata.emplace_back(root);
 
 		auto menuSort = [](const MetadataMenu* a, const MetadataMenu* b) {
@@ -334,7 +334,7 @@ namespace sc
 			for (const char* group : metadata->groups)
 			{
 				groupTree += group;
-				auto find = groupMap.find(groupTree);
+				auto find  = groupMap.find(groupTree);
 				if (find == groupMap.end())
 				{
 					auto* newGroup = new MetadataMenuGroup(group);
@@ -345,8 +345,8 @@ namespace sc
 					std::sort(metaDataGroup->items.begin(), metaDataGroup->items.end(), menuSort);
 				}
 
-				metaDataGroup = find->second;
-				groupTree += '\t';
+				metaDataGroup  = find->second;
+				groupTree     += '\t';
 			}
 
 			metaDataGroup->items.emplace_back(mContextMetadata.emplace_back(new MetadataMenuItem(metadata)).get());
@@ -412,16 +412,16 @@ namespace sc
 
 	void FastNoiseNodeEditor::DrawStats()
 	{
-		std::string simdTxt = "Current SIMD Level: ";
-		simdTxt += GetSIMDLevelName(mActualSIMDLevel);
+		std::string simdTxt  = "Current SIMD Level: ";
+		simdTxt             += GetSIMDLevelName(mActualSIMDLevel);
 		ImGui::TextUnformatted(simdTxt.c_str());
 	}
 
 	void FastNoiseNodeEditor::CheckLinks()
 	{
 		// Check for new links
-		int startNodeId, endNodeId;
-		int startAttr, endAttr;
+		int  startNodeId, endNodeId;
+		int  startAttr, endAttr;
 		bool createdFromSnap;
 		if (ImNodes::IsLinkCreated(&startNodeId, &startAttr, &endNodeId, &endAttr, &createdFromSnap))
 		{
@@ -460,7 +460,7 @@ namespace sc
 		for (auto& node : mNodes)
 		{
 			bool changed = false;
-			int attrId   = node.second.GetStartingAttributeId();
+			int  attrId  = node.second.GetStartingAttributeId();
 
 			for (FastNoise::NodeData* link : node.second.GetNodeIDLinks())
 			{
@@ -482,7 +482,7 @@ namespace sc
 	void FastNoiseNodeEditor::UpdateSelected()
 	{
 		std::vector<int> linksToDelete;
-		int selectedLinkCount = ImNodes::NumSelectedLinks();
+		int              selectedLinkCount = ImNodes::NumSelectedLinks();
 
 		bool delKeyPressed =
 			ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Delete), false) || ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Backspace), false);
@@ -503,8 +503,8 @@ namespace sc
 		{
 			for (auto& node : mNodes)
 			{
-				bool changed    = false;
-				int attributeId = node.second.GetStartingAttributeId();
+				bool changed     = false;
+				int  attributeId = node.second.GetStartingAttributeId();
 
 				for (FastNoise::NodeData* link : node.second.GetNodeIDLinks())
 				{
@@ -599,7 +599,7 @@ namespace sc
 				ImGui::MenuItem("Convert To:", nullptr, nullptr, false);
 
 				auto& nodeMetadata = node.second.data->metadata;
-				auto newMetadata   = mContextMetadata.front()->DrawUI(
+				auto  newMetadata  = mContextMetadata.front()->DrawUI(
                     [nodeMetadata](const FastNoise::Metadata* metadata) {
                         return metadata != nodeMetadata && MatchingGroup(metadata->groups, nodeMetadata->groups);
                     },
@@ -657,7 +657,7 @@ namespace sc
 
 			ImNodes::PushAttributeFlag(ImNodesAttributeFlags_EnableLinkCreationOnSnap);
 			ImNodes::PushAttributeFlag(ImNodesAttributeFlags_EnableLinkDetachWithDragClick);
-			int attributeId    = node.second.GetStartingAttributeId();
+			int   attributeId  = node.second.GetStartingAttributeId();
 			auto& nodeMetadata = node.second.data->metadata;
 			auto& nodeData     = node.second.data;
 
@@ -675,7 +675,7 @@ namespace sc
 			{
 				ImNodes::BeginInputAttribute(attributeId++);
 
-				bool isLinked           = node.second.data->hybrids[i].first;
+				bool        isLinked    = node.second.data->hybrids[i].first;
 				const char* floatFormat = "%.3f";
 
 				if (isLinked)
@@ -854,9 +854,9 @@ namespace sc
 	void FastNoiseNodeEditor::DoContextMenu()
 	{
 		std::string className;
-		ImVec2 drag          = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-		float distance       = sqrtf(ImDot(drag, drag));
-		bool openImportModal = false;
+		ImVec2      drag            = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+		float       distance        = sqrtf(ImDot(drag, drag));
+		bool        openImportModal = false;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(4, 4));
 		if (distance < 5.0f && ImGui::BeginPopupContextWindow("new_node", 1))

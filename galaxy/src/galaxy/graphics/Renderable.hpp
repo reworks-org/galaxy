@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class Renderable
 		{
-		public:
+		  public:
 			///
 			/// Move constructor.
 			///
@@ -57,13 +57,13 @@ namespace galaxy
 			///
 			[[nodiscard]] virtual const graphics::VertexArray& get_vao() const = 0;
 
-		protected:
+		  protected:
 			///
 			/// Constructor.
 			///
 			Renderable();
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -74,7 +74,7 @@ namespace galaxy
 			///
 			Renderable& operator=(const Renderable&) = delete;
 
-		protected:
+		  protected:
 			///
 			/// Opengl texture id.
 			///

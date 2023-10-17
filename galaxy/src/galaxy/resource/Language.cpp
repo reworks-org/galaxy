@@ -42,8 +42,8 @@ namespace galaxy
 
 		void Language::load(sol::state& lua, const std::string& file)
 		{
-			auto& fs  = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto info = fs.find(file);
+			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto  info = fs.find(file);
 
 			if (info.code == fs::FileCode::FOUND)
 			{
@@ -51,7 +51,7 @@ namespace galaxy
 				lua.script_file(info.string);
 
 				std::string region = lua["region"];
-				sol::table data    = lua["data"];
+				sol::table  data   = lua["data"];
 
 				if (!m_languages.contains(region))
 				{

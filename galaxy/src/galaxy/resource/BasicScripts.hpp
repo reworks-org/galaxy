@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class BasicScriptLoader final
 		{
-		public:
+		  public:
 			///
 			/// Overloaded operator() used to load a resource.
 			///

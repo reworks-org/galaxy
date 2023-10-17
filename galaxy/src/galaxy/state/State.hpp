@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		class State
 		{
-		public:
+		  public:
 			///
 			/// Virtual destructor.
 			///

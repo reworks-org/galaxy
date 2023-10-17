@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		class Subprocess final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			[[nodiscard]] bool alive();
 
-		private:
+		  private:
 			///
 			/// Process information and handles.
 			///

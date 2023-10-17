@@ -75,7 +75,7 @@ namespace galaxy
 		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept is_bitset_flag = requires(Type type) { Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value; };
+		concept is_bitset_flag = requires (Type type) { Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value; };
 
 		///
 		/// \brief Makes sure a type is a valid component.
@@ -95,7 +95,7 @@ namespace galaxy
 		///
 		template<typename Loader, typename Resource>
 		concept loader_build_check =
-			requires(Loader loader, robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>> resource) { loader.build(resource); };
+			requires (Loader loader, robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>> resource) { loader.build(resource); };
 
 		///
 		/// Ensures that the provided loader has an operator() that returns a shared pointer.
@@ -105,7 +105,7 @@ namespace galaxy
 		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
 		template<typename Loader, typename Resource, bool needs_gl>
-		concept is_loader = requires(Loader loader) {
+		concept is_loader = requires (Loader loader) {
 			loader.operator();
 			requires !needs_gl || (needs_gl && loader_build_check<Loader, Resource>);
 		};

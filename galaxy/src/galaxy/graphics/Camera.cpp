@@ -172,7 +172,7 @@ namespace galaxy
 			if (!e.handled)
 			{
 				m_zoom -= static_cast<float>(e.yoff) * GALAXY_MIN_CAMERA_ZOOM;
-				m_zoom = std::clamp(m_zoom, GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM);
+				m_zoom  = std::clamp(m_zoom, GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM);
 
 				e.handled = true;
 			}

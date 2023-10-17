@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class ScriptSystem final : public systems::System
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///

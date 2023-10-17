@@ -17,7 +17,7 @@ using namespace galaxy;
 
 class Sandbox : public core::Application
 {
-public:
+  public:
 	Sandbox()
 		: Application {"logs/", "config.json"}
 	{

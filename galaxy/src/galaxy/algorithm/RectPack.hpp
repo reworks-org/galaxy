@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class RectPack final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const meta::vector<graphics::iRect>& get_free_space() const;
 
-		private:
+		  private:
 			///
 			/// The starting width of the rectangle.
 			///

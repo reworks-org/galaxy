@@ -34,7 +34,7 @@ namespace sc
 {
 	class Editor final : public scene::Scene
 	{
-	public:
+	  public:
 		Editor(const std::string& name);
 		virtual ~Editor();
 
@@ -50,27 +50,27 @@ namespace sc
 		void restart();
 		void exit();
 
-	private:
+	  private:
 		void draw_editor();
 		void viewport();
 
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 		void do_updates();
 
-	private:
-		async::Timer m_autosave;
+	  private:
+		async::Timer         m_autosave;
 		platform::Subprocess m_tiled_process;
 		platform::Subprocess m_bfxr_process;
 
-		panel::LuaConsole m_lua_console;
-		panel::LogConsole m_log_console;
-		panel::JSONEditor m_json_panel;
+		panel::LuaConsole   m_lua_console;
+		panel::LogConsole   m_log_console;
+		panel::JSONEditor   m_json_panel;
 		panel::EntityEditor m_entity_panel;
-		panel::ScenePanel m_scene_panel;
-		panel::AssetPanel m_asset_panel;
-		panel::NoisePanel m_noise_graph;
+		panel::ScenePanel   m_scene_panel;
+		panel::AssetPanel   m_asset_panel;
+		panel::NoisePanel   m_noise_graph;
 
-		Settings m_settings;
+		Settings    m_settings;
 		UpdateStack m_update_stack;
 
 		bool m_show_scenes         = true;
@@ -101,24 +101,24 @@ namespace sc
 
 		graphics::RenderTexture m_framebuffer;
 
-		ImVec2 m_viewport_size = {0.0f, 0.0f};
+		ImVec2                   m_viewport_size = {0.0f, 0.0f};
 		std::array<glm::vec2, 2> m_viewport_bounds;
-		ImVec2 m_imgui_mouse_delta = {0.0f, 0.0f};
+		ImVec2                   m_imgui_mouse_delta = {0.0f, 0.0f};
 
 		graphics::Texture m_camera_btn;
 		graphics::Texture m_editor_cam_btn;
-		graphics::Camera m_editor_camera;
+		graphics::Camera  m_editor_camera;
 
 		std::string m_current_project_path;
 
-		nlohmann::json m_backup;
+		nlohmann::json      m_backup;
 		scene::SceneManager m_project_sm;
 
 		unsigned int m_mousepick_buffer;
-		Selected m_selected_entity;
+		Selected     m_selected_entity;
 
-		ui::NuklearUI* m_nui;
-		core::Window* m_window;
+		ui::NuklearUI*      m_nui;
+		core::Window*       m_window;
 		graphics::Renderer* m_renderer;
 	};
 } // namespace sc

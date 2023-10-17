@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class ChromaticAberration final : public PostEffect
 		{
-		public:
+		  public:
 			///
 			/// Argument constructor.
 			///
@@ -91,13 +91,13 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_enabled() override;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
 			ChromaticAberration() = delete;
 
-		private:
+		  private:
 			///
 			/// Shader for post processing effect.
 			///

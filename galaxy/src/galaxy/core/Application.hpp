@@ -21,8 +21,8 @@ extern "C"
 }
 #elif
 {
-	inline int AmdPowerXpressRequestHighPerformance = 1;
-	inline std::uint32_t NvOptimusEnablement        = 0x00000001;
+	inline int           AmdPowerXpressRequestHighPerformance = 1;
+	inline std::uint32_t NvOptimusEnablement                  = 0x00000001;
 }
 #endif
 
@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		class Application
 		{
-		public:
+		  public:
 			///
 			/// \brief Virtual destructor.
 			///
@@ -48,7 +48,7 @@ namespace galaxy
 			///
 			void run();
 
-		protected:
+		  protected:
 			///
 			/// \brief Default constructor.
 			///

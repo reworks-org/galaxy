@@ -48,7 +48,7 @@ namespace galaxy
 			using AnyJSONFactory      = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
 			using SerializeFactory    = robin_hood::unordered_flat_map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
 
-		public:
+		  public:
 			///
 			/// Defines a dependency validation for components.
 			///
@@ -150,7 +150,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const meta::vector<entt::id_type>& get_validation_list() const;
 
-		private:
+		  private:
 			///
 			/// Maps an entt type id to a string.
 			///

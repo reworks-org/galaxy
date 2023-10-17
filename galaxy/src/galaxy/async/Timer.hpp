@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Timer final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			[[nodiscard]] bool stopped() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -86,7 +86,7 @@ namespace galaxy
 			///
 			Timer& operator=(const Timer&) = delete;
 
-		private:
+		  private:
 			///
 			/// Is function repeating?
 			///

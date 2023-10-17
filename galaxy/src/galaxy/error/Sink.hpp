@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Sink
 		{
-		public:
+		  public:
 			///
 			/// Virtual Destructor.
 			///
@@ -38,13 +38,13 @@ namespace galaxy
 			/// \param message The actual message to record.
 			///
 			virtual void sink_message(std::string_view colour,
-				std::string_view level,
-				std::string_view time,
-				std::string_view file,
-				std::string_view line,
-				std::string_view message) = 0;
+				std::string_view                       level,
+				std::string_view                       time,
+				std::string_view                       file,
+				std::string_view                       line,
+				std::string_view                       message) = 0;
 
-		protected:
+		  protected:
 			///
 			/// Constructor.
 			///

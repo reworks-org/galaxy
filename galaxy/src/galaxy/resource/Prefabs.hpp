@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class PrefabLoader final
 		{
-		public:
+		  public:
 			///
 			/// Overloaded operator() used to load a resource.
 			///

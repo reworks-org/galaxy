@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Guid final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -89,7 +89,7 @@ namespace galaxy
 			///
 			[[nodiscard]] auto operator<=>(const Guid&) const = default;
 
-		private:
+		  private:
 			///
 			/// Guid.
 			///

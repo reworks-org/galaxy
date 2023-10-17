@@ -28,7 +28,7 @@ namespace galaxy
 		///
 		class TextureAtlas final
 		{
-		public:
+		  public:
 			///
 			/// A sheet of textures in the atlas.
 			///
@@ -175,7 +175,7 @@ namespace galaxy
 			///
 			[[nodiscard]] meta::vector<std::string> keys();
 
-		private:
+		  private:
 			///
 			/// Move constructor.
 			///
@@ -201,7 +201,7 @@ namespace galaxy
 			///
 			void init();
 
-		private:
+		  private:
 			///
 			/// Texture folder in vfs.
 			///

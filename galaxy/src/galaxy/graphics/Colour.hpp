@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class Colour final
 		{
-		public:
+		  public:
 			///
 			/// Opaque colour.
 			///
@@ -90,7 +90,7 @@ namespace galaxy
 			///
 			[[nodiscard]] auto operator<=>(const Colour&) const = default;
 
-		public:
+		  public:
 			///
 			/// Red.
 			///

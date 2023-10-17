@@ -32,7 +32,7 @@ namespace galaxy
 		///
 		class Shader final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -162,7 +162,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int id() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -182,7 +182,7 @@ namespace galaxy
 			///
 			[[nodiscard]] std::optional<std::pair<std::string, std::string>> preprocess(const std::string& src);
 
-		private:
+		  private:
 			///
 			/// OpenGL program id.
 			///
@@ -252,19 +252,19 @@ namespace galaxy
 
 		template<>
 		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(const std::string& name,
-			const unsigned int& a,
-			const unsigned int& b,
-			const unsigned int& c)
+			const unsigned int&                                                                      a,
+			const unsigned int&                                                                      b,
+			const unsigned int&                                                                      c)
 		{
 			glProgramUniform3ui(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
 		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(const std::string& name,
-			const unsigned int& a,
-			const unsigned int& b,
-			const unsigned int& c,
-			const unsigned int& d)
+			const unsigned int&                                                                                    a,
+			const unsigned int&                                                                                    b,
+			const unsigned int&                                                                                    c,
+			const unsigned int&                                                                                    d)
 		{
 			glProgramUniform4ui(m_id, get_uniform_location(name), a, b, c, d);
 		}
@@ -357,7 +357,7 @@ namespace galaxy
 		template<>
 		inline void Shader::set_uniform<graphics::Colour>(const std::string& name, const graphics::Colour& a)
 		{
-			auto r = 0.0f, g = 0.0f, b = 0.0f, alpha = 0.0f;
+			auto                 r = 0.0f, g = 0.0f, b = 0.0f, alpha = 0.0f;
 			const constexpr auto COLOUR_OFFSET = static_cast<float>(0xFF);
 
 			if (a.m_red == 255)

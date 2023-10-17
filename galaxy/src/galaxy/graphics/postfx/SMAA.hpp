@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class SMAA final : public PostEffect
 		{
-		public:
+		  public:
 			///
 			/// Argument constructor.
 			///
@@ -60,13 +60,13 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_enabled() override;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
 			SMAA() = delete;
 
-		private:
+		  private:
 			///
 			/// SMAA Edge shader.
 			///

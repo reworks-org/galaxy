@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class FilmicGrain final : public PostEffect
 		{
-		public:
+		  public:
 			///
 			/// Argument constructor.
 			///
@@ -68,13 +68,13 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_enabled() override;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
 			FilmicGrain() = delete;
 
-		private:
+		  private:
 			///
 			/// Shader for post processing effect.
 			///

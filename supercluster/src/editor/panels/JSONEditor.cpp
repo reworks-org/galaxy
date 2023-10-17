@@ -310,7 +310,7 @@ namespace sc
 			add_to_array(json);
 
 			unsigned int counter = 0;
-			std::string name;
+			std::string  name;
 			for (auto& elem : json)
 			{
 				name = std::format("[{0}]", counter);
@@ -365,8 +365,8 @@ namespace sc
 				static std::string s_key_str;
 				static std::string s_val_str;
 				static std::string s_err_str;
-				static int s_index       = 0;
-				static bool s_show_error = false;
+				static int         s_index      = 0;
+				static bool        s_show_error = false;
 
 				static constexpr const std::array<const char*, 8> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
 
@@ -467,8 +467,8 @@ namespace sc
 			{
 				static std::string s_val_str;
 				static std::string s_err_str;
-				static int s_index       = 0;
-				static bool s_show_error = false;
+				static int         s_index      = 0;
+				static bool        s_show_error = false;
 
 				static const meta::vector<const char*> s_types = {"...", "bool", "integer", "unsigned", "float", "string", "object", "array"};
 

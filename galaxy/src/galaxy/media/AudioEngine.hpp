@@ -26,7 +26,7 @@ namespace galaxy
 		template<SoundType type>
 		class AudioEngine final
 		{
-		public:
+		  public:
 			///
 			/// Argument constructor.
 			///
@@ -183,7 +183,7 @@ namespace galaxy
 			///
 			[[nodiscard]] ma_engine* get_engine();
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -209,7 +209,7 @@ namespace galaxy
 			///
 			AudioEngine& operator=(AudioEngine&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Handles sound effects.
 			///

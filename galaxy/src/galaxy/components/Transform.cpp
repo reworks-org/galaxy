@@ -86,7 +86,7 @@ namespace galaxy
 		void Transform::rotate(const float degrees)
 		{
 			m_rotation += degrees;
-			m_rotation = std::clamp(m_rotation, 0.0f, 360.0f);
+			m_rotation  = std::clamp(m_rotation, 0.0f, 360.0f);
 		}
 
 		void Transform::set_scale(const float scale)

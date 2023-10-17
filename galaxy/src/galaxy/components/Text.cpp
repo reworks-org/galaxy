@@ -147,8 +147,8 @@ namespace galaxy
 						block.c_str());
 
 					y_off += m_font->vertical_advance(m_size);
-					start = end + 1;
-					end   = m_text.find('\n', start);
+					start  = end + 1;
+					end    = m_text.find('\n', start);
 				}
 
 				const auto last_block = m_text.substr(start, end);
@@ -209,8 +209,8 @@ namespace galaxy
 						block.c_str());
 
 					y_off += m_font->vertical_advance(m_size);
-					start = end + 1;
-					end   = m_text.find('\n', start);
+					start  = end + 1;
+					end    = m_text.find('\n', start);
 				}
 
 				const auto last_block = m_text.substr(start, end);
@@ -347,7 +347,7 @@ namespace galaxy
 		void Text::deserialize(const nlohmann::json& json)
 		{
 			graphics::Colour colour;
-			const auto& colson = json.at("colour");
+			const auto&      colson = json.at("colour");
 
 			colour.m_red   = colson.at("r");
 			colour.m_green = colson.at("g");

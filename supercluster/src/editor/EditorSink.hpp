@@ -29,21 +29,21 @@ namespace sc
 
 	class EditorSink final : public error::Sink
 	{
-	public:
+	  public:
 		EditorSink() = default;
 		virtual ~EditorSink();
 
 		void sink_message(std::string_view colour,
-			std::string_view level,
-			std::string_view time,
-			std::string_view file,
-			std::string_view line,
-			std::string_view message) override;
+			std::string_view               level,
+			std::string_view               time,
+			std::string_view               file,
+			std::string_view               line,
+			std::string_view               message) override;
 		void clear();
 
 		const meta::vector<EditorSinkMessage>& get_messages() const;
 
-	private:
+	  private:
 		meta::vector<EditorSinkMessage> m_logs;
 	};
 } // namespace sc

@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		class Renderer final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -118,7 +118,7 @@ namespace galaxy
 			///
 			void draw_texture(const unsigned int texture, const int width, const int height);
 
-		private:
+		  private:
 			///
 			/// Uniform buffer for camera.
 			///

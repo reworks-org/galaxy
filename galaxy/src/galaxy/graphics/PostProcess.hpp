@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class PostProcess final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -91,7 +91,7 @@ namespace galaxy
 			///
 			void resize(const int width, const int height);
 
-		private:
+		  private:
 			///
 			/// For geometry and lighting.
 			///

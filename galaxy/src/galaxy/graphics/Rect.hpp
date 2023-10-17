@@ -24,7 +24,7 @@ namespace galaxy
 		template<meta::is_arithmetic Type>
 		class Rect final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			[[nodiscard]] auto operator<=>(const Rect&) const = default;
 
-		public:
+		  public:
 			///
 			/// X position.
 			///
@@ -101,7 +101,7 @@ namespace galaxy
 			///
 			Type m_height;
 
-		private:
+		  private:
 			///
 			/// Private function to determine if value is in range. Inclusive.
 			/// Credits: https://stackoverflow.com/a/306379

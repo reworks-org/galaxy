@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class AnimationSystem final : public systems::System
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///

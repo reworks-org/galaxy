@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Scene : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -82,13 +82,13 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Shared init function for constructors.
 			///
 			void init();
 
-		public:
+		  public:
 			///
 			/// Camera.
 			///

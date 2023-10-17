@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Transform final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -169,7 +169,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy assignment operator.
 			///
@@ -180,7 +180,7 @@ namespace galaxy
 			///
 			Transform(const Transform&) = delete;
 
-		private:
+		  private:
 			///
 			/// Cached for easy retrieval.
 			/// Pos.

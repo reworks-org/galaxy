@@ -39,7 +39,7 @@ namespace galaxy
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
 
-		public:
+		  public:
 			///
 			/// Text alignment.
 			///
@@ -95,11 +95,11 @@ namespace galaxy
 			/// \param alignment Text alignment. Defaults to LEFT.
 			///
 			void create(std::string_view text,
-				const float size,
-				const std::string& font,
-				const graphics::Colour& colour,
-				const int layer,
-				Alignment alignment = Alignment::LEFT);
+				const float              size,
+				const std::string&       font,
+				const graphics::Colour&  colour,
+				const int                layer,
+				Alignment                alignment = Alignment::LEFT);
 
 			///
 			/// Update the rendered text.
@@ -240,7 +240,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -251,13 +251,13 @@ namespace galaxy
 			///
 			Text& operator=(const Text&) = delete;
 
-		public:
+		  public:
 			///
 			/// Text colour.
 			///
 			graphics::Colour m_colour;
 
-		private:
+		  private:
 			///
 			/// Vertex Array Object.
 			///

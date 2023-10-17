@@ -90,7 +90,7 @@ namespace galaxy
 				full += ".png";
 			}
 
-			const auto ui = static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u;
+			const auto                 ui = static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u;
 			meta::vector<unsigned int> pixels(ui, 0);
 
 			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());

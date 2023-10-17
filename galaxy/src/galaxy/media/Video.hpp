@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class Video final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			[[nodiscard]] double get_duration() const;
 
-		private:
+		  private:
 			///
 			/// Internal function to generate video frame texture.
 			///
@@ -113,7 +113,7 @@ namespace galaxy
 			///
 			void update_texture(unsigned int unit, unsigned int texture, const plm_plane_t* plane);
 
-		private:
+		  private:
 			///
 			/// PLM decoder data.
 			///

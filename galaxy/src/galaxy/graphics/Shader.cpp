@@ -204,7 +204,7 @@ namespace galaxy
 
 					GLsizei length = 0;
 					GLsizei count  = 0;
-					GLenum type    = GL_NONE;
+					GLenum  type   = GL_NONE;
 					for (GLint i = 0; i < uniform_count; ++i)
 					{
 						auto uniform_name = std::make_unique<char[]>(max_name_len);

@@ -378,7 +378,7 @@ namespace galaxy
 			const auto default_path = (m_root / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char* result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
+			const char*        result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
 
 			if (result != nullptr)
 			{
@@ -395,7 +395,7 @@ namespace galaxy
 			const auto default_path = (m_root / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char* result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
+			const char*        result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
 
 			if (result != nullptr)
 			{
@@ -410,7 +410,7 @@ namespace galaxy
 		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
 		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char* result                 = tinyfd_saveFileDialog("Save file.", default_filename.c_str(), filters.size(), filter_patterns, nullptr);
+			const char*        result          = tinyfd_saveFileDialog("Save file.", default_filename.c_str(), filters.size(), filter_patterns, nullptr);
 
 			if (result != nullptr)
 			{
@@ -424,8 +424,8 @@ namespace galaxy
 
 		std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 		{
-			const auto default_path = (m_root / def_path).string();
-			const char* result      = tinyfd_selectFolderDialog("Select folder.", default_path.c_str());
+			const auto  default_path = (m_root / def_path).string();
+			const char* result       = tinyfd_selectFolderDialog("Select folder.", default_path.c_str());
 
 			if (result != nullptr)
 			{

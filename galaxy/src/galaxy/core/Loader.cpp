@@ -54,8 +54,8 @@ namespace galaxy
 				std::filesystem::remove_all(asset_dir);
 
 				// Get file count.
-				auto z    = zip_open(compressed_assets.c_str(), 0, 'r');
-				int count = static_cast<int>(zip_entries_total(z));
+				auto z     = zip_open(compressed_assets.c_str(), 0, 'r');
+				int  count = static_cast<int>(zip_entries_total(z));
 				zip_close(z);
 
 				GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
@@ -70,7 +70,7 @@ namespace galaxy
 					auto& renderer = ServiceLocator<graphics::Renderer>::ref();
 
 					static int i = 0;
-					const int n  = *static_cast<int*>(arg);
+					const int  n = *static_cast<int*>(arg);
 
 					++i;
 					nui.new_frame();

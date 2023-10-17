@@ -18,7 +18,7 @@ namespace sc
 {
 	class Menu final : public scene::Scene
 	{
-	public:
+	  public:
 		Menu(const std::string& name);
 		virtual ~Menu();
 
@@ -27,12 +27,12 @@ namespace sc
 		void update() override;
 		void render() override;
 
-	private:
+	  private:
 		void load_project();
 
-	private:
+	  private:
 		graphics::Texture m_bg;
-		bool m_load;
+		bool              m_load;
 	};
 } // namespace sc
 

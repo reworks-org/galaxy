@@ -24,7 +24,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -89,7 +89,7 @@ namespace galaxy
 			///
 			[[nodiscard]] std::string get_scancode_name(const int scancode) const;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -115,7 +115,7 @@ namespace galaxy
 			///
 			Keyboard& operator=(const Keyboard&) = delete;
 
-		private:
+		  private:
 			///
 			/// Flag to keep track of text input state.
 			///

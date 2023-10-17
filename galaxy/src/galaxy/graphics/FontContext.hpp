@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class FontContext final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			void set_dpi(const float x, const float y);
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -70,7 +70,7 @@ namespace galaxy
 			///
 			FontContext& operator=(FontContext&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Library context object.
 			///

@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Frame final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -71,7 +71,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		public:
+		  public:
 			///
 			/// Time to spend on this frame in milliseconds.
 			///

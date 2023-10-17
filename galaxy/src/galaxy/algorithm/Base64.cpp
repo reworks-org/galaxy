@@ -41,6 +41,7 @@ constexpr const unsigned char decoding_table[] = {
     64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
     64, 64
 };
+
 // clang-format on
 
 namespace galaxy
@@ -56,8 +57,8 @@ namespace galaxy
 					const auto in_len  = input.size();
 					const auto out_len = static_cast<std::size_t>(4 * ((in_len + 2) / 3));
 
-					auto output = std::string(out_len, '\0');
-					char* p     = &output[0];
+					auto  output = std::string(out_len, '\0');
+					char* p      = &output[0];
 
 					std::size_t i = 0;
 					for (i = 0; i < in_len - 2; i += 3)

@@ -53,7 +53,7 @@ namespace galaxy
 		///
 		class Log final
 		{
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -107,7 +107,7 @@ namespace galaxy
 			template<LogLevel level, typename... MsgInputs>
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -133,7 +133,7 @@ namespace galaxy
 			///
 			Log& operator=(Log&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Minimum level for a message to be logged.
 			///

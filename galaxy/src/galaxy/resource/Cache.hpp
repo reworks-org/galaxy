@@ -32,7 +32,7 @@ namespace galaxy
 		{
 			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -172,7 +172,7 @@ namespace galaxy
 				return m_keys;
 			}
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -202,7 +202,7 @@ namespace galaxy
 				return hash;
 			}
 
-		private:
+		  private:
 			///
 			/// Used to load a resource into the cache. Allows for flexiblity.
 			///

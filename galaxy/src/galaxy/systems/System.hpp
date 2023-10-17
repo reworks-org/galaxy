@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		class System
 		{
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			virtual void update(scene::Scene* scene) = 0;
 
-		protected:
+		  protected:
 			///
 			/// Constructor.
 			///

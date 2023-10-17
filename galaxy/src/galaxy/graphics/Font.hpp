@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Font final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -113,7 +113,7 @@ namespace galaxy
 			///
 			[[nodiscard]] msdfgl_font_t handle();
 
-		private:
+		  private:
 			///
 			/// Font object.
 			///

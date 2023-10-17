@@ -28,7 +28,7 @@ using namespace galaxy;
 
 class Supercluster : public core::Application
 {
-public:
+  public:
 	Supercluster()
 		: Application {"logs/", "config.json"}
 	{
@@ -54,7 +54,7 @@ int main(int argsc, char* argsv[])
 
 			{
 				auto& config = core::ServiceLocator<core::Config>::ref();
-				auto root    = config.get<std::string>("asset_dir");
+				auto  root   = config.get<std::string>("asset_dir");
 
 				if (!std::filesystem::exists(root + "../editor_data"))
 				{
@@ -69,12 +69,12 @@ int main(int argsc, char* argsv[])
 				ImGuiIO& io    = ui::imgui_init_context();
 				io.IniFilename = "sclayout.ini";
 
-				ImFontConfig font_cfg         = {};
-				font_cfg.FontDataOwnedByAtlas = false;
-				font_cfg.RasterizerMultiply   = 1.5f;
-				font_cfg.OversampleH          = 1;
-				font_cfg.OversampleV          = 1;
-				font_cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
+				ImFontConfig font_cfg          = {};
+				font_cfg.FontDataOwnedByAtlas  = false;
+				font_cfg.RasterizerMultiply    = 1.5f;
+				font_cfg.OversampleH           = 1;
+				font_cfg.OversampleV           = 1;
+				font_cfg.FontBuilderFlags     |= ImGuiFreeTypeBuilderFlags_LoadColor;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
 				ImGui_Notify::MergeIconsWithLatestFont(16.0f, false);
 

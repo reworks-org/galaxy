@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Prefab final
 		{
-		public:
+		  public:
 			///
 			/// Entity constructor.
 			///
@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const nlohmann::json& to_json() const;
 
-		private:
+		  private:
 			///
 			/// \brief Constructor.
 			///
@@ -81,7 +81,7 @@ namespace galaxy
 			///
 			Prefab() = delete;
 
-		private:
+		  private:
 			///
 			/// Prefab as json data.
 			///

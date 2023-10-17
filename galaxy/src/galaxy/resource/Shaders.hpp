@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class ShaderLoader final
 		{
-		public:
+		  public:
 			///
 			/// \brief Build shaders.
 			///

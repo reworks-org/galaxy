@@ -20,14 +20,14 @@ namespace sc
 	{
 		class LuaConsole final
 		{
-		public:
+		  public:
 			LuaConsole();
 			~LuaConsole();
 
 			void render();
 
-		private:
-			std::string m_buff;
+		  private:
+			std::string               m_buff;
 			meta::vector<std::string> m_history;
 		};
 	} // namespace panel

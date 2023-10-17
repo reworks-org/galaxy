@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class SpriteBatch final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const VertexArray& vao() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -104,7 +104,7 @@ namespace galaxy
 			///
 			SpriteBatch& operator=(const SpriteBatch&) = delete;
 
-		private:
+		  private:
 			///
 			/// Vertex data.
 			///

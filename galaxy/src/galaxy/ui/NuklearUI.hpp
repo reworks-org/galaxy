@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class NuklearUI final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -115,7 +115,7 @@ namespace galaxy
 			///
 			[[nodiscard]] nk_context* ctx() const;
 
-		private:
+		  private:
 			///
 			/// Nuklear context pointer.
 			///

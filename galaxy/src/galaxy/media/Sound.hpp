@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Sound final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -456,7 +456,7 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_finished() const;
 
-		private:
+		  private:
 			///
 			/// Miniaudio sound structure.
 			///

@@ -33,7 +33,7 @@ namespace galaxy
 		{
 			using SystemContainer = meta::vector<std::shared_ptr<systems::System>>;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -133,7 +133,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -186,13 +186,13 @@ namespace galaxy
 			///
 			void destruct_nui(entt::registry& registry, entt::entity entity);
 
-		public:
+		  public:
 			///
 			/// The main entt entity registry.
 			///
 			entt::registry m_registry;
 
-		private:
+		  private:
 			///
 			/// Stores systems.
 			///

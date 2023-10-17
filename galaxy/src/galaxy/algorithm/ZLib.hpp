@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class ZLib final
 		{
-		public:
+		  public:
 			///
 			/// ZLib mode to start in.
 			///
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			std::string decompress(const std::string& input);
 
-		private:
+		  private:
 			///
 			/// ZLib mode.
 			///

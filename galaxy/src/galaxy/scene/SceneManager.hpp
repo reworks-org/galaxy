@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		class SceneManager final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -153,7 +153,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Fast hashmap storing data.
 			///

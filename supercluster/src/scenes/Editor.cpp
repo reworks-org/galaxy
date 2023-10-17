@@ -142,9 +142,9 @@ namespace sc
 				{
 					if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
 					{
-						auto [mx, my] = ImGui::GetMousePos();
-						mx -= m_viewport_bounds[0].x;
-						my -= m_viewport_bounds[0].y;
+						auto [mx, my]  = ImGui::GetMousePos();
+						mx            -= m_viewport_bounds[0].x;
+						my            -= m_viewport_bounds[0].y;
 
 						const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
 						my              = size.y - my;
@@ -305,8 +305,8 @@ namespace sc
 
 		auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
 		tp.push_task([&]() {
-			auto& config    = core::ServiceLocator<core::Config>::ref();
-			const auto path = std::filesystem::path("export");
+			auto&      config = core::ServiceLocator<core::Config>::ref();
+			const auto path   = std::filesystem::path("export");
 			if (!std::filesystem::exists(path))
 			{
 				std::filesystem::create_directories(path);
@@ -874,13 +874,13 @@ namespace sc
 					ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoInputs |
 						ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoMove))
 			{
-				ImGuiContext& g     = *GImGui;
-				ImGuiWindow* window = ImGui::GetCurrentWindow();
+				ImGuiContext& g      = *GImGui;
+				ImGuiWindow*  window = ImGui::GetCurrentWindow();
 
 				ImGuiStyle& style = g.Style;
-				ImVec2 size       = ImGui::CalcItemSize(ImVec2(300, 20), ImGui::CalcItemWidth(), g.FontSize + style.FramePadding.y * 2.0f);
-				ImVec2 pos        = window->DC.CursorPos;
-				ImRect bb(pos.x, pos.y, pos.x + size.x, pos.y + size.y);
+				ImVec2      size  = ImGui::CalcItemSize(ImVec2(300, 20), ImGui::CalcItemWidth(), g.FontSize + style.FramePadding.y * 2.0f);
+				ImVec2      pos   = window->DC.CursorPos;
+				ImRect      bb(pos.x, pos.y, pos.x + size.x, pos.y + size.y);
 				ImGui::ItemSize(size);
 				if (!ImGui::ItemAdd(bb, 0))
 					return;
@@ -888,8 +888,8 @@ namespace sc
 				const float speed            = g.FontSize * 0.05f;
 				const float phase            = ImFmod((float)g.Time * speed, 1.0f);
 				const float width_normalized = 0.2f;
-				float t0                     = phase * (1.0f + width_normalized) - width_normalized;
-				float t1                     = t0 + width_normalized;
+				float       t0               = phase * (1.0f + width_normalized) - width_normalized;
+				float       t1               = t0 + width_normalized;
 
 				ImGui::RenderFrame(bb.Min, bb.Max, ImGui::GetColorU32(ImGuiCol_FrameBg), true, style.FrameRounding);
 				bb.Expand(ImVec2(-style.FrameBorderSize, -style.FrameBorderSize));

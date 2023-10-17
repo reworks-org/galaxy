@@ -17,20 +17,20 @@ namespace sc
 {
 	class Settings final
 	{
-	public:
+	  public:
 		Settings();
 		~Settings();
 
-		void load(const nlohmann::json& json);
-		void render();
+		void                  load(const nlohmann::json& json);
+		void                  render();
 		const nlohmann::json& save();
 
-	private:
+	  private:
 		void do_object(nlohmann::json& json);
 		void do_array(nlohmann::json& json);
 
-	private:
-		int m_counter;
+	  private:
+		int            m_counter;
 		nlohmann::json m_root;
 	};
 } // namespace sc

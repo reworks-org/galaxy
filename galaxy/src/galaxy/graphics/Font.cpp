@@ -84,8 +84,8 @@ namespace galaxy
 
 		bool Font::load(const std::string& file)
 		{
-			auto result = false;
-			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto  result = false;
+			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			const auto info = fs.find(file);
 			if (info.code == fs::FileCode::FOUND)

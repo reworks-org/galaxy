@@ -23,7 +23,7 @@ namespace galaxy
 		{
 			using AnimationCache = robin_hood::unordered_node_map<std::string, graphics::Animation>;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -127,7 +127,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -138,7 +138,7 @@ namespace galaxy
 			///
 			Animated& operator=(const Animated&) = delete;
 
-		public:
+		  public:
 			///
 			/// Animation cache.
 			///
@@ -149,7 +149,7 @@ namespace galaxy
 			///
 			double m_time_spent_on_frame;
 
-		private:
+		  private:
 			///
 			/// Currently active animation.
 			///

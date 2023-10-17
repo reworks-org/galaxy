@@ -38,7 +38,7 @@ namespace galaxy
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -167,7 +167,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -178,7 +178,7 @@ namespace galaxy
 			///
 			Sprite& operator=(const Sprite&) = delete;
 
-		private:
+		  private:
 			///
 			/// Vertex Array Object.
 			///

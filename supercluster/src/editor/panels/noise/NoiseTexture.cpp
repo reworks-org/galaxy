@@ -181,17 +181,17 @@ namespace sc
 
 			if (ImGui::Button("Run"))
 			{
-				const auto relativeScale = (float)(mExportBuildData.size.x + mExportBuildData.size.y) / (float)(mBuildData.size.x + mBuildData.size.y);
+				const auto relativeScale    = (float)(mExportBuildData.size.x + mExportBuildData.size.y) / (float)(mBuildData.size.x + mBuildData.size.y);
 				mExportBuildData.frequency /= relativeScale;
-				mExportBuildData.offset *= relativeScale;
+				mExportBuildData.offset    *= relativeScale;
 
 				auto data = BuildTexture(mExportBuildData);
 				mNoiseTexture.load_raw(data.size.x, data.size.y, GL_SRGB8_ALPHA8, GL_RGBA, GL_UNSIGNED_BYTE, data.textureData.data());
 
-				std::string nodeName = mExportBuildData.generator->GetMetadata().name;
-				nodeName += ".png";
+				std::string nodeName  = mExportBuildData.generator->GetMetadata().name;
+				nodeName             += ".png";
 
-				auto& fs        = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+				auto&      fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 				const auto path = fs.open_save_dialog(nodeName, {"*.png"});
 
 				if (!path.empty())

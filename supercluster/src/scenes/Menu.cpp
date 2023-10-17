@@ -65,7 +65,7 @@ namespace sc
 
 		ui::imgui_image(m_bg, {ImGui::GetWindowWidth(), ImGui::GetWindowHeight()});
 
-		const auto window_calc             = ImGui::GetWindowWidth() / 2.0f;
+		const auto           window_calc   = ImGui::GetWindowWidth() / 2.0f;
 		constexpr const auto button_width  = 200.0f;
 		constexpr const auto button_height = 40.0f;
 

@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Serializable
 		{
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -53,7 +53,7 @@ namespace galaxy
 			///
 			virtual void deserialize(const nlohmann::json& json) = 0;
 
-		protected:
+		  protected:
 			///
 			/// Constructor.
 			///

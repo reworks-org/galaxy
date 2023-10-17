@@ -19,16 +19,16 @@ namespace sc
 		// https://github.com/Auburn/FastNoise2/tree/master/NoiseTool
 		class NoisePanel final
 		{
-		public:
+		  public:
 			NoisePanel();
 			~NoisePanel();
 
 			void render(bool* show, UpdateStack& updates);
 
-		private:
-			int m_max_simd_level;
-			std::vector<const char*> m_level_names;
-			std::vector<FastSIMD::eLevel> m_level_enums;
+		  private:
+			int                                  m_max_simd_level;
+			std::vector<const char*>             m_level_names;
+			std::vector<FastSIMD::eLevel>        m_level_enums;
 			std::unique_ptr<FastNoiseNodeEditor> m_node_editor;
 		};
 	} // namespace panel

@@ -56,13 +56,13 @@ namespace galaxy
 					else if (width == space.m_width)
 					{
 						// If just width fits, shrink new space.
-						space.m_y += height;
+						space.m_y      += height;
 						space.m_height -= height;
 					}
 					else if (height == space.m_height)
 					{
 						// Same as width, for height.
-						space.m_x += width;
+						space.m_x     += width;
 						space.m_width -= width;
 					}
 					else
@@ -70,7 +70,7 @@ namespace galaxy
 						// Otherwise, split up existing space.
 						graphics::iRect temp = {space.m_x + width, space.m_y, space.m_width - width, height};
 
-						space.m_y += height;
+						space.m_y      += height;
 						space.m_height -= height;
 
 						m_free_rects.emplace_back(temp);

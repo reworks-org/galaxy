@@ -23,7 +23,7 @@ namespace sc
 		// currently doesnt support deleting or selecting folders, or files without extensions.
 		class AssetPanel final
 		{
-		public:
+		  public:
 			enum class FileType : int
 			{
 				AUDIO,
@@ -47,7 +47,7 @@ namespace sc
 			void tree();
 			void body();
 
-		private:
+		  private:
 			void load_lua_script();
 			void load_preview();
 			void import_files(const std::string& folder_from_config);
@@ -56,8 +56,8 @@ namespace sc
 			void directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count);
 			void update_directories(const std::filesystem::path& path);
 
-		private:
-			SelectedAsset m_selected;
+		  private:
+			SelectedAsset   m_selected;
 			ImGuiTextFilter m_filter;
 
 			ImVec2 m_size_vec;
@@ -87,7 +87,7 @@ namespace sc
 
 			graphics::Texture* m_icon;
 
-			robin_hood::unordered_map<std::string, FileType> m_ext_map;
+			robin_hood::unordered_map<std::string, FileType>       m_ext_map;
 			robin_hood::unordered_map<FileType, graphics::Texture> m_tex_map;
 
 			std::vector<std::filesystem::path> m_directories;

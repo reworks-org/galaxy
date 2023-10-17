@@ -26,7 +26,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		public:
+		  public:
 			///
 			/// Destructor.
 			///
@@ -102,7 +102,7 @@ namespace galaxy
 			///
 			void destroy();
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -133,7 +133,7 @@ namespace galaxy
 			///
 			void destroy_system_cursors();
 
-		private:
+		  private:
 			///
 			/// Custom user cursor.
 			///

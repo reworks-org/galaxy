@@ -243,9 +243,9 @@ namespace galaxy
 			}
 
 			const auto& col_json = json.at("colour");
-			const auto colour    = graphics::Colour {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
+			const auto  colour   = graphics::Colour {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
 
-			const int layer      = json.at("layer");
+			const int  layer     = json.at("layer");
 			const auto shape_opt = magic_enum::enum_cast<graphics::Shape>(json.at("shape").get<std::string>());
 			if (shape_opt.has_value())
 			{

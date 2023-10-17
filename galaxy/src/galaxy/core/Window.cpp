@@ -341,7 +341,7 @@ namespace galaxy
 
 					// Mouse button callback.
 					glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
-						auto* win      = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto*      win = static_cast<Window*>(glfwGetWindowUserPointer(window));
 						const auto pos = win->m_mouse.get_pos();
 
 						// clang-format off

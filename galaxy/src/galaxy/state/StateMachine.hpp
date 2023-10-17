@@ -31,7 +31,7 @@ namespace galaxy
 			///
 			using Stack = meta::stack<State*, meta::vector<State*>>;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -71,7 +71,7 @@ namespace galaxy
 			///
 			void update();
 
-		private:
+		  private:
 			///
 			/// State stack.
 			///

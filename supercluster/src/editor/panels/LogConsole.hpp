@@ -18,7 +18,7 @@ namespace sc
 	{
 		class LogConsole final
 		{
-		public:
+		  public:
 			LogConsole();
 			~LogConsole();
 
@@ -26,9 +26,9 @@ namespace sc
 
 			void render();
 
-		private:
+		  private:
 			EditorSink* m_sink;
-			ImVec2 m_icon_size;
+			ImVec2      m_icon_size;
 
 			bool m_show_info;
 			bool m_show_warning;

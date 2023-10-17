@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class FontLoader final
 		{
-		public:
+		  public:
 			///
 			/// \brief Builds font atlas'.
 			///

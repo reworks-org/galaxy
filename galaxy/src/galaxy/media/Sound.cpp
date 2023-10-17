@@ -38,8 +38,8 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			ma_engine* engine  = nullptr;
-			unsigned int flags = MA_SOUND_FLAG_DECODE | MA_SOUND_FLAG_NO_SPATIALIZATION;
+			ma_engine*   engine = nullptr;
+			unsigned int flags  = MA_SOUND_FLAG_DECODE | MA_SOUND_FLAG_NO_SPATIALIZATION;
 
 			switch (type)
 			{
@@ -48,13 +48,13 @@ namespace galaxy
 					break;
 
 				case SoundType::MUSIC:
-					engine = core::ServiceLocator<media::MusicEngine>::ref().get_engine();
-					flags |= MA_SOUND_FLAG_STREAM;
+					engine  = core::ServiceLocator<media::MusicEngine>::ref().get_engine();
+					flags  |= MA_SOUND_FLAG_STREAM;
 					break;
 
 				case SoundType::DIALOGUE:
-					engine = core::ServiceLocator<media::DialogueEngine>::ref().get_engine();
-					flags |= MA_SOUND_FLAG_STREAM;
+					engine  = core::ServiceLocator<media::DialogueEngine>::ref().get_engine();
+					flags  |= MA_SOUND_FLAG_STREAM;
 					break;
 			}
 

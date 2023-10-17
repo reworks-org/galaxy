@@ -25,7 +25,7 @@ namespace galaxy
 		template<meta::is_class Service>
 		class ServiceLocator final
 		{
-		public:
+		  public:
 			///
 			/// Construct a new service.
 			///
@@ -73,7 +73,7 @@ namespace galaxy
 			///
 			static void del();
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -104,7 +104,7 @@ namespace galaxy
 			///
 			ServiceLocator& operator=(ServiceLocator&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Main service pointer.
 			///

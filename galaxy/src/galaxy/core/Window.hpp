@@ -28,7 +28,7 @@ namespace galaxy
 		///
 		class Window final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -220,7 +220,7 @@ namespace galaxy
 			///
 			[[nodiscard]] GLFWwindow* handle();
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -241,7 +241,7 @@ namespace galaxy
 			///
 			Window& operator=(Window&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Custom GLFW window allocator.
 			///

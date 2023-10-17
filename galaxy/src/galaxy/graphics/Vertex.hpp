@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class Vertex final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -85,7 +85,7 @@ namespace galaxy
 			///
 			[[nodiscard]] auto operator<=>(const Vertex&) const = default;
 
-		public:
+		  public:
 			///
 			/// Position of Vertex.
 			///

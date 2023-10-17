@@ -35,7 +35,10 @@ namespace
 		return 0;
 	}
 
-	const struct luaL_Reg printlib[] = {{"print", l_my_print}, {NULL, NULL}};
+	const struct luaL_Reg printlib[] = {
+		{"print", l_my_print},
+		{   NULL,       NULL}
+    };
 } // namespace
 
 namespace sc
@@ -77,7 +80,7 @@ namespace sc
 
 							auto res = core::ServiceLocator<sol::state>::ref().script(m_buff);
 
-							const auto type = res.get_type();
+							const auto  type = res.get_type();
 							std::string out;
 							if (type == sol::type::string)
 							{
@@ -145,8 +148,8 @@ namespace sc
 
 						try
 						{
-							auto res  = core::ServiceLocator<sol::state>::ref().script(m_buff);
-							auto type = res.get_type();
+							auto        res  = core::ServiceLocator<sol::state>::ref().script(m_buff);
+							auto        type = res.get_type();
 							std::string out;
 							if (type == sol::type::string)
 							{

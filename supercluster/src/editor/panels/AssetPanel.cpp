@@ -349,8 +349,8 @@ namespace sc
 						{
 							if (!path.has_extension())
 							{
-								m_current_dir /= file;
-								m_update_directories = true;
+								m_current_dir        /= file;
+								m_update_directories  = true;
 							}
 							else
 							{
@@ -612,8 +612,8 @@ namespace sc
 			const auto list = fs.open_file_dialog_multi();
 			if (!list.empty())
 			{
-				auto& config  = core::ServiceLocator<core::Config>::ref();
-				const auto to = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
+				auto&      config = core::ServiceLocator<core::Config>::ref();
+				const auto to     = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
 
 				for (const auto& path : list)
 				{

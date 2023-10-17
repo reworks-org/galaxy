@@ -111,7 +111,7 @@ namespace sc
 		ImGui::Indent(INDENT_PIXELS);
 
 		unsigned int counter = 0;
-		std::string name;
+		std::string  name;
 		for (auto& elem : json)
 		{
 			name = std::format("[{0}]", counter);

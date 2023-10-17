@@ -21,13 +21,13 @@ namespace sc
 	{
 		class ScenePanel final
 		{
-		public:
+		  public:
 			ScenePanel()  = default;
 			~ScenePanel() = default;
 
 			void render(scene::SceneManager& sm, Selected& selected, UpdateStack& updates);
 
-		private:
+		  private:
 			std::string m_selected;
 			std::string m_selected_layer;
 

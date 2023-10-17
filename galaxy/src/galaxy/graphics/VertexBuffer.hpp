@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class VertexBuffer final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -88,7 +88,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int id() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -98,7 +98,7 @@ namespace galaxy
 			///
 			VertexBuffer& operator=(const VertexBuffer&) = delete;
 
-		private:
+		  private:
 			///
 			/// ID returned by OpenGL when generating buffer.
 			///

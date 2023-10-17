@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class Camera final : public fs::Serializable
 		{
-		public:
+		  public:
 			///
 			/// Camera data.
 			///
@@ -214,7 +214,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -235,7 +235,7 @@ namespace galaxy
 			///
 			void recalculate();
 
-		public:
+		  public:
 			///
 			/// Allow camera to rotate.
 			///
@@ -251,7 +251,7 @@ namespace galaxy
 			///
 			float m_rotation_speed;
 
-		private:
+		  private:
 			///
 			/// Camera position.
 			///

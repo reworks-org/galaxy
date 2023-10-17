@@ -19,7 +19,7 @@ namespace sc
 	{
 		class JSONEditor final
 		{
-		public:
+		  public:
 			JSONEditor();
 			~JSONEditor();
 
@@ -35,13 +35,13 @@ namespace sc
 
 			[[nodiscard]] const bool is_loaded() const;
 
-		private:
+		  private:
 			void do_object(nlohmann::json& json);
 			void do_array(nlohmann::json& json);
 			void new_object(nlohmann::json& json);
 			void add_to_array(nlohmann::json& json);
 
-		private:
+		  private:
 			int             m_counter;
 			bool            m_loaded;
 			nlohmann::json  m_root;

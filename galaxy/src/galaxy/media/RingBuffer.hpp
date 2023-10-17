@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		class RingBuffer
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -80,7 +80,7 @@ namespace galaxy
 			///
 			float get_volume() const;
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -106,7 +106,7 @@ namespace galaxy
 			///
 			RingBuffer& operator=(RingBuffer&&) = delete;
 
-		private:
+		  private:
 			///
 			/// Data buffer.
 			///

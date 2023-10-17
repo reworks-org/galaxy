@@ -28,7 +28,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		public:
+		  public:
 			///
 			/// \brief See if a key is being held down.
 			///
@@ -56,7 +56,7 @@ namespace galaxy
 			///
 			[[nodiscard]] static const glm::dvec2& get_cursor_pos();
 
-		private:
+		  private:
 			///
 			/// Constructor.
 			///
@@ -82,7 +82,7 @@ namespace galaxy
 			///
 			Input& operator=(const Input&) = delete;
 
-		private:
+		  private:
 			///
 			/// Static cursor pos cache.
 			///

@@ -26,7 +26,7 @@ namespace galaxy
 		{
 			static_assert((gl_buffer_type == GL_UNIFORM_BUFFER) || (gl_buffer_type == GL_SHADER_STORAGE_BUFFER));
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -110,7 +110,7 @@ namespace galaxy
 			///
 			[[nodiscard]] unsigned int id() const;
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -121,7 +121,7 @@ namespace galaxy
 			///
 			Buffer& operator=(const Buffer&) = delete;
 
-		private:
+		  private:
 			///
 			/// OpenGL buffer id.
 			///

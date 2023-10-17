@@ -27,20 +27,20 @@ namespace sc
 	{
 		class EntityEditor final
 		{
-		public:
+		  public:
 			EntityEditor()  = default;
 			~EntityEditor() = default;
 
 			void render(Selected& selected, UpdateStack& updates);
 
-		private:
+		  private:
 			template<meta::valid_component Component>
 			void draw_entry(Selected& selected, const std::string& name);
 
 			template<meta::valid_component Component, typename Func>
 			void draw_component(Selected& selected, const std::string& name, Func&& func);
 
-		private:
+		  private:
 			ImGuiTextFilter m_filter_shaders;
 			ImGuiTextFilter m_filter_textures;
 			ImGuiTextFilter m_filter_fonts;
@@ -76,8 +76,8 @@ namespace sc
 		template<meta::valid_component Component, typename Func>
 		inline void EntityEditor::draw_component(Selected& selected, const std::string& name, Func&& func)
 		{
-			const constexpr auto spacing             = ImVec2 {4, 4};
-			const constexpr ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
+			const constexpr auto               spacing = ImVec2 {4, 4};
+			const constexpr ImGuiTreeNodeFlags flags   = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
 													   ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
 			auto component = selected.m_world->m_registry.try_get<Component>(selected.m_selected);

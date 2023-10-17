@@ -60,7 +60,7 @@ namespace galaxy
 			//
 			// LOGGING.
 			//
-			const auto now             = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
+			const auto        now      = std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 			const std::string log_path = std::format("{0}{1}{2}", log_dir, std::format("{0:%d-%m-%Y-[%H-%M]}", now), ".log");
 			if (!std::filesystem::exists(log_dir))
 			{
@@ -351,9 +351,9 @@ namespace galaxy
 
 				while (window.is_open())
 				{
-					current  = std::chrono::high_resolution_clock::now();
-					elapsed  = current - previous;
-					previous = current;
+					current      = std::chrono::high_resolution_clock::now();
+					elapsed      = current - previous;
+					previous     = current;
 					accumulator += elapsed;
 
 					auto& scene = manager.current();
