@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('d6/dd7/StateMachine_8hpp_source.html',
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a">   32</a></span>            <span class="keyword">using </span><a class="code hl_typedef" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a">Stack</a> = <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#aa26abbeaeafa4180322490b3abbf0937">meta::stack&lt;State*, meta::vector&lt;State*&gt;</a>&gt;;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>          <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_function" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#abd7ced0266acb828a126f5a5be4acbfd">StateMachine</a>();</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_function" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a12338104eb306110f1e96eceaee9e739">~StateMachine</a>();</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('d6/dd7/StateMachine_8hpp_source.html',
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a81f95bc20e520f790047a684370b64e8">update</a>();</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a79cbceedc9c9c4a1d2db45e7be515fa1">   78</a></span>            <a class="code hl_typedef" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a">Stack</a> <a class="code hl_variable" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a79cbceedc9c9c4a1d2db45e7be515fa1">m_stack</a>;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a9d73fe3aeba1f2ee8505cdd8fafcf742">   83</a></span>            robin_hood::unordered_node_map&lt;std::string, std::unique_ptr&lt;State&gt;&gt; <a class="code hl_variable" href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a9d73fe3aeba1f2ee8505cdd8fafcf742">m_states</a>;</div>
@@ -165,14 +165,14 @@ $(document).ready(function(){initNavTree('d6/dd7/StateMachine_8hpp_source.html',
 <div class="ttc" id="aclassgalaxy_1_1state_1_1StateMachine_html_abd7ced0266acb828a126f5a5be4acbfd"><div class="ttname"><a href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#abd7ced0266acb828a126f5a5be4acbfd">galaxy::state::StateMachine::StateMachine</a></div><div class="ttdeci">StateMachine()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d82/StateMachine_8cpp_source.html#l00014">StateMachine.cpp:14</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1state_1_1StateMachine_html_ad591f0fc406d41b42e1ceb417df2dfc3"><div class="ttname"><a href="../../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3">galaxy::state::StateMachine::add</a></div><div class="ttdeci">void add(const std::string &amp;key, Args &amp;&amp;... args)</div><div class="ttdoc">Add a new state.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dd7/StateMachine_8hpp_source.html#l00087">StateMachine.hpp:87</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1meta_html_aa26abbeaeafa4180322490b3abbf0937"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#aa26abbeaeafa4180322490b3abbf0937">galaxy::meta::stack</a></div><div class="ttdeci">std::stack&lt; T, Container &gt; stack</div><div class="ttdoc">std::stack with faster allocation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/Memory_8hpp_source.html#l00170">Memory.hpp:170</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5cae2843f292a8a8e0a6fefd53a22a5e.html">state</a></li><li class="navelem"><a class="el" href="../../d6/dd7/StateMachine_8hpp.html">StateMachine.hpp</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 13:57:17 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 17 2023 10:12:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

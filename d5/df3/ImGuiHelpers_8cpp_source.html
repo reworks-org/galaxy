@@ -120,237 +120,252 @@ $(document).ready(function(){initNavTree('d5/df3/ImGuiHelpers_8cpp_source.html',
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#pragma warning(disable : 4312)</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">   27</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> ImVec2 <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a> = {0.5f, 0.5f};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">   27</a></span><span class="keyword">constexpr</span> <span class="keyword">const</span> ImVec2                            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a> = {0.5f, 0.5f};</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">   28</a></span>robin_hood::unordered_flat_map&lt;const char*, bool&gt; <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html">   32</a></span>    <span class="keyword">namespace </span>ui</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404">   32</a></span>    <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404">ImGuiMemAllocFunc</a>(<span class="keywordtype">size_t</span> sz, <span class="keywordtype">void</span>* user_data)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">   34</a></span>        ImGuiIO&amp; <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">imgui_init_context</a>()</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>.clear();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">// clang-format off</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            IMGUI_CHECKVERSION();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            ImGui::CreateContext();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            ImGuiIO&amp; io = ImGui::GetIO(); (void)io;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="comment">// clang-format on</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            io.ConfigInputTextCursorBlink = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            io.ConfigDockingWithShift     = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            io.ConfigDockingAlwaysTabBar  = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            io.MouseDrawCursor            = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="comment">// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            ImGuiStyle&amp; style = ImGui::GetStyle();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">if</span> (io.ConfigFlags &amp; ImGuiConfigFlags_ViewportsEnable)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                style.WindowRounding              = 0.0f;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                style.Colors[ImGuiCol_WindowBg].w = 1.0f;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keyword">auto</span>&amp; window = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Window&gt;::ref</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            ImGui_ImplGlfw_InitForOpenGL(window.handle(), <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            ImGui_ImplOpenGL3_Init(<span class="stringliteral">&quot;#version 460 core&quot;</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            ImGui::SetColorEditOptions(ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB |</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                       ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">return</span> io;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> mi_malloc(sz);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">   72</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">imgui_new_frame</a>()</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            ImGui_ImplOpenGL3_NewFrame();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            ImGui_ImplGlfw_NewFrame();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            ImGui::NewFrame();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">const</span> ImGuiViewport* imgui_viewport = ImGui::GetMainViewport();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            ImGui::SetNextWindowPos(imgui_viewport-&gt;WorkPos);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            ImGui::SetNextWindowSize(imgui_viewport-&gt;WorkSize);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            ImGui::SetNextWindowViewport(imgui_viewport-&gt;ID);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281">ImGuiMemFreeFunc</a>(<span class="keywordtype">void</span>* ptr, <span class="keywordtype">void</span>* user_data)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        mi_free(ptr);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">   84</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">imgui_render</a>()</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            ImGui::Render();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html">   42</a></span>    <span class="keyword">namespace </span>ui</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">   44</a></span>        ImGuiIO&amp; <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">imgui_init_context</a>()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>.clear();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="comment">// clang-format off</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            IMGUI_CHECKVERSION();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            ImGui::SetAllocatorFunctions(<a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404">ImGuiMemAllocFunc</a>, <a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281">ImGuiMemFreeFunc</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            ImGui::CreateContext();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            ImGuiIO&amp; io = ImGui::GetIO(); (void)io;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="comment">// clang-format on</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            io.ConfigInputTextCursorBlink = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            io.ConfigDockingWithShift     = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            io.ConfigDockingAlwaysTabBar  = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            io.MouseDrawCursor            = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="comment">// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            ImGuiStyle&amp; style = ImGui::GetStyle();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (io.ConfigFlags &amp; ImGuiConfigFlags_ViewportsEnable)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                style.WindowRounding              = 0.0f;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                style.Colors[ImGuiCol_WindowBg].w = 1.0f;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keyword">auto</span>&amp; window = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;core::Window&gt;::ref</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            ImGui_ImplGlfw_InitForOpenGL(window.handle(), <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            ImGui_ImplOpenGL3_Init(<span class="stringliteral">&quot;#version 460 core&quot;</span>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            ImGui::SetColorEditOptions(ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB |</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                                       ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">return</span> io;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">   83</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">imgui_new_frame</a>()</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            ImGui_ImplOpenGL3_NewFrame();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            ImGui_ImplGlfw_NewFrame();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            ImGui::NewFrame();</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="comment">// Update and Render additional Platform Windows</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="comment">// (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="comment">// For this specific demo app we could also call glfwMakeContextCurrent(window) directly)</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; io = ImGui::GetIO();</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">if</span> (io.ConfigFlags &amp; ImGuiConfigFlags_ViewportsEnable)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                GLFWwindow* backup_current_context = glfwGetCurrentContext();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                ImGui::UpdatePlatformWindows();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                ImGui::RenderPlatformWindowsDefault();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                glfwMakeContextCurrent(backup_current_context);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">const</span> ImGuiViewport* imgui_viewport = ImGui::GetMainViewport();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            ImGui::SetNextWindowPos(imgui_viewport-&gt;WorkPos);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            ImGui::SetNextWindowSize(imgui_viewport-&gt;WorkSize);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            ImGui::SetNextWindowViewport(imgui_viewport-&gt;ID);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">  102</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">imgui_destroy_context</a>()</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>.clear();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            ImGui_ImplOpenGL3_Shutdown();</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            ImGui_ImplGlfw_Shutdown();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            ImGui::DestroyContext();</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">   95</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">imgui_render</a>()</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            ImGui::Render();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="comment">// Update and Render additional Platform Windows</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="comment">// For this specific demo app we could also call glfwMakeContextCurrent(window) directly)</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; io = ImGui::GetIO();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">if</span> (io.ConfigFlags &amp; ImGuiConfigFlags_ViewportsEnable)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                GLFWwindow* backup_current_context = glfwGetCurrentContext();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                ImGui::UpdatePlatformWindows();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                ImGui::RenderPlatformWindowsDefault();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                glfwMakeContextCurrent(backup_current_context);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">  111</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">imgui_open_confirm</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* popup)</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup] = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">  113</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">imgui_destroy_context</a>()</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>.clear();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            ImGui_ImplOpenGL3_Shutdown();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            ImGui_ImplGlfw_Shutdown();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            ImGui::DestroyContext();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
 </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">  116</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">imgui_confirm</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* popup, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; yes, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; no)</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup])</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                ImGui::OpenPopup(popup);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a>();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup] = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">if</span> (ImGui::BeginPopup(popup))</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                ImGui::Text(<span class="stringliteral">&quot;Are you sure you want to?&quot;</span>);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                ImGui::Separator();</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                ImGui::Spacing();</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Yes&quot;</span>))</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                    <span class="keywordflow">if</span> (yes)</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    {</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                        yes();</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                    ImGui::CloseCurrentPopup();</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                ImGui::SameLine();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;No&quot;</span>))</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    <span class="keywordflow">if</span> (no)</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                        no();</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    }</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    ImGui::CloseCurrentPopup();</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                ImGui::EndPopup();</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            }</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">  122</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">imgui_open_confirm</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* popup)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup] = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        }</div>
 </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">  159</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a>()</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        {</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keyword">const</span> <span class="keyword">auto</span> center = ImGui::GetMainViewport()-&gt;GetCenter();</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a>);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="foldopen" id="foldopen00127" data-start="{" data-end="}">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">  127</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">imgui_confirm</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* popup, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; yes, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; no)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup])</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                ImGui::OpenPopup(popup);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a>[popup] = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">if</span> (ImGui::BeginPopup(popup))</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                ImGui::Text(<span class="stringliteral">&quot;Are you sure you want to?&quot;</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                ImGui::Separator();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                ImGui::Spacing();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Yes&quot;</span>))</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    <span class="keywordflow">if</span> (yes)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                        yes();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                    ImGui::CloseCurrentPopup();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                ImGui::SameLine();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;No&quot;</span>))</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                    <span class="keywordflow">if</span> (no)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                    {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                        no();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                    ImGui::CloseCurrentPopup();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                ImGui::EndPopup();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
 </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">  165</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">imgui_shortcut</a>(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">if</span> (ImGui::GetIO().KeyMods != mods)</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!ImGui::IsWindowFocused(flags))</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            }</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                <span class="keywordflow">return</span> ImGui::IsKeyPressed(key, <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">  170</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a>()</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keyword">const</span> <span class="keyword">auto</span> center = ImGui::GetMainViewport()-&gt;GetCenter();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, <a class="code hl_variable" href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        }</div>
 </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">  181</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">imgui_imagebutton</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size, <span class="keyword">const</span> ImVec4&amp; bg_col, <span class="keyword">const</span> ImVec4&amp; tint_col)</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span>     = std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>()) + std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0">get_width</a>()) + std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504">get_height</a>());</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>());</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">return</span> ImGui::ImageButton(<span class="keywordtype">id</span>.c_str(), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0}, bg_col, tint_col);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="foldopen" id="foldopen00176" data-start="{" data-end="}">
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">  176</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">imgui_shortcut</a>(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">if</span> (ImGui::GetIO().KeyMods != mods)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!ImGui::IsWindowFocused(flags))</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="keywordflow">return</span> ImGui::IsKeyPressed(key, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
 </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">  189</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">imgui_image</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size)</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>());</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            ImGui::Image(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0});</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="foldopen" id="foldopen00192" data-start="{" data-end="}">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">  192</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">imgui_imagebutton</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size, <span class="keyword">const</span> ImVec4&amp; bg_col, <span class="keyword">const</span> ImVec4&amp; tint_col)</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span>     = std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>()) + std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0">get_width</a>()) + std::to_string(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504">get_height</a>());</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>());</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keywordflow">return</span> ImGui::ImageButton(<span class="keywordtype">id</span>.c_str(), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0}, bg_col, tint_col);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        }</div>
 </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e">  195</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">imgui_image</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">graphics::RenderTexture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size)</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716">get_texture</a>());</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            ImGui::Image(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0});</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
-</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">  201</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">imgui_notify_success</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, msg});</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">  200</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">imgui_image</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size)</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">handle</a>());</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            ImGui::Image(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0});</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        }</div>
 </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
 <div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">  206</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">imgui_notify_info</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e">  206</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">imgui_image</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">graphics::RenderTexture</a>&amp; texture, <span class="keyword">const</span> ImVec2&amp; size)</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        {</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, msg});</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="keyword">const</span> <span class="keyword">auto</span> upcast = <span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(texture.<a class="code hl_function" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716">get_texture</a>());</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            ImGui::Image(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(upcast), size, {0, 1}, {1, 0});</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        }</div>
 </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">  211</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">imgui_notify_warning</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, msg});</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">  212</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">imgui_notify_success</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, msg});</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        }</div>
 </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">  216</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">imgui_notify_error</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        {</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">  217</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">imgui_notify_info</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, msg});</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        }</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    } <span class="comment">// namespace ui</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">  222</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">imgui_notify_warning</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, msg});</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
 </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">#pragma warning(pop)</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">  227</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">imgui_notify_error</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    } <span class="comment">// namespace ui</span></div>
+</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aImGuiHelpers_8cpp_html_a02747bb4ca6fae1dc36ef25510ab47d2"><div class="ttname"><a href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; const char *, bool &gt; popup_state</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00028">ImGuiHelpers.cpp:28</a></div></div>
 <div class="ttc" id="aImGuiHelpers_8cpp_html_a6ee2246266ec1eb217b9ea69c06dfc5f"><div class="ttname"><a href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a></div><div class="ttdeci">constexpr const ImVec2 mid</div><div class="ttdoc">ImGuiHelpers.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00027">ImGuiHelpers.cpp:27</a></div></div>
 <div class="ttc" id="aImGuiHelpers_8hpp_html"><div class="ttname"><a href="../../d7/d23/ImGuiHelpers_8hpp.html">ImGuiHelpers.hpp</a></div></div>
@@ -366,28 +381,30 @@ $(document).ready(function(){initNavTree('d5/df3/ImGuiHelpers_8cpp_source.html',
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a343b28be25ae6f1cad2c21e53d29b504"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504">galaxy::graphics::Texture::get_height</a></div><div class="ttdeci">int get_height() const</div><div class="ttdoc">Get texture height.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00275">Texture.cpp:275</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a920dc24fc1ca66e27e11956fb1e4723a"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">galaxy::graphics::Texture::handle</a></div><div class="ttdeci">unsigned int handle() const</div><div class="ttdoc">Gets internal OpenGL id.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00298">Texture.cpp:298</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a9af7981fb30bb5d6b8fdca1a8e8166b0"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0">galaxy::graphics::Texture::get_width</a></div><div class="ttdeci">int get_width() const</div><div class="ttdoc">Get texture width.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00270">Texture.cpp:270</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a07ea7645484387d4e690f8efc3a9b8e4"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">galaxy::ui::imgui_notify_error</a></div><div class="ttdeci">void imgui_notify_error(const char *msg)</div><div class="ttdoc">ImGui error notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00216">ImGuiHelpers.cpp:216</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a3378247f83641a1709f12f96715d25b6"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">galaxy::ui::imgui_confirm</a></div><div class="ttdeci">void imgui_confirm(const char *popup, const std::function&lt; void(void)&gt; &amp;yes, const std::function&lt; void(void)&gt; &amp;no)</div><div class="ttdoc">Render the confirmation popup.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00116">ImGuiHelpers.cpp:116</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a67865b34fe34c0f136768dc267b0e151"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">galaxy::ui::imgui_imagebutton</a></div><div class="ttdeci">bool imgui_imagebutton(const graphics::Texture &amp;texture, const ImVec2 &amp;size, const ImVec4 &amp;bg_col, const ImVec4 &amp;tint_col)</div><div class="ttdoc">Render an imgui image button with a galaxy texture.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00181">ImGuiHelpers.cpp:181</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a6c64426a2357bdcdd6991be9483dc7e1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">galaxy::ui::imgui_new_frame</a></div><div class="ttdeci">void imgui_new_frame()</div><div class="ttdoc">New imgui frame with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00072">ImGuiHelpers.cpp:72</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a7ff5e05d5cf8281ac3a5fd5805dec67e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">galaxy::ui::imgui_center_next_window</a></div><div class="ttdeci">void imgui_center_next_window()</div><div class="ttdoc">Make sure the next window opened is centered on the monitor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00159">ImGuiHelpers.cpp:159</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a82c355b60d2b89ed9254b74aa8e9f6a7"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">galaxy::ui::imgui_image</a></div><div class="ttdeci">void imgui_image(const graphics::Texture &amp;texture, const ImVec2 &amp;size)</div><div class="ttdoc">Display a galaxy image with imgui.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00189">ImGuiHelpers.cpp:189</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a92cad3546d4d2918bafa7c79f78c1ba1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">galaxy::ui::imgui_notify_success</a></div><div class="ttdeci">void imgui_notify_success(const char *msg)</div><div class="ttdoc">ImGui success notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00201">ImGuiHelpers.cpp:201</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_a9b448428ad6a24f04383d3d99a76fb94"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">galaxy::ui::imgui_destroy_context</a></div><div class="ttdeci">void imgui_destroy_context()</div><div class="ttdoc">Cleanup imgui resources used by galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00102">ImGuiHelpers.cpp:102</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_ac10ec2a6e29137fea44d75a88eb6f291"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">galaxy::ui::imgui_shortcut</a></div><div class="ttdeci">bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)</div><div class="ttdoc">Trigger imgui actions from keyboard shortcut.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00165">ImGuiHelpers.cpp:165</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_ac72dd21f0dc545815c93acaca2ed87db"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">galaxy::ui::imgui_init_context</a></div><div class="ttdeci">ImGuiIO &amp; imgui_init_context()</div><div class="ttdoc">Initialize ImGui context with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00034">ImGuiHelpers.cpp:34</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_acf7a7bef0f311ebe615256f621cb6af8"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">galaxy::ui::imgui_notify_info</a></div><div class="ttdeci">void imgui_notify_info(const char *msg)</div><div class="ttdoc">ImGui info notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00206">ImGuiHelpers.cpp:206</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_ad82f878bb9a1f2a1f293db478ae17eff"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">galaxy::ui::imgui_notify_warning</a></div><div class="ttdeci">void imgui_notify_warning(const char *msg)</div><div class="ttdoc">ImGui warning notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00211">ImGuiHelpers.cpp:211</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_adb971134dd0fbb688645b10be3b9e28e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">galaxy::ui::imgui_open_confirm</a></div><div class="ttdeci">void imgui_open_confirm(const char *popup)</div><div class="ttdoc">Open a confirmation popup.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00111">ImGuiHelpers.cpp:111</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1ui_html_aea83b3f2064bf87b9038ae036d782f65"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">galaxy::ui::imgui_render</a></div><div class="ttdeci">void imgui_render()</div><div class="ttdoc">Render imgui with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00084">ImGuiHelpers.cpp:84</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a07ea7645484387d4e690f8efc3a9b8e4"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">galaxy::ui::imgui_notify_error</a></div><div class="ttdeci">void imgui_notify_error(const char *msg)</div><div class="ttdoc">ImGui error notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00227">ImGuiHelpers.cpp:227</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a3378247f83641a1709f12f96715d25b6"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">galaxy::ui::imgui_confirm</a></div><div class="ttdeci">void imgui_confirm(const char *popup, const std::function&lt; void(void)&gt; &amp;yes, const std::function&lt; void(void)&gt; &amp;no)</div><div class="ttdoc">Render the confirmation popup.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00127">ImGuiHelpers.cpp:127</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a67865b34fe34c0f136768dc267b0e151"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">galaxy::ui::imgui_imagebutton</a></div><div class="ttdeci">bool imgui_imagebutton(const graphics::Texture &amp;texture, const ImVec2 &amp;size, const ImVec4 &amp;bg_col, const ImVec4 &amp;tint_col)</div><div class="ttdoc">Render an imgui image button with a galaxy texture.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00192">ImGuiHelpers.cpp:192</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a6c64426a2357bdcdd6991be9483dc7e1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">galaxy::ui::imgui_new_frame</a></div><div class="ttdeci">void imgui_new_frame()</div><div class="ttdoc">New imgui frame with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00083">ImGuiHelpers.cpp:83</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a7ff5e05d5cf8281ac3a5fd5805dec67e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">galaxy::ui::imgui_center_next_window</a></div><div class="ttdeci">void imgui_center_next_window()</div><div class="ttdoc">Make sure the next window opened is centered on the monitor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00170">ImGuiHelpers.cpp:170</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a82c355b60d2b89ed9254b74aa8e9f6a7"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">galaxy::ui::imgui_image</a></div><div class="ttdeci">void imgui_image(const graphics::Texture &amp;texture, const ImVec2 &amp;size)</div><div class="ttdoc">Display a galaxy image with imgui.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00200">ImGuiHelpers.cpp:200</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a92cad3546d4d2918bafa7c79f78c1ba1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">galaxy::ui::imgui_notify_success</a></div><div class="ttdeci">void imgui_notify_success(const char *msg)</div><div class="ttdoc">ImGui success notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00212">ImGuiHelpers.cpp:212</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a9b448428ad6a24f04383d3d99a76fb94"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">galaxy::ui::imgui_destroy_context</a></div><div class="ttdeci">void imgui_destroy_context()</div><div class="ttdoc">Cleanup imgui resources used by galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00113">ImGuiHelpers.cpp:113</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_ac10ec2a6e29137fea44d75a88eb6f291"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">galaxy::ui::imgui_shortcut</a></div><div class="ttdeci">bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)</div><div class="ttdoc">Trigger imgui actions from keyboard shortcut.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00176">ImGuiHelpers.cpp:176</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_ac72dd21f0dc545815c93acaca2ed87db"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">galaxy::ui::imgui_init_context</a></div><div class="ttdeci">ImGuiIO &amp; imgui_init_context()</div><div class="ttdoc">Initialize ImGui context with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00044">ImGuiHelpers.cpp:44</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_acf7a7bef0f311ebe615256f621cb6af8"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">galaxy::ui::imgui_notify_info</a></div><div class="ttdeci">void imgui_notify_info(const char *msg)</div><div class="ttdoc">ImGui info notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00217">ImGuiHelpers.cpp:217</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_ad82f878bb9a1f2a1f293db478ae17eff"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff">galaxy::ui::imgui_notify_warning</a></div><div class="ttdeci">void imgui_notify_warning(const char *msg)</div><div class="ttdoc">ImGui warning notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00222">ImGuiHelpers.cpp:222</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_adb971134dd0fbb688645b10be3b9e28e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e">galaxy::ui::imgui_open_confirm</a></div><div class="ttdeci">void imgui_open_confirm(const char *popup)</div><div class="ttdoc">Open a confirmation popup.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00122">ImGuiHelpers.cpp:122</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_aea83b3f2064bf87b9038ae036d782f65"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65">galaxy::ui::imgui_render</a></div><div class="ttdeci">void imgui_render()</div><div class="ttdoc">Render imgui with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00095">ImGuiHelpers.cpp:95</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html_a0ba085ee345772400c32c7217d2bc404"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404">galaxy::ImGuiMemAllocFunc</a></div><div class="ttdeci">void * ImGuiMemAllocFunc(size_t sz, void *user_data)</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00032">ImGuiHelpers.cpp:32</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html_add0e8b4f2e8e872b3b7702430b1a1281"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281">galaxy::ImGuiMemFreeFunc</a></div><div class="ttdeci">void ImGuiMemFreeFunc(void *ptr, void *user_data)</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00037">ImGuiHelpers.cpp:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_330652aa214d4f712fc3581a9ff507d7.html">ui</a></li><li class="navelem"><a class="el" href="../../d5/df3/ImGuiHelpers_8cpp.html">ImGuiHelpers.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 13:57:17 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 17 2023 10:12:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

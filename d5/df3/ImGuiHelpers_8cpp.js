@@ -1,5 +1,7 @@
 var ImGuiHelpers_8cpp =
 [
+    [ "ImGuiMemAllocFunc", "d5/df3/ImGuiHelpers_8cpp.html#a0ba085ee345772400c32c7217d2bc404", null ],
+    [ "ImGuiMemFreeFunc", "d5/df3/ImGuiHelpers_8cpp.html#add0e8b4f2e8e872b3b7702430b1a1281", null ],
     [ "imgui_init_context", "d5/df3/ImGuiHelpers_8cpp.html#ac72dd21f0dc545815c93acaca2ed87db", null ],
     [ "imgui_new_frame", "d5/df3/ImGuiHelpers_8cpp.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
     [ "imgui_render", "d5/df3/ImGuiHelpers_8cpp.html#aea83b3f2064bf87b9038ae036d782f65", null ],

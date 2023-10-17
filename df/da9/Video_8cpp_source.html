@@ -125,8 +125,8 @@ $(document).ready(function(){initNavTree('df/da9/Video_8cpp_source.html','../../
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">const</span> <span class="keywordtype">int</span> frames_needed = frameCount * 2;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordflow">if</span> (buffer-&gt;available_bytes() &gt;= frames_needed)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                <span class="keyword">const</span> <span class="keywordtype">float</span>* read = buffer-&gt;<a class="code hl_function" href="../../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a02d4321137e9d59e26b7807f3c66a675">direct_read_pointer</a>(frames_needed);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                <span class="keyword">auto</span> output       = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span>*<span class="keyword">&gt;</span>(pOutput);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                <span class="keyword">const</span> <span class="keywordtype">float</span>* read   = buffer-&gt;<a class="code hl_function" href="../../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a02d4321137e9d59e26b7807f3c66a675">direct_read_pointer</a>(frames_needed);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                <span class="keyword">auto</span>         output = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span>*<span class="keyword">&gt;</span>(pOutput);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; frames_needed; i++)</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                {</div>
@@ -434,14 +434,14 @@ $(document).ready(function(){initNavTree('df/da9/Video_8cpp_source.html','../../
 <div class="ttc" id="aclassgalaxy_1_1media_1_1Video_html_aff3109931eb3ad2021a3b286b32c82f2"><div class="ttname"><a href="../../de/d0b/classgalaxy_1_1media_1_1Video.html#aff3109931eb3ad2021a3b286b32c82f2">galaxy::media::Video::get_samplerate</a></div><div class="ttdeci">int get_samplerate() const</div><div class="ttdoc">Get video sample rate.</div><div class="ttdef"><b>Definition</b> <a href="../../df/da9/Video_8cpp_source.html#l00225">Video.cpp:225</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1fs_html_a57278a58a8457b4345127d2a627f9d1fa3e918e9c9f594bda6b0cf358391c3b1a"><div class="ttname"><a href="../../d6/d19/namespacegalaxy_1_1fs.html#a57278a58a8457b4345127d2a627f9d1fa3e918e9c9f594bda6b0cf358391c3b1a">galaxy::fs::FileCode::FOUND</a></div><div class="ttdeci">@ FOUND</div><div class="ttdoc">File was found in VFS.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1media_html_aba037f6e68f9b871d7d0856bebe71192"><div class="ttname"><a href="../../dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192">galaxy::media::data_callback</a></div><div class="ttdeci">void data_callback(ma_device *pDevice, void *pOutput, const void *pInput, ma_uint32 frameCount)</div><div class="ttdef"><b>Definition</b> <a href="../../df/da9/Video_8cpp_source.html#l00024">Video.cpp:24</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_d3c4af17bd947ce0a543d597ca1cfb63.html">media</a></li><li class="navelem"><a class="el" href="../../df/da9/Video_8cpp.html">Video.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 13:57:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 17 2023 10:12:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

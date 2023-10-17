@@ -145,8 +145,8 @@ $(document).ready(function(){initNavTree('d6/daa/Language_8cpp_source.html','../
 <div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a1c87289772f5fc47445aedc1f8743f6d">   43</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a1c87289772f5fc47445aedc1f8743f6d">Language::load</a>(sol::state&amp; lua, <span class="keyword">const</span> std::string&amp; file)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keyword">auto</span>&amp; fs  = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">auto</span> info = fs.find(file);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keyword">auto</span>&amp; fs   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">auto</span>  info = fs.find(file);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">if</span> (info.code == <a class="code hl_enumvalue" href="../../d6/d19/namespacegalaxy_1_1fs.html#a57278a58a8457b4345127d2a627f9d1fa3e918e9c9f594bda6b0cf358391c3b1a">fs::FileCode::FOUND</a>)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            {</div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('d6/daa/Language_8cpp_source.html','../
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                lua.script_file(info.string);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                std::string region = lua[<span class="stringliteral">&quot;region&quot;</span>];</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                sol::table data    = lua[<span class="stringliteral">&quot;data&quot;</span>];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                sol::table  data   = lua[<span class="stringliteral">&quot;data&quot;</span>];</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a6fc01ba7e1271f72be5b66d1eb5eac9c">m_languages</a>.contains(region))</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                {</div>
@@ -246,14 +246,14 @@ $(document).ready(function(){initNavTree('d6/daa/Language_8cpp_source.html','../
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Language_html_abda0ce3dce2f2436f911e3aa85e2e05f"><div class="ttname"><a href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#abda0ce3dce2f2436f911e3aa85e2e05f">galaxy::resource::Language::operator[]</a></div><div class="ttdeci">const std::string &amp; operator[](const std::string &amp;key)</div><div class="ttdoc">Overloaded operator[] to translate a key into the active language's text.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/daa/Language_8cpp_source.html#l00098">Language.cpp:98</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1Language_html_acf5482efb7fdecf05f7bccf74f9fc94d"><div class="ttname"><a href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d">galaxy::resource::Language::~Language</a></div><div class="ttdeci">~Language()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/daa/Language_8cpp_source.html#l00023">Language.cpp:23</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1fs_html_a57278a58a8457b4345127d2a627f9d1fa3e918e9c9f594bda6b0cf358391c3b1a"><div class="ttname"><a href="../../d6/d19/namespacegalaxy_1_1fs.html#a57278a58a8457b4345127d2a627f9d1fa3e918e9c9f594bda6b0cf358391c3b1a">galaxy::fs::FileCode::FOUND</a></div><div class="ttdeci">@ FOUND</div><div class="ttdoc">File was found in VFS.</div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00046">Base64.cpp:47</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../d6/daa/Language_8cpp.html">Language.cpp</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 13:57:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 17 2023 10:12:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

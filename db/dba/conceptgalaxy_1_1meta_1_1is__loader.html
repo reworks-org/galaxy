@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('db/dba/conceptgalaxy_1_1meta_1_1is__lo
 <p><code>#include &lt;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Loader, <span class="keyword">typename</span> Resource, <span class="keywordtype">bool</span> needs_gl&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a> =  <span class="keyword">requires</span>(Loader loader) {</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a> =  <span class="keyword">requires</span> (Loader loader) {</div>
 <div class="line">            loader.operator();</div>
 <div class="line">            <span class="keyword">requires</span> !needs_gl || (needs_gl &amp;&amp; <a class="code hl_concept" href="../../d5/dfa/conceptgalaxy_1_1meta_1_1loader__build__check.html">loader_build_check&lt;Loader, Resource&gt;</a>);</div>
 <div class="line">        }</div>
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('db/dba/conceptgalaxy_1_1meta_1_1is__lo
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li><li class="navelem"><a class="el" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">is_loader</a></li>
-    <li class="footer">Generated on Mon Oct 16 2023 13:57:17 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 17 2023 10:12:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
