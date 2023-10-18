@@ -96,7 +96,7 @@ namespace galaxy
 			///
 			/// Only update the rendersystem.
 			///
-			void update_rendersystem();
+			void only_update_rendering();
 
 			///
 			/// Clears all system, component registry, and entity data.
@@ -202,6 +202,11 @@ namespace galaxy
 			/// Pointer to scene this world belongs to.
 			///
 			scene::Scene* m_scene;
+
+			///
+			/// Rendersystem index.
+			///
+			std::size_t m_rendersystem_index;
 		};
 
 		template<meta::is_system System, typename... Args>
@@ -209,6 +214,11 @@ namespace galaxy
 		{
 			auto ptr = std::make_shared<System>(std::forward<Args>(args)...);
 			m_systems.push_back(std::static_pointer_cast<systems::System>(ptr));
+
+			if constexpr (std::is_same<System, systems::RenderSystem>::value)
+			{
+				m_rendersystem_index = m_systems.size() - 1;
+			}
 
 			return ptr;
 		}

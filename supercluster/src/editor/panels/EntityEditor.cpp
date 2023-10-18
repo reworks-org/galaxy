@@ -12,7 +12,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
-#include <galaxy/components/Flag.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
@@ -20,8 +19,8 @@
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
 #include <galaxy/components/UIScript.hpp>
-#include <galaxy/flags/AllowSerialize.hpp>
-#include <galaxy/flags/Enabled.hpp>
+#include <galaxy/flags/DenySerialization.hpp>
+#include <galaxy/flags/Disabled.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Fonts.hpp>
 #include <galaxy/resource/Shaders.hpp>
@@ -76,6 +75,51 @@ namespace sc
 						ImGui::InputText("##Tag", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
 					}
 
+					if (ImGui::Button("Set Flags"))
+					{
+						ImGui::OpenPopup("EntityFlagsPopup");
+					}
+
+					if (ImGui::BeginPopup("EntityFlagsPopup"))
+					{
+						auto disabled = selected.m_world->m_registry.all_of<flags::Disabled>(selected.m_selected);
+						if (ImGui::Checkbox("Disabled", &disabled))
+						{
+							if (disabled)
+							{
+								selected.m_world->m_registry.emplace_or_replace<flags::Disabled>(selected.m_selected);
+							}
+							else
+							{
+								if (selected.m_world->is_valid(selected.m_selected))
+								{
+									selected.m_world->m_registry.remove<flags::DenySerialization>(selected.m_selected);
+								}
+								else
+								{
+									ui::imgui_notify_error("Entity did not pass validation.");
+								}
+							}
+						}
+
+						ImGui::SameLine();
+
+						auto deny_save = selected.m_world->m_registry.all_of<flags::DenySerialization>(selected.m_selected);
+						if (ImGui::Checkbox("Deny Serialization", &deny_save))
+						{
+							if (deny_save)
+							{
+								selected.m_world->m_registry.emplace_or_replace<flags::DenySerialization>(selected.m_selected);
+							}
+							else
+							{
+								selected.m_world->m_registry.remove<flags::DenySerialization>(selected.m_selected);
+							}
+						}
+
+						ImGui::EndPopup();
+					}
+
 					ImGui::SameLine();
 					ImGui::PushItemWidth(-1);
 
@@ -87,7 +131,6 @@ namespace sc
 					if (ImGui::BeginPopup("AddNewComponent"))
 					{
 						draw_entry<components::Animated>(selected, "Animated");
-						draw_entry<components::Flag>(selected, "Flag");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::Script>(selected, "Script");
 						draw_entry<components::Sprite>(selected, "Sprite");
@@ -238,43 +281,6 @@ namespace sc
 							}
 
 							ImGui::EndCombo();
-						}
-					});
-
-					draw_component<components::Flag>(selected, "Flags", [&](components::Flag* flag) {
-						auto enabled = flag->is_flag_set<flags::Enabled>();
-						if (ImGui::Checkbox("Is Enabled", &enabled))
-						{
-							if (enabled)
-							{
-								if (selected.m_world->is_valid(selected.m_selected))
-								{
-									flag->set_flag<flags::Enabled>();
-								}
-								else
-								{
-									ui::imgui_notify_error("Entity did not pass validation.");
-								}
-							}
-							else
-							{
-								flag->unset_flag<flags::Enabled>();
-							}
-						}
-
-						ImGui::SameLine();
-
-						auto allow_save = flag->is_flag_set<flags::AllowSerialize>();
-						if (ImGui::Checkbox("Allow Serialization", &allow_save))
-						{
-							if (allow_save)
-							{
-								flag->set_flag<flags::AllowSerialize>();
-							}
-							else
-							{
-								flag->unset_flag<flags::AllowSerialize>();
-							}
 						}
 					});
 

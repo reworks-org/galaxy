@@ -8,7 +8,6 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -17,8 +16,8 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/flags/AllowSerialize.hpp"
-#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/flags/DenySerialization.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
@@ -65,12 +64,7 @@ namespace galaxy
 		{
 			const auto entity = m_registry.create();
 
-			if (!m_registry.all_of<components::Flag>(entity))
-			{
-				auto& flag = m_registry.emplace<components::Flag>(entity);
-				flag.set_flag<flags::AllowSerialize>();
-				flag.unset_flag<flags::Enabled>();
-			}
+			m_registry.emplace<flags::Disabled>(entity);
 
 			if (!m_registry.all_of<components::Tag>(entity))
 			{
@@ -110,12 +104,7 @@ namespace galaxy
 				}
 			}
 
-			if (!m_registry.all_of<components::Flag>(entity))
-			{
-				auto& flag = m_registry.emplace<components::Flag>(entity);
-				flag.set_flag<flags::AllowSerialize>();
-				flag.unset_flag<flags::Enabled>();
-			}
+			m_registry.emplace<flags::Disabled>(entity);
 
 			if (!m_registry.all_of<components::Tag>(entity))
 			{
@@ -134,73 +123,9 @@ namespace galaxy
 			}
 		}
 
-		void World::update_rendersystem()
+		void World::only_update_rendering()
 		{
-			// Possible to do this in parallel but overhead would cost more than perf saved.
-			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
-
-			const auto spr_group  = m_registry.group<components::Sprite>(entt::get<components::Transform, components::Flag>);
-			const auto prim_group = m_registry.group<components::Primitive>(entt::get<components::Transform, components::Flag>);
-			const auto text_group = m_registry.group<components::Text>(entt::get<components::Transform, components::Flag>);
-
-			graphics::RenderCommand cmd;
-
-			for (auto&& [entity, sprite, transform, flag] : spr_group.each())
-			{
-				if (flag.is_flag_set<flags::Enabled>())
-				{
-					transform.set_origin(sprite.get_width() * 0.5f, sprite.get_height() * 0.5f);
-
-					cmd.instances              = 1;
-					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour    = {1.0f, 1.0f, 1.0f, sprite.get_opacity()};
-					cmd.uniform_data.transform = transform.get_transform();
-					cmd.uniform_data.point     = false;
-					cmd.uniform_data.textured  = true;
-					cmd.renderable             = &sprite;
-
-					renderer.submit(cmd);
-				}
-			}
-
-			for (auto&& [entity, primitive, transform, flag] : prim_group.each())
-			{
-				if (flag.is_flag_set<flags::Enabled>())
-				{
-					transform.set_origin(primitive.get_width() * 0.5f, primitive.get_height() * 0.5f);
-
-					cmd.instances              = 1;
-					cmd.mode                   = primitive.get_mode();
-					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour    = primitive.m_colour.to_vec4();
-					cmd.uniform_data.transform = transform.get_transform();
-					cmd.uniform_data.point     = primitive.get_shape() == graphics::Shape::POINT;
-					cmd.uniform_data.textured  = false;
-					cmd.renderable             = &primitive;
-
-					renderer.submit(cmd);
-				}
-			}
-
-			for (auto&& [entity, text, transform, flag] : text_group.each())
-			{
-				if (flag.is_flag_set<flags::Enabled>())
-				{
-					transform.set_origin(text.get_width() * 0.5f, text.get_height() * 0.5f);
-
-					cmd.instances              = 1;
-					cmd.mode                   = graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-					cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
-					cmd.uniform_data.colour    = text.m_colour.to_vec4();
-					cmd.uniform_data.transform = transform.get_transform();
-					cmd.uniform_data.point     = false;
-					cmd.uniform_data.textured  = true;
-					cmd.renderable             = &text;
-
-					renderer.submit(cmd);
-				}
-			}
+			m_systems[m_rendersystem_index]->update(m_scene);
 		}
 
 		bool World::is_valid(const entt::entity entity)
@@ -236,12 +161,9 @@ namespace galaxy
 
 			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
-			for (auto&& [entity, flag] : m_registry.view<components::Flag>().each())
+			for (const auto& [entity] : m_registry.view<entt::entity>(entt::exclude<flags::DenySerialization>).each())
 			{
-				if (flag.is_flag_set<flags::AllowSerialize>())
-				{
-					json["entities"].push_back(em.serialize_entity(entity, m_registry));
-				}
+				json["entities"].push_back(em.serialize_entity(entity, m_registry));
 			}
 
 			return json;

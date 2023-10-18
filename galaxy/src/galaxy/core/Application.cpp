@@ -14,7 +14,6 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -25,6 +24,8 @@
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
+#include "galaxy/flags/DenySerialization.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
@@ -226,7 +227,6 @@ namespace galaxy
 			//
 			auto& em = ServiceLocator<meta::EntityMeta>::make();
 			em.register_component<components::Animated>("Animated");
-			em.register_component<components::Flag>("Flag");
 			em.register_component<components::Primitive>("Primitive");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
@@ -234,6 +234,8 @@ namespace galaxy
 			em.register_component<components::Text>("Text");
 			em.register_component<components::Transform>("Transform");
 			em.register_component<components::UIScript>("UIScript");
+			em.register_component<flags::DenySerialization>("DenySerialization");
+			em.register_component<flags::Disabled>("Disabled");
 
 			em.register_dependencies<components::Sprite, components::Transform>();
 			em.register_dependencies<components::Primitive, components::Transform>();

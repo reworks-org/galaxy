@@ -255,7 +255,7 @@ namespace galaxy
 						return SerializationData {.name = name, .json = static_cast<Component*>(component)->serialize()};
 					}
 
-					return SerializationData {.name = ""};
+					return SerializationData {};
 				});
 			}
 			else

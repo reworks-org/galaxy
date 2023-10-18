@@ -14,7 +14,6 @@
 #include <miniaudio.h>
 
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -24,6 +23,8 @@
 #include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/events/EventQueue.hpp"
+#include "galaxy/flags/DenySerialization.hpp"
+#include "galaxy/flags/Disabled.hpp"
 
 #include "Lua.hpp"
 
@@ -57,9 +58,10 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Sprite>();
 			entt_sol::register_meta_component<components::Script>();
 			entt_sol::register_meta_component<components::Primitive>();
-			entt_sol::register_meta_component<components::Flag>();
 			entt_sol::register_meta_component<components::Animated>();
 			entt_sol::register_meta_component<components::UIScript>();
+			entt_sol::register_meta_component<flags::DenySerialization>();
+			entt_sol::register_meta_component<flags::Disabled>();
 
 			/* GLM */
 			auto vec2_type = lua.new_usertype<glm::vec2>(

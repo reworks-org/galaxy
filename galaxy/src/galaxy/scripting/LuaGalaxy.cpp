@@ -11,7 +11,6 @@
 #include "galaxy/algorithm/Random.hpp"
 #include "galaxy/algorithm/ZLib.hpp"
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -24,8 +23,8 @@
 #include "galaxy/core/Prefab.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/flags/AllowSerialize.hpp"
-#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/flags/DenySerialization.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/input/Input.hpp"
@@ -135,15 +134,6 @@ namespace galaxy
 			animated_type["set_and_play"]        = sol::resolve<void(const std::string&)>(&components::Animated::play);
 			animated_type["set"]                 = &components::Animated::set;
 			animated_type["stop"]                = &components::Animated::stop;
-
-			auto flag_type =
-				lua.new_usertype<components::Flag>("Flag", sol::constructors<components::Flag()>(), "type_id", &entt::type_hash<components::Flag>::value);
-			flag_type["set_enabled"]            = &components::Flag::set_flag<flags::Enabled>;
-			flag_type["unset_enabled"]          = &components::Flag::unset_flag<flags::Enabled>;
-			flag_type["is_enabled_set"]         = &components::Flag::is_flag_set<flags::Enabled>;
-			flag_type["set_allow_serialize"]    = &components::Flag::set_flag<flags::AllowSerialize>;
-			flag_type["unset_allow_serialize"]  = &components::Flag::unset_flag<flags::AllowSerialize>;
-			flag_type["is_allow_serialize_set"] = &components::Flag::is_flag_set<flags::AllowSerialize>;
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
@@ -372,6 +362,14 @@ namespace galaxy
 
 			auto windowclosed_type       = lua.new_usertype<events::WindowClosed>("WindowClosed", sol::constructors<events::WindowClosed()>());
 			windowclosed_type["type_id"] = &entt::type_hash<events::WindowClosed>::value;
+
+			/* FLAGS */
+			lua.new_usertype<flags::DenySerialization>("DenySerialization",
+				sol::constructors<flags::DenySerialization()>(),
+				"type_id",
+				&entt::type_hash<flags::DenySerialization>::value);
+
+			lua.new_usertype<flags::Disabled>("Disabled", sol::constructors<flags::Disabled()>(), "type_id", &entt::type_hash<flags::Disabled>::value);
 
 			/* FS */
 			// clang-format off

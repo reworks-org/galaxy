@@ -7,9 +7,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/Sprite.hpp"
-#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/utils/Globals.hpp"
@@ -35,11 +34,10 @@ namespace galaxy
 
 		void AnimationSystem::update(scene::Scene* scene)
 		{
-			// Sprites.
-			const auto view = scene->m_world.m_registry.view<components::Animated, components::Flag>();
-			for (auto&& [entity, animated, flag] : view.each())
+			const auto group = scene->m_world.m_registry.group<components::Animated>(entt::get<components::Sprite>, entt::exclude<flags::Disabled>);
+			for (auto&& [entity, animated, sprite] : group.each())
 			{
-				if (flag.is_flag_set<flags::Enabled>() && !animated.is_paused())
+				if (!animated.is_paused())
 				{
 					const auto active_anim = animated.active();
 					if (active_anim != nullptr)
@@ -56,11 +54,7 @@ namespace galaxy
 								const auto next = active_anim->next_frame();
 								if (next != nullptr)
 								{
-									auto sprite = scene->m_world.m_registry.try_get<components::Sprite>(entity);
-									if (sprite != nullptr)
-									{
-										sprite->update(next->m_texture_id);
-									}
+									sprite.update(next->m_texture_id);
 								}
 							}
 						}

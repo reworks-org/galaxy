@@ -93,10 +93,7 @@
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\core\Loader.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
-    <ClCompile Include="src\galaxy\components\Flag.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
-    <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
-    <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
@@ -145,6 +142,8 @@
     <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
+    <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
+    <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -241,9 +240,6 @@
     <ClInclude Include="src\galaxy\core\Loader.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
-    <ClInclude Include="src\galaxy\components\Flag.hpp" />
-    <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
-    <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
@@ -287,5 +283,7 @@
     <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\SoundType.hpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
+    <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
+    <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,3 @@
-replace flags with basic structs and use entt::excluded
-like component::Disabled, component::NotSerializable...
-
 editor:
 more drag/drop support for tree view, body, etc
 add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
@@ -82,6 +79,8 @@ TileMap:
 		i.e. create tilemap in tiled, then export to use as bg image.
 https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
 https://github.com/fallahn/tmxlite/issues/131
+https://github.com/Madour/LDtkViewer
+https://github.com/Madour/LDtkLoader/tree/master
 
 movement/collision:
 https://github.com/RandyGaul/cute_headers/blob/master/examples_cute_gl_and_c2/main.cpp
@@ -89,3 +88,7 @@ https://github.com/RandyGaul/player2d
 
 linux:
 https://github.com/nackdai/makeitso
+
+particles:
+https://github.com/nintervik/2D-Particle-System
+https://github.com/MauriceGit/Partikel_accelleration_on_GPU

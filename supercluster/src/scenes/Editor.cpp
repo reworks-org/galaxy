@@ -133,7 +133,7 @@ namespace sc
 
 			if (m_project_sm.has_current())
 			{
-				m_project_sm.current().m_world.update_rendersystem();
+				m_project_sm.current().m_world.only_update_rendering();
 				// m_project_sm.current().m_world.update();
 
 				m_renderer->buffer_camera(m_project_sm.current().m_camera);

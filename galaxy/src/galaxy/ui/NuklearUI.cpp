@@ -9,12 +9,11 @@
 
 #include <entt/entity/registry.hpp>
 
-#include "galaxy/components/Flag.hpp"
 #include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "NuklearUI.hpp"
@@ -78,10 +77,10 @@ namespace galaxy
 
 		void NuklearUI::process_scripts(entt::registry& registry)
 		{
-			const auto view = registry.view<components::UIScript, components::Flag>();
-			for (auto&& [entity, script, flag] : view.each())
+			const auto view = registry.view<components::UIScript>(entt::exclude<flags::Disabled>);
+			for (auto&& [entity, script] : view.each())
 			{
-				if (flag.is_flag_set<flags::Enabled>() && script.m_update.valid())
+				if (script.m_update.valid())
 				{
 					script.m_update(script.m_self);
 				}

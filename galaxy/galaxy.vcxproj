@@ -14,6 +14,8 @@
     <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
+    <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
+    <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
@@ -51,14 +53,11 @@
     <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
-    <ClCompile Include="src\galaxy\components\Flag.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\core\Loader.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
-    <ClCompile Include="src\galaxy\flags\AllowSerialize.cpp" />
-    <ClCompile Include="src\galaxy\flags\Enabled.cpp" />
     <ClCompile Include="src\galaxy\graphics\DefaultShaders.cpp" />
     <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
     <ClCompile Include="src\galaxy\graphics\Font.cpp" />
@@ -159,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
+    <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
     <ClInclude Include="src\galaxy\media\SoundType.hpp" />
@@ -191,14 +192,11 @@
     <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
-    <ClInclude Include="src\galaxy\components\Flag.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\core\Loader.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
-    <ClInclude Include="src\galaxy\flags\AllowSerialize.hpp" />
-    <ClInclude Include="src\galaxy\flags\Enabled.hpp" />
     <ClInclude Include="src\galaxy\graphics\DefaultShaders.hpp" />
     <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
     <ClInclude Include="src\galaxy\graphics\Font.hpp" />
