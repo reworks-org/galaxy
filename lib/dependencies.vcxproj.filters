@@ -39,7 +39,6 @@
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="miniaudio\miniaudio.cpp" />
-    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.cpp" />
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="glfw\src\egl_context.c" />
     <ClCompile Include="glfw\src\context.c" />

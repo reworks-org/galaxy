@@ -100,7 +100,7 @@
     <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
     <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="stb\include\stb_vorbis.cpp" />
-    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.cpp" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
