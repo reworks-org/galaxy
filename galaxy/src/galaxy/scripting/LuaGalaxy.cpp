@@ -739,7 +739,7 @@ namespace galaxy
 			// clang-format off
 			lua.new_enum<media::SoundType>("SoundType",
 			{
-				{"DIALOGUE", media::SoundType::DIALOGUE},
+				{"VOICE", media::SoundType::VOICE},
 				{"MUSIC", media::SoundType::MUSIC},
 				{"SFX", media::SoundType::SFX}
 			});
@@ -779,24 +779,24 @@ namespace galaxy
 			musicengine_type["start_device"]           = &media::MusicEngine::start_device;
 			musicengine_type["stop_device"]            = &media::MusicEngine::stop_device;
 
-			auto dialogueengine_type                      = lua.new_usertype<media::DialogueEngine>("DialogueEngine", sol::no_constructor);
-			dialogueengine_type["set_listener_cone"]      = &media::DialogueEngine::set_listener_cone;
-			dialogueengine_type["set_listener_direction"] = &media::DialogueEngine::set_listener_direction;
-			dialogueengine_type["set_listener_position"]  = &media::DialogueEngine::set_listener_position;
-			dialogueengine_type["set_listener_world_up"]  = &media::DialogueEngine::set_listener_world_up;
-			dialogueengine_type["toggle_listener"]        = &media::DialogueEngine::toggle_listener;
-			dialogueengine_type["stop"]                   = &media::DialogueEngine::stop;
-			dialogueengine_type["find_closest_listener"]  = &media::DialogueEngine::find_closest_listener;
-			dialogueengine_type["get_channels"]           = &media::DialogueEngine::get_channels;
-			dialogueengine_type["get_listener_count"]     = &media::DialogueEngine::get_listener_count;
-			dialogueengine_type["get_samplerate"]         = &media::DialogueEngine::get_samplerate;
-			dialogueengine_type["is_listener_enabled"]    = &media::DialogueEngine::is_listener_enabled;
-			dialogueengine_type["set_listener_velocity"]  = &media::DialogueEngine::set_listener_velocity;
-			dialogueengine_type["set_volume"]             = &media::DialogueEngine::set_volume;
-			dialogueengine_type["start_device"]           = &media::DialogueEngine::start_device;
-			dialogueengine_type["stop_device"]            = &media::DialogueEngine::stop_device;
+			auto voiceengine_type                      = lua.new_usertype<media::VoiceEngine>("VoiceEngine", sol::no_constructor);
+			voiceengine_type["set_listener_cone"]      = &media::VoiceEngine::set_listener_cone;
+			voiceengine_type["set_listener_direction"] = &media::VoiceEngine::set_listener_direction;
+			voiceengine_type["set_listener_position"]  = &media::VoiceEngine::set_listener_position;
+			voiceengine_type["set_listener_world_up"]  = &media::VoiceEngine::set_listener_world_up;
+			voiceengine_type["toggle_listener"]        = &media::VoiceEngine::toggle_listener;
+			voiceengine_type["stop"]                   = &media::VoiceEngine::stop;
+			voiceengine_type["find_closest_listener"]  = &media::VoiceEngine::find_closest_listener;
+			voiceengine_type["get_channels"]           = &media::VoiceEngine::get_channels;
+			voiceengine_type["get_listener_count"]     = &media::VoiceEngine::get_listener_count;
+			voiceengine_type["get_samplerate"]         = &media::VoiceEngine::get_samplerate;
+			voiceengine_type["is_listener_enabled"]    = &media::VoiceEngine::is_listener_enabled;
+			voiceengine_type["set_listener_velocity"]  = &media::VoiceEngine::set_listener_velocity;
+			voiceengine_type["set_volume"]             = &media::VoiceEngine::set_volume;
+			voiceengine_type["start_device"]           = &media::VoiceEngine::start_device;
+			voiceengine_type["stop_device"]            = &media::VoiceEngine::stop_device;
 
-			auto sound_type = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound(), media::Sound(media::SoundType, std::string_view)>());
+			auto sound_type                                  = lua.new_usertype<media::Sound>("Sound", sol::constructors<media::Sound()>());
 			sound_type["fade_in"]                            = &media::Sound::fade_in;
 			sound_type["fade_out"]                           = &media::Sound::fade_out;
 			sound_type["is_finished"]                        = &media::Sound::is_finished;

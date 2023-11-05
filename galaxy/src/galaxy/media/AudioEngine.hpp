@@ -239,7 +239,7 @@ namespace galaxy
 		///
 		/// Separate streaming engine for dialogue, to control easier.
 		///
-		using DialogueEngine = media::AudioEngine<SoundType::DIALOGUE>;
+		using VoiceEngine = media::AudioEngine<SoundType::VOICE>;
 
 		template<SoundType type>
 		inline AudioEngine<type>::AudioEngine(const int listener_count)
@@ -349,9 +349,9 @@ namespace galaxy
 					value->stop();
 				}
 			}
-			else if constexpr (type == SoundType::DIALOGUE)
+			else if constexpr (type == SoundType::VOICE)
 			{
-				auto& ae = core::ServiceLocator<resource::DialogueCache>::ref();
+				auto& ae = core::ServiceLocator<resource::VoiceCache>::ref();
 				for (const auto& [key, value] : ae.cache())
 				{
 					value->stop();

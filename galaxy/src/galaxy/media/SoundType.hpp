@@ -28,9 +28,9 @@ namespace galaxy
 			MUSIC = 1,
 
 			///
-			/// Dialogue. Is streamed.
+			/// Voice. Is streamed.
 			///
-			DIALOGUE = 2
+			VOICE = 2
 		};
 	} // namespace media
 } // namespace galaxy

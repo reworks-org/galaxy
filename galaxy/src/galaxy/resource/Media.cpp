@@ -24,9 +24,9 @@ namespace galaxy
 			return std::make_shared<media::Sound>(media::SoundType::MUSIC, file);
 		}
 
-		std::shared_ptr<media::Sound> DialogueLoader::operator()(const std::string& file)
+		std::shared_ptr<media::Sound> VoiceLoader::operator()(const std::string& file)
 		{
-			return std::make_shared<media::Sound>(media::SoundType::DIALOGUE, file);
+			return std::make_shared<media::Sound>(media::SoundType::VOICE, file);
 		}
 
 		void VideoLoader::build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<media::Video>>& cache)

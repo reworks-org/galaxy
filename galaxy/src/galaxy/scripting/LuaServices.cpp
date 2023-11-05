@@ -32,24 +32,24 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			lua["galaxy_basicscripts"]   = std::ref(core::ServiceLocator<resource::BasicScripts>::ref());
-			lua["galaxy_fonts"]          = std::ref(core::ServiceLocator<resource::Fonts>::ref());
-			lua["galaxy_soundengine"]    = std::ref(core::ServiceLocator<media::SoundEngine>::ref());
-			lua["galaxy_dialogueengine"] = std::ref(core::ServiceLocator<media::DialogueEngine>::ref());
-			lua["galaxy_musicengine"]    = std::ref(core::ServiceLocator<media::MusicEngine>::ref());
-			lua["galaxy_sfx"]            = std::ref(core::ServiceLocator<resource::SFXCache>::ref());
-			lua["galaxy_dialogue"]       = std::ref(core::ServiceLocator<resource::DialogueCache>::ref());
-			lua["galaxy_music"]          = std::ref(core::ServiceLocator<resource::MusicCache>::ref());
-			lua["galaxy_videos"]         = std::ref(core::ServiceLocator<resource::VideoCache>::ref());
-			lua["galaxy_prefabs"]        = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
-			lua["galaxy_shaders"]        = std::ref(core::ServiceLocator<resource::Shaders>::ref());
-			lua["galaxy_textureatlas"]   = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
-			lua["galaxy_nui"]            = std::ref(core::ServiceLocator<ui::NuklearUI>::ref());
-			lua["galaxy_state_manager"]  = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
-			lua["galaxy_entitymeta"]     = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
-			lua["galaxy_fs"]             = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
-			lua["galaxy_config"]         = std::ref(core::ServiceLocator<core::Config>::ref());
-			lua["galaxy_language"]       = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_basicscripts"]  = std::ref(core::ServiceLocator<resource::BasicScripts>::ref());
+			lua["galaxy_fonts"]         = std::ref(core::ServiceLocator<resource::Fonts>::ref());
+			lua["galaxy_soundengine"]   = std::ref(core::ServiceLocator<media::SoundEngine>::ref());
+			lua["galaxy_voiceengine"]   = std::ref(core::ServiceLocator<media::VoiceEngine>::ref());
+			lua["galaxy_musicengine"]   = std::ref(core::ServiceLocator<media::MusicEngine>::ref());
+			lua["galaxy_sfx"]           = std::ref(core::ServiceLocator<resource::SFXCache>::ref());
+			lua["galaxy_voice"]         = std::ref(core::ServiceLocator<resource::VoiceCache>::ref());
+			lua["galaxy_music"]         = std::ref(core::ServiceLocator<resource::MusicCache>::ref());
+			lua["galaxy_videos"]        = std::ref(core::ServiceLocator<resource::VideoCache>::ref());
+			lua["galaxy_prefabs"]       = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
+			lua["galaxy_shaders"]       = std::ref(core::ServiceLocator<resource::Shaders>::ref());
+			lua["galaxy_textureatlas"]  = std::ref(core::ServiceLocator<resource::TextureAtlas>::ref());
+			lua["galaxy_nui"]           = std::ref(core::ServiceLocator<ui::NuklearUI>::ref());
+			lua["galaxy_state_manager"] = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
+			lua["galaxy_entitymeta"]    = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());
+			lua["galaxy_fs"]            = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
+			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
+			lua["galaxy_language"]      = std::ref(core::ServiceLocator<resource::Language>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy

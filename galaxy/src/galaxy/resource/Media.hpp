@@ -51,7 +51,7 @@ namespace galaxy
 		///
 		/// Resource cache for sound dialogue.
 		///
-		class DialogueLoader final
+		class VoiceLoader final
 		{
 		  public:
 			///
@@ -102,7 +102,7 @@ namespace galaxy
 		///
 		/// Abbreviation for dialogue cache.
 		///
-		using DialogueCache = Cache<media::Sound, DialogueLoader, false>;
+		using VoiceCache = Cache<media::Sound, VoiceLoader, false>;
 
 		///
 		/// Abbreviation for video cache.
