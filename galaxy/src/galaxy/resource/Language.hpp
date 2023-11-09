@@ -32,11 +32,9 @@ namespace galaxy
 			~Language();
 
 			///
-			/// Load all languages in a folder.
+			/// Loads all languages in the vfs.
 			///
-			/// \param folder A folder within the VFS to read from.
-			///
-			void load_folder(std::string_view folder);
+			void load_from_vfs();
 
 			///
 			/// Load a specific file with a provided lua state.

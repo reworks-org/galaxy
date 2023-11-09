@@ -54,7 +54,6 @@ namespace sc
 		void draw_editor();
 		void viewport();
 
-		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 		void do_updates();
 
 	  private:

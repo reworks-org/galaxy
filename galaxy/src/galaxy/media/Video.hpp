@@ -125,6 +125,11 @@ namespace galaxy
 			ma_device* m_audio;
 
 			///
+			/// Video data buffer.
+			///
+			meta::vector<uint8_t> m_buffer;
+
+			///
 			/// Buffer for audio decoding.
 			///
 			std::unique_ptr<RingBuffer> m_audio_buffer;

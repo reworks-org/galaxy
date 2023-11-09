@@ -96,21 +96,12 @@ namespace galaxy
 			///
 			/// \param file Texture file in the vfs to add to atlas.
 			///
-			void add_file(std::string_view file);
+			void add(const std::string& file);
 
 			///
-			/// Loads textures from a folder.
+			/// Loads all atlas textures in the vfs.
 			///
-			/// \param folder Folder located in the VFS.
-			///
-			void add_folder(std::string_view folder);
-
-			///
-			/// \brief Reload textures from folder.
-			///
-			/// Does nothing if load hasn't been called.
-			///
-			void reload();
+			void add_from_vfs();
 
 			///
 			/// \brief Save all created atlas' to disk.
@@ -202,11 +193,6 @@ namespace galaxy
 			void init();
 
 		  private:
-			///
-			/// Texture folder in vfs.
-			///
-			std::string m_folder;
-
 			///
 			/// Max number of active textures allowed.
 			///

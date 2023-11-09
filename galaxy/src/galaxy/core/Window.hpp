@@ -134,18 +134,25 @@ namespace galaxy
 			void set_title(const char* title);
 
 			///
+			/// Set window title.
+			///
+			/// \param title New title to set window to.
+			///
+			void set_title(const std::string& title);
+
+			///
 			/// Set window icon.
 			///
 			/// \param icon Icon to load.
 			///
-			void set_icon(std::string_view icon);
+			void set_icon(const std::string& icon);
 
 			///
 			/// Set window icon.
 			///
 			/// \param buffer Memory buffer containing pixels.
 			///
-			void set_icon(std::span<unsigned char> buffer);
+			void set_icon(std::span<std::uint8_t> buffer);
 
 			///
 			/// Check if windows is in focus.

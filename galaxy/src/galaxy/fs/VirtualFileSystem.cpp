@@ -5,361 +5,205 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <fstream>
-
-#include <magic_enum.hpp>
 #include <tinyfiledialogs.h>
 
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/utils/StringUtils.hpp"
 
 #include "VirtualFileSystem.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(4267)
+GALAXY_DISABLE_WARNING(26493)
 #endif
 
 namespace galaxy
 {
 	namespace fs
 	{
-		VirtualFileSystem::VirtualFileSystem(std::string_view root)
-			: m_root {root}
+		VirtualFileSystem::VirtualFileSystem()
 		{
-			if (std::filesystem::path(m_root).has_extension())
+			auto& config = core::ServiceLocator<core::Config>::ref();
+
+			// Create data directories.
+			create_asset_layout(GALAXY_DATA_DIR, "");
+			create_asset_layout(GALAXY_MOD_DIR, "");
+			create_asset_layout(GALAXY_UPDATE_DIR, "");
+
+			// Create asset directories.
+			if (config.get<bool>("create_asset_work_directories"))
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Cannot have a file as root directory for vfs.");
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_MUSIC_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SFX_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_VOICE_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_FONT_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SCRIPT_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SHADER_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_TEXTURE_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_ATLAS_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_LANG_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_PREFABS_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_MAPS_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_VIDEO_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_UI_DIR);
+				create_asset_layout(GALAXY_WORK_DIR, GALAXY_UI_FONTS_DIR);
+				create_asset_layout(GALAXY_EDITOR_DATA_DIR, "");
 			}
-			else
+
+			m_folder_type_map = {
+				{   GALAXY_MUSIC_DIR,   AssetType::MUSIC},
+				{     GALAXY_SFX_DIR,     AssetType::SFX},
+				{   GALAXY_VOICE_DIR,   AssetType::VOICE},
+				{    GALAXY_FONT_DIR,    AssetType::FONT},
+				{  GALAXY_SCRIPT_DIR,  AssetType::SCRIPT},
+				{  GALAXY_SHADER_DIR,  AssetType::SHADER},
+				{ GALAXY_TEXTURE_DIR, AssetType::TEXTURE},
+				{   GALAXY_ATLAS_DIR,   AssetType::ATLAS},
+				{    GALAXY_LANG_DIR,    AssetType::LANG},
+				{ GALAXY_PREFABS_DIR, AssetType::PREFABS},
+				{    GALAXY_MAPS_DIR,    AssetType::MAPS},
+				{   GALAXY_VIDEO_DIR,   AssetType::VIDEO},
+				{      GALAXY_UI_DIR,      AssetType::UI},
+				{GALAXY_UI_FONTS_DIR, AssetType::UI_FONT}
+            };
+
+			m_datapack = std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_DATA_DIR / "data.galaxypak").string();
+			std::replace(m_datapack.begin(), m_datapack.end(), '\\', '/');
+
+			// Create base zip if it doesn't exist.
+			if (!std::filesystem::exists(m_datapack))
 			{
-				if (!m_root.is_absolute())
-				{
-					m_root = std::filesystem::absolute(std::filesystem::current_path() / std::filesystem::path(root)).string();
-				}
+				zip_close(zip_open(m_datapack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w'));
 			}
+
+			rebuild_filesystem();
 		}
 
-		FileInfo VirtualFileSystem::find(std::string_view file)
+		VirtualFileSystem::~VirtualFileSystem()
 		{
-			FileInfo info;
+			clear();
+		}
 
+		void VirtualFileSystem::rebuild_filesystem()
+		{
+			clear();
+
+			// Append base first.
+			append_archive(m_datapack);
+
+			// Then prepend updates.
+			append_archives(GALAXY_UPDATE_DIR);
+			append_archives(GALAXY_MOD_DIR);
+		}
+
+		void VirtualFileSystem::mkdir_disk(std::string_view path)
+		{
+			auto fp = std::filesystem::path(path);
+			if (!fp.is_absolute())
+			{
+				fp = GALAXY_ROOT_DIR / path;
+			}
+
+			std::filesystem::create_directories(fp);
+		}
+
+		bool VirtualFileSystem::contains(const std::string& file)
+		{
+			const auto path = std::filesystem::path(file);
+			return m_tree.contains(path.filename().string());
+		}
+
+		std::optional<ArchiveEntry> VirtualFileSystem::find(const std::string& file)
+		{
+			auto str = static_cast<std::string>(file);
+			if (contains(str))
+			{
+				return std::make_optional(m_tree[str]);
+			}
+
+			return std::nullopt;
+		}
+
+		void VirtualFileSystem::import(const std::string& file)
+		{
 			auto path = std::filesystem::path(file);
-			path      = path.make_preferred();
-
-			if (path.has_extension())
+			if (!path.is_absolute())
 			{
-				if (path.is_absolute())
+				path = std::filesystem::absolute(GALAXY_ROOT_DIR / path);
+			}
+
+			if (path.string().find(GALAXY_WORK_DIR) != std::string::npos)
+			{
+				auto       fname = path.filename().string();
+				const auto opt   = find(fname);
+				if (opt.has_value())
 				{
-					if (path.string().find(m_root.string()) != std::string::npos)
-					{
-						info.code   = FileCode::FOUND;
-						info.path   = path;
-						info.string = path.string();
-
-						return info;
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Provided path is not located in the vfs: {0}.", path.string());
-
-						info.code = FileCode::NOT_IN_VFS;
-						return info;
-					}
+					remove(fname, opt.value());
 				}
-				else
-				{
-					auto start_dir = m_root.string();
-					if (path.has_parent_path())
-					{
-						start_dir += path.parent_path().string();
-					}
 
-					const auto directory_iterator =
-						std::filesystem::recursive_directory_iterator(start_dir, std::filesystem::directory_options::skip_permission_denied);
+				auto entry = path.string();
+				strutils::replace_all(entry, GALAXY_ROOT_DIR.string(), "");
 
-					for (const auto& dir_entry : directory_iterator)
-					{
-						const auto& dir_path = dir_entry.path();
+				auto z = zip_open(m_datapack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'a');
+				zip_entry_open(z, entry.c_str());
+				zip_entry_fwrite(z, path.string().c_str());
 
-						if (path.filename() == dir_path.filename())
-						{
-							const auto abs_dir_path = std::filesystem::absolute(dir_path);
-
-							info.code   = FileCode::FOUND;
-							info.path   = abs_dir_path;
-							info.string = abs_dir_path.string();
-
-							return info;
-						}
-					}
-
-					info.code   = FileCode::NOT_FOUND;
-					info.path   = m_root / path;
-					info.string = info.path.string();
-
-					return info;
-				}
+				m_tree[fname] = ArchiveEntry {.entry = entry, .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
+				zip_entry_close(z);
+				zip_close(z);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "VFS::Find() cannot be used to search for a folder.");
-
-				info.code = FileCode::NO_EXTENSION;
-				return info;
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to import file outside of working directory.");
 			}
 		}
 
-		bool VirtualFileSystem::create_file(std::string_view path, const bool binary)
+		void VirtualFileSystem::remove(const std::vector<std::string>& entries)
 		{
-			const auto found = find(path);
-
-			if (found.code == FileCode::NOT_FOUND)
+			for (const auto& entry : entries)
 			{
-				std::ofstream::openmode flags = std::ofstream::trunc;
+				const auto fname = std::filesystem::path(entry).filename().string();
 
-				if (binary)
+				const auto opt = find(fname);
+				if (opt.has_value())
 				{
-					flags |= std::ofstream::binary;
+					remove(fname, opt.value());
 				}
-
-				const auto fs_path = m_root / std::filesystem::path(path);
-
-				std::ofstream ofs {fs_path.string(), flags};
-				ofs.close();
-
-				return true;
-			}
-			else if (found.code == FileCode::FOUND)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to create file that already exists: {0}.", path);
-				return false;
-			}
-			else
-			{
-				return false;
 			}
 		}
 
-		bool VirtualFileSystem::create_folder(std::string_view path)
+		void VirtualFileSystem::remove(const std::string& fname, const ArchiveEntry& entry)
 		{
-			bool result = true;
-
-			auto fs_path = std::filesystem::path(path);
-
-			if (!fs_path.has_extension())
+			if (m_tree.contains(fname))
 			{
-				if (fs_path.is_absolute())
-				{
-					if (fs_path.string().find(m_root.string()) != std::string::npos)
-					{
-						if (!std::filesystem::exists(fs_path))
-						{
-							// Create folders.
-							std::filesystem::create_directories(fs_path);
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_ERROR, "Folder: {0} already exists.", path);
-							result = false;
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Provided path is not located in the vfs: {0}.", path);
-						result = false;
-					}
-				}
-				else
-				{
-					fs_path = m_root / std::filesystem::path(path);
-					if (!std::filesystem::exists(fs_path))
-					{
-						// Create folders.
-						std::filesystem::create_directories(fs_path);
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Folder: {0} already exists.", path);
-						result = false;
-					}
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to create a folder: {0}, that is actually a file.", path);
-				result = false;
-			}
+				char* entries[] = {(char*)entry.entry.c_str()};
 
-			return result;
+				auto z = zip_open(entry.pack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'd');
+				if (zip_entries_delete(z, entries, 1) < 0)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to remove '{0}' from vfs.", fname);
+				}
+				zip_close(z);
+
+				m_tree.erase(fname);
+			}
 		}
 
-		std::string VirtualFileSystem::open(std::string_view file)
+		std::vector<std::string> VirtualFileSystem::list_assets(const AssetType type)
 		{
-			if (!file.empty())
-			{
-				const auto path = find(file);
+			std::vector<std::string> files;
+			files.reserve(m_tree.size());
 
-				if (path.code == FileCode::FOUND)
+			std::for_each(/*std::execution::par, */ m_tree.begin(), m_tree.end(), [&](auto& pair) {
+				if (pair.second.type == type)
 				{
-					std::ifstream ifs {path.string, std::ifstream::in};
-
-					if (ifs.good())
-					{
-						std::stringstream buffer;
-						buffer << ifs.rdbuf();
-						ifs.close();
-
-						return buffer.str();
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to open file: {0}.", file);
-					}
+					files.emplace_back(pair.first);
 				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty string to VFS::Open");
-			}
+			});
 
-			return {};
-		}
-
-		meta::vector<char> VirtualFileSystem::open_binary(std::string_view file)
-		{
-			if (!file.empty())
-			{
-				const auto path = find(file);
-
-				if (path.code == FileCode::FOUND)
-				{
-					std::ifstream ifs {path.string, std::ifstream::in | std::ifstream::binary | std::ifstream::ate};
-
-					if (ifs.good())
-					{
-						meta::vector<char> buffer;
-
-						const auto size = ifs.tellg();
-						buffer.resize(size);
-
-						ifs.seekg(0, std::ifstream::beg);
-						ifs.read(&buffer[0], size);
-						ifs.close();
-
-						return buffer;
-					}
-					else
-					{
-						ifs.close();
-
-						GALAXY_LOG(GALAXY_ERROR, "Failed to open binary: {0}.", file);
-					}
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty string to VFS::Open");
-			}
-
-			return {};
-		}
-
-		bool VirtualFileSystem::save(const std::string& data, std::string_view file)
-		{
-			if (!data.empty() && !file.empty())
-			{
-				const auto path = find(file);
-
-				if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
-				{
-					std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc};
-
-					if (ofs.good())
-					{
-						ofs << data;
-						ofs.close();
-
-						return true;
-					}
-					else
-					{
-						ofs.close();
-						GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
-					}
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty data or filename to VFS::save");
-			}
-
-			return false;
-		}
-
-		bool VirtualFileSystem::save_binary(std::span<char> data, std::string_view file)
-		{
-			if (!data.empty() && !file.empty())
-			{
-				const auto path = find(file);
-
-				if (path.code == FileCode::FOUND || path.code == FileCode::NOT_FOUND)
-				{
-					std::ofstream ofs {path.string, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary};
-
-					if (ofs.good())
-					{
-						ofs.write(data.data(), data.size());
-						ofs.close();
-
-						return true;
-					}
-					else
-					{
-						ofs.close();
-						GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
-					}
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Passed empty data or filename to VFS::save_binary");
-			}
-
-			return false;
-		}
-
-		bool VirtualFileSystem::exists(std::string_view file)
-		{
-			const auto info = find(file);
-			return info.code == FileCode::FOUND;
-		}
-
-		void VirtualFileSystem::remove(std::string_view path)
-		{
-			auto fs_path = std::filesystem::path(path);
-
-			if (!fs_path.is_absolute())
-			{
-				fs_path = m_root / fs_path;
-			}
-			else
-			{
-				if (fs_path.string().find(m_root.string()) == std::string::npos)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Path to remove is not located in the vfs: {0}.", path);
-					return;
-				}
-			}
-
-			if (std::filesystem::exists(fs_path))
-			{
-				std::filesystem::remove(fs_path);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to remove path that does not exist: {0}.", path);
-			}
+			files.shrink_to_fit();
+			return files;
 		}
 
 		void VirtualFileSystem::alert()
@@ -367,18 +211,31 @@ namespace galaxy
 			tinyfd_beep();
 		}
 
-		void VirtualFileSystem::trigger_notification(const std::string& title, const std::string& msg, const DialogIcon icon)
+		void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon)
 		{
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
 			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 		}
 
-		std::string VirtualFileSystem::open_file_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
+		int
+		VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn)
 		{
-			const auto default_path = (m_root / def_path).string();
+			std::string tinyfd_type {magic_enum::enum_name(type)};
+			std::string tinyfd_icon {magic_enum::enum_name(icon)};
 
+			return tinyfd_messageBox(title.c_str(), msg.c_str(), tinyfd_type.c_str(), tinyfd_icon.c_str(), static_cast<int>(btn));
+		}
+
+		std::string VirtualFileSystem::input_box(const std::string& title, const std::string& msg, const std::string& default_text, const bool password)
+		{
+			const char* dt = password ? nullptr : default_text.c_str();
+			return tinyfd_inputBox(title.c_str(), msg.c_str(), dt);
+		}
+
+		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
+		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char*        result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
+			const char* result = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
 
 			if (result != nullptr)
 			{
@@ -390,27 +247,13 @@ namespace galaxy
 			}
 		}
 
-		meta::vector<std::string> VirtualFileSystem::open_file_dialog_multi(const meta::vector<const char*>& filters, const std::string& def_path)
+		std::string VirtualFileSystem::open_file_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
 		{
-			const auto default_path = (m_root / def_path).string();
+			const auto default_path = (GALAXY_ROOT_DIR / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char*        result = tinyfd_openFileDialog("Open file.", default_path.c_str(), filters.size(), filter_patterns, "Select a file.", false);
-
-			if (result != nullptr)
-			{
-				return strutils::split(result, "|");
-			}
-			else
-			{
-				return {};
-			}
-		}
-
-		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
-		{
-			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char*        result          = tinyfd_saveFileDialog("Save file.", default_filename.c_str(), filters.size(), filter_patterns, nullptr);
+			const char*        result =
+				tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
 
 			if (result != nullptr)
 			{
@@ -424,8 +267,8 @@ namespace galaxy
 
 		std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 		{
-			const auto  default_path = (m_root / def_path).string();
-			const char* result       = tinyfd_selectFolderDialog("Select folder.", default_path.c_str());
+			const auto  default_path = (GALAXY_ROOT_DIR / def_path).string();
+			const char* result       = tinyfd_selectFolderDialog("Select folder", default_path.c_str());
 
 			if (result != nullptr)
 			{
@@ -437,78 +280,74 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::open_using_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
+		void VirtualFileSystem::clear()
 		{
-			const auto path = open_file_dialog(filters, def_path);
-			return open(path);
+			m_tree.clear();
 		}
 
-		meta::vector<char> VirtualFileSystem::open_binary_using_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
+		const robin_hood::unordered_flat_map<std::string, ArchiveEntry>& VirtualFileSystem::tree()
 		{
-			const auto path = open_file_dialog(filters, def_path);
-			return open_binary(path);
+			return m_tree;
 		}
 
-		bool VirtualFileSystem::save_using_dialog(const std::string& data, const std::string& default_filename, const meta::vector<const char*>& filters)
+		void VirtualFileSystem::create_asset_layout(const std::filesystem::path& root, const std::string& asset_folder)
 		{
-			const auto path = open_save_dialog(default_filename, filters);
-			return save(data, path);
-		}
-
-		bool VirtualFileSystem::save_binary_using_dialog(std::span<char> data, const std::string& default_filename, const meta::vector<const char*>& filters)
-		{
-			const auto path = open_save_dialog(default_filename, filters);
-			return save_binary(data, path);
-		}
-
-		meta::vector<std::string> VirtualFileSystem::list_directory(std::string_view path)
-		{
-			meta::vector<std::string> output;
-
-			auto fs_path = std::filesystem::path(path);
-			if (!fs_path.is_absolute())
+			const auto merged = GALAXY_ROOT_DIR / root / asset_folder;
+			if (!std::filesystem::exists(merged))
 			{
-				fs_path = m_root / fs_path;
+				GALAXY_LOG(GALAXY_INFO, "Creating asset folder at: '{0}'.", merged.string());
+				std::filesystem::create_directories(merged);
 			}
+		}
 
-			if (std::filesystem::is_directory(fs_path))
+		void VirtualFileSystem::append_archives(const std::filesystem::path& path)
+		{
+			const auto di = std::filesystem::directory_iterator(GALAXY_ROOT_DIR / path, std::filesystem::directory_options::skip_permission_denied);
+			for (const auto& entry : di)
 			{
-				if (fs_path.string().find(m_root.string()) != std::string::npos)
+				if (!entry.is_directory() && entry.path().extension() == ".galaxypak")
 				{
-					if (std::filesystem::exists(fs_path))
+					append_archive(entry.path().string());
+				}
+			}
+		}
+
+		void VirtualFileSystem::append_archive(const std::string& path)
+		{
+			auto z = zip_open(path.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'r');
+
+			for (auto i = 0; i < zip_entries_total(z); ++i)
+			{
+				if (zip_entry_openbyindex(z, i) >= 0)
+				{
+					if (!zip_entry_isdir(z))
 					{
-						for (const auto& dir_entry :
-							std::filesystem::recursive_directory_iterator(fs_path, std::filesystem::directory_options::skip_permission_denied))
-						{
-							output.emplace_back(dir_entry.path().string());
-						}
+						const auto fp                  = std::filesystem::path(zip_entry_name(z));
+						m_tree[fp.filename().string()] = ArchiveEntry {.entry = zip_entry_name(z), .pack = path, .type = get_asset_type_from_path(fp.string())};
 					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Attempted to list a folder that does not exist: '{0}'", path);
-					}
+
+					zip_entry_close(z);
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Path to list is not located in the vfs: '{0}'", path);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to extract an entry from '{0}'.", path);
 				}
 			}
-			else
+
+			zip_close(z);
+		}
+
+		AssetType VirtualFileSystem::get_asset_type_from_path(const std::string& path)
+		{
+			for (const auto& [folder, type] : m_folder_type_map)
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to list the contents of a non-directory: '{0}'", path);
+				if (path.find(folder) != std::string::npos)
+				{
+					return type;
+				}
 			}
 
-			return output;
-		}
-
-		std::string VirtualFileSystem::root()
-		{
-			return m_root.string();
-		}
-
-		const std::filesystem::path& VirtualFileSystem::root_path() const
-		{
-			return m_root;
+			return AssetType::UNKNOWN;
 		}
 	} // namespace fs
 } // namespace galaxy

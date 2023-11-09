@@ -13,6 +13,8 @@
 
 #include "Video.hpp"
 
+#undef ERROR
+
 thread_local const float vertices[] = {0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
 
 thread_local const unsigned int indices[] = {0, 1, 2, 0, 2, 3};
@@ -97,10 +99,11 @@ namespace galaxy
 
 		void Video::load(const std::string& file)
 		{
-			auto info = core::ServiceLocator<fs::VirtualFileSystem>::ref().find(file);
-			if (info.code == fs::FileCode::FOUND)
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			m_buffer = fs.read<meta::FSBinaryR>(file);
+			if (!m_buffer.empty())
 			{
-				m_plm = plm_create_with_filename(info.string.c_str());
+				m_plm = plm_create_with_memory(m_buffer.data(), m_buffer.size(), false);
 				if (m_plm)
 				{
 					plm_set_video_decode_callback(
@@ -146,6 +149,14 @@ namespace galaxy
 						plm_set_audio_enabled(m_plm, false);
 					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to create PLM object with video file '{0}'.", file);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find video file '{0}' in vfs.", file);
 			}
 		}
 

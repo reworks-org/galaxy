@@ -37,8 +37,8 @@ namespace sc
 			, m_contextmenu_opened {false}
 		{
 			auto& fs      = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			m_root        = fs.root_path();
-			m_current_dir = fs.root_path();
+			m_root        = GALAXY_ROOT_DIR / GALAXY_WORK_DIR;
+			m_current_dir = m_root;
 
 			m_root_str = m_root.string();
 			m_root_str.pop_back();
@@ -51,25 +51,25 @@ namespace sc
 			m_thumb_size = config.get<float>("thumb_size", "editor");
 			m_padding    = config.get<float>("padding", "editor");
 
-			m_backward.load("../editor_data/icons/backward.png");
+			m_backward.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/backward.png");
 			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_file.load("../editor_data/icons/file.png");
+			m_file.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/file.png");
 			m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_folder.load("../editor_data/icons/folder.png");
+			m_folder.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/folder.png");
 			m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_forward.load("../editor_data/icons/forward.png");
+			m_forward.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/forward.png");
 			m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_reload.load("../editor_data/icons/reload.png");
-			m_reload.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_reload.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_refresh.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/reload.png");
+			m_refresh.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_refresh.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
 			m_ext_map.emplace(".ogg", FileType::AUDIO);
 			m_ext_map.emplace(".wav", FileType::AUDIO);
@@ -101,43 +101,43 @@ namespace sc
 			m_tex_map.try_emplace(FileType::MAP);
 			m_tex_map.try_emplace(FileType::PREFAB);
 
-			m_tex_map[FileType::AUDIO].load("../editor_data/icons/audio.png");
+			m_tex_map[FileType::AUDIO].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/audio.png");
 			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::FONT].load("../editor_data/icons/font.png");
+			m_tex_map[FileType::FONT].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/font.png");
 			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::SHADER].load("../editor_data/icons/glsl.png");
+			m_tex_map[FileType::SHADER].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/glsl.png");
 			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::JSON].load("../editor_data/icons/json.png");
+			m_tex_map[FileType::JSON].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/json.png");
 			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::LANG].load("../editor_data/icons/lang.png");
+			m_tex_map[FileType::LANG].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/lang.png");
 			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::LUA].load("../editor_data/icons/lua.png");
+			m_tex_map[FileType::LUA].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/lua.png");
 			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::PROJ].load("../editor_data/icons/proj.png");
+			m_tex_map[FileType::PROJ].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/proj.png");
 			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::TEXTURE].load("../editor_data/icons/texture.png");
+			m_tex_map[FileType::TEXTURE].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/texture.png");
 			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::MAP].load("../editor_data/icons/map.png");
+			m_tex_map[FileType::MAP].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/map.png");
 			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::PREFAB].load("../editor_data/icons/prefab.png");
+			m_tex_map[FileType::PREFAB].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/prefab.png");
 			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
@@ -195,6 +195,12 @@ namespace sc
 				m_update_directories = true;
 			}
 
+			if (ImGui::BeginItemTooltip())
+			{
+				ImGui::TextUnformatted("Back");
+				ImGui::EndTooltip();
+			}
+
 			if (disable_back)
 			{
 				ImGui::PopStyleVar();
@@ -219,6 +225,12 @@ namespace sc
 				m_update_directories = true;
 			}
 
+			if (ImGui::BeginItemTooltip())
+			{
+				ImGui::TextUnformatted("Forward");
+				ImGui::EndTooltip();
+			}
+
 			if (disable_forward)
 			{
 				ImGui::PopStyleVar();
@@ -227,16 +239,15 @@ namespace sc
 
 			ImGui::SameLine();
 
-			if (ui::imgui_imagebutton(m_reload, m_toolbar_vec))
+			if (ui::imgui_imagebutton(m_refresh, m_toolbar_vec))
 			{
-				ImGui::OpenPopup("AssetReloadPopup");
+				m_update_directories = true;
 			}
 
-			if (ImGui::BeginPopup("AssetReloadPopup"))
+			if (ImGui::BeginItemTooltip())
 			{
-				// todo: add load screen and reload resources
-
-				ImGui::EndPopup();
+				ImGui::TextUnformatted("Refresh");
+				ImGui::EndTooltip();
 			}
 
 			ImGui::SameLine();
@@ -245,7 +256,9 @@ namespace sc
 			m_filter.DrawWithHint("###AssetPanelSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
 
 			ImGui::Spacing();
-			ImGui::TextWrapped(m_current_dir.string().c_str());
+			auto str = m_current_dir.string();
+			std::replace(str.begin(), str.end(), '\\', '/');
+			ImGui::TextWrapped(str.c_str());
 			ImGui::Spacing();
 
 			ImGui::Separator();
@@ -401,7 +414,7 @@ namespace sc
 							auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 							const auto path = std::filesystem::path(m_current_dir / "script.lua");
-							if (!fs.save("-- galaxy script (lua)", path.string()))
+							if (!fs.write_disk<meta::FSTextW>("-- galaxy script (lua)", path.string()))
 							{
 								ui::imgui_notify_error("Failed to save new script.");
 							}
@@ -412,78 +425,13 @@ namespace sc
 						ImGui::EndMenu();
 					}
 
-					if (ImGui::BeginMenu(ICON_MDI_IMPORT " Import"))
-					{
-						if (ImGui::BeginMenu("Audio"))
-						{
-							if (ImGui::MenuItem("Music"))
-							{
-								import_files("music_folder");
-							}
-
-							if (ImGui::MenuItem("SFX"))
-							{
-								import_files("sfx_folder");
-							}
-
-							if (ImGui::MenuItem("Dialogue"))
-							{
-								import_files("dialogue_folder");
-							}
-
-							ImGui::EndMenu();
-						}
-
-						if (ImGui::BeginMenu("Texture"))
-						{
-							if (ImGui::MenuItem("Atlas Texture"))
-							{
-								import_files("atlas_folder");
-							}
-
-							if (ImGui::MenuItem("Standalone Texture"))
-							{
-								import_files("texture_folder");
-							}
-
-							ImGui::EndMenu();
-						}
-
-						if (ImGui::MenuItem("Shader"))
-						{
-							import_files("shader_folder");
-						}
-
-						if (ImGui::MenuItem("Script"))
-						{
-							import_files("scripts_folder");
-						}
-
-						if (ImGui::MenuItem("Language"))
-						{
-							import_files("lang_folder");
-						}
-
-						if (ImGui::MenuItem("Font"))
-						{
-							import_files("font_folder");
-						}
-
-						if (ImGui::MenuItem("Maps"))
-						{
-							import_files("maps_folder");
-						}
-
-						if (ImGui::MenuItem("Prefabs"))
-						{
-							import_files("prefabs_folder");
-						}
-
-						ImGui::EndMenu();
-					}
-
 					if (!m_selected.m_extension.empty())
 					{
+						if (ImGui::MenuItem(ICON_MDI_IMPORT " Import"))
+						{
+							core::ServiceLocator<fs::VirtualFileSystem>::ref().import(m_selected.m_path.string());
+						}
+
 						switch (m_ext_map[m_selected.m_extension])
 						{
 							case FileType::LUA:
@@ -601,35 +549,8 @@ namespace sc
 		void AssetPanel::load_preview()
 		{
 			m_preview.recreate();
-			m_preview.load(m_selected.m_path.string());
+			m_preview.load_disk(m_selected.m_path.string());
 			m_open_preview = true;
-		}
-
-		void AssetPanel::import_files(const std::string& folder_from_config)
-		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			const auto list = fs.open_file_dialog_multi();
-			if (!list.empty())
-			{
-				auto&      config = core::ServiceLocator<core::Config>::ref();
-				const auto to     = fs.root_path() / config.get<std::string>(folder_from_config, "resource_folders");
-
-				for (const auto& path : list)
-				{
-					const auto fs_path = std::filesystem::path(path);
-					try
-					{
-						std::filesystem::copy(fs_path, to, std::filesystem::copy_options::overwrite_existing);
-					}
-					catch (const std::exception& e)
-					{
-						ui::imgui_notify_error(e.what());
-					}
-				}
-
-				m_update_directories = true;
-			}
 		}
 
 		void AssetPanel::directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count)

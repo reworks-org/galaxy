@@ -254,7 +254,6 @@ namespace galaxy
 			prefab_type["to_json"]     = &core::Prefab::to_json;
 
 			auto config_type                 = lua.new_usertype<core::Config>("Config", sol::no_constructor);
-			config_type["load"]              = &core::Config::load;
 			config_type["save"]              = &core::Config::save;
 			config_type["has_at_root"]       = sol::resolve<bool(const std::string&)>(&core::Config::has);
 			config_type["has_in_section"]    = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&core::Config::has);
@@ -373,13 +372,31 @@ namespace galaxy
 
 			/* FS */
 			// clang-format off
-			lua.new_enum<fs::FileCode>("FileInfoCodes",
+			lua.new_enum<fs::AssetType>("AssetType",
 			{
-				{"FOUND", fs::FileCode::FOUND},
-				{"NOT_FOUND", fs::FileCode::NOT_FOUND},
-				{"NOT_IN_VFS", fs::FileCode::NOT_IN_VFS},
-				{"NO_EXTENSION", fs::FileCode::NO_EXTENSION}
+				{"ATLAS", fs::AssetType::ATLAS},
+				{"FONT", fs::AssetType::FONT},
+				{"LANG", fs::AssetType::LANG},
+				{"MAPS", fs::AssetType::MAPS},
+				{"MUSIC", fs::AssetType::MUSIC},
+				{"PREFABS", fs::AssetType::PREFABS},
+				{"SCRIPT", fs::AssetType::SCRIPT},
+				{"SFX", fs::AssetType::SFX},
+				{"SHADER", fs::AssetType::SHADER},
+				{"TEXTURE", fs::AssetType::TEXTURE},
+				{"UI", fs::AssetType::UI},
+				{"UI_FONT", fs::AssetType::UI_FONT},
+				{"UNKNOWN", fs::AssetType::UNKNOWN},
+				{"VIDEO", fs::AssetType::VIDEO},
+				{"VOICE", fs::AssetType::VOICE}
 			});
+
+			lua.new_enum<fs::DialogButton>("DialogButton",
+            {
+				{"cancel_no", fs::DialogButton::cancel_no},
+				{"ok_yes", fs::DialogButton::ok_yes},
+				{"yes_no_cancel", fs::DialogButton::yes_no_cancel}
+            });
 
 			lua.new_enum<fs::DialogIcon>("DialogIcons",
 			{
@@ -387,34 +404,35 @@ namespace galaxy
 				{"warning", fs::DialogIcon::warning},
 				{"error", fs::DialogIcon::error}
             });
+
+			lua.new_enum<fs::DialogType>("DialogType",
+			{
+			    {"ok", fs::DialogType::ok},
+				{"okcancel", fs::DialogType::okcancel},
+				{"yesno", fs::DialogType::yesno},
+				{"yesnocancel", fs::DialogType::yesnocancel}
+			});
 			// clang-format on
 
-			auto fileinfo_type      = lua.new_usertype<fs::FileInfo>("FileInfo", sol::constructors<fs::FileInfo()>());
-			fileinfo_type["code"]   = &fs::FileInfo::code;
-			fileinfo_type["string"] = &fs::FileInfo::string;
+			auto archiveentry_type     = lua.new_usertype<fs::ArchiveEntry>("ArchiveEntry", sol::constructors<fs::ArchiveEntry()>());
+			archiveentry_type["pack"]  = &fs::ArchiveEntry::pack;
+			archiveentry_type["entry"] = &fs::ArchiveEntry::entry;
+			archiveentry_type["type"]  = &fs::ArchiveEntry::type;
 
-			auto vfs_type                        = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
-			vfs_type["alert"]                    = &fs::VirtualFileSystem::alert;
-			vfs_type["create_file"]              = &fs::VirtualFileSystem::create_file;
-			vfs_type["create_folder"]            = &fs::VirtualFileSystem::create_folder;
-			vfs_type["exists"]                   = &fs::VirtualFileSystem::exists;
-			vfs_type["find"]                     = &fs::VirtualFileSystem::find;
-			vfs_type["list_directory"]           = &fs::VirtualFileSystem::list_directory;
-			vfs_type["open"]                     = &fs::VirtualFileSystem::open;
-			vfs_type["open_binary"]              = &fs::VirtualFileSystem::open_binary;
-			vfs_type["open_binary_using_dialog"] = &fs::VirtualFileSystem::open_binary_using_dialog;
-			vfs_type["open_file_dialog"]         = &fs::VirtualFileSystem::open_file_dialog;
-			vfs_type["open_file_dialog_multi"]   = &fs::VirtualFileSystem::open_file_dialog_multi;
-			vfs_type["open_save_dialog"]         = &fs::VirtualFileSystem::open_save_dialog;
-			vfs_type["open_using_dialog"]        = &fs::VirtualFileSystem::open_using_dialog;
-			vfs_type["remove"]                   = &fs::VirtualFileSystem::remove;
-			vfs_type["root"]                     = &fs::VirtualFileSystem::root;
-			vfs_type["save"]                     = &fs::VirtualFileSystem::save;
-			vfs_type["save_binary"]              = &fs::VirtualFileSystem::save_binary;
-			vfs_type["save_binary_using_dialog"] = &fs::VirtualFileSystem::save_binary_using_dialog;
-			vfs_type["save_using_dialog"]        = &fs::VirtualFileSystem::save_using_dialog;
-			vfs_type["select_folder_dialog"]     = &fs::VirtualFileSystem::select_folder_dialog;
-			vfs_type["trigger_notification"]     = &fs::VirtualFileSystem::trigger_notification;
+			auto vfs_type                    = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
+			vfs_type["alert"]                = &fs::VirtualFileSystem::alert;
+			vfs_type["find"]                 = &fs::VirtualFileSystem::find;
+			vfs_type["open_file_dialog"]     = &fs::VirtualFileSystem::open_file_dialog;
+			vfs_type["open_save_dialog"]     = &fs::VirtualFileSystem::open_save_dialog;
+			vfs_type["select_folder_dialog"] = &fs::VirtualFileSystem::select_folder_dialog;
+			vfs_type["contains"]             = &fs::VirtualFileSystem::contains;
+			vfs_type["import"]               = &fs::VirtualFileSystem::import;
+			vfs_type["input_box"]            = &fs::VirtualFileSystem::input_box;
+			vfs_type["list_assets"]          = &fs::VirtualFileSystem::list_assets;
+			vfs_type["message_box"]          = &fs::VirtualFileSystem::message_box;
+			vfs_type["mkdir_disk"]           = &fs::VirtualFileSystem::mkdir_disk;
+			vfs_type["notification"]         = &fs::VirtualFileSystem::notification;
+			vfs_type["rebuild_filesystem"]   = &fs::VirtualFileSystem::rebuild_filesystem;
 
 			/* GRAPHICS */
 			// clang-format off
@@ -891,58 +909,50 @@ namespace galaxy
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
 
 			/* RESOURCE */
-			auto basicscripts_type           = lua.new_usertype<resource::BasicScripts>("BasicScripts", sol::no_constructor);
-			basicscripts_type["clear"]       = &resource::BasicScripts::clear;
-			basicscripts_type["empty"]       = &resource::BasicScripts::empty;
-			basicscripts_type["get"]         = &resource::BasicScripts::get;
-			basicscripts_type["has"]         = &resource::BasicScripts::has;
-			basicscripts_type["keys"]        = &resource::BasicScripts::keys;
-			basicscripts_type["load_folder"] = &resource::BasicScripts::load_folder;
-			basicscripts_type["size"]        = &resource::BasicScripts::size;
+			auto basicscripts_type     = lua.new_usertype<resource::BasicScripts>("BasicScripts", sol::no_constructor);
+			basicscripts_type["clear"] = &resource::BasicScripts::clear;
+			basicscripts_type["empty"] = &resource::BasicScripts::empty;
+			basicscripts_type["get"]   = &resource::BasicScripts::get;
+			basicscripts_type["has"]   = &resource::BasicScripts::has;
+			basicscripts_type["keys"]  = &resource::BasicScripts::keys;
+			basicscripts_type["size"]  = &resource::BasicScripts::size;
 
-			auto fonts_type           = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
-			fonts_type["clear"]       = &resource::Fonts::clear;
-			fonts_type["empty"]       = &resource::Fonts::empty;
-			fonts_type["get"]         = &resource::Fonts::get;
-			fonts_type["has"]         = &resource::Fonts::has;
-			fonts_type["keys"]        = &resource::Fonts::keys;
-			fonts_type["load_folder"] = &resource::Fonts::load_folder;
-			fonts_type["size"]        = &resource::Fonts::size;
+			auto fonts_type     = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
+			fonts_type["clear"] = &resource::Fonts::clear;
+			fonts_type["empty"] = &resource::Fonts::empty;
+			fonts_type["get"]   = &resource::Fonts::get;
+			fonts_type["has"]   = &resource::Fonts::has;
+			fonts_type["keys"]  = &resource::Fonts::keys;
+			fonts_type["size"]  = &resource::Fonts::size;
 
 			auto lang_type              = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
 			lang_type["clear_specific"] = sol::resolve<void(const std::string&)>(&resource::Language::clear);
 			lang_type["clear"]          = sol::resolve<void(void)>(&resource::Language::clear);
-			lang_type["load_folder"]    = &resource::Language::load_folder;
 			lang_type["set"]            = &resource::Language::set;
 			lang_type["translate"]      = &resource::Language::translate;
 
-			auto prefabs_type           = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
-			prefabs_type["clear"]       = &resource::Prefabs::clear;
-			prefabs_type["empty"]       = &resource::Prefabs::empty;
-			prefabs_type["get"]         = &resource::Prefabs::get;
-			prefabs_type["has"]         = &resource::Prefabs::has;
-			prefabs_type["keys"]        = &resource::Prefabs::keys;
-			prefabs_type["load_folder"] = &resource::Prefabs::load_folder;
-			prefabs_type["size"]        = &resource::Prefabs::size;
+			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
+			prefabs_type["clear"] = &resource::Prefabs::clear;
+			prefabs_type["empty"] = &resource::Prefabs::empty;
+			prefabs_type["get"]   = &resource::Prefabs::get;
+			prefabs_type["has"]   = &resource::Prefabs::has;
+			prefabs_type["keys"]  = &resource::Prefabs::keys;
+			prefabs_type["size"]  = &resource::Prefabs::size;
 
-			auto shaders_type           = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
-			shaders_type["clear"]       = &resource::Shaders::clear;
-			shaders_type["empty"]       = &resource::Shaders::empty;
-			shaders_type["get"]         = &resource::Shaders::get;
-			shaders_type["has"]         = &resource::Shaders::has;
-			shaders_type["keys"]        = &resource::Shaders::keys;
-			shaders_type["load_folder"] = &resource::Shaders::load_folder;
-			shaders_type["size"]        = &resource::Shaders::size;
+			auto shaders_type     = lua.new_usertype<resource::Shaders>("Shaders", sol::no_constructor);
+			shaders_type["clear"] = &resource::Shaders::clear;
+			shaders_type["empty"] = &resource::Shaders::empty;
+			shaders_type["get"]   = &resource::Shaders::get;
+			shaders_type["has"]   = &resource::Shaders::has;
+			shaders_type["keys"]  = &resource::Shaders::keys;
+			shaders_type["size"]  = &resource::Shaders::size;
 
-			auto textureatlas_type          = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
-			textureatlas_type["add_file"]   = &resource::TextureAtlas::add_file;
-			textureatlas_type["add_folder"] = &resource::TextureAtlas::add_folder;
-			textureatlas_type["clear"]      = &resource::TextureAtlas::clear;
-			textureatlas_type["contains"]   = &resource::TextureAtlas::contains;
-			textureatlas_type["query"]      = &resource::TextureAtlas::query;
-			textureatlas_type["reload"]     = &resource::TextureAtlas::reload;
-			textureatlas_type["save"]       = &resource::TextureAtlas::save;
-			textureatlas_type["keys"]       = &resource::TextureAtlas::keys;
+			auto textureatlas_type        = lua.new_usertype<resource::TextureAtlas>("TextureAtlas", sol::no_constructor);
+			textureatlas_type["clear"]    = &resource::TextureAtlas::clear;
+			textureatlas_type["contains"] = &resource::TextureAtlas::contains;
+			textureatlas_type["query"]    = &resource::TextureAtlas::query;
+			textureatlas_type["save"]     = &resource::TextureAtlas::save;
+			textureatlas_type["keys"]     = &resource::TextureAtlas::keys;
 
 			/* STATE */
 			auto scenemanager_type            = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
@@ -967,8 +977,7 @@ namespace galaxy
 			scene_type["world"]      = &scene::Scene::m_world;
 
 			/* SCRIPTING */
-			auto basicscript_type =
-				lua.new_usertype<lua::BasicScript>("BasicScript", sol::constructors<lua::BasicScript(), lua::BasicScript(std::string_view)>());
+			auto basicscript_type              = lua.new_usertype<lua::BasicScript>("BasicScript", sol::constructors<lua::BasicScript()>());
 			basicscript_type["load"]           = &lua::BasicScript::load;
 			basicscript_type["run"]            = &lua::BasicScript::run;
 			basicscript_type["run_and_return"] = &lua::BasicScript::run_and_return;
@@ -1003,7 +1012,27 @@ namespace galaxy
 			lua.set("GALAXY_FONT_MSDF_RANGE", GALAXY_FONT_MSDF_RANGE);
 			lua.set("GALAXY_FONT_MSDF_SCALE", GALAXY_FONT_MSDF_SCALE);
 			lua.set("GALAXY_DEFAULT_ELLIPSE_FRAGMENTS", GALAXY_DEFAULT_ELLIPSE_FRAGMENTS);
-			lua.set("GALAXY_APP_DIR", GALAXY_APP_DIR);
+			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR.string());
+			lua.set("GALAXY_DATA_DIR", GALAXY_DATA_DIR);
+			lua.set("GALAXY_WORK_DIR", GALAXY_WORK_DIR);
+			lua.set("GALAXY_MOD_DIR", GALAXY_MOD_DIR);
+			lua.set("GALAXY_UPDATE_DIR", GALAXY_UPDATE_DIR);
+			lua.set("GALAXY_MUSIC_DIR", GALAXY_MUSIC_DIR);
+			lua.set("GALAXY_SFX_DIR", GALAXY_SFX_DIR);
+			lua.set("GALAXY_VOICE_DIR", GALAXY_VOICE_DIR);
+			lua.set("GALAXY_FONT_DIR", GALAXY_FONT_DIR);
+			lua.set("GALAXY_SCRIPT_DIR", GALAXY_SCRIPT_DIR);
+			lua.set("GALAXY_SHADER_DIR", GALAXY_SHADER_DIR);
+			lua.set("GALAXY_TEXTURE_DIR", GALAXY_TEXTURE_DIR);
+			lua.set("GALAXY_ATLAS_DIR", GALAXY_ATLAS_DIR);
+			lua.set("GALAXY_LANG_DIR", GALAXY_LANG_DIR);
+			lua.set("GALAXY_PREFABS_DIR", GALAXY_PREFABS_DIR);
+			lua.set("GALAXY_MAPS_DIR", GALAXY_MAPS_DIR);
+			lua.set("GALAXY_VIDEO_DIR", GALAXY_VIDEO_DIR);
+			lua.set("GALAXY_UI_DIR", GALAXY_UI_DIR);
+			lua.set("GALAXY_UI_FONTS_DIR", GALAXY_UI_FONTS_DIR);
+			lua.set("GALAXY_EDITOR_DATA_DIR", GALAXY_EDITOR_DATA_DIR);
+			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
 			lua.set("GALAXY_EXIT_SUCCESS", GALAXY_EXIT_SUCCESS);
 			lua.set("GALAXY_EXIT_FAILURE", GALAXY_EXIT_FAILURE);
 

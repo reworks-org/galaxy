@@ -71,11 +71,11 @@ namespace galaxy
 			///
 			/// Loads a shader into OpenGL from source.
 			///
-			/// \param file Path to A combined shader source.
+			/// \param file Path to a combined shader source.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load(std::string_view file);
+			[[maybe_unused]] bool load(const std::string& file);
 
 			///
 			/// Loads a combined raw shader.
@@ -207,6 +207,12 @@ namespace galaxy
 			///
 			std::string m_fragment_src;
 		};
+
+		template<>
+		inline void Shader::set_uniform(const std::string& name)
+		{
+			static_assert("Failed to find correct overload for shader.");
+		}
 
 		template<>
 		inline void Shader::set_uniform<bool>(const std::string& name, const bool& a)

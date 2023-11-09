@@ -79,17 +79,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Application& operator=(Application&&) = delete;
-
-			///
-			/// \brief Create default asset layout.
-			///
-			/// This uses a const string reference over string_view since
-			/// we need to combine the strings into a new string.
-			///
-			/// \param root Root asset folder.
-			/// \param asset_folder Path to the asset folder to create.
-			///
-			void create_asset_layout(const std::string& root, const std::string& asset_folder);
 		};
 	} // namespace core
 } // namespace galaxy

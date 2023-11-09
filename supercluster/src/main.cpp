@@ -53,21 +53,16 @@ int main(int argsc, char* argsv[])
 			Supercluster app;
 
 			{
-				auto& config = core::ServiceLocator<core::Config>::ref();
-				auto  root   = config.get<std::string>("asset_dir");
+				auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read_disk<meta::FSBinaryR>("editor/sc.png");
+				core::ServiceLocator<core::Window>::ref().set_icon(data);
 
-				if (!std::filesystem::exists(root + "../editor_data"))
+				if (!std::filesystem::exists(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR / "projects"))
 				{
-					std::filesystem::create_directory(root + "../editor_data");
-				}
-
-				if (!std::filesystem::exists(root + "../editor_data/projects"))
-				{
-					std::filesystem::create_directory(root + "../editor_data/projects");
+					std::filesystem::create_directory(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR / "projects");
 				}
 
 				ImGuiIO& io    = ui::imgui_init_context();
-				io.IniFilename = "sclayout.ini";
+				io.IniFilename = "layout.ini";
 
 				ImFontConfig font_cfg          = {};
 				font_cfg.FontDataOwnedByAtlas  = false;
@@ -78,6 +73,7 @@ int main(int argsc, char* argsv[])
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
 				ImGui_Notify::MergeIconsWithLatestFont(16.0f, false);
 
+				auto& config = core::ServiceLocator<core::Config>::ref();
 				config.restore<std::string>("theme", "DARK", "editor");
 				config.save();
 

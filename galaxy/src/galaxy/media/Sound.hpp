@@ -13,6 +13,7 @@
 #include <miniaudio.h>
 
 #include "galaxy/media/SoundType.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -37,7 +38,7 @@ namespace galaxy
 			/// \param type Classification of the sound.
 			/// \param file File to load.
 			///
-			Sound(SoundType type, std::string_view file);
+			Sound(SoundType type, const std::string& file);
 
 			///
 			/// Destructor.
@@ -50,7 +51,7 @@ namespace galaxy
 			/// \param type Classification of the sound.
 			/// \param file File to load.
 			///
-			void load(SoundType type, std::string_view file);
+			void load(SoundType type, const std::string& file);
 
 			///
 			/// Start playing the sound.
@@ -457,6 +458,16 @@ namespace galaxy
 			[[nodiscard]] bool is_finished() const;
 
 		  private:
+			///
+			/// Raw sound data.
+			///
+			meta::vector<std::uint8_t> m_data;
+
+			///
+			/// Decoding information.
+			///
+			ma_decoder m_decoder;
+
 			///
 			/// Miniaudio sound structure.
 			///

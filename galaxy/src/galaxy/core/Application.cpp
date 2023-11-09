@@ -6,8 +6,6 @@
 ///
 
 #include <BS_thread_pool.hpp>
-#include <tinyfiledialogs.h>
-#include <zip.h>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
@@ -76,14 +74,14 @@ namespace galaxy
 			// CONFIG.
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
-			config.restore<std::string>("asset_dir", "assets/");
-			config.restore<std::string>("compressed_assets", "assets.zip");
+			config.restore<bool>("create_asset_work_directories", true);
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("app_data", "default.galaxy");
 			config.restore<bool>("log_performance", true);
 			config.restore<std::string>("title", "Title", "window");
 			config.restore<std::string>("icon", "", "window");
 			config.restore<std::string>("cursor_icon", "", "window");
+			config.restore<float>("ui_font_size", 14.0f);
 			config.restore<bool>("vsync", false, "window");
 			config.restore<bool>("maximized", false, "window");
 			config.restore<bool>("debug", true, "window");
@@ -104,17 +102,6 @@ namespace galaxy
 			config.restore<bool>("chromatic_abberation", false, "graphics.effects");
 			config.restore<bool>("gaussian_blur", false, "graphics.effects");
 			config.restore<bool>("film_grain", false, "graphics.effects");
-			config.restore<std::string>("maps_folder", "maps/", "resource_folders");
-			config.restore<std::string>("shader_folder", "shaders/", "resource_folders");
-			config.restore<std::string>("scripts_folder", "scripts/", "resource_folders");
-			config.restore<std::string>("font_folder", "fonts/", "resource_folders");
-			config.restore<std::string>("lang_folder", "lang/", "resource_folders");
-			config.restore<std::string>("prefabs_folder", "prefabs/", "resource_folders");
-			config.restore<std::string>("texture_folder", "textures/", "resource_folders");
-			config.restore<std::string>("atlas_folder", "atlas/", "resource_folders");
-			config.restore<std::string>("audio_folder", "audio/", "resource_folders");
-			config.restore<std::string>("ui_folder", "ui/", "resource_folders");
-			config.restore<std::string>("video_folder", "video/", "resource_folders");
 			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
 			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
 			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
@@ -149,60 +136,22 @@ namespace galaxy
 			//
 			// VIRTUAL FILE SYSTEM.
 			//
-			auto root = config.get<std::string>("asset_dir");
-			if (!root.empty())
+			auto& fs = ServiceLocator<fs::VirtualFileSystem>::make();
+
+			// Generate default language file.
+			if (!fs.contains("en_au.lang"))
 			{
-				// Fix filepath.
-				if (root.back() != '/')
-				{
-					root += '/';
-
-					config.set("asset_dir", root);
-					config.save();
-				}
-
-				create_asset_layout(root, "");
-				auto& fs = ServiceLocator<fs::VirtualFileSystem>::make(root);
-
-				//
-				// Nuklear UI.
-				//
-				ServiceLocator<ui::NuklearUI>::make();
-
-				auto& loader = ServiceLocator<Loader>::make();
-				loader.extract_assets();
-
-				const auto audio_folder = config.get<std::string>("audio_folder", "resource_folders");
-				create_asset_layout(root, audio_folder);
-				create_asset_layout(root, audio_folder + "music/");
-				create_asset_layout(root, audio_folder + "sfx/");
-				create_asset_layout(root, audio_folder + "dialogue/");
-
-				create_asset_layout(root, config.get<std::string>("font_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("scripts_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("shader_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("texture_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("atlas_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("lang_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("prefabs_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("maps_folder", "resource_folders"));
-				create_asset_layout(root, config.get<std::string>("video_folder", "resource_folders"));
-
-				const auto ui_folder = config.get<std::string>("ui_folder", "resource_folders");
-				create_asset_layout(root, ui_folder);
-				create_asset_layout(root, ui_folder + "fonts/");
-				create_asset_layout(root, ui_folder + "scripts/");
-
-				// Generate default language file.
-				if (!fs.save("region='en_au'\ndata={}", config.get<std::string>("lang_folder", "resource_folders") + "en_au.lang"))
+				if (!fs.write<meta::FSTextW>("region='en_au'\ndata={}", "lang/en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
 				}
 			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Could not parse root asset directory.");
-			}
+
+			//
+			// Nuklear UI.
+			//
+			ServiceLocator<ui::NuklearUI>::make();
+			ServiceLocator<Loader>::make();
 
 			//
 			// Threadpool.
@@ -262,10 +211,10 @@ namespace galaxy
 			const auto listener_count = config.get<int>("listener_count", "audio");
 			ServiceLocator<media::SoundEngine>::make(listener_count);
 			ServiceLocator<media::MusicEngine>::make(listener_count);
-			ServiceLocator<media::DialogueEngine>::make(listener_count);
+			ServiceLocator<media::VoiceEngine>::make(listener_count);
 			ServiceLocator<resource::SFXCache>::make();
 			ServiceLocator<resource::MusicCache>::make();
-			ServiceLocator<resource::DialogueCache>::make();
+			ServiceLocator<resource::VoiceCache>::make();
 			ServiceLocator<resource::VideoCache>::make();
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
@@ -300,11 +249,11 @@ namespace galaxy
 			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<resource::SFXCache>::del();
 			ServiceLocator<resource::MusicCache>::del();
-			ServiceLocator<resource::DialogueCache>::del();
+			ServiceLocator<resource::VoiceCache>::del();
 			ServiceLocator<resource::VideoCache>::del();
 			ServiceLocator<media::SoundEngine>::del();
 			ServiceLocator<media::MusicEngine>::del();
-			ServiceLocator<media::DialogueEngine>::del();
+			ServiceLocator<media::VoiceEngine>::del();
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<meta::EntityMeta>::del();
 			ServiceLocator<graphics::FontContext>::del();
@@ -401,16 +350,6 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, "Main loop exception: '{0}'.", e.what());
 			}
 #endif
-		}
-
-		void Application::create_asset_layout(const std::string& root, const std::string& asset_folder)
-		{
-			const auto merged = root + asset_folder;
-			if (!std::filesystem::exists(merged))
-			{
-				GALAXY_LOG(GALAXY_INFO, "Missing asset folder, creating at: '{0}'.", merged);
-				std::filesystem::create_directories(merged);
-			}
 		}
 	} // namespace core
 } // namespace galaxy

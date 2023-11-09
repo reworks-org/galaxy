@@ -79,14 +79,14 @@ namespace galaxy
 			destroy();
 		}
 
-		bool Shader::load(std::string_view file)
+		bool Shader::load(const std::string& file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto src = fs.open(file);
-			if (!src.empty())
+			auto data = fs.read<meta::FSTextR>(file);
+			if (!data.empty())
 			{
-				return load_raw(src);
+				return load_raw(data);
 			}
 			else
 			{

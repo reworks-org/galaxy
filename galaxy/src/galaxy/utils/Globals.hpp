@@ -15,17 +15,37 @@
 
 namespace galaxy
 {
-	struct doNotUseReferToConfigForMacroNames
+	struct DoNotUseReferToMacros
 	{
-		static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
+		inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
 
-		static constexpr const float GALAXY_DT_VAR =
+		inline static constexpr const float GALAXY_DT_VAR =
 			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
-		static bool GALAXY_RESTART_FLAG;
+		inline static bool GALAXY_RESTART_FLAG {false};
 
-		static unsigned int GALAXY_CUR_UPS_VAR;
-		static unsigned int GALAXY_CUR_FPS_VAR;
+		inline static unsigned int GALAXY_CUR_UPS_VAR {0};
+		inline static unsigned int GALAXY_CUR_FPS_VAR {0};
+
+		inline static const std::string data {"data/"};
+		inline static const std::string data_mods {"data/mods/"};
+		inline static const std::string data_updates {"data/updates/"};
+		inline static const std::string work_dir {"assets/"};
+		inline static const std::string editor_data_dir {"editor/"};
+		inline static const std::string assets_music {"music/"};
+		inline static const std::string assets_sfx {"sfx/"};
+		inline static const std::string assets_voice {"voice/"};
+		inline static const std::string assets_font {"fonts/"};
+		inline static const std::string assets_script {"scripts/"};
+		inline static const std::string assets_shader {"shaders/"};
+		inline static const std::string assets_texture {"textures/"};
+		inline static const std::string assets_atlas {"atlas/"};
+		inline static const std::string assets_lang {"lang/"};
+		inline static const std::string assets_prefabs {"prefabs/"};
+		inline static const std::string assets_maps {"maps/"};
+		inline static const std::string assets_video {"video/"};
+		inline static const std::string assets_ui {"ui/"};
+		inline static const std::string assets_ui_fonts {"ui/fonts/"};
 	};
 } // namespace galaxy
 
@@ -42,27 +62,27 @@ namespace galaxy
 ///
 /// Restart flag.
 ///
-#define GALAXY_RESTART galaxy::doNotUseReferToConfigForMacroNames::GALAXY_RESTART_FLAG
+#define GALAXY_RESTART galaxy::DoNotUseReferToMacros::GALAXY_RESTART_FLAG
 
 ///
 /// Updates per second.
 ///
-#define GALAXY_UPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_UPS_VAR
+#define GALAXY_UPS galaxy::DoNotUseReferToMacros::GALAXY_UPS_VAR
 
 ///
 /// Galaxy Delta-Time.
 ///
-#define GALAXY_DT galaxy::doNotUseReferToConfigForMacroNames::GALAXY_DT_VAR
+#define GALAXY_DT galaxy::DoNotUseReferToMacros::GALAXY_DT_VAR
 
 ///
 /// GALAXY current UPS.
 ///
-#define GALAXY_CUR_UPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_CUR_UPS_VAR
+#define GALAXY_CUR_UPS galaxy::DoNotUseReferToMacros::GALAXY_CUR_UPS_VAR
 
 ///
 /// Galaxy current FPS.
 ///
-#define GALAXY_CUR_FPS galaxy::doNotUseReferToConfigForMacroNames::GALAXY_CUR_FPS_VAR
+#define GALAXY_CUR_FPS galaxy::DoNotUseReferToMacros::GALAXY_CUR_FPS_VAR
 
 ///
 /// Number of bits in a flag bitset.
@@ -118,7 +138,102 @@ namespace galaxy
 ///
 /// Current root directory of application, unless it has been changed.
 ///
-#define GALAXY_APP_DIR std::filesystem::current_path().string()
+#define GALAXY_ROOT_DIR std::filesystem::current_path()
+
+///
+/// Main data directory.
+///
+#define GALAXY_DATA_DIR galaxy::DoNotUseReferToMacros::data
+
+///
+/// Directory for working assets.
+///
+#define GALAXY_WORK_DIR galaxy::DoNotUseReferToMacros::work_dir
+
+///
+/// Directory for mods.
+///
+#define GALAXY_MOD_DIR galaxy::DoNotUseReferToMacros::data_mods
+
+///
+/// Directory for update archives.
+///
+#define GALAXY_UPDATE_DIR galaxy::DoNotUseReferToMacros::data_updates
+
+///
+/// Directory for galaxy editor data.
+///
+#define GALAXY_EDITOR_DATA_DIR galaxy::DoNotUseReferToMacros::editor_data_dir
+
+///
+/// Music asset location.
+///
+#define GALAXY_MUSIC_DIR galaxy::DoNotUseReferToMacros::assets_music
+
+///
+/// SFX asset location.
+///
+#define GALAXY_SFX_DIR galaxy::DoNotUseReferToMacros::assets_sfx
+
+///
+/// Voice asset location.
+///
+#define GALAXY_VOICE_DIR galaxy::DoNotUseReferToMacros::assets_voice
+
+///
+/// Font asset location.
+///
+#define GALAXY_FONT_DIR galaxy::DoNotUseReferToMacros::assets_font
+
+///
+/// Script asset location.
+///
+#define GALAXY_SCRIPT_DIR galaxy::DoNotUseReferToMacros::assets_script
+
+///
+/// Shader asset location.
+///
+#define GALAXY_SHADER_DIR galaxy::DoNotUseReferToMacros::assets_shader
+
+///
+/// Texture asset location.
+///
+#define GALAXY_TEXTURE_DIR galaxy::DoNotUseReferToMacros::assets_texture
+
+///
+/// Atlas asset location.
+///
+#define GALAXY_ATLAS_DIR galaxy::DoNotUseReferToMacros::assets_atlas
+
+///
+/// Lang asset location.
+///
+#define GALAXY_LANG_DIR galaxy::DoNotUseReferToMacros::assets_lang
+
+///
+/// Prefab asset location.
+///
+#define GALAXY_PREFABS_DIR galaxy::DoNotUseReferToMacros::assets_prefabs
+
+///
+/// Map asset location.
+///
+#define GALAXY_MAPS_DIR galaxy::DoNotUseReferToMacros::assets_maps
+
+///
+/// Video asset location.
+///
+#define GALAXY_VIDEO_DIR galaxy::DoNotUseReferToMacros::assets_video
+
+///
+/// UI asset location.
+///
+#define GALAXY_UI_DIR galaxy::DoNotUseReferToMacros::assets_ui
+
+///
+/// UI fonts asset location.
+///
+#define GALAXY_UI_FONTS_DIR galaxy::DoNotUseReferToMacros::assets_ui_fonts
 
 ///
 /// ZLib inflate/deflate chunk size.

@@ -25,39 +25,35 @@ namespace galaxy
 			clear();
 		}
 
-		void Language::load_folder(std::string_view folder)
+		void Language::load_from_vfs()
 		{
 			clear();
-			if (!folder.empty())
-			{
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
+			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(fs::AssetType::LANG))
+			{
 				sol::state lua;
-				for (const auto& file : fs.list_directory(folder))
-				{
-					load(lua, file);
-				}
+				load(lua, file);
 			}
 		}
 
 		void Language::load(sol::state& lua, const std::string& file)
 		{
-			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto  info = fs.find(file);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			if (info.code == fs::FileCode::FOUND)
+			auto data = fs.read<meta::FSTextR>(file);
+			if (!data.empty())
 			{
 				lua.open_libraries(sol::lib::base, sol::lib::string, sol::lib::table);
-				lua.script_file(info.string);
+				lua.script(data);
 
-				std::string region = lua["region"];
-				sol::table  data   = lua["data"];
+				std::string region    = lua["region"];
+				sol::table  lang_data = lua["data"];
 
 				if (!m_languages.contains(region))
 				{
 					m_languages[region] = {};
 
-					for (const auto& [key, value] : data)
+					for (const auto& [key, value] : lang_data)
 					{
 						m_languages[region].emplace(key.as<std::string>(), value.as<std::string>());
 					}
@@ -69,7 +65,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find {0} because {1}.", file, magic_enum::enum_name(info.code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' in vfs.", file);
 			}
 		}
 

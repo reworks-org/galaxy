@@ -76,18 +76,16 @@ namespace galaxy
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = std::filesystem::path(filepath);
+			auto full = GALAXY_ROOT_DIR / GALAXY_WORK_DIR / path.parent_path() / path.stem();
 
-			auto full_path = fs.root_path() / path.parent_path() / path.stem();
-			auto full      = full_path.string();
-
-			if (!std::filesystem::exists(full_path.parent_path()))
+			if (!std::filesystem::exists(full.parent_path()))
 			{
-				std::filesystem::create_directories(full_path.parent_path());
+				std::filesystem::create_directories(full.parent_path());
 			}
 
-			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
+			if (full.extension() != ".png" || full.extension() != ".PNG" || !full.has_extension())
 			{
-				full += ".png";
+				full.replace_extension(".png");
 			}
 
 			const auto                 ui = static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u;
@@ -96,7 +94,7 @@ namespace galaxy
 			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(full.c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
+			stbi_write_png(full.string().c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
 		}
 
 		void RenderTexture::bind(const bool clear)

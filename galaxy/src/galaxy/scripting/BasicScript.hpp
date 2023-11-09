@@ -30,7 +30,7 @@ namespace galaxy
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			BasicScript(std::string_view file);
+			BasicScript(const std::string& file);
 
 			///
 			/// Destructor.
@@ -42,7 +42,7 @@ namespace galaxy
 			///
 			/// \param file File in VFS to load as a script.
 			///
-			void load(std::string_view file);
+			void load(const std::string& file);
 
 			///
 			/// Run a lua script.
@@ -59,11 +59,6 @@ namespace galaxy
 			[[nodiscard]] sol::protected_function_result run_and_return();
 
 		  private:
-			///
-			/// Pointer to global lua state.
-			///
-			sol::state* m_state;
-
 			///
 			/// BasicScript loaded into sol3 memory.
 			///

@@ -215,8 +215,10 @@ namespace sc
 								const auto   base64 = algorithm::encode_base64(prefab.to_json().dump(4));
 								const auto   zlib   = algorithm::encode_zlib(base64);
 
-								auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-								if (!fs.save_using_dialog(zlib, "untitled.gprefab", {"*.gprefab"}))
+								auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+								auto  dest = fs.open_save_dialog("untitled.gprefab", {"*.gprefab"});
+
+								if (!fs.write_disk<meta::FSTextW>(zlib, dest))
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
 									ui::imgui_notify_error("Failed to save prefab.");

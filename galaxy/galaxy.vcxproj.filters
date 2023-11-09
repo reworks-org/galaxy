@@ -30,7 +30,6 @@
     <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
     <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
     <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
@@ -82,7 +81,6 @@
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
@@ -144,6 +142,11 @@
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
     <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
+    <ClCompile Include="src\galaxy\meta\FileType.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\AssetType.cpp" />
+    <ClCompile Include="src\galaxy\fs\ArchiveEntry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
@@ -175,7 +178,6 @@
     <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
     <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
     <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
@@ -228,7 +230,6 @@
     <ClInclude Include="src\galaxy\utils\Globals.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
@@ -285,5 +286,10 @@
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
+    <ClInclude Include="src\galaxy\meta\FileType.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\AssetType.hpp" />
+    <ClInclude Include="src\galaxy\fs\ArchiveEntry.hpp" />
   </ItemGroup>
 </Project>

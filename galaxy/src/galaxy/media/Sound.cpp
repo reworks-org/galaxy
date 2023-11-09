@@ -17,11 +17,13 @@ namespace galaxy
 	{
 		Sound::Sound()
 			: m_sound {}
+			, m_decoder {}
 		{
 		}
 
-		Sound::Sound(SoundType type, std::string_view file)
+		Sound::Sound(SoundType type, const std::string& file)
 			: m_sound {}
+			, m_decoder {}
 		{
 			load(type, file);
 		}
@@ -32,9 +34,10 @@ namespace galaxy
 			stop();
 
 			ma_sound_uninit(&m_sound);
+			ma_decoder_uninit(&m_decoder);
 		}
 
-		void Sound::load(SoundType type, std::string_view file)
+		void Sound::load(SoundType type, const std::string& file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
@@ -52,25 +55,34 @@ namespace galaxy
 					flags  |= MA_SOUND_FLAG_STREAM;
 					break;
 
-				case SoundType::DIALOGUE:
-					engine  = core::ServiceLocator<media::DialogueEngine>::ref().get_engine();
+				case SoundType::VOICE:
+					engine  = core::ServiceLocator<media::VoiceEngine>::ref().get_engine();
 					flags  |= MA_SOUND_FLAG_STREAM;
 					break;
 			}
 
-			auto info = fs.find(file);
-			if (info.code == fs::FileCode::FOUND)
+			ma_sound_uninit(&m_sound);
+			ma_decoder_uninit(&m_decoder);
+			m_data.clear();
+
+			m_data = fs.read<meta::FSBinaryR>(file);
+			if (!m_data.empty())
 			{
-				const auto result = ma_sound_init_from_file(engine, info.string.c_str(), flags, nullptr, nullptr, &m_sound);
-				if (result != MA_SUCCESS)
+				if (ma_decoder_init_memory(m_data.data(), m_data.size(), nullptr, &m_decoder) != MA_SUCCESS)
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from file.");
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' into decoder.", file);
+					ma_decoder_uninit(&m_decoder);
+				}
+
+				if (ma_sound_init_from_data_source(engine, &m_decoder, flags, nullptr, &m_sound) != MA_SUCCESS)
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from decoder.", file);
+					ma_sound_uninit(&m_sound);
 				}
 			}
 			else
 			{
-				const auto name = magic_enum::enum_name(info.code);
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find {0} because {1}.", file, name);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs", file);
 			}
 		}
 

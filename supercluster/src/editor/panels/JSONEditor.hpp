@@ -25,11 +25,11 @@ namespace sc
 
 			void create_new();
 
-			void load_file(std::string_view file);
-			void load_mem(std::span<char> memory);
+			void load_file(const std::string& file);
+			void load_vfs(const std::string& entry);
 			void load_json(nlohmann::json* json);
 
-			void save(std::string_view path);
+			void save(const std::string& path);
 
 			void render();
 

@@ -1,5 +1,5 @@
 ///
-/// Loading.cpp
+/// Loader.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -25,6 +25,8 @@
 
 #include "Loader.hpp"
 
+using namespace std::chrono_literals;
+
 namespace galaxy
 {
 	namespace core
@@ -37,167 +39,41 @@ namespace galaxy
 		{
 		}
 
-		void Loader::extract_assets()
-		{
-			auto& config   = ServiceLocator<Config>::ref();
-			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
-			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
-
-			const auto asset_dir         = config.get<std::string>("asset_dir");
-			const auto compressed_assets = config.get<std::string>("compressed_assets");
-
-			// Unpack assets if zip is present.
-			if (std::filesystem::exists(compressed_assets))
-			{
-				GALAXY_LOG(GALAXY_INFO, "Detected asset pack. Extracting...");
-				GALAXY_LOG(GALAXY_INFO, "Removing old assets...");
-				std::filesystem::remove_all(asset_dir);
-
-				// Get file count.
-				auto z     = zip_open(compressed_assets.c_str(), 0, 'r');
-				int  count = static_cast<int>(zip_entries_total(z));
-				zip_close(z);
-
-				GALAXY_LOG(GALAXY_INFO, "Beginning asset extraction...");
-
-				renderer.prepare_default();
-				renderer.clear();
-
-				auto extractor = [](const char* filename, void* arg) {
-					glfwPollEvents();
-
-					auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
-					auto& renderer = ServiceLocator<graphics::Renderer>::ref();
-
-					static int i = 0;
-					const int  n = *static_cast<int*>(arg);
-
-					++i;
-					nui.new_frame();
-					nui.show_loading_bar("Extracting Assets...", i, n);
-
-					renderer.clear();
-					nui.render();
-					renderer.swap_buffers();
-
-					return 0;
-				};
-
-				if (zip_extract(compressed_assets.c_str(), "./", extractor, &count) == 0)
-				{
-					std::filesystem::remove(compressed_assets);
-					GALAXY_LOG(GALAXY_INFO, "Successfully extracted assets.");
-				}
-				else
-				{
-					std::filesystem::remove_all(asset_dir);
-					GALAXY_LOG(GALAXY_FATAL, "Failed to extract assets.");
-				}
-			}
-
-			// Clear popup.
-			renderer.clear();
-			renderer.swap_buffers();
-		}
-
 		void Loader::load_all()
-		{
-			auto& tp = ServiceLocator<BS::thread_pool>::ref();
-
-			tp.push_task(&Loader::load_user_config, this);
-			tp.push_task(&Loader::load_window, this);
-
-			load_resources();
-		}
-
-		void Loader::load_resources()
 		{
 			auto& tp       = ServiceLocator<BS::thread_pool>::ref();
 			auto& config   = ServiceLocator<Config>::ref();
 			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
 			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
 
-			const auto& audio_folder = config.get<std::string>("audio_folder", "resource_folders");
-
-			tp.push_task(
-				[](const std::string& folder) {
-					auto& sounds = ServiceLocator<resource::SFXCache>::ref();
-					sounds.load_folder(folder);
-				},
-				audio_folder + "sfx");
-
-			tp.push_task(
-				[](const std::string& folder) {
-					auto& music = ServiceLocator<resource::MusicCache>::ref();
-					music.load_folder(folder);
-				},
-				audio_folder + "music");
-
-			tp.push_task(
-				[](const std::string& folder) {
-					auto& dialogue = ServiceLocator<resource::DialogueCache>::ref();
-					dialogue.load_folder(folder);
-				},
-				audio_folder + "dialogue");
-
-			tp.push_task([]() {
-				auto& config = ServiceLocator<Config>::ref();
-				auto& video  = ServiceLocator<resource::VideoCache>::ref();
-
-				video.load_folder(config.get<std::string>("video_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config  = ServiceLocator<Config>::ref();
-				auto& shaders = ServiceLocator<resource::Shaders>::ref();
-
-				shaders.load_folder(config.get<std::string>("shader_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config = ServiceLocator<Config>::ref();
-				auto& fonts  = ServiceLocator<resource::Fonts>::ref();
-
-				fonts.load_folder(config.get<std::string>("font_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config       = ServiceLocator<Config>::ref();
-				auto& basicscripts = ServiceLocator<resource::BasicScripts>::ref();
-
-				basicscripts.load_folder(config.get<std::string>("scripts_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config  = ServiceLocator<Config>::ref();
-				auto& prefabs = ServiceLocator<resource::Prefabs>::ref();
-
-				prefabs.load_folder(config.get<std::string>("prefabs_folder", "resource_folders"));
-			});
-
-			tp.push_task([]() {
-				auto& config = ServiceLocator<Config>::ref();
-				auto& lang   = ServiceLocator<resource::Language>::ref();
-
-				lang.load_folder(config.get<std::string>("lang_folder", "resource_folders"));
-				lang.set(config.get<std::string>("default_lang"));
-			});
+			tp.push_task(&Loader::load_user_config, this);
+			tp.push_task(&Loader::load_window, this);
+			tp.push_task(&Loader::load_resources, this);
 
 			nui.enable_input();
 			renderer.prepare_default();
 
-			for (std::size_t tasks; (tasks = tp.get_tasks_total()) != 0;)
-			// for (int tasks = 0; tasks < 10; tasks++)
+			nk_size                 current = 0;
+			constexpr const nk_size total   = 3;
+
+			do
 			{
+				if (tp.get_tasks_total() == 0)
+				{
+					current = total;
+				}
+
 				glfwPollEvents();
 				nui.new_frame();
-				nui.show_loading_bar("Loading Assets...", 10, tasks);
+				nui.show_loading_bar("Loading Assets...", total, current);
 
 				renderer.clear();
 				nui.render();
 				renderer.swap_buffers();
+
+				current++;
 				// std::this_thread::sleep_for(.1s);
-			}
+			} while (tp.get_tasks_total() > 0);
 
 			glfwPollEvents();
 			nui.new_frame();
@@ -208,6 +84,24 @@ namespace galaxy
 
 			build_resources();
 			nui.disable_input();
+		}
+
+		void Loader::load_resources()
+		{
+			ServiceLocator<resource::SFXCache>::ref().load_vfs(fs::AssetType::SFX);
+			ServiceLocator<resource::MusicCache>::ref().load_vfs(fs::AssetType::MUSIC);
+			ServiceLocator<resource::VoiceCache>::ref().load_vfs(fs::AssetType::VOICE);
+			ServiceLocator<resource::VideoCache>::ref().load_vfs(fs::AssetType::VIDEO);
+			ServiceLocator<resource::Shaders>::ref().load_vfs(fs::AssetType::SHADER);
+			ServiceLocator<resource::Fonts>::ref().load_vfs(fs::AssetType::FONT);
+			ServiceLocator<resource::BasicScripts>::ref().load_vfs(fs::AssetType::SCRIPT);
+			ServiceLocator<resource::Prefabs>::ref().load_vfs(fs::AssetType::PREFABS);
+
+			auto& config = ServiceLocator<Config>::ref();
+			auto& lang   = ServiceLocator<resource::Language>::ref();
+
+			lang.load_from_vfs();
+			lang.set(config.get<std::string>("default_lang"));
 		}
 
 		void Loader::load_user_config()
@@ -224,7 +118,7 @@ namespace galaxy
 
 			auto& se = core::ServiceLocator<media::SoundEngine>::ref();
 			auto& me = core::ServiceLocator<media::MusicEngine>::ref();
-			auto& de = core::ServiceLocator<media::DialogueEngine>::ref();
+			auto& de = core::ServiceLocator<media::VoiceEngine>::ref();
 
 			se.set_volume(config.get<float>("sfx_volume", "audio"));
 			me.set_volume(config.get<float>("music_volume", "audio"));
@@ -237,10 +131,7 @@ namespace galaxy
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
 			auto icon = config.get<std::string>("icon", "window");
-			if (!icon.empty())
-			{
-				window.set_icon(icon);
-			}
+			window.set_icon(icon);
 
 			auto& cursor = window.get_input<input::Cursor>();
 			cursor.toggle(config.get<bool>("visible_cursor", "window"));
@@ -261,9 +152,7 @@ namespace galaxy
 		{
 			core::ServiceLocator<resource::Shaders>::ref().build();
 			core::ServiceLocator<resource::Fonts>::ref().build();
-
-			core::ServiceLocator<resource::TextureAtlas>::ref().add_folder(
-				core::ServiceLocator<core::Config>::ref().get<std::string>("atlas_folder", "resource_folders"));
+			core::ServiceLocator<resource::TextureAtlas>::ref().add_from_vfs();
 		}
 	} // namespace core
 } // namespace galaxy

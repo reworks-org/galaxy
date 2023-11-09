@@ -1,14 +1,13 @@
 {
     "config": {
         "app_data": "default.galaxy",
-        "asset_dir": "assets/",
         "audio": {
             "dialogue_volume": 1.0,
             "listener_count": 1,
             "music_volume": 1.0,
             "sfx_volume": 1.0
         },
-        "compressed_assets": "assets.zip",
+        "create_asset_work_directories": true,
         "default_lang": "en_au",
         "editor": {
             "autosave_interval_seconds": 300,
@@ -38,24 +37,12 @@
             "camera_rotate_right": 69
         },
         "log_performance": false,
-        "resource_folders": {
-            "atlas_folder": "atlas/",
-            "audio_folder": "audio/",
-            "font_folder": "fonts/",
-            "lang_folder": "lang/",
-            "maps_folder": "maps/",
-            "prefabs_folder": "prefabs/",
-            "scripts_folder": "scripts/",
-            "shader_folder": "shaders/",
-            "texture_folder": "textures/",
-            "ui_folder": "ui/",
-            "video_folder": "video/"
-        },
+        "ui_font_size": 14.0,
         "window": {
             "cursor_icon": "",
             "debug": true,
             "height": 512,
-            "icon": "../editor_data/sc.png",
+            "icon": "",
             "maximized": false,
             "scale_to_monitor": true,
             "title": "supercluster",

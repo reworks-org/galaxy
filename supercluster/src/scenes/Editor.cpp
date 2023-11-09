@@ -38,7 +38,7 @@ namespace sc
 		: Scene(name)
 		, m_editor_camera {true}
 	{
-		scex::ImGuiController::Setup(core::ServiceLocator<fs::VirtualFileSystem>::ref().root());
+		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_WORK_DIR).string());
 
 #ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
@@ -62,11 +62,11 @@ namespace sc
 		m_mousepick_buffer = fb.add_storage_attachment();
 		fb.create();
 
-		m_camera_btn.load("../editor_data/icons/camera.png");
+		m_camera_btn.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/camera.png");
 		m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-		m_editor_cam_btn.load("../editor_data/icons/video.png");
+		m_editor_cam_btn.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/video.png");
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
@@ -223,7 +223,7 @@ namespace sc
 			data = algorithm::decode_base64(data);
 #endif
 
-			auto json = json::parse_from_mem(data);
+			auto json = json::read_raw(data);
 
 			if (json.has_value())
 			{
@@ -341,12 +341,10 @@ namespace sc
 
 			app_config.close();
 
-			const auto zip_path = path / "assets.zip";
-			std::filesystem::remove(zip_path);
-
-			struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
-			recursively_zip_assets(zip, config.get<std::string>("asset_dir"));
-			zip_close(zip);
+			// Copy assets.
+			const auto options =
+				std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive | std::filesystem::copy_options::skip_symlinks;
+			std::filesystem::copy(std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_DATA_DIR), path / GALAXY_DATA_DIR, options);
 
 			m_show_exportprogress = false;
 		});
@@ -530,14 +528,15 @@ namespace sc
 
 			if (ImGui::BeginMenu("Tools"))
 			{
+				static auto s_basedir = GALAXY_ROOT_DIR.string() + GALAXY_EDITOR_DATA_DIR;
 				if (ImGui::MenuItem("Tiled"))
 				{
-					m_tiled_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/tiled/tiled.exe");
+					m_tiled_process.create(s_basedir + "tools/tiled/tiled.exe");
 				}
 
 				if (ImGui::MenuItem("Bfxr"))
 				{
-					m_bfxr_process.create(core::ServiceLocator<fs::VirtualFileSystem>::ref().root() + "../editor_data/tools/bfxr/Bfxr.exe");
+					m_bfxr_process.create(s_basedir + "tools/bfxr/Bfxr.exe");
 				}
 
 				ImGui::EndMenu();
@@ -965,25 +964,6 @@ namespace sc
 
 		ImGui::PopStyleVar(1);
 		ImGui::End();
-	}
-
-	void Editor::recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path)
-	{
-		for (const auto& entry : std::filesystem::directory_iterator(path))
-		{
-			const auto entry_path = std::filesystem::path(entry);
-
-			if (entry.is_directory())
-			{
-				recursively_zip_assets(zip, entry_path);
-			}
-			else
-			{
-				zip_entry_open(zip, entry_path.relative_path().string().c_str());
-				zip_entry_fwrite(zip, entry_path.string().c_str());
-				zip_entry_close(zip);
-			}
-		}
 	}
 
 	void Editor::do_updates()

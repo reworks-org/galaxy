@@ -21,7 +21,8 @@ namespace galaxy
 		{
 			info,
 			warning,
-			error
+			error,
+			question
 		};
 	} // namespace fs
 } // namespace galaxy

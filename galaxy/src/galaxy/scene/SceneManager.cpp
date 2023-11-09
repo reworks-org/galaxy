@@ -98,9 +98,9 @@ namespace galaxy
 			m_current = nullptr;
 		}
 
-		void SceneManager::load_appdata(std::string_view appdata_file)
+		void SceneManager::load_appdata(const std::string& appdata_file)
 		{
-			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().open(appdata_file);
+			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read<meta::FSTextR>(appdata_file);
 			if (!data.empty())
 			{
 				const auto decoded_zlib = algorithm::decode_zlib(data);
@@ -128,11 +128,11 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::save_appdata(std::string_view file)
+		void SceneManager::save_appdata(const std::string& file)
 		{
 			const auto json = serialize();
 
-			if (!json::save_to_disk(file, json))
+			if (!json::write_vfs(file, json))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
 			}

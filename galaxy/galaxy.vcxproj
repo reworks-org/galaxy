@@ -16,6 +16,14 @@
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
     <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
+    <ClCompile Include="src\galaxy\fs\ArchiveEntry.cpp" />
+    <ClCompile Include="src\galaxy\fs\AssetType.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClInclude Include="src\galaxy\fs\ArchiveEntry.hpp" />
+    <ClInclude Include="src\galaxy\fs\AssetType.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
@@ -33,6 +41,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\GaussianBlur.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\GammaCorrection.cpp" />
     <ClCompile Include="src\galaxy\media\Video.cpp" />
+    <ClCompile Include="src\galaxy\meta\FileType.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalModules.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
@@ -65,7 +74,6 @@
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileCode.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
     <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
@@ -96,7 +104,6 @@
     <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
     <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
     <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileInfo.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\AttributeBindings.cpp" />
@@ -178,6 +185,7 @@
     <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\media\Video.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
+    <ClInclude Include="src\galaxy\meta\FileType.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\galaxy\resource\BasicScripts.hpp" />
@@ -204,7 +212,6 @@
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileCode.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
     <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
@@ -235,7 +242,6 @@
     <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
     <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
     <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileInfo.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\AttributeBindings.hpp" />

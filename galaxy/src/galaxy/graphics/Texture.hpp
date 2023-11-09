@@ -30,11 +30,13 @@ namespace galaxy
 			Texture();
 
 			///
-			/// Argument Constructor.
+			/// \brief Argument Constructor.
 			///
-			/// \param file File on disk to load from.
+			/// Loads from standard 256 byte array.
 			///
-			Texture(std::string_view file);
+			/// \param buffer Memory buffer to load from.
+			///
+			Texture(std::span<std::uint8_t> buffer);
 
 			///
 			/// Move constructor.
@@ -52,24 +54,15 @@ namespace galaxy
 			~Texture();
 
 			///
-			///  Loads texture from file.
-			///
-			/// \param file File on disk to load from.
-			///
-			/// \return True if texture loaded successfully.
-			///
-			[[maybe_unused]] bool load(std::string_view file);
-
-			///
 			/// \brief Loads texture from memory.
 			///
-			/// Loads from standard unsigned char array.
+			/// Loads from standard 256 byte array.
 			///
 			/// \param buffer Memory buffer to load from.
 			///
 			/// \return True if texture loaded successfully.
 			///
-			[[maybe_unused]] bool load_mem(std::span<unsigned char> buffer);
+			[[maybe_unused]] bool load(std::span<std::uint8_t> buffer);
 
 			///
 			/// \brief Load raw pixel data from memory.
@@ -84,6 +77,24 @@ namespace galaxy
 			/// \param buffer Raw pixel data.
 			///
 			void load_raw(const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void* buffer);
+
+			///
+			/// Load a texture from entry.
+			///
+			/// \param entry Texture in VFS to load.
+			///
+			/// \return True if texture loaded successfully.
+			///
+			[[nodiscard]] bool load_entry(const std::string& entry);
+
+			///
+			///  Loads texture from file.
+			///
+			/// \param file File on disk to load from.
+			///
+			/// \return True if texture loaded successfully.
+			///
+			[[nodiscard]] bool load_disk(const std::string& file);
 
 			///
 			/// Saves texture to file on disk.

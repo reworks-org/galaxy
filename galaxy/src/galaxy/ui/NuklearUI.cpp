@@ -34,11 +34,15 @@ namespace galaxy
 
 			nk_glfw3_font_stash_begin(&m_atlas);
 
-			auto dir      = config.get<std::string>("ui_folder", "resource_folders") + "fonts/";
-			auto contents = core::ServiceLocator<fs::VirtualFileSystem>::ref().list_directory(dir);
-			for (std::filesystem::path file : contents)
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			for (const auto& file : fs.list_assets(fs::AssetType::UI_FONT))
 			{
-				m_fonts.emplace(file.stem().string(), nk_font_atlas_add_from_file(m_atlas, file.string().c_str(), 14, nullptr));
+				auto data = fs.read<meta::FSBinaryR>(file);
+				if (!data.empty())
+				{
+					auto font = nk_font_atlas_add_from_memory(m_atlas, data.data(), data.size(), config.get<float>("ui_font_size"), nullptr);
+					m_fonts.emplace(file, font);
+				}
 			}
 
 			nk_glfw3_font_stash_end();
@@ -144,13 +148,11 @@ namespace galaxy
 
 			if (nk_begin(ctx(),
 					"building_window",
-					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 30, 400, 60),
+					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 20, 400, 40),
 					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
 			{
 				nk_layout_row_dynamic(ctx(), 20, 1);
-				nk_label(ctx(), "Building Textures", NK_TEXT_CENTERED);
-				// nk_layout_row_static(ctx(), 20, 400, 1);
-				// nk_progress(ctx(), &current, total, NK_FIXED);
+				nk_label(ctx(), "Building Textures...", NK_TEXT_CENTERED);
 			}
 
 			nk_end(ctx());

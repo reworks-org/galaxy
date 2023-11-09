@@ -76,7 +76,6 @@
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
-    <ClCompile Include="zip\src\zip.c" />
     <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.cpp" />
@@ -91,6 +90,8 @@
     <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="cute\cute_c2.c" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -686,8 +687,6 @@
     <ClInclude Include="mimalloc\include\mimalloc.h" />
     <ClInclude Include="mimalloc\include\mimalloc-new-delete.h" />
     <ClInclude Include="mimalloc\include\mimalloc-override.h" />
-    <ClInclude Include="zip\src\miniz.h" />
-    <ClInclude Include="zip\src\zip.h" />
     <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
     <ClInclude Include="threadpool\include\BS_thread_pool_light.hpp" />
     <ClInclude Include="fastnoise2\include\FastNoise\Generators\BasicGenerators.h" />
@@ -731,6 +730,8 @@
     <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
     <ClInclude Include="imgui\imgui_addons\ImTween.h" />
     <ClInclude Include="cute\cute_c2.h" />
+    <ClInclude Include="zip\src\miniz.h" />
+    <ClInclude Include="zip\src\zip.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

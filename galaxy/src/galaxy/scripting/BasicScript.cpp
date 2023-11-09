@@ -17,30 +17,26 @@ namespace galaxy
 		BasicScript::BasicScript()
 			: m_loaded {false}
 		{
-			m_state = &core::ServiceLocator<sol::state>::ref();
 		}
 
-		BasicScript::BasicScript(std::string_view file)
+		BasicScript::BasicScript(const std::string& file)
 			: m_loaded {false}
 		{
-			m_state = &core::ServiceLocator<sol::state>::ref();
-
 			load(file);
 		}
 
 		BasicScript::~BasicScript()
 		{
-			m_state = nullptr;
 		}
 
-		void BasicScript::load(std::string_view file)
+		void BasicScript::load(const std::string& file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto info = fs.find(file);
-			if (info.code == fs::FileCode::FOUND)
+			const auto script = fs.read<meta::FSTextR>(file);
+			if (!script.empty())
 			{
-				m_script = m_state->load_file(info.string);
+				m_script = core::ServiceLocator<sol::state>::ref().load_file(script);
 				if (m_script.status() != sol::load_status::ok)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", file, magic_enum::enum_name(m_script.status()));
@@ -52,7 +48,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find script '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", file);
 			}
 		}
 

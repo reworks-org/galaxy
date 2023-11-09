@@ -36,6 +36,7 @@ namespace galaxy
 		World::World(scene::Scene* scene)
 			: Serializable {}
 			, m_scene {scene}
+			, m_rendersystem_index {0}
 		{
 			// Handle on_* events.
 			m_registry.on_construct<components::Script>().connect<&World::construct_script>(this);

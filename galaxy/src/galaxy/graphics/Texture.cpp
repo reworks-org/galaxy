@@ -26,13 +26,13 @@ namespace galaxy
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
 		}
 
-		Texture::Texture(std::string_view file)
+		Texture::Texture(std::span<std::uint8_t> buffer)
 			: m_width {0}
 			, m_height {0}
 			, m_texture {0}
 		{
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
-			load(file);
+			load(buffer);
 		}
 
 		Texture::Texture(Texture&& t)
@@ -79,65 +79,7 @@ namespace galaxy
 			}
 		}
 
-		bool Texture::load(std::string_view file)
-		{
-			bool result = false;
-
-			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto& config = core::ServiceLocator<core::Config>::ref();
-
-			const auto file_info = fs.find(file);
-			if (file_info.code == fs::FileCode::FOUND)
-			{
-				if (file_info.path.extension() == ".png")
-				{
-					stbi_set_flip_vertically_on_load(true);
-					unsigned char* data = stbi_load(file_info.string.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
-
-					if (data)
-					{
-						glTextureStorage2D(m_texture, 1, GL_RGBA8, m_width, m_height);
-						glTextureSubImage2D(m_texture, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, data);
-						glGenerateTextureMipmap(m_texture);
-
-						if (config.get<int>("trilinear_filtering", "graphics"))
-						{
-							glTextureParameteri(m_texture, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-							glTextureParameteri(m_texture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-						}
-						else
-						{
-							glTextureParameteri(m_texture, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-							glTextureParameteri(m_texture, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-						}
-
-						glTextureParameteri(m_texture, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-						glTextureParameteri(m_texture, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-						glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(config.get<int>("ansiotrophic_filtering", "graphics")));
-
-						result = true;
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to load texture file '{0}' because '{1}'.", file, stbi_failure_reason());
-					}
-
-					stbi_image_free(data);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Only PNG textures are supported, invalid texture '{0}'.", file);
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find texture from file '{0}'.");
-			}
-
-			return result;
-		}
-
-		bool Texture::load_mem(std::span<unsigned char> buffer)
+		bool Texture::load(std::span<std::uint8_t> buffer)
 		{
 			bool result = false;
 
@@ -197,16 +139,55 @@ namespace galaxy
 			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 		}
 
+		bool Texture::load_entry(const std::string& entry)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto data = fs.read<meta::FSBinaryR>(entry);
+			if (!data.empty())
+			{
+				return load(data);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs.", entry);
+			}
+
+			return false;
+		}
+
+		bool Texture::load_disk(const std::string& file)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto data = fs.read_disk<meta::FSBinaryR>(file);
+			if (!data.empty())
+			{
+				return load(data);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from disk.", file);
+			}
+
+			return false;
+		}
+
 		void Texture::save(std::string_view filepath)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto path = std::filesystem::path(filepath);
-			auto full = (fs.root_path() / path.parent_path() / path.stem()).string();
+			auto full = GALAXY_ROOT_DIR / GALAXY_WORK_DIR / path.parent_path() / path.stem();
 
-			if (!full.ends_with(".png") || !full.ends_with(".PNG"))
+			if (!std::filesystem::exists(full.parent_path()))
 			{
-				full += ".png";
+				std::filesystem::create_directories(full.parent_path());
+			}
+
+			if (full.extension() != ".png" || full.extension() != ".PNG" || !full.has_extension())
+			{
+				full.replace_extension(".png");
 			}
 
 			const auto                 ui = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4u;
@@ -215,7 +196,7 @@ namespace galaxy
 			glGetTextureImage(m_texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(full.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			stbi_write_png(full.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 		}
 
 		void Texture::recreate()

@@ -1,14 +1,12 @@
 ///
-/// Loading.hpp
+/// Loader.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_CORE_LOADING_HPP_
-#define GALAXY_CORE_LOADING_HPP_
-
-#include "galaxy/meta/Async.hpp"
+#ifndef GALAXY_CORE_LOADER_HPP_
+#define GALAXY_CORE_LOADER_HPP_
 
 namespace galaxy
 {
@@ -29,11 +27,6 @@ namespace galaxy
 			/// Destructor.
 			///
 			~Loader();
-
-			///
-			/// Extract a compressed asset archive.
-			///
-			void extract_assets();
 
 			///
 			/// Loads resources, user config and window settings.

@@ -32,11 +32,14 @@ namespace galaxy
 			clear();
 		}
 
-		void TextureAtlas::add_file(std::string_view file)
+		void TextureAtlas::add(const std::string& file)
 		{
-			graphics::Texture texture;
-			if (texture.load(file))
+			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto  data = fs.read<meta::FSBinaryR>(file);
+			if (!data.empty())
 			{
+				graphics::Texture texture {data};
+
 				const auto path = std::filesystem::path(file);
 				const auto name = path.stem().string();
 
@@ -125,38 +128,19 @@ namespace galaxy
 				glBindTexture(GL_TEXTURE_2D, 0);
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			}
-		}
-
-		void TextureAtlas::add_folder(std::string_view folder)
-		{
-			clear();
-			m_folder = folder;
-
-			if (!m_folder.empty())
+			else
 			{
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-				auto contents = fs.list_directory(m_folder);
-				if (!contents.empty())
-				{
-					for (const auto& file : contents)
-					{
-						add_file(file);
-					}
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Failed to load any textures from '{0}'.", m_folder);
-				}
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs.", file);
 			}
 		}
 
-		void TextureAtlas::reload()
+		void TextureAtlas::add_from_vfs()
 		{
-			if (!m_folder.empty())
+			clear();
+
+			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(fs::AssetType::ATLAS))
 			{
-				clear();
-				add_folder(m_folder);
+				add(file);
 			}
 		}
 

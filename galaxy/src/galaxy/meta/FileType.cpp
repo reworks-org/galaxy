@@ -1,8 +1,8 @@
 ///
-/// FileInfo.cpp
+/// FileType.cpp
 /// galaxy
 ///
 /// See LICENSE.txt.
 ///
 
-#include "FileInfo.hpp"
+#include "FileType.hpp"

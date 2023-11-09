@@ -19,11 +19,11 @@ namespace galaxy
 	{
 		std::shared_ptr<core::Prefab> PrefabLoader::operator()(const std::string& file)
 		{
-			auto&      fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			const auto data = fs.open(file);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto data = fs.read<meta::FSTextR>(file);
 			if (!data.empty())
 			{
-				const auto name         = std::filesystem::path(file).stem().string();
 				const auto base64       = algorithm::decode_zlib(data);
 				const auto decompressed = algorithm::decode_base64(base64);
 
@@ -31,7 +31,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to load empty prefab {0}.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to read empty prefab '{0}'.", file);
 				return nullptr;
 			}
 		}

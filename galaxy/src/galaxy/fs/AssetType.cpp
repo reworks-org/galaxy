@@ -1,8 +1,8 @@
 ///
-/// FileCode.cpp
+/// AssetType.cpp
 /// galaxy
 ///
 /// See LICENSE.txt.
 ///
 
-#include "FileCode.hpp"
+#include "AssetType.hpp"

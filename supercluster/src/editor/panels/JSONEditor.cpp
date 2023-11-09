@@ -65,11 +65,11 @@ namespace sc
 			}
 		}
 
-		void JSONEditor::load_file(std::string_view file)
+		void JSONEditor::load_file(const std::string& file)
 		{
 			if (!m_loaded)
 			{
-				const auto json_opt = json::parse_from_disk(file);
+				const auto json_opt = json::read_disk(file);
 				if (json_opt == std::nullopt)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for JSONEditor panel.", file);
@@ -83,11 +83,11 @@ namespace sc
 			}
 		}
 
-		void JSONEditor::load_mem(std::span<char> memory)
+		void JSONEditor::load_vfs(const std::string& entry)
 		{
 			if (!m_loaded)
 			{
-				const auto json_opt = json::parse_from_mem(memory);
+				const auto json_opt = json::read_vfs(entry);
 				if (json_opt == std::nullopt)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json from memory for JSONEditor. panel.");
@@ -110,13 +110,13 @@ namespace sc
 			}
 		}
 
-		void JSONEditor::save(std::string_view path)
+		void JSONEditor::save(const std::string& path)
 		{
 			if (m_loaded)
 			{
 				if (!m_external)
 				{
-					if (!json::save_to_disk(path, m_root))
+					if (!json::write_disk(path, m_root))
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to save json to disk using file: {0}, for JSONEditor panel.", path);
 					}
@@ -147,7 +147,7 @@ namespace sc
 
 					if (ImGui::MenuItem("Open"))
 					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_using_dialog({"*.json"});
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.json"});
 						if (!path.empty())
 						{
 							load_file(path);

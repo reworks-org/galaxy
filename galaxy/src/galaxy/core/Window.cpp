@@ -510,19 +510,54 @@ namespace galaxy
 			glfwSetWindowTitle(m_window, title);
 		}
 
-		void Window::set_icon(std::string_view icon)
+		void Window::set_title(const std::string& title)
 		{
-			auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
+			glfwSetWindowTitle(m_window, title.c_str());
+		}
 
-			const auto info = fs.find(icon);
-			if (info.code == fs::FileCode::FOUND)
+		void Window::set_icon(const std::string& icon)
+		{
+			if (!icon.empty())
+			{
+				auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
+
+				auto data = fs.read<meta::FSBinaryR>(icon);
+				if (!data.empty())
+				{
+					// Fill glfw-compatible struct.
+					stbi_set_flip_vertically_on_load(true);
+
+					GLFWimage img = {};
+					img.pixels    = stbi_load_from_memory(data.data(), static_cast<int>(data.size()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+
+					if (img.pixels)
+					{
+						// Copies data so safe to destroy.
+						glfwSetWindowIcon(m_window, 1, &img);
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to load image '{0}' for window icon.", icon);
+					}
+
+					stbi_image_free(img.pixels);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from the vfs.", icon);
+				}
+			}
+		}
+
+		void Window::set_icon(std::span<std::uint8_t> buffer)
+		{
+			if (!buffer.empty())
 			{
 				// Fill glfw-compatible struct.
-
 				stbi_set_flip_vertically_on_load(true);
 
 				GLFWimage img = {};
-				img.pixels    = stbi_load(info.string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (img.pixels)
 				{
@@ -531,37 +566,11 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load image '{0}' for window icon.", icon);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load window icon from memory");
 				}
 
 				stbi_image_free(img.pixels);
 			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a window icon, because '{1}'.", icon, magic_enum::enum_name(info.code));
-			}
-		}
-
-		void Window::set_icon(std::span<unsigned char> buffer)
-		{
-			// Fill glfw-compatible struct.
-
-			stbi_set_flip_vertically_on_load(true);
-
-			GLFWimage img = {};
-			img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
-
-			if (img.pixels)
-			{
-				// Copies data so safe to destroy.
-				glfwSetWindowIcon(m_window, 1, &img);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load window icon from memory");
-			}
-
-			stbi_image_free(img.pixels);
 		}
 
 		bool Window::is_open() const

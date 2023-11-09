@@ -50,7 +50,6 @@ namespace sc
 		  private:
 			void load_lua_script();
 			void load_preview();
-			void import_files(const std::string& folder_from_config);
 
 			// https://gist.github.com/OverShifted/13aec504dfe376dcc2171e8b7451c5b5
 			void directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count);
@@ -82,7 +81,7 @@ namespace sc
 			graphics::Texture m_file;
 			graphics::Texture m_folder;
 			graphics::Texture m_forward;
-			graphics::Texture m_reload;
+			graphics::Texture m_refresh;
 			graphics::Texture m_preview;
 
 			graphics::Texture* m_icon;

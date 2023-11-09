@@ -87,17 +87,17 @@ namespace galaxy
 			auto  result = false;
 			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto info = fs.find(file);
-			if (info.code == fs::FileCode::FOUND)
+			auto data = fs.read<meta::FSBinaryR>(file);
+			if (!data.empty())
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();
-				m_face   = msdfgl_load_font(fc.context(), info.string.c_str());
+				m_face   = msdfgl_load_font_mem(fc.context(), data.data(), data.size());
 
 				result = true;
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find font '{0}' because '{1}'.", file, magic_enum::enum_name(info.code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read font '{0}'.", file);
 			}
 
 			return result;

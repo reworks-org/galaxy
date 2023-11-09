@@ -1,19 +1,7 @@
-editor:
-more drag/drop support for tree view, body, etc
-add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
+- add support to writing to update archives
+- add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
-I need to reload the assets in asset panel and show a loading screen while this is happening
-
-asset manager:
-- should bundle loose assets into zip for deployment
-- so loose files are just for editor working
-- assets need to be manually added
-- then we use physfs to control the filesystem
-- OR
-- we just extract the zip after shipping
-- need to review how scenes are loaded and how assets are loaded into scenes.
-	- scene specific assets? or global assets? global kinda makes more sense for small 2d games.
-- fix map and ui loading
+- refine exporting, asset config, etc.
 
 new mapping:
 https://github.com/Madour/LDtkLoader

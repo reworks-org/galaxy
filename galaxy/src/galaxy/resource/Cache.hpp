@@ -11,6 +11,7 @@
 #include <robin_hood.h>
 
 #include "galaxy/algorithm/FNV1a.hpp"
+#include "galaxy/fs/ArchiveEntry.hpp"
 #include "galaxy/meta/Concepts.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -27,7 +28,9 @@ namespace galaxy
 		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
 		template<meta::not_memory Resource, typename Loader, bool needs_gl>
+#ifdef NDEBUG
 		requires meta::is_loader<Loader, Resource, needs_gl>
+#endif
 		class Cache final
 		{
 			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;
@@ -64,21 +67,17 @@ namespace galaxy
 			}
 
 			///
-			/// Load resources from a directory.
+			/// Load resources of a specific type.
 			///
-			/// \param dir Folder to load from within VFS.
+			/// \param type The type of resource to load.
 			///
-			inline void load_folder(const std::string& dir)
+			inline void load_vfs(const fs::AssetType type)
 			{
 				clear();
 
-				auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-				for (const auto& file : fs.list_directory(dir))
+				for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(type))
 				{
-					const auto path = std::filesystem::path(file);
-					const auto name = path.stem().string();
-
-					load(name, path.string());
+					load(file, file);
 				}
 			}
 

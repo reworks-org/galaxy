@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			/// \param file Cursor texture file to load.
 			///
-			void load_custom(std::string_view file);
+			void load_custom(const std::string& file);
 
 			///
 			/// Load custom cursor data.

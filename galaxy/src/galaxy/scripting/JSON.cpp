@@ -5,12 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <fstream>
-
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "JSON.hpp"
@@ -19,55 +16,40 @@ namespace galaxy
 {
 	namespace json
 	{
-		std::optional<nlohmann::json> parse_from_disk(std::string_view file)
+		std::optional<nlohmann::json> read_vfs(const std::string& entry)
+		{
+			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto  data = fs.read<meta::FSTextR>(entry);
+
+			nlohmann::json json = nlohmann::json::parse(data);
+			return std::make_optional(json);
+		}
+
+		std::optional<nlohmann::json> read_raw(const std::string& json)
+		{
+			nlohmann::json parsed = nlohmann::json::parse(json);
+			return std::make_optional(parsed);
+		}
+
+		std::optional<nlohmann::json> read_disk(const std::string& file)
+		{
+			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto  data = fs.read_disk<meta::FSTextR>(file);
+
+			nlohmann::json json = nlohmann::json::parse(data);
+			return std::make_optional(json);
+		}
+
+		bool write_vfs(const std::string& entry, const nlohmann::json& json)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto path = fs.find(file);
-			if (path.code == fs::FileCode::FOUND)
-			{
-				std::ifstream input {path.string, std::ifstream::in};
-
-				if (!input.good())
-				{
-					input.close();
-					GALAXY_LOG(GALAXY_ERROR, "Failed to read: {0}.", path.string);
-
-					return std::nullopt;
-				}
-				else
-				{
-					nlohmann::json json;
-
-					input >> json;
-					input.close();
-
-					return std::make_optional(json);
-				}
-			}
-			else
-			{
-				return std::nullopt;
-			}
+			return fs.write<meta::FSTextW>(json.dump(4), entry);
 		}
 
-		std::optional<nlohmann::json> parse_from_mem(std::span<char> memory)
+		bool write_disk(const std::string& file, const nlohmann::json& json)
 		{
-			if (!memory.empty())
-			{
-				nlohmann::json json = nlohmann::json::parse(memory);
-				return std::make_optional(json);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Tried to parse empty memory buffer for json data.");
-				return std::nullopt;
-			}
-		}
-
-		bool save_to_disk(std::string_view path, const nlohmann::json& json)
-		{
-			return core::ServiceLocator<fs::VirtualFileSystem>::ref().save(json.dump(4), path);
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			return fs.write_disk<meta::FSTextW>(json.dump(4), file);
 		}
 	} // namespace json
 } // namespace galaxy

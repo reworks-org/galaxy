@@ -63,19 +63,18 @@ namespace galaxy
 			}
 		}
 
-		void Cursor::load_custom(std::string_view file)
+		void Cursor::load_custom(const std::string& file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto info = fs.find(file);
-			if (info.code == fs::FileCode::FOUND)
+			auto data = fs.read<meta::FSBinaryR>(file);
+			if (!data.empty())
 			{
 				stbi_set_flip_vertically_on_load(true);
 
 				// Fill glfw-compatible struct.
-
 				GLFWimage img = {};
-				img.pixels    = stbi_load(info.string.c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+				img.pixels    = stbi_load_from_memory(data.data(), static_cast<int>(data.size()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 				if (img.pixels)
 				{
@@ -91,7 +90,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}' to use as a cursor, because '{1}'.", file, magic_enum::enum_name(info.code));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
 			}
 		}
 
@@ -100,7 +99,6 @@ namespace galaxy
 			stbi_set_flip_vertically_on_load(true);
 
 			// Fill glfw-compatible struct.
-
 			GLFWimage img = {};
 			img.pixels    = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
