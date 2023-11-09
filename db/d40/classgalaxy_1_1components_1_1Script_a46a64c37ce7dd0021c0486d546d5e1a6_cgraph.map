@@ -1,10 +1,8 @@
 <map id="galaxy::components::Script::Script" name="galaxy::components::Script::Script">
-<area shape="rect" id="Node000001" title="Pointer constructor." alt="" coords="5,35,159,75"/>
-<area shape="rect" id="Node000002" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="447,5,600,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,47,433,29,433,34,159,52"/>
-<area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="207,63,360,103"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,63,194,68,193,73,159,68"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="360,62,433,44,434,49,361,67"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,70,639,95"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="360,80,394,80,394,85,360,85"/>
+<area shape="rect" id="Node000001" title="Pointer constructor." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000002" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="408,5,561,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,20,207,19,360,19,394,19,394,25,360,24,207,24,159,25"/>
+<area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="207,33,360,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,33,194,38,193,43,159,39"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="360,40,394,35,395,40,361,45"/>
 </map>

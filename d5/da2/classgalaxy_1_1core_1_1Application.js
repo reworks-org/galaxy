@@ -6,6 +6,5 @@ var classgalaxy_1_1core_1_1Application =
     [ "Application", "d5/da2/classgalaxy_1_1core_1_1Application.html#aa888601ea39c24ea8f6e36c67e5b16a1", null ],
     [ "run", "d5/da2/classgalaxy_1_1core_1_1Application.html#a2ad347d92d89ae527681274048146af0", null ],
     [ "operator=", "d5/da2/classgalaxy_1_1core_1_1Application.html#a6dcb7fcc60cf2581ca510cc70fa37962", null ],
-    [ "operator=", "d5/da2/classgalaxy_1_1core_1_1Application.html#a39221505bd01b45756580f1f8f5c9e6f", null ],
-    [ "create_asset_layout", "d5/da2/classgalaxy_1_1core_1_1Application.html#a9f13843624fbd15205d2423e4514359f", null ]
+    [ "operator=", "d5/da2/classgalaxy_1_1core_1_1Application.html#a39221505bd01b45756580f1f8f5c9e6f", null ]
 ];

@@ -1,11 +1,7 @@
 <map id="galaxy::systems::AnimationSystem::update" name="galaxy::systems::AnimationSystem::update">
-<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,27,208,67"/>
-<area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ade0d507a65163400a87e9ea2e0290179" title="Updates texture and internal vertex array." alt="" coords="256,27,409,67"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,45,242,45,242,50,209,50"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="457,5,688,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,35,455,30,455,35,410,41"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="483,55,662,95"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="410,54,470,61,469,66,409,59"/>
-<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="736,55,915,95"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="662,73,722,73,722,78,662,78"/>
+<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,37,208,77"/>
+<area shape="rect" id="Node000002" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ad9dade86f15c3ef866e210f1106129a3" title="Currently active animation." alt="" coords="281,5,434,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,42,267,34,267,39,208,47"/>
+<area shape="rect" id="Node000003" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a5e0a478184284e7a1d3c514dd9fcb292" title="Get currently active frame." alt="" coords="256,69,459,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,68,243,72,242,77,208,73"/>
 </map>

@@ -1,7 +1,5 @@
 <map id="galaxy::core::World::create_from_json" name="galaxy::core::World::create_from_json">
-<area shape="rect" id="Node000001" title="Create an entity from a JSON object." alt="" coords="5,27,152,67"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,5,431,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,36,199,30,200,35,152,41"/>
-<area shape="rect" id="Node000003" href="$d7/dc7/classgalaxy_1_1components_1_1Flag.html#aee9525f06e042810887bda89bf91ff1f" title="Set a flag on an entity." alt="" coords="239,55,392,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,53,225,62,225,67,152,59"/>
+<area shape="rect" id="Node000001" title="Create an entity from a JSON object." alt="" coords="5,5,152,45"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,13,431,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,23,187,23,187,28,152,28"/>
 </map>

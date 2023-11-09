@@ -15,9 +15,11 @@ var namespacegalaxy =
     [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", "db/dab/namespacegalaxy_1_1graphics" ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
-      [ "parse_from_disk", "de/dd6/namespacegalaxy_1_1json.html#a845ac678cb9b858d88e0556f285dbfd2", null ],
-      [ "parse_from_mem", "de/dd6/namespacegalaxy_1_1json.html#a374942cb62ef4191f23f775d937ecc60", null ],
-      [ "save_to_disk", "de/dd6/namespacegalaxy_1_1json.html#a4f87fca0fcc9d1eb75d916a7d07b062d", null ]
+      [ "read_vfs", "de/dd6/namespacegalaxy_1_1json.html#aaab6da711dbf1b9b210914765ac7f088", null ],
+      [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#aa31b660b1d3dee00d3c6910ecc4db4cf", null ],
+      [ "read_disk", "de/dd6/namespacegalaxy_1_1json.html#aef7d20c599dc44e9779b17c5d87b32b3", null ],
+      [ "write_vfs", "de/dd6/namespacegalaxy_1_1json.html#ae5c1d676d7f382cbbc7f220afa2d75bc", null ],
+      [ "write_disk", "de/dd6/namespacegalaxy_1_1json.html#aa50ace825a37783f47c3f48487fa370e", null ]
     ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
@@ -47,7 +49,7 @@ var namespacegalaxy =
     [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", "d2/d27/namespacegalaxy_1_1systems" ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
-    [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ],
+    [ "DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", "db/d55/structgalaxy_1_1DoNotUseReferToMacros" ],
     [ "ImGuiMemAllocFunc", "d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404", null ],
     [ "ImGuiMemFreeFunc", "d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281", null ]
 ];

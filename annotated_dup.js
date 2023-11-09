@@ -11,7 +11,6 @@ var annotated_dup =
       ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
-        [ "Flag", "d7/dc7/classgalaxy_1_1components_1_1Flag.html", "d7/dc7/classgalaxy_1_1components_1_1Flag" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
@@ -51,11 +50,11 @@ var annotated_dup =
         [ "WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", "d9/dd9/structgalaxy_1_1events_1_1WindowResized" ]
       ] ],
       [ "flags", "df/d31/namespacegalaxy_1_1flags.html", [
-        [ "AllowSerialize", "d4/dd3/structgalaxy_1_1flags_1_1AllowSerialize.html", "d4/dd3/structgalaxy_1_1flags_1_1AllowSerialize" ],
-        [ "Enabled", "d9/d3c/structgalaxy_1_1flags_1_1Enabled.html", "d9/d3c/structgalaxy_1_1flags_1_1Enabled" ]
+        [ "DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", "da/d36/classgalaxy_1_1flags_1_1DenySerialization" ],
+        [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ]
       ] ],
       [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", [
-        [ "FileInfo", "d0/de8/structgalaxy_1_1fs_1_1FileInfo.html", "d0/de8/structgalaxy_1_1fs_1_1FileInfo" ],
+        [ "ArchiveEntry", "d0/db4/structgalaxy_1_1fs_1_1ArchiveEntry.html", "d0/db4/structgalaxy_1_1fs_1_1ArchiveEntry" ],
         [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
@@ -120,7 +119,6 @@ var annotated_dup =
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
         [ "BasicScriptLoader", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader.html", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader" ],
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
-        [ "DialogueLoader", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader.html", "d8/d15/classgalaxy_1_1resource_1_1DialogueLoader" ],
         [ "FontLoader", "dc/d97/classgalaxy_1_1resource_1_1FontLoader.html", "dc/d97/classgalaxy_1_1resource_1_1FontLoader" ],
         [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
         [ "MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
@@ -128,7 +126,8 @@ var annotated_dup =
         [ "SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],
         [ "ShaderLoader", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader.html", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader" ],
         [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
-        [ "VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader" ]
+        [ "VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader" ],
+        [ "VoiceLoader", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader.html", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader" ]
       ] ],
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
@@ -150,7 +149,7 @@ var annotated_dup =
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
-      [ "doNotUseReferToConfigForMacroNames", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames.html", "db/ddc/structgalaxy_1_1doNotUseReferToConfigForMacroNames" ]
+      [ "DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", "db/d55/structgalaxy_1_1DoNotUseReferToMacros" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]

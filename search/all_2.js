@@ -6,7 +6,7 @@ var searchData=
   ['backward_3',['BACKWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0',1,'galaxy::input::CameraKeys']]],
   ['base64_2ecpp_4',['Base64.cpp',['../d4/de5/Base64_8cpp.html',1,'']]],
   ['base64_2ehpp_5',['Base64.hpp',['../d0/d79/Base64_8hpp.html',1,'']]],
-  ['basicscript_6',['basicscript',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html',1,'galaxy::lua::BasicScript'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a88434c456464c6c17ae35af923b7e708',1,'galaxy::lua::BasicScript::BasicScript(std::string_view file)'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#af7217ad3be0fcb480e7c1f926c42814a',1,'galaxy::lua::BasicScript::BasicScript()']]],
+  ['basicscript_6',['basicscript',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html',1,'galaxy::lua::BasicScript'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a306d7ca86e57dae9064d1250eef64c2e',1,'galaxy::lua::BasicScript::BasicScript(const std::string &amp;file)'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#af7217ad3be0fcb480e7c1f926c42814a',1,'galaxy::lua::BasicScript::BasicScript()']]],
   ['basicscript_2ecpp_7',['BasicScript.cpp',['../d3/da8/BasicScript_8cpp.html',1,'']]],
   ['basicscript_2ehpp_8',['BasicScript.hpp',['../de/d5f/BasicScript_8hpp.html',1,'']]],
   ['basicscriptloader_9',['BasicScriptLoader',['../d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader.html',1,'galaxy::resource']]],

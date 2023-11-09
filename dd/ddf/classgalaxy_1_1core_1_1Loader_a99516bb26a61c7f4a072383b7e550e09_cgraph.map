@@ -1,21 +1,21 @@
 <map id="galaxy::core::Loader::load_all" name="galaxy::core::Loader::load_all">
-<area shape="rect" id="Node000001" title="Loads resources, user config and window settings." alt="" coords="5,143,159,183"/>
-<area shape="rect" id="Node000002" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a0288c765e17c348296bef57c95a47e7d" title="Load game resources." alt="" coords="207,56,360,96"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,140,222,99,224,104,130,145"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="612,121,843,146"/>
-<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="159,157,598,137,598,142,159,162"/>
-<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a9cd2d939dc4eb3cb8a921d91672cb797" title="Only loads user config." alt="" coords="207,171,360,211"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="159,171,194,176,193,181,159,176"/>
-<area shape="rect" id="Node000007" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="207,279,360,319"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="114,181,243,269,240,273,111,185"/>
-<area shape="rect" id="Node000003" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5" title="Builds opengl resources on the main thread." alt="" coords="409,5,563,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,54,395,45,396,50,361,59"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="360,83,615,116,614,122,360,88"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="533,43,687,113,684,117,531,48"/>
-<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="360,178,614,145,615,150,360,184"/>
-<area shape="rect" id="Node000006" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="421,221,551,261"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="361,207,407,219,406,224,360,212"/>
-<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="360,301,407,301,459,297,512,287,563,271,607,247,647,216,706,155,709,159,650,219,610,251,565,276,514,293,460,302,407,306,360,307"/>
-<area shape="rect" id="Node000008" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="408,336,564,376"/>
-<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="355,316,402,330,401,335,354,321"/>
+<area shape="rect" id="Node000001" title="Loads resources, user config and window settings." alt="" coords="5,97,159,137"/>
+<area shape="rect" id="Node000002" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5" title="Builds opengl resources on the main thread." alt="" coords="207,33,360,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,94,206,74,208,79,146,99"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,104,639,129"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="99,95,144,53,174,33,206,18,248,6,283,3,318,7,361,18,400,33,438,52,498,93,495,98,435,57,398,38,359,23,317,13,283,8,249,11,208,23,176,38,147,57,103,98"/>
+<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a0288c765e17c348296bef57c95a47e7d" title="Load game resources." alt="" coords="207,97,360,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,114,193,114,193,119,159,119"/>
+<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a9cd2d939dc4eb3cb8a921d91672cb797" title="Only loads user config." alt="" coords="207,161,360,201"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="146,134,208,154,206,159,145,139"/>
+<area shape="rect" id="Node000007" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="207,225,360,265"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="107,135,152,172,208,210,219,216,216,221,205,215,149,176,104,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,70,463,98,461,103,358,75"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="360,114,394,114,394,119,360,119"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="358,158,461,130,463,135,360,163"/>
+<area shape="rect" id="Node000006" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="458,161,589,201"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="360,178,444,178,444,183,360,183"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="340,222,358,211,373,195,381,179,390,162,406,146,435,131,438,136,410,151,394,166,386,181,377,198,362,215,343,227"/>
+<area shape="rect" id="Node000008" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="445,225,601,265"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="360,242,431,242,431,247,360,247"/>
 </map>

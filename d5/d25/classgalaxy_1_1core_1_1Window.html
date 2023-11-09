@@ -181,12 +181,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73fb0e92b1dae7e5faba3001c6a7eb66" id="r_a73fb0e92b1dae7e5faba3001c6a7eb66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a73fb0e92b1dae7e5faba3001c6a7eb66">set_title</a> (const char *title)</td></tr>
 <tr class="memdesc:a73fb0e92b1dae7e5faba3001c6a7eb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window title.  <br /></td></tr>
 <tr class="separator:a73fb0e92b1dae7e5faba3001c6a7eb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab160a44e8442e9ba5a12f9db33ed2f9b" id="r_ab160a44e8442e9ba5a12f9db33ed2f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab160a44e8442e9ba5a12f9db33ed2f9b">set_icon</a> (std::string_view icon)</td></tr>
-<tr class="memdesc:ab160a44e8442e9ba5a12f9db33ed2f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window icon.  <br /></td></tr>
-<tr class="separator:ab160a44e8442e9ba5a12f9db33ed2f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd5887930a33b721f789d04b034a4e3" id="r_aebd5887930a33b721f789d04b034a4e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aebd5887930a33b721f789d04b034a4e3">set_icon</a> (std::span&lt; unsigned char &gt; buffer)</td></tr>
-<tr class="memdesc:aebd5887930a33b721f789d04b034a4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window icon.  <br /></td></tr>
-<tr class="separator:aebd5887930a33b721f789d04b034a4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0573732c9477fc9b457c44dc506cd744" id="r_a0573732c9477fc9b457c44dc506cd744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">set_title</a> (const std::string &amp;title)</td></tr>
+<tr class="memdesc:a0573732c9477fc9b457c44dc506cd744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window title.  <br /></td></tr>
+<tr class="separator:a0573732c9477fc9b457c44dc506cd744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96584fefe16054bbb78fa7242e2cfa21" id="r_a96584fefe16054bbb78fa7242e2cfa21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">set_icon</a> (const std::string &amp;icon)</td></tr>
+<tr class="memdesc:a96584fefe16054bbb78fa7242e2cfa21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window icon.  <br /></td></tr>
+<tr class="separator:a96584fefe16054bbb78fa7242e2cfa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd4bfb58a19005a84e1e4d9593c504d" id="r_a6cd4bfb58a19005a84e1e4d9593c504d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6cd4bfb58a19005a84e1e4d9593c504d">set_icon</a> (std::span&lt; std::uint8_t &gt; buffer)</td></tr>
+<tr class="memdesc:a6cd4bfb58a19005a84e1e4d9593c504d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window icon.  <br /></td></tr>
+<tr class="separator:a6cd4bfb58a19005a84e1e4d9593c504d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70257eb1e20eb1dde82208235197d494" id="r_a70257eb1e20eb1dde82208235197d494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494">is_focused</a> () const</td></tr>
 <tr class="memdesc:a70257eb1e20eb1dde82208235197d494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if windows is in focus.  <br /></td></tr>
 <tr class="separator:a70257eb1e20eb1dde82208235197d494"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -542,7 +545,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if window is currently open or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if window is currently open, false if not. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00567">567</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00576">576</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -564,7 +567,7 @@ Private Attributes</h2></td></tr>
 <p>Closes the current window. </p>
 <p>Internally, sets isOpen to false. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00572">572</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00581">581</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +588,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destroys <a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display.">Window</a> and related context and data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00577">577</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00586">586</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -632,7 +635,7 @@ Private Attributes</h2></td></tr>
 
 <p>Poll for events. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00596">596</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00605">605</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -683,7 +686,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00602">602</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00611">611</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -711,7 +714,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00610">610</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00619">619</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -732,7 +735,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pop all queued events. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00622">622</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00631">631</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -766,7 +769,7 @@ Private Attributes</h2></td></tr>
 <p>Notify's user of an event without interrupting. </p>
 <p>Think like windows flashing tray icon. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00627">627</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00636">636</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -787,7 +790,7 @@ Private Attributes</h2></td></tr>
 
 <p>Force window into focus. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00632">632</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00641">641</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -808,7 +811,7 @@ Private Attributes</h2></td></tr>
 
 <p>Maximize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00637">637</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00646">646</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -829,7 +832,7 @@ Private Attributes</h2></td></tr>
 
 <p>Restore window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00642">642</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00651">651</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,12 +853,12 @@ Private Attributes</h2></td></tr>
 
 <p>Minimize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00647">647</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00656">656</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a73fb0e92b1dae7e5faba3001c6a7eb66" name="a73fb0e92b1dae7e5faba3001c6a7eb66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73fb0e92b1dae7e5faba3001c6a7eb66">&#9670;&#160;</a></span>set_title()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fb0e92b1dae7e5faba3001c6a7eb66">&#9670;&#160;</a></span>set_title() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -882,8 +885,36 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab160a44e8442e9ba5a12f9db33ed2f9b" name="ab160a44e8442e9ba5a12f9db33ed2f9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab160a44e8442e9ba5a12f9db33ed2f9b">&#9670;&#160;</a></span>set_icon() <span class="overload">[1/2]</span></h2>
+<a id="a0573732c9477fc9b457c44dc506cd744" name="a0573732c9477fc9b457c44dc506cd744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0573732c9477fc9b457c44dc506cd744">&#9670;&#160;</a></span>set_title() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Window::set_title </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set window title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>New title to set window to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00513">513</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a96584fefe16054bbb78fa7242e2cfa21" name="a96584fefe16054bbb78fa7242e2cfa21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96584fefe16054bbb78fa7242e2cfa21">&#9670;&#160;</a></span>set_icon() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -891,7 +922,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::core::Window::set_icon </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>icon</em></td><td>)</td>
           <td></td>
         </tr>
@@ -906,14 +937,14 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00513">513</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00518">518</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_ab160a44e8442e9ba5a12f9db33ed2f9b_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_ab160a44e8442e9ba5a12f9db33ed2f9b_cgraph" alt=""/></div>
-<map name="ad5/d25/classgalaxy_1_1core_1_1Window_ab160a44e8442e9ba5a12f9db33ed2f9b_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_ab160a44e8442e9ba5a12f9db33ed2f9b_cgraph">
+<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph" alt=""/></div>
+<map name="ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph">
 <area shape="rect" title="Set window icon." alt="" coords="5,5,167,45"/>
 <area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="215,13,445,38"/>
 <area shape="poly" title=" " alt="" coords="167,23,201,23,201,28,167,28"/>
@@ -922,8 +953,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aebd5887930a33b721f789d04b034a4e3" name="aebd5887930a33b721f789d04b034a4e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebd5887930a33b721f789d04b034a4e3">&#9670;&#160;</a></span>set_icon() <span class="overload">[2/2]</span></h2>
+<a id="a6cd4bfb58a19005a84e1e4d9593c504d" name="a6cd4bfb58a19005a84e1e4d9593c504d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd4bfb58a19005a84e1e4d9593c504d">&#9670;&#160;</a></span>set_icon() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -931,7 +962,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::core::Window::set_icon </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; unsigned char &gt;&#160;</td>
+          <td class="paramtype">std::span&lt; std::uint8_t &gt;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -946,7 +977,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00545">545</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00552">552</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -968,7 +999,7 @@ Private Attributes</h2></td></tr>
 <p>Check if windows is in focus. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if window is in input focus. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00652">652</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00661">661</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -990,7 +1021,7 @@ Private Attributes</h2></td></tr>
 <p>Get queued events. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to EventQueue. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00657">657</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00666">666</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1028,7 +1059,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the input device. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00297">297</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00304">304</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1050,7 +1081,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get a list of paths dropped on window. </p>
 <p>Reset when a new path is dropped. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00662">662</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00671">671</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1103,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window width. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00667">667</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00676">676</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1125,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window height. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00672">672</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00681">681</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1147,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window width. </p>
 <dl class="section return"><dt>Returns</dt><dd>Float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00677">677</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00686">686</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1138,7 +1169,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window height. </p>
 <dl class="section return"><dt>Returns</dt><dd>Float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00682">682</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00691">691</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1160,7 +1191,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get framebuffer size taking into account DPI. </p>
 <dl class="section return"><dt>Returns</dt><dd>glm::ivec2. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00687">687</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00696">696</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1182,7 +1213,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Retrieve pointer to GLFWwindow object. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns pointer to GLFWwindow. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00695">695</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00704">704</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1265,7 +1296,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Custom GLFW window allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00248">248</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00255">255</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1291,7 +1322,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>GLFW window data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00253">253</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00260">260</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1317,7 +1348,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Width of window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00265">265</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1374,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Height of window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00263">263</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00270">270</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1369,7 +1400,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Event queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00268">268</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00275">275</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1395,7 +1426,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Keyboard assigned to window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00273">273</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1452,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Mouse assigned to window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00278">278</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00285">285</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1447,7 +1478,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Mouse cursor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00283">283</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00290">290</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1473,7 +1504,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Clipboard access. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00295">295</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1499,7 +1530,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Cache of last dropped paths. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00293">293</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00300">300</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1513,7 +1544,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/dcb/namespacegalaxy_1_1core.html">core</a></li><li class="navelem"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html">Window</a></li>
-    <li class="footer">Generated on Tue Oct 17 2023 10:12:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 9 2023 09:26:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

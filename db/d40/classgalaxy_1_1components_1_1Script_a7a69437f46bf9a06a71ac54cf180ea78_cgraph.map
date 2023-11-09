@@ -1,9 +1,7 @@
 <map id="galaxy::components::Script::deserialize" name="galaxy::components::Script::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,35,159,75"/>
-<area shape="rect" id="Node000002" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="207,35,360,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,52,193,52,193,57,159,57"/>
-<area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="447,5,600,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,43,433,34,433,39,361,48"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,70,639,95"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="361,61,402,66,401,71,360,66"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000002" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a859e176765c7a99a9bb9aec8d36bc0a7" title="Load a script." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+<area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="408,5,561,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,23,394,23,394,28,360,28"/>
 </map>

@@ -1,3 +1,0 @@
-<map id="galaxy::flags::AllowSerialize" name="galaxy::flags::AllowSerialize">
-<area shape="rect" id="Node000001" title="Used to set if an entity is allowed to be serialized. (Does not affect deserialization)." alt="" coords="5,5,201,71"/>
-</map>

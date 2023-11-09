@@ -15,6 +15,7 @@ var classgalaxy_1_1media_1_1Video =
     [ "update_texture", "de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912", null ],
     [ "m_plm", "de/d0b/classgalaxy_1_1media_1_1Video.html#ab13c0a4a1b4ad08d359ee4bb4d7585b9", null ],
     [ "m_audio", "de/d0b/classgalaxy_1_1media_1_1Video.html#a9bf67fa33f7d9c9a244e035b60f141a5", null ],
+    [ "m_buffer", "de/d0b/classgalaxy_1_1media_1_1Video.html#a6fcc41eec0346d20659772903b61ac24", null ],
     [ "m_audio_buffer", "de/d0b/classgalaxy_1_1media_1_1Video.html#a743efd15104b9007bf13360fda148d70", null ],
     [ "m_texture_y", "de/d0b/classgalaxy_1_1media_1_1Video.html#aeacffc591269db43429a7fd59bd8e9a8", null ],
     [ "m_texture_cb", "de/d0b/classgalaxy_1_1media_1_1Video.html#a71dbc30a948153a1c3b83210e6242c86", null ],

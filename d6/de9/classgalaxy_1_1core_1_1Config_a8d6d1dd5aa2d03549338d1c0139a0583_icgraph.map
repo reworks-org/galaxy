@@ -1,9 +1,5 @@
 <map id="galaxy::core::Config::load" name="galaxy::core::Config::load">
-<area shape="rect" id="Node000001" title="Checks if config exists and flags if a config needs to be created." alt="" coords="435,37,585,77"/>
-<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a78efd875d7e74a20471a03d245e8b8e2" title="Argument constructor." alt="" coords="236,5,387,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="421,46,386,40,387,35,422,40"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="243,69,380,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="421,74,381,81,380,76,421,69"/>
-<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,69,188,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="229,92,188,92,188,87,229,87"/>
+<area shape="rect" id="Node000001" title="Checks if config exists and flags if a config needs to be created." alt="" coords="204,5,355,45"/>
+<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a78efd875d7e74a20471a03d245e8b8e2" title="Argument constructor." alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,28,156,28,156,23,191,23"/>
 </map>

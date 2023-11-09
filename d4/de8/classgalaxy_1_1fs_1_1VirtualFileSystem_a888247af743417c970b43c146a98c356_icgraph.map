@@ -1,7 +1,0 @@
-<map id="galaxy::fs::VirtualFileSystem::save_using_dialog" name="galaxy::fs::VirtualFileSystem::save_using_dialog">
-<area shape="rect" id="Node000001" title="Saves a string to a file using a dialog." alt="" coords="421,5,629,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,28,373,28,373,23,407,23"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
-</map>

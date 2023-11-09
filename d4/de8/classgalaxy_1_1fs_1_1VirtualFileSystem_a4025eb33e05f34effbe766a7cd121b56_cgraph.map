@@ -1,0 +1,9 @@
+<map id="galaxy::fs::VirtualFileSystem::rebuild_filesystem" name="galaxy::fs::VirtualFileSystem::rebuild_filesystem">
+<area shape="rect" id="Node000001" title="Rebuild the filesystem index cache." alt="" coords="5,69,213,109"/>
+<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a6e70add0a2e647ff6360013471f50836" title="Append archive entries to the tree." alt="" coords="261,5,469,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,67,271,46,273,51,191,72"/>
+<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a15840fdd0946eea397f79dab6fc08c8e" title="Append archives within a directory to the search path." alt="" coords="261,69,469,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,87,248,87,248,92,213,92"/>
+<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0754f32a175592698ed58f45b25cf7cf" title="Close all handles except root archive, and clear directory tree." alt="" coords="261,133,469,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,107,273,127,271,133,189,112"/>
+</map>

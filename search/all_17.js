@@ -3,7 +3,7 @@ var searchData=
   ['w_0',['W',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea61e9c06ea9a85a5088a499df6458d276',1,'galaxy::input']]],
   ['warning_1',['warning',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda059e9861e0400dfbe05c98a841f3f96b',1,'galaxy::error::WARNING'],['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13a7b83d3f08fa392b79e3f553b585971cd',1,'galaxy::fs::warning']]],
   ['width_2',['width',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html#af12e62583d675a0dc869c983daa20e68',1,'galaxy::events::WindowResized::width'],['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a92483a08bc620ea4b5f1127e10add55d',1,'galaxy::core::WindowSettings::width']]],
-  ['window_3',['window',['../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f',1,'galaxy::core::Window::Window(const WindowSettings &amp;settings)'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#a89d9693e27e065b809aabde944f8c407',1,'galaxy::core::Window::Window()'],['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core::Window'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#add29ba39e1c3df67dfa9fa1284956a3e',1,'galaxy::core::Window::Window(const Window &amp;)=delete'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#aa962f44a6a78b64fc495953e970e3bde',1,'galaxy::core::Window::Window(Window &amp;&amp;)=delete']]],
+  ['window_3',['window',['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core::Window'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#aa962f44a6a78b64fc495953e970e3bde',1,'galaxy::core::Window::Window(Window &amp;&amp;)=delete'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#add29ba39e1c3df67dfa9fa1284956a3e',1,'galaxy::core::Window::Window(const Window &amp;)=delete'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f',1,'galaxy::core::Window::Window(const WindowSettings &amp;settings)'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#a89d9693e27e065b809aabde944f8c407',1,'galaxy::core::Window::Window()']]],
   ['window_2ecpp_4',['Window.cpp',['../d2/d84/Window_8cpp.html',1,'']]],
   ['window_2ehpp_5',['Window.hpp',['../d0/de3/Window_8hpp.html',1,'']]],
   ['windowclosed_6',['WindowClosed',['../dc/dad/structgalaxy_1_1events_1_1WindowClosed.html',1,'galaxy::events']]],
@@ -18,10 +18,13 @@ var searchData=
   ['windowsettings_2ecpp_15',['WindowSettings.cpp',['../d5/da4/WindowSettings_8cpp.html',1,'']]],
   ['windowsettings_2ehpp_16',['WindowSettings.hpp',['../df/da8/WindowSettings_8hpp.html',1,'']]],
   ['within_5fwindow_17',['within_window',['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740',1,'galaxy::input::Cursor']]],
-  ['world_18',['world',['../da/dc8/classgalaxy_1_1core_1_1World.html#a73945566f5c95c7f421af7dcdf15697c',1,'galaxy::core::World::World(scene::Scene *scene)'],['../da/dc8/classgalaxy_1_1core_1_1World.html#a4bb68014abf1f1c91e86d9be9d61588f',1,'galaxy::core::World::World(const World &amp;)=delete'],['../da/dc8/classgalaxy_1_1core_1_1World.html#aeef1fb5b668881b8f2efa479a8fa803c',1,'galaxy::core::World::World(World &amp;&amp;)=delete'],['../da/dc8/classgalaxy_1_1core_1_1World.html',1,'galaxy::core::World']]],
-  ['world_2ecpp_19',['World.cpp',['../d7/dfe/World_8cpp.html',1,'']]],
-  ['world_2ehpp_20',['World.hpp',['../d0/dbb/World_8hpp.html',1,'']]],
-  ['world_5f1_21',['WORLD_1',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1ab6dcd85380f2d3e882fbd2f6fda566',1,'galaxy::input']]],
-  ['world_5f2_22',['WORLD_2',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eacb8104ace1979f9537c7f40de0622a22',1,'galaxy::input']]],
-  ['write_23',['write',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b',1,'galaxy::media::RingBuffer']]]
+  ['work_5fdir_18',['work_dir',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ab5bd0f3a95c34005b206e0a4480295cb',1,'galaxy::DoNotUseReferToMacros']]],
+  ['world_19',['world',['../da/dc8/classgalaxy_1_1core_1_1World.html#a73945566f5c95c7f421af7dcdf15697c',1,'galaxy::core::World::World()'],['../da/dc8/classgalaxy_1_1core_1_1World.html',1,'galaxy::core::World'],['../da/dc8/classgalaxy_1_1core_1_1World.html#aeef1fb5b668881b8f2efa479a8fa803c',1,'galaxy::core::World::World(World &amp;&amp;)=delete'],['../da/dc8/classgalaxy_1_1core_1_1World.html#a4bb68014abf1f1c91e86d9be9d61588f',1,'galaxy::core::World::World(const World &amp;)=delete']]],
+  ['world_2ecpp_20',['World.cpp',['../d7/dfe/World_8cpp.html',1,'']]],
+  ['world_2ehpp_21',['World.hpp',['../d0/dbb/World_8hpp.html',1,'']]],
+  ['world_5f1_22',['WORLD_1',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1ab6dcd85380f2d3e882fbd2f6fda566',1,'galaxy::input']]],
+  ['world_5f2_23',['WORLD_2',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eacb8104ace1979f9537c7f40de0622a22',1,'galaxy::input']]],
+  ['write_24',['write',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4351f7a384344b2053b439ae94956ef6',1,'galaxy::fs::VirtualFileSystem::write()'],['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b',1,'galaxy::media::RingBuffer::write()']]],
+  ['write_5fdisk_25',['write_disk',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a67bdcc16f54406b30f4f8583bf123c9d',1,'galaxy::fs::VirtualFileSystem::write_disk()'],['../de/dd6/namespacegalaxy_1_1json.html#aa50ace825a37783f47c3f48487fa370e',1,'galaxy::json::write_disk(const std::string &amp;file, const nlohmann::json &amp;json)']]],
+  ['write_5fvfs_26',['write_vfs',['../de/dd6/namespacegalaxy_1_1json.html#ae5c1d676d7f382cbbc7f220afa2d75bc',1,'galaxy::json']]]
 ];

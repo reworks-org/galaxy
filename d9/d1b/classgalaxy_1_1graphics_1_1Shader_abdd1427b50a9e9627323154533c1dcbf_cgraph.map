@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Shader::Shader" name="galaxy::graphics::Shader::Shader">
 <area shape="rect" id="Node000001" title="JSON Constructor." alt="" coords="5,59,187,99"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a224ec4a7a439223ee8469fa911031852" title="Loads a shader into OpenGL from source." alt="" coords="235,59,416,99"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350" title="Loads a shader into OpenGL from source." alt="" coords="235,59,416,99"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,76,221,76,221,81,187,81"/>
 <area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403" title="Loads a combined raw shader." alt="" coords="489,29,670,69"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,66,475,59,475,64,417,71"/>

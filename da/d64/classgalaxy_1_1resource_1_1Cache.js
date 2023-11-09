@@ -6,7 +6,7 @@ var classgalaxy_1_1resource_1_1Cache =
     [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html#a60b0e8fd597bfdf49f0e3236af34a78f", null ],
     [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html#a22388888cf25db98e04a884f6711ddd0", null ],
     [ "load", "da/d64/classgalaxy_1_1resource_1_1Cache.html#a82d73875cbeaaf8a7896c1edefff172b", null ],
-    [ "load_folder", "da/d64/classgalaxy_1_1resource_1_1Cache.html#a6b8868a308ebc2e3f07fa09d28313fe7", null ],
+    [ "load_vfs", "da/d64/classgalaxy_1_1resource_1_1Cache.html#a110181788916b4760edb7edcc0b3fc5d", null ],
     [ "build", "da/d64/classgalaxy_1_1resource_1_1Cache.html#aea0c12c6495f294d702fe24cb7e5f7f5", null ],
     [ "get", "da/d64/classgalaxy_1_1resource_1_1Cache.html#abd859ea086299104c60116ac30cddd68", null ],
     [ "clear", "da/d64/classgalaxy_1_1resource_1_1Cache.html#afc894a351c6c8604346cb5f9915d0f44", null ],

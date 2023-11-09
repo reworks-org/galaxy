@@ -1,18 +1,18 @@
 <map id="galaxy::core::World" name="galaxy::core::World">
-<area shape="rect" id="Node000001" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,233,187,719"/>
-<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="141,781,307,1047"/>
-<area shape="poly" id="edge7_Node000003_Node000001" title=" " alt="" coords="47,718,58,756,72,782,89,805,131,847,127,851,85,809,68,785,54,758,42,720"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="75,5,237,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,185,136,234,131,233,139,184"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="190,183,201,233,219,379,229,526,232,664,231,781,226,781,227,664,224,526,214,379,196,234,185,184"/>
-<area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="261,243,440,709"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="237,181,245,193,271,242,266,244,240,196,233,183"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,782,135,758,128,736,133,734,140,756,149,780"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="286,710,269,766,264,765,281,708"/>
-<area shape="rect" id="Node000005" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="261,38,440,138"/>
-<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="353,138,353,227,348,227,348,138"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="478,443,557,509"/>
-<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="517,509,511,553,500,608,481,666,454,720,426,759,393,794,322,853,319,849,389,790,422,755,450,717,477,664,495,606,506,552,512,509"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="464,48,595,128"/>
-<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="530,142,521,443,516,443,525,142"/>
+<area shape="rect" id="Node000001" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,233,193,739"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="149,801,314,1067"/>
+<area shape="poly" id="edge7_Node000003_Node000001" title=" " alt="" coords="57,738,68,776,82,801,98,824,138,865,134,869,94,828,77,804,64,778,52,740"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="83,5,244,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,184,143,234,137,233,145,184"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="197,183,207,233,226,385,236,537,239,680,238,801,233,801,234,680,230,538,220,385,202,234,191,184"/>
+<area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="269,253,447,719"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="244,181,252,193,282,252,277,254,248,196,240,183"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,802,142,778,135,756,140,754,147,776,156,800"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="295,720,276,786,271,785,290,718"/>
+<area shape="rect" id="Node000005" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="269,38,447,138"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="361,138,361,237,355,237,355,138"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="485,453,564,519"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="525,519,520,565,508,622,490,683,462,740,433,779,400,814,330,873,326,869,397,810,429,775,457,737,485,681,503,620,514,564,520,518"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="471,48,602,128"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="538,142,528,453,523,453,532,142"/>
 </map>

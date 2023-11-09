@@ -1,0 +1,3 @@
+<map id="galaxy::flags::DenySerialization" name="galaxy::flags::DenySerialization">
+<area shape="rect" id="Node000001" title="Used to exclude a component when serializing." alt="" coords="5,5,224,171"/>
+</map>

@@ -1,9 +1,5 @@
 <map id="galaxy::resource::Language::load" name="galaxy::resource::Language::load">
-<area shape="rect" id="Node000001" title="Load a specific file with a provided lua state." alt="" coords="669,5,869,45"/>
-<area shape="rect" id="Node000002" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5" title="Load all languages in a folder." alt="" coords="421,5,621,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="656,28,622,28,622,23,656,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
-<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="rect" id="Node000001" title="Load a specific file with a provided lua state." alt="" coords="253,5,453,45"/>
+<area shape="rect" id="Node000002" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981" title="Loads all languages in the vfs." alt="" coords="5,5,205,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,28,206,28,206,23,240,23"/>
 </map>

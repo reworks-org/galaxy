@@ -6,7 +6,7 @@ var classgalaxy_1_1input_1_1Cursor =
     [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#aca1f2e5e3ed89ad67e2d4c43c71e7615", null ],
     [ "init", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597", null ],
     [ "toggle", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308", null ],
-    [ "load_custom", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a61bfce3f76b3c8fcaf1b89f44ef3784b", null ],
+    [ "load_custom", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a7413b89aa62060f109c520eab7c25716", null ],
     [ "load_custom_mem", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#af1fe90b437cd8a043f17e5165e159c1b", null ],
     [ "use_custom", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a674d16dccffec7705b060f8ca13f5a5d", null ],
     [ "use_pointer", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5101c7ba2fb0c162d2125ba57eb10c60", null ],

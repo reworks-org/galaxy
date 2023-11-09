@@ -1,19 +1,15 @@
 <map id="galaxy::resource::TextureAtlas" name="galaxy::resource::TextureAtlas">
-<area shape="rect" id="Node000001" title="Parses raw texture files and stiches them into a large altas." alt="" coords="367,831,545,1291"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="150,545,229,611"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,610,362,884,357,887,204,612"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,125,136,205"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,218,183,544,178,546,83,219"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="371,418,541,738"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="459,738,459,814,453,814,453,738"/>
-<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="160,5,331,325"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="329,325,370,402,365,405,325,327"/>
-<area shape="rect" id="Node000006" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="355,13,557,318"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="459,318,459,402,453,402,453,318"/>
-<area shape="rect" id="Node000007" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="582,15,765,315"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="597,317,550,405,545,402,592,315"/>
-<area shape="rect" id="Node000008" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="674,388,846,768"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="676,717,556,907,551,904,671,714"/>
-<area shape="rect" id="Node000009" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="789,83,950,248"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="847,262,813,388,808,387,842,261"/>
+<area shape="rect" id="Node000001" title="Parses raw texture files and stiches them into a large altas." alt="" coords="418,831,595,1271"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="324,418,495,738"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="445,738,461,814,455,815,440,739"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="5,5,176,325"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,307,190,324,252,401,315,473,311,477,247,405,186,327,174,310"/>
+<area shape="rect" id="Node000004" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="200,13,403,318"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="344,317,366,401,361,403,339,319"/>
+<area shape="rect" id="Node000005" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="427,15,610,315"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="481,317,458,403,453,401,476,315"/>
+<area shape="rect" id="Node000006" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="574,388,746,768"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="601,769,586,816,581,814,596,767"/>
+<area shape="rect" id="Node000007" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="634,83,795,248"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="705,262,688,388,683,387,699,261"/>
 </map>

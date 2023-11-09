@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['filmicgrain_5ffrag_0',['filmicgrain_frag',['../d3/dd7/FilmicGrain_8cpp.html#ae61e95b6fdd0c123b36b5ccda96b0d94',1,'FilmicGrain.cpp']]],
-  ['filmicgrain_5fvert_1',['filmicgrain_vert',['../d3/dd7/FilmicGrain_8cpp.html#a2451141456d364ea5c221cc5b893c59c',1,'FilmicGrain.cpp']]],
-  ['forward_2',['FORWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a505dce37ac37840d08eecfed64003d6f',1,'galaxy::input::CameraKeys']]],
-  ['fragments_3',['fragments',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a1d5a9f6694ec4f15dae8527c718ee884',1,'galaxy::components::Primitive::PrimitiveData']]]
+  ['editor_5fdata_5fdir_0',['editor_data_dir',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ad0564d18ca5c49fc5364ec96de46ec73',1,'galaxy::DoNotUseReferToMacros']]],
+  ['encoding_5ftable_1',['encoding_table',['../d4/de5/Base64_8cpp.html#ab95a027176f2877dedfdc0768ffa88f2',1,'Base64.cpp']]],
+  ['entered_2',['entered',['../d0/d34/structgalaxy_1_1events_1_1MouseEnter.html#a971a1c8e72958d830b5d67e2b73eef12',1,'galaxy::events::MouseEnter']]],
+  ['entity_3',['entity',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a6d09f5df0fc22dde445e67a16c2bcdf6',1,'galaxy::graphics::Render2DUniform']]],
+  ['entry_4',['entry',['../d0/db4/structgalaxy_1_1fs_1_1ArchiveEntry.html#ad353020a49719a55879d7ed57cd9c679',1,'galaxy::fs::ArchiveEntry']]]
 ];

@@ -138,12 +138,26 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">is_loader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that the provided loader has an operator() that returns a shared pointer. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dee/conceptgalaxy_1_1meta_1_1vfs__read__type.html">vfs_read_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures proper typing when reading from VFS. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8f/conceptgalaxy_1_1meta_1_1vfs__write__type.html">vfs_write_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures proper typing when writing to VFS. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d60/conceptgalaxy_1_1meta_1_1is__system.html">is_system</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept to ensure a system is actually derived from a System. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a2d7a7af733c4817d827f5ef5dcf021fb" id="r_a2d7a7af733c4817d827f5ef5dcf021fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a2d7a7af733c4817d827f5ef5dcf021fb">FSTextR</a> = std::string</td></tr>
+<tr class="separator:a2d7a7af733c4817d827f5ef5dcf021fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef49f790e29e05d62afed453c1649725" id="r_aef49f790e29e05d62afed453c1649725"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#aef49f790e29e05d62afed453c1649725">FSTextW</a> = const std::string &amp;</td></tr>
+<tr class="separator:aef49f790e29e05d62afed453c1649725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb7f3a09f5d621ac77c5d656a0543c5" id="r_aedb7f3a09f5d621ac77c5d656a0543c5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#aedb7f3a09f5d621ac77c5d656a0543c5">FSBinaryR</a> = <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::uint8_t &gt;</td></tr>
+<tr class="separator:aedb7f3a09f5d621ac77c5d656a0543c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4697a32f4514b9e025a3000f65df61c" id="r_ab4697a32f4514b9e025a3000f65df61c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#ab4697a32f4514b9e025a3000f65df61c">FSBinaryW</a> = std::span&lt; std::uint8_t &gt;</td></tr>
+<tr class="separator:ab4697a32f4514b9e025a3000f65df61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b957eec35fbc8ac5f594a6e3f3d14eb" id="r_a7b957eec35fbc8ac5f594a6e3f3d14eb"><td class="memTemplParams" colspan="2">template&lt;meta::is_object Type&gt; </td></tr>
 <tr class="memitem:a7b957eec35fbc8ac5f594a6e3f3d14eb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a7b957eec35fbc8ac5f594a6e3f3d14eb">ref</a> = std::reference_wrapper&lt; Type &gt;</td></tr>
 <tr class="memdesc:a7b957eec35fbc8ac5f594a6e3f3d14eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
@@ -221,6 +235,70 @@ Functions</h2></td></tr>
 <tr class="separator:a3e4e6d647a6fe6435f38d444fb47f754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a2d7a7af733c4817d827f5ef5dcf021fb" name="a2d7a7af733c4817d827f5ef5dcf021fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7a7af733c4817d827f5ef5dcf021fb">&#9670;&#160;</a></span>FSTextR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a2d7a7af733c4817d827f5ef5dcf021fb">galaxy::meta::FSTextR</a> = typedef std::string</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/deb/FileType_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../db/deb/FileType_8hpp_source.html">FileType.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aef49f790e29e05d62afed453c1649725" name="aef49f790e29e05d62afed453c1649725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef49f790e29e05d62afed453c1649725">&#9670;&#160;</a></span>FSTextW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#aef49f790e29e05d62afed453c1649725">galaxy::meta::FSTextW</a> = typedef const std::string&amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/deb/FileType_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../db/deb/FileType_8hpp_source.html">FileType.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aedb7f3a09f5d621ac77c5d656a0543c5" name="aedb7f3a09f5d621ac77c5d656a0543c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedb7f3a09f5d621ac77c5d656a0543c5">&#9670;&#160;</a></span>FSBinaryR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#aedb7f3a09f5d621ac77c5d656a0543c5">galaxy::meta::FSBinaryR</a> = typedef <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;std::uint8_t&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/deb/FileType_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../db/deb/FileType_8hpp_source.html">FileType.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab4697a32f4514b9e025a3000f65df61c" name="ab4697a32f4514b9e025a3000f65df61c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4697a32f4514b9e025a3000f65df61c">&#9670;&#160;</a></span>FSBinaryW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#ab4697a32f4514b9e025a3000f65df61c">galaxy::meta::FSBinaryW</a> = typedef std::span&lt;std::uint8_t&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/deb/FileType_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../db/deb/FileType_8hpp_source.html">FileType.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a7b957eec35fbc8ac5f594a6e3f3d14eb" name="a7b957eec35fbc8ac5f594a6e3f3d14eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b957eec35fbc8ac5f594a6e3f3d14eb">&#9670;&#160;</a></span>ref</h2>
 
@@ -730,7 +808,7 @@ template&lt;typename T  = void&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li>
-    <li class="footer">Generated on Tue Oct 17 2023 10:12:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 9 2023 09:26:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

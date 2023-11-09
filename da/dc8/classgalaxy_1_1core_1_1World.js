@@ -10,7 +10,7 @@ var classgalaxy_1_1core_1_1World =
     [ "create_from_json", "da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568", null ],
     [ "create_system", "da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d", null ],
     [ "update", "da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e", null ],
-    [ "update_rendersystem", "da/dc8/classgalaxy_1_1core_1_1World.html#a28111bcbbb37a36988aaa5c47e5c36bc", null ],
+    [ "only_update_rendering", "da/dc8/classgalaxy_1_1core_1_1World.html#a57156d5bf1785626abbbbf7df1b78eda", null ],
     [ "clear", "da/dc8/classgalaxy_1_1core_1_1World.html#abd82bcc6ebb3c73036731d493a4a7bf9", null ],
     [ "is_valid", "da/dc8/classgalaxy_1_1core_1_1World.html#aeb5afcb0baf13e98fb7cbb85154189f4", null ],
     [ "scene", "da/dc8/classgalaxy_1_1core_1_1World.html#ac742c878058f0c42acca14013e8cdab2", null ],
@@ -24,5 +24,6 @@ var classgalaxy_1_1core_1_1World =
     [ "destruct_nui", "da/dc8/classgalaxy_1_1core_1_1World.html#a3d5ccf9b2fc8e480b50fc462ae860ed0", null ],
     [ "m_registry", "da/dc8/classgalaxy_1_1core_1_1World.html#ae8bab595f5cea9f203686c6cf3977a6a", null ],
     [ "m_systems", "da/dc8/classgalaxy_1_1core_1_1World.html#af6d3aab35a87550a9cfd86133a24d6bf", null ],
-    [ "m_scene", "da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e", null ]
+    [ "m_scene", "da/dc8/classgalaxy_1_1core_1_1World.html#a3fffd46e3a15cd5848fea701aa47bb4e", null ],
+    [ "m_rendersystem_index", "da/dc8/classgalaxy_1_1core_1_1World.html#a3bf58db1b256fad0913d1dd6d051b4ea", null ]
 ];

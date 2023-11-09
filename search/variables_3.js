@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['encoding_5ftable_0',['encoding_table',['../d4/de5/Base64_8cpp.html#ab95a027176f2877dedfdc0768ffa88f2',1,'Base64.cpp']]],
-  ['entered_1',['entered',['../d0/d34/structgalaxy_1_1events_1_1MouseEnter.html#a971a1c8e72958d830b5d67e2b73eef12',1,'galaxy::events::MouseEnter']]],
-  ['entity_2',['entity',['../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html#a6d09f5df0fc22dde445e67a16c2bcdf6',1,'galaxy::graphics::Render2DUniform']]]
+  ['data_0',['data',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a8ab0ddf1d77db297f517ab5bbb8d713b',1,'galaxy::DoNotUseReferToMacros']]],
+  ['data_5fmods_1',['data_mods',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a73c8322abc15f777323352e7f471f1b9',1,'galaxy::DoNotUseReferToMacros']]],
+  ['data_5fupdates_2',['data_updates',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#addb0e485d392ef72d950dc8cf8f60a2b',1,'galaxy::DoNotUseReferToMacros']]],
+  ['debug_3',['debug',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a202529795f793078e241b2b9b9e1fe57',1,'galaxy::core::WindowSettings']]],
+  ['decoding_5ftable_4',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]],
+  ['default_5findices_5',['default_indices',['../de/d07/Vertex_8cpp.html#a878d064048664b9976d683be379eec7c',1,'Vertex.cpp']]]
 ];

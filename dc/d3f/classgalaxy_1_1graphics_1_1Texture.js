@@ -1,14 +1,15 @@
 var classgalaxy_1_1graphics_1_1Texture =
 [
     [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ae124110e909346304b62bbe372922a44", null ],
-    [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a79bab2d62b20eb3bd6de89a4ad3fce98", null ],
+    [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a7544ecb19680033137f4762c06c9acc7", null ],
     [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad1bc9c06a759835ace97ecc5f0830d19", null ],
     [ "~Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a48408bf7dfd48a4977a7cb745367ff19", null ],
     [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a59d9012ddc3d7041737f594d601aa479", null ],
     [ "operator=", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a7a2c5aba94db52d1494e4ed3346fdc53", null ],
-    [ "load", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ac0abb1fc5bdafc8d0f0829f02d59aba7", null ],
-    [ "load_mem", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad63ef34500717a0e3b83cc208d9a9612", null ],
+    [ "load", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aac43cd3401c0f444e5c2bbc6ba84905f", null ],
     [ "load_raw", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f", null ],
+    [ "load_entry", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a60255d9c6116729af9771b853b76676a", null ],
+    [ "load_disk", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a1333af21939c208ff36362e9952083d3", null ],
     [ "save", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#af0a4a6e77e8b801d0c61358cebbce9bd", null ],
     [ "recreate", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a11b66f273612c42143e6417254e6dcd5", null ],
     [ "bind", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aaade16e4973e304e334efa12d509cec9", null ],

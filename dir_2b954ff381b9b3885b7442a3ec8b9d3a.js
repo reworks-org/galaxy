@@ -2,8 +2,6 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
 [
     [ "Animated.cpp", "d0/d0a/Animated_8cpp.html", null ],
     [ "Animated.hpp", "d2/df5/Animated_8hpp.html", "d2/df5/Animated_8hpp" ],
-    [ "Flag.cpp", "dd/dae/Flag_8cpp.html", null ],
-    [ "Flag.hpp", "d0/dda/Flag_8hpp.html", "d0/dda/Flag_8hpp" ],
     [ "Primitive.cpp", "d4/d25/Primitive_8cpp.html", null ],
     [ "Primitive.hpp", "de/dd1/Primitive_8hpp.html", "de/dd1/Primitive_8hpp" ],
     [ "Script.cpp", "d8/d80/Script_8cpp.html", null ],

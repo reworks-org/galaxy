@@ -6,11 +6,11 @@ var namespacegalaxy_1_1media =
     [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ],
     [ "SoundEngine", "dc/d80/namespacegalaxy_1_1media.html#a95ded79e8ddbb47f6f62890cbe692da0", null ],
     [ "MusicEngine", "dc/d80/namespacegalaxy_1_1media.html#a612365c55a7fcdb7873bbad05a2441d1", null ],
-    [ "DialogueEngine", "dc/d80/namespacegalaxy_1_1media.html#ae80f6f987e8bab85fc986f81d2f81861", null ],
+    [ "VoiceEngine", "dc/d80/namespacegalaxy_1_1media.html#ac31beda2113a0af7f5a2e5f314385a4e", null ],
     [ "SoundType", "dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034", [
       [ "SFX", "dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708", null ],
       [ "MUSIC", "dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9", null ],
-      [ "DIALOGUE", "dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034afbc1136327d892c897c3b1e43d239140", null ]
+      [ "VOICE", "dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034a9369ef98bb3f619078bb34cbf76ac6e4", null ]
     ] ],
     [ "data_callback", "dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192", null ]
 ];

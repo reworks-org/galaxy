@@ -127,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf5482efb7fdecf05f7bccf74f9fc94d" id="r_acf5482efb7fdecf05f7bccf74f9fc94d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d">~Language</a> ()</td></tr>
 <tr class="memdesc:acf5482efb7fdecf05f7bccf74f9fc94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:acf5482efb7fdecf05f7bccf74f9fc94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54d6b581d150a1e6b4fbf7db50d0fdb5" id="r_a54d6b581d150a1e6b4fbf7db50d0fdb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5">load_folder</a> (std::string_view folder)</td></tr>
-<tr class="memdesc:a54d6b581d150a1e6b4fbf7db50d0fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load all languages in a folder.  <br /></td></tr>
-<tr class="separator:a54d6b581d150a1e6b4fbf7db50d0fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15a1ab5ce5620b2001cf3e496fe8981" id="r_ac15a1ab5ce5620b2001cf3e496fe8981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981">load_from_vfs</a> ()</td></tr>
+<tr class="memdesc:ac15a1ab5ce5620b2001cf3e496fe8981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all languages in the vfs.  <br /></td></tr>
+<tr class="separator:ac15a1ab5ce5620b2001cf3e496fe8981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c87289772f5fc47445aedc1f8743f6d" id="r_a1c87289772f5fc47445aedc1f8743f6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a1c87289772f5fc47445aedc1f8743f6d">load</a> (sol::state &amp;lua, const std::string &amp;file)</td></tr>
 <tr class="memdesc:a1c87289772f5fc47445aedc1f8743f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a specific file with a provided lua state.  <br /></td></tr>
 <tr class="separator:a1c87289772f5fc47445aedc1f8743f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,29 +289,22 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a54d6b581d150a1e6b4fbf7db50d0fdb5" name="a54d6b581d150a1e6b4fbf7db50d0fdb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54d6b581d150a1e6b4fbf7db50d0fdb5">&#9670;&#160;</a></span>load_folder()</h2>
+<a id="ac15a1ab5ce5620b2001cf3e496fe8981" name="ac15a1ab5ce5620b2001cf3e496fe8981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15a1ab5ce5620b2001cf3e496fe8981">&#9670;&#160;</a></span>load_from_vfs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::resource::Language::load_folder </td>
+          <td class="memname">void galaxy::resource::Language::load_from_vfs </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>folder</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Load all languages in a folder. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">folder</td><td>A folder within the VFS to read from. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Loads all languages in the vfs. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -319,9 +312,9 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_cgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_cgraph" alt=""/></div>
-<map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_cgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_cgraph">
-<area shape="rect" title="Load all languages in a folder." alt="" coords="5,69,205,109"/>
+<div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_ac15a1ab5ce5620b2001cf3e496fe8981_cgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_ac15a1ab5ce5620b2001cf3e496fe8981_cgraph" alt=""/></div>
+<map name="adb/dc3/classgalaxy_1_1resource_1_1Language_ac15a1ab5ce5620b2001cf3e496fe8981_cgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_ac15a1ab5ce5620b2001cf3e496fe8981_cgraph">
+<area shape="rect" title="Loads all languages in the vfs." alt="" coords="5,69,205,109"/>
 <area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a4553e79ec31a396eadacd56f36e4fe31" title="Erase all language data." alt="" coords="253,5,453,45"/>
 <area shape="poly" title=" " alt="" coords="183,67,261,46,263,51,184,72"/>
 <area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a1c87289772f5fc47445aedc1f8743f6d" title="Load a specific file with a provided lua state." alt="" coords="253,69,453,109"/>
@@ -329,20 +322,6 @@ Private Attributes</h2></td></tr>
 <area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="501,106,732,131"/>
 <area shape="poly" title=" " alt="" coords="184,107,254,119,374,125,488,124,488,129,373,131,253,124,183,112"/>
 <area shape="poly" title=" " alt="" coords="454,98,489,102,489,107,453,103"/>
-</map>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_icgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_icgraph" alt=""/></div>
-<map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_icgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a54d6b581d150a1e6b4fbf7db50d0fdb5_icgraph">
-<area shape="rect" title="Load all languages in a folder." alt="" coords="421,5,621,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
-<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
 </map>
 </div>
 
@@ -383,12 +362,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_cgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_cgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_cgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_cgraph">
 <area shape="rect" title="Load a specific file with a provided lua state." alt="" coords="5,5,205,45"/>
@@ -396,20 +375,16 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="206,23,240,23,240,28,206,28"/>
 </map>
 </div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_icgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_icgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_icgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a1c87289772f5fc47445aedc1f8743f6d_icgraph">
-<area shape="rect" title="Load a specific file with a provided lua state." alt="" coords="669,5,869,45"/>
-<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5" title="Load all languages in a folder." alt="" coords="421,5,621,45"/>
-<area shape="poly" title=" " alt="" coords="656,28,622,28,622,23,656,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
-<area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="rect" title="Load a specific file with a provided lua state." alt="" coords="253,5,453,45"/>
+<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981" title="Loads all languages in the vfs." alt="" coords="5,5,205,45"/>
+<area shape="poly" title=" " alt="" coords="240,28,206,28,206,23,240,23"/>
 </map>
 </div>
 
@@ -439,12 +414,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a15e49c4261c2368ddbc5d006cc145028_icgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a15e49c4261c2368ddbc5d006cc145028_icgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a15e49c4261c2368ddbc5d006cc145028_icgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a15e49c4261c2368ddbc5d006cc145028_icgraph">
 <area shape="rect" title="Sets the currently active language." alt="" coords="421,13,649,38"/>
@@ -482,12 +457,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Const string reference. If not found, returns key. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a08bdeb667856d66025897e669d2e3774_icgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a08bdeb667856d66025897e669d2e3774_icgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a08bdeb667856d66025897e669d2e3774_icgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a08bdeb667856d66025897e669d2e3774_icgraph">
 <area shape="rect" title="Translates a key into the active language&#39;s text." alt="" coords="484,37,684,77"/>
@@ -527,12 +502,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Const string reference. If not found, returns key. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00098">98</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_abda0ce3dce2f2436f911e3aa85e2e05f_cgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_abda0ce3dce2f2436f911e3aa85e2e05f_cgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_abda0ce3dce2f2436f911e3aa85e2e05f_cgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_abda0ce3dce2f2436f911e3aa85e2e05f_cgraph">
 <area shape="rect" title="Overloaded operator[] to translate a key into the active language&#39;s text." alt="" coords="5,5,205,45"/>
@@ -567,7 +542,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,24 +563,23 @@ Private Attributes</h2></td></tr>
 
 <p>Erase all language data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/daa/Language_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d6/daa/Language_8cpp_source.html">Language.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dc3/classgalaxy_1_1resource_1_1Language_a4553e79ec31a396eadacd56f36e4fe31_icgraph.png" border="0" usemap="#adb/dc3/classgalaxy_1_1resource_1_1Language_a4553e79ec31a396eadacd56f36e4fe31_icgraph" alt=""/></div>
 <map name="adb/dc3/classgalaxy_1_1resource_1_1Language_a4553e79ec31a396eadacd56f36e4fe31_icgraph" id="adb/dc3/classgalaxy_1_1resource_1_1Language_a4553e79ec31a396eadacd56f36e4fe31_icgraph">
-<area shape="rect" title="Erase all language data." alt="" coords="669,33,869,73"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="677,33,621,24,565,20,522,20,421,24,374,25,374,20,421,19,521,15,565,14,622,19,678,28"/>
-<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#a54d6b581d150a1e6b4fbf7db50d0fdb5" title="Load all languages in a folder." alt="" coords="421,33,621,73"/>
-<area shape="poly" title=" " alt="" coords="656,56,622,56,622,51,656,51"/>
-<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d" title="Destructor." alt="" coords="421,97,621,137"/>
-<area shape="poly" title=" " alt="" coords="679,79,600,100,599,95,677,74"/>
+<area shape="rect" title="Erase all language data." alt="" coords="484,69,684,109"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="267,5,405,45"/>
+<area shape="poly" title=" " alt="" coords="492,68,404,46,406,40,493,63"/>
+<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981" title="Loads all languages in the vfs." alt="" coords="236,69,436,109"/>
+<area shape="poly" title=" " alt="" coords="471,92,436,92,436,87,471,87"/>
+<area shape="rect" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html#acf5482efb7fdecf05f7bccf74f9fc94d" title="Destructor." alt="" coords="236,133,436,173"/>
+<area shape="poly" title=" " alt="" coords="493,115,415,136,413,131,492,110"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
-<area shape="poly" title=" " alt="" coords="407,41,374,37,374,32,408,36"/>
+<area shape="poly" title=" " alt="" coords="253,28,188,28,188,23,253,23"/>
 </map>
 </div>
 
@@ -690,7 +664,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current language. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d8e/Language_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../dd/d8e/Language_8hpp_source.html">Language.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d8e/Language_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../dd/d8e/Language_8hpp_source.html">Language.hpp</a>.</p>
 
 </div>
 </div>
@@ -716,7 +690,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html" title="Handle different languages as a resource.">Language</a> data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d8e/Language_8hpp_source.html#l00116">116</a> of file <a class="el" href="../../dd/d8e/Language_8hpp_source.html">Language.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d8e/Language_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../dd/d8e/Language_8hpp_source.html">Language.hpp</a>.</p>
 
 </div>
 </div>
@@ -730,7 +704,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d4/d1b/namespacegalaxy_1_1resource.html">resource</a></li><li class="navelem"><a class="el" href="../../db/dc3/classgalaxy_1_1resource_1_1Language.html">Language</a></li>
-    <li class="footer">Generated on Tue Oct 17 2023 10:12:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 9 2023 09:26:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

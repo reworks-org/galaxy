@@ -11,5 +11,7 @@ var searchData=
   ['galaxy_3a_3ameta_3a_3aloader_5fbuild_5fcheck_8',['loader_build_check',['../d5/dfa/conceptgalaxy_1_1meta_1_1loader__build__check.html',1,'galaxy::meta']]],
   ['galaxy_3a_3ameta_3a_3anot_5fmemory_9',['not_memory',['../d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html',1,'galaxy::meta']]],
   ['galaxy_3a_3ameta_3a_3astandard_5ftype_10',['standard_type',['../dc/df3/conceptgalaxy_1_1meta_1_1standard__type.html',1,'galaxy::meta']]],
-  ['galaxy_3a_3ameta_3a_3avalid_5fcomponent_11',['valid_component',['../d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html',1,'galaxy::meta']]]
+  ['galaxy_3a_3ameta_3a_3avalid_5fcomponent_11',['valid_component',['../d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html',1,'galaxy::meta']]],
+  ['galaxy_3a_3ameta_3a_3avfs_5fread_5ftype_12',['vfs_read_type',['../d3/dee/conceptgalaxy_1_1meta_1_1vfs__read__type.html',1,'galaxy::meta']]],
+  ['galaxy_3a_3ameta_3a_3avfs_5fwrite_5ftype_13',['vfs_write_type',['../d6/d8f/conceptgalaxy_1_1meta_1_1vfs__write__type.html',1,'galaxy::meta']]]
 ];

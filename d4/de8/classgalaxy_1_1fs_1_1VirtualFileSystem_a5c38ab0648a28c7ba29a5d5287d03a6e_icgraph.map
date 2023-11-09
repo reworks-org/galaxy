@@ -1,13 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::open_file_dialog" name="galaxy::fs::VirtualFileSystem::open_file_dialog">
-<area shape="rect" id="Node000001" title="Open a file dialog." alt="" coords="677,26,885,66"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,26,373,66"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="687,26,629,17,525,8,422,17,367,29,366,23,421,11,525,3,630,11,688,21"/>
-<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a991ad6dbbaa04ee7de71b0d0dc295eea" title="Open a file and store contents in std::string." alt="" coords="421,26,629,66"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="664,49,629,49,629,43,664,43"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#add74fe6c8ddf2f6d781d22bf1b22090c" title="Open a file and store contents in std::string." alt="" coords="421,90,629,130"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="688,72,606,93,605,87,687,67"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,26,188,66"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,49,188,49,188,43,222,43"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="407,49,373,49,373,43,407,43"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="442,89,373,68,374,63,443,83"/>
+<area shape="rect" id="Node000001" title="Open a file dialog." alt="" coords="421,5,629,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,28,373,28,373,23,407,23"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
 </map>

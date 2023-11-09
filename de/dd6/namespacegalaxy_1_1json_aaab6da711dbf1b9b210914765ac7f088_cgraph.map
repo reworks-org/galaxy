@@ -1,0 +1,5 @@
+<map id="galaxy::json::read_vfs" name="galaxy::json::read_vfs">
+<area shape="rect" id="Node000001" title="Read a json file in the vfs." alt="" coords="5,5,169,31"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="217,5,448,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,15,204,15,204,21,169,21"/>
+</map>

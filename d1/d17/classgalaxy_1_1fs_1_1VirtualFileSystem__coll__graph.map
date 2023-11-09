@@ -1,3 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem" name="galaxy::fs::VirtualFileSystem">
-<area shape="rect" id="Node000001" title="File System to make managing files easier." alt="" coords="5,5,205,371"/>
+<area shape="rect" id="Node000001" title="File System to make managing files easier." alt="" coords="5,263,205,723"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="66,135,145,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,200,108,246,103,246,103,200"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="40,5,171,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,99,108,134,103,134,103,99"/>
 </map>

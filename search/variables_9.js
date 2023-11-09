@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keycode_0',['keycode',['../d7/d91/structgalaxy_1_1events_1_1KeyDown.html#afcded54f68d46376ba32af7fd820283e',1,'galaxy::events::KeyDown::keycode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#ad658ddc816aafafbe49376ad716b19bf',1,'galaxy::events::KeyRepeat::keycode'],['../d1/d16/structgalaxy_1_1events_1_1KeyUp.html#a9ffa8354ea7e1d755ac6e08af28cdbb0',1,'galaxy::events::KeyUp::keycode']]]
+  ['json_0',['json',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#ac15e3c259754552b37625169eb47d9f6',1,'galaxy::meta::EntityMeta::SerializationData']]]
 ];

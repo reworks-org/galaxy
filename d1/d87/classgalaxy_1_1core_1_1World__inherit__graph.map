@@ -1,5 +1,5 @@
 <map id="galaxy::core::World" name="galaxy::core::World">
-<area shape="rect" id="Node000001" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,219,187,724"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="15,5,177,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,184,99,219,93,219,93,184"/>
+<area shape="rect" id="Node000001" title="Provides an additional set of functionality around an entt::registry." alt="" coords="5,219,193,744"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="19,5,180,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,184,102,218,97,218,97,184"/>
 </map>

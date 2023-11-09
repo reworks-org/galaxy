@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['basicscript_0',['basicscript',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a88434c456464c6c17ae35af923b7e708',1,'galaxy::lua::BasicScript::BasicScript(std::string_view file)'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#af7217ad3be0fcb480e7c1f926c42814a',1,'galaxy::lua::BasicScript::BasicScript()']]],
+  ['basicscript_0',['basicscript',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a306d7ca86e57dae9064d1250eef64c2e',1,'galaxy::lua::BasicScript::BasicScript(const std::string &amp;file)'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#af7217ad3be0fcb480e7c1f926c42814a',1,'galaxy::lua::BasicScript::BasicScript()']]],
   ['begin_5fpostprocessing_1',['begin_postprocessing',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa3ca66f0a511ea0318dcf6bba4606d79',1,'galaxy::graphics::Renderer']]],
   ['begin_5ftext_5finput_2',['begin_text_input',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0',1,'galaxy::input::Keyboard']]],
   ['begins_5fwith_3',['begins_with',['../db/d7c/namespacegalaxy_1_1strutils.html#abd79c863f9a90136d5dd6ddea01cacda',1,'galaxy::strutils']]],
