@@ -4,12 +4,7 @@
 - refine exporting, asset config, etc.
 
 new mapping:
-https://github.com/Madour/LDtkLoader
 https://github.com/Madour/LDtk-SFML-Game/blob/master/src/main.cpp
-
-misc:
-https://github.com/Jaysmito101/cgl
-https://github.com/albin-johansson/wanderer/tree/dev/source/wanderer/systems
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor

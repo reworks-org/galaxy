@@ -92,6 +92,20 @@
     <ClCompile Include="cute\cute_c2.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
+    <ClCompile Include="ldtkloader\src\DataTypes.cpp" />
+    <ClCompile Include="ldtkloader\src\Entity.cpp" />
+    <ClCompile Include="ldtkloader\src\EntityDef.cpp" />
+    <ClCompile Include="ldtkloader\src\Enum.cpp" />
+    <ClCompile Include="ldtkloader\src\FieldsContainer.cpp" />
+    <ClCompile Include="ldtkloader\src\Layer.cpp" />
+    <ClCompile Include="ldtkloader\src\LayerDef.cpp" />
+    <ClCompile Include="ldtkloader\src\Level.cpp" />
+    <ClCompile Include="ldtkloader\src\Project.cpp" />
+    <ClCompile Include="ldtkloader\src\TagsContainer.cpp" />
+    <ClCompile Include="ldtkloader\src\Tile.cpp" />
+    <ClCompile Include="ldtkloader\src\Tileset.cpp" />
+    <ClCompile Include="ldtkloader\src\Utils.cpp" />
+    <ClCompile Include="ldtkloader\src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -732,6 +746,27 @@
     <ClInclude Include="cute\cute_c2.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\FieldsContainer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\TagsContainer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\EntityDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\FieldDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\LayerDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\json_fwd.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\optional.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\DataTypes.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Entity.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Enum.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Field.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Layer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Level.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Project.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Tile.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Tileset.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
+    <ClInclude Include="ldtkloader\src\json.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\generated\Version.hpp" />
+    <ClInclude Include="ldtkloader_generated\LDtkLoader\generated\Version.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

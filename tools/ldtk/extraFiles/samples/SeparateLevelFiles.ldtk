@@ -5,12 +5,12 @@
 		"doc": "https://ldtk.io/json",
 		"schema": "https://ldtk.io/files/JSON_SCHEMA.json",
 		"appAuthor": "Sebastien 'deepnight' Benard",
-		"appVersion": "1.2.5",
+		"appVersion": "1.4.1",
 		"url": "https://ldtk.io"
 	},
 	"iid": "a2d9f0b0-7820-11ed-b6fd-010ddaafa733",
-	"jsonVersion": "1.2.5",
-	"appBuildId": 464869,
+	"jsonVersion": "1.4.1",
+	"appBuildId": 471014,
 	"nextUid": 10,
 	"identifierStyle": "Capitalize",
 	"toc": [],
@@ -22,6 +22,8 @@
 	"defaultPivotX": 0,
 	"defaultPivotY": 0,
 	"defaultGridSize": 16,
+	"defaultEntityWidth": 16,
+	"defaultEntityHeight": 16,
 	"bgColor": "#7F8093",
 	"defaultLevelBgColor": "#7F8093",
 	"minifyJson": false,
@@ -33,6 +35,7 @@
 	"pngFilePattern": null,
 	"backupOnSave": false,
 	"backupLimit": 10,
+	"backupRelPath": null,
 	"levelNamePattern": "%world_Level_%idx",
 	"tutorialDesc": "In this example, the levels are stored in separate files, in a subfolder. \n\nThis is fully transparent from the editor perspective.",
 	"customCommands": [],
@@ -44,6 +47,7 @@
 			"type": "IntGrid",
 			"uid": 1,
 			"doc": null,
+			"uiColor": null,
 			"gridSize": 16,
 			"guideGridWid": 0,
 			"guideGridHei": 0,
@@ -52,6 +56,7 @@
 			"hideInList": false,
 			"hideFieldsWhenInactive": true,
 			"canSelectWhenInactive": true,
+			"renderInWorldView": true,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
 			"parallaxFactorX": 0,
@@ -59,7 +64,8 @@
 			"parallaxScaling": true,
 			"requiredTags": [],
 			"excludedTags": [],
-			"intGridValues": [{ "value": 1, "identifier": "walls", "color": "#000000" }],
+			"intGridValues": [{ "value": 1, "identifier": "walls", "color": "#000000", "tile": null, "groupUid": 0 }],
+			"intGridValuesGroups": [],
 			"autoRuleGroups": [],
 			"autoSourceLayerDefUid": null,
 			"tilesetDefUid": null,
@@ -138,5 +144,6 @@
 			"__neighbours": []
 		}
 	],
-	"worlds": []
+	"worlds": [],
+	"dummyWorldIid": "c9a37e10-c640-11ed-ad34-4391c8dfabdd"
 }
