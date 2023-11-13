@@ -5,11 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/algorithm/Base64.hpp"
-#include "galaxy/algorithm/ZLib.hpp"
-
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/ZLib.hpp"
 
 #include "Prefabs.hpp"
 
@@ -24,8 +23,8 @@ namespace galaxy
 			const auto data = fs.read<meta::FSTextR>(file);
 			if (!data.empty())
 			{
-				const auto base64       = algorithm::decode_zlib(data);
-				const auto decompressed = algorithm::decode_base64(base64);
+				const auto base64       = math::decode_zlib(data);
+				const auto decompressed = math::decode_base64(base64);
 
 				return std::make_shared<core::Prefab>(nlohmann::json::parse(decompressed));
 			}

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\math\Generic.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
@@ -137,7 +137,7 @@
     <ClCompile Include="src\galaxy\scripting\LuaNuklear.cpp" />
     <ClCompile Include="src\galaxy\components\UIScript.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
@@ -149,11 +149,11 @@
     <ClCompile Include="src\galaxy\fs\ArchiveEntry.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\math\Generic.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
@@ -281,7 +281,7 @@
     <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
     <ClInclude Include="src\galaxy\components\UIScript.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\SoundType.hpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />

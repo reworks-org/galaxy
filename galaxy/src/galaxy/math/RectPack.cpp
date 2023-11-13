@@ -9,7 +9,7 @@
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		RectPack::RectPack()
 			: m_width {0}
@@ -30,10 +30,10 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		std::optional<math::iRect> RectPack::pack(const int width, const int height)
+		std::optional<iRect> RectPack::pack(const int width, const int height)
 		{
 			// Result.
-			std::optional<math::iRect> result = std::nullopt;
+			std::optional<iRect> result = std::nullopt;
 
 			// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
@@ -44,7 +44,7 @@ namespace galaxy
 				if (width <= space.width && height <= space.height)
 				{
 					// Make the packed area rectangle.
-					result = std::make_optional<math::iRect>(space.x, space.y, width, height);
+					result = std::make_optional<iRect>(space.x, space.y, width, height);
 
 					// Check to see if shape fills completely.
 					if (width == space.width && height == space.height)
@@ -68,7 +68,7 @@ namespace galaxy
 					else
 					{
 						// Otherwise, split up existing space.
-						math::iRect temp = {space.x + width, space.y, space.width - width, height};
+						iRect temp = {space.x + width, space.y, space.width - width, height};
 
 						space.y      += height;
 						space.height -= height;
@@ -105,9 +105,9 @@ namespace galaxy
 			return m_height;
 		}
 
-		const meta::vector<math::iRect>& RectPack::get_free_space() const
+		const meta::vector<iRect>& RectPack::get_free_space() const
 		{
 			return m_free_rects;
 		}
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy

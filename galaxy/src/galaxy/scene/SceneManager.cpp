@@ -7,11 +7,11 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/algorithm/Base64.hpp"
-#include "galaxy/algorithm/ZLib.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/ZLib.hpp"
 #include "galaxy/scripting/JSON.hpp"
 
 #include "SceneManager.hpp"
@@ -103,11 +103,11 @@ namespace galaxy
 			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read<meta::FSTextR>(appdata_file);
 			if (!data.empty())
 			{
-				const auto decoded_zlib = algorithm::decode_zlib(data);
+				const auto decoded_zlib = math::decode_zlib(data);
 				if (!decoded_zlib.empty())
 
 				{
-					const auto decoded_base64 = algorithm::decode_base64(decoded_zlib);
+					const auto decoded_base64 = math::decode_base64(decoded_zlib);
 					if (!decoded_base64.empty())
 					{
 						load_scene(decoded_base64);

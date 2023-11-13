@@ -5,11 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/algorithm/FNV1a.hpp"
-#include "galaxy/algorithm/Generic.hpp"
-#include "galaxy/algorithm/Base64.hpp"
-#include "galaxy/algorithm/Random.hpp"
-#include "galaxy/algorithm/ZLib.hpp"
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/Script.hpp"
@@ -28,7 +23,12 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/FNV1a.hpp"
+#include "galaxy/math/Generic.hpp"
+#include "galaxy/math/Random.hpp"
 #include "galaxy/math/Rect.hpp"
+#include "galaxy/math/ZLib.hpp"
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/media/Sound.hpp"
 #include "galaxy/media/Video.hpp"
@@ -94,30 +94,6 @@ namespace galaxy
 
 			lua.set_function("galaxy_load_user_config", &load_config_wrapper);
 			lua.set_function("galaxy_load_window_config", &load_window_wrapper);
-
-			/* ALGORITHM */
-			lua.set_function("normalize", &algorithm::normalize<float>);
-			lua.set_function("encode_base64", &algorithm::encode_base64);
-			lua.set_function("decode_base64", &algorithm::decode_base64);
-			lua.set_function("random_int", &algorithm::random<int>);
-			lua.set_function("random_float", &algorithm::random<float>);
-			lua.set_function("encode_zlib", &algorithm::encode_zlib);
-			lua.set_function("decode_zlib", &algorithm::decode_zlib);
-			lua.set_function("fnv1a_32", &algorithm::fnv1a_32);
-			lua.set_function("fnv1a_64", &algorithm::fnv1a_64);
-
-			// clang-format off
-			lua.new_enum<algorithm::ZLib::Mode>("ZLibMode",
-			{
-				{"COMPRESS", algorithm::ZLib::Mode::COMPRESS},
-				{"DECOMPRESS", algorithm::ZLib::Mode::DECOMPRESS}
-			});
-			// clang-format on
-
-			auto zlibclass_type          = lua.new_usertype<algorithm::ZLib>("ZLib", sol::constructors<algorithm::ZLib(algorithm::ZLib::Mode)>());
-			zlibclass_type["compress"]   = &algorithm::ZLib::compress;
-			zlibclass_type["decompress"] = &algorithm::ZLib::decompress;
-			zlibclass_type["finish"]     = &algorithm::ZLib::finish;
 
 			/* COMPONENTS */
 			auto animated_type = lua.new_usertype<components::Animated>("Animated",
@@ -736,6 +712,29 @@ namespace galaxy
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
 
 			/* MATH */
+			lua.set_function("normalize", &math::normalize<float>);
+			lua.set_function("encode_base64", &math::encode_base64);
+			lua.set_function("decode_base64", &math::decode_base64);
+			lua.set_function("random_int", &math::random<int>);
+			lua.set_function("random_float", &math::random<float>);
+			lua.set_function("encode_zlib", &math::encode_zlib);
+			lua.set_function("decode_zlib", &math::decode_zlib);
+			lua.set_function("fnv1a_32", &math::fnv1a_32);
+			lua.set_function("fnv1a_64", &math::fnv1a_64);
+
+			// clang-format off
+			lua.new_enum<math::ZLib::Mode>("ZLibMode",
+			{
+				{"COMPRESS", math::ZLib::Mode::COMPRESS},
+				{"DECOMPRESS", math::ZLib::Mode::DECOMPRESS}
+			});
+			// clang-format on
+
+			auto zlibclass_type          = lua.new_usertype<math::ZLib>("ZLib", sol::constructors<math::ZLib(math::ZLib::Mode)>());
+			zlibclass_type["compress"]   = &math::ZLib::compress;
+			zlibclass_type["decompress"] = &math::ZLib::decompress;
+			zlibclass_type["finish"]     = &math::ZLib::finish;
+
 			auto irect_type =
 				lua.new_usertype<math::iRect>("iRect", sol::constructors<math::iRect(), math::iRect(const int, const int, const int, const int)>());
 			irect_type["x"]        = &math::iRect::x;

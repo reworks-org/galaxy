@@ -46,7 +46,7 @@ constexpr const unsigned char decoding_table[] = {
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		std::string encode_base64(const std::string& input)
 		{
@@ -171,7 +171,7 @@ namespace galaxy
 				return {};
 			}
 		}
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #ifdef GALAXY_WIN_PLATFORM

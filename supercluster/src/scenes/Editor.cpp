@@ -13,14 +13,14 @@
 #include <imgui_addons/imgui_notify.h>
 #include <nlohmann/json.hpp>
 
-#include <galaxy/algorithm/Base64.hpp>
-#include <galaxy/algorithm/ZLib.hpp>
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/input/Input.hpp>
+#include <galaxy/math/Base64.hpp>
+#include <galaxy/math/ZLib.hpp>
 #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
 #include <galaxy/ui/NuklearUI.hpp>
@@ -219,8 +219,8 @@ namespace sc
 			auto data = std::string(buffer.begin(), buffer.end());
 
 #ifndef _DEBUG
-			data = algorithm::decode_zlib(data);
-			data = algorithm::decode_base64(data);
+			data = math::decode_zlib(data);
+			data = math::decode_base64(data);
 #endif
 
 			auto json = json::read_raw(data);
@@ -278,8 +278,8 @@ namespace sc
 				auto data = out_json.dump(4);
 
 #ifndef _DEBUG
-				data = algorithm::encode_base64(data);
-				data = algorithm::encode_zlib(data);
+				data = math::encode_base64(data);
+				data = math::encode_zlib(data);
 #endif
 
 				ofs.write(data.data(), data.size());
@@ -316,8 +316,8 @@ namespace sc
 			std::ofstream app_config;
 
 			auto data = m_project_sm.serialize().dump(4);
-			data      = algorithm::encode_base64(data);
-			data      = algorithm::encode_zlib(data);
+			data      = math::encode_base64(data);
+			data      = math::encode_zlib(data);
 
 			app_data.open(path / config.get<std::string>("app_data"), std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
 			if (app_data.good())

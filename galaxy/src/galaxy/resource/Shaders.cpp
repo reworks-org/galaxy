@@ -16,7 +16,7 @@ namespace galaxy
 		void ShaderLoader::build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<graphics::Shader>>& cache)
 		{
 			// Load default shaders first.
-			cache.emplace(algorithm::fnv1a_64("RenderToTexture"),
+			cache.emplace(math::fnv1a_64("RenderToTexture"),
 				std::make_shared<graphics::Shader>(shaders::render_to_texture_vert, shaders::render_to_texture_frag));
 
 			for (auto&& [key, shader] : cache)

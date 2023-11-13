@@ -21,7 +21,7 @@ GALAXY_DISABLE_WARNING(26477)
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		ZLib::ZLib(const Mode mode)
 			: m_mode {mode}
@@ -312,7 +312,7 @@ namespace galaxy
 			delete[] in;
 			return result;
 		}
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #ifdef GALAXY_WIN_PLATFORM

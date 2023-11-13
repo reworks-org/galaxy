@@ -7,7 +7,7 @@
 
 #include <sstream>
 
-#include "galaxy/algorithm/Random.hpp"
+#include "galaxy/math/Random.hpp"
 
 #include "Guid.hpp"
 
@@ -20,11 +20,11 @@ namespace galaxy
 		Guid::Guid()
 			: m_id {""}
 		{
-			m_id += s_chars[static_cast<int>(std::floor(algorithm::random<float>(0.0f, 1.0f) * 6))];
+			m_id += s_chars[static_cast<int>(std::floor(math::random<float>(0.0f, 1.0f) * 6))];
 
 			for (auto i = 1; i < 32; i++)
 			{
-				const auto random = static_cast<int>(algorithm::random<float>(0.0f, 1.0f) * 16);
+				const auto random = static_cast<int>(math::random<float>(0.0f, 1.0f) * 16);
 
 				if (i == 8 || i == 12 || i == 16 || i == 20)
 				{

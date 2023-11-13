@@ -7,14 +7,14 @@
 /// Modified for use in Galaxy Engine.
 ///
 
-#ifndef GALAXY_ALGORITHM_FNV1A_HPP_
-#define GALAXY_ALGORITHM_FNV1A_HPP_
+#ifndef GALAXY_MATH_FNV1A_HPP_
+#define GALAXY_MATH_FNV1A_HPP_
 
 #include <cstdint>
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		///
 		/// Hash value 32bit.
@@ -62,7 +62,7 @@ namespace galaxy
 			return (str[0] == '\0') ? value : fnv1a_64(&str[1], (value ^ static_cast<uint64_t>(static_cast<uint8_t>(str[0]))) * prime_64_const);
 		}
 
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #endif

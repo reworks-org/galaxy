@@ -5,14 +5,14 @@
 /// Modified for use in Galaxy Engine.
 ///
 
-#ifndef GALAXY_ALGORITHM_BASE64_HPP_
-#define GALAXY_ALGORITHM_BASE64_HPP_
+#ifndef GALAXY_MATH_BASE64_HPP_
+#define GALAXY_MATH_BASE64_HPP_
 
 #include <string>
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		///
 		/// \brief Compresses string into Base64.
@@ -37,7 +37,7 @@ namespace galaxy
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
 		[[nodiscard]] std::string decode_base64(const std::string& input);
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #endif

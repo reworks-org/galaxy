@@ -13,11 +13,11 @@
 
 #include <robin_hood.h>
 
-#include "galaxy/algorithm/RectPack.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/TexelRegion.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/math/RectPack.hpp"
 
 namespace galaxy
 {
@@ -37,7 +37,7 @@ namespace galaxy
 				///
 				/// Rectangle packing algorithm structure.
 				///
-				algorithm::RectPack m_packer;
+				math::RectPack m_packer;
 
 				///
 				/// Texture to combine to.

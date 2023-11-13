@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\algorithm\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
@@ -75,11 +75,11 @@
     <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Generic.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Base64.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\Random.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\RectPack.cpp" />
-    <ClCompile Include="src\galaxy\algorithm\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\math\Generic.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\async\TimerAsync.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
@@ -164,7 +164,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\galaxy\algorithm\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
@@ -213,11 +213,11 @@
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Generic.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Base64.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\Random.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\RectPack.hpp" />
-    <ClInclude Include="src\galaxy\algorithm\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\math\Generic.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
     <ClInclude Include="src\galaxy\async\TimerAsync.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />

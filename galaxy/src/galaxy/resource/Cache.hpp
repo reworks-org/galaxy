@@ -10,8 +10,8 @@
 
 #include <robin_hood.h>
 
-#include "galaxy/algorithm/FNV1a.hpp"
 #include "galaxy/fs/ArchiveEntry.hpp"
+#include "galaxy/math/FNV1a.hpp"
 #include "galaxy/meta/Concepts.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -197,7 +197,7 @@ namespace galaxy
 			///
 			inline std::uint64_t hash(std::string_view str)
 			{
-				const auto hash = algorithm::fnv1a_64(str.data());
+				const auto hash = math::fnv1a_64(str.data());
 				return hash;
 			}
 

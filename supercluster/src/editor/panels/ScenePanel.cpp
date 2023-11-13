@@ -7,11 +7,11 @@
 
 #include <imgui_addons/material_design_icons.h>
 
-#include <galaxy/algorithm/Base64.hpp>
-#include <galaxy/algorithm/ZLib.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/math/Base64.hpp>
+#include <galaxy/math/ZLib.hpp>
 #include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -212,8 +212,8 @@ namespace sc
 							if (selected_entity.m_selected != entt::null && selected_entity.m_world != nullptr)
 							{
 								core::Prefab prefab {selected_entity.m_selected, selected_entity.m_world->m_registry};
-								const auto   base64 = algorithm::encode_base64(prefab.to_json().dump(4));
-								const auto   zlib   = algorithm::encode_zlib(base64);
+								const auto   base64 = math::encode_base64(prefab.to_json().dump(4));
+								const auto   zlib   = math::encode_zlib(base64);
 
 								auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 								auto  dest = fs.open_save_dialog("untitled.gprefab", {"*.gprefab"});

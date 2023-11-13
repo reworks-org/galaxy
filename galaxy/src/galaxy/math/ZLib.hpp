@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ALGORITHM_ZLIB_HPP_
-#define GALAXY_ALGORITHM_ZLIB_HPP_
+#ifndef GALAXY_MATH_ZLIB_HPP_
+#define GALAXY_MATH_ZLIB_HPP_
 
 #include <zlib.h>
 
@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace algorithm
+	namespace math
 	{
 		///
 		/// \brief Compressor and Decompressor.
@@ -121,7 +121,7 @@ namespace galaxy
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
 		[[nodiscard]] std::string decode_zlib(const std::string& input);
-	} // namespace algorithm
+	} // namespace math
 } // namespace galaxy
 
 #endif

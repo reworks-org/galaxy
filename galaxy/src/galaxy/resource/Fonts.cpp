@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/algorithm/FNV1a.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/math/FNV1a.hpp"
 
 #include "Fonts.hpp"
 
@@ -18,7 +18,7 @@ namespace galaxy
 	{
 		void FontLoader::build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<graphics::Font>>& cache)
 		{
-			cache.emplace(algorithm::fnv1a_64("RobotoLight"), std::make_shared<graphics::Font>(embedded::roboto_light, embedded::roboto_light_len));
+			cache.emplace(math::fnv1a_64("RobotoLight"), std::make_shared<graphics::Font>(embedded::roboto_light, embedded::roboto_light_len));
 
 			for (auto&& [key, font] : cache)
 			{
