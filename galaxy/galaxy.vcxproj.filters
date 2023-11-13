@@ -44,7 +44,7 @@
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
+    <ClCompile Include="src\galaxy\math\Rect.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
@@ -98,7 +98,7 @@
     <ClCompile Include="src\galaxy\graphics\TexelRegion.cpp" />
     <ClCompile Include="src\galaxy\graphics\DefaultShaders.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
+    <ClCompile Include="src\galaxy\math\Shape.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
@@ -192,7 +192,7 @@
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
+    <ClInclude Include="src\galaxy\math\Rect.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
@@ -247,7 +247,7 @@
     <ClInclude Include="src\galaxy\graphics\TexelRegion.hpp" />
     <ClInclude Include="src\galaxy\graphics\DefaultShaders.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
+    <ClInclude Include="src\galaxy\math\Shape.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
     <ClInclude Include="src\galaxy\components\Animated.hpp" />

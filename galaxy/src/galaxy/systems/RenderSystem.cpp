@@ -64,7 +64,7 @@ namespace galaxy
 				cmd.uniform_data.entity    = static_cast<int>(entt::to_integral(entity));
 				cmd.uniform_data.colour    = primitive.m_colour.to_vec4();
 				cmd.uniform_data.transform = transform.get_transform();
-				cmd.uniform_data.point     = primitive.get_shape() == graphics::Shape::POINT;
+				cmd.uniform_data.point     = primitive.get_shape() == math::Shape::POINT;
 				cmd.uniform_data.textured  = false;
 				cmd.renderable             = &primitive;
 

@@ -87,8 +87,8 @@ namespace galaxy
 
 				m_tex_name       = texture;
 				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
-				m_width          = static_cast<float>(info.m_region.m_width);
-				m_height         = static_cast<float>(info.m_region.m_height);
+				m_width          = static_cast<float>(info.m_region.width);
+				m_height         = static_cast<float>(info.m_region.height);
 				m_layer          = layer;
 				m_texture_handle = info.m_handle;
 
@@ -114,7 +114,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::create(const std::string& texture, const graphics::iRect& texture_rect, const int layer, const float opacity)
+		void Sprite::create(const std::string& texture, const math::iRect& texture_rect, const int layer, const float opacity)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -125,31 +125,31 @@ namespace galaxy
 
 				m_tex_name       = texture;
 				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
-				m_width          = static_cast<float>(info.m_region.m_width);
-				m_height         = static_cast<float>(info.m_region.m_height);
+				m_width          = static_cast<float>(info.m_region.width);
+				m_height         = static_cast<float>(info.m_region.height);
 				m_layer          = layer;
 				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
-				const auto off_x = info.m_region.m_x + texture_rect.m_x;
-				const auto off_y = info.m_region.m_y + texture_rect.m_y;
+				const auto off_x = info.m_region.x + texture_rect.x;
+				const auto off_y = info.m_region.y + texture_rect.y;
 
 				vertices[0].m_pos      = {0.0f, 0.0f};
 				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
 				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
 				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
-				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
+				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
+				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
 
 				vertices[3].m_pos      = {0.0f, m_height};
 				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
+				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
 
 				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
 			}
@@ -169,8 +169,8 @@ namespace galaxy
 				const auto& info = info_opt.value().get();
 
 				m_tex_name       = texture;
-				m_width          = static_cast<float>(info.m_region.m_width);
-				m_height         = static_cast<float>(info.m_region.m_height);
+				m_width          = static_cast<float>(info.m_region.width);
+				m_height         = static_cast<float>(info.m_region.height);
 				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
@@ -195,7 +195,7 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::update(const std::string& texture, const graphics::iRect& texture_rect)
+		void Sprite::update(const std::string& texture, const math::iRect& texture_rect)
 		{
 			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
 
@@ -205,30 +205,30 @@ namespace galaxy
 				const auto& info = info_opt.value().get();
 
 				m_tex_name       = texture;
-				m_width          = static_cast<float>(info.m_region.m_width);
-				m_height         = static_cast<float>(info.m_region.m_height);
+				m_width          = static_cast<float>(info.m_region.width);
+				m_height         = static_cast<float>(info.m_region.height);
 				m_texture_handle = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
-				const auto off_x = info.m_region.m_x + texture_rect.m_x;
-				const auto off_y = info.m_region.m_y + texture_rect.m_y;
+				const auto off_x = info.m_region.x + texture_rect.x;
+				const auto off_y = info.m_region.y + texture_rect.y;
 
 				vertices[0].m_pos      = {0.0f, 0.0f};
 				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
 				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
+				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
 				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
 
 				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.m_width, info.m_sheet_width);
-				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
+				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
+				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
 
 				vertices[3].m_pos      = {0.0f, m_height};
 				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.m_height, info.m_sheet_height);
+				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
 
 				m_vao.sub_buffer(0, vertices);
 			}

@@ -28,6 +28,7 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/math/Rect.hpp"
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/media/Sound.hpp"
 #include "galaxy/media/Video.hpp"
@@ -148,12 +149,12 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Primitive>::value);
 
-			primitive_type["create_circle"]   = &components::Primitive::create<graphics::Shape::CIRCLE>;
-			primitive_type["create_ellipse"]  = &components::Primitive::create<graphics::Shape::ELLIPSE>;
-			primitive_type["create_line"]     = &components::Primitive::create<graphics::Shape::LINE>;
-			primitive_type["create_point"]    = &components::Primitive::create<graphics::Shape::POINT>;
-			primitive_type["create_polygon"]  = &components::Primitive::create<graphics::Shape::POLYGON>;
-			primitive_type["create_polyline"] = &components::Primitive::create<graphics::Shape::POLYLINE>;
+			primitive_type["create_circle"]   = &components::Primitive::create<math::Shape::CIRCLE>;
+			primitive_type["create_ellipse"]  = &components::Primitive::create<math::Shape::ELLIPSE>;
+			primitive_type["create_line"]     = &components::Primitive::create<math::Shape::LINE>;
+			primitive_type["create_point"]    = &components::Primitive::create<math::Shape::POINT>;
+			primitive_type["create_polygon"]  = &components::Primitive::create<math::Shape::POLYGON>;
+			primitive_type["create_polyline"] = &components::Primitive::create<math::Shape::POLYLINE>;
 			primitive_type["get_data"]        = &components::Primitive::get_data;
 			primitive_type["get_height"]      = &components::Primitive::get_height;
 			primitive_type["get_shape"]       = &components::Primitive::get_shape;
@@ -173,11 +174,10 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Sprite>::value);
 
-			sprite_type["create"] = sol::resolve<void(const std::string&, const int, const float)>(&components::Sprite::create);
-			sprite_type["create_texturerect"] =
-				sol::resolve<void(const std::string&, const graphics::iRect&, const int, const float)>(&components::Sprite::create);
+			sprite_type["create"]             = sol::resolve<void(const std::string&, const int, const float)>(&components::Sprite::create);
+			sprite_type["create_texturerect"] = sol::resolve<void(const std::string&, const math::iRect&, const int, const float)>(&components::Sprite::create);
 			sprite_type["update"]             = sol::resolve<void(const std::string&)>(&components::Sprite::update);
-			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const graphics::iRect&)>(&components::Sprite::update);
+			sprite_type["update_texturerect"] = sol::resolve<void(const std::string&, const math::iRect&)>(&components::Sprite::update);
 			sprite_type["get_height"]         = &components::Sprite::get_height;
 			sprite_type["get_opacity"]        = &components::Sprite::get_opacity;
 			sprite_type["get_width"]          = &components::Sprite::get_width;
@@ -449,14 +449,14 @@ namespace galaxy
 			// clang-format on
 
 			// clang-format off
-			lua.new_enum<graphics::Shape>("Shape",
+			lua.new_enum<math::Shape>("Shape",
 			{
-				{"CIRCLE", graphics::Shape::CIRCLE},
-				{"ELLIPSE", graphics::Shape::ELLIPSE},
-				{"LINE", graphics::Shape::LINE},
-				{"POINT", graphics::Shape::POINT},
-				{"POLYGON", graphics::Shape::POLYGON},
-				{"POLYLINE", graphics::Shape::POLYLINE}
+				{"CIRCLE", math::Shape::CIRCLE},
+				{"ELLIPSE", math::Shape::ELLIPSE},
+				{"LINE", math::Shape::LINE},
+				{"POINT", math::Shape::POINT},
+				{"POLYGON", math::Shape::POLYGON},
+				{"POLYLINE", math::Shape::POLYLINE}
 			});
 			// clang-format on
 
@@ -468,24 +468,6 @@ namespace galaxy
 			colour_type["red"]      = &graphics::Colour::m_red;
 			colour_type["to_array"] = &graphics::Colour::to_array;
 			colour_type["to_vec4"]  = &graphics::Colour::to_vec4;
-
-			auto irect_type =
-				lua.new_usertype<graphics::iRect>("iRect", sol::constructors<graphics::iRect(), graphics::iRect(const int, const int, const int, const int)>());
-			irect_type["contains"] = sol::resolve<bool(const int, const int)>(&graphics::iRect::contains);
-			irect_type["height"]   = &graphics::iRect::m_height;
-			irect_type["width"]    = &graphics::iRect::m_width;
-			irect_type["x"]        = &graphics::iRect::m_x;
-			irect_type["y"]        = &graphics::iRect::m_y;
-			irect_type["overlaps"] = &graphics::iRect::overlaps;
-
-			auto frect_type        = lua.new_usertype<graphics::fRect>("fRect",
-                sol::constructors<graphics::fRect(), graphics::fRect(const float, const float, const float, const float)>());
-			frect_type["contains"] = sol::resolve<bool(const float, const float)>(&graphics::fRect::contains);
-			frect_type["height"]   = &graphics::fRect::m_height;
-			frect_type["width"]    = &graphics::fRect::m_width;
-			frect_type["x"]        = &graphics::fRect::m_x;
-			frect_type["y"]        = &graphics::fRect::m_y;
-			frect_type["overlaps"] = &graphics::fRect::overlaps;
 
 			auto uniform_type        = lua.new_usertype<graphics::UniformInfo>("UniformInfo", sol::constructors<graphics::UniformInfo>());
 			uniform_type["count"]    = &graphics::UniformInfo::count;
@@ -752,6 +734,39 @@ namespace galaxy
 			lua["galaxy_cursor"]    = std::ref(window.get_input<input::Cursor>());
 			lua["galaxy_keyboard"]  = std::ref(window.get_input<input::Keyboard>());
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
+
+			/* MATH */
+			auto irect_type =
+				lua.new_usertype<math::iRect>("iRect", sol::constructors<math::iRect(), math::iRect(const int, const int, const int, const int)>());
+			irect_type["x"]        = &math::iRect::x;
+			irect_type["y"]        = &math::iRect::y;
+			irect_type["width"]    = &math::iRect::width;
+			irect_type["height"]   = &math::iRect::height;
+			irect_type["overlaps"] = &math::iRect::overlaps;
+			// irect_type["contains_point"] = sol::resolve<bool(const int, const int)>(&math::iRect::contains);
+			// irect_type["contains"]       = sol::resolve<bool(const math::iRect&)>(&math::iRect::contains);
+			irect_type["get_bottom"]   = &math::iRect::get_bottom;
+			irect_type["get_center"]   = &math::iRect::get_center;
+			irect_type["get_right"]    = &math::iRect::get_right;
+			irect_type["get_size"]     = &math::iRect::get_size;
+			irect_type["get_top_left"] = &math::iRect::get_top_left;
+			irect_type["intersects"]   = &math::iRect::intersects;
+
+			auto frect_type =
+				lua.new_usertype<math::fRect>("fRect", sol::constructors<math::fRect(), math::fRect(const float, const float, const float, const float)>());
+			frect_type["x"]        = &math::fRect::x;
+			frect_type["y"]        = &math::fRect::y;
+			frect_type["width"]    = &math::fRect::width;
+			frect_type["height"]   = &math::fRect::height;
+			frect_type["overlaps"] = &math::fRect::overlaps;
+			// irect_type["contains_point"] = sol::resolve<bool(const float, const float)>(&math::fRect::contains);
+			// irect_type["contains"]       = sol::resolve<bool(const math::fRect&)>(&math::fRect::contains);
+			frect_type["get_bottom"]   = &math::fRect::get_bottom;
+			frect_type["get_center"]   = &math::fRect::get_center;
+			frect_type["get_right"]    = &math::fRect::get_right;
+			frect_type["get_size"]     = &math::fRect::get_size;
+			frect_type["get_top_left"] = &math::fRect::get_top_left;
+			frect_type["intersects"]   = &math::fRect::intersects;
 
 			/* MEDIA */
 			// clang-format off

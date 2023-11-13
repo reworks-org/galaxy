@@ -5,12 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHAPE_HPP_
-#define GALAXY_GRAPHICS_SHAPE_HPP_
+#ifndef GALAXY_MATH_SHAPE_HPP_
+#define GALAXY_MATH_SHAPE_HPP_
 
 namespace galaxy
 {
-	namespace graphics
+	namespace math
 	{
 		///
 		/// Basic shapes.
@@ -47,7 +47,7 @@ namespace galaxy
 			///
 			POLYGON = 5
 		};
-	} // namespace graphics
+	} // namespace math
 } // namespace galaxy
 
 #endif

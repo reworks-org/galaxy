@@ -8,7 +8,6 @@
 #include "galaxy/components/Script.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/scene/Scene.hpp"
-#include "galaxy/utils/Globals.hpp"
 
 #include "ScriptSystem.hpp"
 

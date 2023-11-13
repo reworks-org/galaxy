@@ -21,7 +21,7 @@ namespace galaxy
 			, Serializable {}
 			, m_width {0}
 			, m_height {0}
-			, m_shape {graphics::Shape::POLYGON}
+			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
 		{
 		}
@@ -31,7 +31,7 @@ namespace galaxy
 			, Serializable {}
 			, m_width {0}
 			, m_height {0}
-			, m_shape {graphics::Shape::POLYGON}
+			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
 		{
 			deserialize(json);
@@ -42,33 +42,33 @@ namespace galaxy
 			, Serializable {}
 			, m_width {0}
 			, m_height {0}
-			, m_shape {graphics::Shape::POLYGON}
+			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
 		{
 			switch (ptr->m_shape)
 			{
-				case graphics::Shape::CIRCLE:
-					create<graphics::Shape::CIRCLE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::CIRCLE:
+					create<math::Shape::CIRCLE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 
-				case graphics::Shape::ELLIPSE:
-					create<graphics::Shape::ELLIPSE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::ELLIPSE:
+					create<math::Shape::ELLIPSE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 
-				case graphics::Shape::LINE:
-					create<graphics::Shape::LINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::LINE:
+					create<math::Shape::LINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 
-				case graphics::Shape::POINT:
-					create<graphics::Shape::POINT>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::POINT:
+					create<math::Shape::POINT>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 
-				case graphics::Shape::POLYGON:
-					create<graphics::Shape::POLYGON>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::POLYGON:
+					create<math::Shape::POLYGON>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 
-				case graphics::Shape::POLYLINE:
-					create<graphics::Shape::POLYLINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
+				case math::Shape::POLYLINE:
+					create<math::Shape::POLYLINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
 					break;
 			}
 		}
@@ -78,7 +78,7 @@ namespace galaxy
 			, Serializable {}
 			, m_width {0}
 			, m_height {0}
-			, m_shape {graphics::Shape::POLYGON}
+			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
 		{
 			this->m_colour         = std::move(p.m_colour);
@@ -125,7 +125,7 @@ namespace galaxy
 			return m_data;
 		}
 
-		graphics::Shape Primitive::get_shape() const
+		math::Shape Primitive::get_shape() const
 		{
 			return m_shape;
 		}
@@ -164,19 +164,19 @@ namespace galaxy
 
 			switch (m_shape)
 			{
-				case graphics::Shape::CIRCLE:
+				case math::Shape::CIRCLE:
 					json["radius"]    = m_data.radius;
 					json["fragments"] = m_data.fragments;
 					break;
 
-				case graphics::Shape::ELLIPSE:
+				case math::Shape::ELLIPSE:
 					json["radii"]      = nlohmann::json::object();
 					json["radii"]["x"] = m_data.radii.x;
 					json["radii"]["y"] = m_data.radii.y;
 					json["fragments"]  = m_data.fragments;
 					break;
 
-				case graphics::Shape::LINE:
+				case math::Shape::LINE:
 					json["line_points"]       = nlohmann::json::object();
 					json["line_points"]["x1"] = m_data.start_end.x;
 					json["line_points"]["y1"] = m_data.start_end.y;
@@ -184,8 +184,8 @@ namespace galaxy
 					json["line_points"]["y2"] = m_data.start_end.w;
 					break;
 
-				case graphics::Shape::POLYGON:
-				case graphics::Shape::POLYLINE:
+				case math::Shape::POLYGON:
+				case math::Shape::POLYLINE:
 					json["points"] = nlohmann::json::array();
 					for (const auto& point : m_data.points)
 					{
@@ -246,34 +246,34 @@ namespace galaxy
 			const auto  colour   = graphics::Colour {col_json.at("r"), col_json.at("g"), col_json.at("b"), col_json.at("a")};
 
 			const int  layer     = json.at("layer");
-			const auto shape_opt = magic_enum::enum_cast<graphics::Shape>(json.at("shape").get<std::string>());
+			const auto shape_opt = magic_enum::enum_cast<math::Shape>(json.at("shape").get<std::string>());
 			if (shape_opt.has_value())
 			{
 				const auto shape = shape_opt.value();
 				switch (shape)
 				{
-					case graphics::Shape::CIRCLE:
-						create<graphics::Shape::CIRCLE>(data, colour, layer);
+					case math::Shape::CIRCLE:
+						create<math::Shape::CIRCLE>(data, colour, layer);
 						break;
 
-					case graphics::Shape::ELLIPSE:
-						create<graphics::Shape::ELLIPSE>(data, colour, layer);
+					case math::Shape::ELLIPSE:
+						create<math::Shape::ELLIPSE>(data, colour, layer);
 						break;
 
-					case graphics::Shape::LINE:
-						create<graphics::Shape::LINE>(data, colour, layer);
+					case math::Shape::LINE:
+						create<math::Shape::LINE>(data, colour, layer);
 						break;
 
-					case graphics::Shape::POINT:
-						create<graphics::Shape::POINT>(data, colour, layer);
+					case math::Shape::POINT:
+						create<math::Shape::POINT>(data, colour, layer);
 						break;
 
-					case graphics::Shape::POLYGON:
-						create<graphics::Shape::POLYGON>(data, colour, layer);
+					case math::Shape::POLYGON:
+						create<math::Shape::POLYGON>(data, colour, layer);
 						break;
 
-					case graphics::Shape::POLYLINE:
-						create<graphics::Shape::POLYLINE>(data, colour, layer);
+					case math::Shape::POLYLINE:
+						create<math::Shape::POLYLINE>(data, colour, layer);
 						break;
 				}
 			}

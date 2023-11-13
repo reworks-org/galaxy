@@ -53,7 +53,7 @@ namespace galaxy
 				///
 				/// Region of the texture in the atlas.
 				///
-				graphics::iRect m_region;
+				math::iRect m_region;
 
 				///
 				/// Texture region in OpenGL texels.

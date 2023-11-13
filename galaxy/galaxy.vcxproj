@@ -61,7 +61,7 @@
     <ClCompile Include="src\galaxy\graphics\animation\Animation.cpp" />
     <ClCompile Include="src\galaxy\graphics\animation\Frame.cpp" />
     <ClCompile Include="src\galaxy\graphics\FontContext.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Shape.cpp" />
+    <ClCompile Include="src\galaxy\math\Shape.cpp" />
     <ClCompile Include="src\galaxy\components\Primitive.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
@@ -118,7 +118,7 @@
     <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
-    <ClCompile Include="src\galaxy\graphics\Rect.cpp" />
+    <ClCompile Include="src\galaxy\math\Rect.cpp" />
     <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
     <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
@@ -199,7 +199,7 @@
     <ClInclude Include="src\galaxy\graphics\animation\Animation.hpp" />
     <ClInclude Include="src\galaxy\graphics\animation\Frame.hpp" />
     <ClInclude Include="src\galaxy\graphics\FontContext.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Shape.hpp" />
+    <ClInclude Include="src\galaxy\math\Shape.hpp" />
     <ClInclude Include="src\galaxy\components\Primitive.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
@@ -256,7 +256,7 @@
     <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Rect.hpp" />
+    <ClInclude Include="src\galaxy\math\Rect.hpp" />
     <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
     <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />

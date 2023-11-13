@@ -16,8 +16,8 @@
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/graphics/Renderable.hpp"
-#include "galaxy/graphics/Shape.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/math/Shape.hpp"
 
 namespace sc
 {
@@ -120,7 +120,7 @@ namespace galaxy
 			/// \param colour Colour of primitive.
 			/// \param layer Rendering layer.
 			///
-			template<graphics::Shape shape>
+			template<math::Shape shape>
 			void create(const PrimitiveData& data, const graphics::Colour& colour, const int layer);
 
 			///
@@ -135,7 +135,7 @@ namespace galaxy
 			///
 			/// \return Enum.
 			///
-			[[nodiscard]] graphics::Shape get_shape() const;
+			[[nodiscard]] math::Shape get_shape() const;
 
 			///
 			/// \brief Get texture width.
@@ -214,7 +214,7 @@ namespace galaxy
 			///
 			/// Shape of primitive.
 			///
-			graphics::Shape m_shape;
+			math::Shape m_shape;
 
 			///
 			/// Creation data.
@@ -232,7 +232,7 @@ namespace galaxy
 			unsigned int m_mode;
 		};
 
-		template<graphics::Shape shape>
+		template<math::Shape shape>
 		inline void Primitive::create(const PrimitiveData& data, const graphics::Colour& colour, const int layer)
 		{
 			m_shape          = shape;
@@ -243,7 +243,7 @@ namespace galaxy
 			meta::vector<unsigned int>     indices;
 			meta::vector<graphics::Vertex> vertices;
 
-			if constexpr (shape == graphics::Shape::CIRCLE)
+			if constexpr (shape == math::Shape::CIRCLE)
 			{
 				// Thanks to https://stackoverflow.com/a/33859443
 				// For help with maths.
@@ -268,7 +268,7 @@ namespace galaxy
 				m_width  = data.radius * 2.0f;
 				m_height = data.radius * 2.0f;
 			}
-			else if constexpr (shape == graphics::Shape::ELLIPSE)
+			else if constexpr (shape == math::Shape::ELLIPSE)
 			{
 				// Thanks to https://stackoverflow.com/a/34735255
 				// For help with maths.
@@ -301,7 +301,7 @@ namespace galaxy
 				m_width  = m_data.radii.x * 2.0f;
 				m_height = m_data.radii.y * 2.0f;
 			}
-			else if constexpr (shape == graphics::Shape::LINE)
+			else if constexpr (shape == math::Shape::LINE)
 			{
 				graphics::Vertex a;
 				a.m_pos.x = m_data.start_end.x;
@@ -320,7 +320,7 @@ namespace galaxy
 				m_width  = 0.0f;
 				m_height = 0.0f;
 			}
-			else if constexpr (shape == graphics::Shape::POINT)
+			else if constexpr (shape == math::Shape::POINT)
 			{
 				graphics::Vertex vertex;
 				vertex.m_pos = {0.0f, 0.0f};
@@ -332,7 +332,7 @@ namespace galaxy
 				m_width  = 0.0f;
 				m_height = 0.0f;
 			}
-			else if constexpr ((shape == graphics::Shape::POLYLINE) || (shape == graphics::Shape::POLYGON))
+			else if constexpr ((shape == math::Shape::POLYLINE) || (shape == math::Shape::POLYGON))
 			{
 				m_width  = 0.0f;
 				m_height = 0.0f;
@@ -340,7 +340,7 @@ namespace galaxy
 				auto count = 0u;
 				for (const auto& point : m_data.points)
 				{
-					if constexpr (shape == graphics::Shape::POLYGON)
+					if constexpr (shape == math::Shape::POLYGON)
 					{
 						if (point.x > m_width)
 						{

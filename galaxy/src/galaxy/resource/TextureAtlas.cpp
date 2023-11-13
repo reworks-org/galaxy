@@ -47,7 +47,7 @@ namespace galaxy
 				{
 					m_data[name] = {};
 
-					std::optional<graphics::iRect> packed = std::nullopt;
+					std::optional<math::iRect> packed = std::nullopt;
 					for (auto i = 0; i < m_sheets.size(); i++)
 					{
 						if (!m_sheets[i])
@@ -80,33 +80,33 @@ namespace galaxy
 						m_data[name].m_sheet_width  = sw;
 						m_data[name].m_sheet_height = sh;
 
-						m_data[name].m_texel_region.m_ul_texels.x = map_x_texel(m_data[name].m_region.m_x, sw);
-						m_data[name].m_texel_region.m_ul_texels.y = map_y_texel(m_data[name].m_region.m_y, sh);
+						m_data[name].m_texel_region.m_ul_texels.x = map_x_texel(m_data[name].m_region.x, sw);
+						m_data[name].m_texel_region.m_ul_texels.y = map_y_texel(m_data[name].m_region.y, sh);
 
-						m_data[name].m_texel_region.m_ur_texels.x = map_x_texel(m_data[name].m_region.m_x + m_data[name].m_region.m_width, sw);
-						m_data[name].m_texel_region.m_ur_texels.y = map_y_texel(m_data[name].m_region.m_y, sh);
+						m_data[name].m_texel_region.m_ur_texels.x = map_x_texel(m_data[name].m_region.x + m_data[name].m_region.width, sw);
+						m_data[name].m_texel_region.m_ur_texels.y = map_y_texel(m_data[name].m_region.y, sh);
 
-						m_data[name].m_texel_region.m_br_texels.x = map_x_texel(m_data[name].m_region.m_x + m_data[name].m_region.m_width, sw);
-						m_data[name].m_texel_region.m_br_texels.y = map_y_texel(m_data[name].m_region.m_y + m_data[name].m_region.m_height, sh);
+						m_data[name].m_texel_region.m_br_texels.x = map_x_texel(m_data[name].m_region.x + m_data[name].m_region.width, sw);
+						m_data[name].m_texel_region.m_br_texels.y = map_y_texel(m_data[name].m_region.y + m_data[name].m_region.height, sh);
 
-						m_data[name].m_texel_region.m_bl_texels.x = map_x_texel(m_data[name].m_region.m_x, sw);
-						m_data[name].m_texel_region.m_bl_texels.y = map_y_texel(m_data[name].m_region.m_y + m_data[name].m_region.m_height, sh);
+						m_data[name].m_texel_region.m_bl_texels.x = map_x_texel(m_data[name].m_region.x, sw);
+						m_data[name].m_texel_region.m_bl_texels.y = map_y_texel(m_data[name].m_region.y + m_data[name].m_region.height, sh);
 
 						// Update transform.
-						m_transform.set_pos(static_cast<float>(m_data[name].m_region.m_x), static_cast<float>(m_data[name].m_region.m_y));
+						m_transform.set_pos(static_cast<float>(m_data[name].m_region.x), static_cast<float>(m_data[name].m_region.y));
 
 						// Redefine vertices.
 						std::array<graphics::Vertex, 4> vertices;
 						vertices[0].m_pos    = {0.0f, 0.0f};
 						vertices[0].m_texels = {0.0f, 0.0f};
 
-						vertices[1].m_pos    = {m_data[name].m_region.m_width, 0.0f};
+						vertices[1].m_pos    = {m_data[name].m_region.width, 0.0f};
 						vertices[1].m_texels = {1.0f, 0.0f};
 
-						vertices[2].m_pos    = {m_data[name].m_region.m_width, m_data[name].m_region.m_height};
+						vertices[2].m_pos    = {m_data[name].m_region.width, m_data[name].m_region.height};
 						vertices[2].m_texels = {1.0f, 1.0f};
 
-						vertices[3].m_pos    = {0.0f, m_data[name].m_region.m_height};
+						vertices[3].m_pos    = {0.0f, m_data[name].m_region.height};
 						vertices[3].m_texels = {0.0f, 1.0f};
 
 						m_vao.sub_buffer(0, vertices);

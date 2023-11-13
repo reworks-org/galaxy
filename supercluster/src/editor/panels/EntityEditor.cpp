@@ -36,7 +36,7 @@ namespace sc
 {
 	namespace panel
 	{
-		static constexpr const auto s_types = magic_enum::enum_names<graphics::Shape>();
+		static constexpr const auto s_types = magic_enum::enum_names<math::Shape>();
 
 		void EntityEditor::render(Selected& selected, UpdateStack& updates)
 		{
@@ -301,7 +301,7 @@ namespace sc
 								if (ImGui::Selectable(std::string(name).c_str(), selected))
 								{
 									s_selected = name;
-									s_type     = magic_enum::enum_cast<graphics::Shape>(s_selected).value();
+									s_type     = magic_enum::enum_cast<math::Shape>(s_selected).value();
 								}
 
 								if (selected)
@@ -322,17 +322,17 @@ namespace sc
 						ImGui::Spacing();
 
 						static components::Primitive::PrimitiveData data = primitive->get_data();
-						if (s_type == graphics::Shape::CIRCLE || s_type == graphics::Shape::ELLIPSE)
+						if (s_type == math::Shape::CIRCLE || s_type == math::Shape::ELLIPSE)
 						{
 							ImGui::InputFloat("Fragments", &data.fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
-						if (s_type == graphics::Shape::CIRCLE)
+						if (s_type == math::Shape::CIRCLE)
 						{
 							ImGui::InputFloat("Radius", &data.radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
-						if (s_type == graphics::Shape::ELLIPSE)
+						if (s_type == math::Shape::ELLIPSE)
 						{
 							ImGui::Text("Radii");
 
@@ -345,7 +345,7 @@ namespace sc
 							ImGui::InputFloat("Y##2", &data.radii.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
 						}
 
-						if (s_type == graphics::Shape::LINE)
+						if (s_type == math::Shape::LINE)
 						{
 							ImGui::Text("First Point");
 							static float s_point_xy[2] = {0.0f, 0.0f};
@@ -369,7 +369,7 @@ namespace sc
 						}
 
 						static meta::vector<glm::vec2> points = {};
-						if (s_type == graphics::Shape::POLYLINE || s_type == graphics::Shape::POLYGON)
+						if (s_type == math::Shape::POLYLINE || s_type == math::Shape::POLYGON)
 						{
 							if (ImGui::Button("Add Point"))
 							{
@@ -419,28 +419,28 @@ namespace sc
 
 								switch (s_type)
 								{
-									case graphics::Shape::CIRCLE:
-										primitive->create<graphics::Shape::CIRCLE>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::CIRCLE:
+										primitive->create<math::Shape::CIRCLE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
-									case graphics::Shape::ELLIPSE:
-										primitive->create<graphics::Shape::ELLIPSE>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::ELLIPSE:
+										primitive->create<math::Shape::ELLIPSE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
-									case graphics::Shape::LINE:
-										primitive->create<graphics::Shape::LINE>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::LINE:
+										primitive->create<math::Shape::LINE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
-									case graphics::Shape::POINT:
-										primitive->create<graphics::Shape::POINT>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::POINT:
+										primitive->create<math::Shape::POINT>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
-									case graphics::Shape::POLYGON:
-										primitive->create<graphics::Shape::POLYGON>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::POLYGON:
+										primitive->create<math::Shape::POLYGON>(data, primitive->m_colour, primitive->m_layer);
 										break;
 
-									case graphics::Shape::POLYLINE:
-										primitive->create<graphics::Shape::POLYLINE>(data, primitive->m_colour, primitive->m_layer);
+									case math::Shape::POLYLINE:
+										primitive->create<math::Shape::POLYLINE>(data, primitive->m_colour, primitive->m_layer);
 										break;
 								}
 

@@ -2,9 +2,28 @@
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
 - refine exporting, asset config, etc.
+- great blog: https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
 
-new mapping:
+movement/collision:
+https://github.com/RandyGaul/cute_headers/blob/master/examples_cute_gl_and_c2/main.cpp
+https://github.com/RandyGaul/player2d
+https://github.com/sro5h/tinyc2-tests/blob/master/circle/CircleToPolygon.cpp
+
+TileMap:
+	loading a map should generate prefabs and store them.
+	we can then on the fly create new entities from these prefabs.
+	I.e. load all data beforehand and just assign/copy into a component.
+	worldspace/tilemap transitions/loadings separate from loader.
+	add load screen when switching maps in scene.
+	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
+		prerendering lets us to fancy lighting and stuff.
+		i.e. create tilemap in tiled, then export to use as bg image.
+https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
+https://github.com/fallahn/tmxlite/issues/131
+https://github.com/Madour/LDtkViewer
+https://github.com/Madour/LDtkLoader/tree/master
 https://github.com/Madour/LDtk-SFML-Game/blob/master/src/main.cpp
+https://github.com/SFML/SFML/blob/69ea0cd863aed1d4092b970b676924a716ff718b/include/SFML/Graphics/Rect.inl#L109C61-L109C73
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor
@@ -51,23 +70,6 @@ add instance rendering
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 	 - implement b2_debugdraw?
 
-TileMap:
-	loading a map should generate prefabs and store them.
-	we can then on the fly create new entities from these prefabs.
-	I.e. load all data beforehand and just assign/copy into a component.
-	worldspace/tilemap transitions/loadings separate from loader.
-	add load screen when switching maps in scene.
-	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
-		prerendering lets us to fancy lighting and stuff.
-		i.e. create tilemap in tiled, then export to use as bg image.
-https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
-https://github.com/fallahn/tmxlite/issues/131
-https://github.com/Madour/LDtkViewer
-https://github.com/Madour/LDtkLoader/tree/master
-
-movement/collision:
-https://github.com/RandyGaul/cute_headers/blob/master/examples_cute_gl_and_c2/main.cpp
-https://github.com/RandyGaul/player2d
 
 linux:
 https://github.com/nackdai/makeitso
