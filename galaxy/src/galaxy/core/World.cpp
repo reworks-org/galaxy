@@ -5,10 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <box2d/b2_fixture.h>
+#include <box2d/b2_polygon_shape.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -35,14 +38,23 @@ namespace galaxy
 	{
 		World::World(scene::Scene* scene)
 			: Serializable {}
+			, m_b2world {nullptr}
 			, m_scene {scene}
+			, m_velocity_iterations {8}
+			, m_position_iterations {3}
 			, m_rendersystem_index {0}
 		{
+			m_b2world = std::make_unique<b2World>(b2Vec2 {0.0f, 0.0f});
+
 			// Handle on_* events.
+			m_registry.on_construct<components::RigidBody>().connect<&World::construct_rigidbody>(this);
+			m_registry.on_destroy<components::RigidBody>().connect<&World::destroy_rigidbody>(this);
 			m_registry.on_construct<components::Script>().connect<&World::construct_script>(this);
 			m_registry.on_destroy<components::Script>().connect<&World::destruct_script>(this);
 			m_registry.on_construct<components::UIScript>().connect<&World::construct_nui>(this);
 			m_registry.on_destroy<components::UIScript>().connect<&World::construct_nui>(this);
+			m_registry.on_construct<flags::Disabled>().connect<&World::disable_entity>(this);
+			m_registry.on_destroy<flags::Disabled>().connect<&World::enable_entity>(this);
 
 			// Handle incompatible components.
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
@@ -58,6 +70,13 @@ namespace galaxy
 		World::~World()
 		{
 			clear();
+
+			if (m_b2world)
+			{
+				m_b2world.reset();
+				m_b2world = nullptr;
+			}
+
 			m_scene = nullptr;
 		}
 
@@ -118,6 +137,34 @@ namespace galaxy
 
 		void World::update()
 		{
+			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
+			{
+				b2BodyDef def {};
+				def.position.x    = transform->get_pos().x / GALAXY_WORLD_TO_BOX;
+				def.position.y    = transform->get_pos().y / GALAXY_WORLD_TO_BOX;
+				def.angle         = glm::radians(transform->get_rotation());
+				def.type          = rigidbody->m_type;
+				def.fixedRotation = rigidbody->m_fixed_rotation;
+				def.bullet        = rigidbody->m_bullet;
+
+				rigidbody->m_body = m_b2world->CreateBody(&def);
+
+				b2PolygonShape shape;
+				shape.SetAsBox(rigidbody->m_shape.x, rigidbody->m_shape.y);
+
+				b2FixtureDef fixture;
+				fixture.shape                = &shape;
+				fixture.density              = rigidbody->m_density;
+				fixture.friction             = rigidbody->m_friction;
+				fixture.restitution          = rigidbody->m_restitution;
+				fixture.restitutionThreshold = rigidbody->m_restitution_threshold;
+
+				rigidbody->m_body->CreateFixture(&fixture);
+			}
+
+			m_bodies_to_construct.clear();
+			m_b2world->Step(GALAXY_DT, m_velocity_iterations, m_position_iterations);
+
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
 				m_systems[i]->update(m_scene);
@@ -167,17 +214,62 @@ namespace galaxy
 				json["entities"].push_back(em.serialize_entity(entity, m_registry));
 			}
 
+			json["physics"] = nlohmann::json::object();
+			auto& physics   = json.at("physics");
+
+			auto gravity            = m_b2world->GetGravity();
+			physics["gravity"]["x"] = gravity.x;
+			physics["gravity"]["y"] = gravity.y;
+
+			physics["allow_sleeping"]        = m_b2world->GetAllowSleeping();
+			physics["allow_autoclearforces"] = m_b2world->GetAutoClearForces();
+			physics["velocity_iterations"]   = m_velocity_iterations;
+			physics["position_iterations"]   = m_position_iterations;
+
 			return json;
 		}
 
 		void World::deserialize(const nlohmann::json& json)
 		{
+			m_bodies_to_construct.clear();
 			m_registry.clear();
+
+			const auto& physics = json.at("physics");
+			const auto& gravity = physics.at("gravity");
+
+			m_b2world->SetGravity({gravity.at("x"), gravity.at("y")});
+			m_b2world->SetAllowSleeping(physics.at("allow_sleeping"));
+			m_b2world->SetAutoClearForces(physics.at("allow_autoclearforces"));
+			m_velocity_iterations = physics.at("velocity_iterations");
+			m_position_iterations = physics.at("position_iterations");
 
 			const auto& entity_json = json.at("entities");
 			for (const auto& entity : entity_json)
 			{
 				create_from_json(entity);
+			}
+		}
+
+		void World::construct_rigidbody(entt::registry& registry, entt::entity entity)
+		{
+			auto transform = registry.try_get<components::Transform>(entity);
+			if (!transform)
+			{
+				transform = &registry.emplace<components::Transform>(entity);
+			}
+
+			components::RigidBody* rigidbody = &registry.get<components::RigidBody>(entity);
+			m_bodies_to_construct.emplace_back(rigidbody, transform);
+		}
+
+		void World::destroy_rigidbody(entt::registry& registry, entt::entity entity)
+		{
+			auto& rigidbody = registry.get<components::RigidBody>(entity);
+
+			if (rigidbody.m_body != nullptr)
+			{
+				m_b2world->DestroyBody(rigidbody.m_body);
+				rigidbody.m_body = nullptr;
 			}
 		}
 
@@ -278,6 +370,24 @@ namespace galaxy
 			if (ui.m_self.valid())
 			{
 				ui.m_self.abandon();
+			}
+		}
+
+		void World::enable_entity(entt::registry& registry, entt::entity entity)
+		{
+			auto rb = registry.try_get<components::RigidBody>(entity);
+			if (rb)
+			{
+				rb->m_body->SetEnabled(true);
+			}
+		}
+
+		void World::disable_entity(entt::registry& registry, entt::entity entity)
+		{
+			auto rb = registry.try_get<components::RigidBody>(entity);
+			if (rb)
+			{
+				rb->m_body->SetEnabled(false);
 			}
 		}
 	} // namespace core

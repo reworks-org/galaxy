@@ -11,8 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
+    <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
     <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
@@ -55,6 +57,7 @@
     <ClCompile Include="src\galaxy\components\UIScript.cpp" />
     <ClCompile Include="src\galaxy\state\State.cpp" />
     <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
+    <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
@@ -193,6 +196,7 @@
     <ClInclude Include="src\galaxy\components\UIScript.hpp" />
     <ClInclude Include="src\galaxy\state\State.hpp" />
     <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
+    <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\components\Animated.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />

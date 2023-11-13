@@ -136,6 +136,16 @@ namespace galaxy
 #define GALAXY_DEFAULT_ELLIPSE_FRAGMENTS 50
 
 ///
+/// Ratio to convert world coords to box2d.
+///
+#define GALAXY_WORLD_TO_BOX 0.01f
+
+///
+/// Ratio to convert box2d to world coords.
+///
+#define GALAXY_BOX_TO_WORLD 100.0f
+
+///
 /// Current root directory of application, unless it has been changed.
 ///
 #define GALAXY_ROOT_DIR std::filesystem::current_path()

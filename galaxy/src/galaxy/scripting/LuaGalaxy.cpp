@@ -7,6 +7,7 @@
 
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
@@ -137,6 +138,28 @@ namespace galaxy
 			primitive_type["get_width"]       = &components::Primitive::get_width;
 			primitive_type["colour"]          = &components::Primitive::m_colour;
 
+			auto rigidbody_type = lua.new_usertype<components::RigidBody>("RigidBody",
+				sol::constructors<components::RigidBody()>(),
+				"type_id",
+				&entt::type_hash<components::RigidBody>::value);
+
+			rigidbody_type["get_density"]               = &components::RigidBody::get_density;
+			rigidbody_type["get_friction"]              = &components::RigidBody::get_friction;
+			rigidbody_type["get_restitution"]           = &components::RigidBody::get_restitution;
+			rigidbody_type["get_restitution_threshold"] = &components::RigidBody::get_restitution_threshold;
+			rigidbody_type["get_shape"]                 = &components::RigidBody::get_shape;
+			rigidbody_type["get_type"]                  = &components::RigidBody::get_type;
+			rigidbody_type["is_bullet"]                 = &components::RigidBody::is_bullet;
+			rigidbody_type["is_rotation_fixed"]         = &components::RigidBody::is_rotation_fixed;
+			rigidbody_type["set_bullet"]                = &components::RigidBody::set_bullet;
+			rigidbody_type["set_density"]               = &components::RigidBody::set_density;
+			rigidbody_type["set_fixed_rotation"]        = &components::RigidBody::set_fixed_rotation;
+			rigidbody_type["set_friction"]              = &components::RigidBody::set_friction;
+			rigidbody_type["set_restitution"]           = &components::RigidBody::set_restitution;
+			rigidbody_type["set_restitution_threshold"] = &components::RigidBody::set_restitution_threshold;
+			rigidbody_type["set_shape"]                 = &components::RigidBody::set_shape;
+			rigidbody_type["set_type"]                  = &components::RigidBody::set_type;
+
 			auto script_type      = lua.new_usertype<components::Script>("Script",
                 sol::constructors<components::Script()>(),
                 "type_id",
@@ -244,12 +267,14 @@ namespace galaxy
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
 			// Cannot be created in lua, accessed from scene instead.
-			auto world_type                  = lua.new_usertype<core::World>("World", sol::no_constructor);
-			world_type["clear"]              = &core::World::clear;
-			world_type["registry"]           = &core::World::m_registry;
-			world_type["create"]             = &core::World::create;
-			world_type["create_from_prefab"] = &core::World::create_from_prefab;
-			world_type["is_valid"]           = &core::World::is_valid;
+			auto world_type                   = lua.new_usertype<core::World>("World", sol::no_constructor);
+			world_type["clear"]               = &core::World::clear;
+			world_type["registry"]            = &core::World::m_registry;
+			world_type["create"]              = &core::World::create;
+			world_type["create_from_prefab"]  = &core::World::create_from_prefab;
+			world_type["is_valid"]            = &core::World::is_valid;
+			world_type["velocity_iterations"] = &core::World::m_velocity_iterations;
+			world_type["position_iterations"] = &core::World::m_position_iterations;
 
 			/* ERROR */
 			// clang-format off
@@ -1049,6 +1074,8 @@ namespace galaxy
 			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
 			lua.set("GALAXY_EXIT_SUCCESS", GALAXY_EXIT_SUCCESS);
 			lua.set("GALAXY_EXIT_FAILURE", GALAXY_EXIT_FAILURE);
+			lua.set("GALAXY_WORLD_TO_BOX", GALAXY_WORLD_TO_BOX);
+			lua.set("GALAXY_BOX_TO_WORLD", GALAXY_BOX_TO_WORLD);
 
 			lua.set_function("galaxy_str_begins_with", &strutils::begins_with);
 		}

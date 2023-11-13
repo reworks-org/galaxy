@@ -13,6 +13,7 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/Primitive.hpp>
+#include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
@@ -132,6 +133,7 @@ namespace sc
 					{
 						draw_entry<components::Animated>(selected, "Animated");
 						draw_entry<components::Primitive>(selected, "Primitive");
+						draw_entry<components::RigidBody>(selected, "RigidBody");
 						draw_entry<components::Script>(selected, "Script");
 						draw_entry<components::Sprite>(selected, "Sprite");
 						draw_entry<components::Tag>(selected, "Tag");
@@ -449,6 +451,86 @@ namespace sc
 							});
 
 							ui::imgui_notify_success("Successfully created primitive.");
+						}
+					});
+
+					draw_component<components::RigidBody>(selected, "RigidBody", [&](components::RigidBody* body) {
+						float shape[2] = {body->get_shape().x, body->get_shape().y};
+						if (ImGui::InputFloat2("Shape", shape, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+						{
+							body->set_shape(shape[0], shape[1]);
+						}
+
+						const auto type_selected = std::string(magic_enum::enum_name(body->get_type()));
+						if (ImGui::BeginCombo("Body Type", type_selected.c_str()))
+						{
+							for (const auto& type : b2_body_types)
+							{
+								const bool selected = (type_selected == type);
+								if (ImGui::Selectable(type.c_str(), selected))
+								{
+									body->set_type(magic_enum::enum_cast<b2BodyType>(type).value());
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						auto density = body->get_density();
+						if (ImGui::InputFloat("Density", &density, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+						{
+							body->set_density(density);
+						}
+
+						ImGui::SameLine();
+
+						auto friction = body->get_friction();
+						if (ImGui::InputFloat("Friction", &friction, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+						{
+							body->set_friction(friction);
+						}
+
+						auto restitution = body->get_restitution();
+						if (ImGui::InputFloat("Restitution",
+								&restitution,
+								0.1f,
+								1.0f,
+								"%.1f",
+								ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+						{
+							body->set_restitution(restitution);
+						}
+
+						auto rt = body->get_restitution_threshold();
+						if (ImGui::InputFloat("Restitution Threshold",
+								&rt,
+								0.1f,
+								1.0f,
+								"%.1f",
+								ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+						{
+							body->set_restitution_threshold(rt);
+						}
+
+						ImGui::Spacing();
+
+						auto bullet = body->is_bullet();
+						if (ImGui::Checkbox("Is Bullet", &bullet))
+						{
+							body->set_bullet(bullet);
+						}
+
+						ImGui::SameLine();
+
+						auto rf = body->is_rotation_fixed();
+						if (ImGui::Checkbox("Rotation Fixed", &rf))
+						{
+							body->set_fixed_rotation(rf);
 						}
 					});
 

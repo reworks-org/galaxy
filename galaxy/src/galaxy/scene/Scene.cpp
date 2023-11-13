@@ -12,6 +12,7 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
+#include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
@@ -45,6 +46,7 @@ namespace galaxy
 		{
 			m_world.create_system<systems::ScriptSystem>();
 			m_world.create_system<systems::AnimationSystem>();
+			m_world.create_system<systems::PhysicsSystem>();
 			m_world.create_system<systems::RenderSystem>();
 
 			m_dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
